@@ -1,0 +1,35 @@
+{
+  "schema_version": "lra-uncertainty-source-layout.v1",
+  "source_candidate": "e272626df597bf4c0b8e2ca95e883a778c3951c8",
+  "preimage_api": {
+    "path": "data/source-custody/lra-uncertainty-layout/api-before-relocation.py",
+    "sha256": "6c3359cba2d080f0e5f97dd231f5732389cca1adbfec3cc303b38e90cbec0e3b"
+  },
+  "adopted_api_sha256": "223555bc7b778fbe4fa79a8bcdf4c2d5324aa9635cdf07c4d6450e0359b49692",
+  "module_relocations": [
+    {
+      "before": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_aliquot_covariance.py",
+      "after": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_aliquot_covariance.py",
+      "sha256": "52f37de62d246dccac463a473d964795d572827596c1f26d2050db01a1a1ea8f"
+    },
+    {
+      "before": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/two_taxon_counting.py",
+      "after": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/two_taxon_counting.py",
+      "sha256": "05921ff27b6a0c28c89c9727573cedd04723f9dbec9a96e4b8e6e0771b83cf17"
+    },
+    {
+      "before": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+      "after": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+      "sha256": "323b233b2b9593fe671a50fa9e46c4f8bdf6edb5c7c46b76a5902ea836801814"
+    }
+  ],
+  "module_names": {
+    "bijux_pollenomics_lra.reconstruction.joint_aliquot_covariance": "bijux_pollenomics_lra.reconstruction.uncertainty.joint_aliquot_covariance",
+    "bijux_pollenomics_lra.reconstruction.two_taxon_counting": "bijux_pollenomics_lra.reconstruction.uncertainty.two_taxon_counting",
+    "bijux_pollenomics_lra.reconstruction.joint_site_draws": "bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws"
+  },
+  "native_R_executed": false,
+  "browser_executed": false,
+  "scientific_admission": false,
+  "scope": "Three operation files remain byte identical at their named uncertainty ownership paths; only exact named API imports move. Original native/source captures and source candidates remain immutable. Current static custody witness is separate from prior scientific/native execution; no pickle/internal-path compatibility claim."
+}

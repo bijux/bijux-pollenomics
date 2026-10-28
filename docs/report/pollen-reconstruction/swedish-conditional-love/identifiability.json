@@ -1,0 +1,694 @@
+{
+  "conditional_family": {
+    "intercept": [
+      0.5545570004400059,
+      0.4454429995599941
+    ],
+    "local_response": [
+      0.6935990304952765,
+      0.1164270170653248
+    ],
+    "nonnegative_ratio_domain": {
+      "lower": 0.0,
+      "lower_closed": true,
+      "unbounded": false,
+      "upper": 0.9963006187153606,
+      "upper_closed": true
+    },
+    "original_case_comparisons": [
+      {
+        "original_cover": [
+          0.7781054913233862,
+          0.22189450867661392
+        ],
+        "original_maintained_forward_status": "accepted",
+        "original_simplex_feasible": true,
+        "ratio": 0.5,
+        "recomputed_cover": [
+          0.7781054913233862,
+          0.2218945086766137
+        ]
+      },
+      {
+        "original_cover": [
+          1.0016539822067665,
+          -0.001653982206766491
+        ],
+        "original_maintained_forward_status": "refused",
+        "original_simplex_feasible": false,
+        "ratio": 1.0,
+        "recomputed_cover": [
+          1.0016539822067667,
+          -0.0016539822067667131
+        ]
+      },
+      {
+        "original_cover": [
+          1.4487509639735274,
+          -0.4487509639735272
+        ],
+        "original_maintained_forward_status": "refused",
+        "original_simplex_feasible": false,
+        "ratio": 2.0,
+        "recomputed_cover": [
+          1.4487509639735272,
+          -0.44875096397352754
+        ]
+      }
+    ],
+    "points": [
+      {
+        "binary64_simplex_feasible": true,
+        "closed_forward_pollen": [
+          0.8811881188118812,
+          0.11881188118811879
+        ],
+        "determinant": 0.0,
+        "id": "zero_background_limit",
+        "null_direction": [
+          0.4470969817667607,
+          1.0
+        ],
+        "null_direction_residual": 2.7755575615628914e-17,
+        "ratio": 0.0,
+        "response_jacobian": [
+          [
+            0.4238285174988259,
+            -0.18949245096040576
+          ],
+          [
+            -0.4238285174988259,
+            0.18949245096040576
+          ]
+        ],
+        "signed_cover": [
+          0.5545570004400059,
+          0.4454429995599941
+        ]
+      },
+      {
+        "binary64_simplex_feasible": true,
+        "closed_forward_pollen": [
+          0.8811881188118812,
+          0.11881188118811879
+        ],
+        "determinant": 0.0,
+        "id": "quarter_feasible_upper",
+        "null_direction": [
+          0.4470969817667607,
+          1.0
+        ],
+        "null_direction_residual": -8.326672684688674e-17,
+        "ratio": 0.24907515467884014,
+        "response_jacobian": [
+          [
+            0.3483613334118327,
+            -0.15575130073267468
+          ],
+          [
+            -0.3483613334118327,
+            0.15575130073267468
+          ]
+        ],
+        "signed_cover": [
+          0.6659177503300044,
+          0.33408224966999556
+        ]
+      },
+      {
+        "binary64_simplex_feasible": true,
+        "closed_forward_pollen": [
+          0.8811881188118811,
+          0.11881188118811879
+        ],
+        "determinant": 0.0,
+        "id": "half_feasible_upper",
+        "null_direction": [
+          0.4470969817667607,
+          1.0
+        ],
+        "null_direction_residual": -2.7755575615628914e-17,
+        "ratio": 0.4981503093576803,
+        "response_jacobian": [
+          [
+            0.2957074675886708,
+            -0.13220991624478695
+          ],
+          [
+            -0.2957074675886708,
+            0.13220991624478695
+          ]
+        ],
+        "signed_cover": [
+          0.7772785002200029,
+          0.22272149977999706
+        ]
+      },
+      {
+        "binary64_simplex_feasible": true,
+        "closed_forward_pollen": [
+          0.8811881188118811,
+          0.11881188118811882
+        ],
+        "determinant": 0.0,
+        "id": "three_quarter_feasible_upper",
+        "null_direction": [
+          0.4470969817667607,
+          1.0
+        ],
+        "null_direction_residual": -1.3877787807814457e-17,
+        "ratio": 0.7472254640365205,
+        "response_jacobian": [
+          [
+            0.25688065665725585,
+            -0.11485056626572265
+          ],
+          [
+            -0.25688065665725585,
+            0.11485056626572265
+          ]
+        ],
+        "signed_cover": [
+          0.8886392501100013,
+          0.1113607498899985
+        ]
+      },
+      {
+        "binary64_simplex_feasible": true,
+        "closed_forward_pollen": [
+          0.8811881188118812,
+          0.11881188118811883
+        ],
+        "determinant": 0.0,
+        "id": "feasible_upper_binary64",
+        "null_direction": [
+          0.4470969817667607,
+          1.0
+        ],
+        "null_direction_residual": -9.71445146547012e-17,
+        "ratio": 0.9963006187153606,
+        "response_jacobian": [
+          [
+            0.22706650208962398,
+            -0.10152074774460684
+          ],
+          [
+            -0.22706650208962398,
+            0.10152074774460684
+          ]
+        ],
+        "signed_cover": [
+          0.9999999999999999,
+          0.0
+        ]
+      },
+      {
+        "binary64_simplex_feasible": true,
+        "closed_forward_pollen": [
+          0.8811881188118811,
+          0.11881188118811882
+        ],
+        "determinant": 0.0,
+        "id": "original_half_ratio",
+        "null_direction": [
+          0.4470969817667607,
+          1.0
+        ],
+        "null_direction_residual": 2.7755575615628914e-17,
+        "ratio": 0.5,
+        "response_jacobian": [
+          [
+            0.29537592135536794,
+            -0.13206168292456105
+          ],
+          [
+            -0.29537592135536794,
+            0.13206168292456105
+          ]
+        ],
+        "signed_cover": [
+          0.7781054913233862,
+          0.2218945086766137
+        ]
+      },
+      {
+        "binary64_simplex_feasible": false,
+        "closed_forward_pollen": [
+          0.8811881188118812,
+          0.11881188118811879
+        ],
+        "determinant": 0.0,
+        "id": "original_equal_ratio",
+        "null_direction": [
+          0.4470969817667607,
+          1.0
+        ],
+        "null_direction_residual": -6.938893903907228e-17,
+        "ratio": 1.0,
+        "response_jacobian": [
+          [
+            0.22667575580717916,
+            -0.10134604626108916
+          ],
+          [
+            -0.22667575580717916,
+            0.10134604626108916
+          ]
+        ],
+        "signed_cover": [
+          1.0016539822067667,
+          -0.0016539822067667131
+        ]
+      },
+      {
+        "binary64_simplex_feasible": false,
+        "closed_forward_pollen": [
+          0.8811881188118812,
+          0.11881188118811886
+        ],
+        "determinant": 0.0,
+        "id": "original_double_ratio",
+        "null_direction": [
+          0.4470969817667607,
+          1.0
+        ],
+        "null_direction_residual": -2.7755575615628914e-17,
+        "ratio": 2.0,
+        "response_jacobian": [
+          [
+            0.15470941356223203,
+            -0.06917011185457952
+          ],
+          [
+            -0.15470941356223203,
+            0.06917011185457952
+          ]
+        ],
+        "signed_cover": [
+          1.4487509639735272,
+          -0.44875096397352754
+        ]
+      }
+    ],
+    "pollen": [
+      0.8811881188118812,
+      0.1188118811881188
+    ],
+    "positive_ratio_domain": {
+      "empty": false,
+      "lower": 0.0,
+      "lower_closed": false,
+      "upper": 0.9963006187153606,
+      "upper_closed": true
+    },
+    "regional_cover": [
+      0.029720649589464958,
+      0.970279350410535
+    ],
+    "slope": [
+      0.4470969817667607,
+      -0.4470969817667608
+    ],
+    "unit_background": [
+      0.02443736346962538,
+      0.09716114274314847
+    ]
+  },
+  "independent_oracle": {
+    "arithmetic": "Exact rational algebra on serialized native source constants, not exact physical parameters",
+    "comparisons": {
+      "forward_pollen": {
+        "maximum_absolute_error": 8.811881188118812e-17,
+        "maximum_error_to_bound": 0.0004405940594059406,
+        "scalars": 16
+      },
+      "intercept": {
+        "maximum_absolute_error": 1.7592230697805525e-17,
+        "maximum_error_to_bound": 8.796115348902762e-05,
+        "scalars": 2
+      },
+      "jacobian": {
+        "maximum_absolute_error": 1.402968430199326e-16,
+        "maximum_error_to_bound": 0.0007014842150996631,
+        "scalars": 32
+      },
+      "local_response": {
+        "maximum_absolute_error": 1.78e-17,
+        "maximum_error_to_bound": 8.9e-05,
+        "scalars": 2
+      },
+      "null_residual": {
+        "maximum_absolute_error": 9.71445146547012e-17,
+        "maximum_error_to_bound": 0.000485722573273506,
+        "scalars": 8
+      },
+      "original_signed_cover": {
+        "maximum_absolute_error": 1.6794566823914456e-16,
+        "maximum_error_to_bound": 0.0008397283411957228,
+        "scalars": 6
+      },
+      "point_cover": {
+        "maximum_absolute_error": 1.9544063495000519e-16,
+        "maximum_error_to_bound": 0.000977203174750026,
+        "scalars": 16
+      },
+      "pollen": {
+        "maximum_absolute_error": 1.1881188118811881e-17,
+        "maximum_error_to_bound": 5.9405940594059404e-05,
+        "scalars": 2
+      },
+      "regional_cover": {
+        "maximum_absolute_error": 3.866117789023918e-17,
+        "maximum_error_to_bound": 0.0001933058894511959,
+        "scalars": 2
+      },
+      "slope": {
+        "maximum_absolute_error": 6.892420212609984e-17,
+        "maximum_error_to_bound": 0.00034462101063049917,
+        "scalars": 2
+      },
+      "unit_background": {
+        "maximum_absolute_error": 9.421480585265408e-18,
+        "maximum_error_to_bound": 4.7107402926327036e-05,
+        "scalars": 2
+      },
+      "upper_ratio": {
+        "maximum_absolute_error": 2.3312262597408954e-16,
+        "maximum_error_to_bound": 0.0011656131298704475,
+        "scalars": 1
+      }
+    },
+    "endpoint_inequalities": [
+      {
+        "feasible": true,
+        "minimum_cover_approximation": 4.248075481033269e-07,
+        "position": "inside",
+        "ratio_approximation": 0.9962996685690494
+      },
+      {
+        "feasible": true,
+        "minimum_cover_approximation": 0.0,
+        "position": "endpoint",
+        "ratio_approximation": 0.9963006187153608
+      },
+      {
+        "feasible": false,
+        "minimum_cover_approximation": -4.248075481033269e-07,
+        "position": "outside",
+        "ratio_approximation": 0.9963015688616723
+      }
+    ],
+    "exact_determinant": "0",
+    "exact_nonnegative_ratio_domain": {
+      "lower": "0",
+      "lower_closed": true,
+      "upper_approximation": 0.9963006187153608,
+      "upper_closed": true,
+      "upper_denominator": "15369738058301065452055291007345116447787073650207480692402658709640",
+      "upper_numerator": "15312879536978380162203917648257417621829798190991666828022465991119"
+    },
+    "exact_null_residual": "0",
+    "exact_rank": 1,
+    "limitations": "A conditional deterministic feasible domain and structural certificate, not a likelihood fit, ratio posterior, confidence interval, physical accuracy or uncertainty coverage.",
+    "point_classification": [
+      {
+        "feasible_at_serialized_binary64_ratio": true,
+        "id": "zero_background_limit",
+        "minimum_exact_cover": 0.4454429995599941,
+        "ratio_serialized": "0"
+      },
+      {
+        "feasible_at_serialized_binary64_ratio": true,
+        "id": "quarter_feasible_upper",
+        "minimum_exact_cover": 0.3340822496699956,
+        "ratio_serialized": "12453757733942007/50000000000000000"
+      },
+      {
+        "feasible_at_serialized_binary64_ratio": true,
+        "id": "half_feasible_upper",
+        "minimum_exact_cover": 0.2227214997799971,
+        "ratio_serialized": "4981503093576803/10000000000000000"
+      },
+      {
+        "feasible_at_serialized_binary64_ratio": true,
+        "id": "three_quarter_feasible_upper",
+        "minimum_exact_cover": 0.11136074988999858,
+        "ratio_serialized": "1494450928073041/2000000000000000"
+      },
+      {
+        "feasible_at_serialized_binary64_ratio": true,
+        "id": "feasible_upper_binary64",
+        "minimum_exact_cover": 1.0422842245455689e-16,
+        "ratio_serialized": "4981503093576803/5000000000000000"
+      },
+      {
+        "feasible_at_serialized_binary64_ratio": true,
+        "id": "original_half_ratio",
+        "minimum_exact_cover": 0.22189450867661376,
+        "ratio_serialized": "1/2"
+      },
+      {
+        "feasible_at_serialized_binary64_ratio": false,
+        "id": "original_equal_ratio",
+        "minimum_exact_cover": -0.0016539822067666134,
+        "ratio_serialized": "1"
+      },
+      {
+        "feasible_at_serialized_binary64_ratio": false,
+        "id": "original_double_ratio",
+        "minimum_exact_cover": -0.4487509639735273,
+        "ratio_serialized": "2"
+      }
+    ],
+    "positive_ratio_domain": {
+      "empty": false,
+      "lower": 0,
+      "lower_closed": false,
+      "upper": 0.9963006187153608,
+      "upper_closed": true
+    },
+    "scalar_checks": 91,
+    "status": "passed"
+  },
+  "inference": "The abundance ratio and local composition are not jointly identifiable from this fixed closed two-taxon observation. Every member of the feasible family has the same pollen response; no ratio is selected, fitted or assigned a probability.",
+  "new_engine_model_calls": 0,
+  "new_quadrature_calls": 0,
+  "new_source_acquisition_calls": 0,
+  "original_covariance_products_unchanged": true,
+  "original_execution_scope": {
+    "model_stage_native_exit": 0,
+    "oracle_only_plan_sha256": "08a15d88d83c69efff35fdeb5ce38a160c3d1898aa0fbeadff680501bc99095e",
+    "overall_model_status": "FAIL"
+  },
+  "original_report": {
+    "bytes": 9738,
+    "sha256": "2d52167f4787dc8542f82f2d644933322173998d494017520d7ffeda67362b60"
+  },
+  "original_source_proof": {
+    "bytes": 3558,
+    "sha256": "bc4a3b4107b0e738e31852c1dea9933c1e90d1cdb4c7e6f5873cc7d04cfb63dd"
+  },
+  "physical_inputs": {
+    "all_terrestrial_mask_assumed": true,
+    "authority": "Retained four-annulus factors and three-case capture; verify exact count/PPE/deposition/radius/split/parameter identities using existing source loader and summary validators.",
+    "background_factors": [
+      0.16103313228149374,
+      0.10013728799034896
+    ],
+    "limitations": "Static geometry and an unestimated split; the regional proxy includes an 80 m basin. This does not authenticate a large-lake regional premise, historical LOVE workflow or compatible panel abundance density.",
+    "local_factors": [
+      0.1358399981385187,
+      0.1164270170653248
+    ],
+    "outer_radius_m": 100000,
+    "ppe": [
+      5.106,
+      1.0
+    ],
+    "ppe_SD": [
+      0.303,
+      0.0
+    ],
+    "receiver_radius_m": 80,
+    "split_radius_m": 1000,
+    "training_whole_factors": [
+      [
+        0.1911218730806804,
+        0.12498007031341973
+      ],
+      [
+        0.2968731304200054,
+        0.21656430505566818
+      ]
+    ],
+    "wind_m_s": 3
+  },
+  "protocol_sha256": "294020db18537f35689d9c697bdadc766a850236a6cdb512c4f70e338fd83a57",
+  "schema_version": "swedish-conditional-love-identifiability.v1",
+  "scientific_limits": [
+    "The feasible ratio interval is a deterministic conditional model domain, not a confidence, credible or calibrated interval.",
+    "No measured regional/local abundance ratio, source age distribution, mask or basin truth, whole-landscape vegetation accuracy, untouched confirmation or historical equation reproduction is established.",
+    "The same 29 samples and shared PPE inputs are reused; no new cross-scenario covariance or posterior is supplied and no old marginal SE is replaced.",
+    "Original model overall FAIL, model stage exit zero and separate oracle-only exit zero remain distinct immutable outcomes. Raw source samples and individual age/depth/count associations remain external; identity is not redistribution permission or qualified scientific review."
+  ],
+  "source_capture_sha256": {
+    "capture-reuse-review.json": "9d47562b9ee1cb2fb244145132215912d9b468303d2d878419f07860d587994e",
+    "four-annulus-factors.json": "41902072f70c2aa759a5d6ba5563fa41a220aa98af2fd705b2a563b4af30db9b",
+    "independent-review.json": "9c45fb17832cc3a759f3cc8ae5ced3be18da3354f39f0413ddc7e065c87d07ad",
+    "model-native-stages.json": "424a1b1abaf3cf3051d9e979309dc8a5a8401b6589756acf30661803d8e13eb1",
+    "model-native-terminal.json": "af623bc0ac762bb3aece4808a3b6b95435f49857fd93d38e0cfa91efe390c47c",
+    "observed-source-closure.json": "f7a4c4519cb9615608120e167971f6d3e3595e9a651840daa6d49e8aeea8ce26",
+    "oracle-native-stages.json": "bb79e41b6430168c1d303c648af93074b648d3f69acac374b5663be57f96ac2d",
+    "oracle-native-terminal.json": "5fa761fb9dc60c494abf7fe10ac4a5e2f6488264443618054ffae15471863e09",
+    "protocol.json": "a71d14713312022c162e02611c2b0efcbcb951dc1fd2665fbb1b56b48924c0eb",
+    "shared-ppe-counting-covariance.json": "b83af20d0548ba7f8e5055ae677bd738569487c2d9897837d332d3c61113e49d",
+    "signed-forward-roundtrip-and-native-refusals.json": "a84e3e4a9d92246b0c8e795ac236b55dbaacac58519960a13a9088a3d3b4d4a4",
+    "source-case-census.json": "877c6abcbd76dfd6e483293238c16ce89b212121352a9eda509f41bbbc2ac89b",
+    "source-masks-and-assumptions.json": "7ad267306f098e72070f4e06804953b45732a91cedbffba693c7fda0a22aaa22",
+    "three-conditional-love-cases.json": "d96202c7a5cb48f3493f9df646456f4c8e95bb69b355489fb0efe81635423fac"
+  },
+  "support": {
+    "all_source_samples": 29,
+    "development_scope": "Already exposed fixed window, whole transitive source groups excluded as originally declared. No untouched test population or environmental independence follows.",
+    "epoch": "Documented Neotoma AD1950 source convention, unchanged named calibrated point memberships.",
+    "literal_axis": [
+      "Betula",
+      "Poaceae"
+    ],
+    "local_chronology": 38422,
+    "local_collection_unit": 39241,
+    "local_native_dataset": 54001,
+    "local_panel_counts": [
+      623,
+      84
+    ],
+    "local_source_samples": 5,
+    "outside_panel_NISP": 20544,
+    "panel_N": 7396,
+    "regional_chronologies": [
+      13366,
+      38421
+    ],
+    "regional_collection_units": [
+      16622,
+      39240
+    ],
+    "regional_datasets": [
+      23013,
+      53999
+    ],
+    "regional_panel_counts": [
+      [
+        434,
+        957
+      ],
+      [
+        673,
+        4625
+      ]
+    ],
+    "regional_samples": [
+      9,
+      15
+    ],
+    "reported_NISP": 27940,
+    "unknown_age_bounds": 20,
+    "window_cal_bp": [
+      100,
+      350
+    ]
+  },
+  "writer_source_correspondence": {
+    "durable_review_account": {
+      "path": "reports/architecture/library-source-correspondence.json",
+      "sha256": "ac3d44c2ebd293d36130e0ff634cee9d8dbe0aaa5800e2e0d26c422029cdd7c6"
+    },
+    "exact_diff_review": "producer.py adds two function docstrings and reorders the same typing.Any import; sources.py adds one function docstring; summary.py adds nine function docstrings. Historical source identities remain unchanged in the original proof. Current helper execution is separately qualified, not relabelled as the historical writer.",
+    "historical_writer_module_sha256": {
+      "__init__.py": "a692370d5f42a225fffa002066de50dfde8f9624c33beb5f055a1c92939a73a6",
+      "__main__.py": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
+      "authority.py": "b067b92811f0c46732b8f17cd1ea1f9adb79649fc55691d1f818e60904907f9e",
+      "producer.py": "a5964e27ab631c1d0ef4f1443f0e0b1f734a9d55aaae84cb84f77a8fa03dfeb5",
+      "sources.py": "e258f6bedfcb6465f49a9add4294135461b61f5e78b4571899ad4c26fcc1f573",
+      "summary.py": "e4443964c669f7a0ae85b2c1111ec225b9407f02b2b17dceae3a78c57738a9a6"
+    },
+    "qualified_current_writer_module_sha256": {
+      "__init__.py": "a692370d5f42a225fffa002066de50dfde8f9624c33beb5f055a1c92939a73a6",
+      "__main__.py": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
+      "authority.py": "b067b92811f0c46732b8f17cd1ea1f9adb79649fc55691d1f818e60904907f9e",
+      "producer.py": "510c18f6f11432f4d9f26eab43d988caca16c4722e0f8a133808a647389d93d3",
+      "sources.py": "b7430ba92ed5b292c6c3ef4b7029e3dc28bfbc111f254142fedc5481cd38e20b",
+      "summary.py": "67a6534d57bade437855433fba6c74af57d8882d595d9985d7c91d489320b866"
+    },
+    "reviewed_deltas": [
+      {
+        "classification": "function_annotation_reconciliation",
+        "git_evidence": {
+          "current_tracked_blob": "182094ed9bbdff5ed668578a374ff0f072e6ae0c",
+          "original_blob": "239ff9731febdea99280b6d5936576c8a77dc708",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "original_sha256": "a5964e27ab631c1d0ef4f1443f0e0b1f734a9d55aaae84cb84f77a8fa03dfeb5",
+        "owner_consumer_refs": [],
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/producer.py",
+        "reviewed_sha256": "510c18f6f11432f4d9f26eab43d988caca16c4722e0f8a133808a647389d93d3",
+        "source_structure": {
+          "added_top_level_functions": [],
+          "changed_top_level_function_syntax": [
+            "main",
+            "publish"
+          ],
+          "removed_top_level_functions": []
+        },
+        "specific_review": "Function annotations/local annotations and unused typing-only imports explain difference under conservative normalizer. Reflection/type metadata semantics remain possible; no universal equivalence or unchanged closure assertion."
+      },
+      {
+        "classification": "documentation_or_format_reconciliation",
+        "git_evidence": {
+          "current_tracked_blob": "8fc528f6b9922adf987427c7a9ecca20e7762310",
+          "original_blob": "40466aeb7a29ba4f4c0b36fa617c34955845c438",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "original_sha256": "e258f6bedfcb6465f49a9add4294135461b61f5e78b4571899ad4c26fcc1f573",
+        "owner_consumer_refs": [],
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/sources.py",
+        "reviewed_sha256": "b7430ba92ed5b292c6c3ef4b7029e3dc28bfbc111f254142fedc5481cd38e20b",
+        "source_structure": {
+          "added_top_level_functions": [],
+          "changed_top_level_function_syntax": [
+            "load_inputs"
+          ],
+          "removed_top_level_functions": []
+        },
+        "specific_review": "Exact AST identity modulo docstrings demonstrated. Reuse retained numerical results within same claim after exact source custody/documentation review; raw source hashes differ. No scientific execution performed by this audit."
+      },
+      {
+        "classification": "documentation_or_format_reconciliation",
+        "git_evidence": {
+          "current_tracked_blob": "acead5b0364b1cd1da4f3231950681224dc8c64a",
+          "original_blob": "0bcc51391ac20c402b076e56e1c18cdd24853ba7",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "original_sha256": "e4443964c669f7a0ae85b2c1111ec225b9407f02b2b17dceae3a78c57738a9a6",
+        "owner_consumer_refs": [],
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/summary.py",
+        "reviewed_sha256": "67a6534d57bade437855433fba6c74af57d8882d595d9985d7c91d489320b866",
+        "source_structure": {
+          "added_top_level_functions": [],
+          "changed_top_level_function_syntax": [
+            "close",
+            "integer",
+            "matrix",
+            "native_scope",
+            "require",
+            "source_totals",
+            "summarize",
+            "vector"
+          ],
+          "removed_top_level_functions": []
+        },
+        "specific_review": "Exact AST identity modulo docstrings demonstrated. Reuse retained numerical results within same claim after exact source custody/documentation review; raw source hashes differ. No scientific execution performed by this audit."
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "capture_custody": "not_established",
+  "doi": "10.1594/PANGAEA.740080",
+  "license": "CC-BY-NC-3.0",
+  "schema_version": "qualified-pangaea-abbo-age-table.v1",
+  "scientific_admission": false,
+  "source_id": "epd/pangaea",
+  "table": {
+    "path": "abbo-age-determination-pangaea-740080.tsv",
+    "sha256": "9717f1600c62659a33a4901da16c6b5fc3dac7cc47f8c005e54909568929704d",
+    "size": 2977
+  }
+}

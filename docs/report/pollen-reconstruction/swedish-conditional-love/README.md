@@ -29,7 +29,7 @@ These are count-weighted source ratios, not an average of individually closed co
 
 The local receiving basin is a static uniform 80 m disk from the selected workbook radius. Local land occupies the annulus 80–1,000 m and regional land 1,000–100,000 m in the scenario. The 1,000 m split is unestimated and is not a measured or fitted RSAP. Compatible land-mask evidence is absent, so both annuli explicitly assume all-terrestrial support. Wind is 3 m/s; fall speeds are 0.024 and 0.035 m/s. The GPM coefficient 0.12 is the source's empirical metre-based coefficient, not SI diffusivity in m²/s; turbulence parameter is 0.25. PPE means are 5.106 and 1, with SD 0.303 and reference SD 0; a fixed reference is not empirical certainty.
 
-Let L_i and R_i be local and regional receiving-annulus responses, p_i the shared PPE, and lambda the **regional/local total compatible panel abundance-density ratio**. Lambda is not inferred from closed pollen, NISP coverage or total biomass integrated over unequal annulus areas. Area weighting is already included in L and R. The scenarios are lambda 0.5, 1 and 2, with 1 the explicitly equal-panel-mass assumption.
+Let L_i and R_i be local and regional receiving-annulus responses, p_i the shared PPE, and lambda the **regional/local total compatible panel abundance-density ratio**. Lambda is not inferred from closed pollen, NISP coverage or total biomass integrated over unequal annulus areas. Area weighting is already included in L and R. The scenarios are lambda 0.5, 1 and 2, with 1 the explicitly equal compatible-panel abundance-density assumption.
 
 Set a_i=L_i p_i and b_i=lambda R_i p_i r_i. The declared local/regional affine mixture is
 
@@ -57,15 +57,29 @@ All three marginal matrices use the **same 29 samples and shared PPE vector**. T
 
 These delta SEs condition on the chronology points, radius, split, mask, panel and lambda. They are not measured interval coverage and do not include uncertainty in those assumptions. A marginal SE does not rehabilitate negative cover as a valid ecological interval. The independent Decimal50 calculation checks the general inverse and full counting/shared-PPE matrices; scalar circle-lens Simpson integration checks the four actual physical requests at unchanged finite depth and tolerances. The maximum factor difference was approximately 5.71e−12. Quadrature error/convergence estimates remain nonrigorous. None of these numerical checks establishes vegetation accuracy, untouched confirmation, historical reproduction or observational completeness.
 
+## Ratio identifiability under the fixed response
+
+The retained local observation does not jointly identify its local cover and the regional/local compatible-panel abundance-density ratio. Write c_i=R_i p_i r_i, A=sum(q_i/a_i) and B=sum(c_i/a_i). Closure gives the complete affine family
+
+$$v_i(\lambda)=u_i+\lambda d_i,\qquad u_i=\frac{q_i}{a_i A},\qquad d_i=\frac{q_i B/A-c_i}{a_i}.$$
+
+For these exact retained inputs, nonnegative two-taxon cover permits lambda from zero through approximately **0.996300618715**, including both endpoints. Restricting the ratio to positive values excludes zero; zero is only the zero-background limiting control. The upper endpoint has Betula cover one and Poaceae zero. This is a deterministic feasible domain under fixed inputs, not a confidence interval, a ratio probability model or a selected estimate.
+
+Eight declared points retain the three original signed cases and add the zero-background limit, three interior controls and the upper endpoint. Every analytical point has the same closed pollen response, including the signed infeasible original cases. Ratios 1 and 2 retain their separate maintained-model negative-cover refusals; their analytical identity does not make them ecological covers. The free-coordinate response Jacobian on (Betula cover, lambda) has rank one, with the affine slope and ratio direction forming a null direction. An independent exact rational calculation on the serialized source constants verifies closure, the endpoint inequalities, the Jacobian and its null direction. At the serialized binary64 endpoint, the exact rational oracle retains a positive Poaceae remainder of approximately 1.04e−16, while binary64 evaluation returns zero. The mathematical endpoint itself has exactly zero Poaceae. These representations are retained without clipping.
+
+The historical proof continues to name its original writer bytes. Three current helper files differ by specifically reviewed docstrings and import ordering; their separate source identities are qualified in the new source account. The historical hashes are preserved.
+
+This new algebraic consumer executes no model, fit or quadrature and leaves the original report, all three covariance products, source proof and failed overall model envelope unchanged. It adds no cross-scenario covariance. Ratio-compatible physical evidence, measured vegetation and qualified review remain separate requirements. [The derived family](identifiability.json) and [its source account](identifiability-source-account.json) retain the actual scope and independent checks.
+
 ## Unresolved geometry provenance
 
 The [CAA2007 paper, printed p.388](https://proceedings.caaconference.org/files/2007/125_Sugita_et_al_CAA2007.pdf) reports Krageholmssjön's area as 186 ha, while the selected workbook scenario uses a radius of 837 m. This is an unresolved cross-source area/radius provenance difference. The documentary evidence is a browser parsed-text review, not a newly authenticated native PDF capture or proof of historical basin geometry. Neither source has silently replaced the frozen radius, and no geometry correction or model rerun is attributed to this comparison.
 
 ## Compact source-owned products
 
-`report.json` projects the aggregate denominators, all signed scenarios, covariance components and independent checks. `source-proof.json` binds the exact 14 original external capture members, source descriptor, scientific candidate, failed model envelope, accepted oracle envelope and current projection-module hashes. The supplied qualified author snapshot uses a dictionary of sorted filename→SHA256 identities and a complete sorted descriptor list. Its manifest is a newly authored transport record; original model/oracle bytes are unchanged.
+`report.json` projects the aggregate denominators, all signed scenarios, covariance components and independent checks. `source-proof.json` binds the exact 14 original external capture members, source descriptor, scientific candidate, failed model envelope, accepted oracle envelope and the projection-module hashes recorded for that publication. The supplied qualified author snapshot uses a dictionary of sorted filename→SHA256 identities and a complete sorted descriptor list. Its manifest is a newly authored transport record; original model/oracle bytes are unchanged.
 
-The projection authenticates source bytes before parsing and before/after atomic publication. It executes no count acquisition, chronology fitting, physical model or numerical oracle. Raw capture/source masks remain external. Identity transport is not new data-use permission or formal external review; historical workbook restriction flags, author-copy rights and qualified reader/scientific reviews remain separate gates. The declared use is a conditional analytical development result, with no independent vegetation, untouched, full scientific acceptance or release-ready claim.
+The original projection authenticates source bytes before parsing and before/after atomic publication. It executes no count acquisition, chronology fitting, physical model or numerical oracle. Raw capture/source masks remain external. Identity transport is not new data-use permission or formal external review; historical workbook restriction flags, author-copy rights and qualified reader/scientific reviews remain separate gates. The declared use is a conditional analytical development result, with no independent vegetation, untouched, full scientific acceptance or release-ready claim.
 
 
 <!-- scientific-account-route:begin -->
@@ -73,29 +87,33 @@ The projection authenticates source bytes before parsing and before/after atomic
 
 Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
 
-**Supported claim.** One exposed Bökesjön window supports a signed analytical local/regional mixture under 3 declared abundance-density ratios. Ratio 0.5 yields feasible two-taxon cover; ratios 1/2 retain negative Poaceae and Betula above one as infeasible outcomes.
+**Supported claim.** The original three conditional scenarios are retained. A new fixed-response affine family shows structural non-identifiability: the same local pollen supports every nonnegative ratio from zero through approximately 0.996300618715; the response Jacobian has rank one. This domain is conditional on the fixed regional proxy, physical responses and literal two-taxon panel.
 
 **Unsupported claim.** Measured vegetation cover, a fitted or measured RSAP, untouched prediction accuracy from a forward roundtrip, historical LOVEr/Sugita-equation reproduction, calibrated uncertainty or biological completeness of the two-taxon panel.
 
-**Actual verification performed.** The reader, aggregate report and source proof were inspected. Original model stage passed 40 source controls but its overall oracle envelope failed; a separate oracle-only successor reused 7 outputs, passed 47 guards and checked 4 physical factors plus 48 cover/covariance/SE cells. No model or oracle is rerun by this qualification.
+**Actual verification performed.** The actual retained-source consumer passed with 91 independent exact rational scalar comparisons, eight family points, all three original signed-case comparisons, endpoint inequalities and rank/null certificates. Its 27 focused source contracts, strict checks of four files and configured Ruff checks passed. No model, quadrature, acquisition or fit was run. The original overall failed envelope remains distinct from its passed model stage and later accepted oracle-only successor.
 
 **Remaining input or review.** 20 sample-age envelopes remain unknown; static receiving circles, all-terrestrial annuli, the 1,000 m split and regional/local compatible-panel abundance ratio are assumptions. The regional proxy includes a small 80 m basin. Historical source-copy rights, physical applicability and qualified external review remain separate. The later Krageholm static-area sensitivity does not replace this frozen 837 m regional scenario.
 
 **Cause category.** data | assumption | algorithm/numerical | comparability | access/rights | qualified review
 
-**Consequence.** Keep the signed infeasible cases and original failed overall envelope. Marginal conditional SEs do not rehabilitate negative cover or form a joint scenario posterior; three ratios reuse the same samples/PPE rather than independent experiments.
+**Consequence.** Retain the feasible continuum and both original negative-cover cases. The point observation cannot select local composition and abundance ratio simultaneously. Marginal conditional SEs remain the original products; they do not turn the family into a posterior or give coverage to its feasible domain.
 
 **Precise next acceptance route.** Qualify source-compatible regional/local abundance, land masks, regional support and age-specific basin geometry before a physical/ecological interpretation. Declare cross-scenario uncertainty if needed, and obtain matched vegetation plus external review before accuracy/coverage claims; authenticate original theory equations for a historical-compatibility claim.
 
-**Negative or refused result.** At ratio 1 Poaceae is−0.00165398 and at ratio 2 it is−0.44875096; both maintained forward calls refuse negative cover. Ratio 0.5 is feasible with Betula 0.77810549/Poaceae 0.22189451. An earlier finite-depth oracle failure remains preserved separately from the later accepted numerical checks.
+**Negative or refused result.** The original ratios 1 and 2 still give negative Poaceae cover and are refused by the maintained forward model. A continuum of feasible covers gives the same pollen, so a forward roundtrip cannot identify the ratio. Exact endpoint checks preserve any signed binary64 rounding difference without clipping. The original overall oracle failure remains retained.
 
-**Matched denominator.** One[100,350) calibrated-BP window;3 cores and 29 samples: BOKE 5, KRAG 9, BJARE 15. Literal Betula/Poaceae panel 7,396 grains versus 27,940 all-reported NISP, leaving 20,544 residual counts.20 bounds unknown;3 scenarios reuse these 29 samples and shared PPE. Each exported 2×2 covariance is marginal, not cross-scenario joint covariance.
+**Matched denominator.** One [100,350) calibrated-BP window; three cores and 29 samples: BOKE 5, KRAG 9 and BJARE 15. The literal Betula/Poaceae panel has 7,396 grains versus 27,940 all-reported NISP, leaving 20,544 residual counts; 20 age bounds remain unknown. Eight deterministic family controls reuse these sources and the fixed shared PPE, including the three unchanged original scenarios. No independent scenario experiments or ratio probabilities are implied.
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-conditional-love/report.json](report.json) (SHA-256 `2d52167f4787dc8542f82f2d644933322173998d494017520d7ffeda67362b60`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json](source-proof.json) (SHA-256 `bc4a3b4107b0e738e31852c1dea9933c1e90d1cdb4c7e6f5873cc7d04cfb63dd`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/report.json](../krageholm-static-geometry-sensitivity/report.json) (SHA-256 `07e30b471a0cac2a43ff2877bdbc36469b8ef5f80f6d99cf9501a7c3bb1bb0d7`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-conditional-love/identifiability.json](identifiability.json) (SHA-256 `2541362623d0428ccddd51a9ba4cc6293316c553f02c623d1124ebf768cdff2f`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/swedish-conditional-love/identifiability-source-account.json](identifiability-source-account.json) (SHA-256 `0aaaaca4ff820358ddba2b80b6285589fbe52999125d92d80d2c5c40b54d3009`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -1,0 +1,24 @@
+{
+  "scope": "Actual current human and animal source normalization, country chronology/provenance records and common DNA/pollen boundary contracts. No genotype, map/browser, LRA, propagation inference, taxonomy/rights or field admission.",
+  "candidate": "e643986a963f903f987b1e75753a617d9114e7eb",
+  "human_raw_source_ids": 1325,
+  "human_published_ids": 1231,
+  "human_missing_coordinate_ids": 94,
+  "animal_normalized_ids": 1468,
+  "animal_mapped_ids": 322,
+  "animal_excluded_ids": 1146,
+  "nordic_animal_ids": 12,
+  "countries": [
+    "Denmark",
+    "Finland",
+    "Norway",
+    "Sweden"
+  ],
+  "csv_comparison": "Exact byte equality, every row/column/order including27human and48animal fields",
+  "animal_summary_comparison": "Complete JSON value equality with exact retained generation date",
+  "source_pointer_comparison": "60 literal normalized animal lineage/chronology pointers, original bytes and2named zip members. SRS1407451 transport metadata has no historical declared SHA; current bytes are frozen but not independently authenticated.",
+  "controlled_boundary_tests": "Three maintained modules; actual source population replay is distinct from synthetic DNA/pollen domain controls.",
+  "empirical_propagation_admission": false,
+  "accepted_propagation_mapping_count": 0,
+  "criterion": "ADNA-001 actual source lifecycle audit; no automatic closure of empirical PROP-004 or larger parent criteria."
+}

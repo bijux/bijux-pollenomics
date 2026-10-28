@@ -1,0 +1,5771 @@
+{
+  "schema_version": "swedish-paired-chronology-aliquot-uncertainty.v1",
+  "model_profile": "reveals-joint-aliquot-delta-covariance",
+  "source_custody": {
+    "dataset-19909-sample-eligibility.json": {
+      "sha256": "7ba4825d625f8bbd39da9a2c9c16b4959d5f7e9d9c222e674032df8043859029",
+      "bytes": 241603
+    },
+    "dataset-21790-sample-eligibility.json": {
+      "sha256": "d04ce5d94d5efc98a3b217e05abaefc50d1d3ff8166f0af988b29f78e0728836",
+      "bytes": 225719
+    },
+    "dataset-4042-sample-eligibility.json": {
+      "sha256": "9336f5c9f87a967764ed444017163e52e1f7e3b617e07856ad9de8611d5ac9a1",
+      "bytes": 245476
+    },
+    "dataset-45311-sample-eligibility.json": {
+      "sha256": "2158063bb2936adf66c8200fdfae5cf6cb8e584dd9771f0d83788a7ff28854d9",
+      "bytes": 118585
+    },
+    "dataset-45314-sample-eligibility.json": {
+      "sha256": "3f81054e023da5e9b2db66a4dc443f9b4d3b5c8851c4cb2528a89e3333deb496",
+      "bytes": 98527
+    },
+    "native-results.json": {
+      "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+      "bytes": 7105291
+    },
+    "native-terminal.json": {
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+      "bytes": 3064
+    },
+    "protocol.json": {
+      "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+      "bytes": 40951
+    },
+    "source-eligibility.json": {
+      "sha256": "dfa2e8c58dd6634b8a614cf8ed424b18528e6fad241da4c8f72df172ea470eb4",
+      "bytes": 4565333
+    },
+    "source-terminal.json": {
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "bytes": 12823
+    }
+  },
+  "protocol_sha256": "40ae33ff37f64253b317e8aadfe59f4ffbacc00a2c9c32c4564ae2460fe8ed74",
+  "original_report_sha256": "27ab3800dce9f9a620e0ed0b0ed99cf2c2e5781330f2dae0a631c2082e95254a",
+  "original_paired_SEs_preserved_null": 125,
+  "native_samples": 449,
+  "selected_aliquot_primitives": 432,
+  "occupied_profile_windows": 221,
+  "joint_axes": 442,
+  "paired_windows": 106,
+  "unpaired_windows": 19,
+  "contrast_axes": 212,
+  "independent_oracle": {
+    "status": "passed",
+    "precision": 50,
+    "comparison_metrics": {
+      "cover": {
+        "scalars": 442,
+        "max_absolute": 1.8436930189833293e-16,
+        "max_relative_with_1e18_floor": 3.217421603393272e-16,
+        "max_error_to_bound": 0.0009218465094916646
+      },
+      "saved_cover": {
+        "scalars": 442,
+        "max_absolute": 1.8436930189833293e-16,
+        "max_relative_with_1e18_floor": 3.217421603393272e-16,
+        "max_error_to_bound": 0.0009218465094916646
+      },
+      "ppe_jacobian": {
+        "scalars": 884,
+        "max_absolute": 6.457896651294728e-17,
+        "max_relative_with_1e18_floor": 3.2666541855629583e-15,
+        "max_error_to_bound": 0.0003228948325647364
+      },
+      "count_jacobian": {
+        "scalars": 381888,
+        "max_absolute": 4.4231135663321415e-18,
+        "max_relative_with_1e18_floor": 3.4058540194037363e-15,
+        "max_error_to_bound": 2.211556783166071e-05
+      },
+      "joint_counting": {
+        "scalars": 195364,
+        "max_absolute": 1.1420631293293568e-18,
+        "max_relative_with_1e18_floor": 8.304809394835525e-16,
+        "max_error_to_bound": 1.6609591911756974e-06
+      },
+      "joint_ppe": {
+        "scalars": 195364,
+        "max_absolute": 1.2409761031712404e-19,
+        "max_relative_with_1e18_floor": 6.5035787154943374e-15,
+        "max_error_to_bound": 1.2998384584166635e-05
+      },
+      "joint_total": {
+        "scalars": 195364,
+        "max_absolute": 9.208129895059886e-19,
+        "max_relative_with_1e18_floor": 6.253861158782268e-15,
+        "max_error_to_bound": 1.2500288468450143e-05
+      },
+      "contrast_cover": {
+        "scalars": 212,
+        "max_absolute": 2.0375823590884241e-16,
+        "max_relative_with_1e18_floor": 2.9992875430381593e-13,
+        "max_error_to_bound": 0.001018791179544212
+      },
+      "contrast_counting": {
+        "scalars": 44944,
+        "max_absolute": 1.0325623151195577e-18,
+        "max_relative_with_1e18_floor": 2.5365085714745918e-15,
+        "max_error_to_bound": 5.07189486115735e-06
+      },
+      "contrast_ppe": {
+        "scalars": 44944,
+        "max_absolute": 5.321589266908272e-20,
+        "max_relative_with_1e18_floor": 1.2701960674000737e-10,
+        "max_error_to_bound": 0.028217982413137832
+      },
+      "contrast_total": {
+        "scalars": 44944,
+        "max_absolute": 8.436074859073005e-19,
+        "max_relative_with_1e18_floor": 1.1485427276856425e-10,
+        "max_error_to_bound": 0.028217982413137832
+      },
+      "saved_pooled_count_marginal": {
+        "scalars": 442,
+        "max_absolute": 1.5420631293293568e-18,
+        "max_relative_with_1e18_floor": 8.549115701549323e-16,
+        "max_error_to_bound": 1.7098203756014792e-06
+      },
+      "saved_ppe_marginal": {
+        "scalars": 442,
+        "max_absolute": 1.2232577132675432e-19,
+        "max_relative_with_1e18_floor": 6.5035787154943374e-15,
+        "max_error_to_bound": 1.2998384584166635e-05
+      }
+    },
+    "matrix_checks": {
+      "counting": {
+        "scale": 0.006229665894467827,
+        "max_normalized_asymmetry": 1.1102230246251565e-16,
+        "minimum_normalized_eigenvalue": -3.3907889044276325e-16
+      },
+      "ppe": {
+        "scale": 0.00021958753400461037,
+        "max_normalized_asymmetry": 3.3306690738754696e-16,
+        "minimum_normalized_eigenvalue": -6.330469877758049e-14
+      },
+      "total": {
+        "scale": 0.006335198870549322,
+        "max_normalized_asymmetry": 5.551115123125783e-17,
+        "minimum_normalized_eigenvalue": -7.71495147708585e-16
+      },
+      "contrast_counting": {
+        "scale": 0.002210587533426462,
+        "max_normalized_asymmetry": 2.220446049250313e-16,
+        "minimum_normalized_eigenvalue": -5.791161613402308e-16
+      },
+      "contrast_ppe": {
+        "scale": 1.2253340149881697e-05,
+        "max_normalized_asymmetry": 5.530298441414061e-15,
+        "minimum_normalized_eigenvalue": -2.3579715266832425e-14
+      },
+      "contrast_total": {
+        "scale": 0.0022137172600581673,
+        "max_normalized_asymmetry": 2.220446049250313e-16,
+        "minimum_normalized_eigenvalue": -7.265512820948579e-16
+      }
+    },
+    "native_sources": 449,
+    "selected_primitives": 432,
+    "primitive_measured_zero_axis_samples": 0,
+    "primitive_degenerate_multinomial_covariances": 0,
+    "occupied_results": 221,
+    "paired_slots": 106,
+    "missing_slots": 19,
+    "identical_support_and_response_slots": 22,
+    "qualified_zero_contrast_slots": 22,
+    "exact_zero_count_marginal_variances": 0,
+    "exact_zero_total_marginal_variances": 0,
+    "exact_zero_count_contrast_variances": 44,
+    "exact_zero_total_contrast_variances": 44,
+    "maximum_count_marginal_variance_reduction": 3.705667560152782e-05,
+    "naive_independent_count_variance_max_departure": 0.0035596959656325616,
+    "naive_independent_PPE_variance_max_departure": 0.00043643844450643344,
+    "marginal_conditioning_changes": [
+      {
+        "result_id": "4042:25402:0",
+        "old_pooled_count_variance": [
+          0.0004935111750873032,
+          0.0004935111750873032
+        ],
+        "new_aliquot_count_variance": [
+          0.0004935111750873032,
+          0.0004935111750873032
+        ],
+        "shared_ppe_variance": [
+          0.00021685943683760745,
+          0.00021685943683760745
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "4042:25402:1",
+        "old_pooled_count_variance": [
+          0.0005715845958328701,
+          0.0005715845958328701
+        ],
+        "new_aliquot_count_variance": [
+          0.0005715845958328701,
+          0.0005715845958328701
+        ],
+        "shared_ppe_variance": [
+          0.00021958753400461034,
+          0.00021958753400461034
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "4042:25402:2",
+        "old_pooled_count_variance": [
+          0.0002321659502572777,
+          0.0002321659502572777
+        ],
+        "new_aliquot_count_variance": [
+          0.00023188471697070177,
+          0.00023188471697070177
+        ],
+        "shared_ppe_variance": [
+          0.0002161513414498709,
+          0.0002161513414498709
+        ],
+        "between_aliquot_composition_coefficient": 0.32026093661806326
+      },
+      {
+        "result_id": "4042:25402:3",
+        "old_pooled_count_variance": [
+          0.00029617063687542756,
+          0.00029617063687542756
+        ],
+        "new_aliquot_count_variance": [
+          0.00029616081693803746,
+          0.00029616081693803746
+        ],
+        "shared_ppe_variance": [
+          0.00020582982611760156,
+          0.00020582982611760156
+        ],
+        "between_aliquot_composition_coefficient": 0.006543489222427651
+      },
+      {
+        "result_id": "4042:25402:4",
+        "old_pooled_count_variance": [
+          0.0002088672024233801,
+          0.0002088672024233801
+        ],
+        "new_aliquot_count_variance": [
+          0.00020886631837585667,
+          0.00020886631837585667
+        ],
+        "shared_ppe_variance": [
+          0.0001983857037735703,
+          0.0001983857037735703
+        ],
+        "between_aliquot_composition_coefficient": 0.0011416207361848489
+      },
+      {
+        "result_id": "4042:25402:5",
+        "old_pooled_count_variance": [
+          0.0003268146266000377,
+          0.0003268146266000377
+        ],
+        "new_aliquot_count_variance": [
+          0.0003264321180770636,
+          0.0003264321180770636
+        ],
+        "shared_ppe_variance": [
+          0.00017546224457836045,
+          0.00017546224457836045
+        ],
+        "between_aliquot_composition_coefficient": 0.1784424554828442
+      },
+      {
+        "result_id": "4042:25402:6",
+        "old_pooled_count_variance": [
+          0.00018163078844176888,
+          0.00018163078844176888
+        ],
+        "new_aliquot_count_variance": [
+          0.00018140353019144265,
+          0.00018140353019144265
+        ],
+        "shared_ppe_variance": [
+          0.0002023684706194809,
+          0.0002023684706194809
+        ],
+        "between_aliquot_composition_coefficient": 0.3958766949613626
+      },
+      {
+        "result_id": "4042:25402:7",
+        "old_pooled_count_variance": [
+          0.00018852206219237773,
+          0.00018852206219237773
+        ],
+        "new_aliquot_count_variance": [
+          0.000188366310019525,
+          0.000188366310019525
+        ],
+        "shared_ppe_variance": [
+          0.0002021717913687678,
+          0.0002021717913687678
+        ],
+        "between_aliquot_composition_coefficient": 0.2515977041164914
+      },
+      {
+        "result_id": "4042:25402:8",
+        "old_pooled_count_variance": [
+          0.00026215145106617076,
+          0.00026215145106617076
+        ],
+        "new_aliquot_count_variance": [
+          0.00026190636990637003,
+          0.00026190636990637003
+        ],
+        "shared_ppe_variance": [
+          0.00014951559325471342,
+          0.00014951559325471342
+        ],
+        "between_aliquot_composition_coefficient": 0.1514147721148596
+      },
+      {
+        "result_id": "4042:25402:9",
+        "old_pooled_count_variance": [
+          0.0002070656285694112,
+          0.0002070656285694112
+        ],
+        "new_aliquot_count_variance": [
+          0.00020675240576781113,
+          0.00020675240576781113
+        ],
+        "shared_ppe_variance": [
+          0.0001420140769206861,
+          0.0001420140769206861
+        ],
+        "between_aliquot_composition_coefficient": 0.29460838193303357
+      },
+      {
+        "result_id": "4042:25402:10",
+        "old_pooled_count_variance": [
+          0.00017793495742807837,
+          0.00017793495742807837
+        ],
+        "new_aliquot_count_variance": [
+          0.00017657667270221884,
+          0.00017657667270221884
+        ],
+        "shared_ppe_variance": [
+          0.00010552952910270418,
+          0.00010552952910270418
+        ],
+        "between_aliquot_composition_coefficient": 1.2856377724220722
+      },
+      {
+        "result_id": "4042:25402:11",
+        "old_pooled_count_variance": [
+          0.00011640922273924293,
+          0.00011640922273924293
+        ],
+        "new_aliquot_count_variance": [
+          0.00011638344788424725,
+          0.00011638344788424725
+        ],
+        "shared_ppe_variance": [
+          5.8423101690365444e-05,
+          5.8423101690365444e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.031556034753951016
+      },
+      {
+        "result_id": "4042:25402:12",
+        "old_pooled_count_variance": [
+          0.00013675630445628405,
+          0.00013675630445628405
+        ],
+        "new_aliquot_count_variance": [
+          0.0001359427573659654,
+          0.0001359427573659654
+        ],
+        "shared_ppe_variance": [
+          8.716541723016826e-05,
+          8.716541723016826e-05
+        ],
+        "between_aliquot_composition_coefficient": 1.0767343312119229
+      },
+      {
+        "result_id": "4042:25402:13",
+        "old_pooled_count_variance": [
+          0.00012242752327789176,
+          0.00012242752327789176
+        ],
+        "new_aliquot_count_variance": [
+          0.00012162593909176347,
+          0.00012162593909176347
+        ],
+        "shared_ppe_variance": [
+          7.496674284205778e-05,
+          7.496674284205778e-05
+        ],
+        "between_aliquot_composition_coefficient": 1.1385078231034362
+      },
+      {
+        "result_id": "4042:25402:14",
+        "old_pooled_count_variance": [
+          0.00011479006711783321,
+          0.00011479006711783321
+        ],
+        "new_aliquot_count_variance": [
+          0.0001142204958099526,
+          0.0001142204958099526
+        ],
+        "shared_ppe_variance": [
+          5.723581026467266e-05,
+          5.723581026467266e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.7025604262550261
+      },
+      {
+        "result_id": "4042:25402:15",
+        "old_pooled_count_variance": [
+          0.00011588628917219774,
+          0.00011588628917219774
+        ],
+        "new_aliquot_count_variance": [
+          0.00011570579147827875,
+          0.00011570579147827875
+        ],
+        "shared_ppe_variance": [
+          8.112029538010874e-05,
+          8.112029538010874e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.3096088969321341
+      },
+      {
+        "result_id": "4042:25402:16",
+        "old_pooled_count_variance": [
+          9.483042612569598e-05,
+          9.483042612569598e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.474544569961689e-05,
+          9.474544569961689e-05
+        ],
+        "shared_ppe_variance": [
+          8.69527176049351e-05,
+          8.69527176049351e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.23333668517906384
+      },
+      {
+        "result_id": "4042:25402:17",
+        "old_pooled_count_variance": [
+          9.795078502618118e-05,
+          9.795078502618118e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.778947930038573e-05,
+          9.778947930038573e-05
+        ],
+        "shared_ppe_variance": [
+          7.144545800318333e-05,
+          7.144545800318333e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.3411025217942501
+      },
+      {
+        "result_id": "4042:25402:18",
+        "old_pooled_count_variance": [
+          9.899338560506018e-05,
+          9.899338560506018e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.883462859127933e-05,
+          9.883462859127933e-05
+        ],
+        "shared_ppe_variance": [
+          8.24456343623933e-05,
+          8.24456343623933e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.3792840625326403
+      },
+      {
+        "result_id": "4042:25402:19",
+        "old_pooled_count_variance": [
+          0.00011053460983737656,
+          0.00011053460983737656
+        ],
+        "new_aliquot_count_variance": [
+          0.00011024820094343055,
+          0.00011024820094343055
+        ],
+        "shared_ppe_variance": [
+          7.524069008908958e-05,
+          7.524069008908958e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.500863136671095
+      },
+      {
+        "result_id": "4042:25402:20",
+        "old_pooled_count_variance": [
+          0.0001611828579922502,
+          0.0001611828579922502
+        ],
+        "new_aliquot_count_variance": [
+          0.00016085355571733426,
+          0.00016085355571733426
+        ],
+        "shared_ppe_variance": [
+          0.0001570022935296271,
+          0.0001570022935296271
+        ],
+        "between_aliquot_composition_coefficient": 0.5651183211310751
+      },
+      {
+        "result_id": "4042:25402:21",
+        "old_pooled_count_variance": [
+          0.00021920549434893593,
+          0.00021920549434893593
+        ],
+        "new_aliquot_count_variance": [
+          0.0002186644852387355,
+          0.0002186644852387355
+        ],
+        "shared_ppe_variance": [
+          0.00018196813328749713,
+          0.00018196813328749713
+        ],
+        "between_aliquot_composition_coefficient": 0.5817995905665224
+      },
+      {
+        "result_id": "4042:25402:22",
+        "old_pooled_count_variance": [
+          0.0003083015196349152,
+          0.0003083015196349152
+        ],
+        "new_aliquot_count_variance": [
+          0.0003081332522531725,
+          0.0003081332522531725
+        ],
+        "shared_ppe_variance": [
+          0.0001747334145736075,
+          0.0001747334145736075
+        ],
+        "between_aliquot_composition_coefficient": 0.08784174085451547
+      },
+      {
+        "result_id": "4042:25402:23",
+        "old_pooled_count_variance": [
+          0.0001349938985460809,
+          0.0001349938985460809
+        ],
+        "new_aliquot_count_variance": [
+          0.00013493566945413656,
+          0.00013493566945413656
+        ],
+        "shared_ppe_variance": [
+          0.00017196153415508872,
+          0.00017196153415508872
+        ],
+        "between_aliquot_composition_coefficient": 0.15603406148429336
+      },
+      {
+        "result_id": "4042:25402:24",
+        "old_pooled_count_variance": [
+          0.00021484400664113827,
+          0.00021484400664113827
+        ],
+        "new_aliquot_count_variance": [
+          0.0002140536752109518,
+          0.0002140536752109518
+        ],
+        "shared_ppe_variance": [
+          0.0001683537019927831,
+          0.0001683537019927831
+        ],
+        "between_aliquot_composition_coefficient": 0.8185812678218908
+      },
+      {
+        "result_id": "4042:25404:1",
+        "old_pooled_count_variance": [
+          0.0004935111750873032,
+          0.0004935111750873032
+        ],
+        "new_aliquot_count_variance": [
+          0.0004935111750873032,
+          0.0004935111750873032
+        ],
+        "shared_ppe_variance": [
+          0.00021685943683760745,
+          0.00021685943683760745
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "4042:25404:2",
+        "old_pooled_count_variance": [
+          0.0002485930517283925,
+          0.0002485930517283925
+        ],
+        "new_aliquot_count_variance": [
+          0.00024769490365084894,
+          0.00024769490365084894
+        ],
+        "shared_ppe_variance": [
+          0.0002185028987401496,
+          0.0002185028987401496
+        ],
+        "between_aliquot_composition_coefficient": 0.9017861062335382
+      },
+      {
+        "result_id": "4042:25404:3",
+        "old_pooled_count_variance": [
+          0.00018915421580299158,
+          0.00018915421580299158
+        ],
+        "new_aliquot_count_variance": [
+          0.0001883099167865814,
+          0.0001883099167865814
+        ],
+        "shared_ppe_variance": [
+          0.00021531652208136583,
+          0.00021531652208136583
+        ],
+        "between_aliquot_composition_coefficient": 1.4428392671080241
+      },
+      {
+        "result_id": "4042:25404:4",
+        "old_pooled_count_variance": [
+          0.00031795950173872574,
+          0.00031795950173872574
+        ],
+        "new_aliquot_count_variance": [
+          0.00031795889706944533,
+          0.00031795889706944533
+        ],
+        "shared_ppe_variance": [
+          0.0001979722977221479,
+          0.0001979722977221479
+        ],
+        "between_aliquot_composition_coefficient": 0.00033624441338751267
+      },
+      {
+        "result_id": "4042:25404:5",
+        "old_pooled_count_variance": [
+          0.00021345621398238885,
+          0.00021345621398238885
+        ],
+        "new_aliquot_count_variance": [
+          0.00021312696941761314,
+          0.00021312696941761314
+        ],
+        "shared_ppe_variance": [
+          0.00018459106511003426,
+          0.00018459106511003426
+        ],
+        "between_aliquot_composition_coefficient": 0.37878088078134886
+      },
+      {
+        "result_id": "4042:25404:6",
+        "old_pooled_count_variance": [
+          0.00018163078844176888,
+          0.00018163078844176888
+        ],
+        "new_aliquot_count_variance": [
+          0.00018140353019144265,
+          0.00018140353019144265
+        ],
+        "shared_ppe_variance": [
+          0.0002023684706194809,
+          0.0002023684706194809
+        ],
+        "between_aliquot_composition_coefficient": 0.3958766949613626
+      },
+      {
+        "result_id": "4042:25404:7",
+        "old_pooled_count_variance": [
+          0.0002768473543551225,
+          0.0002768473543551225
+        ],
+        "new_aliquot_count_variance": [
+          0.00027653184543121256,
+          0.00027653184543121256
+        ],
+        "shared_ppe_variance": [
+          0.0002006174090560675,
+          0.0002006174090560675
+        ],
+        "between_aliquot_composition_coefficient": 0.2345178334592505
+      },
+      {
+        "result_id": "4042:25404:8",
+        "old_pooled_count_variance": [
+          0.00023728748347133123,
+          0.00023728748347133123
+        ],
+        "new_aliquot_count_variance": [
+          0.00023596631348411692,
+          0.00023596631348411692
+        ],
+        "shared_ppe_variance": [
+          0.00017009588492634706,
+          0.00017009588492634706
+        ],
+        "between_aliquot_composition_coefficient": 1.1333895635919107
+      },
+      {
+        "result_id": "4042:25404:9",
+        "old_pooled_count_variance": [
+          0.000213344508635943,
+          0.000213344508635943
+        ],
+        "new_aliquot_count_variance": [
+          0.0002129318737758705,
+          0.0002129318737758705
+        ],
+        "shared_ppe_variance": [
+          0.00014406119683959702,
+          0.00014406119683959702
+        ],
+        "between_aliquot_composition_coefficient": 0.3708739756772527
+      },
+      {
+        "result_id": "4042:25404:10",
+        "old_pooled_count_variance": [
+          0.00022051054388037288,
+          0.00022051054388037288
+        ],
+        "new_aliquot_count_variance": [
+          0.00021877867735271096,
+          0.00021877867735271096
+        ],
+        "shared_ppe_variance": [
+          0.0001311220057659275,
+          0.0001311220057659275
+        ],
+        "between_aliquot_composition_coefficient": 1.3261957921824499
+      },
+      {
+        "result_id": "4042:25404:11",
+        "old_pooled_count_variance": [
+          9.201010216378233e-05,
+          9.201010216378233e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.188397561485423e-05,
+          9.188397561485423e-05
+        ],
+        "shared_ppe_variance": [
+          6.59580870888217e-05,
+          6.59580870888217e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.2790486350968803
+      },
+      {
+        "result_id": "4042:25404:12",
+        "old_pooled_count_variance": [
+          0.00011799447609639024,
+          0.00011799447609639024
+        ],
+        "new_aliquot_count_variance": [
+          0.00011736180751124662,
+          0.00011736180751124662
+        ],
+        "shared_ppe_variance": [
+          8.491685193891569e-05,
+          8.491685193891569e-05
+        ],
+        "between_aliquot_composition_coefficient": 1.0957794893725123
+      },
+      {
+        "result_id": "4042:25404:13",
+        "old_pooled_count_variance": [
+          0.00014298446282307194,
+          0.00014298446282307194
+        ],
+        "new_aliquot_count_variance": [
+          0.00014190511487140406,
+          0.00014190511487140406
+        ],
+        "shared_ppe_variance": [
+          7.579675196742388e-05,
+          7.579675196742388e-05
+        ],
+        "between_aliquot_composition_coefficient": 1.1363463860189782
+      },
+      {
+        "result_id": "4042:25404:14",
+        "old_pooled_count_variance": [
+          0.00013510462981381903,
+          0.00013510462981381903
+        ],
+        "new_aliquot_count_variance": [
+          0.00013436084810655453,
+          0.00013436084810655453
+        ],
+        "shared_ppe_variance": [
+          5.94287525608736e-05,
+          5.94287525608736e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.6876667210103925
+      },
+      {
+        "result_id": "4042:25404:15",
+        "old_pooled_count_variance": [
+          0.00010133734253588594,
+          0.00010133734253588594
+        ],
+        "new_aliquot_count_variance": [
+          0.00010115060578941065,
+          0.00010115060578941065
+        ],
+        "shared_ppe_variance": [
+          7.691461969420222e-05,
+          7.691461969420222e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.39716962455962157
+      },
+      {
+        "result_id": "4042:25404:16",
+        "old_pooled_count_variance": [
+          9.483042612569598e-05,
+          9.483042612569598e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.474544569961689e-05,
+          9.474544569961689e-05
+        ],
+        "shared_ppe_variance": [
+          8.69527176049351e-05,
+          8.69527176049351e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.23333668517906384
+      },
+      {
+        "result_id": "4042:25404:17",
+        "old_pooled_count_variance": [
+          0.00011311787099201012,
+          0.00011311787099201012
+        ],
+        "new_aliquot_count_variance": [
+          0.00011290303741855824,
+          0.00011290303741855824
+        ],
+        "shared_ppe_variance": [
+          7.013964117847998e-05,
+          7.013964117847998e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.33441027337103557
+      },
+      {
+        "result_id": "4042:25404:18",
+        "old_pooled_count_variance": [
+          8.713954110186203e-05,
+          8.713954110186203e-05
+        ],
+        "new_aliquot_count_variance": [
+          8.701579055838856e-05,
+          8.701579055838856e-05
+        ],
+        "shared_ppe_variance": [
+          8.209958300488768e-05,
+          8.209958300488768e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.3799565127895727
+      },
+      {
+        "result_id": "4042:25404:19",
+        "old_pooled_count_variance": [
+          0.00013041164652897105,
+          0.00013041164652897105
+        ],
+        "new_aliquot_count_variance": [
+          0.000130011630341661,
+          0.000130011630341661
+        ],
+        "shared_ppe_variance": [
+          7.494877032972826e-05,
+          7.494877032972826e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.5005940525418261
+      },
+      {
+        "result_id": "4042:25404:20",
+        "old_pooled_count_variance": [
+          0.000134748156369807,
+          0.000134748156369807
+        ],
+        "new_aliquot_count_variance": [
+          0.0001342208658296099,
+          0.0001342208658296099
+        ],
+        "shared_ppe_variance": [
+          0.00014583742583052073,
+          0.00014583742583052073
+        ],
+        "between_aliquot_composition_coefficient": 1.2026788404373707
+      },
+      {
+        "result_id": "4042:25404:21",
+        "old_pooled_count_variance": [
+          0.00021920549434893593,
+          0.00021920549434893593
+        ],
+        "new_aliquot_count_variance": [
+          0.0002186644852387355,
+          0.0002186644852387355
+        ],
+        "shared_ppe_variance": [
+          0.00018196813328749713,
+          0.00018196813328749713
+        ],
+        "between_aliquot_composition_coefficient": 0.5817995905665224
+      },
+      {
+        "result_id": "4042:25404:22",
+        "old_pooled_count_variance": [
+          0.0003083015196349152,
+          0.0003083015196349152
+        ],
+        "new_aliquot_count_variance": [
+          0.0003081332522531725,
+          0.0003081332522531725
+        ],
+        "shared_ppe_variance": [
+          0.0001747334145736075,
+          0.0001747334145736075
+        ],
+        "between_aliquot_composition_coefficient": 0.08784174085451547
+      },
+      {
+        "result_id": "4042:25404:23",
+        "old_pooled_count_variance": [
+          0.0002219841815253647,
+          0.0002219841815253647
+        ],
+        "new_aliquot_count_variance": [
+          0.0002219065736684379,
+          0.0002219065736684379
+        ],
+        "shared_ppe_variance": [
+          0.00017746994727779923,
+          0.00017746994727779923
+        ],
+        "between_aliquot_composition_coefficient": 0.07937117676299042
+      },
+      {
+        "result_id": "4042:25404:24",
+        "old_pooled_count_variance": [
+          0.00013219016947359712,
+          0.00013219016947359712
+        ],
+        "new_aliquot_count_variance": [
+          0.00013188353513079692,
+          0.00013188353513079692
+        ],
+        "shared_ppe_variance": [
+          0.00016626212676789707,
+          0.00016626212676789707
+        ],
+        "between_aliquot_composition_coefficient": 0.8284993473024076
+      },
+      {
+        "result_id": "19909:11514:1",
+        "old_pooled_count_variance": [
+          0.0002279264367336971,
+          0.0002279264367336971
+        ],
+        "new_aliquot_count_variance": [
+          0.0002182508758138767,
+          0.0002182508758138767
+        ],
+        "shared_ppe_variance": [
+          0.00017913613785761038,
+          0.00017913613785761038
+        ],
+        "between_aliquot_composition_coefficient": 9.474282282153547
+      },
+      {
+        "result_id": "19909:11514:2",
+        "old_pooled_count_variance": [
+          0.00033385594070518376,
+          0.00033385594070518376
+        ],
+        "new_aliquot_count_variance": [
+          0.0003109936365653214,
+          0.0003109936365653214
+        ],
+        "shared_ppe_variance": [
+          0.00021913079182662063,
+          0.00021913079182662063
+        ],
+        "between_aliquot_composition_coefficient": 12.763845915435107
+      },
+      {
+        "result_id": "19909:11514:3",
+        "old_pooled_count_variance": [
+          0.0005640449890965364,
+          0.0005640449890965364
+        ],
+        "new_aliquot_count_variance": [
+          0.0005500650057552734,
+          0.0005500650057552734
+        ],
+        "shared_ppe_variance": [
+          8.262081792123505e-05,
+          8.262081792123505e-05
+        ],
+        "between_aliquot_composition_coefficient": 1.0309676003257844
+      },
+      {
+        "result_id": "19909:11514:4",
+        "old_pooled_count_variance": [
+          0.00048184976490381863,
+          0.00048184976490381863
+        ],
+        "new_aliquot_count_variance": [
+          0.00048165039941341773,
+          0.00048165039941341773
+        ],
+        "shared_ppe_variance": [
+          2.673538914588106e-05,
+          2.673538914588106e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.006519128720053269
+      },
+      {
+        "result_id": "19909:11514:5",
+        "old_pooled_count_variance": [
+          0.0003562743606068231,
+          0.0003562743606068231
+        ],
+        "new_aliquot_count_variance": [
+          0.0003558895312618741,
+          0.0003558895312618741
+        ],
+        "shared_ppe_variance": [
+          1.3659081272281703e-05,
+          1.3659081272281703e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.011759717687676068
+      },
+      {
+        "result_id": "19909:11514:6",
+        "old_pooled_count_variance": [
+          8.22258966217607e-05,
+          8.22258966217607e-05
+        ],
+        "new_aliquot_count_variance": [
+          8.211180465910474e-05,
+          8.211180465910474e-05
+        ],
+        "shared_ppe_variance": [
+          6.3276430640160036e-06,
+          6.3276430640160036e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.030321881930390166
+      },
+      {
+        "result_id": "19909:11514:7",
+        "old_pooled_count_variance": [
+          3.52192911015187e-05,
+          3.52192911015187e-05
+        ],
+        "new_aliquot_count_variance": [
+          3.5169387981592385e-05,
+          3.5169387981592385e-05
+        ],
+        "shared_ppe_variance": [
+          2.963321906296521e-06,
+          2.963321906296521e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.03385491077355908
+      },
+      {
+        "result_id": "19909:11514:8",
+        "old_pooled_count_variance": [
+          4.158641892490602e-05,
+          4.158641892490602e-05
+        ],
+        "new_aliquot_count_variance": [
+          4.151686011081711e-05,
+          4.151686011081711e-05
+        ],
+        "shared_ppe_variance": [
+          5.530341830091646e-06,
+          5.530341830091646e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.06316513963578099
+      },
+      {
+        "result_id": "19909:11514:9",
+        "old_pooled_count_variance": [
+          0.00012120058690492779,
+          0.00012120058690492779
+        ],
+        "new_aliquot_count_variance": [
+          0.00012104000245256851,
+          0.00012104000245256851
+        ],
+        "shared_ppe_variance": [
+          4.668222438821787e-06,
+          4.668222438821787e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.01449178742781218
+      },
+      {
+        "result_id": "19909:11514:10",
+        "old_pooled_count_variance": [
+          0.00014403102668161165,
+          0.00014403102668161165
+        ],
+        "new_aliquot_count_variance": [
+          0.0001435922392767614,
+          0.0001435922392767614
+        ],
+        "shared_ppe_variance": [
+          1.2555991032332061e-05,
+          1.2555991032332061e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.07541702572145782
+      },
+      {
+        "result_id": "19909:11514:11",
+        "old_pooled_count_variance": [
+          4.518814092723056e-05,
+          4.518814092723056e-05
+        ],
+        "new_aliquot_count_variance": [
+          4.514974770116445e-05,
+          4.514974770116445e-05
+        ],
+        "shared_ppe_variance": [
+          5.377261943532795e-06,
+          5.377261943532795e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.02871066249251217
+      },
+      {
+        "result_id": "19909:11514:12",
+        "old_pooled_count_variance": [
+          4.539156253229652e-05,
+          4.539156253229652e-05
+        ],
+        "new_aliquot_count_variance": [
+          4.53535538586352e-05,
+          4.53535538586352e-05
+        ],
+        "shared_ppe_variance": [
+          3.816750283733842e-06,
+          3.816750283733842e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.01999413221116347
+      },
+      {
+        "result_id": "19909:11514:13",
+        "old_pooled_count_variance": [
+          8.432951872763364e-05,
+          8.432951872763364e-05
+        ],
+        "new_aliquot_count_variance": [
+          8.428583656788602e-05,
+          8.428583656788602e-05
+        ],
+        "shared_ppe_variance": [
+          4.429898416685292e-06,
+          4.429898416685292e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.007727072560937509
+      },
+      {
+        "result_id": "19909:11514:14",
+        "old_pooled_count_variance": [
+          9.758195478795809e-05,
+          9.758195478795809e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.721058049952696e-05,
+          9.721058049952696e-05
+        ],
+        "shared_ppe_variance": [
+          5.46416737579234e-06,
+          5.46416737579234e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.06051641090468894
+      },
+      {
+        "result_id": "19909:11514:15",
+        "old_pooled_count_variance": [
+          0.00010094692702034688,
+          0.00010094692702034688
+        ],
+        "new_aliquot_count_variance": [
+          0.00010089612793143283,
+          0.00010089612793143283
+        ],
+        "shared_ppe_variance": [
+          4.9476220692732005e-06,
+          4.9476220692732005e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.007003942942583201
+      },
+      {
+        "result_id": "19909:11514:16",
+        "old_pooled_count_variance": [
+          0.00015936020043229955,
+          0.00015936020043229955
+        ],
+        "new_aliquot_count_variance": [
+          0.00015902640335351437,
+          0.00015902640335351437
+        ],
+        "shared_ppe_variance": [
+          1.5539462430889555e-05,
+          1.5539462430889555e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.058000955988953794
+      },
+      {
+        "result_id": "19909:11514:17",
+        "old_pooled_count_variance": [
+          0.00013135857539340093,
+          0.00013135857539340093
+        ],
+        "new_aliquot_count_variance": [
+          0.00013111601232761183,
+          0.00013111601232761183
+        ],
+        "shared_ppe_variance": [
+          5.516456850611278e-06,
+          5.516456850611278e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.022021373498444047
+      },
+      {
+        "result_id": "19909:11514:18",
+        "old_pooled_count_variance": [
+          0.00018654691620888507,
+          0.00018654691620888507
+        ],
+        "new_aliquot_count_variance": [
+          0.0001861878657433816,
+          0.0001861878657433816
+        ],
+        "shared_ppe_variance": [
+          1.36537706444906e-05,
+          1.36537706444906e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.04000445084398555
+      },
+      {
+        "result_id": "19909:11514:19",
+        "old_pooled_count_variance": [
+          0.00021865222575098806,
+          0.00021865222575098806
+        ],
+        "new_aliquot_count_variance": [
+          0.00021821000931086925,
+          0.00021821000931086925
+        ],
+        "shared_ppe_variance": [
+          2.2026586920755973e-05,
+          2.2026586920755973e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05785629917592582
+      },
+      {
+        "result_id": "19909:11514:20",
+        "old_pooled_count_variance": [
+          0.0005732355883526076,
+          0.0005732355883526076
+        ],
+        "new_aliquot_count_variance": [
+          0.0005724990258859461,
+          0.0005724990258859461
+        ],
+        "shared_ppe_variance": [
+          8.583191209631393e-05,
+          8.583191209631393e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05463468531858897
+      },
+      {
+        "result_id": "19909:11514:21",
+        "old_pooled_count_variance": [
+          0.0014970132731341715,
+          0.0014970132731341715
+        ],
+        "new_aliquot_count_variance": [
+          0.0014970132731341715,
+          0.0014970132731341715
+        ],
+        "shared_ppe_variance": [
+          9.64594914569314e-05,
+          9.64594914569314e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "19909:11513:0",
+        "old_pooled_count_variance": [
+          0.00027239600897434926,
+          0.00027239600897434926
+        ],
+        "new_aliquot_count_variance": [
+          0.00026978466963421924,
+          0.00026978466963421924
+        ],
+        "shared_ppe_variance": [
+          0.0001362823248487635,
+          0.0001362823248487635
+        ],
+        "between_aliquot_composition_coefficient": 1.362001947741883
+      },
+      {
+        "result_id": "19909:11513:1",
+        "old_pooled_count_variance": [
+          0.0005299740964417308,
+          0.0005299740964417308
+        ],
+        "new_aliquot_count_variance": [
+          0.0005044517261539754,
+          0.0005044517261539754
+        ],
+        "shared_ppe_variance": [
+          0.00019418891322097888,
+          0.00019418891322097888
+        ],
+        "between_aliquot_composition_coefficient": 5.010862829232676
+      },
+      {
+        "result_id": "19909:11513:2",
+        "old_pooled_count_variance": [
+          0.0006975071105941643,
+          0.0006975071105941643
+        ],
+        "new_aliquot_count_variance": [
+          0.0006878062420181947,
+          0.0006878062420181947
+        ],
+        "shared_ppe_variance": [
+          0.00019613804076911337,
+          0.00019613804076911337
+        ],
+        "between_aliquot_composition_coefficient": 1.1105843240575781
+      },
+      {
+        "result_id": "19909:11513:3",
+        "old_pooled_count_variance": [
+          0.0006654956207860335,
+          0.0006654956207860335
+        ],
+        "new_aliquot_count_variance": [
+          0.000657670442770771,
+          0.000657670442770771
+        ],
+        "shared_ppe_variance": [
+          0.00011870247066099538,
+          0.00011870247066099538
+        ],
+        "between_aliquot_composition_coefficient": 0.5955797792786005
+      },
+      {
+        "result_id": "19909:11513:4",
+        "old_pooled_count_variance": [
+          0.0003567850810012786,
+          0.0003567850810012786
+        ],
+        "new_aliquot_count_variance": [
+          0.00035643470810472414,
+          0.00035643470810472414
+        ],
+        "shared_ppe_variance": [
+          1.4914182944488122e-05,
+          1.4914182944488122e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.01165716547679506
+      },
+      {
+        "result_id": "19909:11513:5",
+        "old_pooled_count_variance": [
+          0.00030318137727717616,
+          0.00030318137727717616
+        ],
+        "new_aliquot_count_variance": [
+          0.00030265583703213033,
+          0.00030265583703213033
+        ],
+        "shared_ppe_variance": [
+          1.897901541010664e-05,
+          1.897901541010664e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.03081420578359494
+      },
+      {
+        "result_id": "19909:11513:6",
+        "old_pooled_count_variance": [
+          9.738570240544803e-05,
+          9.738570240544803e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.722170493343776e-05,
+          9.722170493343776e-05
+        ],
+        "shared_ppe_variance": [
+          6.132362958573642e-06,
+          6.132362958573642e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.030112788036104076
+      },
+      {
+        "result_id": "19909:11513:7",
+        "old_pooled_count_variance": [
+          4.0149310407493544e-05,
+          4.0149310407493544e-05
+        ],
+        "new_aliquot_count_variance": [
+          4.0084251677213606e-05,
+          4.0084251677213606e-05
+        ],
+        "shared_ppe_variance": [
+          3.2366813032466415e-06,
+          3.2366813032466415e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.03709588234166324
+      },
+      {
+        "result_id": "19909:11513:8",
+        "old_pooled_count_variance": [
+          3.986064179816483e-05,
+          3.986064179816483e-05
+        ],
+        "new_aliquot_count_variance": [
+          3.979810082164011e-05,
+          3.979810082164011e-05
+        ],
+        "shared_ppe_variance": [
+          5.579663912650853e-06,
+          5.579663912650853e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.0623678091238503
+      },
+      {
+        "result_id": "19909:11513:9",
+        "old_pooled_count_variance": [
+          8.273414149461232e-05,
+          8.273414149461232e-05
+        ],
+        "new_aliquot_count_variance": [
+          8.264087383115852e-05,
+          8.264087383115852e-05
+        ],
+        "shared_ppe_variance": [
+          4.057386371498057e-06,
+          4.057386371498057e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.015699444921294953
+      },
+      {
+        "result_id": "19909:11513:10",
+        "old_pooled_count_variance": [
+          9.968109967343714e-05,
+          9.968109967343714e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.944460394299435e-05,
+          9.944460394299435e-05
+        ],
+        "shared_ppe_variance": [
+          1.1476102317981175e-05,
+          1.1476102317981175e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0775654719544111
+      },
+      {
+        "result_id": "19909:11513:11",
+        "old_pooled_count_variance": [
+          4.482843701755547e-05,
+          4.482843701755547e-05
+        ],
+        "new_aliquot_count_variance": [
+          4.4792737213858414e-05,
+          4.4792737213858414e-05
+        ],
+        "shared_ppe_variance": [
+          5.021787879551216e-06,
+          5.021787879551216e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.02533339309082213
+      },
+      {
+        "result_id": "19909:11513:12",
+        "old_pooled_count_variance": [
+          4.303063380722384e-05,
+          4.303063380722384e-05
+        ],
+        "new_aliquot_count_variance": [
+          4.299674713494274e-05,
+          4.299674713494274e-05
+        ],
+        "shared_ppe_variance": [
+          3.167482686735826e-06,
+          3.167482686735826e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.016461296989165805
+      },
+      {
+        "result_id": "19909:11513:13",
+        "old_pooled_count_variance": [
+          0.00012161761936175439,
+          0.00012161761936175439
+        ],
+        "new_aliquot_count_variance": [
+          0.00012155417557480413,
+          0.00012155417557480413
+        ],
+        "shared_ppe_variance": [
+          5.1086784648393255e-06,
+          5.1086784648393255e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.00622273111664908
+      },
+      {
+        "result_id": "19909:11513:14",
+        "old_pooled_count_variance": [
+          9.758195478795809e-05,
+          9.758195478795809e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.721058049952696e-05,
+          9.721058049952696e-05
+        ],
+        "shared_ppe_variance": [
+          5.46416737579234e-06,
+          5.46416737579234e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.06051641090468894
+      },
+      {
+        "result_id": "19909:11513:15",
+        "old_pooled_count_variance": [
+          0.00010094692702034688,
+          0.00010094692702034688
+        ],
+        "new_aliquot_count_variance": [
+          0.00010089612793143283,
+          0.00010089612793143283
+        ],
+        "shared_ppe_variance": [
+          4.9476220692732005e-06,
+          4.9476220692732005e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.007003942942583201
+      },
+      {
+        "result_id": "19909:11513:16",
+        "old_pooled_count_variance": [
+          0.00019339087635168617,
+          0.00019339087635168617
+        ],
+        "new_aliquot_count_variance": [
+          0.00019288380682760416,
+          0.00019288380682760416
+        ],
+        "shared_ppe_variance": [
+          1.4821330001901488e-05,
+          1.4821330001901488e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05706358959409904
+      },
+      {
+        "result_id": "19909:11513:17",
+        "old_pooled_count_variance": [
+          0.00019440282555836222,
+          0.00019440282555836222
+        ],
+        "new_aliquot_count_variance": [
+          0.00019415868136288999,
+          0.00019415868136288999
+        ],
+        "shared_ppe_variance": [
+          1.0854651836793148e-05,
+          1.0854651836793148e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.01991285445740154
+      },
+      {
+        "result_id": "19909:11513:18",
+        "old_pooled_count_variance": [
+          0.00015107286643460752,
+          0.00015107286643460752
+        ],
+        "new_aliquot_count_variance": [
+          0.00015070549990705618,
+          0.00015070549990705618
+        ],
+        "shared_ppe_variance": [
+          1.1594529576801581e-05,
+          1.1594529576801581e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05299759241685523
+      },
+      {
+        "result_id": "19909:11513:19",
+        "old_pooled_count_variance": [
+          0.00017412194462423802,
+          0.00017412194462423802
+        ],
+        "new_aliquot_count_variance": [
+          0.00017358776155438073,
+          0.00017358776155438073
+        ],
+        "shared_ppe_variance": [
+          1.8172331805916674e-05,
+          1.8172331805916674e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.09092223941721365
+      },
+      {
+        "result_id": "19909:11513:20",
+        "old_pooled_count_variance": [
+          0.00041487367679282036,
+          0.00041487367679282036
+        ],
+        "new_aliquot_count_variance": [
+          0.0004144731643493862,
+          0.0004144731643493862
+        ],
+        "shared_ppe_variance": [
+          8.885820432110442e-05,
+          8.885820432110442e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05871622819223962
+      },
+      {
+        "result_id": "21790:12503:0",
+        "old_pooled_count_variance": [
+          0.0013871076953135195,
+          0.0013871076953135195
+        ],
+        "new_aliquot_count_variance": [
+          0.0013871076953135195,
+          0.0013871076953135195
+        ],
+        "shared_ppe_variance": [
+          0.00021593831191646324,
+          0.00021593831191646324
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "21790:12503:1",
+        "old_pooled_count_variance": [
+          0.00016657864096826443,
+          0.00016657864096826443
+        ],
+        "new_aliquot_count_variance": [
+          0.00015775832542926527,
+          0.00015775832542926527
+        ],
+        "shared_ppe_variance": [
+          0.0001798686986806303,
+          0.0001798686986806303
+        ],
+        "between_aliquot_composition_coefficient": 16.235940434077776
+      },
+      {
+        "result_id": "21790:12503:2",
+        "old_pooled_count_variance": [
+          0.0006263099419418443,
+          0.0006263099419418443
+        ],
+        "new_aliquot_count_variance": [
+          0.0006234005272717047,
+          0.0006234005272717047
+        ],
+        "shared_ppe_variance": [
+          0.00014792693330396614,
+          0.00014792693330396614
+        ],
+        "between_aliquot_composition_coefficient": 0.3115664104629088
+      },
+      {
+        "result_id": "21790:12503:3",
+        "old_pooled_count_variance": [
+          0.0005065527357377379,
+          0.0005065527357377379
+        ],
+        "new_aliquot_count_variance": [
+          0.0005047186503828172,
+          0.0005047186503828172
+        ],
+        "shared_ppe_variance": [
+          9.287405826129151e-05,
+          9.287405826129151e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.18851286753363056
+      },
+      {
+        "result_id": "21790:12503:4",
+        "old_pooled_count_variance": [
+          0.0004517088337071355,
+          0.0004517088337071355
+        ],
+        "new_aliquot_count_variance": [
+          0.0004475655065817536,
+          0.0004475655065817536
+        ],
+        "shared_ppe_variance": [
+          5.890728435426315e-05,
+          5.890728435426315e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.3396858229549761
+      },
+      {
+        "result_id": "21790:12503:5",
+        "old_pooled_count_variance": [
+          0.00035077183426578443,
+          0.00035077183426578443
+        ],
+        "new_aliquot_count_variance": [
+          0.0003504467268363259,
+          0.0003504467268363259
+        ],
+        "shared_ppe_variance": [
+          4.593050087348188e-05,
+          4.593050087348188e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0344631533122914
+      },
+      {
+        "result_id": "21790:12503:6",
+        "old_pooled_count_variance": [
+          0.00011694036598279625,
+          0.00011694036598279625
+        ],
+        "new_aliquot_count_variance": [
+          0.0001166828572997343,
+          0.0001166828572997343
+        ],
+        "shared_ppe_variance": [
+          1.1017634043465381e-05,
+          1.1017634043465381e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05891524490106625
+      },
+      {
+        "result_id": "21790:12503:7",
+        "old_pooled_count_variance": [
+          0.00014882793745483737,
+          0.00014882793745483737
+        ],
+        "new_aliquot_count_variance": [
+          0.00014862552063182148,
+          0.00014862552063182148
+        ],
+        "shared_ppe_variance": [
+          1.5033917079905988e-05,
+          1.5033917079905988e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.039014513209008665
+      },
+      {
+        "result_id": "21790:12503:8",
+        "old_pooled_count_variance": [
+          0.00013632358448310592,
+          0.00013632358448310592
+        ],
+        "new_aliquot_count_variance": [
+          0.00013572223394545493,
+          0.00013572223394545493
+        ],
+        "shared_ppe_variance": [
+          1.2360535267836287e-05,
+          1.2360535267836287e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.11357934291858904
+      },
+      {
+        "result_id": "21790:12503:9",
+        "old_pooled_count_variance": [
+          0.00011034037353259112,
+          0.00011034037353259112
+        ],
+        "new_aliquot_count_variance": [
+          0.00011017813870966749,
+          0.00011017813870966749
+        ],
+        "shared_ppe_variance": [
+          1.0398852711516443e-05,
+          1.0398852711516443e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.03934929631957105
+      },
+      {
+        "result_id": "21790:12503:10",
+        "old_pooled_count_variance": [
+          0.0001796414347756208,
+          0.0001796414347756208
+        ],
+        "new_aliquot_count_variance": [
+          0.00017950974395325653,
+          0.00017950974395325653
+        ],
+        "shared_ppe_variance": [
+          1.7503131264808195e-05,
+          1.7503131264808195e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.020283112211437804
+      },
+      {
+        "result_id": "21790:12503:11",
+        "old_pooled_count_variance": [
+          0.00012370794793890242,
+          0.00012370794793890242
+        ],
+        "new_aliquot_count_variance": [
+          0.00012321368452100024,
+          0.00012321368452100024
+        ],
+        "shared_ppe_variance": [
+          9.9336771013089e-06,
+          9.9336771013089e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.09110656341188036
+      },
+      {
+        "result_id": "21790:12503:12",
+        "old_pooled_count_variance": [
+          0.000131572531575697,
+          0.000131572531575697
+        ],
+        "new_aliquot_count_variance": [
+          0.0001315200071467093,
+          0.0001315200071467093
+        ],
+        "shared_ppe_variance": [
+          1.2844655212541992e-05,
+          1.2844655212541992e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.011066994464527562
+      },
+      {
+        "result_id": "21790:12503:13",
+        "old_pooled_count_variance": [
+          9.58489042273843e-05,
+          9.58489042273843e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.580422428574753e-05,
+          9.580422428574753e-05
+        ],
+        "shared_ppe_variance": [
+          8.372439392260443e-06,
+          8.372439392260443e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.01156289731651845
+      },
+      {
+        "result_id": "21790:12503:14",
+        "old_pooled_count_variance": [
+          0.00012571147301028416,
+          0.00012571147301028416
+        ],
+        "new_aliquot_count_variance": [
+          0.000125495173341068,
+          0.000125495173341068
+        ],
+        "shared_ppe_variance": [
+          1.3147324508334949e-05,
+          1.3147324508334949e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0510998671790534
+      },
+      {
+        "result_id": "21790:12503:15",
+        "old_pooled_count_variance": [
+          0.00012066702229206826,
+          0.00012066702229206826
+        ],
+        "new_aliquot_count_variance": [
+          0.00012056431685480236,
+          0.00012056431685480236
+        ],
+        "shared_ppe_variance": [
+          1.3877326209422433e-05,
+          1.3877326209422433e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.027797030625872476
+      },
+      {
+        "result_id": "21790:12503:16",
+        "old_pooled_count_variance": [
+          0.00018048884755654168,
+          0.00018048884755654168
+        ],
+        "new_aliquot_count_variance": [
+          0.0001804119125169006,
+          0.0001804119125169006
+        ],
+        "shared_ppe_variance": [
+          2.8770926858796914e-05,
+          2.8770926858796914e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.019295394174074474
+      },
+      {
+        "result_id": "21790:12503:17",
+        "old_pooled_count_variance": [
+          0.00021161564264874863,
+          0.00021161564264874863
+        ],
+        "new_aliquot_count_variance": [
+          0.00021044096252082782,
+          0.00021044096252082782
+        ],
+        "shared_ppe_variance": [
+          2.4966359722011372e-05,
+          2.4966359722011372e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.18597547394702338
+      },
+      {
+        "result_id": "21790:12503:18",
+        "old_pooled_count_variance": [
+          0.0003649142454472248,
+          0.0003649142454472248
+        ],
+        "new_aliquot_count_variance": [
+          0.0003640643423869383,
+          0.0003640643423869383
+        ],
+        "shared_ppe_variance": [
+          4.651625699578665e-05,
+          4.651625699578665e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.08430801867224266
+      },
+      {
+        "result_id": "21790:12503:19",
+        "old_pooled_count_variance": [
+          0.00044333645541535523,
+          0.00044333645541535523
+        ],
+        "new_aliquot_count_variance": [
+          0.0004429546159539239,
+          0.0004429546159539239
+        ],
+        "shared_ppe_variance": [
+          6.975156783254233e-05,
+          6.975156783254233e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0384808146200354
+      },
+      {
+        "result_id": "21790:12503:20",
+        "old_pooled_count_variance": [
+          0.0003667880304368684,
+          0.0003667880304368684
+        ],
+        "new_aliquot_count_variance": [
+          0.0003662912361483644,
+          0.0003662912361483644
+        ],
+        "shared_ppe_variance": [
+          0.00011732572209442804,
+          0.00011732572209442804
+        ],
+        "between_aliquot_composition_coefficient": 0.12303137694734605
+      },
+      {
+        "result_id": "21790:12503:21",
+        "old_pooled_count_variance": [
+          0.0003655327928329603,
+          0.0003655327928329603
+        ],
+        "new_aliquot_count_variance": [
+          0.00036472560768479207,
+          0.00036472560768479207
+        ],
+        "shared_ppe_variance": [
+          0.0001448926453359965,
+          0.0001448926453359965
+        ],
+        "between_aliquot_composition_coefficient": 0.24856683278680075
+      },
+      {
+        "result_id": "21790:12503:22",
+        "old_pooled_count_variance": [
+          0.00017291669247457763,
+          0.00017291669247457763
+        ],
+        "new_aliquot_count_variance": [
+          0.00017230757512360587,
+          0.00017230757512360587
+        ],
+        "shared_ppe_variance": [
+          4.35295971646206e-05,
+          4.35295971646206e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.2518187959904187
+      },
+      {
+        "result_id": "21790:12504:0",
+        "old_pooled_count_variance": [
+          0.000607384673404863,
+          0.000607384673404863
+        ],
+        "new_aliquot_count_variance": [
+          0.000607384673404863,
+          0.000607384673404863
+        ],
+        "shared_ppe_variance": [
+          0.00015960233282666587,
+          0.00015960233282666587
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "21790:12504:1",
+        "old_pooled_count_variance": [
+          0.00022435937385763602,
+          0.00022435937385763602
+        ],
+        "new_aliquot_count_variance": [
+          0.0002170499596321131,
+          0.0002170499596321131
+        ],
+        "shared_ppe_variance": [
+          0.00014926174743845388,
+          0.00014926174743845388
+        ],
+        "between_aliquot_composition_coefficient": 6.154871937236902
+      },
+      {
+        "result_id": "21790:12504:2",
+        "old_pooled_count_variance": [
+          0.00046317029818676814,
+          0.00046317029818676814
+        ],
+        "new_aliquot_count_variance": [
+          0.0004605767209967649,
+          0.0004605767209967649
+        ],
+        "shared_ppe_variance": [
+          0.0001636390222340087,
+          0.0001636390222340087
+        ],
+        "between_aliquot_composition_coefficient": 0.5617990684450677
+      },
+      {
+        "result_id": "21790:12504:3",
+        "old_pooled_count_variance": [
+          0.0005065527357377379,
+          0.0005065527357377379
+        ],
+        "new_aliquot_count_variance": [
+          0.0005047186503828172,
+          0.0005047186503828172
+        ],
+        "shared_ppe_variance": [
+          9.287405826129151e-05,
+          9.287405826129151e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.18851286753363056
+      },
+      {
+        "result_id": "21790:12504:4",
+        "old_pooled_count_variance": [
+          0.0004517088337071355,
+          0.0004517088337071355
+        ],
+        "new_aliquot_count_variance": [
+          0.0004475655065817536,
+          0.0004475655065817536
+        ],
+        "shared_ppe_variance": [
+          5.890728435426315e-05,
+          5.890728435426315e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.3396858229549761
+      },
+      {
+        "result_id": "21790:12504:5",
+        "old_pooled_count_variance": [
+          0.0002690542527667267,
+          0.0002690542527667267
+        ],
+        "new_aliquot_count_variance": [
+          0.00026853743926819594,
+          0.00026853743926819594
+        ],
+        "shared_ppe_variance": [
+          3.902513208660066e-05,
+          3.902513208660066e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.07911792194670955
+      },
+      {
+        "result_id": "21790:12504:6",
+        "old_pooled_count_variance": [
+          0.00013401304610580498,
+          0.00013401304610580498
+        ],
+        "new_aliquot_count_variance": [
+          0.00013366829083125923,
+          0.00013366829083125923
+        ],
+        "shared_ppe_variance": [
+          1.0756927932128692e-05,
+          1.0756927932128692e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.058638301843516816
+      },
+      {
+        "result_id": "21790:12504:7",
+        "old_pooled_count_variance": [
+          0.00014882793745483737,
+          0.00014882793745483737
+        ],
+        "new_aliquot_count_variance": [
+          0.00014862552063182148,
+          0.00014862552063182148
+        ],
+        "shared_ppe_variance": [
+          1.5033917079905988e-05,
+          1.5033917079905988e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.039014513209008665
+      },
+      {
+        "result_id": "21790:12504:8",
+        "old_pooled_count_variance": [
+          0.00013632358448310592,
+          0.00013632358448310592
+        ],
+        "new_aliquot_count_variance": [
+          0.00013572223394545493,
+          0.00013572223394545493
+        ],
+        "shared_ppe_variance": [
+          1.2360535267836287e-05,
+          1.2360535267836287e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.11357934291858904
+      },
+      {
+        "result_id": "21790:12504:9",
+        "old_pooled_count_variance": [
+          0.00011034037353259112,
+          0.00011034037353259112
+        ],
+        "new_aliquot_count_variance": [
+          0.00011017813870966749,
+          0.00011017813870966749
+        ],
+        "shared_ppe_variance": [
+          1.0398852711516443e-05,
+          1.0398852711516443e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.03934929631957105
+      },
+      {
+        "result_id": "21790:12504:10",
+        "old_pooled_count_variance": [
+          0.0001796414347756208,
+          0.0001796414347756208
+        ],
+        "new_aliquot_count_variance": [
+          0.00017950974395325653,
+          0.00017950974395325653
+        ],
+        "shared_ppe_variance": [
+          1.7503131264808195e-05,
+          1.7503131264808195e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.020283112211437804
+      },
+      {
+        "result_id": "21790:12504:11",
+        "old_pooled_count_variance": [
+          0.00010876270325196925,
+          0.00010876270325196925
+        ],
+        "new_aliquot_count_variance": [
+          0.00010840156570232032,
+          0.00010840156570232032
+        ],
+        "shared_ppe_variance": [
+          1.1006276773863991e-05,
+          1.1006276773863991e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.09541781211724634
+      },
+      {
+        "result_id": "21790:12504:12",
+        "old_pooled_count_variance": [
+          0.0001555147677765457,
+          0.0001555147677765457
+        ],
+        "new_aliquot_count_variance": [
+          0.00015545075506635605,
+          0.00015545075506635605
+        ],
+        "shared_ppe_variance": [
+          1.1933587242847958e-05,
+          1.1933587242847958e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.008969543055135934
+      },
+      {
+        "result_id": "21790:12504:13",
+        "old_pooled_count_variance": [
+          9.58489042273843e-05,
+          9.58489042273843e-05
+        ],
+        "new_aliquot_count_variance": [
+          9.580422428574753e-05,
+          9.580422428574753e-05
+        ],
+        "shared_ppe_variance": [
+          8.372439392260443e-06,
+          8.372439392260443e-06
+        ],
+        "between_aliquot_composition_coefficient": 0.01156289731651845
+      },
+      {
+        "result_id": "21790:12504:14",
+        "old_pooled_count_variance": [
+          0.00012571147301028416,
+          0.00012571147301028416
+        ],
+        "new_aliquot_count_variance": [
+          0.000125495173341068,
+          0.000125495173341068
+        ],
+        "shared_ppe_variance": [
+          1.3147324508334949e-05,
+          1.3147324508334949e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0510998671790534
+      },
+      {
+        "result_id": "21790:12504:15",
+        "old_pooled_count_variance": [
+          0.00012066702229206826,
+          0.00012066702229206826
+        ],
+        "new_aliquot_count_variance": [
+          0.00012056431685480236,
+          0.00012056431685480236
+        ],
+        "shared_ppe_variance": [
+          1.3877326209422433e-05,
+          1.3877326209422433e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.027797030625872476
+      },
+      {
+        "result_id": "21790:12504:16",
+        "old_pooled_count_variance": [
+          0.00018048884755654168,
+          0.00018048884755654168
+        ],
+        "new_aliquot_count_variance": [
+          0.0001804119125169006,
+          0.0001804119125169006
+        ],
+        "shared_ppe_variance": [
+          2.8770926858796914e-05,
+          2.8770926858796914e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.019295394174074474
+      },
+      {
+        "result_id": "21790:12504:17",
+        "old_pooled_count_variance": [
+          0.00021161564264874863,
+          0.00021161564264874863
+        ],
+        "new_aliquot_count_variance": [
+          0.00021044096252082782,
+          0.00021044096252082782
+        ],
+        "shared_ppe_variance": [
+          2.4966359722011372e-05,
+          2.4966359722011372e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.18597547394702338
+      },
+      {
+        "result_id": "21790:12504:18",
+        "old_pooled_count_variance": [
+          0.0003649142454472248,
+          0.0003649142454472248
+        ],
+        "new_aliquot_count_variance": [
+          0.0003640643423869383,
+          0.0003640643423869383
+        ],
+        "shared_ppe_variance": [
+          4.651625699578665e-05,
+          4.651625699578665e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.08430801867224266
+      },
+      {
+        "result_id": "21790:12504:19",
+        "old_pooled_count_variance": [
+          0.00034223353032012343,
+          0.00034223353032012343
+        ],
+        "new_aliquot_count_variance": [
+          0.0003414161789834852,
+          0.0003414161789834852
+        ],
+        "shared_ppe_variance": [
+          8.503904863213009e-05,
+          8.503904863213009e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.16852270421425192
+      },
+      {
+        "result_id": "21790:12504:20",
+        "old_pooled_count_variance": [
+          0.000501042202902666,
+          0.000501042202902666
+        ],
+        "new_aliquot_count_variance": [
+          0.0005001280068402211,
+          0.0005001280068402211
+        ],
+        "shared_ppe_variance": [
+          0.00011482230289780069,
+          0.00011482230289780069
+        ],
+        "between_aliquot_composition_coefficient": 0.11873898904236212
+      },
+      {
+        "result_id": "21790:12504:21",
+        "old_pooled_count_variance": [
+          0.0004656940557634576,
+          0.0004656940557634576
+        ],
+        "new_aliquot_count_variance": [
+          0.0004643809792309216,
+          0.0004643809792309216
+        ],
+        "shared_ppe_variance": [
+          0.0001443002201846255,
+          0.0001443002201846255
+        ],
+        "between_aliquot_composition_coefficient": 0.2481029957794887
+      },
+      {
+        "result_id": "21790:12504:22",
+        "old_pooled_count_variance": [
+          0.0004938406856274115,
+          0.0004938406856274115
+        ],
+        "new_aliquot_count_variance": [
+          0.000492320216937791,
+          0.000492320216937791
+        ],
+        "shared_ppe_variance": [
+          0.00010197310772533418,
+          0.00010197310772533418
+        ],
+        "between_aliquot_composition_coefficient": 0.1805368108508361
+      },
+      {
+        "result_id": "21790:12504:23",
+        "old_pooled_count_variance": [
+          0.0004920922011294314,
+          0.0004920922011294314
+        ],
+        "new_aliquot_count_variance": [
+          0.0004920922011294314,
+          0.0004920922011294314
+        ],
+        "shared_ppe_variance": [
+          1.5424384601374735e-05,
+          1.5424384601374735e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "21790:12504:24",
+        "old_pooled_count_variance": [
+          0.0003521231864998025,
+          0.0003521231864998025
+        ],
+        "new_aliquot_count_variance": [
+          0.0003517881921216646,
+          0.0003517881921216646
+        ],
+        "shared_ppe_variance": [
+          3.530835358525455e-05,
+          3.530835358525455e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.027089569485492397
+      },
+      {
+        "result_id": "45311:29525:0",
+        "old_pooled_count_variance": [
+          0.0026037031022339537,
+          0.0026037031022339537
+        ],
+        "new_aliquot_count_variance": [
+          0.0026037031022339537,
+          0.0026037031022339537
+        ],
+        "shared_ppe_variance": [
+          9.746464644584206e-05,
+          9.746464644584206e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "45311:29525:1",
+        "old_pooled_count_variance": [
+          0.002606698252440142,
+          0.002606698252440142
+        ],
+        "new_aliquot_count_variance": [
+          0.002606698252440142,
+          0.002606698252440142
+        ],
+        "shared_ppe_variance": [
+          0.00018801947857310762,
+          0.00018801947857310762
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "45311:29525:2",
+        "old_pooled_count_variance": [
+          0.0013047316070404307,
+          0.0013047316070404307
+        ],
+        "new_aliquot_count_variance": [
+          0.001304549739835005,
+          0.001304549739835005
+        ],
+        "shared_ppe_variance": [
+          0.00013173809713207818,
+          0.00013173809713207818
+        ],
+        "between_aliquot_composition_coefficient": 0.003996683678282906
+      },
+      {
+        "result_id": "45311:29525:3",
+        "old_pooled_count_variance": [
+          0.0006049985947777669,
+          0.0006049985947777669
+        ],
+        "new_aliquot_count_variance": [
+          0.0006044974978447712,
+          0.0006044974978447712
+        ],
+        "shared_ppe_variance": [
+          8.875621600598253e-05,
+          8.875621600598253e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.03450548651110828
+      },
+      {
+        "result_id": "45311:29525:4",
+        "old_pooled_count_variance": [
+          0.0008362417646064651,
+          0.0008362417646064651
+        ],
+        "new_aliquot_count_variance": [
+          0.000836137649083312,
+          0.000836137649083312
+        ],
+        "shared_ppe_variance": [
+          3.189719859438305e-05,
+          3.189719859438305e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0013485923268544598
+      },
+      {
+        "result_id": "45311:29525:5",
+        "old_pooled_count_variance": [
+          0.0005011362203971211,
+          0.0005011362203971211
+        ],
+        "new_aliquot_count_variance": [
+          0.0005008952621988621,
+          0.0005008952621988621
+        ],
+        "shared_ppe_variance": [
+          2.9562714779067324e-05,
+          2.9562714779067324e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.008054726492429887
+      },
+      {
+        "result_id": "45311:29525:6",
+        "old_pooled_count_variance": [
+          0.0008172116062487972,
+          0.0008172116062487972
+        ],
+        "new_aliquot_count_variance": [
+          0.0008147429240604883,
+          0.0008147429240604883
+        ],
+        "shared_ppe_variance": [
+          8.37640639009324e-05,
+          8.37640639009324e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.08792861551958432
+      },
+      {
+        "result_id": "45311:29525:7",
+        "old_pooled_count_variance": [
+          0.0008018964469140228,
+          0.0008018964469140228
+        ],
+        "new_aliquot_count_variance": [
+          0.0007960578207465701,
+          0.0007960578207465701
+        ],
+        "shared_ppe_variance": [
+          5.523850765098176e-05,
+          5.523850765098176e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.14242702139153365
+      },
+      {
+        "result_id": "45311:29525:8",
+        "old_pooled_count_variance": [
+          0.0006861095382320968,
+          0.0006861095382320968
+        ],
+        "new_aliquot_count_variance": [
+          0.0006857404552711209,
+          0.0006857404552711209
+        ],
+        "shared_ppe_variance": [
+          3.799697772167333e-05,
+          3.799697772167333e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.00845984683942021
+      },
+      {
+        "result_id": "45311:29525:9",
+        "old_pooled_count_variance": [
+          0.0007953854775110909,
+          0.0007953854775110909
+        ],
+        "new_aliquot_count_variance": [
+          0.0007941001471983806,
+          0.0007941001471983806
+        ],
+        "shared_ppe_variance": [
+          5.209656155911107e-05,
+          5.209656155911107e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.03005694659598951
+      },
+      {
+        "result_id": "45311:29525:10",
+        "old_pooled_count_variance": [
+          0.0010044087428967058,
+          0.0010044087428967058
+        ],
+        "new_aliquot_count_variance": [
+          0.0010041261661161425,
+          0.0010041261661161425
+        ],
+        "shared_ppe_variance": [
+          6.892367633751059e-05,
+          6.892367633751059e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.005482268507366998
+      },
+      {
+        "result_id": "45311:29525:11",
+        "old_pooled_count_variance": [
+          0.0007208232203944795,
+          0.0007208232203944795
+        ],
+        "new_aliquot_count_variance": [
+          0.0007184694856008662,
+          0.0007184694856008662
+        ],
+        "shared_ppe_variance": [
+          3.7430712725569236e-05,
+          3.7430712725569236e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0481509046523083
+      },
+      {
+        "result_id": "45311:29525:12",
+        "old_pooled_count_variance": [
+          0.0009890457977988763,
+          0.0009890457977988763
+        ],
+        "new_aliquot_count_variance": [
+          0.0009887819106178877,
+          0.0009887819106178877
+        ],
+        "shared_ppe_variance": [
+          5.1156489405844094e-05,
+          5.1156489405844094e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.003918885611671551
+      },
+      {
+        "result_id": "45311:29525:13",
+        "old_pooled_count_variance": [
+          0.0008497618334514104,
+          0.0008497618334514104
+        ],
+        "new_aliquot_count_variance": [
+          0.0008459433549183517,
+          0.0008459433549183517
+        ],
+        "shared_ppe_variance": [
+          4.6938586847548546e-05,
+          4.6938586847548546e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.07048590586118193
+      },
+      {
+        "result_id": "45311:29525:14",
+        "old_pooled_count_variance": [
+          0.0010733456322173447,
+          0.0010733456322173447
+        ],
+        "new_aliquot_count_variance": [
+          0.0010695109913390856,
+          0.0010695109913390856
+        ],
+        "shared_ppe_variance": [
+          6.271508425598358e-05,
+          6.271508425598358e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05927804675382446
+      },
+      {
+        "result_id": "45311:29525:15",
+        "old_pooled_count_variance": [
+          0.0038610274420686577,
+          0.0038610274420686577
+        ],
+        "new_aliquot_count_variance": [
+          0.0038610274420686577,
+          0.0038610274420686577
+        ],
+        "shared_ppe_variance": [
+          9.211927814567696e-05,
+          9.211927814567696e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "45311:29525:16",
+        "old_pooled_count_variance": [
+          0.0009357888808814802,
+          0.0009357888808814802
+        ],
+        "new_aliquot_count_variance": [
+          0.0009351606373480622,
+          0.0009351606373480622
+        ],
+        "shared_ppe_variance": [
+          9.86834400964934e-05,
+          9.86834400964934e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.020104483045539235
+      },
+      {
+        "result_id": "45311:29525:17",
+        "old_pooled_count_variance": [
+          0.0007300150130520486,
+          0.0007300150130520486
+        ],
+        "new_aliquot_count_variance": [
+          0.0007291189371549816,
+          0.0007291189371549816
+        ],
+        "shared_ppe_variance": [
+          7.010891466127759e-05,
+          7.010891466127759e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.03347578888173789
+      },
+      {
+        "result_id": "45311:29525:18",
+        "old_pooled_count_variance": [
+          0.0007450668560895942,
+          0.0007450668560895942
+        ],
+        "new_aliquot_count_variance": [
+          0.0007408042352282944,
+          0.0007408042352282944
+        ],
+        "shared_ppe_variance": [
+          0.00010130190377550123,
+          0.00010130190377550123
+        ],
+        "between_aliquot_composition_coefficient": 0.22089210214483798
+      },
+      {
+        "result_id": "45311:29525:19",
+        "old_pooled_count_variance": [
+          0.0007285284009252045,
+          0.0007285284009252045
+        ],
+        "new_aliquot_count_variance": [
+          0.0007279150612108234,
+          0.0007279150612108234
+        ],
+        "shared_ppe_variance": [
+          9.429773389477231e-05,
+          9.429773389477231e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.030944661246289785
+      },
+      {
+        "result_id": "45311:29525:20",
+        "old_pooled_count_variance": [
+          0.0005097053996663487,
+          0.0005097053996663487
+        ],
+        "new_aliquot_count_variance": [
+          0.0005095104150662709,
+          0.0005095104150662709
+        ],
+        "shared_ppe_variance": [
+          5.44343151046589e-05,
+          5.44343151046589e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.011601415206429317
+      },
+      {
+        "result_id": "45311:29525:21",
+        "old_pooled_count_variance": [
+          0.00040224109657595005,
+          0.00040224109657595005
+        ],
+        "new_aliquot_count_variance": [
+          0.00040147977059850254,
+          0.00040147977059850254
+        ],
+        "shared_ppe_variance": [
+          5.541389553957126e-05,
+          5.541389553957126e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0740445016405323
+      },
+      {
+        "result_id": "45311:29525:22",
+        "old_pooled_count_variance": [
+          0.0006289209246549585,
+          0.0006289209246549585
+        ],
+        "new_aliquot_count_variance": [
+          0.0005950269925376506,
+          0.0005950269925376506
+        ],
+        "shared_ppe_variance": [
+          0.00021600123074041444,
+          0.00021600123074041444
+        ],
+        "between_aliquot_composition_coefficient": 5.256085926116768
+      },
+      {
+        "result_id": "45311:29524:1",
+        "old_pooled_count_variance": [
+          0.0013666677912742386,
+          0.0013666677912742386
+        ],
+        "new_aliquot_count_variance": [
+          0.0013578730089752336,
+          0.0013578730089752336
+        ],
+        "shared_ppe_variance": [
+          0.00015070528820265854,
+          0.00015070528820265854
+        ],
+        "between_aliquot_composition_coefficient": 0.20151344641821164
+      },
+      {
+        "result_id": "45311:29524:2",
+        "old_pooled_count_variance": [
+          0.002631121449949486,
+          0.002631121449949486
+        ],
+        "new_aliquot_count_variance": [
+          0.002631121449949486,
+          0.002631121449949486
+        ],
+        "shared_ppe_variance": [
+          0.00012429475203185899,
+          0.00012429475203185899
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "45311:29524:3",
+        "old_pooled_count_variance": [
+          0.000836198032966369,
+          0.000836198032966369
+        ],
+        "new_aliquot_count_variance": [
+          0.0008340057582393661,
+          0.0008340057582393661
+        ],
+        "shared_ppe_variance": [
+          0.00010504560463792573,
+          0.00010504560463792573
+        ],
+        "between_aliquot_composition_coefficient": 0.09352569478410512
+      },
+      {
+        "result_id": "45311:29524:4",
+        "old_pooled_count_variance": [
+          0.000754968598426175,
+          0.000754968598426175
+        ],
+        "new_aliquot_count_variance": [
+          0.0007534537902013124,
+          0.0007534537902013124
+        ],
+        "shared_ppe_variance": [
+          7.245752133755489e-05,
+          7.245752133755489e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05468392956521962
+      },
+      {
+        "result_id": "45311:29524:5",
+        "old_pooled_count_variance": [
+          0.0005279463692155546,
+          0.0005279463692155546
+        ],
+        "new_aliquot_count_variance": [
+          0.0005278978465424836,
+          0.0005278978465424836
+        ],
+        "shared_ppe_variance": [
+          3.2942192668107574e-05,
+          3.2942192668107574e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.001628523273744361
+      },
+      {
+        "result_id": "45311:29524:6",
+        "old_pooled_count_variance": [
+          0.0005583004716822465,
+          0.0005583004716822465
+        ],
+        "new_aliquot_count_variance": [
+          0.0005551753654545826,
+          0.0005551753654545826
+        ],
+        "shared_ppe_variance": [
+          6.519714316240468e-05,
+          6.519714316240468e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.18562382807448466
+      },
+      {
+        "result_id": "45311:29524:7",
+        "old_pooled_count_variance": [
+          0.000555985523514831,
+          0.000555985523514831
+        ],
+        "new_aliquot_count_variance": [
+          0.000552447885960494,
+          0.000552447885960494
+        ],
+        "shared_ppe_variance": [
+          4.797207612121322e-05,
+          4.797207612121322e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.15590184186820708
+      },
+      {
+        "result_id": "45311:29524:8",
+        "old_pooled_count_variance": [
+          0.0011333980573426672,
+          0.0011333980573426672
+        ],
+        "new_aliquot_count_variance": [
+          0.0011328699262424188,
+          0.0011328699262424188
+        ],
+        "shared_ppe_variance": [
+          4.30890656054495e-05,
+          4.30890656054495e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.005030605429657756
+      },
+      {
+        "result_id": "45311:29524:9",
+        "old_pooled_count_variance": [
+          0.00121826703722692,
+          0.00121826703722692
+        ],
+        "new_aliquot_count_variance": [
+          0.0012161465760634153,
+          0.0012161465760634153
+        ],
+        "shared_ppe_variance": [
+          5.868727265253856e-05,
+          5.868727265253856e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.023810341625790814
+      },
+      {
+        "result_id": "45311:29524:10",
+        "old_pooled_count_variance": [
+          0.0013229800900595502,
+          0.0013229800900595502
+        ],
+        "new_aliquot_count_variance": [
+          0.0013215596568906377,
+          0.0013215596568906377
+        ],
+        "shared_ppe_variance": [
+          5.4688417541342934e-05,
+          5.4688417541342934e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.012603347449082477
+      },
+      {
+        "result_id": "45311:29524:11",
+        "old_pooled_count_variance": [
+          0.000969616935598639,
+          0.000969616935598639
+        ],
+        "new_aliquot_count_variance": [
+          0.0009693346493249708,
+          0.0009693346493249708
+        ],
+        "shared_ppe_variance": [
+          6.984496555835252e-05,
+          6.984496555835252e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.005955261651887111
+      },
+      {
+        "result_id": "45311:29524:12",
+        "old_pooled_count_variance": [
+          0.0006823750180678696,
+          0.0006823750180678696
+        ],
+        "new_aliquot_count_variance": [
+          0.000681343592593652,
+          0.000681343592593652
+        ],
+        "shared_ppe_variance": [
+          3.077117608263481e-05,
+          3.077117608263481e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.019355842303786768
+      },
+      {
+        "result_id": "45311:29524:13",
+        "old_pooled_count_variance": [
+          0.0006908184747615098,
+          0.0006908184747615098
+        ],
+        "new_aliquot_count_variance": [
+          0.00068820953926215,
+          0.00068820953926215
+        ],
+        "shared_ppe_variance": [
+          4.7688535734428704e-05,
+          4.7688535734428704e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.07403307813970318
+      },
+      {
+        "result_id": "45311:29524:14",
+        "old_pooled_count_variance": [
+          0.0011314644972036517,
+          0.0011314644972036517
+        ],
+        "new_aliquot_count_variance": [
+          0.0011270832910992739,
+          0.0011270832910992739
+        ],
+        "shared_ppe_variance": [
+          6.223050565603562e-05,
+          6.223050565603562e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.06047717764354579
+      },
+      {
+        "result_id": "45311:29524:15",
+        "old_pooled_count_variance": [
+          0.0015340735350930779,
+          0.0015340735350930779
+        ],
+        "new_aliquot_count_variance": [
+          0.0015320804459516778,
+          0.0015320804459516778
+        ],
+        "shared_ppe_variance": [
+          6.843480913465151e-05,
+          6.843480913465151e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.016458406769513552
+      },
+      {
+        "result_id": "45311:29524:16",
+        "old_pooled_count_variance": [
+          0.0009357888808814802,
+          0.0009357888808814802
+        ],
+        "new_aliquot_count_variance": [
+          0.0009351606373480622,
+          0.0009351606373480622
+        ],
+        "shared_ppe_variance": [
+          9.86834400964934e-05,
+          9.86834400964934e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.020104483045539235
+      },
+      {
+        "result_id": "45311:29524:17",
+        "old_pooled_count_variance": [
+          0.00042270554895913027,
+          0.00042270554895913027
+        ],
+        "new_aliquot_count_variance": [
+          0.00042145735820517914,
+          0.00042145735820517914
+        ],
+        "shared_ppe_variance": [
+          7.386395157368878e-05,
+          7.386395157368878e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.14652575405429238
+      },
+      {
+        "result_id": "45311:29524:18",
+        "old_pooled_count_variance": [
+          0.0012594145988499832,
+          0.0012594145988499832
+        ],
+        "new_aliquot_count_variance": [
+          0.0012543489180179821,
+          0.0012543489180179821
+        ],
+        "shared_ppe_variance": [
+          0.0001109709503188971,
+          0.0001109709503188971
+        ],
+        "between_aliquot_composition_coefficient": 0.10064357285028588
+      },
+      {
+        "result_id": "45311:29524:19",
+        "old_pooled_count_variance": [
+          0.0006339206440883577,
+          0.0006339206440883577
+        ],
+        "new_aliquot_count_variance": [
+          0.0006326013425274517,
+          0.0006326013425274517
+        ],
+        "shared_ppe_variance": [
+          8.445308226368749e-05,
+          8.445308226368749e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.07873469591106758
+      },
+      {
+        "result_id": "45311:29524:20",
+        "old_pooled_count_variance": [
+          0.0007883790892320815,
+          0.0007883790892320815
+        ],
+        "new_aliquot_count_variance": [
+          0.0007879853249289629,
+          0.0007879853249289629
+        ],
+        "shared_ppe_variance": [
+          5.699462627184764e-05,
+          5.699462627184764e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.010253601227392443
+      },
+      {
+        "result_id": "45311:29524:21",
+        "old_pooled_count_variance": [
+          0.0008519255721493298,
+          0.0008519255721493298
+        ],
+        "new_aliquot_count_variance": [
+          0.0008498544466511638,
+          0.0008498544466511638
+        ],
+        "shared_ppe_variance": [
+          6.726049347859286e-05,
+          6.726049347859286e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.054505398532520496
+      },
+      {
+        "result_id": "45311:29524:22",
+        "old_pooled_count_variance": [
+          0.000424221829210839,
+          0.000424221829210839
+        ],
+        "new_aliquot_count_variance": [
+          0.00039413378997201214,
+          0.00039413378997201214
+        ],
+        "shared_ppe_variance": [
+          0.00017519142330995783,
+          0.00017519142330995783
+        ],
+        "between_aliquot_composition_coefficient": 8.317581541244397
+      },
+      {
+        "result_id": "45314:29528:0",
+        "old_pooled_count_variance": [
+          0.006229665894467827,
+          0.006229665894467827
+        ],
+        "new_aliquot_count_variance": [
+          0.006229665894467827,
+          0.006229665894467827
+        ],
+        "shared_ppe_variance": [
+          0.00010553297608149569,
+          0.00010553297608149569
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "45314:29528:2",
+        "old_pooled_count_variance": [
+          0.002089244614065737,
+          0.002089244614065737
+        ],
+        "new_aliquot_count_variance": [
+          0.002079388085637461,
+          0.002079388085637461
+        ],
+        "shared_ppe_variance": [
+          8.54762946794653e-05,
+          8.54762946794653e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.05481096494574527
+      },
+      {
+        "result_id": "45314:29528:3",
+        "old_pooled_count_variance": [
+          0.0018542224496219436,
+          0.0018542224496219436
+        ],
+        "new_aliquot_count_variance": [
+          0.001854211075166966,
+          0.001854211075166966
+        ],
+        "shared_ppe_variance": [
+          6.363012360295628e-05,
+          6.363012360295628e-05
+        ],
+        "between_aliquot_composition_coefficient": 5.977864366774127e-05
+      },
+      {
+        "result_id": "45314:29528:4",
+        "old_pooled_count_variance": [
+          0.0011904364512535315,
+          0.0011904364512535315
+        ],
+        "new_aliquot_count_variance": [
+          0.0011792245426899325,
+          0.0011792245426899325
+        ],
+        "shared_ppe_variance": [
+          5.7298891544236866e-05,
+          5.7298891544236866e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.12873294324528156
+      },
+      {
+        "result_id": "45314:29528:5",
+        "old_pooled_count_variance": [
+          0.001494448320748575,
+          0.001494448320748575
+        ],
+        "new_aliquot_count_variance": [
+          0.0014902016064307297,
+          0.0014902016064307297
+        ],
+        "shared_ppe_variance": [
+          2.0789104248914236e-05,
+          2.0789104248914236e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.011225440303258082
+      },
+      {
+        "result_id": "45314:29528:6",
+        "old_pooled_count_variance": [
+          0.0013313817552688175,
+          0.0013313817552688175
+        ],
+        "new_aliquot_count_variance": [
+          0.001329850281951148,
+          0.001329850281951148
+        ],
+        "shared_ppe_variance": [
+          7.735481869374769e-05,
+          7.735481869374769e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.01897876588861187
+      },
+      {
+        "result_id": "45314:29528:7",
+        "old_pooled_count_variance": [
+          0.0026474163857076066,
+          0.0026474163857076066
+        ],
+        "new_aliquot_count_variance": [
+          0.0026103597101060786,
+          0.0026103597101060786
+        ],
+        "shared_ppe_variance": [
+          9.887623233448998e-05,
+          9.887623233448998e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.14845342572805797
+      },
+      {
+        "result_id": "45314:29528:8",
+        "old_pooled_count_variance": [
+          0.001332040982124347,
+          0.001332040982124347
+        ],
+        "new_aliquot_count_variance": [
+          0.0013214404929488732,
+          0.0013214404929488732
+        ],
+        "shared_ppe_variance": [
+          0.000121213455689854,
+          0.000121213455689854
+        ],
+        "between_aliquot_composition_coefficient": 0.2056448936944293
+      },
+      {
+        "result_id": "45314:29528:9",
+        "old_pooled_count_variance": [
+          0.0012368902157639766,
+          0.0012368902157639766
+        ],
+        "new_aliquot_count_variance": [
+          0.0012359286413288488,
+          0.0012359286413288488
+        ],
+        "shared_ppe_variance": [
+          8.024988700538919e-05,
+          8.024988700538919e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.014323244113307588
+      },
+      {
+        "result_id": "45314:29528:10",
+        "old_pooled_count_variance": [
+          0.0014260837117524377,
+          0.0014260837117524377
+        ],
+        "new_aliquot_count_variance": [
+          0.001404006559837505,
+          0.001404006559837505
+        ],
+        "shared_ppe_variance": [
+          0.00013850113794499478,
+          0.00013850113794499478
+        ],
+        "between_aliquot_composition_coefficient": 0.42695559839929836
+      },
+      {
+        "result_id": "45314:29528:11",
+        "old_pooled_count_variance": [
+          0.0011730058409285084,
+          0.0011730058409285084
+        ],
+        "new_aliquot_count_variance": [
+          0.0011672928432086608,
+          0.0011672928432086608
+        ],
+        "shared_ppe_variance": [
+          5.6473677583031695e-05,
+          5.6473677583031695e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.06658649199394936
+      },
+      {
+        "result_id": "45314:29528:12",
+        "old_pooled_count_variance": [
+          0.0006821839704190802,
+          0.0006821839704190802
+        ],
+        "new_aliquot_count_variance": [
+          0.0006815012876900772,
+          0.0006815012876900772
+        ],
+        "shared_ppe_variance": [
+          4.2405164092020745e-05,
+          4.2405164092020745e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.01766489283764443
+      },
+      {
+        "result_id": "45314:29528:13",
+        "old_pooled_count_variance": [
+          0.0009241612726876552,
+          0.0009241612726876552
+        ],
+        "new_aliquot_count_variance": [
+          0.0009214694104334384,
+          0.0009214694104334384
+        ],
+        "shared_ppe_variance": [
+          3.201828344802321e-05,
+          3.201828344802321e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.028657065152902117
+      },
+      {
+        "result_id": "45314:29528:14",
+        "old_pooled_count_variance": [
+          0.0004575957199647151,
+          0.0004575957199647151
+        ],
+        "new_aliquot_count_variance": [
+          0.0004567600790754485,
+          0.0004567600790754485
+        ],
+        "shared_ppe_variance": [
+          1.4357486418503954e-05,
+          1.4357486418503954e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.016270861683099148
+      },
+      {
+        "result_id": "45314:29528:15",
+        "old_pooled_count_variance": [
+          0.0008184866496201105,
+          0.0008184866496201105
+        ],
+        "new_aliquot_count_variance": [
+          0.000814739034905302,
+          0.000814739034905302
+        ],
+        "shared_ppe_variance": [
+          5.075035150995477e-05,
+          5.075035150995477e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.08062080941662357
+      },
+      {
+        "result_id": "45314:29528:16",
+        "old_pooled_count_variance": [
+          0.00043457263467525895,
+          0.00043457263467525895
+        ],
+        "new_aliquot_count_variance": [
+          0.00043363959152086553,
+          0.00043363959152086553
+        ],
+        "shared_ppe_variance": [
+          2.7144192805543425e-05,
+          2.7144192805543425e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.03808292313427097
+      },
+      {
+        "result_id": "45314:29528:17",
+        "old_pooled_count_variance": [
+          0.0013178169756479523,
+          0.0013178169756479523
+        ],
+        "new_aliquot_count_variance": [
+          0.0013170062822934051,
+          0.0013170062822934051
+        ],
+        "shared_ppe_variance": [
+          4.5467088663089244e-05,
+          4.5467088663089244e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.006027260026042957
+      },
+      {
+        "result_id": "45314:29528:18",
+        "old_pooled_count_variance": [
+          0.001007490033200539,
+          0.001007490033200539
+        ],
+        "new_aliquot_count_variance": [
+          0.0010025680316112747,
+          0.0010025680316112747
+        ],
+        "shared_ppe_variance": [
+          6.903651219659005e-05,
+          6.903651219659005e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.09506385873624025
+      },
+      {
+        "result_id": "45314:29528:19",
+        "old_pooled_count_variance": [
+          0.003044473219509616,
+          0.003044473219509616
+        ],
+        "new_aliquot_count_variance": [
+          0.003044473219509616,
+          0.003044473219509616
+        ],
+        "shared_ppe_variance": [
+          4.2059355942806606e-05,
+          4.2059355942806606e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "45314:29529:1",
+        "old_pooled_count_variance": [
+          0.003309883713138254,
+          0.003309883713138254
+        ],
+        "new_aliquot_count_variance": [
+          0.003309883713138254,
+          0.003309883713138254
+        ],
+        "shared_ppe_variance": [
+          4.567593498641883e-05,
+          4.567593498641883e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.0
+      },
+      {
+        "result_id": "45314:29529:2",
+        "old_pooled_count_variance": [
+          0.0021647222566865435,
+          0.0021647222566865435
+        ],
+        "new_aliquot_count_variance": [
+          0.0021592002331942695,
+          0.0021592002331942695
+        ],
+        "shared_ppe_variance": [
+          9.564512514023373e-05,
+          9.564512514023373e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.03200612439246119
+      },
+      {
+        "result_id": "45314:29529:3",
+        "old_pooled_count_variance": [
+          0.0019957846278818915,
+          0.0019957846278818915
+        ],
+        "new_aliquot_count_variance": [
+          0.0019905272204789447,
+          0.0019905272204789447
+        ],
+        "shared_ppe_variance": [
+          9.49835914763087e-05,
+          9.49835914763087e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.035601577071544634
+      },
+      {
+        "result_id": "45314:29529:4",
+        "old_pooled_count_variance": [
+          0.0008151359798456025,
+          0.0008151359798456025
+        ],
+        "new_aliquot_count_variance": [
+          0.0008144046886033239,
+          0.0008144046886033239
+        ],
+        "shared_ppe_variance": [
+          1.7032539537810315e-05,
+          1.7032539537810315e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.005323362191932039
+      },
+      {
+        "result_id": "45314:29529:5",
+        "old_pooled_count_variance": [
+          0.0022121434494545324,
+          0.0022121434494545324
+        ],
+        "new_aliquot_count_variance": [
+          0.0022081040794543344,
+          0.0022081040794543344
+        ],
+        "shared_ppe_variance": [
+          6.078115960279731e-05,
+          6.078115960279731e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.014247294750439404
+      },
+      {
+        "result_id": "45314:29529:6",
+        "old_pooled_count_variance": [
+          0.0012608823019292694,
+          0.0012608823019292694
+        ],
+        "new_aliquot_count_variance": [
+          0.0012568001010844466,
+          0.0012568001010844466
+        ],
+        "shared_ppe_variance": [
+          6.0630011367652134e-05,
+          6.0630011367652134e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.04420885674406801
+      },
+      {
+        "result_id": "45314:29529:7",
+        "old_pooled_count_variance": [
+          0.0017535715986377696,
+          0.0017535715986377696
+        ],
+        "new_aliquot_count_variance": [
+          0.0017470940386612184,
+          0.0017470940386612184
+        ],
+        "shared_ppe_variance": [
+          0.00014635478091476798,
+          0.00014635478091476798
+        ],
+        "between_aliquot_composition_coefficient": 0.08754829949442558
+      },
+      {
+        "result_id": "45314:29529:8",
+        "old_pooled_count_variance": [
+          0.0015141617239843226,
+          0.0015141617239843226
+        ],
+        "new_aliquot_count_variance": [
+          0.0015028341571868215,
+          0.0015028341571868215
+        ],
+        "shared_ppe_variance": [
+          8.266776286734602e-05,
+          8.266776286734602e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.11598575494089657
+      },
+      {
+        "result_id": "45314:29529:9",
+        "old_pooled_count_variance": [
+          0.0019236062428157725,
+          0.0019236062428157725
+        ],
+        "new_aliquot_count_variance": [
+          0.0019235431748010775,
+          0.0019235431748010775
+        ],
+        "shared_ppe_variance": [
+          9.164326891055531e-05,
+          9.164326891055531e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.00044356139476230973
+      },
+      {
+        "result_id": "45314:29529:10",
+        "old_pooled_count_variance": [
+          0.0014260837117524377,
+          0.0014260837117524377
+        ],
+        "new_aliquot_count_variance": [
+          0.001404006559837505,
+          0.001404006559837505
+        ],
+        "shared_ppe_variance": [
+          0.00013850113794499478,
+          0.00013850113794499478
+        ],
+        "between_aliquot_composition_coefficient": 0.42695559839929836
+      },
+      {
+        "result_id": "45314:29529:11",
+        "old_pooled_count_variance": [
+          0.0011730058409285084,
+          0.0011730058409285084
+        ],
+        "new_aliquot_count_variance": [
+          0.0011672928432086608,
+          0.0011672928432086608
+        ],
+        "shared_ppe_variance": [
+          5.6473677583031695e-05,
+          5.6473677583031695e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.06658649199394936
+      },
+      {
+        "result_id": "45314:29529:12",
+        "old_pooled_count_variance": [
+          0.0009412738163977223,
+          0.0009412738163977223
+        ],
+        "new_aliquot_count_variance": [
+          0.0009411157224790029,
+          0.0009411157224790029
+        ],
+        "shared_ppe_variance": [
+          3.2605035934023935e-05,
+          3.2605035934023935e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.001652130145810838
+      },
+      {
+        "result_id": "45314:29529:13",
+        "old_pooled_count_variance": [
+          0.0006743150877031625,
+          0.0006743150877031625
+        ],
+        "new_aliquot_count_variance": [
+          0.0006725803083733477,
+          0.0006725803083733477
+        ],
+        "shared_ppe_variance": [
+          4.192219436751313e-05,
+          4.192219436751313e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.045419134678838784
+      },
+      {
+        "result_id": "45314:29529:14",
+        "old_pooled_count_variance": [
+          0.0004575957199647151,
+          0.0004575957199647151
+        ],
+        "new_aliquot_count_variance": [
+          0.0004567600790754485,
+          0.0004567600790754485
+        ],
+        "shared_ppe_variance": [
+          1.4357486418503954e-05,
+          1.4357486418503954e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.016270861683099148
+      },
+      {
+        "result_id": "45314:29529:15",
+        "old_pooled_count_variance": [
+          0.0009030268466270741,
+          0.0009030268466270741
+        ],
+        "new_aliquot_count_variance": [
+          0.0009024419213599725,
+          0.0009024419213599725
+        ],
+        "shared_ppe_variance": [
+          3.438871663640873e-05,
+          3.438871663640873e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.007004729851938209
+      },
+      {
+        "result_id": "45314:29529:16",
+        "old_pooled_count_variance": [
+          0.0005488073876077713,
+          0.0005488073876077713
+        ],
+        "new_aliquot_count_variance": [
+          0.0005466953402419693,
+          0.0005466953402419693
+        ],
+        "shared_ppe_variance": [
+          4.544397012584442e-05,
+          4.544397012584442e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.09049329160627644
+      },
+      {
+        "result_id": "45314:29529:17",
+        "old_pooled_count_variance": [
+          0.0009019578839407226,
+          0.0009019578839407226
+        ],
+        "new_aliquot_count_variance": [
+          0.0008988127301907704,
+          0.0008988127301907704
+        ],
+        "shared_ppe_variance": [
+          1.883396249993904e-05,
+          1.883396249993904e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.02067699524415411
+      },
+      {
+        "result_id": "45314:29529:18",
+        "old_pooled_count_variance": [
+          0.0006273992267174646,
+          0.0006273992267174646
+        ],
+        "new_aliquot_count_variance": [
+          0.0006250650541119519,
+          0.0006250650541119519
+        ],
+        "shared_ppe_variance": [
+          6.245869274253612e-05,
+          6.245869274253612e-05
+        ],
+        "between_aliquot_composition_coefficient": 0.1051754221238503
+      }
+    ],
+    "interpretation": "Variance reduction follows conditioning on empirical per-aliquot proportions instead of pooled proportions, not improved accuracy. Taxon-zero aliquots can give degenerate plug-in counting covariance and understate finite-sample uncertainty. No interval coverage or chronology-distribution claim."
+  },
+  "assumptions": {
+    "count_model": {
+      "primitive": "One immutable (collection_unit_id,dataset_id,native_sample_id) observation per selected source sample; aliases/count or digest clashes refuse. Native analysis-unit IDs also retained privately, not substituted for sample identity.",
+      "axis": "Exactly the common measured literal Betula/Poaceae panel, in this order, for every primitive and output; fixed N_i=n_i,Betula+n_i,Poaceae. Other NISP is excluded and separately retained, never inserted into the multinomial denominator.",
+      "covariance": "C_i=diag(n_i)-outer(n_i,n_i)/N_i; plugin conditional multinomial with integer measured counts, positive panel total; count sources never independently renormalized per profile.",
+      "independence": "Distinct counted native samples are conditionally independent counting observations, including samples in one core. This does not assert ecological, environmental, sediment or temporal independence. Same sample in different profiles/windows is the same primitive observation.",
+      "selection": "All membership fixed conditional on the two native point chronology selections. Different chronology profiles are not independent replicate sites.",
+      "no_imputation": "Missing/unmeasured axis, ambiguous literal mapping, negative/fractional/bool counts, zero total and absent source windows refuse; explicit measured taxon zero remains permitted."
+    },
+    "ppe_model": {
+      "ppe": [
+        5.106,
+        1.0
+      ],
+      "sd": [
+        0.303,
+        0.0
+      ],
+      "covariance": [
+        [
+          0.091809,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "source": "Exact original source protocol/public-profile input magnitudes retained. Diagonal taxon covariance and one global two-axis shared PPE vector across all cores, windows and chronologies are declared working assumptions, not an estimated cross-core PPE covariance.",
+      "count_independence": "Counts and PPE have zero cross-covariance conditional on this scenario; unsupported correlated/endogenous PPE is outside scope."
+    },
+    "age_selection": {
+      "age_type": "Calibrated radiocarbon years BP",
+      "source_epoch": "AD1950 documented Neotoma convention, not article date",
+      "membership": "Reuse exact maintained select() and its finite typed named-age/source-window equality guards; half-open bins from original protocol; retain missing/ambiguous/outside/allzero/refused tokens.",
+      "bounds": "No source interval distribution or probability inferred; alternate point profiles are deterministic selections."
+    },
+    "physical_model": {
+      "profile": "metadata_radius_wind_3",
+      "binding": "Read exact factors from both saved profiles at every occupied window and require parity with pair-specific source facts above; factor, radius candidate, PPE and literal axes hashed. No quadrature or new geometry or wind.",
+      "scope": "Static radius candidates remain unauthenticated historical geometry; source site/core handles and rights restrictions unchanged."
+    }
+  },
+  "interpretation_limits": [
+    "This is a new first-order fixed-support counting/PPE covariance scenario, not chronology posterior propagation or calibrated interval coverage.",
+    "No independent chronology accuracy, environmental independence, biological whole-vegetation accuracy, historical LandClim reproduction, source licensing/review, or untouched validation admitted.",
+    "Original deterministic point contrasts and all missing/refused populations remain authoritative for their original scope; original pooled marginal SEs remain untouched.",
+    "Current uncertainty describes conditional local delta approximation and retains all poor/unchanged effects, exact zeros and failures.",
+    "Empirical per-aliquot taxon zero may yield degenerate plug-in count variance and understate finite-sample uncertainty. Report one-taxon-only primitives and exact-zero marginals/contrasts explicitly; variance reduction is changed conditioning, not measured precision gain."
+  ],
+  "slots": [
+    {
+      "native_dataset_id": 4042,
+      "window_index": 0,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 1,
+      "status": "matched_saved_outputs",
+      "reference_samples": 1,
+      "alternative_samples": 1,
+      "shared_sample_count": 0,
+      "contrast_index": 0,
+      "alternative_minus_reference_cover": [
+        -0.05985104965779425,
+        0.059851049657794364
+      ],
+      "conditional_paired_standard_error": [
+        0.03263593567305767,
+        0.03263593567305767
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 2,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 1,
+      "alternative_minus_reference_cover": [
+        0.01734688659940925,
+        -0.017346886599409195
+      ],
+      "conditional_paired_standard_error": [
+        0.01478080053536038,
+        0.01478080053536038
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 3,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 2,
+      "alternative_minus_reference_cover": [
+        -0.038530452778143154,
+        0.03853045277814304
+      ],
+      "conditional_paired_standard_error": [
+        0.010710243134267187,
+        0.010710243134267185
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 4,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "contrast_index": 3,
+      "alternative_minus_reference_cover": [
+        0.0010947403355675567,
+        -0.0010947403355673901
+      ],
+      "conditional_paired_standard_error": [
+        0.010465528877417836,
+        0.010465528877417835
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 5,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 4,
+      "alternative_minus_reference_cover": [
+        -0.018569834952917308,
+        0.018569834952917197
+      ],
+      "conditional_paired_standard_error": [
+        0.011132822085358781,
+        0.011132822085358767
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 6,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 5,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 7,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "contrast_index": 6,
+      "alternative_minus_reference_cover": [
+        0.004429920755265826,
+        -0.004429920755265826
+      ],
+      "conditional_paired_standard_error": [
+        0.00947297775361437,
+        0.00947297775361437
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 8,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 7,
+      "alternative_minus_reference_cover": [
+        -0.03578909236568084,
+        0.0357890923656809
+      ],
+      "conditional_paired_standard_error": [
+        0.014617518033336137,
+        0.014617518033336135
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 9,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 8,
+      "alternative_minus_reference_cover": [
+        -0.003275804501637558,
+        0.0032758045016377246
+      ],
+      "conditional_paired_standard_error": [
+        0.011393453056576254,
+        0.011393453056576248
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 10,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 9,
+      "alternative_minus_reference_cover": [
+        -0.03846588026628195,
+        0.038465880266282004
+      ],
+      "conditional_paired_standard_error": [
+        0.01212226389919513,
+        0.01212226389919513
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 11,
+      "status": "matched_saved_outputs",
+      "reference_samples": 6,
+      "alternative_samples": 8,
+      "shared_sample_count": 6,
+      "contrast_index": 10,
+      "alternative_minus_reference_cover": [
+        -0.01176674803841038,
+        0.01176674803841038
+      ],
+      "conditional_paired_standard_error": [
+        0.005945067306218836,
+        0.005945067306218838
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 12,
+      "status": "matched_saved_outputs",
+      "reference_samples": 6,
+      "alternative_samples": 7,
+      "shared_sample_count": 6,
+      "contrast_index": 11,
+      "alternative_minus_reference_cover": [
+        0.0033365353988872304,
+        -0.003336535398887286
+      ],
+      "conditional_paired_standard_error": [
+        0.0039558319234016485,
+        0.0039558319234016485
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 13,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 6,
+      "shared_sample_count": 6,
+      "contrast_index": 12,
+      "alternative_minus_reference_cover": [
+        -0.0012507165572134271,
+        0.0012507165572134549
+      ],
+      "conditional_paired_standard_error": [
+        0.004380078318003548,
+        0.004380078318003548
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 14,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 6,
+      "shared_sample_count": 6,
+      "contrast_index": 13,
+      "alternative_minus_reference_cover": [
+        -0.003473300889143549,
+        0.0034733008891436046
+      ],
+      "conditional_paired_standard_error": [
+        0.003994114545314748,
+        0.003994114545314748
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 15,
+      "status": "matched_saved_outputs",
+      "reference_samples": 8,
+      "alternative_samples": 9,
+      "shared_sample_count": 8,
+      "contrast_index": 14,
+      "alternative_minus_reference_cover": [
+        0.006297102049192427,
+        -0.006297102049192399
+      ],
+      "conditional_paired_standard_error": [
+        0.003015710872582359,
+        0.0030157108725823545
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 16,
+      "status": "matched_saved_outputs",
+      "reference_samples": 9,
+      "alternative_samples": 9,
+      "shared_sample_count": 9,
+      "contrast_index": 15,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 17,
+      "status": "matched_saved_outputs",
+      "reference_samples": 8,
+      "alternative_samples": 7,
+      "shared_sample_count": 7,
+      "contrast_index": 16,
+      "alternative_minus_reference_cover": [
+        0.0019875936984734555,
+        -0.001987593698473511
+      ],
+      "conditional_paired_standard_error": [
+        0.004118752567796953,
+        0.004118752567796951
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 18,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 8,
+      "shared_sample_count": 7,
+      "contrast_index": 17,
+      "alternative_minus_reference_cover": [
+        0.0005156680269157166,
+        -0.0005156680269158276
+      ],
+      "conditional_paired_standard_error": [
+        0.003388934092683846,
+        0.003388934092683846
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 19,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 6,
+      "shared_sample_count": 6,
+      "contrast_index": 18,
+      "alternative_minus_reference_cover": [
+        0.0004401327381188258,
+        -0.0004401327381187703
+      ],
+      "conditional_paired_standard_error": [
+        0.004505212784757773,
+        0.004505212784757771
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 20,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 6,
+      "shared_sample_count": 5,
+      "contrast_index": 19,
+      "alternative_minus_reference_cover": [
+        0.01852569138999527,
+        -0.01852569138999527
+      ],
+      "conditional_paired_standard_error": [
+        0.004028595599324134,
+        0.004028595599324147
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 21,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "contrast_index": 20,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 22,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 21,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 23,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "contrast_index": 22,
+      "alternative_minus_reference_cover": [
+        -0.010638589422627964,
+        0.010638589422628075
+      ],
+      "conditional_paired_standard_error": [
+        0.009094152310959317,
+        0.009094152310959317
+      ]
+    },
+    {
+      "native_dataset_id": 4042,
+      "window_index": 24,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 23,
+      "alternative_minus_reference_cover": [
+        0.0038065664152153733,
+        -0.0038065664152152623
+      ],
+      "conditional_paired_standard_error": [
+        0.0089935705188946,
+        0.008993570518894595
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 0,
+      "status": "alternative_only",
+      "reference_samples": 0,
+      "alternative_samples": 2,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 1,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 24,
+      "alternative_minus_reference_cover": [
+        0.03321308635591014,
+        -0.03321308635591025
+      ],
+      "conditional_paired_standard_error": [
+        0.025439400193490582,
+        0.025439400193490582
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 2,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 25,
+      "alternative_minus_reference_cover": [
+        0.09493145368848632,
+        -0.09493145368848632
+      ],
+      "conditional_paired_standard_error": [
+        0.019403913537127802,
+        0.019403913537127802
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 3,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 26,
+      "alternative_minus_reference_cover": [
+        -0.053484209012379935,
+        0.05348420901237996
+      ],
+      "conditional_paired_standard_error": [
+        0.014409394710461277,
+        0.01440939471046128
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 4,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 27,
+      "alternative_minus_reference_cover": [
+        0.02645678898167958,
+        -0.02645678898167958
+      ],
+      "conditional_paired_standard_error": [
+        0.01736071856333241,
+        0.01736071856333241
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 5,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 28,
+      "alternative_minus_reference_cover": [
+        -0.013044460271504632,
+        0.013044460271504604
+      ],
+      "conditional_paired_standard_error": [
+        0.012047033692640164,
+        0.012047033692640164
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 6,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 6,
+      "shared_sample_count": 6,
+      "contrast_index": 29,
+      "alternative_minus_reference_cover": [
+        0.0007228305272043434,
+        -0.0007228305272044266
+      ],
+      "conditional_paired_standard_error": [
+        0.004208725685737115,
+        0.004208725685737116
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 7,
+      "status": "matched_saved_outputs",
+      "reference_samples": 10,
+      "alternative_samples": 9,
+      "shared_sample_count": 8,
+      "contrast_index": 30,
+      "alternative_minus_reference_cover": [
+        -0.0013937776810071245,
+        0.001393777681007291
+      ],
+      "conditional_paired_standard_error": [
+        0.0038121715436233777,
+        0.0038121715436233786
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 8,
+      "status": "matched_saved_outputs",
+      "reference_samples": 10,
+      "alternative_samples": 11,
+      "shared_sample_count": 9,
+      "contrast_index": 31,
+      "alternative_minus_reference_cover": [
+        -0.00019225458952820684,
+        0.0001922545895281444
+      ],
+      "conditional_paired_standard_error": [
+        0.0028911171448721953,
+        0.0028911171448721953
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 9,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 32,
+      "alternative_minus_reference_cover": [
+        0.0026597913780822546,
+        -0.0026597913780822754
+      ],
+      "conditional_paired_standard_error": [
+        0.0051429678232514766,
+        0.005142967823251478
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 10,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 5,
+      "shared_sample_count": 4,
+      "contrast_index": 33,
+      "alternative_minus_reference_cover": [
+        0.0029990958183860883,
+        -0.002999095818385984
+      ],
+      "conditional_paired_standard_error": [
+        0.005930022940404413,
+        0.005930022940404413
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 11,
+      "status": "matched_saved_outputs",
+      "reference_samples": 8,
+      "alternative_samples": 8,
+      "shared_sample_count": 7,
+      "contrast_index": 34,
+      "alternative_minus_reference_cover": [
+        0.0014280087995455215,
+        -0.001428008799545466
+      ],
+      "conditional_paired_standard_error": [
+        0.004363344464721858,
+        0.004363344464721859
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 12,
+      "status": "matched_saved_outputs",
+      "reference_samples": 7,
+      "alternative_samples": 7,
+      "shared_sample_count": 6,
+      "contrast_index": 35,
+      "alternative_minus_reference_cover": [
+        0.003134453475865495,
+        -0.003134453475865419
+      ],
+      "conditional_paired_standard_error": [
+        0.004190769506498222,
+        0.004190769506498222
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 13,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 36,
+      "alternative_minus_reference_cover": [
+        -0.0028375404573766083,
+        0.002837540457376511
+      ],
+      "conditional_paired_standard_error": [
+        0.004983816272510945,
+        0.004983816272510946
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 14,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "contrast_index": 37,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 15,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 38,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 16,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 39,
+      "alternative_minus_reference_cover": [
+        0.0018086459127989452,
+        -0.001808645912798848
+      ],
+      "conditional_paired_standard_error": [
+        0.006439421231091826,
+        0.006439421231091833
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 17,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 40,
+      "alternative_minus_reference_cover": [
+        -0.017716994356430038,
+        0.017716994356430232
+      ],
+      "conditional_paired_standard_error": [
+        0.009790111206416045,
+        0.009790111206416045
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 18,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 41,
+      "alternative_minus_reference_cover": [
+        0.00560373663566105,
+        -0.005603736635661119
+      ],
+      "conditional_paired_standard_error": [
+        0.005045435185759437,
+        0.005045435185759437
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 19,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 6,
+      "shared_sample_count": 5,
+      "contrast_index": 42,
+      "alternative_minus_reference_cover": [
+        0.008679724771547326,
+        -0.008679724771547395
+      ],
+      "conditional_paired_standard_error": [
+        0.0030591948117439554,
+        0.003059194811743951
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 20,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 5,
+      "shared_sample_count": 4,
+      "contrast_index": 43,
+      "alternative_minus_reference_cover": [
+        -0.004485320607401921,
+        0.004485320607401921
+      ],
+      "conditional_paired_standard_error": [
+        0.013135862201947906,
+        0.013135862201947901
+      ]
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 21,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 22,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 23,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 19909,
+      "window_index": 24,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 0,
+      "status": "matched_saved_outputs",
+      "reference_samples": 1,
+      "alternative_samples": 1,
+      "shared_sample_count": 0,
+      "contrast_index": 44,
+      "alternative_minus_reference_cover": [
+        -0.14395236967517305,
+        0.1439523696751731
+      ],
+      "conditional_paired_standard_error": [
+        0.04470729221945798,
+        0.044707292219457975
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 1,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 45,
+      "alternative_minus_reference_cover": [
+        -0.05514287991752037,
+        0.055142879917520427
+      ],
+      "conditional_paired_standard_error": [
+        0.009090157994869967,
+        0.009090157994869962
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 2,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 46,
+      "alternative_minus_reference_cover": [
+        -0.02667222412709158,
+        0.026672224127091526
+      ],
+      "conditional_paired_standard_error": [
+        0.014412446436740148,
+        0.014412446436740152
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 3,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "contrast_index": 47,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 4,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "contrast_index": 48,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 5,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 6,
+      "shared_sample_count": 5,
+      "contrast_index": 49,
+      "alternative_minus_reference_cover": [
+        0.011929703592074348,
+        -0.01192970359207439
+      ],
+      "conditional_paired_standard_error": [
+        0.006002301495502007,
+        0.006002301495502007
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 6,
+      "status": "matched_saved_outputs",
+      "reference_samples": 6,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 50,
+      "alternative_minus_reference_cover": [
+        0.0007549734678180542,
+        -0.0007549734678180611
+      ],
+      "conditional_paired_standard_error": [
+        0.004455352651969631,
+        0.004455352651969635
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 7,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 51,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 8,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 52,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 9,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 53,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 10,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 54,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 11,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 5,
+      "shared_sample_count": 4,
+      "contrast_index": 55,
+      "alternative_minus_reference_cover": [
+        -0.003159548217596231,
+        0.00315954821759621
+      ],
+      "conditional_paired_standard_error": [
+        0.005080742285450252,
+        0.00508074228545025
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 12,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "contrast_index": 56,
+      "alternative_minus_reference_cover": [
+        0.002497544816724706,
+        -0.0024975448167246853
+      ],
+      "conditional_paired_standard_error": [
+        0.005783674529316799,
+        0.005783674529316799
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 13,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 57,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 14,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 58,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 15,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 59,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 16,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 5,
+      "contrast_index": 60,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 17,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "contrast_index": 61,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 18,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 62,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 19,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 63,
+      "alternative_minus_reference_cover": [
+        -0.022972925071189865,
+        0.02297292507118981
+      ],
+      "conditional_paired_standard_error": [
+        0.012874910230697059,
+        0.012874910230697059
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 20,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 64,
+      "alternative_minus_reference_cover": [
+        0.003741787256235307,
+        -0.003741787256235224
+      ],
+      "conditional_paired_standard_error": [
+        0.011918442857182425,
+        0.011918442857182425
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 21,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "contrast_index": 65,
+      "alternative_minus_reference_cover": [
+        0.0009536966830021587,
+        -0.0009536966830022142
+      ],
+      "conditional_paired_standard_error": [
+        0.01007942469801975,
+        0.010079424698019744
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 22,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 66,
+      "alternative_minus_reference_cover": [
+        -0.09004083097919924,
+        0.09004083097919932
+      ],
+      "conditional_paired_standard_error": [
+        0.019261156369332882,
+        0.019261156369332885
+      ]
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 23,
+      "status": "alternative_only",
+      "reference_samples": 0,
+      "alternative_samples": 1,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 21790,
+      "window_index": 24,
+      "status": "alternative_only",
+      "reference_samples": 0,
+      "alternative_samples": 2,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 0,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 1,
+      "status": "matched_saved_outputs",
+      "reference_samples": 1,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 67,
+      "alternative_minus_reference_cover": [
+        0.07007800598711289,
+        -0.07007800598711295
+      ],
+      "conditional_paired_standard_error": [
+        0.0302259727507473,
+        0.0302259727507473
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 2,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 1,
+      "shared_sample_count": 1,
+      "contrast_index": 68,
+      "alternative_minus_reference_cover": [
+        0.011380170299617687,
+        -0.011380170299617742
+      ],
+      "conditional_paired_standard_error": [
+        0.03743136036615487,
+        0.03743136036615487
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 3,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 69,
+      "alternative_minus_reference_cover": [
+        -0.024057830197435237,
+        0.024057830197435237
+      ],
+      "conditional_paired_standard_error": [
+        0.026251573514902066,
+        0.026251573514902066
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 4,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 1,
+      "contrast_index": 70,
+      "alternative_minus_reference_cover": [
+        -0.06705001464628868,
+        0.06705001464628871
+      ],
+      "conditional_paired_standard_error": [
+        0.03243614419491536,
+        0.03243614419491536
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 5,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 71,
+      "alternative_minus_reference_cover": [
+        -0.006454108263269975,
+        0.006454108263269975
+      ],
+      "conditional_paired_standard_error": [
+        0.016290057422719956,
+        0.016290057422719956
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 6,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 72,
+      "alternative_minus_reference_cover": [
+        0.02807146626792434,
+        -0.028071466267924394
+      ],
+      "conditional_paired_standard_error": [
+        0.010452575098693687,
+        0.010452575098693687
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 7,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 73,
+      "alternative_minus_reference_cover": [
+        0.011872813494332224,
+        -0.011872813494332113
+      ],
+      "conditional_paired_standard_error": [
+        0.012815248259567409,
+        0.012815248259567412
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 8,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "contrast_index": 74,
+      "alternative_minus_reference_cover": [
+        -0.008922094842255479,
+        0.008922094842255507
+      ],
+      "conditional_paired_standard_error": [
+        0.018925502019879237,
+        0.018925502019879237
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 9,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "contrast_index": 75,
+      "alternative_minus_reference_cover": [
+        -0.010573156651135118,
+        0.010573156651135174
+      ],
+      "conditional_paired_standard_error": [
+        0.018027276407561802,
+        0.0180272764075618
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 10,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 76,
+      "alternative_minus_reference_cover": [
+        0.02228022187887957,
+        -0.022280221878879736
+      ],
+      "conditional_paired_standard_error": [
+        0.03588982169904526,
+        0.03588982169904526
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 11,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 1,
+      "contrast_index": 77,
+      "alternative_minus_reference_cover": [
+        -0.05287369344597048,
+        0.05287369344597058
+      ],
+      "conditional_paired_standard_error": [
+        0.030720374984516925,
+        0.03072037498451692
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 12,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 1,
+      "contrast_index": 78,
+      "alternative_minus_reference_cover": [
+        0.035806443835850854,
+        -0.03580644383585069
+      ],
+      "conditional_paired_standard_error": [
+        0.031137799213972632,
+        0.031137799213972632
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 13,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 2,
+      "contrast_index": 79,
+      "alternative_minus_reference_cover": [
+        -0.0012543703425162978,
+        0.0012543703425162978
+      ],
+      "conditional_paired_standard_error": [
+        0.024451609383080938,
+        0.024451609383080934
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 14,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 80,
+      "alternative_minus_reference_cover": [
+        0.0007557260926093212,
+        -0.0007557260926092935
+      ],
+      "conditional_paired_standard_error": [
+        0.02715754773642131,
+        0.02715754773642131
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 15,
+      "status": "matched_saved_outputs",
+      "reference_samples": 1,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 81,
+      "alternative_minus_reference_cover": [
+        0.03547070699670396,
+        -0.03547070699670418
+      ],
+      "conditional_paired_standard_error": [
+        0.04283886626495715,
+        0.04283886626495715
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 16,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 82,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 17,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 5,
+      "shared_sample_count": 3,
+      "contrast_index": 83,
+      "alternative_minus_reference_cover": [
+        -0.005699745626090991,
+        0.0056997456260911294
+      ],
+      "conditional_paired_standard_error": [
+        0.018110621936669284,
+        0.018110621936669284
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 18,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 84,
+      "alternative_minus_reference_cover": [
+        -0.014309900510758422,
+        0.01430990051075845
+      ],
+      "conditional_paired_standard_error": [
+        0.031441570364766365,
+        0.031441570364766365
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 19,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 85,
+      "alternative_minus_reference_cover": [
+        0.014572722203474164,
+        -0.014572722203473998
+      ],
+      "conditional_paired_standard_error": [
+        0.018488212108369206,
+        0.018488212108369206
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 20,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "contrast_index": 86,
+      "alternative_minus_reference_cover": [
+        -0.004100322718788685,
+        0.004100322718788713
+      ],
+      "conditional_paired_standard_error": [
+        0.01596674303456042,
+        0.01596674303456042
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 21,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "contrast_index": 87,
+      "alternative_minus_reference_cover": [
+        -0.018565657960232573,
+        0.0185656579602326
+      ],
+      "conditional_paired_standard_error": [
+        0.019176790445069744,
+        0.019176790445069744
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 22,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 7,
+      "shared_sample_count": 5,
+      "contrast_index": 88,
+      "alternative_minus_reference_cover": [
+        0.1158644275579096,
+        -0.11586442755790965
+      ],
+      "conditional_paired_standard_error": [
+        0.009998592157446995,
+        0.00999859215744699
+      ]
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 23,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45311,
+      "window_index": 24,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 0,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 1,
+      "status": "alternative_only",
+      "reference_samples": 0,
+      "alternative_samples": 1,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 2,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 89,
+      "alternative_minus_reference_cover": [
+        -0.015041607852501415,
+        0.015041607852501498
+      ],
+      "conditional_paired_standard_error": [
+        0.039317571336664886,
+        0.03931757133666488
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 3,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 90,
+      "alternative_minus_reference_cover": [
+        -0.04710929223143301,
+        0.047109292231433064
+      ],
+      "conditional_paired_standard_error": [
+        0.04705015685476688,
+        0.047050156854766885
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 4,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 91,
+      "alternative_minus_reference_cover": [
+        0.07488207019084292,
+        -0.0748820701908428
+      ],
+      "conditional_paired_standard_error": [
+        0.030429133500367023,
+        0.03042913350036702
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 5,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 92,
+      "alternative_minus_reference_cover": [
+        -0.0717161968754797,
+        0.07171619687547985
+      ],
+      "conditional_paired_standard_error": [
+        0.04218401268329159,
+        0.04218401268329159
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 6,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 93,
+      "alternative_minus_reference_cover": [
+        0.025609527279445654,
+        -0.025609527279445682
+      ],
+      "conditional_paired_standard_error": [
+        0.024053703116155036,
+        0.024053703116155036
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 7,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 3,
+      "shared_sample_count": 1,
+      "contrast_index": 94,
+      "alternative_minus_reference_cover": [
+        -0.07232268067033165,
+        0.07232268067033154
+      ],
+      "conditional_paired_standard_error": [
+        0.045344448317537006,
+        0.045344448317537006
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 8,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 2,
+      "contrast_index": 95,
+      "alternative_minus_reference_cover": [
+        0.057190155924731645,
+        -0.05719015592473162
+      ],
+      "conditional_paired_standard_error": [
+        0.03656551327570197,
+        0.03656551327570197
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 9,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 2,
+      "shared_sample_count": 2,
+      "contrast_index": 96,
+      "alternative_minus_reference_cover": [
+        -0.016915320484229834,
+        0.016915320484230056
+      ],
+      "conditional_paired_standard_error": [
+        0.022723912342125417,
+        0.02272391234212542
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 10,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 97,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 11,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 98,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 12,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 99,
+      "alternative_minus_reference_cover": [
+        0.017624758695063747,
+        -0.017624758695063886
+      ],
+      "conditional_paired_standard_error": [
+        0.020666247056365297,
+        0.020666247056365297
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 13,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 4,
+      "shared_sample_count": 3,
+      "contrast_index": 100,
+      "alternative_minus_reference_cover": [
+        -0.017896404470719274,
+        0.017896404470719204
+      ],
+      "conditional_paired_standard_error": [
+        0.02048266683332719,
+        0.02048266683332718
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 14,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 4,
+      "shared_sample_count": 4,
+      "contrast_index": 101,
+      "alternative_minus_reference_cover": [
+        0.0,
+        0.0
+      ],
+      "conditional_paired_standard_error": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 15,
+      "status": "matched_saved_outputs",
+      "reference_samples": 4,
+      "alternative_samples": 3,
+      "shared_sample_count": 3,
+      "contrast_index": 102,
+      "alternative_minus_reference_cover": [
+        0.02833084709709832,
+        -0.02833084709709846
+      ],
+      "conditional_paired_standard_error": [
+        0.019290846547613105,
+        0.0192908465476131
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 16,
+      "status": "matched_saved_outputs",
+      "reference_samples": 5,
+      "alternative_samples": 5,
+      "shared_sample_count": 4,
+      "contrast_index": 103,
+      "alternative_minus_reference_cover": [
+        -0.033420675551898316,
+        0.03342067555189826
+      ],
+      "conditional_paired_standard_error": [
+        0.013557665396078418,
+        0.013557665396078424
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 17,
+      "status": "matched_saved_outputs",
+      "reference_samples": 2,
+      "alternative_samples": 2,
+      "shared_sample_count": 1,
+      "contrast_index": 104,
+      "alternative_minus_reference_cover": [
+        0.051271153226465915,
+        -0.051271153226465846
+      ],
+      "conditional_paired_standard_error": [
+        0.028565363845728147,
+        0.028565363845728144
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 18,
+      "status": "matched_saved_outputs",
+      "reference_samples": 3,
+      "alternative_samples": 5,
+      "shared_sample_count": 3,
+      "contrast_index": 105,
+      "alternative_minus_reference_cover": [
+        0.010152987209494313,
+        -0.01015298720949423
+      ],
+      "conditional_paired_standard_error": [
+        0.01774890068224311,
+        0.017748900682243104
+      ]
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 19,
+      "status": "reference_only",
+      "reference_samples": 1,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 20,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 21,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 22,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 23,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    },
+    {
+      "native_dataset_id": 45314,
+      "window_index": 24,
+      "status": "neither_source_supported",
+      "reference_samples": 0,
+      "alternative_samples": 0,
+      "shared_sample_count": 0,
+      "paired_standard_error": null,
+      "paired_standard_error_refusal": "Two source-supported window outputs are required for a paired contrast"
+    }
+  ]
+}

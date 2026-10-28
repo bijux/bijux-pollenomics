@@ -1,0 +1,140 @@
+{
+  "schema_version": "fixed-two-taxon-execution-custody.v1",
+  "source_candidate": "42e96a92b94cca770164368d391bf4d0877bdd17",
+  "source_overlay": [
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+      "canonical_preimage_sha256": "57393e2575b2df05fa716938ca9c22b0fc072b0477ff4d72bb9a4677e1abf3fa",
+      "overlay_sha256": "4b8438dee8e9bed9a8ddbd5b875cb115eb5a91b5085dcc305323d6dfbe6acea1"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+      "canonical_preimage_sha256": "171f340b3770535af3d9c3001d7b727cb5169e02d9654590914d3cad103bf86e",
+      "overlay_sha256": "6c3359cba2d080f0e5f97dd231f5732389cca1adbfec3cc303b38e90cbec0e3b"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/two_taxon_counting.py",
+      "canonical_preimage_sha256": null,
+      "overlay_sha256": "05921ff27b6a0c28c89c9727573cedd04723f9dbec9a96e4b8e6e0771b83cf17"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_two_taxon_counting.py",
+      "canonical_preimage_sha256": null,
+      "overlay_sha256": "2baab7a65dd2efd46482234203470a34346d8e36ff98c71b9e27becc556a8dff"
+    }
+  ],
+  "source_lineage": {
+    "predecessor_plan_sha256": "079fd0c7931a3b31d4bc6b05fa7113ab45cee138be0773eeb4cca86d451987b0",
+    "predecessor_terminal_sha256": "6e73c05effc554f7db20a4e0efc396a999c8a88596be67afd1631430e510622e",
+    "complete_nonoverlay_reuse": true,
+    "baseline_scope": "Exact frozen069 source candidate42e96a92 and owned immutable source/resources, with declared4interval overlays; no canonical dirty atlas inputs."
+  },
+  "actual_plan_sha256": "9befc768d16cd06cb92763e79809502c1b9bc5fd993c1ed35366ba1d05d8e22f",
+  "actual_runner_sha256": "be67f4a9aa2e75da1660c819c69670604c59e85ab918efef250114035520494f",
+  "actual_terminal_sha256": "b4ef5f89e7f22fb220fcb57624976cd15062ed54b867cae2dc8f83f42f9a2a7c",
+  "actual_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/run.py",
+    "--registered-plan-sha256",
+    "9befc768d16cd06cb92763e79809502c1b9bc5fd993c1ed35366ba1d05d8e22f"
+  ],
+  "stages": [
+    {
+      "id": "api-guards",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-c",
+        "configs/pytest.ini",
+        "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_two_taxon_counting.py",
+        "-o",
+        "addopts=--import-mode=importlib",
+        "-o",
+        "cache_dir=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/cache/pytest",
+        "--basetemp",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/pytest"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 1.6554624589625746,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/logs/api-guards.stdout",
+      "stdout_sha256": "f56959ba91b513809a9bd4eacb6887f291a2f08b994cd6bfdd04a2cb1e6c4e3e",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/logs/api-guards.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "public-api-grid",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/produce.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/protocol.json",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/intervals.json",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/source-view/packages/bijux-pollenomics-lra/src"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 7.391275041969493,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/logs/public-api-grid.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/logs/public-api-grid.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "independent-decimal-observer",
+      "actual_argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/independent.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/protocol.json",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/intervals.json",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/independent.json"
+      ],
+      "native_exit": 0,
+      "timeout": false,
+      "launch_error": null,
+      "wall_seconds": 2.543372915999498,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/logs/independent-decimal-observer.stdout",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/two-taxon-counting-intervals/lattice-certified-enclosure/execution/logs/independent-decimal-observer.stderr",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "runtime_facts": {
+    "executable": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "version": "3.11.13 (main, Jun  3 2025, 18:38:25) [Clang 17.0.0 (clang-1700.0.13.3)]",
+    "stdlib": "/opt/homebrew/opt/python@3.11/Frameworks/Python.framework/Versions/3.11/lib/python3.11",
+    "site": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages"
+  },
+  "source_pin_count": 2109,
+  "runtime_pin_count": 32425,
+  "source_pins_unchanged": true,
+  "runtime_entries_unchanged": true,
+  "wall_seconds": 19.42494599998463,
+  "observed_child_peak_rss_bytes": 210944000,
+  "output_bytes": 11834365,
+  "resources": {
+    "wall_seconds": 960,
+    "max_rss_bytes": 2147483648,
+    "max_output_bytes": 1073741824,
+    "direct_child_concurrency": 1,
+    "numeric_threads": 1,
+    "enforcement": "remaining-budget process-group timeout; observed child RSS and output size checked after, no OS quotas"
+  },
+  "public_products": {
+    "docs/report/synthetic-validation/recovery-evidence/two-taxon-counting.json": "2f85cd5ba5a00a337033fd41af08b7a9627c0cb8ee23bbf6de54b85b675b9d52",
+    "data/synthetic-validation/two-taxon-counting/manifest.json": "d37be762b00efcb2dfaa4aab45e05fe0d65b9641f2b69670118238b313889a94"
+  },
+  "source_files": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/two_taxon_counting.py": "ef3cc697d04a7d513e450f176ef515cd3ec3ed1c82391e19db597600a1ffba2a",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/two_taxon_counting_verification.py": "095253b3b5a0093b99a9e27ce224887c092458da107f34557d7a63d29dd9e79c",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/two_taxon_counting.py": "05921ff27b6a0c28c89c9727573cedd04723f9dbec9a96e4b8e6e0771b83cf17"
+  },
+  "scope": "One fixed-N aliquot and exactly two measured taxa with fixed positive known deposition/PPE; conditional counting inference only, no unknown-response/PPE/chronology/basin/repeated-sample/general-multinomial/field coverage or historical-R equivalence.",
+  "scientific_admission": false
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": "fixed-two-taxon-counting-account.v1",
+  "profile": "fixed-two-taxon-binomial-equal-tail-v1",
+  "scope": "One fixed-N aliquot and exactly two measured taxa with fixed positive known deposition/PPE; conditional counting inference only, no unknown-response/PPE/chronology/basin/repeated-sample/general-multinomial/field coverage or historical-R equivalence.",
+  "source_candidate": "42e96a92b94cca770164368d391bf4d0877bdd17",
+  "source_overlay": [
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+      "canonical_preimage_sha256": "57393e2575b2df05fa716938ca9c22b0fc072b0477ff4d72bb9a4677e1abf3fa",
+      "overlay_sha256": "4b8438dee8e9bed9a8ddbd5b875cb115eb5a91b5085dcc305323d6dfbe6acea1"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+      "canonical_preimage_sha256": "171f340b3770535af3d9c3001d7b727cb5169e02d9654590914d3cad103bf86e",
+      "overlay_sha256": "6c3359cba2d080f0e5f97dd231f5732389cca1adbfec3cc303b38e90cbec0e3b"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/two_taxon_counting.py",
+      "canonical_preimage_sha256": null,
+      "overlay_sha256": "05921ff27b6a0c28c89c9727573cedd04723f9dbec9a96e4b8e6e0771b83cf17"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_two_taxon_counting.py",
+      "canonical_preimage_sha256": null,
+      "overlay_sha256": "2baab7a65dd2efd46482234203470a34346d8e36ff98c71b9e27becc556a8dff"
+    }
+  ],
+  "actual_plan_sha256": "9befc768d16cd06cb92763e79809502c1b9bc5fd993c1ed35366ba1d05d8e22f",
+  "actual_terminal_sha256": "b4ef5f89e7f22fb220fcb57624976cd15062ed54b867cae2dc8f83f42f9a2a7c",
+  "native_exit": 0,
+  "producer_native_exit": 0,
+  "independent_native_exit": 0,
+  "full_count_cells": 10809,
+  "endpoint_comparisons": 4068,
+  "endpoint_containment_checks": 6102,
+  "maximum_absolute_error": "2.7184810473274715941289722070181320274630069939833539717427880094E-16",
+  "coverage_population_count": 1080,
+  "extra_outward_memberships": 2,
+  "maximum_observed_tail_evaluations": 19,
+  "max_supported_total": 10000,
+  "max_runtime_tail_evaluations_per_bound": 128,
+  "samples": [
+    {
+      "scenario_id": "equal-response",
+      "counts": [
+        0,
+        1000
+      ],
+      "total_count": 1000,
+      "confidence_level": 0.8,
+      "pollen_probability_interval": [
+        0.0,
+        0.002299936177446683
+      ],
+      "cover": [
+        0.0,
+        1.0
+      ],
+      "cover_lower": [
+        0.0,
+        0.9977000638225533
+      ],
+      "cover_upper": [
+        0.002299936177446683,
+        1.0
+      ],
+      "tail_target_lower_bound": "0.09999999999999997779553950749686919152736663818359375",
+      "pollen_tail_upper_bounds": [
+        null,
+        "0.099999999999999976900595465707433156274726249534535754818369538810745054926116582"
+      ],
+      "bound_search_evaluations": [
+        0,
+        1
+      ],
+      "numerical_certification": "directed-decimal-tail-and-rational-transform",
+      "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+    },
+    {
+      "scenario_id": "equal-response",
+      "counts": [
+        494,
+        506
+      ],
+      "total_count": 1000,
+      "confidence_level": 0.8,
+      "pollen_probability_interval": [
+        0.47326125258832163,
+        0.5147563571785784
+      ],
+      "cover": [
+        0.494,
+        0.506
+      ],
+      "cover_lower": [
+        0.47326125258832163,
+        0.48524364282142163
+      ],
+      "cover_upper": [
+        0.5147563571785784,
+        0.5267387474116784
+      ],
+      "tail_target_lower_bound": "0.09999999999999997779553950749686919152736663818359375",
+      "pollen_tail_upper_bounds": [
+        "0.09999999999999765517337687140700621505556512831049909091112930329652696808087931",
+        "0.099999999999999049962929450166551540113527001187074338676462122900711692385643242"
+      ],
+      "bound_search_evaluations": [
+        1,
+        17
+      ],
+      "numerical_certification": "directed-decimal-tail-and-rational-transform",
+      "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+    }
+  ],
+  "preserved_predecessors": [
+    {
+      "plan_sha256": "87db075d1ed11cab03943f8fd00cd05f6ec3d9863dae9d74283713eb5fae5fbf",
+      "terminal_sha256": "e6aa762dfff3c1bbaea6df995e22e190bf58352e9fd6ac057f05a0071de2ffd7",
+      "status": "native1 independent root-containment failure after42guards and10809producer rows",
+      "diagnostic": "predecessor-difference.json",
+      "diagnostic_sha256": "5adf709342ebc9d03621ec76cd3c44524da0a8dcb348eae49191e4b4e4011792"
+    },
+    {
+      "plan_sha256": "079fd0c7931a3b31d4bc6b05fa7113ab45cee138be0773eeb4cca86d451987b0",
+      "terminal_sha256": "6e73c05effc554f7db20a4e0efc396a999c8a88596be67afd1631430e510622e",
+      "status": "native1 upper seed refused after128outward floats at N1000/k494/level0.8; independent observer not launched",
+      "diagnostic_sha256": "46d086583eedc191934f7677244266a0c0819e96ae65417ae54fed6ff43dafe5"
+    }
+  ],
+  "retained_data_manifest": "data/synthetic-validation/two-taxon-counting/manifest.json",
+  "limits": [
+    "Exactly two measured taxa and one fixed-N aliquot; known positive fixed response/PPE only",
+    "No uncertain PPE/background, chronology, geometry, repeated-sample, multi-taxon or ecological-accuracy coverage",
+    "Independent root observer checks only the frozen selected endpoint domain; full count coverage checks only 1,080 declared finite-grid populations",
+    "Original ten-taxon Wald failures remain 427/1,000 rare Alnus coverage, 525 draws with zero standard error and 0/1,000 misspecified-response coverage"
+  ],
+  "scientific_admission": false,
+  "release_admission": false
+}

@@ -213,3 +213,49 @@ def test_unlisted_metadata_and_scientific_ownership_cannot_be_unpinned(
     lock["maintained_paths"] = sorted([*lock["maintained_paths"], relative])
     with pytest.raises(ValueError):
         verifier.verify_source_lock(tmp_path, lock)
+
+
+@pytest.mark.parametrize("suffix", ["py", "json", "yaml", "md"])
+def test_registered_atlas_sources_use_authenticated_transport(
+    tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch, suffix: str
+) -> None:
+    relative = "data/atlas/source-view-capture/source/configs/own-source." + suffix
+    body = b"Own synthetic authenticated source\n"
+    calls: list[tuple[Path, str]] = []
+
+    def retained(root: Path, path: str) -> bytes:
+        calls.append((root, path))
+        return body
+
+    monkeypatch.setattr(verifier, "read_source_path", retained)
+    assert verifier._source_bytes(tmp_path, relative) == body
+    assert calls == [(tmp_path, relative)]
+
+
+@pytest.mark.parametrize(
+    "member", ["../escape.py", "nested/../../escape.json", "nested\\escape.yaml"]
+)
+def test_malformed_atlas_members_refuse_before_transport(
+    tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch, member: str
+) -> None:
+    def forbidden(root: Path, path: str) -> bytes:
+        pytest.fail("Malformed source must not reach retained transport")
+
+    monkeypatch.setattr(verifier, "read_source_path", forbidden)
+    with pytest.raises(ValueError, match="unavailable or unsafe"):
+        verifier._source_bytes(
+            tmp_path, "data/atlas/source-view-capture/source/" + member
+        )
+
+
+def test_missing_atlas_member_keeps_transport_refusal(
+    tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def missing(root: Path, path: str) -> bytes:
+        raise verifier.ReportRebuildError("Unknown retained source member")
+
+    monkeypatch.setattr(verifier, "read_source_path", missing)
+    with pytest.raises(ValueError, match="unavailable or unsafe"):
+        verifier._source_bytes(
+            tmp_path, "data/atlas/source-view-capture/source/unknown.json"
+        )

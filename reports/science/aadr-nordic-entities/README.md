@@ -40,14 +40,33 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 ```
 
 
+## Actual country-record lifecycle verification
+
+The source-bound [lifecycle account](../adna-source-lifecycle/report.json) adds a fresh execution of the four actual AADR country loaders and CSV writers. All 1,231 exported rows match the retained country products byte for byte across all 27 fields, including original date text, BP bounds, source family, namespace and accession lineage. The raw-source reconciliation again preserves 1,325 IDs = 1,231 published + 94 missing-coordinate exclusions.
+
+The same execution checked four animal country bundles and the maintained DNA/pollen boundary controls. Its [capture](../adna-source-lifecycle/capture.json) records six native-zero stages, 26 controlled guards and the exact producer/observer identities. This is an independent comparison implementation on shared retained source lineage, not an independent human scientific review. Source chronology, country authority, rights and map admission remain unresolved. No genotype or propagation inference was performed.
+
+The maintained replay uses a new artifact view for the declared input bytes, including retained gzip aliases; it never expands them into the canonical data tree. From the repository root, choose unused output directories:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python reports/science/adna-source-lifecycle/source_view.py --repository . --output artifacts/adna-lifecycle-source-view
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python reports/science/aadr-nordic-entities/replay.py --repository artifacts/adna-lifecycle-source-view --output artifacts/adna-lifecycle/human-entities
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python reports/science/animal-entity-capability/replay.py --repository artifacts/adna-lifecycle-source-view --output artifacts/adna-lifecycle/animal-entities
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python reports/science/adna-source-lifecycle/produce.py artifacts/adna-lifecycle-source-view artifacts/adna-lifecycle/country-contracts
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python reports/science/adna-source-lifecycle/verify.py artifacts/adna-lifecycle-source-view artifacts/adna-lifecycle/country-contracts artifacts/adna-lifecycle/independent-account.json
+```
+
+The original capture binds the executed source candidate and runtime. A later replay records correspondence on the invoking environment; it does not inherit the original native receipt, source version or scientific admission. Any changed source input, chronology/provenance export or country denominator refuses this retained comparison.
+
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Exact AADR v66 Nordic Genetic-ID to four country-product row membership and coordinate refusal accounting.
+**Supported claim.** Exact AADR v66 Nordic source-ID membership/coordinate refusals and actual four-country source-to-CSV lifecycle preservation across all27export fields; DNA remains outside pollen semantics.
 
-**Unsupported claim.** Chronology, source-country authority, map or scientific admission of those IDs.
+**Unsupported claim.** Scientific chronology validation, source-country authority, map/rights/biological admission, genotype or propagation inference.
 
-**Actual verification performed.** Retained decision ledger and report bind two panels, release manifest and four product CSV hashes; index did not rerun producer.
+**Actual verification performed.** Actual six-stage source/country lifecycle replay native0:1325source IDs reconciled, all1231four-country CSV rows byte equal across27fields, all4animal bundles equal,10animal source-domain flags checked and26controlled boundaries passed. A separate stdlib observer compares retained source lineage; no independent human review.
 
 **Remaining input or review.** The 94 absent-coordinate IDs are correctly excluded from country products, but the 1,231 country rows lack scientific chronology, geography, map, country-authority and rights admission. Resolver: AADR source custodian and chronology/geography reviewer Reopen when: Versioned source coordinates and qualified country, chronology, map and rights decisions are bound per ID.
 
@@ -61,7 +80,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 **Matched denominator.** 1,325 source IDs = 1,231 country-product rows + 94 coordinate exclusions across DK/FI/NO/SE.
 
-Retained evidence: [reports/science/aadr-nordic-entities/report.json](report.json), [data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json](../../../data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json).
+Retained evidence: [reports/science/aadr-nordic-entities/report.json](report.json), [data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json](../../../data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json), [reports/science/adna-source-lifecycle/report.json](../adna-source-lifecycle/report.json), [reports/science/adna-source-lifecycle/capture.json](../adna-source-lifecycle/capture.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

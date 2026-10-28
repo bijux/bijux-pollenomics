@@ -1938,6 +1938,242 @@
         "report.json": "docs/report/model-development/english-retained-score-audit/report.json"
       },
       "timeout_seconds": 30
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/frame-url-replay/browser-verification",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/frame-url-replay-browser-verification.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/frame-url-replay/verification.json": "docs/report/atlas/frame-url-replay/verification.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/keyless-cache-matrix/browser-receipt",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/keyless-cache-matrix-browser-receipt.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/keyless-cache-matrix/browser-receipt.json": "docs/report/atlas/keyless-cache-matrix/browser-receipt.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/keyless-cache-matrix/candidate-identity",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/keyless-cache-matrix-candidate-identity.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/keyless-cache-matrix/candidate-inputs.json": "docs/report/atlas/keyless-cache-matrix/candidate-inputs.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/modeled-panel-browser/browser-evidence",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/modeled-panel-browser-browser-evidence.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/modeled-panel-browser/browser-receipt.json": "docs/report/atlas/modeled-panel-browser/browser-receipt.json",
+        "source-products/atlas/modeled-panel-browser/observations/1440-blocked_provider.png": "docs/report/atlas/modeled-panel-browser/observations/1440-blocked_provider.png",
+        "source-products/atlas/modeled-panel-browser/observations/1440-no_basemap.png": "docs/report/atlas/modeled-panel-browser/observations/1440-no_basemap.png",
+        "source-products/atlas/modeled-panel-browser/observations/320-blocked_provider.png": "docs/report/atlas/modeled-panel-browser/observations/320-blocked_provider.png",
+        "source-products/atlas/modeled-panel-browser/observations/320-no_basemap.png": "docs/report/atlas/modeled-panel-browser/observations/320-no_basemap.png",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-AL/pangaea-937075-al-0-100-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-AL/pangaea-937075-al-0-100-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-ET/pangaea-937075-et-0-100-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-ET/pangaea-937075-et-0-100-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-OL/pangaea-937075-ol-0-100-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-OL/pangaea-937075-ol-0-100-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-ST/pangaea-937075-st-0-100-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-blocked_provider-ST/pangaea-937075-st-0-100-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-AL/pangaea-937075-al-11200-11700-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-AL/pangaea-937075-al-11200-11700-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-ET/pangaea-937075-et-11200-11700-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-ET/pangaea-937075-et-11200-11700-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-OL/pangaea-937075-ol-11200-11700-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-OL/pangaea-937075-ol-11200-11700-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/1440-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-AL/pangaea-937075-al-0-100-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-AL/pangaea-937075-al-0-100-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-ET/pangaea-937075-et-0-100-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-ET/pangaea-937075-et-0-100-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-OL/pangaea-937075-ol-0-100-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-OL/pangaea-937075-ol-0-100-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-ST/pangaea-937075-st-0-100-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-blocked_provider-ST/pangaea-937075-st-0-100-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-AL/pangaea-937075-al-11200-11700-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-AL/pangaea-937075-al-11200-11700-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ET/pangaea-937075-et-11200-11700-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ET/pangaea-937075-et-11200-11700-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-OL/pangaea-937075-ol-11200-11700-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-OL/pangaea-937075-ol-11200-11700-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson": "docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson",
+        "source-products/atlas/modeled-panel-browser/verification.json": "docs/report/atlas/modeled-panel-browser/verification.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/modeled-panel-browser/candidate-generation",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/modeled-panel-browser-candidate-generation.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/modeled-panel-browser/candidate-generation.json": "docs/report/atlas/modeled-panel-browser/candidate-generation.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/nordic-source/browser-evidence",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/nordic-source-browser-evidence.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/nordic-source/verification.json": "docs/report/atlas/nordic-source/verification.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/provider-accessibility/browser-evidence",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/provider-accessibility-browser-evidence.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/provider-accessibility/browser-receipt.json": "docs/report/atlas/provider-accessibility/browser-receipt.json",
+        "source-products/atlas/provider-accessibility/observations/1440-provider-failure-source/neotoma-site-12.pollen-series.json": "docs/report/atlas/provider-accessibility/observations/1440-provider-failure-source/neotoma-site-12.pollen-series.json",
+        "source-products/atlas/provider-accessibility/observations/1440-provider-failure.png": "docs/report/atlas/provider-accessibility/observations/1440-provider-failure.png",
+        "source-products/atlas/provider-accessibility/observations/1440-tile-free-source/neotoma-site-12.pollen-series.json": "docs/report/atlas/provider-accessibility/observations/1440-tile-free-source/neotoma-site-12.pollen-series.json",
+        "source-products/atlas/provider-accessibility/observations/1440-tile-free.png": "docs/report/atlas/provider-accessibility/observations/1440-tile-free.png",
+        "source-products/atlas/provider-accessibility/observations/390-provider-failure-source/neotoma-site-12.pollen-series.json": "docs/report/atlas/provider-accessibility/observations/390-provider-failure-source/neotoma-site-12.pollen-series.json",
+        "source-products/atlas/provider-accessibility/observations/390-provider-failure.png": "docs/report/atlas/provider-accessibility/observations/390-provider-failure.png",
+        "source-products/atlas/provider-accessibility/observations/390-tile-free-source/neotoma-site-12.pollen-series.json": "docs/report/atlas/provider-accessibility/observations/390-tile-free-source/neotoma-site-12.pollen-series.json",
+        "source-products/atlas/provider-accessibility/observations/390-tile-free.png": "docs/report/atlas/provider-accessibility/observations/390-tile-free.png",
+        "source-products/atlas/provider-accessibility/verification.json": "docs/report/atlas/provider-accessibility/verification.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/provider-accessibility/candidate-generation",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/provider-accessibility-candidate-generation.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/provider-accessibility/candidate-generation.json": "docs/report/atlas/provider-accessibility/candidate-generation.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/source-detail/browser-evidence",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/source-detail-browser-evidence.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/source-detail/verification.json": "docs/report/atlas/source-detail/verification.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/source-export/browser-downloads",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/source-export-browser-downloads.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/source-export/downloads/neotoma-site-12.pollen-series.json": "docs/report/atlas/source-export/downloads/neotoma-site-12.pollen-series.json",
+        "source-products/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json": "docs/report/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/source-export/browser-verification",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/source-export-browser-verification.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/source-export/verification.json": "docs/report/atlas/source-export/verification.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "atlas/source-url-replay/browser-evidence",
+      "source_arguments": [
+        {
+          "flag": "--receipt",
+          "path": "configs/ci/report-capture-projections/atlas-source-views/source-url-replay-browser-evidence.json"
+        }
+      ],
+      "source_paths": {
+        "source-products/atlas/source-url-replay/verification.json": "docs/report/atlas/source-url-replay/verification.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.abbo_age_controls",
+      "artifact_output_flag": "--retained-artifacts-root",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/abbo-age-controls.json",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
+      },
+      "timeout_seconds": 60
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

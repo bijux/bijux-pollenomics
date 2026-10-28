@@ -130,7 +130,7 @@ def _json_object(pairs: list[tuple[str, object]]) -> dict:
 
 RETAINED_BUILD_CONTEXT_PATH = "presentation/retained-build-source-context.json"
 RETAINED_BUILD_CONTEXT_SHA256 = (
-    "0c15e691d437c8bc6dc4fd58b0215fd93cdb4ad000de42d688b28e71e967f1d0"
+    "1ad22d57414a717c243d03f8a94c23374aca9c9dff0d1d2ff650a11eaf57ebd7"
 )
 RETAINED_BUILD_LOCK_SHA256 = (
     "e5f3ccf408cbea0b3961c5ca9abf2b11edeaa2710d1587b62f60d5145bdd696e"

@@ -10,6 +10,9 @@ from pathlib import Path
 from typing import cast
 
 from bijux_pollenomics.analysis.propagation.event_estimation import GovernedSample
+from bijux_pollenomics_dev.source_completion.propagation.neotoma_exports import (
+    validate_neotoma_export_custody,
+)
 
 JsonObject = dict[str, object]
 _SITES = ("12", "3009")
@@ -435,6 +438,7 @@ def _screen_inventory(
 def build_neotoma_first_observed(repository: Path) -> JsonObject:
     """Screen complete native Neotoma sample series for first-observed readiness."""
     manifest, exports, identity = _reader_snapshot(repository)
+    validate_neotoma_export_custody(repository)
     attempts: list[JsonObject] = []
     sites: list[JsonObject] = []
     for site, export in exports.items():

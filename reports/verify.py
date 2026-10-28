@@ -538,9 +538,10 @@ def _source_file(root: Path, relative: object) -> Path:
 def _source_bytes(root: Path, relative: str) -> bytes:
     """Read named finite native controls from their authenticated Git custody."""
     native = PurePosixPath(relative)
-    if relative.startswith(
-        "data/method-certification/native-r-finite-covariance/"
-    ) and native.suffix in {".py", ".R"}:
+    if (
+        relative.startswith("data/method-certification/native-r-finite-covariance/")
+        and native.suffix in {".py", ".R"}
+    ) or relative.startswith("data/atlas/source-view-capture/source/"):
         if ".." in native.parts or "\\" in relative or native.as_posix() != relative:
             raise ValueError(f"Research source is unavailable or unsafe: {relative}")
         try:

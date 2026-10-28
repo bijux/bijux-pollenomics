@@ -28,7 +28,7 @@ The [browser verifier](https://github.com/bijux/bijux-pollenomics/blob/828081f96
 
 All modeled frames are labeled `context_only`, with interpolation and propagation disabled. The native outputs are synthetic exploratory views with `scientific_acceptance: not_evaluated` and `publication_authorized: false`. Accepted pollen propagation, posterior draw comparison, and a four-country accepted edge matrix are not asserted.
 
-Twelve focused atlas browser candidate producer regressions passed. The current browser verifier passed with zero runtime errors; the receipt binds the input and served byte hashes.
+Twelve earlier atlas browser candidate producer regressions remain historical source checks. The current browser verifier passed with zero runtime errors; the receipt binds the input and served byte hashes.
 
 ## Reproduction
 
@@ -52,3 +52,19 @@ Candidate and browser output directories are disposable reproduction products. T
 ## Scope
 
 This result verifies populated modeled context and a signed synthetic native view through actual full-document, same-document URL and browser-history replay. It does not certify current real-data native LRA approval, posterior draw selection, full accessibility, performance, provider modes, deployment, or an accepted cross-border propagation edge. Those require separately admitted evidence and consumer checks.
+
+## Source-owned retained capture
+
+The published observations now come from the immutable [source-view capture](../../../../data/atlas/source-view-capture/capture.json) on source candidate `fa79ae6eff0f344b5a2dbff2cc858f92746c1f67`, using Chrome 155.0.8059.40. The packet retains original generation, verifier, served-file, screenshot and download identities. Six successful browser observations belonged to an aggregate run that also contained two failed probes; two separately recorded successful successor probes supply the provider and modeled-panel observations. Those failures remain part of the execution history.
+
+These report files are reproduced by guarded retained transport and explicit metadata projection. That operation executes no browser, estimator or R program, and grants no scientific, source-rights, ecological or cross-browser acceptance. Earlier public file identities remain in the capture certificate. The direct browser commands above start separately qualified new observations.
+
+For this owner's retained projection, use an absent output under `artifacts/`:
+
+```sh
+mkdir -p artifacts/atlas-source-views
+python -m bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection \
+  --repository . \
+  --receipt configs/ci/report-capture-projections/atlas-source-views/frame-url-replay-browser-verification.json \
+  --output artifacts/atlas-source-views/frame-url-replay
+```

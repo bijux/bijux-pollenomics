@@ -44,12 +44,12 @@ narrow download hashes differ, while the source tables remain equal.
 
 ## Verification and replay
 
-The actual Brave/Chromium consumer passed at 1440 and 390 pixel widths with zero
+The actual Chrome 155.0.8059.40 consumer passed at 1440 and 390 pixel widths with zero
 runtime errors. It completed six downloads: selected record, shared-link reload
 of the same record, and next record at each width. The restored downloads were
 byte-identical to their original selections. Four URL outcomes cover successful
 record/tab restoration and refusal to restore a record excluded by filters at
-both widths. Twelve current candidate producer regressions passed.
+both widths. Twelve earlier candidate producer regressions remain historical source checks.
 
 The current verifier completed all six downloads and four URL outcomes with zero runtime errors.
 
@@ -72,3 +72,19 @@ This result covers two retained Swedish source contexts. It does not certify SEA
 navigation, four-country coverage, time-series diagrams, approved pollen sums or
 taxa mappings, propagation, full accessibility/provider/performance gates, or
 deployment/release readiness. The governed Nordic atlas now includes the source download controls.
+
+## Source-owned retained capture
+
+The published observations now come from the immutable [source-view capture](../../../../data/atlas/source-view-capture/capture.json) on source candidate `fa79ae6eff0f344b5a2dbff2cc858f92746c1f67`, using Chrome 155.0.8059.40. The packet retains original generation, verifier, served-file, screenshot and download identities. Six successful browser observations belonged to an aggregate run that also contained two failed probes; two separately recorded successful successor probes supply the provider and modeled-panel observations. Those failures remain part of the execution history.
+
+These report files are reproduced by guarded retained transport and explicit metadata projection. That operation executes no browser, estimator or R program, and grants no scientific, source-rights, ecological or cross-browser acceptance. Earlier public file identities remain in the capture certificate. The direct browser commands above start separately qualified new observations.
+
+For this owner's retained projection, use an absent output under `artifacts/`:
+
+```sh
+mkdir -p artifacts/atlas-source-views
+python -m bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection \
+  --repository . \
+  --receipt configs/ci/report-capture-projections/atlas-source-views/source-export-browser-verification.json \
+  --output artifacts/atlas-source-views/source-export
+```

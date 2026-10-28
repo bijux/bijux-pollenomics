@@ -1,0 +1,335 @@
+{
+  "schema_version": "conditional-love-fixed-response-identifiability-protocol.v1",
+  "status_at_freeze": "prepared_not_executed",
+  "candidate": "d989db6d5eb4abf2322c8efac045f60601d0a5bf",
+  "purpose": "Derive the complete conditional local-cover family and feasible abundance-ratio domain from unchanged saved source counts and physical responses. Demonstrate structural non-identifiability of local cover and abundance ratio from this closed two-taxon observation; do not fit or select a ratio.",
+  "source_id": "pollen-reconstruction/swedish-conditional-love",
+  "descriptor": {
+    "path": "configs/ci/qualified-report-sources/swedish-conditional-love.json",
+    "sha256": "57aebffe5a09fe796a4152b692ed3ee20a7ba3630d1de763a43c0c6130c8ce22",
+    "bytes": 2651
+  },
+  "source_members": {
+    "capture-reuse-review.json": {
+      "sha256": "9d47562b9ee1cb2fb244145132215912d9b468303d2d878419f07860d587994e",
+      "bytes": 2496
+    },
+    "four-annulus-factors.json": {
+      "sha256": "41902072f70c2aa759a5d6ba5563fa41a220aa98af2fd705b2a563b4af30db9b",
+      "bytes": 2618
+    },
+    "independent-review.json": {
+      "sha256": "9c45fb17832cc3a759f3cc8ae5ced3be18da3354f39f0413ddc7e065c87d07ad",
+      "bytes": 10533
+    },
+    "model-native-stages.json": {
+      "sha256": "424a1b1abaf3cf3051d9e979309dc8a5a8401b6589756acf30661803d8e13eb1",
+      "bytes": 2759
+    },
+    "model-native-terminal.json": {
+      "sha256": "af623bc0ac762bb3aece4808a3b6b95435f49857fd93d38e0cfa91efe390c47c",
+      "bytes": 5629
+    },
+    "observed-source-closure.json": {
+      "sha256": "f7a4c4519cb9615608120e167971f6d3e3595e9a651840daa6d49e8aeea8ce26",
+      "bytes": 17947
+    },
+    "oracle-native-stages.json": {
+      "sha256": "bb79e41b6430168c1d303c648af93074b648d3f69acac374b5663be57f96ac2d",
+      "bytes": 1374
+    },
+    "oracle-native-terminal.json": {
+      "sha256": "5fa761fb9dc60c494abf7fe10ac4a5e2f6488264443618054ffae15471863e09",
+      "bytes": 3037
+    },
+    "protocol.json": {
+      "sha256": "a71d14713312022c162e02611c2b0efcbcb951dc1fd2665fbb1b56b48924c0eb",
+      "bytes": 32583
+    },
+    "shared-ppe-counting-covariance.json": {
+      "sha256": "b83af20d0548ba7f8e5055ae677bd738569487c2d9897837d332d3c61113e49d",
+      "bytes": 7034
+    },
+    "signed-forward-roundtrip-and-native-refusals.json": {
+      "sha256": "a84e3e4a9d92246b0c8e795ac236b55dbaacac58519960a13a9088a3d3b4d4a4",
+      "bytes": 6160
+    },
+    "source-case-census.json": {
+      "sha256": "877c6abcbd76dfd6e483293238c16ce89b212121352a9eda509f41bbbc2ac89b",
+      "bytes": 22537
+    },
+    "source-masks-and-assumptions.json": {
+      "sha256": "7ad267306f098e72070f4e06804953b45732a91cedbffba693c7fda0a22aaa22",
+      "bytes": 19621
+    },
+    "three-conditional-love-cases.json": {
+      "sha256": "d96202c7a5cb48f3493f9df646456f4c8e95bb69b355489fb0efe81635423fac",
+      "bytes": 10458
+    }
+  },
+  "source_manifest": {
+    "path": "manifest.json",
+    "sha256": "fe8db8c99fdaa19734646e425325dc6efb8ec4e081434c8d3fdcb278cc693bb2",
+    "size": 1558
+  },
+  "original_scientific_accounts": {
+    "docs/report/pollen-reconstruction/swedish-conditional-love/report.json": {
+      "sha256": "2d52167f4787dc8542f82f2d644933322173998d494017520d7ffeda67362b60",
+      "bytes": 9738
+    },
+    "docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json": {
+      "sha256": "bc4a3b4107b0e738e31852c1dea9933c1e90d1cdb4c7e6f5873cc7d04cfb63dd",
+      "bytes": 3558
+    }
+  },
+  "support": {
+    "local_native_dataset": 54001,
+    "local_collection_unit": 39241,
+    "local_chronology": 38422,
+    "local_source_samples": 5,
+    "regional_datasets": [
+      23013,
+      53999
+    ],
+    "regional_collection_units": [
+      16622,
+      39240
+    ],
+    "regional_chronologies": [
+      13366,
+      38421
+    ],
+    "regional_samples": [
+      9,
+      15
+    ],
+    "all_source_samples": 29,
+    "unknown_age_bounds": 20,
+    "literal_axis": [
+      "Betula",
+      "Poaceae"
+    ],
+    "window_cal_bp": [
+      100,
+      350
+    ],
+    "epoch": "Documented Neotoma AD1950 source convention, unchanged named calibrated point memberships.",
+    "local_panel_counts": [
+      623,
+      84
+    ],
+    "regional_panel_counts": [
+      [
+        434,
+        957
+      ],
+      [
+        673,
+        4625
+      ]
+    ],
+    "panel_N": 7396,
+    "reported_NISP": 27940,
+    "outside_panel_NISP": 20544,
+    "development_scope": "Already exposed fixed window, whole transitive source groups excluded as originally declared. No untouched test population or environmental independence follows."
+  },
+  "physical_inputs": {
+    "authority": "Retained four-annulus factors and three-case capture; verify exact count/PPE/deposition/radius/split/parameter identities using existing source loader and summary validators.",
+    "local_factors": [
+      0.1358399981385187,
+      0.1164270170653248
+    ],
+    "background_factors": [
+      0.16103313228149374,
+      0.10013728799034896
+    ],
+    "training_whole_factors": [
+      [
+        0.1911218730806804,
+        0.12498007031341973
+      ],
+      [
+        0.2968731304200054,
+        0.21656430505566818
+      ]
+    ],
+    "ppe": [
+      5.106,
+      1.0
+    ],
+    "ppe_SD": [
+      0.303,
+      0.0
+    ],
+    "receiver_radius_m": 80,
+    "split_radius_m": 1000,
+    "outer_radius_m": 100000,
+    "wind_m_s": 3,
+    "all_terrestrial_mask_assumed": true,
+    "limitations": "Static geometry and an unestimated split; the regional proxy includes an 80 m basin. This does not authenticate a large-lake regional premise, historical LOVE workflow or compatible panel abundance density."
+  },
+  "algebra": {
+    "regional": "U_i=sum_s n_si/(K_si*p_i), r_i=U_i/sum_j U_j, recomputed from exact saved observed counts and unchanged training responses.",
+    "observed": "q_i=n_local_i/N_local, fixed conditional observed two-taxon panel. Neither NISP nor annulus areas estimate the abundance ratio.",
+    "mixture": "a_i=L_i*p_i; c_i=R_i*p_i*r_i; q_i=(a_i*v_i+lambda*c_i)/T, sum_i v_i=1.",
+    "affine_family": "A=sum_i q_i/a_i; B=sum_i c_i/a_i; T(lambda)=(1+lambda*B)/A; u_i=q_i/(a_i*A); d_i=(q_i*B/A-c_i)/a_i; v_i(lambda)=u_i+lambda*d_i. Require sum(u)=1 and sum(d)=0.",
+    "feasible_ratio": "Intersect all inequalities 0 <= u_i + lambda*d_i <= 1 and T(lambda) > 0 with the declared lambda >= 0 domain. Compute endpoints analytically, retaining strict/open bounds where required and an explicit unbounded-upper flag if every slope vanishes. Lambda zero is a zero-background limiting control, not an estimate of zero regional vegetation.",
+    "structural_certificate": "The closed two-taxon response Jacobian on free coordinates(v_Betula,lambda) has rank1 with opposite rows. Verify its null direction(d_Betula,1) and exact zero determinant; the feasible family has identical observed pollen under the declared mixture. No solver or likelihood optimization is called.",
+    "no_clipping": "Keep all three original signed cases, feasibility flags and maintained negative-cover refusals. A simplex projection is a different output and must not be silently substituted."
+  },
+  "evaluation_points": {
+    "original_ratios": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "feasible_family_controls": [
+      "zero_background_limit",
+      "one_quarter_of_finite_feasible_upper",
+      "one_half_of_finite_feasible_upper",
+      "three_quarters_of_finite_feasible_upper",
+      "finite_feasible_upper_endpoint"
+    ],
+    "endpoint_neighbors": "Use exact rational or Decimal-bound comparisons to classify immediately outside/inside the upper endpoint; binary64 rounding is recorded without clipping.",
+    "purpose": "Finite controls qualify the analytic whole-domain derivation; they do not sample a posterior or select a preferred ratio.",
+    "endpoint_neighbor_relative_offset": "1/2^20, exact rational multiplication of the exact feasible endpoint, independently classified inside/at/outside."
+  },
+  "implementation": {
+    "maintained_module": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/identifiability/producer.py",
+    "source_loader": "Reuse .sources.load_inputs and .summary.summarize, preserving the original overall failed envelope, passed model stage and accepted oracle-only successor.",
+    "independent_oracle": "Separate exact rational scalar derivation from serialized source decimal inputs and a direct two-component constrained Jacobian, independently of the maintained floating affine-profile implementation. No production inverse/Jacobian, optimizer or quadrature helper imported. Independently reconcile all original three covers and signs plus every frozen family point and endpoint inequality.",
+    "native_model_or_engine_calls": false,
+    "public_API_change": false,
+    "domain_layout": "A nested identifiability package preserves the original top-level writer module identities and original source-proof products."
+  },
+  "tolerances": {
+    "scalar_cover_and_roundtrip_absolute": 2e-13,
+    "Jacobian_absolute": 2e-13,
+    "scale_aware_relative": 5e-10,
+    "scale_aware_absolute_floor": 1e-18,
+    "rank_null_residual_absolute": 2e-13,
+    "endpoint_classification": "Exact independent rational inequality, not a relaxed floating simplex mask.",
+    "scale_aware_application": "For nonzero comparison scales above1e-12 apply both the stated absolute ceiling and1e-18+5e-10*scale. Zero/boundary cover, roundtrip and null residuals use the stated2e-13 absolute bound; retain all signed roundoff without clipping."
+  },
+  "required_controls": [
+    "Original three-case signed estimates and feasibility/refusal populations remain unchanged",
+    "Multiple distinct feasible ratios reconstruct identical closed observed pollen without identifying lambda",
+    "Rank1 response and null direction, not a fitted Hessian or noise-based CI",
+    "Zero-slope aligned background gives unbounded ratio family, not an invented finite upper bound",
+    "Explicit measured taxon zero retains the exact feasible boundary, possibly only lambda zero with an empty positive-ratio domain; missing or ambiguous count axes, zero panel totals, invalid counts, and nonpositive or nonfinite response/PPE values refuse. Positive correction guards cover zero-count axes.",
+    "Changed source member/descriptor/protocol/core membership refuses",
+    "Clipping an infeasible original case cannot substitute its changed forward response",
+    "Negative ratios and nonpositive mixture denominators refuse; source-specific support/masks/rights unchanged"
+  ],
+  "resources": {
+    "wall_seconds": 120,
+    "max_rss_bytes": 805306368,
+    "max_output_bytes": 33554432,
+    "numeric_threads": 1,
+    "network": false,
+    "source_acquisition": false,
+    "native_fits": false,
+    "quadrature": false,
+    "model_selection": false
+  },
+  "publication_limits": [
+    "The feasible ratio interval is a deterministic conditional model domain, not a confidence, credible or calibrated interval.",
+    "No measured regional/local abundance ratio, source age distribution, mask or basin truth, whole-landscape vegetation accuracy, untouched confirmation or historical equation reproduction is established.",
+    "The same 29 samples and shared PPE inputs are reused; no new cross-scenario covariance or posterior is supplied and no old marginal SE is replaced.",
+    "Original model overall FAIL, model stage exit zero and separate oracle-only exit zero remain distinct immutable outcomes. Raw source samples and individual age/depth/count associations remain external; identity is not redistribution permission or qualified scientific review."
+  ],
+  "reviewed_preparation_protocol_sha256": "25a3633c73c40348a812d184dc51ca65047ba8a066393e650b313c601460f0fa",
+  "writer_source_correspondence": {
+    "historical_writer_module_sha256": {
+      "__init__.py": "a692370d5f42a225fffa002066de50dfde8f9624c33beb5f055a1c92939a73a6",
+      "__main__.py": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
+      "authority.py": "b067b92811f0c46732b8f17cd1ea1f9adb79649fc55691d1f818e60904907f9e",
+      "producer.py": "a5964e27ab631c1d0ef4f1443f0e0b1f734a9d55aaae84cb84f77a8fa03dfeb5",
+      "sources.py": "e258f6bedfcb6465f49a9add4294135461b61f5e78b4571899ad4c26fcc1f573",
+      "summary.py": "e4443964c669f7a0ae85b2c1111ec225b9407f02b2b17dceae3a78c57738a9a6"
+    },
+    "qualified_current_writer_module_sha256": {
+      "__init__.py": "a692370d5f42a225fffa002066de50dfde8f9624c33beb5f055a1c92939a73a6",
+      "__main__.py": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
+      "authority.py": "b067b92811f0c46732b8f17cd1ea1f9adb79649fc55691d1f818e60904907f9e",
+      "producer.py": "510c18f6f11432f4d9f26eab43d988caca16c4722e0f8a133808a647389d93d3",
+      "sources.py": "b7430ba92ed5b292c6c3ef4b7029e3dc28bfbc111f254142fedc5481cd38e20b",
+      "summary.py": "67a6534d57bade437855433fba6c74af57d8882d595d9985d7c91d489320b866"
+    },
+    "reviewed_deltas": [
+      {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/producer.py",
+        "original_sha256": "a5964e27ab631c1d0ef4f1443f0e0b1f734a9d55aaae84cb84f77a8fa03dfeb5",
+        "reviewed_sha256": "510c18f6f11432f4d9f26eab43d988caca16c4722e0f8a133808a647389d93d3",
+        "classification": "function_annotation_reconciliation",
+        "specific_review": "Function annotations/local annotations and unused typing-only imports explain difference under conservative normalizer. Reflection/type metadata semantics remain possible; no universal equivalence or unchanged closure assertion.",
+        "git_evidence": {
+          "original_blob": "239ff9731febdea99280b6d5936576c8a77dc708",
+          "current_tracked_blob": "182094ed9bbdff5ed668578a374ff0f072e6ae0c",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "source_structure": {
+          "changed_top_level_function_syntax": [
+            "main",
+            "publish"
+          ],
+          "added_top_level_functions": [],
+          "removed_top_level_functions": []
+        },
+        "owner_consumer_refs": []
+      },
+      {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/sources.py",
+        "original_sha256": "e258f6bedfcb6465f49a9add4294135461b61f5e78b4571899ad4c26fcc1f573",
+        "reviewed_sha256": "b7430ba92ed5b292c6c3ef4b7029e3dc28bfbc111f254142fedc5481cd38e20b",
+        "classification": "documentation_or_format_reconciliation",
+        "specific_review": "Exact AST identity modulo docstrings demonstrated. Reuse retained numerical results within same claim after exact source custody/documentation review; raw source hashes differ. No scientific execution performed by this audit.",
+        "git_evidence": {
+          "original_blob": "40466aeb7a29ba4f4c0b36fa617c34955845c438",
+          "current_tracked_blob": "8fc528f6b9922adf987427c7a9ecca20e7762310",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "source_structure": {
+          "changed_top_level_function_syntax": [
+            "load_inputs"
+          ],
+          "added_top_level_functions": [],
+          "removed_top_level_functions": []
+        },
+        "owner_consumer_refs": []
+      },
+      {
+        "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/summary.py",
+        "original_sha256": "e4443964c669f7a0ae85b2c1111ec225b9407f02b2b17dceae3a78c57738a9a6",
+        "reviewed_sha256": "67a6534d57bade437855433fba6c74af57d8882d595d9985d7c91d489320b866",
+        "classification": "documentation_or_format_reconciliation",
+        "specific_review": "Exact AST identity modulo docstrings demonstrated. Reuse retained numerical results within same claim after exact source custody/documentation review; raw source hashes differ. No scientific execution performed by this audit.",
+        "git_evidence": {
+          "original_blob": "0bcc51391ac20c402b076e56e1c18cdd24853ba7",
+          "current_tracked_blob": "acead5b0364b1cd1da4f3231950681224dc8c64a",
+          "recorded_history_transition_commit": "805ea9993cc7420b50197d94f08f1499bec99621"
+        },
+        "source_structure": {
+          "changed_top_level_function_syntax": [
+            "close",
+            "integer",
+            "matrix",
+            "native_scope",
+            "require",
+            "source_totals",
+            "summarize",
+            "vector"
+          ],
+          "added_top_level_functions": [],
+          "removed_top_level_functions": []
+        },
+        "owner_consumer_refs": []
+      }
+    ],
+    "durable_review_account": {
+      "path": "reports/architecture/library-source-correspondence.json",
+      "sha256": "ac3d44c2ebd293d36130e0ff634cee9d8dbe0aaa5800e2e0d26c422029cdd7c6"
+    },
+    "exact_diff_review": "producer.py adds two function docstrings and reorders the same typing.Any import; sources.py adds one function docstring; summary.py adds nine function docstrings. Historical source identities remain unchanged in the original proof. Current helper execution is separately qualified, not relabelled as the historical writer."
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "neotoma-export-selection-custody.v1",
+  "scope": "Exact two-site retained export transition changes only operational /selection/shared_url; every other JSON field/type/order/count and native source identity stays fixed. No generic URL/source-identity waiver or scientific/event admission.",
+  "reference_git_commit": "535c8072bf028a58eff0eca2a2912b2cb6f4d27f",
+  "source_manifest": {
+    "path": "data/neotoma/relational/manifest.json",
+    "sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b"
+  },
+  "browser_capture": {
+    "path": "data/atlas/source-view-capture/capture.json",
+    "sha256": "bf5a62652a8b22734f15ac60584e2ab0f8ab8870d96a632307cfd40211daeddd",
+    "source_candidate": "fa79ae6eff0f344b5a2dbff2cc858f92746c1f67"
+  },
+  "reference_readiness_report": {
+    "path": "data/neotoma/source-selection-reference/readiness-report.json.gz",
+    "storage_sha256": "7a8ba2ede841a203239e45d2a55f72972549893eebea50748c60a2c1e33fe0e5",
+    "content_sha256": "dfa81aec856e4fd253d3435095c9dfa54a470ca102b34b7d250ab82a266c599d",
+    "content_bytes": 3440392
+  },
+  "exports": [
+    {
+      "site_id": "12",
+      "export_path": "docs/report/atlas/source-export/downloads/neotoma-site-12.pollen-series.json",
+      "reference_path": "data/neotoma/source-selection-reference/neotoma-site-12.pollen-series.json.gz",
+      "reference_storage_sha256": "ad2350706572c0ef12382d417594d411bfabe9e30d8d03f1d99220b1adb98610",
+      "reference_sha256": "8284262561d27ad8d1d49c5561ef60c1a3a6c884f55d547db60640ef3d893780",
+      "content_bytes": 2260770,
+      "export_sha256": "5b7b6db1b2f21878807f33fe1f008e760099f15afa0aa64c704f5ff142e5ae8f",
+      "captured_member": "products/atlas/source-export/downloads/neotoma-site-12.pollen-series.json",
+      "reference_shared_url": "http://127.0.0.1:52136/index.html?viewport=1440#basemap=none&focus_layer=neotoma-pollen&focus_feature=evidence%3A12&focus_record=neotoma%3Asite%3A12&focus_tab=chronology",
+      "export_shared_url": "http://127.0.0.1:51122/index.html?viewport=1440#basemap=none&focus_layer=neotoma-pollen&focus_feature=evidence%3A12&focus_record=neotoma%3Asite%3A12&focus_tab=chronology",
+      "all_other_ordered_json_sha256": "1220547a5b13ea15aedbec13319310b159640e1c7a85bebb5be37612dbe4f837"
+    },
+    {
+      "site_id": "3009",
+      "export_path": "docs/report/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json",
+      "reference_path": "data/neotoma/source-selection-reference/neotoma-site-3009.pollen-series.json.gz",
+      "reference_storage_sha256": "bebd55bdda568ff54aec1764825586ca001c1581fa4dd1a4f0e26a9c8c3786f4",
+      "reference_sha256": "e6f66cf65da67d3d4a701de51d1500e0f670fb849c6f59c032eb1c41a6011647",
+      "content_bytes": 492568,
+      "export_sha256": "83a18e2b5955023fdfad5d76f4cc6af7e8c6fdeed019525caf56785e7ebf2b58",
+      "captured_member": "products/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json",
+      "reference_shared_url": "http://127.0.0.1:52136/index.html?viewport=1440#basemap=none&focus_layer=neotoma-pollen&focus_feature=evidence%3A3009&focus_record=neotoma%3Asite%3A3009",
+      "export_shared_url": "http://127.0.0.1:51122/index.html?viewport=1440#basemap=none&focus_layer=neotoma-pollen&focus_feature=evidence%3A3009&focus_record=neotoma%3Asite%3A3009",
+      "all_other_ordered_json_sha256": "98407a000a13421314a619ea275080a065f7174b0a443a51a2b172b4947934a4"
+    }
+  ]
+}

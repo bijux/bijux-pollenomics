@@ -13,6 +13,10 @@ from bijux_pollenomics_dev.lra_validation.neotoma_first_observed import (
     _reader_snapshot,
     build_neotoma_first_observed,
 )
+from bijux_pollenomics_dev.source_completion.propagation.neotoma_exports import (
+    EXPECTED_EXPORTS,
+    validate_retained_readiness,
+)
 
 JsonObject = dict[str, object]
 ROOT = next(
@@ -191,13 +195,14 @@ def test_both_real_chronology_profiles_keep_missingness_and_overlap(
     assert cast(JsonObject, default_first["claim"])["younger_bp"] is None
 
 
-def test_retained_readiness_matches_replay_without_event_promotion(
+def test_named_export_custody_preserves_refusals_without_event_promotion(
     report: JsonObject,
 ) -> None:
-    retained = json.loads(
-        (ROOT / "docs/report/propagation/source-first-observed/report.json").read_text()
-    )
-    assert retained == json.loads(json.dumps(report))
+    validate_retained_readiness(ROOT, report)
+    identity = cast(JsonObject, report["source_identity"])
+    assert identity["export_sha256"] == {
+        site: current for site, _historical, current in EXPECTED_EXPORTS
+    }
     claims = cast(JsonObject, report["claims"])
     assert claims["real_source_rows_consumed"] is True
     assert claims["alternate_chronology_selected_for_publication"] is False
