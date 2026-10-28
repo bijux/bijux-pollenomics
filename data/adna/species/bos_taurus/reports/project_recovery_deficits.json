@@ -3,7 +3,7 @@
   "species_latin_name": "Bos taurus",
   "counts": {
     "project_count": 3,
-    "projects_with_sample_gap": 0,
+    "projects_with_sample_gap": 1,
     "projects_with_site_gap": 3,
     "projects_with_chronology_gap": 3,
     "projects_blocked_before_publication": 3
@@ -35,9 +35,9 @@
       "project_accession": "PRJEB75467",
       "paper_doi": "10.1038/s41586-024-08112-6",
       "final_sample_count": 44,
-      "expected_sample_count": null,
-      "minimum_expected_sample_count": 1,
-      "minimum_gap_count": 0,
+      "expected_sample_count": 50,
+      "minimum_expected_sample_count": 50,
+      "minimum_gap_count": 6,
       "lacking_defensible_site_assignment_count": 10,
       "missing_chronology_count": 11,
       "chronology_conflict_count": 0,
@@ -47,6 +47,8 @@
       "coordinate_blocked_count": 0,
       "publication_readiness_status": "blocked",
       "major_deficit_reasons": [
+        "implausibly_low_sample_recovery",
+        "sample_recovery_gap",
         "site_assignment_gap",
         "chronology_gap"
       ]
@@ -54,10 +56,10 @@
     {
       "species_latin_name": "Bos taurus",
       "project_accession": "PRJNA705960",
-      "paper_doi": "",
+      "paper_doi": "10.1371/journal.pone.0249537",
       "final_sample_count": 11,
       "expected_sample_count": null,
-      "minimum_expected_sample_count": 11,
+      "minimum_expected_sample_count": 1,
       "minimum_gap_count": 0,
       "lacking_defensible_site_assignment_count": 11,
       "missing_chronology_count": 11,
@@ -70,8 +72,7 @@
       "major_deficit_reasons": [
         "site_assignment_gap",
         "chronology_gap",
-        "coordinate_precision_gap",
-        "missing_primary_paper_linkage"
+        "coordinate_precision_gap"
       ]
     }
   ]

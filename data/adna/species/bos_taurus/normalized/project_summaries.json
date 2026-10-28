@@ -76,14 +76,14 @@
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
       "project_accession": "PRJNA705960",
-      "study_token": "study:project:prjna705960",
+      "study_token": "study:10-1371-journal-pone-0249537",
       "source_family": "ENA",
       "source_release": "PRJNA705960",
       "result_kind": "read_run",
-      "archive_status": "archive_verified_needs_paper_pinning",
-      "evidence_strength": "archive_only",
-      "review_strength": "archive_verified_needs_paper_pinning",
-      "support_class": "archive_pending_paper_linkage",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
+      "review_strength": "primary_paper_pinned",
+      "support_class": "domesticated_core_curated",
       "record_modality": "mitogenome_only",
       "domestication_status": "domesticated_core",
       "domestication_scope": "domesticated_core",
@@ -96,13 +96,13 @@
       "geographic_basis": "site_level_localities",
       "coordinate_policy": "site_level_coordinates_expected",
       "chronology_policy": "archaeological_period_label_allowed",
-      "paper_title": null,
-      "paper_doi": null,
-      "paper_url": null,
+      "paper_title": "Insight into the introduction of domestic cattle and the process of Neolithization to the Spanish region Galicia by genetic evidence",
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "paper_url": "https://doi.org/10.1371/journal.pone.0249537",
       "nordic_relevance": "non_nordic",
       "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_caveat": "Ancient Galician cattle mtDNA dataset kept archive-verified until explicit primary-paper linkage is encoded. Keep this project out of strong pollenomics interpretation until the primary paper linkage is encoded explicitly. This project stays in the evidence base for comparative context, not as shipped Nordic evidence.",
-      "notes": "Ancient Galician cattle mtDNA dataset kept archive-verified until explicit primary-paper linkage is encoded."
+      "interpretation_caveat": "Galician cattle and aurochs mtDNA source; sample-owned taxa and processing/deposition populations remain distinct. This project stays in the evidence base for comparative context, not as shipped Nordic evidence.",
+      "notes": "Galician cattle and aurochs mtDNA source; sample-owned taxa and processing/deposition populations remain distinct."
     }
   ]
 }
