@@ -12672,8 +12672,8 @@
       "time_end_bp": 4952,
       "dating_basis": "radiocarbon",
       "precision_bucket": "sample_precise_interval",
-      "precision_review_note": "Chronology comes from the recovered sample-owned source row.",
-      "chronology_conflict_note": ""
+      "precision_review_note": "Chronology comes from the recovered sample-owned source row. Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval.",
+      "chronology_conflict_note": "Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval."
     },
     {
       "project_accession": "PRJEB59481",

@@ -1,6 +1,6 @@
 # Sample chronology ambiguity ledger
 
-- Rows requiring chronology review: `928`
+- Rows requiring chronology review: `929`
 
 | Project accession | Sample id | Strength | Normalization | Chronology | Note |
 | --- | --- | --- | --- | --- | --- |
@@ -294,6 +294,7 @@
 | PRJEB36540 | prjeb36540:ulu30 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB41594 | prjeb41594:samea8022720 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB41594 | prjeb41594:samea8022723 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| PRJEB41594 | prjeb41594:samea8022724 | sample_owned_interval / sample_precise_interval | normalized_interval | 3003-2701 cal BCE | Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval. |
 | PRJEB59481 | prjeb59481:samea112960292 | sample_owned_interval / contextual_interval | normalized_interval | 400-450 BP | Chronology comes from the recovered sample-owned source row. |
 | PRJEB59481 | prjeb59481:samea112960295 | sample_owned_text_only / broad_period_only | text_only_unparsed | Late Neolithic | Chronology comes from the recovered sample-owned source row. |
 | PRJEB30282 | prjeb30282:samea5160866 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |

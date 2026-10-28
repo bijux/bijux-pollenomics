@@ -28780,8 +28780,8 @@
       "time_end_bp": 4952,
       "time_mean_bp": 4801,
       "dating_basis": "radiocarbon",
-      "chronology_conflict_note": "",
-      "review_note": "Chronology comes from the recovered sample-owned source row."
+      "chronology_conflict_note": "Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval.",
+      "review_note": "Chronology comes from the recovered sample-owned source row. Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval."
     },
     {
       "species_latin_name": "Ovis aries",

@@ -4352,6 +4352,21 @@
       "review_note": "No chronology claim has been recovered yet for this sample row."
     },
     {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "repo_stable_sample_id": "prjeb41594:samea8022724",
+      "preferred_sample_label": "OB20-04",
+      "chronology_strength": "sample_owned_interval",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_precise_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_text": "3003-2701 cal BCE",
+      "chronology_conflict_note": "Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval.",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+      "chronology_provenance_locator": "Supplementary Table 2 p. 11, context (20.4), lab AA-114607",
+      "review_note": "Chronology comes from the recovered sample-owned source row. Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval."
+    },
+    {
       "project_accession": "PRJEB59481",
       "species_latin_name": "Ovis aries",
       "repo_stable_sample_id": "prjeb59481:samea112960292",
