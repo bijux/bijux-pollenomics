@@ -259,3 +259,46 @@ def test_missing_atlas_member_keeps_transport_refusal(
         verifier._source_bytes(
             tmp_path, "data/atlas/source-view-capture/source/unknown.json"
         )
+
+
+def test_named_historical_api_inventory_uses_existing_git_owner(
+    tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    calls: list[Path] = []
+
+    def preimage(repository: Path) -> bytes:
+        calls.append(repository)
+        return b"# Own historical API body\n"
+
+    monkeypatch.setattr(verifier, "api_adoption_preimage", preimage)
+    relative = "data/source-custody/lra-uncertainty-layout/api-before-relocation.py"
+    assert verifier._source_bytes(tmp_path, relative) == b"# Own historical API body\n"
+    assert calls == [tmp_path]
+    assert not (tmp_path / relative).exists()
+
+
+def test_other_missing_api_paths_cannot_borrow_historical_transport(
+    tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def forbidden(repository: Path) -> bytes:
+        pytest.fail("Only the exact historical member may use API transport")
+
+    monkeypatch.setattr(verifier, "api_adoption_preimage", forbidden)
+    with pytest.raises(ValueError, match="unavailable or unsafe"):
+        verifier._source_bytes(
+            tmp_path, "data/source-custody/lra-uncertainty-layout/other.py"
+        )
+
+
+def test_historical_api_member_keeps_missing_git_witness_refusal(
+    tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def missing(repository: Path) -> bytes:
+        raise verifier.ReportRebuildError("Original API Git witness is unavailable")
+
+    monkeypatch.setattr(verifier, "api_adoption_preimage", missing)
+    with pytest.raises(ValueError, match="unavailable or unsafe"):
+        verifier._source_bytes(
+            tmp_path,
+            "data/source-custody/lra-uncertainty-layout/api-before-relocation.py",
+        )

@@ -3216,7 +3216,7 @@
     },
     {
       "path": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
-      "sha256": "855339046180a5fefb3459e488dfb5f937bb7a8ec155528167bb22bf77de7778",
+      "sha256": "2f3b2bbfc27f8392d92ca00b1d9c9002612b8be2351844365aebb5f3efe4d80e",
       "bytes": 4141
     },
     {
@@ -3241,12 +3241,12 @@
     },
     {
       "path": "docs/report/source-relations/sead/map-candidate/report.json",
-      "sha256": "59afdd5aac8b871adfede0c851bc744304e252db784bef60f5fa229b547d361f",
+      "sha256": "20d564598838620c15405a16b36ad4885a8c85a4f919fa21f888904795a8242f",
       "bytes": 3081
     },
     {
       "path": "docs/report/source-relations/sead/public-custody/report.json",
-      "sha256": "8a772532e3f9792c432095bb7953b8cafc0438b8078f4ab785580cff6a867063",
+      "sha256": "fa5257291cf4890691a90c437b717012f9366b7ba26c2cb43ce855a5e088615f",
       "bytes": 25297
     },
     {
@@ -3386,58 +3386,58 @@
     },
     {
       "path": "reports/exports/papers/landclim-regional-reconstruction.pdf",
-      "sha256": "a4b67d92a773d0981e59f925caeea2cb41bbc9cdfc8118b75db58e13b5a38f90",
-      "bytes": 111219
+      "sha256": "b9465a31c5f225fb73fe1da256fe4013105be1579927fb5d8758986c1b0c742c",
+      "bytes": 116825
     },
     {
       "path": "reports/exports/papers/local-love-theory.pdf",
-      "sha256": "6ba154e83cd7c8a3f1858d20450d2a85e0c9d96bc575e45f09d6f60882396f57",
-      "bytes": 45960
+      "sha256": "f5e3a2788cb0c4b82f528e3d578feee6389589181709219f839b545946005acc",
+      "bytes": 49056
     },
     {
       "path": "reports/exports/papers/love-optimized-local-inference.pdf",
-      "sha256": "cd04def7764d2d72534fae9161f0c7e3bb23af8997d89b6cf8d49a02fb174d1e",
-      "bytes": 84073
+      "sha256": "2704fbc853565deed64239eb7c3564c9bf79f49852a5b4b229f2d0bacfbad6bd",
+      "bytes": 86801
     },
     {
       "path": "reports/exports/papers/manifest.json",
-      "sha256": "89ea6a0fed12f3fbbb1b312081a615b74024b0efc473db5f2f7e3eaa78294ac3",
-      "bytes": 19711
+      "sha256": "0c22f93d47b0b3981b2d0662fcb6903ca3fb7d5ccad9a28b33720c5eb798710f",
+      "bytes": 20047
     },
     {
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "sha256": "d413789da0e7b3649bae585ba8b434671ff35f9efadff1206c05346a04225d3f",
-      "bytes": 69631
+      "sha256": "e783c376cb54c722a976431ea909fe0a19cfd0ab7c4d30520bd56b436c5a09e9",
+      "bytes": 73987
     },
     {
       "path": "reports/exports/papers/regional-reveals-theory.pdf",
-      "sha256": "dfc61dbe4329f600f47b4a44ca249560baa022029e605d25af48f160435ed04f",
-      "bytes": 46574
+      "sha256": "6c4362e24297a236d980a6d4b45685fc469185aa3edc0a472c47dc903ff476a6",
+      "bytes": 49183
     },
     {
       "path": "reports/exports/papers/smaland-historical-map-reference.pdf",
-      "sha256": "ab3cb9fb5d3ce33e4c8dfb82a22aa36f1fab4b7b21c9928562aed982fb83d9a1",
-      "bytes": 75391
+      "sha256": "b53099b00a4301b90f77fbb582aa4834fa64f5eb50f73ac7c0e628ff253a3bad",
+      "bytes": 78131
     },
     {
       "path": "reports/exports/papers/southern-sweden-regional-validation.pdf",
-      "sha256": "7f279ef718b889080ad7efd1b21ebeefa7f68a5c5f3a80f3c1ecc4b6d7bfc6b7",
-      "bytes": 48346
+      "sha256": "215a3c2ff7cd498118cdd3225b09216cb4d1c3c741f90c9df7e858e334a99565",
+      "bytes": 51253
     },
     {
       "path": "reports/exports/papers/southern-sweden-sampling-design.pdf",
-      "sha256": "6fee1371a5e3334f9adf8954a1b254f6a9eb874e696d3420a94c72c483533f35",
-      "bytes": 49082
+      "sha256": "a7b1ba7215ec2277720680188c71cfe826b0d846a1e996b60a238f18504fe431",
+      "bytes": 51996
     },
     {
       "path": "reports/exports/papers/southern-sweden-validation-synthesis.pdf",
-      "sha256": "db84fa8b5d085db16eb35afa49f94b376bbaf5e369f2c451262bf8abb41db75d",
-      "bytes": 44238
+      "sha256": "28f3a290c0d63d4a4536f6c718aa3c8fea4c53f41e5c18be82c60fd25c2709fa",
+      "bytes": 47212
     },
     {
       "path": "reports/exports/papers/visual-review.json",
-      "sha256": "e6a108afcb97fb70f942e0df7752237effca5511073d740211facf9548ad047a",
-      "bytes": 22754
+      "sha256": "75daac87ad3c30c2700ebed03b438029672662c6470da40eb166a86c7cd13da4",
+      "bytes": 49578
     },
     {
       "path": "reports/science/aadr-nordic-entities/decisions.csv",
