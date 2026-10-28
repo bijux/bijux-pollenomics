@@ -429,6 +429,120 @@ uncertainty, spatial-block transfer, untouched confirmation, historical
 reproduction, source-qualified physical interpretation and measured vegetation
 remain separate unfinished claims.
 
+## Ten-site geographic thinning and regional-source composition
+
+We asked how the fixed spatial and forward-pollen predictions change when
+an outcome-free geographic rule reduces the exposed fifteen-site source to
+ten sites. The [prospective protocol](author-love-geographic-thinning/protocol.json)
+specifies a nominal WGS84 medoid seed followed by greedy maximum nearest-selected
+distance, with record-ID ordering for exact ties. Full physical identity
+families precede selection. The seed is GOURTEMIRES, followed by BROADOWN,
+MOLECHAM, LARKBARR, LOBBSBOG, HANGINGS, COMERSLA, CUTHILL2, WINNEYS and HARESDOWN.
+BECKHAM, LONGBREACH, NTWITCHEN, WHH05 and WINDMILL are excluded.
+
+All fifteen source centres lie within 1,476.59 m of a selected centre; the
+smallest selected separation is 1,662.94 m. These are nearby sites, not ten
+independent spatial blocks. Independent review verifies the selection ordering
+conditional on the nominal binary64 distance matrix and a rational geodesic
+envelope; it does not independently recompute inverse-geodesic microprecision
+or establish source coordinate accuracy.
+
+Each of the ten rotations allows nine source owners. Original regional
+priority selects BROADOWN, except that held-out BROADOWN uses COMERSLA; the
+other eight owners supply local LOVE predictors. All seventeen required
+local–regional pairs already have source-qualified saved fits. We preserve
+both local rings and use ring index 1. Regional deposition is recomputed from
+the exact native regional vector, PPE and saved finite outer-ring factors,
+weighted once and checked against the matching saved handoffs. Native regional
+totals retain rounding residuals of 0.99999 or 1.00001; we do not normalize them.
+Strict local-cover and final-composition checks remain unchanged.
+
+Fresh numerical ancestry excludes the target family and all five removed
+owners from every new forecast. Reusing a complete fit bank is source accounting;
+only the eight local–regional pairs allowed for that rotation enter its
+prediction. The bank contains other-fold target-derived objects, so this is
+recorded fold-specific exclusion on previously exposed data, not globally
+unread or operating-system-isolated access.
+
+We prescribe training mean, nearest site, inverse-distance-squared, and
+Hellinger scales 20 and 100 km. Neither scale is newly selected or tuned.
+All **50 vegetation and forward-pollen forecasts** were serialized, closed
+and authenticated before ten scoring-role outcome reads. Every rotation
+predicted and scored, with no new refusal or positive-count/zero-probability
+loss. Vegetation accuracy remains unavailable at all ten sites because no
+independent measured vegetation is present. The same thirty-taxon TW5
+calendar-BP support [1250,1750], fixed source parameters, 1,000 m homogeneous
+local support and 100 km finite regional cutoff remain conditional assumptions.
+
+The observed count is used only in scoring. The ten distinct target counts
+are BROADOWN 2,092; COMERSLA 274; CUTHILL2 1,150; GOURTEMIRES 2,207;
+HANGINGS 1,439; HARESDOWN 1,861; LARKBARR 553; LOBBSBOG 2,547;
+MOLECHAM 2,336; and WINNEYS 971: **15,430 grains counted once**, not five
+times for the five methods. Equal-target descriptive mean pollen losses are:
+
+| Prescribed method | MAE, fraction | Total variation | Hellinger | Count-conditioned deviance |
+| --- | ---: | ---: | ---: | ---: |
+| Training mean | 0.019897 | 0.298459 | 0.270734 | 987.336 |
+| Nearest site | 0.017188 | 0.257817 | 0.242897 | 682.763 |
+| Inverse-distance-squared | 0.017003 | 0.255038 | 0.239792 | 655.644 |
+| Hellinger, 20 km | 0.016828 | 0.252424 | 0.240653 | 748.691 |
+| Hellinger, 100 km | 0.018216 | 0.273237 | 0.257625 | 894.538 |
+
+With thirty taxa, total variation equals fifteen times MAE; these are not
+independent confirmations. The prescribed 20 km model has lower mean MAE than
+IDW2 but higher mean Hellinger and deviance. It improves individual Hellinger
+at eight of ten sites against training mean and six of ten against each of
+nearest and IDW2. Individual MAE improves at five of ten against IDW2.
+The losses therefore support different descriptive rankings rather than a
+universal winner or a newly accepted scale.
+
+Forty immutable full-fifteen reference predictions supply matched comparisons
+on these same ten targets. Their original H20 selection remains full-cohort
+development history; it is not borrowed as a nine-owner training decision.
+Mean Hellinger for the new H20 profile is 0.240653 versus **0.267848** for
+retained full-fifteen H20, a paired difference of −0.027195, improving six of
+ten sites. New-minus-retained mean Hellinger is −0.064504 for training mean,
+−0.032736 for nearest and −0.035739 for IDW2; respective individual improvement
+counts are eight, four and four. Old count-conditioned deviance was not
+evaluated and is unavailable for this comparison.
+
+Removing BECKHAM changes the regional source as well as the number and
+geography of local predictors. These differences do not isolate a causal
+sample-size effect. They describe geographic thinning and regional-source
+composition on previously exposed outcomes, without independent-site precision,
+new uncertainty propagation, calibrated intervals or field accuracy. Final
+accuracy acceptance is not assessed without a qualified frozen benchmark and
+independent evidence.
+
+The actual producer and independent observer both passed at source commit
+`90a9871df7279802129b83c2ed83ff2649de6854`. The observer authenticates the
+original 42-source join, all seventeen native pairs, fresh ten-context
+closures, forty retained references, fifty predictions and eleven paired
+comparison channels per target. It uses independent 80-digit composition
+arithmetic and a separate scalar forward calculation. All 4,564 tracked Python
+files, protocol, scientific inputs, HEAD and index remained stable through
+both jobs. No inverse fit, kernel integration, random draw, old 675-slot
+nominal replay or old 450-candidate model study was repeated.
+
+Producer wall time was 3.78 s with 257,081,344 B peak RSS and 795,294 B final
+products; observer wall time was 3.69 s with 600,866,816 B peak RSS and 2,204 B
+verification output. Both satisfy the prospective 180 s, 1 GiB and 16 MiB
+bounds. All 148 integrated controls and configured lint, formatting and strict
+typing pass. An earlier producer attempt stopped before forecasts or scoring
+because the new code incorrectly applied local closure to the native rounded
+regional handoff. That failure remains retained; the precision correction and
+regression control preceded the successful forecasts. A combined-test fixture
+import failure and its corrected package-path run also remain retained.
+
+The maintained producer and observer are
+`bijux_pollenomics_dev.essd_reproduction.author_lra_spatial.thinning.study` and
+`.thinning.observer`. Complete inputs, predictions, scores, role accesses and
+prediction freeze remain at `artifacts/root/author-love-geographic-thinning/study/`;
+independent facts remain at
+`artifacts/verification/author-love-geographic-thinning/verification.json`
+(SHA-256 `27e66666dad7019ae6a4c002aa29d4ce35755c991b5fc5ad591fb50e0850c5c9`).
+The following full-footprint geographic refusal remains unchanged.
+
 ## Geographic-block support on this source cohort
 
 The original primary `site.metadata.csv` assigns the fifteen TW5 owners to two
@@ -581,13 +695,13 @@ an editable source checkout.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Bounded constrained LOVE and matched English LRA-forward pollen development comparison; 64 jointly propagated shared-PPE fits for one exposed training pair under fixed source geometry and diagonal moments. Zero-compatible Hellinger spatial prediction now has 450 predicted candidates, complete training-only scale selection and 15 matched pollen-scored outer folds under fixed nominal gpm neutral transport. A separate count-free geographic-block prerequisite screen retains all112 comparisons and refuses all15target roles under the explicit full-source-footprint buffer; it supplies no new blocked prediction.
+**Supported claim.** Bounded constrained LOVE and matched English LRA-forward pollen development comparison; 64 jointly propagated shared-PPE fits for one exposed training pair under fixed source geometry and diagonal moments. Zero-compatible Hellinger spatial prediction now has 450 predicted candidates, complete training-only scale selection and 15 matched pollen-scored outer folds under fixed nominal gpm neutral transport. A separate count-free geographic-block prerequisite screen retains all112 comparisons and refuses all15target roles under the explicit full-source-footprint buffer; it supplies no new blocked prediction. A geometry-only medoid/maximin ten-site thinning experiment now supplies all ten nine-owner rotations and fifty prescribed point forecasts, separately retaining forty matched full-fifteen references; no new nested selection.
 
-**Unsupported claim.** Ecological cover accuracy, calibrated uncertainty, field PPE covariance, physical receiving-radius selection or equal-information solver ranking. New point-scale sensitivity supplies no model uncertainty law, calibrated coverage, spatial-block experiment, untouched data or independent vegetation accuracy.
+**Unsupported claim.** Ecological cover accuracy, calibrated uncertainty, field PPE covariance, physical receiving-radius selection or equal-information solver ranking. New point-scale sensitivity supplies no model uncertainty law, calibrated coverage, spatial-block experiment, untouched data or independent vegetation accuracy. The ten-site source-composition comparison does not isolate a causal sample-size effect or supply ten independent blocks, generalization precision or final accuracy acceptance.
 
-**Actual verification performed.** The maintained ten-stage source consumer and independent observer genuinely passed on clean commit 22c6e480ba4690cc508202925a8773afe95ab36e, terminal c4ab7b6a50c989cd646454ae2b52020df2bbdc749a4806077a45917117fc1539. All eleven products preserve complete scientific values, ordered support and refusals; three also equal earlier bytes and eight have independently authenticated current prediction/score identity differences. Current publication uses the exact new eleven product bytes. All 195 native training attempts were retained and source-verified: 192 completed, 3 refused, 14 scored folds and BECKHAM refused. The historical 3d6 terminal is unavailable and supplies no current custody. This does not qualify ecology, uncertainty calibration, rights, Nordic inputs or human review. Separate actual Hellinger producer at a98dcbfd5421eddd2ba1c9e5992e39330059a70a passed all675 nominal cover/pollen comparisons with zero difference and saved450 candidates/420inner scores/15choices/15outer scores. Independent42-object source custody,80-digit Decimal predictions,loss/selection/access readback passed unchanged abs1e-12/rel1e-10. First observer failed only1000 versus1000.0 radius JSON representation; corrected readback used one documented in-memory exact finite nonbool numeric comparison at the same source/HEAD/index, without producer retry/product edit. Producer5.05s/RSS683180032B; successful observer4.98s/RSS608501760B;201 integrated controls and24-file static checks passed. Durable radius correction has36 affected controls/two-file static checks. Block support source/protocol da86191b5d60dcc4a26f3b975794c68e51cf268b: original17native rows/15geometries/39saved pairs,19source objects9786608bytes; all112 exclusions independently certified by exact rational WGS84 metric/path bounds with no host-geodesic import. Producer1.89s/RSS117538816B/100859productB; observer1.62s/RSS112148480B; source/4513Python/HEAD/index unchanged.67integrated controls/10file static checks passed; earlier18controlsource attempts remain resource-unqualified because14981213fixtureB exceeded8MiB. New integrated64MiB scope used21641269fixtureB; actualscreen2MiB output ceiling unchanged.
+**Actual verification performed.** The maintained ten-stage source consumer and independent observer genuinely passed on clean commit 22c6e480ba4690cc508202925a8773afe95ab36e, terminal c4ab7b6a50c989cd646454ae2b52020df2bbdc749a4806077a45917117fc1539. All eleven products preserve complete scientific values, ordered support and refusals; three also equal earlier bytes and eight have independently authenticated current prediction/score identity differences. Current publication uses the exact new eleven product bytes. All 195 native training attempts were retained and source-verified: 192 completed, 3 refused, 14 scored folds and BECKHAM refused. The historical 3d6 terminal is unavailable and supplies no current custody. This does not qualify ecology, uncertainty calibration, rights, Nordic inputs or human review. Separate actual Hellinger producer at a98dcbfd5421eddd2ba1c9e5992e39330059a70a passed all675 nominal cover/pollen comparisons with zero difference and saved450 candidates/420inner scores/15choices/15outer scores. Independent42-object source custody,80-digit Decimal predictions,loss/selection/access readback passed unchanged abs1e-12/rel1e-10. First observer failed only1000 versus1000.0 radius JSON representation; corrected readback used one documented in-memory exact finite nonbool numeric comparison at the same source/HEAD/index, without producer retry/product edit. Producer5.05s/RSS683180032B; successful observer4.98s/RSS608501760B;201 integrated controls and24-file static checks passed. Durable radius correction has36 affected controls/two-file static checks. Block support source/protocol da86191b5d60dcc4a26f3b975794c68e51cf268b: original17native rows/15geometries/39saved pairs,19source objects9786608bytes; all112 exclusions independently certified by exact rational WGS84 metric/path bounds with no host-geodesic import. Producer1.89s/RSS117538816B/100859productB; observer1.62s/RSS112148480B; source/4513Python/HEAD/index unchanged.67integrated controls/10file static checks passed; earlier18controlsource attempts remain resource-unqualified because14981213fixtureB exceeded8MiB. New integrated64MiB scope used21641269fixtureB; actualscreen2MiB output ceiling unchanged. Ten-site producer and independent observer both pass at 90a9871df7279802129b83c2ed83ff2649de6854: 52 source identities, 17 native pairs, 10 fresh closures, 50 forecasts, 40 retained references, 10 postfreeze scoring accesses and 110 paired comparisons. All 4,564 Python files, protocol, HEAD and index remain stable. Independent 80-digit composition, scalar-forward and scoring checks pass. Producer: 3.78 s, 257,081,344 B peak RSS, 795,294 B final products. Observer: 3.69 s, 600,866,816 B peak RSS, 2,204 B output. Both meet 180 s, 1 GiB and 16 MiB bounds; 148 controls and 22-file static checks pass. First producer stopped before forecasts or scoring on an incorrect closure check for raw rounded regional handoffs. The correction preserves exact source values without normalization; strict local closure remains. Failure logs, regression and prospective clarification are retained. A test-import setup failure was corrected by setting the dev package path. No inverse fit, kernel, random draw or old numerical study was repeated.
 
-**Remaining input or review.** Constrained SLSQP still refuses one outer fold; local radius and fall-speed profile are conditional, sites were explored earlier, and forward pollen scores lack independent vegetation truth or a calibrated interval. The new Hellinger profile is a separately declared fixed-kernel point model; source ages/geometry/PPE and homogeneous local support remain assumptions, and no model-specific uncertainty calibration or actual block transfer was added. The adjacent English blocks cannot supply the declared independent LRA transfer under their at-least100km integration footprint; unknown nonnegative coordinate uncertainty cannot improve conservative clearance. Metadata feasibility is separate from empirical support or field approval. Resolver: LRA solver/source-profile owners and independent ecology reviewer Reopen when: Failed fold is diagnosed with source-bound inputs; a new qualified cohort and measured vegetation pair are frozen and reviewed.
+**Remaining input or review.** Constrained SLSQP still refuses one outer fold; local radius and fall-speed profile are conditional, sites were explored earlier, and forward pollen scores lack independent vegetation truth or a calibrated interval. The new Hellinger profile is a separately declared fixed-kernel point model; source ages/geometry/PPE and homogeneous local support remain assumptions, and no model-specific uncertainty calibration or actual block transfer was added. The adjacent English blocks cannot supply the declared independent LRA transfer under their at-least100km integration footprint; unknown nonnegative coordinate uncertainty cannot improve conservative clearance. Metadata feasibility is separate from empirical support or field approval. The ten-site result remains point-only source-composition sensitivity on nearby exposed targets; minimum centre separation of 1,662.94 m does not establish independent sites. Resolver: LRA solver/source-profile owners and independent ecology reviewer Reopen when: Failed fold is diagnosed with source-bound inputs; a new qualified cohort and measured vegetation pair are frozen and reviewed.
 
 **Cause category.** algorithm/numerical|assumption|comparability|qualified review
 
@@ -595,11 +709,11 @@ an editable source checkout.
 
 **Precise next acceptance route.** Failed fold is diagnosed with source-bound inputs; a new qualified cohort and measured vegetation pair are frozen and reviewed. Then update reports/science/pollen-prediction.md. Separately review conditional shared-PPE moments, source transport and physical geometry before any ecological uncertainty interpretation.
 
-**Negative or refused result.** One outer fold refused after three training fits failed; analytical 15/15 and differential-evolution 2/2 routes refused their declared asks. New Hellinger profile has no candidate or outer refusal; original CLR450 zero-domain refusals and original uniform-start BECKHAM refusal remain unchanged. Hellinger improves only6/15 sites against nearest and7/15 against IDW2; small descriptive mean differences supply no calibrated superiority. All112cross-block comparisons fail; all15targetroles refuse before model work at8.8–65km centre distances versus100km source/1km target/20km extra buffer. Six of24hypothetical unbuffered fit pairs are missing, but no fit was run after geometry refusal.
+**Negative or refused result.** One outer fold refused after three training fits failed; analytical 15/15 and differential-evolution 2/2 routes refused their declared asks. New Hellinger profile has no candidate or outer refusal; original CLR450 zero-domain refusals and original uniform-start BECKHAM refusal remain unchanged. Hellinger improves only6/15 sites against nearest and7/15 against IDW2; small descriptive mean differences supply no calibrated superiority. All112cross-block comparisons fail; all15targetroles refuse before model work at8.8–65km centre distances versus100km source/1km target/20km extra buffer. Six of24hypothetical unbuffered fit pairs are missing, but no fit was run after geometry refusal. The new ten-site study has no prediction or scoring refusal, while measured vegetation accuracy is unavailable at all ten sites. H20 has lower mean MAE than IDW2, but higher mean Hellinger loss (0.240653 versus 0.239792) and deviance (748.691 versus 655.644). Changed regional sources confound causal sample-size attribution.
 
-**Matched denominator.** 15 English sites; 20,732 source NISP; 159 Filipendula excluded; 30-target closed scoring axis; 14 scored outer folds. Shared-PPE sensitivity fixes one exposed 699-regional/553-local-count training pair, one nominal anchor and 63 stochastic vectors; summary moments exclude the anchor. Separate Hellinger profile: all15 sites,20573 counted grains on30 taxa;225contexts,450candidates,420inner scores,15choices,15outer scores and225recorded role accesses. Mean Hellinger0.2868791842 versus0.3601411193 training mean,0.2876096172 nearest,0.2870864690 IDW2; 20km selected in all15folds. Block screen uses the same15sites in8/7nativegrids,112directed comparisons and17hypothetical unbuffered outer/inner roles; zero admitted targets and zero new scores, not extra independent observations.
+**Matched denominator.** 15 English sites; 20,732 source NISP; 159 Filipendula excluded; 30-target closed scoring axis; 14 scored outer folds. Shared-PPE sensitivity fixes one exposed 699-regional/553-local-count training pair, one nominal anchor and 63 stochastic vectors; summary moments exclude the anchor. Separate Hellinger profile: all15 sites,20573 counted grains on30 taxa;225contexts,450candidates,420inner scores,15choices,15outer scores and225recorded role accesses. Mean Hellinger0.2868791842 versus0.3601411193 training mean,0.2876096172 nearest,0.2870864690 IDW2; 20km selected in all15folds. Block screen uses the same15sites in8/7nativegrids,112directed comparisons and17hypothetical unbuffered outer/inner roles; zero admitted targets and zero new scores, not extra independent observations. Ten-site thinning: 15,430 unique grains on 30 taxa; nine allowed owners and eight local predictors per rotation; 17 cached pairs, 50 new slots, 10 scoring accesses, 40 retained references and 110 paired comparisons. Measured vegetation scores: zero. Against retained full-fifteen H20 on these same ten targets, Hellinger is 0.240653 versus 0.267848 (six improve) and MAE is 0.016828 versus 0.018701 (five improve). The full fifteen-target study mean is a different denominator.
 
-Retained evidence: [docs/report/pollen-reconstruction/author-lra-constrained/report.json](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json), [docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json), [reports/science/author-love-hellinger-spatial/protocol.json](author-love-hellinger-spatial/protocol.json), [reports/science/author-love-hellinger-spatial/block-support-protocol.json](author-love-hellinger-spatial/block-support-protocol.json).
+Retained evidence: [docs/report/pollen-reconstruction/author-lra-constrained/report.json](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json), [docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json), [docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json), [reports/science/author-love-hellinger-spatial/protocol.json](author-love-hellinger-spatial/protocol.json), [reports/science/author-love-hellinger-spatial/block-support-protocol.json](author-love-hellinger-spatial/block-support-protocol.json), [reports/science/author-love-geographic-thinning/protocol.json](author-love-geographic-thinning/protocol.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
