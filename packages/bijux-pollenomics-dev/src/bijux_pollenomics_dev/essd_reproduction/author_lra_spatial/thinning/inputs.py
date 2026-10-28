@@ -304,7 +304,12 @@ def _pairs(
                 "Saved pair/selected rings differ from native source",
             )
             _vector(row["regional_cover"], len(taxa))
-            _composition(dict(zip(taxa, row["regional_cover"], strict=True)), taxa)
+            # Native regional handoffs retain source rounding. Their exact
+            # values feed deposition and must not be normalized as local cover.
+            require(
+                all(value <= 1 for value in row["regional_cover"]),
+                "Native regional cover fractions exceed one",
+            )
             value = {"predictor": expected, "regional_cover": row["regional_cover"]}
             key = (local, anchor)
             if key in result:

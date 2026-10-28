@@ -443,3 +443,27 @@ def test_nominal_proof_is_reused_without_a_forward_or_outcome_call(
     packet = inputs.load_inputs(repository, archive, protocol)
     assert packet["summary"]["upstream_nominal_slots_reused"] == 675
     assert packet["summary"]["outcomes_decoded"] == 0
+
+
+def test_native_regional_rounding_is_preserved_without_reclosure(
+    tmp_path: Path,
+) -> None:
+    repository, archive, protocol, _, _ = _fixture(tmp_path)
+    parent = original.decode(
+        (repository / protocol["qualified_sources"]["protocol"]["path"]).read_bytes()
+    )
+    upstream = original.decode(
+        (repository / protocol["qualified_sources"]["inputs"]["path"]).read_bytes()
+    )
+    native = read_object(archive, parent["sources"]["nominal_training"])
+    for row in native["numerical_requests"].values():
+        row["regional_cover"] = [value * 0.99999 for value in row["regional_cover"]]
+    catalogue = inputs._pairs(upstream, native, parent)
+    assert len(catalogue) == 39
+    for row in catalogue.values():
+        assert sum(row["regional_cover"]) == pytest.approx(0.99999, abs=1e-12)
+        assert row["regional_cover"] == next(
+            saved["regional_cover"]
+            for saved in native["numerical_requests"].values()
+            if saved["request_sha256"] == row["predictor"]["request_sha256"]
+        )
