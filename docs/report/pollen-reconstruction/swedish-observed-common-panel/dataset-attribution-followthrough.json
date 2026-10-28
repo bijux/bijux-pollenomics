@@ -1,0 +1,415 @@
+{
+  "schema_version": "nordic-dataset-attribution-followthrough.v1",
+  "candidate": "46289be052e0250c3b72cef77cf0520075e13fb5",
+  "capture_terminal_sha256": "1a60619cc67f37bfb8e990c7404bb1d65276052fc44b7169e48d752d81f04029",
+  "capture_plan_sha256": "76081171617470b3538dac3fad2d31ead8f17d63a879b2a1e75c195f05951719",
+  "native_capture_exit": 0,
+  "source_population": {
+    "native_datasets": 3,
+    "distinct_native_collection_units": 2,
+    "registered_dataset_DOIs": 6
+  },
+  "native_publication_relations": [
+    {
+      "native_dataset_id": 1438,
+      "native_collection_unit_id": 1400,
+      "source_url": "https://api.neotomadb.org/v2.0/data/datasets/1438/publications",
+      "current_publication_rows": 0,
+      "current_response_sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+      "current_body_byte_equal_to_retained_previous_response": true
+    },
+    {
+      "native_dataset_id": 53969,
+      "native_collection_unit_id": 39224,
+      "source_url": "https://api.neotomadb.org/v2.0/data/datasets/53969/publications",
+      "current_publication_rows": 0,
+      "current_response_sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+      "current_body_byte_equal_to_retained_previous_response": true
+    },
+    {
+      "native_dataset_id": 53970,
+      "native_collection_unit_id": 39224,
+      "source_url": "https://api.neotomadb.org/v2.0/data/datasets/53970/publications",
+      "current_publication_rows": 0,
+      "current_response_sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+      "current_body_byte_equal_to_retained_previous_response": true
+    }
+  ],
+  "dataset_registration_accounts": [
+    {
+      "native_dataset_id": 1438,
+      "native_collection_unit_id": 1400,
+      "native_doi": "10.21233/n3x640",
+      "registered_doi": "10.21233/n3x640",
+      "registered_landing_url": "http://data.neotomadb.org/datasets/1438",
+      "title_records": [
+        {
+          "lang": "en-us",
+          "title": "Kansjon pollen dataset"
+        }
+      ],
+      "creator_records": [
+        {
+          "name": "Jacobson, George L.",
+          "nameType": "Personal",
+          "givenName": "George L.",
+          "familyName": "Jacobson",
+          "affiliation": [
+            "Institute for Quaternary Studies, University of Maine, Orono, ME 04469, USA"
+          ],
+          "nameIdentifiers": []
+        }
+      ],
+      "registration_publication_year": 2017,
+      "registration_dates": [
+        {
+          "date": "1999-10-22",
+          "dateType": "Submitted"
+        },
+        {
+          "date": "1999-10-22",
+          "dateType": "Submitted"
+        },
+        {
+          "date": "1999-10-22",
+          "dateType": "Created"
+        },
+        {
+          "date": "1999-10-22",
+          "dateType": "Updated"
+        },
+        {
+          "date": "2017",
+          "dateType": "Issued"
+        }
+      ],
+      "source_rights_declarations": [
+        {
+          "rights": "CC-BY4",
+          "rightsUri": "http://creativecommons.org/licenses/by/4.0/deed.en_US"
+        }
+      ],
+      "related_identifier_assertions": [
+        {
+          "relationType": "IsMetadataFor",
+          "relatedIdentifier": "api.neotomadb.org/v1/downloads/1438",
+          "relatedIdentifierType": "URL",
+          "relatedMetadataScheme": "json"
+        },
+        {
+          "relationType": "IsMetadataFor",
+          "relatedIdentifier": "data.neotomadb.org/datasets/1438/index.html",
+          "relatedIdentifierType": "URL",
+          "relatedMetadataScheme": "json"
+        }
+      ],
+      "primary_journal_publication_admitted": false,
+      "source_year_interpreted_as_sample_date_or_BP_epoch": false,
+      "linked_identifiers_establish_byte_identical_pollen_counts": false,
+      "scope": "Exact dataset DOI/landing identity and provider attribution declarations. A metadata identity relation does not authenticate raw count bytes, historical selection or a primary journal paper.",
+      "source_response_sha256": "7c2bed1603439a8db53f53451e2ca0179d5eca2cc0a3629ce4af988f8296ef59"
+    },
+    {
+      "native_dataset_id": 1438,
+      "native_collection_unit_id": 1400,
+      "native_doi": "10.21233/n3h737",
+      "registered_doi": "10.21233/n3h737",
+      "registered_landing_url": "http://data.neotomadb.org/datasets/1438",
+      "title_records": [
+        {
+          "lang": "en-us",
+          "title": "Kansjön pollen dataset"
+        }
+      ],
+      "creator_records": [
+        {
+          "name": "Jacobson, G.L., Jr.",
+          "nameIdentifiers": [
+            {
+              "schemeUri": "https://orcid.org",
+              "nameIdentifier": "https://orcid.org/0000-0002-0406-340X",
+              "nameIdentifierScheme": "ORCID"
+            }
+          ],
+          "affiliation": []
+        }
+      ],
+      "registration_publication_year": 2025,
+      "registration_dates": [
+        {
+          "date": "1999-10-22",
+          "dateType": "Submitted"
+        },
+        {
+          "date": "2007-06-30",
+          "dateType": "Updated"
+        },
+        {
+          "date": "2017-04-11",
+          "dateType": "Issued"
+        },
+        {
+          "date": "2019-02-27",
+          "dateType": "Updated"
+        }
+      ],
+      "source_rights_declarations": [
+        {
+          "rights": "Creative Commons Attribution 4.0 International",
+          "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+          "schemeUri": "https://spdx.org/licenses/",
+          "rightsIdentifier": "cc-by-4.0",
+          "rightsIdentifierScheme": "SPDX"
+        },
+        {
+          "rights": "TK Open to Collaboration (TK CB)",
+          "rightsUri": "https://localcontexts.org/notice/open-to-collaborate/",
+          "schemeUri": "https://localcontexts.org",
+          "rightsIdentifier": "open-to-collaborate",
+          "rightsIdentifierScheme": "Local Contexts"
+        }
+      ],
+      "related_identifier_assertions": [
+        {
+          "relationType": "IsIdenticalTo",
+          "relatedIdentifier": "10.21233/n3x640",
+          "relatedIdentifierType": "DOI"
+        }
+      ],
+      "primary_journal_publication_admitted": false,
+      "source_year_interpreted_as_sample_date_or_BP_epoch": false,
+      "linked_identifiers_establish_byte_identical_pollen_counts": false,
+      "scope": "Exact dataset DOI/landing identity and provider attribution declarations. A metadata identity relation does not authenticate raw count bytes, historical selection or a primary journal paper.",
+      "source_response_sha256": "eba387046daec4e88ab801856de1ad16279eae9c9ab638d63ffe840d81178116"
+    },
+    {
+      "native_dataset_id": 53969,
+      "native_collection_unit_id": 39224,
+      "native_doi": "10.21233/2ERS-RE93",
+      "registered_doi": "10.21233/2ers-re93",
+      "registered_landing_url": "http://data.neotomadb.org/53969",
+      "title_records": [
+        {
+          "lang": "en-us",
+          "title": "Lake Stentjärn pollen dataset"
+        }
+      ],
+      "creator_records": [
+        {
+          "name": "Bergman, Jonas",
+          "nameType": "Personal",
+          "givenName": "Jonas",
+          "familyName": "Bergman",
+          "affiliation": [],
+          "nameIdentifiers": []
+        }
+      ],
+      "registration_publication_year": 2022,
+      "registration_dates": [
+        {
+          "date": "2022-07-04",
+          "dateType": "Submitted"
+        },
+        {
+          "date": "2022",
+          "dateType": "Issued"
+        }
+      ],
+      "source_rights_declarations": [
+        {
+          "rights": "CC-BY4",
+          "rightsUri": "http://creativecommons.org/licenses/by/4.0/deed.en_US"
+        }
+      ],
+      "related_identifier_assertions": [
+        {
+          "relationType": "IsMetadataFor",
+          "relatedIdentifier": "api.neotomadb.org/v2.0/data/downloads/53969",
+          "relatedIdentifierType": "URL",
+          "relatedMetadataScheme": "json"
+        },
+        {
+          "relationType": "IsMetadataFor",
+          "relatedIdentifier": "data.neotomadb.org/53969",
+          "relatedIdentifierType": "URL",
+          "relatedMetadataScheme": "html"
+        }
+      ],
+      "primary_journal_publication_admitted": false,
+      "source_year_interpreted_as_sample_date_or_BP_epoch": false,
+      "linked_identifiers_establish_byte_identical_pollen_counts": false,
+      "scope": "Exact dataset DOI/landing identity and provider attribution declarations. A metadata identity relation does not authenticate raw count bytes, historical selection or a primary journal paper.",
+      "source_response_sha256": "788b5e6d428e5a40757e749c7b62cc319c705898cd16b1981cb191e3d6d23dc3"
+    },
+    {
+      "native_dataset_id": 53969,
+      "native_collection_unit_id": 39224,
+      "native_doi": "10.21233/vrwa-cw36",
+      "registered_doi": "10.21233/vrwa-cw36",
+      "registered_landing_url": "https://data.neotomadb.org/datasets/53969",
+      "title_records": [
+        {
+          "lang": "en-us",
+          "title": "Lake Stentjärn pollen dataset"
+        }
+      ],
+      "creator_records": [
+        {
+          "name": "Bergman, Jonas",
+          "affiliation": [],
+          "nameIdentifiers": []
+        }
+      ],
+      "registration_publication_year": 2025,
+      "registration_dates": [
+        {
+          "date": "2022-07-04",
+          "dateType": "Submitted"
+        },
+        {
+          "date": "2022-08-02",
+          "dateType": "Issued"
+        }
+      ],
+      "source_rights_declarations": [
+        {
+          "rights": "CC-BY4",
+          "rightsUri": "http://creativecommons.org/licenses/by/4.0/deed.en_US",
+          "schemeUri": "https://spdx.org/licenses/",
+          "rightsIdentifierScheme": "SPDX"
+        },
+        {
+          "rights": "TK Open to Collaboration (TK CB)",
+          "rightsUri": "https://localcontexts.org/notice/open-to-collaborate/",
+          "schemeUri": "https://localcontexts.org",
+          "rightsIdentifierScheme": "Local Contexts"
+        }
+      ],
+      "related_identifier_assertions": [],
+      "primary_journal_publication_admitted": false,
+      "source_year_interpreted_as_sample_date_or_BP_epoch": false,
+      "linked_identifiers_establish_byte_identical_pollen_counts": false,
+      "scope": "Exact dataset DOI/landing identity and provider attribution declarations. A metadata identity relation does not authenticate raw count bytes, historical selection or a primary journal paper.",
+      "source_response_sha256": "a4c602dd7da0a9ddf301d7234f3d2e5b275fc95b560d6c93269cd7dcaeb56e0a"
+    },
+    {
+      "native_dataset_id": 53970,
+      "native_collection_unit_id": 39224,
+      "native_doi": "10.21233/EE03-QC13",
+      "registered_doi": "10.21233/ee03-qc13",
+      "registered_landing_url": "http://data.neotomadb.org/53970",
+      "title_records": [
+        {
+          "lang": "en-us",
+          "title": "Lake Stentjärn pollen dataset"
+        }
+      ],
+      "creator_records": [
+        {
+          "name": "Bergman, Jonas",
+          "nameType": "Personal",
+          "givenName": "Jonas",
+          "familyName": "Bergman",
+          "affiliation": [],
+          "nameIdentifiers": []
+        }
+      ],
+      "registration_publication_year": 2022,
+      "registration_dates": [
+        {
+          "date": "2022-07-04",
+          "dateType": "Submitted"
+        },
+        {
+          "date": "2022",
+          "dateType": "Issued"
+        }
+      ],
+      "source_rights_declarations": [
+        {
+          "rights": "CC-BY4",
+          "rightsUri": "http://creativecommons.org/licenses/by/4.0/deed.en_US"
+        }
+      ],
+      "related_identifier_assertions": [
+        {
+          "relationType": "IsMetadataFor",
+          "relatedIdentifier": "api.neotomadb.org/v2.0/data/downloads/53970",
+          "relatedIdentifierType": "URL",
+          "relatedMetadataScheme": "json"
+        },
+        {
+          "relationType": "IsMetadataFor",
+          "relatedIdentifier": "data.neotomadb.org/53970",
+          "relatedIdentifierType": "URL",
+          "relatedMetadataScheme": "html"
+        }
+      ],
+      "primary_journal_publication_admitted": false,
+      "source_year_interpreted_as_sample_date_or_BP_epoch": false,
+      "linked_identifiers_establish_byte_identical_pollen_counts": false,
+      "scope": "Exact dataset DOI/landing identity and provider attribution declarations. A metadata identity relation does not authenticate raw count bytes, historical selection or a primary journal paper.",
+      "source_response_sha256": "71c50d8c9f47da947261ad579d53ed5962b77e02e14d5ddc58dfc671716a5a2c"
+    },
+    {
+      "native_dataset_id": 53970,
+      "native_collection_unit_id": 39224,
+      "native_doi": "10.21233/spsk-yz98",
+      "registered_doi": "10.21233/spsk-yz98",
+      "registered_landing_url": "https://data.neotomadb.org/datasets/53970",
+      "title_records": [
+        {
+          "lang": "en-us",
+          "title": "Lake Stentjärn pollen dataset"
+        }
+      ],
+      "creator_records": [
+        {
+          "name": "Bergman, Jonas",
+          "affiliation": [],
+          "nameIdentifiers": []
+        }
+      ],
+      "registration_publication_year": 2025,
+      "registration_dates": [
+        {
+          "date": "2022-07-04",
+          "dateType": "Submitted"
+        },
+        {
+          "date": "2022-08-02",
+          "dateType": "Issued"
+        }
+      ],
+      "source_rights_declarations": [
+        {
+          "rights": "CC-BY4",
+          "rightsUri": "http://creativecommons.org/licenses/by/4.0/deed.en_US",
+          "schemeUri": "https://spdx.org/licenses/",
+          "rightsIdentifierScheme": "SPDX"
+        },
+        {
+          "rights": "TK Open to Collaboration (TK CB)",
+          "rightsUri": "https://localcontexts.org/notice/open-to-collaborate/",
+          "schemeUri": "https://localcontexts.org",
+          "rightsIdentifierScheme": "Local Contexts"
+        }
+      ],
+      "related_identifier_assertions": [],
+      "primary_journal_publication_admitted": false,
+      "source_year_interpreted_as_sample_date_or_BP_epoch": false,
+      "linked_identifiers_establish_byte_identical_pollen_counts": false,
+      "scope": "Exact dataset DOI/landing identity and provider attribution declarations. A metadata identity relation does not authenticate raw count bytes, historical selection or a primary journal paper.",
+      "source_response_sha256": "f1052c8ed0cbeb8a53840beafa6e75d69373f935632b4a3421006b2f3f99ea78"
+    }
+  ],
+  "common_panel_primary_publication_scope_counts": {
+    "current_native_primary_designation_and_citation_available": 16,
+    "official_endpoint_actual_empty": 3
+  },
+  "baseline_primary_counts_changed": false,
+  "new_primary_journal_publications_admitted": 0,
+  "source_context": "All six exact DOI records bind the intended native dataset and retain creator, title, related identifiers, rights and registration-date declarations. All three native publication responses remain empty. Two Stentjärn datasets share collection unit 39224 and are not extra independent cores.",
+  "scientific_limits": "Provider dataset-specific license declarations supplement current public analytical-use attribution. They do not authenticate historical workbook/private author-copy rights, original source revision, counted grain universe, chronology, basin geometry, qualified review or reproduction. DOI registration/publication years are provenance, not sample ages or age-reference epochs. Local Contexts notices remain alongside license declarations.",
+  "next_source_resolution": "Obtain an explicit original-paper/reference association or source-owner declaration of unpublished status for dataset 1438 and datasets 53969/53970. Retain dataset DOI/creator/EPD credit meanwhile; no invented primary paper or correspondence is substituted."
+}

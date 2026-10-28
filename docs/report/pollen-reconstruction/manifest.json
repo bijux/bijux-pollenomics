@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
-      "bytes": 4580598
+      "sha256": "330c6610886b5c1e06f41c7f51ad1e6f971bea628d44f1f89dca4aaa979aeb2f",
+      "bytes": 4584367
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2251,8 +2251,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "sha256": "57a73f95389fad8f4823dee800d685afc23df8bc446af17bf258e1ff53a9805e",
-      "bytes": 8070
+      "sha256": "d04dbe6cb7bce08d4963eb78296414b419dc7148d8e297c32b490166c6a8de8c",
+      "bytes": 9502
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json",
@@ -3756,8 +3756,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "8f84822233ed985f5ed80557e18da90afa3ee136e7e3bb181dc033c6ba7d5dce",
-      "bytes": 148962
+      "sha256": "12c08121f445843ebb0f2486d1bfd8083833e6548f646bf21b02da137abe3d05",
+      "bytes": 149435
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -3766,8 +3766,8 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "747c1af296b036ba59d662673bb01c0a6fb85b6ea5754dc042e3c4ea0bb2821a",
-      "bytes": 1015151
+      "sha256": "d618b116621245f82aac55cc45e9e0b0e12e960de2d28f04d8579544750afead",
+      "bytes": 1017234
     },
     {
       "path": "docs/report/report_surface_registry.md",
@@ -6656,8 +6656,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
-      "sha256": "4dde1a078ae7d57f3c93e93fa8cc4e73756f551e774d78aadb606fa47c483448",
-      "bytes": 5376
+      "sha256": "f6ce2915691850055f8d4192249bcc97737b2759747f58da32bbf6ad3f1219d4",
+      "bytes": 5910
     },
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
@@ -8016,13 +8016,13 @@
     },
     {
       "path": "reports/exports/papers/manifest.json",
-      "sha256": "9faaaf74f85ced515c849facaf43944a2e545152f2a07eca8524f4c1173b0c50",
-      "bytes": 16805
+      "sha256": "89ea6a0fed12f3fbbb1b312081a615b74024b0efc473db5f2f7e3eaa78294ac3",
+      "bytes": 19711
     },
     {
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "sha256": "3dfa37ff871bed8c666b0688d11c84766c33d32abbbcaa9666be1e86c8398ee6",
-      "bytes": 66530
+      "sha256": "d413789da0e7b3649bae585ba8b434671ff35f9efadff1206c05346a04225d3f",
+      "bytes": 69631
     },
     {
       "path": "reports/exports/papers/regional-reveals-theory.pdf",
@@ -8056,8 +8056,8 @@
     },
     {
       "path": "reports/exports/papers/visual-review.json",
-      "sha256": "5a0639e613ba00c9600ba613642f3d16eafe1eb131368185922b33f2f1869393",
-      "bytes": 21103
+      "sha256": "e6a108afcb97fb70f942e0df7752237effca5511073d740211facf9548ad047a",
+      "bytes": 22754
     },
     {
       "path": "reports/exports/site-downloads.json",
@@ -8291,8 +8291,8 @@
     },
     {
       "path": "reports/science/namibia-pollen-vegetation-paper.md",
-      "sha256": "ba891eb840a3dfea43ff55774f07f417c5ffa3c48e3aebc3e7be2b218140fbc1",
-      "bytes": 10024
+      "sha256": "bff1b1d881fe0dae45567574b4c39e4f6c9a8fe65918d3d6ea31afa04dff8ab0",
+      "bytes": 12701
     },
     {
       "path": "reports/science/neotoma-study-membership/README.md",
@@ -8331,8 +8331,8 @@
     },
     {
       "path": "reports/science/paper-accounts.csv",
-      "sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
-      "bytes": 6872
+      "sha256": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447",
+      "bytes": 6891
     },
     {
       "path": "reports/science/paper-accounts.md",
@@ -8531,8 +8531,8 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "9f3c0b639bfadb2e3951b6d85e68f2a7c2a80a197af69ad179ebf8c0707eee2b",
-      "bytes": 8650
+      "sha256": "50cd7f16f1cc598db8afe61ee3f1dcefc65650c1fe1ef85959658d54666b9e01",
+      "bytes": 9324
     },
     {
       "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",
@@ -8903,6 +8903,26 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/vegetation/test_namibia_grouped_mapped_area.py",
       "sha256": "5dce2c1e9f3369c10dddaa660484c891eb131ec29241d8b6dd427a1e4e08993c",
       "bytes": 12473
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/dataset-attribution-followthrough.json",
+      "sha256": "2ce966bc78ad5ce9fc04951bb6ccceb62e1d44d97f2330fefc81ed40d9be2b5c",
+      "bytes": 15805
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_nordic_source_attribution.py",
+      "sha256": "edd044ee3157f61936411a6c64514bb3d1691c63e9e3c93259e460407be2bc35",
+      "bytes": 3611
+    },
+    {
+      "path": "reports/science/nordic-source-attribution/qualify.py",
+      "sha256": "09221597e49227166a70a8971f5b2d79878d82a97062f1a45beacb4c5cb41505",
+      "bytes": 8815
+    },
+    {
+      "path": "reports/science/nordic-source-attribution/source-custody.json",
+      "sha256": "a6f6ad9bdae3bb04bc218372b8dad9b4f38eb196ded4e2325886c05271c49b04",
+      "bytes": 2541
     }
   ]
 }

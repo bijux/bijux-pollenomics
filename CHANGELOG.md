@@ -12,6 +12,9 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Lock audited fixed versions of development-tool dependencies while retaining scientific runtime versions ([#258](https://github.com/bijux/bijux-pollenomics/pull/258)).
+- Refuse unrepresentable covariance correction factors; qualify Namibia and Pyrenees source comparisons, Nordic dataset attribution and scientific reader identities ([#258](https://github.com/bijux/bijux-pollenomics/pull/258)).
+
 - Bind the Nordic atlas parent admission to the exact native output using the accepted search runtime while retaining report source authority and scientific values ([#237](https://github.com/bijux/bijux-pollenomics/pull/237)).
 
 - Bind the Nordic atlas parent identity to its native render with the accepted Material search runtime.

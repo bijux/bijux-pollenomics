@@ -1,0 +1,146 @@
+{
+  "status": "Unlaunched immutable source/conditional projection consumer; no guards/projection/oracle executed",
+  "primary_native_taxonomy_version": "3.01 conditional alternate; not authenticated original2015 author version",
+  "version_sensitivity": "3.00, keeping actual root-name discrepancy; recompute source-name lookups separately without pretending whole-tree identity",
+  "source_populations": {
+    "original_taxon_rows": 208,
+    "nonzero_ids": 183,
+    "code_literal_labels": 108,
+    "literal_source_ancestor_rank_labels": 69,
+    "other_literal_disagreements": 6,
+    "zero_identifiers": 25,
+    "zero_exact_accepted_family_candidates": 6,
+    "zero_genus_sp_labels": 19,
+    "plots": 125,
+    "positive_cover_cells": 1757
+  },
+  "source_association_scenarios": [
+    {
+      "name": "source-code-and-declared-botanical-name-authority",
+      "nonzero": "Trust original supplied BDTFX identifier with its qualified native parent chain for botanical grouping, preserving6 label/nomenclature disagreements and broader-vs-specific rank flags. No field subspecies assertion.",
+      "zero_family": "Exact unique accepted literal family name plus native hierarchy, preserving originalcode0 and distinct analyst_associated_native_id.",
+      "zero_genus": "Source rankgenus and exact trailing literal sp. removed as named undetermined-species convention; unique accepted whole-genus native name and valid chain required. No arbitrary prefix/family guess."
+    },
+    {
+      "name": "native-nomenclature-supported-association",
+      "nonzero": "108 literal +69 literal higher-rank chain matches admitted for genus/family grouping; other6 require exact native source-name/synonym retained-chain witness sharing coded accepted taxon or recorded broader ancestor, otherwise unresolved.",
+      "zero": "Same explicit unique-native-name assumptions as primary; no code invention."
+    }
+  ],
+  "axes": [
+    "Abies",
+    "Betula",
+    "Corylus",
+    "Fagus",
+    "Fraxinus",
+    "Picea",
+    "Pinus",
+    "Quercus",
+    "Salix",
+    "Tilia",
+    "Calluna vulgaris",
+    "Ericaceae excluding Calluna vulgaris",
+    "Juniperus",
+    "Cyperaceae",
+    "Plantago lanceolata",
+    "Poaceae",
+    "Potentilla botanical genus proxy"
+  ],
+  "excluded_original_axis": {
+    "label": "Comp. SF. Cichorioideae",
+    "reason": "No accepted literal native Cichorioideae anchor or authenticated source genus-to-subfamily/author-type map. Asteraceae is not substituted."
+  },
+  "mapping": "Literal unique botanical anchors from actual native hierarchy; species/speciesdescendants by ancestor IDs; family/genus by ancestor IDs. Calluna species takes precedence over Ericaceae parent. All assignments retain original labels, code and taxonomy rows. Multi-axis assignment refused except explicitly resolved nested Calluna/ Ericaceae case.",
+  "generic_row_scenarios": [
+    {
+      "name": "all-observations-are-disjoint-residual-cover",
+      "assumption": "Printed family/genus/aggregate rows represent unidentified residual observations distinct from named descendant rows; sum is conditional, not source-established residual identity.",
+      "effect": "Retain all mapped observations, record every parent-child source overlap."
+    },
+    {
+      "name": "omit-inventory-parent-observations",
+      "assumption": "Conservative fixed inventory rule omits any mapped parent row if any mapped descendant source row exists anywhere in original208 inventory. This does not repair data or recover true cover.",
+      "effect": "Mask chosen from source identity before numerical cover inspection; report every excluded original row and positive cover observation/mass discarded."
+    }
+  ],
+  "blank_scenarios": [
+    {
+      "name": "strict-unknown-source-blanks",
+      "assumption": "None; absent source cell remains unknown.",
+      "effect": "Incomplete axis vectors refused; unobservedSalix remains unknown, not botanicalabsence. Positive native counts/denominators and all refusal causes retained."
+    },
+    {
+      "name": "complete-survey-record-with-unlisted-zero",
+      "assumption": "Analyst assumes source survey list exhaustive for this fixed botanicalpanel and source blanks/no mappedrow imply zero recorded panel cover.",
+      "effect": "Preserve sourceblank/imputedzero provenance; original raw observation never replaced. No authenticated species/vegetation absence claim."
+    }
+  ],
+  "projection": "Per plot retain raw botanical cover sums (may exceed100 across observations) and, only for positive finite known panel total, close the17 axes to1 using that subset total. No original116selection/full18 denominator or stratification inference.",
+  "reader_comparisons": "Both mean of per-plot closed vectors and closure of class mean raw vectors, equal plot weights. Keep source map8classes and field9classes separate, year2015/2020 and literal area25/100/400m2 denominators visible; campaign/area/classconfounding and nonindependent plots remain limitations. No empirical model scoring/pollen pairing.",
+  "finite_lookup_changed_dependency": "Use actual862ee183 saved chain results; only new six-nomenclature witness and25 zero-label native lookup plus required parent closure from saved archivebytes. Do not replay existing183 chain qualification as a new scientific study.",
+  "source_refusals": [
+    "nonunique native label",
+    "native rank not requestedfamily/genus",
+    "missing/unestablished/cyclic retained/parent relation",
+    "label mismatch without declared codeauthority or witness",
+    "missingCichorioideae mapping",
+    "ambiguous multiplepanelaxis",
+    "parentresidual claim unresolved",
+    "sourceblank unknown",
+    "zero/nonfinite panelsum",
+    "version-dependent nomenclature/identity conflict"
+  ],
+  "focused_controls_proposed": [
+    "positive literal coded infraspecific parent family",
+    "sourcecode-authority case retains six disagreements",
+    "exact native synonym shares coded ancestor positive/refusal",
+    "code0 stayszero while associatedliteral family/nativegenus gets separateID",
+    "ambiguous/genusrank/missing/cyclic lookup refusal",
+    "Calluna countedonce and excludedfromEricaceae",
+    "familyrow+species nativeoverlap retained/residual scenario vs fixedparentomission",
+    "sourceblank retained vs flaggedzero assumption",
+    "absentSalix unknown vs declaredzero",
+    "positive/zero panelsum and decimalclosure",
+    "meanofclosure differs fromclosureofmean asymmetric oracle",
+    "all125plots and1757 originalpositive observations accounted",
+    "all unselected/outside/refused cover retained inlossledger",
+    "originalmetadata version/root discrepancy retained"
+  ],
+  "prospective_resources": {
+    "wall_seconds": 60,
+    "max_rss_bytes": 536870912,
+    "max_processes": 1,
+    "max_output_bytes": 33554432,
+    "max_log_bytes": 1048576
+  },
+  "execution": "Root reviews this protocol before fresh owned-runtime/control/source fixture freeze and prospective registration. No network, model, fitting, scoring or historical reconstruction.",
+  "source_association_modes": [
+    "source-code-authority",
+    "exact-native-name-alternative"
+  ],
+  "exact_name_alternative_scope": "Only six nonancestor literal mismatch rows. Use unique accepted original-label/native-synonym retained-name association for a named alternative, preserving disagreement with supplied ID. Recorded phytobase alternative is a source-provided witness; no invented corrected spelling. All available exact source-label witnesses must resolve one accepted taxon; rank/homonym conflicts remain unresolved. Code-authority primary retains all183 supplied IDs.",
+  "actual_denominators": {
+    "native_versions": 2,
+    "source_association_modes": 2,
+    "generic_parent_assumptions": 2,
+    "source_blank_assumptions": 2,
+    "declared_cases": 16,
+    "source_taxa": 208,
+    "source_nonzero_ids": 183,
+    "source_zero_ids": 25,
+    "plots": 125,
+    "axes": 17,
+    "plot_contexts": 2000,
+    "raw_axis_contexts": 34000,
+    "source_positive_cover_observations": 1757,
+    "positive_observation_loss_accounts": 28112,
+    "original_source_cell_domain": 26000
+  },
+  "native_source_reuse": "183 completed chain outputs per version are read as admitted input; six nonancestor exact-name alternatives and25 zero-code label lookups/parent closures are the changed dependency. Native lookup streams references into projected five-field index solely for new associations and independent source checking. Existing862 qualification is not replayed or relabelled.",
+  "independent_audit": "Independent native retained-name/hierarchy and saved183-route equality; independent stored-cell Decimal50 sums/closures/unknown and parent masks, all2000contexts/all28112positive lossaccounts and class operators; tolerance2e-13 absolute. Source association uncertainty is retained rather than measured.",
+  "prospective_guard_count": 54,
+  "non_applicability": "No Cichorioideae substitute; full18/original116/authorcrosswalk and date-matched pollen/empirical vegetation accuracy remain unavailable. Potentilla genus is an analyst botanical proxy only.",
+  "publication": "First-party producer code, attributed source identity metadata and bounded aggregate outcome/audit statistics may be published in the repository. Detailed original observations, individual vectors and taxonomy hierarchy extracts remain private artifacts; no public source-count/individual cover redistribution or derived-taxonomy licence compatibility admission is implied.",
+  "source_provenance": "Original ODS/file135 and saved native cell census/literal1757 observation join retained; version1.4 metadata/file2022 are distinct from paper2023 historical byte selection. Archive2015 native3.01 primary with3.00 sensitivity preserves Chlorophytes\u2192Plantae shared-root discrepancy and rights metadata.",
+  "coverage_successor": "Exact Cartesian scenario/duplicate-safe inventories and explicit17-axis zip guards; formulas/native sources/2e-13 tolerance unchanged."
+}

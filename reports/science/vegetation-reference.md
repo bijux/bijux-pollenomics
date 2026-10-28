@@ -55,6 +55,8 @@ and [printed-label transcription](vegetation-reference/southern-sweden-figure/pr
 keep the nine-label denominator visible. Their source-bound producers and
 reproduction commands are grouped here with those governed results.
 
+We separately projected the recovered [Pyrenees botanical surveys](../../docs/report/vegetation-reference/pyrenees-botanical-projection/README.md) onto a declared 17-axis botanical panel. Each strict scenario refuses all 125 complete vectors when source blanks remain unknown; eight separately declared taxonomy, parent-row and blank alternatives that treat blanks and unlisted axes as zero yield 125 conditional vectors each. The recovered 125-plot source is distinct from the paper’s 116-plot selection, and its missing Cichorioideae axis prevents full 18-axis reproduction. This source transformation establishes no matched pollen cohort or vegetation accuracy score.
+
 ## Why modeled cover is not a vegetation reference
 
 We checked whether the southern Sweden LandClim modeled-cover grid could

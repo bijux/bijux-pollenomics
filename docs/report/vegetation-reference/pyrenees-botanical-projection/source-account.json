@@ -1,0 +1,65 @@
+{
+  "botanical_source": {
+    "doi": "10.48579/PRO/9SI1PN",
+    "title": "Vegetation surveys in mountainous area (Pyrenees, France)",
+    "authors": [
+      "Mazier, Florence",
+      "Plancher, Clara",
+      "Haunold, Sébastien",
+      "Bonnet, Colline",
+      "Belly, Hugo",
+      "Houet, Thomas"
+    ],
+    "publisher": "data.InDoRES",
+    "publisher_export_version": "1.4",
+    "publisher_release_time": "2025-10-30T10:45:01Z",
+    "publisher_license": {
+      "name": "CC BY 4.0",
+      "uri": "http://creativecommons.org/licenses/by/4.0",
+      "iconUri": "https://licensebuttons.net/l/by/4.0/88x31.png"
+    },
+    "original_ODS_file_id": 135,
+    "ODS_sha256": "872b19e36745757d57ff6bf44f0efa9f7315c7184c4019cb00517606ab1956c0",
+    "historical_paper_source_version_authenticated": false,
+    "native_acquisition": {
+      "original_candidate": "805ea9993cc7420b50197d94f08f1499bec99621",
+      "native_exit_code": 0,
+      "terminal_artifact_path": "artifacts/science/pyrenees-botanical-projection/retained-source/acquisition/run/receipt.json",
+      "terminal_sha256": "ef0de35f7818a7066a92e3100642b59df1967a93f8a970f60164d1626673b249",
+      "plan_sha256": "701aafbebfba607ab9dbd43bfba6888815d8ac0b2eaea9e72ef5df4db1836f80",
+      "native_files": {
+        "original-botanical-metadata-export.response": {
+          "bytes": 18579,
+          "sha256": "dd26f9a8845a4f9bef7548f6524e36907e2edd62c706d1fbad7deced9879abcc"
+        },
+        "original-botanical-ods.response": {
+          "bytes": 117076,
+          "sha256": "872b19e36745757d57ff6bf44f0efa9f7315c7184c4019cb00517606ab1956c0"
+        }
+      },
+      "capture_result_sha256": "a9095c979ee5ac44b5d508b2a8fbc8b4e0a386e24de720c6e1744b407dc5536f",
+      "native_receipt_scope": "Retained original public-source acquisition; restoration authenticates these bytes without performing new network capture."
+    }
+  },
+  "taxonomy_sources": {
+    "author": "Benoît Bock and Tela Botanica contributors",
+    "versions": [
+      "3.00",
+      "3.01"
+    ],
+    "declared_license": "CC BY-SA 2.0 France",
+    "copyright": "Tela Botanica 2015, native metadata declares all rights reserved alongside license",
+    "3.00_archive_sha256": "54d02b8ea2148417d873ce1a4084b8ab9f44c6f72068f5a4b9497444267ab40f",
+    "3.01_archive_sha256": "a0403035ee524a5a9d02e234716c8cbfc601ddc58506980c9320699321718b05",
+    "original_author_taxonomy_version_authenticated": false
+  },
+  "source_reuse": {
+    "source_lineage_candidate": "805ea9993cc7420b50197d94f08f1499bec99621",
+    "source_lineage_terminal_sha256": "bf45e3c6a3bc78f9128498b7d6c31a50868e6903b33cf3a3d918321304cc065c",
+    "retained_input_pins": {
+      "file": "../../../../reports/science/vegetation-reference/pyrenees-botanical-projection/input-custody.json",
+      "sha256": "c46b404ccaab62a88adc9616f3c2e42aed8fc83e9055934379e08ab2e74d9be4"
+    }
+  },
+  "publication_scope": "Only first-party code, source identity metadata and bounded aggregate audit/result are proposed. Raw ODS/native archives, hierarchy extracts, source plots and individual vectors remain private artifact inputs/outputs. Declared licenses are evidence of source terms, not a resolved public derived-taxonomy compatibility decision. No data license is imposed on first-party producer code."
+}
