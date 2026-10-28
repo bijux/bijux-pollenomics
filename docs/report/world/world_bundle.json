@@ -1034,9 +1034,9 @@
     },
     "animal_sample_chronology_context": {
       "artifact": "world_animal_sample_chronology_context.json",
-      "content_sha256": "bc95fa57508504883e0b162af5abc8cbb87ea967383d4e2f152d0e1c8b068a55",
-      "input_identity_sha256": "999af69ef888e253e1ae46082faae1834b345c744b0577abf5431c3a470becc1",
-      "corpus_identity_sha256": "38bee7ebe060bfb893817e7bfb497abe9438c4e8f3c4ff6a67946ca3bb2e3b73",
+      "content_sha256": "28dfae3b0fbf26d227494c4ceb6b57a365fb7505b63447f560771e74ae0182ed",
+      "input_identity_sha256": "d4b8c9e92262e1174ef197323a4b856d83642c694236a1ab0aa4ee9050ad4847",
+      "corpus_identity_sha256": "0a6dd1c3043be82020a87e79834256cb72c3a77fc32ba6a285a4ec386790ac32",
       "scope": {
         "key": "global",
         "kind": "world",
@@ -1045,7 +1045,7 @@
       "global_admitted_node_count": 335,
       "projected_node_count": 335,
       "excluded_by_scope_count": 0,
-      "refusal_count": 1157,
+      "refusal_count": 1158,
       "governed_country_rows": [
         {
           "country_name": "Denmark",

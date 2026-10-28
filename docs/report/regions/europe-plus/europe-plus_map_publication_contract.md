@@ -64,7 +64,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A display circle, layer visibility rule or software contract is not a pollen basin radius, physical dispersal support, scientific source admission or an observed ecological boundary.
 
-**Actual verification performed.** The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.
+**Actual verification performed.** The retained saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay. Current chronology metadata at b3e8a50528562486a8c1c98f77e147f4bf23f603 prepares twelve JSONs in0.856s/RSS109969408B;565inputs+HEAD/index stable. Independent0.669s binds all121sourcepins and exact3native sidecars/9owned copies, changing only3identities+refusal1157→1158 percopy. All430HTML/static/controller/index files and relevant renderer code remain exact originalmap output/epoch; no fullmap, index or browser rerun. Three sourcepointlayers remain exact335/13/13.
 
 **Remaining input or review.** Broader browser/provider/export behavior, query latency and each layer's scientific/source-rights decisions remain separate from the completed source-bound preservation/index and narrow served-temporal checks.
 
@@ -78,7 +78,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four represented countries,11declared layer rows; circle30 km is a display diameter, not a scientific sampling denominator.
 
-- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_map_publication_contract.json](europe-plus_map_publication_contract.json) (SHA-256 `8085e6868003fc3aa37b7d3a22de7bcfed97041863b59bdff6a1238015ce85f9`).
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_map_publication_contract.json](europe-plus_map_publication_contract.json) (SHA-256 `288cd8acd6e6a31659ae49a944a25bf1d307cf681f7155f00af5d9f1893d3f50`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 
