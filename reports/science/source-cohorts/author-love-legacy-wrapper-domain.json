@@ -1,0 +1,73 @@
+{
+  "actual_exit": 0,
+  "approved": true,
+  "independent_output_review": {
+    "bytes": 4058,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/legacy-wrapper-output-independent-review/independent-output-review.json",
+    "sha256": "a659a0e1e6a7c9bd706ebfdcfaa86e3f875e24e08206b5d22a8442a0d9fe2f9d"
+  },
+  "native_terminal": {
+    "bytes": 2275,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/legacy-wrapper-diagnostic-execution/native/terminal.json",
+    "sha256": "a6e11b51e211ac06f759cbdbf002465772c8f5f7174e9251595f8c9c42b38bb1"
+  },
+  "original_plan": {
+    "bytes": 916332,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/legacy-wrapper-diagnostic-execution/plan.json",
+    "sha256": "37a5b2b9b4303197f6826d43ae8220e25e7dce6f5b3ceaa9f4962cddf3c665ea"
+  },
+  "original_products": {
+    "dispositions.json": {
+      "bytes": 107700,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/legacy-wrapper-diagnostic-execution/native/products/dispositions.json",
+      "sha256": "80ff245d577892b436c5d68f85b2d37e3f9b6cfe7bc33c0466c35ba2ecaeee9b"
+    },
+    "report.json": {
+      "bytes": 1217,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/legacy-wrapper-diagnostic-execution/native/products/report.json",
+      "sha256": "60b7fa6189eb3b228e3a3f8b8c12d40eba63d89e6d0e7a27cd75c129955d70c9"
+    }
+  },
+  "output_observation_execution": {
+    "bytes": 2255,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/legacy-wrapper-output-independent-review/output-admission-execution.json",
+    "sha256": "16c2dfd5f1bb505d624fcf8e61b5754a1595a410cd7d71a638278e5708bd7aad"
+  },
+  "public_products": {
+    "report.json": {
+      "bytes": 52607,
+      "sha256": "508b0d253b113983f93fe0c8ad015c16a2569a5a5ffed54d6cb65aa802897fe5"
+    },
+    "trace-index.json": {
+      "bytes": 909,
+      "sha256": "c11ec4282c2c941db0362dde5ec1841d9479a3096b9e1ff89cebd7d953853a8a"
+    }
+  },
+  "request_dispositions_sha256": "204a535f87066207aa5069d43fd145b659c23e48afefe1e2cbe6ad19277f4168",
+  "schema_version": "legacy-wrapper-domain-publication-authority.v1",
+  "scientific_main_return_observed": false,
+  "scientific_producer": {
+    "bytes": 12211,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/legacy-wrapper-diagnostics/source/replay.py",
+    "sha256": "de090a4fc034a26d395ff8b536b05a76043ed4592a7bd6cc6d75717b69b35c39"
+  },
+  "scientific_protocol": {
+    "bytes": 29049,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/legacy-wrapper-diagnostics/protocol.json",
+    "sha256": "d2f46647351b239981d848823cb1f12e334b85e98fde6865fce9f4d834d18f15"
+  },
+  "scientific_saved_products_admitted": true,
+  "scope": "Acyclic compact publication binding of admitted39request-level source-domain refusals; no reconstruction,78ring fits,prediction,score,ranked selection or broader scientific acceptance.",
+  "source_epoch": "af76bcfb287a2997c0102a85a078f3aee3e1f378",
+  "summary": {
+    "contexts": 225,
+    "logical_ancestry": 2715,
+    "request_refusals": 39,
+    "ring_placeholders_not_executed": 78,
+    "sites": 15,
+    "source_qualified_API_calls": 39,
+    "source_qualified_optimizer_kernel_REVEALS_forward_score_calls": 0,
+    "taxa": 30,
+    "unique_requests": 39
+  }
+}

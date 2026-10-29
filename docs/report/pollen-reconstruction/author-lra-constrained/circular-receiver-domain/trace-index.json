@@ -1,0 +1,37 @@
+{
+  "objects": [
+    {
+      "bytes": 4793984,
+      "retention_key": "sha256:7a289c9e4bb8d4c51ec40e37a34a7c26b3a4865419f3d7f1eb3b1d77b26591ee",
+      "roles": [
+        "prediction-dispositions.json"
+      ],
+      "sha256": "7a289c9e4bb8d4c51ec40e37a34a7c26b3a4865419f3d7f1eb3b1d77b26591ee"
+    },
+    {
+      "bytes": 151258,
+      "retention_key": "sha256:1ea90c59301d553914f5d2f4679f9ad6f0deab73efb4fbe9c27c5be6a95bf2f4",
+      "roles": [
+        "receiver-responses.json"
+      ],
+      "sha256": "1ea90c59301d553914f5d2f4679f9ad6f0deab73efb4fbe9c27c5be6a95bf2f4"
+    },
+    {
+      "bytes": 2316,
+      "retention_key": "sha256:b9eaa0d6e53284f4dae7afb28f44355698dbc7eb17f9ce88cd416151941f21ab",
+      "roles": [
+        "report.json"
+      ],
+      "sha256": "b9eaa0d6e53284f4dae7afb28f44355698dbc7eb17f9ce88cd416151941f21ab"
+    },
+    {
+      "bytes": 3887100,
+      "retention_key": "sha256:50f439318170badc1ecca450565edd5942a030862c49a8eed542933836041cf4",
+      "roles": [
+        "trials.jsonl"
+      ],
+      "sha256": "50f439318170badc1ecca450565edd5942a030862c49a8eed542933836041cf4"
+    }
+  ],
+  "schema_version": "circular-receiver-domain-trace-index.v1"
+}

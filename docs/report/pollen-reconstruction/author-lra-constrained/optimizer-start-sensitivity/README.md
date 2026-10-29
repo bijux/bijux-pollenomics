@@ -126,6 +126,7 @@ accepted training fits establish numerical convergence under the declared source
 assumptions. Global optimality and measured vegetation accuracy remain untested. The broader result and its physical assumptions remain in the
 [English LRA scientific account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md).
 
+
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 

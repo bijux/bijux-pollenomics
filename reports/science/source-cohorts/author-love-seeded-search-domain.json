@@ -1,0 +1,78 @@
+{
+  "actual_exit": 0,
+  "approved": true,
+  "native_terminal": {
+    "bytes": 2538,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/seeded-love-diagnostic-execution/native/terminal.json",
+    "sha256": "578665d82036d13d571ac71c19097b972787e6048753c2b005a9c14205bdb40e"
+  },
+  "observation": {
+    "bytes": 2657,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/seeded-love-output-admission/observation.json",
+    "sha256": "089882e6cd5423f0dc84aa98525f8e7975e653f8cf29a2fbface9a942ac65caf"
+  },
+  "observation_execution": {
+    "bytes": 1614,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/seeded-love-output-admission/execution.json",
+    "sha256": "1c2a1016ec0f5b36bab25b7f4a1e2cfba9c9ab4d2ff6fe9951189c8c314fd495"
+  },
+  "observation_execution_actual_exit": 0,
+  "observation_has_aggregate_actual_exit": false,
+  "observer_summary": {
+    "accepted_rings": 0,
+    "contexts": 225,
+    "kernels_independently_recomputed": false,
+    "ledger_events": 156,
+    "logical_ancestry": 2715,
+    "maximum_objective_absolute_difference": 1.7763568394002505e-15,
+    "new_model_optimizer_kernel_forward_score_calls": 0,
+    "not_attempted_rings": 0,
+    "objective_arithmetic_precision": 50,
+    "objective_certification_calls": 78,
+    "optimizer_attempts": 78,
+    "refused_rings": 78,
+    "requests": 39,
+    "ring_dispositions": 78,
+    "search_evaluations_recorded": 1248000
+  },
+  "original_plan": {
+    "bytes": 916802,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/seeded-love-diagnostic-execution/plan.json",
+    "sha256": "8a5668cdba14cd1ac012c4aa03baf79cf6de625f331e7f3fcbff24474f480bd8"
+  },
+  "original_products": {
+    "report.json": {
+      "bytes": 2352,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/seeded-love-diagnostic-execution/native/products/report.json",
+      "sha256": "086bd37d927063079a431398020644e68b950645ac0bab3550c48340157412be"
+    },
+    "seeded-diagnostics.json": {
+      "bytes": 509712,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/seeded-love-diagnostic-execution/native/products/seeded-diagnostics.json",
+      "sha256": "b786b3ce27d43717495b4b7e8c428366b71638cd3f0eb68156da0615408b32d9"
+    },
+    "trials.jsonl": {
+      "bytes": 251545,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/seeded-love-diagnostic-execution/native/products/trials.jsonl",
+      "sha256": "73825eaefedb312af6f738612ffb4324eb2b1bf1db6afb2bfbb98d9756783e59"
+    }
+  },
+  "parameters_sha256": "d16163471b8e2de02110e4ca1654e969f41f58d9befc83fdf8c2a1c612216502",
+  "public_products": {
+    "report.json": {
+      "bytes": 144839,
+      "sha256": "a085d8ea5854da50a4eb58f6ade3794948b3a746d2caacd056f1441dc927a286"
+    },
+    "trace-index.json": {
+      "bytes": 1174,
+      "sha256": "27a3b91dec09315ad7040bcd542551533561919b8ff6eb9eb3661385416e81be"
+    }
+  },
+  "requests_sha256": "9059dd81809c1095913bde2a7367de9d56e0a9f29d735a5ffd9616b27c632271",
+  "ring_dispositions_sha256": "6451744abd2b8ed4f9a78efca37e1d72fa666026a51cab09a0abc5253401ecfc",
+  "schema_version": "seeded-love-domain-publication-authority.v1",
+  "scientific_main_return_observed": false,
+  "scientific_saved_products_admitted": true,
+  "scope": "Acyclic compact binding of39request/78budget-refused native attempts and admitted Decimal50 saved arithmetic. No admissible predictions,scores,ranked choice,global optimum,uncertainty or physical accuracy.",
+  "source_epoch": "96f064592b47380172c3c5276b442ac35a9ad16f"
+}

@@ -68,6 +68,9 @@ from .scientific_captures.author_ring_support import (
 from .scientific_captures.author_site_evaluations import (
     validated_author_site_evaluation_captures,
 )
+from .scientific_captures.author_temporal_development import (
+    validated_author_temporal_capture,
+)
 from .scientific_captures.constrained_author import validated_constrained_author_capture
 from .scientific_captures.controlled_numerical.love_objective import (
     validated_love_objective_capture,
@@ -98,6 +101,21 @@ from .scientific_captures.land_use.openland_members import (
 )
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
+)
+from .scientific_captures.love_development.circular_receiver import (
+    validated_circular_receiver_domain,
+)
+from .scientific_captures.love_development.legacy_wrapper_domain import (
+    validated_author_legacy_wrapper_domain,
+)
+from .scientific_captures.love_development.seeded_search import (
+    validated_seeded_love_domain,
+)
+from .scientific_captures.love_development.setting_selection import (
+    validated_development_setting_selection,
+)
+from .scientific_captures.love_development.temporal_fixed_starts import (
+    validated_temporal_fixed_starts,
 )
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
@@ -497,6 +515,24 @@ def validated_maintained_report_sources(
     love_start_entries, love_start_evidence = validated_author_love_start_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    temporal_entries, temporal_evidence = validated_author_temporal_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    seeded_entries, seeded_evidence = validated_seeded_love_domain(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    temporal_fixed_entries, temporal_fixed_evidence = validated_temporal_fixed_starts(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    circular_entries, circular_evidence = validated_circular_receiver_domain(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    selector_entries, selector_evidence = validated_development_setting_selection(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    legacy_entries, legacy_evidence = validated_author_legacy_wrapper_domain(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         (
             (
@@ -544,6 +580,12 @@ def validated_maintained_report_sources(
         + cohort_entries
         + development_entries
         + love_start_entries
+        + temporal_entries
+        + seeded_entries
+        + temporal_fixed_entries
+        + circular_entries
+        + selector_entries
+        + legacy_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -677,4 +719,16 @@ def validated_maintained_report_sources(
         evidence["retained_author_love_development_fold"] = development_evidence
     if love_start_entries:
         evidence["retained_author_love_start_diagnostic"] = love_start_evidence
+    if temporal_entries:
+        evidence["retained_author_temporal_development"] = temporal_evidence
+    if temporal_fixed_entries:
+        evidence["retained_author_temporal_fixed_starts"] = temporal_fixed_evidence
+    if seeded_entries:
+        evidence["retained_seeded_love_domain"] = seeded_evidence
+    if circular_entries:
+        evidence["retained_circular_receiver_domain"] = circular_evidence
+    if selector_entries:
+        evidence["retained_development_setting_selection"] = selector_evidence
+    if legacy_entries:
+        evidence["retained_author_legacy_wrapper_domain"] = legacy_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

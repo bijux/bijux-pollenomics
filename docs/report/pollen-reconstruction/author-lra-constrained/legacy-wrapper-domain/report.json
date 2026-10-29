@@ -1,0 +1,2209 @@
+{
+  "configuration": {
+    "distance_weighting": "gpm neutral",
+    "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+    "max_ring": 2,
+    "method": "optimized",
+    "optimized_profile": "disqover-0.9.14-source",
+    "optimizer_iterations": 300,
+    "optimizer_max_evaluations": 16000,
+    "optimizer_tolerance": 1e-08,
+    "ppe_error": true,
+    "repeats": 1,
+    "retain_samples": true,
+    "seed": 3618983171,
+    "stochastic": false
+  },
+  "full_run_lra_cached_execution": false,
+  "original_nominal": {
+    "full_original_import_origin_admission": false,
+    "native_exit": 1,
+    "original_final_return_observed": false,
+    "saved_product_recovery_native_exit": 0,
+    "source_epoch": "70dd58ce28071d3b4ef34af2c800370a52d42bf9",
+    "training_protocol_sha256": "7953aec717a0bf440eca6d26e5c4d9bca03e3d783a005ab311f09d3d9b4db4dd"
+  },
+  "original_products": {
+    "dispositions.json": {
+      "bytes": 107700,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/legacy-wrapper-diagnostic-execution/native/products/dispositions.json",
+      "sha256": "80ff245d577892b436c5d68f85b2d37e3f9b6cfe7bc33c0466c35ba2ecaeee9b"
+    },
+    "report.json": {
+      "bytes": 1217,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/legacy-wrapper-diagnostic-execution/native/products/report.json",
+      "sha256": "60b7fa6189eb3b228e3a3f8b8c12d40eba63d89e6d0e7a27cd75c129955d70c9"
+    }
+  },
+  "predictions_scores_or_selection_admitted": false,
+  "reason_detail": "DISQOVER 0.9.14 drops ring-matrix dimensions for evaluated single-local or nonzero single-regional rings with multiple taxa; this source-compatible profile refuses those requests",
+  "request_dispositions": [
+    {
+      "basins": {
+        "local_basin_diameter_m": 160.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "5df02d71f13412480e35c318798f03fca2b163af8321c879b3163f47be2eef85",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "00f7c83eb71c6ddc312049bb04d3b796152e0a57565889fcb9363c62b3626f0b",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 30.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "6f5d3efe013c9b678b5b67d0fe2564fa591e29bc47d5370c7b8aff2cb674de16",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "0754d7eb978cd9bbb9ee5a3adc6b0b29931d6ba9e4fbd9bad2a63789b8fac566",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 300.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "cc888e3dcd7ecc6507f66ad0959eda526c7ab742116ae1e8350203d7086dc0e3",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "081a8a3e22e6011941cb232f025706d20212017a9ffb5576bcd441ef8465829e",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 88.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "260678cb06041cc9728766f5396ae65c2c006a5e7efe79d1cd4b6f201209efef",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "1113f5ed5686f2bd6d96bf6b3d315c267665787165f24f3e3d4b4f3800d7db13",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 30.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "bd44e6ef2673c35150d6901a91eb7f63f040663c2f5239464c265c22b7f2eee5",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "12c67fe82357725e89a3425478911fc8bdcb45e9344c0653d03671355e1ec805",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 400.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "f1a278fa0be1387e0aa61bc5d63849fe1e216b6bc7c8636b53dd8b4312ea1863",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "19e0dc289de39cb488e2045c679d3dc51b40e06c69073587f0e89ff5cc9921c9",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 20.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "d50511133dffead04756448fb480a9f3de5bd575619bc13ced91421d6a37e546",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "25bf056e29b3d3175b417da6217e8b171058eb0c0a3694cda27733e0a0d190b8",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 200.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "c68ea0dba2de7f84c41ccdd102d2b63903f7f27d0c571a7253350ef7f6e71169",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "26f508a84f564826fadbddf4b4cc8b802fd68c86e63bb120620303a830da5370",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 20.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "c0cb717a5aed20ca317e0c9ace23c96e0635b5bbb1c4288294d239a58bd32062",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "2d4050059ef42a0997cdee26f70b6f268a81b1328b2e239e48eb4bf5ee3552f2",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 30.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "e67473638c7ccfe7b934301e9515ac43da7f51a85d13a98681bfaf6ba9b96322",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "30547553b36bc40c66c30f99f72ba3b8c08dbd0276df97dbeff1d677fabf0078",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 30.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "2d33c465e2530c84652b3c4b42e064896c9e3fed3d2ca68b209fb35c5eaf3c67",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "305b0eb4b5a1043b718489f04c3e26e2b961bf2a02d1060f94a10a4ff1606fdb",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 200.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "1669f9270782246807da9789e4d601b04e64554001f070522bde7ef41747282a",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "3af67bbd83c9a3e6906c50740fa5e11c3c1e2a98bcc455688b9bfa22882ede36",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 40.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "0581e3c2c80a354385329d989c5f468e7019066b6d7bf58a88772c61afd45b2a",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "525591731a2d5624ef7a211944720c60d1282e1b37cdf45c730152255c607f17",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 400.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "70c5cbe92ae89abe66b66298f17605902f341ddca20dbe291e83589eb8c5a9ee",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "5c7e5195cb2be81e78e593b8c8aa317eeea776c8578998f82d6d88d542222b77",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 200.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "ba4db0913a05182c5bcaeca361b8092db8854f0fabb34aae33c64259e5ba22e3",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "5c8f9dc338ab88bc0284f53e8d5fead0467c87538f16539a9b35f0ea211e8ee2",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 40.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "383a3b6d46d6b8696d333b8eee6a0655f82a151ed75077d34b4176c0b4dd83ab",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "65b8920c442ff7afb3db5ad5d78faf00047825e4c4027044851b67e5d2762eb7",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 400.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "56c72fc345a7136aab37ec7b3a516fed06fba6b484b1ba925a93730a91e1d796",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "6b66cf2df6ca191a4bf8711e4f67d6e4472c4ba0a475bc854cf1c197a82ad2c3",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 30.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "91d08d8ac0cebe4c662f4ef1b78962f9fb8a6a6fedd938f959c57b7b020283b9",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "77a3cf5f9dcbe20bf990cf716cec252d77e01654955e270d5e723c621dbed851",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 30.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "44616769a840d68d9b3f35e17f79ba279a890f5481d2af4db449bd99b81ebbaa",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "79837a920f48912fd5f5a056ed161dc5d832dd93c44635ab14132a2194a1a258",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 100.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "0f278e2c8212fb504ed7258275513975ed595377ef5544122dfe02c85302d69b",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "8e3858936f4f4bc9b94438a95260c7c3103cce99192082804ae6a878aab82b1d",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 20.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "89c3d0a5643144b60d112f06e1c229e8e62aa670f0c2ecec2cb48f898bf7713f",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "901d024e3ea40ef5727d011faa72b52febb91e32347b0f530fca6e91fee66592",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 40.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "7ea3499b5be3d45f62d2c6d89540bcfae4a7685b57fa010f120e0320889020f6",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "9089713dfd177c305ac558342690bd6ea950f1bd26b088d67b8e63475ac4f47a",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 20.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "8a7a7a06b1b62d29bf19b1e1855f37a58c91e54fa5fd1db5f210226e521e5798",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "968b470fd6a95365bfbfec850b460d246a0c2c50355fd87916d446893dd3427d",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 300.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "d759c15ade6e81e1112381f0ceb83d8b99e7840abbc7c57e2f492262e0db7d7c",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "96953ed5d6381a91286d3f532d4718b0b022f4d6601c13fdeb65da12858ca32e",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 40.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "29e4b3f01470e7bebdca3578536d4e027368d55bc38fe987df7a36a11d00d0d0",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "a0f8f8e9cb0a4006e99e9c950e290126227f01580ded0f8099b8b2f941f3f210",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 20.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "6166817bdfe50e72253af160e34beca1d7493b202eeef42e21a746b1b2ec6c69",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "a2427d8e404a83e32fcf467eeee758c09d956581a295184a1f998c567aa65c49",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 300.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "b2ffbd949da9a409aea07fa195d9bf9d788e6b1ed9f1adc35803f89dd979755c",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "a4076df52958e0fde8d9e81cb06b576034baa6386269e287bd56b353cd314650",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 40.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "bbc92f9510eff61d597d6f0ab6609ae141c7890055d92b2abcb87302636f8d4b",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "a881595bfae482bb4fc69ea0ac0460afcc482783eeb5c0c047a33c6e3679d73a",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 200.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "1bac5ab7079db5395ca3af1aeb587cfb6c01fb29a446d92e7121774552cc4e30",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "a9b1267dbaace74e9e2f7d322a7a24896b8f8beec173d47d68cd036625a17ad4",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 20.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "d169b4bad5108a38c36800ea6d913c3d95b2a10ba771ba9727604cfbb1456c1a",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "af0a9d14eb4287d39c5a2e92116d4bac28fb0de8778f1cf062e43b4372e8aaf1",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 200.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "a2848adb704b77e35b7a079e3d798987fcc14537f278961674de2941513f66b0",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "b35426d9ded3cfd14c83851b119520c032c1e6fb4e46b1086d91a7f8101ae0cd",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 100.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "fb1b8221b4631da00742ac3a03be4a33fe68405aca7daf33bdc5422a4810efa6",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "d07c519f3d7f4e2ffe8853b7f80fcf6663afb47e8e8cd5fb922713ee27800970",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 160.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "b0cb634a54da3583ef084009a8ac172ff8d17261bc689975ded727a50a80b9b3",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "d4ecf5b1417cae168dbdb053df3e125a27fc423469e8168146e962281533974e",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 160.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "5378e685bfda942dad61e40217f6e2b782c23e872ed0200db984d63565127154",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "d7a3095e3b5d9ce6d3eaa3323178442a8b723dabc1c9e72d125e322900b04385",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 300.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "a7ddf40bc84d423928d68a7d266827ba110f14de5d35416aca684b4e23105549",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "e562789803f4ddf32f4e3cb1f580362aeff1b08a2dd8da69dfebea346fa74c0a",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 40.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "eb63cbaae4bc4eb1d440bf4229581cb210019be07c1a7b33de269530e4d56ed9",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "e7551d276def7f6b3987bb1fc3cb171d7ed3aff88e4040d0f5e3960e6849b942",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 88.0,
+        "regional_basin_diameter_m": 100,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "1ba1bd281863863f5ebddfcbeceb13c89d3e5a3e022b3f9a9a1c8f6b42363ee9",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "ebe2ee22ac5a3daac9d0251b98b552150fcfb44472186ec22aeb35e60801e6da",
+      "raw_regional_cover": [
+        0.0,
+        0.00188,
+        0.0007199999999999999,
+        0.0,
+        0.00198,
+        0.0,
+        0.03233,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.07258,
+        0.16556,
+        0.0,
+        0.0,
+        0.0062,
+        0.0,
+        0.0,
+        0.0,
+        0.00067,
+        0.0,
+        0.01965,
+        0.67837,
+        0.02007,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 88.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "a7674b89ef8f78d8df30d0ffd1c23a2eee1740a6bf6fcbad72207aeab4d92414",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "f3a645815ae4d76bf305074516791f57e6b5479560d3dbece4c83f81a8fd1cdf",
+      "raw_regional_cover": [
+        0.0,
+        0.00438,
+        0.00023,
+        0.00042,
+        0.00771,
+        0.0,
+        0.18315,
+        0.00021999999999999998,
+        0.0,
+        0.0,
+        0.0011,
+        0.17065000000000002,
+        0.055389999999999995,
+        0.0013900000000000002,
+        0.006750000000000001,
+        0.0059099999999999995,
+        0.0,
+        0.0,
+        0.0,
+        0.0011,
+        0.0,
+        0.02672,
+        0.48668999999999996,
+        0.04382,
+        0.0,
+        0.00079,
+        0.0008699999999999999,
+        0.0,
+        0.0,
+        0.0027
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    },
+    {
+      "basins": {
+        "local_basin_diameter_m": 200.0,
+        "regional_basin_diameter_m": 300,
+        "regional_basin_type": "lake"
+      },
+      "legacy_request_sha256": "0a34d44916dd7f7de8553b5ac2bd2211c19ce3b78811d221ae7fdff4bef5bbf6",
+      "local_seed": 3618983171,
+      "nominal_request_sha256": "f710bdc14547feff84b091f0d7e94de48308f4f54bb689b997ffac8ac020a9d7",
+      "raw_regional_cover": [
+        0.0,
+        0.0014399999999999999,
+        0.00026,
+        0.00032,
+        0.00508,
+        0.0,
+        0.01256,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03117,
+        0.29015,
+        0.0,
+        0.0007000000000000001,
+        0.006770000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.00075,
+        0.0,
+        0.0098,
+        0.60741,
+        0.02193,
+        0.0,
+        0.00471,
+        0.00199,
+        0.0,
+        0.0,
+        0.0049499999999999995
+      ],
+      "reason_code": "unsupported_source_ring_dimensions",
+      "ring_dispositions": [
+        {
+          "ring_index": 0,
+          "status": "not_returned_request_refused"
+        },
+        {
+          "ring_index": 1,
+          "status": "not_returned_request_refused"
+        }
+      ],
+      "status": "refused"
+    }
+  ],
+  "schema_version": "legacy-wrapper-domain-publication.v1",
+  "scientific_main_return_observed": false,
+  "scientific_sources": {
+    "reports/science/author-love-analytical-diagnostics/source/inputs.py": {
+      "bytes": 9050,
+      "sha256": "2f6be1c6719f02dd02a063ff26c5c8d6d1f279a4b7481d1d0ab6084825ea081d"
+    },
+    "reports/science/legacy-wrapper-diagnostics/protocol.json": {
+      "bytes": 29049,
+      "sha256": "d2f46647351b239981d848823cb1f12e334b85e98fde6865fce9f4d834d18f15"
+    },
+    "reports/science/legacy-wrapper-diagnostics/source/replay.py": {
+      "bytes": 12211,
+      "sha256": "de090a4fc034a26d395ff8b536b05a76043ed4592a7bd6cc6d75717b69b35c39"
+    }
+  },
+  "source_epoch": "af76bcfb287a2997c0102a85a078f3aee3e1f378",
+  "summary": {
+    "contexts": 225,
+    "logical_ancestry": 2715,
+    "request_refusals": 39,
+    "ring_placeholders_not_executed": 78,
+    "sites": 15,
+    "source_qualified_API_calls": 39,
+    "source_qualified_optimizer_kernel_REVEALS_forward_score_calls": 0,
+    "taxa": 30,
+    "unique_requests": 39
+  },
+  "taxa": [
+    "Abies.alba",
+    "Alnus.glutinosa",
+    "Amanranthaceae.Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus.sempervirens",
+    "Calluna.vulgaris",
+    "Carpinus.betulus",
+    "Carpinus.orientalis",
+    "Castanea",
+    "Cerealia.t",
+    "Corylus.avellana",
+    "Cyperaceae",
+    "Ericaceae",
+    "Fagus.sylvatica",
+    "Fraxinus",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago.lanceolata.type",
+    "Poaceae",
+    "Quercus.deciduous",
+    "Quercus.evergreen",
+    "Rumex.acetosa.t",
+    "Salix",
+    "Secale",
+    "Tilia",
+    "Ulmus"
+  ],
+  "zero_downstream_calls_qualification": "Source-derived from exact pinned early guard, not instrumented call counters."
+}

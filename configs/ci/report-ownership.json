@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2206,
-  "paths_sha256": "469f31e6448adbd99f46addd32881f9ef4f9d414b739242f1e7115201c39d88b",
+  "path_count": 2227,
+  "paths_sha256": "6ae2caccd03737a7ec3a7b54802da18c518904d5af7b30c3f38b213689ee24be",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -23998,6 +23998,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_radius.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_ring_support.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_temporal_development.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/love_objective.py",
@@ -24027,6 +24028,12 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/hyde_grid.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/openland_members.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/circular_receiver.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/legacy_wrapper_domain.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/seeded_search.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/setting_selection.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/temporal_fixed_starts.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/optimizer_inputs/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/optimizer_inputs/baseline.py",
@@ -24096,6 +24103,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_development.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_report.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_run.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_windows.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/__main__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/comparison.py",
@@ -33928,6 +33936,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/workflow.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_development.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_windows.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/prediction.py",
@@ -35286,6 +35295,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/workflow.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_development.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_windows.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/prediction.py",
@@ -67946,6 +67956,235 @@
       ],
       "role": "maintained_editorial",
       "verification": "Human-maintained reader account; compare its source scopes and numeric statements with reports/science/vegetation-reference/southern-sweden-figure/report.json and printed-labels.csv. This editorial role does not authenticate source rights, reproduce results, or confer scientific review. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/temporal-development/source-code",
+      "role": "maintained_code",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/replay.py",
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/topology.py"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the reviewed source-bound temporal development consumer and exact request-topology helper for separately admitted calendar-window inputs. Preserve per-window eligible sites, unavailable dispositions, taxon/count/PPE order, geometry, training-only own-target exclusion, deterministic uniform starts, independent baseline refusals and prediction freezing before scoring. Source custody and pure controls do not certify actual fitting, prediction, scoring, ecological accuracy or completion of an earlier report owner."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/temporal-development/scientific-protocol",
+      "role": "maintained_configuration",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/protocol.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the portable scientific policy for the source-declared temporal development windows, finite request populations, deterministic starts, optimizer budgets, independent baseline eligibility and outcome-freeze order. Actual canonical SCM identity, current engine metadata, projected-input authority and exact request manifest are separately required execution bindings after source adoption. This source protocol is not an executed numerical result or a claim of identical temporal cohorts, untouched confirmation, empirical vegetation accuracy, rights or release acceptance."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/temporal-development/report-products",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/report.json",
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/trace-index.json"
+      ],
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/protocol.json",
+        "reports/science/source-cohorts/author-love-temporal-development.json"
+      ],
+      "producer_paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/replay.py",
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/topology.py"
+      ],
+      "role": "retained_source",
+      "verification": "Admit exactly the compact independently observed deterministic uniform temporal request/refusal and point-pollen account: TW4 13 sites/143 logical/23 unique/39 refused slots/no scores; TW6 14 sites/168 logical/25 unique/3 predicted and39 refused slots/three scores at LOBBSBOG NISP3204. Preserve original source/input epochs, all native outcomes, shared actual parameter/source identity, all request dispositions and ancestry, failure causes, complete prediction freeze before post-freeze scoring decode and original content-addressed trace identities. This finite saved-evidence criterion does not close any earlier report owner or establish global temporal ranking, independent confirmation, vegetation accuracy, human review or rights."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/temporal-development/reader",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Maintain the source-bound temporal physical-development question, units, declared uniform policy, original epoch distinction, all13/14 site denominators and unavailable dispositions, TW4 all39 refused slots and TW6 one-target three-method score scope. Bind all nine individual qualification fields and exact scientific evidence, retain undefined empty-population metrics and all negative causes, and preserve the distinction between native completion, conditional predictions and unestablished ecological or human-review acceptance. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/legacy-wrapper-domain/report-products",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/legacy-wrapper-domain/report.json",
+        "docs/report/pollen-reconstruction/author-lra-constrained/legacy-wrapper-domain/trace-index.json"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/__init__.py",
+        "reports/science/author-love-analytical-diagnostics/source/inputs.py",
+        "reports/science/legacy-wrapper-diagnostics/protocol.json",
+        "reports/science/legacy-wrapper-diagnostics/source/replay.py",
+        "reports/science/source-cohorts/author-love-legacy-wrapper-domain.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/legacy_wrapper_domain.py"
+      ],
+      "role": "retained_source",
+      "verification": "Admit exact compact legacy optimized-wrapper source-domain result through validated_author_legacy_wrapper_domain(repository,tracked_by_path,owners). Preserve39distinct nominal-to-legacy request joins/39unsupported_source_ring_dimensions refusals/78explicitly nonexecuted ring placeholders,15sites30taxa225contexts2715ancestry, raw rounded regional fractions and basin/configuration/derivedseed handoffs. Bind executed sourceepochaf76, reviewed protocol/source and independenta659 product admission, native0 and three external raw trace identities. Retain original nominal70ddnative1/separate recovery0 and unobserved scientificmainreturn. No optimizer success, reconstruction, prediction, score, ranking, untouched/ecological accuracy or whole scientific acceptance; callback reads no private payload and runs no model."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/legacy-wrapper-domain/reader-account",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/legacy-wrapper-domain/README.md"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
+      ],
+      "role": "maintained_editorial",
+      "verification": "Maintain the named legacy optimized LOVE wrapper domain reader against39exact typed request refusals/78not-executed ring placeholders on15previously exposed TW5 sites/30taxa/225contexts/2715ancestry. Bind actualsourceepochaf76/native0, raw regional fractions and exact configuration/source identity, original nominalnative1/separate saved recovery0 and independenta659 admission. Qualify zero downstream calls as source-derived, not instrumented; scientificmainreturn and full hostcached request execution remain unobserved/notexecuted. Render the individual nine-field qualification without predictions/scores/ranked choice, calibrated uncertainty, independent vegetation/untouched accuracy or human/rights/whole acceptance promotion. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/seeded-search-domain/report-products",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/seeded-search-domain/report.json",
+        "docs/report/pollen-reconstruction/author-lra-constrained/seeded-search-domain/trace-index.json"
+      ],
+      "producer_inputs": [
+        "reports/science/seeded-love-development/protocol.json",
+        "reports/science/seeded-love-development/source/inputs.py",
+        "reports/science/seeded-love-development/source/replay.py",
+        "reports/science/seeded-love-development/source/search.py",
+        "reports/science/source-cohorts/author-love-seeded-search-domain.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/seeded_search.py"
+      ],
+      "role": "retained_source",
+      "verification": "Admit exact compact seeded ring-preserving LOVE budget outcomes through validated_seeded_love_domain(repository,tracked_by_path,owners). Preserve39 nominal-to-seeded request joins,78 attempted and refused optimizer_not_converged ring outcomes,1248000 search evaluations and78 separate objective certifications,0accepted rings,15sites30taxa225contexts2715ancestry and unchanged rounded regional fractions. Bind scientific96f source/native0 and independent0898 saved-objective arithmetic plus separate execution0. Preserve source-qualified recorded kernels, original nominalnative1/recovery0 and unobserved scientificmainreturn. No admissible prediction, score, ranked choice, global optimum, calibrated uncertainty or ecological/untouched accuracy; callback reads no private payload or model."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/seeded-search-domain/reader-account",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/seeded-search-domain/README.md"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
+      ],
+      "role": "maintained_editorial",
+      "verification": "Maintain the seeded LOVE bounded-search reader against39 exact paired requests and78 evaluation-budget refusals with0accepted rings. Bind96f native0, independent Decimal50 saved-kernel arithmetic and original nominalnative1/recovery0; distinguish observer zero new calls from native78attempts/1248000search evaluations/78certifications. Render the individual nine-field qualification. Preserve raw unit-box/source-rounded output meanings and no prediction/score/selection, uncertainty coverage, independent vegetation truth or untouched accuracy. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/circular-receiver-domain/report-products",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/circular-receiver-domain/report.json",
+        "docs/report/pollen-reconstruction/author-lra-constrained/circular-receiver-domain/trace-index.json"
+      ],
+      "producer_inputs": [
+        "reports/science/circular-receiver-development/protocol.json",
+        "reports/science/circular-receiver-development/source/inputs.py",
+        "reports/science/circular-receiver-development/source/receiver.py",
+        "reports/science/circular-receiver-development/source/replay.py",
+        "reports/science/source-cohorts/author-love-circular-receiver-domain.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/circular_receiver.py"
+      ],
+      "role": "retained_source",
+      "verification": "Admit exact compact circular-receiver saved products through validated_circular_receiver_domain(repository, tracked_by_path, owners). Preserve 15 response geometries, 4 annuli, 30 labelled parameter rows, 225 shared ancestry contexts and all 675 diagnostic dispositions (45 outer, 630 inner; 675 predicted, 0 refused). Bind native 1800 source-qualified kernel calls and 675 conditional forwards, independent Decimal50 recorded-deposition arithmetic, actual native/stage/collector0 and saved observer0. Preserve 39 reused fits, original nominal native1/separate recovery0, unobserved scientific main return and point-inverse/disk-forward/source2inner mismatch. No private reads, models, new fits, target scores, selection, isolated basin effect, physical accuracy, calibrated uncertainty or whole scientific acceptance."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/circular-receiver-domain/reader-account",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/circular-receiver-domain/README.md"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
+      ],
+      "role": "maintained_editorial",
+      "verification": "Maintain the conditional circular-receiver reader against all 15 geometries, 30 taxa, 225 contexts and 675 nonselectable diagnostic slots, including literal 0 refusals for this admitted run. Render the individual nine-field qualification; distinguish native 1800 kernel/675 forward calls from the saved observer zero new calls. Preserve point-inverse/disk-forward/source2inner mismatch, original nominal native1/recovery0, unobserved scientific main return, prior exposure and unqualified calibrated-BP epoch/model. No observational accuracy, isolated basin effect, matched inverse, ecological ranking, calibrated uncertainty or whole acceptance. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/development-setting-selection/report-products",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/development-setting-selection/report.json",
+        "docs/report/pollen-reconstruction/author-lra-constrained/development-setting-selection/trace-index.json"
+      ],
+      "producer_inputs": [
+        "reports/science/development-setting-selection/protocol.json",
+        "reports/science/development-setting-selection/source/choice.py",
+        "reports/science/development-setting-selection/source/replay.py",
+        "reports/science/development-setting-selection/source/sources.py",
+        "reports/science/source-cohorts/author-love-development-setting-selection.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/setting_selection.py"
+      ],
+      "role": "retained_source",
+      "verification": "Admit exact compact joint development choices through validated_development_setting_selection(repository, tracked_by_path, owners). Preserve 16 setting dispositions, 32 common-TW5 pairs, all 480 rankings and 15 selected source prediction/manifest IDs with complete saved selected metric/error/deviance rows. Bind 4410 physical inner records through 2 exact original sources (3150 transport/1260 PPE), all 315 physical outer scores/dispositions, 3 source-equivalent aliases and 8 prerequisite-refused pairs. Preserve complete14-inner coverage then meanTV/ID rule, all15 choices frozen before saved outer decoding, no new models/scores or targetcount reads, raw observation without aggregate exit plus separate execution0, scientificmainreturn unknown and originalnominalnative1/recovery0. Prior-exposed development only; no untouched accuracy, vegetation truth, calibrated uncertainty or whole acceptance."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/development-setting-selection/reader-account",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/development-setting-selection/README.md"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
+      ],
+      "role": "maintained_editorial",
+      "verification": "Render the individual nine-field joint development selection qualification against all 480 ranking rows/15choices, 32pairs/7physicalprofiles/21scoredpairs/3aliases/8prerequisites, preserved selected signederrors/MAE/RMSE/deviance and external full4410/315metric identities. Preserve train-only14-inner rule, persisted source prediction freeze before outer reuse, originalnominalnative1/recovery0 and unobserved scientificmainreturn. No new scientific calls, independent-observation multiplication, global setting winner, untouched accuracy or calibrated uncertainty. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/temporal-fixed-start-development/report-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-fixed-start-development/report.json",
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-fixed-start-development/trace-index.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/love_development/temporal_fixed_starts.py"
+      ],
+      "producer_inputs": [
+        "reports/science/author-love-temporal-fixed-start/protocol.json",
+        "reports/science/author-love-temporal-fixed-start/source/regional.py",
+        "reports/science/author-love-temporal-fixed-start/source/replay.py",
+        "reports/science/author-love-temporal-fixed-start/source/training.py",
+        "reports/science/source-cohorts/author-love-temporal-development.json",
+        "reports/science/source-cohorts/author-love-temporal-fixed-start-development.json"
+      ],
+      "verification": "Admit exactly two compact products with validated_temporal_fixed_starts(repository,tracked_by_path,owners). Bind actual352native0 for bothwindows and independent7dff saved-output admission plus separate observer execution0. Retain48requests/96ringselections,all3072starts (2592accepted480refused),originalseeds/budgets/minima/unroundedcompositions and81complete prediction-score slots withsignederrors/RMSE/deviance. Preserve originald605uniform failedprediction evidence/inputd863 and17availability masks,source-qualified savedK withDecimal50objective checks,train-only graph andcompletewindowfreeze beforepost-freeze scoring. Sixteen rawtrace references remain external; compact callback opens no private payload and executes no models/scorers. No isolated start-effect, temporal winner, ecological/untouched accuracy, agecalibration or calibratedfielduncertainty; scientificmainreturn remains separately unobserved."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/temporal-fixed-start-development/reader-account",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/temporal-fixed-start-development/README.md"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
+      ],
+      "role": "maintained_editorial",
+      "verification": "Maintain the individually qualified temporal32-start reader against complete13/14site populations,48unique and311logical requests,96rings/3072attempts with2592accepted480refused starts and81predicted/scored slots. Preserve originald605uniform39/39refusals and0/3scores, inputd863 and executed352source epochs, source-rounded regional values and source-qualified kernels. Describe32starts plus unrounded diagnostic adapter as a jointmethod change, with no isolated starting-point effect or cross-window winner, vegetation truth, independent accuracy or field/age uncertainty calibration. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
     }
   ]
 }

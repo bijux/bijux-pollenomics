@@ -1,0 +1,29 @@
+{
+  "objects": [
+    {
+      "bytes": 1217,
+      "retention_key": "sha256:60b7fa6189eb3b228e3a3f8b8c12d40eba63d89e6d0e7a27cd75c129955d70c9",
+      "roles": [
+        "legacy-native-report"
+      ],
+      "sha256": "60b7fa6189eb3b228e3a3f8b8c12d40eba63d89e6d0e7a27cd75c129955d70c9"
+    },
+    {
+      "bytes": 2275,
+      "retention_key": "sha256:a6e11b51e211ac06f759cbdbf002465772c8f5f7174e9251595f8c9c42b38bb1",
+      "roles": [
+        "legacy-native-terminal"
+      ],
+      "sha256": "a6e11b51e211ac06f759cbdbf002465772c8f5f7174e9251595f8c9c42b38bb1"
+    },
+    {
+      "bytes": 107700,
+      "retention_key": "sha256:80ff245d577892b436c5d68f85b2d37e3f9b6cfe7bc33c0466c35ba2ecaeee9b",
+      "roles": [
+        "legacy-request-dispositions"
+      ],
+      "sha256": "80ff245d577892b436c5d68f85b2d37e3f9b6cfe7bc33c0466c35ba2ecaeee9b"
+    }
+  ],
+  "schema_version": "legacy-wrapper-domain-trace-index.v1"
+}

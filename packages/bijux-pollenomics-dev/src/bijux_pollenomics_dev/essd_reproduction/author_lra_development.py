@@ -13,6 +13,7 @@ import shutil
 import tempfile
 from typing import Any
 
+from .author_lra_windows import selected_counts, source_window
 from .author_pollen_spatial.source import _study
 
 WINDOW = 5
@@ -55,8 +56,11 @@ def _rings(radius: float, *, inversion: bool) -> list[dict[str, float]]:
     ]
 
 
-def materialize_author_lra_development(source_root: Path, output: Path) -> Path:
+def materialize_author_lra_development(
+    source_root: Path, output: Path, *, window: int = WINDOW
+) -> Path:
     """Keep author counts private and expose source-bound local experiment inputs."""
+    selection = source_window(window)
     source_root, output = source_root.resolve(), output.resolve()
     if output.exists() or output.is_symlink():
         raise ValueError("Absent output destination required")
@@ -72,8 +76,9 @@ def materialize_author_lra_development(source_root: Path, output: Path) -> Path:
     lookup = checked("TWlookup.csv")
     if (
         len(boundaries) != 26
-        or (boundaries[WINDOW - 1], boundaries[WINDOW]) != (YOUNGER_BP, OLDER_BP)
-        or lookup[WINDOW] != [str(WINDOW), LABEL_BP]
+        or (boundaries[window - 1], boundaries[window])
+        != (selection.younger_bp, selection.older_bp)
+        or lookup[window] != [str(window), selection.label_bp]
     ):
         raise ValueError("Author time-window support changed")
     means = checked("run.REVEALS.files/av-RPP.all.landclimII.csv")
@@ -109,29 +114,21 @@ def materialize_author_lra_development(source_root: Path, output: Path) -> Path:
     for site in study.sites:
         relative = "run.REVEALS.files/" + site.count_filename
         rows = checked(relative)
-        if (
-            len(rows) != 34
-            or rows[1][0] != "radius"
-            or rows[2][0] != "model"
-            or [row[0] for row in rows[3:]] != study.prepared_taxa
-        ):
-            raise ValueError(f"Author prepared taxon axis changed: {site.site_id}")
-        column = rows[0].index(LABEL_BP)
-        radius = float(rows[1][column])
-        model = int(rows[2][column])
-        counts = [int(row[column]) for row in rows[3:]]
-        if any(count < 0 for count in counts):
-            raise ValueError("Author prepared pollen count changed")
-        if sum(counts) == 0:
-            if radius != 0 or model != 0:
-                raise ValueError("Empty author window has positive basin metadata")
+        selected = selected_counts(
+            rows, study.prepared_taxa, site.site_id, site.radius_m, selection
+        )
+        if selected is None:
             unavailable.append(site.site_id)
             continue
-        if radius != site.radius_m or model != 2:
-            raise ValueError("Author lake radius or model disagrees with site metadata")
+        radius, counts = selected
         observations.append((site, radius, counts))
-    if len(observations) != 15 or len(unavailable) != 2:
-        raise ValueError("Author TW5 eligible denominator changed")
+    if (
+        len(observations) != selection.eligible_count
+        or set(unavailable) != set(selection.unavailable_sites)
+        or sum(sum(counts) for _, _, counts in observations)
+        != selection.source_count_total
+    ):
+        raise ValueError("Author source window eligible denominator changed")
 
     output.parent.mkdir(parents=True, exist_ok=True)
     stage = Path(tempfile.mkdtemp(prefix=".author-lra-", dir=output.parent))
@@ -141,9 +138,9 @@ def materialize_author_lra_development(source_root: Path, output: Path) -> Path:
             "chronology.json",
             {
                 "source": "author bins.csv/TWlookup.csv",
-                "window": WINDOW,
-                "bounds_cal_bp": [YOUNGER_BP, OLDER_BP],
-                "label_bp": LABEL_BP,
+                "window": window,
+                "bounds_cal_bp": [selection.younger_bp, selection.older_bp],
+                "label_bp": selection.label_bp,
             },
         )
         taxonomy = _store(
@@ -194,11 +191,11 @@ def materialize_author_lra_development(source_root: Path, output: Path) -> Path:
         for site, radius, counts in observations:
             metadata = {
                 "site_id": site.site_id,
-                "sample_id": site.site_id + ":TW5",
-                "coordinate": 1500,
-                "bin_id": "author-TW5",
+                "sample_id": site.site_id + ":TW" + str(window),
+                "coordinate": int(selection.label_bp),
+                "bin_id": "author-TW" + str(window),
                 "age_type": "calendar_bp",
-                "age_support_bp": [[YOUNGER_BP, OLDER_BP]],
+                "age_support_bp": [[selection.younger_bp, selection.older_bp]],
                 "chronology_evidence_id": "chronology",
             }
             geometry = {
@@ -276,13 +273,7 @@ def materialize_author_lra_development(source_root: Path, output: Path) -> Path:
                 "temporal_matching": {
                     "rule": "declared_bin_stationarity",
                     "decision_evidence_id": "decision",
-                    "bins": [
-                        {
-                            "bin_id": "author-TW5",
-                            "younger_bp": YOUNGER_BP,
-                            "older_bp": OLDER_BP,
-                        }
-                    ],
+                    "bins": [selection.temporal_bin],
                 },
                 "versions": dict.fromkeys(
                     ("binning", "chronology", "geometry", "parameters", "taxonomy"),
@@ -300,9 +291,23 @@ def materialize_author_lra_development(source_root: Path, output: Path) -> Path:
                 "experiment_sha256": reference["sha256"],
                 "eligible_sites": [site["site_id"] for site in sites],
                 "zero_count_sites": sorted(unavailable),
+                **(
+                    {
+                        "source_window_availability": {
+                            "unavailable_sites": sorted(unavailable),
+                            "meaning": "Source formatter merges absent windows and fills NA with zero, including radius/model; no observed ecological-zero claim.",
+                            "age_scale": "Source-declared age.cal.BP; epoch/calibration/uncertainty not requalified.",
+                            "interval": "left-closed/right-open from source findInterval defaults",
+                            "source_taxa": 31,
+                            "input_scope": "Native author-prepared31taxon inputs. Any30taxon constrained projection requires its own declared identity and window-specific excluded-count denominator.",
+                        }
+                    }
+                    if window != WINDOW
+                    else {}
+                ),
                 "total_count": sum(sum(counts) for _, _, counts in observations),
-                "selected_window": WINDOW,
-                "age_support_bp": [YOUNGER_BP, OLDER_BP],
+                "selected_window": window,
+                "age_support_bp": [selection.younger_bp, selection.older_bp],
                 "ring_geometry": "declared circular/homogeneous modeling assumption",
                 "scientific_posture": "prior-exposed exploratory development; no vegetation truth",
             },
@@ -319,8 +324,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--author-source-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--window", type=int, choices=(4, 5, 6), default=WINDOW)
     args = parser.parse_args()
-    output = materialize_author_lra_development(args.author_source_root, args.output)
+    output = materialize_author_lra_development(
+        args.author_source_root, args.output, window=args.window
+    )
     print(output / "source-report.json")
 
 

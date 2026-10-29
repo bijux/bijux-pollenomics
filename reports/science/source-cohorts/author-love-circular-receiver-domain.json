@@ -1,0 +1,138 @@
+{
+  "actual_exit": 0,
+  "approved": true,
+  "collector": {
+    "bytes": 1094,
+    "path": "artifacts/science/circular-receiver-diagnostic-execution/collected-execution.json",
+    "sha256": "064ac82994e79c7e545bc283f82172d57157095fb2ff47bf09b01acee8a55827"
+  },
+  "native_terminal": {
+    "bytes": 2580,
+    "path": "artifacts/science/circular-receiver-diagnostic-execution/native/terminal.json",
+    "sha256": "c9a37100bea72e49b8f2ab4a9b816bd1ab9c2340e679936deed7b8dd3a7e359a"
+  },
+  "observation": {
+    "bytes": 4012,
+    "path": "artifacts/science/circular-receiver-output-admission/observation.json",
+    "sha256": "f0a859dd91cca3c69c0c4905f956ba4bb6a80c893c84625f871d3ef2ba22fbb6"
+  },
+  "observer_execution": {
+    "bytes": 2294,
+    "path": "artifacts/science/circular-receiver-output-admission/execution.json",
+    "sha256": "ea97b623f4cfd45c1b5a9c2d00643c3e67ba90ce71b7244d9c5d26c5132541ff"
+  },
+  "observer_source_review": {
+    "bytes": 5559,
+    "path": "artifacts/science/circular-receiver-output-admission/source-review.json",
+    "sha256": "40e1c017f43da29a82c7404d721c36ac10d3bed4a1be8aea49e28601f6dfb62d"
+  },
+  "observer_summary": {
+    "contexts": 225,
+    "diagnostic_slots": 675,
+    "forward_calls": 675,
+    "independent_arithmetic": "Decimal50 deposition/background/normalization and forward-to-forward TV from recorded K, not kernel recomputation or observational accuracy.",
+    "independently_recomputed_kernel_values": false,
+    "inner_slots": 630,
+    "kernel_calls": 1800,
+    "maximum_absolute_pollen_decimal_error": "2.3290742513414647534736544053000620E-16",
+    "new_spatial_fits": 0,
+    "optimizer_attempts": 0,
+    "outer_slots": 45,
+    "predicted_diagnostic": 675,
+    "refusal_reasons": {},
+    "refused": 0,
+    "response_tables": 15,
+    "score_calls": 0,
+    "sites": 15,
+    "taxa": 30,
+    "unique_fit_requests_reused": 39
+  },
+  "original_products": {
+    "prediction-dispositions.json": {
+      "bytes": 4793984,
+      "path": "artifacts/science/circular-receiver-diagnostic-execution/native/products/prediction-dispositions.json",
+      "sha256": "7a289c9e4bb8d4c51ec40e37a34a7c26b3a4865419f3d7f1eb3b1d77b26591ee"
+    },
+    "receiver-responses.json": {
+      "bytes": 151258,
+      "path": "artifacts/science/circular-receiver-diagnostic-execution/native/products/receiver-responses.json",
+      "sha256": "1ea90c59301d553914f5d2f4679f9ad6f0deab73efb4fbe9c27c5be6a95bf2f4"
+    },
+    "report.json": {
+      "bytes": 2316,
+      "path": "artifacts/science/circular-receiver-diagnostic-execution/native/products/report.json",
+      "sha256": "b9eaa0d6e53284f4dae7afb28f44355698dbc7eb17f9ce88cd416151941f21ab"
+    },
+    "trials.jsonl": {
+      "bytes": 3887100,
+      "path": "artifacts/science/circular-receiver-diagnostic-execution/native/products/trials.jsonl",
+      "sha256": "50f439318170badc1ecca450565edd5942a030862c49a8eed542933836041cf4"
+    }
+  },
+  "plan": {
+    "bytes": 918254,
+    "path": "artifacts/science/circular-receiver-diagnostic-execution/plan.json",
+    "sha256": "122ae29178bfa2fee7363078826a5e6963a3c9ede1f653527c48a2fbc81c016d"
+  },
+  "projection_digests": {
+    "contexts": "aa5c19ff327bc886edc0098a95d61290d999d6d45d235b50aadbda9c2fdc8793",
+    "dispositions": "3a059efd8c0e165c17afc45382cf88c37159efd6885e72a0b77e9aacca169d8a",
+    "native_runtime": "ce9404ecdb29cfeef4802339f021c95a4b2b0e5bd13aec0d60e3a74a6d5b9203",
+    "nominal_authority": "f0bf07bf7f5aa21d1898cb23f468d28ba9a58f9be9dfbb9becf4ba9f0c9341bf",
+    "observer_calls": "6fbd703b1bb0337cc91936084be4492b388a6006981c0ef1e42a8524eb7a12e4",
+    "observer_summary": "270a05b7fc47cfb0c5dfc879ab7d9561de59f353c5fcc728708bd3bd00e7fd24",
+    "original_nominal": "682e533d1b5af1fe8fe1bfb9f7536fa9236b73125d83de3aabd3cce6f0b53c79",
+    "original_products": "acb9f593440c17f8c7a7026d820e672c511660914731c9dcb83c71d675f01a97",
+    "parameters": "d16163471b8e2de02110e4ca1654e969f41f58d9befc83fdf8c2a1c612216502",
+    "response_tables": "0433ffe5c93d583133466e575b375f39e9d496e15ba8a4d1f192f08c01058459",
+    "scientific_limits": "334533f106d8485021c74fad4e97171defe3655f0b569cf82fda25a2fd2cefb7",
+    "scientific_sources": "6d4666fc8ec109cdb93f204985e4a9c747200d2803986f3c21fc34b8e86987bb",
+    "setting": "5c2c3c84c433bfb8814fd56bd754732292c5d5d30e3181485512d83a9e1e83f2",
+    "taxa": "6223215ed7ffa800f190abdbff4eda970ca914ded46cced21e2a60345ba0afac"
+  },
+  "public_products": {
+    "report.json": {
+      "bytes": 1330913,
+      "sha256": "60028a7eb11e87e04107b5ce94061e2704722418995a19431f6a5a8eafc8bf1d"
+    },
+    "trace-index.json": {
+      "bytes": 1175,
+      "sha256": "7057d29aa1df2cd50ca5a75d7cb409c321c654ac32f5ed2a7121f5fcf6590c11"
+    }
+  },
+  "schema_version": "circular-receiver-domain-publication-authority.v1",
+  "scientific_limits": {
+    "calibrated_uncertainty_admitted": false,
+    "comparison": "Forward-to-forward difference only; original point inverse and conditional disk forward are unmatched. Source calK2inner and actual annulus support also differ.",
+    "independently_recomputed_kernel_values": false,
+    "isolated_basin_effect_admitted": false,
+    "matched_inverse_qualified": false,
+    "population": "Previously exposed TW5 development; source-declared 1250\u20131750 calibrated-BP support. Reference epoch, calibration model and age uncertainty unqualified.",
+    "quadrature_error": "Nonrigorous adaptive quadrature estimates, not guaranteed probability bounds or ecological uncertainty.",
+    "scientific_acceptance": "not_evaluated",
+    "scientific_main_return_observed": false,
+    "selection_eligible": false,
+    "target_accuracy_admitted": false
+  },
+  "scientific_saved_products_admitted": true,
+  "scientific_sources": {
+    "reports/science/circular-receiver-development/protocol.json": {
+      "bytes": 30503,
+      "sha256": "2125396402ba4a57157c4a06987d717e52abd44d1a40ab0b8bb76b538301c03c"
+    },
+    "reports/science/circular-receiver-development/source/inputs.py": {
+      "bytes": 15437,
+      "sha256": "c3e61501679e55203ed79ba4850f0a36eb950689d164d604dca798815a7fe0b1"
+    },
+    "reports/science/circular-receiver-development/source/receiver.py": {
+      "bytes": 11491,
+      "sha256": "2f5d04112a71006744b25c933f56f494d22f5c334a93252164d6a08d23d40f43"
+    },
+    "reports/science/circular-receiver-development/source/replay.py": {
+      "bytes": 10162,
+      "sha256": "43a1d5c52a24219fcf96ab813d59aca44f149687ef67b3f1f51d7c0959cf24d2"
+    }
+  },
+  "scope": "Acyclic compact publication of recorded source-qualified kernels and independently admitted saved deposition arithmetic; diagnostic only, no matched inverse, target accuracy or isolated basin effect.",
+  "source_epoch": "97e95bee8da4f59459b4d6fa5b118a4a0750b196"
+}

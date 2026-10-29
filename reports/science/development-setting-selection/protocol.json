@@ -1,0 +1,1251 @@
+{
+  "auxiliary": {
+    "analytical": {
+      "bytes": 19251,
+      "path": "reports/science/source-cohorts/author-love-analytical-diagnostics.json",
+      "sha256": "5157bea6f7682f193ab9f4834c40f062f96d516a2880a1626256142fe89bd5d5"
+    },
+    "circular_source_review": {
+      "bytes": 11604,
+      "path": "artifacts/science/circular-receiver-development-independent-review/independent-source-review.json",
+      "sha256": "28d2f5bc00d9dc987d257fd0d4efff308b07444d5282cdc5f3fb623fe9836efe"
+    },
+    "clr": {
+      "bytes": 5237,
+      "path": "reports/science/source-cohorts/author-love-clr-spatial-domain.json",
+      "sha256": "5dd762f570160ab15d15c863e55c695c3246e6e97739bac0f8d9540ea3f203dd"
+    },
+    "de": {
+      "bytes": 2657,
+      "path": "artifacts/science/seeded-love-output-admission/observation.json",
+      "sha256": "089882e6cd5423f0dc84aa98525f8e7975e653f8cf29a2fbface9a942ac65caf"
+    },
+    "de_execution": {
+      "bytes": 1614,
+      "path": "artifacts/science/seeded-love-output-admission/execution.json",
+      "sha256": "1c2a1016ec0f5b36bab25b7f4a1e2cfba9c9ab4d2ff6fe9951189c8c314fd495"
+    },
+    "de_source_review": {
+      "bytes": 2119,
+      "path": "artifacts/science/seeded-love-output-admission/source-review.json",
+      "sha256": "12858f6c2d9039d7f719642af5303ef354d9b390669ee469e4e127bfe4c80628"
+    },
+    "legacy": {
+      "bytes": 3300,
+      "path": "reports/science/source-cohorts/author-love-legacy-wrapper-domain.json",
+      "sha256": "00e610cc4dabdf6b45a713c2abe3ed91acf789b5767d845a8b7a41a957395416"
+    },
+    "ring_support": {
+      "bytes": 4221,
+      "path": "reports/science/source-cohorts/author-love-ring-support.json",
+      "sha256": "e3e7f1ace89f0fa956b9ac18372f2ebd165fadd15c2749467514d4745a73903c"
+    },
+    "temporal": {
+      "bytes": 5767,
+      "path": "reports/science/source-cohorts/author-love-temporal-development.json",
+      "sha256": "565e7cbb494dab8721913ab6148a14c78fa2aeb3d97b5e6cce497f7533e8569b"
+    }
+  },
+  "axes": [
+    {
+      "authority": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "candidate_freeze": {
+        "bytes": 127260565,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-canonical-ancestry-execution/native/products/candidate-prediction-freeze.json",
+        "sha256": "675ae5d4721f0c68cc7aa3c231d0b71ed1cb97f2d753ba825c08d4c5485948fb"
+      },
+      "id": "transport",
+      "inner_scores": {
+        "bytes": 14781498,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-canonical-ancestry-execution/native/products/inner-scores.json",
+        "sha256": "bf706890860b5a4e890fd26f352ee7afda7e5293175055880ff32fb972b8ff6e"
+      },
+      "methods": {
+        "1overd": "transport-1overd",
+        "gpm neutral": "gpm-neutral-fixed-start",
+        "gpm unstable": "transport-gpm-unstable",
+        "lsm unstable": "transport-lsm-unstable",
+        "lsm unstable low": "transport-lsm-unstable-low"
+      },
+      "original_selection": {
+        "bytes": 51461,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-canonical-ancestry-execution/native/products/transport-selection.json",
+        "sha256": "20961e961d12e278ed58af3fa8f6ed81e9ccb184d9844de75a1ea1618ce56180"
+      },
+      "report": {
+        "bytes": 843443,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-canonical-ancestry-execution/native/products/report.json",
+        "sha256": "7416e0a72b901ce3f4344c24ca44c76fb13da5abd734eb9d8fc9068461c6e5ab"
+      },
+      "source_candidate": "70dd58ce28071d3b4ef34af2c800370a52d42bf9"
+    },
+    {
+      "authority": {
+        "bytes": 13122,
+        "path": "reports/science/source-cohorts/author-love-nested-ppe.json",
+        "sha256": "3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f"
+      },
+      "candidate_freeze": {
+        "bytes": 75177728,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-evaluation-execution/native/products/candidate-prediction-freeze.json",
+        "sha256": "f60f2ca322316b5ee823ad5ac96302e960d921e920c0444f6e6a4bfd71845fb5"
+      },
+      "id": "ppe",
+      "inner_scores": {
+        "bytes": 8874791,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-evaluation-execution/native/products/inner-scores.json",
+        "sha256": "655c46ba5307e439fb2dbab23af8ae5db93e86145fb3be469444447e20a84199"
+      },
+      "methods": {
+        "gpm neutral": "gpm-neutral-fixed-start",
+        "ppe-minus-source-sd": "ppe-minus-source-sd",
+        "ppe-plus-source-sd": "ppe-plus-source-sd"
+      },
+      "original_selection": {
+        "bytes": 37960,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-evaluation-execution/native/products/transport-selection.json",
+        "sha256": "1e6cf6857d21fd0439b33f46b59df598f5228a32ebf33262a379011ecb913e6a"
+      },
+      "report": {
+        "bytes": 562465,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-evaluation-execution/native/products/report.json",
+        "sha256": "514c58e7a0f1f7666b356636b395624c35f43948ba99971521cf3780e75d2fef"
+      },
+      "source_candidate": "992257309805272a22e53c7ebb2cf5004117185e"
+    }
+  ],
+  "baselines": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "catalogue": [
+    {
+      "candidate_id": "gpm-neutral-fixed-start",
+      "eligibility": "prerequisite_refused",
+      "evidence": {
+        "bytes": 5237,
+        "path": "reports/science/source-cohorts/author-love-clr-spatial-domain.json",
+        "sha256": "5dd762f570160ab15d15c863e55c695c3246e6e97739bac0f8d9540ea3f203dd"
+      },
+      "method": "gpm neutral",
+      "reason_code": "spatial_zero_composition_unsupported",
+      "setting_id": "clr-ridge-100km",
+      "source_candidate_id": "gpm-neutral-fixed-start",
+      "spatial_id": "clr-ridge-100km"
+    },
+    {
+      "candidate_id": "gpm-neutral-fixed-start",
+      "eligibility": "prerequisite_refused",
+      "evidence": {
+        "bytes": 5237,
+        "path": "reports/science/source-cohorts/author-love-clr-spatial-domain.json",
+        "sha256": "5dd762f570160ab15d15c863e55c695c3246e6e97739bac0f8d9540ea3f203dd"
+      },
+      "method": "gpm neutral",
+      "reason_code": "spatial_zero_composition_unsupported",
+      "setting_id": "clr-ridge-20km",
+      "source_candidate_id": "gpm-neutral-fixed-start",
+      "spatial_id": "clr-ridge-20km"
+    },
+    {
+      "candidate_id": "gpm-neutral-fixed-start",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "gpm neutral",
+      "setting_id": "gpm-neutral-fixed-start",
+      "source_candidate_id": "gpm-neutral-fixed-start",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "gpm-neutral-fixed-start",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "gpm neutral",
+      "setting_id": "gpm-neutral-fixed-start",
+      "source_candidate_id": "gpm-neutral-fixed-start",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "gpm-neutral-fixed-start",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "gpm neutral",
+      "setting_id": "gpm-neutral-fixed-start",
+      "source_candidate_id": "gpm-neutral-fixed-start",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "local-support-500m",
+      "eligibility": "source_equivalent_alias",
+      "evidence": {
+        "bytes": 4221,
+        "path": "reports/science/source-cohorts/author-love-ring-support.json",
+        "sha256": "e3e7f1ace89f0fa956b9ac18372f2ebd165fadd15c2749467514d4745a73903c"
+      },
+      "method": "gpm neutral",
+      "qualification": "Source-derived conditional probability-value equivalence only; reuse original source prediction IDs, not new500m manifests or independent evidence.",
+      "setting_id": "local-support-500m",
+      "source_candidate_id": "gpm-neutral-fixed-start",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "local-support-500m",
+      "eligibility": "source_equivalent_alias",
+      "evidence": {
+        "bytes": 4221,
+        "path": "reports/science/source-cohorts/author-love-ring-support.json",
+        "sha256": "e3e7f1ace89f0fa956b9ac18372f2ebd165fadd15c2749467514d4745a73903c"
+      },
+      "method": "gpm neutral",
+      "qualification": "Source-derived conditional probability-value equivalence only; reuse original source prediction IDs, not new500m manifests or independent evidence.",
+      "setting_id": "local-support-500m",
+      "source_candidate_id": "gpm-neutral-fixed-start",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "local-support-500m",
+      "eligibility": "source_equivalent_alias",
+      "evidence": {
+        "bytes": 4221,
+        "path": "reports/science/source-cohorts/author-love-ring-support.json",
+        "sha256": "e3e7f1ace89f0fa956b9ac18372f2ebd165fadd15c2749467514d4745a73903c"
+      },
+      "method": "gpm neutral",
+      "qualification": "Source-derived conditional probability-value equivalence only; reuse original source prediction IDs, not new500m manifests or independent evidence.",
+      "setting_id": "local-support-500m",
+      "source_candidate_id": "gpm-neutral-fixed-start",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "ppe-minus-source-sd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 13122,
+        "path": "reports/science/source-cohorts/author-love-nested-ppe.json",
+        "sha256": "3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f"
+      },
+      "method": "ppe-minus-source-sd",
+      "setting_id": "ppe-minus-source-sd",
+      "source_candidate_id": "ppe-minus-source-sd",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "ppe-minus-source-sd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 13122,
+        "path": "reports/science/source-cohorts/author-love-nested-ppe.json",
+        "sha256": "3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f"
+      },
+      "method": "ppe-minus-source-sd",
+      "setting_id": "ppe-minus-source-sd",
+      "source_candidate_id": "ppe-minus-source-sd",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "ppe-minus-source-sd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 13122,
+        "path": "reports/science/source-cohorts/author-love-nested-ppe.json",
+        "sha256": "3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f"
+      },
+      "method": "ppe-minus-source-sd",
+      "setting_id": "ppe-minus-source-sd",
+      "source_candidate_id": "ppe-minus-source-sd",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "ppe-plus-source-sd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 13122,
+        "path": "reports/science/source-cohorts/author-love-nested-ppe.json",
+        "sha256": "3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f"
+      },
+      "method": "ppe-plus-source-sd",
+      "setting_id": "ppe-plus-source-sd",
+      "source_candidate_id": "ppe-plus-source-sd",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "ppe-plus-source-sd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 13122,
+        "path": "reports/science/source-cohorts/author-love-nested-ppe.json",
+        "sha256": "3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f"
+      },
+      "method": "ppe-plus-source-sd",
+      "setting_id": "ppe-plus-source-sd",
+      "source_candidate_id": "ppe-plus-source-sd",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "ppe-plus-source-sd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 13122,
+        "path": "reports/science/source-cohorts/author-love-nested-ppe.json",
+        "sha256": "3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f"
+      },
+      "method": "ppe-plus-source-sd",
+      "setting_id": "ppe-plus-source-sd",
+      "source_candidate_id": "ppe-plus-source-sd",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "ring-preserving-differential-evolution",
+      "eligibility": "prerequisite_refused",
+      "evidence": {
+        "bytes": 2657,
+        "path": "artifacts/science/seeded-love-output-admission/observation.json",
+        "sha256": "089882e6cd5423f0dc84aa98525f8e7975e653f8cf29a2fbface9a942ac65caf"
+      },
+      "method": "ring-preserving-differential-evolution",
+      "reason_code": "all78_native_searches_not_converged",
+      "setting_id": "ring-preserving-differential-evolution",
+      "source_candidate_id": "ring-preserving-differential-evolution",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "ring-preserving-differential-evolution",
+      "eligibility": "prerequisite_refused",
+      "evidence": {
+        "bytes": 2657,
+        "path": "artifacts/science/seeded-love-output-admission/observation.json",
+        "sha256": "089882e6cd5423f0dc84aa98525f8e7975e653f8cf29a2fbface9a942ac65caf"
+      },
+      "method": "ring-preserving-differential-evolution",
+      "reason_code": "all78_native_searches_not_converged",
+      "setting_id": "ring-preserving-differential-evolution",
+      "source_candidate_id": "ring-preserving-differential-evolution",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "ring-preserving-differential-evolution",
+      "eligibility": "prerequisite_refused",
+      "evidence": {
+        "bytes": 2657,
+        "path": "artifacts/science/seeded-love-output-admission/observation.json",
+        "sha256": "089882e6cd5423f0dc84aa98525f8e7975e653f8cf29a2fbface9a942ac65caf"
+      },
+      "method": "ring-preserving-differential-evolution",
+      "reason_code": "all78_native_searches_not_converged",
+      "setting_id": "ring-preserving-differential-evolution",
+      "source_candidate_id": "ring-preserving-differential-evolution",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "source-analytical-love",
+      "eligibility": "prerequisite_refused",
+      "evidence": {
+        "bytes": 19251,
+        "path": "reports/science/source-cohorts/author-love-analytical-diagnostics.json",
+        "sha256": "5157bea6f7682f193ab9f4834c40f062f96d516a2880a1626256142fe89bd5d5"
+      },
+      "method": "source-analytical-love",
+      "reason_code": "all78_source_rings_invalid_compositions",
+      "setting_id": "source-analytical-love",
+      "source_candidate_id": "source-analytical-love",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "source-analytical-love",
+      "eligibility": "prerequisite_refused",
+      "evidence": {
+        "bytes": 19251,
+        "path": "reports/science/source-cohorts/author-love-analytical-diagnostics.json",
+        "sha256": "5157bea6f7682f193ab9f4834c40f062f96d516a2880a1626256142fe89bd5d5"
+      },
+      "method": "source-analytical-love",
+      "reason_code": "all78_source_rings_invalid_compositions",
+      "setting_id": "source-analytical-love",
+      "source_candidate_id": "source-analytical-love",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "source-analytical-love",
+      "eligibility": "prerequisite_refused",
+      "evidence": {
+        "bytes": 19251,
+        "path": "reports/science/source-cohorts/author-love-analytical-diagnostics.json",
+        "sha256": "5157bea6f7682f193ab9f4834c40f062f96d516a2880a1626256142fe89bd5d5"
+      },
+      "method": "source-analytical-love",
+      "reason_code": "all78_source_rings_invalid_compositions",
+      "setting_id": "source-analytical-love",
+      "source_candidate_id": "source-analytical-love",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "transport-1overd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "1overd",
+      "setting_id": "transport-1overd",
+      "source_candidate_id": "transport-1overd",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "transport-1overd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "1overd",
+      "setting_id": "transport-1overd",
+      "source_candidate_id": "transport-1overd",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "transport-1overd",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "1overd",
+      "setting_id": "transport-1overd",
+      "source_candidate_id": "transport-1overd",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "transport-gpm-unstable",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "gpm unstable",
+      "setting_id": "transport-gpm-unstable",
+      "source_candidate_id": "transport-gpm-unstable",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "transport-gpm-unstable",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "gpm unstable",
+      "setting_id": "transport-gpm-unstable",
+      "source_candidate_id": "transport-gpm-unstable",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "transport-gpm-unstable",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "gpm unstable",
+      "setting_id": "transport-gpm-unstable",
+      "source_candidate_id": "transport-gpm-unstable",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "transport-lsm-unstable",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "lsm unstable",
+      "setting_id": "transport-lsm-unstable",
+      "source_candidate_id": "transport-lsm-unstable",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "transport-lsm-unstable",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "lsm unstable",
+      "setting_id": "transport-lsm-unstable",
+      "source_candidate_id": "transport-lsm-unstable",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "transport-lsm-unstable",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "lsm unstable",
+      "setting_id": "transport-lsm-unstable",
+      "source_candidate_id": "transport-lsm-unstable",
+      "spatial_id": "training_mean"
+    },
+    {
+      "candidate_id": "transport-lsm-unstable-low",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "lsm unstable low",
+      "setting_id": "transport-lsm-unstable-low",
+      "source_candidate_id": "transport-lsm-unstable-low",
+      "spatial_id": "inverse_distance_squared"
+    },
+    {
+      "candidate_id": "transport-lsm-unstable-low",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "lsm unstable low",
+      "setting_id": "transport-lsm-unstable-low",
+      "source_candidate_id": "transport-lsm-unstable-low",
+      "spatial_id": "nearest_site"
+    },
+    {
+      "candidate_id": "transport-lsm-unstable-low",
+      "eligibility": "saved_prediction",
+      "evidence": {
+        "bytes": 12604,
+        "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+        "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+      },
+      "method": "lsm unstable low",
+      "setting_id": "transport-lsm-unstable-low",
+      "source_candidate_id": "transport-lsm-unstable-low",
+      "spatial_id": "training_mean"
+    }
+  ],
+  "declared_setting_ids": [
+    "gpm-neutral-fixed-start",
+    "transport-gpm-unstable",
+    "transport-lsm-unstable",
+    "transport-lsm-unstable-low",
+    "transport-1overd",
+    "source-analytical-love",
+    "disqover-source-wrapper",
+    "ring-preserving-differential-evolution",
+    "ppe-minus-source-sd",
+    "ppe-plus-source-sd",
+    "local-support-500m",
+    "clr-ridge-20km",
+    "clr-ridge-100km",
+    "author-window-4",
+    "author-window-6",
+    "conditional-circular-receiver"
+  ],
+  "eligible_metric_source": {
+    "bytes": 17993,
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/selection.py",
+    "sha256": "d7a64e566a61d8cc95cb89809b7e12bc6446d38cdcb5f4e079d79d053c1a9e78"
+  },
+  "execution_sources": [
+    {
+      "bytes": 9176,
+      "path": "choice.py",
+      "sha256": "d3f40cf93af157cba6971d79404485834a003fd64d43c7a72bba690c0899d2e9"
+    },
+    {
+      "bytes": 9591,
+      "path": "replay.py",
+      "sha256": "77eba1e51420e9519a28e5daa817b3d8f03eb690906458500947c1025df115ea"
+    },
+    {
+      "bytes": 16227,
+      "path": "sources.py",
+      "sha256": "e7d709b3f0ee840c67ea9dc1615fc866dab75154addcda8fb1004e0e13c7fa46"
+    }
+  ],
+  "expected_new_scientific_calls": {
+    "forward_calls": 0,
+    "kernel_calls": 0,
+    "optimizer_calls": 0,
+    "scoring_calls": 0
+  },
+  "experiment": {
+    "bytes": 10913,
+    "path": "artifacts/science/current-author-development-inputs/constrained-inputs/experiment.json",
+    "sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4"
+  },
+  "forecast": {
+    "bytes": 45440,
+    "path": "artifacts/science/author-love-development-sweep-proposal/protocol-forecast.json",
+    "sha256": "b380a21aad7d91dbacd64f8d7edd8a772ca8d25033209968250da6e2d2c920ab"
+  },
+  "freeze_rule": "Persist all15 choices and original chosen outer prediction/refusal hashes before JSON-deserializing any saved outer report. Byte hashing is custody only.",
+  "groups": {
+    "author:BECKHAM": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+    "author:BROADOWN": "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+    "author:COMERSLA": "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+    "author:CUTHILL2": "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+    "author:GOURTEMIRES": "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+    "author:HANGINGS": "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+    "author:HARESDOWN": "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+    "author:LARKBARR": "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+    "author:LOBBSBOG": "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+    "author:LONGBREACH": "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+    "author:MOLECHAM": "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+    "author:NTWITCHEN": "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+    "author:WHH05": "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51",
+    "author:WINDMILL": "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+    "author:WINNEYS": "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658"
+  },
+  "maintained_sources": [
+    {
+      "bytes": 17993,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/selection.py",
+      "sha256": "d7a64e566a61d8cc95cb89809b7e12bc6446d38cdcb5f4e079d79d053c1a9e78"
+    },
+    {
+      "bytes": 10583,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+      "sha256": "c9241b3c427448491c72f488d4096ed86999f260c22533a51d92c441258cbbf6"
+    },
+    {
+      "bytes": 9991,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+      "sha256": "f2f6e893460250b4c3d46922a538df4fc70f5aa233855c2d63d76f0b2e168141"
+    }
+  ],
+  "output_names": [
+    "selection-evidence.json",
+    "selected-prediction-freeze.json",
+    "outcome-access.jsonl",
+    "outer-outcome-reuse.json",
+    "report.json"
+  ],
+  "records": [
+    "author:BECKHAM",
+    "author:BROADOWN",
+    "author:COMERSLA",
+    "author:CUTHILL2",
+    "author:GOURTEMIRES",
+    "author:HANGINGS",
+    "author:HARESDOWN",
+    "author:LARKBARR",
+    "author:LOBBSBOG",
+    "author:LONGBREACH",
+    "author:MOLECHAM",
+    "author:NTWITCHEN",
+    "author:WHH05",
+    "author:WINDMILL",
+    "author:WINNEYS"
+  ],
+  "schema_version": "development-setting-selection-protocol.v1",
+  "scope": "Prior-exposed original common-TW5 development only. Single-axis setting catalogue, never an invented crossproduct. Deduplicate nominal by exact score and prediction identity; preserve500m conditional equivalence as a separately sourced alias. Keep all failures and original native1/separate recovery0. No new scores/fits/forwards, untouched test, vegetation accuracy or field uncertainty admission.",
+  "selection_rule": "Require complete fourteen-inner prediction coverage. Minimize equal-inner mean total variation across declared candidate/spatial pairs, then candidateID and spatialID. No ranking incomplete candidates.",
+  "setting_dispositions": [
+    {
+      "axis": "nominal",
+      "declared_changes": {
+        "distance_weighting": "gpm neutral",
+        "local_support_radius_m": 1000,
+        "max_ring": 2
+      },
+      "setting_id": "gpm-neutral-fixed-start",
+      "status": "saved_prediction_available",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "transport",
+      "declared_changes": {
+        "forward.distance_weighting": "gpm unstable",
+        "love.distance_weighting": "gpm unstable",
+        "reveals.distance_weighting": "gpm unstable"
+      },
+      "setting_id": "transport-gpm-unstable",
+      "status": "saved_prediction_available",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "transport",
+      "declared_changes": {
+        "forward.distance_weighting": "lsm unstable",
+        "love.distance_weighting": "lsm unstable",
+        "reveals.distance_weighting": "lsm unstable"
+      },
+      "setting_id": "transport-lsm-unstable",
+      "status": "saved_prediction_available",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "transport",
+      "declared_changes": {
+        "forward.distance_weighting": "lsm unstable low",
+        "love.distance_weighting": "lsm unstable low",
+        "reveals.distance_weighting": "lsm unstable low"
+      },
+      "setting_id": "transport-lsm-unstable-low",
+      "status": "saved_prediction_available",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "transport",
+      "declared_changes": {
+        "forward.distance_weighting": "1overd",
+        "love.distance_weighting": "1overd",
+        "reveals.distance_weighting": "1overd"
+      },
+      "setting_id": "transport-1overd",
+      "status": "saved_prediction_available",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "published_profile",
+      "declared_changes": {
+        "love.method": "analytical",
+        "method_profile": "disqover-0.9.14-source-compatible",
+        "remove": [
+          "love.optimizer_backend",
+          "love.optimized_profile"
+        ]
+      },
+      "setting_id": "source-analytical-love",
+      "status": "prerequisite_refused",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "published_profile",
+      "declared_changes": {
+        "love.method": "optimized",
+        "love.optimized_profile": "disqover-0.9.14-source"
+      },
+      "setting_id": "disqover-source-wrapper",
+      "status": "not_ranked_source_ring_dimensions",
+      "stratum": "not_ranked"
+    },
+    {
+      "axis": "published_profile",
+      "declared_changes": {
+        "iterations": 300,
+        "love.optimized_profile": "ring-taxon-preserving",
+        "love.optimizer_backend": "scipy.differential_evolution",
+        "max_search_evaluations": 16000,
+        "seed": 7,
+        "tolerance": 1e-08
+      },
+      "setting_id": "ring-preserving-differential-evolution",
+      "status": "prerequisite_refused",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "PPE",
+      "declared_changes": {
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.12,
+            "ppe": 5.433080000138704,
+            "ppe_sd": 1.441919999861296,
+            "taxon": "Abies.alba"
+          },
+          {
+            "fallspeed_m_s": 0.021,
+            "ppe": 13.268851000342828,
+            "ppe_sd": 0.29314899965717095,
+            "taxon": "Alnus.glutinosa"
+          },
+          {
+            "fallspeed_m_s": 0.019,
+            "ppe": 4.01,
+            "ppe_sd": 0.27,
+            "taxon": "Amanranthaceae.Chenopodiaceae"
+          },
+          {
+            "fallspeed_m_s": 0.025,
+            "ppe": 3.790421000003419,
+            "ppe_sd": 0.14624899999658117,
+            "taxon": "Artemisia"
+          },
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 4.802384999381851,
+            "ppe_sd": 0.3033250006181489,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.8219999999999998,
+            "ppe_sd": 0.06799999999999999,
+            "taxon": "Buxus.sempervirens"
+          },
+          {
+            "fallspeed_m_s": 0.038,
+            "ppe": 1.0558452062260766,
+            "ppe_sd": 0.029154793773923354,
+            "taxon": "Calluna.vulgaris"
+          },
+          {
+            "fallspeed_m_s": 0.042,
+            "ppe": 4.09473399971312,
+            "ppe_sd": 0.4252660002868793,
+            "taxon": "Carpinus.betulus"
+          },
+          {
+            "fallspeed_m_s": 0.042,
+            "ppe": 0.16999999999999998,
+            "ppe_sd": 0.06999999999999999,
+            "taxon": "Carpinus.orientalis"
+          },
+          {
+            "fallspeed_m_s": 0.01,
+            "ppe": 3.199,
+            "ppe_sd": 0.059000000000000004,
+            "taxon": "Castanea"
+          },
+          {
+            "fallspeed_m_s": 0.06,
+            "ppe": 1.469050999476308,
+            "ppe_sd": 0.3809490005236922,
+            "taxon": "Cerealia.t"
+          },
+          {
+            "fallspeed_m_s": 0.025,
+            "ppe": 1.6100245980253143,
+            "ppe_sd": 0.09997540197468575,
+            "taxon": "Corylus.avellana"
+          },
+          {
+            "fallspeed_m_s": 0.035,
+            "ppe": 0.9118788976809078,
+            "ppe_sd": 0.050621102319092184,
+            "taxon": "Cyperaceae"
+          },
+          {
+            "fallspeed_m_s": 0.038,
+            "ppe": 4.170999999999999,
+            "ppe_sd": 0.094,
+            "taxon": "Ericaceae"
+          },
+          {
+            "fallspeed_m_s": 0.057,
+            "ppe": 5.687010001134301,
+            "ppe_sd": 0.1763199988656987,
+            "taxon": "Fagus.sylvatica"
+          },
+          {
+            "fallspeed_m_s": 0.022,
+            "ppe": 0.9963159984900596,
+            "ppe_sd": 0.04768400150994042,
+            "taxon": "Fraxinus"
+          },
+          {
+            "fallspeed_m_s": 0.016,
+            "ppe": 2.03,
+            "ppe_sd": 0.04,
+            "taxon": "Juniperus"
+          },
+          {
+            "fallspeed_m_s": 0.015,
+            "ppe": 0.437,
+            "ppe_sd": 0.075,
+            "taxon": "Phillyrea"
+          },
+          {
+            "fallspeed_m_s": 0.056,
+            "ppe": 5.340337399170257,
+            "ppe_sd": 0.09716260082974312,
+            "taxon": "Picea"
+          },
+          {
+            "fallspeed_m_s": 0.031,
+            "ppe": 5.82165300069504,
+            "ppe_sd": 0.23667699930495992,
+            "taxon": "Pinus"
+          },
+          {
+            "fallspeed_m_s": 0.03,
+            "ppe": 0.554,
+            "ppe_sd": 0.201,
+            "taxon": "Pistacia"
+          },
+          {
+            "fallspeed_m_s": 0.029,
+            "ppe": 2.1285599990071487,
+            "ppe_sd": 0.20144000099285148,
+            "taxon": "Plantago.lanceolata.type"
+          },
+          {
+            "fallspeed_m_s": 0.035,
+            "ppe": 1.0,
+            "ppe_sd": 0.0,
+            "taxon": "Poaceae"
+          },
+          {
+            "fallspeed_m_s": 0.035,
+            "ppe": 4.450485401607944,
+            "ppe_sd": 0.08618459839205611,
+            "taxon": "Quercus.deciduous"
+          },
+          {
+            "fallspeed_m_s": 0.035,
+            "ppe": 10.782,
+            "ppe_sd": 0.261,
+            "taxon": "Quercus.evergreen"
+          },
+          {
+            "fallspeed_m_s": 0.018,
+            "ppe": 2.7416150004041167,
+            "ppe_sd": 0.2783849995958834,
+            "taxon": "Rumex.acetosa.t"
+          },
+          {
+            "fallspeed_m_s": 0.022,
+            "ppe": 1.1053971018825004,
+            "ppe_sd": 0.07660289811749944,
+            "taxon": "Salix"
+          },
+          {
+            "fallspeed_m_s": 0.06,
+            "ppe": 3.6695599993758585,
+            "ppe_sd": 0.3204400006241418,
+            "taxon": "Secale"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.0938580007060321,
+            "ppe_sd": 0.11614199929396773,
+            "taxon": "Tilia"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.22,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ]
+      },
+      "setting_id": "ppe-minus-source-sd",
+      "status": "saved_prediction_available",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "PPE",
+      "declared_changes": {
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.12,
+            "ppe": 8.316919999861296,
+            "ppe_sd": 1.441919999861296,
+            "taxon": "Abies.alba"
+          },
+          {
+            "fallspeed_m_s": 0.021,
+            "ppe": 13.855148999657171,
+            "ppe_sd": 0.29314899965717095,
+            "taxon": "Alnus.glutinosa"
+          },
+          {
+            "fallspeed_m_s": 0.019,
+            "ppe": 4.550000000000001,
+            "ppe_sd": 0.27,
+            "taxon": "Amanranthaceae.Chenopodiaceae"
+          },
+          {
+            "fallspeed_m_s": 0.025,
+            "ppe": 4.082918999996581,
+            "ppe_sd": 0.14624899999658117,
+            "taxon": "Artemisia"
+          },
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.409035000618149,
+            "ppe_sd": 0.3033250006181489,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.958,
+            "ppe_sd": 0.06799999999999999,
+            "taxon": "Buxus.sempervirens"
+          },
+          {
+            "fallspeed_m_s": 0.038,
+            "ppe": 1.1141547937739233,
+            "ppe_sd": 0.029154793773923354,
+            "taxon": "Calluna.vulgaris"
+          },
+          {
+            "fallspeed_m_s": 0.042,
+            "ppe": 4.945266000286879,
+            "ppe_sd": 0.4252660002868793,
+            "taxon": "Carpinus.betulus"
+          },
+          {
+            "fallspeed_m_s": 0.042,
+            "ppe": 0.31,
+            "ppe_sd": 0.06999999999999999,
+            "taxon": "Carpinus.orientalis"
+          },
+          {
+            "fallspeed_m_s": 0.01,
+            "ppe": 3.317,
+            "ppe_sd": 0.059000000000000004,
+            "taxon": "Castanea"
+          },
+          {
+            "fallspeed_m_s": 0.06,
+            "ppe": 2.230949000523692,
+            "ppe_sd": 0.3809490005236922,
+            "taxon": "Cerealia.t"
+          },
+          {
+            "fallspeed_m_s": 0.025,
+            "ppe": 1.8099754019746856,
+            "ppe_sd": 0.09997540197468575,
+            "taxon": "Corylus.avellana"
+          },
+          {
+            "fallspeed_m_s": 0.035,
+            "ppe": 1.0131211023190922,
+            "ppe_sd": 0.050621102319092184,
+            "taxon": "Cyperaceae"
+          },
+          {
+            "fallspeed_m_s": 0.038,
+            "ppe": 4.359,
+            "ppe_sd": 0.094,
+            "taxon": "Ericaceae"
+          },
+          {
+            "fallspeed_m_s": 0.057,
+            "ppe": 6.039649998865699,
+            "ppe_sd": 0.1763199988656987,
+            "taxon": "Fagus.sylvatica"
+          },
+          {
+            "fallspeed_m_s": 0.022,
+            "ppe": 1.0916840015099405,
+            "ppe_sd": 0.04768400150994042,
+            "taxon": "Fraxinus"
+          },
+          {
+            "fallspeed_m_s": 0.016,
+            "ppe": 2.11,
+            "ppe_sd": 0.04,
+            "taxon": "Juniperus"
+          },
+          {
+            "fallspeed_m_s": 0.015,
+            "ppe": 0.587,
+            "ppe_sd": 0.075,
+            "taxon": "Phillyrea"
+          },
+          {
+            "fallspeed_m_s": 0.056,
+            "ppe": 5.534662600829743,
+            "ppe_sd": 0.09716260082974312,
+            "taxon": "Picea"
+          },
+          {
+            "fallspeed_m_s": 0.031,
+            "ppe": 6.2950069993049595,
+            "ppe_sd": 0.23667699930495992,
+            "taxon": "Pinus"
+          },
+          {
+            "fallspeed_m_s": 0.03,
+            "ppe": 0.956,
+            "ppe_sd": 0.201,
+            "taxon": "Pistacia"
+          },
+          {
+            "fallspeed_m_s": 0.029,
+            "ppe": 2.5314400009928515,
+            "ppe_sd": 0.20144000099285148,
+            "taxon": "Plantago.lanceolata.type"
+          },
+          {
+            "fallspeed_m_s": 0.035,
+            "ppe": 1.0,
+            "ppe_sd": 0.0,
+            "taxon": "Poaceae"
+          },
+          {
+            "fallspeed_m_s": 0.035,
+            "ppe": 4.622854598392056,
+            "ppe_sd": 0.08618459839205611,
+            "taxon": "Quercus.deciduous"
+          },
+          {
+            "fallspeed_m_s": 0.035,
+            "ppe": 11.303999999999998,
+            "ppe_sd": 0.261,
+            "taxon": "Quercus.evergreen"
+          },
+          {
+            "fallspeed_m_s": 0.018,
+            "ppe": 3.2983849995958834,
+            "ppe_sd": 0.2783849995958834,
+            "taxon": "Rumex.acetosa.t"
+          },
+          {
+            "fallspeed_m_s": 0.022,
+            "ppe": 1.2586028981174995,
+            "ppe_sd": 0.07660289811749944,
+            "taxon": "Salix"
+          },
+          {
+            "fallspeed_m_s": 0.06,
+            "ppe": 4.310440000624142,
+            "ppe_sd": 0.3204400006241418,
+            "taxon": "Secale"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.3261419992939678,
+            "ppe_sd": 0.11614199929396773,
+            "taxon": "Tilia"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.32,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ]
+      },
+      "setting_id": "ppe-plus-source-sd",
+      "status": "saved_prediction_available",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "RSAP",
+      "declared_changes": {
+        "forward.local_ring_count": 1,
+        "local_ring_count": 1,
+        "local_support_radius_m": 500,
+        "love.max_ring": 1
+      },
+      "setting_id": "local-support-500m",
+      "status": "source_equivalent_alias",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "spatial",
+      "declared_changes": {
+        "length_scale_km": 20,
+        "ridge_penalty": 1.0,
+        "spatial_profile": "clr-wgs84-rbf-ridge-v1"
+      },
+      "setting_id": "clr-ridge-20km",
+      "status": "prerequisite_refused",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "spatial",
+      "declared_changes": {
+        "length_scale_km": 100,
+        "ridge_penalty": 1.0,
+        "spatial_profile": "clr-wgs84-rbf-ridge-v1"
+      },
+      "setting_id": "clr-ridge-100km",
+      "status": "prerequisite_refused",
+      "stratum": "TW5"
+    },
+    {
+      "axis": "temporal",
+      "declared_changes": {
+        "label_bp": "1000",
+        "older_source_bp": 1250,
+        "window": 4,
+        "younger_source_bp": 750
+      },
+      "setting_id": "author-window-4",
+      "status": "separate_time_stratum",
+      "stratum": "TW4"
+    },
+    {
+      "axis": "temporal",
+      "declared_changes": {
+        "label_bp": "2000",
+        "older_source_bp": 2250,
+        "window": 6,
+        "younger_source_bp": 1750
+      },
+      "setting_id": "author-window-6",
+      "status": "separate_time_stratum",
+      "stratum": "TW6"
+    },
+    {
+      "axis": "forward",
+      "declared_changes": {
+        "absolute_tolerance": 1e-09,
+        "forward_profile": "conditional-isotropic-gpm-disk-annulus",
+        "quadrature_limit": 100,
+        "receiver_radius": "declared target basin diameter/2",
+        "relative_tolerance": 1e-08
+      },
+      "setting_id": "conditional-circular-receiver",
+      "status": "diagnostic_only_unmatched_inverse",
+      "stratum": "diagnostic_only_until_matched_inverse_qualified"
+    }
+  ],
+  "taxa": [
+    "Abies.alba",
+    "Alnus.glutinosa",
+    "Amanranthaceae.Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus.sempervirens",
+    "Calluna.vulgaris",
+    "Carpinus.betulus",
+    "Carpinus.orientalis",
+    "Castanea",
+    "Cerealia.t",
+    "Corylus.avellana",
+    "Cyperaceae",
+    "Ericaceae",
+    "Fagus.sylvatica",
+    "Fraxinus",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago.lanceolata.type",
+    "Poaceae",
+    "Quercus.deciduous",
+    "Quercus.evergreen",
+    "Rumex.acetosa.t",
+    "Salix",
+    "Secale",
+    "Tilia",
+    "Ulmus"
+  ]
+}
