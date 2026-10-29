@@ -1,0 +1,68 @@
+{
+  "algorithm": "LRA",
+  "parameters": {
+    "couple_regional_draws": true,
+    "local_child_manifest_sha256": "2879f83eeb6e5951fdd5b8b0ddd3b5b7b5ddae69b1eaa369e045549350fe9db3",
+    "love": {
+      "distance_weighting": "gpm neutral",
+      "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+      "local_basin_diameter_m": 88.0,
+      "max_ring": 2,
+      "method": "optimized",
+      "optimized_profile": "ring-taxon-preserving",
+      "optimizer_backend": "scipy.slsqp-simplex-uniform",
+      "optimizer_iterations": 300,
+      "optimizer_max_evaluations": 16000,
+      "optimizer_tolerance": 1e-08,
+      "ppe_error": true,
+      "regional_basin_diameter_m": 300,
+      "regional_basin_type": "lake",
+      "repeats": 1,
+      "retain_samples": false,
+      "seed": 7,
+      "stochastic": false
+    },
+    "regional_child_manifest_sha256": "d79007500a27d63f223275d0ef85a015f0eb27f09822335b1cba8591ccfbd6c7",
+    "regional_draw_handoff": true,
+    "reveals": {
+      "basin_diameter_m": 300,
+      "basin_type": "lake",
+      "distance_weighting": "gpm neutral",
+      "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+      "iterations": 2,
+      "region_cutoff_m": 100000.0,
+      "retain_samples": false,
+      "seed": 7,
+      "stochastic": false
+    },
+    "seed": 7,
+    "stage_order": [
+      "REVEALS",
+      "LOVE-optimized"
+    ]
+  },
+  "inputs": {
+    "local_pollen": "e06804fd9a621e665c4cfcbe1610979fda18a6ff310b45ba9a1d12e6183c2d25",
+    "params": "95b1ec2124ddfcff1c2bdda562d8ad2ab650ed4c431f6d8a3bf8b87b1aab52d6",
+    "regional_pollen": "4b8cd1059ce577aff715b68998c36d6788e80a575060a067eaacd36f9436e286",
+    "rings": "dc4a87659b89d6d1de8d905bcf8294d562a7465006eb5091a1b83d45d7dc5046"
+  },
+  "stochastic": false,
+  "seed": 7,
+  "compatibility_mode": "ring-taxon-preserving",
+  "package": "bijux-pollenomics-lra",
+  "package_version": "0.1.9.dev1462",
+  "reference_package": "disqover",
+  "reference_version": "0.9.14",
+  "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-10-14T19:11:55.959316+00:00",
+  "runtime": {
+    "numerical_backend": "python-numpy-scipy",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.11.13",
+    "scipy": "1.17.1"
+  }
+}

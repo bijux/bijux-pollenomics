@@ -1,0 +1,101 @@
+{
+  "schema_version": "source-bound-radius-paired-prepared-controls.v1",
+  "status": "held_source_only_no_preparation_or_paired_native_execution",
+  "immutable_source_base": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+  "current_readonly_input_candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "b4885e8cdf15cad008fc244249a5f875747311b68ffda07b4a36618399e67e7d",
+      "bytes": 5101
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "aa6f5b4f8dc8b70e4043d25f28144d56602a9aa4bdf0427084bccdb29fa58fa9",
+      "bytes": 6074
+    },
+    {
+      "path": "custody.py",
+      "sha256": "871dd016cf3d9f3a8ce47b781c9bc48826f01e59eb672d299d22ca02e9c07718",
+      "bytes": 8493
+    },
+    {
+      "path": "dependency-review.json",
+      "sha256": "dc72bd75f9f13645c41477d7098f31a305eeb572da1cdf1f164c6dd48613e1be",
+      "bytes": 3190
+    },
+    {
+      "path": "observe.py",
+      "sha256": "f94781b45c38de55771d8ccd751bc19f08fd05d33f0e9ca44658494b56a9bd61",
+      "bytes": 2846
+    },
+    {
+      "path": "preflight/control-identity.json",
+      "sha256": "4644a9417abd6451e4955bb47b036bbb8dc34f5a24f8bf1ea167c56efbdd59a1",
+      "bytes": 1015
+    },
+    {
+      "path": "preflight/narrow-current-input-audit.json",
+      "sha256": "4c8c26387889f7e404e7b71d272fb5b33a4f169d7d2b892dea064a370bc66e0e",
+      "bytes": 2040
+    },
+    {
+      "path": "preflight/receipt.json",
+      "sha256": "6d85338fbaccf3c1e63d0d01aef971f72bc145cdfc7ebbe6e109176df620a8ba",
+      "bytes": 8113
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "0a48f10bb30f024575aad0a2c301cb3c47d4ed073d2bb9bb5c3f0e252f4b3ecd",
+      "bytes": 8595
+    },
+    {
+      "path": "proposal/docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py",
+      "sha256": "dba9fac988376d95da7b6aa802674828d410d2e70d0fcb839362084dc5d969e8",
+      "bytes": 7594
+    },
+    {
+      "path": "proposal/reports/source-lock.json",
+      "sha256": "4cf5a862b6b76d51047c6ec2e5f84dc054305a513993cecf3c7095b2dd544790",
+      "bytes": 295847
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "6699afa1f1b00bdf7a42b1838793ac98edf8cedeb86b06eda347205b0f3f03e8",
+      "bytes": 5841
+    },
+    {
+      "path": "run.py",
+      "sha256": "d48fcf9e5814f2d9e19dd996a533856727fd7d1428f51265f32413bbdd1926fc",
+      "bytes": 3751
+    },
+    {
+      "path": "source-guard-proposal.json",
+      "sha256": "9cb9a8a796cd6cf0c5d450be79868ab52c71fd984e51dccb169869d953e46496",
+      "bytes": 3231
+    },
+    {
+      "path": "source-lock-delta.json",
+      "sha256": "501e20fe7cc564b3ac33e0b448ac07770bc3e7b8fab6b81e1cb1868f9e623f2a",
+      "bytes": 550
+    }
+  ],
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/preflight/receipt.json",
+    "sha256": "6d85338fbaccf3c1e63d0d01aef971f72bc145cdfc7ebbe6e109176df620a8ba",
+    "pure_controls": 15,
+    "strict_files": 7,
+    "Ruff_format_files": 7,
+    "actual_exit": 0
+  },
+  "root_preparation_requires": "Independent source approval plus actual future clean main and separately registered/readback actual plan. Owned proposed maintained paired producer has exact three identity constants and unchanged executable AST; no partial canonical adoption needed to execute the real paired join.",
+  "future_output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison",
+  "resources": {
+    "overall_seconds": 240,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_logical_output_bytes": 134217728,
+    "receipt_reserve": 16384,
+    "workers": 1
+  },
+  "scope": "Necessary two-stage real paired construction+independent comparison only. Old actual radius0 at2784/constrained0 at22c6 remain honest epochs. Five-product capsule/reader/owner admission requires actual paired0 and subsequent reviewed metadata assembly. No model, fit, forward or R repeat; no ecological/human/rights or independent-ranking acceptance."
+}

@@ -1,0 +1,132 @@
+{
+  "interpretation": "Prior-exposed English 30-target development comparison. Direct pollen and fixed-vegetation LRA forward pollen share target observations, but not training information. Radius variants are modeled geometry assumptions, not calibrated basins or refitted LOVE.",
+  "matched_sites": 14,
+  "paired_rows": 126,
+  "producer_sha256": "dba9fac988376d95da7b6aa802674828d410d2e70d0fcb839362084dc5d969e8",
+  "schema_version": "author-lra-radius-direct-paired.v1",
+  "source_sha256": {
+    "direct_hellinger": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
+    "direct_mae": "3a1f3835df417403ded587aa64a036edad50dfb244969c99ed45e70e58322dd5",
+    "radius_report": "ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a",
+    "radius_scores": "60bf6b4cc25bf94a9afbb241370d55e7be17239c20e25881b4cc862e452eb494"
+  },
+  "summary": [
+    {
+      "direct_hellinger_distance": 0.28208247358048577,
+      "direct_lower_hellinger_sites": 14,
+      "direct_lower_mae_sites": 13,
+      "direct_mae_fraction": 0.020495781482161916,
+      "direct_minus_lra_hellinger_distance": -0.07889220867721414,
+      "direct_minus_lra_mae_fraction": -0.0059002415975405904,
+      "lra_hellinger_distance": 0.3609746822576999,
+      "lra_mae_fraction": 0.026396023079702506,
+      "method": "training_mean",
+      "paired_sites": 14,
+      "radius_factor": 0.8
+    },
+    {
+      "direct_hellinger_distance": 0.28208247358048577,
+      "direct_lower_hellinger_sites": 14,
+      "direct_lower_mae_sites": 13,
+      "direct_mae_fraction": 0.020495781482161916,
+      "direct_minus_lra_hellinger_distance": -0.07858827266935525,
+      "direct_minus_lra_mae_fraction": -0.005777684405694744,
+      "lra_hellinger_distance": 0.360670746249841,
+      "lra_mae_fraction": 0.02627346588785666,
+      "method": "training_mean",
+      "paired_sites": 14,
+      "radius_factor": 1.0
+    },
+    {
+      "direct_hellinger_distance": 0.28208247358048577,
+      "direct_lower_hellinger_sites": 14,
+      "direct_lower_mae_sites": 13,
+      "direct_mae_fraction": 0.020495781482161916,
+      "direct_minus_lra_hellinger_distance": -0.079844755164886,
+      "direct_minus_lra_mae_fraction": -0.005750060926262322,
+      "lra_hellinger_distance": 0.36192722874537175,
+      "lra_mae_fraction": 0.026245842408424237,
+      "method": "training_mean",
+      "paired_sites": 14,
+      "radius_factor": 1.2
+    },
+    {
+      "direct_hellinger_distance": 0.25576738782872227,
+      "direct_lower_hellinger_sites": 9,
+      "direct_lower_mae_sites": 6,
+      "direct_mae_fraction": 0.019551998104306648,
+      "direct_minus_lra_hellinger_distance": -0.0276471922009162,
+      "direct_minus_lra_mae_fraction": -0.0014077834426306265,
+      "lra_hellinger_distance": 0.2834145800296385,
+      "lra_mae_fraction": 0.020959781546937273,
+      "method": "nearest_site",
+      "paired_sites": 14,
+      "radius_factor": 0.8
+    },
+    {
+      "direct_hellinger_distance": 0.25576738782872227,
+      "direct_lower_hellinger_sites": 7,
+      "direct_lower_mae_sites": 7,
+      "direct_mae_fraction": 0.019551998104306648,
+      "direct_minus_lra_hellinger_distance": -0.030233539996537804,
+      "direct_minus_lra_mae_fraction": -0.0015804106165932807,
+      "lra_hellinger_distance": 0.28600092782526004,
+      "lra_mae_fraction": 0.02113240872089993,
+      "method": "nearest_site",
+      "paired_sites": 14,
+      "radius_factor": 1.0
+    },
+    {
+      "direct_hellinger_distance": 0.25576738782872227,
+      "direct_lower_hellinger_sites": 7,
+      "direct_lower_mae_sites": 7,
+      "direct_mae_fraction": 0.019551998104306648,
+      "direct_minus_lra_hellinger_distance": -0.035442914551586276,
+      "direct_minus_lra_mae_fraction": -0.0019389565462108003,
+      "lra_hellinger_distance": 0.29121030238030854,
+      "lra_mae_fraction": 0.021490954650517445,
+      "method": "nearest_site",
+      "paired_sites": 14,
+      "radius_factor": 1.2
+    },
+    {
+      "direct_hellinger_distance": 0.24367257752063476,
+      "direct_lower_hellinger_sites": 12,
+      "direct_lower_mae_sites": 10,
+      "direct_mae_fraction": 0.0185787587707566,
+      "direct_minus_lra_hellinger_distance": -0.040303098632966404,
+      "direct_minus_lra_mae_fraction": -0.002453703353939457,
+      "lra_hellinger_distance": 0.2839756761536012,
+      "lra_mae_fraction": 0.021032462124696057,
+      "method": "inverse_distance_squared",
+      "paired_sites": 14,
+      "radius_factor": 0.8
+    },
+    {
+      "direct_hellinger_distance": 0.24367257752063476,
+      "direct_lower_hellinger_sites": 11,
+      "direct_lower_mae_sites": 10,
+      "direct_mae_fraction": 0.0185787587707566,
+      "direct_minus_lra_hellinger_distance": -0.041742711645812336,
+      "direct_minus_lra_mae_fraction": -0.0025089047465615267,
+      "lra_hellinger_distance": 0.2854152891664471,
+      "lra_mae_fraction": 0.02108766351731813,
+      "method": "inverse_distance_squared",
+      "paired_sites": 14,
+      "radius_factor": 1.0
+    },
+    {
+      "direct_hellinger_distance": 0.24367257752063476,
+      "direct_lower_hellinger_sites": 10,
+      "direct_lower_mae_sites": 9,
+      "direct_mae_fraction": 0.0185787587707566,
+      "direct_minus_lra_hellinger_distance": -0.04615222300554191,
+      "direct_minus_lra_mae_fraction": -0.002877769877489286,
+      "lra_hellinger_distance": 0.2898248005261767,
+      "lra_mae_fraction": 0.021456528648245887,
+      "method": "inverse_distance_squared",
+      "paired_sites": 14,
+      "radius_factor": 1.2
+    }
+  ]
+}

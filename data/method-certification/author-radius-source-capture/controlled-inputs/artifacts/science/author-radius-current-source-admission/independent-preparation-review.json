@@ -1,0 +1,21 @@
+{
+  "approved": true,
+  "source_manifest_sha256": "9425a4be9b9f9e890343b7bbe51a95cf467f47c613454e8299c04c8b40d4c17b",
+  "reviewer": "root",
+  "controls": 15,
+  "controls_command": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/check_contracts.py"
+  ],
+  "controls_exit": 0,
+  "controls_log_sha256": "07d14c98f4a16ba271454e0f6567f6e1905e4522fedb599479702673ce2be873",
+  "review": [
+    "All15held source records authenticated. Inspected real maintained paired CLI with only3expected identity literal changes; executableAST/math/tolerances identical. Producer runs owned proposed source against4exactcopied ledgers with actualsourcepath/hash disclosed, not partialcanonicalreport adoption.",
+    "Originalradius3stage0 actual0442/3c4b/262e authenticates all34271pins/900nativework/2136scientificsourcepaths,195trainingattempts192completions3refusals; only2namedGit-authenticatedmetadatachanges allowed. No refit/forward/R/optimizer rerun.",
+    "Independent observer compares complete typedJSON and orderedCSV to historicalscience after onlysource/producerSHAcorrections, and independently joins126rows/14sites\u00d73methods\u00d73factors throughrawobservationSHA, predictionidentity, matched30taxa/counttotals/MAE/Hellingerdifferences andBECKHAMrefusal.",
+    "Four original ledger inputs and2historicalpairedoutputs exact; all current4package regularsource/resources plus Pythonruntime/stdlib/aliases pinned. Unknown originalsource drift rejected. Existing oldlockproposal is metadataonly and not adopted without latercurrentcomposition.",
+    "Actual2stages60sCLI+90sobserver/240swhole,2GiBcompletedchildRSS128MiBlogical+16KiBreserve,1workerthreadrequests. NoOSquota/equal-information ranking/physicalradiusselection/ecological/Nordic/rights/human/releaseclaim. Actualpaired0 stillrequired beforefive-productpublication/admission."
+  ],
+  "actual_preparation_or_native_executed": false
+}

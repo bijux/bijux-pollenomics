@@ -1,0 +1,48 @@
+{
+  "schema_version": "source-bound-radius-paired-input-guard.v1",
+  "base_candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+  "paths": [
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py",
+      "preimage_sha256": "3675bd6025bf45b7e80379afe96c1e6e1609247d285494601a173afee3023419",
+      "preimage_git_blob": "342434e1f89c3ba58c4acdf50e02b5e6f58a0419",
+      "proposed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/proposal/docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py",
+      "proposed_sha256": "dba9fac988376d95da7b6aa802674828d410d2e70d0fcb839362084dc5d969e8",
+      "bytes": 7594
+    },
+    {
+      "path": "reports/source-lock.json",
+      "preimage_sha256": "66c0f03ed09453d1f9e5a91df399e789310869882cc71f5f0bb87ed84a255700",
+      "preimage_git_blob": "ff2e5fef78ff36c477032a0ae0216cfe407a140e",
+      "proposed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/proposal/reports/source-lock.json",
+      "proposed_sha256": "4cf5a862b6b76d51047c6ec2e5f84dc054305a513993cecf3c7095b2dd544790",
+      "bytes": 295847
+    }
+  ],
+  "literal_changes": {
+    "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129": "ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a",
+    "623b0eb20e46e86fccbd48e840fa20e1882b89bf17ef3ef81c89e63c3a2c6f50": "3a1f3835df417403ded587aa64a036edad50dfb244969c99ed45e70e58322dd5",
+    "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f"
+  },
+  "scope": "Exactly three current source identity constants; executable AST otherwise exact. No arithmetic, scientific tolerance, sample population, array order or refusal change. Root must compose the existing source-lock leaf against later performance/R2 overlays rather than overwrite the base file.",
+  "root_adoption_pending": true,
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/preflight/receipt.json",
+    "sha256": "6d85338fbaccf3c1e63d0d01aef971f72bc145cdfc7ebbe6e109176df620a8ba",
+    "pure_controls": 15,
+    "strict_files": 7,
+    "Ruff_format_files": 7,
+    "actual_exit": 0
+  },
+  "dependency_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/dependency-review.json",
+    "sha256": "dc72bd75f9f13645c41477d7098f31a305eeb572da1cdf1f164c6dd48613e1be"
+  },
+  "source_lock_composition": {
+    "path": "reports/source-lock.json",
+    "existing_key": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py",
+    "old_sha256": "3675bd6025bf45b7e80379afe96c1e6e1609247d285494601a173afee3023419",
+    "new_sha256": "dba9fac988376d95da7b6aa802674828d410d2e70d0fcb839362084dc5d969e8",
+    "scope": "One existing leaf only. The proposed lock wholefile is a guarded base122 illustration, not applicable over later performance/R2 lock changes. Root composes/rebases the single leaf before eventual publication."
+  }
+}

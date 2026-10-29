@@ -11,10 +11,10 @@ from statistics import mean
 from typing import Any
 
 EXPECTED = {
-    "radius_report": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129",
+    "radius_report": "ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a",
     "radius_scores": "60bf6b4cc25bf94a9afbb241370d55e7be17239c20e25881b4cc862e452eb494",
-    "direct_mae": "623b0eb20e46e86fccbd48e840fa20e1882b89bf17ef3ef81c89e63c3a2c6f50",
-    "direct_hellinger": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+    "direct_mae": "3a1f3835df417403ded587aa64a036edad50dfb244969c99ed45e70e58322dd5",
+    "direct_hellinger": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
 }
 FACTORS = (0.8, 1.0, 1.2)
 METHODS = ("training_mean", "nearest_site", "inverse_distance_squared")

@@ -1,0 +1,37 @@
+{
+  "all_historical_scientific_values_types_and_orders_exact": true,
+  "scores_CSV_byte_exact": true,
+  "frozen_rows": 126,
+  "scored_sites": 14,
+  "eligible_sites": 15,
+  "refused_site": "author:BECKHAM",
+  "training_attempts": 195,
+  "training_completed": 192,
+  "training_refused": 3,
+  "new_fit_optimizer_R_or_Nordic_admission": false,
+  "scope": "Actual fixed-vegetation forward radius sensitivity at three declared factors on fourteen prior-exposed English development sites. Source metadata names the genuine complete source run; all historical numeric values remain exact. Original factor-one forward exactness and scoring tolerance 1e-15 remain enforced by the unchanged producer. No cross-epoch tolerance or replacement expectation is introduced.",
+  "candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+  "source_execution_candidate": "22c6e480ba4690cc508202925a8773afe95ab36e",
+  "original_plan_sha256": "7a75256e79a577280d8bd828380ebb8438b80914e3aa8c5ddc390fa428e6428c",
+  "original_outer_terminal_sha256": "c4ab7b6a50c989cd646454ae2b52020df2bbdc749a4806077a45917117fc1539",
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-source-comparison/frozen/predictions.json",
+      "sha256": "a50a8cb0790b9eef63643a5d305e1f021dbe52e098fec24c3ea595480bd62202",
+      "bytes": 238449
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-source-comparison/scored/report.json",
+      "sha256": "ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a",
+      "bytes": 3086
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-source-comparison/scored/scores.csv",
+      "sha256": "60bf6b4cc25bf94a9afbb241370d55e7be17239c20e25881b4cc862e452eb494",
+      "bytes": 20025
+    }
+  ],
+  "original_33336_inputs_reauthenticated": true,
+  "complete_900_file_work_reauthenticated": true,
+  "source_reports_all_eleven_current": true
+}

@@ -1,0 +1,74 @@
+{
+  "local_love/aux_K.csv": {
+    "sha256": "7ff949a0de97825a29f9677b9d69c741d8952dc8c1664c6d116cc232b4a04763",
+    "bytes": 1737
+  },
+  "local_love/aux_terrestrial_fraction.csv": {
+    "sha256": "b5db98d856f454508d6b2e12752f4b40de09c44571403233d27347d47b05b445",
+    "bytes": 42
+  },
+  "local_love/cover_mean.csv": {
+    "sha256": "ba41f6b97bca14aa15b3e231fde85ed3051d98bd8cef5d6457f806529e0de178",
+    "bytes": 1617
+  },
+  "local_love/cover_q10.csv": {
+    "sha256": "ba41f6b97bca14aa15b3e231fde85ed3051d98bd8cef5d6457f806529e0de178",
+    "bytes": 1617
+  },
+  "local_love/cover_q90.csv": {
+    "sha256": "ba41f6b97bca14aa15b3e231fde85ed3051d98bd8cef5d6457f806529e0de178",
+    "bytes": 1617
+  },
+  "local_love/objective_values.csv": {
+    "sha256": "5933423d188d4915fa46e13c94ce0f23f6418b297ff0dc4d7f75fbb5acee472b",
+    "bytes": 58
+  },
+  "local_love/optimizer_diagnostics.json": {
+    "sha256": "326808b37c46f4353356b21b802ac1c98da94bb179f723000f19d6fa76bad1b1",
+    "bytes": 2127
+  },
+  "local_love/pollen_percentages_mean.csv": {
+    "sha256": "4a8700710563cdf52ac112f34bf37c09f9d97655fd82818cc4f600212d187b8b",
+    "bytes": 669
+  },
+  "local_love/pollen_percentages_q10.csv": {
+    "sha256": "4a8700710563cdf52ac112f34bf37c09f9d97655fd82818cc4f600212d187b8b",
+    "bytes": 669
+  },
+  "local_love/pollen_percentages_q90.csv": {
+    "sha256": "4a8700710563cdf52ac112f34bf37c09f9d97655fd82818cc4f600212d187b8b",
+    "bytes": 669
+  },
+  "local_love/result_contract.json": {
+    "sha256": "73909bf3e33ecd01105d990d8bfe6d6c25ce9643765d26e9be0296050b6e0963",
+    "bytes": 259
+  },
+  "local_love/run_manifest.json": {
+    "sha256": "69de04d0c6edbe437f1c86a00bede6c3e711701bfcf8b478c4b34cc61bb8d894",
+    "bytes": 1981
+  },
+  "product_manifest.json": {
+    "sha256": "cb276d5619033af046a9f00aed1e991b315a944af2d172b41e67e4d195039abd",
+    "bytes": 602
+  },
+  "regional_reveals/deposition_factors.csv": {
+    "sha256": "15999a6c38040010f82623bf444366811ef639bf892258f82a74357523e80eca",
+    "bytes": 975
+  },
+  "regional_reveals/reconstruction.csv": {
+    "sha256": "54b0988020f1f70ed4fb28f8f35f0ceb6bcad75d3c65323bca3525f114075fcb",
+    "bytes": 3388
+  },
+  "regional_reveals/result_contract.json": {
+    "sha256": "a8924b7e4bbcf33a7e372473fbc0da683bde5df05be88c6661f0f638a557b253",
+    "bytes": 242
+  },
+  "regional_reveals/run_manifest.json": {
+    "sha256": "0adfcfc7d4b09302217ca0766eeff7fa088c834e6654adf2d802765ba455df3e",
+    "bytes": 1239
+  },
+  "run_manifest.json": {
+    "sha256": "5a9190f585fdc6c71946269c7576700931b060dbc00fc82bc0d1e004bc324f2b",
+    "bytes": 2335
+  }
+}

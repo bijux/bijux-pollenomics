@@ -1,0 +1,30 @@
+{
+  "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "all_complete_diagnostic_typed_values_exact": true,
+  "all_original_baselines_and_refusals_exact": true,
+  "retained_input_producer": {
+    "candidate": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/plan.json",
+      "sha256": "a8d5006746679caede8c332d6cf1307a6878bed73245db37772b1e9912b936b0",
+      "bytes": 713650
+    },
+    "outer_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/author-site-terminal.json",
+      "sha256": "11e284eb7c4280fc2cb04fbb4bea2979acd7bfb4c964f8c4c222fd68ea903ab4",
+      "bytes": 912
+    },
+    "observer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/independent-author-development-input-review.json",
+      "sha256": "bb46e0feb51b08fbc5bbb22a4bc48316a6fed23b36c73dc6dcc4f6fe2bef2e94",
+      "bytes": 28252
+    },
+    "scope": "Actual source commit cacf5c5d956f379cf21b94b64791e1daf7650f1a five-stage input preparation; no assertion its whole old source tree is the present candidate. Only exact authenticated derived input files are reused."
+  },
+  "actual_diagnostic_optimizers_run": true,
+  "full_experiment_fit_or_new_prediction_executed": false,
+  "R_executed": false,
+  "held_out_prediction_count": 0,
+  "scientific_or_official_release_acceptance": false,
+  "scope": "Two unchanged bounded prior-exposed English development diagnostics only. Three declared training items/two rings and one finite-candidate pair; historical negative convergence is preserved. Any numeric or type difference is a hard refusal, never regenerated into a new expectation."
+}

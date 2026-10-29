@@ -36,6 +36,7 @@ from .scientific_captures.author_native_reference import (
 from .scientific_captures.author_optimizer_diagnostics import (
     validated_author_optimizer_diagnostic_capture,
 )
+from .scientific_captures.author_radius import validated_author_radius_capture
 from .scientific_captures.author_site_evaluations import (
     validated_author_site_evaluation_captures,
 )
@@ -255,6 +256,9 @@ def validated_maintained_report_sources(
             repository, tracked_by_path, inventory["owners"]
         )
     )
+    radius_entries, radius_evidence = validated_author_radius_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     performance_entries, performance_evidence = (
         validated_representative_performance_capture(
             repository, tracked_by_path, inventory["owners"]
@@ -271,6 +275,7 @@ def validated_maintained_report_sources(
         + performance_entries
         + optimizer_entries
         + constrained_entries
+        + radius_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -319,6 +324,8 @@ def validated_maintained_report_sources(
         evidence["retained_constrained_author_capture"] = constrained_evidence
     if optimizer_entries:
         evidence["retained_author_optimizer_diagnostic_capture"] = optimizer_evidence
+    if radius_entries:
+        evidence["retained_author_radius_capture"] = radius_evidence
     if performance_entries:
         evidence["retained_representative_performance_capture"] = performance_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

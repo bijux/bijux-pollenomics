@@ -118,7 +118,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Unsupported claim.** A newly fitted LOVE reconstruction, physical radius selection, age-specific surveyed basin geometry, independent/equal-information model ranking, chronology/PPE uncertainty or measured vegetation accuracy.
 
-**Actual verification performed.** The reader and retained freeze, scored and paired ledgers were inspected. Retained source replay reports exact unvaried forward fractions and 42 baseline scores within 1e-15;126 radius scores are byte-identical under a separately regenerated source bundle despite differing metadata identities. This qualification performs no forward, inversion or source replay.
+**Actual verification performed.** The original forward and score consumers completed on captured source 2784d4eae839; the maintained four-ledger paired join separately completed on aed78f8befdf. Independent observers verified all 126 rows, exact source-observation/prediction joins, unchanged ordered typed scientific values and byte-identical historical radius and paired CSVs. Full original 195/192/3 training custody, 900 derived work files and BECKHAM refusal remain retained. The metadata capture preserves both execution epochs; this publication repeats no fit, forward, optimizer or R calculation.
 
 **Remaining input or review.** Radii are declared source-profile assumptions, vegetation/training fits stay fixed, outcomes were already exposed and BECKHAM remains refused. Direct pollen uses 14 training pollen sites while LRA uses a regional anchor plus 13 local predictors; those information sets differ.
 
@@ -132,13 +132,15 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Matched denominator.** 14 scored sites,3 fixed vegetation methods and 3 radius factors yield 126 frozen/scored/paired method-radius-site rows. The factor 1 baseline has 42 rows. Scores use the existing 30-taxon count axis and exact observed raw-row SHA per target; the source study attempted 15 outer folds.
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json](frozen/predictions.json) (SHA-256 `ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44`).
+Qualified authored reader SHA-256: `44e969a8db481c0f92d568b579040ab60864f0ed75c2ae645c4abbf34816def4`.
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json](scored/report.json) (SHA-256 `d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json](frozen/predictions.json) (SHA-256 `a50a8cb0790b9eef63643a5d305e1f021dbe52e098fec24c3ea595480bd62202`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json](paired/report.json) (SHA-256 `c1bf2d0ef2b4eecde08cc4ff372e0d99a18dbad30d05d20a2ccbdc73504eba67`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json](scored/report.json) (SHA-256 `ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a`).
 
-- [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json](paired/report.json) (SHA-256 `eed5d539635abaa7aa305d86845b644a922d52943655d412498b3fdb540c248c`).
+
+- [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (source SHA-256 `1645884c253eec4ee079a5cfc7703a52f12516e20cfea2e5956ca646c16256ec`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

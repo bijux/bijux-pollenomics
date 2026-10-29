@@ -1,0 +1,66 @@
+{
+  "schema_version": "constrained-author-prepared-source.v1",
+  "source_only": true,
+  "files": [
+    {
+      "path": "baseline-products.json",
+      "sha256": "03e3ec20d58708b7cadb800eda2c3f30fa9eb8cf17caea65e8145a3c837a9bb4",
+      "bytes": 3022
+    },
+    {
+      "path": "check_contracts.py",
+      "sha256": "7cffba4ed08899deacfc5b8c7eccf2595a1da8741a5df88b424ae124aa8ba8d1",
+      "bytes": 5069
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "1a552242b27aff87890521c2dbee7aec68035d481a4bb3dd121ed291304775f5",
+      "bytes": 2974
+    },
+    {
+      "path": "observe.py",
+      "sha256": "045bf21b5921fed4e7d48b86199f31dff2a8114ee560ab27fad484b4339836da",
+      "bytes": 10737
+    },
+    {
+      "path": "preflight/import-equivalence.json",
+      "sha256": "45a0af9f8b2a784035cd6b7beb6a1de743d7a2b0372f20b80f3f7fee77faa7ad",
+      "bytes": 3427
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "d0909db9e198ea60240665f5791a20be536f796c95ab2a7d01c3399625184787",
+      "bytes": 15239
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "8bc837258e36907ce5577c381d291f6b77cbe90429f1afe80c6ca071c5408657",
+      "bytes": 6694
+    },
+    {
+      "path": "run.py",
+      "sha256": "7c335048c975b74b54d3b41bda3e29f772c651b788239f31dbec819cbc50ee68",
+      "bytes": 3697
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "a507fc32d68ac6c7b4e074c3007e56ff20020d7bc34a984c141d231927896dfb",
+      "bytes": 5028
+    }
+  ],
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-provenance-custody/source-qualification.json",
+    "sha256": "a507fc32d68ac6c7b4e074c3007e56ff20020d7bc34a984c141d231927896dfb",
+    "bytes": 5028
+  },
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-source-custody/prepared-source-manifest.json",
+    "sha256": "1f0dfc6fd1b54368b12618140214414cda649c90c4d84949b84b9ecd6a467d20",
+    "bytes": 2106
+  },
+  "actual_preparation_or_plan_or_model": false,
+  "pending": [
+    "finite source peer approval before any sourcepreparation",
+    "root fullsource/native registration and genuine tenstage consumer execution"
+  ]
+}
