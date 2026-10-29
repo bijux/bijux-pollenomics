@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2135,
-  "paths_sha256": "3eb965df604d5b963d575372fab7c0393ea8f30700ef6b1c5f689681f5f93898",
+  "path_count": 2137,
+  "paths_sha256": "f938c38c5a892580c6b9e335d6f258f601781e7ed931a6bfc67430d0a6e7024d",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -69565,6 +69565,23 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Authenticate exact original source/native/publication custody through the sealed data/numerical-performance/representative-public-call-capture SourceCapsule and unchanged original numerical/refusal/denominator predicates. Historical metadata/IO/rendering/version roles remain separate from default current mathematical source checks. This retained-output reader adds no fresh R, model, timing, browser, source acquisition, ecological/rights or human/field admission."
+    },
+    {
+      "owner_id": "numerical-performance/representative-public-calls/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/numerical-performance/representative-public-calls/README.md"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+      ],
+      "verification": "Maintain authored measured-workload limitations and exact scientific qualification/evidence against the retained performance report; metadata custody does not replay timing or grant native adoption. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
     }
   ]
 }
