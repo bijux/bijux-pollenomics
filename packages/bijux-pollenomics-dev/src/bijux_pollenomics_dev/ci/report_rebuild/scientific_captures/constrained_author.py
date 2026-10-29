@@ -15,7 +15,12 @@ from .presentation.correspondence import (
     PRESENTATION_SOURCE,
     validated_presentation_source_correspondence,
 )
-from .source_correspondence import validated_metadata_source_correspondence
+from .source_correspondence import (
+    AUTHOR_PROFILE_SOURCE,
+    NORDIC_SOURCE,
+    validated_author_profile_source_correspondence,
+    validated_metadata_source_correspondence,
+)
 
 CAPTURE = "data/method-certification/constrained-author-source-capture/capture.json"
 CAPTURE_SHA256 = "fa46f5757af2acfb647f82162314b11c5e9401fbd7ecdbff585b70a687b9080c"
@@ -249,6 +254,28 @@ def _native_scope(
         raise ReportRebuildError("Constrained author complete work receipts differ")
 
 
+def _projection_source_correspondence(
+    repository: Path, row: JsonObject, retained_source: Path
+) -> tuple[str, JsonObject]:
+    """Dispatch only the three separately reviewed source roles; refuse other drift."""
+    name = row.get("path")
+    if name == PRESENTATION_SOURCE:
+        return "presentation", validated_presentation_source_correspondence(
+            repository, row, retained_source
+        )
+    if name == NORDIC_SOURCE:
+        return "metadata", validated_metadata_source_correspondence(
+            repository, row, retained_source
+        )
+    if name == AUTHOR_PROFILE_SOURCE:
+        return "author_profile", validated_author_profile_source_correspondence(
+            repository, row, retained_source
+        )
+    raise ReportRebuildError(
+        "Constrained author source mismatch has no explicit reviewed correspondence"
+    )
+
+
 def validated_constrained_author_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -328,6 +355,7 @@ def validated_constrained_author_capture(
         )
     current_metadata_correspondences = []
     current_presentation_correspondences = []
+    current_author_profile_correspondences = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
@@ -347,18 +375,15 @@ def validated_constrained_author_capture(
         if current.stat().st_size != row.get("bytes") or hashlib.sha256(
             current.read_bytes()
         ).hexdigest() != row.get("sha256"):
-            if name == PRESENTATION_SOURCE:
-                current_presentation_correspondences.append(
-                    validated_presentation_source_correspondence(
-                        repository, row, retained_candidates[0]
-                    )
-                )
+            kind, correspondence = _projection_source_correspondence(
+                repository, row, retained_candidates[0]
+            )
+            if kind == "presentation":
+                current_presentation_correspondences.append(correspondence)
+            elif kind == "metadata":
+                current_metadata_correspondences.append(correspondence)
             else:
-                current_metadata_correspondences.append(
-                    validated_metadata_source_correspondence(
-                        repository, row, retained_candidates[0]
-                    )
-                )
+                current_author_profile_correspondences.append(correspondence)
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 11:
         raise ReportRebuildError(
@@ -431,10 +456,12 @@ def validated_constrained_author_capture(
         "current_scientific_projection": 2136,
         "current_projection_byteequal_members": 2136
         - len(current_metadata_correspondences)
-        - len(current_presentation_correspondences),
+        - len(current_presentation_correspondences)
+        - len(current_author_profile_correspondences),
         "current_metadata_source_correspondences": current_metadata_correspondences,
         "current_presentation_source_correspondences": current_presentation_correspondences,
+        "current_author_profile_source_correspondences": current_author_profile_correspondences,
         "original_projection_members_retained_unchanged": 2136,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Eleven genuine constrained author products retain the complete 195-attempt source experiment,192 completed/3 refused training items and14 scored/BECKHAM refused folds. Original source/resources and original900-file work are retained byteexact. Current source matches except explicitly returned metadata or atlas-presentation correspondences; no whole-current-tree equality is claimed. This transports actual numerical evidence without refitting/scoring/R and supplies no ecological validation, new untouched cohort, Nordic transfer, rights or qualified human/release decision.",
+        "scope": "Eleven genuine constrained author products retain the complete 195-attempt source experiment,192 completed/3 refused training items and14 scored/BECKHAM refused folds. Original source/resources and original900-file work are retained byteexact. Current source matches except explicitly returned Nordic metadata, atlas-presentation or author-profile owner-criterion correspondences; no whole-current-tree equality is claimed. This transports actual numerical evidence without refitting/scoring/R and supplies no ecological validation, new untouched cohort, Nordic transfer, rights or qualified human/release decision.",
     }
