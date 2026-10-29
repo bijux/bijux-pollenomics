@@ -1,0 +1,76 @@
+{
+  "source_report": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json",
+    "sha256": "e71e6ef7fb52afd2abf5540d1a003d4008e9520e58a39980296cba88d1003c2b",
+    "bytes": 9302
+  },
+  "inputs": [
+    {
+      "path": "landclim/pangaea/solsoe/solsoe81-pollen-739834.txt",
+      "bytes": 41614,
+      "sha256": "da790080493ccfe7e37ab16d154e438cfbeb7b0046bc41d7f24499572a0353d0"
+    },
+    {
+      "path": "data/neotoma/relational/manifest.json",
+      "bytes": 9223,
+      "sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/samples/part-00001.json",
+      "bytes": 16941983,
+      "sha256": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00001.json",
+      "bytes": 70897094,
+      "sha256": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00002.json",
+      "bytes": 70461143,
+      "sha256": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00003.json",
+      "bytes": 71224059,
+      "sha256": "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00004.json",
+      "bytes": 71086686,
+      "sha256": "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00005.json",
+      "bytes": 70418997,
+      "sha256": "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00006.json",
+      "bytes": 70853697,
+      "sha256": "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00007.json",
+      "bytes": 70837689,
+      "sha256": "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00008.json",
+      "bytes": 29761480,
+      "sha256": "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py",
+      "bytes": 12125,
+      "sha256": "787832b1af5d7878f782c138fca151a70e42112190b91a11d9e52bb4103324f6"
+    }
+  ],
+  "private_source_root": "/Users/bijan/bijux/-bijux-pollenomics-data",
+  "private_custody_manifest": "No separate acquisition/copy manifest is identified. Current report input identities and actual physical primary bytes are declared; they are not an independent prior native receipt or acquisition/rights proof.",
+  "canonical_sample_ledger": {
+    "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv",
+    "sha256": "a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010",
+    "bytes": 2657
+  }
+}

@@ -36585,27 +36585,14 @@
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json",
         "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv"
       ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py"
-      ],
-      "producer_inputs": [
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/surfaces/observations/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00002.json",
-        "data/neotoma/relational/surfaces/observations/part-00003.json",
-        "data/neotoma/relational/surfaces/observations/part-00004.json",
-        "data/neotoma/relational/surfaces/observations/part-00005.json",
-        "data/neotoma/relational/surfaces/observations/part-00006.json",
-        "data/neotoma/relational/surfaces/observations/part-00007.json",
-        "data/neotoma/relational/surfaces/observations/part-00008.json",
-        "data/neotoma/relational/surfaces/samples/part-00001.json"
-      ],
-      "verification": "The maintained pollen-lineage producer requires exact external solsoe81-pollen-739834.txt at SHAda790080493ccfe7e37ab16d154e438cfbeb7b0046bc41d7f24499572a0353d0. A bounded current replay changed only producer bytes/SHA; all scientific/count fields and the 66-row sample CSV matched. Preserve independent source capture/rights requirements and do not treat source-name count-vector identity as qualified taxonomy or LRA admission."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained grouped pollen_source.solsoe_pollen validator authenticates these two exact products through the retained source-built isolated-standard-library execution on d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b and its independent native observer, both actual exit zero. Complete JSON and ordered66-row CSV are byte-identical to publication. All3510 original inputs remain explicit:15 retained execution-source identities,2 produced products,10 current public relation references,1 private primary identity and3482 runtime-only identities. All66depths,147parameters,9702cells,2881positive6821zero cells,128653counts and129literal18unique numeric-name candidates are authenticated. Raw CC BY-NC primary data and runtime binaries are not redistributed; no metadata-retention native outcome, recovered provider acquisition, ecological taxonomy, historical79 selection/chronology/basin, LRA, rights or human acceptance is claimed."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/reader-accounts",
@@ -37897,6 +37884,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_selection.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/correspondence.py",

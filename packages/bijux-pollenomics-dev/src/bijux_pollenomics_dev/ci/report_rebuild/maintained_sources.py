@@ -53,6 +53,9 @@ from .scientific_captures.linux_r_reference import (
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
 )
+from .scientific_captures.pollen_source.solsoe_pollen import (
+    validated_solsoe_pollen_capture,
+)
 from .scientific_captures.pollen_source.solsoe_selection import (
     validated_solsoe_selection_capture,
 )
@@ -294,6 +297,9 @@ def validated_maintained_report_sources(
     solsoe_entries, solsoe_evidence = validated_solsoe_selection_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    solsoe_pollen_entries, solsoe_pollen_evidence = validated_solsoe_pollen_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -310,6 +316,7 @@ def validated_maintained_report_sources(
         + nfi_entries
         + slu_guide_entries
         + solsoe_entries
+        + solsoe_pollen_entries
         + controlled_numerical_entries
     )
     for entry in all_capture_entries:
@@ -375,4 +382,6 @@ def validated_maintained_report_sources(
         evidence["retained_slu_guide_source"] = slu_guide_evidence
     if solsoe_entries:
         evidence["retained_solsoe_closed_point_selection"] = solsoe_evidence
+    if solsoe_pollen_entries:
+        evidence["retained_solsoe_primary_pollen_source"] = solsoe_pollen_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

@@ -1183,11 +1183,11 @@
         "fields": {
           "supported_claim": "The retained primary 1981 profile comparison matches all 66 depths and 2881 positive count cells exactly to Neotoma sparseNISP observations.",
           "unsupported_claim": "Identical 66-depth count vectors do not qualify ecological synonymy, terrestrial-only pollen totals,31PPE-target denominators, author 79 sample selection or LRA basins.",
-          "actual_verification_performed": "Read the report and sample ledger; reconciled 9702 cells=2881 positive+6821 zero,128653 total counts and 129 literal-name+18 numerical candidate names. No private profile replay or taxonomic approval was performed.",
+          "actual_verification_performed": "The maintained source-built isolated-standard-library replay and independent native source observer both returned zero on d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b. Complete report and ordered66-row sample ledger match publication byte-for-byte; independent full9702-cell reconciliation found2881 positive and6821 zero cells,128653 total counts,129 literal names and18 unique numerical name-vector candidates. All3510 original input identities and same-process source/runtime observations are retained. No ecological taxonomy approval or original provider acquisition is inferred.",
           "remaining_input_or_review": "The 18 numeric rename candidates require qualified taxonomy; historical sample/chronology selection, dated basins and noncommercial source reuse remain separate requirements.",
           "cause_category": "Primary count/depth correspondence with sparse-zero and taxonomic interpretation limits.",
           "consequence": "Sparse absent Neotoma rows correspond to source zeros here; the all 147 parameter total cannot silently become a terrestrial pollen or author-target denominator.",
-          "precise_next_acceptance_route": "Replay the exact private PANGAEA739834 text and pinned sample/eight observation parts, review all 18 name candidates explicitly, then resolve historical input/basin requirements before LRA.",
+          "precise_next_acceptance_route": "Use the separately retained two-product execution/source-custody capsule for this count-lineage result. Review all18 numerical name candidates under qualified ecological taxonomy, then resolve original79 sample/chronology selection, dated basin and noncommercial reuse requirements before any LRA admission.",
           "negative_or_refused_result": "The 18 names remain numeric_source_name_candidate_not_ecological_approval; author 79 selection and chronology are unidentified; LRA-admitted 0.",
           "matched_denominator": "66 depths×147 parameters=9702 cells;2881 positive observations+6821 zeros;totalNISP128653;129 same-name parameters+18 numeric rename candidates; zero admitted LRA samples."
         },
@@ -1199,6 +1199,10 @@
           {
             "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv",
             "sha256": "a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010"
+          },
+          {
+            "path": "reports/science/source-lineage/solsoe-primary-pollen-source.json",
+            "sha256": "144bcba6b8afe53a63dc7b571ca197047c2d57bbf0cc4535e9d3c0333bf9765c"
           }
         ]
       }
