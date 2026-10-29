@@ -16,7 +16,7 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Unsupported claim.** It neither reproduces native grids nor establishes formal CRS/BP timing, redistribution rights or independent vegetation truth.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. Separately completed source execution on97be88f37a117a518c8c4639ccca98927e13cb24 ran the unchanged HYDE country-table producer and an independent original-XML/Decimal arithmetic observer:two native exits0, with both full public products byteexact. The authored30member capsule preserves3506original identities; four private country-source files, two private licence/version context files and3482runtime payloads remain omitted. Source84 modeled rows/28country-years/seven literalCElabels/three scenario names retain their original scope. No source-grid reread/overlay, confidence intervals, independent vegetation, pollen covariates, CE/BP/calendar conversion, release/rights resolution, matched HYDE ablation, human/ecological or LRA acceptance, and no new retention-native outcome. The original HYDE country ownership criterion remains verbatim and unresolved: exact arithmetic and current byte comparisons do not establish the governed release/provider custody and effective permitted-use statement required by that owner. Retained results remain partial source evidence; no numerical result, permission, human decision or LRA admission changes.
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. Separately completed source execution on97be88f37a117a518c8c4639ccca98927e13cb24 ran the unchanged HYDE country-table producer and an independent original-XML/Decimal arithmetic observer:two native exits0, with both full public products byteexact. The authored30member capsule preserves3506original identities; four private country-source files, two private licence/version context files and3482runtime payloads remain omitted. Source84 modeled rows/28country-years/seven literalCElabels/three scenario names retain their original scope. No source-grid reread/overlay, confidence intervals, independent vegetation, pollen covariates, CE/BP/calendar conversion, release/rights resolution, matched HYDE ablation, human/ecological or LRA acceptance, and no new retention-native outcome.
 
 **Remaining input or review.** The linked HYDE account retains conflicting release licence/version/coverage declarations and requires their source-owner resolution before stronger use.
 
@@ -30,13 +30,13 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Matched denominator.** Own population:zero new model runs or scientific checks. Linked account:four countries×sevenCElabels×three scenarios=84rows/28country-years.
 
+Qualified authored reader SHA-256: `08422f606641ee8e9b2e3f425483e6d75779e4c10723d0fc007427fa1736072c`.
+
 - [Retained qualification evidence: docs/report/regions/nordic/hyde-country-cropland/report.json](report.json) (SHA-256 `55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb`).
 
 - [Retained qualification evidence: reports/science/source-lineage/hyde-country-totals.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/hyde-country-totals.json) (SHA-256 `4cca6c30896d42db5c0578394a880ce6c0e1c3806a21c1c3083bdcc9e3184a76`).
 
-- [Retained qualification evidence: reports/science/source-cohorts/hyde-country-original-acceptance.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/hyde-country-original-acceptance.json) (SHA-256 `5fc1b56bb41ed9e2892baaaff4dfec6484fa7cae4e57e3069eb900f8c134377f`).
-
-- [Canonical scientific account: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md).
+- [Canonical scientific account: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md) (source SHA-256 `995c8f3d6ee273554fc0d97f68dcd8bb8a0bb4cf8da56759f8adceda337f8c29`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

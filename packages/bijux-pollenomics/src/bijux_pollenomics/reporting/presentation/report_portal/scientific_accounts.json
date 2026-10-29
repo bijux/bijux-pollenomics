@@ -5721,7 +5721,7 @@
         "fields": {
           "supported_claim": "This citation pointer identifies the retained country cropland account and governed result; it reports zero new observations, fits or independent scientific checks.",
           "unsupported_claim": "It neither reproduces native grids nor establishes formal CRS/BP timing, redistribution rights or independent vegetation truth.",
-          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.",
+          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. Separately completed source execution on97be88f37a117a518c8c4639ccca98927e13cb24 ran the unchanged HYDE country-table producer and an independent original-XML/Decimal arithmetic observer:two native exits0, with both full public products byteexact. The authored30member capsule preserves3506original identities; four private country-source files, two private licence/version context files and3482runtime payloads remain omitted. Source84 modeled rows/28country-years/seven literalCElabels/three scenario names retain their original scope. No source-grid reread/overlay, confidence intervals, independent vegetation, pollen covariates, CE/BP/calendar conversion, release/rights resolution, matched HYDE ablation, human/ecological or LRA acceptance, and no new retention-native outcome.",
           "remaining_input_or_review": "The linked HYDE account retains conflicting release licence/version/coverage declarations and requires their source-owner resolution before stronger use.",
           "cause_category": "Citation-only pointer to modeled source totals.",
           "consequence": "Source-modeled cropland remains contextual model output; lower/upper source alternatives are not confidence intervals.",
@@ -5733,6 +5733,10 @@
           {
             "path": "docs/report/regions/nordic/hyde-country-cropland/report.json",
             "sha256": "55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb"
+          },
+          {
+            "path": "reports/science/source-lineage/hyde-country-totals.json",
+            "sha256": "4cca6c30896d42db5c0578394a880ce6c0e1c3806a21c1c3083bdcc9e3184a76"
           }
         ]
       }
@@ -8027,7 +8031,7 @@
         "fields": {
           "supported_claim": "The metadata-only search identifies no qualified new physical core in its bounded Swedish Neotoma/PANGAEA surfaces.",
           "unsupported_claim": "A missing literal handle is not proof of a distinct core, and metadata discovery does not validate an untouched independent holdout.",
-          "actual_verification_performed": "Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request.",
+          "actual_verification_performed": "Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request. Canonical Swedish source production returned0 on c292dafa60f9d992f162c92dd327207d9aefd76b; its original observer1 and whole1 remain literal. A separately registered corrected nested-source independent observer and complete tracked-byte check returned0, without producer repetition; the full typed report and publication bytes are unchanged. The authored78member capsule preserves3537 original and3581 corrected input identities, with26private metadata and3481runtime payloads omitted.102records/99sites,206all-country handles,66titles (62retained/3unmatched/1generic),37events and original cross-archive/UNASSIGNED collisions are retained metadata scope. No new acquisition, count observations, fresh physical cohort, calibrated selected sample ages, country normalization, rights/human/ecology/LRA admission or new retention-native outcome.",
           "remaining_input_or_review": "A truly distinct physical core, selected calibrated sample ages, permitted use and frozen pre-exposure prediction protocol remain needed.",
           "cause_category": "Cross-archive identity collisions and absent age/use authority.",
           "consequence": "Three retained UNASSIGNED cores cannot be marketed as fresh Swedish observations.",
@@ -8043,6 +8047,10 @@
           {
             "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json",
             "sha256": "c7e2c67488faec670c585fdb3d03c067cb58449bf0e4a49032698c5a1c9aad81"
+          },
+          {
+            "path": "reports/science/source-lineage/swedish-cohort-metadata.json",
+            "sha256": "b4e9e507cfd56ccc9dbda8d78c23a7d652baaf08032c85f5771feee16ec927fd"
           }
         ]
       }

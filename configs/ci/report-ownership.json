@@ -37883,12 +37883,15 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/hyde_country.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/rootsi_chronology.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_selection.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/swedish_cohort.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/correspondence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/representative_performance.py",
@@ -62345,11 +62348,9 @@
         "docs/report/regions/nordic/hyde-country-cropland/report.json"
       ],
       "producer_inputs": [],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py"
-      ],
-      "role": "unresolved",
-      "verification": "The retained country-year producer is `bijux_pollenomics_dev.source_completion.hyde_country_cropland --source-root <governed-HYDE-3.5-root> --output artifacts/jobs/vegetation-context-reproduction/hyde-country`. It reads the external general ZIP and three scenario country tables pinned in report.json. Bind exact HYDE release/source custody and permitted use before a fresh-output byte comparison of country-years.csv and report.json; no source grid, redistribution, calendar, CRS, or ecological reference acceptance is implied."
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "The maintained land_use.hyde_country validator binds two unchanged HYDE country products to genuine canonical source production and independent XML/Decimal arithmetic/whole-byte observer on97be88f37a117a518c8c4639ccca98927e13cb24, two native exits0 and tracked-byte0. The authored30-member capsule preserves3506original identities:16execution-source,2products,4privatecountry-source identity-only,2private license/version context identity-only,3482runtime identity-only. Four source countries x seven literal CE labels x three source scenarios remain84 modeled rows/28country-years. No raw private/runtime redistribution or new retention-native outcome. No large source-grid reread/overlay, source scenarios as uncertainty intervals, independent vegetation, pollen covariates, CE/BP/NetCDF calendar conversion, release/version/rights reconciliation, matched HYDE ablation, human/ecological or LRA admission."
     },
     {
       "owner_id": "regions/nordic/landclim-modeled-panels",
@@ -76968,21 +76969,13 @@
     },
     {
       "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
-      ],
-      "producer_inputs": [
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
-        "data/neotoma/relational/surfaces/datasets/part-00001.json",
-        "data/neotoma/relational/surfaces/sites/part-00001.json",
-        "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json"
-      ],
-      "verification": "Replay requires --private-root: private source-manifest.json plus seven source records, EPD source-manifest.json and 17 metadata/age-table files. Those are not repository-confined; keep unresolved until exact private capture custody, permission and byte comparison are independently bound. Metadata-only refusal is not fresh-cohort acceptance."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.swedish_cohort validator binds the unchanged Swedish availability report to original canonical metadata production0, original failed independent observer1 and whole1, followed by separately registered corrected nested-source observer0 and whole0 on c292dafa60f9d992f162c92dd327207d9aefd76b. The78-member authored capsule preserves3537 original and3581 corrected input identities,56execution sources,5existing public relation references,1unchanged report;26private metadata files and3481runtime identities remain omitted payloads. No producer rerun or new retention-native outcome.102records/99sites,206all-country handles,66titles with62retained/3unmatched/1generic and37age events remain metadata scope. Cross-archive SAMBOTOT/KLOT identity and coordinate discrepancies, ADRAN/GARASEL/LEVEANIE unmatched leads and HAKULLA5/NDRAKET/VUOLEPAL UNASSIGNED collisions stay literal. No new network acquisition, count-table observations, fresh distinct physical cohort, calibrated selected-sample chronology, country normalization, rights/human/ecological or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck",
