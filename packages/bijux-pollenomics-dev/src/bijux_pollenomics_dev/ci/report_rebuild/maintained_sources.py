@@ -56,6 +56,9 @@ from .scientific_captures.linux_r_reference import (
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
 )
+from .scientific_captures.pollen_source.rootsi_chronology import (
+    validated_rootsi_capture,
+)
 from .scientific_captures.pollen_source.solsoe_pollen import (
     validated_solsoe_pollen_capture,
 )
@@ -306,6 +309,9 @@ def validated_maintained_report_sources(
     svar_entries, svar_evidence = validated_svar_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    rootsi_entries, rootsi_evidence = validated_rootsi_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -324,6 +330,7 @@ def validated_maintained_report_sources(
         + solsoe_entries
         + solsoe_pollen_entries
         + svar_entries
+        + rootsi_entries
         + controlled_numerical_entries
     )
     for entry in all_capture_entries:
@@ -393,4 +400,6 @@ def validated_maintained_report_sources(
         evidence["retained_solsoe_primary_pollen_source"] = solsoe_pollen_evidence
     if svar_entries:
         evidence["retained_svar_normalized_source"] = svar_evidence
+    if rootsi_entries:
+        evidence["retained_rootsi_workbook_chronology"] = rootsi_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

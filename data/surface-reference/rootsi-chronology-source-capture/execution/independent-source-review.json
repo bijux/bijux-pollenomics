@@ -1,0 +1,25 @@
+{
+  "actual_exit": 0,
+  "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+    "sha256": "7d4324376456c356c2a2efff38f1d2e70ebd1a1edcffa86ccc3394c5d5f06322",
+    "bytes": 1496559
+  },
+  "tracked_byte_checker_exit": 0,
+  "two_independent_reviews": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/neotoma-independent-review.json",
+      "sha256": "e2b9e16a9e08e115a0e791b2b575e1d8e1e43f7076da9865ee6caef9960505c7",
+      "bytes": 122741
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/workbook-independent-review.json",
+      "sha256": "93d787dacc1824bf64b2c14c9a475bfc4d1c1c46904c5e19550c95ab798cb3fc",
+      "bytes": 118215
+    }
+  ],
+  "complete_both_typed_reports_and_bytes_exact": true,
+  "source_cache_profile": "source-bound isolated base/pure-xlrd; no observed147 or installed-distribution authority",
+  "scope": "Two current canonical private Rootsi workbook source replays and independent raw-workbook/Neotoma observers. Declared1950-minus-age and0.0500001 comparison are retained arithmetic diagnostics, not a calendar/no-year-zero conversion or source correction. Literal pollen-name/count/depth agreement establishes shared source lineage, not independent chronology, ecological taxonomy, historical LandClim input identity, uncertainty, dated basin, rights/human or LRA acceptance. STAV/RANV absent workbook ages and FLINK sign discrepancy remain; no raw workbook redistribution, source acquisition, interpolation, model or R. A distinct source-bound pure-xlrd cache is used, not observed147/SOURCE3331 runtime authority."
+}

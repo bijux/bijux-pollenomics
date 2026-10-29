@@ -1,0 +1,40 @@
+E402 Module level import not at top of file
+  --> bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/observe.py:38:1
+   |
+36 |           raise ValueError("Unexpected controller import member")
+37 |   sys.path.insert(0, str(_source_directory))
+38 | / from cache_contract import (
+39 | |     validate_cache,  # noqa: E402 — authenticate local imports first.
+40 | | )
+   | |_^
+41 |   from contracts import (  # noqa: E402 — authenticate local imports first.
+42 |       CACHE,
+   |
+
+E402 Module level import not at top of file
+  --> bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/prepare.py:40:1
+   |
+38 |           raise ValueError("Unexpected controller import member")
+39 |   sys.path.insert(0, str(_source_directory))
+40 | / from cache_contract import (
+41 | |     validate_cache,  # noqa: E402 — authenticate local imports first.
+42 | | )
+   | |_^
+43 |   from contracts import (  # noqa: E402 — authenticate local imports first.
+44 |       BASE,
+   |
+
+E402 Module level import not at top of file
+  --> bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/run.py:43:1
+   |
+41 |           raise ValueError("Unexpected controller import member")
+42 |   sys.path.insert(0, str(_source_directory))
+43 | / from cache_contract import (
+44 | |     validate_cache,  # noqa: E402 — authenticate local imports first.
+45 | | )
+   | |_^
+46 |   from contracts import (  # noqa: E402 — authenticate local imports first.
+47 |       BASE,
+   |
+
+Found 3 errors.

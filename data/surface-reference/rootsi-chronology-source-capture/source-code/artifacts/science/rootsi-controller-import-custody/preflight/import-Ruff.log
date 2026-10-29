@@ -1,0 +1,102 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/observe.py:38:1
+   |
+36 |           raise ValueError("Unexpected controller import member")
+37 |   sys.path.insert(0, str(_source_directory))
+38 | / from cache_contract import validate_cache  # noqa: E402 — authenticate local imports first.
+39 | | from contracts import (  # noqa: E402 — authenticate local imports first.
+40 | |     CACHE,
+41 | |     LANES,
+42 | |     LEDGER,
+43 | |     PRIVATE,
+44 | |     RAW,
+45 | |     ROOT,
+46 | |     SOURCE,
+47 | |     dump,
+48 | |     exact,
+49 | |     load,
+50 | |     physical_pin,
+51 | |     pin,
+52 | |     require,
+53 | |     sha,
+54 | |     source_namespace,
+55 | |     verify_frozen_pins,
+56 | | )
+57 | | from independent import (  # noqa: E402 — authenticate local imports first.
+58 | |     AGE_INTERPRETATION,
+59 | |     WITNESS_INTERPRETATION,
+60 | |     neotoma_findings,
+61 | |     workbook_age_findings,
+62 | | )
+63 | | from runtime import (  # noqa: E402 — authenticate local imports first.
+64 | |     enable_xlrd,
+65 | |     profile_guard,
+66 | |     qualify_process_snapshot,
+67 | |     raw_process_snapshot,
+68 | | )
+   | |_^
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/prepare.py:40:1
+   |
+38 |           raise ValueError("Unexpected controller import member")
+39 |   sys.path.insert(0, str(_source_directory))
+40 | / from cache_contract import validate_cache  # noqa: E402 — authenticate local imports first.
+41 | | from contracts import (  # noqa: E402 — authenticate local imports first.
+42 | |     BASE,
+43 | |     CACHE,
+44 | |     LANES,
+45 | |     PRIVATE,
+46 | |     ROOT,
+47 | |     SOURCE,
+48 | |     confined_output,
+49 | |     dump,
+50 | |     exact,
+51 | |     frozen_pin_union,
+52 | |     load,
+53 | |     physical_pin,
+54 | |     pin,
+55 | |     require,
+56 | |     sha,
+57 | |     source_namespace,
+58 | |     verify_frozen_pins,
+59 | | )
+60 | | from runtime import absent_path, check_aliases, runtime_inputs, tree_membership  # noqa: E402 — authenticate local imports first.
+   | |_______________________________________________________________________________^
+   |
+help: Organize imports
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/run.py:43:1
+   |
+41 |           raise ValueError("Unexpected controller import member")
+42 |   sys.path.insert(0, str(_source_directory))
+43 | / from cache_contract import validate_cache  # noqa: E402 — authenticate local imports first.
+44 | | from contracts import (  # noqa: E402 — authenticate local imports first.
+45 | |     BASE,
+46 | |     CACHE,
+47 | |     SOURCE,
+48 | |     dump,
+49 | |     exact,
+50 | |     load,
+51 | |     output_products,
+52 | |     pin,
+53 | |     require,
+54 | |     sha,
+55 | | )
+56 | | from runtime import (  # noqa: E402 — authenticate local imports first.
+57 | |     absent_path,
+58 | |     check_aliases,
+59 | |     profile_guard,
+60 | |     system_unchanged,
+61 | |     tree_membership,
+62 | |     wall_within_bound,
+63 | | )
+   | |_^
+   |
+help: Organize imports
+
+Found 3 errors.
+[*] 3 fixable with the `--fix` option.

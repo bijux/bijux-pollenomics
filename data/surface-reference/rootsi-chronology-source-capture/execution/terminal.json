@@ -1,0 +1,232 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+  "plan_sha256": "7d4324376456c356c2a2efff38f1d2e70ebd1a1edcffa86ccc3394c5d5f06322",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 3.007382584037259,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+    "--registered-plan-sha256",
+    "7d4324376456c356c2a2efff38f1d2e70ebd1a1edcffa86ccc3394c5d5f06322"
+  ],
+  "canonical_before": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "status": "",
+    "tracked_inventory_sha256": "cfb3a85deaff6975d1094cc4f10b6944fe07fc24e8377d832882498cbec05c0d"
+  },
+  "canonical_after": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "status": "",
+    "tracked_inventory_sha256": "cfb3a85deaff6975d1094cc4f10b6944fe07fc24e8377d832882498cbec05c0d"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "maintained-rootsi-neotoma",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+        "--lane",
+        "neotoma"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.6391709159943275,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-neotoma.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-neotoma.stderr",
+      "stdout_sha256": "b39aaaa1710ef941f3aba4c55bc496f995a6e130e11cef51ebd78b6ddb720d57",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 130629632
+    },
+    {
+      "id": "independent-rootsi-neotoma",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+        "--lane",
+        "neotoma"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.7214727909886278,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-neotoma.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-neotoma.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 130629632
+    },
+    {
+      "id": "maintained-rootsi-workbook",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+        "--lane",
+        "workbook"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.5761379589675926,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-workbook.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-workbook.stderr",
+      "stdout_sha256": "c1e0ec443646b422c72989a154572247ee41a91a95beced8d17df3c581e25d1f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 130629632
+    },
+    {
+      "id": "independent-rootsi-workbook",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+        "--lane",
+        "workbook"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.5744612920098007,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-workbook.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-workbook.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 130629632
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-neotoma.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-neotoma.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-workbook.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-workbook.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-source-review.json",
+      "sha256": "bc5ad009fb9a0f58662c4b888f3551d12a77f772594ec3c55225516146ccc6d8",
+      "bytes": 1819
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-neotoma.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-neotoma.stdout",
+      "sha256": "b39aaaa1710ef941f3aba4c55bc496f995a6e130e11cef51ebd78b6ddb720d57",
+      "bytes": 538
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-workbook.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-workbook.stdout",
+      "sha256": "c1e0ec443646b422c72989a154572247ee41a91a95beced8d17df3c581e25d1f",
+      "bytes": 540
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/neotoma-independent-review.json",
+      "sha256": "e2b9e16a9e08e115a0e791b2b575e1d8e1e43f7076da9865ee6caef9960505c7",
+      "bytes": 122741
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/neotoma-source-runtime.json",
+      "sha256": "f5307989bfc5b59ccfa81127facd5d8fcdf650025acaaa9f421165b92dca136d",
+      "bytes": 116575
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+      "sha256": "7d4324376456c356c2a2efff38f1d2e70ebd1a1edcffa86ccc3394c5d5f06322",
+      "bytes": 1496559
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/producer/neotoma/report.json",
+      "sha256": "9f9ae65c538a1aac79966324abf081d4ea0028fbced6b1a343633acbd6372058",
+      "bytes": 3232
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/producer/workbook/report.json",
+      "sha256": "b2c732c11669837c9aa75b8b0a5bfb7568dbf86071014ccfb4b30d3dcfc2eb13",
+      "bytes": 4671
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/root-launch.log",
+      "sha256": "33fd73e6544849b6daed07449ab84a1312ea44a6d9991b3ceee51f6c1b54194d",
+      "bytes": 612
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/stage-progress.json",
+      "sha256": "3b6ce1576e1922fcce00bd536bad73a3c0333805a042c00a6e0eac9c149fdc73",
+      "bytes": 4695
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/workbook-independent-review.json",
+      "sha256": "93d787dacc1824bf64b2c14c9a475bfc4d1c1c46904c5e19550c95ab798cb3fc",
+      "bytes": 118215
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/workbook-source-runtime.json",
+      "sha256": "e5ea6eb785d32d1042b775966f74f510d47bf215a35ea2b39cab20d207e1c9e1",
+      "bytes": 116563
+    }
+  ],
+  "output_bytes": 1986760,
+  "resources": {
+    "overall_timeout_seconds": 220,
+    "outer_timeout_seconds": 240,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "Two current canonical private Rootsi workbook source replays and independent raw-workbook/Neotoma observers. Declared1950-minus-age and0.0500001 comparison are retained arithmetic diagnostics, not a calendar/no-year-zero conversion or source correction. Literal pollen-name/count/depth agreement establishes shared source lineage, not independent chronology, ecological taxonomy, historical LandClim input identity, uncertainty, dated basin, rights/human or LRA acceptance. STAV/RANV absent workbook ages and FLINK sign discrepancy remain; no raw workbook redistribution, source acquisition, interpolation, model or R. A distinct source-bound pure-xlrd cache is used, not observed147/SOURCE3331 runtime authority.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

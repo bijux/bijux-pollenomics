@@ -1,0 +1,199 @@
+{
+  "schema_version": "rootsi-source-chronology-prepared-source.v1",
+  "reference_candidate": "ada0128d4b96a0c0655e7b8c24ba81329f34a2cb",
+  "files": [
+    {
+      "sha256": "48200bbef762f3d98c00ca17ff3d6419dbf08dc0b7038af254fadad067ebf607",
+      "bytes": 4682,
+      "path": "cache_contract.py"
+    },
+    {
+      "sha256": "b14fcfed9bc3a6d05b34cd82bf77b3e36e0cae3d44348ec263e8c3d5a0ea77ef",
+      "bytes": 15628,
+      "path": "check_contracts.py"
+    },
+    {
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924,
+      "path": "common_runner.py"
+    },
+    {
+      "sha256": "ff1043e52af1cc2798d83d6dd987220295741710152705cb4cf1d2400ec1ec85",
+      "bytes": 5819,
+      "path": "contracts.py"
+    },
+    {
+      "sha256": "f57b0474f31f4b3026bacbb3fb057589b106cb0de829d9bedeb66b2f58f6432e",
+      "bytes": 4816,
+      "path": "execute_source.py"
+    },
+    {
+      "sha256": "e10d3e45d9f03c1730f75c1006e83e079797440e3f67d81d0298395a53157fc0",
+      "bytes": 12675,
+      "path": "independent.py"
+    },
+    {
+      "sha256": "b212a6e923f2e4624c1b7f27dac27d47823d99c0e67149a7cb8ed3f8fcb819b1",
+      "bytes": 9750,
+      "path": "observe.py"
+    },
+    {
+      "sha256": "0181d49fc395899b42e38bf87e24eb268f168d4fccbd4a5f29af3fe59cb2837e",
+      "bytes": 9670,
+      "path": "prepare.py"
+    },
+    {
+      "sha256": "9e9bf4b017510dc387dd3239211b4edd0cd85a209cc9bc17891a956938a285a4",
+      "bytes": 8614,
+      "path": "run.py"
+    },
+    {
+      "sha256": "e4e8317940c5160ce938b24a351cb96d4f7b5ceb31836bfa0583e566ab94f568",
+      "bytes": 18846,
+      "path": "runtime.py"
+    },
+    {
+      "sha256": "874b257f67c9e3210821274f5b72b94addfcd9c97b32ee0ede3e407c85212e57",
+      "bytes": 3665,
+      "path": "xlrd-cache-contract.json"
+    },
+    {
+      "sha256": "efc78c325b178620b4c36eb2ef6f89296b5bc0657546c41289173836052c5b06",
+      "bytes": 3303,
+      "path": "declared-inputs.json"
+    },
+    {
+      "sha256": "582dc61b530b61e59e0123e32d28920139ec5b2960d631526a3bff5e71fd4255",
+      "bytes": 1048,
+      "path": "raw-source-shape.json"
+    },
+    {
+      "sha256": "57a8bed2fcec4d1039b831c70af34533ab7502b345fed2422a87f8ff90cf4567",
+      "bytes": 7399,
+      "path": "protocol.json"
+    },
+    {
+      "sha256": "94c334d87588073d3d6dde1f87820636eaa614a36d2ad82b373adec251acb865",
+      "bytes": 1130,
+      "path": "preparation-recipe.json"
+    },
+    {
+      "sha256": "c793cde6acdc4e33f89532ee74446d99d3ce53a93020f48cfc92c7819cd613ed",
+      "bytes": 6723,
+      "path": "source-qualification.json"
+    },
+    {
+      "sha256": "55d5df4eed27943e3044de0d1891c33ef1dcb9150e03feae778683a617c9fd36",
+      "bytes": 146,
+      "path": "preflight/guards.log"
+    },
+    {
+      "sha256": "46984ca20bf69f7b14ec1fd9bd82101d56a4e109e68f016fd2a04f22481b09b3",
+      "bytes": 43,
+      "path": "preflight/strict.log"
+    },
+    {
+      "sha256": "8da41606701af2ea674df060105fe53bd5bd5ec0dfc88c96f7d8b333989ed8d0",
+      "bytes": 64,
+      "path": "preflight/final-style.log"
+    },
+    {
+      "sha256": "adb052c4922cce0dba47e5cebf1c5e71d34cbb5702c55bc9d1c6f46e80d1e4f3",
+      "bytes": 330,
+      "path": "preflight/module-origin-typing-refusal.log"
+    },
+    {
+      "sha256": "0d8ba7d86217ad47ff43a11ee87cf339a8be974776a84ac0e84c10ef7b917675",
+      "bytes": 2844,
+      "path": "preflight/cache-guard-local-typing-refusal.log"
+    },
+    {
+      "sha256": "cdc79e60a40497eb1b6ea5e492a82e76b78d9b83e1c5d2bc7d3dfa8d468ba6d9",
+      "bytes": 1444,
+      "path": "preflight/owned-origin-control-refusal.log"
+    },
+    {
+      "sha256": "8cb468b09f954ac9e05180d2270ec92201adf071bbbab48ab6ea81e142cb79f1",
+      "bytes": 551,
+      "path": "preflight/style-construction.log"
+    },
+    {
+      "sha256": "43410c50057074abc867fc677ca51a17372e3553efd0862d9f07dc3be7981050",
+      "bytes": 5037,
+      "path": "predecessor-source-manifest.json"
+    },
+    {
+      "sha256": "358a98226102e3bac836c1706d9eee37a4723f4b102acc212947d21b4b3d668b",
+      "bytes": 7240,
+      "path": "predecessor-source-qualification.json"
+    },
+    {
+      "sha256": "39ae9f0571cb70fe3a016cebe8c39a93c992a37730b7fa99158ca6ffa71f194d",
+      "bytes": 11006,
+      "path": "source-prefix.diff"
+    },
+    {
+      "sha256": "c2089f80ac189c7c43fa4d7f4e6283dad789426c7b40ba4ddf1c342ffb2264eb",
+      "bytes": 1260,
+      "path": "preflight/source-correspondence.json"
+    },
+    {
+      "sha256": "6cbc0e9b2e00f94330660748cf4b25a0a382b39d41e5dc00c8fc347e4003ae14",
+      "bytes": 250,
+      "path": "preflight/source-construction-refusal.json"
+    },
+    {
+      "sha256": "6ccc9a61df2db2596a5c18424f19d27e92a748b1122b97275b596a232c4ae042",
+      "bytes": 3308,
+      "path": "preflight/import-Ruff.log"
+    },
+    {
+      "sha256": "850dc2321776b7585f5f38c3f8370acd18e5f2f61abc6873e22fa4f135e97d0c",
+      "bytes": 1513,
+      "path": "preflight/final-Ruff.log"
+    },
+    {
+      "sha256": "a7f09dcbfb22a75b24d6baae21397af799f792d9db187d8b4c86732427c2b546",
+      "bytes": 146,
+      "path": "preflight/held-guards.log"
+    },
+    {
+      "sha256": "46984ca20bf69f7b14ec1fd9bd82101d56a4e109e68f016fd2a04f22481b09b3",
+      "bytes": 43,
+      "path": "preflight/held-strict.log"
+    },
+    {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19,
+      "path": "preflight/held-Ruff.log"
+    },
+    {
+      "sha256": "2ce9758b9f8abd876ec3e76c589e099e8b05377b1e7ea2331e81ee80f07bdff8",
+      "bytes": 26,
+      "path": "preflight/held-format.log"
+    }
+  ],
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/source-qualification.json",
+    "sha256": "c793cde6acdc4e33f89532ee74446d99d3ce53a93020f48cfc92c7819cd613ed",
+    "bytes": 6723
+  },
+  "preparation_recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preparation-recipe.json",
+    "sha256": "94c334d87588073d3d6dde1f87820636eaa614a36d2ad82b373adec251acb865",
+    "bytes": 1130
+  },
+  "cache_contract": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/xlrd-cache-contract.json",
+    "sha256": "874b257f67c9e3210821274f5b72b94addfcd9c97b32ee0ede3e407c85212e57",
+    "bytes": 3665
+  },
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/prepared-source-manifest.json",
+    "sha256": "43410c50057074abc867fc677ca51a17372e3553efd0862d9f07dc3be7981050",
+    "bytes": 5037
+  },
+  "actual_preparation_or_native_execution": false,
+  "independent_source_review_required": true,
+  "scope": "Four preimport namespace prefixes and meaningful refusal controls only; complete original runtime/cache/independent scientific bodies remain literal. No installed environment/xlrd import/XLS decoding/producer/native execution. Dynamic clean root-owned preparation is required."
+}

@@ -37886,6 +37886,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/rootsi_chronology.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_selection.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/__init__.py",
@@ -70137,18 +70138,13 @@
     },
     {
       "owner_id": "source-relations/landclim/neotoma-chronology-witness/paired-source-report",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/landclim/neotoma-chronology-witness/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py"
-      ],
-      "producer_inputs": [
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
-        "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv"
-      ],
-      "verification": "The script also reads two private Rootsi workbooks (FLINK and STAV) named with SHA-256 in overlap.csv. Repository inputs alone cannot regenerate the depth/count/age witness; bind exact private workbook custody and byte comparison. No historical author chronology admission follows."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.rootsi_chronology validator binds this unchanged source receipt to two canonical Rootsi producers and two complete raw-workbook/Neotoma independent typed/whole-byte observers on c292dafa60f9d992f162c92dd327207d9aefd76b, four native exits0. The58-member authored capsule preserves3548 original identities:39execution-source,2publicreferences,2reports,7privateidentity-only,3498runtime/xlrdidentity-only. No new native-retention outcome or private payload redistribution. FLINK sign discrepancy,HOLK reversals,RANV/STAV missing source ages, negativeBP/source bounds and declared1950-minus-age/0.0500001 diagnostics remain unchanged. No authorized calendar/year-zero conversion, age correction/interpolation, historical LandClim input identity, independent chronology/ecological taxonomy, basin/uncertainty/rights/human or LRA admission."
     },
     {
       "owner_id": "source-relations/landclim/neotoma-chronology-witness/reader-account",
@@ -70200,17 +70196,13 @@
     },
     {
       "owner_id": "source-relations/landclim/workbook-chronology/source-age-audit",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/landclim/workbook-chronology/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/landclim/workbook-chronology/replay.py"
-      ],
-      "producer_inputs": [
-        "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv"
-      ],
-      "verification": "The script also reads four private Rootsi workbooks (FLINK, HOLK, RANV, STAV) named with SHA-256 in overlap.csv. Source-native age cells are absent from repository inputs; bind private workbook custody and byte comparison. Reversals remain uncorrected, with no event-date admission."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.rootsi_chronology validator binds this unchanged source receipt to two canonical Rootsi producers and two complete raw-workbook/Neotoma independent typed/whole-byte observers on c292dafa60f9d992f162c92dd327207d9aefd76b, four native exits0. The58-member authored capsule preserves3548 original identities:39execution-source,2publicreferences,2reports,7privateidentity-only,3498runtime/xlrdidentity-only. No new native-retention outcome or private payload redistribution. FLINK sign discrepancy,HOLK reversals,RANV/STAV missing source ages, negativeBP/source bounds and declared1950-minus-age/0.0500001 diagnostics remain unchanged. No authorized calendar/year-zero conversion, age correction/interpolation, historical LandClim input identity, independent chronology/ecological taxonomy, basin/uncertainty/rights/human or LRA admission."
     },
     {
       "owner_id": "source-relations/landclim/workbook-chronology/source-code",

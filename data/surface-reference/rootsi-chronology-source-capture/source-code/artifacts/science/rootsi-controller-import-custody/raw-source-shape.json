@@ -1,0 +1,44 @@
+{
+  "schema_version": "rootsi-raw-source-shape-forensics.v1",
+  "scope": "Read-only serialized field-type census on the exact named retained raw Neotoma input for source protocol authoring; no workbook decode, xlrd import, numeric/count/age comparison, producer, native source runtime or new accepted total.",
+  "raw_part_number_type": "int",
+  "selected_field_types": [
+    {
+      "dataset_id": 54003,
+      "sample_depth_value_types": [
+        "float",
+        "int"
+      ],
+      "sample_age_value_types": [
+        "int"
+      ],
+      "sample_count_value_types": [
+        "float",
+        "int"
+      ],
+      "sample_id_value_types": [
+        "int"
+      ]
+    },
+    {
+      "dataset_id": 54024,
+      "sample_depth_value_types": [
+        "float",
+        "int"
+      ],
+      "sample_age_value_types": [
+        "float",
+        "int"
+      ],
+      "sample_count_value_types": [
+        "float",
+        "int"
+      ],
+      "sample_id_value_types": [
+        "int"
+      ]
+    }
+  ],
+  "workbooks_decoded": 0,
+  "xlrd_imports": 0
+}

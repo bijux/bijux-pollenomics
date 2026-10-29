@@ -1,0 +1,19 @@
+{
+  "schema_version": "rootsi-source-chronology-preparation-recipe.v1",
+  "required_review": "Future root-reviewed approved:true exact source_manifest_sha256 and physical review SHA.",
+  "preparation_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/prepare.py",
+    "--candidate",
+    "ACTUAL_CLEAN_COMMIT",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay",
+    "--review-sha256",
+    "ACTUAL_APPROVED_REVIEW_SHA"
+  ],
+  "launch": "Only exact emitted plan/launch_argv after sourceprepare0, root registration/readback and separate launch; no author preparation or native action.",
+  "candidate_scope": "Dynamic exact clean current candidate; both selected unresolved owner rows/source recipes and all13 original source/data pins must still match. Later unrelated policy additions are captured honestly as the new whole-policy input, not relabelled as original production."
+}

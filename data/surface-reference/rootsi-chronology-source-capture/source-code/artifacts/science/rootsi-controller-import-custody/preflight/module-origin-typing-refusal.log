@@ -1,0 +1,6 @@
+artifacts/science/rootsi-source-chronology-custody/runtime.py:516: error:
+Argument 1 to "Path" has incompatible type "str | None"; expected
+"str | PathLike[str]"  [arg-type]
+            Path(module.__file__).resolve() == CACHE / "xlrd/__init__.py"
+                 ^~~~~~~~~~~~~~~
+Found 1 error in 1 file (checked 9 source files)

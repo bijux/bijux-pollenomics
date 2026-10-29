@@ -1,0 +1,37 @@
+{
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/prepared-source-manifest.json",
+    "sha256": "43410c50057074abc867fc677ca51a17372e3553efd0862d9f07dc3be7981050",
+    "bytes": 5037
+  },
+  "unchanged_files": [
+    "common_runner.py",
+    "contracts.py",
+    "cache_contract.py",
+    "runtime.py",
+    "independent.py",
+    "xlrd-cache-contract.json",
+    "declared-inputs.json",
+    "raw-source-shape.json"
+  ],
+  "entrypoint_AST": {
+    "prepare.py": {
+      "function_bodies_and_post_import_executable_AST_exact": true,
+      "prefix_precedes_sys_path_and_all_local_imports": true
+    },
+    "execute_source.py": {
+      "function_bodies_and_post_import_executable_AST_exact": true,
+      "prefix_precedes_sys_path_and_all_local_imports": true
+    },
+    "observe.py": {
+      "function_bodies_and_post_import_executable_AST_exact": true,
+      "prefix_precedes_sys_path_and_all_local_imports": true
+    },
+    "run.py": {
+      "function_bodies_and_post_import_executable_AST_exact": true,
+      "prefix_precedes_sys_path_and_all_local_imports": true
+    }
+  },
+  "all_10_Python_AST_parse": true,
+  "actual_preparer_xlrd_import_XLS_decode_native_inspector_R_model_calls": 0
+}

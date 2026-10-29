@@ -56,7 +56,7 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 **Unsupported claim.** Shared lineage is not independent chronology validation or authority to correct FLINK, select STAV ages, or admit historical inputs.
 
-**Actual verification performed.** Read the two-sequence witness JSON, selected explicit/missing-source count states and age sign anomaly; no workbook or count-table rescan.
+**Actual verification performed.** Read the two-sequence witness JSON, selected explicit/missing-source count states and age sign anomaly; no workbook or count-table rescan. Two unchanged canonical Rootsi source producers and their independent raw-workbook/Neotoma observers returned four native zeros on c292dafa60f9d992f162c92dd327207d9aefd76b; both full typed reports and complete publication bytes match. The source-bound isolated base/pure-xlrd cache is distinct from observed147/SOURCE3331. All3548 original identities remain explicit in an authored58member source capsule; private workbooks/archive/intake and runtime/xlrd payloads remain omitted. FLINK sign discrepancy,HOLK reversals,RANV/STAV absent ages, negativeBP and no source age bounds remain literal. Declared1950-minus-age/0.0500001 are arithmetic diagnostics, not calendar/no-year-zero conversion or age correction. No dated basin, historical-input, independent chronology/ecology, rights/human or LRA admission, and no new retention-native outcome.
 
 **Remaining input or review.** Source-holder chronology selection/age corrections, uncertainty, basin/count support and workbook analytical rights remain unresolved.
 
@@ -73,6 +73,8 @@ Author/source lineage, transformations and distinct modeled products; chronology
 Qualified authored reader SHA-256: `7a6e99a46bf9bff8b06f13c0b6a9291be1f8201fba72f679818069b7f070ad02`.
 
 - [Retained qualification evidence: docs/report/source-relations/landclim/neotoma-chronology-witness/report.json](report.json) (SHA-256 `9f9ae65c538a1aac79966324abf081d4ea0028fbced6b1a343633acbd6372058`).
+
+- [Retained qualification evidence: reports/science/source-lineage/rootsi-workbook-chronology.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/rootsi-workbook-chronology.json) (SHA-256 `f903bb2c7671d04b67410b7ba73ed2aebe1d5ca9f86a54354aaa10746d65e47b`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 

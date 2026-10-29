@@ -1,0 +1,143 @@
+{
+  "schema_version": "rootsi-entrypoint-import-source-qualification.v1",
+  "source_only_actual_exit": 0,
+  "meaningful_guard_groups": 81,
+  "prior_guard_groups_exact": 49,
+  "entrypoint_prefix_control_cases": 32,
+  "strict_source_files": 9,
+  "configured_Ruff_source_files": 9,
+  "configured_format_source_files": 9,
+  "AST_source_files": 10,
+  "checks": {
+    "guards": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/held-guards.log",
+      "sha256": "a7f09dcbfb22a75b24d6baae21397af799f792d9db187d8b4c86732427c2b546",
+      "bytes": 146,
+      "actual_exit": 0
+    },
+    "strict": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/held-strict.log",
+      "sha256": "46984ca20bf69f7b14ec1fd9bd82101d56a4e109e68f016fd2a04f22481b09b3",
+      "bytes": 43,
+      "actual_exit": 0
+    },
+    "Ruff": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/held-Ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19,
+      "actual_exit": 0
+    },
+    "format": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/held-format.log",
+      "sha256": "2ce9758b9f8abd876ec3e76c589e099e8b05377b1e7ea2331e81ee80f07bdff8",
+      "bytes": 26,
+      "actual_exit": 0
+    }
+  },
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/cache_contract.py",
+      "sha256": "48200bbef762f3d98c00ca17ff3d6419dbf08dc0b7038af254fadad067ebf607",
+      "bytes": 4682
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/check_contracts.py",
+      "sha256": "b14fcfed9bc3a6d05b34cd82bf77b3e36e0cae3d44348ec263e8c3d5a0ea77ef",
+      "bytes": 15628
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/contracts.py",
+      "sha256": "ff1043e52af1cc2798d83d6dd987220295741710152705cb4cf1d2400ec1ec85",
+      "bytes": 5819
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/execute_source.py",
+      "sha256": "f57b0474f31f4b3026bacbb3fb057589b106cb0de829d9bedeb66b2f58f6432e",
+      "bytes": 4816
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/independent.py",
+      "sha256": "e10d3e45d9f03c1730f75c1006e83e079797440e3f67d81d0298395a53157fc0",
+      "bytes": 12675
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/observe.py",
+      "sha256": "b212a6e923f2e4624c1b7f27dac27d47823d99c0e67149a7cb8ed3f8fcb819b1",
+      "bytes": 9750
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/prepare.py",
+      "sha256": "0181d49fc395899b42e38bf87e24eb268f168d4fccbd4a5f29af3fe59cb2837e",
+      "bytes": 9670
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/run.py",
+      "sha256": "9e9bf4b017510dc387dd3239211b4edd0cd85a209cc9bc17891a956938a285a4",
+      "bytes": 8614
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/runtime.py",
+      "sha256": "e4e8317940c5160ce938b24a351cb96d4f7b5ceb31836bfa0583e566ab94f568",
+      "bytes": 18846
+    }
+  ],
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/prepared-source-manifest.json",
+    "sha256": "43410c50057074abc867fc677ca51a17372e3553efd0862d9f07dc3be7981050",
+    "bytes": 5037
+  },
+  "predecessor_source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/source-qualification.json",
+    "sha256": "358a98226102e3bac836c1706d9eee37a4723f4b102acc212947d21b4b3d668b",
+    "bytes": 7240
+  },
+  "source_tools_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/source-correspondence.json",
+    "sha256": "c2089f80ac189c7c43fa4d7f4e6283dad789426c7b40ba4ddf1c342ffb2264eb",
+    "bytes": 1260
+  },
+  "source_delta": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/source-prefix.diff",
+    "sha256": "39ae9f0571cb70fe3a016cebe8c39a93c992a37730b7fa99158ca6ffa71f194d",
+    "bytes": 11006
+  },
+  "unchanged_runtime_cache_numerical_predicates": [
+    "common_runner.py",
+    "contracts.py",
+    "cache_contract.py",
+    "runtime.py",
+    "independent.py",
+    "xlrd-cache-contract.json",
+    "declared-inputs.json",
+    "raw-source-shape.json"
+  ],
+  "guard_scope": "For each actual entrypoint, a confined physical prefix passes without local imports. Unexpectednative-module .so/cache.pyc/Pythonmodule/directory/symlink/FIFO and aliasedentrypoint fail before poisonedcontracts could execute. Full entrypoint negative runpy calls stop before helper imports/argument parsing; no actual main, xlrd import, XLS data decode or source consumer.",
+  "preserved_source_only_refusals": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/source-construction-refusal.json",
+      "sha256": "6cbc0e9b2e00f94330660748cf4b25a0a382b39d41e5dc00c8fc347e4003ae14",
+      "bytes": 250
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/import-Ruff.log",
+      "sha256": "6ccc9a61df2db2596a5c18424f19d27e92a748b1122b97275b596a232c4ae042",
+      "bytes": 3308
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/final-Ruff.log",
+      "sha256": "850dc2321776b7585f5f38c3f8370acd18e5f2f61abc6873e22fa4f135e97d0c",
+      "bytes": 1513
+    }
+  ],
+  "actual_preparation_XLS_decode_xlrd_import_native_inspection_R_model_or_producer_calls": 0
+}

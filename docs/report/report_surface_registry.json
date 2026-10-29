@@ -21408,7 +21408,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
-      "content_sha256": "9b547d5a426bcfa877295bbd136616d17133445f6bc54c07ea4565b74382a4bf",
+      "content_sha256": "9d95f3afb464bf38e581021b04b2ab3afdb3360aeb02e836040872abef11eacc",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -21445,7 +21445,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/workbook-chronology/README.md",
-      "content_sha256": "2141847fb38729932c12ee5cc9928991229743bee4b209e0bbf25b6c2cd6c7a6",
+      "content_sha256": "e1a08d6f91c49cd01e5d986c55ed34ed7d8de1089bc7e170d0f2e4e0761456e7",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
