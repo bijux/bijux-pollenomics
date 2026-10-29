@@ -12,7 +12,6 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
 from ..retained_source import validated_descriptor
-from .source_correspondence import validated_current_scientific_source
 
 CAPTURE = "data/method-certification/author-radius-source-capture/capture.json"
 CAPTURE_SHA256 = "e7d813c70f4a15befd4d99cd5ca02aa062075cad5e28081aed9aa28ec56b7e41"
@@ -437,36 +436,32 @@ def validated_author_radius_capture(
     projection = capture.get("current_scientific_source_projection")
     if not isinstance(projection, list) or len(projection) != 2136:
         raise ReportRebuildError(
-            "Radius source experiment current scientific source projection differs"
+            "Radius historical scientific source projection differs"
         )
-    if len({_member_name(_object(r).get("path")) for r in projection}) != 2136:
-        raise ReportRebuildError("Radius historical source projection duplicates")
-    current_metadata_correspondences: list[JsonObject] = []
-    current_presentation_correspondences: list[JsonObject] = []
-    current_author_profile_correspondences: list[JsonObject] = []
-    current_intake_guard_correspondences: list[JsonObject] = []
+    source_names: set[str] = set()
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
-        retained_candidates = [
-            f"executions/{lane}/first-party-inputs/{name}"
-            for lane in EXECUTIONS
-            if members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
-                "sha256"
+        if name in source_names:
+            raise ReportRebuildError("Radius historical source projection duplicates")
+        source_names.add(name)
+        if (
+            set(row) != {"path", "sha256", "bytes"}
+            or type(row.get("bytes")) is not int
+            or row["bytes"] < 0
+            or not any(
+                members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
+                    "sha256"
+                )
+                == row.get("sha256")
+                and members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
+                    "bytes"
+                )
+                == row["bytes"]
+                for lane in EXECUTIONS
             )
-            == row.get("sha256")
-            and members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
-                "bytes"
-            )
-            == row.get("bytes")
-        ]
-        if type(row.get("bytes")) is not int or not retained_candidates:
-            raise ReportRebuildError("Retained scientific source is unbound")
-        correspondence = validated_current_scientific_source(
-            repository, row, retained_candidates[0], resolver
-        )
-        if correspondence is not None:
-            current_metadata_correspondences.append(correspondence)
+        ):
+            raise ReportRebuildError("Radius retained scientific source is unbound")
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 5:
         raise ReportRebuildError("Radius needs exactly five genuine produced outputs")
@@ -566,35 +561,10 @@ def validated_author_radius_capture(
         },
         "report_outputs": 3,
         "authenticated_generated_paired_outputs": 2,
-        "logical_scientific_projection": 2136,
-        "current_scientific_projection": 2136
-        - sum(
-            item.get("classification")
-            in {
-                "historical_private_control_current_absence",
-                "historical_generated_version_metadata",
-            }
-            for item in current_metadata_correspondences
-        ),
-        "historical_only_projection_roles": [
-            item
-            for item in current_metadata_correspondences
-            if item.get("classification")
-            in {
-                "historical_private_control_current_absence",
-                "historical_generated_version_metadata",
-            }
-        ],
-        "current_projection_byteequal_members": 2136
-        - len(current_metadata_correspondences)
-        - len(current_presentation_correspondences)
-        - len(current_author_profile_correspondences)
-        - len(current_intake_guard_correspondences),
-        "current_metadata_source_correspondences": current_metadata_correspondences,
-        "current_presentation_source_correspondences": current_presentation_correspondences,
-        "current_author_profile_source_correspondences": current_author_profile_correspondences,
-        "current_intake_guard_source_correspondences": current_intake_guard_correspondences,
+        "historical_scientific_source_projection": 2136,
+        "current_execution_qualified": False,
+        "current_source_equivalence_claimed": False,
         "original_projection_members_retained_unchanged": 2136,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Three genuine source-bound fixed-vegetation radius products and separate generated paired2 retain fourteen exposed English sites, three methods/factors, exact195/192/3 training source custody and BECKHAM refusal. Both original execution epochs and full historicalsource/resources stay explicit; no refit/R, physicalradius, vegetation-accuracy, equal-information independent ranking, Nordic/ecological/rights/human acceptance. Exact returned Nordic metadata, atlas-presentation, author-profile owner-criterion and archive-intake guard correspondences remain separate from byte-equal members; no whole-current-tree equality is claimed; historical presentation, absent retired private control, generated version metadata, named documentation and finite IO/export roles are explicitly returned.",
+        "scope": "Three genuine source-bound fixed-vegetation radius products and separate generated paired2 retain fourteen exposed English sites, three methods/factors, exact195/192/3 training source custody and BECKHAM refusal. Both original execution epochs and full historicalsource/resources stay explicit; no refit/R, physicalradius, vegetation-accuracy, equal-information independent ranking, Nordic/ecological/rights/human acceptance. The 2136 original source identities are authenticated through retained capsule/Git correspondence independently of current source edits. Current numerical execution and scientific-source equivalence are not qualified; the separately generated paired join retains its own producer contract.",
     }

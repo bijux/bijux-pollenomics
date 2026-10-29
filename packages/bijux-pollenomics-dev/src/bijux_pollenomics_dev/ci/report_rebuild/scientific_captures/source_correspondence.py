@@ -11,7 +11,10 @@ from ..contracts import JsonObject, ReportRebuildError
 from ..ownership import _regular_confined_file
 from ..retained_source import SourceCapsule
 from ..retained_source.generated import reconstruct
-from .presentation_source_roles import HISTORICAL_RENDERING_SOURCES
+from .presentation_source_roles import (
+    HISTORICAL_RENDERING_SOURCES,
+    atlas_extension_matches,
+)
 from .source_roles.documentation import (
     DOCUMENTED_SOURCE_STRINGS,
     _documented_source_matches,
@@ -218,6 +221,18 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if (
+        logical == "source/" + name
+        and logical in source_buffer.detached
+        and atlas_extension_matches(name, captured, body)
+    ):
+        return {
+            "path": name,
+            "classification": "finite_atlas_asset_or_provider_extension",
+            "old_noninserted_bytes_exact": True,
+            "current_browser_or_native_equivalence_claimed": False,
+            "new_provider_api_qualified_by_historical_source": False,
+        }
     if (
         name in DOCUMENTED_SOURCE_STRINGS
         and logical in source_buffer.detached
