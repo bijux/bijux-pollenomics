@@ -1,0 +1,82 @@
+{
+  "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "actual_exit": 0,
+  "actual_maintained_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_grid_conservation.py",
+    "--source-root",
+    "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/producer"
+  ],
+  "module": "bijux_pollenomics_dev.source_completion.hyde_country_grid_conservation",
+  "source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_grid_conservation.py",
+    "sha256": "ac257ebbe64868f9af83ad8952023d7fbc129b0a91186d30daa0322ba3c83075",
+    "bytes": 8065
+  },
+  "owned_package_search_roots": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics/src",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-lra/src",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/pollenomics/src"
+  ],
+  "actual_first_party_origins": [
+    {
+      "module": "bijux_pollenomics_dev",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+      "sha256": "7b81431bc8a66b84fe91baea2c452b58458f8b54b3cabc6ee248dc88cb8d8c0c",
+      "bytes": 62
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+      "sha256": "7939298f093c66e345e210e8d8b2da93e809623887b314261ae2652f6551e99e",
+      "bytes": 151
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.audit",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+      "sha256": "b19cf8d2675d5ec8e2236c6a2b22b058adeee8c045f6701cc23161395c5d06f7",
+      "bytes": 13373
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.evidence",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+      "sha256": "2e376d9f75b4a8f0b18a25195671d9fbb1f40abf23f6d4382f648f77e9ce5a58",
+      "bytes": 4353
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.hyde_country_cropland",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
+      "sha256": "06302225bd7d6e49c8a5fde444813cc47f5792c6ed7298cce039179b37c1d8fa",
+      "bytes": 7258
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.landclim",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+      "sha256": "6a9b76cca58905075e649a9bb3456d2eca5130b403a60116abe556d84dbaef30",
+      "bytes": 5775
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.manifests",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+      "sha256": "62646c940fa2511b3b33609f97eeb89d794f3717fd1f5b209ebac00e143c5161",
+      "bytes": 8825
+    }
+  ],
+  "LRA_host_facade_imports": 0,
+  "omitted_generated_version_module_executed": false,
+  "two_produced_products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/producer/report.json",
+      "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628",
+      "bytes": 5668
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/producer/grid-conservation.csv",
+      "sha256": "1e2da01a1fd2d2f4a2c2cdc1c652ed4ef9b0d2c00b0c2d9989c8db33c643b368",
+      "bytes": 7884
+    }
+  ],
+  "new_native_outcome": true
+}

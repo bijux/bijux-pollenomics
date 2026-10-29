@@ -1,0 +1,122 @@
+{
+  "schema_version": "hyde-grid-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "3e73e9f0508b3b7b6d25a205765873524a57afb8c530f2ef39e649b25a934d63",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/prepared-source-manifest.json",
+    "sha256": "3e73e9f0508b3b7b6d25a205765873524a57afb8c530f2ef39e649b25a934d63",
+    "bytes": 10599
+  },
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/source-qualification.json",
+    "sha256": "d169beca9774c10f0c43d4adf34e2569ecc924802e4eaf41a4d5ee3c41149ca5",
+    "bytes": 16662
+  },
+  "preparation_recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/preparation-recipe.json",
+    "sha256": "904d592ec54e20c58ae9892f8484cdba6fc75366f12f1955f19be61a0512e74a",
+    "bytes": 1638
+  },
+  "predecessor_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/predecessor-source-review.json",
+    "sha256": "e147e4796d16379ddb5ccd6f8378a819390b680eb25beb2ab7d12a1a7bfba818",
+    "bytes": 3040
+  },
+  "predecessor_manifest_sha256": "c0e894646a40e43241b78ea194ac374d2182322339446b5856e404fbd7036ad7",
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/source-correspondence.json",
+    "sha256": "a64e73f7f87f603efa1b0e443142d8ed416080e882cd0225809135427d2f5177",
+    "bytes": 11880
+  },
+  "independent_controls": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/check_review.py",
+      "sha256": "bf4429ea85dc547330a638badb130e9231de7dc8587a686008b51866b10afa75",
+      "bytes": 7837
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/preflight/guards.stdout",
+      "sha256": "6def79bba7c7b23948b82c3bc40236c40251529e73f02041e08a7da83063a82f",
+      "bytes": 179
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/preflight/guards.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/check_owner_delta.py",
+      "sha256": "9fe969d934c79145345f86aacc71d09748465d40f89a97aa1e6e0cc09287f1fb",
+      "bytes": 7269
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/ownership-delta-controls.json",
+      "sha256": "11cfa75f1c1b521a3a541143904842d341bb6165f6a9744e683518debb4c316d",
+      "bytes": 458
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/ownership-guards.stdout",
+      "sha256": "7e035fb03e83ac8a974b1dfdd9b4c56e19a21216963e36f6e80fd31e9c79e082",
+      "bytes": 438
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/ownership-guards.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "independent_initial_cases": 20,
+  "independent_ownership_delta_cases": 25,
+  "independent_actual_exits": [
+    0,
+    0
+  ],
+  "actual_original_scalar_metadata_evidence": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/original-metadata-shape.json",
+      "sha256": "1d490c31de9d4d0048596f028fb77bb62e56231508c9931adba307c6c58536eb",
+      "bytes": 1763
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/native-receipt-shape-review.json",
+      "sha256": "0c1d828286b227bd3a0086229d82652fbcc18a603830e9ffc0703e41977f454d",
+      "bytes": 1656
+    }
+  ],
+  "reviewed": {
+    "final_manifest_physical_rows": 37,
+    "final_Python_ASTs": 21,
+    "byteexact_controller_Python": 19,
+    "all_predecessor_pure_function_ASTs_exact": true,
+    "public_guard_AST_exact_except_owner_boundary": true,
+    "current_owner_unique_retained_source_exact_two_paths_empty_producer_recipe": true,
+    "other_owner_overlap_all_roles_refused": true,
+    "disjoint_sibling_owner_allowed": true,
+    "optional_absence_both_owner_and_capture_only": true,
+    "actual_final37row_entry_schema_positive_tamper_native_shadow_FIFO_negatives": true,
+    "same_buffer_registered_plan_and_beforeafter_original25_private_ancestry": true,
+    "loader_environment_refusal_before_Git": true,
+    "original_62127_roles_6539source_2182copies_4356bytecode_one_generated_omission_scoped": true,
+    "original_genuine_HYDE_receipt_scope0": true,
+    "private_runtime_cache_generated_payload_redistribution": false
+  },
+  "preserved_scope": [
+    "Original native HYDE source candidate61eb1bfe697d0e7f15831b9c23bc45322ce042e8 (commit148) and actual producer0/independent observer0/tracked checker0 are distinct from the separately qualified147-distribution source dependency runtime, prospective metadata capture candidate and outcome.",
+    "All original source/private/runtime input identities retained; only explicitly selected public source/control/result regular files are copied by future registered metadata stages.",
+    "No private grid parse, producer/model/R/HTTP replay, scientific tolerance change or historical epoch repair.",
+    "Rights, formal CRS/BP/ecology/human/LRA acceptance remain open.",
+    "Metadata two-stage420s delegated child/480s owned-session outer, completed-child RSS and logical output postchecks; no OS quota or full detached-descendant guarantee."
+  ],
+  "no_actual_worker_preparer_retainer_copy_private_runtime_census_grid_model_native_Git_STATE_or_canonical_actions": true,
+  "findings": [],
+  "original_execution_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "review_prose_correction": {
+    "predecessor": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-independent-review/independent-source-review.json",
+      "sha256": "87de7d0fc1c313490653d806a1cb3fdee0bfdc18c4efa18c5e871d5e4f6f2337",
+      "bytes": 5888
+    },
+    "scope": "Correct only literal source delivery ordinal147 to actual original source candidate61eb1bfe697d0e7f15831b9c23bc45322ce042e8/commit148. Qualified147-distribution dependency runtime is a separate authority; all source/review/fixture facts and approval unchanged. No controls or native actions repeated."
+  }
+}

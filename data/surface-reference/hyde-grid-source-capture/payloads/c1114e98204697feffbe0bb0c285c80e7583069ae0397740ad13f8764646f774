@@ -1,0 +1,70 @@
+{
+  "schema_version": "hyde-generated-metadata-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "5d872bd9e164d790833875b685541c779faf8c4af2ee41c88ae3aa2ccc15b15c",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/prepared-source-manifest.json",
+    "sha256": "5d872bd9e164d790833875b685541c779faf8c4af2ee41c88ae3aa2ccc15b15c",
+    "bytes": 9398
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/source-qualification.json",
+    "sha256": "be3f9bfcdd599249dc0e3f25840a0e0e8ccd7f24ee2e7aff677b1bc34829bd41",
+    "bytes": 7317
+  },
+  "recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/preparation-recipe.json",
+    "sha256": "80542089a422e0d533e1badc670691c31b5e05e4d115936d3f71e581acf500f9",
+    "bytes": 2308
+  },
+  "generated_omission_descriptor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/generated-source-omission.json",
+    "sha256": "09055e3ce3b1ee6c6475c15d6d45c421cb64cd5360c0d8d00392b22a87787624",
+    "bytes": 1163
+  },
+  "prior_independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-projection-independent-review/independent-source-review.json",
+    "sha256": "54623b3b9edcf9c21b9dfead0e152354f15408460cba0bce9e04a8656376b88a",
+    "bytes": 5424
+  },
+  "actual_previous_refusal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-projection-independent-review/actual-preparation-refusal.json",
+    "sha256": "e06cc4140d6f3037153e71dd1385605b5dc62f1454fb69a828a345f237aea0b0",
+    "bytes": 819
+  },
+  "held_custody": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-generated-metadata-independent-review/held-source-custody.json",
+    "sha256": "2cc45f2574e20e06f7a9d7907b37cbb5fee0b98980f9e88f0d882bb33968d6d6",
+    "bytes": 7996
+  },
+  "independent_controls": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-generated-metadata-independent-review/preflight/focused-controls.json",
+    "sha256": "d09e291f49ff607c2fcd0ce69a2c1263cf159222144be8ac9c9743833359dcf9",
+    "bytes": 1467
+  },
+  "reviewed_delta": [
+    "source_projection.py",
+    "prepare.py",
+    "execute.py",
+    "check_projection.py"
+  ],
+  "unchanged_python_members": 12,
+  "all_31_members_before_after_authenticated": true,
+  "AST_16_parsed": true,
+  "independent_synthetic_projection_groups": 24,
+  "independent_actual_entry_schema_cases": 4,
+  "existing_58_guards_and_strict12_style15_receipts": "Authenticated exact sealed receipts and unchanged check_controls; prior passing independent source controls reused. No unnecessary full suite repetition.",
+  "findings": [],
+  "boundary_findings": [
+    "Only explicitly shaped cache bytecode is omitted from the complete original namespace; untracked nonmatching source/resources still refuse.",
+    "The sole ignored generated Python module requires exact path/SHA/length and both exact Hatch VCS ownership/ignore configuration pins. No generated module/version/source equivalence is asserted.",
+    "All selected tracked source/resources remain copied exactly; original omitted identities remain retained in the raw source ledger and original namespaces.",
+    "Five owned metadata inputs include the original report/CSV, ownership policy, and two version-producer configuration files.",
+    "Producer remains unchanged stdlib HYDE dev consumer, with actual zero LRA/host/facade import telemetry mandatory. No LRA dependency/fallback authority is inferred.",
+    "Both failed source preparations remain historical refusals; no new private input/native/scientific result exists from this review."
+  ],
+  "resource_recipe": "Two600s stages, completed1260s and separate1280s owned-group watchdog;2GiB RSS/268MiB inclusive storage/1GiB free reserve remain unchanged. Detached descendant guarantees are not asserted.",
+  "no_actual_private_hash_ZIP_decode_runtime_census_preparer_native_model_Git_or_canonical_mutation": true,
+  "actual_future_candidate_plan_or_outcome_approved": false
+}

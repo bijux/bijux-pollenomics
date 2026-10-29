@@ -1,0 +1,37 @@
+{
+  "schema_version": "hyde-grid-capture-preparation-recipe.v1",
+  "source_only": true,
+  "prepare_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CURRENT_CLEAN_MAIN_COMMIT",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-execution-source-capture"
+  ],
+  "launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-execution-source-capture/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "working_directory": "/Users/bijan/bijux/bijux-pollenomics",
+  "root_only_order": [
+    "Reviewed source and peer hashes authenticated.",
+    "Actual metadata preparation must pass before unique registration and read-back.",
+    "Separately launch only the registered metadata job.",
+    "Collect actual assembly and independent metadata-observer receipts before any publication composition."
+  ],
+  "no_grid_producer_or_private_grid_parse_repeated": true,
+  "future_capture_SHA_or_metadata_outcome": null
+}
