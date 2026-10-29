@@ -100,7 +100,9 @@ def test_changed_source_refuses_missing_or_mismatched_historical_authority(
     if fault == "missing_detached":
         detached = set()
     elif fault == "wrong_bytes":
-        declared["bytes"] += 1
+        byte_count = declared["bytes"]
+        assert isinstance(byte_count, int)
+        declared["bytes"] = byte_count + 1
     else:
         declared["sha256"] = "0" * 64
     capsule = cast(
