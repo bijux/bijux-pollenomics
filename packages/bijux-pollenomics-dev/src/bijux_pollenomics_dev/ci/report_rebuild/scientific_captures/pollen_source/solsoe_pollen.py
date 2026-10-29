@@ -13,6 +13,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import ReportOwnershipError, _regular_confined_file
+from ...retained_source import validate_capsule
 
 CAPTURE = "data/countries/denmark/solsoe-primary-pollen-source-capture/capture.json"
 CAPTURE_SHA256 = "18201ca5a0670298415bf5b9efab574b4b60733f84f7a1149cb64dee83fccf65"
@@ -309,6 +310,26 @@ EXPECTED_COUNTS: dict[str, Any] = {
 }
 
 
+def _validate_source_transport(
+    repository: Path, prefix: str, members: dict[str, Any]
+) -> None:
+    """Validate the original logical members without embedding package source trees."""
+    detached = validate_capsule(
+        repository,
+        prefix,
+        members,
+    )
+    _exact(
+        sorted(detached),
+        sorted(
+            name
+            for name in members
+            if name.startswith("source-code/packages/")
+            or name == "source-code/configs/ci/report-ownership.json"
+        ),
+    )
+
+
 def _require(value: object, reason: str) -> None:
     if not value:
         raise ReportRebuildError("Solsø primary pollen custody: " + reason)
@@ -548,26 +569,9 @@ def validated_solsoe_pollen_capture(
         ("scope", EXPECTED_SCOPE),
     ):
         _exact(packet[key], value)
-    physical = set()
-    for physical_path in packet_path.parent.rglob("*"):
-        _require(
-            not physical_path.is_symlink()
-            and (physical_path.is_file() or physical_path.is_dir()),
-            "capsule alias or special member",
-        )
-        if physical_path.is_file():
-            physical.add(physical_path.relative_to(packet_path.parent).as_posix())
-    _exact(physical, set(EXPECTED_MEMBERS) | {"capture.json"})
     prefix = packet_path.parent.relative_to(repository).as_posix()
-    for name, wanted in EXPECTED_MEMBERS.items():
-        member = _file(repository, prefix + "/" + name)
-        _exact(
-            {
-                "sha256": hashlib.sha256(member.read_bytes()).hexdigest(),
-                "bytes": member.stat().st_size,
-            },
-            wanted,
-        )
+    _validate_source_transport(repository, prefix, EXPECTED_MEMBERS)
+
     records = [
         _json(_file(repository, prefix + "/execution/" + name))
         for name in (

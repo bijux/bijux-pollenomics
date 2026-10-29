@@ -5,17 +5,14 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
-from typing import Any, TypedDict
+from typing import Any, TypedDict, cast
 
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
-from .presentation.correspondence import (
-    PRESENTATION_SOURCE,
-    validated_presentation_source_correspondence,
-)
-from .source_correspondence import validated_metadata_source_correspondence
+from ..retained_source import validated_descriptor
+from .source_correspondence import validated_current_scientific_source
 
 CAPTURE = "data/method-certification/author-radius-source-capture/capture.json"
 CAPTURE_SHA256 = "e7d813c70f4a15befd4d99cd5ca02aa062075cad5e28081aed9aa28ec56b7e41"
@@ -23,6 +20,8 @@ EXPECTED_MEMBERS = 5382
 
 
 class ExecutionAuthority(TypedDict):
+    """Identify the retained radius execution and its declared evidence scope."""
+
     candidate: str
     plan_sha256: str
     outer_file: str
@@ -116,10 +115,15 @@ def _member_name(value: object) -> str:
     return value
 
 
-def _native_references(packet: Path, capture: JsonObject) -> None:
+def _native_references(repository: Path, packet: Path, capture: JsonObject) -> None:
     histories = _object(capture.get("original_execution_custody"))
     if set(histories) != set(EXECUTIONS):
         raise ReportRebuildError("Radius execution membership differs")
+    resolver = validated_descriptor(
+        repository,
+        Path(CAPTURE).parent.as_posix(),
+        {row["path"]: row for row in cast(list[dict[str, Any]], capture["members"])},
+    )
     for lane, spec in EXECUTIONS.items():
         root = packet / "executions" / lane
         paths = [
@@ -164,8 +168,9 @@ def _native_references(packet: Path, capture: JsonObject) -> None:
         for value in public:
             row = _object(value)
             source = packet / _member_name(row.get("captured_path"))
-            if source.stat().st_size != row.get("bytes") or hashlib.sha256(
-                source.read_bytes()
+            source_raw = resolver.read_source(source.relative_to(packet).as_posix())
+            if len(source_raw) != row.get("bytes") or hashlib.sha256(
+                source_raw
             ).hexdigest() != row.get("sha256"):
                 raise ReportRebuildError("Radius historical source bytes changed")
 
@@ -409,37 +414,21 @@ def validated_author_radius_capture(
     for raw in raw_members:
         row = _object(raw)
         name = _member_name(row.get("path"))
-        physical = _file(repository, prefix + "/" + name)
-        if (
-            name in members
-            or type(row.get("bytes")) is not int
-            or row["bytes"] < 0
-            or physical.stat().st_size != row["bytes"]
-            or hashlib.sha256(physical.read_bytes()).hexdigest() != row.get("sha256")
-        ):
-            raise ReportRebuildError(
-                "Radius source experiment retained member bytes differ"
-            )
+        if name in members:
+            raise ReportRebuildError("Duplicate retained source member")
         members[name] = row
-    physical_names: set[str] = set()
-    for physical in path.parent.rglob("*"):
-        if physical.is_symlink():
-            raise ReportRebuildError("Radius source experiment packet contains a link")
-        if physical.is_file():
-            physical_names.add(physical.relative_to(path.parent).as_posix())
-    if physical_names != set(members) | {"capture.json"}:
-        raise ReportRebuildError(
-            "Radius source experiment physical packet membership differs"
-        )
-    _native_references(path.parent, capture)
+    resolver = validated_descriptor(repository, prefix, members)
+    _native_references(repository, path.parent, capture)
     paired_producer = _file(repository, FAMILY + "paired_comparison.py")
-    captured_producer = path.parent / "executions/paired-comparison/actual-producer.py"
+    captured_producer = resolver.read_source(
+        "executions/paired-comparison/actual-producer.py"
+    )
     expected_producer = (
         "dba9fac988376d95da7b6aa802674828d410d2e70d0fcb839362084dc5d969e8"
     )
     if any(
-        hashlib.sha256(p.read_bytes()).hexdigest() != expected_producer
-        for p in [paired_producer, captured_producer]
+        hashlib.sha256(raw).hexdigest() != expected_producer
+        for raw in [paired_producer.read_bytes(), captured_producer]
     ):
         raise ReportRebuildError(
             "Radius current paired producer differs from actual owned producer"
@@ -452,14 +441,15 @@ def validated_author_radius_capture(
         )
     if len({_member_name(_object(r).get("path")) for r in projection}) != 2136:
         raise ReportRebuildError("Radius historical source projection duplicates")
-    current_metadata_correspondences = []
-    current_presentation_correspondences = []
+    current_metadata_correspondences: list[JsonObject] = []
+    current_presentation_correspondences: list[JsonObject] = []
+    current_author_profile_correspondences: list[JsonObject] = []
+    current_intake_guard_correspondences: list[JsonObject] = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
-        current = _file(repository, name)
         retained_candidates = [
-            path.parent / f"executions/{lane}/first-party-inputs/{name}"
+            f"executions/{lane}/first-party-inputs/{name}"
             for lane in EXECUTIONS
             if members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
                 "sha256"
@@ -471,22 +461,12 @@ def validated_author_radius_capture(
             == row.get("bytes")
         ]
         if type(row.get("bytes")) is not int or not retained_candidates:
-            raise ReportRebuildError("Radius retained scientific source is unbound")
-        if current.stat().st_size != row.get("bytes") or hashlib.sha256(
-            current.read_bytes()
-        ).hexdigest() != row.get("sha256"):
-            if name == PRESENTATION_SOURCE:
-                current_presentation_correspondences.append(
-                    validated_presentation_source_correspondence(
-                        repository, row, retained_candidates[0]
-                    )
-                )
-            else:
-                current_metadata_correspondences.append(
-                    validated_metadata_source_correspondence(
-                        repository, row, retained_candidates[0]
-                    )
-                )
+            raise ReportRebuildError("Retained scientific source is unbound")
+        correspondence = validated_current_scientific_source(
+            repository, row, retained_candidates[0], resolver
+        )
+        if correspondence is not None:
+            current_metadata_correspondences.append(correspondence)
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 5:
         raise ReportRebuildError("Radius needs exactly five genuine produced outputs")
@@ -577,6 +557,7 @@ def validated_author_radius_capture(
             raise ReportRebuildError(
                 "Radius source experiment retained ownership overlaps"
             )
+    resolver.fresh()
     return tuple(accepted), {
         "owner_ids": sorted(OWNERS),
         "capture_sha256": CAPTURE_SHA256,
@@ -585,13 +566,35 @@ def validated_author_radius_capture(
         },
         "report_outputs": 3,
         "authenticated_generated_paired_outputs": 2,
-        "current_scientific_projection": 2136,
+        "logical_scientific_projection": 2136,
+        "current_scientific_projection": 2136
+        - sum(
+            item.get("classification")
+            in {
+                "historical_private_control_current_absence",
+                "historical_generated_version_metadata",
+            }
+            for item in current_metadata_correspondences
+        ),
+        "historical_only_projection_roles": [
+            item
+            for item in current_metadata_correspondences
+            if item.get("classification")
+            in {
+                "historical_private_control_current_absence",
+                "historical_generated_version_metadata",
+            }
+        ],
         "current_projection_byteequal_members": 2136
         - len(current_metadata_correspondences)
-        - len(current_presentation_correspondences),
+        - len(current_presentation_correspondences)
+        - len(current_author_profile_correspondences)
+        - len(current_intake_guard_correspondences),
         "current_metadata_source_correspondences": current_metadata_correspondences,
         "current_presentation_source_correspondences": current_presentation_correspondences,
+        "current_author_profile_source_correspondences": current_author_profile_correspondences,
+        "current_intake_guard_source_correspondences": current_intake_guard_correspondences,
         "original_projection_members_retained_unchanged": 2136,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Three genuine source-bound fixed-vegetation radius products and separate generated paired2 retain fourteen exposed English sites, three methods/factors, exact195/192/3 training source custody and BECKHAM refusal. Both original execution epochs and full historicalsource/resources stay explicit; no refit/R, physicalradius, vegetation-accuracy, equal-information independent ranking, Nordic/ecological/rights/human acceptance.",
+        "scope": "Three genuine source-bound fixed-vegetation radius products and separate generated paired2 retain fourteen exposed English sites, three methods/factors, exact195/192/3 training source custody and BECKHAM refusal. Both original execution epochs and full historicalsource/resources stay explicit; no refit/R, physicalradius, vegetation-accuracy, equal-information independent ranking, Nordic/ecological/rights/human acceptance. Exact returned Nordic metadata, atlas-presentation, author-profile owner-criterion and archive-intake guard correspondences remain separate from byte-equal members; no whole-current-tree equality is claimed; historical presentation, absent retired private control, generated version metadata, named documentation and finite IO/export roles are explicitly returned.",
     }

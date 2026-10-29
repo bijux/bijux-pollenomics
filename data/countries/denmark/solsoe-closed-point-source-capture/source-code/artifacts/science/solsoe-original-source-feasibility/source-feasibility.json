@@ -1,0 +1,34 @@
+{
+  "candidate": "d027effd6c0ac91512cd586c3a51db987ea46d54",
+  "actual_exit": 0,
+  "paper": {
+    "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/solsoe/odgaard-1994.pdf",
+    "sha256": "f6959549f955a5bf17540f41ca6c295f11f584c88e550627718fc555a9c3dadd",
+    "bytes": 12519377
+  },
+  "maintained_inputs": [
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/replay.py",
+      "sha256": "ac3e31e7cbfa2932583341a3bf3597ca407614f091a59d07bbb5fa00d42e3a25",
+      "bytes": 7127
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json",
+      "sha256": "8456bf919423c4b57ed202704cc43d04b891ba98069b9ad9e0765192abf533a6",
+      "bytes": 2417
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+      "sha256": "bb84e43a97c3ac548505ad34e489c551ce44ab6c072d28aaa88bc287dbeeac84",
+      "bytes": 3908881
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+      "sha256": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558",
+      "bytes": 37052858
+    }
+  ],
+  "current_source_physically_available": true,
+  "new_producer_calls": 0,
+  "scope": "Read-only current exactpaper and input identity census. A future registered source-bound replay is runnable. Does not certify original provider HTTP/copy history, original79sample selection, georeferenced datedbasin, rights/human/scientific acceptance, or original native process."
+}

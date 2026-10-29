@@ -1,0 +1,110 @@
+{
+  "schema_version": "rootsi-source-chronology-custody-protocol.v1",
+  "purpose": "Fresh source-bound execution of two unchanged maintained canonical Rootsi workbook scripts, with separate independent raw-source observers. No earlier execution identity recovered.",
+  "canonical_source_location_required": true,
+  "canonical_source_reason": "Both scripts derive REPOSITORY from canonical __file__. They run by runpy at their actual repository locations; no flattened/copied script location or imported build() substitute.",
+  "private_root": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks",
+  "source_input_catalog": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/declared-inputs.json",
+    "sha256": "efc78c325b178620b4c36eb2ef6f89296b5bc0657546c41289173836052c5b06",
+    "bytes": 3303
+  },
+  "serialized_raw_input_shape_forensics": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/raw-source-shape.json",
+    "sha256": "582dc61b530b61e59e0123e32d28920139ec5b2960d631526a3bff5e71fd4255",
+    "bytes": 1048
+  },
+  "pure_xlrd_cache_contract": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/xlrd-cache-contract.json",
+    "sha256": "874b257f67c9e3210821274f5b72b94addfcd9c97b32ee0ede3e407c85212e57",
+    "bytes": 3665
+  },
+  "runtime_profile": {
+    "entry_argv_prefix": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B"
+    ],
+    "profile_name": "source-bound-isolated-base-with-pure-xlrd",
+    "selected_cache_root": "/Users/bijan/.cache/uv/archive-v0/czcciNXc26dXV2fP",
+    "selected_distribution": "xlrd2.0.2",
+    "cache_files": 16,
+    "cache_file_and_directory_entries": 20,
+    "RECORD_payloads": 15,
+    "RECORD_empty_self_rows": 1,
+    "WHEEL_tags": [
+      "py2-none-any",
+      "py3-none-any"
+    ],
+    "WHEEL_purelib": true,
+    "unused_cache_data_script": "xlrd-2.0.2.data/scripts/runxlrd.py has literal#!python shebang and is authenticated but never executed or installed.",
+    "path_policy": "Only exact stdlib/no-site base, owned controllers and the complete selected cache are importable; global/user/env sites and unselected147 cache paths cannot enter the native profile.",
+    "base_policy": "Full physical framework files and file/directory/link namespace, exact unused site alias, raw dependency aliases, absent/dangling python311.zip refusal; classic thin-arm64 inspector and -arch arm64 LC_ID-aware recursive closure of required native images. Unused bundled extensions are pinned, not claimed loaded.",
+    "before_after_policy": "Every original expected source/data/controller/cache pin, complete framework/cache namespace, aliases/absence and actual module/dyld origins are checked. Original expected pin unions reject conflicts and cannot repin mutated declared inputs as a baseline.",
+    "observed147_or_SOURCE3331_xlrd_authority": false,
+    "wheel_archive_byte_identity_or_installed_environment_claimed": false,
+    "Apple_system_image_scope": "Exact OS build/kernel authority; no fabricated physical shared-cache file hash."
+  },
+  "native_stage_recipe": [
+    {
+      "id": "maintained-rootsi-neotoma",
+      "script": "execute_source.py",
+      "lane": "neotoma",
+      "canonical_script": "docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py",
+      "source_argv_suffix": [
+        "--source-root",
+        "PRIVATE_ROOT",
+        "--output",
+        "NEW_OUTPUT/producer/neotoma/report.json"
+      ]
+    },
+    {
+      "id": "independent-rootsi-neotoma",
+      "script": "observe.py",
+      "lane": "neotoma",
+      "observer": "Independently decode original FLINK/STAV .xls and named rawNeotoma part8; compare exact source depths/sample IDs, calibrated point-age metadata and absent bounds, literal selected/all count axes, positive/zero/absent/ambiguous distinctions and FLINK sign discrepancy. No producer import."
+    },
+    {
+      "id": "maintained-rootsi-workbook",
+      "script": "execute_source.py",
+      "lane": "workbook",
+      "canonical_script": "docs/report/source-relations/landclim/workbook-chronology/replay.py",
+      "source_argv_suffix": [
+        "--source-root",
+        "PRIVATE_ROOT",
+        "--output",
+        "NEW_OUTPUT/producer/workbook/report.json"
+      ]
+    },
+    {
+      "id": "independent-rootsi-workbook",
+      "script": "observe.py",
+      "lane": "workbook",
+      "observer": "Independently decode all four original workbooks, exact source-age numeric cell types/rows, reversals and duplicate labels, missing age fields and literal metadata endpoint diagnostic; compare complete typed report and exact publication bytes. No source correction."
+    }
+  ],
+  "resources": {
+    "native_stage_count": 4,
+    "per_stage_timeout_seconds": 45,
+    "completed_whole_wall_seconds": 220,
+    "outer_common_launcher_timeout_seconds": 240,
+    "completed_child_peak_RSS_postcheck_bytes": 1073741824,
+    "logical_output_postcheck_bytes": 134217728,
+    "own_receipt_reserve_bytes": 16384,
+    "OS_memory_disk_quota": false,
+    "full_descendant_process_census": false,
+    "timeout_cleanup": "Authenticated owned launcher process-group kill/wait only; separate child sessions mean full descendant cleanup remains unconfirmed on outer timeout."
+  },
+  "output_policy": "Fresh normalized nonsymlink output outside controls under repository artifacts; report/receipt target aliases and special entries refuse, and all regular outputs plus final receipt reserve count toward128MiB. No overwriting existing source/output/cached payloads.",
+  "scientific_limits": [
+    "Count/depth agreement is shared source lineage, not independent chronology validation or ecological taxonomy.",
+    "1950-minus-age and integer endpoint rounding are the retained declared arithmetic diagnostics; no no-year-zero resolution, date correction, interpolation, new uncertainty or interval support. Existing0.0500001 age-label matching threshold is preserved, not widened.",
+    "FLINK sign discrepancy, HOLK reversals, RANV/STAV absence of workbook ages, negative BP coverage/refusal and source bounds remain unchanged.",
+    "No original LandClim historical-input identity, dated basin/denominator, rights, independent ground truth, human approval or LRA/event admission. Private workbook/archive/intake identities remain source custody and are not redistributed."
+  ],
+  "authority": "Independent held-source peer before root-owned source preparation, unique registry/readback and separate native launch; collect actual four-stage terminal before retained/report admission.",
+  "actual_prepare_XLS_decode_xlrd_import_R_model_native_producer_by_author": false,
+  "source_validation_profile_scope": "SOURCE3331 may run synthetic/source-only AST, strict/configured style and metadata cache controls only; it is not xlrd authority and never executes the workbook consumers.",
+  "entrypoint_import_boundary": "Before any owned helper import, all four native/preparation entrypoints require a physical entrypoint/ancestor chain and refuse every local alias/special, unexpected directory or importable .py/.pyc/.so member. Allowed helper bytes still require exact held-manifest/runtime pins; the prefix does not create a new identity authority."
+}

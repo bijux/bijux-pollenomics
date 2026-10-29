@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py", line 40, in <module>
+    source=pathlib.Path(args[0]).absolute();assert source.resolve()==source and source.is_relative_to(pathlib.Path(profile['repository'])) and source.is_file() and not any(p.is_symlink() for p in (source,*source.parents));sys.argv=[str(source),*args[1:]];runpy.run_path(str(source),run_name='__main__')
+                                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/check_contracts.py", line 411, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/check_contracts.py", line 280, in main
+    refused(
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/check_contracts.py", line 51, in refused
+    raise AssertionError("Expected guard refusal")
+AssertionError: Expected guard refusal

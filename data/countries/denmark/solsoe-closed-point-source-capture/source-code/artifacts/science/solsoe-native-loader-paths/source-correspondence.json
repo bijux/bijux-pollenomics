@@ -1,0 +1,143 @@
+{
+  "schema_version": "solsoe-native-loader-prefix-correspondence.v1",
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/prepared-source-manifest.json",
+    "sha256": "4819ff1e4eb84f95a863e633b95b6ca991a567183fb66ef88f66140db3b6d8a5",
+    "bytes": 2909
+  },
+  "predecessor_runtime_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/independent-runtime-source-review.json",
+    "sha256": "64f11a9432cfff7edc416a1ec48612263061e22e021da76648afc80ccea1e838",
+    "bytes": 7197
+  },
+  "unchanged_source_files": [
+    "contracts.py",
+    "prepare.py",
+    "run.py",
+    "observe.py",
+    "execute_source.py",
+    "common_runner.py"
+  ],
+  "changed_source_files": [
+    "runtime.py",
+    "check_contract.py"
+  ],
+  "source_rows": [
+    {
+      "name": "contracts.py",
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/contracts.py",
+        "sha256": "9e318fe5f60372ca6d5fd42a07623b47c727326790f5440a3630d8bcf2c53d9e",
+        "bytes": 17595
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/contracts.py",
+        "sha256": "9e318fe5f60372ca6d5fd42a07623b47c727326790f5440a3630d8bcf2c53d9e",
+        "bytes": 17595
+      }
+    },
+    {
+      "name": "runtime.py",
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/runtime.py",
+        "sha256": "1ab8a171ff371fcfd0ff7b1505edb3e6d4011d9d21d89fbfe5e8141fe2246ffd",
+        "bytes": 17073
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/runtime.py",
+        "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+        "bytes": 17236
+      }
+    },
+    {
+      "name": "prepare.py",
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/prepare.py",
+        "sha256": "8ef483b4051922558641e9445b215e8e566132a63341d377bbaf37b9c4159a41",
+        "bytes": 7232
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/prepare.py",
+        "sha256": "8ef483b4051922558641e9445b215e8e566132a63341d377bbaf37b9c4159a41",
+        "bytes": 7232
+      }
+    },
+    {
+      "name": "run.py",
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/run.py",
+        "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+        "bytes": 7251
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/run.py",
+        "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+        "bytes": 7251
+      }
+    },
+    {
+      "name": "observe.py",
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/observe.py",
+        "sha256": "2b17b79e5e551a49233ba48ddb223221a564e9cae3e94e984d1e501594bbe777",
+        "bytes": 6421
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/observe.py",
+        "sha256": "2b17b79e5e551a49233ba48ddb223221a564e9cae3e94e984d1e501594bbe777",
+        "bytes": 6421
+      }
+    },
+    {
+      "name": "check_contract.py",
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/check_contract.py",
+        "sha256": "339930da33919c6a03dc45458f6bb2e6bed86dd007b4f7c71dc25e1b068b2516",
+        "bytes": 19454
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/check_contract.py",
+        "sha256": "561f1bd65e1398812e87645421381aaeafbd3951c725367fd1460a31d25a0752",
+        "bytes": 21753
+      }
+    },
+    {
+      "name": "execute_source.py",
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/execute_source.py",
+        "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+        "bytes": 3027
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/execute_source.py",
+        "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+        "bytes": 3027
+      }
+    },
+    {
+      "name": "common_runner.py",
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      }
+    }
+  ],
+  "primary_qualified_loader_authority": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/source-runtime-isolated-install-custody/prepare.py",
+    "sha256": "8072c4aa05938a9d5e7902888bf0079d203777bf38a3f7c295735e295c77c4b5",
+    "bytes": 18644
+  },
+  "actual_readonly_declared_aliases": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/preflight/actual-declared-aliases.json",
+    "sha256": "2deccc51a2b7028e42357a2e0c9dac8320052c330b2b3e0d7792bea6ea92b3cd",
+    "bytes": 777
+  },
+  "scientific_contract_observer_bootstrap_and_common_runner_unchanged": true,
+  "scope": "Only the overbroad internal @-character prohibition is replaced with prefix-only loader-token semantics copied from qualified bootstrap authority. All physical target/alias binding and required dependency closure checks remain. No native selector/replay/runtime_inputs or mapped-image probe."
+}

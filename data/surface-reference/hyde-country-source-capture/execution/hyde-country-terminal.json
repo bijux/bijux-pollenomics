@@ -1,0 +1,33 @@
+{
+  "candidate": "97be88f37a117a518c8c4639ccca98927e13cb24",
+  "plan_sha256": "44666c0828ef818488f220b896e08abd3831f9b7959f9f47af34f7c4c4fc162b",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/terminal.json",
+    "sha256": "80d7bc83910576803c597b89186d0fa645984a977db767fefbb587b5a24e72d9",
+    "bytes": 7850
+  },
+  "common_actual_exit": 0,
+  "outer_timed_out": false,
+  "observed_elapsed_seconds": 2.0011819589999504,
+  "completed_whole_wall_bound_pass": true,
+  "framework_membership_unchanged": true,
+  "absent_paths_unchanged": true,
+  "actual_native_stage_exits": [
+    0,
+    0
+  ],
+  "tracked_byte_checker_exit": 0,
+  "independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/independent-source-review.json",
+    "sha256": "03786e4f5f2aa0ba9901dd447896e83b211e42ba5e751236e93c68dd4a946cf1",
+    "bytes": 100279
+  },
+  "completed_child_peak_rss_bytes_macos": 36749312,
+  "output_bytes_before_receipt": 1668169,
+  "own_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 0,
+  "scope": "Current source-reported HYDE modeled country/scenario arithmetic only. No grid source/overlay, uncertainty interval, observed vegetation, pollen covariate, CE/BP calendar conversion, official release/rights reconciliation, human/ecological or LRA acceptance.",
+  "resource_limit": "Completed-child peak RSS and logical regular output accounting; no enforced memory/disk quota or complete descendant census."
+}

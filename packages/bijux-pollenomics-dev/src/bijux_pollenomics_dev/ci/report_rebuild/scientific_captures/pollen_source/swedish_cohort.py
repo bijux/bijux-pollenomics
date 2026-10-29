@@ -11,10 +11,41 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import ReportOwnershipError, _regular_confined_file
+from ...retained_source import validate_capsule
 
 CAPTURE: Any = "data/surface-reference/swedish-cohort-source-capture/capture.json"
 CAPTURE_SHA256: Any = "a777339c3eb30ea62669b1054aea12a9363cf82d8cef57da907bb8a29727379e"
 OWNER: Any = "source-relations/neotoma/swedish-cohort-availability/source-screen"
+
+ORIGINAL_OWNER: JsonObject = {
+    "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+    "role": "unresolved",
+    "paths": [
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
+    ],
+    "producer_paths": [
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
+    ],
+    "producer_inputs": [
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json",
+    ],
+    "verification": "Replay requires --private-root: private source-manifest.json plus "
+    "seven source records, EPD source-manifest.json and 17 "
+    "metadata/age-table files. Those are not repository-confined; keep "
+    "unresolved until exact private capture custody, permission and byte "
+    "comparison are independently bound. Metadata-only refusal is not "
+    "fresh-cohort acceptance.",
+}
+CORRECTION_WITNESS = (
+    "reports/science/source-cohorts/swedish-cohort-original-acceptance.json"
+)
+CORRECTION_WITNESS_SHA256 = (
+    "8a9e26bcc8aa17431e4cb3547c702537920b464c027d2880b25930b12cbdb3d3"
+)
 REPORT: Any = (
     "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
 )
@@ -415,6 +446,7 @@ def _same(left: object, right: object) -> bool:
 
 
 def validate_report(report: dict[str, Any]) -> None:
+    """Check the retained Swedish cohort metadata and its identity refusals."""
     _require(
         report["schema_version"] == "swedish-cohort-availability.v1",
         "Report schema differs",
@@ -674,24 +706,90 @@ def validate_native_records(
                 )
 
 
+def _validate_original_owner(owners: list[JsonObject]) -> None:
+    """Require the complete original unresolved contract, including unchanged criteria."""
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    _require(len(selected) == 1, "One exact original owner required")
+    _exact(selected[0], ORIGINAL_OWNER)
+    owned_paths = ORIGINAL_OWNER["paths"]
+    assert isinstance(owned_paths, list)
+    for other in owners:
+        if other is selected[0]:
+            continue
+        paths = other.get("paths", [])
+        _require(
+            isinstance(paths, list)
+            and all(isinstance(path, str) for path in paths)
+            and not set(owned_paths).intersection(paths),
+            "Another owner overlaps current evidence paths",
+        )
+
+
+def _capture_required(repository: Path) -> bool:
+    """A published correction keeps its existing physical evidence mandatory."""
+    capture = repository / CAPTURE
+    present = bool(capture.exists() or capture.is_symlink())
+    witness = repository / CORRECTION_WITNESS
+    _require(
+        not any(node.is_symlink() for node in (witness, *witness.parents)),
+        "Original-acceptance witness ancestry alias",
+    )
+    if witness.exists() or witness.is_symlink():
+        path = _file(repository, CORRECTION_WITNESS)
+        _exact(hashlib.sha256(path.read_bytes()).hexdigest(), CORRECTION_WITNESS_SHA256)
+        _require(present, "Published partial evidence requires its exact capture")
+    return present
+
+
+DETACHED_SOURCE_MEMBERS = frozenset(
+    [
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/common_runner.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/contracts.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/custody.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/execute_source.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/metadata.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/observe.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/preflight/formatted-common-construction.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/prepare.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/run.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/runtime.py",
+        "source-code/artifacts/science/swedish-cohort-nested-source-custody/source-observer.diff",
+        "source-code/artifacts/science/swedish-cohort-source-custody/check_contracts.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/common_runner.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/contracts.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/execute_source.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/metadata.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/observe.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/preflight/check_tools.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/prepare.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/run.py",
+        "source-code/artifacts/science/swedish-cohort-source-custody/runtime.py",
+        "source-code/configs/ci/report-ownership.json",
+        "source-code/docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py",
+    ]
+)
+
+
+def _validate_source_members(repository: Path, prefix: str) -> None:
+    """Validate original identities once and detach only exact maintained source."""
+    detached = validate_capsule(repository, prefix, EXPECTED_MEMBERS)
+    _exact(sorted(detached), sorted(DETACHED_SOURCE_MEMBERS))
+
+
 def validated_swedish_cohort_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
-    """Retain one metadata source receipt without admitting a fresh physical cohort."""
-    value: Any
-    selected = [r for r in owners if r.get("owner_id") == OWNER]
-    if not selected and not (repository / CAPTURE).exists():
+    """Validate partial current evidence while original owner acceptance stays unresolved."""
+    present = _capture_required(repository)
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    if not selected and not present:
         return (), {}
-    _require(len(selected) == 1, "One exact source owner required")
-    for key, value in (
-        ("role", "retained_source"),
-        ("paths", [REPORT]),
-        ("producer_paths", []),
-        ("producer_inputs", []),
-    ):
-        _exact(selected[0][key], value)
+    _validate_original_owner(owners)
+    if not present:
+        return (), {}
     path = _file(repository, CAPTURE)
     _exact(hashlib.sha256(path.read_bytes()).hexdigest(), CAPTURE_SHA256)
     packet = _json(path)
@@ -734,25 +832,8 @@ def validated_swedish_cohort_capture(
             "producer_rerun": False,
         },
     )
-    physical = set()
-    for member in path.parent.rglob("*"):
-        _require(
-            not member.is_symlink() and (member.is_file() or member.is_dir()),
-            "Capture alias/special member",
-        )
-        if member.is_file():
-            physical.add(member.relative_to(path.parent).as_posix())
-    _exact(physical, set(EXPECTED_MEMBERS) | {"capture.json"})
     prefix = path.parent.relative_to(repository).as_posix()
-    for name, wanted in EXPECTED_MEMBERS.items():
-        member = _file(repository, prefix + "/" + name)
-        _exact(
-            {
-                "sha256": hashlib.sha256(member.read_bytes()).hexdigest(),
-                "bytes": member.stat().st_size,
-            },
-            wanted,
-        )
+    _validate_source_members(repository, prefix)
 
     def record(name: str) -> dict[str, Any]:
         return _json(_file(repository, prefix + "/execution/" + name))
@@ -831,7 +912,11 @@ def validated_swedish_cohort_capture(
         (entry.size, wanted["bytes"]),
     ):
         _exact(actual, expected)
-    return (entry,), {
+    return (), {
+        "selected_retained_entries": 0,
+        "original_owner_acceptance_discharged": False,
+        "owner_remains_unresolved": True,
+        "original_acceptance_criterion": ORIGINAL_OWNER["verification"],
         "owner_id": OWNER,
         "capture_sha256": CAPTURE_SHA256,
         "original_source_whole_exit": 1,

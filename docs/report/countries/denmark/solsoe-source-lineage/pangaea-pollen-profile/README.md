@@ -75,15 +75,13 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Matched denominator.** 66 depths×147 parameters=9702 cells;2881 positive observations+6821 zeros;totalNISP128653;129 same-name parameters+18 numeric rename candidates; zero admitted LRA samples.
 
-Qualified authored reader SHA-256: `83dd13d12cc79fd05b4ecba17cdc27f0db38eb92b77f6c8cc8a12088835fab2b`.
-
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json](report.json) (SHA-256 `e71e6ef7fb52afd2abf5540d1a003d4008e9520e58a39980296cba88d1003c2b`).
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv](samples.csv) (SHA-256 `a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010`).
 
 - [Retained qualification evidence: reports/science/source-lineage/solsoe-primary-pollen-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/solsoe-primary-pollen-source.json) (SHA-256 `144bcba6b8afe53a63dc7b571ca197047c2d57bbf0cc4535e9d3c0333bf9765c`).
 
-- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f`).
+- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

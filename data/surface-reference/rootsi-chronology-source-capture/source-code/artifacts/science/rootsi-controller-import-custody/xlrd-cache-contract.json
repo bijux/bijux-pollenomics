@@ -1,0 +1,128 @@
+{
+  "schema_version": "source-bound-pure-xlrd-cache.v1",
+  "cache_root": "/Users/bijan/.cache/uv/archive-v0/czcciNXc26dXV2fP",
+  "name": "xlrd",
+  "version": "2.0.2",
+  "entries": [
+    {
+      "path": "xlrd",
+      "kind": "directory"
+    },
+    {
+      "path": "xlrd-2.0.2.data",
+      "kind": "directory"
+    },
+    {
+      "path": "xlrd-2.0.2.data/scripts",
+      "kind": "directory"
+    },
+    {
+      "path": "xlrd-2.0.2.data/scripts/runxlrd.py",
+      "kind": "file",
+      "sha256": "47aab9d76aa43e02490c0e5715176bf1ba0afadd413fef93eb02d869ee67c144",
+      "bytes": 16060
+    },
+    {
+      "path": "xlrd-2.0.2.dist-info",
+      "kind": "directory"
+    },
+    {
+      "path": "xlrd-2.0.2.dist-info/LICENSE",
+      "kind": "file",
+      "sha256": "b5a5dbce60265e305a815a6cb83ed07f24519d8ba644f2a307994488bced8815",
+      "bytes": 3771
+    },
+    {
+      "path": "xlrd-2.0.2.dist-info/METADATA",
+      "kind": "file",
+      "sha256": "ae263dba4d616210bb2d709cd091ba453984314f79f8f50f44af864352656dec",
+      "bytes": 3513
+    },
+    {
+      "path": "xlrd-2.0.2.dist-info/RECORD",
+      "kind": "file",
+      "sha256": "04e5ce99342d631b3c476f032c510cda8df90c922d1e9fea7620b43433aeddc1",
+      "bytes": 1185
+    },
+    {
+      "path": "xlrd-2.0.2.dist-info/WHEEL",
+      "kind": "file",
+      "sha256": "5b367c7308e1f25d23b542cd8d8ab51e9afe582a824603ebfbe4d7e0fe48d56a",
+      "bytes": 110
+    },
+    {
+      "path": "xlrd-2.0.2.dist-info/top_level.txt",
+      "kind": "file",
+      "sha256": "9d9faddd273f0aa36c72d4b72fe577eaa5f00b90ee005be40758a7240a45fef3",
+      "bytes": 5
+    },
+    {
+      "path": "xlrd/__init__.py",
+      "kind": "file",
+      "sha256": "926b88133f1cbad6ad1a38d6dc499a0294c481c1e672c628d027161ffb61d8fd",
+      "bytes": 7320
+    },
+    {
+      "path": "xlrd/biffh.py",
+      "kind": "file",
+      "sha256": "1a3b41a08f4f34811d6d99864ef7c343c1ee85988b25dda87dda36aa6ba7ce60",
+      "bytes": 16651
+    },
+    {
+      "path": "xlrd/book.py",
+      "kind": "file",
+      "sha256": "d4b1f1c9631be74641230525642e14b4815e9b9cbca3c337cc00dc74f085ffce",
+      "bytes": 57527
+    },
+    {
+      "path": "xlrd/compdoc.py",
+      "kind": "file",
+      "sha256": "df191fb896cb44644c74f899541b160201a4b70ec99dafb0de9fe5713093e984",
+      "bytes": 21091
+    },
+    {
+      "path": "xlrd/formatting.py",
+      "kind": "file",
+      "sha256": "e8c87a18e33b1594e3d1c2781474a5d02568fbc227603bf6288653332704c3a4",
+      "bytes": 45573
+    },
+    {
+      "path": "xlrd/formula.py",
+      "kind": "file",
+      "sha256": "72011735609a6152b3219c1aec85b4b43702d485f352f86a25750e2fbe57a1ac",
+      "bytes": 94460
+    },
+    {
+      "path": "xlrd/info.py",
+      "kind": "file",
+      "sha256": "030b2f2f9ed9fa598a0c368205f515a24c0cc0fbc92e7f638c6b6a3fd81ebcec",
+      "bytes": 36
+    },
+    {
+      "path": "xlrd/sheet.py",
+      "kind": "file",
+      "sha256": "9a1c04a84b5e508418f632b90b25fceecb6e9363265d444e35ff3a91940c858d",
+      "bytes": 106806
+    },
+    {
+      "path": "xlrd/timemachine.py",
+      "kind": "file",
+      "sha256": "ec2b54ec563a9905bb1d23f91633352bda487cd7b1542b7f3c95c6d8cdc51007",
+      "bytes": 1757
+    },
+    {
+      "path": "xlrd/xldate.py",
+      "kind": "file",
+      "sha256": "4beb9468b5fc91ab86cb64a45ff33e4be141aaa43a1fd11f4c0569bf914c5f42",
+      "bytes": 7934
+    }
+  ],
+  "record_member_count": 16,
+  "record_hashed_payloads": 15,
+  "record_generated_empty_self_rows": 1,
+  "native_payload_count": 0,
+  "selected_module_root": "xlrd",
+  "unused_data_script": "xlrd-2.0.2.data/scripts/runxlrd.py",
+  "installed_archive_or_wheel_byte_identity_claimed": false,
+  "observed147_or_SOURCE3331_xlrd_authority_claimed": false
+}

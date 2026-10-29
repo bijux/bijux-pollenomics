@@ -11,6 +11,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import ReportOwnershipError, _regular_confined_file
+from ...retained_source import validate_capsule
 
 CAPTURE: Any = "data/surface-reference/svar-normalized-source-capture/capture.json"
 CAPTURE_SHA256: Any = "5c071b9ac12cf04b5d3d1c256fc85cf75b546392faa923afec2d68815b2e461e"
@@ -354,6 +355,29 @@ def validate_native_records(
             )
 
 
+DETACHED_SOURCE_MEMBERS = frozenset(
+    [
+        "source-code/artifacts/science/svar-source-final-census/check_contracts.py",
+        "source-code/artifacts/science/svar-source-final-census/common_runner.py",
+        "source-code/artifacts/science/svar-source-final-census/contracts.py",
+        "source-code/artifacts/science/svar-source-final-census/execute_source.py",
+        "source-code/artifacts/science/svar-source-final-census/observe.py",
+        "source-code/artifacts/science/svar-source-final-census/prepare.py",
+        "source-code/artifacts/science/svar-source-final-census/run.py",
+        "source-code/artifacts/science/svar-source-final-census/runtime.py",
+        "source-code/artifacts/science/svar-source-final-census/source-correction.diff",
+        "source-code/configs/ci/report-ownership.json",
+        "source-code/docs/report/source-relations/svar/normalized-export/verify.py",
+    ]
+)
+
+
+def _validate_source_members(repository: Path, prefix: str) -> None:
+    """Validate original identities once and detach only exact maintained source."""
+    detached = validate_capsule(repository, prefix, EXPECTED_MEMBERS)
+    _exact(sorted(detached), sorted(DETACHED_SOURCE_MEMBERS))
+
+
 def validated_svar_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -389,25 +413,8 @@ def validated_svar_capture(
         ("scope", EXPECTED_SCOPE),
     ]:
         _exact(packet[key], value)
-    physical = set()
-    for member in path.parent.rglob("*"):
-        _require(
-            not member.is_symlink() and (member.is_file() or member.is_dir()),
-            "Capture alias/special member",
-        )
-        if member.is_file():
-            physical.add(member.relative_to(path.parent).as_posix())
-    _exact(physical, set(EXPECTED_MEMBERS) | {"capture.json"})
     prefix = path.parent.relative_to(repository).as_posix()
-    for name, wanted in EXPECTED_MEMBERS.items():
-        member = _file(repository, prefix + "/" + name)
-        _exact(
-            {
-                "sha256": hashlib.sha256(member.read_bytes()).hexdigest(),
-                "bytes": member.stat().st_size,
-            },
-            wanted,
-        )
+    _validate_source_members(repository, prefix)
     records = [
         _json(_file(repository, prefix + "/execution/" + name))
         for name in [

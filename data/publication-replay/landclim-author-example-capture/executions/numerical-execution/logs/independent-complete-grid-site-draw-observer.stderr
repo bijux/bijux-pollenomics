@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-report-custody/observe.py", line 291, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-report-custody/observe.py", line 273, in main
+    result = observe(plan)
+             ^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-report-custody/observe.py", line 139, in observe
+    table("regional-cover.csv", taxa),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-report-custody/observe.py", line 135, in table
+    assert t.index.tolist() == bins and t.columns.tolist() == columns
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

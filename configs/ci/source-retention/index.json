@@ -65,6 +65,41 @@
       "descriptor": "source-transport.json",
       "sha256": "39d7d023c59056ad6bee8b0b7de842288cef72df850ef5616f6c3d78c282d061",
       "bytes": 1276747
+    },
+    "data/publication-replay/landclim-author-example-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "3753863b6f9e94cc1f3157dc04cec4058e0dcba6eaf344ebe540922c3f06bbec",
+      "bytes": 965794
+    },
+    "data/countries/denmark/solsoe-closed-point-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "50e228d0c114177099b586c5d160208ce307bc12d9b8cbb0b67465557a85b292",
+      "bytes": 4741
+    },
+    "data/countries/denmark/solsoe-primary-pollen-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "72ceb07e2f305ac45f1f0ede471c904c47694c4e982a196434285c8073a886ee",
+      "bytes": 4615
+    },
+    "data/surface-reference/svar-normalized-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "462555e59171b5c4de31a8b1e4d16aabda20f60bbea6c13f547cf6ddead8295e",
+      "bytes": 4672
+    },
+    "data/surface-reference/rootsi-chronology-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "88690cb06961e08c8c35c45e03bce434bfbcee78bbe259518cee72ede73970f0",
+      "bytes": 5467
+    },
+    "data/surface-reference/swedish-cohort-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "6a849e23f6ba466f43908650f6e0720b5cf15e1f659f84b4123b1c3f9314a18a",
+      "bytes": 7832
+    },
+    "data/surface-reference/hyde-country-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "5dec668fc931d8775077f1303674be4f3de5a1c31679e091fb3c2ef11e5a314a",
+      "bytes": 4730
     }
   },
   "source_revisions": {

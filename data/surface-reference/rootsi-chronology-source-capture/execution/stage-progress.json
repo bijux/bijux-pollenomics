@@ -1,0 +1,98 @@
+[
+  {
+    "id": "maintained-rootsi-neotoma",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+      "--lane",
+      "neotoma"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.6391709159943275,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-neotoma.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-neotoma.stderr",
+    "stdout_sha256": "b39aaaa1710ef941f3aba4c55bc496f995a6e130e11cef51ebd78b6ddb720d57",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 130629632
+  },
+  {
+    "id": "independent-rootsi-neotoma",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+      "--lane",
+      "neotoma"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.7214727909886278,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-neotoma.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-neotoma.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 130629632
+  },
+  {
+    "id": "maintained-rootsi-workbook",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+      "--lane",
+      "workbook"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.5761379589675926,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-workbook.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/maintained-rootsi-workbook.stderr",
+    "stdout_sha256": "c1e0ec443646b422c72989a154572247ee41a91a95beced8d17df3c581e25d1f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 130629632
+  },
+  {
+    "id": "independent-rootsi-workbook",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+      "--lane",
+      "workbook"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.5744612920098007,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-workbook.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-rootsi-workbook.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 130629632
+  }
+]

@@ -2255,7 +2255,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                     <span class="control-group-label">Candidate relations</span>
                     <h3>Cross-border Filters</h3>
                   </div>
-                  <span id="relation-summary" class="control-group-summary" aria-live="polite">Checking governed candidates</span>
+                  <span id="relation-summary" role="status" aria-live="polite" aria-atomic="true" class="control-group-summary">Checking governed candidates</span>
                 </summary>
                 <div class="control-group-body">
                   <label class="field-label" for="country-pair-filter"><span>Country pair</span><span>Direction-neutral</span></label>
@@ -2548,11 +2548,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const STATIC_ATLAS_CHUNKS = { nodes: [], details: [] };
       const staticAtlasLoadedAssets = new Set();
       const staticAtlasInFlightAssets = new Map();
+      const staticAtlasSearchFeatureKeys = new WeakMap();
       const STATIC_ATLAS_SCHEMAS = {
         provenance: ['atlas-provenance-chunk.v2', 'atlas-provenance-chunk.v3'],
         nodes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-node-chunk.v2'] : ['atlas-node-chunk.v1'],
         details: ['atlas-details-chunk.v1'],
-        edges: ['atlas-edges-chunk.v1'],
+        edges: ['atlas-edges-chunk.v1', 'atlas-edges-chunk.v2'],
         sequences: ['atlas-sequences-chunk.v1'],
         indexes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-static-indexes.v4'] : ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', 'atlas-static-indexes.v3', 'atlas-static-indexes.v5'],
       };
@@ -2749,7 +2750,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         'signal_layer_indexes',
         'detail_record_asset_keys',
       ]);
-      async function staticAtlasBoundedGunzip(encoded, expectedByteCount, label) {
+      function staticAtlasSearchKinds(payload) {
+        if (!Object.hasOwn(payload, 'search_index_abi')) {
+          if (Object.hasOwn(payload, 'text_search_index')) staticAtlasFailure('undeclared search index');
+          return STATIC_ATLAS_INDEX_KINDS;
+        }
+        if (payload.search_index_abi !== 'atlas-substring-postings.v1') staticAtlasFailure('unsupported search ABI');
+        return [...STATIC_ATLAS_INDEX_KINDS, 'text_search_index'];
+      }
+      async function staticAtlasBoundedGunzip(encoded, expectedByteCount, label, signal = null) {
+        signal?.throwIfAborted();
         if (typeof encoded !== 'string' || !encoded.length || encoded.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(encoded)) staticAtlasFailure(`${label} compressed payload is invalid`);
         if (typeof ReadableStream === 'undefined' || typeof DecompressionStream === 'undefined' || typeof atob === 'undefined' || typeof TextDecoder === 'undefined') staticAtlasFailure(`${label} gzip decoding support is unavailable`);
         const limit = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes, 'chunk byte budget');
@@ -2771,11 +2781,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           },
         });
         const reader = source.pipeThrough(new DecompressionStream('gzip')).getReader();
+        const cancelRead = () => { reader.cancel().catch(() => {}); };
+        signal?.addEventListener('abort', cancelRead, { once: true });
         const chunks = [];
         let actual = 0;
         try {
           while (true) {
+            signal?.throwIfAborted();
             const { done, value } = await reader.read();
+            signal?.throwIfAborted();
             if (done) break;
             actual += value.byteLength;
             if (actual > limit) {
@@ -2789,8 +2803,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             chunks.push(value);
           }
         } catch (error) {
+          signal?.throwIfAborted();
           if (error instanceof Error && error.message.startsWith('Static atlas data cannot be loaded:')) throw error;
           staticAtlasFailure(`${label} compressed payload is invalid`);
+        } finally {
+          signal?.removeEventListener('abort', cancelRead);
         }
         if (expected !== null && actual !== expected) staticAtlasFailure(`${label} decoded byte count mismatch`);
         const decoded = new Uint8Array(actual);
@@ -2817,12 +2834,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const referenceCount = payload.reference_count;
         if (!shardCount || payload.shards.length !== shardCount) staticAtlasFailure(`${row.asset_key} shard count mismatch`);
         if (referenceCount !== staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`)) staticAtlasFailure(`${row.asset_key} reference count mismatch`);
+        const kinds = staticAtlasSearchKinds(payload);
         let previousKindIndex = -1;
         const seenKinds = new Set();
         payload.shards.forEach((shard, index) => {
           const label = `${row.asset_key} shard ${index + 1}`;
           if (!shard || typeof shard !== 'object' || shard.shard_number !== index + 1) staticAtlasFailure(`${label} sequence is invalid`);
-          const kindIndex = STATIC_ATLAS_INDEX_KINDS.indexOf(shard.index_kind);
+          const kindIndex = kinds.indexOf(shard.index_kind);
           if (kindIndex < 0 || kindIndex < previousKindIndex) staticAtlasFailure(`${label} kind ordering is invalid`);
           previousKindIndex = kindIndex;
           seenKinds.add(shard.index_kind);
@@ -2832,7 +2850,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (!/^[a-f0-9]{64}$/.test(String(shard.payload_sha256 || ''))) staticAtlasFailure(`${label} payload digest is invalid`);
           if (typeof shard.payload_gzip_base64 !== 'string' || !shard.payload_gzip_base64) staticAtlasFailure(`${label} compressed payload is missing`);
         });
-        if (STATIC_ATLAS_INDEX_KINDS.some((kind) => !seenKinds.has(kind))) staticAtlasFailure(`${row.asset_key} index shard kind is missing`);
+        if (kinds.some((kind) => !seenKinds.has(kind))) staticAtlasFailure(`${row.asset_key} index shard kind is missing`);
         return payload.shards;
       }
       async function staticAtlasDecodeIndexShard(row, shard, components = false) {
@@ -2889,6 +2907,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           time_interval_feature_indexes: [],
           signal_layer_indexes: Object.create(null),
           detail_record_asset_keys: Object.create(null),
+          ...(payload.search_index_abi ? {search_index_abi:payload.search_index_abi,text_search_index:Object.create(null)} : {}),
         };
         const previousKeys = new Map();
         const componentEnds = new Map();
@@ -2938,6 +2957,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               if (entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0] || typeof entry[1] !== 'string' || !entry[1]) staticAtlasFailure(`${label} is malformed`);
               assertOrderedUnique(kind, [entry[0]], label);
               merged.detail_record_asset_keys[entry[0]] = entry[1];
+            } else if (kind === 'text_search_index') {
+              if (entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0]) staticAtlasFailure(`${label} search entry is invalid`);
+              assertOrderedUnique(kind, [entry[0]], label);
+              merged.text_search_index[entry[0]] = entry[1];
             } else staticAtlasFailure(`${label} kind is unsupported`);
           });
         });
@@ -2947,6 +2970,56 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         ) + Object.keys(merged.detail_record_asset_keys).length;
         if (referenceCount !== payload.reference_count) staticAtlasFailure(`${row.asset_key} merged reference count mismatch`);
         return merged;
+      }
+      function validateStaticAtlasEdgeAssets(payload) {
+        if (payload.schema_version !== STATIC_ATLAS_BOOTSTRAP.compatibility?.edge_schema) staticAtlasFailure('edge compatibility schema mismatch');
+        if (payload.schema_version === 'atlas-edges-chunk.v1') {
+          if (Object.hasOwn(payload, 'endpoint_node_assets') || Object.hasOwn(payload, 'endpoint_node_geometry')) staticAtlasFailure('legacy edge endpoint assets are undeclared');
+          return new Map();
+        }
+        const references = payload.endpoint_node_assets, geometry = payload.endpoint_node_geometry;
+        if (!references || typeof references !== 'object' || Array.isArray(references) || !geometry || typeof geometry !== 'object' || Array.isArray(geometry)) staticAtlasFailure('edge endpoint assets or geometry are missing');
+        const endpoints = new Set(payload.records.flatMap(edge => [edge.source_record_id, edge.target_record_id]));
+        for (const rows of [references, geometry]) {
+          if ([...endpoints].some(id => typeof id !== 'string' || !id) || Object.keys(rows).length !== endpoints.size || Object.keys(rows).some(id => !endpoints.has(id))) staticAtlasFailure('edge endpoint asset membership is incomplete');
+        }
+        const nodeRows = new Map();
+        for (const row of STATIC_ATLAS_BOOTSTRAP.assets) {
+          if (row.domain !== 'nodes' || row.layer_kind !== 'point') continue;
+          if (nodeRows.has(row.asset_key)) staticAtlasFailure('edge endpoint asset is duplicated');
+          nodeRows.set(row.asset_key, row);
+        }
+        for (const recordId of endpoints) {
+          const keys = references[recordId], hints = geometry[recordId];
+          if (!Array.isArray(keys) || !keys.length || keys.some((key, index) => typeof key !== 'string' || !nodeRows.has(key) || (index > 0 && keys[index - 1] >= key))) staticAtlasFailure('edge endpoint asset references are invalid or foreign');
+          if (!Array.isArray(hints) || !hints.length) staticAtlasFailure('edge endpoint geometry is incomplete');
+          const declared = new Set(keys), found = new Set();
+          let previous = null;
+          for (const hint of hints) {
+            if (!hint || Object.keys(hint).sort().join('|') !== 'asset_key|feature_index|latitude|longitude' || !declared.has(hint.asset_key) || !Number.isSafeInteger(hint.feature_index) || hint.feature_index < 0 || (previous && (hint.asset_key < previous.asset_key || (hint.asset_key === previous.asset_key && hint.feature_index <= previous.feature_index)))) staticAtlasFailure('edge endpoint geometry reference is invalid');
+            found.add(hint.asset_key);
+            previous = hint;
+          }
+          if (found.size !== declared.size) staticAtlasFailure('edge endpoint geometry asset membership is incomplete');
+        }
+        return nodeRows;
+      }
+      function validateLoadedStaticAtlasEdgeAssets() {
+        const edges = STATIC_ATLAS_CHUNKS.edges;
+        if (!edges || edges.schema_version !== 'atlas-edges-chunk.v2') return;
+        const loaded = new Map();
+        for (const part of STATIC_ATLAS_CHUNKS.nodes) {
+          const positions = new Map(part.feature_indexes.map((position, index) => [position, part.features[index]]));
+          if (positions.size !== part.feature_indexes.length) staticAtlasFailure('edge endpoint node positions are duplicated');
+          loaded.set(part.asset_key, positions);
+        }
+        for (const [recordId, hints] of Object.entries(edges.endpoint_node_geometry)) {
+          for (const hint of hints) {
+            if (!loaded.has(hint.asset_key)) continue;
+            const feature = loaded.get(hint.asset_key).get(hint.feature_index);
+            if (!feature || feature.record_id !== recordId || JSON.stringify(feature.latitude ?? null) !== JSON.stringify(hint.latitude) || JSON.stringify(feature.longitude ?? null) !== JSON.stringify(hint.longitude)) staticAtlasFailure('edge endpoint geometry differs from its node record');
+          }
+        }
       }
       function validateStaticAtlasPayload(row, payload) {
         if (!payload || typeof payload !== 'object') staticAtlasFailure(`${row.asset_key} payload is invalid`);
@@ -2961,16 +3034,22 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (payload.features.length !== row.record_count || payload.layer_key !== row.layer_key || payload.layer_index !== row.layer_index || payload.layer_kind !== row.layer_kind) staticAtlasFailure(`${row.asset_key} layer accounting mismatch`);
         }
         if ((row.domain === 'edges' || row.domain === 'sequences') && (!Array.isArray(payload.records) || payload.records.length !== row.record_count)) staticAtlasFailure(`${row.asset_key} record accounting mismatch`);
+        if (row.domain === 'edges') validateStaticAtlasEdgeAssets(payload);
         if (row.domain === 'details' && (!Array.isArray(payload.records) || payload.records.length !== row.record_count || payload.records.some((record) => !record || typeof record.record_id !== 'string'))) staticAtlasFailure(`${row.asset_key} detail accounting mismatch`);
         if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.scientific_signals) || (payload.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(payload.detail_records)))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
         staticAtlasTemporalIdentity(payload, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
+        if (row.domain === 'indexes' && payload.search_index_abi !== STATIC_ATLAS_BOOTSTRAP.compatibility?.search_index_abi) staticAtlasFailure('search compatibility ABI mismatch');
         if (row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)) staticAtlasIndexShardEnvelopes(row, payload);
       }
-      async function consumeStaticAtlasAsset(row) {
+      async function consumeStaticAtlasAsset(row, signal = null, fetchedEnvelope = null) {
+        signal?.throwIfAborted();
         if (staticAtlasLoadedAssets.has(row.asset_key)) return;
-        const matches = STATIC_ATLAS_RAW_CHUNKS.filter((candidate) => candidate.asset_key === row.asset_key);
+        const matches = fetchedEnvelope === null
+          ? STATIC_ATLAS_RAW_CHUNKS.filter((candidate) => candidate.asset_key === row.asset_key)
+          : [fetchedEnvelope];
         if (matches.length !== 1) staticAtlasFailure(`${row.asset_key} script did not register exactly once`);
         const envelope = matches[0];
+        if (envelope.asset_key !== row.asset_key) staticAtlasFailure(`${row.asset_key} registered identity mismatch`);
         if (envelope.payload_sha256 !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} declared payload digest mismatch`);
         const payloadEncoding = row.payload_encoding || 'json';
         if ((envelope.payload_encoding || 'json') !== payloadEncoding) staticAtlasFailure(`${row.asset_key} payload encoding mismatch`);
@@ -2980,14 +3059,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           payloadJson = envelope.payload_json;
         } else if (payloadEncoding === 'gzip_base64') {
           if (typeof envelope.payload_gzip_base64 !== 'string') staticAtlasFailure(`${row.asset_key} compressed payload is missing`);
-          payloadJson = await staticAtlasBoundedGunzip(envelope.payload_gzip_base64, row.decoded_byte_count ?? null, row.asset_key);
+          payloadJson = await staticAtlasBoundedGunzip(envelope.payload_gzip_base64, row.decoded_byte_count ?? null, row.asset_key, signal);
         } else {
           staticAtlasFailure(`${row.asset_key} payload encoding is unsupported`);
         }
+        signal?.throwIfAborted();
         const decodedByteCount = new TextEncoder().encode(payloadJson).byteLength;
         if (decodedByteCount > Number(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes)) staticAtlasFailure(`${row.asset_key} decoded payload exceeds its byte budget`);
         if (row.decoded_byte_count !== undefined && decodedByteCount !== row.decoded_byte_count) staticAtlasFailure(`${row.asset_key} decoded byte count mismatch`);
         if (await staticAtlasSha256(payloadJson) !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} payload integrity mismatch`);
+        signal?.throwIfAborted();
         let payload;
         try {
           payload = JSON.parse(payloadJson);
@@ -2998,15 +3079,25 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const acceptedPayload = row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)
           ? await staticAtlasMergeIndexShards(row, payload)
           : payload;
+        signal?.throwIfAborted();
         if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
         else if (row.domain === 'details') STATIC_ATLAS_CHUNKS.details.push(payload);
         else STATIC_ATLAS_CHUNKS[row.domain] = acceptedPayload;
         staticAtlasLoadedAssets.add(row.asset_key);
       }
-      function loadStaticAtlasAsset(row) {
+      function loadStaticAtlasAsset(row, selectionOwned = false) {
         if (staticAtlasLoadedAssets.has(row.asset_key)) return Promise.resolve();
-        if (staticAtlasInFlightAssets.has(row.asset_key)) return staticAtlasInFlightAssets.get(row.asset_key);
-        const promise = new Promise((resolve, reject) => {
+        const existing = staticAtlasInFlightAssets.get(row.asset_key);
+        if (existing) {
+          if (!selectionOwned) existing.retained = true;
+          return existing.promise;
+        }
+        const cancellable = selectionOwned && row.domain === 'nodes'
+          && ['http:', 'https:'].includes(window.location.protocol);
+        const operation = { controller: cancellable ? new AbortController() : null, retained: !selectionOwned, promise: null };
+        const request = cancellable
+          ? fetchStaticAtlasNodeAsset(row, operation.controller.signal)
+          : new Promise((resolve, reject) => {
           const script = document.createElement('script');
           script.src = `./${row.path}`;
           if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
@@ -3018,10 +3109,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           script.addEventListener('load', () => consumeStaticAtlasAsset(row).then(resolve, reject), { once: true });
           script.addEventListener('error', () => reject(new Error(`Static atlas data cannot be loaded: ${row.asset_key} request failed. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`)), { once: true });
           document.head.appendChild(script);
-        }).finally(() => staticAtlasInFlightAssets.delete(row.asset_key));
-        staticAtlasInFlightAssets.set(row.asset_key, promise);
-        return promise;
+        });
+        operation.promise = request.finally(() => {
+          if (staticAtlasInFlightAssets.get(row.asset_key) === operation) staticAtlasInFlightAssets.delete(row.asset_key);
+        });
+        staticAtlasInFlightAssets.set(row.asset_key, operation);
+        return operation.promise;
       }
+      __SELECTION_LOADING_CONTROLLER__
       if (!STATIC_ATLAS_INLINE) {
         validateStaticAtlasBootstrap();
         for (const row of STATIC_ATLAS_BOOTSTRAP.assets.filter((candidate) => candidate.initial_load === true)) {
@@ -3043,7 +3138,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           .filter((part) => part.layer_kind === layerKind)
           .forEach((part) => {
             const current = partsByLayer.get(part.layer_index) || [];
-            part.features.forEach((feature, index) => current.push([part.feature_indexes[index], feature]));
+            part.features.forEach((feature, index) => {
+              if (part.layer_kind === 'point') staticAtlasSearchFeatureKeys.set(feature, `d:${part.layer_index}:${part.feature_indexes[index]}`);
+              current.push([part.feature_indexes[index], feature]);
+            });
             partsByLayer.set(part.layer_index, current);
           });
         return [...STATIC_ATLAS_CHUNKS.provenance.layers]
@@ -4733,20 +4831,44 @@ __URL_STATE_CONTROLLER__
         const [south, west, north, east] = row.bounds.map(Number);
         return north >= bounds.getSouth() && south <= bounds.getNorth() && east >= bounds.getWest() && west <= bounds.getEast();
       }
+      function staticAtlasNodeSelectionNeeded(row) {
+        const layer = staticAtlasLayerForRow(row);
+        return Boolean(layer && activeLayerKeys.has(layer.key)
+          && staticAtlasCountryNeeded(row, layer) && staticAtlasTimeNeeded(row, layer)
+          && staticAtlasSignalNeeded(row, layer));
+      }
+      function requiredStaticAtlasEdgeNodeKeys() {
+        if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.schema_version === 'atlas-edges-chunk.v1') return new Set();
+        const edges = STATIC_ATLAS_CHUNKS.edges, nodeRows = validateStaticAtlasEdgeAssets(edges);
+        const result = new Set();
+        for (const edge of visibleGovernedEdges()) {
+          const source = edges.endpoint_node_geometry[edge.source_record_id].filter(hint => staticAtlasNodeSelectionNeeded(nodeRows.get(hint.asset_key)));
+          const target = edges.endpoint_node_geometry[edge.target_record_id].filter(hint => staticAtlasNodeSelectionNeeded(nodeRows.get(hint.asset_key)));
+          const intersects = !map._loaded || source.some(left => {
+            const a = featureCoordinatePair(left);
+            return a && target.some(right => {
+              const b = featureCoordinatePair(right);
+              return b && atlasEdgeIntersectsViewport(map, [[a.latitude, a.longitude], [b.latitude, b.longitude]]);
+            });
+          });
+          if (intersects) [...source, ...target].forEach(hint => result.add(hint.asset_key));
+        }
+        return result;
+      }
       function requiredStaticAtlasNodeAssets() {
         if (STATIC_ATLAS_INLINE) return [];
+        const endpointKeys = requiredStaticAtlasEdgeNodeKeys();
         const required = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => {
           if (row.domain !== 'nodes' || staticAtlasLoadedAssets.has(row.asset_key)) return false;
-          const layer = staticAtlasLayerForRow(row);
-          return Boolean(
-            layer
-            && activeLayerKeys.has(layer.key)
-            && staticAtlasCountryNeeded(row, layer)
-            && staticAtlasTimeNeeded(row, layer)
-            && staticAtlasSignalNeeded(row, layer)
-            && staticAtlasViewportNeeded(row)
-          );
+          return staticAtlasNodeSelectionNeeded(row)
+            && (endpointKeys.has(row.asset_key) || staticAtlasViewportNeeded(row));
         });
+        if (Object.hasOwn(STATIC_ATLAS_BOOTSTRAP.compatibility || {}, 'search_index_abi')) {
+          if (STATIC_ATLAS_BOOTSTRAP.compatibility.search_index_abi !== 'atlas-substring-postings.v1') staticAtlasFailure('unsupported search ABI');
+          const indexes = STATIC_ATLAS_BOOTSTRAP.assets.filter(row => row.domain === 'indexes');
+          if (indexes.length !== 1) staticAtlasFailure('published search index is missing or duplicated');
+          if (!staticAtlasLoadedAssets.has(indexes[0].asset_key)) required.push(indexes[0]);
+        }
         const interactionRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget');
         if (required.length > interactionRequestBudget) staticAtlasFailure(`selection requires ${required.length} requests, above the interaction budget`);
         const requiredBytes = required.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
@@ -4768,8 +4890,17 @@ __URL_STATE_CONTROLLER__
         }
       }
       async function ensureStaticAtlasSelectionLoaded() {
-        const required = requiredStaticAtlasNodeAssets();
-        await Promise.all(required.map((row) => loadStaticAtlasAsset(row)));
+        let required;
+        try {
+          required = requiredStaticAtlasNodeAssets();
+        } catch (error) {
+          beginStaticAtlasSelection([]);
+          throw error;
+        }
+        const signal = beginStaticAtlasSelection(required);
+        await waitForStaticAtlasSelection(Promise.all(required.map((row) => loadStaticAtlasAsset(row, true))), signal);
+        signal.throwIfAborted();
+        validateLoadedStaticAtlasEdgeAssets();
         refreshStaticAtlasLayers();
         return required;
       }
@@ -5604,9 +5735,14 @@ __URL_STATE_CONTROLLER__
         crossBorderOnlyCheckbox.checked = crossBorderOnly;
         countryPairFilter.innerHTML = '<option value="all">All country pairs</option>' + COUNTRY_PAIR_KEYS.map((key) => `<option value="${escapeHtml(key)}" ${activeCountryPair === key ? 'selected' : ''}>${escapeHtml(key.replace('|', ' ↔ '))}</option>`).join('');
         relationSummary.textContent = available
-          ? `${visibleGovernedEdges().length} of ${GOVERNED_EDGE_ELIGIBILITY_COUNT} governed candidates visible · ${sequencePosture}`
+          ? `${visibleGovernedEdges().length} of ${GOVERNED_EDGE_ELIGIBILITY_COUNT} governed candidates visible to filters (admitted denominator) · Showing ${edgeRenderSummary.shown} of ${edgeRenderSummary.viewport_count} loaded display-eligible viewport candidates (display limit ${edgeRenderSummary.limit}) · ${sequencePosture}${edgeRenderSummary.shown < edgeRenderSummary.viewport_count ? ' · Zoom in or narrow country and signal filters to inspect other candidates.' : ''}`
           : `Candidates unavailable: ${STATIC_ATLAS_INLINE ? 'governed_map_edge_model_not_available' : STATIC_ATLAS_CHUNKS.edges.reason_code} · ${sequencePosture}`;
         relationSummary.dataset.sequenceStatus = STATIC_ATLAS_INLINE ? 'unavailable' : STATIC_ATLAS_CHUNKS.sequences.status;
+        relationSummary.dataset.filterMatchedCandidateCount = String(visibleGovernedEdges().length);
+        relationSummary.dataset.admittedCandidateCount = String(GOVERNED_EDGE_ELIGIBILITY_COUNT);
+        relationSummary.dataset.renderedCandidateCount = String(edgeRenderSummary.shown);
+        relationSummary.dataset.viewportCandidateCount = String(edgeRenderSummary.viewport_count);
+        relationSummary.dataset.renderLimit = String(edgeRenderSummary.limit);
       }
       function selectSourceChronologyLevel(level) {
         const layer = sourceChronologyLayerForLevel(level);
@@ -6599,17 +6735,23 @@ __URL_STATE_CONTROLLER__
         }
         return merged;
       }
+      let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
+      __EDGE_DISPLAY_CONTROLLER__
       function renderEdgeLayers() {
+        edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
         if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.status !== 'available') return;
         const entriesByRecordId = new Map(
           visiblePointEntries
             .filter((entry) => entry.feature.record_id)
             .map((entry) => [String(entry.feature.record_id), entry])
         );
-        visibleGovernedEdges().forEach((edge) => {
-          const source = entriesByRecordId.get(String(edge.source_record_id));
-          const target = entriesByRecordId.get(String(edge.target_record_id));
-          if (!source || !target) return;
+        const selection = atlasEdgeRenderSelection(
+          visibleGovernedEdges(), entriesByRecordId,
+          map._loaded ? map.getZoom() : 0, featureCoordinatePair,
+          map._loaded ? (coordinates) => atlasEdgeIntersectsViewport(map, coordinates) : null
+        );
+        edgeRenderSummary = { shown: selection.rows.length, viewport_count: selection.viewport_count, limit: selection.limit };
+        selection.rows.forEach(({ edge, source, target }) => {
           const signal = scientificSignalById(edge.signal_id);
           const color = signal ? signal.color : '#6d28d9';
           const presentation = edgeScientificPresentation(edge);
@@ -6841,11 +6983,11 @@ __URL_STATE_CONTROLLER__
         topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${focalPoints.length} visible ${focalPoints.length === 1 ? 'point' : 'points'}`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
       }
+      __SEARCH_INDEX_CONTROLLER__
       function buildSearchResults() {
         const query = searchInput.value.trim().toLowerCase();
         searchClearButton.hidden = !query;
-        const focalCount = visiblePointEntries.filter(({ neighborContext }) => !neighborContext).length;
-        const neighborCount = visiblePointEntries.length - focalCount;
+        const {focalCount, neighborCount} = publishedSearchCounts();
         if (!query) {
           searchCount.textContent = neighborCount
             ? `${focalCount} focal ${focalCount === 1 ? 'point' : 'points'} and sites · ${neighborCount} labeled neighbor context`
@@ -6854,7 +6996,7 @@ __URL_STATE_CONTROLLER__
           searchResults.innerHTML = '';
           return;
         }
-        const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''} ${featureTimeLabel(feature)}`.toLowerCase().includes(query)).slice(0, 12);
+        const matches = publishedSearchResults(query);
         searchCount.textContent = neighborCount
           ? `${matches.length} matches · ${focalCount} focal visible · ${neighborCount} neighbor context`
           : `${matches.length} matches · ${focalCount} visible`;
@@ -6926,6 +7068,7 @@ __URL_STATE_CONTROLLER__
         renderLegend();
         renderControlPanelSummary();
         updateStats();
+        preparePublishedSearch();
         buildSearchResults();
         renderFocusCard();
         syncPresetButtons();

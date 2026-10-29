@@ -1,0 +1,2 @@
+   user  system elapsed 
+ 94.511   0.095  94.912 

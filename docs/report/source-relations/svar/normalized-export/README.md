@@ -108,15 +108,13 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Matched denominator.** 40,565 normalized export lake claims versus 40,523 review source lakes; 99 derived features; 2 live feature identity checks; 0 admitted candidates; 42 is net count difference.
 
-Qualified authored reader SHA-256: `db5f18e581407bcf154d670c5b8aabff58008d08514910c149f8674a8b99283b`.
-
 - [Retained qualification evidence: docs/report/source-relations/svar/normalized-export/report.json](report.json) (SHA-256 `ab082b7899ce947b7bef8c0f8c58fc030aed79b54ee14edf50c81bf5e18f9baf`).
 
 - [Retained qualification evidence: docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json](../../../countries/sweden/sweden_lake_evidence_richness_v66.json) (SHA-256 `52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596`).
 
 - [Retained qualification evidence: reports/science/source-lineage/svar-normalized-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/svar-normalized-source.json) (SHA-256 `dd03a001e5d03e442b0805d7f09adf3e81fc3424e65d5bada651bd996522cbf9`).
 
-- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

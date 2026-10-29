@@ -1,0 +1,55 @@
+{
+  "schema_version": "solsoe-native-loader-source-qualification.v1",
+  "candidate_context": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+  "source_only_native_exit": 0,
+  "synthetic_source_guard_groups": 30,
+  "reused_runtime_source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/source-qualification.json",
+    "sha256": "ade91b74a60ce269f46dc64bd0026f88201eff896fa5aa4eb21a5197edec0f21",
+    "bytes": 2686
+  },
+  "unchanged_source_files": [
+    "contracts.py",
+    "prepare.py",
+    "run.py",
+    "observe.py",
+    "execute_source.py",
+    "common_runner.py"
+  ],
+  "changed_strict_file_count": 2,
+  "changed_strict_exit": 0,
+  "configured_ruff_file_count": 7,
+  "configured_ruff_exit": 0,
+  "configured_format_exit": 0,
+  "ast_file_count": 8,
+  "ast_exit": 0,
+  "receipts": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/preflight/guards.log",
+      "sha256": "b7c3a148240495d09023649eb43d9195d6e04b8e96eb7529823d5ceb5af93607",
+      "bytes": 129
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/preflight/strict.log",
+      "sha256": "f9b031e5c45aa702cd4fef028d465551cb20a2c4698e0913c7b00766b20ac4d8",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/preflight/alias-final-style.log",
+      "sha256": "d3d4a4f118ad59577988bea41ce64ccde8da7dc7c6dc24af60a19c9f92719c97",
+      "bytes": 149
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/preflight/actual-declared-aliases.json",
+      "sha256": "2deccc51a2b7028e42357a2e0c9dac8320052c330b2b3e0d7792bea6ea92b3cd",
+      "bytes": 777
+    }
+  ],
+  "source_validation_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "actual_native_preparation_or_dependency_commands_or_source_replay": false,
+  "scope": "30direct pure/synthetic groups including actual readonly OpenSSL/XZ alias/file identity and unknown-prefix rejection, no native image load/otool/candidate preparation or scientific data consumer. Two changed modules strict and all seven configured style qualify on cachedSOURCE3331; sixother controllers retain exact prior bytes."
+}

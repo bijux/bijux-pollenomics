@@ -1,0 +1,83 @@
+{
+  "eligible_sites": 15,
+  "interpretation": "Previously exposed English examples; fixed LRA vegetation, regional cover, PPE and training fits. This is forward transport sensitivity, not refitted LRA, radius calibration, vegetation accuracy or Swedish admission.",
+  "prediction_freeze_sha256": "ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44",
+  "prediction_rows": 126,
+  "refused_site": "author:BECKHAM",
+  "schema_version": "author-lra-forward-radius-score.v1",
+  "scored_rows": 126,
+  "scored_sites": 14,
+  "site_macro": [
+    {
+      "method": "training_mean",
+      "radius_factor": 0.8,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.3609746822576999,
+      "site_macro_mae_fraction": 0.026396023079702506
+    },
+    {
+      "method": "training_mean",
+      "radius_factor": 1.0,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.360670746249841,
+      "site_macro_mae_fraction": 0.02627346588785666
+    },
+    {
+      "method": "training_mean",
+      "radius_factor": 1.2,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.36192722874537175,
+      "site_macro_mae_fraction": 0.026245842408424237
+    },
+    {
+      "method": "nearest_site",
+      "radius_factor": 0.8,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.2834145800296385,
+      "site_macro_mae_fraction": 0.020959781546937273
+    },
+    {
+      "method": "nearest_site",
+      "radius_factor": 1.0,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.28600092782526004,
+      "site_macro_mae_fraction": 0.02113240872089993
+    },
+    {
+      "method": "nearest_site",
+      "radius_factor": 1.2,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.29121030238030854,
+      "site_macro_mae_fraction": 0.021490954650517445
+    },
+    {
+      "method": "inverse_distance_squared",
+      "radius_factor": 0.8,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.2839756761536012,
+      "site_macro_mae_fraction": 0.021032462124696057
+    },
+    {
+      "method": "inverse_distance_squared",
+      "radius_factor": 1.0,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.2854152891664471,
+      "site_macro_mae_fraction": 0.02108766351731813
+    },
+    {
+      "method": "inverse_distance_squared",
+      "radius_factor": 1.2,
+      "scored_sites": 14,
+      "site_macro_hellinger_distance": 0.2898248005261767,
+      "site_macro_mae_fraction": 0.021456528648245887
+    }
+  ],
+  "source": {
+    "experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+    "prediction_manifest_sha256": "56bc555a2373fb16c291e6fb9dc50cc43b5f99f7b03dc6e516c00c14d953329f",
+    "predictions_sha256": "3d4d35af48d90c767075815e82c20215d54e6a7702e78e9209dc35e32437c3bd",
+    "preparations_sha256": "88ad23cf88aec3d785cdd325ce79bc3989b16e5fec47f31e6f58c14dc4d25ab2",
+    "producer_sha256": "081e556c044dc652e0f59edaf39d32410e0b24d0388a1dea77f8503f8edb0187",
+    "source_report_sha256": "e89867dd2baebe347c18256c094281162ac9107f5d5a862fe090d0b28f86b7dc"
+  }
+}

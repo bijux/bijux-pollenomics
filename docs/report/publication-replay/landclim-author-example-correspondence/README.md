@@ -1,32 +1,22 @@
 # LandClim II author-example correspondence
 
-The [row-level ledger](paper-correspondence.csv), [generated report](REPORT.md)
-and [numerical summary](report.json) retain 14,074 supported fractional mean/SE
-pairs from the genuinely completed original-author-R/current-source-Python
-calculation on the 17 example sites. All pairs pass the original source
-tolerances. Maximum residuals are 1.83881e-13 for means
-and 7.15331e-14 for standard errors.
+The [row-level ledger](paper-correspondence.csv), [generated report](REPORT.md), and [numerical summary](report.json) compare the installed LRA publication profile with an independent exact author-R replay on the 17 author sites in grids 512 and 562. All 14,074 supported fractional cover and standard-error values pass the declared source tolerances. Maximum absolute residuals are 1.83881e-13 for means and 7.15331e-14 for standard errors. The 25-bin source profile has unavailable site-bins, which the report counts separately.
 
-The [source manifest](manifest.json) binds numerical source commit
-`e282e08d796528488b438edd3ea661fb94b97b5d`, the saved numerical observer and
-the separate maintained ledger writer on
-`e1ca9def55e7cd3e68ac6f20270059e743373251`. The corrected saved-ledger observer
-returned zero; its terminal SHA-256 is
-`71d5f761f80e074d30fb1b13c4c0d53a3d34c86f9d5fa3dfa9e045bfb1ffbf45`.
-Earlier whole-job and observer failures remain unchanged. The historical
-`9dd1` raw receipt is unavailable and supplies no current proof; this is a
-new execution epoch without historical file-byte identity claims.
+The [source and output manifest](manifest.json) records the producer and the original retained run. The original CSV was newline-normalized for the repository; the generated Markdown and JSON retain their original bytes. The current producer writes LF line endings directly. Replaying from the retained original candidate and author-R reference reproduces all three governed files byte for byte. An [independent R/native execution](../landclim-example-reexecution/README.md) produced the same row-level CSV and generated Markdown. Its JSON differs only in the reference receipt digest because that R execution has a new receipt.
 
-Source pollen counts establish 184 available and 241 unavailable site-bins.
-Original R zeros outside support are placeholders, while Python retains
-missing values. Both are excluded from the comparison. Shared bootstrap
-indices retain original site IDs. The [scientific account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/author-example-reexecution.md)
-explains the source/runtime boundary, two-grid result and remaining limits.
+Replay the governed correspondence from the original candidate and author-R reference retained in the private source store:
 
-This is not the full 1,128-record historical study, independent vegetation
-accuracy, Nordic transfer, redistribution-rights clearance or human approval.
-The manifest names the actual saved run and reference directories; a future
-intentional replay must use that exact source epoch or retain a new receipt.
+```sh
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+  NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
+  PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
+  .venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_example_correspondence \
+  --run ../bijux-pollenomics-data/landclim/two-grid-process/run/run001 \
+  --reference ../bijux-pollenomics-data/landclim/author-reference/reference \
+  --output artifacts/jobs/author-example-correspondence/replay
+```
+
+This is two author grids, not the complete historical paper input set or a vegetation validation.
 
 
 <!-- scientific-account-route:begin -->
@@ -57,6 +47,8 @@ Published-product versus released-author-example correspondence, not authenticat
 - [Retained qualification evidence: docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv](paper-correspondence.csv) (SHA-256 `1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029`).
 
 - [Retained qualification evidence: docs/report/publication-replay/landclim-author-example-correspondence/manifest.json](manifest.json) (SHA-256 `ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef`).
+
+- [Retained qualification evidence: reports/science/publication-correspondence/author-grid-retained-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/author-grid-retained-source.json) (SHA-256 `550701277e3e1b6a5146751cab32a731b98f31d54cd6666a762c83310f592919`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

@@ -32,6 +32,8 @@ Published-product versus released-author-example correspondence, not authenticat
 
 - [Retained qualification evidence: docs/report/publication-replay/landclim-example-reexecution/report.json](report.json) (SHA-256 `4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f`).
 
+- [Retained qualification evidence: reports/science/publication-correspondence/author-grid-retained-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/author-grid-retained-source.json) (SHA-256 `550701277e3e1b6a5146751cab32a731b98f31d54cd6666a762c83310f592919`).
+
 - [Canonical scientific account: reports/science/publication-correspondence/author-example-reexecution.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/author-example-reexecution.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.

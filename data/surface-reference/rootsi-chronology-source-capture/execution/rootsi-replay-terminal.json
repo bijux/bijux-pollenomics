@@ -1,0 +1,35 @@
+{
+  "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+  "plan_sha256": "7d4324376456c356c2a2efff38f1d2e70ebd1a1edcffa86ccc3394c5d5f06322",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/terminal.json",
+    "sha256": "9d652edc652be73c97d7b8c880f0d28c7fdede361b650fef8ed7fbf977f77924",
+    "bytes": 12341
+  },
+  "common_actual_exit": 0,
+  "outer_timed_out": false,
+  "observed_elapsed_seconds": 3.9232026250101626,
+  "completed_whole_wall_bound_pass": true,
+  "framework_membership_unchanged": true,
+  "absent_paths_unchanged": true,
+  "actual_native_stage_exits": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "tracked_byte_checker_exit": 0,
+  "independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/independent-source-review.json",
+    "sha256": "bc5ad009fb9a0f58662c4b888f3551d12a77f772594ec3c55225516146ccc6d8",
+    "bytes": 1819
+  },
+  "completed_child_peak_rss_bytes_macos": 130629632,
+  "output_bytes_before_receipt": 1999324,
+  "own_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 0,
+  "scope": "Two current canonical private Rootsi workbook source replays and independent raw-workbook/Neotoma observers. Declared1950-minus-age and0.0500001 comparison are retained arithmetic diagnostics, not a calendar/no-year-zero conversion or source correction. Literal pollen-name/count/depth agreement establishes shared source lineage, not independent chronology, ecological taxonomy, historical LandClim input identity, uncertainty, dated basin, rights/human or LRA acceptance. STAV/RANV absent workbook ages and FLINK sign discrepancy remain; no raw workbook redistribution, source acquisition, interpolation, model or R. A distinct source-bound pure-xlrd cache is used, not observed147/SOURCE3331 runtime authority.",
+  "resource_limit": "Completed-child peak RSS and logical regular output accounting; no enforced memory/disk quota or complete descendant census."
+}

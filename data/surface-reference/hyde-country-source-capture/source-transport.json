@@ -1,0 +1,109 @@
+{
+  "schema_version": "git-retained-source.v1",
+  "capture": {
+    "name": "capture.json",
+    "sha256": "bd7d37efaa8839af0e3997707e760a8c0b12cd053881549464a50e94638cea20",
+    "bytes": 1271992
+  },
+  "historical_native_epochs": [
+    "97be88f37a117a518c8c4639ccca98927e13cb24"
+  ],
+  "source_revision_correspondence": [
+    {
+      "historical_source_commit": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "source_revision": "484fd110a3a0785c264a26a4d84bcccf12a8439e"
+    },
+    {
+      "historical_source_commit": "4fff6aaf546f2ffc05f21bd5f103284e4e0f0312",
+      "source_revision": "a6dacc8d48210226db72ef23e92970855d0fc72d"
+    },
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "95f9889b79652cc06086ddfd22128d195ff10479"
+    },
+    {
+      "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
+      "source_revision": "3bece1dc8f7a5e230e6cdc7cf17032d4a755679f"
+    }
+  ],
+  "git_groups": [
+    {
+      "historical_source_commit": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "source_revision": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "member_count": 1,
+      "git_entries_sha256": "20a289a1d5a5ac1292c7da739b78dc9e87288c9f3117830b4650f0fab4878259",
+      "paths": [
+        [
+          "source-code/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "4fff6aaf546f2ffc05f21bd5f103284e4e0f0312",
+      "source_revision": "a6dacc8d48210226db72ef23e92970855d0fc72d",
+      "git_entries_sha256": "32cd0c1aaa443434272948064999aeb77c62650007a3b9a0f4e6ba02a3078523",
+      "member_count": 1,
+      "paths": [
+        [
+          "source-code/configs/ci/report-ownership.json",
+          "configs/ci/report-ownership.json"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "95f9889b79652cc06086ddfd22128d195ff10479",
+      "member_count": 8,
+      "git_entries_sha256": "38038e4c557f98bdb39d8d4d6f0b5e52db84ac9dedd34c64a9d04702fb14297d",
+      "paths": [
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/check_contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/hyde_country/contracts/check_contracts.py"
+        ],
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/hyde_country/contracts/contracts.py"
+        ],
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/execute_source.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/hyde_country/execution/execute_source.py"
+        ],
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/metadata.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/hyde_country/inputs/metadata.py"
+        ],
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/observe.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/hyde_country/observation/observe.py"
+        ],
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/prepare.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/hyde_country/preparation/prepare.py"
+        ],
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/run.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/hyde_country/execution/run.py"
+        ],
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/runtime.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/runtime/isolated_profile.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
+      "source_revision": "3bece1dc8f7a5e230e6cdc7cf17032d4a755679f",
+      "member_count": 1,
+      "git_entries_sha256": "d91df2252ee35730e46c630958e8f4c0f57b72fb7597943d250ebbe448f25b87",
+      "paths": [
+        [
+          "source-code/artifacts/science/hyde-country-source-custody/common_runner.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/execution/report_consumer.py"
+        ]
+      ]
+    }
+  ],
+  "generated_members": [],
+  "rewritten_source_epoch_executed": false
+}

@@ -1,0 +1,39 @@
+{
+  "candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+  "actual_maintained_CLI": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "-m",
+    "bijux_pollenomics_dev.essd_reproduction.author_example_correspondence",
+    "--run",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison",
+    "--reference",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-correspondence/source-products"
+  ],
+  "actual_exit": 0,
+  "products": {
+    "REPORT.md": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-correspondence/source-products/REPORT.md",
+      "sha256": "07565129d2d5aac5de919cc822997e2c79419c2585b66c600f158f9411fb57ef",
+      "bytes": 1172
+    },
+    "manifest.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-correspondence/source-products/manifest.json",
+      "sha256": "ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef",
+      "bytes": 5998
+    },
+    "paper-correspondence.csv": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-correspondence/source-products/paper-correspondence.csv",
+      "sha256": "1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029",
+      "bytes": 1820977
+    },
+    "report.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-correspondence/source-products/report.json",
+      "sha256": "efcfce2e75ea4c98367e22bd8f0d4d28e123776b52436bef2e966f615f4b16bc",
+      "bytes": 19161
+    }
+  },
+  "R_model_comparator_executed": false
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "rootsi-source-chronology-source-qualification.v1",
+  "source_only_actual_exit": 0,
+  "meaningful_guard_groups": 49,
+  "strict_source_files": 9,
+  "configured_Ruff_source_files": 9,
+  "configured_format_source_files": 9,
+  "AST_source_files": 10,
+  "actual_exits": {
+    "guards": 0,
+    "strict": 0,
+    "configured_Ruff": 0,
+    "configured_format": 0,
+    "AST": 0
+  },
+  "checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/preflight/guards.log",
+      "sha256": "55d5df4eed27943e3044de0d1891c33ef1dcb9150e03feae778683a617c9fd36",
+      "bytes": 146
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/preflight/strict.log",
+      "sha256": "46984ca20bf69f7b14ec1fd9bd82101d56a4e109e68f016fd2a04f22481b09b3",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/preflight/final-style.log",
+      "sha256": "8da41606701af2ea674df060105fe53bd5bd5ec0dfc88c96f7d8b333989ed8d0",
+      "bytes": 64
+    }
+  ],
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/cache_contract.py",
+      "sha256": "48200bbef762f3d98c00ca17ff3d6419dbf08dc0b7038af254fadad067ebf607",
+      "bytes": 4682
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/check_contracts.py",
+      "sha256": "e4dbcfe6de797ffa128a6f9eac82040e87a5357a7d268a8546a77e16419bec32",
+      "bytes": 12944
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/contracts.py",
+      "sha256": "ff1043e52af1cc2798d83d6dd987220295741710152705cb4cf1d2400ec1ec85",
+      "bytes": 5819
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/execute_source.py",
+      "sha256": "adb7c1ef7a065cc7d34307d6abf0767627196d5bdde1ca02f60fe9f63339d0e9",
+      "bytes": 3620
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/independent.py",
+      "sha256": "e10d3e45d9f03c1730f75c1006e83e079797440e3f67d81d0298395a53157fc0",
+      "bytes": 12675
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/observe.py",
+      "sha256": "17f371b04ca121da626fb8f52c4f2c724186fe57d4d73f33133a667501df5f31",
+      "bytes": 8441
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/prepare.py",
+      "sha256": "7d360fb7a77accadec547d36da8fb4c3f355d894491e6ef852bacf2be23c3819",
+      "bytes": 8392
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/run.py",
+      "sha256": "895a686ad8d382913b12fea630f224bc2c62b3998b4b47484b06eb1a5d26cd1d",
+      "bytes": 7357
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/runtime.py",
+      "sha256": "e4e8317940c5160ce938b24a351cb96d4f7b5ceb31836bfa0583e566ab94f568",
+      "bytes": 18846
+    }
+  ],
+  "source_profile_for_tools_only": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "cached_xlrd_source_contract": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/xlrd-cache-contract.json",
+    "sha256": "874b257f67c9e3210821274f5b72b94addfcd9c97b32ee0ede3e407c85212e57",
+    "bytes": 3665
+  },
+  "observed147_or_SOURCE3331_xlrd_authority_claimed": false,
+  "cache_original_payloads_and_membership_unchanged_after_controls": true,
+  "source_input_type_forensics": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/raw-source-shape.json",
+    "sha256": "582dc61b530b61e59e0123e32d28920139ec5b2960d631526a3bff5e71fd4255",
+    "bytes": 1048
+  },
+  "source_input_forensics_scope": "Exact13 source/data file identities and selected serialized raw-Neotoma field types only. No source workbook was decoded and no numerical/source comparison was executed.",
+  "retained_base_runtime_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/runtime.py",
+    "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+    "bytes": 17236
+  },
+  "common_launcher": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/common_runner.py",
+    "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+    "bytes": 6924
+  },
+  "typed_runtime_authority": "The original native closure/no-site code is source reused and adapted for the distinct fully pinned pure-xlrd cache. Actual cache import/native closure/current process observations are reserved for root preparation and native execution, not established by source checks.",
+  "preserved_initial_refusals": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/preflight/module-origin-typing-refusal.log",
+      "sha256": "adb052c4922cce0dba47e5cebf1c5e71d34cbb5702c55bc9d1c6f46e80d1e4f3",
+      "bytes": 330
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/preflight/cache-guard-local-typing-refusal.log",
+      "sha256": "0d8ba7d86217ad47ff43a11ee87cf339a8be974776a84ac0e84c10ef7b917675",
+      "bytes": 2844
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/preflight/owned-origin-control-refusal.log",
+      "sha256": "cdc79e60a40497eb1b6ea5e492a82e76b78d9b83e1c5d2bc7d3dfa8d468ba6d9",
+      "bytes": 1444
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-source-chronology-custody/preflight/style-construction.log",
+      "sha256": "8cb468b09f954ac9e05180d2270ec92201adf071bbbab48ab6ea81e142cb79f1",
+      "bytes": 551
+    }
+  ],
+  "initial_refusal_explanation": "Added explicit non-null module-file assertion and distinct local variable naming for strict typing. A synthetic origin under the intentionally allowed/pinned owned source was correctly accepted; corrected that negative to an unselected outside path. Formatter/import-order adjustments are source-only. No numerical/parser/tolerance/source-scope guard or strict rule was disabled.",
+  "actual_preparer_XLS_decode_xlrd_import_native_inspection_R_model_or_producer_calls": 0,
+  "scope": "Artifact-only source protocol/controller qualification; no installed environment, runtime result, source production or scientific acceptance inferred."
+}
