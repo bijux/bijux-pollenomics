@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Retain temporal-window and spatial development evidence through scoped saved-result readers ([#285](https://github.com/bijux/bijux-pollenomics/pull/285)).
+- **Pending review:** Retain keyed categorical, integer and Boolean SEAD source components and their dated publications ([#287](https://github.com/bijux/bijux-pollenomics/pull/287)).
+- **Verified merge (2026-10-29 21:34:08 UTC):** Retain temporal-window and spatial development evidence through scoped saved-result readers ([#285](https://github.com/bijux/bijux-pollenomics/pull/285)).
 - **Verified merge (2026-10-29 20:54:21 UTC):** Publish native map assets, isolate provider failure profiles and authenticate bounded historical Atlas source roles ([#284](https://github.com/bijux/bijux-pollenomics/pull/284)).
 - **Verified merge (2026-10-29 20:09:28 UTC):** Retain pollen development, withheld-fold and input-isolation evidence through scoped scientific readers ([#283](https://github.com/bijux/bijux-pollenomics/pull/283)).
 - **Verified merge (2026-10-29 19:52:26 UTC):** Authenticate retained source accounting, selected counts, Sweden observations and optimizer input evidence while withholding incomplete aDNA publications ([#282](https://github.com/bijux/bijux-pollenomics/pull/282)).
