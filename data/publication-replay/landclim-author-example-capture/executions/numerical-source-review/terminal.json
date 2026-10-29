@@ -1,0 +1,1071 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+  "plan_sha256": "a17d914be6bbc138b0b5e95b9328375ba4776f1e5eaebd5bd04f81184d16ad40",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 58.58414212503703,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/plan.json",
+    "--registered-plan-sha256",
+    "a17d914be6bbc138b0b5e95b9328375ba4776f1e5eaebd5bd04f81184d16ad40"
+  ],
+  "canonical_before": {
+    "candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+    "status": "",
+    "tracked_inventory_sha256": "a0afb5431161f69dc6362fe024c8502b3d1248c310b6780be25e396ddcaaee64"
+  },
+  "canonical_after": {
+    "candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+    "status": "",
+    "tracked_inventory_sha256": "a0afb5431161f69dc6362fe024c8502b3d1248c310b6780be25e396ddcaaee64"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "independent-saved-author-grid-output-and-report-review",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-source-site-review/review.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/plan.json"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 50.00279237498762,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/independent-saved-author-grid-output-and-report-review.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/independent-saved-author-grid-output-and-report-review.stderr",
+      "stdout_sha256": "c2a7fe9fac35d2aae53217b2bee30da548e37221136fab9ee0b0ccb795561741",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 477462528
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/independent-review.json",
+      "sha256": "5c0186d8f36fc65ec640222efcdc242a76be34ed0bb47780345e715ba1fa958a",
+      "bytes": 21150
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/independent-saved-author-grid-output-and-report-review.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/independent-saved-author-grid-output-and-report-review.stdout",
+      "sha256": "c2a7fe9fac35d2aae53217b2bee30da548e37221136fab9ee0b0ccb795561741",
+      "bytes": 284
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/plan.json",
+      "sha256": "a17d914be6bbc138b0b5e95b9328375ba4776f1e5eaebd5bd04f81184d16ad40",
+      "bytes": 65927176
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/availability.csv",
+      "sha256": "48d57b3930c0960c12d9bf99fbcff882957c5cd4da0a11f0d07dad544030584a",
+      "bytes": 1460
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/bootstrap-indices.json",
+      "sha256": "d223a37328da85bab3a64af5e4e59c2bfee9155086979ca4c5fad23904853803",
+      "bytes": 1068271
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/checksums.json",
+      "sha256": "731501f4f5efa824f74c129a2a6618b8a7fd4039339145f7c7ab2a2eb9a20b1c",
+      "bytes": 7281
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/diagnostics.json",
+      "sha256": "4f8ebaf1d5b56b6afd86f635c77ca5e20f78215f618069765b204b1b432c33fc",
+      "bytes": 483
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-0.csv",
+      "sha256": "cfce9aa0d87770b69f45ce7c8471b9e4139a58bd0b2e6b6372b8e24a456d81f5",
+      "bytes": 499996
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-1.csv",
+      "sha256": "6c5d9ee402e01c908ffbafd4f28ba4fada7abcccb00fac85bdf2af3168b3194a",
+      "bytes": 543371
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-10.csv",
+      "sha256": "439d11d927033eae852eac12068c27ca4697ae26a8818b5352ba3ca8c9fea252",
+      "bytes": 439206
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-11.csv",
+      "sha256": "a7039448618dca96d79cba9037ff98d013ad686678fd0907038b8a4ce5cbe2b2",
+      "bytes": 441181
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-12.csv",
+      "sha256": "2bd93edad5c93eca92bd874bc793feee1b35a6b939dac8617514adb04a73ad43",
+      "bytes": 438645
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-13.csv",
+      "sha256": "91da10ab40313d528645a75713580abbf03ee83becb152729982c6c91750b1ba",
+      "bytes": 421405
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-14.csv",
+      "sha256": "e4389da9425dfc546a7324d4abbb8c4febc416d0939d8938a5516c986fa0a95d",
+      "bytes": 383299
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-15.csv",
+      "sha256": "9272307e53a3cef2079e4f08fc12d5405f186504305889c41f22ab5d6b823dec",
+      "bytes": 373389
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-16.csv",
+      "sha256": "c72f3e20fba7a244a5181c34d4e6c840cf968628a390e6343aed2ab9c7e58427",
+      "bytes": 364972
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-2.csv",
+      "sha256": "ce654c913b28166db82fe347e30b4c877f8108309b76a68c8717b412ab36808a",
+      "bytes": 509306
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-3.csv",
+      "sha256": "8de565835eb9098070d1ad258e694f0e5a27da44638ce385ed778ffe2cc3e46f",
+      "bytes": 519993
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-4.csv",
+      "sha256": "9dece2ded57b7f9dca0178046ce780969da7801582aa1416601233de55e3817d",
+      "bytes": 522038
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-5.csv",
+      "sha256": "032bea7d71935ad51ad64997b68c3cffe42c6969ca47d751afdaf80101d971d0",
+      "bytes": 494087
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-6.csv",
+      "sha256": "0d7604b7642390735c63ccf243c3eda4994c827ce20cd7272a239c6c8a862b23",
+      "bytes": 492761
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-7.csv",
+      "sha256": "3ba520c5f5bd722167bc85b70928b79a64b67321198e6f18a02855f7baf71547",
+      "bytes": 466753
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-8.csv",
+      "sha256": "e95a25600b22ac535a1d175e07d1a726866aa46c8a739848f7070df675a80e23",
+      "bytes": 469686
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/bin-9.csv",
+      "sha256": "468c1b309e912a9ca0d19e359344bc305480a8d1d7789562819702324097f579",
+      "bytes": 460651
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover-draws/index.json",
+      "sha256": "32400044a739174dad99ffe4b302f03931bd76741d9bcbdaa4c3b4299b51d163",
+      "bytes": 13640
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-cover.csv",
+      "sha256": "661f6b1a4aa18972456d30fa1f7a966d4ef3581667a862340e52c05789e62903",
+      "bytes": 9036
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/regional-standard-error.csv",
+      "sha256": "62ea9a42e7480394be9bff60af5017c573cdbcc9fe01afca245bd8968218673a",
+      "bytes": 9185
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/run-manifest.json",
+      "sha256": "9a96e95f060865c85be8af06f4b3928dd26c8756c4d79c3aed777bf0298b30fa",
+      "bytes": 5103
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-0/cover.csv",
+      "sha256": "c78546e193d4f8ff55597017d686459af33945c1eb8b1430804b5fe80abac6b8",
+      "bytes": 7076
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-0/deposition.csv",
+      "sha256": "f9c5d2090f9da06dbe66e0d1bf02a963f1e16ca1b46580165c6147e77e877ca8",
+      "bytes": 10548
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-0/standard-error.csv",
+      "sha256": "3007a9ec46f0f5b30b70a1909bffdbac1d4e9d9c13a3c650896a6589870bb4d9",
+      "bytes": 7156
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-1/cover.csv",
+      "sha256": "50b5beac62692a0d787ee532808c5f11f19e5e9e71cc70095bb618d675d5e433",
+      "bytes": 5900
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-1/deposition.csv",
+      "sha256": "fe33a0ddd80ce3329e5cfc19fd8b24ae30a6a57dbbdfbe4b1002adb3b67ee897",
+      "bytes": 8164
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-1/standard-error.csv",
+      "sha256": "5aa478a4c8139daada07df1507959195de2a0258009e2b9531a0ba9ea0fd399e",
+      "bytes": 5962
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-2/cover.csv",
+      "sha256": "53114655643546d0abd25ad48b6056fad7ead190a562daa65a807e06c91114b5",
+      "bytes": 6894
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-2/deposition.csv",
+      "sha256": "ff2fc9929ddae2f8825367672dae69eeaaf6743be9e5322e04834c1e63088e9c",
+      "bytes": 10276
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-2/standard-error.csv",
+      "sha256": "85577dad4d5124bc59969c57a36571e94af305fdc12fe4ab015f0622211e2b8e",
+      "bytes": 6988
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-3/cover.csv",
+      "sha256": "becaa7e89e02fdfcf7e8ae8cf78ca67366e37148e47ce1e4ae1b42a0cb08e99f",
+      "bytes": 4303
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-3/deposition.csv",
+      "sha256": "9b5f50c99d8ca7b604e66ce96e6656cb30f29228c4b27dc6835e312b4b543061",
+      "bytes": 5122
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-3/standard-error.csv",
+      "sha256": "5005584dba0a9573e5a2988901015b3727e1557f865b1ce50b72ab25b6ba9b9a",
+      "bytes": 4361
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-4/cover.csv",
+      "sha256": "b4ffcc8a7b7c5dd3b0dc6d2b001390ae6528b220ada3a93571f9e1be1c8f5e13",
+      "bytes": 4254
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-4/deposition.csv",
+      "sha256": "99cee07caaac7c107cd03f56daf7b3595d5592f8006192781d83408a402fd450",
+      "bytes": 5101
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-4/standard-error.csv",
+      "sha256": "08e5ed9695fc2ce7f79786fe4a6d283225b7d7958c54fd528f8dc20c7268eb9e",
+      "bytes": 4304
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-5/cover.csv",
+      "sha256": "871b670c83f0659a85bd9904ee7dfae64da96df620450ee9f97fb08da1b88fce",
+      "bytes": 3497
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-5/deposition.csv",
+      "sha256": "7ddce3d3a5dbb36e7f15d0c987cc66a9e0595e7947ec7fda305af215ba4beacc",
+      "bytes": 5652
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-5/standard-error.csv",
+      "sha256": "167dcd1875059e8d6185ce64e1bae25becd1086ee3ff76a7fad9fab821281e12",
+      "bytes": 3516
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-6/cover.csv",
+      "sha256": "6f8dd9d3b9e796b36fdb99603c044cf66fd7983ef431422806c519a59609f5be",
+      "bytes": 2749
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-6/deposition.csv",
+      "sha256": "fe93cba97a18c6819a5c6821ad2326dba403faf6632c62fc5671ff2c36f94ea3",
+      "bytes": 3476
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-6/standard-error.csv",
+      "sha256": "2dc919fa04dd7e8dff75b8562fb1da5921923c4f2ff14ad31c0b9aa25e7f37f7",
+      "bytes": 2784
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-7/cover.csv",
+      "sha256": "59685b2852d770637a321a226e12697c56627afbc9950951f694e222ad2c7b03",
+      "bytes": 4173
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-7/deposition.csv",
+      "sha256": "9b5f50c99d8ca7b604e66ce96e6656cb30f29228c4b27dc6835e312b4b543061",
+      "bytes": 5122
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-7/standard-error.csv",
+      "sha256": "62d6aba80294d2437221c03a04394594bfac16fa84a8978293f05fdf01ffe003",
+      "bytes": 4216
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-8/cover.csv",
+      "sha256": "284f2692f6df4f106377f95f34e47f896569e56d0ccba416ac046ac63f9ac421",
+      "bytes": 7824
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-8/deposition.csv",
+      "sha256": "6300e5cd8aa92947b4538323be55d427cbcd08acbfe534705a381c2e73b55e61",
+      "bytes": 10412
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-8/standard-error.csv",
+      "sha256": "315a2f16e217e1778ec790ec4fc2182aa920ed2fa14fd41d0da6e02988201d37",
+      "bytes": 7925
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-count.csv",
+      "sha256": "09fbd83642d018c8364966b1701ce792124a35a98ab47d11497e5443298fa097",
+      "bytes": 193
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/512/site-index.json",
+      "sha256": "09eaf3d89d2c13e18797e1efacc8976e84a0ac698c05c8bec6538fb8e4de7c18",
+      "bytes": 510
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/availability.csv",
+      "sha256": "50bfdfbcdcd7ceedaae9fd6e9f2eeae4639b649417db66771aa774af48aa7d05",
+      "bytes": 1321
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/bootstrap-indices.json",
+      "sha256": "284376ceb8c3f2dca686dbaeeadd29d7c520d295858f88069c5a2af2c4749c0e",
+      "bytes": 957303
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/checksums.json",
+      "sha256": "28a34501bf2413a7c23c9a060363877683b6779a45ebb165cc43185a437831b8",
+      "bytes": 7168
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/diagnostics.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-0.csv",
+      "sha256": "a4751639023a8d10f8a07ca43b963b3df4d885fbd60d1b4cb961b4f0bb42ae82",
+      "bytes": 493183
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-1.csv",
+      "sha256": "5884bd7a31d7d54f390da33ffbf26d9a9bcc11ed5cd07ff40f93ec2a55f4c334",
+      "bytes": 483411
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-10.csv",
+      "sha256": "2fb6848f38ff8a7f6a065e31d5f4fbc6a1f1d8e4f2a4852950a219a57119979b",
+      "bytes": 416394
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-11.csv",
+      "sha256": "b6fd007930283697da2c4896513919e2ea2d452eeb153b50607582f7dba7fbb4",
+      "bytes": 426781
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-12.csv",
+      "sha256": "4d9aa7883596f438045cb93d96ff9904d70ecd5ca9a47400b43746e372ba08c1",
+      "bytes": 376109
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-13.csv",
+      "sha256": "ae2e5b6a5bc783b5c9e44e60856a3ed760c955ec424fd29e6c1000cfebff3142",
+      "bytes": 386314
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-14.csv",
+      "sha256": "b5b205e004e29329e9585f9daeccf3ad4fc13fd1d6dee1bb2f69ff30dc70eb2e",
+      "bytes": 365744
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-15.csv",
+      "sha256": "ad2881be79de729099f49c34d5a215b2e0c2caf249d2548e9be3c09030eefd4d",
+      "bytes": 401897
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-16.csv",
+      "sha256": "8b153df1d04224a4e2033abc09164f59ff95bc69dd7a85e769dbd804a0e7178e",
+      "bytes": 397344
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-17.csv",
+      "sha256": "5b84695933082aec21aa6db9bbf1974ad858d1b4ce603e3b972a7f3d27d74de1",
+      "bytes": 382979
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-18.csv",
+      "sha256": "529fbcbd50ba18bb4ff558c198e0de41eb09bb6f22af71d2d468dc4dafe5201f",
+      "bytes": 355362
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-2.csv",
+      "sha256": "26985c33d8eac4c782844c5e3bfeac83b0992aac173e88168685dd17b3ac4232",
+      "bytes": 519005
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-3.csv",
+      "sha256": "177170efeda93a4f74594854ad21aa3f63f98bdec66ce8820392d44ffbb87b1e",
+      "bytes": 507572
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-4.csv",
+      "sha256": "c9d42eb5df6e0d3f2ff27eaa9b03a8ba6f0109ed36dfedaccb166bc658229ba5",
+      "bytes": 513912
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-5.csv",
+      "sha256": "a9f913e352c1c405197450f7a62eb3c880c0ac2d758e50bf8c790f52993bdc1e",
+      "bytes": 488461
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-6.csv",
+      "sha256": "053ff2d89400c9cacfab01dc24380db7c61528dc3d29a133d4b0679fe757931d",
+      "bytes": 488261
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-7.csv",
+      "sha256": "06ffd60c26b1b6049162242f4f2bf36a7ad0c1745e1cea384e0878ee158e4f3e",
+      "bytes": 496172
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-8.csv",
+      "sha256": "b0ebe850db35924f9695a944f1823a7804ad3cf26c3b32d3467522266aad3e31",
+      "bytes": 496686
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/bin-9.csv",
+      "sha256": "1fd5272ceb9946ada21df04f4add1024792169a24c407ed1339e0a8b7942af02",
+      "bytes": 481996
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover-draws/index.json",
+      "sha256": "f50e8687291438aa4f10c31b8e90773eabfd612039f49faa9c477d5d49bb111d",
+      "bytes": 15246
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-cover.csv",
+      "sha256": "c42debce20467db4c5f8d884200d0be936eb28d7892a68e35d5d71bef3c83d29",
+      "bytes": 11451
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/regional-standard-error.csv",
+      "sha256": "73350cae8b058ca176a59d3c83b9182f85fd188f857b10b80918929df2956720",
+      "bytes": 11647
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/run-manifest.json",
+      "sha256": "33aae0479ab9f7783717c973a7487ce7a0b0e266571684ecb01f2053a1cfca67",
+      "bytes": 5093
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-0/cover.csv",
+      "sha256": "66b5f64b82d5f6e64ed6fd359667011bd54d8c2c89538a41fbd29d636478b08a",
+      "bytes": 5318
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-0/deposition.csv",
+      "sha256": "9adea8c37862f081f034e7660e54ae7e4ce0ff482d82ed928cb5acec0171fe12",
+      "bytes": 7284
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-0/standard-error.csv",
+      "sha256": "0c9b164c9f0974e24dc30794ef97f4383f171bb9c84759a5c58f1e8cb4a48d6c",
+      "bytes": 5383
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-1/cover.csv",
+      "sha256": "4cb9f5ae8f790cc407f8f4d3a9891cda287582f97022546935e9da6b85b4a885",
+      "bytes": 6332
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-1/deposition.csv",
+      "sha256": "a8f5cb058a9ab244af9bc57e4239b0f4819951ecb5797e03d88d3c44fae53c48",
+      "bytes": 9940
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-1/standard-error.csv",
+      "sha256": "a5faab1b99fc915d5939285906c836a29842b998ac98c3eea5d67b09a300efa1",
+      "bytes": 6400
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-2/cover.csv",
+      "sha256": "dbd973e3eac6dfb457aa9baaf1bcbc6644c1706f991c76abfb20f6eda9cdc1e7",
+      "bytes": 4757
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-2/deposition.csv",
+      "sha256": "0c5876c2c975b72645add782b1565f113822c07c754439b26b180c8ac69b84c6",
+      "bytes": 6700
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-2/standard-error.csv",
+      "sha256": "c250eab39489902e6cc6f30c51b98d922ca000975d56207f8e43a2e0001f8dfa",
+      "bytes": 4835
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-3/cover.csv",
+      "sha256": "421d7331eda5d795551968bf8bbb7d0a4a692615f3da275fed20edc51bcf5f9a",
+      "bytes": 5136
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-3/deposition.csv",
+      "sha256": "edcc392868af56013574a793a9afeee3780981c8a7317635d0fb58329a1893ac",
+      "bytes": 6187
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-3/standard-error.csv",
+      "sha256": "acf6d4cfcfc76180901524efcc5975f7f8f5cdc92f871df6be7b1c6cb01e4f2a",
+      "bytes": 5213
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-4/cover.csv",
+      "sha256": "3aaece1e80409df4e5e24aae27fe8a893988f364bb8f4b9c179beb96680bd848",
+      "bytes": 4421
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-4/deposition.csv",
+      "sha256": "7ec2239c04760305090f0f1198da024da1a0dcfb5426ef0997ed097d0d524f07",
+      "bytes": 6115
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-4/standard-error.csv",
+      "sha256": "84fcde11954d6a95437e37846852eb24e5e2c5dc611bf20e7a29967e69ee811c",
+      "bytes": 4447
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-5/cover.csv",
+      "sha256": "81e445d40b6820b57f9b9c01c8179d4ffe079cb5519dd3726f99b5d3821125ff",
+      "bytes": 7110
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-5/deposition.csv",
+      "sha256": "c25f79791a8c72f90afbb0b1f35f6b7a71b94e3277b3101e45ede41813e1b16d",
+      "bytes": 9445
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-5/standard-error.csv",
+      "sha256": "622f9900ba9d293c080d22afb1a3725651ef6f6b56d03139e230179e1c824b84",
+      "bytes": 7203
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-6/cover.csv",
+      "sha256": "acd3a92c39cbd398ed06a9b9f339a7cf0226fd1e4b54e7736ce8b75681d6059c",
+      "bytes": 4112
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-6/deposition.csv",
+      "sha256": "5dd55d03ada92587c71199e7d595ef4788b6d64ce68c240066cfc4ac264ab262",
+      "bytes": 5080
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-6/standard-error.csv",
+      "sha256": "09f499abba3bd762cd84f61fd954224a67a48471ec3e7c71ff391b4c94a8e4c6",
+      "bytes": 4185
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-7/cover.csv",
+      "sha256": "02c748ffa8086b07566320a023642802d783df16a74e0a7e8cadf21d7d135d14",
+      "bytes": 5487
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-7/deposition.csv",
+      "sha256": "c7919a35eec1088b816df8f0c5c7db563fd8f11a3b8a4e511a39dc8c47d5bb6f",
+      "bytes": 6730
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-7/standard-error.csv",
+      "sha256": "2dbf90e1bcfa86fa1cc6a6e62e0d54ae394d088a8657992caf061e297638a8d0",
+      "bytes": 5573
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-count.csv",
+      "sha256": "82de832610da8bcf8694af36d16f70aba90fbe96f5538c723b8b614532307d45",
+      "bytes": 193
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/562/site-index.json",
+      "sha256": "811488cba847613eedcfe169a3c5600b523780de5e5dc94703fac9ab0eea0d59",
+      "bytes": 463
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/report.json",
+      "sha256": "0b8567330bb61e9c4b7954e88c987a9c0786816f278aba442ec309cb75eef56e",
+      "bytes": 24499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/native-comparison.log",
+      "sha256": "2680ab624138aa6ff8253b69d5b516f53df84bf7fe58e65108cba8d4f2772257",
+      "bytes": 161
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/original-r.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-1.csv",
+      "sha256": "beefe8bda1a7aaff68b4d1a04a920e471fb2f52511926a3338f5e7c6f846dff0",
+      "bytes": 10000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-10.csv",
+      "sha256": "6c821a1e6517d909f6e437d52a845a3d08a8dfdc5d1d281effc3ee51cbebc2da",
+      "bytes": 12000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-11.csv",
+      "sha256": "df61985dcad91df9e5e95cf0fc426933a1a0218b45a7bf0b76d52f1cc162f6cc",
+      "bytes": 12000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-12.csv",
+      "sha256": "33fd0deaa89e13a6be979a1bfe19534938b747807a94f7110d52bd1912f22537",
+      "bytes": 10000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-13.csv",
+      "sha256": "ad70b2e3f3abbd5d3de58aba3335781417c46be5f6cd55e2e86054c5e5949c35",
+      "bytes": 10000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-14.csv",
+      "sha256": "4ca8cda46ba1111bbfec427ccdeef2bb6fecffe534a16e84f3bfe9c1ca7ba636",
+      "bytes": 10000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-15.csv",
+      "sha256": "67bf78b0e1a4bad274b8de628e47f2c865a28b019824b79d7d6da96f688e2707",
+      "bytes": 10000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-16.csv",
+      "sha256": "fe23b6978ce48e7b7367134384b4c087dde2118fa007596d407fd3718943e5b9",
+      "bytes": 8000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-17.csv",
+      "sha256": "d368ffd438aebb85a54306d85825a00426660948e9cf717fa5388c7661a76f45",
+      "bytes": 6000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-2.csv",
+      "sha256": "3435e788fafddd452b6482122df70dcbc191ab9fc140360e24e71c2027866def",
+      "bytes": 12000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-3.csv",
+      "sha256": "d34cda243efe9675ff4ccffbb3ecc206df0c98ff03c852724dec247fc4474bed",
+      "bytes": 12000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-4.csv",
+      "sha256": "d92be6241e8d3a49f943c57819aa198072c72960ffc01050b51e3c3986b88b83",
+      "bytes": 14000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-5.csv",
+      "sha256": "00df4525363d710246c1a50ceae7480957e902a78204ae1f50e4946b52e3e7d4",
+      "bytes": 16000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-6.csv",
+      "sha256": "c82913adb138c5dce61b424aae618b92521b5ee84274883577065c8d2a34d741",
+      "bytes": 14000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-7.csv",
+      "sha256": "1ad29e35dbaf04b2431cb279838809212c237d679b9fb88e1349ea7931ae394f",
+      "bytes": 14000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-8.csv",
+      "sha256": "d36c19846d88af91dc83da3c0f897ceee5ec17b9f038f4a5fd6de083724ff54e",
+      "bytes": 12000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/bootstrap-bin-9.csv",
+      "sha256": "0547f5de8612bc412c82fb16fe8f730c10de2e1def962e18eee000c21ee349b0",
+      "bytes": 10000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/reference-output.rds",
+      "sha256": "231f8e8dcb87a369b713c1ca16607774ece4f492f19bd212d71387c0aad76235",
+      "bytes": 33661
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/regional-cover.csv",
+      "sha256": "6a238b6eb3333cf4d214e461834aa90361793263cf10712fd4c0ada4c3016e2a",
+      "bytes": 8445
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/regional-se.csv",
+      "sha256": "010fe025b5b0b93550b1bb639d104c2f2788c81b7c8cdb93cb9c0367b9c6bd5a",
+      "bytes": 8582
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-1-cover.csv",
+      "sha256": "0d0e6bb3e63d4c3e1bf05c21a45a30c70183434987ffd527cac7547d49232cb9",
+      "bytes": 6500
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-1-se.csv",
+      "sha256": "586f73c2071b5e37d225eac759f2a436d119287f466c78f31225153aa91305c5",
+      "bytes": 6588
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-2-cover.csv",
+      "sha256": "c2988ea8db9b967e0aae57103561700be3463f032c115d9af999d2279f06a8db",
+      "bytes": 5663
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-2-se.csv",
+      "sha256": "372e33bc57f702dbcb6e9e1dabc0073c28a538deee45bcdddc7c057bd7e44333",
+      "bytes": 5740
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-3-cover.csv",
+      "sha256": "504af43919dc0b1a24fdfb3854575acc33869da871f5ab0d476e3e132023caf4",
+      "bytes": 6337
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-3-se.csv",
+      "sha256": "cd189807e84beda964740cbb448383b8ed68e75e86880fc5a22331460809198c",
+      "bytes": 6417
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-4-cover.csv",
+      "sha256": "acf1280ee451064b5e03dc768b27ef488111924e82ec9c111a305aaf355051fa",
+      "bytes": 4607
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-4-se.csv",
+      "sha256": "40caec96f215a716e187b25171af8de173d58bbf2e5a05e015e43afd86b47afe",
+      "bytes": 4661
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-5-cover.csv",
+      "sha256": "077f8a7966d59a9ebf8e0410e8ee1dd3cab2203ca82cc3135e8daff09536585a",
+      "bytes": 4556
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-5-se.csv",
+      "sha256": "dbaabfd3f723b99ee03e880bb082f78f53fad7fb74fa3ddfdcdc1d24971eb661",
+      "bytes": 4606
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-6-cover.csv",
+      "sha256": "ce14e520ff048bebce9635ae121a4040725b1629b87bce09fe38229a6355162a",
+      "bytes": 3676
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-6-se.csv",
+      "sha256": "9f401a13762ed8f2af9c6223497354090e997a3bcea35a7c8d7639e0d06a1a27",
+      "bytes": 3707
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-7-cover.csv",
+      "sha256": "93945034f984cf3fae85b499fde5db509b35623bf14033c5afdb7cc1638bd632",
+      "bytes": 3308
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-7-se.csv",
+      "sha256": "5d8f1c2b3deb2e7ab21cb5e508910a23cc4b4667254e3fad382fd662369939d7",
+      "bytes": 3333
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-8-cover.csv",
+      "sha256": "ee990c3575fd9f6c675975ad5e453f007fd80adf57a4ac2f22f3cb1ae0980b3a",
+      "bytes": 4468
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-8-se.csv",
+      "sha256": "8288199869c23ce66b0113244c183f96e4aa0fbd754aff1120dff0db00ef0f3e",
+      "bytes": 4510
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-9-cover.csv",
+      "sha256": "4491dde97953a9aa18b4c63832d7bdf2d7cec981908c164a5e2ee9044c7c5778",
+      "bytes": 7281
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-9-se.csv",
+      "sha256": "6b8bb2a3aa4b14747025e1f7d878565da928f947a1b523375366a91f53651eaf",
+      "bytes": 7354
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/site-count.csv",
+      "sha256": "8adf2e3e27a835145b9122f59084fe103c17feb215408a14fd84c1b94f04a7b5",
+      "bytes": 232
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/512/timing.txt",
+      "sha256": "7c34b6818d73b2e4ef1c8f62b59456fa9737031a0805c780a25a53474f9a4eac",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-1.csv",
+      "sha256": "ac93ad3bccbaea194b9d38aa5b45c98f8096688971d265166081b4a0eb8ea231",
+      "bytes": 8000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-10.csv",
+      "sha256": "18a20fb9f21a97f746fb5bbf68e9daafcffbd43a68ed73dd8aad4feaea982e34",
+      "bytes": 10000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-11.csv",
+      "sha256": "38eeb08e63573fd540bb72188497239215a9b234c5637f6dde3c618110143ded",
+      "bytes": 8000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-12.csv",
+      "sha256": "0ea088b8f24f8c44684fb41fad42214fbe6a5a926ffe3e0058e24090635ff69a",
+      "bytes": 4000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-13.csv",
+      "sha256": "a702d560dde39fa89c49d93a0d71227c788cd5ae94efcfc2e55160db836b8382",
+      "bytes": 4000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-14.csv",
+      "sha256": "9d7ce679b34911ac7905a4db02e922b032ba6d1e8a4d6e0162915fb448e22c84",
+      "bytes": 4000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-15.csv",
+      "sha256": "0afc5f66c626e38a83d84e0c36a736fd06df890e4016fac42b928bf226962b92",
+      "bytes": 4000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-16.csv",
+      "sha256": "c95d4a2f89d687277dfdf9173fbd77fb4167250c29edd3756ac218e9abc90eef",
+      "bytes": 4000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-17.csv",
+      "sha256": "8fa908a8c03eca5c5f729f3ed8e4d168dc0fdeff036c135380c21d415c80dd3c",
+      "bytes": 4000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-18.csv",
+      "sha256": "9f194d0fe8f9dcbdd30af68228488a7c3a25794d904afd924dc084d3d81af984",
+      "bytes": 4000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-19.csv",
+      "sha256": "3c21cd6872abcd8abc04ab4f44ee3ef7c50060713669f7925625f1613e576eba",
+      "bytes": 4000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-2.csv",
+      "sha256": "69c17093ecd02add978ef36399af49fa015f9dd03883a9f700959424a1861723",
+      "bytes": 10000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-3.csv",
+      "sha256": "f8144e16a88a39994db716188acb8e3e4ff23ac226e26de4c36a4f010fdd890b",
+      "bytes": 14000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-4.csv",
+      "sha256": "800aa04d889b02c0af948dea45249443bedd6e97ff9e49d03b54e44596b12ffb",
+      "bytes": 12000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-5.csv",
+      "sha256": "f7fdc83d52069703038310437cb345010e6ef47af33bae47640f7e00a627b38e",
+      "bytes": 14000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-6.csv",
+      "sha256": "02c1ff61fbb76392c124acfda29d7ad5af7ceb6061df99cf692c158ca8b878c6",
+      "bytes": 14000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-7.csv",
+      "sha256": "b723518549c830c29137200162c8df6d329186b356c3b26b41dac5f393627edf",
+      "bytes": 14000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-8.csv",
+      "sha256": "dbd2db51b287ac9c64d38d3b225c3a0a2f5003e7786c80a9cc9f8462a1e9bbf7",
+      "bytes": 14000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/bootstrap-bin-9.csv",
+      "sha256": "56e98f2a399547d962a661a597bc156c1508f07a38100d9d316b7ac3b2bfb941",
+      "bytes": 12000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/reference-output.rds",
+      "sha256": "c411a38113465dd7dcf5ba28a387def8d16e7a341ea0dce097da4f4cd3fafeb1",
+      "bytes": 33470
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/regional-cover.csv",
+      "sha256": "95de353d4d5a3972a1c69e5436f91f885b5d72221a2a741ece58cdf406f02c10",
+      "bytes": 10249
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/regional-se.csv",
+      "sha256": "15503244b497b8df675a7c899abd84bf80a544473f71cd4aaadc7e81ad2c69b4",
+      "bytes": 10421
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-1-cover.csv",
+      "sha256": "4a502b7b25e24e1d720570c6db1858cc17afac0ddb466307a7bc7139f19e08d7",
+      "bytes": 5257
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-1-se.csv",
+      "sha256": "d185e7e1d0edbc9219f8c33d4016fcc6dc7b8ae6b072149bae4e4e833d965f33",
+      "bytes": 5320
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-2-cover.csv",
+      "sha256": "d04572aa21a8273b7db6d94c00a79feced1ccd60781de4317aaa0ad6a3df85ff",
+      "bytes": 5852
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-2-se.csv",
+      "sha256": "187f803cb00da1a3c09555e413fbfe84e0ebbaeb2162db31af3a6f98b2f4133d",
+      "bytes": 5922
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-3-cover.csv",
+      "sha256": "c1453443140c881b527e6c86ddd7cc325c209e7bc63349e8169b745736c111f4",
+      "bytes": 4787
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-3-se.csv",
+      "sha256": "dc5e6948f46f5bbaa3116c683703b10395c50484edd3c1ef7de53b35c8ac8877",
+      "bytes": 4860
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-4-cover.csv",
+      "sha256": "261d089d5b106f23e4fd04beba501df640e5c6140349e9ebeb32cf0fd6ac0779",
+      "bytes": 5273
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-4-se.csv",
+      "sha256": "8458a82a7fd63a45c46fd47d6bf7166d66db8ccae5866dd4ba5a399b81191601",
+      "bytes": 5337
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-5-cover.csv",
+      "sha256": "f542f2c4d8e27a5c331aa7ad100b6629646013c2575936e1c4ac699b546a27b6",
+      "bytes": 4524
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-5-se.csv",
+      "sha256": "9d0445fcf7f92e84b914d764515b2c21b42be0b036ef6bdb5a544e72a523fd85",
+      "bytes": 4570
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-6-cover.csv",
+      "sha256": "3b81bc06846f5544409066b3154700384c4d7f5c97fea1a16590209929fae9ff",
+      "bytes": 6737
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-6-se.csv",
+      "sha256": "8e66e4621a2c18629d165dd5aa7056019bde3cf3761f5cd0521dad1fee6d9d79",
+      "bytes": 6814
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-7-cover.csv",
+      "sha256": "da547374cfb390da6f266afb9615dd769b739357f79418e06b05746ec8a24dde",
+      "bytes": 4416
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-7-se.csv",
+      "sha256": "54a7edd92a0dd22b78adf3a924cefe2a56cc50432dd003fed81a7f0cf57bf100",
+      "bytes": 4475
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-8-cover.csv",
+      "sha256": "40992b9db0b12631b2ec77d1451049e2c2be0ce851a1315a543fb06c81dbb309",
+      "bytes": 5545
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-8-se.csv",
+      "sha256": "e0f3a17276a376e09b923de10319023c5c6307c92262913bd76acd0c8ea0e39c",
+      "bytes": 5619
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/site-count.csv",
+      "sha256": "9bb85770027fe9618d81341add666c17fae31225c8b19064277c78d5e438259e",
+      "bytes": 232
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/562/timing.txt",
+      "sha256": "9db68822e12473c1cba1f0255163fe15f6f75380f958cd84828e416a10d0f821",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/R_session_info.txt",
+      "sha256": "72205c5884c722f0dc8887c7a7a743e6b7e55cad9982ab40b3547d178442c41c",
+      "bytes": 537
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/receipt.json",
+      "sha256": "b8adff41d1c1ee59881a053aa965f8514e964f8bf86968efed320dc445432746",
+      "bytes": 11447
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/reference.log",
+      "sha256": "b61a1f593f40601d4bc02352b07bb32aab10f86e6290c314b5284a9656a302ff",
+      "bytes": 3850
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/taxon-name-crosswalk.csv",
+      "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+      "bytes": 930
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/report.json",
+      "sha256": "4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f",
+      "bytes": 55141
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/transport-receipt.json",
+      "sha256": "0e586f5b079b50e763d7b81a0b6110a04228911887580220c899177b3dd3159c",
+      "bytes": 3650
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/stage-progress.json",
+      "sha256": "a75bcb5b360400f3c84ce6aa53fd5dd2a541339002f4d8b6b180fe579bd49026",
+      "bytes": 1181
+    }
+  ],
+  "output_bytes": 85432538,
+  "resources": {
+    "overall_timeout_seconds": 240,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 268435456,
+    "maximum_parallel_workers": 1
+  },
+  "scope": "Observer-only retained output review; original commit e282e08d796528488b438edd3ea661fb94b97b5d R0/Python0/observer1 stays wholejob1. Exact23 Git-authenticated constrained publication paths plus exact radius2paths (one overlapping source-lock chain,24unique changes) bridge current clean metadata candidate; all other54092original inputs unchanged. Copy only saved reference/comparison/transport bytes into fresh owned view, preserve lexical bin_id strings, re-evaluate original prospective numerical/undefined-mask gates and genuine completed receipts, then maintained high-level verify_report. No R/model/comparator/benchmark rerun or scientific/rights/human/full-study/hosted acceptance.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

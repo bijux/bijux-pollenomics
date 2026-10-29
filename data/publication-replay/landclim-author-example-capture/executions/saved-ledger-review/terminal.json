@@ -1,0 +1,92 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+  "plan_sha256": "f831349bc34f0519e2d28c9b80dd01d5f933a3cdc7e9583f3be47ab20e0f4e08",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 40.873396957991645,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/plan.json",
+    "--registered-plan-sha256",
+    "f831349bc34f0519e2d28c9b80dd01d5f933a3cdc7e9583f3be47ab20e0f4e08"
+  ],
+  "canonical_before": {
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "status": "",
+    "tracked_inventory_sha256": "5158fc8bdab4c0bacd90dfef3e64698130633efaa3ee3e62da0482a679043114"
+  },
+  "canonical_after": {
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "status": "",
+    "tracked_inventory_sha256": "5158fc8bdab4c0bacd90dfef3e64698130633efaa3ee3e62da0482a679043114"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "independent-saved-ledger-original-support-and-source-placeholder-join",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-saved-ledger-review/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/plan.json"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 32.35423995798919,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/independent-saved-ledger-original-support-and-source-placeholder-join.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/independent-saved-ledger-original-support-and-source-placeholder-join.stderr",
+      "stdout_sha256": "327b7dac2df313e7f5622c2f3ba95d047ec6be1290d261c6457628649bf53445",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 614236160
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/independent-correspondence-review.json",
+      "sha256": "94b0a398c78ddd0213195afe770b064e666a3c7578874dc5ab59ed09f87ab9d4",
+      "bytes": 12160
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/independent-saved-ledger-original-support-and-source-placeholder-join.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/independent-saved-ledger-original-support-and-source-placeholder-join.stdout",
+      "sha256": "327b7dac2df313e7f5622c2f3ba95d047ec6be1290d261c6457628649bf53445",
+      "bytes": 57
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/plan.json",
+      "sha256": "f831349bc34f0519e2d28c9b80dd01d5f933a3cdc7e9583f3be47ab20e0f4e08",
+      "bytes": 32750787
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-saved-ledger-review/stage-progress.json",
+      "sha256": "50108b3ecea996d8f1337e5837b3a27a1bfb47ccc4b9d0553ea5ef8c97a27004",
+      "bytes": 1231
+    }
+  ],
+  "output_bytes": 32764235,
+  "resources": {
+    "overall_timeout_seconds": 240,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 134217728,
+    "maximum_parallel_workers": 1,
+    "numerical_threads_per_worker": 1
+  },
+  "scope": "Observer-only rejoin of the already produced ledger/source manifest over the genuinely saved original-R/current-Python numerical epoch. Original ledger producer0/observer1/whole1 remain literal; no writer is repeated. Source R unavailable zeros are retained as excluded placeholders, while Python unavailable cells must remain missing. Original R0/Python0/observer1 whole1 and prior failed observer remain unchanged; completed saved-output observer0 is a distinct current receipt. No new R/model/comparator/fit/scoring or historical9dd1 recovery, fullstudy/Nordic/vegetation/rights/human/official release acceptance.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

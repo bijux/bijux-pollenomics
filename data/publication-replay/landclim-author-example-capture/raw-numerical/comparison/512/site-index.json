@@ -1,0 +1,38 @@
+[
+  {
+    "site_id": "BROADOWN",
+    "path": "site-0"
+  },
+  {
+    "site_id": "CUTHILL2",
+    "path": "site-1"
+  },
+  {
+    "site_id": "HANGINGS",
+    "path": "site-2"
+  },
+  {
+    "site_id": "HARESDOWN",
+    "path": "site-3"
+  },
+  {
+    "site_id": "LOBBSBOG",
+    "path": "site-4"
+  },
+  {
+    "site_id": "WHH05",
+    "path": "site-5"
+  },
+  {
+    "site_id": "WHH11",
+    "path": "site-6"
+  },
+  {
+    "site_id": "WINDMILL",
+    "path": "site-7"
+  },
+  {
+    "site_id": "WINNEYS",
+    "path": "site-8"
+  }
+]

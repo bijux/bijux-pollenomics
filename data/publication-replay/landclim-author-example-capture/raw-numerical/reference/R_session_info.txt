@@ -1,0 +1,22 @@
+R version 4.6.0 (2026-04-24)
+Platform: aarch64-unknown-linux-gnu
+Running under: Debian GNU/Linux 12 (bookworm)
+
+Matrix products: default
+BLAS:   /output/runtime/lib/R/lib/libRblas.so 
+LAPACK: /output/runtime/lib/R/lib/libRlapack.so;  LAPACK version 3.12.1
+
+locale:
+[1] C
+
+time zone: UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] zipfR_0.6-70
+
+loaded via a namespace (and not attached):
+[1] compiler_4.6.0 parallel_4.6.0

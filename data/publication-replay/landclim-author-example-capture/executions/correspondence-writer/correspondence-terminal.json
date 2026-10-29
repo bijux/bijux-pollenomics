@@ -1,0 +1,16 @@
+{
+  "candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+  "plan_sha256": "c4a5e9d93a3ef87df11489be2c52d2b5ccda41a2c2c369c6cd1fd44432578a8b",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-correspondence/terminal.json",
+    "sha256": "3da64778a02ae8bd18c5c6826fd17c6e25434137a684eeec2401b511bad1b932"
+  },
+  "common_actual_exit": 1,
+  "completed_child_peak_rss_bytes_macos": 503316480,
+  "output_bytes_before_receipt": 33053077,
+  "storage_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 1,
+  "scope": "Completed-child RSS and regular logical output bytes qualify declared bounds; 16KiB own receipt reserve included. Unchanged common runner controls exact candidate/input before-after and each actual stage, plus process-group timeouts. No OS quota or full descendant process census."
+}

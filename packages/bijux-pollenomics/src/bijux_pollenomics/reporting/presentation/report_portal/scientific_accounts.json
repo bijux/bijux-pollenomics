@@ -4685,6 +4685,10 @@
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/manifest.json",
             "sha256": "ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef"
+          },
+          {
+            "path": "reports/science/publication-correspondence/author-grid-retained-source.json",
+            "sha256": "550701277e3e1b6a5146751cab32a731b98f31d54cd6666a762c83310f592919"
           }
         ]
       }
@@ -4723,6 +4727,10 @@
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/manifest.json",
             "sha256": "ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef"
+          },
+          {
+            "path": "reports/science/publication-correspondence/author-grid-retained-source.json",
+            "sha256": "550701277e3e1b6a5146751cab32a731b98f31d54cd6666a762c83310f592919"
           }
         ]
       }
@@ -4753,6 +4761,10 @@
           {
             "path": "docs/report/publication-replay/landclim-example-reexecution/report.json",
             "sha256": "4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f"
+          },
+          {
+            "path": "reports/science/publication-correspondence/author-grid-retained-source.json",
+            "sha256": "550701277e3e1b6a5146751cab32a731b98f31d54cd6666a762c83310f592919"
           }
         ]
       }
