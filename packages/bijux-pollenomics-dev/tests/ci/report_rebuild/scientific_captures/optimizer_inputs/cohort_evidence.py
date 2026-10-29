@@ -13,6 +13,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.optimizer_input
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.optimizer_inputs import (
     withheld_fold as helpers,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.optimizer_inputs.cohort_training import (
+    COUNTS,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.optimizer_inputs.fixed_starts import (
     STARTS,
 )
@@ -94,7 +97,7 @@ def _constructed_protocol() -> dict[str, Any]:
     return {
         "schema_version": "author-love-cohort-development-protocol.v1",
         "profile": "constructed-fixed-start-cohort",
-        "counts": dict(subject.COUNTS),
+        "counts": dict(COUNTS),
         "logical_requests": sorted(
             logical, key=lambda row: (row["fold_id"], row["local_record_id"])
         ),
