@@ -338,22 +338,32 @@ def test_unknown_typed_engine_failure_is_not_a_refused_atom(
 def test_retained_reader_compatibility_without_numerical_calls(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    import shutil
+    import hashlib
 
-    from bijux_pollenomics_dev.source_completion.pollen_reconstruction.nordic_static_basin.authority import (
-        CAPTURE_PINS,
-        DESCRIPTOR,
-    )
+    # This fixture owns its report and source-loader boundary. Genuine retained
+    # Nordic custody is checked separately through a read-only maintained load.
+    report_bytes = json.dumps(artificial_report(), sort_keys=True).encode()
+    report_sha256 = hashlib.sha256(report_bytes).hexdigest()
+    monkeypatch.setattr(inputs, "REPORT_SHA256", report_sha256)
+    monkeypatch.setattr(producer, "REPORT_SHA256", report_sha256)
+    baseline = tmp_path / inputs.REPORT
+    baseline.parent.mkdir(parents=True, exist_ok=True)
+    baseline.write_bytes(report_bytes)
 
-    root = next(
-        parent
-        for parent in Path(__file__).resolve().parents
-        if (parent / "packages/bijux-pollenomics-dev/pyproject.toml").is_file()
+    def own_saved_inputs(repository: Path) -> dict[str, object]:
+        raw = (repository / inputs.REPORT).read_bytes()
+        if hashlib.sha256(raw).hexdigest() != report_sha256:
+            raise ValueError("Artificial source bytes changed")
+        return {"report.json": json.loads(raw)}
+
+    monkeypatch.setattr(producer, "load_inputs", own_saved_inputs)
+    protocol_bytes = json.dumps(protocol(), sort_keys=True).encode()
+    monkeypatch.setattr(
+        producer, "PROTOCOL_SHA256", hashlib.sha256(protocol_bytes).hexdigest()
     )
-    for name in (*CAPTURE_PINS, DESCRIPTOR, producer.PROTOCOL):
-        target = tmp_path / name
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(root / name, target)
+    path = tmp_path / producer.PROTOCOL
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(protocol_bytes)
 
     def no_kernel(*args: object) -> dict[str, float]:
         raise AssertionError("reader must not call a kernel")
@@ -367,7 +377,7 @@ def test_retained_reader_compatibility_without_numerical_calls(
     path.write_bytes(path.read_bytes() + b" ")
     with pytest.raises(ValueError, match="protocol changed"):
         producer.load(tmp_path)
-    shutil.copyfile(root / producer.PROTOCOL, path)
+    path.write_bytes(protocol_bytes)
     baseline = tmp_path / inputs.REPORT
     baseline.write_bytes(baseline.read_bytes() + b" ")
     with pytest.raises(ValueError, match="source bytes changed"):
