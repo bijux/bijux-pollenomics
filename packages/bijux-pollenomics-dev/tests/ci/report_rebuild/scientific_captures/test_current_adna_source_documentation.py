@@ -179,7 +179,7 @@ def test_source_identity_alias_and_noninserted_byte_changes_are_refused(
     elif damage == "oversize":
         path.write_bytes(b"#" + b" " * 32768)
     elif damage == "changed_during_law":
-        actual_law = module._documented_source_matches
+        actual_law = policy._documented_source_matches
 
         def changed_law(
             source_name: str, captured_source: bytes, current_source: bytes
