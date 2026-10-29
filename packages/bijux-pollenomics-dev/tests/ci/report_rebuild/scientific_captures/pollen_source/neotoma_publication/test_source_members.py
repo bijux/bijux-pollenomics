@@ -127,12 +127,12 @@ ROLES = frozenset(
 
 def invoke(
     monkeypatch: pytest.MonkeyPatch, repository: Path, selected: frozenset[str]
-) -> object:
+) -> None:
     """Exercise only the role seam; complete transport authentication stays separate."""
     members: dict[str, Any] = {name: {"sha256": "a" * 64, "bytes": 0} for name in ROLES}
     result = selected
     monkeypatch.setattr(subject, "validate_capsule", lambda *args: result)
-    return subject.validate_members(repository, repository / PREFIX, members)
+    subject.validate_members(repository, repository / PREFIX, members)
 
 
 def test_exact_roles_include_previously_omitted_controllers(

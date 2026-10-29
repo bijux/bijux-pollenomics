@@ -12,6 +12,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import ReportOwnershipError, _regular_confined_file
 from ...retained_source import SourceCapsule, validated_descriptor
+from ..source_correspondence import validated_current_scientific_source
 
 DETACHED_FIRST_PARTY_SOURCES = frozenset(
     {
@@ -437,6 +438,32 @@ def validate_capsule_members(
     return resolver
 
 
+def _observed_source_correspondence(
+    repository: Path,
+    name: str,
+    expected: JsonObject,
+    source_capsule: SourceCapsule,
+) -> JsonObject | None:
+    """Bind one observed source to exact bytes or its declared retained role."""
+    current = _file(repository, name)
+    _require(current.stat().st_nlink == 1, "Current source must be single-link")
+    current_bytes = current.read_bytes()
+    if {
+        "sha256": hashlib.sha256(current_bytes).hexdigest(),
+        "bytes": len(current_bytes),
+    } == expected:
+        return None
+    logical = "original-source/source/" + name
+    _require(logical in source_capsule.detached, "Observed source must be detached")
+    _exact(source_capsule.descriptor.members[logical], expected)
+    role = validated_current_scientific_source(
+        repository, {"path": name, **expected}, logical, source_capsule
+    )
+    _require(role is not None, "Reviewed source correspondence required")
+    assert role is not None
+    return role
+
+
 def validated_swedish_direct_pollen_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -630,15 +657,16 @@ def validated_swedish_direct_pollen_capture(
         ).hexdigest(),
         CURRENT_SOURCE_SHA256,
     )
+    current_source_exact = 0
+    source_correspondences: list[JsonObject] = []
     for name, expected in projected.items():
-        current = _file(repository, name)
-        _exact(
-            {
-                "sha256": hashlib.sha256(current.read_bytes()).hexdigest(),
-                "bytes": current.stat().st_size,
-            },
-            expected,
+        role = _observed_source_correspondence(
+            repository, name, expected, source_capsule
         )
+        if role is None:
+            current_source_exact += 1
+        else:
+            source_correspondences.append(role)
     entries = []
     for name, row in PREPARED_PUBLICATIONS.items():
         _exact(row["role"], "genuinely_produced_source_preparation")
@@ -675,7 +703,10 @@ def validated_swedish_direct_pollen_capture(
         "historical_unresolved_paths": sorted(HISTORICAL_UNRESOLVED),
         "twenty_native_byte_comparisons_preserved": True,
         "actual_training_source": plan["source_metadata_defect"],
-        "observed_current_first_party_source_projection_count": 65,
+        "historical_observed_first_party_source_projection_count": 65,
+        "current_source_exact_count": current_source_exact,
+        "current_source_correspondences": source_correspondences,
+        "current_source_or_native_execution_equivalence_claimed": False,
         "whole_current_source_or_input_tree_equivalence": False,
         "generic_outer_EMPD2_scope_label_defect_preserved": True,
         "new_native_retention_or_untouched_confirmation_LRA_rights_human_acceptance_claimed": False,
