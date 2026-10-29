@@ -133,7 +133,7 @@
     "reports/science/publication-correspondence/published-window-provenance.md": "e1f5317d7b1344d730d4cfc93c67bb9c3d5d3be82ef4e0963a281f2f639c8851",
     "reports/science/reveals-theory-paper.md": "8db18fc38db75190e4ce1c87797a88297bf6bd22541c514704b3578aad097fef",
     "reports/science/sambosjon-direct-pollen.md": "7de581e27ffefb4ac8d99403a1ac6d8fedf97971ab5886e4f28a63a954e0366a",
-    "reports/science/solsoe-lra-input.md": "e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71",
+    "reports/science/solsoe-lra-input.md": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf",
     "reports/science/source-cohorts.md": "f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5",
     "reports/science/sweden-author-pollen.md": "6c8b2b8b482c21004e465aecadcf18893fcde7ec3fc5a3ee8c8fa720e88f564e",
     "reports/science/sweden-chronology-block.md": "5db23b2acf3bab35e4f981a75abfcdcc6087032b797796bada576fb6911e6193",
@@ -277,6 +277,12 @@
       "retained_sha256": "23dcac1ba48d14ab7bf4ac62740cf10ee8280d4e606f7dc5ac17b05a73c2c5ae",
       "current_sha256": "0e4d46b3c6edca95aef279ebe8f615f5753ce955d3e6d9b21682d18d9d4d2d42",
       "review": "Current reader binds the genuinely completed original-R/current-Python two-grid source epoch and independently joined14,074-cell ledger. Numerical residual tables now come from that exact epoch, with184supported/241missing site-bins, original off-support R zeros excluded and Python missing retained. Earlier9dd1 raw proof is unavailable; old failed whole jobs remain unchanged. Original121-source PDF inputs and PDF bytes are retained historical bytes; this revised current prose was not rendered into those PDFs. No historical full-study, ecological, rights, human or official release acceptance is added."
+    },
+    {
+      "path": "reports/science/solsoe-lra-input.md",
+      "retained_sha256": "e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71",
+      "current_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf",
+      "review": "Current authored prose now labels 76/74 as historical half-unbounded central-value proxies and states the complete closed-boundary correction, raw refusal/uncertainty limits and pending genuine replay. Original121-source PDFs and their source epoch remain unchanged; no new total, model or documentary interpretation inferred."
     },
     {
       "path": "reports/verify.py",

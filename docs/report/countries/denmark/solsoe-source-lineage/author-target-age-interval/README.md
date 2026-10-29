@@ -106,7 +106,7 @@ Qualified authored reader SHA-256: `d02da3e5be4aaf7289e95ba7e48e97893d95eb6d69a8
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/predictions.json](predictions.json) (SHA-256 `0747fd1661a08c9e77035dbc4d50d242fb005a78be9ad4ea2593000bc34070c9`).
 
-- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71`).
+- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

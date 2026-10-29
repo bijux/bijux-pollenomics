@@ -37,7 +37,24 @@ We then checked primary records rather than guessing the missing 11 rows:
 | [1981 controls and area](../../docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md) | The PANGAEA event reports 2.5 ha; 30 of 34 radiocarbon controls match Neotoma on their recorded fields. | The selected 65 Neotoma samples use a calibrated MADCAP chronology, not a demonstrated LandClim II authors chronology. |
 | [1981 pollen counts](../../docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md) | All 66 depths and 2,881 positive count cells match the Neotoma 1981 core; 18 renamed labels are unique numerical candidates. | The match authenticates that core's count lineage, not the 79 author sample rows or a reviewed 31-target denominator. |
 | [Published final ages](../../docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md) | All 92 depths occur in the EPD final-age table, with calibrated ages and bounds matching Neotoma within 0.5 BP after unit conversion. | This authenticates the EPD calibrated claims, not the later authors chronology. |
-| [Odgaard core study](../../docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md) | Seven 1983 radiocarbon controls match; the paper locates two cores and gives a 9000 BC basin reconstruction. Its published core intervals select 76 Neotoma age proxies, or 74 within the LandClim II age span. | Neither 76 nor 74 equals 79, and a 9000 BC basin does not specify every sample-age basin. |
+| [Odgaard core study](../../docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md) | Seven 1983 radiocarbon controls match; the paper locates two cores and gives a 9000 BC basin reconstruction. The retained historical half-unbounded central-age calculation selects 76 Neotoma point proxies, or 74 within the LandClim II age span; it omitted two stated outer boundaries and is not the complete paper-interval selection. | Neither 76 nor 74 equals 79, and a 9000 BC basin does not specify every sample-age basin. |
+
+
+The complete source-calendar central-point proxy uses inclusive 1981 intervals
+[-31,3490] and [7210,11650] BP and the 1983 interval[3700,7180] BP under the
+existing declared `BC + 1950` arithmetic convention. That convention is not a
+resolved no-year-zero calendar conversion. The paper's 9700 BC older endpoint
+is extrapolated. A fresh registered replay is required before reporting the
+corrected proxy total; the retained 76/74 result remains historical.
+
+This is a descriptive central-value proxy, not uncertainty containment,
+support overlap or analytical eligibility. Native sample 353061 has a 12417 BP
+center outside the older proxy limit, while its 11495–13410 BP support overlaps
+that limit. Sample 353060 has an 11507 BP center inside, with its older 12037 BP
+bound outside. Sample 352996 has a 7 BP center inside the raw proxy but retains
+its `refused`/`negative_bp` source status, raw younger bound −41 and normalized
+BP endpoints null. No proxy flag repairs that refusal, recovers the 79 author
+rows, establishes chronology equivalence or admits any Solsø sample to LRA.
 
 The 1981 source notes a hiatus near depths 472–480 that the 1983 core covers.
 Core identity and chronology therefore affect the historical windows, even
@@ -151,5 +168,5 @@ Retained evidence: [docs/report/countries/denmark/solsoe-source-lineage/report.j
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
 <!-- scientific-claim-semantic-sha256: 4cc43e778057c4f6f976b5b326fa78ebb89e728d9a0f10c32c6c18693b438db5 -->
-<!-- scientific-authored-source-sha256: 7e5d9382f294a71020e7e3234cbc42b3896d1e5a34c24f79cc519f6b80e2d16c -->
+<!-- scientific-authored-source-sha256: 94ca670ae9beb0aa3b3d11189222436aaa16a15738992044d55aee09f9157a9c -->
 <!-- scientific-verification-and-limits:end -->
