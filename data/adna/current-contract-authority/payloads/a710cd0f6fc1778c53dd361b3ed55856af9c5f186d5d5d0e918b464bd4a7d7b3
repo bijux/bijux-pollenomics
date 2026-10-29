@@ -1,0 +1,112 @@
+{
+  "schema_version": "adna-joint-clause-prepared-source.v1",
+  "source_only": true,
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/adjudication.py",
+      "sha256": "44c1b7def3202e3e14554d0d9de077f8dda2704bce999e4a16294fca6e6ebb8e",
+      "bytes": 27580
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/callback.py",
+      "sha256": "637fa5fddefb919b375f22a3048772dbe1535875523e8648d3be360946dc3fcd",
+      "bytes": 5830
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/check_controls.py",
+      "sha256": "51f02e5e23b0286a07556534f07f2e4c6c8f409c36c71801e67fcb4cfb6d60a4",
+      "bytes": 17812
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/metadata-references.json",
+      "sha256": "8ca05d2040684744eca0f7a2ed6b9733cb67f9368845457a028dd73d59cf00da",
+      "bytes": 2778
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ast.json",
+      "sha256": "d2c1eb85f2e296b4f66484d457bf8112b494c7c161807fb15f51290fb78288e8",
+      "bytes": 784
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-format.json",
+      "sha256": "be7d660b267283efda89b423846de4c6baba4a293217376b39682a2926efc412",
+      "bytes": 1259
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-format.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-format.stdout",
+      "sha256": "eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd",
+      "bytes": 26
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-guards.json",
+      "sha256": "9750f9559a1b62198d7e1e2ed47034d67cc6fdfb4888137af9ce3d154df8ab59",
+      "bytes": 1182
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-guards.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-guards.stdout",
+      "sha256": "5a30b0d40362271fb39a81868fa5a1702d18db67788db77fd8f872c409688a8c",
+      "bytes": 114
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ruff.json",
+      "sha256": "6dfec7d70e7751e08a34637f4f0b8747356e7f9d746500c412ab09426fb10095",
+      "bytes": 1239
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ruff.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ruff.stdout",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-strict.json",
+      "sha256": "7e33edb4bb0ad869985e3e1e7f694c15f3989b3cffd07624194e3d8e6f56fd72",
+      "bytes": 1691
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-strict.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-strict.stdout",
+      "sha256": "8228fcc5ce46d42d01caf3cd941f4e9c5f2bcc372bb5b147a2f0572d2dd675a8",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/qualify_source.py",
+      "sha256": "fa23b4b1013e21ef485d6e81ba59ea05d82d91acdc692fb82ba944a616576cc6",
+      "bytes": 2382
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/seal_source.py",
+      "sha256": "c3c01c048df9e9bf46789b42de403ee65cbe29a9a52f34ee041fc679f04a4f5c",
+      "bytes": 6167
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/protocol.json",
+      "sha256": "7e5846baf2ec7345576a951cbed943c129f62be10d38463a26bc1fae00dcc59f",
+      "bytes": 3725
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/source-qualification.json",
+      "sha256": "43e960d74e5ad02bd47edbd3690028605a95d52bcc6b7aa3e48408b8edeac496",
+      "bytes": 3283
+    }
+  ],
+  "scope": "Pure metadata callback source only. Original native results are separately authenticated by the future root callback; no actual joint callback outcome or whole requirement closure is declared here."
+}

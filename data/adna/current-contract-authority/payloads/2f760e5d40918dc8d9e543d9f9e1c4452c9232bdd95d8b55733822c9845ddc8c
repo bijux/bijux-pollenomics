@@ -1,0 +1,15 @@
+from pathlib import Path
+import subprocess
+
+source = Path(__file__).absolute().parent.parent
+root = source.parents[2]
+ruff = '/Users/bijan/.cache/uv/archive-v0/2XF0xMG3jR4vPhZZ/ruff-0.15.8.data/scripts/ruff'
+files = sorted(str(p) for p in source.glob('*.py') )
+authored = [p for p in files if not p.endswith('/runtime.py')]
+cache = str(source / 'preflight/ruff-cache')
+config = str(root / 'configs/ruff.toml')
+for label, args in [('sealed-source-format', ['format', '--config', config, '--cache-dir', cache, *authored]), ('sealed-source-imports', ['check', '--fix', '--select', 'I', '--config', config, '--cache-dir', cache, *authored]), ('sealed-configured-check', ['check', '--config', config, '--cache-dir', cache, *files]), ('sealed-configured-format', ['format', '--check', '--config', config, '--cache-dir', cache, *files])]:
+ with (source/'preflight'/f'{label}.stdout').open('x') as out, (source/'preflight'/f'{label}.stderr').open('x') as err:
+  result=subprocess.run([ruff,*args], stdout=out,stderr=err,check=False)
+ print(label,result.returncode,flush=True)
+ if result.returncode:raise SystemExit(result.returncode)

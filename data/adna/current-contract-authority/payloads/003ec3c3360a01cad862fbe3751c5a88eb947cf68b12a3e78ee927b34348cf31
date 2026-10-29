@@ -1,0 +1,95 @@
+{
+  "schema_version": "adna-saved-contract-source-protocol.v1",
+  "source_only": true,
+  "root_only_prepare_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "DYNAMIC_CLEAN_MAIN_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256"
+  ],
+  "actual_future_candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 unchanged original candidate required",
+  "prospective_output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation",
+  "root_only_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "root_registration_required_before_actual_launch": true,
+  "source_runtime_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "target_runtime_role": "Specifically qualified isolated Python3.11.13 stdlib-only -I-S-B framework; full needed stdlib/framework/OS/native loader closure and aliases frozen by root preparation. No installed scientific environment substitution.",
+  "stages": [
+    {
+      "id": "independent-adna-domain-joins",
+      "timeout_seconds": 45,
+      "purpose": "Independently re-read all populations and typed contracts, join all1325 human decisions/1231 country rows,1468 animal normalized records/322+1146 partition/12 Nordic records,44 normalized CSV fields/48 country fields/full4 bundles, and60 declared backlink source-role identities."
+    }
+  ],
+  "resource_bounds": {
+    "completed_whole_seconds": 110,
+    "alarm_seconds": 130,
+    "child_RSS_bytes": 1073741824,
+    "inclusive_owned_output_bytes": 134217728
+  },
+  "resource_limits": "Completed-child wall/RSS and inclusive logical output checks; no OS memory/storage quota or full descendant census. Clock starts at run.main and excludes entry verification/import. Alarm starts after profile/plan checks and ends before final receipt measurement/write. Separate common-stage sessions are killed by their own45s watchdog; outer timeout group cleanup does not prove all separate-session descendants gone.",
+  "historical_scope": "Old capture/6-stage and26-test records remain historical; new inventory/observer receipts are separate. Source backlink catalog joins do not decode or reacquire underlying private paper/archive bytes.",
+  "current_v2_scope": "Current exporter extension contract is source-inspected and tested synthetically only. Actual current-v2 population reproduction and whole acceptance adjudication remain false.",
+  "no_native_data_copying_or_source_exports_by_author": true,
+  "registered_plan_scope": "The outer and common launchers and the one scheduled observer authenticate the same registered plan buffer before parsing. Parent and common inject the registered SHA after plan environment. The unchanged inventory source is held for source-only controlled checks but is neither dispatched nor scheduled.",
+  "successful_inventory_repeated": false,
+  "original_actual_history": {
+    "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+    "native_exits": [
+      0,
+      1
+    ],
+    "whole_exit": 1,
+    "successful_inventory_sha256": "217d84f1faba6c8ece169d8323471b93bfc50230e635ebd2b9fca8bd355a81eb"
+  },
+  "sole_scientific_correction": "Preserve exact container namespaces and native row identity joins. Four explicitly source-owned row taxa differ from container species: three Bos primigenius under Bos taurus and one Capra hircus under Ovis aries. Only exact source-policy tuples with original blocked cross-species publication flags are allowed; no wild/domestic analytical equivalence or eligibility promotion.",
+  "prior_failed_pointer_corrected_observation": {
+    "output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-provenance-component-observation",
+    "actual_stage_exits": [
+      1
+    ],
+    "whole_exit": 1,
+    "failure": "Animal native source namespace, lineage or taxon crossed",
+    "preserved_immutable": true,
+    "not_used_as_replacement_inventory_or_source_authority": true,
+    "receipts": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-provenance-component-observation/plan.json",
+        "sha256": "aa6df450c49baa8d5a2de3d3eba8707b7c7eb6607f3d8be001141f2557eabfd8",
+        "bytes": 4399192
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-provenance-component-observation/terminal.json",
+        "sha256": "10cb832c0b3e7724602e996441492fb6da61786c94e1fbdb85d8e89cdfe4b702",
+        "bytes": 5539
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-provenance-component-observation/adna-domain-terminal.json",
+        "sha256": "2112a6ead88e17bd26ab85da0d90a92cb251d91977c7025abd22b8de738e1cbb",
+        "bytes": 1894
+      }
+    ]
+  }
+}

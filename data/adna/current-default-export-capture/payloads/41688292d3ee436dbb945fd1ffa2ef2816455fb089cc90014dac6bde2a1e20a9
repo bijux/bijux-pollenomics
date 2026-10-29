@@ -1,0 +1,75 @@
+{
+  "schema_version": "aadr-retention-source-qualification.v1",
+  "source_only": true,
+  "actual_exit": 0,
+  "source_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "final_checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/final-guards.json",
+      "sha256": "547e716953614ef6186ade348f033efa7e0e2345c2479e0d8eac7b41dcc25cb7",
+      "bytes": 1166
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/final-strict.json",
+      "sha256": "6d99036922b15ae7aabaf72609873c75ce112eee98f41389687c5b6d94849083",
+      "bytes": 2427
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/final-ruff.json",
+      "sha256": "2c4c3440d6e88690f458637f6d962097ff3d7ed6582a4cd30c6f082afabfc586",
+      "bytes": 2451
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/final-format.json",
+      "sha256": "1876d94873abdce121a8c945f2cce9670b2682dbfeab955449ffeb4a2f110c49",
+      "bytes": 2471
+    }
+  ],
+  "final_AST": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/final-ast.json",
+    "sha256": "1974f447665af5bff68f997d4ddcf87da173faa74bce33bdbfee7c21b8a37b2c",
+    "bytes": 3409
+  },
+  "artificial_groups": 53,
+  "strict_authored_adapted_files": 10,
+  "configured_Ruff_files": 14,
+  "configured_format_files": 14,
+  "AST_files": 14,
+  "source_tool_driver": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/qualify_source.py",
+    "sha256": "596ae99aadae056935302b55a63fdc7f488ec14bfb1d2b86b4a4035a419097e5",
+    "bytes": 2502
+  },
+  "controlled_scope": [
+    "Literal typed native receipt epochs, roles, argv, budgets, nonzero/bool exits and scientific-inflation refusals.",
+    "Full source-role coverage, missing/unknown/conflicting identities, private/runtime payload omissions.",
+    "Actual entry-prefix whole manifest fixture, helper mutation, native extension, FIFO, raw entry alias.",
+    "No-alias private ancestry, same-buffer plan mutation, loader override before pin/tool.",
+    "Complete packet directories, unknown empty directories and FIFO refusal.",
+    "Actual post-catalogue native outer stream metadata fixture plus arbitrary prefix/suffix and invented inner-stream membership negatives."
+  ],
+  "actual_metadata_source_reads": "Only SHA-authenticated native raw plan/source ledger/receipt/catalogue metadata and source files were inspected. No sample, CSV or raw-ANNO body decoded. No runtime/private census or actual retainer executed.",
+  "actual_private_hash_decode_retainer_prepare_copy_runtime_census_or_native": false,
+  "canonical_Git_STATE_mutation": false,
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/protocol.json",
+    "sha256": "d79ef4cdd7c6153afca053fc4acbb25abb1b5c0502a98f92802b4434169312e8",
+    "bytes": 7016
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/source-correspondence.json",
+    "sha256": "6fa1db564a2d04073ca4dd1a9c0bca4210739f88b786ec9d6e559382f63c5858",
+    "bytes": 4347
+  },
+  "retained_diagnostics": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/initial-source-qualification",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/control-annotation-diagnostic",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/role-control-qualification",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/preflight/inherited-stream-topology-diagnostic"
+  ]
+}

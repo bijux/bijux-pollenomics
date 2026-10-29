@@ -1,0 +1,104 @@
+"""Measure saved public contract structure without regenerating source products."""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import os
+from pathlib import Path
+from typing import Any
+
+from contracts import dump, load, pin, registered_plan, require, verify_plan
+from runtime import profile_guard, qualify_process_snapshot, raw_process_snapshot
+from schemas import FORBIDDEN, export_contracts
+
+
+def json_shape(value: Any) -> dict[str, Any]:
+    keys: set[str] = set()
+    objects = 0
+    arrays = 0
+    pending = [value]
+    while pending:
+        item = pending.pop()
+        if isinstance(item, dict):
+            require(
+                not FORBIDDEN.intersection(item),
+                "Pollen measurement key entered DNA JSON",
+            )
+            require(all(type(k) is str for k in item), "Nonstring JSON key")
+            keys.update(item)
+            objects += 1
+            pending.extend(item.values())
+        elif isinstance(item, list):
+            arrays += 1
+            pending.extend(item)
+    return {"all_object_keys": sorted(keys), "objects": objects, "arrays": arrays}
+
+
+def measured(path: Path) -> dict[str, Any]:
+    if path.suffix == ".csv":
+        with path.open(newline="", encoding="utf-8") as stream:
+            reader = csv.DictReader(stream)
+            fields = reader.fieldnames
+            require(
+                fields is not None
+                and len(fields) == len(set(fields))
+                and not FORBIDDEN.intersection(fields),
+                "Complete CSV header, including empty tables, must be DNA-only",
+            )
+            count = 0
+            for row in reader:
+                require(
+                    None not in row and all(v is not None for v in row.values()),
+                    "Ragged CSV record",
+                )
+                count += 1
+        return {"format": "CSV", "fields": fields, "rows": count}
+    return {"format": "JSON", **json_shape(load(path))}
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    profile_guard()
+    plan = registered_plan(
+        args.plan, os.environ.get("BIJUX_REGISTERED_PLAN_SHA256", "")
+    )
+    verify_plan(plan)
+    output = Path(plan["output"])
+    target = output / "saved-contract-inventory.json"
+    require(not target.exists(), "Preserve original inventory")
+    before = raw_process_snapshot()
+    qualify_process_snapshot(before, plan["input_pins"], Path(__file__).parent)
+    rows = [
+        {
+            "role": row["role"],
+            "input": pin(Path(plan["repository"]) / row["path"]),
+            "structure": measured(Path(plan["repository"]) / row["path"]),
+        }
+        for row in plan["declared_inputs"]["files"]
+        if row["role"] in plan["payload_roles"]
+    ]
+    result = {
+        "schema_version": "adna-saved-contract-inventory.v1",
+        "candidate": plan["candidate"],
+        "actual_exit": 0,
+        "products": rows,
+        "source_contracts": export_contracts(
+            Path(plan["repository"]), plan["declared_inputs"]["source_contracts"]
+        ),
+        "before_process": before,
+        "after_process": raw_process_snapshot(),
+        "normalization_or_export_producers_executed": False,
+    }
+    qualify_process_snapshot(
+        result["after_process"], plan["input_pins"], Path(__file__).parent
+    )
+    verify_plan(plan)
+    dump(target, result)
+    print(target)
+
+
+if __name__ == "__main__":
+    main()

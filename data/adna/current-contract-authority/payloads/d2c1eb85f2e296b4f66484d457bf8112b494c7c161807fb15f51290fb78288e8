@@ -1,0 +1,20 @@
+{
+  "actual_exit": 0,
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/adjudication.py",
+      "sha256": "44c1b7def3202e3e14554d0d9de077f8dda2704bce999e4a16294fca6e6ebb8e",
+      "bytes": 27580
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/callback.py",
+      "sha256": "637fa5fddefb919b375f22a3048772dbe1535875523e8648d3be360946dc3fcd",
+      "bytes": 5830
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/check_controls.py",
+      "sha256": "51f02e5e23b0286a07556534f07f2e4c6c8f409c36c71801e67fcb4cfb6d60a4",
+      "bytes": 17812
+    }
+  ]
+}

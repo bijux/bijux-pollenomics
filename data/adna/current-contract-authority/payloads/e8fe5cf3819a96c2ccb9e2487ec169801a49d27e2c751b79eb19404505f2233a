@@ -1,0 +1,903 @@
+"""Exercise synthetic domain leaks and actual declared source entry/stage contracts."""
+
+from __future__ import annotations
+
+import ast
+from collections.abc import Callable
+from copy import deepcopy
+from functools import partial
+import hashlib
+import json
+import os
+from pathlib import Path, PosixPath
+import sys
+import tempfile
+from types import SimpleNamespace
+from typing import Any
+
+SOURCE = Path(__file__).absolute().parent
+sys.path.insert(0, str(SOURCE))
+from contracts import (  # noqa: E402
+    BASE,
+    ROOT,
+    exact,
+    git_authority,
+    pin,
+    registered_plan,
+    union,
+)
+from entry import EXPECTED, verify_reviewed  # noqa: E402
+from inventory import json_shape, measured  # noqa: E402
+from run import receipt_bytes, stages_passed  # noqa: E402
+from schemas import export_contracts  # noqa: E402
+from semantics import (  # noqa: E402
+    SOURCE_TAXON_EXCEPTIONS,
+    animal_identity,
+    animal_partition,
+    bundle_join,
+    cell,
+    clean,
+    country_projection,
+    flags,
+    human_partition,
+    integer,
+    normalized_projection,
+    pointer_components,
+    table,
+    unique,
+)
+
+
+def refuses(call: Callable[[], Any]) -> None:
+    try:
+        call()
+    except (ValueError, KeyError):
+        return
+    raise AssertionError("Unsafe controlled contract accepted")
+
+
+def main() -> None:
+    count = 0
+    declaration = json.loads((SOURCE / "declared-inputs.json").read_bytes())
+    schema = export_contracts(ROOT, declaration["source_contracts"])
+    assert tuple(
+        map(
+            len,
+            (
+                schema["human_legacy"],
+                schema["animal_normalized"],
+                schema["animal_country"],
+            ),
+        )
+    ) == (27, 44, 48)
+    count += 1
+    payload: dict[str, Any] = {
+        "schema_version": "adna-sample-record-export.v1",
+        "evidence_domain": "animal_ancient_dna",
+        "pollen_eligible": False,
+        "pollen_propagation_eligible": False,
+        "samples": [],
+        "admitted_sample_count": 0,
+        "refused_sample_count": 0,
+        "sample_refusals": [],
+    }
+    flags(payload)
+    count += 1
+    for key, value in [
+        ("pollen_eligible", 0),
+        ("pollen_propagation_eligible", "false"),
+        ("evidence_domain", "pollen_context"),
+        ("admitted_sample_count", False),
+        ("refused_sample_count", False),
+    ]:
+        wrong = {**payload, key: value}
+        refuses(partial(flags, wrong))
+        count += 1
+    for key in (
+        "pollen_count",
+        "pollen_sum",
+        "relative_pollen_percentage",
+        "ppe",
+        "fall_speed_m_s",
+        "whole_pollen",
+    ):
+        refuses(partial(clean, {"nested": [{key: 0}]}))
+        refuses(partial(json_shape, {"nested": [{key: None}]}))
+        count += 1
+    clean({"notes": "No pollen or whole_pollen inference", "archive_read_count": 100})
+    assert cell(None) == "" and cell(0) == "0" and not exact(False, 0)
+    refuses(lambda: integer(False, 0))
+    count += 1
+    for rows in ([{"id": ""}], [{"id": "x"}, {"id": "x"}]):
+        refuses(partial(unique, rows, "id"))
+        count += 1
+    with tempfile.TemporaryDirectory(dir=SOURCE / "preflight") as raw:
+        work = Path(raw)
+        path = work / "empty.csv"
+        path.write_text("sample_record_id\n")
+        assert table(path) == [] and measured(path)["rows"] == 0
+        path.write_text("sample_record_id,pollen_sum\n")
+        refuses(lambda: table(path))
+        refuses(lambda: measured(path))
+        count += 1
+        path.write_text("id,id\nx,x\n")
+        refuses(lambda: table(path))
+        count += 1
+        path.write_text("id,value\nx\n")
+        refuses(lambda: table(path))
+        count += 1
+        path.write_text('{"x": true}')
+        # A tiny exact output fixed-point is a storage guard, not native execution.
+        assert receipt_bytes(work, {"actual_exit": 0}, 4096)
+        refuses(lambda: receipt_bytes(work, {"actual_exit": 0}, 1))
+        count += 1
+        root = work / "controlled"
+        root.mkdir()
+        for name in EXPECTED:
+            (root / name).write_text("# controlled source\n")
+        members: list[dict[str, Any]] = [
+            {
+                "path": str(root / n),
+                "sha256": hashlib.sha256((root / n).read_bytes()).hexdigest(),
+                "bytes": (root / n).stat().st_size,
+            }
+            for n in sorted(EXPECTED)
+        ]
+        manifest = root / "prepared-source-manifest.json"
+
+        def seal(rows: list[dict[str, Any]]) -> None:
+            manifest.write_text(json.dumps({"source_only": True, "files": rows}))
+            (root / "independent-source-review.json").write_text(
+                json.dumps(
+                    {
+                        "approved": True,
+                        "source_manifest_sha256": hashlib.sha256(
+                            manifest.read_bytes()
+                        ).hexdigest(),
+                    }
+                )
+            )
+
+        seal(members)
+        verify_reviewed(root)
+        count += 1
+        for name in ("contracts.so", "runtime.so"):
+            (root / name).write_bytes(b"unreviewed")
+            refuses(lambda: verify_reviewed(root))
+            (root / name).unlink()
+            count += 1
+        os.symlink(root / "contracts.py", root / "unknown.py")
+        refuses(lambda: verify_reviewed(root))
+        (root / "unknown.py").unlink()
+        count += 1
+        os.mkfifo(root / "pipe")
+        refuses(lambda: verify_reviewed(root))
+        (root / "pipe").unlink()
+        count += 1
+        seal([{**row, "path": Path(row["path"]).name} for row in members])
+        refuses(lambda: verify_reviewed(root))
+        seal(members)
+        (root / "contracts.py").write_text("# changed\n")
+        refuses(lambda: verify_reviewed(root))
+        count += 1
+    with tempfile.TemporaryDirectory(dir=SOURCE / "preflight") as raw:
+        directory = Path(raw)
+        tool = directory / "git"
+        tool.write_bytes(b"controlled-tool")
+        expected = pin(tool)
+        git_authority(tool, expected, {})
+        for key in (
+            "DYLD_INSERT_LIBRARIES",
+            "LD_PRELOAD",
+            "LD_LIBRARY_PATH",
+            "_PYTHON_HOST_PLATFORM",
+            "__PYVENV_LAUNCHER__",
+        ):
+            refuses(partial(git_authority, tool, expected, {key: ""}))
+        for row in (
+            {**expected, "bytes": False},
+            {**expected, "bytes": expected["bytes"] + 1},
+            {**expected, "sha256": "0" * 64},
+        ):
+            refuses(partial(git_authority, tool, row, {}))
+        alias = directory / "git-alias"
+        alias.symlink_to(tool)
+        refuses(partial(git_authority, alias, expected, {}))
+        count += 1
+        plan_path = directory / "registered.json"
+        raw_plan = b'{"candidate":"controlled","value":0}'
+        plan_path.write_bytes(raw_plan)
+        checksum = hashlib.sha256(raw_plan).hexdigest()
+        assert registered_plan(plan_path, checksum)["value"] == 0
+        invalid_checksums: list[Any] = ["", "x" * 64, "0" * 64, False, None]
+        for value in invalid_checksums:
+            refuses(partial(registered_plan, plan_path, value))
+
+        class ReboundPath(PosixPath):
+            reads = 0
+            bad_first = False
+
+            def read_bytes(self) -> bytes:
+                type(self).reads += 1
+                return (
+                    b'{"candidate":"forged"}'
+                    if type(self).bad_first or type(self).reads > 1
+                    else raw_plan
+                )
+
+        rebound = ReboundPath(plan_path)
+        assert (
+            registered_plan(rebound, checksum)["candidate"] == "controlled"
+            and ReboundPath.reads == 1
+        )
+        ReboundPath.reads = 0
+        ReboundPath.bad_first = True
+        refuses(partial(registered_plan, rebound, checksum))
+        for invalid in (b'{"x":1,"x":2}', b'{"x":NaN}', b"[]"):
+            plan_path.write_bytes(invalid)
+            refuses(
+                partial(registered_plan, plan_path, hashlib.sha256(invalid).hexdigest())
+            )
+        count += 1
+    # The registered SHA is injected after plan environment in both actual parents.
+    for name in ("run.py", "common_runner.py"):
+        tree = ast.parse((SOURCE / name).read_text())
+        inject = [
+            node
+            for node in ast.walk(tree)
+            if isinstance(node, ast.Assign)
+            and any(
+                isinstance(target, ast.Subscript)
+                and isinstance(target.value, ast.Name)
+                and target.value.id == "env"
+                and isinstance(target.slice, ast.Constant)
+                and target.slice.value == "BIJUX_REGISTERED_PLAN_SHA256"
+                for target in node.targets
+            )
+        ]
+        assert (
+            len(inject) == 1
+            and isinstance(inject[0].value, ast.Attribute)
+            and inject[0].value.attr == "registered_plan_sha256"
+        )
+        updates = [
+            node.lineno
+            for node in ast.walk(tree)
+            if isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Attribute)
+            and isinstance(node.func.value, ast.Name)
+            and node.func.value.id == "env"
+            and node.func.attr == "update"
+        ]
+        assert len(updates) == 1 and updates[0] < inject[0].lineno
+    count += 1
+
+    catalog = {"data/a.xlsx", "data/b.zip#member.xlsx"}
+    assert pointer_components("data/a.xlsx || data/b.zip#member.xlsx", catalog) == [
+        "data/a.xlsx",
+        "data/b.zip#member.xlsx",
+    ]
+    assert pointer_components(" data/a.xlsx || data/a.xlsx ", catalog) == [
+        "data/a.xlsx"
+    ]
+    assert pointer_components("", catalog) == []
+    for value in (
+        "data/a.xlsx || unknown",
+        "data/a.xlsx||data/b.zip#member.xlsx",
+        "data/a.xlsx || ",
+        " ",
+    ):
+        refuses(partial(pointer_components, value, catalog))
+    # Exact maintained source policy is exercised only on artificial pointer strings.
+    policy_source = (
+        ROOT
+        / "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/identity.py"
+    )
+    join_function = next(
+        n
+        for n in ast.parse(policy_source.read_text()).body
+        if isinstance(n, ast.FunctionDef) and n.name == "_join_distinct"
+    )
+    ns: dict[str, Any] = {}
+    exec(
+        compile(
+            ast.fix_missing_locations(
+                ast.Module(body=[join_function], type_ignores=[])
+            ),
+            "actual-pointer-policy-artificial-only",
+            "exec",
+        ),
+        ns,
+    )
+    assert ns["_join_distinct"](
+        " data/a.xlsx || data/b.zip#member.xlsx ", "data/a.xlsx"
+    ) == " || ".join(
+        pointer_components(
+            " data/a.xlsx || data/b.zip#member.xlsx || data/a.xlsx ", catalog
+        )
+    )
+    count += 1
+    from retained import (
+        CANDIDATE,
+        ORIGINAL,
+        REFERENCES,
+        stream_authority,
+        validate_history,
+    )
+
+    original_stages = [
+        {
+            "id": role,
+            "argv": [
+                str(BASE),
+                "-I",
+                "-S",
+                "-B",
+                str(ROOT / "artifacts/science/adna-registered-plan-custody/entry.py"),
+                action,
+                "--plan",
+                str(ORIGINAL / "plan.json"),
+            ],
+            "timeout_seconds": 45,
+            "must_succeed": True,
+        }
+        for role, action in (
+            ("saved-adna-contract-inventory", "inventory"),
+            ("independent-adna-domain-joins", "observe"),
+        )
+    ]
+    synthetic_plan: dict[str, Any] = {
+        "candidate": CANDIDATE,
+        "repository": str(ROOT),
+        "output": str(ORIGINAL),
+        "input_pins": [{}] * 10104,
+        "stages": original_stages,
+    }
+    synthetic_common: dict[str, Any] = {
+        "candidate": CANDIDATE,
+        "actual_exit": 1,
+        "plan_sha256": REFERENCES["plan.json"][0],
+        "before_pin_mismatches": [],
+        "after_pin_mismatches": [],
+        "absent_input_paths_unchanged": True,
+        "stages": [
+            {**row, "actual_exit": code, "timed_out": False}
+            for row, code in zip(original_stages, (0, 1), strict=True)
+        ],
+    }
+    synthetic_outer: dict[str, Any] = {
+        "candidate": CANDIDATE,
+        "actual_exit": 1,
+        "plan_sha256": REFERENCES["plan.json"][0],
+        "timed_out": False,
+        "error": None,
+        "after_input_error": None,
+        "completed_whole_wall_bound_pass": True,
+        "memory_bound_pass": True,
+        "actual_native_stage_exits": [0, 1],
+    }
+    validate_history(synthetic_plan, synthetic_common, synthetic_outer)
+    for field, value in (
+        ("actual_exit", 0),
+        ("actual_exit", True),
+        ("plan_sha256", "0" * 64),
+        ("after_pin_mismatches", ["changed"]),
+    ):
+        wrong = {**synthetic_common, field: value}
+        refuses(partial(validate_history, synthetic_plan, wrong, synthetic_outer))
+    wrong = deepcopy(synthetic_common)
+    wrong["stages"][0]["actual_exit"] = False
+    refuses(partial(validate_history, synthetic_plan, wrong, synthetic_outer))
+    wrong = deepcopy(synthetic_common)
+    wrong["stages"][0]["argv"] = ["wrong"]
+    refuses(partial(validate_history, synthetic_plan, wrong, synthetic_outer))
+    count += 1
+    with tempfile.TemporaryDirectory(dir=SOURCE / "preflight") as name:
+        stream_path = Path(name) / "stream.stdout"
+        prefix = b"artificial original stage lines\n"
+        expected = {
+            "path": str(stream_path),
+            "sha256": hashlib.sha256(prefix).hexdigest(),
+            "bytes": len(prefix),
+        }
+        tail = (
+            json.dumps(
+                {
+                    "terminal": str(ORIGINAL / "terminal.json"),
+                    "sha256": REFERENCES["terminal.json"][0],
+                    "status": "failed",
+                }
+            )
+            + "\n"
+        )
+        outer_row = {
+            "path": str(ORIGINAL / "adna-domain-terminal.json"),
+            "sha256": REFERENCES["adna-domain-terminal.json"][0],
+            "bytes": REFERENCES["adna-domain-terminal.json"][1],
+        }
+        tail += (
+            json.dumps(
+                {
+                    "terminal": outer_row,
+                    "actual_exit": 1,
+                    "tracked_byte_checker_exit": None,
+                }
+            )
+            + "\n"
+        )
+        raw_stream = prefix + tail.encode()
+        stream_path.write_bytes(raw_stream)
+        assert (
+            stream_authority(stream_path, expected, {}, {})["original_recorded_prefix"]
+            == expected
+        )
+        for changed in (
+            raw_stream + b"extra",
+            b"x" + raw_stream[1:],
+            prefix,
+            prefix + tail.replace('"failed"', '"passed"').encode(),
+        ):
+            stream_path.write_bytes(changed)
+            refuses(partial(stream_authority, stream_path, expected, {}, {}))
+    count += 1
+
+    # Complete synthetic nested source record checks both chronology/provenance and null/zero.
+    sample: dict[str, Any] = dict.fromkeys(schema["animal_normalized"], "value")
+    sample.update(
+        identity={"stable_token": "animal:x", "namespace": "bos_taurus:archive"},
+        locality_identity={"locality_text": "site"},
+        political_entity=None,
+        coordinates={
+            "latitude": 0,
+            "longitude": None,
+            "latitude_text": "0",
+            "longitude_text": "",
+            "confidence": "source",
+        },
+        chronology={
+            "original_text": "zero",
+            "evidence_class": "source",
+            "precision_posture": "exact",
+            "dating_basis": "declared",
+            "time_start_bp": 0,
+            "time_end_bp": None,
+            "time_mean_bp": 0,
+        },
+    )
+    projected = normalized_projection(sample, schema["animal_normalized"])
+    assert (
+        projected["time_start_bp"] == "0"
+        and projected["time_end_bp"] == ""
+        and projected["latitude"] == "0"
+        and projected["longitude"] == ""
+        and projected["political_entity"] == ""
+    )
+    wrong = deepcopy(sample)
+    wrong["chronology"]["original_text"] = "changed"
+    assert normalized_projection(wrong, schema["animal_normalized"]) != projected
+    wrong = deepcopy(sample)
+    wrong["chronology_provenance_locator"] = "changed"
+    assert normalized_projection(wrong, schema["animal_normalized"]) != projected
+    count += 1
+    locality: dict[str, Any] = {
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "animal_scope": "animal",
+        "project_accession": "PRJ",
+        "sample_record_ids": ["animal:x"],
+    }
+    sample.update(
+        species_latin_name="Bos taurus",
+        species_common_name="cattle",
+        group_id="",
+        master_id="",
+        project_accession="PRJ",
+    )
+    country = country_projection("Denmark", locality, sample, schema["animal_country"])
+    bundle: dict[str, Any] = {
+        "schema_version": "country-animal-adna-summary.v1",
+        "country": "Denmark",
+        "total_sample_rows": 1,
+        "total_localities": 1,
+        "total_species": 1,
+        "total_projects": 1,
+        "species_rows": [{"species_latin_name": "Bos taurus"}],
+        "localities": [locality],
+        "sample_rows": [country],
+    }
+    bundle_join(
+        "Denmark",
+        bundle,
+        [country],
+        {"animal:x": sample},
+        {"animal:x": "Denmark"},
+        schema["animal_country"],
+    )
+    wrong_bundle = deepcopy(bundle)
+    wrong_bundle["sample_rows"][0]["chronology_provenance_locator"] = "forged"
+    refuses(
+        lambda: bundle_join(
+            "Denmark",
+            wrong_bundle,
+            [country],
+            {"animal:x": sample},
+            {"animal:x": "Denmark"},
+            schema["animal_country"],
+        )
+    )
+    count += 1
+    refuses(
+        lambda: animal_partition(
+            {"animal:x": sample},
+            {
+                "rows": [
+                    {
+                        "sample_count": 1,
+                        "sample_record_ids": ["unknown"],
+                        "nordic_inclusion": True,
+                    }
+                ]
+            },
+            {"rows": []},
+        )
+    )
+    count += 1
+    refuses(lambda: human_partition([{"genetic_id": "x"}, {"genetic_id": "x"}], {}))
+    count += 1
+    # Full synthetic identity partitions exercise denominator joins without reading public samples.
+    synthetic_decisions: list[dict[str, str]] = []
+    synthetic_countries: dict[str, list[dict[str, str]]] = {}
+    for code, name, published, excluded in (
+        ("DK", "Denmark", 653, 1),
+        ("FI", "Finland", 32, 92),
+        ("NO", "Norway", 130, 1),
+        ("SE", "Sweden", 416, 0),
+    ):
+        synthetic_countries[name] = []
+        for index in range(published + excluded):
+            native_id = code + str(index)
+            included = index < published
+            synthetic_decisions.append(
+                {
+                    "genetic_id": native_id,
+                    "country": code,
+                    "decision": "published" if included else "excluded",
+                    "reason": "country_sample_product"
+                    if included
+                    else "coordinate_missing",
+                    "coordinate_status": "admitted" if included else "missing",
+                    "chronology_status": "refused",
+                    "chronology_reason": "missing_bp",
+                    "source_rows": "native:" + native_id,
+                }
+            )
+            if included:
+                synthetic_countries[name].append(
+                    {
+                        "genetic_id": native_id,
+                        "schema_version": "adna-sample-record-export.v1",
+                        "source_family": "AADR",
+                        "species_latin_name": "Homo sapiens",
+                        "sample_namespace": "homo_sapiens:aadr_genetic_id",
+                        "political_entity": name,
+                    }
+                )
+    assert (
+        human_partition(synthetic_decisions, synthetic_countries)["coordinate_excluded"]
+        == 94
+    )
+    changed_countries = deepcopy(synthetic_countries)
+    changed_countries["Denmark"][0]["sample_namespace"] = "bos_taurus:curated_sample"
+    refuses(lambda: human_partition(synthetic_decisions, changed_countries))
+    changed_decisions = deepcopy(synthetic_decisions)
+    changed_decisions[0]["country"] = "SE"
+    refuses(lambda: human_partition(changed_decisions, synthetic_countries))
+    count += 1
+    synthetic_samples = {
+        "animal:" + str(i): {
+            "species_latin_name": "Bos taurus",
+            "project_accession": "PRJ",
+        }
+        for i in range(1468)
+    }
+    synthetic_features: dict[str, Any] = {
+        "rows": [
+            {
+                "feature_id": "feature:" + str(i),
+                "sample_count": 1,
+                "sample_record_ids": ["animal:" + str(i)],
+                "nordic_inclusion": i < 12,
+                "political_entity": "Denmark",
+                "species_latin_name": "Bos taurus",
+            }
+            for i in range(322)
+        ],
+        "row_count": 322,
+    }
+    synthetic_exclusions: dict[str, Any] = {
+        "rows": [
+            {
+                "sample_record_id": "animal:" + str(i),
+                "project_accession": "PRJ",
+                "species_latin_name": "Bos taurus",
+            }
+            for i in range(322, 1468)
+        ],
+        "row_count": 1146,
+    }
+    mapped, nordic = animal_partition(
+        synthetic_samples, synthetic_features, synthetic_exclusions
+    )
+    assert len(mapped) == 322 and len(nordic) == 12
+    changed_features = deepcopy(synthetic_features)
+    changed_features["rows"][0]["nordic_inclusion"] = 1
+    refuses(
+        lambda: animal_partition(
+            synthetic_samples, changed_features, synthetic_exclusions
+        )
+    )
+    changed_exclusions = deepcopy(synthetic_exclusions)
+    changed_exclusions["rows"][0]["sample_record_id"] = "animal:0"
+    refuses(
+        lambda: animal_partition(
+            synthetic_samples, synthetic_features, changed_exclusions
+        )
+    )
+    count += 1
+
+    # Exact actual stage declaration, independently extracted without main execution.
+    output = SOURCE / "preflight/controlled-stage-output"
+    tree = ast.parse((SOURCE / "prepare.py").read_text())
+    expression = next(
+        n.value
+        for n in ast.walk(tree)
+        if isinstance(n, ast.Assign)
+        and any(
+            isinstance(t, ast.Subscript)
+            and isinstance(t.slice, ast.Constant)
+            and t.slice.value == "stages"
+            for t in n.targets
+        )
+    )
+    stages = eval(
+        compile(ast.Expression(expression), "actual-stage-contract", "eval"),
+        {"str": str, "BASE": BASE, "SOURCE": SOURCE, "plan_path": output / "plan.json"},
+    )
+    plan = {"output": str(output), "stages": stages}
+    common: dict[str, Any] = {
+        "actual_exit": 0,
+        "stages": [{**stage, "actual_exit": 0, "timed_out": False} for stage in stages],
+    }
+    assert stages_passed(plan, common)
+    for field, value in (
+        ("actual_exit", False),
+        ("id", "other"),
+        ("timeout_seconds", 46),
+        ("must_succeed", False),
+        ("argv", ["wrong"]),
+        ("timed_out", True),
+    ):
+        wrong_common = deepcopy(common)
+        wrong_common["stages"][0][field] = value
+        assert not stages_passed(plan, wrong_common)
+    assert not stages_passed(plan, {**common, "stages": common["stages"][:0]})
+    count += 1
+    pin_row = {"path": "/controlled/source", "sha256": "a" * 64, "bytes": 1}
+    assert union([pin_row], [pin_row]) == [pin_row]
+    refuses(lambda: union([pin_row], [{**pin_row, "sha256": "b" * 64}]))
+    count += 1
+    # Execute only the source serializer with synthetic stand-ins; no application imports/data.
+    source = ast.parse(
+        (ROOT / declaration["source_contracts"]["record_exports"]).read_text()
+    )
+    functions = [
+        n
+        for n in source.body
+        if isinstance(n, ast.FunctionDef)
+        and n.name in {"serialize_sample_record", "_sample_export_fields"}
+    ]
+    serializer = next(n for n in functions if n.name == "serialize_sample_record")
+    attrs = {
+        n.attr
+        for n in ast.walk(serializer)
+        if isinstance(n, ast.Attribute)
+        and isinstance(n.value, ast.Name)
+        and n.value.id == "sample"
+    }
+    synthetic = SimpleNamespace(**dict.fromkeys(attrs, "source-value"))
+    synthetic.datasets = ()
+    synthetic.accession_lineage = ()
+    synthetic.time_start_bp = 0
+    synthetic.time_end_bp = None
+
+    class Support:
+        def __init__(self, **kwargs: Any) -> None:
+            self.values = kwargs
+
+        def as_dict(self) -> dict[str, Any]:
+            return self.values
+
+    namespace: dict[str, Any] = {
+        "SAMPLE_RECORD_SCHEMA": "adna-sample-record-export.v2",
+        "LEGACY_SAMPLE_RECORD_SCHEMA": "adna-sample-record-export.v1",
+        "SAMPLE_EXPORT_FIELDS": tuple(schema["human_legacy"])
+        + ("sample_chronology", "sample_identity"),
+        "LEGACY_SAMPLE_EXPORT_FIELDS": tuple(schema["human_legacy"]),
+        "AdnaSampleChronologySupport": Support,
+    }
+    module = ast.Module(
+        body=[
+            ast.ImportFrom(
+                module="__future__", names=[ast.alias(name="annotations")], level=0
+            ),
+            *functions,
+        ],
+        type_ignores=[],
+    )
+    exec(
+        compile(
+            ast.fix_missing_locations(module),
+            "pinned-serializer-synthetic-only",
+            "exec",
+        ),
+        namespace,
+    )
+    exported = namespace["serialize_sample_record"](synthetic)
+    assert (
+        exported["time_start_bp"] == 0
+        and exported["time_end_bp"] is None
+        and exported["sample_identity"]["stable_token"] == synthetic.genetic_id
+    )
+    assert "sample_chronology" in exported and "sample_identity" in exported
+    clean(exported)
+    legacy = namespace["serialize_sample_record"](
+        synthetic, schema_version="adna-sample-record-export.v1"
+    )
+    assert set(legacy) == set(schema["human_legacy"])
+    refuses(
+        lambda: namespace["serialize_sample_record"](
+            synthetic, schema_version="unknown"
+        )
+    )
+    count += 1
+    # Artificial records exercise the exact source-owned exceptions without
+    # opening a normalized population or invoking its producer.
+    for (slug, master), (taxon, tax_id, project) in SOURCE_TAXON_EXCEPTIONS.items():
+        container = {"bos_taurus": "Bos taurus", "ovis_aries": "Ovis aries"}[slug]
+        source_row: dict[str, Any] = {
+            "master_id": master,
+            "group_id": project,
+            "project_accession": project,
+            "species_latin_name": taxon,
+            "source_family": "ENA",
+            "identity": {
+                "namespace": slug + ":curated_sample",
+                "stable_token": slug + ":sample:" + master,
+                "accession_lineage": [
+                    "species:" + taxon,
+                    "source:ENA",
+                    "project:" + project,
+                    "sample:" + master,
+                ],
+            },
+            "source_native_scientific_name": taxon,
+            "source_native_tax_id": tax_id,
+            "source_native_identity_kind": "biological_sample_accession",
+            "taxon_alignment_status": "project_species_mismatch",
+            "inclusion_status": "sample_context_blocked",
+        }
+        witness = animal_identity(slug, container, source_row)
+        assert (
+            witness is not None
+            and witness["cross_species_publication_admitted"] is False
+        )
+        for field, value in [
+            ("source_native_scientific_name", container),
+            ("source_native_tax_id", 9909),
+            ("source_native_tax_id", True),
+            ("source_native_tax_id", "unreviewed"),
+            ("source_native_identity_kind", "sequencing_experiment"),
+            ("taxon_alignment_status", "project_species_match"),
+            ("inclusion_status", "site_curated"),
+            ("species_latin_name", container),
+            ("source_family", "SRA"),
+            ("group_id", "foreign"),
+            ("master_id", "foreign"),
+            ("project_accession", "foreign"),
+        ]:
+            wrong = deepcopy(source_row)
+            wrong[field] = value
+            refuses(partial(animal_identity, slug, container, wrong))
+        for field, value in [
+            ("namespace", "pollen:curated_sample"),
+            ("stable_token", "other:sample:" + master),
+            (
+                "accession_lineage",
+                [
+                    "species:" + container,
+                    "source:ENA",
+                    "project:" + project,
+                    "sample:" + master,
+                ],
+            ),
+            (
+                "accession_lineage",
+                ["species:" + taxon, "source:ENA", "project:" + project],
+            ),
+            (
+                "accession_lineage",
+                [
+                    "sample:" + master,
+                    "project:" + project,
+                    "source:ENA",
+                    "species:" + taxon,
+                ],
+            ),
+        ]:
+            wrong = deepcopy(source_row)
+            wrong["identity"][field] = value
+            refuses(partial(animal_identity, slug, container, wrong))
+        count += 1
+    ordinary = deepcopy(source_row)
+    ordinary["master_id"] = "controlled:ordinary"
+    ordinary["species_latin_name"] = container
+    ordinary["identity"]["stable_token"] = slug + ":sample:controlled:ordinary"
+    ordinary["identity"]["accession_lineage"] = [
+        "species:" + container,
+        "source:ENA",
+        "project:" + project,
+        "sample:controlled:ordinary",
+    ]
+    assert animal_identity(slug, container, ordinary) is None
+    wrong = deepcopy(ordinary)
+    wrong["species_latin_name"] = taxon
+    wrong["identity"]["accession_lineage"][0] = "species:" + taxon
+    refuses(partial(animal_identity, slug, container, wrong))
+    count += 1
+    policy = json.loads((SOURCE / "source-taxon-policy.json").read_bytes())
+    for row in policy["original_policy_pins"]:
+        assert exact(pin(Path(row["path"])), row)
+
+    def literal(path: str, target: str) -> Any:
+        module = ast.parse(Path(path).read_text())
+        node = next(
+            n
+            for n in module.body
+            if isinstance(n, (ast.Assign, ast.AnnAssign))
+            and any(
+                isinstance(v, ast.Name) and v.id == target
+                for v in (n.targets if isinstance(n, ast.Assign) else [n.target])
+            )
+        )
+        assert node.value is not None
+        return ast.literal_eval(node.value)
+
+    policy_paths = {
+        Path(row["path"]).name: row["path"] for row in policy["original_policy_pins"]
+    }
+    aliases = literal(policy_paths["obishir_sheep.py"], "_ALIASES")
+    assert aliases["SAMEA8022722"] == ("OB21-04", "Capra hircus")
+    assert literal(policy_paths["species.py"], "_EXPECTED_TAXA") == {
+        "Bos primigenius": 3,
+        "Bos taurus": 8,
+    }
+    assert literal(policy_paths["species.py"], "_NATIVE_TAXA")[
+        (("9909",), ("Bos primigenius",))
+    ] == ("Bos primigenius", "aurochs")
+    assert len(SOURCE_TAXON_EXCEPTIONS) == 4
+    count += 1
+    print(
+        json.dumps(
+            {
+                "source_only": True,
+                "controlled_groups": count,
+                "actual_saved_payloads_decoded": False,
+                "normalization_export_or_model_producers_executed": False,
+            },
+            indent=2,
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

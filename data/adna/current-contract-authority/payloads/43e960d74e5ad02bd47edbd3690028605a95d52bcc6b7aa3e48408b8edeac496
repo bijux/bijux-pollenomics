@@ -1,0 +1,64 @@
+{
+  "schema_version": "adna-joint-adjudication-source-qualification.v1",
+  "source_only": true,
+  "actual_exit": 0,
+  "source_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "final_checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-guards.json",
+      "sha256": "9750f9559a1b62198d7e1e2ed47034d67cc6fdfb4888137af9ce3d154df8ab59",
+      "bytes": 1182
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-strict.json",
+      "sha256": "7e33edb4bb0ad869985e3e1e7f694c15f3989b3cffd07624194e3d8e6f56fd72",
+      "bytes": 1691
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ruff.json",
+      "sha256": "6dfec7d70e7751e08a34637f4f0b8747356e7f9d746500c412ab09426fb10095",
+      "bytes": 1239
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-format.json",
+      "sha256": "be7d660b267283efda89b423846de4c6baba4a293217376b39682a2926efc412",
+      "bytes": 1259
+    }
+  ],
+  "final_AST": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ast.json",
+    "sha256": "d2c1eb85f2e296b4f66484d457bf8112b494c7c161807fb15f51290fb78288e8",
+    "bytes": 784
+  },
+  "synthetic_groups": 31,
+  "strict_files": 3,
+  "configured_Ruff_files": 3,
+  "configured_format_files": 3,
+  "AST_files": 3,
+  "controls": [
+    "Whole/role/argv/typed exit/nonzero or false promotion refuses.",
+    "Four CSV SHA/size/path/protected declaration mutation or duplicate refuses despite equal counts.",
+    "Saved original failure/current-v2 false flags and wrong schema extension promotion refuse.",
+    "Pollen eligibility/measurement or native taxon refusal inflation refuses.",
+    "Disjoint support refusal removal, changed literal clause, malformed/nonfinite metadata refuse.",
+    "Physical metadata same-buffer hash, symlink/FIFO and typed-size negatives.",
+    "Actual complete local source prefix/manifest fixture passes and tampered helper refuses."
+  ],
+  "source_only_diagnostics": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/initial-source-qualification",
+  "metadata_ref_declaration": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/metadata-references.json",
+    "sha256": "8ca05d2040684744eca0f7a2ed6b9733cb67f9368845457a028dd73d59cf00da",
+    "bytes": 2778
+  },
+  "actual_joint_callback_executed": false,
+  "actual_data_API_runtime_native_preparer_Git_STATE_or_canonical_mutation": false,
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/protocol.json",
+    "sha256": "7e5846baf2ec7345576a951cbed943c129f62be10d38463a26bc1fae00dcc59f",
+    "bytes": 3725
+  }
+}

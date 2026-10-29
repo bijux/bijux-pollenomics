@@ -1,0 +1,67 @@
+{
+  "source_only": true,
+  "actual_exit": 0,
+  "modules": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/check_contracts.py",
+      "sha256": "e8fe5cf3819a96c2ccb9e2487ec169801a49d27e2c751b79eb19404505f2233a",
+      "bytes": 31900
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/common_runner.py",
+      "sha256": "45258238c6529de971416f85b8fe6ecfbdf14b089c7606dcb137754382267447",
+      "bytes": 10058
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/contracts.py",
+      "sha256": "6e591a709802303cac45d6d6b40954bf465ab48a4739321e382ca501d290653e",
+      "bytes": 9270
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/entry.py",
+      "sha256": "6970c0731bc7a118ab1128bab95e0600a01a7d776bb5e04d578d2eb96d727b46",
+      "bytes": 3672
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/inventory.py",
+      "sha256": "2743dc07e289d822ba2433a572dba2bc7f87875f1756d1eed5e1a98347fda291",
+      "bytes": 3542
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/observe.py",
+      "sha256": "6c66551db36a8351e0a2cd1347103d1e35756a05d7e98e105d1839d0d2306d42",
+      "bytes": 4045
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/prepare.py",
+      "sha256": "f9f7725aa46bcd88911aa54dda404fa6c9459c5cf4d0f9a9940ffac2bfe31918",
+      "bytes": 6081
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/retained.py",
+      "sha256": "31a497ffa62cb26b106a30a612fa1b2335101442d4caa0955984af7f4981bc6c",
+      "bytes": 8203
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/run.py",
+      "sha256": "9e85b5c8f723ab2dfbec4f89a5aa07faecca74ba5e2d777b7f90a23005301d66",
+      "bytes": 8130
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/runtime.py",
+      "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+      "bytes": 17435
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/schemas.py",
+      "sha256": "67dc29a576b914fe20606e4b2f516eb83e31bfd0581952b5b95e5f401535096e",
+      "bytes": 3815
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/semantics.py",
+      "sha256": "c13db70341a103a763a1e08e53d18317d0e1404039dc159b1c6bf960f26a21a6",
+      "bytes": 26045
+    }
+  ],
+  "full_saved_consumer_or_normalization_executed": false
+}
