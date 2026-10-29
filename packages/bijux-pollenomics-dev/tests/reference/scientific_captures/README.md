@@ -1,10 +1,11 @@
 # Scientific execution reference sources
 
-These reference programs retain the exact first-party source bodies used by
-scientific capture controllers, observers and their controls. Their ownership is
+Git history retains the exact first-party source bodies used by scientific
+capture controllers, observers and their controls. Their ownership is
 organized by scientific domain, source family and execution responsibility.
 Shared byte-identical consumers and runtime validators have one reference owner.
-Distinct captured versions of a source role remain in ordinary Git history.
+Distinct captured versions of a source role remain in ordinary Git history;
+superseded bodies are absent from the current checkout.
 
 Capture transports bind a reference path and its exact ancestor revision, Git
 blob, SHA-256 and byte length. Readers authenticate those source bytes in memory;
