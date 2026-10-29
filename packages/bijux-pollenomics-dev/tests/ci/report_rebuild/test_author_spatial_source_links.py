@@ -9,9 +9,15 @@ from types import SimpleNamespace
 
 import pytest
 
-from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import (
+    JsonObject,
+    ReportRebuildError,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
     author_site_evaluations as author,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.spatial_source_exports import (
+    SPATIAL_EXPORT_SOURCE,
 )
 
 
@@ -23,7 +29,7 @@ def test_hardlinked_spatial_source_is_refused_before_historical_read(
     (tmp_path / "linked-current-source.py").hardlink_to(current)
     assert current.stat().st_nlink == 2
     source_row = {
-        "path": author.SPATIAL_EXPORT_SOURCE,
+        "path": SPATIAL_EXPORT_SOURCE,
         "sha256": author.SPATIAL_HISTORICAL_SHA256,
         "bytes": author.SPATIAL_HISTORICAL_BYTES,
     }
@@ -35,7 +41,7 @@ def test_hardlinked_spatial_source_is_refused_before_historical_read(
         {
             **source_row,
             "path": "executions/uncertainty/first-party-inputs/"
-            + author.SPATIAL_EXPORT_SOURCE,
+            + SPATIAL_EXPORT_SOURCE,
         }
     )
     document = {
@@ -66,6 +72,8 @@ def test_hardlinked_spatial_source_is_refused_before_historical_read(
         author, "_validate_author_owner_partition", lambda _owners: None
     )
     monkeypatch.setattr(author, "validated_descriptor", lambda *_args: buffer)
-    owners = [{"owner_id": sorted(author.OWNERS)[0], "role": "retained_source"}]
+    owners: list[JsonObject] = [
+        {"owner_id": sorted(author.OWNERS)[0], "role": "retained_source"}
+    ]
     with pytest.raises(ReportRebuildError, match="scientific implementation changed"):
         author.validated_author_site_evaluation_captures(tmp_path, {}, owners)
