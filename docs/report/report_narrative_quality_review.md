@@ -8,12 +8,12 @@ limits; use the [machine-readable review](report_narrative_quality_review.json)
 for page paths and their current structural counts. A `reader_ready`
 layout signal does not record an actual reader or qualified scientific review.
 
-- Reviewed markdown pages: `323`
+- Reviewed markdown pages: `324`
 
 ## Layout signals
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 306 |
+| `reader_ready` | 307 |
 | `structured_reference` | 8 |
 | `thin_structure` | 9 |

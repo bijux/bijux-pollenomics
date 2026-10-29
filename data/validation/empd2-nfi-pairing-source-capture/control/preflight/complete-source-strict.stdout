@@ -1,0 +1,67 @@
+artifacts/science/empd2-nfi-pairing-source-custody/contracts.py:236: error:
+Need type annotation for "files" (hint: "files: list[<type>] = ...") 
+[var-annotated]
+        files = []
+        ^~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/run.py:138: error: Argument
+1 to "len" has incompatible type "Any | object"; expected "Sized"  [arg-type]
+        stage_ok = len(actual) == len(expected) == 2 and all(
+                       ^~~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/run.py:145: error: Argument
+1 to "zip" has incompatible type "Any | object"; expected "Iterable[Any]" 
+[arg-type]
+                for a, b in zip(actual, expected, strict=True)
+                                ^~~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/observe.py:126: error:
+Module "pyproj.datadir" does not explicitly export attribute "get_user_data_dir"
+ [attr-defined]
+            and Path(datadir.get_user_data_dir(create=False))
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/observe.py:128: error:
+Module "pyproj.network" does not explicitly export attribute
+"is_network_enabled"  [attr-defined]
+            and (network.is_network_enabled() is False),
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/execute_source.py:55: error:
+Module "pyproj.datadir" does not explicitly export attribute "get_user_data_dir"
+ [attr-defined]
+            Path(datadir.get_user_data_dir(create=False))
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/execute_source.py:59: error:
+Module "pyproj.network" does not explicitly export attribute
+"is_network_enabled"  [attr-defined]
+        require(network.is_network_enabled() is False, "PROJ network acces...
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/execute_source.py:94: error:
+Argument 1 to "Path" has incompatible type "Any | None"; expected
+"str | PathLike[str]"  [arg-type]
+            path = Path(value).resolve(strict=True)
+                        ^~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:188: error:
+No overload variant of "update" of "MutableMapping" matches argument types
+"str", "str", "str", "str", "str", "str", "float", "float", "float", "float",
+"str", "None", "None", "str", "str", "str", "str"  [call-overload]
+                row.update(
+                ^~~~~~~~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:188: note: Possible overload variants:
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:188: note:     def update(self, SupportsKeysAndGetItem[str, str], /) -> None
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:188: note:     def update(self, SupportsKeysAndGetItem[str, str], /, **kwargs: str) -> None
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:188: note:     def update(self, Iterable[tuple[str, str]], /) -> None
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:188: note:     def update(self, Iterable[tuple[str, str]], /, **kwargs: str) -> None
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:188: note:     def update(self, **kwargs: str) -> None
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:210: error:
+Incompatible return value type (got "list[dict[str, str]]", expected
+"list[dict[str, object]]")  [return-value]
+            return rows
+                   ^~~~
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:267: error:
+Incompatible return value type (got
+"tuple[Path, list[dict[str, object]], dict[str, Collection[str]]]", expected
+"tuple[Path, list[dict[str, object]], dict[str, object]]")  [return-value]
+            return (output, rows, tracked)
+                   ^~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:295: error:
+Unsupported target for indexed assignment ("object")  [index]
+            value["denominators"]["measured_pairs_admitted"] = False
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Found 12 errors in 5 files (checked 10 source files)

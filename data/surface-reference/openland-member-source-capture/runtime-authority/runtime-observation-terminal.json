@@ -1,0 +1,72 @@
+{
+  "schema_version": "offline-source-runtime-observation-terminal.v1",
+  "candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+  "retained_bootstrap": {
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/plan.json",
+      "sha256": "fb49f9b395f92cf7ca9c84c5ff2e9e1bf39cbd58e259b8017a029ec1a96e9057",
+      "bytes": 19274416
+    },
+    "common": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/terminal.json",
+      "sha256": "fc5ff9d99599e45b4fb7baa048f8aa348043a214ff4bb234981d16e9d27cfae0",
+      "bytes": 9230008
+    },
+    "outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/runtime-bootstrap-terminal.json",
+      "sha256": "745a5f2d922ef96dea812ec92b01ca033a8133486ce557689e29136ae0a9d69d",
+      "bytes": 1753
+    },
+    "original_candidate": "7513efa1224b22d5de7748140bdd8fce34dca886",
+    "original_whole_actual_exit": 1,
+    "production_stage_actual_exits": [
+      0,
+      0,
+      0
+    ],
+    "original_observer_actual_exit": 1
+  },
+  "original_bootstrap_whole_actual_exit": 1,
+  "production_stages_repeated": false,
+  "environment_override_admission": {
+    "forbidden_key_prefixes": [
+      "DYLD_"
+    ],
+    "forbidden_exact_keys": [
+      "LD_LIBRARY_PATH",
+      "LD_PRELOAD",
+      "_PYTHON_HOST_PLATFORM",
+      "__PYVENV_LAUNCHER__"
+    ],
+    "present_forbidden_key_names": [],
+    "environment_values_disclosed": false
+  },
+  "plan_sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4",
+  "actual_exit": 0,
+  "common_actual_exit": 0,
+  "timed_out": false,
+  "elapsed_seconds": 23.97896658402169,
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/terminal.json",
+    "sha256": "300f9518c2b20ce3d79b39e8879f111d6febfb6dd48890f5e9cd02a8d71a431c"
+  },
+  "runtime_alias_after_failure": null,
+  "input_after_failures": [],
+  "observed_completed_child_peak_rss_bytes_macos": 550486016,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "resources": {
+    "overall_timeout_seconds": 180,
+    "resident_memory_limit_bytes": 3221225472,
+    "output_byte_limit": 268435456
+  },
+  "old_environment_identity_recovered": false,
+  "installed_first_party_interface_claimed": false,
+  "limits": [
+    "New offline source qualification only; original lost runtime identities and old native epochs are not requalified.",
+    "Logical all-output and cumulative completed-child RSS are postchecks, not OS quotas or full descendant memory measurements."
+  ],
+  "elapsed_seconds_through_completed_output_postcheck": 23.97945416701259,
+  "overall_wall_bound_pass": true,
+  "completed_output_bytes_including_receipt": 32357014
+}

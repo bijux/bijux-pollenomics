@@ -1,0 +1,12 @@
+usage: prepare.py [-h] --candidate CANDIDATE --output OUTPUT --review REVIEW
+                  --review-sha256 REVIEW_SHA256
+
+Freeze exact private metadata, maintained source and qualified dependency
+runtime.
+
+options:
+  -h, --help            show this help message and exit
+  --candidate CANDIDATE
+  --output OUTPUT
+  --review REVIEW
+  --review-sha256 REVIEW_SHA256

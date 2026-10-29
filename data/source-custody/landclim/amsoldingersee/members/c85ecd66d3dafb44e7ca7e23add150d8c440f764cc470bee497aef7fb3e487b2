@@ -1,0 +1,37 @@
+{
+  "source_only": true,
+  "prepare_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CLEAN_CANDIDATE",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_REVIEW_SHA256"
+  ],
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "required_order": [
+    "Independent source peer bound to final source manifest",
+    "Root source-only preparation on exact clean candidate",
+    "Root unique registration/readback",
+    "Separate root native launch",
+    "Collect actual whole/native/checker receipts before any publication proposal"
+  ],
+  "no_native_work_by_author": true
+}

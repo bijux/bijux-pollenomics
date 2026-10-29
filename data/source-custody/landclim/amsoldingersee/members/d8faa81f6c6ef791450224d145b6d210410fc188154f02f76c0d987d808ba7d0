@@ -1,0 +1,239 @@
+"""Pure controls for the exact saved framework invocation and failed execution history."""
+
+from __future__ import annotations
+
+import ast
+from collections.abc import Callable
+from copy import deepcopy
+from functools import partial
+import json
+from pathlib import Path
+import sys
+from typing import Any
+
+sys.path.insert(0, str(Path(__file__).absolute().parent))
+from contracts import BASE, BASE_SHA, SOURCE, exact
+from retained import (
+    APP,
+    APP_SHA,
+    OLD_SOURCE,
+    ORIGINAL,
+    PLAN_SHA,
+    framework_argv,
+    validate_history,
+)
+from run import stages_passed
+
+
+def refuses(call: Callable[[], Any]) -> None:
+    try:
+        call()
+    except ValueError:
+        return
+    raise AssertionError("Unsafe controlled value accepted")
+
+
+def framework_fixture() -> tuple[dict[str, Any], dict[str, Any]]:
+    argv = [
+        str(BASE),
+        "-I",
+        "-S",
+        "-B",
+        str(OLD_SOURCE / "entry.py"),
+        "produce",
+        "--plan",
+        str(ORIGINAL / "plan.json"),
+    ]
+    original = {
+        "stages": [{"argv": argv}],
+        "input_pins": [
+            {"path": str(BASE), "sha256": BASE_SHA, "bytes": 52640},
+            {"path": str(APP), "sha256": APP_SHA, "bytes": 51584},
+        ],
+        "runtime_profile": {
+            "actual_preparation_process_snapshot": {"native_images": [str(APP)]}
+        },
+    }
+    witness = {
+        "actual_launcher_argv": [str(APP), *argv[1:]],
+        "interpreter_flags": ["-I", "-S", "-B"],
+        "before": {"native_images": [str(APP)]},
+        "after": {"native_images": [str(APP)]},
+    }
+    return original, witness
+
+
+def framework_controls() -> int:
+    original, witness = framework_fixture()
+    framework_argv(witness, original)
+    count = 1
+    for role in ("before", "after"):
+        bad = deepcopy(witness)
+        bad[role]["native_images"] = []
+        refuses(partial(framework_argv, bad, original))
+        count += 1
+    for raw in (
+        [str(BASE), *witness["actual_launcher_argv"][1:]],
+        ["/unowned/Python", *witness["actual_launcher_argv"][1:]],
+        witness["actual_launcher_argv"][:-1],
+        [
+            str(APP),
+            "-I",
+            "-S",
+            "-B",
+            str(OLD_SOURCE / "entry.py"),
+            "observe",
+            "--plan",
+            str(ORIGINAL / "plan.json"),
+        ],
+    ):
+        bad = deepcopy(witness)
+        bad["actual_launcher_argv"] = raw
+        refuses(partial(framework_argv, bad, original))
+        count += 1
+    for index, key, value in (
+        (0, "sha256", "0" * 64),
+        (1, "sha256", BASE_SHA),
+        (1, "bytes", False),
+        (1, "path", "/unowned/Python"),
+    ):
+        bad = deepcopy(original)
+        bad["input_pins"][index][key] = value
+        refuses(partial(framework_argv, witness, bad))
+        count += 1
+    bad = deepcopy(original)
+    bad["input_pins"].pop()
+    refuses(partial(framework_argv, witness, bad))
+    count += 1
+    bad = deepcopy(original)
+    bad["runtime_profile"]["actual_preparation_process_snapshot"]["native_images"] = []
+    refuses(partial(framework_argv, witness, bad))
+    count += 1
+    bad = deepcopy(witness)
+    bad["interpreter_flags"] = ["-I", "-B"]
+    refuses(partial(framework_argv, bad, original))
+    count += 1
+    return count
+
+
+def history_controls() -> int:
+    declared = [
+        {"id": name, "argv": [name], "timeout_seconds": 45, "must_succeed": True}
+        for name in ("source", "observer")
+    ]
+    original = {"candidate": "original", "stages": declared}
+    common: dict[str, Any] = {
+        "candidate": "original",
+        "plan_sha256": PLAN_SHA,
+        "actual_exit": 1,
+        "before_pin_mismatches": [],
+        "after_pin_mismatches": [],
+        "absent_input_paths_unchanged": True,
+        "stages": [
+            {**row, "actual_exit": code, "timed_out": False}
+            for row, code in zip(declared, (0, 1), strict=True)
+        ],
+    }
+    outer = {
+        "candidate": "original",
+        "plan_sha256": PLAN_SHA,
+        "actual_exit": 1,
+        "timed_out": False,
+        "error": None,
+        "after_input_error": None,
+        "completed_whole_wall_bound_pass": True,
+        "memory_bound_pass": True,
+        "actual_native_stage_exits": [0, 1],
+        "tracked_byte_checker_exit": None,
+    }
+    validate_history(original, common, outer)
+    count = 1
+    for target, key, value in (
+        ("common", "actual_exit", 0),
+        ("outer", "actual_exit", 0),
+        ("outer", "tracked_byte_checker_exit", 0),
+        ("outer", "actual_native_stage_exits", [False, True]),
+        ("outer", "timed_out", True),
+        ("outer", "memory_bound_pass", False),
+        ("common", "after_pin_mismatches", ["changed"]),
+    ):
+        left, right = deepcopy(common), deepcopy(outer)
+        (left if target == "common" else right)[key] = value
+        refuses(partial(validate_history, original, left, right))
+        count += 1
+    left = deepcopy(common)
+    left["stages"][0]["actual_exit"] = False
+    refuses(partial(validate_history, original, left, outer))
+    count += 1
+    left = deepcopy(common)
+    left["stages"][1]["actual_exit"] = 0
+    refuses(partial(validate_history, original, left, outer))
+    count += 1
+    return count
+
+
+def completion_controls() -> int:
+    tree = ast.parse((SOURCE / "prepare.py").read_bytes())
+    assignment = next(
+        n
+        for n in ast.walk(tree)
+        if isinstance(n, ast.Assign)
+        and isinstance(n.targets[0], ast.Subscript)
+        and isinstance(n.targets[0].slice, ast.Constant)
+        and n.targets[0].slice.value == "stages"
+    )
+    argv_plan = SOURCE / "preflight/plan.json"
+    declared = eval(
+        compile(ast.Expression(assignment.value), "actual-prepare-stages", "eval"),
+        {"str": str, "BASE": BASE, "SOURCE": SOURCE, "plan_path": argv_plan},
+    )
+    plan = {"output": str(SOURCE / "preflight"), "stages": declared}
+    common: dict[str, Any] = {
+        "actual_exit": 0,
+        "stages": [{**row, "actual_exit": 0, "timed_out": False} for row in declared],
+    }
+    assert stages_passed(plan, common)
+    count = 1
+    for key, value in (
+        ("actual_exit", False),
+        ("actual_exit", 1),
+        ("timed_out", True),
+        ("argv", ["wrong"]),
+        ("timeout_seconds", 46),
+    ):
+        changed = deepcopy(common)
+        changed["stages"][0][key] = value
+        assert not stages_passed(plan, changed)
+        count += 1
+    changed = deepcopy(common)
+    changed["stages"].append(deepcopy(changed["stages"][0]))
+    assert not stages_passed(plan, changed)
+    count += 1
+    assert not exact({"exit": False}, {"exit": 0})
+    count += 1
+    return count
+
+
+def main() -> None:
+    groups = {
+        "exact observed framework argv/binary witnesses": framework_controls(),
+        "original failed whole/native/refusal preservation": history_controls(),
+        "actual one-stage declaration/completion": completion_controls(),
+    }
+    print(
+        json.dumps(
+            {
+                "source_only": True,
+                "actual_exit": 0,
+                "groups": groups,
+                "controlled_cases": sum(groups.values()),
+                "private_or_saved_source_parse": False,
+                "target_runtime_or_native_execution": False,
+            },
+            indent=2,
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

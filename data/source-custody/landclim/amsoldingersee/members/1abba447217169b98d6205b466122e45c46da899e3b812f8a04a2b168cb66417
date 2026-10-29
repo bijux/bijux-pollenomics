@@ -1,0 +1,14 @@
+{
+  "tracked_byte_checker_exit": 0,
+  "original_generated": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/producer/report.json",
+    "sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7",
+    "bytes": 4006
+  },
+  "current_tracked": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json",
+    "sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7",
+    "bytes": 4006
+  },
+  "scope": "Actual complete byte comparison; original failed observer/checker-null remains unchanged."
+}

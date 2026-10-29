@@ -1,0 +1,184 @@
+"""Independently join original sources and retain the tracked byte-checker result."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+from pathlib import Path
+from typing import Any
+
+from contracts import (
+    AUTHOR,
+    INPUT_MANIFEST,
+    MAINTAINED,
+    MODULE,
+    PRIVATE,
+    REPORT,
+    ROOT,
+    SOURCE,
+    dump,
+    exact,
+    load,
+    pin,
+    require,
+    verify_plan,
+)
+from metadata import compare, reconstruct
+from runtime import profile_guard, qualify_process_snapshot, raw_process_snapshot
+
+
+def source_execution(plan: dict[str, Any], witness: dict[str, Any]) -> None:
+    require(
+        witness["candidate"] == plan["candidate"]
+        and witness["plan"]["path"] == str(Path(plan["output"]) / "plan.json"),
+        "Maintained execution source/plan epoch differs",
+    )
+    require(
+        witness["executed_module"] == MODULE
+        and witness["executed_source_argv"] == plan["maintained_source_argv"]
+        and exact(witness["maintained_source"], plan["maintained_source"]),
+        "Actual module/argv/source differs",
+    )
+    require(
+        witness["actual_launcher_argv"] == plan["stages"][0]["argv"],
+        "Actual Python entry argv differs",
+    )
+    require(
+        type(witness["source_exit"]) is int
+        and witness["source_exit"] == 0
+        and type(witness["metadata_exit"]) is int
+        and witness["metadata_exit"] == 0
+        and witness["metadata_error"] is None,
+        "Maintained source or runtime metadata failed",
+    )
+    require(
+        witness["denied_model_import_attempts"] == []
+        and witness["maintained_module_code_matches_pinned_source"] is True,
+        "Actual maintained source/model boundary differs",
+    )
+    for name in ("before", "after"):
+        require(witness[name] is not None, "Actual runtime source census missing")
+        qualify_process_snapshot(witness[name], plan["input_pins"], SOURCE)
+
+
+def source_products(
+    declared_products: dict[str, Any],
+    witness: dict[str, Any],
+    witness_path: Path,
+    produced: Path,
+) -> None:
+    require(
+        exact(declared_products["source_runtime"], pin(witness_path)),
+        "Maintained stdout does not bind actual source witness",
+    )
+    require(
+        exact(declared_products["generated_report"], pin(produced))
+        and exact(witness["generated_report"], pin(produced)),
+        "Generated source result differs from actual producer stdout/witness",
+    )
+    require(
+        type(declared_products["source_exit"]) is int
+        and declared_products["source_exit"] == 0
+        and type(declared_products["metadata_exit"]) is int
+        and declared_products["metadata_exit"] == 0,
+        "Actual producer stream records failed source or metadata",
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = load(args.plan)
+    profile_guard()
+    verify_plan(plan)
+    output = Path(plan["output"])
+    observed = output / "independent-runtime-observation.json"
+    raw: dict[str, Any] = {"before": raw_process_snapshot(), "after": None}
+    dump(observed, raw)
+    qualify_process_snapshot(raw["before"], plan["input_pins"], SOURCE)
+    progress = load(output / "stage-progress.json")
+    require(len(progress) == 1, "Exactly one genuine maintained source stage required")
+    actual, declared = progress[0], plan["stages"][0]
+    require(
+        all(
+            exact(actual[key], declared[key])
+            for key in ("id", "argv", "timeout_seconds", "must_succeed")
+        )
+        and type(actual["actual_exit"]) is int
+        and actual["actual_exit"] == 0
+        and actual["timed_out"] is False,
+        "Maintained actual stage identity or exit differs",
+    )
+    for key in ("stdout", "stderr"):
+        path = Path(actual[key])
+        require(
+            path.parent == output and pin(path)["sha256"] == actual[key + "_sha256"],
+            "Maintained native stream changed",
+        )
+    witness_path = output / "source-runtime-observation.json"
+    witness = load(witness_path)
+    produced = output / "producer/report.json"
+    source_products(load(Path(actual["stdout"])), witness, witness_path, produced)
+    require(
+        exact(witness["plan"], pin(args.plan)),
+        "Actual source did not consume frozen plan",
+    )
+    source_execution(plan, witness)
+    expected, ledger = reconstruct(ROOT, PRIVATE, INPUT_MANIFEST, AUTHOR)
+    compare(load(produced), expected)
+    expected_raw = (
+        str(__import__("json").dumps(expected, indent=2, ensure_ascii=False)) + "\n"
+    ).encode()
+    require(
+        produced.read_bytes() == expected_raw,
+        "Maintained report serialization differs from reconstructed source",
+    )
+    byte_exit = 0 if produced.read_bytes() == REPORT.read_bytes() else 2
+    dump(
+        output / "tracked-byte-check.json",
+        {
+            "tracked_byte_checker_exit": byte_exit,
+            "generated": pin(produced),
+            "tracked": pin(REPORT),
+            "comparison": "Exact complete bytes; separate from maintained source native exit and independent source joins.",
+        },
+    )
+    raw["after"] = raw_process_snapshot()
+    dump(observed, raw)
+    qualify_process_snapshot(raw["after"], plan["input_pins"], SOURCE)
+    verify_plan(plan)
+    dump(
+        output / "independent-source-review.json",
+        {
+            "actual_exit": 0,
+            "candidate": plan["candidate"],
+            "plan": pin(args.plan),
+            "maintained_source": pin(MAINTAINED),
+            "maintained_source_native_exit": witness["source_exit"],
+            "maintained_source_metadata_exit": witness["metadata_exit"],
+            "tracked_byte_checker_exit": byte_exit,
+            "generated_report": pin(produced),
+            "independent_reconstructed_json_sha256": hashlib.sha256(
+                expected_raw
+            ).hexdigest(),
+            "complete_ordered_typed_report_equal": True,
+            "source_execution_observation": pin(witness_path),
+            "independent_runtime_observation": pin(observed),
+            "source_ledger": ledger,
+            "source_refusal_unchanged": True,
+            "historical_E69_identity_admitted": False,
+            "rights_human_ecology_or_LRA_admitted": False,
+        },
+    )
+    print(
+        __import__("json").dumps(
+            {
+                "independent_source_review": pin(
+                    output / "independent-source-review.json"
+                ),
+                "tracked_byte_checker_exit": byte_exit,
+            }
+        ),
+        flush=True,
+    )

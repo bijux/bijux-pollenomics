@@ -29,8 +29,8 @@ from .objects import (
 )
 
 INDEX_PATH = "configs/ci/source-retention/index.json"
-INDEX_SHA256 = "ba466b6835e217d226813ac4538dd168ef506542d998089456022d3345c3fc55"
-INDEX_BYTES = 5084
+INDEX_SHA256 = "0912752a873a84e95d0481b7be7a65708093ca803be51dee4cd2e695a4ed737d"
+INDEX_BYTES = 7049
 
 
 def _seal(path: Path) -> tuple[int, int, int, int, int]:

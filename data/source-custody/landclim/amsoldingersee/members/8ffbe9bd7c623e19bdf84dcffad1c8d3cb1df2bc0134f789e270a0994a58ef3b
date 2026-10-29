@@ -1,0 +1,20 @@
+{
+  "actual_exit": 0,
+  "synthetic_source_groups": [
+    "strict JSON/typed ordered values",
+    "original pin freeze/conflicts",
+    "complete namespace/special/alias",
+    "empty loader env and dangling absence",
+    "actual entry held schema/prefix refusals",
+    "native site/sample source reconstruction",
+    "complete response status/hash/duplicate refusal",
+    "source refusal nonpromotion",
+    "model import denial",
+    "actual prepare two-stage/completion schema",
+    "actual stdout/witness/product joins",
+    "inclusive receipt storage"
+  ],
+  "group_count": 12,
+  "private_payloads_opened": 0,
+  "native_consumers_or_runtime_census": 0
+}

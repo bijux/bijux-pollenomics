@@ -47,7 +47,9 @@ responses remain outside the repository.
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 
-Published-product versus released-author-example correspondence, not authenticated original input reconstruction.
+Earlier authored qualification: Published-product versus released-author-example correspondence, not authenticated original input reconstruction.
+
+**Separate current source-execution witness.** On source commit `61eb1bfe697d0e7f15831b9c23bc45322ce042e8`, the maintained producer and its source metadata returned zero. The original independent observer failed before reconstruction on the distinct CPython framework launcher argv[0], leaving the original whole result one and its tracked checker unrun. A separate saved-product observer then returned zero: it verified all 14 expected private-input hashes and independently reconstructed the complete ordered report from 11 retained responses, their receipts and selected publication row plus the 17-row author-example CSV. It established complete ordered typed and serialized report equality and a separate tracked byte checker zero. The unchanged report still refuses the historical E#69 bridge, author chronology and reproduction readiness. Dataset 3873/3874/3875 remain declared request labels, while site 2973 is source-bound. The [retained execution witness](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/amsoldingersee-source-custody.json) separates both native histories from the later metadata-only capsule assembly; it admits no new API acquisition, rights decision, human review, ecological truth or LRA input.
 
 **Supported claim.** One named historical metadata row is compared with three current Neotoma pollen cores; the retained capture demonstrates a precise unrecovered historical identity rather than an admitted source match.
 
@@ -68,6 +70,8 @@ Published-product versus released-author-example correspondence, not authenticat
 **Matched denominator.** One metadata row 1059 outside the 17 author examples; one current site 2973, three candidates 3873/3874/3875, 23/24/52 native sample IDs; 11 response bodies and 14 consumed private inputs; zero of three admitted candidates.
 
 - [Retained qualification evidence: docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json](report.json) (SHA-256 `eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/amsoldingersee-source-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/amsoldingersee-source-custody.json) (SHA-256 `f5fa3b0d13017c4cf15cf5332de09880fb39c191c8ca151abd784dc61bffb37e`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

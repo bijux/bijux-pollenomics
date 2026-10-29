@@ -1,0 +1,96 @@
+"""Invoke the unchanged maintained module inside the complete owned package namespace."""
+
+from __future__ import annotations
+
+import argparse
+import importlib.util
+from pathlib import Path
+import runpy
+import sys
+from typing import Any
+
+from contracts import (
+    MODULE,
+    SOURCE,
+    bootstrap,
+    checkpoint,
+    execution_scope,
+    load,
+    require,
+    write,
+)
+from source_inputs import pin
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = load(args.plan)
+    authority, scope = execution_scope(plan)
+    roots = bootstrap(plan)
+    module = importlib.util.find_spec(MODULE)
+    require(module is not None, "Maintained module spec missing")
+    assert module is not None
+    declared = load(SOURCE / "declared-inputs.json")["maintained_sources"]
+    owned = Path(plan["owned_repository"])
+    source = owned / declared[0]["path"]
+    require(module.origin == str(source), "Maintained module origin differs")
+    for item in declared:
+        row = pin(owned / item["path"])
+        require(
+            row["sha256"] == item["sha256"] and row["bytes"] == item["bytes"],
+            "Maintained owned source bytes differ",
+        )
+    argv = [
+        str(source),
+        "--source-root",
+        plan["private_source_root"],
+        "--output",
+        str(Path(plan["output"]) / "producer"),
+    ]
+    sys.argv = argv
+    # The module-aware invocation preserves the maintained relative sibling import.
+    runpy.run_module(MODULE, run_name="__main__")
+    require(
+        not any(
+            name == root or name.startswith(root + ".")
+            for name in sys.modules
+            for root in ("bijux_pollenomics_lra", "bijux_pollenomics", "pollenomics")
+        ),
+        "HYDE stdlib dev consumer must not import the omitted numerical engine/version or public host/facade",
+    )
+    origins: list[dict[str, Any]] = []
+    original = {row["path"]: row for row in plan["input_pins"]}
+    for name, loaded in sorted(sys.modules.items()):
+        if name == "bijux_pollenomics_dev" or name.startswith("bijux_pollenomics_dev."):
+            filename = getattr(loaded, "__file__", None)
+            require(isinstance(filename, str), "First-party origin missing")
+            assert isinstance(filename, str)
+            path = Path(filename)
+            row = pin(path)
+            require(
+                path.is_relative_to(owned) and original.get(str(path)) == row,
+                "First-party import left protected owned source",
+            )
+            origins.append({"module": name, **row})
+    checkpoint(authority, scope, plan["owned_namespace_snapshots"])
+    write(
+        Path(plan["output"]) / "maintained-producer-execution.json",
+        {
+            "candidate": plan["candidate"],
+            "actual_exit": 0,
+            "actual_maintained_argv": argv,
+            "module": MODULE,
+            "source": pin(source),
+            "owned_package_search_roots": roots,
+            "actual_first_party_origins": origins,
+            "LRA_host_facade_imports": 0,
+            "omitted_generated_version_module_executed": False,
+            "two_produced_products": [
+                pin(Path(plan["output"]) / "producer" / name)
+                for name in ("report.json", "grid-conservation.csv")
+            ],
+            "new_native_outcome": True,
+        },
+    )

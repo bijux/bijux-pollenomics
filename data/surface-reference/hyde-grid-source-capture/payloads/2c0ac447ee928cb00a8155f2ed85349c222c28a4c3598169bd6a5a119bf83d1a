@@ -1,0 +1,215 @@
+"""Artificial metadata transport guards; no historical/private/runtime census."""
+
+from __future__ import annotations
+
+from collections.abc import Callable
+from copy import deepcopy
+from functools import partial
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+from typing import Any
+from unittest.mock import patch
+
+SOURCE = Path(__file__).resolve().parent
+sys.path.insert(0, str(SOURCE))
+from assemble import materialize  # noqa: E402
+import contracts  # noqa: E402
+from contracts import strict_equal, verify_private_ancestry  # noqa: E402
+from launch import remaining_seconds  # noqa: E402
+from observe import exact_packet_tree  # noqa: E402
+from packet import (  # noqa: E402
+    json_object,
+    member_name,
+    same,
+    validate_packet,
+)
+from run import validate_stages  # noqa: E402
+from source_inputs import pin  # noqa: E402
+
+
+def refuses(function: Callable[[], Any]) -> None:
+    try:
+        function()
+    except (ValueError, KeyError, TypeError):
+        return
+    raise AssertionError("Unsafe artificial metadata case accepted")
+
+
+def main() -> None:
+    cases = 0
+    for name in (
+        ".",
+        "",
+        "../outside",
+        "/outside",
+        "payloads/../outside",
+        "payloads//name",
+        "payloads\\name",
+    ):
+        refuses(partial(member_name, name))
+        cases += 1
+    assert member_name("payloads/" + "a" * 64) == "payloads/" + "a" * 64
+    for raw in (b'{"same":1,"same":2}', b'{"bad":NaN}', b"[]"):
+        refuses(partial(json_object, raw))
+        cases += 1
+    for a, b in (
+        (0, False),
+        ([0], [False]),
+        ({"a": 0}, {"a": False}),
+        ({"a": 1, "b": 2}, {"b": 2, "a": 1}),
+    ):
+        refuses(partial(same, a, b))
+        cases += 1
+    assert strict_equal({"x": [0, None]}, {"x": [0, None]})
+
+    def require_read_not_called(name: str) -> bytes:
+        raise AssertionError("Unexpected payload read: " + name)
+
+    refuses(partial(validate_packet, {}, require_read_not_called))
+    cases += 1
+    root = SOURCE / "preflight/artificial-capture"
+    assert not root.exists()
+    root.mkdir()
+    try:
+        original = root / "public-source.py"
+        original.write_bytes(b"# finite synthetic public source\n")
+        expected = pin(original)
+        target = root / "copied/public-source.py"
+        materialize(original, target, expected)
+        assert target.read_bytes() == original.read_bytes()
+        refuses(partial(materialize, original, target, expected))
+        cases += 2
+        bad = {**expected, "sha256": "0" * 64}
+        refuses(partial(materialize, original, root / "copy-two.py", bad))
+        alias = root / "linked-parent"
+        alias.symlink_to(root / "copied", target_is_directory=True)
+        refuses(partial(materialize, original, alias / "new.py", expected))
+        alias.unlink()
+        cases += 2
+        packet = root / "packet"
+        (packet / "payloads").mkdir(parents=True)
+        (packet / "capture.json").write_bytes(b"{}\n")
+        (packet / "payloads/a").write_bytes(b"payload")
+        exact_packet_tree(packet, {"payloads/a"})
+        cases += 1
+        for kind in ("file", "directory", "symlink", "fifo"):
+            extra = packet / "unexpected"
+            if kind == "file":
+                extra.write_bytes(b"unregistered")
+            elif kind == "directory":
+                extra.mkdir()
+            elif kind == "symlink":
+                extra.symlink_to(packet / "payloads/a")
+            else:
+                os.mkfifo(extra)
+            refuses(partial(exact_packet_tree, packet, {"payloads/a"}))
+            if kind == "directory":
+                extra.rmdir()
+            else:
+                extra.unlink()
+            cases += 1
+        saved = root / "registered-plan.json"
+        raw = b'{"candidate":"artificial"}\n'
+        saved.write_bytes(raw)
+        checksum = hashlib.sha256(raw).hexdigest()
+        assert contracts.registered_plan(saved, checksum) == {"candidate": "artificial"}
+        with patch.dict(os.environ, {"BIJUX_METADATA_PLAN_SHA256": checksum}):
+            assert contracts.registered_plan(saved) == {"candidate": "artificial"}
+            saved.write_bytes(b'{"candidate":"changed"}\n')
+            refuses(partial(contracts.registered_plan, saved))
+            saved.write_bytes(raw)
+        refuses(partial(contracts.registered_plan, saved, "0" * 64))
+        linked_plan = root / "plan-alias.json"
+        linked_plan.symlink_to(saved)
+        refuses(partial(contracts.registered_plan, linked_plan, checksum))
+        linked_plan.unlink()
+        cases += 5
+        # Same bytes behind an ancestor alias still fail custody; no private
+        # payload hashing is needed for this namespace-only assertion.
+        base = root / "private-fixture"
+        (base / "original").mkdir(parents=True)
+        (base / "original/input.zip").write_bytes(b"same artificial payload")
+        verify_private_ancestry(base, ["original/input.zip"])
+        relocated = root / "relocated-fixture"
+        (base / "original").rename(relocated)
+        (base / "original").symlink_to(relocated, target_is_directory=True)
+        refuses(partial(verify_private_ancestry, base, ["original/input.zip"]))
+        (base / "original").unlink()
+        relocated.rename(base / "original")
+        cases += 2
+        tool_calls: list[object] = []
+
+        def unexpected_tool(value: Any, *args: Any, **kwargs: Any) -> Any:
+            tool_calls.append(value)
+            raise AssertionError("Tool reached before loader environment refusal")
+
+        with (
+            patch.object(contracts, "physical", unexpected_tool),
+            patch.object(subprocess, "check_output", unexpected_tool),
+        ):
+            for variable in ("DYLD_INSERT_LIBRARIES", "LD_PRELOAD"):
+                with patch.dict(os.environ, {variable: ""}):
+                    refuses(contracts.identity)
+                    assert tool_calls == []
+                cases += 1
+        assert remaining_seconds(10.0, 11.0, 480) == 479.0
+        refuses(partial(remaining_seconds, 10.0, 491.0, 480))
+        refuses(partial(remaining_seconds, 10.0, 11.0, 1280))
+        cases += 3
+        from contracts import PYTHON, RESOURCES
+
+        plan_path = root / "hypothetical-plan.json"
+        stages = [
+            {
+                "id": name,
+                "action": action,
+                "timeout_seconds": 180,
+                "argv": [
+                    str(PYTHON),
+                    "-I",
+                    "-B",
+                    str(SOURCE / "entry.py"),
+                    action,
+                    "--plan",
+                    str(plan_path),
+                ],
+            }
+            for name, action in (
+                ("retained-grid-capsule-assembly", "assemble"),
+                ("independent-grid-capsule-observer", "observer"),
+            )
+        ]
+        plan: dict[str, Any] = {"resources": dict(RESOURCES), "stages": stages}
+        validate_stages(plan, plan_path)
+        cases += 1
+        for field, value in (
+            ("id", "other"),
+            ("timeout_seconds", 600),
+            ("action", "producer"),
+            ("argv", ["other"]),
+        ):
+            changed = deepcopy(plan)
+            changed["stages"][1][field] = value
+            refuses(partial(validate_stages, changed, plan_path))
+            cases += 1
+    finally:
+        shutil.rmtree(root)
+    print(
+        json.dumps(
+            {
+                "actual_exit": 0,
+                "synthetic_cases": cases,
+                "private_source_or_runtime_census": False,
+                "actual_retainer_preparer_native_grid_or_model": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

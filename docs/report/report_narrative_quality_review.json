@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v2",
-  "page_count": 323,
+  "page_count": 324,
   "quality_posture_counts": {
-    "reader_ready": 306,
+    "reader_ready": 307,
     "structured_reference": 8,
     "thin_structure": 9
   },
@@ -900,7 +900,7 @@
     {
       "repository_path": "docs/report/numerical-performance/love-source-comparison/README.md",
       "prose_paragraph_count": 17,
-      "link_bullet_count": 2,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 6,
@@ -1379,8 +1379,8 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
-      "prose_paragraph_count": 16,
-      "link_bullet_count": 2,
+      "prose_paragraph_count": 17,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -1710,7 +1710,7 @@
     {
       "repository_path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md",
       "prose_paragraph_count": 15,
-      "link_bullet_count": 2,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 6,
@@ -1870,7 +1870,7 @@
     {
       "repository_path": "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md",
       "prose_paragraph_count": 24,
-      "link_bullet_count": 4,
+      "link_bullet_count": 6,
       "bullet_sentence_count": 0,
       "heading_count": 6,
       "table_line_count": 28,
@@ -1920,7 +1920,7 @@
     {
       "repository_path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
       "prose_paragraph_count": 19,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 11,
@@ -1930,7 +1930,7 @@
     {
       "repository_path": "docs/report/regions/nordic/swedish-neotoma-holdout/README.md",
       "prose_paragraph_count": 17,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 5,
@@ -2470,7 +2470,7 @@
     {
       "repository_path": "docs/report/source-relations/neotoma/lakeparameters/README.md",
       "prose_paragraph_count": 14,
-      "link_bullet_count": 2,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 7,
@@ -2520,7 +2520,7 @@
     {
       "repository_path": "docs/report/source-relations/neotoma/lra-prerequisites/README.md",
       "prose_paragraph_count": 16,
-      "link_bullet_count": 2,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 0,
@@ -2640,7 +2640,7 @@
     {
       "repository_path": "docs/report/source-relations/openland-intake/README.md",
       "prose_paragraph_count": 16,
-      "link_bullet_count": 5,
+      "link_bullet_count": 7,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -2650,7 +2650,7 @@
     {
       "repository_path": "docs/report/source-relations/openland-intake/doi-lineage.md",
       "prose_paragraph_count": 13,
-      "link_bullet_count": 4,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 4,
@@ -2849,10 +2849,10 @@
     },
     {
       "repository_path": "docs/report/source-relations/svar/normalized-export/README.md",
-      "prose_paragraph_count": 19,
-      "link_bullet_count": 4,
+      "prose_paragraph_count": 22,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 3,
+      "heading_count": 4,
       "table_line_count": 5,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -2929,10 +2929,10 @@
     },
     {
       "repository_path": "docs/report/validation/empd2-nfi-pairing/README.md",
-      "prose_paragraph_count": 21,
-      "link_bullet_count": 5,
+      "prose_paragraph_count": 24,
+      "link_bullet_count": 6,
       "bullet_sentence_count": 0,
-      "heading_count": 4,
+      "heading_count": 5,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -3234,6 +3234,16 @@
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 8,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/method-certification/love-objective-parity/README.md",
+      "prose_paragraph_count": 17,
+      "link_bullet_count": 3,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 6,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     }

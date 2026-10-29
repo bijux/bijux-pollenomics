@@ -1,0 +1,389 @@
+"""Freeze a reviewed future clean-source 32-candidate LOVE parity plan; launch nothing."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import sys
+from typing import Any
+
+
+def _verify_entry_namespace(root: Path) -> None:
+    expected = {
+        ".": [
+            "check_contracts.py",
+            "common_runner.py",
+            "contracts.py",
+            "observe.py",
+            "prepare.py",
+            "produce.py",
+            "r_runtime_contracts.py",
+            "run.py",
+            "runtime_contracts.py",
+            "runtime_guarded_runner.py",
+            "source_runtime.py",
+        ]
+    }
+    for domain, names in expected.items():
+        directory = root if domain == "." else root / domain
+        if directory.is_symlink() or not directory.is_dir():
+            raise ValueError("Controller import domain is absent or linked")
+        for entry in directory.iterdir():
+            if entry.is_symlink() or not (entry.is_file() or entry.is_dir()):
+                raise ValueError("Controller import namespace contains alias/special")
+            if domain == ".":
+                if entry.is_dir() and entry.name not in {
+                    "preflight",
+                    *set(expected) - {"."},
+                }:
+                    raise ValueError("Unexpected controller import directory")
+                if (
+                    entry.suffix in {".py", ".pyc", ".so", ".pyd", ".dylib"}
+                    and entry.name not in names
+                ):
+                    raise ValueError("Unexpected controller import member")
+            elif entry.is_dir() or entry.name not in names:
+                raise ValueError("Unexpected nested controller import member")
+        if domain != "." and {entry.name for entry in directory.iterdir()} != set(
+            names
+        ):
+            raise ValueError("Nested controller import member is missing")
+
+
+def _verify_reviewed_entry(root: Path) -> None:
+    manifest = root / "prepared-source-manifest.json"
+    review = root / "independent-source-review.json"
+    for path in (manifest, review):
+        if not path.is_file() or any(
+            parent.is_symlink() for parent in (path, *path.parents)
+        ):
+            raise ValueError(
+                "Reviewed controller entry requires regular source authority"
+            )
+    raw = manifest.read_bytes()
+    document = json.loads(raw)
+    admission = json.loads(review.read_bytes())
+    if (
+        document["source_only"] is not True
+        or admission["approved"] is not True
+        or admission["source_manifest_sha256"] != hashlib.sha256(raw).hexdigest()
+    ):
+        raise ValueError(
+            "Exact independent source approval required before local imports"
+        )
+    names = [row["path"] for row in document["files"]]
+    if names != sorted(set(names)):
+        raise ValueError("Reviewed entry source paths must be sorted and unique")
+    for row in document["files"]:
+        path = Path(row["path"])
+        if (
+            not path.is_absolute()
+            or ".." in path.parts
+            or (not path.is_relative_to(root))
+            or any(parent.is_symlink() for parent in (path, *path.parents))
+        ):
+            raise ValueError("Reviewed controller entry leaves physical source")
+        if (
+            not path.is_file()
+            or type(row["bytes"]) is not int
+            or path.stat().st_size != row["bytes"]
+        ):
+            raise ValueError("Reviewed controller entry length changed")
+        with path.open("rb") as stream:
+            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+        if checksum != row["sha256"]:
+            raise ValueError("Reviewed controller source changed before local imports")
+    required = {
+        entry
+        for names in {
+            ".": [
+                "check_contracts.py",
+                "common_runner.py",
+                "contracts.py",
+                "observe.py",
+                "prepare.py",
+                "produce.py",
+                "r_runtime_contracts.py",
+                "run.py",
+                "runtime_contracts.py",
+                "runtime_guarded_runner.py",
+                "source_runtime.py",
+            ]
+        }.values()
+        for entry in names
+    }
+    declared = {Path(name).relative_to(root).as_posix() for name in names}
+    if not required.issubset(declared):
+        raise ValueError("Reviewed controller manifest omits a local import member")
+
+
+_entry_path = Path(__file__).absolute()
+if _entry_path != _entry_path.resolve() or any(
+    p.is_symlink() for p in (_entry_path, *_entry_path.parents)
+):
+    raise ValueError("Physical normalized source entrypoint required")
+_entry_directory = _entry_path.parent
+_verify_entry_namespace(_entry_directory)
+if __name__ == "__main__":
+    _verify_reviewed_entry(_entry_directory)
+sys.path.insert(0, str(_entry_directory))
+
+from contracts import (  # noqa: E402 - authenticate local helpers before importing.
+    ARCHIVE,
+    ARCHIVE_SHA,
+    CONTRACT,
+    GIT,
+    GIT_PIN,
+    R_LIBRARY,
+    R_SCRIPT,
+    ROOT,
+    SOURCE,
+    SUPPORT,
+    SUPPORT_SHA,
+    dump,
+    first_party_snapshot,
+    identity,
+    load,
+    namespace,
+    output_root,
+    pin,
+    r_authority,
+    require,
+    union,
+    verify_inputs,
+)
+from r_runtime_contracts import (  # noqa: E402 - guarded local namespace.
+    require_environment,  # noqa: E402 - authenticate local helpers before importing.
+)
+from source_runtime import (  # noqa: E402 - authenticate local helpers before importing.
+    PYTHON,
+    attach_runtime_launcher,
+    authenticate_runtime,
+)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--review", type=Path, required=True)
+    parser.add_argument("--review-sha256", required=True)
+    args = parser.parse_args()
+    namespace()
+    require_environment(dict(os.environ))
+    output = output_root(args.output, absent=True)
+    canonical = identity()
+    require(
+        canonical["candidate"] == args.candidate and canonical["status"] == "",
+        "Clean actual candidate required",
+    )
+    manifest = pin(SOURCE / "prepared-source-manifest.json")
+    review = pin(args.review)
+    require(review["sha256"] == args.review_sha256, "Review SHA differs")
+    approved = load(args.review)
+    require(
+        approved["approved"] is True
+        and approved["source_manifest_sha256"] == manifest["sha256"],
+        "Exact independent source approval required",
+    )
+    held = union([manifest, review])
+    for row in load(Path(manifest["path"]))["files"]:
+        expected = {**row, "path": str(SOURCE / row["path"])}
+        require(pin(Path(expected["path"])) == expected, "Held source changed")
+        held = union(held, [expected])
+    required = [
+        ARCHIVE,
+        SUPPORT,
+        ROOT / "docs/report/numerical-performance/love-source-comparison/compare.py",
+        ROOT / "docs/report/numerical-performance/love-source-comparison/replay.R",
+        ROOT / "docs/report/numerical-performance/love-source-profile/report.json",
+        ROOT / "docs/report/numerical-performance/love-source-comparison/report.json",
+        ROOT
+        / "docs/report/numerical-performance/representative-public-calls/report.json",
+    ]
+    declared = [pin(path) for path in required]
+    require(
+        pin(ARCHIVE)["sha256"] == ARCHIVE_SHA and pin(SUPPORT)["sha256"] == SUPPORT_SHA,
+        "Maintained original source archive/support changed",
+    )
+    require(pin(GIT) == GIT_PIN, "Exact physical Git authority differs")
+    original = union(held, declared, [GIT_PIN])
+    interface = load(SOURCE / "source-interface.json")
+    for key in ("public_API", "Python_objective", "Python_selector"):
+        row = interface[key]["source"]
+        require(
+            pin(Path(row["path"])) == row,
+            "Reviewed mathematical source interface changed",
+        )
+        original = union(original, [row])
+    trees, source_rows = first_party_snapshot()
+    runtime, host_rows = authenticate_runtime()
+    r_runtime, r_rows, r_plan = r_authority()
+    require(
+        str(R_SCRIPT) in {row["path"] for row in r_rows},
+        "Rscript not in observed runtime",
+    )
+    inputs = union(original, source_rows, host_rows, r_rows)
+    resources = {
+        "overall_timeout_seconds": 540,
+        "resident_memory_limit_bytes": 2 * 1024**3,
+        "output_byte_limit": 256 * 1024**2,
+    }
+    plan: dict[str, Any] = {
+        "schema_version": "love-shared-source-parity-plan.v1",
+        "candidate": args.candidate,
+        "repository": str(ROOT),
+        "canonical_identity": canonical,
+        "output": str(output),
+        "numerical_contract": CONTRACT,
+        "first_party_namespaces": trees,
+        "input_pins": inputs,
+        "held_control_pins": held,
+        "original_controller_and_source_expected_pins": original,
+        "retained_R_authority": r_runtime,
+        "retained_R_plan": r_plan,
+        "absent_input_paths": list(r_plan["absent_paths"]),
+        "common_runner": str(SOURCE / "common_runner.py"),
+        "resources": resources,
+        "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PATH": "/Library/Developer/CommandLineTools/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin",
+            "GIT_OPTIONAL_LOCKS": "0",
+            "GIT_CONFIG_NOSYSTEM": "1",
+            "GIT_CONFIG_GLOBAL": "/dev/null",
+            "TMPDIR": str(output / "temporary"),
+            "XDG_CACHE_HOME": str(output / "cache"),
+            "MPLCONFIGDIR": str(output / "matplotlib"),
+            "R_ENVIRON_USER": "/dev/null",
+            "R_PROFILE_USER": "/dev/null",
+            "R_LIBS_USER": str(R_LIBRARY),
+            "R_LIBS_SITE": "",
+            "R_JAVA_LD_LIBRARY_PATH": "",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+            "VECLIB_MAXIMUM_THREADS": "1",
+        },
+        "scope": CONTRACT["scope"],
+        "historical_limits": [
+            "Original56-source comparator gate remains unexecuted and unwaived.",
+            "Representative source_R_same_input_comparison_executed=false remains original history.",
+            "Original C0024 two candidates and prospective 5/6/6 candidates are distinct workloads.",
+            "No old timing/RSS/runtime recovery or whole current-source equivalence is claimed.",
+        ],
+    }
+    plan_path = output / "plan.json"
+    plan["stages"] = [
+        {
+            "id": "export-shared-binary64-source-fixture",
+            "argv": [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(SOURCE / "produce.py"),
+                "--plan",
+                str(plan_path),
+                "--mode",
+                "shared-inputs",
+            ],
+            "timeout_seconds": 30,
+            "must_succeed": True,
+        },
+        {
+            "id": "source-R-thirty-two-candidate-replay",
+            "argv": [
+                str(R_SCRIPT),
+                "--vanilla",
+                str(SOURCE / "replay.R"),
+                str(output / "input"),
+                str(output / "r"),
+                str(R_LIBRARY),
+                ARCHIVE_SHA,
+                str(SUPPORT),
+            ],
+            "timeout_seconds": 180,
+            "must_succeed": True,
+        },
+        {
+            "id": "public-Python-thirty-two-candidate-replay",
+            "argv": [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(SOURCE / "produce.py"),
+                "--plan",
+                str(plan_path),
+                "--mode",
+                "python",
+            ],
+            "timeout_seconds": 60,
+            "must_succeed": True,
+        },
+        {
+            "id": "independent-shared-input-and-all-vector-observer",
+            "argv": [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(SOURCE / "observe.py"),
+                "--plan",
+                str(plan_path),
+            ],
+            "timeout_seconds": 60,
+            "must_succeed": True,
+        },
+    ]
+    plan["actual_launch_argv"] = attach_runtime_launcher(
+        plan,
+        runtime,
+        host_rows,
+        output,
+        plan_path,
+        [
+            str(PYTHON),
+            "-I",
+            "-B",
+            str(SOURCE / "run.py"),
+            "--plan",
+            str(plan_path),
+            "--registered-plan-sha256",
+            "PLAN_SHA256",
+        ],
+        wall=540,
+        memory=2 * 1024**3,
+        storage=256 * 1024**2,
+    )
+    # Final expected union revalidation precedes every output write.
+    verify_inputs(plan)
+    require(identity() == canonical, "Candidate changed during full census")
+    parent = output.parent
+    while not parent.exists():
+        parent = parent.parent
+    require(
+        shutil.disk_usage(parent).free >= 1024**3, "Insufficient physical1GiB reserve"
+    )
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output_root(output, absent=True).mkdir()
+    for name in ("temporary", "cache", "matplotlib", "r"):
+        (output / name).mkdir()
+    dump(plan_path, plan)
+    dump(
+        output / "preparation.json",
+        {
+            "actual_exit": 0,
+            "candidate": args.candidate,
+            "plan": pin(plan_path),
+            "protected_inputs": len(plan["input_pins"]),
+            "R_authority": r_runtime,
+            "native_stages_launched": 0,
+            "physical_free_bytes_at_preparation": shutil.disk_usage(output).free,
+        },
+    )
+    print(plan_path)
+
+
+if __name__ == "__main__":
+    main()

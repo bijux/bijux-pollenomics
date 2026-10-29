@@ -1,0 +1,56 @@
+[
+  {
+    "id": "maintained-grid-producer",
+    "action": "producer",
+    "timeout_seconds": 600,
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/entry.py",
+      "producer",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/plan.json"
+    ],
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 48.37089512497187,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/maintained-grid-producer.stdout",
+      "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628",
+      "bytes": 5668
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/maintained-grid-producer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  {
+    "id": "independent-source-grid-observer",
+    "action": "observer",
+    "timeout_seconds": 600,
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/entry.py",
+      "observer",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/plan.json"
+    ],
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 59.93585654103663,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/independent-source-grid-observer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/independent-source-grid-observer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+]

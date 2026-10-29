@@ -1,0 +1,72 @@
+{
+  "schema_version": "hyde-grid-execution-source-capture-protocol.v1",
+  "source_only": true,
+  "metadata_retention_only": true,
+  "original_native_plan_sha256": "54bb026c401decc81422eefd244fa88e728d692dee0fae669c10c1a199625bc3",
+  "original_scientific_source_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "original_actual_stages": [
+    {
+      "role": "maintained-grid-producer",
+      "actual_exit": 0
+    },
+    {
+      "role": "independent-source-grid-observer",
+      "actual_exit": 0
+    }
+  ],
+  "original_inner_SHA256": "adbd50eb68421431ecb7b59cc7d7656e35f488352c1eeb7221d692f286f1acab",
+  "original_outer_SHA256": "ff589753c3769de319c9c43ef7c6b749ab7936c230460c5c1598d749adbe35de",
+  "future_metadata_outcome": null,
+  "raw_custody": {
+    "original_ordered_input_identities": 62127,
+    "original_source_ledger_rows": 6539,
+    "owned_source_and_metadata_copies": 2182,
+    "owned_metadata_inputs": 5,
+    "original_cache_bytecode_identity_only": 4356,
+    "configured_generated_version_module_identity_only": 1,
+    "private_source_identities_without_payload": 25,
+    "original_reviewed_controller_members": 31,
+    "original_complete_product_catalogue_rows": 2193,
+    "all_original_raw_plans_and_ledgers_retained": true,
+    "original_output_namespace_and_exact_streams_retained": true,
+    "common906_tail_exception_used": false
+  },
+  "source_reuse": "Copy public source/resources from exact immutable owned per-pin copies. Preserve original canonical full-source/cache/generated identities in the raw ledger. Do not demand later canonical byte equality, recopy current canonical source, normalize raw launchers, or infer cache/source equivalence.",
+  "runtime_scope": "Reuse genuine observed147 source runtime with full file/namespace/alias/absence checks. Runtime payloads are omitted; four original raw runtime-custody metadata records are retained explicitly. Preserve original bootstrap whole1 and separate observer0. No installed first-party API or original lost runtime recovery claim.",
+  "private_scope": "All25 original declared archive/table identities remain in exact raw input order. Reject same-byte ancestor aliases at every checkpoint before and after. No private archive/table payload copy and no ZIP/grid/model evaluation. Root preparation and metadata checks rehash only the original protected inputs.",
+  "registered_stage_binding": "The owned run parent injects the actual registered SHA into BIJUX_METADATA_PLAN_SHA256. Each assembly/observer stage authenticates the same raw plan buffer before JSON parsing. Raw original framework launcher and lexical venv stage/outer launchers stay distinct and byte exact.",
+  "metadata_stages": [
+    {
+      "role": "retained-grid-capsule-assembly",
+      "seconds": 180
+    },
+    {
+      "role": "independent-grid-capsule-observer",
+      "seconds": 180
+    }
+  ],
+  "resources": {
+    "completed_run_seconds": 420,
+    "owned_child_watchdog_seconds": 480,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_owned_output_bytes": 536870912,
+    "public_packet_bytes": 268435456,
+    "additional_physical_free_reserve_bytes": 1073741824
+  },
+  "watchdog_scope": "One outer-owned new session includes the run delegate and inherited stage processes. Stage timeout kills/waits its exact owned PID; outer timeout kills/waits the owned delegate process group. No detached-descendant, aggregate RSS or OS quota guarantee. Minimal parent entry/startup and post-reap accounting is measured but not independently watched.",
+  "forecast": "Before mkdir, compute the exact SHA-and-size deduplicated public payload union plus serialized packet/plan bytes and receipt reserves. Refuse overflow without dropping any original raw plan/order/source identities.",
+  "capsule_output": "data/surface-reference/hyde-grid-source-capture/capture.json",
+  "generated_helper": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/hyde_grid.py",
+  "publication_scope": "Only the existing two grid-conservation report products, unchanged when tracked0. A later independently reviewed composition may transition exactly that owner to retained_source, preserve old reader body/eight fields, and append a bounded witness. No source-derived new report, country-table prior-admission relabel or wider owner closure.",
+  "explicit_open_boundaries": [
+    "Unretrieved original historical grid/native runtime epoch.",
+    "Release and source-specific redistribution rights reconciliation.",
+    "Formal CRS, BP/calendar mapping and all-variable/all-year source intake.",
+    "Independent vegetation/ecological accuracy, human review and LRA acceptance."
+  ],
+  "prior_source_preparation_refusals": [
+    "979be5518351f6139cff1eaec934cc1c77a123fde3266a6e1ee9efedf0f5249d",
+    "e06cc4140d6f3037153e71dd1385605b5dc62f1454fb69a828a345f237aea0b0"
+  ],
+  "worker_actual_preparer_retainer_private_hash_ZIP_parse_runtime_census_or_native": false
+}

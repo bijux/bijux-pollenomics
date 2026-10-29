@@ -1,0 +1,115 @@
+"""Independently reconstruct HYDE retained metadata without reading any private grid."""
+
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+
+from assemble import helper_source
+from contracts import (
+    PACKET_LIMIT,
+    checkpoint,
+    execution_scope,
+    load,
+    registered_plan,
+    require,
+    strict_equal,
+    write,
+)
+from packet import json_object, member_name, validate_packet
+from source_inputs import pin
+
+
+def exact_packet_tree(root: Path, names: set[str]) -> None:
+    require(
+        root.is_dir() and not any(node.is_symlink() for node in (root, *root.parents)),
+        "Physical retained packet root required",
+    )
+    files, directories = set(), set()
+    for path in root.rglob("*"):
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Packet alias/special refused",
+        )
+        name = path.relative_to(root).as_posix()
+        if path.is_file():
+            files.add(name)
+        else:
+            directories.add(name)
+    require(
+        files == names | {"capture.json"} and directories == {"payloads"},
+        "Complete packet file/directory membership differs",
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = registered_plan(args.plan)
+    authority, scope = execution_scope(plan)
+    output = Path(plan["output"])
+    root = output / "packet"
+    capture = pin(root / "capture.json")
+    packet = json_object((root / "capture.json").read_bytes())
+    require(
+        strict_equal(packet, plan["transport"]["packet"]),
+        "Assembled packet differs from frozen source transport",
+    )
+    exact_packet_tree(root, set(packet["members"]))
+
+    def read(name: str) -> bytes:
+        member_name(name)
+        path = root / name
+        require(
+            path.is_file()
+            and not any(node.is_symlink() for node in (path, *path.parents)),
+            "Physical retained public member required",
+        )
+        return path.read_bytes()
+
+    result = validate_packet(packet, read)
+    total = capture["bytes"] + sum(row["bytes"] for row in packet["members"].values())
+    require(
+        total == plan["transport"]["total_packet_bytes"] <= PACKET_LIMIT,
+        "Completed capsule exceeds exact forecast",
+    )
+    assembly = load(output / "assembly-result.json")
+    require(
+        type(assembly["actual_exit"]) is int
+        and assembly["actual_exit"] == 0
+        and assembly["metadata_retention_only"] is True
+        and assembly["grid_or_model_reexecuted"] is False,
+        "No actual metadata assembly proof",
+    )
+    require(
+        strict_equal(assembly["capture"], capture),
+        "Actual capture identity differs from assembly",
+    )
+    generated = output / "generated/hyde_grid.py"
+    require(
+        generated.read_text() == helper_source(capture["sha256"]),
+        "Generated helper is not bound to exact actual capsule",
+    )
+    checkpoint(authority, scope, plan["historical_namespaces"])
+    exact_packet_tree(root, set(packet["members"]))
+    write(
+        output / "independent-capture-review.json",
+        {
+            "actual_exit": 0,
+            "metadata_only": True,
+            "capture": capture,
+            "generated_helper": pin(generated),
+            "original_ordered_inputs": len(packet["original_input_roles"]),
+            "original_source_join_count": len(packet["original_source_join"]),
+            "retained_payloads": len(packet["members"]),
+            "actual_packet_bytes": total,
+            "receipt_scope": result,
+            "private_grid_reparsed_or_model_repeated": False,
+            "original_country_table_or_missing_historical_epoch_relabelled": False,
+        },
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,16 @@
+test_actual_common_plan_schema_and_stage_bindings (__main__.PublicationGuards.test_actual_common_plan_schema_and_stage_bindings) ... ok
+test_complete_controlled_used_dataset_projection_and_country_refusals (__main__.PublicationGuards.test_complete_controlled_used_dataset_projection_and_country_refusals) ... ok
+test_complete_thirteen_pair_projection_preserves_titles_and_refusals (__main__.PublicationGuards.test_complete_thirteen_pair_projection_preserves_titles_and_refusals) ... ok
+test_duplicate_nonfinite_json_and_bool_number_distinctions (__main__.PublicationGuards.test_duplicate_nonfinite_json_and_bool_number_distinctions) ... ok
+test_entry_prefix_refuses_native_shadows_aliases_fifo_and_unknown_directories (__main__.PublicationGuards.test_entry_prefix_refuses_native_shadows_aliases_fifo_and_unknown_directories) ... ok
+test_expected_pin_union_refuses_source_or_archive_change_during_census (__main__.PublicationGuards.test_expected_pin_union_refuses_source_or_archive_change_during_census) ... ok
+test_metadata_boundary_denial_and_unrelated_profile_calls (__main__.PublicationGuards.test_metadata_boundary_denial_and_unrelated_profile_calls) ... ok
+test_native_provider_fields_and_primary_missingness (__main__.PublicationGuards.test_native_provider_fields_and_primary_missingness) ... ok
+test_producer_destination_refuses_descendant_alias_and_parent_escape (__main__.PublicationGuards.test_producer_destination_refuses_descendant_alias_and_parent_escape) ... ok
+test_provider_bad_id_duplicate_nullable_flags_and_source_join_refuse (__main__.PublicationGuards.test_provider_bad_id_duplicate_nullable_flags_and_source_join_refuse) ... ok
+test_registry_native_title_landing_and_explicit_equivalence (__main__.PublicationGuards.test_registry_native_title_landing_and_explicit_equivalence) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.044s
+
+OK

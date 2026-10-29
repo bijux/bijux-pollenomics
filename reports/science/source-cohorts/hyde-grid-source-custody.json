@@ -1,0 +1,123 @@
+{
+  "schema_version": "hyde-grid-retained-source-witness.v1",
+  "original_scientific_source_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "metadata_assembly_candidate": "5318b63c6c7ee6370f76409951cb6f60354becc6",
+  "publication_candidate": "5318b63c6c7ee6370f76409951cb6f60354becc6",
+  "capture": {
+    "path": "data/surface-reference/hyde-grid-source-capture/capture.json",
+    "sha256": "e7d56cec6aa162cccc06e79655047094e76bcf5ed88e75e72969645f6ab71c45",
+    "bytes": 10456378
+  },
+  "actual_metadata_receipts": {
+    "plan.json": {
+      "sha256": "a2f833714eb3704bf8f947e2810b460058c879cd6d20c23e603c2aaf90cc2fb6",
+      "bytes": 31381922
+    },
+    "capture-terminal.json": {
+      "sha256": "ec8737cc2067e00dab839038ec3be4a01d15b42a15fa0b027914e6841c3668ef",
+      "bytes": 4620
+    },
+    "capture-launch-terminal.json": {
+      "sha256": "71a40d4beae1f9cfe49ab42820f4517ea3355b7a8ebcfc0076e62d55f809be7e",
+      "bytes": 2504
+    },
+    "assembly-result.json": {
+      "sha256": "0f84ffd082d5426d12cca78f977b5c4769033f4ec1cfb8210576c7f747c3fa2f",
+      "bytes": 1447
+    },
+    "independent-capture-review.json": {
+      "sha256": "62d519f72704989f4849c192103272bb0b926ab0a4da064e820de5fce13db04a",
+      "bytes": 1400
+    }
+  },
+  "actual_generated_helper_callback": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-root-admission/actual-generated-helper-callback.json",
+    "sha256": "cf655eeb4b81eb02225c191c67cd0c456306f3a369fbc67fdbfbf61297129e53",
+    "bytes": 3643
+  },
+  "original_native_references": {
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/plan.json",
+      "sha256": "54bb026c401decc81422eefd244fa88e728d692dee0fae669c10c1a199625bc3",
+      "bytes": 17587701
+    },
+    "source_ledger": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/original-source-ledger.json",
+      "sha256": "fc75ecfb439b61e6e529e723774f4b96e9850ef511cd751a887a8dc1b09b41fd",
+      "bytes": 6041357
+    },
+    "inner": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/grid-conservation-terminal.json",
+      "sha256": "adbd50eb68421431ecb7b59cc7d7656e35f488352c1eeb7221d692f286f1acab",
+      "bytes": 4659
+    },
+    "outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/grid-launch-terminal.json",
+      "sha256": "ff589753c3769de319c9c43ef7c6b749ab7936c230460c5c1598d749adbe35de",
+      "bytes": 2519
+    },
+    "review": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/independent-grid-source-review.json",
+      "sha256": "5d6c671e9e99509be37c0c8dedf533f8ec88c084a96804c60ed543f0d5121d68",
+      "bytes": 3322
+    },
+    "producer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/maintained-producer-execution.json",
+      "sha256": "d1a5304354572d46d06b0ed814845b0420b1e9c6529e4a0b7f9006e0b1ac483f",
+      "bytes": 5098
+    },
+    "catalogue": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/output-products.json",
+      "sha256": "e34003ef69869818744f2c57ede8b014cda808a658c124a9c2aad904cc8e9023",
+      "bytes": 752820
+    }
+  },
+  "actual_scientific_source_reconstruction": {
+    "ISO_cells": {
+      "DK": 1103,
+      "FI": 9161,
+      "NO": 9699,
+      "SE": 11504
+    },
+    "joined_rows": 84,
+    "selected_nodata_cells": 0,
+    "off_selection_values_not_qualified": true,
+    "grid_dimensions": [
+      4320,
+      2160
+    ],
+    "literal_header": [
+      [
+        "ncols",
+        "4320"
+      ],
+      [
+        "nrows",
+        "2160"
+      ],
+      [
+        "xllcorner",
+        "-180"
+      ],
+      [
+        "yllcorner",
+        "-90"
+      ],
+      [
+        "cellsize",
+        "0.0833333"
+      ],
+      [
+        "NODATA_value",
+        "-9999"
+      ]
+    ],
+    "Decimal_mass_tolerance_km2": "0.000001"
+  },
+  "existing_report_bytes_changed": false,
+  "original_missing_historical_epoch_recovered": false,
+  "country_table_prior_admission_relabelled": false,
+  "metadata_retention_is_grid_reexecution": false,
+  "private_runtime_bytecode_generated_payloads_published": false,
+  "rights_CRS_BP_calendar_vegetation_human_or_LRA_admission": false
+}

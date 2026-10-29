@@ -1,0 +1,22 @@
+{
+  "schema_version": "amsoldingersee-saved-independent-source-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "55dcd155b499539edeb310afdbf53e8beffeb6cac26fea1ddaa0f0af87113602",
+  "held_members_rehashed_before_after": 22,
+  "independent_entry_controls": [
+    "exact held membership accepted",
+    "source_tamper refused",
+    "native_shadow refused",
+    "relative_member refused"
+  ],
+  "byteexact_previous_helpers": [
+    "common_runner.py",
+    "runtime.py",
+    "metadata.py"
+  ],
+  "source_only_actual_exit": 0,
+  "scope": "Root independently read all six new core modules and controls. One unchanged saved-product/source reconstruction observer only. Original source0/metadata0, observer1/whole1 and absent old checker preserved. Distinct exact originally pinned BASE/App executables require mapped App in original preparation and before/after metadata and exact original argv tail. Full original10058 inputs/output namespace/source/runtime/Git identities remain pinned and verified, complete ordered reconstructed JSON and separate tracked0/2 checker. No original producer repeat, generic argv normalization, filesystem alias or equal-byte claim.",
+  "resource_scope": "45s native observer,110s completed wall and130s alarm retain explicitly limited original scope; no full-entry/postscan watchdog, OS quota, aggregate or detached-descendant claim.",
+  "actual_private_hash_parse_runtime_census_preparer_or_native": false,
+  "scientific_ecological_historical_E69_rights_human_LRA_admission": false
+}

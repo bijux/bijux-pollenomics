@@ -1,0 +1,129 @@
+{
+  "actual_exit": 0,
+  "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-saved-source-observation/plan.json",
+    "sha256": "252001815e90a22b5f85c1690311ea5c6f349973ceef9099d157fd9aeeee5e8c",
+    "bytes": 9121013
+  },
+  "original_source_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "original_execution_references": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/plan.json",
+      "sha256": "f8a5eda54d8a8c66f7cfe7362a4cbe8876ebe15d548c335725524d9227e58ac8",
+      "bytes": 4357610
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/terminal.json",
+      "sha256": "55ecb4539701e1d580c6cc9b3ed9762b60bb47822be026cb0fd71998fdedaf5c",
+      "bytes": 7717
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/amsoldingersee-terminal.json",
+      "sha256": "bc55eaf93d31a736263894af13a85cd567928991e276a5869a5cbf79ad5ca979",
+      "bytes": 1828
+    }
+  ],
+  "original_whole_actual_exit": 1,
+  "original_native_stage_exits": [
+    0,
+    1
+  ],
+  "new_observer_stages": 1,
+  "producer_repeated": false,
+  "framework_entry_correspondence": "Two distinct originally pinned regular executables; actual preparation/before/after mapped App and exact argv tail. No filesystem alias or equal-byte claim.",
+  "source_ledger": {
+    "original_source_files_verified": 14,
+    "original_response_events": [
+      {
+        "path": "capture/sites.raw",
+        "http_status": 200,
+        "raw_sha256": "99fe655e3c5e120098327d28e5e184654bb74bcaad8af875e1f9fe2b87be8c3a"
+      },
+      {
+        "path": "capture/dataset.raw",
+        "http_status": 200,
+        "raw_sha256": "1a1d300846eadc6d01d1d461df5db67b5a2c84b441cf2e76e70d7639945e19e9"
+      },
+      {
+        "path": "capture/download.raw",
+        "http_status": 200,
+        "raw_sha256": "f067287ed8e79997933c52802f62b8a8fe487457c9c521f2498252e25cedc08b"
+      },
+      {
+        "path": "capture/chronologies.raw",
+        "http_status": 200,
+        "raw_sha256": "44d4f13546812cd34fd229ab9e4d033ed7ebafd56cc2a90462b36a0e8b1a31dc"
+      },
+      {
+        "path": "capture/doi.raw",
+        "http_status": 200,
+        "raw_sha256": "de5845149ec18e12eb3a0761e2771f19384cafd3c7813c9c3e3069d795c82540"
+      },
+      {
+        "path": "capture/siblings001/dataset-3873.raw",
+        "http_status": 200,
+        "raw_sha256": "4633e0cb727804ea7d749a87363bd46ecebc6b1c23907519d97d5280d55a04da"
+      },
+      {
+        "path": "capture/siblings001/download-3873.raw",
+        "http_status": 200,
+        "raw_sha256": "946de88e33477eadd1be4352967dcbab31da3f103385a2ad758439b2bad90c8d"
+      },
+      {
+        "path": "capture/siblings001/chronologies-3873.raw",
+        "http_status": 200,
+        "raw_sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc"
+      },
+      {
+        "path": "capture/siblings001/dataset-3874.raw",
+        "http_status": 200,
+        "raw_sha256": "4c9737804be8dd57db73fe5da943f2dbf7f06c48f11efd43a3a2d24b56276a68"
+      },
+      {
+        "path": "capture/siblings001/download-3874.raw",
+        "http_status": 200,
+        "raw_sha256": "8399bf295f8f4d4fead1d6f2f8d3786c15c542a6260ec2bb891f36ad4d83a6e9"
+      },
+      {
+        "path": "capture/siblings001/chronologies-3874.raw",
+        "http_status": 200,
+        "raw_sha256": "5d4e9606a45fba5b1465f0a7af414d0dd1334fbec046977f4c1247d74db4829b"
+      }
+    ],
+    "author_example_rows": 17,
+    "selected_provider_site": 2973,
+    "declared_dataset_requests": [
+      3873,
+      3874,
+      3875
+    ],
+    "dataset_identity_scope": "Request identities authenticated by exact captured-response manifest; no independent dataset-id field claim",
+    "new_HTTP_requests": 0,
+    "tree_outcomes_or_model_calls": 0,
+    "source_capture_date_is_retained_history": true,
+    "absence_or_historical_identity_proved": false,
+    "rights_human_or_LRA_admission": false
+  },
+  "generated_report": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/producer/report.json",
+    "sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7",
+    "bytes": 4006
+  },
+  "maintained_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
+    "sha256": "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0",
+    "bytes": 8383
+  },
+  "complete_ordered_typed_report_equal": true,
+  "independent_reconstructed_json_sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7",
+  "tracked_byte_checker_exit": 0,
+  "source_refusal_unchanged": true,
+  "historical_E69_identity_admitted": false,
+  "rights_human_ecology_or_LRA_admitted": false,
+  "independent_runtime_observation": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-saved-source-observation/independent-runtime-observation.json",
+    "sha256": "a47c67b26413fae9469b06acbef69ea4aa481a317cec0ecaab0a3b94c1af1b1f",
+    "bytes": 91000
+  }
+}

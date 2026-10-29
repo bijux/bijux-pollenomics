@@ -1,0 +1,93 @@
+# One fixed candidate source replay with objective-return and namespace receipts.
+args <- commandArgs(trailingOnly=TRUE)
+stopifnot(length(args)==5L)
+input <- normalizePath(args[1], mustWork=TRUE)
+output <- normalizePath(args[2], mustWork=TRUE)
+library <- normalizePath(args[3], mustWork=TRUE)
+.libPaths(c(library, file.path(R.home(), 'library')))
+stopifnot(identical(normalizePath(.libPaths()), c(library, normalizePath(file.path(R.home(),'library')))))
+options(digits=17, warn=1)
+stopifnot(getRversion()=='4.6.0', as.character(packageVersion('disqover'))=='0.9.14')
+marker <- system.file('SOURCE_ARCHIVE_SHA256',package='disqover',mustWork=TRUE)
+stopifnot(nzchar(marker),identical(normalizePath(marker),file.path(library,'disqover','SOURCE_ARCHIVE_SHA256')))
+marker_value <- readLines(marker,warn=FALSE)
+stopifnot(length(marker_value)==1L,identical(marker_value,args[4]))
+source(args[5])
+snapshot <- function(label) {
+  # sessionInfo may load lapack; include its origins in the following snapshot.
+  session <- capture.output(sessionInfo())
+  names <- sort(loadedNamespaces())
+  rows <- lapply(names, function(name) {
+    raw <- if (identical(name,'base')) file.path(R.home('library'),'base') else getNamespaceInfo(name,'path')
+    version <- if (identical(name,'base')) as.character(getRversion()) else as.character(getNamespaceVersion(name))
+    data.frame(name=name,version=version,path=normalizePath(raw,mustWork=TRUE))
+  })
+  write.csv(do.call(rbind, rows),file.path(output,paste0('r-',label,'-namespaces.csv')),row.names=FALSE)
+  dlls <- getLoadedDLLs()
+  rows <- lapply(dlls,function(item) {
+    raw <- item[['path']]
+    built_in <- identical(item[['name']],'base') && identical(raw,'base')
+    path <- if (built_in) 'base' else normalizePath(raw,mustWork=TRUE)
+    data.frame(name=item[['name']],path=path,dynamic_lookup=item[['dynamicLookup']])
+  })
+  write.csv(do.call(rbind,rows),file.path(output,paste0('r-',label,'-dlls.csv')),row.names=FALSE)
+  writeLines(session,file.path(output,'r-session.txt'))
+}
+snapshot('before')
+for (name in c('local','regional','ppes','rings')) {
+  table <- read.csv(file.path(input,paste0(name,'.csv')),check.names=FALSE)
+  exact <- read.csv(file.path(input,paste0(name,'-hex.csv')),check.names=FALSE,colClasses='character')
+  stopifnot(identical(names(exact), names(table)[vapply(table,is.numeric,logical(1))]))
+  for (column in names(exact)) table[[column]] <- as.numeric(exact[[column]])
+  assign(name,table)
+  write.csv(table,file.path(output,paste0('r-input-',name,'.csv')),row.names=FALSE)
+  writeLines(sprintf('%a',as.numeric(unlist(table[vapply(table,is.numeric,logical(1))],use.names=FALSE))),
+    file.path(output,paste0('r-input-',name,'-hex.txt')))
+}
+hex <- read.csv(file.path(input,'candidates-hex.csv'),check.names=FALSE,colClasses='character')
+CANDIDATES <- matrix(as.numeric(as.matrix(hex)),nrow=nrow(hex),ncol=ncol(hex))
+stopifnot(identical(dim(CANDIDATES),c(32L,10L)),all(is.finite(CANDIDATES)))
+writeLines(sprintf('%a',as.numeric(CANDIDATES)),file.path(output,'r-input-candidates-hex.txt'))
+stopifnot(identical(names(local)[-1],as.character(ppes$Taxon)),identical(names(regional)[-1],as.character(ppes$Taxon)))
+params <- list(ppes=ppes,fallspeed=ppes[,c('Taxon','fallspeed')],dBasinRegional=300,
+  tBasinRegional='lake',dBasinLocal=12.9,tBasinLocal='lake',tBasin='lake',dwm='lsm unstable',error=FALSE)
+OBJECTIVE_ROWS <- list()
+CALL_NUMBER <- 0L
+CONTEXT_ROWS <- list()
+tracked_replay <- function(fn,lower,upper,control=list(),...) {
+  stopifnot(identical(fn,F('tf')),identical(names(formals(fn)),
+    c('a','vPoldepRegio','mKlocal','vFlocal','vSampleLocPro','ppes')))
+  CALL_NUMBER <<- CALL_NUMBER+1L
+  dots <- list(...)
+  stopifnot(identical(sort(names(dots)),sort(c('vPoldepRegio','mKlocal','vFlocal','vSampleLocPro','ppes'))))
+  for (name in c('vPoldepRegio','mKlocal','vFlocal','vSampleLocPro','ppes')) {
+    vector <- as.numeric(dots[[name]])
+    CONTEXT_ROWS[[length(CONTEXT_ROWS)+1L]] <<- data.frame(call=CALL_NUMBER,
+      argument=name,index=seq_along(vector),value=vector)
+  }
+  candidate_number <- 0L
+  logged <- function(candidate,...) {
+    candidate_number <<- candidate_number+1L
+    stopifnot(candidate_number<=32L,identical(as.numeric(candidate),as.numeric(CANDIDATES[candidate_number,])))
+    value <- fn(candidate,...)
+    stopifnot(length(value)==1L,is.numeric(value))
+    OBJECTIVE_ROWS[[length(OBJECTIVE_ROWS)+1L]] <<- data.frame(call=CALL_NUMBER,candidate=candidate_number,value=value)
+    value
+  }
+  result <- replay_de_traced(logged,lower,upper,control,...)
+  stopifnot(candidate_number==32L)
+  result
+}
+result <- with_binding('RcppDE','DEoptim',tracked_replay,
+  clone_with('LOVEoptim',list(REVEALSinR=fixed_reveals,rmultinom=fixed_multinomial))(
+    local,regional,params,rings,10,repeats=2))
+write.csv(result$cover$mean,file.path(output,'r-cover.csv'),row.names=FALSE,na='NaN')
+write.csv(result$pollenpercentages$mean,file.path(output,'r-pollen.csv'),row.names=FALSE,na='NaN')
+write.csv(result$mBestValue,file.path(output,'r-objective.csv'),row.names=FALSE,na='NaN')
+write.csv(F('calK')(rings,params),file.path(output,'r-k.csv'),row.names=FALSE,na='NaN')
+write.csv(as.data.frame(do.call(rbind,REPLAY_TRACE)),file.path(output,'r-trace.csv'),row.names=FALSE)
+write.csv(do.call(rbind,OBJECTIVE_ROWS),file.path(output,'r-candidate-objectives.csv'),row.names=FALSE,na='NaN')
+write.csv(do.call(rbind,CONTEXT_ROWS),file.path(output,'r-objective-contexts.csv'),row.names=FALSE,na='NaN')
+stopifnot(CALL_NUMBER==8L,length(OBJECTIVE_ROWS)==256L)
+snapshot('after')
+writeLines(normalizePath(.libPaths()),file.path(output,'r-library-paths.txt'))

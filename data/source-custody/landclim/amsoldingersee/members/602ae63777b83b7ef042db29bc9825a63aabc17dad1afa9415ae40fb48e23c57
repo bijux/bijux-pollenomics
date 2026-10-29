@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py", line 105, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py", line 101, in main
+    importlib.import_module(module).main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/observe.py", line 127, in main
+    source_execution(plan, witness)
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/observe.py", line 42, in source_execution
+    require(
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/contracts.py", line 64, in require
+    raise ValueError(reason)
+ValueError: Actual Python entry argv differs

@@ -1,0 +1,102 @@
+{
+  "schema_version": "hyde-owned-grid-conservation-terminal.v1",
+  "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "plan_sha256": "54bb026c401decc81422eefd244fa88e728d692dee0fae669c10c1a199625bc3",
+  "actual_exit": 0,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/plan.json",
+    "--registered-plan-sha256",
+    "54bb026c401decc81422eefd244fa88e728d692dee0fae669c10c1a199625bc3"
+  ],
+  "stages": [
+    {
+      "id": "maintained-grid-producer",
+      "action": "producer",
+      "timeout_seconds": 600,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/entry.py",
+        "producer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 48.37089512497187,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/maintained-grid-producer.stdout",
+        "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628",
+        "bytes": 5668
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/maintained-grid-producer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "id": "independent-source-grid-observer",
+      "action": "observer",
+      "timeout_seconds": 600,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/entry.py",
+        "observer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 59.93585654103663,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/independent-source-grid-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/independent-source-grid-observer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "exception": null,
+  "after_custody_error": null,
+  "completed_elapsed_seconds": 148.53900358296232,
+  "completed_child_peak_RSS_bytes_macos": 597540864,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_whole_wall_bound_pass": true,
+  "products_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/output-products.json",
+    "sha256": "e34003ef69869818744f2c57ede8b014cda808a658c124a9c2aad904cc8e9023",
+    "bytes": 752820
+  },
+  "products_count_before_manifest": 2193,
+  "own_receipt_reserve_bytes": 16384,
+  "outer_receipt_reserve_bytes": 16384,
+  "source_freeze_identity": {
+    "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+    "status": "",
+    "tracked_inventory_sha256": "a8aa35c8182491d0e779b7947f840f26fe9827682c1f270ddc7647ddb362a63c"
+  },
+  "live_canonical_equality_claimed": false,
+  "OS_quota_or_full_descendant_RSS_claimed": false,
+  "resources": {
+    "overall_timeout_seconds": 1260,
+    "outer_timeout_seconds": 1280,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 281018368
+  },
+  "scope": "Genuine maintained HYDE grid conservation and independent full source-grid reconstruction only. Modeled cropland, no vegetation/LRA/rights/human/formal-CRS admission. Original country-table and unavailable old execution histories remain distinct."
+}

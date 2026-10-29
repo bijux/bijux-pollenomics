@@ -48,7 +48,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** Maximum water depth is not lake radius; live offset pagination cannot certify absence for 49 unmatched sites.
 
-**Actual verification performed.** Read the five exact source rows, parameter labels, country counts and retained-page consistency posture; no API recapture or basin fit.
+**Actual verification performed.** Earlier verification: Read the five exact source rows, parameter labels, country counts and retained-page consistency posture; no API recapture or basin fit. Separately, the unchanged maintained reader returned native zero as a checker, and an independent complete source-page reader reconstructed every report byte and typed value on source commit `82c8fc4ed3d847909d14162f51b77dc59ccc0a70`. The 24,554 rows, 21 parameter types, 54 original sites and five exact parameter/locator joins remain distinct from the current prerequisite cohort. The checker is not a report producer. No new HTTP capture, basin fit, LRA or human decision is claimed.
 
 **Remaining input or review.** Historical/time-specific basin meaning, unqualified native area fields, count/taxon/PPE support and use review remain.
 
@@ -63,6 +63,8 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 **Matched denominator.** 54 candidate sites; 24,554 captured parameter rows/21 types; 5 matched rows/sites: 2 Swedish depth and 3 Norwegian area values.
 
 - [Retained qualification evidence: docs/report/source-relations/neotoma/lakeparameters/report.json](report.json) (SHA-256 `9c5c48936b10f62b2501a9d26ddad102d606929ee55fbe76614431e731a21fa7`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/neotoma-lake-source-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/neotoma-lake-source-custody.json) (SHA-256 `df23f600e89cfd4e285442b5f82480b95521216cad2363f25a91640623953024`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

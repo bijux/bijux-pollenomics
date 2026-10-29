@@ -72,7 +72,7 @@ Numerical/runtime comparison reader; method correspondence and empirical/histori
 
 **Unsupported claim.** Fixed-candidate correspondence supplies no optimizer trajectory or convergence comparison, stochastic draw parity, timing comparison or empirical vegetation accuracy.
 
-**Actual verification performed.** Read the authored method and retained native-R identity, shared decimal/hexadecimal input account and comparison tolerances; bound the physical report. No R, model or comparator was executed for this qualification.
+**Actual verification performed.** Read the authored method and retained native-R identity, shared decimal/hexadecimal input account and comparison tolerances; bound the physical report. No R, model or comparator was executed for this qualification. Separately, a new conditional LOVE objective report binds completed R and public Python stages from source commit 123c7811e49cc692c32015826c029b8ad99e96d8. Their original whole jobs remain failed; a separate saved-product observer passed. The new report preserves 256 R search returns, 256 Python search returns, eight mandatory Python certifications and the original undefined rings. This does not replace this page's historical source gate, flags or timings.
 
 **Remaining input or review.** A different candidate, random-draw algorithm or ecological landscape needs its own source-bound comparison and qualified interpretation; this historical result does not certify a later release.
 
@@ -87,6 +87,8 @@ Numerical/runtime comparison reader; method correspondence and empirical/histori
 **Matched denominator.** One local and one regional row, ten taxa, 36 rings, maximum local ring ten, two repeats, eight active ring/repeat calls with 32 candidates each (256 evaluations); five decimal tables plus five hexadecimal sidecars. Absolute tolerance 3e-10 and relative 1e-10.
 
 - [Retained qualification evidence: docs/report/numerical-performance/love-source-comparison/report.json](report.json) (SHA-256 `73655d3f9ba41d3c20b7db5fa43360a60ded61d70d1603a1628cf7a6de8b6413`).
+
+- [Retained qualification evidence: docs/report/method-certification/love-objective-parity/report.json](../../method-certification/love-objective-parity/report.json) (SHA-256 `b225e6034dd4dd39a6ede63918d7e2a4a9980a49fcc41e73e0498a784f0ff8e8`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

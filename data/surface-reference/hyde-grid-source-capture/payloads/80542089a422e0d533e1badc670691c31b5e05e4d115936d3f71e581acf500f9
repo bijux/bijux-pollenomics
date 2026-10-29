@@ -1,0 +1,45 @@
+{
+  "schema_version": "hyde-grid-owned-source-preparation-recipe.v1",
+  "source_only": true,
+  "prepare_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CLEAN_SOURCE_CANDIDATE",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay"
+  ],
+  "launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "root_only": "Preparation0 then unique registration/readback before separate native launch. All25 expected private SHAs verified by actual preparer before any ZIP parse. Worker has not run this preparation. Reviewed launch action enforces the separate1280-second complete delegated-child watchdog; minimal parent startup and post-reap receipt accounting are measured, not independently watched.",
+  "output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay",
+  "working_directory": "/Users/bijan/bijux/bijux-pollenomics",
+  "producer_root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/producer",
+  "source_freeze": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source",
+  "expected_stages": 2,
+  "stage_wall_seconds": [
+    600,
+    600
+  ],
+  "completed_whole_seconds": 1260,
+  "root_outer_seconds": 1280,
+  "declared_memory_bytes": 2147483648,
+  "inclusive_storage_bytes": 281018368,
+  "candidate_dynamic": true,
+  "new_native_or_data_outcome": null,
+  "canonical_hold_after_freeze_required": false
+}

@@ -1,0 +1,38 @@
+{
+  "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "plan_sha256": "252001815e90a22b5f85c1690311ea5c6f349973ceef9099d157fd9aeeee5e8c",
+  "actual_exit": 0,
+  "common_actual_exit": 0,
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-saved-source-observation/terminal.json",
+    "sha256": "7b5a6881bc015cc0587a91d6fc2b79b97e1bc351f5b773d2f2c07eab643f9d53",
+    "bytes": 5821
+  },
+  "original_whole_actual_exit": 1,
+  "original_native_stage_exits": [
+    0,
+    1
+  ],
+  "producer_repeated": false,
+  "actual_native_stage_exits": [
+    0
+  ],
+  "timed_out": false,
+  "error": null,
+  "after_input_error": null,
+  "tracked_byte_checker_exit": 0,
+  "tracked_output_admission_passed": true,
+  "independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-saved-source-observation/independent-source-review.json",
+    "sha256": "07b9673fcd7bac18bed6069aa69ce7fadee57f3aa267f3f837e086beca71ca8d",
+    "bytes": 5351
+  },
+  "completed_elapsed_seconds": 17.907843750028405,
+  "completed_child_peak_RSS_bytes_macos": 138428416,
+  "completed_whole_wall_bound_pass": true,
+  "memory_bound_pass": true,
+  "scope": "One saved-product source reconstruction observer; no maintained producer repeat. Original source0/metadata0, observer1 and whole1 remain literal; exact pinned framework launcher correspondence only, no alias/equal-byte normalization or historical E#69/rights/model/LRA admission.",
+  "resource_limits": "Completed-child RSS/logical storage/wall postchecks; no OS quota or aggregate descendant census. The 110-second completed wall check starts at run.main, excludes entry verification/imports, and is measured before final output scan/write. The 130-second alarm starts after profile/plan checks, ends before final receipt processing, and does not bound all entry/postprocessing work. Timeout kills and waits the owned common launcher group; its separate-session descendants remain unconfirmed on timeout.",
+  "scientific_or_publication_admission": false,
+  "inclusive_output_bytes": 9227902
+}

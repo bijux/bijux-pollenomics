@@ -1,0 +1,157 @@
+"""Reconstruct the source refusal from saved producer bytes and original captured inputs."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
+
+from contracts import (
+    AUTHOR,
+    INPUT_MANIFEST,
+    MAINTAINED,
+    MODULE,
+    PRIVATE,
+    REPORT,
+    ROOT,
+    SOURCE,
+    dump,
+    exact,
+    load,
+    pin,
+    require,
+    verify_plan,
+)
+from metadata import compare, reconstruct
+from retained import OLD_SOURCE, ORIGINAL, authenticate, framework_argv
+from runtime import profile_guard, qualify_process_snapshot, raw_process_snapshot
+
+
+def validate_source(plan: dict[str, Any], witness: dict[str, Any]) -> None:
+    original = plan["original_execution"]["original_plan"]
+    require(
+        witness["candidate"] == original["candidate"]
+        and exact(witness["plan"], pin(ORIGINAL / "plan.json")),
+        "Original source plan differs",
+    )
+    require(
+        witness["executed_module"] == MODULE
+        and witness["executed_source_argv"] == original["maintained_source_argv"]
+        and exact(witness["maintained_source"], original["maintained_source"]),
+        "Original module/source/argv differs",
+    )
+    framework_argv(witness, original)
+    require(
+        type(witness["source_exit"]) is int
+        and witness["source_exit"] == 0
+        and type(witness["metadata_exit"]) is int
+        and witness["metadata_exit"] == 0
+        and witness["metadata_error"] is None,
+        "Successful original source/native metadata changed",
+    )
+    require(
+        witness["denied_model_import_attempts"] == []
+        and witness["maintained_module_code_matches_pinned_source"] is True,
+        "Original model/code boundary changed",
+    )
+    for role in ("before", "after"):
+        qualify_process_snapshot(witness[role], original["input_pins"], OLD_SOURCE)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    profile_guard()
+    plan = load(args.plan)
+    verify_plan(plan)
+    original, _rows = authenticate()
+    require(
+        exact(original, plan["original_execution"]),
+        "Saved history changed since new plan freeze",
+    )
+    output = Path(plan["output"])
+    raw: dict[str, Any] = {"before": raw_process_snapshot(), "after": None}
+    observation = output / "independent-runtime-observation.json"
+    dump(observation, raw)
+    qualify_process_snapshot(raw["before"], plan["input_pins"], SOURCE)
+    witness = load(ORIGINAL / "source-runtime-observation.json")
+    validate_source(plan, witness)
+    source_stage = original["original_common"]["stages"][0]
+    declared = load(Path(source_stage["stdout"]))
+    produced = ORIGINAL / "producer/report.json"
+    require(
+        exact(
+            declared["source_runtime"],
+            pin(ORIGINAL / "source-runtime-observation.json"),
+        )
+        and exact(declared["generated_report"], pin(produced))
+        and exact(witness["generated_report"], pin(produced)),
+        "Original actual producer stdout/witness/report join differs",
+    )
+    require(
+        type(declared["source_exit"]) is int
+        and declared["source_exit"] == 0
+        and type(declared["metadata_exit"]) is int
+        and declared["metadata_exit"] == 0,
+        "Original producer stdout records failure",
+    )
+    expected, ledger = reconstruct(ROOT, PRIVATE, INPUT_MANIFEST, AUTHOR)
+    compare(load(produced), expected)
+    expected_raw = (json.dumps(expected, indent=2, ensure_ascii=False) + "\n").encode()
+    require(
+        produced.read_bytes() == expected_raw,
+        "Complete ordered serialized source report differs",
+    )
+    checker = 0 if produced.read_bytes() == REPORT.read_bytes() else 2
+    dump(
+        output / "tracked-byte-check.json",
+        {
+            "tracked_byte_checker_exit": checker,
+            "original_generated": pin(produced),
+            "current_tracked": pin(REPORT),
+            "scope": "Actual complete byte comparison; original failed observer/checker-null remains unchanged.",
+        },
+    )
+    raw["after"] = raw_process_snapshot()
+    dump(observation, raw)
+    qualify_process_snapshot(raw["after"], plan["input_pins"], SOURCE)
+    current, _ = authenticate()
+    require(exact(current, original), "Original saved history changed during observer")
+    verify_plan(plan)
+    review = {
+        "actual_exit": 0,
+        "candidate": plan["candidate"],
+        "plan": pin(args.plan),
+        "original_source_candidate": original["original_plan"]["candidate"],
+        "original_execution_references": original["original_references"],
+        "original_whole_actual_exit": 1,
+        "original_native_stage_exits": [0, 1],
+        "new_observer_stages": 1,
+        "producer_repeated": False,
+        "framework_entry_correspondence": "Two distinct originally pinned regular executables; actual preparation/before/after mapped App and exact argv tail. No filesystem alias or equal-byte claim.",
+        "source_ledger": ledger,
+        "generated_report": pin(produced),
+        "maintained_source": pin(MAINTAINED),
+        "complete_ordered_typed_report_equal": True,
+        "independent_reconstructed_json_sha256": hashlib.sha256(
+            expected_raw
+        ).hexdigest(),
+        "tracked_byte_checker_exit": checker,
+        "source_refusal_unchanged": True,
+        "historical_E69_identity_admitted": False,
+        "rights_human_ecology_or_LRA_admitted": False,
+        "independent_runtime_observation": pin(observation),
+    }
+    dump(output / "independent-source-review.json", review)
+    print(
+        json.dumps(
+            {
+                "review": pin(output / "independent-source-review.json"),
+                "tracked_byte_checker_exit": checker,
+            }
+        ),
+        flush=True,
+    )

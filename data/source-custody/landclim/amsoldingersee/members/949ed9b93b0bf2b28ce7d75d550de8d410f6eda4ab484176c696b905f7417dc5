@@ -1,0 +1,26 @@
+{
+  "approved": true,
+  "source_manifest_sha256": "fa0782d9e2120b25f99f284ad7f658fd8e6d2a23264d4e0c08f2a3715d064606",
+  "source_only_native_exit": 0,
+  "held_members": 22,
+  "independent_entry_controls": [
+    "exact22rowclosedentryaccepted",
+    "source_tamper refused",
+    "native_shadow refused",
+    "relative_member refused"
+  ],
+  "unchanged_runtime_function_AST_except": [
+    "runtime_inputs",
+    "qualify_process_snapshot"
+  ],
+  "source_qualification_reused": {
+    "groups": 12,
+    "strict": 9,
+    "Ruff": 9,
+    "format": 9
+  },
+  "scope": "Root independently reviewed full maintained producer, entry/prepare/contracts/execution/witness/observer/reconstruction/completion and runtime deltas. Full14expected private hashes+author CSV precede use; complete source/resources/bytecode/runtime/aliases beforeafter, exact module loader/source and no-model boundary, full11receipt/site/sample/chronology/unit reconstruction and wire equality. Dataset labels are declared requests, not independently extracted native IDs. Tracked bytechecker0/2 remains separate.",
+  "limits": "110s completed clock excludes entry/import and final scan/write;130s real alarm starts after profile/plan checks and ends before final receipt processing. No full-entry watchdog/OSquota/aggregate/detached guarantees.",
+  "actual_private_parse_runtime_census_preparer_or_native_called": false,
+  "remaining": "Root actual preparer0\u2192uniqueSTATEprepared/readback0\u2192separate native launch. No scientific/rights/historicalE69/human/LRA acceptance granted."
+}

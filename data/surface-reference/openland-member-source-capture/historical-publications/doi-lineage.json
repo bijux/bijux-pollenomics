@@ -1,0 +1,47 @@
+{
+  "schema_version": "openland-doi-lineage.v1",
+  "retrieved_date_utc": "2026-09-29",
+  "records": [
+    {
+      "doi": "10.1594/pangaea.931856",
+      "metadata_url": "https://api.datacite.org/dois/10.1594%2FPANGAEA.931856",
+      "metadata_sha256": "279c78c6bfd4571f5ce80898a527a70db5f2f01d8c4d2226d1ec285fb4e29dd9",
+      "title": "A full Holocene record of transient gridded vegetation cover in Europe",
+      "created_utc": "2021-06-07T09:58:02.000Z",
+      "rights": [
+        {
+          "rights": "Licensing unknown: Please contact principal investigator/authors to gain access and request licensing terms",
+          "rightsIdentifier": "unknown",
+          "rightsIdentifierScheme": "SPDX"
+        },
+        {
+          "rights": "Data access is restricted (moratorium, sensitive data, license constraints)"
+        }
+      ],
+      "successor_doi": "10.1594/pangaea.937075"
+    },
+    {
+      "doi": "10.1594/pangaea.937075",
+      "metadata_url": "https://api.datacite.org/dois/10.1594%2FPANGAEA.937075",
+      "metadata_sha256": "00dc6bf02bed573901a7f4b8e0c08efa7a489f03cd8eed77b8f8e2f8a8359c55",
+      "title": "A full Holocene record of transient gridded vegetation cover in Europe",
+      "created_utc": "2022-03-19T05:15:06.000Z",
+      "rights": [
+        {
+          "rights": "Creative Commons Attribution 4.0 International",
+          "rightsUri": "https://creativecommons.org/licenses/by/4.0/legalcode",
+          "schemeUri": "https://spdx.org/licenses/",
+          "rightsIdentifier": "cc-by-4.0",
+          "rightsIdentifierScheme": "SPDX"
+        }
+      ],
+      "successor_doi": null
+    }
+  ],
+  "decision": {
+    "doi_relationship": "931856_is_obsoleted_by_937075",
+    "openland_csv_relationship": "citation_family_only_exact_row_overlap_unverified",
+    "license_transfer": "none",
+    "independent_vegetation_benchmark": false
+  }
+}

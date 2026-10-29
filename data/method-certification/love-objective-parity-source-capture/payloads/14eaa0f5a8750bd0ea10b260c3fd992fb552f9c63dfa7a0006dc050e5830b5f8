@@ -1,0 +1,371 @@
+"""Custody of local R sources and a fresh confined namespace library."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path, PurePosixPath
+import stat
+import tarfile
+from typing import Any
+
+ROOT = Path(__file__).resolve().parents[3]
+SOURCE = Path(__file__).resolve().parent
+BASE = Path(
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11"
+)
+BASE_SHA = "92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4"
+R_ROOT = Path("/Library/Frameworks/R.framework/Versions/4.6")
+R_HOME = R_ROOT / "Resources"
+GCC = Path("/opt/homebrew/Cellar/gcc/15.2.0_1")
+CLT = Path("/Library/Developer/CommandLineTools")
+SDK = CLT / "SDKs/MacOSX27.0.sdk"
+CLANG_HEADERS = CLT / "usr/lib/clang/21"
+FORTRAN = GCC / "bin/gfortran-15"
+FORTRAN_LIB = GCC / "lib/gcc/current"
+PACKAGES = ("GenSA", "RcppArmadillo", "Rmalschains", "plyr", "RcppDE", "disqover")
+BUDGETS = (60, 90, 150, 60, 90, 90)
+LOCK = ROOT / "configs/ci/lra-r-source-lock.v1.json"
+FORENSICS_SHA = "d66ba84da903b4c6ebf0400303694e62030110dd0e2d0685b9875d98a27ed372"
+
+
+def require(value: object, message: str) -> None:
+    if not value:
+        raise ValueError(message)
+
+
+def sha(path: Path) -> str:
+    with path.open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def physical(path: Path) -> Path:
+    require(
+        path.is_absolute()
+        and ".." not in path.parts
+        and path == path.resolve(strict=True),
+        "Physical normalized path required: " + str(path),
+    )
+    require(
+        not any(p.is_symlink() for p in (path, *path.parents)),
+        "Physical ancestor alias: " + str(path),
+    )
+    return path
+
+
+def pin(path: Path) -> dict[str, Any]:
+    physical(path)
+    require(path.is_file(), "Regular file required: " + str(path))
+    return {"path": str(path), "sha256": sha(path), "bytes": path.stat().st_size}
+
+
+def verify_pin(row: dict[str, Any]) -> None:
+    require(type(row["bytes"]) is int and row["bytes"] >= 0, "Invalid pin size")
+    path = physical(Path(row["path"]))
+    require(
+        path.is_file()
+        and path.stat().st_size == row["bytes"]
+        and sha(path) == row["sha256"],
+        "Protected file changed: " + str(path),
+    )
+
+
+def read(path: Path) -> dict[str, Any]:
+    def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
+        result: dict[str, Any] = {}
+        for key, value in rows:
+            require(key not in result, "Duplicate JSON key")
+            result[key] = value
+        return result
+
+    value = json.loads(path.read_bytes(), object_pairs_hook=pairs)
+    require(isinstance(value, dict), "JSON object required")
+    assert isinstance(value, dict)
+    json.dumps(value, allow_nan=False)
+    return value
+
+
+def output_root(path: Path, *, absent: bool = False) -> Path:
+    require(
+        path.is_absolute()
+        and ".." not in path.parts
+        and path == Path(os.path.abspath(path)),
+        "Noncanonical output spelling",
+    )
+    require(
+        path.is_relative_to(ROOT / "artifacts") and path != ROOT / "artifacts",
+        "Output escaped artifacts",
+    )
+    require(not any(p.is_symlink() for p in (path, *path.parents)), "Output alias")
+    require(
+        not path.is_relative_to(SOURCE) and not SOURCE.is_relative_to(path),
+        "Output overlaps source",
+    )
+    if absent:
+        require(not path.exists(), "Output already exists")
+    return path
+
+
+def write(path: Path, value: object) -> None:
+    output_root(path)
+    require(path.parent.is_dir(), "Output parent absent")
+    with path.open("x") as stream:
+        json.dump(value, stream, indent=2, allow_nan=False)
+        stream.write("\n")
+
+
+def description(raw: str) -> dict[str, str]:
+    result: dict[str, str] = {}
+    key = ""
+    for line in raw.splitlines():
+        if line[:1].isspace():
+            require(bool(key), "Unowned DESCRIPTION continuation")
+            result[key] += " " + line.strip()
+        elif line:
+            require(":" in line, "Malformed DESCRIPTION")
+            key, value = line.split(":", 1)
+            require(key not in result, "Duplicate DESCRIPTION field")
+            result[key] = value.strip()
+    return result
+
+
+def source_archive(path: Path, package: str, version: str) -> dict[str, Any]:
+    record = pin(path)
+    names: set[str] = set()
+    actual: dict[str, str] | None = None
+    with tarfile.open(path, "r:gz") as archive:
+        for item in archive:
+            name = item.name.rstrip("/")
+            relative = PurePosixPath(name)
+            require(
+                name
+                and not relative.is_absolute()
+                and ".." not in relative.parts
+                and relative.as_posix() == name
+                and "\\" not in name
+                and not any(ord(c) < 32 for c in name),
+                "Unsafe source archive member",
+            )
+            require(
+                relative.parts[0] == package and name not in names,
+                "Source archive root/duplicate differs",
+            )
+            names.add(name)
+            require(item.isfile() or item.isdir(), "Source archive alias/special entry")
+            if name == package + "/DESCRIPTION":
+                stream = archive.extractfile(item)
+                require(stream is not None, "Source DESCRIPTION is not regular")
+                assert stream is not None
+                actual = description(stream.read().decode())
+    require(
+        actual is not None
+        and actual.get("Package") == package
+        and actual.get("Version") == version,
+        "Source package/version differs",
+    )
+    return {
+        **record,
+        "package": package,
+        "version": version,
+        "member_count": len(names),
+    }
+
+
+def namespace(root: Path, unused_aliases: tuple[str, ...] = ()) -> dict[str, Any]:
+    physical(root)
+    require(root.is_dir(), "Namespace root absent")
+    result: dict[str, Any] = {}
+    pending = [root]
+    while pending:
+        for path in pending.pop().iterdir():
+            relative = path.relative_to(root).as_posix()
+            mode = path.lstat().st_mode
+            if stat.S_ISLNK(mode):
+                target = path.resolve(strict=str(path) not in unused_aliases)
+                result[relative] = {
+                    "kind": "symlink",
+                    "raw_link": os.readlink(path),
+                    "target": str(target),
+                }
+                require(
+                    target.is_relative_to(root) or str(path) in unused_aliases,
+                    "Namespace alias escaped selected root: " + str(path),
+                )
+            elif stat.S_ISDIR(mode):
+                result[relative] = {"kind": "directory"}
+                pending.append(path)
+            else:
+                require(stat.S_ISREG(mode), "Special namespace entry")
+                result[relative] = {"kind": "file", "mode": stat.S_IMODE(mode)}
+    return {
+        "root": str(root),
+        "unused_aliases": list(unused_aliases),
+        "entries": {key: result[key] for key in sorted(result)},
+    }
+
+
+def namespace_files(value: dict[str, Any]) -> list[Path]:
+    return [
+        Path(value["root"]) / name
+        for name, row in value["entries"].items()
+        if row["kind"] == "file"
+    ]
+
+
+def aliases(paths: list[Path]) -> list[dict[str, str]]:
+    result = {}
+    for path in paths:
+        for node in (path, *path.parents):
+            if node.is_symlink():
+                result[str(node)] = {
+                    "path": str(node),
+                    "raw_link": os.readlink(node),
+                    "target": str(node.resolve(strict=True)),
+                }
+    return [result[key] for key in sorted(result)]
+
+
+def verify_aliases(rows: list[dict[str, Any]]) -> None:
+    for row in rows:
+        path = Path(row["path"])
+        require(
+            path.is_symlink()
+            and os.readlink(path) == row["raw_link"]
+            and str(path.resolve(strict=True)) == row["target"],
+            "Literal tool/runtime alias changed",
+        )
+
+
+def require_environment(env: dict[str, str]) -> None:
+    bad = sorted(
+        key
+        for key in env
+        if key.startswith(
+            ("DYLD_", "R_", "R_LIBS", "PKG_", "PIP_", "UV_", "GFORTRAN_", "CXX")
+        )
+        or key
+        in {
+            "R_HOME",
+            "CC",
+            "FC",
+            "F77",
+            "FLIBS",
+            "CPPFLAGS",
+            "CFLAGS",
+            "LDFLAGS",
+            "LIBRARY_PATH",
+            "CPATH",
+            "C_INCLUDE_PATH",
+            "CPLUS_INCLUDE_PATH",
+            "SDKROOT",
+            "DEVELOPER_DIR",
+            "MACOSX_DEPLOYMENT_TARGET",
+            "JAVA_HOME",
+            "GCC_EXEC_PREFIX",
+            "COMPILER_PATH",
+            "MAKE",
+            "MAKEFLAGS",
+            "LD_PRELOAD",
+            "LD_LIBRARY_PATH",
+            "_PYTHON_HOST_PLATFORM",
+            "__PYVENV_LAUNCHER__",
+        }
+    )
+    require(not bad, "Ambient build/loader overrides present: " + ", ".join(bad))
+
+
+def verify_inputs(plan: dict[str, Any]) -> None:
+    for row in plan["input_pins"]:
+        verify_pin(row)
+    for row in plan["namespaces"]:
+        require(
+            namespace(Path(row["root"]), tuple(row["unused_aliases"])) == row,
+            "Complete protected namespace changed",
+        )
+    verify_aliases(plan["aliases"])
+    for value in plan["absent_paths"]:
+        path = Path(value)
+        require(not path.exists() and not path.is_symlink(), "Required absence changed")
+
+
+def expected_pin_union(*groups: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Keep each original authority; a later role may never replace its bytes."""
+    rows: dict[str, dict[str, Any]] = {}
+    for group in groups:
+        for row in group:
+            require(
+                set(row) == {"path", "sha256", "bytes"}, "Expected pin shape differs"
+            )
+            require(
+                isinstance(row["path"], str)
+                and isinstance(row["sha256"], str)
+                and len(row["sha256"]) == 64
+                and all(c in "0123456789abcdef" for c in row["sha256"])
+                and type(row["bytes"]) is int
+                and row["bytes"] >= 0,
+                "Expected pin identity differs",
+            )
+            name = row["path"]
+            require(
+                name not in rows or rows[name] == row,
+                "Conflicting protected role pin: " + name,
+            )
+            rows[name] = dict(row)
+    return [rows[name] for name in sorted(rows)]
+
+
+def verified_object(row: dict[str, Any]) -> dict[str, Any]:
+    """Read only bytes authenticated by the frozen original authority."""
+    verify_pin(row)
+    raw = Path(row["path"]).read_bytes()
+    require(
+        len(raw) == row["bytes"] and hashlib.sha256(raw).hexdigest() == row["sha256"],
+        "Protected JSON bytes changed: " + row["path"],
+    )
+
+    def pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
+        result: dict[str, Any] = {}
+        for name, value in items:
+            require(name not in result, "Duplicate protected JSON key")
+            result[name] = value
+        return result
+
+    value = json.loads(raw, object_pairs_hook=pairs)
+    require(isinstance(value, dict), "Protected JSON root is not an object")
+    assert isinstance(value, dict)
+    return value
+
+
+def verify_controller_namespace(root: Path) -> None:
+    """Reject helper shadows even if they appeared during the resource census."""
+    expected = {
+        "contracts.py",
+        "retained.py",
+        "runtime.py",
+        "prepare.py",
+        "run.py",
+        "observe.py",
+        "check_contracts.py",
+        "common_runner.py",
+    }
+    for path in root.iterdir():
+        require(
+            not path.is_symlink() and (path.is_dir() or path.is_file()),
+            "Controller namespace contains an alias/special entry",
+        )
+        require(
+            not path.is_dir() or path.name == "preflight",
+            "Unexpected controller import directory",
+        )
+        require(
+            path.suffix not in {".py", ".pyc", ".so"} or path.name in expected,
+            "Unexpected controller import member",
+        )
+    require(
+        all(
+            (root / name).is_file() and not (root / name).is_symlink()
+            for name in expected
+        ),
+        "Required controller member is absent",
+    )

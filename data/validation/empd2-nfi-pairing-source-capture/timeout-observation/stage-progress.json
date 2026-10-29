@@ -1,0 +1,23 @@
+[
+  {
+    "id": "maintained-outcome-blind-pairing",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/plan.json"
+    ],
+    "timeout_seconds": 120,
+    "must_succeed": true,
+    "actual_exit": 124,
+    "timed_out": true,
+    "elapsed_seconds": 120.01553404104197,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/maintained-outcome-blind-pairing.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/maintained-outcome-blind-pairing.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 192430080
+  }
+]

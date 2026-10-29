@@ -31,7 +31,7 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 **Unsupported claim.** DOI supersession does not establish byte/row equivalence or transfer successor licensing to an OpenLand derivative.
 
-**Actual verification performed.** Read the exact DOI-lineage response fields and intake role decision; no DOI lookup or numerical source join rerun.
+**Actual verification performed.** Read the exact DOI-lineage response fields and intake role decision; no DOI lookup or numerical source join rerun. A separate source-built execution used commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87. The unchanged OpenLand producer and independent archive and copy-chain observer both exited 0, and the complete run exited 0. The member CSV matched exactly, with byte-checker exit 0. The report byte checker exited 2 because one source-attribution digest changed. The independent observer verified that this digest was the only report difference, preserved all scientific and rights values, and exited 0. The producer generated members.csv and report.json. The upstream-tree and DOI-lineage files were copies of retained declared inputs; they are not fresh HTTP retrievals or proof of original acquisition. The archive still contains 51 entries, including 25 modeled CSVs and 26 exact upstream blobs. There were 27 selected ZIP member reads and no GeoPackage or editor payload reads or LRA calls. An authored capsule retains 2,209 public members and all 66,430 ordered input identities. The payloads of 4,356 bytecodes, 59,886 runtime authorities and three private archive or intake authorities are omitted. The capsule does not establish fresh bytecode compilation, new native retention execution, public member rights, PANGAEA row equivalence, independent vegetation truth, ecological or human acceptance, or LRA admission.
 
 **Remaining input or review.** An input-level join and derivative-specific permission/scientific role review remain missing.
 
@@ -47,7 +47,9 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 - [Retained qualification evidence: docs/report/source-relations/openland-intake/doi-lineage.json](doi-lineage.json) (SHA-256 `52421cacb6bf4f0ec580e7f2d0f2665ab0e87a1184efff6b887247513e3afa27`).
 
-- [Retained qualification evidence: docs/report/source-relations/openland-intake/report.json](report.json) (SHA-256 `6ede25d42a64a041139aab7a32ed6abfb3e2fb19ec0caf932647b7377455e52b`).
+- [Retained qualification evidence: docs/report/source-relations/openland-intake/report.json](report.json) (SHA-256 `dbe01c0f556eca264e5523a895e19dfe15719ad99adc01f537c27082b6fa6243`).
+
+- [Retained qualification evidence: reports/science/source-lineage/openland-member-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/openland-member-custody.json) (SHA-256 `dc437a7dee28a31b1ea341be1e76e0397d54ab0d93a0f6ad146bcbf99116365f`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

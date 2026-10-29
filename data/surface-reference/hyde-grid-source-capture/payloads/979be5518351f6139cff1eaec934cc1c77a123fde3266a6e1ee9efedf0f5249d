@@ -1,0 +1,17 @@
+{
+  "actual_exit": 1,
+  "native_session": 82417,
+  "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "source_manifest_sha256": "e50f214ed032aa8e226c3db04547ac0f03722964bf68b7a156a86ae3de113acb",
+  "independent_source_peer_sha256": "8ffad27a7d58e5a582dff84fdd1de46d1e55a088c236844f0b9534e517633fd9",
+  "failure": "ValueError: Unreviewed source bytecode refused",
+  "failure_boundary": "prepare.main\u2192regular_tree at first original four-package source snapshot; before source/runtime freeze/output creation. Exact expected_private(all25hashes) returned earlier, but no preparation receipt or qualified input catalogue was emitted.",
+  "original_requested_output": "artifacts/science/current-hyde-grid-conservation-source-replay",
+  "output_created": false,
+  "existing_source_bytecode_files": 4356,
+  "existing_source_bytecode_bytes": 42716758,
+  "tracked_source_bytecode_files": 0,
+  "model_or_grid_parse_or_native_job_launched": false,
+  "canonical_cache_bytes_moved_deleted_or_changed": false,
+  "successor": "Disjoint controller captures all original bytecode identities and pre/post namespaces, selects complete tracked source/resource projection into bytecode-free owned source, rejects all other untracked code/native/special entries; no cache movement or guard weakening. New output current-hyde-grid-owned-source-replay."
+}

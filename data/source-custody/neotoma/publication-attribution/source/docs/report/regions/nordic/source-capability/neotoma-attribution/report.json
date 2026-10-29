@@ -1,0 +1,4773 @@
+{
+  "schema_version": "nordic-neotoma-publication-readiness.v1",
+  "entity_ledger_sha256": "d67c1486c86206c8e4f962450987dada5490dd7b6b8db9f72ea4c47927436474",
+  "dataset_part_sha256": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+  "provider_capture_manifest_sha256": "d6dee3065e6fcfae8a7e484406cf37e2b5aa0424bee66d3a6922bbbdc1e867da",
+  "provider_policy": {
+    "url": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+    "captured_policy_sha256": "ba75c8f22491f5b5e83a835f964aedea53b62e526cf6ea36bb10b376e774b3a4",
+    "governed_review_sha256": "ce5d0a81584e5f0a93015b1045dc8ce4a2c828065368e9a0760dcfa92dbef720",
+    "version": "2025",
+    "posture": "CC BY 4.0 with three-level attribution; source-specific review remains separate"
+  },
+  "used_dataset_count": 85,
+  "provider_publication_status_counts": {
+    "multiple_source_primary_publications": 3,
+    "no_publication_link": 2,
+    "no_source_primary_flag": 1,
+    "one_source_primary_publication": 79
+  },
+  "dataset_doi_status_counts": {
+    "ascii_case_equivalent_source_dois": 3,
+    "distinct_source_dois": 13,
+    "one_source_doi": 69
+  },
+  "doi_equivalence_rule": {
+    "url": "https://www.doi.org/doi-handbook/html/",
+    "section": "3.3.4 Case Insensitivity of the DOI Name",
+    "application": "ASCII case equivalence only; preserve source DOI strings"
+  },
+  "country_denominators": {
+    "SE": {
+      "used_datasets": 3,
+      "one_source_primary_publication": 3,
+      "primary_link_review_required": 0,
+      "distinct_source_dois": 2,
+      "either_citation_review": 2
+    },
+    "DK": {
+      "used_datasets": 2,
+      "one_source_primary_publication": 2,
+      "primary_link_review_required": 0,
+      "distinct_source_dois": 0,
+      "either_citation_review": 0
+    },
+    "NO": {
+      "used_datasets": 52,
+      "one_source_primary_publication": 49,
+      "primary_link_review_required": 3,
+      "distinct_source_dois": 9,
+      "either_citation_review": 11
+    },
+    "FI": {
+      "used_datasets": 28,
+      "one_source_primary_publication": 25,
+      "primary_link_review_required": 3,
+      "distinct_source_dois": 2,
+      "either_citation_review": 5
+    }
+  },
+  "provider_primary_gap_dataset_ids": [
+    "neotoma:dataset:4168",
+    "neotoma:dataset:4472",
+    "neotoma:dataset:4510",
+    "neotoma:dataset:45347",
+    "neotoma:dataset:52255",
+    "neotoma:dataset:53098"
+  ],
+  "distinct_doi_dataset_ids": [
+    "neotoma:dataset:20",
+    "neotoma:dataset:317",
+    "neotoma:dataset:53002",
+    "neotoma:dataset:53081",
+    "neotoma:dataset:53098",
+    "neotoma:dataset:53119",
+    "neotoma:dataset:53121",
+    "neotoma:dataset:53127",
+    "neotoma:dataset:53131",
+    "neotoma:dataset:53995",
+    "neotoma:dataset:54001",
+    "neotoma:dataset:58530",
+    "neotoma:dataset:977"
+  ],
+  "citation_review_dataset_ids": [
+    "neotoma:dataset:20",
+    "neotoma:dataset:317",
+    "neotoma:dataset:4168",
+    "neotoma:dataset:4472",
+    "neotoma:dataset:4510",
+    "neotoma:dataset:45347",
+    "neotoma:dataset:52255",
+    "neotoma:dataset:53002",
+    "neotoma:dataset:53081",
+    "neotoma:dataset:53098",
+    "neotoma:dataset:53119",
+    "neotoma:dataset:53121",
+    "neotoma:dataset:53127",
+    "neotoma:dataset:53131",
+    "neotoma:dataset:53995",
+    "neotoma:dataset:54001",
+    "neotoma:dataset:58530",
+    "neotoma:dataset:977"
+  ],
+  "decisions": [
+    {
+      "dataset_id": "neotoma:dataset:19913",
+      "site_id": "neotoma:site:13338",
+      "country_code": "SE",
+      "dataset_dois": [
+        "10.21233/2vzb-bg61"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Giesecke, Thomas"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": null,
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9435,
+          "source_primary_flag": true,
+          "source_citation": "Giesecke, T. 2005. Holocene forest development in the central Scandes Mountains, Sweden. Vegetation History and Archaeobotany 13:133-147.",
+          "source_doi": null,
+          "source_year": "2005",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Giesecke",
+              "givennames": "Thomas"
+            }
+          ],
+          "source_payload_sha256": "40232a7748010a6e3c72b32765789c2c551340e67939382cfed0dba5aed07402"
+        }
+      ],
+      "provider_response_sha256": "58d463535d0a3e1d1bc28e345c2166d5b353c3361ccd76f1188780a7dd192a81",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20",
+      "site_id": "neotoma:site:20",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/n37g69",
+        "10.21233/n3tm3t"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Hyvärinen, Hannu"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hyvärinen, Hannu.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 699,
+          "source_primary_flag": true,
+          "source_citation": "Hyvärinen, H. 1975. Absolute and relative pollen diagrams from northernmost Fennoscandia. Fennia 142(1):1-23.",
+          "source_doi": null,
+          "source_year": "1975",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hyvärinen",
+              "givennames": "Hannu"
+            }
+          ],
+          "source_payload_sha256": "7a707216d6022b8289da59fc72cf60df4f412dffedc4a78f4d7ba03ff2b15f8d"
+        }
+      ],
+      "provider_response_sha256": "18850c185a4d1aceeb5c8f66d241a4bef4eec69f6569e53de4f7128fc7e900df",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20018",
+      "site_id": "neotoma:site:13383",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/g7c8-hk59"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus A.A.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9485,
+          "source_primary_flag": true,
+          "source_citation": "Paus, Aa., G. Velle, J. Larsen, A. Nesje, and Ø. Lie. 2006. Lateglacial nunataks in central Scandinavia: Biostratigraphical evidence for ice thickness from Lake Flåfattjønn, Tynset, Norway. Quaternary Science Reviews 25(11-12):1228-1246. [DOI: 10.1016/j.quascirev.2005.10.008]",
+          "source_doi": "10.1016/j.quascirev.2005.10.008",
+          "source_year": "2006",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 2,
+              "familyname": "Velle",
+              "givennames": "Gaute"
+            },
+            {
+              "order": 3,
+              "familyname": "Larsen",
+              "givennames": "Jorunn"
+            },
+            {
+              "order": 4,
+              "familyname": "Nesje",
+              "givennames": "Atle"
+            },
+            {
+              "order": 5,
+              "familyname": "Lie",
+              "givennames": "Øyvind"
+            }
+          ],
+          "source_payload_sha256": "7ad55cfa48be6ef6b343e8e4a2fac5669daca81a993055505908864245abc969"
+        },
+        {
+          "publication_id": 9486,
+          "source_primary_flag": false,
+          "source_citation": "Paus, Aa. 2010. Vegetation and environment of the Rødalen alpine area, Central Norway, with emphasis on the early Holocene. Vegetation History and Archaeobotany 19(1):29-51. [DOI: 10.1007/s00334-009-0228-4]",
+          "source_doi": "10.1007/s00334-009-0228-4",
+          "source_year": "2010",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            }
+          ],
+          "source_payload_sha256": "46a3009cd0b13e65a17b80b882f8ab5e0067b42984726d82ff88a196d4ca507c"
+        }
+      ],
+      "provider_response_sha256": "9eb403296a35a6dc42c65cb0814241a52d0878af4ff5e27c77b795d6d39420a0",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20020",
+      "site_id": "neotoma:site:13384",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/1r8k-p831"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Seppä, Heikki"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Seppä Heikki.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9487,
+          "source_primary_flag": true,
+          "source_citation": "Seppä, H. 1996. Post-glacial dynamics of vegetation and tree-lines in the far north of Fennoscandia. Fennia 174(1):1-96.",
+          "source_doi": null,
+          "source_year": "1996",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            }
+          ],
+          "source_payload_sha256": "bed78069437002f2999df017e1c3adae78b8e704293657e8ab698d1da4b9c1e8"
+        }
+      ],
+      "provider_response_sha256": "46087cd0cf117fbcb6221d67b32db3f60c6dc8910cbab8298d6771236b388331",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20034",
+      "site_id": "neotoma:site:13388",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/c8mz-0061"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Bjune, Anne Elisabeth"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Bjune Anne E.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9495,
+          "source_primary_flag": true,
+          "source_citation": "Bjune, A.E., H.J.B. Birks, and H. Seppä. 2004. Holocene vegetation and climate history on a continental-oceanic transect in northern Fennoscandia based on pollen and plant macrofossils. Boreas 33(3):211-223. [DOI: 10.1111/j.1502-3885.2004.tb01142.x]",
+          "source_doi": "10.1111/j.1502-3885.2004.tb01142.x",
+          "source_year": "2004",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            }
+          ],
+          "source_payload_sha256": "158e2d1363676825dbbe9c7fffefde40094cdf967321223695e6a9a8133f915a"
+        }
+      ],
+      "provider_response_sha256": "37f16906353c1e2574ca99b1ce02cab5cde1a7e63acf3fe684810abead15f5ed",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20042",
+      "site_id": "neotoma:site:13390",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/rt31-zw12"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Bjune, Anne Elisabeth"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Bjune Anne E.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9496,
+          "source_primary_flag": true,
+          "source_citation": "Bjune, A.E. 2005. Holocene vegetation history and tree-line changes on a north–south transect crossing major climate gradients in southern Norway—evidence from pollen and plant macrofossils in lake sediments. Review of Paleobotany and Palynology 133(3-4):249-275. [DOI: 1016/j.revpalbo.2004.10.005]",
+          "source_doi": "1016/j.revpalbo.2004.10.005",
+          "source_year": "2005",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            }
+          ],
+          "source_payload_sha256": "8e75580e15b713274676c8d5caf06342edb6242f623d93d0cf0ad9e34941b1e0"
+        },
+        {
+          "publication_id": 9497,
+          "source_primary_flag": false,
+          "source_citation": "Bjune, A.E., J. Bakke, A. Nesje, and H.J.B. Birks. 2004. Holocene mean July temperature and winter precipitation in western Norvay inferred from palynological and glaciological lake-sediment proxies. The Holocene 15(2):177-189. [DOI: 10.1191/0959683605hl798rp]",
+          "source_doi": "10.1191/0959683605hl798rp",
+          "source_year": "2004",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Bakke",
+              "givennames": "Jostein"
+            },
+            {
+              "order": 3,
+              "familyname": "Nesje",
+              "givennames": "Atle"
+            },
+            {
+              "order": 4,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "2d60400f30019765d2a5f1c69348c35280f6ca24bc5bbe8d2f22bd3028b14ecf"
+        }
+      ],
+      "provider_response_sha256": "1b2fd8ca4586f048e9231aa7fc248babf2fe78d70f5cd09de14c9796eecd5687",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20046",
+      "site_id": "neotoma:site:13391",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/td9p-m745"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Bjune, Anne Elisabeth"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Bjune Anne E.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9496,
+          "source_primary_flag": true,
+          "source_citation": "Bjune, A.E. 2005. Holocene vegetation history and tree-line changes on a north–south transect crossing major climate gradients in southern Norway—evidence from pollen and plant macrofossils in lake sediments. Review of Paleobotany and Palynology 133(3-4):249-275. [DOI: 1016/j.revpalbo.2004.10.005]",
+          "source_doi": "1016/j.revpalbo.2004.10.005",
+          "source_year": "2005",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            }
+          ],
+          "source_payload_sha256": "b6414906a4b76591a3157214093cd5f1df8d6d5c12b00d0c6667ee9f0f630569"
+        }
+      ],
+      "provider_response_sha256": "25505903b39dc14d287208f2401d3acf4dd6733fb2879df4a3c59dafd6734d44",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20050",
+      "site_id": "neotoma:site:13392",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/c7eh-we69"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Bjune, Anne Elisabeth"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Bjune Anne E.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9496,
+          "source_primary_flag": true,
+          "source_citation": "Bjune, A.E. 2005. Holocene vegetation history and tree-line changes on a north–south transect crossing major climate gradients in southern Norway—evidence from pollen and plant macrofossils in lake sediments. Review of Paleobotany and Palynology 133(3-4):249-275. [DOI: 1016/j.revpalbo.2004.10.005]",
+          "source_doi": "1016/j.revpalbo.2004.10.005",
+          "source_year": "2005",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            }
+          ],
+          "source_payload_sha256": "8bb464bf2be4e55adbf4bc2e914348fbe181dcdcbb42b7d3056cab62f5c18f85"
+        },
+        {
+          "publication_id": 9497,
+          "source_primary_flag": false,
+          "source_citation": "Bjune, A.E., J. Bakke, A. Nesje, and H.J.B. Birks. 2004. Holocene mean July temperature and winter precipitation in western Norvay inferred from palynological and glaciological lake-sediment proxies. The Holocene 15(2):177-189. [DOI: 10.1191/0959683605hl798rp]",
+          "source_doi": "10.1191/0959683605hl798rp",
+          "source_year": "2004",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Bakke",
+              "givennames": "Jostein"
+            },
+            {
+              "order": 3,
+              "familyname": "Nesje",
+              "givennames": "Atle"
+            },
+            {
+              "order": 4,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "1e009196df9d387d00560b9079aa9424845ca692ee4bf158f61c667e5d7b793d"
+        }
+      ],
+      "provider_response_sha256": "ee0839089129c06a53e2e2782981de4d1b3e766a2b2f495ffbcd94b9057daa38",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20060",
+      "site_id": "neotoma:site:13396",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/012s-c321"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus Aage A.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1265,
+          "source_primary_flag": true,
+          "source_citation": "Paus, Aa. 1982. Vegetasjonshistoriske undersokeler i sand karsto, Tysvaer i Rogaland. Rapport 23, Botanisk institutt, Universitetet i Bergen, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "1982",
+          "source_publication_type": "Authored Report",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            }
+          ],
+          "source_payload_sha256": "6a6825812b2e6ef41bdcd93e9d09feac603e58cd2ada9723be1d9fb8a517ee0f"
+        }
+      ],
+      "provider_response_sha256": "3800abd8d00ac50055f43f4f8de8a2619a5449643f41baf5c4b1a13a40e74bf8",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20279",
+      "site_id": "neotoma:site:13476",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/d73q-6954"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Allen, Judy R. M.",
+        "Huntley, Brian",
+        "Long, Antony J."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": null,
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9536,
+          "source_primary_flag": true,
+          "source_citation": "Huntley, B., A.J. Long, and J.R.M. Allen. 2013. Spatio-temporal patterns in Lateglacial and Holocene vegetation and climate of Finnmark, northernmost Europe. Quaternary Science Reviews 70:158-175. [DOI: 10.1016/j.quascirev.2013.03.006]",
+          "source_doi": "10.1016/j.quascirev.2013.03.006",
+          "source_year": "2013",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Huntley",
+              "givennames": "Brian"
+            },
+            {
+              "order": 2,
+              "familyname": "Long",
+              "givennames": "Antony J."
+            },
+            {
+              "order": 3,
+              "familyname": "Allen",
+              "givennames": "Judy R. M."
+            }
+          ],
+          "source_payload_sha256": "64712db025b79a9f474651da4b4cb53383561ee1e04c09c51967b2ab52dc12a7"
+        }
+      ],
+      "provider_response_sha256": "12d0a5a07d63949589c68fb060be48d3c9d1f4e7f1954c50687fe4fb72555091",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20285",
+      "site_id": "neotoma:site:13478",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/8s7z-k891"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Allen, Judy R. M.",
+        "Huntley, Brian",
+        "Long, Antony J."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": null,
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9536,
+          "source_primary_flag": true,
+          "source_citation": "Huntley, B., A.J. Long, and J.R.M. Allen. 2013. Spatio-temporal patterns in Lateglacial and Holocene vegetation and climate of Finnmark, northernmost Europe. Quaternary Science Reviews 70:158-175. [DOI: 10.1016/j.quascirev.2013.03.006]",
+          "source_doi": "10.1016/j.quascirev.2013.03.006",
+          "source_year": "2013",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Huntley",
+              "givennames": "Brian"
+            },
+            {
+              "order": 2,
+              "familyname": "Long",
+              "givennames": "Antony J."
+            },
+            {
+              "order": 3,
+              "familyname": "Allen",
+              "givennames": "Judy R. M."
+            }
+          ],
+          "source_payload_sha256": "bfe9a10c288824f46c9b23a66499fc3c11350fee28e6a5c400f4a3683d502f40"
+        },
+        {
+          "publication_id": 9537,
+          "source_primary_flag": false,
+          "source_citation": "Allen, J.R.M., A.J. Long, C.J. Ottley, D.G. Pearson, and B. Huntley. 2007. Holocene climate variability in northernmost Europe. Quaternary Science Reviews 26(9-10):1432-1453. [DOI: 10.1016/j.quascirev.2007.02.009]",
+          "source_doi": "10.1016/j.quascirev.2007.02.009",
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Allen",
+              "givennames": "Judy R. M."
+            },
+            {
+              "order": 2,
+              "familyname": "Long",
+              "givennames": "Antony J."
+            },
+            {
+              "order": 3,
+              "familyname": "Ottley",
+              "givennames": "Chris J."
+            },
+            {
+              "order": 4,
+              "familyname": "Pearson",
+              "givennames": "D. Graham"
+            },
+            {
+              "order": 5,
+              "familyname": "Huntley",
+              "givennames": "Brian"
+            }
+          ],
+          "source_payload_sha256": "22fcb8d0f0cfbbd763470908eced4d567fd11457579e2b5df32cbaa6e43f17fb"
+        }
+      ],
+      "provider_response_sha256": "d8b4f7847bd9d574cc45dc7e564cc76c3d99257f3d5f0a7ce2d4225d39c69dae",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:20293",
+      "site_id": "neotoma:site:13481",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/snyf-b526"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Allen, Judy R. M.",
+        "Huntley, Brian",
+        "Long, Antony J."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": null,
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 9536,
+          "source_primary_flag": true,
+          "source_citation": "Huntley, B., A.J. Long, and J.R.M. Allen. 2013. Spatio-temporal patterns in Lateglacial and Holocene vegetation and climate of Finnmark, northernmost Europe. Quaternary Science Reviews 70:158-175. [DOI: 10.1016/j.quascirev.2013.03.006]",
+          "source_doi": "10.1016/j.quascirev.2013.03.006",
+          "source_year": "2013",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Huntley",
+              "givennames": "Brian"
+            },
+            {
+              "order": 2,
+              "familyname": "Long",
+              "givennames": "Antony J."
+            },
+            {
+              "order": 3,
+              "familyname": "Allen",
+              "givennames": "Judy R. M."
+            }
+          ],
+          "source_payload_sha256": "a4c45887b8dbd3ba8e70e262a13c422459de1d58a2c773307442e2b9e0a6140a"
+        }
+      ],
+      "provider_response_sha256": "bf7e0ba56e814fcc20c819a98dcb2fe701293ba1562aad449f4e568c7087ebf6",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:24155",
+      "site_id": "neotoma:site:15733",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/3hey-1169"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Seppä, Heikki"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Seppä Heikki.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 10392,
+          "source_primary_flag": true,
+          "source_citation": "Seppä, H., and H.J.B. Birks. 2001. July mean temperature and annual precipitation trends during the Holocene in the Fennoscandia tree-line area: pollen based climate reconstruction. The Holocene 11(5):527-539.",
+          "source_doi": null,
+          "source_year": "2001",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "c5568e11aa11d802b0f40ff6b9081233b447534016adfa16ace7990399490b64"
+        },
+        {
+          "publication_id": 10539,
+          "source_primary_flag": false,
+          "source_citation": "Seppä, H., and S. Hicks. 2006. Integration of modern and past pollen accumulation rate (PAR) records across the arctic tree-line: a method for more precise vegetation reconstructions. Quaternary Science Reviews 25:1501-1516.",
+          "source_doi": null,
+          "source_year": "2006",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            },
+            {
+              "order": 2,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "9ba1dc47bff605431827dbe0504429272144648f75a16ef13686381b6a4b1540"
+        }
+      ],
+      "provider_response_sha256": "090e75e3a7e033cb3b69811bf323791b85546d4195d857767e6d7d91b76a7a1e",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:317",
+      "site_id": "neotoma:site:310",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/n3p59c",
+        "10.21233/n3870x"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Hyvärinen, Hannu"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hyvärinen Hannu.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 699,
+          "source_primary_flag": true,
+          "source_citation": "Hyvärinen, H. 1975. Absolute and relative pollen diagrams from northernmost Fennoscandia. Fennia 142(1):1-23.",
+          "source_doi": null,
+          "source_year": "1975",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hyvärinen",
+              "givennames": "Hannu"
+            }
+          ],
+          "source_payload_sha256": "a1413a02b6ad2bd601c2b007c3575e9ba17bb7768c9b6420e47cf72488d85080"
+        }
+      ],
+      "provider_response_sha256": "4987d57f3700196bdbc7fb9dbc2c41b4c784fdd97056ab9e93e9ef4a1a512b12",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:3866",
+      "site_id": "neotoma:site:2966",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/tcav-fn36"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vasari, Annikki"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Vasari, Annikki.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1190,
+          "source_primary_flag": true,
+          "source_citation": "Koivula, L. 1987. Keski-Suomen viljelyhistoriaa : siitepölytutkimus viidestä Keski-Suomen kunnasta. Master's thesis. University of Jyväskylä, Jyväskylä, Finland.",
+          "source_doi": null,
+          "source_year": "1987",
+          "source_publication_type": "Master's Thesis",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Koivula",
+              "givennames": "Leena"
+            }
+          ],
+          "source_payload_sha256": "339664e9729553d544cf6ec30bd065744f58966c2362f7fc9d3437d4b647a46a"
+        }
+      ],
+      "provider_response_sha256": "69d957074e1ae11a0a477cbced9510bc994a6f1cf1bb3362a088ca309bd30afc",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:3937",
+      "site_id": "neotoma:site:3022",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/xwhx-v671"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Ramfjord, Hallvard"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Ramfjord Hallvard.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1287,
+          "source_primary_flag": true,
+          "source_citation": "Ramfjord, H. 1979. On the late Weichselian and Flandrian shoreline displacement in Nærøy, Nord-Trøndelag, Norway. Norsk Geologisk Tidsskrift 62(3):191-205.",
+          "source_doi": null,
+          "source_year": "1979",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Ramfjord",
+              "givennames": "Hallvard"
+            }
+          ],
+          "source_payload_sha256": "5390f324e7ee52971c79f08e2a9ed4845ce991d2fdfcb6854dd33669247601ba"
+        },
+        {
+          "publication_id": 1288,
+          "source_primary_flag": false,
+          "source_citation": "Ramfjord, H. 1979. Vegetasjons -og klimahistorie gjennom de siste 9000 år i Nærøy, Nord-Trøndelag. Master's thesis. University of Trondheim, Trondheim, Norway.",
+          "source_doi": null,
+          "source_year": "1979",
+          "source_publication_type": "Master's Thesis",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Ramfjord",
+              "givennames": "Hallvard"
+            }
+          ],
+          "source_payload_sha256": "eadb07536e3284ad4c14e29870f987e6fc140a8a025162ef17b6a650bdcb15ff"
+        }
+      ],
+      "provider_response_sha256": "4a549ce8f6d765f7b90817b497e072217fca7affdd9413939086e9521aa73148",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4041",
+      "site_id": "neotoma:site:3106",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/x43j-z193"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Sivertsen, Svenn"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Sivertsen Svenn.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1254,
+          "source_primary_flag": true,
+          "source_citation": "Odland, A., S. Sivertsen, O. Nordmark, A. Botnen, and B. Brunstad. 1985. Stordalsvassdragei i Etne. 35, Botanical Institute, University of Bergen, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "1985",
+          "source_publication_type": "Authored Report",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Odland",
+              "givennames": "Arvid"
+            },
+            {
+              "order": 2,
+              "familyname": "Sivertsen",
+              "givennames": "Svenn"
+            },
+            {
+              "order": 3,
+              "familyname": "Nordmark",
+              "givennames": "O."
+            },
+            {
+              "order": 4,
+              "familyname": "Botnen",
+              "givennames": "A."
+            },
+            {
+              "order": 5,
+              "familyname": "Brunstad",
+              "givennames": "B."
+            }
+          ],
+          "source_payload_sha256": "16443d0304bcc8448b1b00c4b14447a4126ebdbd99ddf6a3092a159ab08fa5c8"
+        }
+      ],
+      "provider_response_sha256": "57de8dcd31b5c0170666836cca41e0da3cec82c3fe9bf4d683fa69ab07a0fc57",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4057",
+      "site_id": "neotoma:site:3115",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/nkzg-w156"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus Aage A.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1266,
+          "source_primary_flag": true,
+          "source_citation": "Paus, Aa., and O.E. Jevne. 1987. Innerdalens historie belyst ved den pollenanalystyk methoden. Pages 7-89 in A. Paus, O.E. Jevne, and L. Gustafson, editors. Kulturhistoriske undersøkelser i Innerdalen, Kvikne, Hedmark. Rapport arkeologisk serie 1987-1. Universitetet i Trondheim, Vitenskapsmuseet, Trondheim, Norway.",
+          "source_doi": null,
+          "source_year": "1987",
+          "source_publication_type": "Book Chapter",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 2,
+              "familyname": "Jevne",
+              "givennames": "Ole Erik"
+            }
+          ],
+          "source_payload_sha256": "94e29014c7dbb4eb3b16e55d788831a330439d7b5649c4a1b439638199efa588"
+        }
+      ],
+      "provider_response_sha256": "06a3207422fe7318d95bb4373b9c384ed1481c8802f322728676aa3744157664",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4092",
+      "site_id": "neotoma:site:3145",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/3vvs-zb43"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Irmeli Vuorela.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1289,
+          "source_primary_flag": true,
+          "source_citation": "Rankama, T., and I. Vuorela. 1988. Between inland and coast in Metal Age Finland - human impact on the primeval forests of Southern Häme during the Iron Age. Memoranda Societatis Pro Fauna et Flora Fennica 64:25-34.",
+          "source_doi": null,
+          "source_year": "1988",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Rankama",
+              "givennames": "Tuija"
+            },
+            {
+              "order": 2,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "56b416f0ae4b2ce08069c551098c02621547ec4a65d872a727e7d8b779ceabb3"
+        }
+      ],
+      "provider_response_sha256": "6011a2e09bf3b8827cafd1ae0f439290eadb1e7ad146aa36115282962dde3d5a",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4115",
+      "site_id": "neotoma:site:3165",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/9017-sb34"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Irmeli Vuorela.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 999,
+          "source_primary_flag": true,
+          "source_citation": "Asplund, H., and I. Vuorela. 1989. Settlement studies in Kemiö - archaeological problems and palynological evidence. Fennoskandia Archaeologica 6:67-79.",
+          "source_doi": null,
+          "source_year": "1989",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Asplund",
+              "givennames": "Henrik"
+            },
+            {
+              "order": 2,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "7d7f3bd047498564881cbf34eae45dc1c46e4d6effda94f5907a3aa277bc03ac"
+        }
+      ],
+      "provider_response_sha256": "33b77f35f47bd0dba72d5eb64eab09782af4019e7e1649efaf75a3681826184c",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4133",
+      "site_id": "neotoma:site:3177",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/mnay-8z91"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Vuorela, Irmeli.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1367,
+          "source_primary_flag": true,
+          "source_citation": "Vuorela, I. 1981. The vegetational and settlement history in Sysmä, central south Finland, interpreted on the basis of two pollen diagrams. Bulletin of the Geological Society of Finland 53(1):47-61. http://www.geologinenseura.fi/bulletin/Volume53/sgs_bt_053_1_pages_047_061.pdf.",
+          "source_doi": null,
+          "source_year": "1981",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "417265437e0a2ca7539b21a93448b52e711a85cdd963cf65fa1b5f1c4166fa18"
+        }
+      ],
+      "provider_response_sha256": "f35683e2e1a185f6d541074fddaa40d91ebf2711eb18672e652a208011882d03",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4134",
+      "site_id": "neotoma:site:3178",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/ryfa-y280"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Irmeli Vuorela.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1289,
+          "source_primary_flag": true,
+          "source_citation": "Rankama, T., and I. Vuorela. 1988. Between inland and coast in Metal Age Finland - human impact on the primeval forests of Southern Häme during the Iron Age. Memoranda Societatis Pro Fauna et Flora Fennica 64:25-34.",
+          "source_doi": null,
+          "source_year": "1988",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Rankama",
+              "givennames": "Tuija"
+            },
+            {
+              "order": 2,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "82504d549a6c30d635324297d7a2fc8315e5da570c497078eeb6db1166159537"
+        }
+      ],
+      "provider_response_sha256": "aa15a607aff52aa89c2cd2539d58fbb46f1bfbfcf4633d4bfe0e7d55923562cc",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4136",
+      "site_id": "neotoma:site:3180",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/h27c-dp97"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hicks, Sheila P."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hicks, Sheila.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1133,
+          "source_primary_flag": true,
+          "source_citation": "Hicks, S. 1975. Variations in pollen frequency in a bog at Kangerjoki, N.E. Finland during the Flandrian. Commentationes Biologicae 80:4-28.",
+          "source_doi": null,
+          "source_year": "1975",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "0f57fbc4b24511d8134adab377f74759e5249ae391326b9aaf7eda84640c2529"
+        }
+      ],
+      "provider_response_sha256": "f99e79d4b1cbd66c982f202139e1ac7cab4023f9ff3943b37c7644a99e9dcc55",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4151",
+      "site_id": "neotoma:site:3195",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/f903-f525"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Irmeli Vuorela.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1289,
+          "source_primary_flag": true,
+          "source_citation": "Rankama, T., and I. Vuorela. 1988. Between inland and coast in Metal Age Finland - human impact on the primeval forests of Southern Häme during the Iron Age. Memoranda Societatis Pro Fauna et Flora Fennica 64:25-34.",
+          "source_doi": null,
+          "source_year": "1988",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Rankama",
+              "givennames": "Tuija"
+            },
+            {
+              "order": 2,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "2b05eafe5a69abf2a1ebcb54f0526bbfa19b995d18c74e12d943c8040bc63057"
+        }
+      ],
+      "provider_response_sha256": "d35969d92a9ac3a2958e0684c0eed4bff0e552ebe6d162c599c1dc7f70ad8112",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4152",
+      "site_id": "neotoma:site:3196",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/4k3e-q995"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hicks, Sheila P."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hicks, Sheila.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1137,
+          "source_primary_flag": false,
+          "source_citation": "Hicks, S. 1988. The representation of different farming practices in pollen diagrams from northern Finland. Pages 189-207 in H.H. Birks, H.J.B. Birks, P.E. Kaland, and D. Moe, editors. The Cultural Landscape - Past, Present and Future. Cambridge University Press, Cambridge, UK.",
+          "source_doi": null,
+          "source_year": "1988",
+          "source_publication_type": "Book Chapter",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "fce8421e65ab97c0c69c427ba42a74ea786395bb03d5d6a94a5d767e15c310d8"
+        },
+        {
+          "publication_id": 1138,
+          "source_primary_flag": true,
+          "source_citation": "Hicks, S. 1992. Modern pollen deposition and its use in interpreting the occupation history of the island Hailuto Finland. Vegetation History and Archaeobotany 1(2):75-86. [DOI: 10.1007/BF00206087]",
+          "source_doi": "10.1007/bf00206087",
+          "source_year": "1992",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "acea7813a5820338af4321163f2d9c29184c1c868a5e2e39acd95f745c655b3c"
+        },
+        {
+          "publication_id": 16095,
+          "source_primary_flag": false,
+          "source_citation": "Hicks, S. 1988. Siitepölytodisteita Hailuodon varhaisesta asutuksesta (Palynological evidence for the occupation of Hailuoto). Oulun Yliopisto Historian Laitos 202:35-88.",
+          "source_doi": null,
+          "source_year": "1988",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "2b192e6e680ef26f65b8d3d92ceacf3aba600ebcdecdd477cec111c845feb6a4"
+        }
+      ],
+      "provider_response_sha256": "8835497602b1c176344a4cdf2b5497f295367fe06f16ae57ad97380c4f568cf9",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4168",
+      "site_id": "neotoma:site:3210",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/3ppz-sz86"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Irmeli Vuorela.\r\n\r\nData is unpublished.",
+      "provider_publication_status": "no_publication_link",
+      "provider_publications": [],
+      "provider_response_sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:41764",
+      "site_id": "neotoma:site:24041",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/fka8-9069"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Seppä, Heikki"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Seppä Heikki.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15738,
+          "source_primary_flag": true,
+          "source_citation": "Seppä, H. 1996. Post-glacial dynamics of vegetation and tree-lines in the far north of Fennoscandia. Fennia 174:1-96.",
+          "source_doi": null,
+          "source_year": "1996",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            }
+          ],
+          "source_payload_sha256": "decb43f205cb34bfb7e6645524524de3fabd1fc4c64de4fe5f66cce747b4df76"
+        }
+      ],
+      "provider_response_sha256": "e1d9a8a139bd4e5479c9fe41b959d748bdad85445ade7795ba65525be9f1612e",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4239",
+      "site_id": "neotoma:site:3264",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/1g98-ct07"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vasari, Yrjö"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Vasari, Yrjö.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1360,
+          "source_primary_flag": true,
+          "source_citation": "Vasari, Y. 1965. Studies on the vegetational history of the Kuusamo district (north east Finland) during the Late-Quaternary period. III. Maanselänsuo, a late-glacial site in Kuusamo. Annales Botanici Fennici 2(3):219-235. https://www.jstor.org/stable/23724116.",
+          "source_doi": null,
+          "source_year": "1965",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Vasari",
+              "givennames": "Yrjö"
+            }
+          ],
+          "source_payload_sha256": "628bc6613c16f4ceb60c0462346ba44bbc48d8bc74375b643db4aa4a836aafc4"
+        }
+      ],
+      "provider_response_sha256": "c7dfbe0dfb509c48fce7b0274fd9b10e24284ea9b3f378a3ead0313c4011b84d",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4283",
+      "site_id": "neotoma:site:3299",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/cg36-ty75"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Irmeli Vuorela.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1369,
+          "source_primary_flag": true,
+          "source_citation": "Vuorela, I. 1990. Pollenanalytiska studier. Pages 115-133 in K. Zilliacus, editor. Finska skären. Studier i Åboländsk Kulturhistoria, utgivna av Konstsamfundet till dess 50-Årsjubileum 1990. Konstsamfundet, Helsingfors.",
+          "source_doi": null,
+          "source_year": "1990",
+          "source_publication_type": "Book Chapter",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "1de376966a93206499e7aa3ccd8343a8f0e752d2b31ff49254dc832b81dfe793"
+        }
+      ],
+      "provider_response_sha256": "15dbb4e9fdfce48d90cee6117e0761690abd89805ba01ba5d2ade93655c07070",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4286",
+      "site_id": "neotoma:site:3302",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/pvn2-a273"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hyvärinen, Hannu"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hyvärinen, Hannu.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1096,
+          "source_primary_flag": true,
+          "source_citation": "Eronen, M., and H. Hyvärinen. 1982. Subfossil pine dates and pollen diagrams from northern Fennoscandia. Geologiska Foreningens i Stockholm Forhandlingar 103(4):437-455. [DOI: 10.1080/11035898209453722]",
+          "source_doi": "10.1080/11035898209453722",
+          "source_year": "1982",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Eronen",
+              "givennames": "Matti"
+            },
+            {
+              "order": 2,
+              "familyname": "Hyvärinen",
+              "givennames": "Hannu"
+            }
+          ],
+          "source_payload_sha256": "8f943819e70d1bf78e8085e6e4436b73a56c039c40eb35b3a3640cf2d5e84ce2"
+        },
+        {
+          "publication_id": 1149,
+          "source_primary_flag": false,
+          "source_citation": "Hyvärinen, H. 1993. Holocene pine and birch limits near Kilpisjärvi, western Finnish Lapland: pollen stratigraphical evidence. Palaeoklimaforschung 9:19-27.",
+          "source_doi": null,
+          "source_year": "1993",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hyvärinen",
+              "givennames": "Hannu"
+            }
+          ],
+          "source_payload_sha256": "b01f8d4a3dbab3fddf1eea210f240ce013244c2bd1edd864353f170a44322f62"
+        }
+      ],
+      "provider_response_sha256": "cb0c4ac9c00bacaa78b530d593359e08c11016ac525a9dd071fdec74ed36a0c8",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4372",
+      "site_id": "neotoma:site:3372",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/zqse-ep64"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hyvärinen, Hannu"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hyvärinen Hannu.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1096,
+          "source_primary_flag": true,
+          "source_citation": "Eronen, M., and H. Hyvärinen. 1982. Subfossil pine dates and pollen diagrams from northern Fennoscandia. Geologiska Foreningens i Stockholm Forhandlingar 103(4):437-455. [DOI: 10.1080/11035898209453722]",
+          "source_doi": "10.1080/11035898209453722",
+          "source_year": "1982",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Eronen",
+              "givennames": "Matti"
+            },
+            {
+              "order": 2,
+              "familyname": "Hyvärinen",
+              "givennames": "Hannu"
+            }
+          ],
+          "source_payload_sha256": "3a565dacdba4df299aca9c74f00199087bde8c8e5df57d616baecc195eeea934"
+        }
+      ],
+      "provider_response_sha256": "a659cd72c4d2e0fe8d424169aef74b9d64e8deba99c8660dfdaa9011e2f3bcfe",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4392",
+      "site_id": "neotoma:site:3388",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/bgsv-qs98"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hicks, Sheila P."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hicks, Sheila.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1131,
+          "source_primary_flag": false,
+          "source_citation": "Hicks, S. 1974. A method of using modern pollen rain values to provide a time-scale for pollen diagrams from peat deposits. Memoranda Societas Fauna Flora Fennica 49:21-33.",
+          "source_doi": null,
+          "source_year": "1974",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "daf6694e57a6d460ef4ce3909e0e9cf9a3edd57e37e9ab508c849f485cbe17cf"
+        },
+        {
+          "publication_id": 1134,
+          "source_primary_flag": true,
+          "source_citation": "Hicks, S. 1976. Pollen analysis and archaeology in Kuusamo, N.E. Finland, an area of marginal human interference. Transactions of the Institute of British Geographers, New Series 1(3):362-384. [DOI: 10.2307/622092]",
+          "source_doi": "10.2307/622092",
+          "source_year": "1976",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "ce2b3cc2bcf6405dc808bca66a4c5d50a6d78dd2862f393735ae232c0081f58c"
+        },
+        {
+          "publication_id": 1135,
+          "source_primary_flag": false,
+          "source_citation": "Hicks, S. 1985. Problems and possibilities in correlating historical/archaeological and pollen-analytical evidence in a northern boreal environment: An example from Kuusamo, Finland. Fennoscandia Archaeologica 2:51-84.",
+          "source_doi": null,
+          "source_year": "1985",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "280f487b0a29f5013744465fb8695414dffb5b95dfb7919e67359854875d7937"
+        }
+      ],
+      "provider_response_sha256": "d08326686f834f78d04ca5b9a25359aa2f35f1b98a9ab652559cb1f4aff5ecbd",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4393",
+      "site_id": "neotoma:site:3389",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/1csm-st79"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Irmeli Vuorela.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1289,
+          "source_primary_flag": true,
+          "source_citation": "Rankama, T., and I. Vuorela. 1988. Between inland and coast in Metal Age Finland - human impact on the primeval forests of Southern Häme during the Iron Age. Memoranda Societatis Pro Fauna et Flora Fennica 64:25-34.",
+          "source_doi": null,
+          "source_year": "1988",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Rankama",
+              "givennames": "Tuija"
+            },
+            {
+              "order": 2,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "725116f5bea7d157f0bf6b2ed72264061529f9f7cb04ce528df511587d1560ca"
+        }
+      ],
+      "provider_response_sha256": "39a5ae4cba458bc6c4f312aa161c305ef870518accb8eb05502d13428fe28f66",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4405",
+      "site_id": "neotoma:site:3400",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/v9em-3b09"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hicks, Sheila P."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hicks, Sheila.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1132,
+          "source_primary_flag": false,
+          "source_citation": "Hicks, S. 1975. New evidence for the presence of prehistoric man in the Kuusamo area. Nordia 1:1-16.",
+          "source_doi": null,
+          "source_year": "1975",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "4127b91bd661022141916bb5ec3e0ef3eeb25d4a968e317c70e9e69db8af2f23"
+        },
+        {
+          "publication_id": 1134,
+          "source_primary_flag": true,
+          "source_citation": "Hicks, S. 1976. Pollen analysis and archaeology in Kuusamo, N.E. Finland, an area of marginal human interference. Transactions of the Institute of British Geographers, New Series 1(3):362-384. [DOI: 10.2307/622092]",
+          "source_doi": "10.2307/622092",
+          "source_year": "1976",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "3012468f23eabbaa376f9198ff0ec9905725ff07a147900d44efa18b3e56ba40"
+        },
+        {
+          "publication_id": 1135,
+          "source_primary_flag": false,
+          "source_citation": "Hicks, S. 1985. Problems and possibilities in correlating historical/archaeological and pollen-analytical evidence in a northern boreal environment: An example from Kuusamo, Finland. Fennoscandia Archaeologica 2:51-84.",
+          "source_doi": null,
+          "source_year": "1985",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "c03a7c3c78e72cc28552a803e245179e4998be7bd72e9d108415ffc96230399a"
+        }
+      ],
+      "provider_response_sha256": "924154ed0662cfff5f97e60b32c9d40e372e961c6923bb57378733a7e53a18da",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4420",
+      "site_id": "neotoma:site:3412",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/rmkd-2162"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Vuorela, Irmeli.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1371,
+          "source_primary_flag": true,
+          "source_citation": "Vuorela, I. 1991. Lounais-suomen varhaismetallikautinen asutus ja viljely siitepölyanalyysin valossa. Karhunhammas 13:2-23.",
+          "source_doi": null,
+          "source_year": "1991",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "a129eddab25f331b7182c1a39abef8b3e7f22277ebc4f059f04fa51c443bb875"
+        }
+      ],
+      "provider_response_sha256": "424de541cb616af58c374c3bf685779b7da893ded1fb181d38952814bf6cbf76",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4422",
+      "site_id": "neotoma:site:3414",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/hd1r-rv52"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hicks, Sheila P."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hicks, Sheila.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1138,
+          "source_primary_flag": true,
+          "source_citation": "Hicks, S. 1992. Modern pollen deposition and its use in interpreting the occupation history of the island Hailuto Finland. Vegetation History and Archaeobotany 1(2):75-86. [DOI: 10.1007/BF00206087]",
+          "source_doi": "10.1007/bf00206087",
+          "source_year": "1992",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "bf4345cd16be7568d53b30fb10d3565fa4fb302f00c15662c1ef29a88a2eb106"
+        }
+      ],
+      "provider_response_sha256": "da1c75703dd7ff0b30f62e5c549914a156b3698a664396172ed68ab5e33682c3",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4445",
+      "site_id": "neotoma:site:3432",
+      "country_code": "DK",
+      "dataset_dois": [
+        "10.21233/4r4q-0m97"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Odgaard, Bent V."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Odgaard Bent V.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1253,
+          "source_primary_flag": false,
+          "source_citation": "Odgaard, B.V. 1988. Heathland history in western Jutland, Denmark. Pages 311-319 in H.H. Birks, H.J.B. Birks, P.E. Kaland, and D. Moe, editors. The Cultural landscape - Past, Present and Future. Cambridge, United Kingdom.",
+          "source_doi": null,
+          "source_year": "1988",
+          "source_publication_type": "Book Chapter",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Odgaard",
+              "givennames": "Bent V."
+            }
+          ],
+          "source_payload_sha256": "4eca09355b8965cb5c66a79ee9a883b44f06ed57cbaea66801c2d173af05ac12"
+        },
+        {
+          "publication_id": 15706,
+          "source_primary_flag": false,
+          "source_citation": "Odgaard, B.V. 1992. The fire history of Danish heathland areas as reflected by pollen and charred particles in lake sediments. The Holocene 2:218-226. [DOI: 10.1177/095968369200200303]",
+          "source_doi": "10.1177/095968369200200303",
+          "source_year": "1992",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Odgaard",
+              "givennames": "Bent V."
+            }
+          ],
+          "source_payload_sha256": "a660a170a6b3e3b71c64874c61bc1b85f58b5b9cc67431a44ed72dba82429411"
+        },
+        {
+          "publication_id": 15707,
+          "source_primary_flag": true,
+          "source_citation": "Odgaard, B.V. 1994. The Holocene vegetation history of northern West Jutland, Denmark. Opera botanica 123:1-171.",
+          "source_doi": null,
+          "source_year": "1994",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Odgaard",
+              "givennames": "Bent V."
+            }
+          ],
+          "source_payload_sha256": "e1e7b002b243d360d0800f89b809810c1f79202009869c060b24630f88d3dd64"
+        }
+      ],
+      "provider_response_sha256": "d6f43348d5c3a8e367ef15a154a61b9fd8e5d1e9ea7c994aab9c5da82ad89693",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4446",
+      "site_id": "neotoma:site:3432",
+      "country_code": "DK",
+      "dataset_dois": [
+        "10.21233/mtmk-d772"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Odgaard, Bent V."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Odgaard Bent V.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1253,
+          "source_primary_flag": false,
+          "source_citation": "Odgaard, B.V. 1988. Heathland history in western Jutland, Denmark. Pages 311-319 in H.H. Birks, H.J.B. Birks, P.E. Kaland, and D. Moe, editors. The Cultural landscape - Past, Present and Future. Cambridge, United Kingdom.",
+          "source_doi": null,
+          "source_year": "1988",
+          "source_publication_type": "Book Chapter",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Odgaard",
+              "givennames": "Bent V."
+            }
+          ],
+          "source_payload_sha256": "c17c0311071b824967bd1741e3e3073628a2c87d2858be237cfca4ea567135d2"
+        },
+        {
+          "publication_id": 15707,
+          "source_primary_flag": true,
+          "source_citation": "Odgaard, B.V. 1994. The Holocene vegetation history of northern West Jutland, Denmark. Opera botanica 123:1-171.",
+          "source_doi": null,
+          "source_year": "1994",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Odgaard",
+              "givennames": "Bent V."
+            }
+          ],
+          "source_payload_sha256": "b1dc7533ec24f8a7d41c29493842a03445c86c5441a380998d71e38d2cf7c4f2"
+        }
+      ],
+      "provider_response_sha256": "e259b6247bdc43645ea75c7e6911d62431f3ae89bb7f4c90472ddec9f2c4e189",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4468",
+      "site_id": "neotoma:site:3451",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/vhxz-9969"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hyvärinen, Hannu"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hyvärinen, Hannu.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 699,
+          "source_primary_flag": true,
+          "source_citation": "Hyvärinen, H. 1975. Absolute and relative pollen diagrams from northernmost Fennoscandia. Fennia 142(1):1-23.",
+          "source_doi": null,
+          "source_year": "1975",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hyvärinen",
+              "givennames": "Hannu"
+            }
+          ],
+          "source_payload_sha256": "c949ab039f2b298e67a7a5ba7e36e01f785306768c728c9ad5c0c25745fce25a"
+        }
+      ],
+      "provider_response_sha256": "8ff2c05bcb1948830ed4aeacbe6e516556f4690a16ea73f4f8619a7d04812e1c",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4472",
+      "site_id": "neotoma:site:3455",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/26e5-b250"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Irmeli Vuorela.",
+      "provider_publication_status": "no_publication_link",
+      "provider_publications": [],
+      "provider_response_sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4494",
+      "site_id": "neotoma:site:3475",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/93pf-0q48"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Hyvärinen, Hannu"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Hyvärinen Hannu.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1148,
+          "source_primary_flag": true,
+          "source_citation": "Hyvärinen, H. 1985. Holocene pollen history of the Alta area, an isolated pine forest north of the general pine forest region in Fennoscandia. Ecologia Mediterranea 11(1):69-71.",
+          "source_doi": "10.3406/ecmed.1985.1074",
+          "source_year": "1985",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Hyvärinen",
+              "givennames": "Hannu"
+            }
+          ],
+          "source_payload_sha256": "20685211fa7d3c12f9f9b2ee9c8fa8dd8e986aa5ea668f5a2c15f2cce0c20eb3"
+        }
+      ],
+      "provider_response_sha256": "9a98dc0097975e302467e47558ecace79aac64c31189d644e6918dacddf6869e",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:44941",
+      "site_id": "neotoma:site:25998",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/phqc-me73"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley",
+        "Peglar, Sylvia M."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim). Bjune et al. (2009) list the reference for this site as Birks and Peglar (unpublished).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15942,
+          "source_primary_flag": true,
+          "source_citation": "Bjune, A.E., H. Seppä, and H.J.B. Birks. 2009. Quantitative summer-temperature reconstructions for the last 2000 years based on pollen-stratigraphical data from northern Fennoscandia. Journal of Paleolimnology 41(1):43-56. [DOI: 10.1007/s10933-008-9254-y]",
+          "source_doi": "10.1007/s10933-008-9254-y",
+          "source_year": "2009",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            },
+            {
+              "order": 3,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "11601f270206560caf6279bbdc973819e25edd11aa98e34b2811a6d5d194832e"
+        }
+      ],
+      "provider_response_sha256": "62a80758a5f370c5a88749ec932508ccd58b0a781e97f49ee1683d3182e82736",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4498",
+      "site_id": "neotoma:site:3479",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/zx8x-vj28"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Vuorela, Irmeli.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1371,
+          "source_primary_flag": true,
+          "source_citation": "Vuorela, I. 1991. Lounais-suomen varhaismetallikautinen asutus ja viljely siitepölyanalyysin valossa. Karhunhammas 13:2-23.",
+          "source_doi": null,
+          "source_year": "1991",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "82c474a92c522eb14f762bb1496f810383b4194da67e9e37bee88702d47c7cab"
+        }
+      ],
+      "provider_response_sha256": "c3eb7be7a0a4592b14e1ec8f0bbee454a5cd4d40c3ab9ab6c6fc44060fa832c6",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4510",
+      "site_id": "neotoma:site:3365",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/wkz1-sd64"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Vuorela, Irmeli"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Vuorela Irmeli.",
+      "provider_publication_status": "no_source_primary_flag",
+      "provider_publications": [
+        {
+          "publication_id": 1368,
+          "source_primary_flag": false,
+          "source_citation": "Vuorela, I., and T. Kankainen. 1990. Siitepölyanalyyttinen tutkimus asutuksen vaikutuksesta kasvillisuuteen Puolangan kunnan Kotilan kylässä. Tutkimusraportti, Geologian Tutkimuskeskus, Espoo, Finland. Notes: http://tupa.gtk.fi/raportti/arkisto/p34_4_100.pdf",
+          "source_doi": null,
+          "source_year": "1990",
+          "source_publication_type": "Authored Report",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            },
+            {
+              "order": 2,
+              "familyname": "Kankainen",
+              "givennames": "Tuovi"
+            }
+          ],
+          "source_payload_sha256": "4e5df6d7a807cfcdac15fcf9782aac7b53cf6cc327355edeb143349aa17987c2"
+        },
+        {
+          "publication_id": 1370,
+          "source_primary_flag": false,
+          "source_citation": "Vuorela, I. 1991. Turvetutkimus Suomen Asutushistorian Selvittämisessä (Settlement history of Finland traced by means of microfossil analyses of peat deposits). Suo 42(5):101-108. http://www.suo.fi/pdf/article9685.pdf.",
+          "source_doi": null,
+          "source_year": "1991",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Vuorela",
+              "givennames": "Irmeli"
+            }
+          ],
+          "source_payload_sha256": "114a9d1360cc306ec2a6d503d841f0da3e4022f4982a45b6f1f3c6e6b498dcf6"
+        }
+      ],
+      "provider_response_sha256": "039555ffbb8840ef3d4e1d9fe241fa76ecf0c249e25030338ed87beb3d58f0b6",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45329",
+      "site_id": "neotoma:site:26123",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/bkyg-et47"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim) to the EPD.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "2840a9cab5839afb21a94d6ffda921f7c03d7ed5fd55c11257933090be76a909"
+        }
+      ],
+      "provider_response_sha256": "b72fa605167f3b7c2bcc3a790e5d258672377460444fbaf2ff4662acdc6e6a9f",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45331",
+      "site_id": "neotoma:site:26124",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/9qac-3n20"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim) to the EPD.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "2de58bfe2e8c7f085245f0725c73b4fc1838521fc58a0910c3e2aac7d98feaed"
+        }
+      ],
+      "provider_response_sha256": "761ed4f30bcba7fdcb6bb4e7e92244de529748c46bae409e7104fd08fba1bb49",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45343",
+      "site_id": "neotoma:site:26125",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/4k7v-pp08"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim) to the EPD..",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "2e051b40227bb3f84cbb44d2204a2109569e680683c24a6306dc36b60d313dff"
+        }
+      ],
+      "provider_response_sha256": "16340c7e6b00f6258de5f0bff66ae708d69a904cf5eb0a3d1774bd2ed761a7b7",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45345",
+      "site_id": "neotoma:site:26126",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/aext-h866"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (PIM) to the EPD.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "28ef855501f2472b80dc79e9882fc4f58400101fcb7e5c72d043877f6481bfef"
+        }
+      ],
+      "provider_response_sha256": "7d39b0126d9279f5f78ebd1c1ad790586fec64ee6aaa3ebab7638ea0f35be6d6",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45347",
+      "site_id": "neotoma:site:26127",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/0zgh-6r09"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim) to the EPD.",
+      "provider_publication_status": "multiple_source_primary_publications",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "86de1aaab2d1fc800083e13180fab125cd7d38cbb8a1f2f5c256932273cf4b11"
+        },
+        {
+          "publication_id": 16032,
+          "source_primary_flag": true,
+          "source_citation": "Velle, G., J. Larsen, W. Eide, S.M. Peglar, and H.J.B. Birks. 2005. Velle, G., J. Larsen, W. Eide, S.M. Peglar, and H.J.B. Birks. 2005. Holocene environmental history and climate of Råtåsj¢en, a low-alpine lake in south-central Norway. Journal of Paleolimnology 33:129-153.",
+          "source_doi": null,
+          "source_year": "2005",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Velle",
+              "givennames": "Gaute"
+            },
+            {
+              "order": 2,
+              "familyname": "Larsen",
+              "givennames": "Jorunn"
+            },
+            {
+              "order": 3,
+              "familyname": "Eide",
+              "givennames": "Wenche"
+            },
+            {
+              "order": 4,
+              "familyname": "Peglar",
+              "givennames": "Sylvia M."
+            },
+            {
+              "order": 5,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "d5ff26495c6b15f93d957792fc733dcfcd6a6c9a6ec6eeef041aef460555abcf"
+        }
+      ],
+      "provider_response_sha256": "4f731f1461836b9ebc3d886c2d95429f81308e479fbee575f6d246a2c06f30d4",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45349",
+      "site_id": "neotoma:site:26128",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/e3mw-tc57"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim) to the EPD.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "020821f7fd6554bb99dd91b6bb127f3d5beebd0d7e2857226c23917ea232be9a"
+        }
+      ],
+      "provider_response_sha256": "0e97da65c86a455e6b56fa74913136df5b796c3bebc3b490174d35b31604ff42",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45351",
+      "site_id": "neotoma:site:26129",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/geb4-ch43"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim) to the EPD.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "c12bec178da81ac6f370262898e967016f45d8c8825fac31e25bcd18fd279118"
+        }
+      ],
+      "provider_response_sha256": "71aeb3197e7865be20cdc8f4292190d5470da8481e238600fabfc9610bb6a3ae",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:4539",
+      "site_id": "neotoma:site:3513",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/yeg0-6p54"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Huttunen, Antti"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Huttunen, Antti.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 1146,
+          "source_primary_flag": true,
+          "source_citation": "Huttunen, A. 1990. Vegetation and palaeoecology of a bog complex in southern Finland. Aquilo Series Botanica 28:27-37.",
+          "source_doi": null,
+          "source_year": "1990",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Huttunen",
+              "givennames": "Antti"
+            }
+          ],
+          "source_payload_sha256": "ab50d9676ff9452d7cd7f6b3927b639ac0883d5628a6b8fd5478cea88629d432"
+        }
+      ],
+      "provider_response_sha256": "f41012ec1f2ec18158a2697f22e4a4220c856afad4c930fa3a45c3e4f799cbbe",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45636",
+      "site_id": "neotoma:site:26167",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/pr2m-cc37"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15942,
+          "source_primary_flag": true,
+          "source_citation": "Bjune, A.E., H. Seppä, and H.J.B. Birks. 2009. Quantitative summer-temperature reconstructions for the last 2000 years based on pollen-stratigraphical data from northern Fennoscandia. Journal of Paleolimnology 41(1):43-56. [DOI: 10.1007/s10933-008-9254-y]",
+          "source_doi": "10.1007/s10933-008-9254-y",
+          "source_year": "2009",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            },
+            {
+              "order": 3,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "dd0e33ce7fd548cc6df6937a818e2025806003b0b196cb5eb932ec03252041bd"
+        }
+      ],
+      "provider_response_sha256": "6469320c6d20395a011e8845975267df530fdded7fe936211a9da404cbff33a4",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45639",
+      "site_id": "neotoma:site:26168",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/bkjz-st84"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15942,
+          "source_primary_flag": true,
+          "source_citation": "Bjune, A.E., H. Seppä, and H.J.B. Birks. 2009. Quantitative summer-temperature reconstructions for the last 2000 years based on pollen-stratigraphical data from northern Fennoscandia. Journal of Paleolimnology 41(1):43-56. [DOI: 10.1007/s10933-008-9254-y]",
+          "source_doi": "10.1007/s10933-008-9254-y",
+          "source_year": "2009",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            },
+            {
+              "order": 3,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "79b093cf553c091d42ac9fe28f60f7972380d1cec212cd83bf5d6d9ad8c0409d"
+        }
+      ],
+      "provider_response_sha256": "522eb3ca92aa594dec4fe99b309518fc531bf3e7fc5f273a5739db94263ebee7",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45642",
+      "site_id": "neotoma:site:26169",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/0d1q-p773"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15942,
+          "source_primary_flag": false,
+          "source_citation": "Bjune, A.E., H. Seppä, and H.J.B. Birks. 2009. Quantitative summer-temperature reconstructions for the last 2000 years based on pollen-stratigraphical data from northern Fennoscandia. Journal of Paleolimnology 41(1):43-56. [DOI: 10.1007/s10933-008-9254-y]",
+          "source_doi": "10.1007/s10933-008-9254-y",
+          "source_year": "2009",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            },
+            {
+              "order": 3,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "00feabddfec54cdd6d1b4190b439338ab664846af69576ce2bd74aca868c65ba"
+        },
+        {
+          "publication_id": 16050,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., and H.J.B. Birks. 2003. Reconstructing Holocene climate from pollen and plant macrofossils. Pages 342-357 in A. Mackay, R. Battarbee, H.J.B. Birks, and F. Oldfield, editors. Global Change in the Holocene. Arnold, London.",
+          "source_doi": null,
+          "source_year": "2003",
+          "source_publication_type": "Book Chapter",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "92f9994cbcfd4a05d5360fabf5a0900928cbefc07f71dfafa8a69c196c40e11c"
+        },
+        {
+          "publication_id": 16051,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2003. Quantitative palaeoenvironmental reconstructions from Holocene biological data. Pages 107-123 in A. Mackay, R. Battarbee, H.J.B. Birks, and F. Oldfield, editors. Global Change in the Holocene. Arnold, London.",
+          "source_doi": null,
+          "source_year": "2003",
+          "source_publication_type": "Book Chapter",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "06666a1b4b5ce8d2a44c3568277936eed610cdde9ed9fe277131e0446362b931"
+        },
+        {
+          "publication_id": 16052,
+          "source_primary_flag": false,
+          "source_citation": "Bjune, A.E., H.J.B. Birks, S. Peglar, and A. Odland. 2010. Developing a modern pollen-climate calibration data set for Norway. Boreas 39(4):674-688.",
+          "source_doi": null,
+          "source_year": "2010",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Peglar",
+              "givennames": "Sylvia M."
+            },
+            {
+              "order": 4,
+              "familyname": "Odland",
+              "givennames": "Arvid"
+            }
+          ],
+          "source_payload_sha256": "8b31de0137d665f9dcd37924e3971e82a49ad000318ea0ed933361f1db3a938b"
+        }
+      ],
+      "provider_response_sha256": "257ceb7c3b92ab6d8df9dd058ffbe97f806d66a8385fb7dba4cd52827925c47b",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45698",
+      "site_id": "neotoma:site:26210",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/cr6x-be86"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "42a04005e162e4e37c4e7716322c7528d41726fc2935a41cbf6ae3b1d082c844"
+        }
+      ],
+      "provider_response_sha256": "9c582684983549b733810890974df54363c2dd92e9c15e4084a56d3d51bf9758",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45701",
+      "site_id": "neotoma:site:26211",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/epv2-3m87"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "8e31606fbe6f7d7dff4325ad4b3489009768da62405fd98b25bd3dbe42861593"
+        }
+      ],
+      "provider_response_sha256": "a418cf72fbf9883783c00f656c422191faf0ab26fcaec9d2adfc380cf2a4aa58",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45704",
+      "site_id": "neotoma:site:26212",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/bfpc-jd87"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "a8ac3c6a7e03f3ab1f3c311196f4e78cd323a6ed8729cf203dd9355f774d54ba"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "ab070e984a7708e1f0bb84c42f5c11bcff15bfc3b7a96e21616c9babdf1b3cf5"
+        }
+      ],
+      "provider_response_sha256": "143907e796dccba0f25fad0f01022bf9bb8d32ae0ea44801da62aaf4236b0372",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45707",
+      "site_id": "neotoma:site:26213",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/yxzd-xn66"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley",
+        "Peglar, Sylvia M."
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "28eb254ccbdab4ed5a889f13168328d01049af3d7c50bfb9e2c2cb11abad08d4"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "ad1d19994abadc0e460f55aa1cefe2a5bd21aa8b20b4c334de60a6b978a9cbd7"
+        }
+      ],
+      "provider_response_sha256": "6e1744a54a89940836f66202d4dd85c27d84f1bd33a51fad67def19c77e98407",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45710",
+      "site_id": "neotoma:site:26214",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/wjmk-7376"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "41e5ad98cc8e4b0fcc5ea6ecff4c837cb3bffd3d256257f0dc88b728aa034019"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "c7f21c78a56e36f16012ac3f2185bf05d01f30efec2bd0aa29e6684e1367308a"
+        }
+      ],
+      "provider_response_sha256": "f1205005b64e8a749316628a563bbef7c693e56c1a10679bd54fdf8912f48277",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45713",
+      "site_id": "neotoma:site:26215",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/9e9x-ff23"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "1a1a98126a5db41ea9321e1eabbb7e63a1d1cd91b041571451ca2381a992b7c9"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "f0b12bb3abce53a1d716fd541a07338f2aceb81433313bd4118abf1c8f1dec07"
+        },
+        {
+          "publication_id": 15968,
+          "source_primary_flag": true,
+          "source_citation": "Eide, W., H.H. Birks, N.H. Bigelow, S.M. Peglar, and H.J.B. Birks. 2006. Holocene forest development along the Setesdal valley, southern Norway, reconstructed from macrofossil and pollen evidence. Vegetation History and Archaeobotany 15:65-85.",
+          "source_doi": null,
+          "source_year": "2006",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Eide",
+              "givennames": "Wenche"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 3,
+              "familyname": "Bigelow",
+              "givennames": "Nancy H."
+            },
+            {
+              "order": 4,
+              "familyname": "Peglar",
+              "givennames": "Sylvia M."
+            },
+            {
+              "order": 5,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "c65c6faa72b7d08d1f2d1a1d867d88bd7875086da04dd1df2dbfd408ef1d3410"
+        }
+      ],
+      "provider_response_sha256": "9dc2f016b2230ab813b78b5ae7a99bb7681ff62fc0cca9e75d0d036187fbf507",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45716",
+      "site_id": "neotoma:site:26216",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/rfek-5a50"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "f34a6455dcf3150c74be9cfa356fd4cd5f1f8a2e5afc13f1a8918ef86d20a079"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "6264790e87741c525f5283f16ada031ebc1f6c38d47e55d8c515a09657e4c404"
+        },
+        {
+          "publication_id": 15968,
+          "source_primary_flag": false,
+          "source_citation": "Eide, W., H.H. Birks, N.H. Bigelow, S.M. Peglar, and H.J.B. Birks. 2006. Holocene forest development along the Setesdal valley, southern Norway, reconstructed from macrofossil and pollen evidence. Vegetation History and Archaeobotany 15:65-85.",
+          "source_doi": null,
+          "source_year": "2006",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Eide",
+              "givennames": "Wenche"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 3,
+              "familyname": "Bigelow",
+              "givennames": "Nancy H."
+            },
+            {
+              "order": 4,
+              "familyname": "Peglar",
+              "givennames": "Sylvia M."
+            },
+            {
+              "order": 5,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "43c528f2602c9fa82189f6f1aba8a2510cb499f66c1233bc5a6c10dd8d45eb8f"
+        }
+      ],
+      "provider_response_sha256": "9a03228b6025eaf4fe0d49010246f7e5146cd823a0b9414b9010dc0f4b6bca0c",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45719",
+      "site_id": "neotoma:site:26217",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/w0j3-9h31"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "edfaaeb0d118508dddb2f6978f63555cb00d23176a9f939842ae01fcf54a58cf"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "e2427cb93fd0b9ba8846bc93d8c1385757ee87ab8e2600a4b6d96e7567838fee"
+        },
+        {
+          "publication_id": 15968,
+          "source_primary_flag": false,
+          "source_citation": "Eide, W., H.H. Birks, N.H. Bigelow, S.M. Peglar, and H.J.B. Birks. 2006. Holocene forest development along the Setesdal valley, southern Norway, reconstructed from macrofossil and pollen evidence. Vegetation History and Archaeobotany 15:65-85.",
+          "source_doi": null,
+          "source_year": "2006",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Eide",
+              "givennames": "Wenche"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 3,
+              "familyname": "Bigelow",
+              "givennames": "Nancy H."
+            },
+            {
+              "order": 4,
+              "familyname": "Peglar",
+              "givennames": "Sylvia M."
+            },
+            {
+              "order": 5,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "8ae3f124983dbf3131679985c6e2bea4dcd840c17337ed196a76838207604587"
+        }
+      ],
+      "provider_response_sha256": "0b2a3f45a19e2038de838496f5ec68610da1bc892d5a70a4d842ac78dc1180e5",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45722",
+      "site_id": "neotoma:site:26218",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/tpvk-wa79"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "fa446ca2615b82adf7dac54f3de22abb0298ca52b8ef62a5c249e9d3abd4f2ce"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "671df193c9beb96b79a658d29eca23d7a701b15941a958d908c39f66abbe7217"
+        }
+      ],
+      "provider_response_sha256": "fd23ccbaa9cad539f6aed67b8a5dabf071a06fa7743970c3c0919f1fadea258b",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45725",
+      "site_id": "neotoma:site:26219",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/s0pq-6335"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "d2c7064164e1ccac63501dba321525e9c4ee5933928bda29f9a0297889dea5e0"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "d672c8760da0f193759614daec4b45bcf12dc2660e3dc713d3c18180813f908c"
+        },
+        {
+          "publication_id": 15968,
+          "source_primary_flag": true,
+          "source_citation": "Eide, W., H.H. Birks, N.H. Bigelow, S.M. Peglar, and H.J.B. Birks. 2006. Holocene forest development along the Setesdal valley, southern Norway, reconstructed from macrofossil and pollen evidence. Vegetation History and Archaeobotany 15:65-85.",
+          "source_doi": null,
+          "source_year": "2006",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Eide",
+              "givennames": "Wenche"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 3,
+              "familyname": "Bigelow",
+              "givennames": "Nancy H."
+            },
+            {
+              "order": 4,
+              "familyname": "Peglar",
+              "givennames": "Sylvia M."
+            },
+            {
+              "order": 5,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "bfebdd0174fec97a239f1760b6046306ce7b739d76a3ad48112517d9d3085726"
+        }
+      ],
+      "provider_response_sha256": "aaa572c2d2bfe94af99c9ed7ed3b1d0e3caedd3d3872efb971ad7432dd3442fb",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45728",
+      "site_id": "neotoma:site:26220",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/b5h9-pm78"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "3082c47998055bf17fc7a91cf17b0aca95f30db313099a14c676fdf0748d1d07"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "d3ccb8ac94aaa71965825744052ed593eaf3bb4b9b82b44f7cc613b52e3a6389"
+        }
+      ],
+      "provider_response_sha256": "c03bde99c93d95d994d5f213572ac4df83d38dbc898110f4c505bc964c35e143",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:45731",
+      "site_id": "neotoma:site:26221",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/37a7-9h33"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Birks, Harry John Betteley"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by ALPADABA via van der Knaap W. O. (Pim).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 15949,
+          "source_primary_flag": false,
+          "source_citation": "Birks, H.H., H.J.B. Birks, A.E. Bjune, and V.A. Felde. 2012. XXXVI International Bog ('Moor') Excursion of the Institute of Plant Sciences, University of Bern, southern and south-eastern Norway, 8-13 September 2012, Excursion Guide. University of Bergen, Norway and Bjerknes Centre for Climate Research, Bergen, Norway.",
+          "source_doi": null,
+          "source_year": "2012",
+          "source_publication_type": "Other Authored",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Felde",
+              "givennames": "Vivian Astrup"
+            }
+          ],
+          "source_payload_sha256": "fa2c39fb311cd4cbf804f5f3395c5ae07f755626222b8ebc8f7a78e01f8f80d0"
+        },
+        {
+          "publication_id": 15950,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.J.B. 2007. Estimating the amount of compositional change in late-Quaternary pollen-stratigraphical data. Vegetation History and Archaeobotany 16(2-3):197-202.",
+          "source_doi": null,
+          "source_year": "2007",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "0e53198fd8d88eb984cddf340fa434d6c46e7136129a1c31f9a7fbfb6888e037"
+        }
+      ],
+      "provider_response_sha256": "00751717d44998317c9f05aa35c9c7fc6cb5b62f66af5dbff086ee62df2b1aec",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:52082",
+      "site_id": "neotoma:site:28072",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/T585-EP25",
+        "10.21233/t585-ep25"
+      ],
+      "dataset_doi_status": "ascii_case_equivalent_source_dois",
+      "dataset_investigators": [
+        "Heikkilä, Maija"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data submitted by Seppä, H. and Heikkilä, M.to  Landclim Project and submitted by Gaillard, M.J. to the EPD.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 16469,
+          "source_primary_flag": true,
+          "source_citation": "Heikkilä, M., and H. Seppä. 2003. A 11,000yr palaeotemperature reconstruction from the southern boreal zone in Finland. Quaternary Science Review 22:541-554.",
+          "source_doi": null,
+          "source_year": "2003",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Heikkilä",
+              "givennames": "Maija"
+            },
+            {
+              "order": 2,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            }
+          ],
+          "source_payload_sha256": "3ecf0a9d4e4bacd4fd93a8b7e23eb5085fd8a8e277effa170c06dcbe3f5a4b8d"
+        }
+      ],
+      "provider_response_sha256": "3791c17a7b7f17c393fd0ec8d99970186aa4cb4219ca09d1ce0cb67a9f19a69b",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:52088",
+      "site_id": "neotoma:site:28074",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/C29P-TQ20",
+        "10.21233/c29p-tq20"
+      ],
+      "dataset_doi_status": "ascii_case_equivalent_source_dois",
+      "dataset_investigators": [
+        "Seppä, Heikki"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data submitted by Seppä, H. to LandClim Project and submitted by Gaillard, M.J. to the EPD.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 16470,
+          "source_primary_flag": true,
+          "source_citation": "Seppä, H., and H.J.B. Birks. 2002. Holocene Climate Reconstructions from the Fennoscandian Tree-Line Area Based on pollen Data from Toskaljavri. Quaternary Research 57:191-199.",
+          "source_doi": null,
+          "source_year": "2002",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Seppä",
+              "givennames": "Heikki"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "d9e7bb100f7122c5165541291d79784cb721303daf3170f7a84f0d7a98d01d0a"
+        }
+      ],
+      "provider_response_sha256": "5cdcdb3ee90870113420e5d8dd9d6996acf9140563c684efc79adee0bf160d08",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:52255",
+      "site_id": "neotoma:site:28157",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/WQ3M-E377",
+        "10.21233/wq3m-e377"
+      ],
+      "dataset_doi_status": "ascii_case_equivalent_source_dois",
+      "dataset_investigators": [
+        "Wieckowska-Lüth, Magdalena"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Wieckowska-Lüth, M. to the EPD.",
+      "provider_publication_status": "multiple_source_primary_publications",
+      "provider_publications": [
+        {
+          "publication_id": 16587,
+          "source_primary_flag": true,
+          "source_citation": "Wieckowska-Lüth, M., S. Solheim, A. Schülke, and W. Kirleis. 2018. Towards a refined understanding of the use of coastal zones in the Mesolithic: New investigations on human-environment interactions in Telemark, southeastern Norway. Journal of Archaeological Science: Reports 17:839-851.",
+          "source_doi": null,
+          "source_year": "2018",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Wieckowska",
+              "givennames": "Magdalena"
+            },
+            {
+              "order": 2,
+              "familyname": "Solheim",
+              "givennames": "Steinar"
+            },
+            {
+              "order": 3,
+              "familyname": "Schülke",
+              "givennames": "Almut"
+            },
+            {
+              "order": 4,
+              "familyname": "Kirleis",
+              "givennames": "Wiebke"
+            }
+          ],
+          "source_payload_sha256": "b85ba8bc5d28b98a9cd72e845cfb5413ca4bea2fccaf76b62b6c855bd21ae382"
+        },
+        {
+          "publication_id": 16588,
+          "source_primary_flag": true,
+          "source_citation": "Wieckowska-Lüth, M., W. Kirleis, and W. Dörfler. 2017. Holocene history development in the catchment of Lake Skogstjern, southeastern Norway, based on a high-resolution multi-proxy record. The Holocene 27:1928-1947.",
+          "source_doi": null,
+          "source_year": "2017",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Wieckowska",
+              "givennames": "Magdalena"
+            },
+            {
+              "order": 2,
+              "familyname": "Kirleis",
+              "givennames": "Wiebke"
+            },
+            {
+              "order": 3,
+              "familyname": "Dörfler",
+              "givennames": "Walter"
+            }
+          ],
+          "source_payload_sha256": "01ce90d298b2a3b44d94ef5c267f4177e9a2518ee6e950f08a715267b84c06c7"
+        }
+      ],
+      "provider_response_sha256": "b1b906b56b6588bf7271535efb7b41fd65c9f9993a7e9a9fec80519099d60e38",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53002",
+      "site_id": "neotoma:site:28412",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/GPQJ-3Z71",
+        "10.21233/6met-8m49"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus, Aa. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 18329,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A., G. Velle, and J. Berge. 2011. The Lateglacial and early Holocene vegetation and environment in the Dovre mountains, central Norway, as signalled in two Lateglacial nunatak lakes. Quaternary Science Reviews:1780-1796.",
+          "source_doi": null,
+          "source_year": "2011",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 2,
+              "familyname": "Velle",
+              "givennames": "Gaute"
+            },
+            {
+              "order": 3,
+              "familyname": "Berge",
+              "givennames": "Jan"
+            }
+          ],
+          "source_payload_sha256": "ef85746963d21a103df0e25273ccd51118d13f3a980a998d89e6305022217dfb"
+        }
+      ],
+      "provider_response_sha256": "c1d3b372ab4a7d2d6b94b482cc50e6577122207e2c0e2e207bb746fdd8e55444",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53081",
+      "site_id": "neotoma:site:28431",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/EQ06-JE33",
+        "10.21233/nyhn-6s41"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus, aa. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 18347,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A. 2021. Lake Heimtjonna at Dovre, Mid-Norway, reveals remarkable late-glacial and Holocene sedimentay environments and the early establishment of spruce (Picea abies), alder (Alnus cf. incana), and alpine plants with present centric distributions. Quaternary International 580:38-52.",
+          "source_doi": null,
+          "source_year": "2021",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            }
+          ],
+          "source_payload_sha256": "d83788dedeb6be53de208cdd6c0c117a4db108c816a37e63ab29fef78d656fba"
+        }
+      ],
+      "provider_response_sha256": "ed696815edbf474e258d7eb399f1fb85cd6d975964866f10fe094018f157dd9c",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53098",
+      "site_id": "neotoma:site:28440",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/5XR8-GV26",
+        "10.21233/sxnn-hq25"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus, Aa. to the EPD/Neotoma.",
+      "provider_publication_status": "multiple_source_primary_publications",
+      "provider_publications": [
+        {
+          "publication_id": 18361,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A., and V. Haugland. 2017. Early- to mid-Holocene forest-line and climate dynamics in southern Scandes mountains inferred from contrasting megafossil and pollen data. The Holocene 27(3):361-383.",
+          "source_doi": null,
+          "source_year": "2017",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 2,
+              "familyname": "Haugland",
+              "givennames": "Vanja"
+            }
+          ],
+          "source_payload_sha256": "0565e2e29b601ebe7ee0314ed68ec255e3fa9e5e8dc57c1e695821cf1b6dac13"
+        },
+        {
+          "publication_id": 18362,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A., H. Haflidason, J. Routh, B.D.A. Naafs, and M.W. Thoen. 2019. Environmental responses to the 9.7 and 8.2 cold events at two ecotonal sites in the Dovre mountains, mid-Norway. Quaternary Science Reviews 205:45-61.",
+          "source_doi": null,
+          "source_year": "2019",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 2,
+              "familyname": "Haflidason",
+              "givennames": "Haflidi"
+            },
+            {
+              "order": 3,
+              "familyname": "Routh",
+              "givennames": "Joyanto"
+            },
+            {
+              "order": 4,
+              "familyname": "Naafs",
+              "givennames": "B. David A."
+            },
+            {
+              "order": 5,
+              "familyname": "Thoen",
+              "givennames": "Mari W."
+            }
+          ],
+          "source_payload_sha256": "a31dd2711d6f97d9fd60f54e68c6bfd44233dd6ba59c47d9ddf2a2240ee0f9a4"
+        },
+        {
+          "publication_id": 18363,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A., S. Baessenkool, C. Brochmann, L.S. Epp, D. Fabel, H. Haflidason, and H. Linge. 2015. Lake Store Finnsjoen - a key for understanding Lateglacial/early Holocene vegetation and ice sheet dynamics in the central Scandes Mountains. Quaternary Science Reviews 121:36-51.",
+          "source_doi": null,
+          "source_year": "2015",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 2,
+              "familyname": "Baessenkool",
+              "givennames": "Sanne"
+            },
+            {
+              "order": 3,
+              "familyname": "Brochmann",
+              "givennames": "Christian"
+            },
+            {
+              "order": 4,
+              "familyname": "Epp",
+              "givennames": "Laura S."
+            },
+            {
+              "order": 5,
+              "familyname": "Fabel",
+              "givennames": "Derek"
+            },
+            {
+              "order": 6,
+              "familyname": "Haflidason",
+              "givennames": "Haflidi"
+            },
+            {
+              "order": 7,
+              "familyname": "Linge",
+              "givennames": "Henriette"
+            }
+          ],
+          "source_payload_sha256": "a0c7594fbe99694508b4e91d452a1ca118093c0e528ace425482bf2f3669ee5f"
+        }
+      ],
+      "provider_response_sha256": "897dceece4d9c4c8a98bc6d06900af16bc970f4ffcd617c994a45e3bd64c7b91",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53119",
+      "site_id": "neotoma:site:28451",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/CW1K-S256",
+        "10.21233/2fqt-bf37"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus, Aa. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 18361,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A., and V. Haugland. 2017. Early- to mid-Holocene forest-line and climate dynamics in southern Scandes mountains inferred from contrasting megafossil and pollen data. The Holocene 27(3):361-383.",
+          "source_doi": null,
+          "source_year": "2017",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 2,
+              "familyname": "Haugland",
+              "givennames": "Vanja"
+            }
+          ],
+          "source_payload_sha256": "0a11e9e4723e84649ec94013e446c5d994786f4e2d3d4c20932cbd832b014830"
+        }
+      ],
+      "provider_response_sha256": "23b7e5b5d2e9643c83fe99fcec0998eb9575e4cf2b15a34ab45a832e1b585270",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53121",
+      "site_id": "neotoma:site:28452",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/THQE-1669",
+        "10.21233/601x-3v68"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus, Aa. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 18392,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A. 1989. Late Weichselian vegetation, climate, and floral migration at Liastemmen, North Rogaland, south-western Norway. Journal of Quaternary Science 4(3):223-242.",
+          "source_doi": null,
+          "source_year": "1989",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            }
+          ],
+          "source_payload_sha256": "1b35c6e433ccad88a6085e9f4743a418d6467566180d0803b8bb0ed8de1c5ab2"
+        }
+      ],
+      "provider_response_sha256": "b9f8dee803a72d1fa0b7cd35545461775bb8d96b9b2b4feeaa89e2b6644b4a7a",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53127",
+      "site_id": "neotoma:site:28455",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/13JA-1E40",
+        "10.21233/k5p8-rg87"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus, Aa. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 18394,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A. 1989. Late Weichselian vegetation, climate and floral migration at Eigebakken, south Rogaland, southwestern Norway. Review of Palaeobotany and Palynology 61:177-203.",
+          "source_doi": null,
+          "source_year": "1989",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            }
+          ],
+          "source_payload_sha256": "a2f225611cd81ea949a9bb535a65d2f4c4c91ab468e78954c208197584f3be97"
+        }
+      ],
+      "provider_response_sha256": "ab26c1c333a9032ab9cbf7312985107dfe54ade3d8f4c1ca94adee8db735cf54",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53131",
+      "site_id": "neotoma:site:28457",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/ZXYB-ZX29",
+        "10.21233/5gy8-vx07"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus, Aa. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 18361,
+          "source_primary_flag": true,
+          "source_citation": "Paus, A., and V. Haugland. 2017. Early- to mid-Holocene forest-line and climate dynamics in southern Scandes mountains inferred from contrasting megafossil and pollen data. The Holocene 27(3):361-383.",
+          "source_doi": null,
+          "source_year": "2017",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 2,
+              "familyname": "Haugland",
+              "givennames": "Vanja"
+            }
+          ],
+          "source_payload_sha256": "840bbffe371fc2f0a7b815a1ac2e2ea098e80bb9f634a8921c708343a6d90a67"
+        }
+      ],
+      "provider_response_sha256": "adeda06d483b3a481ee0706c1e69d253cfc9e48c90b79d058c539278e531040c",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53135",
+      "site_id": "neotoma:site:28459",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/WHB3-8G28"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Paus, Aa. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 18400,
+          "source_primary_flag": true,
+          "source_citation": "Mangerud, J., H.H. Birks, L.S. Halvorsen, A.L.C. Hughes, O. Nashoug, J.P. Nystuen, A. Paus, R. Sørensen, and J.I. Svendsen. 2018. The timing of deglaciation and sequence of pioneer vegetation at Ringsaker, eastern Norway - and an earthquake-triggered landslide. Norvwegian Journal of Geology 98(3):1-18.",
+          "source_doi": null,
+          "source_year": "2018",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Mangerud",
+              "givennames": "Jan"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 3,
+              "familyname": "Halvorsen",
+              "givennames": "Lene S."
+            },
+            {
+              "order": 4,
+              "familyname": "Hughes",
+              "givennames": "Anna L. C."
+            },
+            {
+              "order": 5,
+              "familyname": "Nashoug",
+              "givennames": "Ole"
+            },
+            {
+              "order": 6,
+              "familyname": "Nystuen",
+              "givennames": "Johan Petter"
+            },
+            {
+              "order": 7,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 8,
+              "familyname": "Sørensen",
+              "givennames": "Rolf"
+            },
+            {
+              "order": 9,
+              "familyname": "Svendsen",
+              "givennames": "John Inge"
+            }
+          ],
+          "source_payload_sha256": "cabf1f12651f91de7c6109b1f5aa5c19b1f2c6b736ceb90ac084312353794208"
+        }
+      ],
+      "provider_response_sha256": "bafa988d967802b9cd4b27ecd3771d6b4f20d78fbe8f76363c2b813a156122bc",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:53995",
+      "site_id": "neotoma:site:28869",
+      "country_code": "SE",
+      "dataset_dois": [
+        "10.21233/PQFT-GY26",
+        "10.21233/mhqn-eq25"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Regnéll, Joachim"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Regnéll, L. and Persson, T. to the EPD in 2017 (Landclim Project).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 17389,
+          "source_primary_flag": true,
+          "source_citation": "Håkansson, H., and J. Regnéll. 1993. Diatom succession related to land use during the last 6000 years: a study of a small eutrophic lake in southern Sweden. Journal of Paleolimnology 8:49-69.",
+          "source_doi": "10.1007/bf00210057",
+          "source_year": "1993",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Håkansson",
+              "givennames": "Hannelore"
+            },
+            {
+              "order": 2,
+              "familyname": "Regnéll",
+              "givennames": "Joachim"
+            }
+          ],
+          "source_payload_sha256": "483048635f6804335ef08dafd34cd02b3e730cb9d148d50bf45a4bc236695ead"
+        }
+      ],
+      "provider_response_sha256": "171c2cb6fc797cd22dd86582a7ec752cfbceced23d00a2d0d249afa78af7ad18",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:54001",
+      "site_id": "neotoma:site:28872",
+      "country_code": "SE",
+      "dataset_dois": [
+        "10.21233/A5HN-WW50",
+        "10.21233/0msh-1a51"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Gaillard-Lemdahl, Marie-José"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Gaillard-Lemdahl, M.J. to the EPD in 2017 (Landclim Project).",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 17367,
+          "source_primary_flag": true,
+          "source_citation": "Gaillard-Lemdahl, M.J., G.E. Hannon, H. Håkansson, S. Olsson, G. Possnert, and P. Sandgren. 1996. New data on the Holocene forest and land-use history of Skåne based on AMS 14C dates of terrestrial plant macroremains, and biostratigraphical, chemical, and mineral magnetic analyses of lakes sediments. Geologiska föreningens i Stockhom förhandlingar 118(supp004):65-66.",
+          "source_doi": null,
+          "source_year": "1996",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Gaillard-Lemdahl",
+              "givennames": "Marie-José"
+            },
+            {
+              "order": 2,
+              "familyname": "Hannon",
+              "givennames": "Gina E."
+            },
+            {
+              "order": 3,
+              "familyname": "Håkansson",
+              "givennames": "Hannelore"
+            },
+            {
+              "order": 4,
+              "familyname": "Olsson",
+              "givennames": "S."
+            },
+            {
+              "order": 5,
+              "familyname": "Possnert",
+              "givennames": "Göran"
+            },
+            {
+              "order": 6,
+              "familyname": "Sandgren",
+              "givennames": "Per"
+            }
+          ],
+          "source_payload_sha256": "c7ed3089b816c4a09894c13f29c644d56d6e03c756eafd16812b58d1998c32d2"
+        }
+      ],
+      "provider_response_sha256": "96fff1a7ca6c3ce76a24e286f3a32a801e0e884c70d5e35eabe505e5c3dc4146",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:58530",
+      "site_id": "neotoma:site:30965",
+      "country_code": "FI",
+      "dataset_dois": [
+        "10.21233/MKRP-9818",
+        "10.21233/d49m-jd45"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Finsinger, Walter",
+        "Schoning, Kristian",
+        "Hicks, Sheila P.",
+        "Lücke, Andreas",
+        "Goslar, Tomasz",
+        "Wagner-Cremer, Friederike",
+        "Hyyppä, Heidi"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "The samples are consecutive and aim at representing around 1 year. Thus, pollen percentages should be usied with caution. We recommend to amalgamate samples together and calculate averages prior to calculating pollen percentages.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 19722,
+          "source_primary_flag": true,
+          "source_citation": "Finsinger, W., K. Schoning, S. Hicks, A. Lücke, T. Goslar, F. Wagner-Cremer, and H. Hyyppä. 2013. Climate change during the past 1000 years: a high-temporal-resolution multiproxy record from a mire in northern Finland. Journal of Quaternary Science 28(2):152-164. [DOI: 10.1002/jqs.2598]",
+          "source_doi": "10.1002/jqs.2598",
+          "source_year": "2013",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Finsinger",
+              "givennames": "Walter"
+            },
+            {
+              "order": 2,
+              "familyname": "Schoning",
+              "givennames": "Kristian"
+            },
+            {
+              "order": 3,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            },
+            {
+              "order": 4,
+              "familyname": "Lücke",
+              "givennames": "Andreas"
+            },
+            {
+              "order": 5,
+              "familyname": "Goslar",
+              "givennames": "Tomasz"
+            },
+            {
+              "order": 6,
+              "familyname": "Wagner-Cremer",
+              "givennames": "Friederike"
+            },
+            {
+              "order": 7,
+              "familyname": "Hyyppä",
+              "givennames": "Heidi"
+            }
+          ],
+          "source_payload_sha256": "6e091a96b053d08ad67171dabc0cebd9e12231198639235528f7bc25607b80fc"
+        },
+        {
+          "publication_id": 19736,
+          "source_primary_flag": false,
+          "source_citation": "Mazier, F., A.B. Nielsen, A. Broström, S. Sugita, and S. Hicks. 2012. Signals of tree volume and temperature in a high-resolution record of pollen accumulation rates in northern Finland. Journal of Quaternary Science 27:564-574. [DOI: 10.1002/jqs.2549]",
+          "source_doi": "10.1002/jqs.2549",
+          "source_year": "2012",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Mazier",
+              "givennames": "Florence"
+            },
+            {
+              "order": 2,
+              "familyname": "Nielsen",
+              "givennames": "Anne Birgitte"
+            },
+            {
+              "order": 3,
+              "familyname": "Broström",
+              "givennames": "Anna"
+            },
+            {
+              "order": 4,
+              "familyname": "Sugita",
+              "givennames": "Shinya"
+            },
+            {
+              "order": 5,
+              "familyname": "Hicks",
+              "givennames": "Sheila P."
+            }
+          ],
+          "source_payload_sha256": "5ab1774556c9d1ef211f7748b3598c2fc8b5501d0ac1819bbf7f05990b6e47ff"
+        }
+      ],
+      "provider_response_sha256": "4f62ae05c679ec4d32eef59594d1c177efcb77437f3b8a0007c1ff6ccbc26216",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:62017",
+      "site_id": "neotoma:site:33292",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/sg1z-jc18"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Bjune, Anne Elisabeth"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Bjune, A.E. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 21166,
+          "source_primary_flag": true,
+          "source_citation": "Bjune, A.E., and H.J.B. Birks. 2008. Holocene vegetation dynamics and inferred climate changes at Svanåvatnet, Mo i Rana, northern Norway. Boreas 37:146-156. [DOI: 10.1111/j.1502-3885.2007.00006.x]",
+          "source_doi": "10.1111/j.1502-3885.2007.00006.x",
+          "source_year": "2008",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 2,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "34d01ee920247c5593ff7f3f77ef7db7c79ff0abb0628d3d8f3f3978ebd1861c"
+        }
+      ],
+      "provider_response_sha256": "3276cf5de9915a69ff15d9e81b280310d6e8395ba898228f4dfbb7190f49bbd7",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:62035",
+      "site_id": "neotoma:site:33300",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/wps4-dn37"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Bjune, Anne Elisabeth"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Dataset contributed by Bjune, A.E. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 21175,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., I. Aarnes, A.E. Bjune, S.J. Brooks, J. Bakke, N. Kühl, and H.J.B. Birks. 2014. Lateglacial and early-Holocene climate variability reconstructed from multi-proxy records on Andøya, northern Norway. Quaternary Science Reviews 89:108-122. [DOI: 10.1016/j.quascirev.2014.01.018]",
+          "source_doi": "10.1016/j.quascirev.2014.01.018",
+          "source_year": "2014",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Aarnes",
+              "givennames": "Ingelinn"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Brooks",
+              "givennames": "Steve"
+            },
+            {
+              "order": 5,
+              "familyname": "Bakke",
+              "givennames": "Jostein"
+            },
+            {
+              "order": 6,
+              "familyname": "Kühl",
+              "givennames": "Norbert"
+            },
+            {
+              "order": 7,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "3478061aa761bbc75d4107d3ddf6cd90590969b97fbfcda526873282e836ad0c"
+        }
+      ],
+      "provider_response_sha256": "d679fcc77022709e1444ae1ea7c17a16cf97c66bf260ae4c1e151a48e813e887",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:62037",
+      "site_id": "neotoma:site:33301",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/y9q5-4164"
+      ],
+      "dataset_doi_status": "one_source_doi",
+      "dataset_investigators": [
+        "Bjune, Anne Elisabeth"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Dataset contributed by Bjune, A.E. to the EPD/Neotoma.",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 21175,
+          "source_primary_flag": true,
+          "source_citation": "Birks, H.H., I. Aarnes, A.E. Bjune, S.J. Brooks, J. Bakke, N. Kühl, and H.J.B. Birks. 2014. Lateglacial and early-Holocene climate variability reconstructed from multi-proxy records on Andøya, northern Norway. Quaternary Science Reviews 89:108-122. [DOI: 10.1016/j.quascirev.2014.01.018]",
+          "source_doi": "10.1016/j.quascirev.2014.01.018",
+          "source_year": "2014",
+          "source_publication_type": "Journal Article",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Birks",
+              "givennames": "Hilary H."
+            },
+            {
+              "order": 2,
+              "familyname": "Aarnes",
+              "givennames": "Ingelinn"
+            },
+            {
+              "order": 3,
+              "familyname": "Bjune",
+              "givennames": "Anne Elisabeth"
+            },
+            {
+              "order": 4,
+              "familyname": "Brooks",
+              "givennames": "Steve"
+            },
+            {
+              "order": 5,
+              "familyname": "Bakke",
+              "givennames": "Jostein"
+            },
+            {
+              "order": 6,
+              "familyname": "Kühl",
+              "givennames": "Norbert"
+            },
+            {
+              "order": 7,
+              "familyname": "Birks",
+              "givennames": "Harry John Betteley"
+            }
+          ],
+          "source_payload_sha256": "50ec5dfec6b4b21a6b183ef41f61f75d5bd2fcc27ed36a6e6e8cfce1479e0bb7"
+        }
+      ],
+      "provider_response_sha256": "aa094097cc3c890a4ff09716c4e2ffc60f3c13db35ca7a6c0e56ea422bb62460",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    },
+    {
+      "dataset_id": "neotoma:dataset:977",
+      "site_id": "neotoma:site:947",
+      "country_code": "NO",
+      "dataset_dois": [
+        "10.21233/n3503q",
+        "10.21233/n3r13b"
+      ],
+      "dataset_doi_status": "distinct_source_dois",
+      "dataset_investigators": [
+        "Paus, Aage"
+      ],
+      "constituent_database": "European Pollen Database",
+      "source_dataset_notes": "Data contributed by Aage Paus",
+      "provider_publication_status": "one_source_primary_publication",
+      "provider_publications": [
+        {
+          "publication_id": 762,
+          "source_primary_flag": true,
+          "source_citation": "Paus, Aa. 1982. Paleo-økologiske undersøkelser på Frøya, Sør-Trøndelag. Den vegetasjonshistoriske utviklingen fra senistiden og fram til idag. Master's thesis. University of Trondheim, Trondheim, Norway.",
+          "source_doi": null,
+          "source_year": "1982",
+          "source_publication_type": "Master's Thesis",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            }
+          ],
+          "source_payload_sha256": "1e076e1eeab4c63a569234dd3284303d35c56a58565b76e602c19d7567c3b94a"
+        },
+        {
+          "publication_id": 15527,
+          "source_primary_flag": false,
+          "source_citation": "Moe, D., K.-D. Vorren, T. Alm, S. Fimreite, B. Mørkved, E. Nilssen, Aa. Paus, H. Ramfjord, S.F. Selvik, and R. Sørensen. 1996. Norway. Pages 153-213 in B.E. Berglund, H.J.B. Birks, M. Ralska-Jasiewiczowa, and H.E. Wright, editors. Palaeoecological events during the last 15000 years: regional syntheses of palaeoecological studies of lakes and mires in Europe. John Wiley & Sons, Chichester, United Kingdom.",
+          "source_doi": null,
+          "source_year": "1996",
+          "source_publication_type": "Book Chapter",
+          "source_authors": [
+            {
+              "order": 1,
+              "familyname": "Moe",
+              "givennames": "Dagfinn"
+            },
+            {
+              "order": 2,
+              "familyname": "Vorren",
+              "givennames": "Karl-Dag"
+            },
+            {
+              "order": 3,
+              "familyname": "Alm",
+              "givennames": "Torbjørn"
+            },
+            {
+              "order": 4,
+              "familyname": "Fimreite",
+              "givennames": "Solveig"
+            },
+            {
+              "order": 5,
+              "familyname": "Mørkved",
+              "givennames": "Brynhild"
+            },
+            {
+              "order": 6,
+              "familyname": "Nilssen",
+              "givennames": "Eilif J."
+            },
+            {
+              "order": 7,
+              "familyname": "Paus",
+              "givennames": "Aage"
+            },
+            {
+              "order": 8,
+              "familyname": "Ramfjord",
+              "givennames": "Hallvard"
+            },
+            {
+              "order": 9,
+              "familyname": "Selvik",
+              "givennames": "Synøve Fjeldstad"
+            },
+            {
+              "order": 10,
+              "familyname": "Sørensen",
+              "givennames": "Rolf"
+            }
+          ],
+          "source_payload_sha256": "a1ceb4731893feef4b8d391da91c8904a76ddf14af90c74c72223c3728eb7bf7"
+        }
+      ],
+      "provider_response_sha256": "6ed150aae9a25eaa29afe67e38ee04d9af886de52a1b74f38b4da62f28394dfb",
+      "direct_pollen_role": "used_in_selected_study",
+      "lra_admission": "unresolved_source_requirements"
+    }
+  ],
+  "publication_ready": false,
+  "lra_accepted_samples": 0
+}

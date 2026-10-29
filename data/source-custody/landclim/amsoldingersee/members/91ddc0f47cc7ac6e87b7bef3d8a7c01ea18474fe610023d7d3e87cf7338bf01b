@@ -1,0 +1,64 @@
+{
+  "schema_version": "amsoldingersee-source-controller-correspondence.v1",
+  "source_only": true,
+  "common_launcher": {
+    "current": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    "qualified_predecessor": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    "byte_identical": true,
+    "reference": "Unchanged common906 required field schema and per-stage native status/streams."
+  },
+  "runtime": {
+    "current": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/runtime.py",
+      "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+      "bytes": 17435
+    },
+    "qualified_predecessor": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    "function_AST_changes": [
+      "runtime_inputs",
+      "qualify_process_snapshot"
+    ],
+    "other_function_ASTs_exact": true,
+    "delta": "Add explicit required stdlib import seeds and allow only pinned origins in the four complete first-party source roots. Resolver, absence, alias, environment, native-image and system predicates unchanged."
+  },
+  "maintained_consumer": {
+    "source": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
+      "sha256": "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0",
+      "bytes": 8383
+    },
+    "API": "build(repository: Path, source_root: Path, output: Path) -> dict[str, Any]",
+    "module": "bijux_pollenomics_dev.source_completion.landclim_amsoldingersee_recovery",
+    "canonical_source_modified": false,
+    "package_entry": "Normal runpy.run_module with maintained loader code compared against pinned source compilation; metadata parent package imports retained, model namespace imports refused."
+  },
+  "owner": {
+    "owner_id": "publication-replay/landclim-amsoldingersee-source-review/report-products",
+    "paths": [
+      "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json"
+    ],
+    "producer_inputs": [
+      "data/landclim/review/amsoldingersee-source-inputs.json"
+    ],
+    "producer_paths": [
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py"
+    ],
+    "role": "unresolved",
+    "verification": "The review producer requires fourteen pinned private Neotoma/API capture files and an exact Amsoldingersee source-root. The repository manifest alone does not supply those bytes. Retain the recorded source-identification refusals; this is not a 1,128-sequence replay."
+  },
+  "source_imports": "All four source/resource trees and complete namespace membership are protected. Actual before/after namespace and non-system mapped-image identities are independently checked; model packages cannot be imported.",
+  "runtime_qualification": "Future preparation independently authenticates the exact original base -I -S -B framework/stdlib/native closure and aliases. Cached profile3331 checks SOURCE only, not a dependency-equipped scientific runtime.",
+  "source_privacy": "No original private response or author CSV was parsed during source authoring/qualification. Synthetic metadata only."
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "actual-tool-preparation-refusal.v1",
+  "actual_native_session": 73980,
+  "collected_exit_code": 1,
+  "error": "Untracked non-cache source/resource refused",
+  "source_manifest_sha256": "8a4cb1942e6a4c0554007baf578c4f4c03c32610d087ffdde21352319d425aa9",
+  "no_native_grid_production": true,
+  "unexpected_regular_source_paths_metadata_only": [
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/test_shards/__pycache__/plugin.cpython-311-pytest-9.0.3.pyc",
+      "bytes": 7401,
+      "mtime_ns": 1790335603014185433,
+      "symlink": false
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+      "bytes": 539,
+      "mtime_ns": 1791919985272927209,
+      "symlink": false
+    }
+  ],
+  "no_file_mutation": true
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "outcome-blind-empd2-nfi-source-replay-terminal.v1",
+  "actual_exit": 1,
+  "candidate": "97be88f37a117a518c8c4639ccca98927e13cb24",
+  "plan_sha256": "ce4e09d4525fe2f1a4e18d5c47404db148b036cf924176c7a2cac24215db3fd1",
+  "common_actual_exit": 1,
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/terminal.json",
+    "sha256": "51f45e6af06c4b20db4754a7fe6ce03e93f39faa8a8a769eaa15ea09479ae5a8",
+    "bytes": 5671
+  },
+  "native_stages": [
+    {
+      "id": "maintained-outcome-blind-pairing",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/plan.json"
+      ],
+      "timeout_seconds": 120,
+      "must_succeed": true,
+      "actual_exit": 124,
+      "timed_out": true,
+      "elapsed_seconds": 120.01553404104197,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/maintained-outcome-blind-pairing.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/maintained-outcome-blind-pairing.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 192430080
+    }
+  ],
+  "tracked_byte_comparisons": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/pairs.csv",
+      "generated": null,
+      "tracked": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/pairs.csv",
+        "sha256": "dead80111026ca2f0ceb8bd31c36ae3461bdbb1d89f367656d43445f65d94c40",
+        "bytes": 15177
+      },
+      "checker_actual_exit": 2
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/report.json",
+      "generated": null,
+      "tracked": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/report.json",
+        "sha256": "cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642",
+        "bytes": 3000
+      },
+      "checker_actual_exit": 2
+    }
+  ],
+  "tracked_checker_changes_are_native_failure": false,
+  "timed_out": false,
+  "source_custody_error": null,
+  "completed_elapsed_seconds": 136.96518637501867,
+  "completed_child_peak_RSS_bytes_macos": 192430080,
+  "resources": {
+    "overall_timeout_seconds": 240,
+    "resident_memory_limit_bytes": 2147483648,
+    "output_byte_limit": 134217728
+  },
+  "scope": "Fresh maintained metadata-only refusal replay. Native geometry rechecks sixteen selected source pairs under unchanged1e-5m agreement; the retained53 full-screen combinations are not a new132x43892 sweep. No measured vegetation/outcome selection, LRA estimator, model, R, source acquisition, rights, leakage or human review admission.",
+  "timeout_cleanup_scope": "Own launcher group killed/waited; independent child sessions mean detached descendants are not certified absent on outer timeout. Timeout never passes.",
+  "scientific_acceptance_claimed": false,
+  "completed_output_bytes_including_receipt": 19348421
+}

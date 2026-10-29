@@ -1,0 +1,13 @@
+9 files left unchanged
+E402 Module level import not at top of file
+  --> artifacts/science/svar-feature-prefix-custody/census.py:57:1
+   |
+55 |       raw_process_snapshot,
+56 |   )
+57 | / from stream import (
+58 | |     Collection,  # noqa: E402 - authenticate the owned namespace before importing helpers.
+59 | | )
+   | |_^
+   |
+
+Found 5 errors (4 fixed, 1 remaining).

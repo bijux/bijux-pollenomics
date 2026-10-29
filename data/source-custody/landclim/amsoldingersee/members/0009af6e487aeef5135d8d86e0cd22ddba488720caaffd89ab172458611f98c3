@@ -1,0 +1,188 @@
+"""Authenticate the failed observer epoch and its already successful source producer."""
+
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+from contracts import (
+    BASE,
+    BASE_SHA,
+    PREFIX,
+    ROOT,
+    exact,
+    load,
+    pin,
+    require,
+    union,
+    verify_rows,
+)
+
+ORIGINAL = ROOT / "artifacts/science/current-amsoldingersee-source-refusal-replay"
+OLD_SOURCE = ROOT / "artifacts/science/amsoldingersee-source-refusal-custody"
+PLAN_SHA = "f8a5eda54d8a8c66f7cfe7362a4cbe8876ebe15d548c335725524d9227e58ac8"
+COMMON_SHA = "55ecb4539701e1d580c6cc9b3ed9762b60bb47822be026cb0fd71998fdedaf5c"
+OUTER_SHA = "bc55eaf93d31a736263894af13a85cd567928991e276a5869a5cbf79ad5ca979"
+APP = PREFIX / "Resources/Python.app/Contents/MacOS/Python"
+APP_SHA = "d5e2d4feef9f70f82e65429d1edd50a0e3e70debbbc6f27272f2f6ecd463b498"
+
+
+def framework_argv(witness: dict[str, Any], original: dict[str, Any]) -> None:
+    argv = original["stages"][0]["argv"]
+    require(
+        argv[:4] == [str(BASE), "-I", "-S", "-B"]
+        and argv[4:6] == [str(OLD_SOURCE / "entry.py"), "produce"]
+        and argv[6:] == ["--plan", str(ORIGINAL / "plan.json")],
+        "Original exact producer command changed",
+    )
+    expected = {row["path"]: row for row in original["input_pins"]}
+    for path, sha, size in ((BASE, BASE_SHA, 52640), (APP, APP_SHA, 51584)):
+        require(
+            exact(
+                expected.get(str(path)),
+                {"path": str(path), "sha256": sha, "bytes": size},
+            ),
+            "Distinct original framework binary identity missing",
+        )
+    raw = witness["actual_launcher_argv"]
+    require(
+        type(raw) is list and raw == [str(APP), *argv[1:]],
+        "Only the exact observed framework launcher argv0 correspondence is permitted",
+    )
+    require(
+        witness["interpreter_flags"] == ["-I", "-S", "-B"],
+        "Original isolated invocation flags differ",
+    )
+    for snapshot in (
+        original["runtime_profile"]["actual_preparation_process_snapshot"],
+        witness["before"],
+        witness["after"],
+    ):
+        require(
+            isinstance(snapshot, dict)
+            and type(snapshot.get("native_images")) is list
+            and all(type(name) is str for name in snapshot["native_images"])
+            and str(APP) in snapshot["native_images"],
+            "Original preparation/before/after mapped framework App witness missing",
+        )
+
+
+def validate_history(
+    original: dict[str, Any], common: dict[str, Any], outer: dict[str, Any]
+) -> None:
+    require(
+        common["plan_sha256"] == outer["plan_sha256"] == PLAN_SHA
+        and original["candidate"] == common["candidate"] == outer["candidate"],
+        "Original saved execution epoch differs",
+    )
+    require(
+        type(common["actual_exit"]) is int
+        and common["actual_exit"] == 1
+        and type(outer["actual_exit"]) is int
+        and outer["actual_exit"] == 1,
+        "Original failed whole history was relabelled",
+    )
+    require(
+        common["before_pin_mismatches"] == common["after_pin_mismatches"] == []
+        and common["absent_input_paths_unchanged"] is True,
+        "Original source custody failed",
+    )
+    require(
+        outer["timed_out"] is False
+        and outer["error"] is None
+        and outer["after_input_error"] is None
+        and outer["completed_whole_wall_bound_pass"] is True
+        and outer["memory_bound_pass"] is True,
+        "Original completed custody/resource outcome changed",
+    )
+    declared, actual = original["stages"], common["stages"]
+    require(len(declared) == len(actual) == 2, "Original two stage history differs")
+    for row, wanted, code in zip(actual, declared, (0, 1), strict=True):
+        require(
+            all(
+                exact(row[key], wanted[key])
+                for key in ("id", "argv", "timeout_seconds", "must_succeed")
+            )
+            and type(row["actual_exit"]) is int
+            and row["actual_exit"] == code
+            and row["timed_out"] is False,
+            "Original source/observer stage outcome changed",
+        )
+    require(
+        exact(outer["actual_native_stage_exits"], [0, 1])
+        and outer["tracked_byte_checker_exit"] is None,
+        "Original unexecuted checker outcome invented",
+    )
+
+
+def output_members(rows: list[dict[str, Any]]) -> list[str]:
+    wanted = {row["path"] for row in rows}
+    seen = set()
+    directories = {"scratch", "cache", "producer"}
+    for name in wanted:
+        for parent in Path(name).relative_to(ORIGINAL).parents:
+            if parent != Path("."):
+                directories.add(parent.as_posix())
+    actual_directories = set()
+    for path in ORIGINAL.rglob("*"):
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Original saved output alias/special",
+        )
+        if path.is_file():
+            seen.add(str(path))
+        else:
+            actual_directories.add(path.relative_to(ORIGINAL).as_posix())
+    require(
+        seen == wanted and actual_directories == directories,
+        "Original saved output file/directory membership changed",
+    )
+    return sorted(actual_directories)
+
+
+def authenticate() -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    paths = [
+        ORIGINAL / "plan.json",
+        ORIGINAL / "terminal.json",
+        ORIGINAL / "amsoldingersee-terminal.json",
+    ]
+    for path, sha in zip(paths, (PLAN_SHA, COMMON_SHA, OUTER_SHA), strict=True):
+        require(
+            pin(path)["sha256"] == sha,
+            "Original exact saved execution reference changed",
+        )
+    original, common, outer = (load(path) for path in paths)
+    validate_history(original, common, outer)
+    refs = [pin(path) for path in paths]
+    require(
+        exact(outer["common_terminal"], pin(paths[1])),
+        "Original common terminal join changed",
+    )
+    products = common["products"]
+    require(
+        len(products) == len({row["path"] for row in products})
+        and all(Path(row["path"]).is_relative_to(ORIGINAL) for row in products),
+        "Original product catalog malformed",
+    )
+    rows = union(products, refs)
+    verify_rows(rows)
+    directories = output_members(rows)
+    stderr = Path(common["stages"][1]["stderr"])
+    require(
+        "Actual Python entry argv differs" in stderr.read_text()
+        and pin(stderr)["sha256"] == common["stages"][1]["stderr_sha256"],
+        "Original precise observer refusal changed",
+    )
+    verify_rows(original["input_pins"])
+    witness = load(ORIGINAL / "source-runtime-observation.json")
+    framework_argv(witness, original)
+    return {
+        "original_plan": original,
+        "original_common": common,
+        "original_outer": outer,
+        "original_references": refs,
+        "original_products": products,
+        "original_output_directories": directories,
+        "original_source_root": str(OLD_SOURCE),
+        "scope": "Distinct pinned framework executables with an actual observed launcher relationship, not filesystem aliases or equal bytes.",
+    }, union(original["input_pins"], rows)

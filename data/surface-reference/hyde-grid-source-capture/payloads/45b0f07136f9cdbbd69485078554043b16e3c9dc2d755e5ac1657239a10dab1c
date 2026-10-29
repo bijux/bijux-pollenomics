@@ -1,0 +1,307 @@
+"""Prepare an immutable four-package source copy after all25 archive identities match."""
+
+from __future__ import annotations
+
+import argparse
+from copy import deepcopy
+import os
+from pathlib import Path
+import shutil
+import subprocess
+from typing import Any
+
+from contracts import (
+    GIT,
+    PACKAGES,
+    PYTHON,
+    RESOURCES,
+    ROOT,
+    SOURCE,
+    TRACKED,
+    checkpoint,
+    expected_private,
+    fresh_output,
+    identity,
+    load,
+    regular_tree,
+    require,
+    write,
+)
+from source_admission import reviewed_controls
+from source_inputs import InputScope, pin, verify_rows
+from source_projection import authorize_metadata, project
+from source_runtime import authenticate_runtime
+
+
+def copy_rows(
+    root: Path, destination: Path, rows: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    copied = []
+    for row in rows:
+        source = Path(row["path"])
+        require(pin(source) == row, "Original source changed before copy")
+        relative = source.relative_to(root)
+        target = destination / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        require(
+            not target.exists() and not target.is_symlink(),
+            "Source-copy replacement refused",
+        )
+        shutil.copyfile(source, target)
+        current = pin(target)
+        require(
+            current["sha256"] == row["sha256"] and current["bytes"] == row["bytes"],
+            "Copied source differs",
+        )
+        copied.append(current)
+    return copied
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate", required=True)
+    parser.add_argument("--review-sha256", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    _, peer, controlled = reviewed_controls(SOURCE)
+    require(pin(peer)["sha256"] == args.review_sha256, "Source peer differs")
+    before = identity()
+    require(
+        before["candidate"] == args.candidate and before["status"] == "",
+        "Exact current clean candidate required",
+    )
+    output = fresh_output(args.output)
+    declared = load(SOURCE / "declared-inputs.json")
+    # No archive is decoded: every full expected SHA is authenticated first.
+    private = expected_private(declared)
+    initial = InputScope(controlled, [PYTHON, GIT])
+    initial.extend(private)
+    tracked_names = (
+        subprocess.check_output(
+            [
+                str(GIT),
+                "ls-files",
+                "-z",
+                "--",
+                *[f"packages/{package}/src" for package in PACKAGES],
+            ],
+            cwd=ROOT,
+            timeout=60,
+            env=dict(
+                os.environ,
+                GIT_OPTIONAL_LOCKS="0",
+                GIT_CONFIG_NOSYSTEM="1",
+                GIT_CONFIG_GLOBAL=os.devnull,
+            ),
+        )
+        .decode()
+        .split("\0")
+    )
+    tracked_paths = {str(ROOT / name) for name in tracked_names if name}
+    generated_descriptor = load(SOURCE / "generated-source-omission.json")
+    metadata_omissions = authorize_metadata(ROOT, generated_descriptor)
+    omitted_metadata = []
+    source_rows = []
+    original_source_rows = []
+    source_namespaces = []
+    projected_namespaces = []
+    omitted_bytecode = []
+    omitted_directories: list[dict[str, str]] = []
+    for package in PACKAGES:
+        source_root = ROOT / "packages" / package / "src"
+        snapshot, rows = regular_tree(source_root, allow_cache_bytecode=True)
+        selection = project(
+            source_root,
+            snapshot,
+            rows,
+            {name for name in tracked_paths if Path(name).is_relative_to(source_root)},
+            {
+                name: row
+                for name, row in metadata_omissions.items()
+                if Path(name).is_relative_to(source_root)
+            },
+        )
+        source_namespaces.append(snapshot)
+        projected_namespaces.append(selection["projected_namespace"])
+        original_source_rows.extend(rows)
+        source_rows.extend(selection["selected_rows"])
+        omitted_bytecode.extend(selection["omitted_bytecode_rows"])
+        omitted_metadata.extend(selection["omitted_generated_metadata_rows"])
+        omitted_directories.extend(
+            {"root": str(source_root), "path": name}
+            for name in selection["omitted_cache_directories"]
+        )
+    require(
+        {row["path"] for row in source_rows} == tracked_paths,
+        "Complete selected tracked resources differ",
+    )
+    for name in (
+        f"{TRACKED}/report.json",
+        f"{TRACKED}/grid-conservation.csv",
+        "configs/ci/report-ownership.json",
+        "packages/bijux-pollenomics-lra/pyproject.toml",
+        "packages/bijux-pollenomics-lra/.gitignore",
+    ):
+        metadata_row = pin(ROOT / name)
+        source_rows.append(metadata_row)
+        original_source_rows.append(metadata_row)
+    require(
+        pin(Path(declared["original_report"]["path"])) == declared["original_report"],
+        "Declared report changed",
+    )
+    for row in declared["maintained_sources"] + declared["module_import_sources"]:
+        physical = pin(ROOT / row["path"])
+        require(
+            physical["sha256"] == row["sha256"] and physical["bytes"] == row["bytes"],
+            "Reviewed maintained producer changed",
+        )
+    require(
+        sum(row["bytes"] for row in source_rows) + 16 * 1024**2
+        < RESOURCES["declared_storage_bytes"],
+        "Owned source copy plus receipt/log reserve exceeds output budget",
+    )
+    initial.extend(original_source_rows)
+    initial.capture([GIT])
+    initial.verify()
+    authority, runtime = authenticate_runtime()
+    initial.extend(runtime)
+    checkpoint(authority, initial, source_namespaces)
+    require(identity() == before, "Canonical source changed before copy")
+    fresh_output(output)
+    require(
+        shutil.disk_usage(output.parent).free >= 1024**3,
+        "Output reserve requires1GiB free",
+    )
+    output.mkdir()
+    owned = output / "owned-source"
+    owned.mkdir()
+    for snapshot in projected_namespaces:
+        origin = Path(snapshot["root"])
+        for name, value in snapshot["entries"].items():
+            if value["kind"] == "directory":
+                (owned / origin.relative_to(ROOT) / name).mkdir(
+                    parents=True, exist_ok=True
+                )
+    copied = copy_rows(ROOT, owned, source_rows)
+    owned_snapshots = [
+        regular_tree(owned / "packages" / package / "src")[0] for package in PACKAGES
+    ]
+    # Empty directories are part of source membership, including ones without files.
+    from runtime_contracts import verify_base_namespaces
+
+    verify_base_namespaces(source_namespaces)
+    for source_snapshot, owned_snapshot in zip(
+        projected_namespaces, owned_snapshots, strict=True
+    ):
+        require(
+            source_snapshot["entries"] == owned_snapshot["entries"],
+            "Copied package membership differs",
+        )
+    initial.verify()
+    require(identity() == before, "Canonical identity changed during freeze")
+    write(
+        output / "original-source-ledger.json",
+        {
+            "canonical_identity": before,
+            "original_sources": original_source_rows,
+            "selected_execution_sources": source_rows,
+            "omitted_unselected_cache_bytecode": omitted_bytecode,
+            "omitted_configured_generated_metadata": omitted_metadata,
+            "generated_metadata_ownership": generated_descriptor,
+            "omitted_cache_directories": omitted_directories,
+            "bytecode_payloads_copied_or_executed": False,
+            "bytecode_source_equivalence_claimed": False,
+            "original_namespaces": source_namespaces,
+            "copied_sources": copied,
+            "scope": "Original source identity only after freeze; execution consumes exact owned source copies, not a later canonical tree.",
+        },
+    )
+    for name in ("scratch", "cache", "cache/matplotlib"):
+        (output / name).mkdir()
+    execution = InputScope(controlled, [PYTHON])
+    execution.extend(private)
+    execution.extend(runtime)
+    execution.extend(copied)
+    execution.capture([output / "original-source-ledger.json"])
+    plan_path = output / "plan.json"
+    plan: dict[str, Any] = {
+        "schema_version": "hyde-owned-grid-conservation-plan.v1",
+        "id": "hyde-grid-conservation-" + args.candidate[:12],
+        "candidate": args.candidate,
+        "repository": str(ROOT),
+        "owned_repository": str(owned),
+        "output": str(output),
+        "canonical_identity_at_source_freeze": before,
+        "qualified_source_runtime": authority,
+        "owned_namespace_snapshots": deepcopy(owned_snapshots),
+        "private_source_root": declared["source_root"],
+        "declared_inputs": deepcopy(declared["inputs"]),
+        "resources": RESOURCES,
+        "source_ledger": pin(output / "original-source-ledger.json"),
+        "scope": "Genuine maintained HYDE grid conservation and independent full source-grid reconstruction only. Modeled cropland, no vegetation/LRA/rights/human/formal-CRS admission. Original country-table and unavailable old execution histories remain distinct.",
+        "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONPATH": "",
+            "TMPDIR": str(output / "scratch"),
+            "XDG_CACHE_HOME": str(output / "cache"),
+            "MPLCONFIGDIR": str(output / "cache/matplotlib"),
+            "PATH": "/usr/bin:/bin",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+        },
+        "stages": [
+            {
+                "id": "maintained-grid-producer",
+                "action": "producer",
+                "timeout_seconds": 600,
+            },
+            {
+                "id": "independent-source-grid-observer",
+                "action": "observer",
+                "timeout_seconds": 600,
+            },
+        ],
+        "absent_input_paths": [],
+        "argv": [
+            str(PYTHON),
+            "-I",
+            "-B",
+            str(SOURCE / "entry.py"),
+            "launch",
+            "--plan",
+            str(plan_path),
+            "--registered-plan-sha256",
+            "ACTUAL_REGISTERED_PLAN_SHA256",
+        ],
+        "working_directory": str(owned),
+    }
+    for stage in plan["stages"]:
+        stage["argv"] = [
+            str(PYTHON),
+            "-I",
+            "-B",
+            str(SOURCE / "entry.py"),
+            stage["action"],
+            "--plan",
+            str(plan_path),
+        ]
+    require(
+        sum(stage["timeout_seconds"] for stage in plan["stages"])
+        < RESOURCES["overall_timeout_seconds"],
+        "Budgets exceed completed whole",
+    )
+    execution.bind(plan)
+    checkpoint(authority, execution, owned_snapshots)
+    verify_rows(original_source_rows)
+    verify_base_namespaces(source_namespaces)
+    require(identity() == before, "Canonical changed before plan publication")
+    write(plan_path, plan)
+    print(
+        __import__("json").dumps(
+            {
+                "plan": pin(plan_path),
+                "stage_count": 2,
+                "actual_native_producer_launched": False,
+            }
+        )
+    )

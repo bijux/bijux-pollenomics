@@ -1,0 +1,47 @@
+{
+  "source_only": true,
+  "byte_exact_helpers": [
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-saved-observation-custody/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      },
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      },
+      "byte_exact": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-saved-observation-custody/runtime.py",
+        "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+        "bytes": 17435
+      },
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/runtime.py",
+        "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+        "bytes": 17435
+      },
+      "byte_exact": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-saved-observation-custody/metadata.py",
+        "sha256": "800293b2cfec8a0dcc7602096aa5881d59c7881dc936ec436294d29a8cd89ff1",
+        "bytes": 8961
+      },
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/metadata.py",
+        "sha256": "800293b2cfec8a0dcc7602096aa5881d59c7881dc936ec436294d29a8cd89ff1",
+        "bytes": 8961
+      },
+      "byte_exact": true
+    }
+  ],
+  "new_saved_binding": "Exact old reference/product/input/catalog/output namespace and typed failed history authentication; one already observed distinct framework binary correspondence.",
+  "observer": "Full raw14 input and author example reconstruction functions are byte-exact original metadata helper. Original source flags/module/argv/code proof/stdout→witness→report and full source origin joins remain; argv0 guarded only by the exact observed relationship.",
+  "runner": "Actual one-stage45 declaration/completion checked; original[0,1]/whole1 remain separate from new observer status. Inclusive new output/time/RSS logic and explicit original timer limits unchanged."
+}

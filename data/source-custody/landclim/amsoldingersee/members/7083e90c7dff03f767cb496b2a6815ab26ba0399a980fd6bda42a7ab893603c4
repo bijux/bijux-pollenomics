@@ -1,0 +1,103 @@
+{
+  "schema_version": "amsoldingersee-source-qualification.v1",
+  "source_only": true,
+  "actual_exit": 0,
+  "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "profile_role": "Source-only synthetic/type/style qualification; no target runtime/preparation/source consumer executed",
+  "synthetic_groups": 12,
+  "strict_source_files": 9,
+  "configured_Ruff_source_files": 9,
+  "configured_format_source_files": 9,
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/check_contracts.py",
+      "sha256": "28ee46a846dfec90bc28b2a02503d676e7333b9e1457415dd691439e5ff7b854",
+      "bytes": 13519
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/contracts.py",
+      "sha256": "f27542624a0e48784c7c824e55891cd9ecee0a1e5cfcc2b522abb2e9dbe7d0c5",
+      "bytes": 8244
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py",
+      "sha256": "5660548ea51a35f62c502e7981b554457ad954c5de3416597f0a0ae9d5efad1e",
+      "bytes": 3676
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/execute_source.py",
+      "sha256": "915ac73b01dd8022d40bf00ff54ecbcad98566a6986171dfc669b89e7227e5bb",
+      "bytes": 5839
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/metadata.py",
+      "sha256": "800293b2cfec8a0dcc7602096aa5881d59c7881dc936ec436294d29a8cd89ff1",
+      "bytes": 8961
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/observe.py",
+      "sha256": "177a6cb6019d0cefa1d14bd1964e6e5786e89a1f584b1d5f25444077067c8b6d",
+      "bytes": 6645
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/prepare.py",
+      "sha256": "b1999c588d7f013600ea7e54e8aede10c93a38593f95b4fb4812945456e9e8ea",
+      "bytes": 7112
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/run.py",
+      "sha256": "824273d84d41156342908fefae86aa432a7e9868eee0fd3011f7a764cdb319ac",
+      "bytes": 8272
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/runtime.py",
+      "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+      "bytes": 17435
+    }
+  ],
+  "logs": {
+    "guards-final.stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/guards-final.stdout",
+      "sha256": "8ffbe9bd7c623e19bdf84dcffad1c8d3cb1df2bc0134f789e270a0994a58ef3b",
+      "bytes": 655
+    },
+    "guards-final.stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/guards-final.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "strict-timer-scope.stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/strict-timer-scope.stdout",
+      "sha256": "46984ca20bf69f7b14ec1fd9bd82101d56a4e109e68f016fd2a04f22481b09b3",
+      "bytes": 43
+    },
+    "strict-timer-scope.stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/strict-timer-scope.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "style-timer-scope.stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/style-timer-scope.stdout",
+      "sha256": "29f20c3ee57f1f120dc768e38618eb81e56e89f005f4c1237d5b8be6d18d302b",
+      "bytes": 45
+    },
+    "style-timer-scope.stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/style-timer-scope.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "common906_qualification": "Unchanged exact source bytes reused; never imported by source guards",
+  "limits": [
+    "No private payload parsed",
+    "No runtime census/otool/source preparation",
+    "No canonical/Git/STATE/model/R/HTTP/native execution"
+  ],
+  "preserved_initial_refusals": [
+    "guards.stderr: controlled plan filename mismatch",
+    "strict.stdout and strict-corrected.stdout: source annotations and loader narrowing",
+    "style.stdout: initial authored source formatting",
+    "strict-final.stdout and strict-qualified.stdout: one source annotation absent; corrected in final strict receipt"
+  ],
+  "annotation_correspondence": "Final metadata seen:set[str] annotation does not change validated response semantics; final strict/style bind actual bytes."
+}

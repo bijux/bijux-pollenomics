@@ -1,0 +1,130 @@
+{
+  "schema_version": "svar-normalized-feature-stream-protocol.v1",
+  "purpose": "New genuine descriptive feature census of the exact privately retained normalized SVAR source and independent complete re-read, not a rerun of the old hash-only verifier.",
+  "future_candidate": "Dynamic exact clean local main supplied by root preparation. Original retained verifier/source dates remain separate.",
+  "future_output": "artifacts/science/current-svar-normalized-feature-census",
+  "prepare_argv": [
+    "EXACT_BASE",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-stream-custody/prepare.py",
+    "--candidate",
+    "EXACT_CLEAN_CANDIDATE",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-feature-census",
+    "--review-sha256",
+    "EXACT_INDEPENDENT_SOURCE_REVIEW_SHA256"
+  ],
+  "runtime": "Original physical CPython3.11.13 base -I -S -B, SHA92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4. Full framework regular files/membership/raw aliases/absentZIP are protected; exact classic arm64 inspector/native recursive closure/OS authority. decimal is imported in preparation so its native module is an explicit dependency seed. No installed scientific environment substitute, HOME override or native runtime execution by source author.",
+  "resources": {
+    "first_census_stage_seconds": 150,
+    "independent_re_read_stage_seconds": 210,
+    "common_outer_timeout_seconds": 400,
+    "completed_whole_wall_seconds": 420,
+    "completed_child_peak_RSS_postcheck_bytes": 1073741824,
+    "inclusive_logical_output_postcheck_bytes": 134217728,
+    "own_receipt_reserved_bytes": 16384,
+    "per_JSON_value_capacity_bytes": 16777216,
+    "read_chunk_bytes": 65536,
+    "OS_quota_or_complete_detached_descendant_cleanup": false,
+    "bounds_are_prospective_not_measured_performance": true
+  },
+  "sources": {
+    "reference_candidate": "f115fc211483768b51a5122af142ecee7bbc95c5",
+    "maintained_source": "docs/report/source-relations/svar/normalized-export/verify.py",
+    "report": "docs/report/source-relations/svar/normalized-export/report.json",
+    "owner": "source-relations/svar/normalized-export/report-products",
+    "private_root": "/Users/bijan/bijux/-bijux-pollenomics-data",
+    "inputs": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/svar/normalized-export/verify.py",
+        "sha256": "74b0ae6c32e187020f5d37753ebda29b9d8b88b75dbfeeedd203dc763d34b7d3",
+        "bytes": 4517
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/svar/normalized-export/report.json",
+        "sha256": "ab082b7899ce947b7bef8c0f8c58fc030aed79b54ee14edf50c81bf5e18f9baf",
+        "bytes": 2047
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/svar/review/lake_candidate_registry_review.json",
+        "sha256": "004f7e5542d577976f34d265ce5db1aff4fde695ffe2b3786367faa5a5c40d09",
+        "bytes": 1509
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/svar/review/sweden_lake_candidate_registry.geojson",
+        "sha256": "05b7e51b615836f14af2090ac577dc2a862c6ed462132db906cdc3d25ca45957",
+        "bytes": 200287
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json",
+        "sha256": "52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596",
+        "bytes": 5817
+      },
+      {
+        "path": "/Users/bijan/bijux/-bijux-pollenomics-data/svar/normalized-export-2026-09-08/sweden_lake_registry.geojson",
+        "sha256": "d9a1943d1a35e7ab6d48e06156fef625e7c62c8bc410cecf9d8f592ccb07dfd8",
+        "bytes": 261041034
+      },
+      {
+        "path": "/Users/bijan/bijux/-bijux-pollenomics-data/svar/normalized-export-2026-09-08/svar_summary.json",
+        "sha256": "fb3addf3ad3cebf5e92fab98143673d62132741dd12e98d3b22b83b48cc25106",
+        "bytes": 111
+      },
+      {
+        "path": "/Users/bijan/bijux/-bijux-pollenomics-data/svar/normalized-export-2026-09-08/svar_lake_registry_manifest.json",
+        "sha256": "5f565f792b98f2afce301192645a8dd5102dbe731e1ad061034e244bf8a929be",
+        "bytes": 284
+      }
+    ]
+  },
+  "source_expected_pin_rule": "Freeze all original held/review/declaration/input/whole-policy rows before runtime census, reject conflicting overlapping roles, verify exact pins, namespaces, aliases, absences and clean candidate immediately before mkdir and before/after native stages. Never rebaseline an already reviewed changed input.",
+  "source_namespace": "Only11 explicit root Python modules; unknown importable roots/directories, aliases and special entries refuse. The historical first-feature script is retained identity-only and is not executed by either future stage. Common runner is byte-identical9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a.",
+  "producer": "Incremental strict UTF8 JSONDecoder with Decimal native floating values, integer/boolean/null/string separation, duplicate-key/nonfinite/trailing-data refusal. One feature at a time, raw-feature SHA/order, complete tagged properties, geometry presence/value/type, coordinate dimensions/array shapes/raw native bounds. Every feature item is counted; malformed semantic geometry or missing IDs remain visible diagnostic classes rather than silently dropped source records.",
+  "native_IDs": "Independent cardinalities/missing/null/empty/non-string/duplicate occurrence counts for record_id,sjoid,sj_uuid,sj_vatten_id; raw typed values remain in each private artifact ledger. No normalization, whitespace correction, name fallback, inferred identity or operational admission.",
+  "independent_observer": "Separate byte-lexical UTF8 container scanner plus per-feature json.loads; no producer parser/scientific function imports. Complete independent every-feature raw SHA/order/tagged-property/geometry ledger comparison and independently reconstructed whole report. Actual producer first-stage argv/status/log hashes and raw before/after namespace/DLL observations join the registered plan.",
+  "subset99": "All actual99 retained subset rows join by original record_id, retaining multiple/no source matches and native typed agreement for record_id,sjoid,sj_uuid,sj_vatten_id,area_km2,country,layer_key. Point subset vs full Polygon is a declared projection, not geometric equivalence. No new297-pollen-point/2.5km nearest-source selection sweep.",
+  "population_limit": "Future measured feature count is compared separately with retained40565 export claim and40523 review claim; no current measured total is preasserted. The old40523 full population membership is unavailable, so even measured difference42 does not identify which records changed or reconcile historical populations.",
+  "units_time_geometry_limit": "All observed property names/native types are reported, including any dates/units. area_km2/water_surface_elevation_m are normalized field labels, not independently qualified provider units/effective pollen basin area. Raw XY bounds/dimensions do not qualify CRS/topology/spatial accuracy. Source generated_on dates are provenance, not lake chronology.",
+  "scientific_limits": [
+    "No raw WFS/export linkage or original acquisition/copy history is recovered.",
+    "No source rights or qualified human review is added.",
+    "Public current ranking refusal governing_svar_registry_missing and zero ranked candidates remain literal; source census does not admit the full normalized export as governing registry.",
+    "No ecological comparison, basin dating, model/LRA/R execution, source acquisition, interpolation or whole scientific workpack closure.",
+    "Private complete source and new feature/native-join ledgers stay in ignored artifacts; no public redistribution is proposed."
+  ],
+  "prior_actual_source_inspection": {
+    "scope": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-stream-custody/bounded-forensics-scope.json",
+      "sha256": "3c6f39ecb5fbedbaf44dea4e09905a23acd2644bce758f9fdad093e9a5fc8252",
+      "bytes": 964
+    },
+    "result": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-stream-custody/first-feature-forensics.json",
+      "sha256": "87553c6567141187fecf889dd109097094de59f8cd753b1d64ea540e098e7869",
+      "bytes": 3516
+    },
+    "executed_script": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-stream-custody/first_feature.py",
+      "sha256": "db412b721aef8a981782e3a1f95d4ae9e03acc582be1a1f548afbc3403d3a00c",
+      "bytes": 5812
+    },
+    "log": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-stream-custody/preflight/bounded-first-feature.log",
+      "sha256": "656c2376198e0209a179538c81a194dcf3166f65c7e9154801a7bfd479afb84c",
+      "bytes": 748
+    },
+    "prefix_bytes_decoded": 65536,
+    "features_decoded": 1,
+    "raw_feature_bytes": 2201,
+    "whole_source_binary_hashing_is_not_full_JSON_parsing": true,
+    "full_document_or_census_executed_by_worker": false
+  },
+  "predecessor_hash_only_source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/prepared-source-manifest.json",
+    "sha256": "c3fb17c77a15c3d2b082f2d75a79897f35e4be86b67f3a406c621a08465d1402",
+    "bytes": 4020
+  },
+  "actual_preparer_full_private_parse_or_census_native_model_execution_by_source_author": false
+}
