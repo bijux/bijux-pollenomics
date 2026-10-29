@@ -60,6 +60,11 @@
       "descriptor": "source-transport.json",
       "sha256": "c82a1c28df9269101142dc889cfce6387308b2b5a4c6b95769d02eae1c31a3a8",
       "bytes": 583100
+    },
+    "data/method-certification/author-radius-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "39d7d023c59056ad6bee8b0b7de842288cef72df850ef5616f6c3d78c282d061",
+      "bytes": 1276747
     }
   },
   "source_revisions": {
