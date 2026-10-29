@@ -24,8 +24,10 @@ from .test_atlas_source_capture import packet as packet
 
 
 def test_rendering_roles_are_shared_explicit_six_path_boundaries() -> None:
-    assert historical.HISTORICAL_RENDERING_SOURCES is HISTORICAL_RENDERING_SOURCES
-    assert current.HISTORICAL_RENDERING_SOURCES is HISTORICAL_RENDERING_SOURCES
+    assert (
+        vars(historical)["HISTORICAL_RENDERING_SOURCES"] is HISTORICAL_RENDERING_SOURCES
+    )
+    assert vars(current)["HISTORICAL_RENDERING_SOURCES"] is HISTORICAL_RENDERING_SOURCES
     assert len(HISTORICAL_RENDERING_SOURCES) == 6
     assert (
         not HISTORICAL_RENDERING_SOURCES & historical.HISTORICAL_PORTAL_READER_SOURCES

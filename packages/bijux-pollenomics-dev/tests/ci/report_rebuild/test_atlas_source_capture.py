@@ -21,6 +21,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.retained_source import (
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
     atlas_source_views as capture,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.presentation_source_roles import (
+    HISTORICAL_RENDERING_SOURCES,
+)
 from bijux_pollenomics_dev.source_completion.atlas_browser import (
     capture_projection as publication,
 )
@@ -370,7 +373,7 @@ def packet(
     )
     canonical = ["configs/scientific-contracts/" + name for name in configs]
     canonical += sorted(
-        capture.HISTORICAL_PORTAL_READER_SOURCES | capture.HISTORICAL_RENDERING_SOURCES
+        capture.HISTORICAL_PORTAL_READER_SOURCES | HISTORICAL_RENDERING_SOURCES
     )
     canonical += [
         f"packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/fixture_{i:03}.py"
