@@ -104,6 +104,9 @@ from .scientific_captures.pollen_source.swedish_direct_pollen import (
 from .scientific_captures.representative_performance import (
     validated_representative_performance_capture,
 )
+from .scientific_captures.source_accounting.current_audit import (
+    validated_current_source_accounting_capture,
+)
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
 )
@@ -394,6 +397,21 @@ def validated_maintained_report_sources(
     hyde_grid_entries, hyde_grid_evidence = validated_hyde_grid_source_captures(
         repository, tracked_by_path, inventory["owners"]
     )
+    source_accounting_entries, source_accounting_evidence = (
+        validated_current_source_accounting_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    if any(
+        (
+            slu_guide_entries,
+            hyde_entries,
+            swedish_entries,
+            openland_entries,
+            neotoma_publication_entries,
+        )
+    ):
+        raise ReportRebuildError("Original owner acceptance remains unresolved")
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -409,21 +427,17 @@ def validated_maintained_report_sources(
         + radius_entries
         + nfi_entries
         + empd2_nfi_entries
-        + slu_guide_entries
         + solsoe_entries
         + solsoe_pollen_entries
         + svar_entries
         + neotoma_lake_entries
-        + neotoma_publication_entries
         + amsoldingersee_entries
         + love_objective_entries
-        + openland_entries
         + swedish_preparation_entries
         + svar_census_entries
-        + hyde_entries
         + hyde_grid_entries
-        + swedish_entries
         + rootsi_entries
+        + source_accounting_entries
         + controlled_numerical_entries
     )
     for entry in all_capture_entries:
@@ -487,8 +501,8 @@ def validated_maintained_report_sources(
         )
     if author_grid_entries:
         evidence["retained_author_grid_capture"] = author_grid_evidence
-    if slu_guide_entries:
-        evidence["retained_slu_guide_source"] = slu_guide_evidence
+    if slu_guide_evidence:
+        evidence["current_slu_guide_partial_evidence"] = slu_guide_evidence
     if solsoe_entries:
         evidence["retained_solsoe_closed_point_selection"] = solsoe_evidence
     if solsoe_pollen_entries:
@@ -497,16 +511,16 @@ def validated_maintained_report_sources(
         evidence["retained_svar_normalized_source"] = svar_evidence
     if rootsi_entries:
         evidence["retained_rootsi_workbook_chronology"] = rootsi_evidence
-    if swedish_entries:
-        evidence["retained_swedish_cohort_metadata"] = swedish_evidence
-    if hyde_entries:
-        evidence["retained_hyde_modeled_country_totals"] = hyde_evidence
+    if swedish_evidence:
+        evidence["current_swedish_cohort_partial_evidence"] = swedish_evidence
+    if hyde_evidence:
+        evidence["current_hyde_country_partial_evidence"] = hyde_evidence
     if empd2_nfi_entries:
         evidence["retained_empd2_nfi_pairing_source"] = empd2_nfi_evidence
     if svar_census_entries:
         evidence["retained_svar_feature_census"] = svar_census_evidence
-    if openland_entries:
-        evidence["retained_openland_member_custody"] = openland_evidence
+    if openland_evidence:
+        evidence["current_openland_partial_evidence"] = openland_evidence
     if swedish_preparation_entries:
         evidence["retained_swedish_direct_pollen_preparation"] = (
             swedish_preparation_evidence
@@ -517,12 +531,16 @@ def validated_maintained_report_sources(
         evidence["current_neotoma_selected_count_partial_evidence"] = (
             neotoma_count_evidence
         )
-    if neotoma_publication_entries:
-        evidence["retained_neotoma_publication_sources"] = neotoma_publication_evidence
+    if neotoma_publication_evidence:
+        evidence["current_neotoma_publication_partial_evidence"] = (
+            neotoma_publication_evidence
+        )
     if love_objective_entries:
         evidence["retained_love_objective_sources"] = love_objective_evidence
     if amsoldingersee_entries:
         evidence["retained_amsoldingersee_sources"] = amsoldingersee_evidence
     if hyde_grid_entries:
         evidence["retained_hyde_grid_source_conservation"] = hyde_grid_evidence
+    if source_accounting_entries:
+        evidence["retained_current_source_accounting"] = source_accounting_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

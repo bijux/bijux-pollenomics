@@ -1,0 +1,369 @@
+"""Freeze current source metadata assembly inputs and a complete owned host workspace."""
+
+from __future__ import annotations
+
+import argparse
+from copy import deepcopy
+import hashlib
+import json
+from pathlib import Path
+import shutil
+import subprocess
+from typing import Any
+
+from contracts import (
+    GIT,
+    PACKAGES,
+    PYTHON,
+    RESOURCES,
+    ROOT,
+    SOURCE,
+    checkpoint,
+    fresh_output,
+    git_environment,
+    identity,
+    regular_tree,
+    require,
+    write,
+)
+from inputs.closure import (
+    collect_private,
+    collect_repository,
+    complete_rows,
+    verify_prepared_closure,
+)
+from runtime_contracts import namespace_snapshot, verify_base_namespaces
+from source_admission import reviewed_controls
+from source_inputs import InputScope, exact_union, pin, verify_rows
+from source_projection import authorize_metadata, project
+from source_runtime import authenticate_runtime
+
+
+def reviewed_json(path: Path, rows: list[dict[str, Any]]) -> dict[str, Any]:
+    expected = {row["path"]: row for row in rows}.get(str(path))
+    require(expected is not None, "Reviewed declaration role absent")
+    assert expected is not None
+    raw = path.read_bytes()
+    require(
+        len(raw) == expected["bytes"]
+        and hashlib.sha256(raw).hexdigest() == expected["sha256"],
+        "Declaration buffer differs from original reviewed source bytes",
+    )
+    value = json.loads(raw)
+    require(type(value) is dict, "Reviewed declaration must be a JSON object")
+    assert isinstance(value, dict)
+    return value
+
+
+def copy_rows(
+    root: Path, destination: Path, rows: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    copied = []
+    for row in rows:
+        source = Path(row["path"])
+        require(pin(source) == row, "Original source changed before copy")
+        relative = source.relative_to(root)
+        target = destination / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        require(
+            not target.exists() and not target.is_symlink(),
+            "Source-copy replacement refused",
+        )
+        shutil.copyfile(source, target)
+        current = pin(target)
+        require(
+            current["sha256"] == row["sha256"] and current["bytes"] == row["bytes"],
+            "Copied source differs",
+        )
+        copied.append(current)
+    return copied
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate", required=True)
+    parser.add_argument("--review-sha256", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    _, peer, controlled = reviewed_controls(SOURCE)
+    require(pin(peer)["sha256"] == args.review_sha256, "Source peer differs")
+    before = identity()
+    require(
+        before["candidate"] == args.candidate and before["status"] == "",
+        "Exact current clean candidate required",
+    )
+    output = fresh_output(args.output)
+    declared = reviewed_json(SOURCE / "declared-inputs.json", controlled)
+    initial = InputScope(controlled, [PYTHON, GIT])
+    semantic_sources = []
+    for expected in declared["maintained_source_contracts"]:
+        current = pin(ROOT / expected["path"])
+        require(
+            current == {**expected, "path": str(ROOT / expected["path"])},
+            "Reviewed maintained audit source contract changed",
+        )
+        semantic_sources.append(current)
+    initial.extend(semantic_sources)
+    current_closure = {
+        "repository": collect_repository(ROOT, declared["authorities"]),
+        "private": collect_private(
+            Path(declared["private_source_root"]), declared["private_custody"]
+        ),
+    }
+    inputs = complete_rows(current_closure)
+    initial.extend(inputs)
+    data_rows = current_closure["repository"]["files"]
+    private_rows = current_closure["private"]["files"]
+    tracked_names = (
+        subprocess.check_output(
+            [
+                str(GIT),
+                "ls-files",
+                "-z",
+                "--",
+                *[f"packages/{package}/src" for package in PACKAGES],
+            ],
+            cwd=ROOT,
+            timeout=60,
+            env=git_environment(),
+        )
+        .decode()
+        .split("\0")
+    )
+    tracked_paths = {str(ROOT / name) for name in tracked_names if name}
+    generated_descriptor = reviewed_json(
+        SOURCE / "generated-source-omission.json", controlled
+    )
+    metadata_omissions = authorize_metadata(ROOT, generated_descriptor)
+    omitted_metadata = []
+    source_rows = []
+    original_source_rows = []
+    source_namespaces = []
+    projected_namespaces = []
+    omitted_bytecode = []
+    omitted_directories: list[dict[str, str]] = []
+    for package in PACKAGES:
+        source_root = ROOT / "packages" / package / "src"
+        snapshot, rows = regular_tree(source_root, allow_cache_bytecode=True)
+        selection = project(
+            source_root,
+            snapshot,
+            rows,
+            {name for name in tracked_paths if Path(name).is_relative_to(source_root)},
+            {
+                name: row
+                for name, row in metadata_omissions.items()
+                if Path(name).is_relative_to(source_root)
+            },
+        )
+        source_namespaces.append(snapshot)
+        projected_namespaces.append(selection["projected_namespace"])
+        original_source_rows.extend(rows)
+        source_rows.extend(selection["selected_rows"])
+        omitted_bytecode.extend(selection["omitted_bytecode_rows"])
+        omitted_metadata.extend(selection["omitted_generated_metadata_rows"])
+        omitted_directories.extend(
+            {"root": str(source_root), "path": name}
+            for name in selection["omitted_cache_directories"]
+        )
+    require(
+        {row["path"] for row in source_rows} == tracked_paths,
+        "Complete selected tracked resources differ",
+    )
+    for name in (
+        "pyproject.toml",
+        "packages/bijux-pollenomics/pyproject.toml",
+        "packages/bijux-pollenomics-lra/pyproject.toml",
+        "packages/bijux-pollenomics-lra/.gitignore",
+    ):
+        metadata_row = pin(ROOT / name)
+        source_rows.append(metadata_row)
+        original_source_rows.append(metadata_row)
+    source_rows = exact_union(source_rows, data_rows)
+    original_source_rows = exact_union(original_source_rows, data_rows)
+    require(
+        sum(row["bytes"] for row in [*source_rows, *private_rows]) + 128 * 1024**2
+        < RESOURCES["declared_storage_bytes"],
+        "Owned source copy plus receipt/log reserve exceeds output budget",
+    )
+    initial.extend(original_source_rows)
+    initial.capture([GIT])
+    initial.verify()
+    authority, runtime = authenticate_runtime()
+    initial.extend(runtime)
+    checkpoint(authority, initial, source_namespaces)
+    verify_prepared_closure(current_closure)
+    require(identity() == before, "Canonical source changed before copy")
+    fresh_output(output)
+    require(
+        shutil.disk_usage(output.parent).free
+        >= RESOURCES["declared_storage_bytes"] + 256 * 1024**2,
+        "Full owned copy/output reserve requires declared3GiB plus256MiB free",
+    )
+    output.mkdir()
+    owned = output / "owned-source"
+    owned_private = output / "owned-private"
+    owned.mkdir()
+    owned_private.mkdir()
+    for projection, destination in (
+        (current_closure["repository"], owned),
+        (current_closure["private"], owned_private),
+    ):
+        for name, kind in projection["observations"].items():
+            if kind in {"directory", "directory_presence_alias"}:
+                (destination / name).mkdir(parents=True, exist_ok=True)
+    copied = copy_rows(ROOT, owned, source_rows)
+    private_copies = copy_rows(
+        Path(declared["private_source_root"]), owned_private, private_rows
+    )
+    owned_snapshots = [
+        namespace_snapshot(owned, []),
+        namespace_snapshot(owned_private, []),
+    ]
+    verify_base_namespaces(source_namespaces)
+    for projection, destination in zip(
+        projected_namespaces,
+        [owned / "packages" / name / "src" for name in PACKAGES],
+        strict=True,
+    ):
+        require(
+            namespace_snapshot(destination, [])["entries"] == projection["entries"],
+            "Copied first-party source/resource namespace differs",
+        )
+    initial.verify()
+    verify_prepared_closure(current_closure)
+    require(identity() == before, "Canonical identity changed during freeze")
+    write(
+        output / "original-source-ledger.json",
+        {
+            "canonical_identity": before,
+            "original_sources": original_source_rows,
+            "selected_execution_sources": source_rows,
+            "omitted_unselected_cache_bytecode": omitted_bytecode,
+            "omitted_configured_generated_metadata": omitted_metadata,
+            "generated_metadata_ownership": generated_descriptor,
+            "omitted_cache_directories": omitted_directories,
+            "bytecode_payloads_copied_or_executed": False,
+            "bytecode_source_equivalence_claimed": False,
+            "original_namespaces": source_namespaces,
+            "current_input_closure": current_closure,
+            "private_copies": private_copies,
+            "copied_sources": copied,
+            "scope": "Original source identity only after freeze; execution consumes exact owned source copies, not a later canonical tree.",
+        },
+    )
+    for name in ("scratch", "cache", "cache/matplotlib"):
+        (output / name).mkdir()
+    execution = InputScope(controlled, [PYTHON])
+    execution.extend(inputs)
+    execution.extend(runtime)
+    execution.extend(copied)
+    execution.extend(private_copies)
+    execution.capture([output / "original-source-ledger.json"])
+    plan_path = output / "plan.json"
+    plan: dict[str, Any] = {
+        "schema_version": "current-source-audit-owned-plan.v1",
+        "id": "current-source-audit-"
+        + args.candidate[:12]
+        + "-"
+        + str(pin(SOURCE / "prepared-source-manifest.json")["sha256"])[:12],
+        "candidate": args.candidate,
+        "repository": str(ROOT),
+        "owned_repository": str(owned),
+        "output": str(output),
+        "canonical_identity_at_source_freeze": before,
+        "qualified_source_runtime": authority,
+        "owned_namespace_snapshots": deepcopy(owned_snapshots),
+        "owned_private_root": str(owned_private),
+        "current_input_closure": current_closure,
+        "source_declaration": deepcopy(declared),
+        "declared_inputs": deepcopy(declared),
+        "resources": RESOURCES,
+        "source_ledger": pin(output / "original-source-ledger.json"),
+        "scope": "Fresh current mechanical source-audit and intake-custody accounting with complete typed source/summary reconstruction. Findings and missing inputs are native results, not forced old counts or zero. Original26116f full audit remains unavailable; no original summary reproduction, source completeness, rights/human/ecological/LRA admission or new model/HTTP claim.",
+        "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONPATH": "",
+            "TMPDIR": str(output / "scratch"),
+            "XDG_CACHE_HOME": str(output / "cache"),
+            "MPLCONFIGDIR": str(output / "cache/matplotlib"),
+            "PATH": "/usr/bin:/bin",
+            "OMP_NUM_THREADS": "1",
+            "OPENBLAS_NUM_THREADS": "1",
+        },
+        "stages": [
+            {
+                "id": "maintained-current-source-audit",
+                "action": "producer",
+                "timeout_seconds": 360,
+            },
+            {
+                "id": "independent-current-source-audit-observer",
+                "action": "observer",
+                "timeout_seconds": 240,
+            },
+        ],
+        "absent_input_paths": [
+            str(destination / name)
+            for projection, destination in (
+                (current_closure["repository"], owned),
+                (current_closure["private"], owned_private),
+            )
+            for name, kind in projection["observations"].items()
+            if kind == "missing"
+        ],
+        "argv": [
+            str(PYTHON),
+            "-I",
+            "-B",
+            str(SOURCE / "entry.py"),
+            "launch",
+            "--plan",
+            str(plan_path),
+            "--registered-plan-sha256",
+            "ACTUAL_REGISTERED_PLAN_SHA256",
+        ],
+        "working_directory": str(owned),
+    }
+    for stage in plan["stages"]:
+        stage["argv"] = [
+            str(PYTHON),
+            "-I",
+            "-B",
+            str(SOURCE / "entry.py"),
+            stage["action"],
+            "--plan",
+            str(plan_path),
+        ]
+    require(
+        sum(stage["timeout_seconds"] for stage in plan["stages"])
+        < RESOURCES["overall_timeout_seconds"],
+        "Budgets exceed completed whole",
+    )
+    execution.bind(plan)
+    checkpoint(authority, execution, owned_snapshots)
+    verify_prepared_closure(current_closure)
+    verify_rows(original_source_rows)
+    verify_base_namespaces(source_namespaces)
+    require(identity() == before, "Canonical changed before plan publication")
+    require(
+        len(json.dumps(plan, indent=2, allow_nan=False).encode()) <= 64 * 1024**2,
+        "Plan exceeds explicit64MiB reserve within128MiB metadata/log/output budget",
+    )
+    require(
+        sum(path.stat().st_size for path in output.rglob("*") if path.is_file())
+        + len(json.dumps(plan, indent=2, allow_nan=False).encode())
+        + 64 * 1024**2
+        <= RESOURCES["declared_storage_bytes"],
+        "Inclusive prepared copy, plan and remaining receipt/output reserve exceed3GiB",
+    )
+    write(plan_path, plan)
+    print(
+        __import__("json").dumps(
+            {
+                "plan": pin(plan_path),
+                "stage_count": 2,
+                "actual_native_producer_launched": False,
+            }
+        )
+    )

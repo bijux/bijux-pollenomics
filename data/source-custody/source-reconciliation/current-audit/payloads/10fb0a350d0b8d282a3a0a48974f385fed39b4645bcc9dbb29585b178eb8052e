@@ -1,0 +1,126 @@
+{
+  "schema_version": "current-source-audit-capture-source-qualification.v1",
+  "source_only": true,
+  "actual_exit": 0,
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/assemble.py",
+      "sha256": "21fd9b8ad0b2e7a8ea8dc724ed7f718e665a09630087b4177e47c99f0e3d9334",
+      "bytes": 2778
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/check_capture.py",
+      "sha256": "cd2cd7a76a23548ab5c1a4b556a8dc00f9a378e3d4ebd75f3ec9f38e93790f29",
+      "bytes": 20477
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/contracts.py",
+      "sha256": "9f9845e53adc37af1b5bfeddb575a4bd03b81a9b1eedac3c6d0ba265809d6487",
+      "bytes": 10405
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/entry.py",
+      "sha256": "2fb7b6799bd171daa480adbad46a9acd1d57ffbceec503224fea2ba8eba95915",
+      "bytes": 4892
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/launch.py",
+      "sha256": "b99e040d0b2a64dd52c497ddf7e88d293b746a470f1217ad47becfe455479b73",
+      "bytes": 6145
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/observe.py",
+      "sha256": "b3a6252f79f84bcf70605b6eb5e510319c2999c1c9fa960a3e6999d6872e4f55",
+      "bytes": 3456
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/packet.py",
+      "sha256": "ae4cd6997c3f89dfc4e35781e3059fd1340a34b8a64a2a28b04f8ff2d0b35902",
+      "bytes": 31642
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/prepare.py",
+      "sha256": "708b19d83c2dfd059d01371d95b1572e07794b8a5c559261bfb8db5718ffe261",
+      "bytes": 5294
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/retained.py",
+      "sha256": "ec536bfc55101a6f8fca075ee22ca7361a84f6226fb033d9606ae275b707a67d",
+      "bytes": 7190
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/run.py",
+      "sha256": "e192e07e4a84bea83aca8c7a20e82a6e2ed0683602000fd6e5c8e8e5058eef63",
+      "bytes": 7852
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/source_admission.py",
+      "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+      "bytes": 2788
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/source_inputs.py",
+      "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+      "bytes": 6994
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/source_runtime.py",
+      "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+      "bytes": 8062
+    }
+  ],
+  "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "artificial_control_count": 65,
+  "configured_strict_files": 14,
+  "configured_Ruff_and_format_files": 14,
+  "AST_files": 14,
+  "checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/preflight/source-guards.json",
+      "sha256": "5855d7937380887b765c6b8c41384649b9f888a9b223e4b7f9dbe7adc97698ea",
+      "bytes": 1188
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/preflight/source-strict.json",
+      "sha256": "bdc5a829f495d855a71c3363b3bd855393c6d85d6aad10a4face2511f0ff5d21",
+      "bytes": 3024
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/preflight/source-ruff.json",
+      "sha256": "47b4f8f7626dcc83c2c7f48f2f779d3c21e7e4df4714cd62a350a35dbb829b3e",
+      "bytes": 2572
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/preflight/source-format.json",
+      "sha256": "e5738a3f2c433c8cebd023c9a4f11d98c403532d1d78dc4e812bd1c7055d43c9",
+      "bytes": 2592
+    }
+  ],
+  "AST": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/preflight/source-AST.json",
+    "sha256": "299963d59555b6dde2ccbe40028f15aa6341dedcf4cc7862957b26ea8cd69116",
+    "bytes": 3508
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/protocol.json",
+    "sha256": "714ef3dbabcc924cf86818d756c4ea45f16c0065e03239e35fc204e1179bab4a",
+    "bytes": 4092
+  },
+  "recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/recipe.json",
+    "sha256": "aa98c89818a40e359a14e3479316146e5687ba5d48216d56d4ebff0b694ba3f8",
+    "bytes": 1748
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/source-correspondence.json",
+    "sha256": "321488476da06362b4de347e50d3b3bcc55383a9558dff0e73e5e21334bcb020",
+    "bytes": 3132
+  },
+  "initial_check_refusals_preserved": true,
+  "actual_preparer_retainer_private_hash_body_decode_API_runtime_or_native": false
+}

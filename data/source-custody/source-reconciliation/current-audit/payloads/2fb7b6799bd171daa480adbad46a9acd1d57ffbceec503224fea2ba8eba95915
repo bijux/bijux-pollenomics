@@ -1,0 +1,148 @@
+"""Authenticate complete reviewed local source before dispatching any controller."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+import sys
+import time
+
+ENTRY_STARTED = time.monotonic()
+
+
+def entry_root(path: Path) -> Path:
+    if (
+        not path.is_absolute()
+        or ".." in path.parts
+        or path != path.resolve()
+        or any(node.is_symlink() for node in (path, *path.parents))
+    ):
+        raise ValueError("Raw entry spelling or ancestor alias refused")
+    return path.parent
+
+
+def verify(root: Path) -> None:
+    manifest = root / "prepared-source-manifest.json"
+    review = root / "independent-source-review.json"
+    for path in (manifest, review):
+        if not path.is_file() or any(
+            node.is_symlink() for node in (path, *path.parents)
+        ):
+            raise ValueError("Physical reviewed entry authority required")
+    raw = manifest.read_bytes()
+    document = json.loads(raw)
+    admission = json.loads(review.read_bytes())
+    if (
+        document["source_only"] is not True
+        or admission["approved"] is not True
+        or admission["source_manifest_sha256"] != hashlib.sha256(raw).hexdigest()
+    ):
+        raise ValueError(
+            "Exact independent source approval required before local imports"
+        )
+    names = [row["path"] for row in document["files"]]
+    if names != sorted(set(names)):
+        raise ValueError("Sorted unique reviewed source membership required")
+    declared: set[str] = set()
+    domains: set[str] = set()
+    for row in document["files"]:
+        path = Path(row["path"])
+        if (
+            not path.is_absolute()
+            or ".." in path.parts
+            or not path.is_relative_to(root)
+            or any(node.is_symlink() for node in (path, *path.parents))
+            or not path.is_file()
+            or type(row["bytes"]) is not int
+            or path.stat().st_size != row["bytes"]
+        ):
+            raise ValueError(
+                "Reviewed source member absent/escaped/linked/length changed"
+            )
+        with path.open("rb") as stream:
+            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+        if checksum != row["sha256"]:
+            raise ValueError("Originally reviewed source bytes changed")
+        relative = path.relative_to(root)
+        declared.add(relative.as_posix())
+        domains.update(
+            parent.as_posix()
+            for parent in relative.parents
+            if parent != Path(".") and parent.parts[0] != "preflight"
+        )
+    pending = [root]
+    while pending:
+        parent = pending.pop()
+        for path in parent.iterdir():
+            name = path.relative_to(root).as_posix()
+            if path.is_symlink() or not (path.is_file() or path.is_dir()):
+                raise ValueError("Controller import namespace contains alias/special")
+            if path.is_dir():
+                if parent == root and path.name == "preflight":
+                    continue
+                if name not in domains:
+                    raise ValueError("Unreviewed controller import directory")
+                pending.append(path)
+            elif parent != root and name not in declared:
+                raise ValueError("Unexpected grouped source member")
+            elif (
+                parent == root
+                and path.suffix in {".py", ".pyc", ".so", ".pyd", ".dylib"}
+                and name not in declared
+            ):
+                raise ValueError("Unexpected root executable source member")
+    if not {
+        "source_inputs.py",
+        "entry.py",
+        "runtime_contracts.py",
+        "prepare.py",
+        "run.py",
+        "launch.py",
+        "check_capture.py",
+        "assemble.py",
+        "observe.py",
+        "packet.py",
+        "source_runtime.py",
+        "source_admission.py",
+        "contracts.py",
+        "retained.py",
+    }.issubset(declared):
+        raise ValueError(
+            "Reviewed entry omitted current source-audit retention boundary"
+        )
+
+
+def main() -> None:
+    root = entry_root(Path(__file__).absolute())
+    verify(root)
+    if len(sys.argv) < 2:
+        raise ValueError("Explicit controller responsibility required")
+    action = sys.argv.pop(1)
+    sys.path.insert(0, str(root))
+    if action == "prepare":
+        from prepare import main as prepare
+
+        prepare()
+    elif action == "launch":
+        from launch import main as launch
+
+        launch(ENTRY_STARTED)
+    elif action == "run":
+        from run import main as run
+
+        run()
+    elif action == "assemble":
+        from assemble import main as assemble
+
+        assemble()
+    elif action == "observer":
+        from observe import main as observer
+
+        observer()
+    else:
+        raise ValueError("Unknown current source-audit retention responsibility")
+
+
+if __name__ == "__main__":
+    main()
