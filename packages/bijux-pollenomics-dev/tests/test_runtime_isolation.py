@@ -1108,6 +1108,14 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"read_neotoma_evidence"}
         ),
     },
+    "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_grid/admission.py": {
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
+            {"authored_reader", "parse_routes", "verified_authored_reader"}
+        ),
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications": frozenset(
+            {"validate_evidence"}
+        ),
+    },
 }
 
 
@@ -1315,3 +1323,24 @@ def test_temporal_producer_bindings_remain_file_module_and_symbol_specific() -> 
             (f"__import__({module!r})", path),
         ):
             assert host_import_violations(source, reader)
+
+
+def test_author_grid_reader_bindings_remain_file_module_and_symbol_specific() -> None:
+    """Keep historical/current reading authority capabilities inside the one owner."""
+    path = "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_grid/admission.py"
+    prefix = "bijux_pollenomics.reporting.presentation.report_portal."
+    for module, symbol in (
+        ("scientific_accounts", "authored_reader"),
+        ("scientific_accounts", "parse_routes"),
+        ("scientific_accounts", "verified_authored_reader"),
+        ("scientific_qualifications", "validate_evidence"),
+    ):
+        qualified = prefix + module
+        statement = f"from {qualified} import {symbol}"
+        assert not host_import_violations(statement, path)
+        assert host_import_violations(statement, path + ".other")
+        assert host_import_violations(f"from {qualified} import {symbol}_other", path)
+        assert host_import_violations(f"from {qualified}_other import {symbol}", path)
+        assert host_import_violations(f"from {qualified} import *", path)
+        assert host_import_violations(f"import {qualified}", path)
+        assert host_import_violations(f"__import__({qualified!r})", path)
