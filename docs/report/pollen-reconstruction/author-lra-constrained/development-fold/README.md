@@ -99,6 +99,7 @@ parity, global optimality, independent vegetation accuracy, source rights or a
 release. Its broader scientific context remains in the
 [English LRA account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md).
 
+
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 
