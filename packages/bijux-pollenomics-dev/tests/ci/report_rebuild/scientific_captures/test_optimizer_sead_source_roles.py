@@ -205,20 +205,22 @@ def test_original_collector_binding_and_current_confinement_refusals(
 
 def test_all_ten_roles_preserve_truthful_current_and_historical_counts() -> None:
     """Keep finite Atlas extensions separate from seven historical-only inputs."""
-    historical: list[dict[str, object]] = [
+    historical_atlas: list[dict[str, object]] = [
         {"classification": "optimizer_atlas_source_custody", "role": role}
         for role in (
             "historical_browser_orchestration",
             "historical_capture_admission",
             "historical_capture_admission",
         )
-    ] + [
+    ]
+    historical_sead: list[dict[str, object]] = [
         {
             "classification": "optimizer_sead_source_custody",
             "role": "historical_source_collector_input",
         }
         for _ in range(4)
     ]
+    historical = historical_atlas + historical_sead
     finite: list[dict[str, object]] = [
         {
             "classification": "optimizer_atlas_source_custody",
