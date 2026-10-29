@@ -15,6 +15,20 @@ def load_map_document_template() -> str:
         package_root.joinpath("assets")
         .joinpath("document.html")
         .read_text(encoding="utf-8")
+        .replace(
+            "__EDGE_DISPLAY_CONTROLLER__",
+            package_root.joinpath("assets/edge-display.js").read_text(encoding="utf-8"),
+        )
+        .replace(
+            "__SELECTION_LOADING_CONTROLLER__",
+            package_root.joinpath("assets/selection-loading.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SEARCH_INDEX_CONTROLLER__",
+            package_root.joinpath("assets/search-index.js").read_text(encoding="utf-8"),
+        )
     )
 
 

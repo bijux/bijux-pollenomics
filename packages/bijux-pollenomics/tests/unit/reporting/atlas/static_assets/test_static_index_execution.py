@@ -52,7 +52,7 @@ def test_static_assets_ship_build_time_indexes_and_execute_without_fetch(
         + "\nconst zlib=require('node:zlib');"
         + "const payloads=globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.map((row)=>JSON.parse(row.payload_encoding==='gzip_base64'?zlib.gunzipSync(Buffer.from(row.payload_gzip_base64,'base64')).toString('utf8'):row.payload_json));"
         + "const nodes=payloads.filter((row)=>row.schema_version==='atlas-node-chunk.v1');"
-        + "const edges=payloads.find((row)=>row.schema_version==='atlas-edges-chunk.v1');"
+        + "const edges=payloads.find((row)=>row.schema_version==='atlas-edges-chunk.v2');"
         + "const sequences=payloads.find((row)=>row.schema_version==='atlas-sequences-chunk.v1');"
         + "console.log(JSON.stringify({nodes:nodes.length,records:nodes.reduce((total,row)=>total+row.features.length,0),edges:edges.records.length,sequences:sequences.records.length}));"
     )

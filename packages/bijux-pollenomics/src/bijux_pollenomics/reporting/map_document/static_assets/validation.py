@@ -16,10 +16,12 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_BYTES,
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
+from .edges import validate_edge_endpoint_assets
 from .index_bundles import decode_index_bundle
 from .indexes import build_indexes
 from .models import StaticAtlasAssets
 from .nodes import node_asset_selection
+from .search import validate_search_membership
 from .serialization import decode_chunk_script
 
 
@@ -192,6 +194,11 @@ def _validate_static_payloads(
         "sequences": compatibility.get("sequence_schema"),
         "indexes": compatibility.get("index_schema"),
     }
+    node_payloads = {
+        str(row["asset_key"]): payloads[str(row["asset_key"])]
+        for row in asset_rows
+        if row.get("domain") == "nodes"
+    }
     detail_record_assets: dict[str, str] = {}
     detail_record_order: list[str] = []
     index_payload: Mapping[str, object] | None = None
@@ -212,6 +219,8 @@ def _validate_static_payloads(
             raise ValueError(f"static atlas {asset_key} payload identity changed")
         if payload.get("schema_version") != expected_schemas.get(domain):
             raise ValueError(f"static atlas {asset_key} schema changed")
+        if domain == "edges":
+            validate_edge_endpoint_assets(payload, node_payloads)
         if domain == "details":
             records = payload.get("records")
             if not isinstance(records, list) or any(
@@ -238,6 +247,9 @@ def _validate_static_payloads(
         raise ValueError("static atlas detail records are not stably ordered")
     if index_payload is None:
         raise ValueError("static atlas index payload is missing")
+    if index_payload.get("search_index_abi") != compatibility.get("search_index_abi"):
+        raise ValueError("Search compatibility ABI differs")
+    validate_search_membership(payloads, index_payload, profile)
     if profile is not None:
         _validate_signed_nodes(manifest, asset_rows, payloads, index_payload, profile)
     detail_index = index_payload.get("detail_record_asset_keys")
@@ -358,7 +370,11 @@ def _validate_signed_nodes(
         reconstructed.append(
             {**layer, "features": [rows[index] for index in sorted(rows)]}
         )
-    expected = build_indexes(reconstructed, temporal_profile=profile)
+    expected = build_indexes(
+        reconstructed,
+        temporal_profile=profile,
+        include_search="search_index_abi" in indexes,
+    )
     if any(indexes.get(key) != value for key, value in expected.items()):
         raise ValueError("Signed index membership differs from actual native nodes")
     domains = manifest.get("domains")

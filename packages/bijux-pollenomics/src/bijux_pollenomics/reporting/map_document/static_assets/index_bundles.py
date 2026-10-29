@@ -13,6 +13,7 @@ from ....core.calendar_support import SignedCalendarSupport
 from ..temporal_admission import calendar_profile_metadata, read_calendar_profile
 from .budgets import ATLAS_CHUNK_MAX_BYTES, ATLAS_CHUNK_TARGET_BYTES
 from .indexes import index_reference_count
+from .search import SEARCH_ABI, SEARCH_KIND, validate_search_index
 from .serialization import canonical_gzip_compress, canonical_json
 
 INDEX_BUNDLE_SCHEMA = "atlas-static-indexes.v3"
@@ -30,6 +31,16 @@ INDEX_KINDS = (
 )
 
 
+def _kinds(payload: Mapping[str, object]) -> tuple[str, ...]:
+    if "search_index_abi" not in payload:
+        if SEARCH_KIND in payload:
+            raise ValueError("Undeclared search index")
+        return INDEX_KINDS
+    if payload["search_index_abi"] != SEARCH_ABI:
+        raise ValueError("Unsupported search ABI")
+    return (*INDEX_KINDS, SEARCH_KIND)
+
+
 def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
     """Encode the exact v2 logical indexes as bounded deterministic shards."""
     profile = read_calendar_profile(indexes)
@@ -40,7 +51,7 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
         for field in ("scope_slug", "version", "build_id")
     }
     encoded_shards: list[dict[str, object]] = []
-    for kind in INDEX_KINDS:
+    for kind in _kinds(indexes):
         entries = _index_entries(kind, indexes.get(kind))
         for part in _partition_entries(
             kind,
@@ -77,6 +88,7 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
             )
     return {
         **identities,
+        **({"search_index_abi": SEARCH_ABI} if SEARCH_KIND in _kinds(indexes) else {}),
         "schema_version": SIGNED_INDEX_BUNDLE_SCHEMA
         if profile is not None
         else COMPONENT_INDEX_BUNDLE_SCHEMA
@@ -97,6 +109,7 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
 
 def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
     """Authenticate and losslessly restore v3, while accepting legacy v1/v2."""
+    _kinds(payload)
     profile = read_calendar_profile(payload)
     profile_fields = calendar_profile_metadata(profile)
     schema = payload.get("schema_version")
@@ -107,6 +120,8 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
         "atlas-static-indexes.v1",
         "atlas-static-indexes.v2",
     }:
+        if "search_index_abi" in payload:
+            validate_search_index(payload.get(SEARCH_KIND))
         return dict(payload)
     if schema != (
         SIGNED_INDEX_BUNDLE_SCHEMA
@@ -122,6 +137,7 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
         else INDEX_SHARD_SCHEMA
     ):
         raise ValueError("static atlas index bundle schema is invalid")
+    kinds = _kinds(payload)
     raw_shards = payload.get("shards")
     if not isinstance(raw_shards, list) or payload.get("shard_count") != len(
         raw_shards
@@ -138,6 +154,11 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
         "time_interval_feature_indexes": [],
         "signal_layer_indexes": {},
         "detail_record_asset_keys": {},
+        **(
+            {"search_index_abi": SEARCH_ABI, SEARCH_KIND: {}}
+            if SEARCH_KIND in kinds
+            else {}
+        ),
     }
     prior_kind_rank = -1
     observed_kinds: list[str] = []
@@ -146,9 +167,9 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
         if not isinstance(raw_envelope, Mapping):
             raise ValueError("static atlas index shard envelope is invalid")
         kind = raw_envelope.get("index_kind")
-        if not isinstance(kind, str) or kind not in INDEX_KINDS:
+        if not isinstance(kind, str) or kind not in kinds:
             raise ValueError("static atlas index shard kind is invalid")
-        kind_rank = INDEX_KINDS.index(kind)
+        kind_rank = kinds.index(kind)
         if kind_rank < prior_kind_rank:
             raise ValueError("static atlas index shard order changed")
         prior_kind_rank = kind_rank
@@ -172,7 +193,7 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
         if raw_envelope.get("record_count") != len(entries):
             raise ValueError("static atlas index shard record count changed")
         _merge_entries(merged, kind, entries)
-    if tuple(observed_kinds) != INDEX_KINDS:
+    if tuple(observed_kinds) != kinds:
         raise ValueError("static atlas index shard kinds are incomplete")
     for field in ("scope_slug", "version", "build_id"):
         merged[field] = _required_text(payload.get(field), field)
@@ -318,6 +339,8 @@ def _decode_shard(
 
 
 def _validate_merged_indexes(indexes: Mapping[str, object]) -> None:
+    if SEARCH_KIND in _kinds(indexes):
+        validate_search_index(indexes.get(SEARCH_KIND))
     for kind in ("country_feature_indexes", "spatial_degree_feature_indexes"):
         nested = indexes.get(kind)
         if not isinstance(nested, Mapping):

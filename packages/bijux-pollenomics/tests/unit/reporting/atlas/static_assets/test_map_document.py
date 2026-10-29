@@ -72,7 +72,12 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert 'id="atlas-static-bootstrap"' in html
     assert "selection_aware_static_scripts" in html
     assert "evidence-0" not in html
-    assert "fetch(" not in html
+    assert "const cancellable = selectionOwned && row.domain === 'nodes'" in html
+    assert "&& ['http:', 'https:'].includes(window.location.protocol)" in html
+    assert "? fetchStaticAtlasNodeAsset(row, operation.controller.signal)" in html
+    assert "script.src = `./${row.path}`" in html
+    assert "signal, integrity: row.integrity, credentials: 'same-origin'" in html
+    assert "await waitForStaticAtlasSelection(Promise.all(" in html
     manifest_assets = normalize_asset_inventory(assets.manifest["assets"])
     for _row, path in zip(manifest_assets, assets.asset_paths, strict=True):
         expected_tag = f'<script src="./{path.name}"></script>'

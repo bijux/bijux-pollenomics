@@ -12,10 +12,14 @@ from ..temporal_admission import (
     feature_temporal_admission,
     finite_number,
 )
+from .search import SEARCH_ABI, SEARCH_KIND, build_search_index
 
 
 def build_indexes(
-    point_layers: Sequence[JsonObject], *, temporal_profile: str | None = None
+    point_layers: Sequence[JsonObject],
+    *,
+    temporal_profile: str | None = None,
+    include_search: bool = True,
 ) -> dict[str, object]:
     """Build deterministic country, spatial, temporal, and signal indexes."""
     profile_fields = calendar_profile_metadata(temporal_profile)
@@ -70,6 +74,16 @@ def build_indexes(
         else "atlas-static-indexes.v2",
         **profile_fields,
         **({"component_time_support": True} if component_time_support else {}),
+        **(
+            {
+                "search_index_abi": SEARCH_ABI,
+                SEARCH_KIND: build_search_index(
+                    point_layers, temporal_profile=temporal_profile
+                ),
+            }
+            if include_search
+            else {}
+        ),
         "country_feature_indexes": _sorted_nested_indexes(countries),
         "spatial_degree_feature_indexes": _sorted_nested_indexes(spatial_cells),
         "time_interval_feature_indexes": sorted(

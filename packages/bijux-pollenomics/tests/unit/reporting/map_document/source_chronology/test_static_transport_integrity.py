@@ -392,3 +392,78 @@ function staticAtlasNonnegativeInteger(value,label){{
     assert observed["schema"] == "atlas-provenance-chunk.v3"
     assert observed["layerCount"] == 0
     assert "decoded payload exceeds its declared byte count" in observed["refusal"]
+
+
+def test_compressed_transport_avoids_blob_reads_and_preserves_refusals() -> None:
+    import base64
+    import gzip
+
+    text = "source-bound pollen \u00e5"
+    encoded = base64.b64encode(gzip.compress(text.encode())).decode()
+    invalid_utf8 = base64.b64encode(gzip.compress(b"\xff")).decode()
+    damaged = bytearray(gzip.compress(text.encode()))
+    damaged[-8] ^= 1
+    bad_crc = base64.b64encode(damaged).decode()
+    runtime = template_block(
+        "async function staticAtlasBoundedGunzip",
+        "function staticAtlasIndexShardEnvelopes",
+    )
+    observed = run_node_json(
+        """
+const STATIC_ATLAS_BOOTSTRAP={budgets:{chunk_max_bytes:1024}};
+function staticAtlasFailure(message){throw new Error(`Static atlas data cannot be loaded: ${message}`)}
+function staticAtlasNonnegativeInteger(value,label){
+  const numeric=Number(value);
+  if(!Number.isSafeInteger(numeric)||numeric<0) staticAtlasFailure(`${label} is invalid`);
+  return numeric;
+}
+let blobReads=0;
+globalThis.Blob=class {constructor(){blobReads++;throw new Error('Blob body unavailable offline');}};
+"""
+        + runtime
+        + "\nconst encoded="
+        + json.dumps(encoded)
+        + ";"
+        + "\nconst invalidUtf8="
+        + json.dumps(invalid_utf8)
+        + ";"
+        + "\nconst badCrc="
+        + json.dumps(bad_crc)
+        + ";"
+        + """
+async function refusal(payload,count){
+  try {await staticAtlasBoundedGunzip(payload,count,'controlled');return null;}
+  catch(error){return error.message;}
+}
+(async()=>{
+  const expected=new TextEncoder().encode('source-bound pollen \u00e5').byteLength;
+  const exact=await staticAtlasBoundedGunzip(encoded,expected,'controlled');
+  const unknown=await staticAtlasBoundedGunzip(encoded,null,'controlled');
+  const badBase64=await refusal('???=',expected);
+  const corrupt=await refusal(badCrc,expected);
+  const badUtf8=await refusal(invalidUtf8,1);
+  const tooShort=await refusal(encoded,expected-1);
+  const tooLong=await refusal(encoded,expected+1);
+  STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes=expected-1;
+  const declaredOverBudget=await refusal(encoded,expected);
+  const actualOverBudget=await refusal(encoded,null);
+  STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes=1024;
+  globalThis.ReadableStream=undefined;
+  const absentStream=await refusal(encoded,expected);
+  console.log(JSON.stringify({exact,unknown,blobReads,badBase64,corrupt,badUtf8,
+    tooShort,tooLong,declaredOverBudget,actualOverBudget,absentStream}));
+})().catch(error=>{console.error(error);process.exitCode=1;});
+"""
+    )
+    assert observed["exact"] == observed["unknown"] == text
+    assert observed["blobReads"] == 0
+    assert "compressed payload is invalid" in observed["badBase64"]
+    assert "compressed payload is invalid" in observed["corrupt"]
+    assert "not valid UTF-8" in observed["badUtf8"]
+    assert "exceeds its declared byte count" in observed["tooShort"]
+    assert "decoded byte count mismatch" in observed["tooLong"]
+    assert (
+        "decoded byte count exceeds its byte budget" in observed["declaredOverBudget"]
+    )
+    assert "decoded payload exceeds its byte budget" in observed["actualOverBudget"]
+    assert "gzip decoding support is unavailable" in observed["absentStream"]
