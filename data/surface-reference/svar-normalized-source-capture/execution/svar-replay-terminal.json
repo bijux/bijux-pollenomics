@@ -1,0 +1,33 @@
+{
+  "candidate": "ada0128d4b96a0c0655e7b8c24ba81329f34a2cb",
+  "plan_sha256": "2990df0def41de045883192fc08390cde4f2da38208b97b8c70076b01feb0acd",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/terminal.json",
+    "sha256": "0c4509afdc2aca9ebd8a65e726a3def7202358199d88fee12652ac0c1d04e8ec",
+    "bytes": 7390
+  },
+  "common_actual_exit": 0,
+  "outer_timed_out": false,
+  "observed_elapsed_seconds": 2.5176461249939166,
+  "completed_whole_wall_bound_pass": true,
+  "framework_membership_unchanged": true,
+  "absent_paths_unchanged": true,
+  "actual_native_stage_exits": [
+    0,
+    0
+  ],
+  "tracked_byte_checker_exit": 0,
+  "independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/independent-source-review.json",
+    "sha256": "a9d12d46b9d754feef73c79bc71bdf9282819571f861a88ff1bd5752c6bbef17",
+    "bytes": 89010
+  },
+  "completed_child_peak_rss_bytes_macos": 32260096,
+  "output_bytes_before_receipt": 1631059,
+  "own_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 0,
+  "scope": "Exact normalized privateSVAR source identity and current public refusal only.40565claimed vs40523review/99subset/zero ranks remain unreconciled. No WFS acquisition, new basin/geometry/ranking, rights/qualifiedhuman or scientific acceptance.",
+  "resource_limit": "Completed-child peak RSS and logical regular output accounting; no enforced memory/disk quota or complete descendant census."
+}

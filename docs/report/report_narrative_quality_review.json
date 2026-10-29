@@ -3210,9 +3210,9 @@
     },
     {
       "repository_path": "docs/report/source-relations/svar/normalized-export/README.md",
-      "content_sha256": "2c3b0de6f26f49452daaae9f576a33ecd0b6cfff234891fd886086b2a5f4bd52",
+      "content_sha256": "ef251c0048566e31ed0ff0073ed4a6f4caf215898340d19f239ed52d4e7bcce8",
       "prose_paragraph_count": 19,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 5,

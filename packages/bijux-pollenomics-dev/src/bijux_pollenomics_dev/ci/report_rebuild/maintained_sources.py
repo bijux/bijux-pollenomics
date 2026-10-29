@@ -47,6 +47,9 @@ from .scientific_captures.constrained_author import (
 from .scientific_captures.controlled_numerical.lra_comparison import (
     validated_controlled_lra_comparison_capture,
 )
+from .scientific_captures.lake_registry.svar import (
+    validated_svar_capture,
+)
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
@@ -300,6 +303,9 @@ def validated_maintained_report_sources(
     solsoe_pollen_entries, solsoe_pollen_evidence = validated_solsoe_pollen_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    svar_entries, svar_evidence = validated_svar_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -317,6 +323,7 @@ def validated_maintained_report_sources(
         + slu_guide_entries
         + solsoe_entries
         + solsoe_pollen_entries
+        + svar_entries
         + controlled_numerical_entries
     )
     for entry in all_capture_entries:
@@ -384,4 +391,6 @@ def validated_maintained_report_sources(
         evidence["retained_solsoe_closed_point_selection"] = solsoe_evidence
     if solsoe_pollen_entries:
         evidence["retained_solsoe_primary_pollen_source"] = solsoe_pollen_evidence
+    if svar_entries:
+        evidence["retained_svar_normalized_source"] = svar_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

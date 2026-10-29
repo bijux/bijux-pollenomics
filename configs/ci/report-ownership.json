@@ -37881,6 +37881,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/lra_comparison.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
@@ -82025,19 +82027,13 @@
     },
     {
       "owner_id": "source-relations/svar/normalized-export/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/svar/normalized-export/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/svar/normalized-export/verify.py"
-      ],
-      "producer_inputs": [
-        "data/svar/review/lake_candidate_registry_review.json",
-        "data/svar/review/sweden_lake_candidate_registry.geojson",
-        "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json"
-      ],
-      "verification": "Known verifier additionally requires three private normalized SVAR export files specified in SOURCES; those bytes remain outside repository closure. Original WFS capture/population and qualified review remain unresolved. Regenerate only after exact input custody changes; preserve zero ranked candidates,40,565export versus40,523review population difference and source_population_reconciled false."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained lake_registry.svar validator authenticates this unchanged source/refusal receipt through the genuine isolated-standard-library verifier and independent native observer on ada0128d4b96a0c0655e7b8c24ba81329f34a2cb, both native zero and whole-byte checker zero. The30-member authored source/execution capsule preserves3507 original identities:19execution-source,3currentpublicreferences,1producedreport,3privateidentity-only and3481runtimeidentity-only. Full261041034BprivateGeoJSON hashes without feature parsing; source40565 vsreview40523,99subset,zero ranked candidates and42netdifference remain exact. No new WFS/copy-chain acquisition, feature census, population reconciliation, geometry rights, qualified source review, ranking or new native-retention outcome."
     },
     {
       "owner_id": "source-relations/svar/normalized-export/source-code",

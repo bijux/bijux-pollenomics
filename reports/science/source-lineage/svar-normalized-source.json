@@ -1,0 +1,47 @@
+{
+  "schema_version": "svar-normalized-execution-source-review.v1",
+  "public_capture": {
+    "path": "data/surface-reference/svar-normalized-source-capture/capture.json",
+    "sha256": "5c071b9ac12cf04b5d3d1c256fc85cf75b546392faa923afec2d68815b2e461e"
+  },
+  "original_execution_candidate": "ada0128d4b96a0c0655e7b8c24ba81329f34a2cb",
+  "original_native_stages": [
+    0,
+    0
+  ],
+  "original_tracked_byte_checker_exit": 0,
+  "publication_paths": [
+    "docs/report/source-relations/svar/normalized-export/report.json"
+  ],
+  "original_input_count": 3507,
+  "input_scope_counts": {
+    "runtime_identity_only": 3481,
+    "private_source_identity_only": 3,
+    "retained_execution_source": 19,
+    "existing_public_relation_reference": 3,
+    "retained_produced_product": 1
+  },
+  "source_receipts": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/plan.json",
+      "sha256": "2990df0def41de045883192fc08390cde4f2da38208b97b8c70076b01feb0acd",
+      "bytes": 1435457
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/svar-replay-terminal.json",
+      "sha256": "fb80fe6c14ae833e313c7046268df1ec821970e7a434706750787ec299bfdc4f",
+      "bytes": 1592
+    }
+  ],
+  "scope": {
+    "new_native_retention_execution_claimed": false,
+    "raw_private_sources_redistributed": false,
+    "original_WFS_export_link_recovered": false,
+    "new_GeoJSON_feature_census": false,
+    "source_population_reconciled": false,
+    "ranking_admitted": false,
+    "new_rights_or_qualified_review": false,
+    "runtime_payloads_redistributed": false
+  },
+  "custody": "Authored source/execution custody of a previously completed native source replay and independent observer; no new native retention execution or rights claim. All30 source/execution/product members and3507 original identities remain explicit. Private geometry/summary/manifest and runtime payloads are identity-only;40565 is a source metadata claim and42 remains unreconciled."
+}

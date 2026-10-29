@@ -94,7 +94,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Unsupported claim.** Live endpoint availability or matching count does not prove raw capture parity, supported acquisition rights, full identity equivalence or admitted lake ranking.
 
-**Actual verification performed.** Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing.
+**Actual verification performed.** Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing. The maintained source-built isolated-standard-library verifier and independent native source observer both returned zero on ada0128d4b96a0c0655e7b8c24ba81329f34a2cb. Complete source/refusal receipt is byte-identical to publication; all3507 original inputs remain explicit. Exact261041034BGeoJSON and two private metadata files were hashed, not geometrically parsed;40565 remains source metadata claim against40523review/99subset/zero ranks. The42difference and WFS/export linkage, rights and qualified source review remain unresolved. No new provider capture, ranking or native-retention outcome.
 
 **Remaining input or review.** Both full identity sets, versioned official source route, approved access/rights and qualified registry review remain required.
 
@@ -113,6 +113,8 @@ Qualified authored reader SHA-256: `db5f18e581407bcf154d670c5b8aabff58008d085149
 - [Retained qualification evidence: docs/report/source-relations/svar/normalized-export/report.json](report.json) (SHA-256 `ab082b7899ce947b7bef8c0f8c58fc030aed79b54ee14edf50c81bf5e18f9baf`).
 
 - [Retained qualification evidence: docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json](../../../countries/sweden/sweden_lake_evidence_richness_v66.json) (SHA-256 `52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596`).
+
+- [Retained qualification evidence: reports/science/source-lineage/svar-normalized-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/svar-normalized-source.json) (SHA-256 `dd03a001e5d03e442b0805d7f09adf3e81fc3424e65d5bada651bd996522cbf9`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 
