@@ -1,0 +1,159 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "123c7811e49cc692c32015826c029b8ad99e96d8",
+  "plan_sha256": "383704f82627e9291ef2706b130dc8aa72cc3c425b9e5c133c5616dcb3d5e388",
+  "actual_exit": 1,
+  "status": "failed",
+  "elapsed_seconds": 18.465512999973726,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json",
+    "--registered-plan-sha256",
+    "383704f82627e9291ef2706b130dc8aa72cc3c425b9e5c133c5616dcb3d5e388"
+  ],
+  "canonical_before": {
+    "candidate": "123c7811e49cc692c32015826c029b8ad99e96d8",
+    "status": "",
+    "tracked_inventory_sha256": "8f368fca6f86c4c950c64f6d1f4bf992fdac29420b66514e2cfde22b96e29cfd"
+  },
+  "canonical_after": {
+    "candidate": "123c7811e49cc692c32015826c029b8ad99e96d8",
+    "status": "",
+    "tracked_inventory_sha256": "8f368fca6f86c4c950c64f6d1f4bf992fdac29420b66514e2cfde22b96e29cfd"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "public-Python-thirty-two-candidate-replay",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/produce.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json",
+        "--mode",
+        "python"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 3.6245946250273846,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 427900928
+    },
+    {
+      "id": "independent-shared-input-and-all-vector-observer",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 1,
+      "timed_out": false,
+      "elapsed_seconds": 0.7194686249713413,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/independent-shared-input-and-all-vector-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/independent-shared-input-and-all-vector-observer.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5a4ba7643b8a052f687550babb0a7eca1e124cfbb5b7325cb18b1142c638c58c",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 427900928
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/independent-shared-input-and-all-vector-observer.stderr",
+      "sha256": "5a4ba7643b8a052f687550babb0a7eca1e124cfbb5b7325cb18b1142c638c58c",
+      "bytes": 1155
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/independent-shared-input-and-all-vector-observer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json",
+      "sha256": "383704f82627e9291ef2706b130dc8aa72cc3c425b9e5c133c5616dcb3d5e388",
+      "bytes": 57583991
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/preparation.json",
+      "sha256": "80ea63aa730902289604cb9f0b9825bf299f9a923c68fc917f1691eb5f9b3e77",
+      "bytes": 33511
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-cover.csv",
+      "sha256": "3a98c6e709f6de3ba18f1f877d0c06df249266587dd000a02bc41061888e359a",
+      "bytes": 406
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-k.csv",
+      "sha256": "eda7737a2c3b8459170c5cf8ab9dc9eac99f81261cab7345749834098be2c0d5",
+      "bytes": 7486
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-objective.csv",
+      "sha256": "94fddda8cbb5537b1b87ce88a0cb5f3c582968b6f91c06e51352f4ef13f8754b",
+      "bytes": 164
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-pollen.csv",
+      "sha256": "7b39d326d8ed2371c2aea8d0cc9f2d00930b5bce684f89b525a97c3fc15abc4f",
+      "bytes": 329
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-trace.json",
+      "sha256": "32a64b0250e9a5c4a7601cf29640b68270f555c61568d6a63a64e6b0b30b343c",
+      "bytes": 2119017
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/runtime-delegate.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/runtime-delegate.stdout",
+      "sha256": "d13bc8fe04167ff98b19ad7a0423cd6eb99696afb83473f8961b2c5d43bd687f",
+      "bytes": 343
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/stage-progress.json",
+      "sha256": "95a30b76738cc5f88b3fc707154ff0cfd6f948ff5988026e645fc5fc649036a3",
+      "bytes": 2462
+    }
+  ],
+  "output_bytes": 59748864,
+  "resources": {
+    "overall_timeout_seconds": 540,
+    "resident_memory_limit_bytes": 2147483648,
+    "output_byte_limit": 268435456
+  },
+  "scope": "One conditional software/source parity workload. No optimizer convergence, 128-call timing, C++, historical56-source restoration, ecological, rights, hosted or human acceptance.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "love-shared-source-parity-terminal.v1",
+  "actual_exit": 0,
+  "candidate": "123c7811e49cc692c32015826c029b8ad99e96d8",
+  "plan_sha256": "e5824cfcc904c3a5d715a555ecea599811652d24fdbde3afebff9da4cabff3c7",
+  "common_actual_exit": 0,
+  "actual_stages": [
+    {
+      "id": "independent-shared-input-and-all-vector-observer",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-saved-product-observation/plan.json"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 1.2326612080214545,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-saved-product-observation/independent-shared-input-and-all-vector-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-saved-product-observation/independent-shared-input-and-all-vector-observer.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 434028544
+    }
+  ],
+  "timed_out": false,
+  "after_input_error": null,
+  "elapsed_seconds": 79.66851987497648,
+  "completed_child_peak_rss_bytes_macos": 434028544,
+  "resources": {
+    "overall_timeout_seconds": 540,
+    "resident_memory_limit_bytes": 2147483648,
+    "output_byte_limit": 268435456
+  },
+  "scope": "One conditional software/source parity workload. No optimizer convergence, 128-call timing, C++, historical56-source restoration, ecological, rights, hosted or human acceptance.",
+  "limits": [
+    "Resource checks are completed-child RSS/logical output postchecks, not OS quotas or aggregate descendants.",
+    "Timeout kills/waits only the authenticated owned launcher group; detached descendants unconfirmed.",
+    "This is a fresh source-parity epoch, not old performance/source/runtime identity recovery."
+  ],
+  "completed_output_bytes_including_receipt": 57713198
+}

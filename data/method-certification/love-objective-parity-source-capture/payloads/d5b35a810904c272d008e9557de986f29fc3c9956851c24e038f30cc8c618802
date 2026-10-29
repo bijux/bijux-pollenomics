@@ -1,0 +1,190 @@
+{
+  "schema_version": "love-search-certification-custody-protocol.v1",
+  "source_only": true,
+  "publication_ready": false,
+  "workload": "Reuse genuine completed ten-file shared export and complete source R0 products. Execute the unchanged public Python run_love once, observing256 search and8 mandatory solver certification tf returns, then independently review complete savedR/currentPython parity. No R/model reevaluation by the observer.",
+  "same_inputs": {
+    "export": [
+      "local.csv",
+      "regional.csv",
+      "ppes.csv",
+      "rings.csv",
+      "candidates.csv"
+    ],
+    "sidecars": "One corresponding -hex.csv per table. Decimal17 significant digits, binary64 hex is decoded in native R. Independent observer compares every parsed numeric value and textual axis.",
+    "shared_candidate_vectors": 32,
+    "candidate_width": 10,
+    "candidate_calls_per_active_objective": 32,
+    "expected_source_optimizer_calls": 8,
+    "actual_objective_returns": {
+      "retained_R_search": 256,
+      "new_Python_search": 256,
+      "new_Python_solver_certification": 8,
+      "all_new_Python_tf_returns": 264
+    }
+  },
+  "configuration": {
+    "method": "optimized",
+    "basin_type": "lake",
+    "regional_diameter_m": 300,
+    "local_diameter_m": 12.9,
+    "max_ring": 10,
+    "repeats": 2,
+    "Python_stochastic": false,
+    "Python_seed": 7,
+    "maximum_evaluations": 32,
+    "distance_weighting": "lsm unstable",
+    "optimizer_certification": "Unchanged optimize_box independently evaluates each chosen candidate once and returns certification_nfev=1. This remains enabled; search nfev remains32 per objective."
+  },
+  "source_semantics": [
+    "Source calK deliberately forces the source peatland path; this is preserved, not a repaired lake model.",
+    "Fixed regional/local samplers and the original replay_de_traced selector preserve the existing deterministic test contract. The unused source PPE random draw remains original behavior; RNG streams, stochastic parity and optimizer convergence are not tested. The new R binding requires one exact marker line at the observed installed package path; no absent-stamp fallback.",
+    "Source normalization, log-Euclidean objective with observed+0.001, four-decimal cover and two-decimal pollen rounding remain unchanged. Undefined local rings remain NaN and are not filled.",
+    "Source R tracked_replay only logs the actual function arguments and return values while delegating selection to unchanged r_support.R replay_de_traced. Python logs returns from unchanged optimized.tf during a single public run_love call. Neither engine objective is reevaluated for observation.",
+    "Actual tf code object, nested optimized.objective, solver custom_objective/listcomprehension/ReplayOptimizer.solve and direct optimize_box certification routes are checked against compilation of exact pinned original source without executing that compilation. Actual profiled stacks and complete arguments distinguish search/certification. No count modulo can reclassify a certification as a search event."
+  ],
+  "acceptance": {
+    "axes_shapes_NaN_signed_infinity_and_selected_indices": "exact",
+    "input_binary64_and_candidate_sequence": "exact",
+    "absolute_tolerance": 3e-10,
+    "relative_tolerance": 1e-10,
+    "comparison_formula": "abs(R-Python) <= atol + rtol*abs(Python); source-argument context comparisons use the same declared gate.",
+    "complete_per_vector_and_context_checks": true,
+    "all_nonfinite_candidates": "refuse; no selection",
+    "tie_rule": "first finite minimum, exact selected index must agree even if scalar errors are within tolerance",
+    "posthoc_tolerance_or_rounding_change_allowed": false,
+    "certification": "Each of eight actual certification candidates and binary64 values must exactly equal the selected first finite minimum from its32 recorded search returns, with exactly equal full argument context, nfev32 and certification_nfev1.256 Python search returns continue to use the unchanged R atol3e-10/rtol1e-10 parity gate. No additional objective evaluation by observation."
+  },
+  "runtime": {
+    "Python": "Genuine observed147 source runtime authority5a34/1fcb/9d71, complete pin/namespace/alias/absence before and after; four canonical source/resource trees, no installed first-party claim.",
+    "R": "Genuine saved namespace observer f535/c5dc/d4bc/94025 and918-file inventory aa7e. Revalidate all52393 observed input pins, nine full namespaces, raw aliases and absences before/after; no install or compiler. Installed marker is the actual locally generated SOURCE_ARCHIVE_SHA256 retained in the918-file observation. It is bound to the qualified archive/install/namespace metadata, not an upstream signature or invented DESCRIPTION field.",
+    "native_origins": "Retain and independently review the completed original R before/after namespace/DLL/session/library origin files, with their actual Rscript argv and original source epoch. Current Python execution retains complete first-party and dependency origins. All originals remain protected; this job does not launch R or attest a newly loaded R process.",
+    "historical_failures": "Original old147 bootstrap whole1 and oldR installation whole1 remain literal. This uses new qualified observations; lost old runtime identity is not recovered."
+  },
+  "resources": {
+    "stage_timeouts_seconds": [
+      60,
+      60
+    ],
+    "common_completed_wall_seconds": 540,
+    "qualified_Python_outer_wall_seconds": 600,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_output_bytes": 268435456,
+    "minimum_physical_free_bytes_before_output": 1073741824,
+    "postcheck_limits": "No OS quota, aggregate descendant RSS or detached-descendant termination claim."
+  },
+  "Git_identity": "Pinned physical /Library/Developer/CommandLineTools/usr/bin/git a73bf622.../3837392B; require local main separately while preserving common906 candidate/status/tracked_inventory_sha256 schema. Strip ambient GIT_* overrides, disable global/system config and put pinned CLT directory first for unchanged common906.",
+  "source_protection": "Exact held manifest and independent peer plus all helper hashes/sizes are checked before actual Python entrypoint local imports. Freeze expected held/source pins before census; final full input, source namespace, R namespace and Git identity revalidation precedes output creation. Common906 retains each actual argv, exit, elapsed time, timeout and raw stdout/stderr SHA. Revalidate and carry all115349 original input pins. Retained export requires the identical clean original canonical identity and complete four-package namespace; no later-candidate bridge is accepted. Also revalidate/carry all115389 original completed-R-job inputs, all31 original finalized products, complete exact file/eight-directory namespace and actual stage logs. Only runtime-delegate.stdout accepts its exact historical330-byte catalog prefix plus the single common906 terminalffbd/statusfailed220-byte line; its full550-byte identity is protected separately. No arbitrary suffix allowed. Original Python output must remain the authenticated empty directory. New output cannot overlap either retained execution root.",
+  "source_interface": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-objective-certification-parity/source-interface.json",
+    "sha256": "19f5d94f85de2c8d94eb8ce634da98e4e6732cfea30e322b75fee2d6a9e1002b",
+    "bytes": 4163
+  },
+  "prior_audit": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/numerical-owner-source-feasibility/next-actions.json",
+    "sha256": "6234054ff796347a88f125cfaa6c9d6ba8f9969c3fc29c6f93d246aa0bf25ba8",
+    "bytes": 26241
+  },
+  "retained_limits": [
+    "Original LOVE56-source strict gate remains refused/unexecuted; removed-module predicates are not reconstructed.",
+    "Representative report source_R_same_input_comparison_executed=false remains original history. C0024 uses two candidates; prospective examples use5/6/6, with no relabelling as this32-vector workload.",
+    "No historical timing, RSS, profile clock, hosted architecture or source epoch is recreated by fresh comparison.",
+    "No new C++ kernel, maintenance/adoption decision, 1128-study, ecological validation, rights or human acceptance is claimed.",
+    "No old output is copied to manufacture a new native exit. Native success and any later current owner/publication decision remain separate."
+  ],
+  "future_preparation_argv": [
+    "QUALIFIED_LEXICAL_PYTHON",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/prepare.py",
+    "--candidate",
+    "123c7811e49cc692c32015826c029b8ad99e96d8",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity",
+    "--review",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/independent-source-review.json",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_REVIEW_SHA"
+  ],
+  "actual_registration_and_launch": "Root alone prepares, freezes, registers/readbacks and separately invokes preparation plan.actual_launch_argv with actual plan SHA. No actual preparation or numerical stage has run during source authoring.",
+  "retained_export": {
+    "root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity",
+    "original_plan_sha256": "4d985444a36261808d287b862ee1f7f4849b038d91642fada12c3db54e83c7a4",
+    "original_common_sha256": "5ac98643763533c5f9f2a5ec31c683d2152f85e519c88582bd9a786b6a1b6aa5",
+    "original_inner_sha256": "8ae109f213585558a3720efade6647b110b2169c2d4180599d6903bbace10ba4",
+    "original_outer_sha256": "9f7fc64df45bf2e8df47b67bf2f5af402a6f272645448e2ffcdfc74f7308a49c",
+    "shared_inputs_manifest_sha256": "7ace2d98c545738a44f1427bb0c092fdedbf36a9a751d74a3e982645978769d8",
+    "whole_actual_exit": 1,
+    "actual_stage_exits": [
+      0,
+      1
+    ],
+    "reuse_scope": "Only completed export0 with exact10 flat file/hash/size/products/logs and source/epoch/argv bindings. Failed R1 occurred before model evaluation; original Python and independent numerical observer never launched. New jobs cannot relabel either original failure as success.",
+    "protected_original_inputs": 115349
+  },
+  "namespace_source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-objective-certification-parity/namespace-source-correspondence.json",
+    "sha256": "0690f99456dfa40f0b073ff01d564c3e49b01177260121abb1bb129c7ef3391b",
+    "bytes": 3591
+  },
+  "predecessor_failed_whole_preserved": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-installed-source-parity/plan.json",
+      "sha256": "657478a1d731c8605eb9f86369329ab822357329c175932344872cc1e30467b9",
+      "bytes": 57542268
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-installed-source-parity/terminal.json",
+      "sha256": "6f4bbd1843dcb985d14d46d6b4c438b46a183e3689bf204a42e054d57d7a66fd",
+      "bytes": 5561
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-installed-source-parity/love-parity-terminal.json",
+      "sha256": "64a7d510497b2c17b9f643cd8710454037a5f8dfabe22669a59a4aef9173b3fb",
+      "bytes": 2677
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-installed-source-parity/runtime-custody-terminal.json",
+      "sha256": "32a2068daa4740e25d51221de19614e5e063cae3c4bfb4e674d083a760c4c342",
+      "bytes": 2603
+    }
+  ],
+  "source_only_checks": "Retest existing26 control groups; additional event/actual-code-route/native-receipt-shape/retained-product guards. Source engine files may be AST parsed/compiled without execution; no NumPy/R/API/model or full runtime census during authoring.",
+  "retained_completed_R": {
+    "source_manifest": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/prepared-source-manifest.json",
+      "sha256": "4f30203898a3d9ea4c6a0756058ff1482d671dc423e808978a2870955ff90975",
+      "bytes": 5858
+    },
+    "references": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/plan.json",
+        "sha256": "2af00a74117e7b8e0d6e46d017076b9f8c0d49742f8f0732b383b9e881376826",
+        "bytes": 57544524
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/terminal.json",
+        "sha256": "ffbd908d393e5c56b8673516bc5f861c3a35ea7d8ea17e01cba9ef76f5c462c7",
+        "bytes": 12799
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/love-parity-terminal.json",
+        "sha256": "d797f572081ce3e0eaacf445c3815a25d885f96e6917bdf54dc42dd68b2d7d82",
+        "bytes": 3940
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/runtime-custody-terminal.json",
+        "sha256": "735f334413b7543f8c9ab0a60bbd98dd8d6e140de1e367526483ceba46454c55",
+        "bytes": 2603
+      }
+    ],
+    "original_protected_inputs": 115389,
+    "literal_actual_exits": {
+      "R": 0,
+      "Python": 1,
+      "whole": 1
+    },
+    "reused_data": "Only common-authenticated complete R products and actual stage logs; original Python1/whole1 stays historical. No R rerun and no inferred Python parity success."
+  },
+  "wrapper_completion": "The actual run.py completion predicate requires exactly the declared public-Python and independent observer native records with exact reviewed role/argv/60s/must_succeed identities, typed native/common0 and no timeout. Missing, three, reordered, self-consistently wrong role/argv or Boolean exits refuse. No engine or numerical predicate changes."
+}

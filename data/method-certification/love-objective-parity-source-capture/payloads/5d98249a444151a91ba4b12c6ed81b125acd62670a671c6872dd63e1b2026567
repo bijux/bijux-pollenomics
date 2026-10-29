@@ -1,0 +1,123 @@
+{
+  "schema_version": "love-search-certification-prepared-source.v1",
+  "source_only": true,
+  "actual_preparation_or_numerical_execution": false,
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/check_contracts.py",
+      "sha256": "9eb15a9bc31219cdbb76e6cd1f9f68e82b9e9988e27e68d0bd4a22849bdba31e",
+      "bytes": 43092
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/contracts.py",
+      "sha256": "d46ecfbe5f58270d8bfd5c959fcb39b67de777a796c79567e4df217fae063ed5",
+      "bytes": 10619
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/namespace-source-correspondence.json",
+      "sha256": "0690f99456dfa40f0b073ff01d564c3e49b01177260121abb1bb129c7ef3391b",
+      "bytes": 3591
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/objective-source-correspondence.json",
+      "sha256": "65168cfebe420ae9788a6d6dc44dd6d917cece117125914dc7b4c090118fc1db",
+      "bytes": 3570
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/observe.py",
+      "sha256": "52ad231c7b78afe8d4e8dac87bc849cd4a9376f3254d5507d5ee12466f17bceb",
+      "bytes": 26896
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/preflight/finite-source-delta.diff",
+      "sha256": "b0524c5bc03f9c8186449120578e1c73241618875ccb7869c2e624db01b61f62",
+      "bytes": 8582
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/preflight/source-qualification.json",
+      "sha256": "e25136a40832acc1dd951c08217ab28432ba69ade798eced511ac31fd6eac7db",
+      "bytes": 11087
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/prepare.py",
+      "sha256": "ffd0181f09571947dc53b4cc3fb88e9b94b924a814669799e2b99af56c2d7fbd",
+      "bytes": 15429
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/produce.py",
+      "sha256": "8540e49ff94f06bfa28bd52287b334a88d480958ae300918be07c6cfddc2aaa0",
+      "bytes": 19908
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/protocol.json",
+      "sha256": "d5b35a810904c272d008e9557de986f29fc3c9956851c24e038f30cc8c618802",
+      "bytes": 13953
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/r_runtime_contracts.py",
+      "sha256": "14eaa0f5a8750bd0ea10b260c3fd992fb552f9c63dfa7a0006dc050e5830b5f8",
+      "bytes": 12402
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/replay.R",
+      "sha256": "e724e683aa7be39846a6e401b753350442a48fca767f545aec0158b326d523de",
+      "bytes": 5622
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/retained_export.py",
+      "sha256": "11927691add4287cf1e6b9b25b1acd27ce8fa5150a3778c178afb2b93a3df865",
+      "bytes": 9873
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/retained_r.py",
+      "sha256": "fd829f11ce27c2e7883e4178ca572d9198622f141953bc13a0aca0a76a384424",
+      "bytes": 9369
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/run.py",
+      "sha256": "8f9cbe05b5cf37fbd921de748f993a188f6567ab40d0ef4483009a88592f3206",
+      "bytes": 12095
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/runtime_guarded_runner.py",
+      "sha256": "468380be06d7e852e84aeb541afac215954f4633eea640927f0ec4b584ea6211",
+      "bytes": 12445
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/source-binding-forensics.json",
+      "sha256": "36348f6e887b85e159ab16a93807e509365ab3290199e02fb0ba539cc896cf19",
+      "bytes": 2937
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/source-interface.json",
+      "sha256": "19f5d94f85de2c8d94eb8ce634da98e4e6732cfea30e322b75fee2d6a9e1002b",
+      "bytes": 4163
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/source_runtime.py",
+      "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+      "bytes": 11236
+    }
+  ],
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/preflight/source-qualification.json",
+    "sha256": "e25136a40832acc1dd951c08217ab28432ba69ade798eced511ac31fd6eac7db",
+    "bytes": 11087
+  },
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-objective-certification-parity/prepared-source-manifest.json",
+    "sha256": "272dfa50babc104c0b8f76eccc642664b6738a86955d1fcdc8e9fb49cb6f0bd1",
+    "bytes": 6459
+  },
+  "scope": "Exact two native-consumer wrapper predicate correction only; original37 controls and all retained-R/source/numerical/certification body remains unchanged. No actual execution/passing result invented."
+}

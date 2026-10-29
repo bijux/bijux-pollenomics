@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2140,
-  "paths_sha256": "b7da2da90270220c86687ad7f05843f7441bb971e994e620a05cfbc78795bd3b",
+  "path_count": 2142,
+  "paths_sha256": "332e5c0ae2203c6b3b945d0fc36430f2c5e96939790d139ac7388f6fc9384a44",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -34288,6 +34288,16 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
+      "owner_id": "countries/denmark/solsoe-source-lineage/closed-central-point-selection/report-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained grouped pollen_source.solsoe_selection validator authenticates the exact current descriptive v2 result through retained c397f95cc2cbe8f451df17b4f7fa6a856ad71a75 source/control/runtime-observation and two native-zero receipts. Closed75 and bounded 74 central-point proxies retain92 raw native/refusal records and14 control-view rows/seven underlying declared controls. The BC+1950 arithmetic proxy is not resolved calendar conversion, uncertainty-support selection or analytical/LRA admission. Original79 rows, source chronology, dated basin, provider history, rights/human acceptance and the separate original-v1 production owner remain unresolved. Runtime/privatePDF payloads are identity-only; no new metadata-retention native outcome is claimed."
+    },
+    {
       "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-chronology/reader-account",
       "role": "maintained_editorial",
       "paths": [
@@ -34427,16 +34437,6 @@
         "reports/needed/scientific-reader-sources.json"
       ],
       "verification": "Maintain this handwritten source explanation by reviewing its links, cited governed rows and admission limits; the replay script writes only JSON/CSV outputs, not this README. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before content hashes. Retain original authored/scientific body bytes and domain machine manifests. Validate all canonical account hashes and complete prose coverage with reports/needed/verify-claims.py; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
-    },
-    {
-      "owner_id": "countries/denmark/solsoe-source-lineage/closed-central-point-selection/report-products",
-      "role": "retained_source",
-      "paths": [
-        "docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json"
-      ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "The maintained grouped pollen_source.solsoe_selection validator authenticates the exact current descriptive v2 result through retained c397f95cc2cbe8f451df17b4f7fa6a856ad71a75 source/control/runtime-observation and two native-zero receipts. Closed75 and bounded 74 central-point proxies retain92 raw native/refusal records and14 control-view rows/seven underlying declared controls. The BC+1950 arithmetic proxy is not resolved calendar conversion, uncertainty-support selection or analytical/LRA admission. Original79 rows, source chronology, dated basin, provider history, rights/human acceptance and the separate original-v1 production owner remain unresolved. Runtime/privatePDF payloads are identity-only; no new metadata-retention native outcome is claimed."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/original-core-selection/report-products",
@@ -37879,6 +37879,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/love_objective.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/lra_comparison.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/__init__.py",
@@ -41442,6 +41443,35 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
+    },
+    {
+      "owner_id": "method-certification/love-objective-parity/reader-account",
+      "paths": [
+        "docs/report/method-certification/love-objective-parity/README.md"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json",
+        "reports/needed/report-claims.csv",
+        "reports/needed/scientific-reader-sources.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
+      ],
+      "role": "maintained_editorial",
+      "verification": "Authored conditional LOVE source/software correspondence reader. Exact body and nine qualification fields bind the new retained report; routing does not grant historical timing, optimizer convergence, ecological accuracy, source rights, human or LRA acceptance. Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before content hashes. Retain original authored/scientific body bytes and domain machine manifests. Validate all canonical account hashes and complete prose coverage with reports/needed/verify-claims.py; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+    },
+    {
+      "owner_id": "method-certification/love-objective-parity/report-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/method-certification/love-objective-parity/report.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The grouped controlled_numerical.love_objective guard authenticates a new conditional 32-vector workload against complete retained source and three actual execution histories: R native zero in a whole-one job; Python native zero in a separate whole-one job; separate saved-product observer native and whole zero. Original ordered 115389/115446/115489 input identities, original source commit 123c7811e49cc692c32015826c029b8ad99e96d8 and exact undefined rings are preserved. Metadata retention is not another model execution. Historical 56-file comparison/profile/performance flags and timings remain unchanged. No optimizer convergence, C++ adoption, ecological accuracy, source rights, human or LRA acceptance is asserted."
     },
     {
       "owner_id": "method-certification/love-paper-correspondence/paper-table-transcription",
@@ -65745,19 +65775,6 @@
       "verification": "These remaining protocol, historical freeze, reference-text and verification artifacts are unresolved. The current maintained preparation command genuinely produced four different files, which have a separate source-preparation-products owner. It did not produce or authenticate the historical authorship, freeze timestamp, original reference or whole-family verification represented here. The former whole-family producer recipe is preserved in the source capsule and witness. Its training-DK declaration did not match the actual protocol-selected training-SE input. Neither the actual replay nor the owner partition supplies a new historical-production certificate, untouched confirmation, source rights, human approval or LRA admission."
     },
     {
-      "owner_id": "regions/nordic/swedish-lake-transfer/source-preparation-products",
-      "role": "retained_source",
-      "paths": [
-        "docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json",
-        "docs/report/regions/nordic/swedish-lake-transfer/inputs/metadata-SE.json.gz",
-        "docs/report/regions/nordic/swedish-lake-transfer/inputs/training-SE.json.gz",
-        "docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz"
-      ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "The maintained pollen_source.swedish_direct_pollen validator binds exactly four preparation files to source-built execution at commit 65d4752111915e1157315004d59603469af2d644. Across both study families, six maintained prepare, predict and score calls and two independent observers exited 0; the common, inner and outer run results were 0. All ten native products per family matched retained bytes. This owner admits only the four actually produced preparation files. The separate historical owner remains unresolved. Both protocols used the exact training-SE input, not the incorrect training-DK declaration in the original owner recipe. The 2,276-member authored public capsule preserves 66,481 ordered input identities, the original complete public source and controls, and 65 narrowly checked source files actually read by maintained stages. Runtime, private taxonomy lookup, relational payloads and 4,356 bytecodes remain identity-only. The original outer receipt incorrectly mentions EMPD2 in generic prose; it is preserved literally, while the bound Swedish plan and eight native commands identify the execution. This previously exposed direct-pollen development replay does not establish untouched confirmation, field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Capsule authoring is not a new native retention execution."
-    },
-    {
       "owner_id": "regions/nordic/swedish-lake-transfer/scored-products",
       "paths": [
         "docs/report/regions/nordic/swedish-lake-transfer/coverage.csv",
@@ -65812,6 +65829,19 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
+    },
+    {
+      "owner_id": "regions/nordic/swedish-lake-transfer/source-preparation-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json",
+        "docs/report/regions/nordic/swedish-lake-transfer/inputs/metadata-SE.json.gz",
+        "docs/report/regions/nordic/swedish-lake-transfer/inputs/training-SE.json.gz",
+        "docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.swedish_direct_pollen validator binds exactly four preparation files to source-built execution at commit 65d4752111915e1157315004d59603469af2d644. Across both study families, six maintained prepare, predict and score calls and two independent observers exited 0; the common, inner and outer run results were 0. All ten native products per family matched retained bytes. This owner admits only the four actually produced preparation files. The separate historical owner remains unresolved. Both protocols used the exact training-SE input, not the incorrect training-DK declaration in the original owner recipe. The 2,276-member authored public capsule preserves 66,481 ordered input identities, the original complete public source and controls, and 65 narrowly checked source files actually read by maintained stages. Runtime, private taxonomy lookup, relational payloads and 4,356 bytecodes remain identity-only. The original outer receipt incorrectly mentions EMPD2 in generic prose; it is preserved literally, while the bound Swedish plan and eight native commands identify the execution. This previously exposed direct-pollen development replay does not establish untouched confirmation, field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Capsule authoring is not a new native retention execution."
     },
     {
       "owner_id": "regions/nordic/swedish-neotoma-holdout/parallel-dataset-review",
@@ -65912,19 +65942,6 @@
       "verification": "These remaining protocol, historical freeze, reference-text and verification artifacts are unresolved. The current maintained preparation command genuinely produced four different files, which have a separate source-preparation-products owner. It did not produce or authenticate the historical authorship, freeze timestamp, original reference or whole-family verification represented here. The former whole-family producer recipe is preserved in the source capsule and witness. Its training-DK declaration did not match the actual protocol-selected training-SE input. Neither the actual replay nor the owner partition supplies a new historical-production certificate, untouched confirmation, source rights, human approval or LRA admission."
     },
     {
-      "owner_id": "regions/nordic/swedish-neotoma-holdout/source-preparation-products",
-      "role": "retained_source",
-      "paths": [
-        "docs/report/regions/nordic/swedish-neotoma-holdout/input-manifest.json",
-        "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/metadata-SE.json.gz",
-        "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/training-SE.json.gz",
-        "docs/report/regions/nordic/swedish-neotoma-holdout/sealed-outcomes/outcomes-SE.json.gz"
-      ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "The maintained pollen_source.swedish_direct_pollen validator binds exactly four preparation files to source-built execution at commit 65d4752111915e1157315004d59603469af2d644. Across both study families, six maintained prepare, predict and score calls and two independent observers exited 0; the common, inner and outer run results were 0. All ten native products per family matched retained bytes. This owner admits only the four actually produced preparation files. The separate historical owner remains unresolved. Both protocols used the exact training-SE input, not the incorrect training-DK declaration in the original owner recipe. The 2,276-member authored public capsule preserves 66,481 ordered input identities, the original complete public source and controls, and 65 narrowly checked source files actually read by maintained stages. Runtime, private taxonomy lookup, relational payloads and 4,356 bytecodes remain identity-only. The original outer receipt incorrectly mentions EMPD2 in generic prose; it is preserved literally, while the bound Swedish plan and eight native commands identify the execution. This previously exposed direct-pollen development replay does not establish untouched confirmation, field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Capsule authoring is not a new native retention execution."
-    },
-    {
       "owner_id": "regions/nordic/swedish-neotoma-holdout/scored-products",
       "paths": [
         "docs/report/regions/nordic/swedish-neotoma-holdout/coverage.csv",
@@ -65978,6 +65995,19 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
+    },
+    {
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/source-preparation-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/regions/nordic/swedish-neotoma-holdout/input-manifest.json",
+        "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/metadata-SE.json.gz",
+        "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/training-SE.json.gz",
+        "docs/report/regions/nordic/swedish-neotoma-holdout/sealed-outcomes/outcomes-SE.json.gz"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.swedish_direct_pollen validator binds exactly four preparation files to source-built execution at commit 65d4752111915e1157315004d59603469af2d644. Across both study families, six maintained prepare, predict and score calls and two independent observers exited 0; the common, inner and outer run results were 0. All ten native products per family matched retained bytes. This owner admits only the four actually produced preparation files. The separate historical owner remains unresolved. Both protocols used the exact training-SE input, not the incorrect training-DK declaration in the original owner recipe. The 2,276-member authored public capsule preserves 66,481 ordered input identities, the original complete public source and controls, and 65 narrowly checked source files actually read by maintained stages. Runtime, private taxonomy lookup, relational payloads and 4,356 bytecodes remain identity-only. The original outer receipt incorrectly mentions EMPD2 in generic prose; it is preserved literally, while the bound Swedish plan and eight native commands identify the execution. This previously exposed direct-pollen development replay does not establish untouched confirmation, field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Capsule authoring is not a new native retention execution."
     },
     {
       "owner_id": "regions/nordic/swedish-support-sensitivity/reader-account",
@@ -81927,6 +81957,16 @@
       "verification": "Known audit/summary modules and five governing registries are declared, but this is not the full321-path read set. Original private Rootsi/OpenLand intake archives and complete manifest/authority closure must be bound before mechanical summary reproduction. Reuse the retained zero-finding accounting scope; do not rerun the unchanged full source audit or infer full_source_confirmation."
     },
     {
+      "owner_id": "source-relations/svar/normalized-export/feature-census",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/source-relations/svar/normalized-export/feature-census.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained grouped lake_registry.svar_census validator authenticates the public aggregate through the retained source commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87 streaming census and independent reader, both native zero. The 102-member source/execution capsule preserves 3,578 original input identities; the raw 261,041,034-byte registry, 57,098,367-byte private ledger, native ID values and raw properties/geometry are omitted. Measured 40,565 Features (37,516 Polygon plus 3,049 MultiPolygon), native ID field populations and all 99 unique full matches/seven-field typed joins remain explicit. This does not recover the historical 40,523 identity inventory or identities/cause of the net difference of 42, equate subset Point geometry, repeat nearest-pollen selection, qualify provider units/CRS/rights/WFS/chronology/effective area, or admit a governing registry, human review or ranking. Original hash-only receipt and source owner remain unchanged. Authored public projection is not a new metadata native execution."
+    },
+    {
       "owner_id": "source-relations/svar/normalized-export/reader-account",
       "role": "maintained_editorial",
       "paths": [
@@ -81944,16 +81984,6 @@
         "reports/needed/scientific-reader-sources.json"
       ],
       "verification": "Maintain the authored source/custody interpretation against source identities, governed outputs and scientific refusals. Editorial role does not replace producer replay, original capture or qualified source admission. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before content hashes. Retain original authored/scientific body bytes and domain machine manifests. Validate all canonical account hashes and complete prose coverage with reports/needed/verify-claims.py; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
-    },
-    {
-      "owner_id": "source-relations/svar/normalized-export/feature-census",
-      "role": "retained_source",
-      "paths": [
-        "docs/report/source-relations/svar/normalized-export/feature-census.json"
-      ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "The maintained grouped lake_registry.svar_census validator authenticates the public aggregate through the retained source commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87 streaming census and independent reader, both native zero. The 102-member source/execution capsule preserves 3,578 original input identities; the raw 261,041,034-byte registry, 57,098,367-byte private ledger, native ID values and raw properties/geometry are omitted. Measured 40,565 Features (37,516 Polygon plus 3,049 MultiPolygon), native ID field populations and all 99 unique full matches/seven-field typed joins remain explicit. This does not recover the historical 40,523 identity inventory or identities/cause of the net difference of 42, equate subset Point geometry, repeat nearest-pollen selection, qualify provider units/CRS/rights/WFS/chronology/effective area, or admit a governing registry, human review or ranking. Original hash-only receipt and source owner remain unchanged. Authored public projection is not a new metadata native execution."
     },
     {
       "owner_id": "source-relations/svar/normalized-export/report-products",

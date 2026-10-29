@@ -2805,7 +2805,7 @@
         "fields": {
           "supported_claim": "The retained R 4.6/DISQOVER 0.9.14 and Python comparison agrees on one exactly shared LOVEexample input set with deterministic fixed candidates and preserved missing values.",
           "unsupported_claim": "Fixed-candidate correspondence supplies no optimizer trajectory or convergence comparison, stochastic draw parity, timing comparison or empirical vegetation accuracy.",
-          "actual_verification_performed": "Read the authored method and retained native-R identity, shared decimal/hexadecimal input account and comparison tolerances; bound the physical report. No R, model or comparator was executed for this qualification.",
+          "actual_verification_performed": "Read the authored method and retained native-R identity, shared decimal/hexadecimal input account and comparison tolerances; bound the physical report. No R, model or comparator was executed for this qualification. Separately, a new conditional LOVE objective report binds completed R and public Python stages from source commit 123c7811e49cc692c32015826c029b8ad99e96d8. Their original whole jobs remain failed; a separate saved-product observer passed. The new report preserves 256 R search returns, 256 Python search returns, eight mandatory Python certifications and the original undefined rings. This does not replace this page's historical source gate, flags or timings.",
           "remaining_input_or_review": "A different candidate, random-draw algorithm or ecological landscape needs its own source-bound comparison and qualified interpretation; this historical result does not certify a later release.",
           "cause_category": "Bounded historical source-method correspondence on a computational fixture.",
           "consequence": "Agreement can support this exact fixed-candidate calculation while leaving optimizer and ecological claims unadmitted.",
@@ -2817,6 +2817,10 @@
           {
             "path": "docs/report/numerical-performance/love-source-comparison/report.json",
             "sha256": "73655d3f9ba41d3c20b7db5fa43360a60ded61d70d1603a1628cf7a6de8b6413"
+          },
+          {
+            "path": "docs/report/method-certification/love-objective-parity/report.json",
+            "sha256": "b225e6034dd4dd39a6ede63918d7e2a4a9980a49fcc41e73e0498a784f0ff8e8"
           }
         ]
       }
@@ -9837,6 +9841,40 @@
           {
             "path": "docs/report/numerical-performance/native-memory/report.json",
             "sha256": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/method-certification/love-objective-parity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md",
+          "source_sha256": "81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050"
+        }
+      ],
+      "scope_reason": "Conditional fixed-candidate source/software correspondence; historical performance and scientific acceptance remain separate.",
+      "qualification": {
+        "authored_reader_sha256": "f5fa6c1745d470aec7b32dde064437103a6c3f0e82b1c8ea51552e8f8953c341",
+        "fields": {
+          "supported_claim": "One conditional LOVE computational fixture agrees between authenticated DISQOVER source R and the captured public Python solver for 32 fixed candidates in each of eight active calls, with exact input and missing-value support.",
+          "unsupported_claim": "This does not restore the historical 56-file source gate, compare timing or memory, test stochastic optimizer trajectories or convergence, adopt C++, establish ecological accuracy, or admit source rights, human decisions or LRA samples.",
+          "actual_verification_performed": "A genuine R stage completed 256 search objective returns. A separate genuine public Python stage completed 256 search returns and eight solver certifications. A separate saved-product observer completed zero after checking all 264 Python argument contexts, candidate selections and four output products. The two producer jobs retain their original failed whole outcomes; the saved observer has its own successful whole outcome. Metadata assembly and its independent observer authenticate retained bytes without another model call.",
+          "remaining_input_or_review": "A changed mathematical source, input, candidate sequence or missing-value contract requires a separately declared comparison. Historical source closure, workload performance, ecological validation, source-specific rights and qualified human acceptance remain separate.",
+          "cause_category": "Bounded source/software correspondence on one deterministic computational fixture.",
+          "consequence": "Use the exact retained report for this fixed-candidate calculation; do not promote it into historical performance, optimizer or ecological acceptance.",
+          "precise_next_acceptance_route": "Authenticate a changed source and its input/candidate contract before registering the affected native comparison. Qualify performance or ecological claims through their distinct workload and scientific acceptance contracts.",
+          "negative_or_refused_result": "Six undefined local rings remain missing. Earlier source-binding and observer failures remain preserved, including both producer jobs with failed whole outcomes. Missing cells are not zero-filled, and the historical source gate is not waived.",
+          "matched_denominator": "One local and one regional row, ten taxa, 36 rings, local maximum ring ten, two repeats and eight active calls with 32 search candidates each. R has 256 search returns; Python has 256 search plus eight certification returns. Four output products preserve shape, finite support and missing masks under the original tolerances."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/method-certification/love-objective-parity/report.json",
+            "sha256": "b225e6034dd4dd39a6ede63918d7e2a4a9980a49fcc41e73e0498a784f0ff8e8"
+          },
+          {
+            "path": "reports/science/source-cohorts/love-objective-source-custody.json",
+            "sha256": "233ad62df6d452ae2ba6626159a4102ad6c2a870c618385d1b02d84fc26a4f6e"
           }
         ]
       }
