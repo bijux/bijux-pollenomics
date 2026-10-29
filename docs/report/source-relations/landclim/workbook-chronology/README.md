@@ -83,13 +83,15 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 **Matched denominator.** 4 workbooks:FLINK 109, HOLK 40, RANV 141, STAV 77 sample rows; age comparisons apply only to the 149 FLINK/HOLK age labels.
 
+Qualified authored reader SHA-256: `a303078ea5054d598db904c92bf07ebd29a178d56ffd0692a5c9616633e78a7a`.
+
 - [Retained qualification evidence: docs/report/source-relations/landclim/workbook-chronology/report.json](report.json) (SHA-256 `b2c732c11669837c9aa75b8b0a5bfb7568dbf86071014ccfb4b30d3dcfc2eb13`).
 
 - [Retained qualification evidence: reports/science/source-lineage/rootsi-workbook-chronology.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/rootsi-workbook-chronology.json) (SHA-256 `f903bb2c7671d04b67410b7ba73ed2aebe1d5ca9f86a54354aaa10746d65e47b`).
 
-- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 
-- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

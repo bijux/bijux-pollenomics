@@ -70,13 +70,15 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 **Matched denominator.** FLINK 109 depth pairs/270 explicit count agreements/57 missing-row zeros; 108 of 109 age comparisons within 0.05; STAV 77 depth pairs/940 explicit agreements.
 
+Qualified authored reader SHA-256: `7a6e99a46bf9bff8b06f13c0b6a9291be1f8201fba72f679818069b7f070ad02`.
+
 - [Retained qualification evidence: docs/report/source-relations/landclim/neotoma-chronology-witness/report.json](report.json) (SHA-256 `9f9ae65c538a1aac79966324abf081d4ea0028fbced6b1a343633acbd6372058`).
 
 - [Retained qualification evidence: reports/science/source-lineage/rootsi-workbook-chronology.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/rootsi-workbook-chronology.json) (SHA-256 `f903bb2c7671d04b67410b7ba73ed2aebe1d5ca9f86a54354aaa10746d65e47b`).
 
-- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 
-- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

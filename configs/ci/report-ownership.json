@@ -36585,27 +36585,14 @@
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json",
         "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv"
       ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py"
-      ],
-      "producer_inputs": [
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/surfaces/observations/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00002.json",
-        "data/neotoma/relational/surfaces/observations/part-00003.json",
-        "data/neotoma/relational/surfaces/observations/part-00004.json",
-        "data/neotoma/relational/surfaces/observations/part-00005.json",
-        "data/neotoma/relational/surfaces/observations/part-00006.json",
-        "data/neotoma/relational/surfaces/observations/part-00007.json",
-        "data/neotoma/relational/surfaces/observations/part-00008.json",
-        "data/neotoma/relational/surfaces/samples/part-00001.json"
-      ],
-      "verification": "The maintained pollen-lineage producer requires exact external solsoe81-pollen-739834.txt at SHAda790080493ccfe7e37ab16d154e438cfbeb7b0046bc41d7f24499572a0353d0. A bounded current replay changed only producer bytes/SHA; all scientific/count fields and the 66-row sample CSV matched. Preserve independent source capture/rights requirements and do not treat source-name count-vector identity as qualified taxonomy or LRA admission."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained grouped pollen_source.solsoe_pollen validator authenticates these two exact products through the retained source-built isolated-standard-library execution on d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b and its independent native observer, both actual exit zero. Complete JSON and ordered66-row CSV are byte-identical to publication. All3510 original inputs remain explicit:15 retained execution-source identities,2 produced products,10 current public relation references,1 private primary identity and3482 runtime-only identities. All66depths,147parameters,9702cells,2881positive6821zero cells,128653counts and129literal18unique numeric-name candidates are authenticated. Raw CC BY-NC primary data and runtime binaries are not redistributed; no metadata-retention native outcome, recovered provider acquisition, ecological taxonomy, historical79 selection/chronology/basin, LRA, rights or human acceptance is claimed."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/reader-accounts",
@@ -37894,9 +37881,13 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/lra_comparison.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/rootsi_chronology.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_selection.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/correspondence.py",
@@ -70147,18 +70138,13 @@
     },
     {
       "owner_id": "source-relations/landclim/neotoma-chronology-witness/paired-source-report",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/landclim/neotoma-chronology-witness/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py"
-      ],
-      "producer_inputs": [
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
-        "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv"
-      ],
-      "verification": "The script also reads two private Rootsi workbooks (FLINK and STAV) named with SHA-256 in overlap.csv. Repository inputs alone cannot regenerate the depth/count/age witness; bind exact private workbook custody and byte comparison. No historical author chronology admission follows."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.rootsi_chronology validator binds this unchanged source receipt to two canonical Rootsi producers and two complete raw-workbook/Neotoma independent typed/whole-byte observers on c292dafa60f9d992f162c92dd327207d9aefd76b, four native exits0. The58-member authored capsule preserves3548 original identities:39execution-source,2publicreferences,2reports,7privateidentity-only,3498runtime/xlrdidentity-only. No new native-retention outcome or private payload redistribution. FLINK sign discrepancy,HOLK reversals,RANV/STAV missing source ages, negativeBP/source bounds and declared1950-minus-age/0.0500001 diagnostics remain unchanged. No authorized calendar/year-zero conversion, age correction/interpolation, historical LandClim input identity, independent chronology/ecological taxonomy, basin/uncertainty/rights/human or LRA admission."
     },
     {
       "owner_id": "source-relations/landclim/neotoma-chronology-witness/reader-account",
@@ -70210,17 +70196,13 @@
     },
     {
       "owner_id": "source-relations/landclim/workbook-chronology/source-age-audit",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/landclim/workbook-chronology/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/landclim/workbook-chronology/replay.py"
-      ],
-      "producer_inputs": [
-        "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv"
-      ],
-      "verification": "The script also reads four private Rootsi workbooks (FLINK, HOLK, RANV, STAV) named with SHA-256 in overlap.csv. Source-native age cells are absent from repository inputs; bind private workbook custody and byte comparison. Reversals remain uncorrected, with no event-date admission."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.rootsi_chronology validator binds this unchanged source receipt to two canonical Rootsi producers and two complete raw-workbook/Neotoma independent typed/whole-byte observers on c292dafa60f9d992f162c92dd327207d9aefd76b, four native exits0. The58-member authored capsule preserves3548 original identities:39execution-source,2publicreferences,2reports,7privateidentity-only,3498runtime/xlrdidentity-only. No new native-retention outcome or private payload redistribution. FLINK sign discrepancy,HOLK reversals,RANV/STAV missing source ages, negativeBP/source bounds and declared1950-minus-age/0.0500001 diagnostics remain unchanged. No authorized calendar/year-zero conversion, age correction/interpolation, historical LandClim input identity, independent chronology/ecological taxonomy, basin/uncertainty/rights/human or LRA admission."
     },
     {
       "owner_id": "source-relations/landclim/workbook-chronology/source-code",
@@ -82037,19 +82019,13 @@
     },
     {
       "owner_id": "source-relations/svar/normalized-export/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/svar/normalized-export/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/svar/normalized-export/verify.py"
-      ],
-      "producer_inputs": [
-        "data/svar/review/lake_candidate_registry_review.json",
-        "data/svar/review/sweden_lake_candidate_registry.geojson",
-        "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json"
-      ],
-      "verification": "Known verifier additionally requires three private normalized SVAR export files specified in SOURCES; those bytes remain outside repository closure. Original WFS capture/population and qualified review remain unresolved. Regenerate only after exact input custody changes; preserve zero ranked candidates,40,565export versus40,523review population difference and source_population_reconciled false."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained lake_registry.svar validator authenticates this unchanged source/refusal receipt through the genuine isolated-standard-library verifier and independent native observer on ada0128d4b96a0c0655e7b8c24ba81329f34a2cb, both native zero and whole-byte checker zero. The30-member authored source/execution capsule preserves3507 original identities:19execution-source,3currentpublicreferences,1producedreport,3privateidentity-only and3481runtimeidentity-only. Full261041034BprivateGeoJSON hashes without feature parsing; source40565 vsreview40523,99subset,zero ranked candidates and42netdifference remain exact. No new WFS/copy-chain acquisition, feature census, population reconciliation, geometry rights, qualified source review, ranking or new native-retention outcome."
     },
     {
       "owner_id": "source-relations/svar/normalized-export/source-code",
