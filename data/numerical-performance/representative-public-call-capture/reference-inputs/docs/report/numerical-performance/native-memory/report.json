@@ -1,0 +1,907 @@
+{
+  "schema_version": "native-forward-isolated-worker-memory.1",
+  "status": "passed",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "thread_settings": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "source_sha256": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/memory_compare.py": "b171b8540f1fc57f170fbb2fd79a2f6b32312f73e48a22aee882d20f40d465cc",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_compare.py": "b1f728fc54634800038b8bc71536d8dc7c289482b6ac72dfdf288fed7c315e7e",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_kernel.cpp": "44b5c3893c713042fbe7537983fef2a424c2df0b837d4c4b92761b8c644f377d",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py": "07a67fb736177b56b707676b0b6bd8f3a660b147effe852c921d3f4c1a888715",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py": "77ada317c276d286a1c5b6f0edeb47cb2714139fad72f4d1beb8990949239ae6"
+  },
+  "build": {
+    "flags": [
+      "-std=c++17",
+      "-O3",
+      "-fPIC",
+      "-dynamiclib"
+    ],
+    "elapsed_seconds": 1.0569886249941192,
+    "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+    "binary_sha256": "7e3cab896f1aea7dd7806db7d20a2ac1f14a0a954091738ab212d2e34d42b9d2"
+  },
+  "cases": [
+    {
+      "shape": [
+        1,
+        8,
+        3
+      ],
+      "observations": {
+        "numpy": [
+          {
+            "method": "numpy",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 166445056,
+            "post_call_process_peak_rss_bytes": 166445056,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 1.779200101736933e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3979719170019962
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 166215680,
+            "post_call_process_peak_rss_bytes": 166215680,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 1.7833001038525254e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.38245824999467
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 165969920,
+            "post_call_process_peak_rss_bytes": 165969920,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 1.737500133458525e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3864230420003878
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 165691392,
+            "post_call_process_peak_rss_bytes": 165691392,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.099999983329326e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4971756669983733
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 166969344,
+            "post_call_process_peak_rss_bytes": 166969344,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 1.8625003576744348e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3925956249950104
+          }
+        ],
+        "native": [
+          {
+            "method": "native",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 167067648,
+            "post_call_process_peak_rss_bytes": 167067648,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.5792003725655377e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3855697909966693
+          },
+          {
+            "method": "native",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 167231488,
+            "post_call_process_peak_rss_bytes": 167231488,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.6915993657894433e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3884269159971154
+          },
+          {
+            "method": "native",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 167182336,
+            "post_call_process_peak_rss_bytes": 167182336,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.904100256273523e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3901504170062253
+          },
+          {
+            "method": "native",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 167755776,
+            "post_call_process_peak_rss_bytes": 167755776,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.5707995519042015e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4373547909999616
+          },
+          {
+            "method": "native",
+            "shape": [
+              1,
+              8,
+              3
+            ],
+            "pre_call_process_peak_rss_bytes": 167034880,
+            "post_call_process_peak_rss_bytes": 167034880,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.6209003408439457e-05,
+            "input_sha256": "a4a4ad636248ea86f0f9fb2da3bbea92b30b6a9616dd06fbf7d10488e87f2aaa",
+            "output_sha256": "59913c5037ad725a9f27c06b8c775a59d2f5a1a6d71b55eec1c363fee949e7ec",
+            "output_shape": [
+              1,
+              3
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3820402920027846
+          }
+        ]
+      },
+      "metrics": {
+        "numpy": {
+          "median_process_peak_rss_bytes": 166215680,
+          "median_single_call_seconds": 1.7833001038525254e-05,
+          "median_whole_worker_seconds_including_import_and_export": 1.3925956249950104
+        },
+        "native": {
+          "median_process_peak_rss_bytes": 167182336,
+          "median_single_call_seconds": 2.6209003408439457e-05,
+          "median_whole_worker_seconds_including_import_and_export": 1.3884269159971154
+        }
+      },
+      "native_to_numpy_peak_rss_ratio": 1.0058156727451946,
+      "numpy_to_native_whole_worker_latency_ratio": 1.0030024691612243,
+      "numerical_parity": true
+    },
+    {
+      "shape": [
+        32,
+        128,
+        32
+      ],
+      "observations": {
+        "numpy": [
+          {
+            "method": "numpy",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 166739968,
+            "post_call_process_peak_rss_bytes": 166739968,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.6458001229912043e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "22ed8e31084e3c03a665adae68c2812bb74fcfccc451dc8a0c69ac5cd0db6ac5",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3869308749999618
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 166150144,
+            "post_call_process_peak_rss_bytes": 166150144,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.600000152597204e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "22ed8e31084e3c03a665adae68c2812bb74fcfccc451dc8a0c69ac5cd0db6ac5",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3643404169997666
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 167018496,
+            "post_call_process_peak_rss_bytes": 167018496,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.445800055284053e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "22ed8e31084e3c03a665adae68c2812bb74fcfccc451dc8a0c69ac5cd0db6ac5",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3810930830004509
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 166445056,
+            "post_call_process_peak_rss_bytes": 166445056,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.5832996470853686e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "22ed8e31084e3c03a665adae68c2812bb74fcfccc451dc8a0c69ac5cd0db6ac5",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3953343750035856
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 166543360,
+            "post_call_process_peak_rss_bytes": 166543360,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 2.5791996449697763e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "22ed8e31084e3c03a665adae68c2812bb74fcfccc451dc8a0c69ac5cd0db6ac5",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3936515419991338
+          }
+        ],
+        "native": [
+          {
+            "method": "native",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 167034880,
+            "post_call_process_peak_rss_bytes": 167034880,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 3.899999865097925e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "7aaf5d1d15ed21d28d143b63c043f6f8996ed66c02066ca52c142bd8be71c2dd",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3848767909948947
+          },
+          {
+            "method": "native",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 168394752,
+            "post_call_process_peak_rss_bytes": 168394752,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 3.466600173851475e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "7aaf5d1d15ed21d28d143b63c043f6f8996ed66c02066ca52c142bd8be71c2dd",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4125750829989556
+          },
+          {
+            "method": "native",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 167624704,
+            "post_call_process_peak_rss_bytes": 167624704,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 3.237499913666397e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "7aaf5d1d15ed21d28d143b63c043f6f8996ed66c02066ca52c142bd8be71c2dd",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3903218749983353
+          },
+          {
+            "method": "native",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 167182336,
+            "post_call_process_peak_rss_bytes": 167182336,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 3.17919984809123e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "7aaf5d1d15ed21d28d143b63c043f6f8996ed66c02066ca52c142bd8be71c2dd",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.381114499999967
+          },
+          {
+            "method": "native",
+            "shape": [
+              32,
+              128,
+              32
+            ],
+            "pre_call_process_peak_rss_bytes": 166871040,
+            "post_call_process_peak_rss_bytes": 166871040,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 3.2457995985168964e-05,
+            "input_sha256": "ad9b23c34951f16cc88452842b0561bfe57f656250e099b10e73f8f6fb667f86",
+            "output_sha256": "7aaf5d1d15ed21d28d143b63c043f6f8996ed66c02066ca52c142bd8be71c2dd",
+            "output_shape": [
+              32,
+              32
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3820750000013504
+          }
+        ]
+      },
+      "metrics": {
+        "numpy": {
+          "median_process_peak_rss_bytes": 166543360,
+          "median_single_call_seconds": 2.5832996470853686e-05,
+          "median_whole_worker_seconds_including_import_and_export": 1.3869308749999618
+        },
+        "native": {
+          "median_process_peak_rss_bytes": 167182336,
+          "median_single_call_seconds": 3.2457995985168964e-05,
+          "median_whole_worker_seconds_including_import_and_export": 1.3848767909948947
+        }
+      },
+      "native_to_numpy_peak_rss_ratio": 1.0038366945400885,
+      "numpy_to_native_whole_worker_latency_ratio": 1.0014832250915198,
+      "numerical_parity": true
+    },
+    {
+      "shape": [
+        512,
+        256,
+        64
+      ],
+      "observations": {
+        "numpy": [
+          {
+            "method": "numpy",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 165953536,
+            "post_call_process_peak_rss_bytes": 165953536,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 7.77910026954487e-05,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "f157475288311c24c30e7365c5117e86492e1865d3117223fe6c32816d0769f3",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3820409160034615
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 166625280,
+            "post_call_process_peak_rss_bytes": 166625280,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 7.77080058469437e-05,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "f157475288311c24c30e7365c5117e86492e1865d3117223fe6c32816d0769f3",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.38632625000173
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 166395904,
+            "post_call_process_peak_rss_bytes": 166395904,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 7.775000267429277e-05,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "f157475288311c24c30e7365c5117e86492e1865d3117223fe6c32816d0769f3",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3703509580009268
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 166477824,
+            "post_call_process_peak_rss_bytes": 166477824,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 7.76250017224811e-05,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "f157475288311c24c30e7365c5117e86492e1865d3117223fe6c32816d0769f3",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3887401250030962
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 166297600,
+            "post_call_process_peak_rss_bytes": 166297600,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 7.966699922690168e-05,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "f157475288311c24c30e7365c5117e86492e1865d3117223fe6c32816d0769f3",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.365997792003327
+          }
+        ],
+        "native": [
+          {
+            "method": "native",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 167165952,
+            "post_call_process_peak_rss_bytes": 167165952,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.0001320409937761724,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "db4c93b1df9f534ba8b739e98004951994747165470a8595b4fdac3b447a9a20",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3837057080017985
+          },
+          {
+            "method": "native",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 167493632,
+            "post_call_process_peak_rss_bytes": 167493632,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.00015804099530214444,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "db4c93b1df9f534ba8b739e98004951994747165470a8595b4fdac3b447a9a20",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.386868792003952
+          },
+          {
+            "method": "native",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 167591936,
+            "post_call_process_peak_rss_bytes": 167591936,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.00013324999599717557,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "db4c93b1df9f534ba8b739e98004951994747165470a8595b4fdac3b447a9a20",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3692558330003521
+          },
+          {
+            "method": "native",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 167051264,
+            "post_call_process_peak_rss_bytes": 167051264,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.00013337499694898725,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "db4c93b1df9f534ba8b739e98004951994747165470a8595b4fdac3b447a9a20",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.374122166998859
+          },
+          {
+            "method": "native",
+            "shape": [
+              512,
+              256,
+              64
+            ],
+            "pre_call_process_peak_rss_bytes": 166199296,
+            "post_call_process_peak_rss_bytes": 166199296,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.00013537499762605876,
+            "input_sha256": "8619c53b5bae205184ba52a58a7748a4f5a3b5fa701d49383b97d16c56895e50",
+            "output_sha256": "db4c93b1df9f534ba8b739e98004951994747165470a8595b4fdac3b447a9a20",
+            "output_shape": [
+              512,
+              64
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.3728320829977747
+          }
+        ]
+      },
+      "metrics": {
+        "numpy": {
+          "median_process_peak_rss_bytes": 166395904,
+          "median_single_call_seconds": 7.775000267429277e-05,
+          "median_whole_worker_seconds_including_import_and_export": 1.3820409160034615
+        },
+        "native": {
+          "median_process_peak_rss_bytes": 167165952,
+          "median_single_call_seconds": 0.00013337499694898725,
+          "median_whole_worker_seconds_including_import_and_export": 1.374122166998859
+        }
+      },
+      "native_to_numpy_peak_rss_ratio": 1.0046278062229224,
+      "numpy_to_native_whole_worker_latency_ratio": 1.005762769275382,
+      "numerical_parity": true
+    },
+    {
+      "shape": [
+        8192,
+        256,
+        512
+      ],
+      "observations": {
+        "numpy": [
+          {
+            "method": "numpy",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 270712832,
+            "post_call_process_peak_rss_bytes": 304300032,
+            "observed_peak_increment_bytes": 33587200,
+            "single_call_seconds": 0.009176666993880644,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e87497b1bd4ed759087b296c54451e317bd240d3ea0eb3f2b27fd8be31840c4a",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4447378750046482
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 271040512,
+            "post_call_process_peak_rss_bytes": 304627712,
+            "observed_peak_increment_bytes": 33587200,
+            "single_call_seconds": 0.00955262500065146,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e87497b1bd4ed759087b296c54451e317bd240d3ea0eb3f2b27fd8be31840c4a",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4688877080043312
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 271073280,
+            "post_call_process_peak_rss_bytes": 304644096,
+            "observed_peak_increment_bytes": 33570816,
+            "single_call_seconds": 0.009387916994455736,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e87497b1bd4ed759087b296c54451e317bd240d3ea0eb3f2b27fd8be31840c4a",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4714997909977683
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 271728640,
+            "post_call_process_peak_rss_bytes": 305299456,
+            "observed_peak_increment_bytes": 33570816,
+            "single_call_seconds": 0.010187291998590808,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e87497b1bd4ed759087b296c54451e317bd240d3ea0eb3f2b27fd8be31840c4a",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4613547499975539
+          },
+          {
+            "method": "numpy",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 270942208,
+            "post_call_process_peak_rss_bytes": 304513024,
+            "observed_peak_increment_bytes": 33570816,
+            "single_call_seconds": 0.009255832999770064,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e87497b1bd4ed759087b296c54451e317bd240d3ea0eb3f2b27fd8be31840c4a",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.472004208000726
+          }
+        ],
+        "native": [
+          {
+            "method": "native",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 273252352,
+            "post_call_process_peak_rss_bytes": 273252352,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.01245591600309126,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e940837ddbc16ab87ab397061e5e8411e422bbfaf501566ba430b4eab28651f1",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4771160829986911
+          },
+          {
+            "method": "native",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 273104896,
+            "post_call_process_peak_rss_bytes": 273104896,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.013476749998517334,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e940837ddbc16ab87ab397061e5e8411e422bbfaf501566ba430b4eab28651f1",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.480941083005746
+          },
+          {
+            "method": "native",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 273629184,
+            "post_call_process_peak_rss_bytes": 273629184,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.012330167002801318,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e940837ddbc16ab87ab397061e5e8411e422bbfaf501566ba430b4eab28651f1",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4736600000032922
+          },
+          {
+            "method": "native",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 273924096,
+            "post_call_process_peak_rss_bytes": 273924096,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.012562999996589497,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e940837ddbc16ab87ab397061e5e8411e422bbfaf501566ba430b4eab28651f1",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.4916528340036166
+          },
+          {
+            "method": "native",
+            "shape": [
+              8192,
+              256,
+              512
+            ],
+            "pre_call_process_peak_rss_bytes": 273498112,
+            "post_call_process_peak_rss_bytes": 273498112,
+            "observed_peak_increment_bytes": 0,
+            "single_call_seconds": 0.01250725000136299,
+            "input_sha256": "4abd5a77939600a8155d2399c7f0cbb8ca3a669e31a28e8752b5f31654938ea9",
+            "output_sha256": "e940837ddbc16ab87ab397061e5e8411e422bbfaf501566ba430b4eab28651f1",
+            "output_shape": [
+              8192,
+              512
+            ],
+            "whole_worker_seconds_including_import_and_export": 1.475737166001636
+          }
+        ]
+      },
+      "metrics": {
+        "numpy": {
+          "median_process_peak_rss_bytes": 304627712,
+          "median_single_call_seconds": 0.009387916994455736,
+          "median_whole_worker_seconds_including_import_and_export": 1.4688877080043312
+        },
+        "native": {
+          "median_process_peak_rss_bytes": 273498112,
+          "median_single_call_seconds": 0.01250725000136299,
+          "median_whole_worker_seconds_including_import_and_export": 1.4771160829986911
+        }
+      },
+      "native_to_numpy_peak_rss_ratio": 0.8978110041413435,
+      "numpy_to_native_whole_worker_latency_ratio": 0.9944294323993443,
+      "numerical_parity": true
+    }
+  ],
+  "repetitions_per_method_shape": 5,
+  "memory_metric": "per-process high-water RSS; NumPy/import/input baseline common, macOS ru_maxrss bytes, Linux KiB converted to bytes",
+  "limitation": "Whole worker includes imports and NPY export; high-water increments can be zero after import transients. The large stress shape probes that high-water blind spot but remains a synthetic standalone forward batch, not full LOVE/REVEALS throughput."
+}

@@ -9710,6 +9710,44 @@
           }
         ]
       }
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/representative-public-calls/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md",
+          "source_sha256": "81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050"
+        }
+      ],
+      "scope_reason": "Actual representative Python public-call measurements and retained negative native-adoption evidence; scientific correspondence, broader workloads, human review and release gates retain their separate scopes.",
+      "qualification": {
+        "authored_reader_sha256": "7fe749f6c9cd572d0ee00da2cffbf33ec4491ced0735e14740b8957c039673e5",
+        "fields": {
+          "supported_claim": "Completed Python measurements preserve six real author sites, ten taxa and 1,024 conditional joint draws, plus a separate larger LOVE computational workload; no named boundary qualifies as a conservative hotspot in all three isolated workers.",
+          "unsupported_claim": "This bounded machine/workload result grants no new C++ kernel, same-input source-R timing, optimizer convergence, ecological accuracy, portability, native thread-count guarantee or final release acceptance.",
+          "actual_verification_performed": "Original eight-stage execution and independent scientific/output review passed at commit 19642380cc6051ed9d6cfc3fbddfdb56b4feeba7. A separate two-stage metadata assembly and independent retained transport review preserved all 66 output/log files, all 14 worker measurements and six first-plus-seven-warm series without a new model, benchmark, profile, compiler or R call.",
+          "remaining_input_or_review": "A future native proposal requires a qualifying representative boundary, identical-input source-R/Python comparison, conversion-inclusive speed benefit, memory/build/maintenance evidence and separately qualified platforms and scientific use.",
+          "cause_category": "Measured negative native-adoption result with bounded retained numerical and resource custody.",
+          "consequence": "Python/NumPy/SciPy remains the production backend; diagnostic cProfile costs cannot substitute unprofiled conservative boundary measurements.",
+          "precise_next_acceptance_route": "Declare a representative workload and prospective conservative hotspot/adoption thresholds before another native implementation; preserve source/input identities, startup/loading/conversion, first/warm spread, complete scientific outputs and memory evidence.",
+          "negative_or_refused_result": "No boundary reaches at least 50 percent conservative inside share with at most 5 percent instrumentation overhead in every isolated worker. Earlier compiled forward conversion-inclusive ratios 0.928, 0.897 and 0.722 all fail the 2x gate. Source R and compiler execution are false for this run.",
+          "matched_denominator": "Six actual author sites, ten taxa, 1,024 conditional draws; 128 repetitions of one ten-taxon, 36-ring LOVE fixture with 32 fixed candidates, not 128 sites. Three first-plus-seven-warm workers per workload; 14 workers including equal-total two-call sequential/two-process scaling. Six vendor thread limits were requested only; maximum completed worker RSS was 252493824 bytes."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/numerical-performance/representative-public-calls/report.json",
+            "sha256": "5249ce851a8c720fd5c2b62e10bb7b0aac9cb0a8926520c677bdc87134e427c3"
+          },
+          {
+            "path": "docs/report/numerical-performance/native-forward/report.json",
+            "sha256": "4d16a1400d6878f2abf21f796fb190dd72a365f0dd40295639b8635bd807d1d5"
+          },
+          {
+            "path": "docs/report/numerical-performance/native-memory/report.json",
+            "sha256": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06"
+          }
+        ]
+      }
     }
   ]
 }

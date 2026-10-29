@@ -1,0 +1,45 @@
+{
+  "rows": [
+    {
+      "mode": "sequential",
+      "workload": "author-conditional-joint-draws",
+      "workers": [
+        100,
+        101
+      ],
+      "wall_seconds": 4.623789416975342,
+      "total_work": "2identical public workload calls; one numerical thread per worker"
+    },
+    {
+      "mode": "parallel",
+      "workload": "author-conditional-joint-draws",
+      "workers": [
+        102,
+        103
+      ],
+      "wall_seconds": 2.4152667919988744,
+      "total_work": "2identical public workload calls; one numerical thread per worker"
+    },
+    {
+      "mode": "sequential",
+      "workload": "love-larger-fixed-candidate-batch",
+      "workers": [
+        100,
+        101
+      ],
+      "wall_seconds": 10.846913665998727,
+      "total_work": "2identical public workload calls; one numerical thread per worker"
+    },
+    {
+      "mode": "parallel",
+      "workload": "love-larger-fixed-candidate-batch",
+      "workers": [
+        102,
+        103
+      ],
+      "wall_seconds": 5.434701666992623,
+      "total_work": "2identical public workload calls; one numerical thread per worker"
+    }
+  ],
+  "scope": "Independent fresh-process equal-total-work1vs2worker throughput diagnostic; startup/load costs included; no machine/platform extrapolation."
+}

@@ -48,6 +48,9 @@ from .scientific_captures.linux_r_reference import (
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
 )
+from .scientific_captures.representative_performance import (
+    validated_representative_performance_capture,
+)
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
 )
@@ -66,8 +69,8 @@ MAINTAINED_ROLE_PATHS = {
         "0180b0dc0e74063546778f1d63acdfcccf13f476ac9c5f0048ccaeb19df6c56d",
     ),
     "maintained_editorial": (
-        204,
-        "ce1c97b558ca8af8eeb8bacbb07cea0b32d2399f6b2e1fcaa7c496ffadf074ad",
+        205,
+        "7f3e78e8ef4fd6375de27d240a3e9578317a01d5f68b2ccad631601fcbf8126c",
     ),
     "maintained_configuration": (
         14,
@@ -252,6 +255,11 @@ def validated_maintained_report_sources(
             repository, tracked_by_path, inventory["owners"]
         )
     )
+    performance_entries, performance_evidence = (
+        validated_representative_performance_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
     all_capture_entries = (
         capture_entries
         + parameter_entries
@@ -260,6 +268,7 @@ def validated_maintained_report_sources(
         + linux_entries
         + author_entries
         + native_reference_entries
+        + performance_entries
         + optimizer_entries
         + constrained_entries
     )
@@ -310,4 +319,6 @@ def validated_maintained_report_sources(
         evidence["retained_constrained_author_capture"] = constrained_evidence
     if optimizer_entries:
         evidence["retained_author_optimizer_diagnostic_capture"] = optimizer_evidence
+    if performance_entries:
+        evidence["retained_representative_performance_capture"] = performance_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

@@ -1,0 +1,884 @@
+{
+  "schema_version": "representative-public-call-performance.v1",
+  "execution_candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "original_plan_sha256": "654d6c451994c277768d5aa82a5e559817df7801d93dbee33ef0b931bf8bfac9",
+  "original_common_terminal_sha256": "4f0195a2a3ee730f26bb08f22c6369af93bf67578ae4f9efdf10e55f64f64030",
+  "original_resource_terminal_sha256": "010d63133dd64afdb93949b4802fa307f1b084eeebbfe06cebe92e49f5948d1b",
+  "original_independent_review_sha256": "67b127de47dd23385677a94902f42f3faa4fe9989a2b8265e76cd3a2c0670854",
+  "observations": [
+    {
+      "worker": 0,
+      "workload": "author-conditional-joint-draws",
+      "first_seconds": 0.0008305830415338278,
+      "warm_seconds": [
+        0.0007182499975897372,
+        0.0010851669940166175,
+        0.0009909170330502093,
+        0.000968625012319535,
+        0.0009497080463916063,
+        0.0009408750338479877,
+        0.0009552499977871776
+      ],
+      "warm_median_seconds": 0.0009552499977871776,
+      "warm_min_seconds": 0.0007182499975897372,
+      "warm_max_seconds": 0.0010851669940166175,
+      "whole_worker_peak_RSS_bytes": 209158144,
+      "construction_loading_conversion_seconds": 1.833390874962788,
+      "worker_body_seconds": 2.2189096660003997,
+      "output_projection_seconds": [
+        0.008242707990575582,
+        0.02571608399739489,
+        0.01051649998407811,
+        0.010307541990187019,
+        0.010343874979298562,
+        0.010360000014770776,
+        0.010408250032924116,
+        0.009662625030614436
+      ],
+      "diagnostic_profile_total_seconds": 0.0008509170000000001,
+      "measured_unprofiled_boundaries": [
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws",
+          "attribute": "_closed_joint_draws",
+          "call_count_per_instrumented_public_call": 1,
+          "timings_seconds": {
+            "baseline": [
+              0.0007429590332321823,
+              0.0006905830232426524,
+              0.0009462079615332186
+            ],
+            "passthrough": [
+              0.000942208047490567,
+              0.0009338749805465341,
+              0.0009341249824501574
+            ],
+            "instrumented": [
+              0.000663416984025389,
+              0.000932459020987153,
+              0.0009283749968744814
+            ],
+            "inside": [
+              0.00029195804381743073,
+              0.00042679195757955313,
+              0.0004255410167388618
+            ],
+            "clock_cost": [
+              1.25030055642128e-07,
+              1.2497184798121452e-07,
+              8.399365469813347e-08
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.24956418234214375,
+            "conservative_measured_boundary_share": 0.04249381864080042,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        }
+      ],
+      "warnings": [],
+      "contract": {
+        "source": "six original author sites; fixed chronology/static source radius",
+        "sites": [
+          "BROADOWN",
+          "HANGINGS",
+          "HARESDOWN",
+          "LOBBSBOG",
+          "WINDMILL",
+          "WINNEYS"
+        ],
+        "taxa": [
+          "Alnus.glutinosa",
+          "Betula",
+          "Calluna.vulgaris",
+          "Cerealia.t",
+          "Corylus.avellana",
+          "Cyperaceae",
+          "Pinus",
+          "Plantago.lanceolata.type",
+          "Poaceae",
+          "Quercus.deciduous"
+        ],
+        "draws": 1024,
+        "selected_counts": [
+          289,
+          293,
+          2223,
+          2786,
+          4251,
+          562
+        ],
+        "profile": "reveals-joint-site-count-ppe-draws-v1",
+        "ecological_accuracy": false
+      },
+      "input_identity": "23e911874df29a0f5534e471cbbce49522da192a0c2fb5bee6a850dfad8b03fb",
+      "scientific_output_sha256": "0280b4291ac792c4ee8939e082a76f22c268c84282c408e6acdce8da39d6c1d5"
+    },
+    {
+      "worker": 1,
+      "workload": "author-conditional-joint-draws",
+      "first_seconds": 0.0008313329890370369,
+      "warm_seconds": [
+        0.0007552080205641687,
+        0.0008718749741092324,
+        0.0008489169995300472,
+        0.0007734170067124069,
+        0.0007722089649178088,
+        0.000784709001891315,
+        0.0007739170105196536
+      ],
+      "warm_median_seconds": 0.0007739170105196536,
+      "warm_min_seconds": 0.0007552080205641687,
+      "warm_max_seconds": 0.0008718749741092324,
+      "whole_worker_peak_RSS_bytes": 210649088,
+      "construction_loading_conversion_seconds": 1.830981959006749,
+      "worker_body_seconds": 2.208992583968211,
+      "output_projection_seconds": [
+        0.008452458016108721,
+        0.026086792000569403,
+        0.008489167026709765,
+        0.008833166968543082,
+        0.008663624990731478,
+        0.008759541029576212,
+        0.008694333955645561,
+        0.008824374992400408
+      ],
+      "diagnostic_profile_total_seconds": 0.0010191250000000003,
+      "measured_unprofiled_boundaries": [
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws",
+          "attribute": "_closed_joint_draws",
+          "call_count_per_instrumented_public_call": 1,
+          "timings_seconds": {
+            "baseline": [
+              0.0008426670101471245,
+              0.0007635839865542948,
+              0.001042041985783726
+            ],
+            "passthrough": [
+              0.0010089579736813903,
+              0.0010180830140598118,
+              0.001003290992230177
+            ],
+            "instrumented": [
+              0.0009970830287784338,
+              0.001007665996439755,
+              0.0010167919681407511
+            ],
+            "inside": [
+              0.0004493749584071338,
+              0.00045529199996963143,
+              0.00045662501361221075
+            ],
+            "clock_cost": [
+              8.300412446260452e-08,
+              0.0,
+              4.196772351861e-08
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.19580567923719075,
+            "conservative_measured_boundary_share": 0.18693385625018677,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        }
+      ],
+      "warnings": [],
+      "contract": {
+        "source": "six original author sites; fixed chronology/static source radius",
+        "sites": [
+          "BROADOWN",
+          "HANGINGS",
+          "HARESDOWN",
+          "LOBBSBOG",
+          "WINDMILL",
+          "WINNEYS"
+        ],
+        "taxa": [
+          "Alnus.glutinosa",
+          "Betula",
+          "Calluna.vulgaris",
+          "Cerealia.t",
+          "Corylus.avellana",
+          "Cyperaceae",
+          "Pinus",
+          "Plantago.lanceolata.type",
+          "Poaceae",
+          "Quercus.deciduous"
+        ],
+        "draws": 1024,
+        "selected_counts": [
+          289,
+          293,
+          2223,
+          2786,
+          4251,
+          562
+        ],
+        "profile": "reveals-joint-site-count-ppe-draws-v1",
+        "ecological_accuracy": false
+      },
+      "input_identity": "23e911874df29a0f5534e471cbbce49522da192a0c2fb5bee6a850dfad8b03fb",
+      "scientific_output_sha256": "0280b4291ac792c4ee8939e082a76f22c268c84282c408e6acdce8da39d6c1d5"
+    },
+    {
+      "worker": 2,
+      "workload": "author-conditional-joint-draws",
+      "first_seconds": 0.0008304169750772417,
+      "warm_seconds": [
+        0.0007640839903615415,
+        0.0008151249494403601,
+        0.000738415983505547,
+        0.0010453749564476311,
+        0.0010256250388920307,
+        0.0010127080022357404,
+        0.001021042000502348
+      ],
+      "warm_median_seconds": 0.0010127080022357404,
+      "warm_min_seconds": 0.000738415983505547,
+      "warm_max_seconds": 0.0010453749564476311,
+      "whole_worker_peak_RSS_bytes": 209125376,
+      "construction_loading_conversion_seconds": 1.9218627500231378,
+      "worker_body_seconds": 2.299774667015299,
+      "output_projection_seconds": [
+        0.008485041034873575,
+        0.024559082987252623,
+        0.008736125018913299,
+        0.010660542000550777,
+        0.010742250015027821,
+        0.010751374997198582,
+        0.01070208300370723,
+        0.010745499981567264
+      ],
+      "diagnostic_profile_total_seconds": 0.0011703330000000002,
+      "measured_unprofiled_boundaries": [
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws",
+          "attribute": "_closed_joint_draws",
+          "call_count_per_instrumented_public_call": 1,
+          "timings_seconds": {
+            "baseline": [
+              0.0007980830268934369,
+              0.0007508330163545907,
+              0.0007201249827630818
+            ],
+            "passthrough": [
+              0.0007226250017993152,
+              0.0007360410527326167,
+              0.0007254999945871532
+            ],
+            "instrumented": [
+              0.000706166960299015,
+              0.0007033750298433006,
+              0.0007131249876692891
+            ],
+            "inside": [
+              0.0003059999435208738,
+              0.0003048329963348806,
+              0.0003090830286964774
+            ],
+            "clock_cost": [
+              4.202593117952347e-08,
+              8.399365469813347e-08,
+              4.202593117952347e-08
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.0,
+            "conservative_measured_boundary_share": 0.36190837666970416,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        }
+      ],
+      "warnings": [],
+      "contract": {
+        "source": "six original author sites; fixed chronology/static source radius",
+        "sites": [
+          "BROADOWN",
+          "HANGINGS",
+          "HARESDOWN",
+          "LOBBSBOG",
+          "WINDMILL",
+          "WINNEYS"
+        ],
+        "taxa": [
+          "Alnus.glutinosa",
+          "Betula",
+          "Calluna.vulgaris",
+          "Cerealia.t",
+          "Corylus.avellana",
+          "Cyperaceae",
+          "Pinus",
+          "Plantago.lanceolata.type",
+          "Poaceae",
+          "Quercus.deciduous"
+        ],
+        "draws": 1024,
+        "selected_counts": [
+          289,
+          293,
+          2223,
+          2786,
+          4251,
+          562
+        ],
+        "profile": "reveals-joint-site-count-ppe-draws-v1",
+        "ecological_accuracy": false
+      },
+      "input_identity": "23e911874df29a0f5534e471cbbce49522da192a0c2fb5bee6a850dfad8b03fb",
+      "scientific_output_sha256": "0280b4291ac792c4ee8939e082a76f22c268c84282c408e6acdce8da39d6c1d5"
+    },
+    {
+      "worker": 0,
+      "workload": "love-larger-fixed-candidate-batch",
+      "first_seconds": 2.867185417038854,
+      "warm_seconds": [
+        2.801637875032611,
+        2.8074027089751326,
+        2.764516166993417,
+        2.811649082985241,
+        2.781291167018935,
+        2.8655127080273814,
+        2.9602626250125468
+      ],
+      "warm_median_seconds": 2.8074027089751326,
+      "warm_min_seconds": 2.764516166993417,
+      "warm_max_seconds": 2.9602626250125468,
+      "whole_worker_peak_RSS_bytes": 241401856,
+      "construction_loading_conversion_seconds": 1.9428681670106016,
+      "worker_body_seconds": 83.58235820801929,
+      "output_projection_seconds": [
+        0.05957141699036583,
+        0.060231958981603384,
+        0.06149958400055766,
+        0.08173599996371195,
+        0.08657470799516886,
+        0.08572637499310076,
+        0.06282066600397229,
+        0.06261591700604185
+      ],
+      "diagnostic_profile_total_seconds": 6.000932295000003,
+      "measured_unprofiled_boundaries": [
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.optimized",
+          "attribute": "tf",
+          "call_count_per_instrumented_public_call": 33792,
+          "timings_seconds": {
+            "baseline": [
+              2.8210478329565376,
+              2.9174585840082727,
+              2.9270946659962647
+            ],
+            "passthrough": [
+              2.8018716250080615,
+              2.796562500006985,
+              2.8336172080016695
+            ],
+            "instrumented": [
+              2.821178416023031,
+              2.8205532919964753,
+              2.7993079170119017
+            ],
+            "inside": [
+              0.6253803218714893,
+              0.62362577120075,
+              0.6209873862680979
+            ],
+            "clock_cost": [
+              0.0012492011883296072,
+              0.0012335274368524551,
+              0.0012302568648010492
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.0,
+            "conservative_measured_boundary_share": 0.20743053413613485,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        },
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.optimized",
+          "attribute": "calK",
+          "call_count_per_instrumented_public_call": 128,
+          "timings_seconds": {
+            "baseline": [
+              2.770412750018295,
+              2.818214665981941,
+              2.7571587080019526
+            ],
+            "passthrough": [
+              2.766799833974801,
+              2.8400739999487996,
+              2.8012848750222474
+            ],
+            "instrumented": [
+              2.816578958008904,
+              2.813838250003755,
+              2.785253542009741
+            ],
+            "inside": [
+              0.384744793176651,
+              0.3881598340230994,
+              0.38358428882202134
+            ],
+            "clock_cost": [
+              4.8318179324269295e-06,
+              4.502595402300358e-06,
+              4.626985173672438e-06
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.015674740157463334,
+            "conservative_measured_boundary_share": 0.10668604087775639,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        }
+      ],
+      "warnings": [
+        "Terrestrial area exceeds geometric ring area; the source ratio is retained rather than clipped"
+      ],
+      "contract": {
+        "source": "128 logical computational repetitions of one published LOVEexample; no independent field sites/ages",
+        "logical_calls": 128,
+        "physical_fixture": 1,
+        "taxa": 10,
+        "rings": 36,
+        "repeats": 2,
+        "candidates": 32,
+        "config": {
+          "method": "optimized",
+          "regional_basin_type": "lake",
+          "regional_basin_diameter_m": 300,
+          "local_basin_diameter_m": 12.9,
+          "max_ring": 10,
+          "distance_weighting": "lsm unstable",
+          "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+          "repeats": 2,
+          "stochastic": false,
+          "seed": 7,
+          "retain_samples": false,
+          "ppe_error": true,
+          "optimizer_iterations": 200,
+          "optimizer_max_evaluations": 32,
+          "optimizer_tolerance": 0.01,
+          "optimized_profile": "disqover-0.9.14-source"
+        },
+        "optimizer_search_convergence": false
+      },
+      "input_identity": "2fcc2109bf66e65b4abb5497ef46e34d220387803c41e84703f2f4aa5ffdd9d0",
+      "scientific_output_sha256": "47e6a49fe5b768571542ab1c5058da498455797e9b4907bb6cf3f97debfd69d1"
+    },
+    {
+      "worker": 1,
+      "workload": "love-larger-fixed-candidate-batch",
+      "first_seconds": 2.842722249974031,
+      "warm_seconds": [
+        2.8118055829545483,
+        2.8306367499753833,
+        2.775882333982736,
+        2.751611542014871,
+        2.767751084000338,
+        2.7448422919842415,
+        2.78167375002522
+      ],
+      "warm_median_seconds": 2.775882333982736,
+      "warm_min_seconds": 2.7448422919842415,
+      "warm_max_seconds": 2.8306367499753833,
+      "whole_worker_peak_RSS_bytes": 240025600,
+      "construction_loading_conversion_seconds": 1.9817666670423932,
+      "worker_body_seconds": 82.44443587498972,
+      "output_projection_seconds": [
+        0.06039649999001995,
+        0.059353207994718105,
+        0.06059708300745115,
+        0.08201112505048513,
+        0.08493479201570153,
+        0.08540354098659009,
+        0.06107795803109184,
+        0.05922704195836559
+      ],
+      "diagnostic_profile_total_seconds": 5.7291604300000065,
+      "measured_unprofiled_boundaries": [
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.optimized",
+          "attribute": "tf",
+          "call_count_per_instrumented_public_call": 33792,
+          "timings_seconds": {
+            "baseline": [
+              2.7752282909932546,
+              2.7676484170369804,
+              2.7369931249995716
+            ],
+            "passthrough": [
+              2.745939167041797,
+              2.7554221249883994,
+              2.7992986669996753
+            ],
+            "instrumented": [
+              2.806579500029329,
+              2.7907830830081366,
+              2.778554084012285
+            ],
+            "inside": [
+              0.6227373724104837,
+              0.6217009501415305,
+              0.6184728147927672
+            ],
+            "clock_cost": [
+              0.0012488559586927295,
+              0.0012554270797409117,
+              0.0012033787788823247
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.008358961285958415,
+            "conservative_measured_boundary_share": 0.19995178325107066,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        },
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.optimized",
+          "attribute": "calK",
+          "call_count_per_instrumented_public_call": 128,
+          "timings_seconds": {
+            "baseline": [
+              2.808805749984458,
+              2.783098332991358,
+              2.8398413329850882
+            ],
+            "passthrough": [
+              2.8254183340468444,
+              2.852579958969727,
+              2.814319958037231
+            ],
+            "instrumented": [
+              2.7834844579920173,
+              2.762423917010892,
+              2.7959955420228653
+            ],
+            "inside": [
+              0.38167262193746865,
+              0.3820969997905195,
+              0.38671141618397087
+            ],
+            "clock_cost": [
+              4.662550054490566e-06,
+              4.957953933626413e-06,
+              4.627101588994265e-06
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.0,
+            "conservative_measured_boundary_share": 0.10993080295687245,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        }
+      ],
+      "warnings": [
+        "Terrestrial area exceeds geometric ring area; the source ratio is retained rather than clipped"
+      ],
+      "contract": {
+        "source": "128 logical computational repetitions of one published LOVEexample; no independent field sites/ages",
+        "logical_calls": 128,
+        "physical_fixture": 1,
+        "taxa": 10,
+        "rings": 36,
+        "repeats": 2,
+        "candidates": 32,
+        "config": {
+          "method": "optimized",
+          "regional_basin_type": "lake",
+          "regional_basin_diameter_m": 300,
+          "local_basin_diameter_m": 12.9,
+          "max_ring": 10,
+          "distance_weighting": "lsm unstable",
+          "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+          "repeats": 2,
+          "stochastic": false,
+          "seed": 7,
+          "retain_samples": false,
+          "ppe_error": true,
+          "optimizer_iterations": 200,
+          "optimizer_max_evaluations": 32,
+          "optimizer_tolerance": 0.01,
+          "optimized_profile": "disqover-0.9.14-source"
+        },
+        "optimizer_search_convergence": false
+      },
+      "input_identity": "2fcc2109bf66e65b4abb5497ef46e34d220387803c41e84703f2f4aa5ffdd9d0",
+      "scientific_output_sha256": "47e6a49fe5b768571542ab1c5058da498455797e9b4907bb6cf3f97debfd69d1"
+    },
+    {
+      "worker": 2,
+      "workload": "love-larger-fixed-candidate-batch",
+      "first_seconds": 2.816526416980196,
+      "warm_seconds": [
+        2.816887416993268,
+        2.790367499983404,
+        2.7893995419726707,
+        2.7909332090057433,
+        2.754365874978248,
+        2.7749613749911077,
+        2.7830130830407143
+      ],
+      "warm_median_seconds": 2.7893995419726707,
+      "warm_min_seconds": 2.754365874978248,
+      "warm_max_seconds": 2.816887416993268,
+      "whole_worker_peak_RSS_bytes": 252493824,
+      "construction_loading_conversion_seconds": 1.9774617080111057,
+      "worker_body_seconds": 82.98108562495327,
+      "output_projection_seconds": [
+        0.060224250017199665,
+        0.05901362496661022,
+        0.06357412494253367,
+        0.08234874997287989,
+        0.08438474999275059,
+        0.08364349999465048,
+        0.06278208404546604,
+        0.059156375005841255
+      ],
+      "diagnostic_profile_total_seconds": 5.7291322929999975,
+      "measured_unprofiled_boundaries": [
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.optimized",
+          "attribute": "tf",
+          "call_count_per_instrumented_public_call": 33792,
+          "timings_seconds": {
+            "baseline": [
+              2.77660741598811,
+              2.809697833028622,
+              2.8158420840045437
+            ],
+            "passthrough": [
+              2.7596145829884335,
+              2.8064407919882797,
+              2.7561604999937117
+            ],
+            "instrumented": [
+              2.8024269589805044,
+              2.858542999951169,
+              2.82988249999471
+            ],
+            "inside": [
+              0.623477969376836,
+              0.6283831016044132,
+              0.6243473156355321
+            ],
+            "clock_cost": [
+              0.0012247802806086838,
+              0.0012412918149493635,
+              0.0012813330977223814
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.007183928011337331,
+            "conservative_measured_boundary_share": 0.2103680684523742,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        },
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.optimized",
+          "attribute": "calK",
+          "call_count_per_instrumented_public_call": 128,
+          "timings_seconds": {
+            "baseline": [
+              2.794839875015896,
+              2.867801500018686,
+              2.9970418750308454
+            ],
+            "passthrough": [
+              2.8809962079976685,
+              2.8428976249997504,
+              2.8061202919925563
+            ],
+            "instrumented": [
+              2.773531415965408,
+              2.7857147920294665,
+              2.751619832997676
+            ],
+            "inside": [
+              0.3826175040449016,
+              0.3905301188933663,
+              0.38415267161326483
+            ],
+            "clock_cost": [
+              4.958361387252808e-06,
+              4.880130290985107e-06,
+              4.590488970279694e-06
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.0,
+            "conservative_measured_boundary_share": 0.09891627313305074,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        }
+      ],
+      "warnings": [
+        "Terrestrial area exceeds geometric ring area; the source ratio is retained rather than clipped"
+      ],
+      "contract": {
+        "source": "128 logical computational repetitions of one published LOVEexample; no independent field sites/ages",
+        "logical_calls": 128,
+        "physical_fixture": 1,
+        "taxa": 10,
+        "rings": 36,
+        "repeats": 2,
+        "candidates": 32,
+        "config": {
+          "method": "optimized",
+          "regional_basin_type": "lake",
+          "regional_basin_diameter_m": 300,
+          "local_basin_diameter_m": 12.9,
+          "max_ring": 10,
+          "distance_weighting": "lsm unstable",
+          "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+          "repeats": 2,
+          "stochastic": false,
+          "seed": 7,
+          "retain_samples": false,
+          "ppe_error": true,
+          "optimizer_iterations": 200,
+          "optimizer_max_evaluations": 32,
+          "optimizer_tolerance": 0.01,
+          "optimized_profile": "disqover-0.9.14-source"
+        },
+        "optimizer_search_convergence": false
+      },
+      "input_identity": "2fcc2109bf66e65b4abb5497ef46e34d220387803c41e84703f2f4aa5ffdd9d0",
+      "scientific_output_sha256": "47e6a49fe5b768571542ab1c5058da498455797e9b4907bb6cf3f97debfd69d1"
+    }
+  ],
+  "all_worker_boundary_assessments": {
+    "bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws:_closed_joint_draws": [
+      {
+        "instrumentation_overhead_ratio": 0.24956418234214375,
+        "conservative_measured_boundary_share": 0.04249381864080042,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.19580567923719075,
+        "conservative_measured_boundary_share": 0.18693385625018677,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.0,
+        "conservative_measured_boundary_share": 0.36190837666970416,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      }
+    ],
+    "bijux_pollenomics_lra.reconstruction.optimized:tf": [
+      {
+        "instrumentation_overhead_ratio": 0.0,
+        "conservative_measured_boundary_share": 0.20743053413613485,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.008358961285958415,
+        "conservative_measured_boundary_share": 0.19995178325107066,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.007183928011337331,
+        "conservative_measured_boundary_share": 0.2103680684523742,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      }
+    ],
+    "bijux_pollenomics_lra.reconstruction.optimized:calK": [
+      {
+        "instrumentation_overhead_ratio": 0.015674740157463334,
+        "conservative_measured_boundary_share": 0.10668604087775639,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.0,
+        "conservative_measured_boundary_share": 0.10993080295687245,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.0,
+        "conservative_measured_boundary_share": 0.09891627313305074,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      }
+    ]
+  },
+  "qualified_all_three_worker_hotspots": [],
+  "scaling": {
+    "rows": [
+      {
+        "mode": "sequential",
+        "workload": "author-conditional-joint-draws",
+        "workers": [
+          100,
+          101
+        ],
+        "wall_seconds": 4.623789416975342,
+        "total_work": "2identical public workload calls; one numerical thread per worker"
+      },
+      {
+        "mode": "parallel",
+        "workload": "author-conditional-joint-draws",
+        "workers": [
+          102,
+          103
+        ],
+        "wall_seconds": 2.4152667919988744,
+        "total_work": "2identical public workload calls; one numerical thread per worker"
+      },
+      {
+        "mode": "sequential",
+        "workload": "love-larger-fixed-candidate-batch",
+        "workers": [
+          100,
+          101
+        ],
+        "wall_seconds": 10.846913665998727,
+        "total_work": "2identical public workload calls; one numerical thread per worker"
+      },
+      {
+        "mode": "parallel",
+        "workload": "love-larger-fixed-candidate-batch",
+        "workers": [
+          102,
+          103
+        ],
+        "wall_seconds": 5.434701666992623,
+        "total_work": "2identical public workload calls; one numerical thread per worker"
+      }
+    ],
+    "scope": "Independent fresh-process equal-total-work1vs2worker throughput diagnostic; startup/load costs included; no machine/platform extrapolation."
+  },
+  "new_cpp_allowed": false,
+  "source_R_same_input_comparison_executed": false,
+  "thread_scope": "One numerical thread is requested through six pinned vendor environment variables; immutable runtime lacks threadpoolctl, so no native thread-counter observation is claimed. Maximum two worker processes is independently bounded.",
+  "scope": "Source-qualified actual six-site/ten-taxon/1024stored conditional joint draw public calls and128synthetic computational LOVEexample repetitions, never128independent sites. Three isolated first+sevenwarm calls each, separate diagnostic profile and unprofiled one-boundary measurements, equal-total1vs2workers. No sourceR execution, optimizer search, newC++compiler/kernel, ecological/rights/human or release admission; old seven-workload/64replica timings retain historical scope. Confirmed measured hotspot alone cannot authorize compilation: same-input currentR/Python and separately reviewed prospective spike remain required.",
+  "remaining": "Any candidate still requires actual current identical-input sourceR/Python comparison and a separately reviewed compiled proposal under the existing2x conversion-inclusive/1.25RSS gates. No C++ adoption, optimizer convergence, field-site/vegetation/right/human or official release conclusion.",
+  "retained_capture": "data/numerical-performance/representative-public-call-capture/capture.json",
+  "resource_scope": "Completed-child peak RSS and complete regular logical output were checked, not OS quotas or full descendant RSS. First-call means a fresh process, not a proven cold OS cache. Full process stage wall time includes startup; input loading/construction/conversion and output projection are separate from the public call."
+}

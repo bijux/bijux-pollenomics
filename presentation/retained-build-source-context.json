@@ -97,7 +97,7 @@
     "pyproject.toml": "a3d3d57eceaba706062cc94626bbc9f41c4bc0894f574d29b098d9abd332af04",
     "reports/README.md": "6ef5f7438cc06b3492cc62d2395ec10f3d91340d07a324599c8c9c6efa584f01",
     "reports/architecture/lra-distribution.md": "9a6c1b006d297dc46953499b6d7878503242ab84429320fbf82c345c25bebed4",
-    "reports/architecture/native-backend.md": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
+    "reports/architecture/native-backend.md": "8e4332de128fbe44bc9e81f1b8b84b46a29720a05bb3f833110fdc34e94c1935",
     "reports/architecture/ownership.md": "4b132e361c80a15acf4bc9a9dafc63d22301e2c5716f2b1a7a3f75cc3512fd05",
     "reports/exports/papers/README.md": "5a6cfe830001835c67f59b004f6ce1a5599b771bdb74f5edc3f9f4860efcdc31",
     "reports/exports/papers/manifest.json": "0c22f93d47b0b3981b2d0662fcb6903ca3fb7d5ccad9a28b33720c5eb798710f",
@@ -180,7 +180,7 @@
       "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
       "retained_sha256": "ad61e39b3ef43b2ad2cfcd0d170017cf776924d55f261e4ae0c56e155de785e5",
       "current_sha256": "7bbd9a14fd3660b534e24430f2370c01beeee03854ea0cc5008b4f4a4b167bcc",
-      "review": "Adds the separately qualified analyst-declared wind scenario to the existing static geometry account, retaining original geometry result/paired SE and all no-historical-wind/accuracy qualifications. Deck geometry result remains unchanged; new wind outcomes are not retroactively attributed to retained slides. The current reader also adds95 individual measured Betula/Poaceae aliquot fixed-response/PPE pair-relative binomial confidence requests, conditional on each observed70\u2013558grain pair total. It preserves the omitted PPE uncertainty, no pooling/simultaneous95-sample guarantee, unchanged original24window points/SEs, native-controller resource refusal and cache-free observer correction. These new counting outcomes are not historical slide inputs or ecological coverage evidence. Only repository-relative source hyperlink destinations now select exact site-local first-party attachments. Link labels, scientific prose, results, original source archive restrictions and retained PDF bytes are unchanged. The final authored-byte identity and managed source-only projection are rebound after site source-link rendering; scientific qualification fields remain unchanged. The terminal scientific-verification evidence links now select the same eight sealed first-party docs/source-files attachments; each preserves the raw origin SHA-256, size and Git blob. Authored reader bytes and all nine scientific fields remain exact. This correspondence does not regenerate or relabel retained PDFs."
+      "review": "Adds the separately qualified analyst-declared wind scenario to the existing static geometry account, retaining original geometry result/paired SE and all no-historical-wind/accuracy qualifications. Deck geometry result remains unchanged; new wind outcomes are not retroactively attributed to retained slides. The current reader also adds95 individual measured Betula/Poaceae aliquot fixed-response/PPE pair-relative binomial confidence requests, conditional on each observed70–558grain pair total. It preserves the omitted PPE uncertainty, no pooling/simultaneous95-sample guarantee, unchanged original24window points/SEs, native-controller resource refusal and cache-free observer correction. These new counting outcomes are not historical slide inputs or ecological coverage evidence. Only repository-relative source hyperlink destinations now select exact site-local first-party attachments. Link labels, scientific prose, results, original source archive restrictions and retained PDF bytes are unchanged. The final authored-byte identity and managed source-only projection are rebound after site source-link rendering; scientific qualification fields remain unchanged. The terminal scientific-verification evidence links now select the same eight sealed first-party docs/source-files attachments; each preserves the raw origin SHA-256, size and Git blob. Authored reader bytes and all nine scientific fields remain exact. This correspondence does not regenerate or relabel retained PDFs."
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json",
@@ -235,6 +235,12 @@
       "retained_sha256": "f25789861279ac09c4d02b4cfe411ab726be75649584c788dd150426c4abf005",
       "current_sha256": "6ef5f7438cc06b3492cc62d2395ec10f3d91340d07a324599c8c9c6efa584f01",
       "review": "Current entry point corrects61account rows and1468 normalizedanimal IDs partition322mapped/1146excluded; all13 animal input identities and CSV61distinct existing paths verified. No source model or original slide text changed."
+    },
+    {
+      "path": "reports/architecture/native-backend.md",
+      "retained_sha256": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
+      "current_sha256": "8e4332de128fbe44bc9e81f1b8b84b46a29720a05bb3f833110fdc34e94c1935",
+      "review": "Current architecture appends completed source116 representative Python performance: six real author sites and128 repetitions of one LOVE fixture; complete first/warm and unprofiled boundary measurements, zero qualifying hotspots. Original negative C++ ratios and architecture prose remain exact. Original121-source lock, three PDFs and historical native PDF receipts are unchanged; the appended current account was not rendered into those PDFs and grants no compiled backend or scientific acceptance."
     },
     {
       "path": "reports/needed/README.md",

@@ -1,0 +1,453 @@
+{
+  "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "worker": 2,
+  "rows": [
+    {
+      "workload": "author-conditional-joint-draws",
+      "contract": {
+        "source": "six original author sites; fixed chronology/static source radius",
+        "sites": [
+          "BROADOWN",
+          "HANGINGS",
+          "HARESDOWN",
+          "LOBBSBOG",
+          "WINDMILL",
+          "WINNEYS"
+        ],
+        "taxa": [
+          "Alnus.glutinosa",
+          "Betula",
+          "Calluna.vulgaris",
+          "Cerealia.t",
+          "Corylus.avellana",
+          "Cyperaceae",
+          "Pinus",
+          "Plantago.lanceolata.type",
+          "Poaceae",
+          "Quercus.deciduous"
+        ],
+        "draws": 1024,
+        "selected_counts": [
+          289,
+          293,
+          2223,
+          2786,
+          4251,
+          562
+        ],
+        "profile": "reveals-joint-site-count-ppe-draws-v1",
+        "ecological_accuracy": false
+      },
+      "input_identity": "23e911874df29a0f5534e471cbbce49522da192a0c2fb5bee6a850dfad8b03fb",
+      "construction_loading_conversion_seconds": 1.9218627500231378,
+      "first_public_call_seconds": 0.0008304169750772417,
+      "warm_public_call_seconds": [
+        0.0007640839903615415,
+        0.0008151249494403601,
+        0.000738415983505547,
+        0.0010453749564476311,
+        0.0010256250388920307,
+        0.0010127080022357404,
+        0.001021042000502348
+      ],
+      "output_projection_seconds": [
+        0.008485041034873575,
+        0.024559082987252623,
+        0.008736125018913299,
+        0.010660542000550777,
+        0.010742250015027821,
+        0.010751374997198582,
+        0.01070208300370723,
+        0.010745499981567264
+      ],
+      "scientific_output_sha256": "0280b4291ac792c4ee8939e082a76f22c268c84282c408e6acdce8da39d6c1d5",
+      "scientific_output_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-2/author-conditional-joint-draws.json",
+      "diagnostic_profile_total_seconds": 0.0011703330000000002,
+      "diagnostic_top_self": [
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'reduce' of 'numpy.ufunc' objects>",
+          "calls": 37,
+          "self_seconds": 0.000579338,
+          "cumulative_seconds": 0.000579338
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+          "line": 68,
+          "function": "joint_site_cover_draws",
+          "calls": 1,
+          "self_seconds": 0.000264498,
+          "cumulative_seconds": 0.001162166
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+          "line": 25,
+          "function": "_closed_joint_draws",
+          "calls": 1,
+          "self_seconds": 0.000117583,
+          "cumulative_seconds": 0.0004930000000000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py",
+          "line": 2674,
+          "function": "cov",
+          "calls": 1,
+          "self_seconds": 2.6208e-05,
+          "cumulative_seconds": 7.000000000000001e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 86,
+          "function": "_wrapreduction_any_all",
+          "calls": 19,
+          "self_seconds": 1.8121e-05,
+          "cumulative_seconds": 0.00019129000000000002
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/numeric.py",
+          "line": 2384,
+          "function": "isclose",
+          "calls": 1,
+          "self_seconds": 1.6211e-05,
+          "cumulative_seconds": 3.0833e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/numeric.py",
+          "line": 2535,
+          "function": "array_equal",
+          "calls": 1,
+          "self_seconds": 1.2124000000000001e-05,
+          "cumulative_seconds": 1.3916e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_stride_tricks_impl.py",
+          "line": 373,
+          "function": "_broadcast_to",
+          "calls": 2,
+          "self_seconds": 1.15e-05,
+          "cumulative_seconds": 1.6625e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/_methods.py",
+          "line": 115,
+          "function": "_mean",
+          "calls": 2,
+          "self_seconds": 9.04e-06,
+          "cumulative_seconds": 4.6249000000000004e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 2436,
+          "function": "any",
+          "calls": 16,
+          "self_seconds": 8.669000000000001e-06,
+          "cumulative_seconds": 0.000190168
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py",
+          "line": 99,
+          "function": "<lambda>",
+          "calls": 1,
+          "self_seconds": 8.042e-06,
+          "cumulative_seconds": 0.001170208
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py",
+          "line": 439,
+          "function": "average",
+          "calls": 1,
+          "self_seconds": 6.126e-06,
+          "cumulative_seconds": 3.85e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 88,
+          "function": "<dictcomp>",
+          "calls": 19,
+          "self_seconds": 5.292e-06,
+          "cumulative_seconds": 5.292e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method numpy.array>",
+          "calls": 3,
+          "self_seconds": 5e-06,
+          "cumulative_seconds": 5e-06
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/numeric.py",
+          "line": 2290,
+          "function": "allclose",
+          "calls": 1,
+          "self_seconds": 4.877e-06,
+          "cumulative_seconds": 3.8459000000000006e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/numeric.py",
+          "line": 1431,
+          "function": "normalize_axis_tuple",
+          "calls": 1,
+          "self_seconds": 4.749000000000001e-06,
+          "cumulative_seconds": 5.75e-06
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/_methods.py",
+          "line": 64,
+          "function": "_all",
+          "calls": 10,
+          "self_seconds": 4.249e-06,
+          "cumulative_seconds": 3.4916e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/_methods.py",
+          "line": 73,
+          "function": "_count_reduce_items",
+          "calls": 2,
+          "self_seconds": 4.209e-06,
+          "cumulative_seconds": 4.792e-06
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/_ufunc_config.py",
+          "line": 472,
+          "function": "__enter__",
+          "calls": 2,
+          "self_seconds": 3.832e-06,
+          "cumulative_seconds": 4.958000000000001e-06
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 2304,
+          "function": "sum",
+          "calls": 2,
+          "self_seconds": 3.5830000000000003e-06,
+          "cumulative_seconds": 0.000139292
+        }
+      ],
+      "diagnostic_top_cumulative": [
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py",
+          "line": 99,
+          "function": "<lambda>",
+          "calls": 1,
+          "self_seconds": 8.042e-06,
+          "cumulative_seconds": 0.001170208
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+          "line": 68,
+          "function": "joint_site_cover_draws",
+          "calls": 1,
+          "self_seconds": 0.000264498,
+          "cumulative_seconds": 0.001162166
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'reduce' of 'numpy.ufunc' objects>",
+          "calls": 37,
+          "self_seconds": 0.000579338,
+          "cumulative_seconds": 0.000579338
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+          "line": 25,
+          "function": "_closed_joint_draws",
+          "calls": 1,
+          "self_seconds": 0.000117583,
+          "cumulative_seconds": 0.0004930000000000001
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'sum' of 'numpy.ndarray' objects>",
+          "calls": 6,
+          "self_seconds": 2.1680000000000002e-06,
+          "cumulative_seconds": 0.000225209
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/_methods.py",
+          "line": 47,
+          "function": "_sum",
+          "calls": 6,
+          "self_seconds": 1.4140000000000001e-06,
+          "cumulative_seconds": 0.00022304100000000002
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 86,
+          "function": "_wrapreduction_any_all",
+          "calls": 19,
+          "self_seconds": 1.8121e-05,
+          "cumulative_seconds": 0.00019129000000000002
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 2436,
+          "function": "any",
+          "calls": 16,
+          "self_seconds": 8.669000000000001e-06,
+          "cumulative_seconds": 0.000190168
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 2304,
+          "function": "sum",
+          "calls": 2,
+          "self_seconds": 3.5830000000000003e-06,
+          "cumulative_seconds": 0.000139292
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 66,
+          "function": "_wrapreduction",
+          "calls": 2,
+          "self_seconds": 1.9600000000000003e-06,
+          "cumulative_seconds": 0.000135501
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py",
+          "line": 2674,
+          "function": "cov",
+          "calls": 1,
+          "self_seconds": 2.6208e-05,
+          "cumulative_seconds": 7.000000000000001e-05
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'mean' of 'numpy.ndarray' objects>",
+          "calls": 2,
+          "self_seconds": 2.9590000000000004e-06,
+          "cumulative_seconds": 4.9208e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/_methods.py",
+          "line": 115,
+          "function": "_mean",
+          "calls": 2,
+          "self_seconds": 9.04e-06,
+          "cumulative_seconds": 4.6249000000000004e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py",
+          "line": 439,
+          "function": "average",
+          "calls": 1,
+          "self_seconds": 6.126e-06,
+          "cumulative_seconds": 3.85e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/numeric.py",
+          "line": 2290,
+          "function": "allclose",
+          "calls": 1,
+          "self_seconds": 4.877e-06,
+          "cumulative_seconds": 3.8459000000000006e-05
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'all' of 'numpy.ndarray' objects>",
+          "calls": 8,
+          "self_seconds": 2.666e-06,
+          "cumulative_seconds": 3.5416e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/_methods.py",
+          "line": 64,
+          "function": "_all",
+          "calls": 10,
+          "self_seconds": 4.249e-06,
+          "cumulative_seconds": 3.4916e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/numeric.py",
+          "line": 2384,
+          "function": "isclose",
+          "calls": 1,
+          "self_seconds": 1.6211e-05,
+          "cumulative_seconds": 3.0833e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_stride_tricks_impl.py",
+          "line": 400,
+          "function": "broadcast_to",
+          "calls": 2,
+          "self_seconds": 3.041e-06,
+          "cumulative_seconds": 1.9666e-05
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_stride_tricks_impl.py",
+          "line": 373,
+          "function": "_broadcast_to",
+          "calls": 2,
+          "self_seconds": 1.15e-05,
+          "cumulative_seconds": 1.6625e-05
+        }
+      ],
+      "profile_is_unprofiled_hotspot_evidence": false,
+      "warnings": [],
+      "measured_unprofiled_boundaries": [
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws",
+          "attribute": "_closed_joint_draws",
+          "call_count_per_instrumented_public_call": 1,
+          "timings_seconds": {
+            "baseline": [
+              0.0007980830268934369,
+              0.0007508330163545907,
+              0.0007201249827630818
+            ],
+            "passthrough": [
+              0.0007226250017993152,
+              0.0007360410527326167,
+              0.0007254999945871532
+            ],
+            "instrumented": [
+              0.000706166960299015,
+              0.0007033750298433006,
+              0.0007131249876692891
+            ],
+            "inside": [
+              0.0003059999435208738,
+              0.0003048329963348806,
+              0.0003090830286964774
+            ],
+            "clock_cost": [
+              4.202593117952347e-08,
+              8.399365469813347e-08,
+              4.202593117952347e-08
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.0,
+            "conservative_measured_boundary_share": 0.36190837666970416,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        }
+      ]
+    }
+  ],
+  "worker_body_seconds": 2.299774667015299,
+  "peak_RSS_native": 209125376,
+  "rss_units": "bytes",
+  "thread_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "native_thread_counters_observed": false,
+  "R_or_compiler_executed": false,
+  "source_origins": {
+    "bijux_pollenomics_lra": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+    "bijux_pollenomics_dev": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py"
+  },
+  "limits": "Fresh process first call is not guaranteed OS-cold. Seven warm observations include all repeats; profiles are diagnostic only. Full public calls exclude separately measured input construction/projection; no compiled adoption or sourceR parity claim."
+}

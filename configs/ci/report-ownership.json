@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2136,
-  "paths_sha256": "68d5b866776b595d4c6beb0ce11fadab461190f55eb5a8c545070939e210a0b0",
+  "path_count": 2138,
+  "paths_sha256": "5fb16ac25dc06355abd50f88602510b80007e63b4a0fdf6243cdff7b99e61ea3",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -37879,6 +37879,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/representative_performance.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_static_basin.py",
@@ -37986,6 +37987,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/memory_compare.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profile_summary.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/retained_performance.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/py.typed",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/quality/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/quality/deptry_scan.py",
@@ -43610,6 +43612,26 @@
       ],
       "role": "unresolved",
       "verification": "Five fresh process measurements per workload depend on runtime/process state. The repository baseline is a scientific-output comparator, not independent historical timing source. Retained output remains a scoped measurement, not byte reproducible from source alone."
+    },
+    {
+      "owner_id": "numerical-performance/representative-public-calls/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/numerical-performance/representative-public-calls/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain authored measured-workload limitations and exact scientific qualification/evidence against the retained performance report; metadata custody does not replay timing or grant native adoption."
+    },
+    {
+      "owner_id": "numerical-performance/representative-public-calls/report-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/numerical-performance/representative-public-calls/report.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Authenticate the complete representative public-call capsule and exact original report through the maintained retained-performance consumer; no benchmark, model, compiler or source R replay."
     },
     {
       "owner_id": "numerical-performance/runtime-metadata/reader-account",

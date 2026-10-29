@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 322,
+  "page_count": 323,
   "quality_posture_counts": {
-    "reader_ready": 305,
+    "reader_ready": 306,
     "structured_reference": 8,
     "thin_structure": 9
   },
@@ -404,6 +404,17 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/classification/source-custody/README.md",
+      "content_sha256": "e7b59b1a720decdc073b65e588f99b5ae93fdf9b0b1ab720798052c544299406",
+      "prose_paragraph_count": 5,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 5,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
       "repository_path": "docs/report/countries/denmark/README.md",
       "content_sha256": "1f9db62380f4c6201e25f7b76167b12bd3fefa7a39800b283c010470ff9b3d1f",
       "prose_paragraph_count": 18,
@@ -712,6 +723,17 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
+      "content_sha256": "e1c68d113f4162a32d6a3cf658781fe7d4c5a6b8148b1601157399aae52d168e",
+      "prose_paragraph_count": 18,
+      "link_bullet_count": 4,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
       "repository_path": "docs/report/countries/sweden/pollen-model-lineage/README.md",
       "content_sha256": "ab7448466c19b4689fd6160838c075e1f7b59318f9861ca1840a71f92e4ce3f3",
       "prose_paragraph_count": 11,
@@ -976,6 +998,17 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/model-development/english-retained-score-audit/README.md",
+      "content_sha256": "08e09ac6ab4e565126403de6b0dc76b350bb97c11333cc168e5ced603a85eb6a",
+      "prose_paragraph_count": 19,
+      "link_bullet_count": 2,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
       "repository_path": "docs/report/nordic_farming_history_scenario.md",
       "content_sha256": "5f1291c7e55c57a17d9c40d4715db6b2f5a7b663f2c33139b63a8fb488561560",
       "prose_paragraph_count": 14,
@@ -1060,6 +1093,17 @@
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 9,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/numerical-performance/representative-public-calls/README.md",
+      "content_sha256": "5f9cc90496aa6b83c2b7ba1b65816cca62558fddd30eb2646391ee8c0aa92c19",
+      "prose_paragraph_count": 19,
+      "link_bullet_count": 4,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 8,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -1350,6 +1394,17 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+      "content_sha256": "7bbd9a14fd3660b534e24430f2370c01beeee03854ea0cc5008b4f4a4b167bcc",
+      "prose_paragraph_count": 36,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 5,
+      "table_line_count": 4,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
       "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
       "content_sha256": "869dba87158c14f183dc54ef7835d32f941e2054f648f2dc29537fe0b684da70",
       "prose_paragraph_count": 37,
@@ -1423,6 +1478,17 @@
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 12,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
+      "content_sha256": "1634904bea2e3478d541f63313730f34749a33184cf7fc72765f0f76869241bf",
+      "prose_paragraph_count": 26,
+      "link_bullet_count": 5,
+      "bullet_sentence_count": 0,
+      "heading_count": 7,
+      "table_line_count": 14,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -2538,6 +2604,17 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
+      "content_sha256": "1dbc5e8f860a96f074a96abdac1ec4fcc6ebb05ec533c4fae1c04296eccef6a3",
+      "prose_paragraph_count": 39,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 9,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
       "repository_path": "docs/report/source-relations/neotoma/README.md",
       "content_sha256": "88da9632a080263b1ab8b0f9d7d8e86062decf22bd0c9ba5f45d8e333ccac325",
       "prose_paragraph_count": 24,
@@ -3187,6 +3264,17 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/synthetic-validation/recovery-evidence/README.md",
+      "content_sha256": "51d31d90278b4a805d4c2455f7cc42e05472ade8b3df40ea9f6278bfdf3d08d7",
+      "prose_paragraph_count": 29,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 4,
+      "table_line_count": 5,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
       "repository_path": "docs/report/synthetic-validation/site-leakage/README.md",
       "content_sha256": "a6459a24bcc4635234b4238fb91fa07324712a1eba68bd2506c91839cc54db00",
       "prose_paragraph_count": 24,
@@ -3281,6 +3369,17 @@
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 3,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md",
+      "content_sha256": "c7c6551cba6b4223e44e0b38fb6ab35ea69a392927f1b5a514b5a937bfe85078",
+      "prose_paragraph_count": 23,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 7,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -3408,7 +3507,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "57a312cefb50b71bc0aa4eee876f52ebd60a7f31717b1dff575fe7d66bd4f67a",
+      "content_sha256": "69a4ee80543170f610e66c4076db67676edbb46c400f3825dfe0f85a7a36a250",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3419,7 +3518,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "041c159f4bde909c0f8005154404412e5aaa733e09e7e511e86f23c8baf91ea7",
+      "content_sha256": "5f947c49945ce8e53f5d9ee836a9215bee468cceeec3d55421e6bfc471a03e35",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,
@@ -3457,94 +3556,6 @@
       "link_bullet_count": 4,
       "bullet_sentence_count": 4,
       "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md",
-      "content_sha256": "c7c6551cba6b4223e44e0b38fb6ab35ea69a392927f1b5a514b5a937bfe85078",
-      "prose_paragraph_count": 23,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 7,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
-      "content_sha256": "1634904bea2e3478d541f63313730f34749a33184cf7fc72765f0f76869241bf",
-      "prose_paragraph_count": 26,
-      "link_bullet_count": 5,
-      "bullet_sentence_count": 0,
-      "heading_count": 7,
-      "table_line_count": 14,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/synthetic-validation/recovery-evidence/README.md",
-      "content_sha256": "51d31d90278b4a805d4c2455f7cc42e05472ade8b3df40ea9f6278bfdf3d08d7",
-      "prose_paragraph_count": 29,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 4,
-      "table_line_count": 5,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
-      "content_sha256": "7bbd9a14fd3660b534e24430f2370c01beeee03854ea0cc5008b4f4a4b167bcc",
-      "prose_paragraph_count": 36,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 5,
-      "table_line_count": 4,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/model-development/english-retained-score-audit/README.md",
-      "content_sha256": "08e09ac6ab4e565126403de6b0dc76b350bb97c11333cc168e5ced603a85eb6a",
-      "prose_paragraph_count": 19,
-      "link_bullet_count": 2,
-      "bullet_sentence_count": 0,
-      "heading_count": 2,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
-      "content_sha256": "1dbc5e8f860a96f074a96abdac1ec4fcc6ebb05ec533c4fae1c04296eccef6a3",
-      "prose_paragraph_count": 39,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 9,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/classification/source-custody/README.md",
-      "content_sha256": "e7b59b1a720decdc073b65e588f99b5ae93fdf9b0b1ab720798052c544299406",
-      "prose_paragraph_count": 5,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 1,
-      "table_line_count": 5,
-      "quality_posture": "thin_structure",
-      "note": "Page explains itself but still needs stronger internal wayfinding."
-    },
-    {
-      "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
-      "content_sha256": "e1c68d113f4162a32d6a3cf658781fe7d4c5a6b8148b1601157399aae52d168e",
-      "prose_paragraph_count": 18,
-      "link_bullet_count": 4,
-      "bullet_sentence_count": 0,
-      "heading_count": 2,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."

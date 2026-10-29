@@ -1,0 +1,110 @@
+{
+  "schema_version": "lra-love-identical-input-source-comparison.v1",
+  "status": "passed",
+  "claim": "Fixed-candidate LOVEexample source-method and public-output agreement on one shared exported input set",
+  "profile_report": "../love-source-profile/report.json",
+  "profile_report_sha256": "7cc846537a95eedcbde215f450fdc9a434c6dab73e93565decf771c19ddd3e7e",
+  "contract_sha256": "478b28478239789509a9dff15e0d6bb84d4428a363df5bf59eb3e26e16e16b2a",
+  "python_profile_source_files_verified": 56,
+  "native_r": {
+    "version": "4.6.0",
+    "platform": "aarch64-apple-darwin23; macOS Tahoe 26.6.2",
+    "package": "disqover",
+    "package_version": "0.9.14",
+    "source_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c"
+  },
+  "workload": {
+    "input": "Packaged LOVEexample pollen, parameters, and rings",
+    "local_rows": 1,
+    "regional_rows": 1,
+    "taxa": 10,
+    "rings": 36,
+    "maximum_local_ring": 10,
+    "repeats": 2,
+    "candidates_per_active_ring_repeat": 32,
+    "active_ring_repeat_calls": 8,
+    "candidate_evaluations": 256
+  },
+  "shared_input_sha256": {
+    "candidates-hex.csv": "57fa31c2c4cd28cde6d72328271949b2ed9440360479c53f5f8f8d6ea2599fab",
+    "candidates.csv": "cc1240e7701459cb5fe0b69ff05f60d85edae4cedd1147450c1b350e869cb60a",
+    "local-hex.csv": "f195c5d14c42fa47ce548dd5d3df60751e959902158a4860810a9c8b29054c52",
+    "local.csv": "49eca2d79f1151b4f7684d0dcd54f12a4079e9e1ff1fe133e45b06e0e5260aed",
+    "ppes-hex.csv": "95ae372cc4478fa41019de0d68d10981a7a9f95c1877e0ebfddd1e3bd5378012",
+    "ppes.csv": "fd2e4b39df57bac2da95e74407c9bc01d4005096a415b5ffdebf2a2bf593fe87",
+    "regional-hex.csv": "1f72e3b8ada338697f9e05cb7822c7ebc3e650515848d4ba0fea4c9cf69d948e",
+    "regional.csv": "d5f760cb7658fb15428b17af2e930ab17073d943d3f8a86184aa9e33c5266f85",
+    "rings-hex.csv": "a31f73cebc32791c49000c108f285f01a61ca60e32243acba460e843b4e9276f",
+    "rings.csv": "c86e38c9682d297c521d512514ed6fbfcb71fc491ae0a2cfcd952b1ac15166a0"
+  },
+  "producer_sha256": {
+    "compare.py": "0922323faa833dd417562f7c3582f3e42f9874d0c5c49774cb755d4c0beddc99",
+    "replay.R": "169675324784acce3447b41328f82fc2c9f6c49d6fcf97a9c92c6341b4bcc147",
+    "r_support.R": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9"
+  },
+  "comparison_tolerance": {
+    "absolute": 3e-10,
+    "relative": 1e-10,
+    "equal_nan": true
+  },
+  "comparisons": {
+    "cover": {
+      "shape": [
+        10,
+        10
+      ],
+      "same_columns": true,
+      "finite_pairs": 40,
+      "max_abs_difference": 0.0,
+      "passed": true
+    },
+    "pollen": {
+      "shape": [
+        10,
+        10
+      ],
+      "same_columns": true,
+      "finite_pairs": 40,
+      "max_abs_difference": 0.0,
+      "passed": true
+    },
+    "objective": {
+      "shape": [
+        10,
+        2
+      ],
+      "same_columns": true,
+      "finite_pairs": 8,
+      "max_abs_difference": 4.6629367034256575e-15,
+      "passed": true
+    },
+    "k": {
+      "shape": [
+        36,
+        10
+      ],
+      "same_columns": true,
+      "finite_pairs": 360,
+      "max_abs_difference": 5.102255423716784e-15,
+      "passed": true
+    }
+  },
+  "selected_candidate_indices_one_based": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "selected_candidates_agree": true,
+  "limits": [
+    "Fixed candidate replay does not compare RcppDE and SciPy optimizer trajectories or convergence.",
+    "Random count/PPE draws and timing were not compared.",
+    "The source example is a computational fixture, not independent empirical vegetation truth or a replay of the publication landscape."
+  ],
+  "parsed_binary_input_agrees": true,
+  "input_encoding": "Five decimal CSV tables plus five hexadecimal-float numeric sidecars; R and Python parsed doubles checked cellwise"
+}
