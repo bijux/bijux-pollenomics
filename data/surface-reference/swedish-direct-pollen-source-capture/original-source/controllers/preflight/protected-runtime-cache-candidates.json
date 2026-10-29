@@ -1,0 +1,25 @@
+{
+  "schema_version": "protected-import-cache-source-forensics.v1",
+  "known_base": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+  "cache_tag": "cpython-311",
+  "guarded_runtime_authority_plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json",
+    "sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4"
+  },
+  "namespaces": [
+    {
+      "root": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11",
+      "protected_py_sources": 2034,
+      "cache_candidates_present": 391,
+      "cache_candidates_absent": 1643
+    },
+    {
+      "root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap",
+      "protected_py_sources": 6627,
+      "cache_candidates_present": 0,
+      "cache_candidates_absent": 6627
+    }
+  ],
+  "unprotected_source_or_existing_cache_candidates": [],
+  "scope": "Metadata path existence census only from originally guarded complete namespaces. No runtime authentication, source import, decoding, cache creation, scientific consumer or compiler."
+}

@@ -1,0 +1,77 @@
+{
+  "axis": [
+    "Abies alba",
+    "Alnus glutinosa",
+    "Amanranthaceae/Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus sempervirens",
+    "Calluna vulgaris",
+    "Carpinus betulus",
+    "Carpinus orientalis",
+    "Castanea",
+    "Cerealia-t",
+    "Corylus avellana",
+    "Cyperaceae",
+    "Ericaceae",
+    "Fagus sylvatica",
+    "Filipendula",
+    "Fraxinus",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago lanceolata type",
+    "Poaceae",
+    "Quercus deciduous",
+    "Quercus evergreen",
+    "Rumex acetosa-t",
+    "Salix",
+    "Secale",
+    "Tilia",
+    "Ulmus"
+  ],
+  "country_source_denominators": {
+    "SE": {
+      "assigned_nisp": 35505,
+      "author_excluded_nisp": 253,
+      "native_nisp": 35767,
+      "selected_samples": 77,
+      "sites": 1,
+      "unmapped_nisp": 9
+    }
+  },
+  "coverage_sha256": "27f5e87fff312b2473c778374d8013ecb110003ca76ca06946c1a70fd7e432ff",
+  "input_manifest_sha256": "752d43a47cbbc6cdde39b2625595c4bf939047649c09cae239449baf59b1994f",
+  "interpretation": "Previously exposed country-held-out observed-pollen subcomposition on 31 author lookup targets; not LRA, measured vegetation validation or independent confirmation.",
+  "methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "prediction_sha256": {
+    "SE": "1d21d1d351bfa7ee41a6dd1f2764e5ee9085f06931db40ca0c1263c5447b2a45"
+  },
+  "schema_version": "nordic-author-target-pollen-study.v1",
+  "score_rows": 66,
+  "scores_sha256": "80c37ec37a0ce650cd1989f4b35b5f3ac174e78a3c733d2e97e092c5f6a322fc",
+  "site_macro_hellinger_distance": {
+    "SE": {
+      "inverse_distance_squared": 0.2857228812736664,
+      "nearest_site": 0.2437857673012424,
+      "training_mean": 0.32725956980655174
+    }
+  },
+  "site_macro_mae_fraction": {
+    "SE": {
+      "inverse_distance_squared": 0.01688146645432986,
+      "nearest_site": 0.015388827161345433,
+      "training_mean": 0.01935065046774327
+    }
+  },
+  "site_score_rows": 3,
+  "site_scores_sha256": "f8ec59aa2341a605fed7e00bd523c9f2a9d3d576ffe5e39b6c3ed951346472d7",
+  "taxon_diagnostic_rows": 93,
+  "taxon_diagnostics_sha256": "3ae354c5582cea80c21456610a734b733e73f0c94ce7f8aaa9efb2a3f1cccc3f"
+}

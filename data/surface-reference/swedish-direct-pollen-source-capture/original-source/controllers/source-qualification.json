@@ -1,0 +1,157 @@
+{
+  "schema_version": "swedish-protected-cache-source-qualification.v1",
+  "actual_exit": 0,
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-runtime-custody/prepared-source-manifest.json",
+    "sha256": "b3a8f2b48c530cfbfd79d7b97542956769f61421ba5b211fefe6bdafaadbd037",
+    "bytes": 3504
+  },
+  "predecessor_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-runtime-custody/source-qualification.json",
+    "sha256": "8e719f8d3e23aab82a2b79052fe7c0d6ab9f1bfa017e4c2f24a3e464a0239397",
+    "bytes": 7473
+  },
+  "retained_original_plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-runtime-replay/plan.json",
+    "sha256": "b3a28d79803ffcb5be89a41cd4f82271388145312637af93b4efadaa12b5c0a3",
+    "bytes": 19358713
+  },
+  "retained_first_native_failure_log": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-runtime-replay/swedish-lake-transfer-prepare.stderr",
+    "sha256": "66ed2b2c25f2664b55127a1384b2428492b3aa42675389402050274dc6fbe977",
+    "bytes": 3322
+  },
+  "original_failed_status_relabelled": false,
+  "source_delta": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/source-delta.diff",
+    "sha256": "505754a2e490aea86d5caa58d0d6c20789fadd909e994753300786d6442500bf",
+    "bytes": 14134
+  },
+  "AST": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/AST.json",
+    "sha256": "53b68d3d17bf622751eb65a0a4c98256e6f9daf582d57612e9ba71fcda0fec87",
+    "bytes": 445
+  },
+  "byte_identical_other_python": [
+    "common_runner.py",
+    "contracts.py",
+    "independent.py",
+    "observe.py",
+    "run.py",
+    "runtime_contracts.py",
+    "runtime_guarded_runner.py",
+    "source_runtime.py"
+  ],
+  "modified_python": [
+    "check_contracts.py",
+    "execute_source.py",
+    "prepare.py"
+  ],
+  "guard_groups": 26,
+  "guards": {
+    "actual_exit": 0,
+    "guard_groups": 26,
+    "checks": [
+      "literal taxonomy target/excluded axis",
+      "ambiguous native lookup refusal",
+      "integer native mass and explicit excluded/unmapped accounting",
+      "reported zero versus bool/missing/noncount",
+      "source age uniqueness/type/default/calibration boundaries",
+      "declared source geometry orientation and invalid shape refusal",
+      "full synthetic score/count/site macro positive",
+      "duplicate/leakage/training/axis/count/method/refusal score negatives",
+      "self-consistent serialized source-count mismatch refusal",
+      "sealed target/output containment/alias refusal",
+      "qualified runtime raw-link positive and changed-link/write refusals",
+      "original expected source mutation during census refuses before writing plan",
+      "actual stage/log/argv/native-zero type and timeout custody",
+      "inclusive output bytes and FIFO refusal",
+      "frozen expected-pin conflicts and bool count refusal",
+      "million unrelated profile calls avoid name/Path processing",
+      "actual attempted numerical call counter and refusal",
+      "actual two protocol/owner training mismatch and truthful selected-input binding",
+      "all seven actual helper/entrypoint module maps equal the complete eleven Python source members",
+      "actual corrected launcher prefix accepts complete physical copy while literal registered predecessor refuses",
+      "actual launcher prefix refuses unknown py/pyc/so additions and obsolete metadata helper",
+      "actual launcher prefix refuses FIFO, alias and unexpected import directory without runtime/helper execution",
+      "actual SourceFileLoader cache miss falls back to exact pinned source without cache file or directory creation",
+      "absent cache attempts and actual protected source reads are distinct identities",
+      "existing/unpinned/wrong-tag/write/namespace-escape/changed-source/undeclared-absence cache refusals",
+      "cache ancestor alias and before-after absence mutation refusal"
+    ],
+    "no_actual_source_data_or_predictor_execution": true
+  },
+  "cache_forensics": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/protected-runtime-cache-candidates.json",
+    "sha256": "6e764fa2328ac5b008cc44d69111ee530ceaad29cea3b9adf4847ee6d90c8161",
+    "bytes": 1209
+  },
+  "cache_forensics_scope": "Known original BASE3.11 -I -S -B metadata/stat only; base2034py sources391present pinned/1643absent, materialized6627py sources0present/6627absent, no unprotected source/existing-cache candidate. Actual source preparation dynamically authenticates those complete before/after authorities and current four first-party roots before deriving pairs; no frozen guess at future first-party counts.",
+  "actual_preparation_or_qualified_runtime_authentication_or_native_consumer_by_author": false,
+  "scientific_data_decoding_or_predictor_or_model_or_R_by_author": false,
+  "actual_cache_control_scope": "Harmless owned synthetic VALUE=7 SourceFileLoader import only; exact failed cache probe then protected .py fallback, no cache/file/directory writes. Existing/unpinned/wrongtag/write/alias/escape/source-binding/absence negatives; no compilation or source/bytecode equivalence claim.",
+  "preflight": [
+    {
+      "name": "guards",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/guards.stdout",
+        "sha256": "ec34c4ef45537a0dd4d332f8385e55a24af199248f3c9a89e994123169bb0e24",
+        "bytes": 1939
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/guards.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "name": "strict",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/strict.stdout",
+        "sha256": "8228fcc5ce46d42d01caf3cd941f4e9c5f2bcc372bb5b147a2f0572d2dd675a8",
+        "bytes": 43
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/strict.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "name": "style",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/style.stdout",
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "bytes": 19
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/style.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "name": "format",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/format.stdout",
+        "sha256": "eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd",
+        "bytes": 26
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-direct-pollen-cache-custody/preflight/format.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "source_check_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "scope": "SOURCE3331 guards/strict3/configuredRuff3/format3/AST11. Eight unchanged source files reuse exact b3/f263 proofs; genuine source/predict/score observer predicates and runtime/common remain unchanged. Future clean candidate dynamic, original140source authoring remains distinct."
+}

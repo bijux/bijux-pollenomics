@@ -2176,9 +2176,9 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
-      "content_sha256": "3b351801580a795ae8121a48874130a06c31aaeb930e76819baac70103d346e8",
+      "content_sha256": "e0cbdd333c8e4cf60983ff9f7fc4fdac3c0d7698cb18525ed39e35c9f8472905",
       "prose_paragraph_count": 19,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 11,
@@ -2187,9 +2187,9 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/swedish-neotoma-holdout/README.md",
-      "content_sha256": "ae352a9313d3deffefa7034ffbb966bf72137b46518be67d60212fc1739a90e9",
+      "content_sha256": "6c1cdf7a370417b3c1a0c8c69521926d971c3084fc0bb5db1cd4a91e1ae02db9",
       "prose_paragraph_count": 17,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 5,
