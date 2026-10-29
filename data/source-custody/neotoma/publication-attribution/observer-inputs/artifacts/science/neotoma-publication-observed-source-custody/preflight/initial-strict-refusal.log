@@ -1,0 +1,46 @@
+artifacts/science/neotoma-publication-observed-source-custody/prepare.py:222: error:
+Incompatible types in assignment (expression has type "str", variable has type
+"Path")  [assignment]
+        for name in ("temporary", "cache", "matplotlib"):
+        ^
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:90: error:
+Unsupported target for indexed assignment ("Collection[Collection[str]]") 
+[index]
+            new["provider_policy"]["governed_review_sha256"] = "current"
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:102: error:
+Unsupported target for indexed assignment ("Collection[Collection[str]]") 
+[index]
+                    a["provider_policy"]["rights"] = True
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:104: error:
+Value of type "Collection[Collection[str]]" is not indexable  [index]
+                    a["records"][0]["zero"] = False
+                    ^~~~~~~~~~~~~~~
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:106: error:
+Value of type "Collection[Collection[str]]" is not indexable  [index]
+                    a["records"][0].pop("missing")
+                    ^~~~~~~~~~~~~~~
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:108: error:
+"Collection[Collection[str]]" has no attribute "append"  [attr-defined]
+                    a["records"].append({"id": 2})
+                    ^~~~~~~~~~~~~~~~~~~
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:110: error:
+Unsupported target for indexed assignment ("Collection[Collection[str]]") 
+[index]
+                    b["provider_policy"]["governed_review_sha256"] = "othe...
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:112: error:
+Unsupported target for indexed assignment ("Collection[Collection[str]]") 
+[index]
+                    a["provider_policy"]["governed_review_sha256"] = "othe...
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:126: error:
+"Sequence[str | int | bool | None]" has no attribute "reverse"  [attr-defined]
+            bad["pairs"].reverse()
+            ^~~~~~~~~~~~~~~~~~~~
+artifacts/science/neotoma-publication-observed-source-custody/check_observation.py:132: error:
+Argument 4 to "bridge" has incompatible type "bool"; expected "str"  [arg-type]
+    ...ge(new_doi, old_doi, "attribution_ledger_sha256", False, "new-ledger")
+                                                         ^~~~~
+Found 10 errors in 2 files (checked 12 source files)

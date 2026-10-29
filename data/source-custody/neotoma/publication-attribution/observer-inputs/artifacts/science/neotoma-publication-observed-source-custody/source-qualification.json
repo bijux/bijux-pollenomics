@@ -1,0 +1,136 @@
+{
+  "schema_version": "neotoma-publication-observer-source-qualification.v1",
+  "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "actual_source_only_exit": 0,
+  "original_controlled_guard_groups": 11,
+  "new_controlled_guard_groups": 3,
+  "configured_strict_files": 12,
+  "configured_style_files": 10,
+  "AST_files": 12,
+  "all_source_checks_actual_exit": 0,
+  "checked_sources": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/check_contracts.py",
+      "sha256": "5fd96a266d1f398a5d1240e6e3c497ef4046e5484bfea12030897f180baaf657",
+      "bytes": 25842
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/check_observation.py",
+      "sha256": "2783af35447b85644e878a0627c2e6b2ee0b9bf56da85f2a1f9e53c21647b230",
+      "bytes": 6226
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/contracts.py",
+      "sha256": "b76bce8f811ed5cf98050e88181c7d551ff1c02a9b247ada62a46ab4f65113d6",
+      "bytes": 7068
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/execute_source.py",
+      "sha256": "541d76349d81a2270a72392d21dcab2389c6956d1a7b9b749122411ed472d2dc",
+      "bytes": 7539
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/metadata.py",
+      "sha256": "158587d85159828a2a82f25886898069fc1c978e3101f2d0cdf86a7d0dabbe13",
+      "bytes": 18899
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/observation_custody.py",
+      "sha256": "e2c3c797e161b61ab18729a1b3c10f1105d41579af8a5a9ef079d1794710edbd",
+      "bytes": 10071
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/observe.py",
+      "sha256": "b50597dd61d32d3abd867e90d01f33d9f68d82750ba373ac7c208a725311f827",
+      "bytes": 14487
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/prepare.py",
+      "sha256": "f9211bdd39e85a6960e0563045f44f50a788dc9275316d9666caa664e489231a",
+      "bytes": 9358
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/run.py",
+      "sha256": "63948fe617b64ae49938f686b2ff0fdbb1bb8f5d03d1171c8a2b2c64883d4ea6",
+      "bytes": 7565
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/runtime_guarded_runner.py",
+      "sha256": "a2bfee0d68402dd263a1972b437c9ba9e7d252cfd2aff049ca5dad26c92bd669",
+      "bytes": 8828
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/source_runtime.py",
+      "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+      "bytes": 11236
+    }
+  ],
+  "receipts": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/check_contracts.log",
+      "sha256": "a9f00636bb1c65685d22ae5095e82bf2f286a4baeada21f8af9514ad0e4329e3",
+      "bytes": 1905
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/check_observation.log",
+      "sha256": "37f16423bb3cbaff18f0c2ee39a928438855be5841bebf6f79e173786c7eb7a2",
+      "bytes": 536
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/strict.log",
+      "sha256": "8b88f6d12bd312c1b024b66d07a7f7619a68482ac4d64e475759b1823199faa5",
+      "bytes": 44
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/style-qualification.log",
+      "sha256": "5e460bbd3c391da2afeeb5c655650ce77d76113c87b41e3502e870c1af30bbe8",
+      "bytes": 97
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/format.stdout",
+      "sha256": "0ad17653b42427c899752d9e3faad7eff5bbf64dcb379046594b1eecfe920f9d",
+      "bytes": 44
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/format.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/ruff.stdout",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/ruff.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/initial-strict-refusal.log",
+      "sha256": "15b6fd5160ad998417736d7cda5aec969fcb9c512c1e03d286c443a124488468",
+      "bytes": 2872
+    }
+  ],
+  "preserved_original_failed_observer_and_whole_exit": 1,
+  "preserved_original_producer_exits": [
+    0,
+    0
+  ],
+  "preserved_original_tracked_checker_exits": [
+    2,
+    2
+  ],
+  "source_qualification_not_runtime_or_private_metadata_consumer_execution": true,
+  "producer_repeats_private_parsing_runtime_census_or_preparation_calls": 0
+}

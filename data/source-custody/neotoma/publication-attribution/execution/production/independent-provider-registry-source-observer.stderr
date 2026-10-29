@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/observe.py", line 304, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/observe.py", line 172, in main
+    c.require(
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/contracts.py", line 96, in require
+    raise ValueError(message)
+ValueError: No observed maintained source origins

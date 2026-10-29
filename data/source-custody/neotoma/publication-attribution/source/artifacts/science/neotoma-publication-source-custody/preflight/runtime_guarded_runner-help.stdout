@@ -1,0 +1,10 @@
+usage: runtime_guarded_runner.py [-h] --plan PLAN --registered-plan-sha256
+                                 REGISTERED_PLAN_SHA256
+
+Guard the qualified dependency runtime around current publication source
+stages.
+
+options:
+  -h, --help            show this help message and exit
+  --plan PLAN
+  --registered-plan-sha256 REGISTERED_PLAN_SHA256

@@ -1,0 +1,7 @@
+usage: common_runner.py [-h] --plan PLAN --registered-plan-sha256
+                        REGISTERED_PLAN_SHA256
+
+options:
+  -h, --help            show this help message and exit
+  --plan PLAN
+  --registered-plan-sha256 REGISTERED_PLAN_SHA256

@@ -1,0 +1,79 @@
+{
+  "schema_version": "neotoma-publication-observer-terminal.v1",
+  "actual_exit": 0,
+  "candidate": "82c8fc4ed3d847909d14162f51b77dc59ccc0a70",
+  "plan_sha256": "930fcdf6ea3378124877bee4cf14b23276ae57696cac33d1db9b408d31dba393",
+  "common_actual_exit": 0,
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-observation/terminal.json",
+    "sha256": "b21c8a726f311c501f53f8ba2e6138ac0cedf2e71304d8fb80c993db864ef40a",
+    "bytes": 6130
+  },
+  "native_stages": [
+    {
+      "id": "independent-saved-publication-source-observer",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-observation/plan.json"
+      ],
+      "timeout_seconds": 90,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 11.194781208003405,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-observation/independent-saved-publication-source-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-observation/independent-saved-publication-source-observer.stderr",
+      "stdout_sha256": "79c11215a3750489e0567d2d104cfa31d1fe521c15512cb349c80142e58fde83",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 339673088
+    }
+  ],
+  "tracked_byte_comparisons": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/producer/docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+        "sha256": "61dde7cc0e8943bb8464d907c7927bd795ecb8ec377ba910a2dba9d9c3356823",
+        "bytes": 30891
+      },
+      "tracked": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+        "sha256": "e9f87385212b52e96e8cf9a0d03ae805715ab337bc2c0646dd1da72c6e64a0f8",
+        "bytes": 30891
+      },
+      "checker_actual_exit": 2
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/producer/docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
+        "sha256": "983286a711b37be4db3dccac200fe24f814ff2b350a906e1a0fd99717104142d",
+        "bytes": 188753
+      },
+      "tracked": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
+        "sha256": "db84557f4b19ba47f44b122e482b157ca91a3dc327c0b0435809599a41b769b3",
+        "bytes": 188753
+      },
+      "checker_actual_exit": 2
+    }
+  ],
+  "tracked_checker_changes_are_native_failure": false,
+  "timed_out": false,
+  "source_custody_error": null,
+  "completed_elapsed_seconds": 26.881374832999427,
+  "completed_child_peak_RSS_bytes_macos": 339673088,
+  "resources": {
+    "overall_timeout_seconds": 120,
+    "resident_memory_limit_bytes": 2147483648,
+    "output_byte_limit": 67108864
+  },
+  "scope": "Observer-only replay over the original source native2zero/observer1/whole1 and tracked-checker2/2. Exact DOI standalone stdlib origin role differs from publication package imports. Independent85/13 reconstruction unchanged; only two authenticated provenance leaves bridge governed historical reports. No producer, acquisition, rights, human or LRA admission.",
+  "timeout_cleanup_scope": "Own launcher group killed/waited; independent child sessions mean detached descendants are not certified absent on outer timeout. Timeout never passes.",
+  "scientific_acceptance_claimed": false,
+  "completed_output_bytes_including_receipt": 40365368
+}
