@@ -1,0 +1,39 @@
+"""Exercise the sealed source manifest against actual entry predicates on byte copies."""
+from pathlib import Path
+import hashlib
+import json
+import sys
+import tempfile
+A=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(A))
+from entry import verify_reviewed
+original=json.loads((A/'prepared-source-manifest.json').read_bytes())
+checks=[]
+with tempfile.TemporaryDirectory(dir=A/'preflight',prefix='sealed-entry-') as name:
+    root=Path(name)
+    rows=[]
+    for row in original['files']:
+        source=Path(row['path']);target=root/source.relative_to(A)
+        target.parent.mkdir(parents=True,exist_ok=True)
+        raw=source.read_bytes()
+        assert len(raw)==row['bytes'] and hashlib.sha256(raw).hexdigest()==row['sha256']
+        target.write_bytes(raw)
+        rows.append({**row,'path':str(target)})
+    held={**original,'files':sorted(rows,key=lambda r:r['path'])}
+    def authority() -> None:
+        raw=(json.dumps(held,indent=2)+'\n').encode()
+        (root/'prepared-source-manifest.json').write_bytes(raw)
+        (root/'independent-source-review.json').write_text(json.dumps({'approved':True,'source_manifest_sha256':hashlib.sha256(raw).hexdigest(),'scope':'Synthetic closed-entry fixture only; no actual source approval'}))
+    authority();verify_reviewed(root);checks.append('exact final absolute sorted held schema accepted')
+    held['files'][0]['path']=Path(held['files'][0]['path']).name;authority()
+    try:verify_reviewed(root)
+    except ValueError:checks.append('relative final member refused')
+    else:raise AssertionError('relative member accepted')
+    held['files'][0]['path']=rows[0]['path'];authority()
+    (root/'contracts.py').write_text('changed\n')
+    try:verify_reviewed(root)
+    except ValueError:checks.append('postfreeze helper mutation refused')
+    else:raise AssertionError('helper change accepted')
+result={'source_only':True,'actual_exit':0,'source_manifest_sha256':hashlib.sha256((A/'prepared-source-manifest.json').read_bytes()).hexdigest(),'controls':checks,'members_copied':len(rows),'copy_method':'read bytes/write bytes, no hardlinks','actual_preparation_native_private_parse':False}
+(A/'preflight/final-manifest-entry-review.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps(result,indent=2))

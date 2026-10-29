@@ -1,0 +1,94 @@
+{
+  "schema_version": "offline-source-runtime-prepared-source.v1",
+  "candidate": "7513efa1224b22d5de7748140bdd8fce34dca886",
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "1b9f6c4484e5467f5b39c1a9b178c008b573f00042ecee9458f5f17fdab3479a",
+      "bytes": 19891
+    },
+    {
+      "path": "check_tools.py",
+      "sha256": "cf22a81551b13b4b1e61a989d40047e1b26f7b021536810b5f213244b06ad52d",
+      "bytes": 1258
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "208ab8eab873665f936cb0157d7ce13124085cc309b71d8913870f19121f90b3",
+      "bytes": 16219
+    },
+    {
+      "path": "install.py",
+      "sha256": "b8de3007b793dc5da5c711e6024c452b1af37b9f4d12b6df9186e814c8fe94f2",
+      "bytes": 2770
+    },
+    {
+      "path": "observe.py",
+      "sha256": "190bf915e5ff391112864d5a8681c8e6ac0d6f8b5e60da5c664a4a69afd01c25",
+      "bytes": 11779
+    },
+    {
+      "path": "pip_entry.py",
+      "sha256": "940f9668504147683cf8ba3a03db612e575ffdec131999815fffb08b0a889a52",
+      "bytes": 3274
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "8072c4aa05938a9d5e7902888bf0079d203777bf38a3f7c295735e295c77c4b5",
+      "bytes": 18644
+    },
+    {
+      "path": "run.py",
+      "sha256": "8a46db043a381f989fdd15c2c7bc1bca14e26614d2fcf208d1b314d3aca13160",
+      "bytes": 8475
+    },
+    {
+      "path": "run_account_qualification.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "transport.py",
+      "sha256": "278aa122455226c88897d33df801102553ee043b56bdc7531a5d01a7c2208d57",
+      "bytes": 3961
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "ab66dc9346b0683e13129bf7cbbc05d5dcc9688365bf7a2a6898f6ff505703b8",
+      "bytes": 6752
+    },
+    {
+      "path": "preflight/source-qualification.json",
+      "sha256": "3c6ea06d3af97572abffc831dedf9cb2d7e7f318489464f8cb2ee6beec8c15aa",
+      "bytes": 6918
+    }
+  ],
+  "references": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime-availability-custody/offline-runtime-selection.json",
+      "sha256": "54582ea7ac6ea354e5076ea4f07b57cdd40825748dd6cbbf65f006de678c5305",
+      "bytes": 58435
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "bytes": 8826542
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime-availability-custody/recovered-controls/run_account_qualification.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/source-runtime-inspector-custody/prepared-source-manifest.json",
+      "sha256": "98bf5f1ead21397f0db1071e5654d7358092488897da7251f19351ce341a17bb",
+      "bytes": 3763
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/source-runtime-inspector-custody/independent-source-review.json",
+      "sha256": "3e023ce3edf01689b6064f9b665182059c58c092dc0d414cdffd34f87c21f57f",
+      "bytes": 12241
+    }
+  ],
+  "scope": "Held disjoint cached-pip installation successor. Only pip_entry.py/check_contracts.py/protocol change from98bf; remaining eight Python are byte-exact. Requires separately fresh owned environment/output; root alone prepares/registers/launches after independent review."
+}

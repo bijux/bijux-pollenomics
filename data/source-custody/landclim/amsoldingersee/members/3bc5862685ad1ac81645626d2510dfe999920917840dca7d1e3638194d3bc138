@@ -1,0 +1,12 @@
+{
+  "source_only": true,
+  "actual_exit": 0,
+  "groups": {
+    "exact observed framework argv/binary witnesses": 14,
+    "original failed whole/native/refusal preservation": 10,
+    "actual one-stage declaration/completion": 8
+  },
+  "controlled_cases": 32,
+  "private_or_saved_source_parse": false,
+  "target_runtime_or_native_execution": false
+}

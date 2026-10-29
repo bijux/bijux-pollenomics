@@ -1,0 +1,298 @@
+{
+  "schema_version": "outcome-blind-empd2-nfi-source-qualification.v1",
+  "observed_at_utc": "2026-10-15T02:12:55.709518+00:00",
+  "actual_source_check_exit": 0,
+  "source_only": true,
+  "pure_guard_groups": 24,
+  "strict_authored_files": 10,
+  "configured_Ruff_files": 10,
+  "configured_format_files": 10,
+  "AST_files": 11,
+  "CLI_help_entrypoints": 4,
+  "source_validation_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "source_commands": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/source-command-receipts.json",
+    "sha256": "da4f656ff809ce518b61fbd329ddccbfaa30d047c6762b92476c389e9ca353af",
+    "bytes": 11088
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/source-correspondence.json",
+    "sha256": "04433ddec0aa40f03050ef001a8dd021f16e0f60e42198150a3f5ad3401a76a8",
+    "bytes": 3439
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/protocol.json",
+    "sha256": "199e45617b72381cac1f2fe98a801e59c852629c893f57d87eb08fea1ad8e2ac",
+    "bytes": 10214
+  },
+  "unchanged_source_authorities": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi.py",
+      "sha256": "f6a34d6ce35dd63fbeb5a753593e719c35fc1fd66002274ca736bf42c4ab20b0",
+      "bytes": 12501
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_pairing.py",
+      "sha256": "aa223ca371fd86317bc00e3cb26430ba87674fc44e781dba8abce405d61bd20e",
+      "bytes": 15386
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/__init__.py",
+      "sha256": "d465ffacd1f598d892c749fe680d0691ea782eb94c25622b9c6956a3a6dd243d",
+      "bytes": 332
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/projection.py",
+      "sha256": "8db4c4832eac3f2539cdb8bf52badca9831ec19e3985610636e8b8de3f23d888",
+      "bytes": 16741
+    }
+  ],
+  "source_SQL_field_authority": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_provenance.py",
+    "sha256": "0c28ac3658eab313e1035d46fa40de5faabe3c7bf7abb94e288af60d47bd78a3",
+    "bytes": 8484
+  },
+  "runtime_references": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/atlas-current-browser-runtime-custody/prepared-source-manifest.json",
+      "sha256": "c4e1e2dc8d15ef50b3df49e8d9a41b65029d8d4c1db0cf589ead293abbebafb4",
+      "bytes": 14460
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json",
+      "sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4",
+      "bytes": 32228643
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/runtime-observation-terminal.json",
+      "sha256": "1fcb3926925c5e186b3885e19f0325890f9bd8a536a243793e12e2ee178a7fec",
+      "bytes": 2885
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-runtime-review.json",
+      "sha256": "9d71bfabd836242b5ec9dcf96e5d2a124200a77dea4975bdf8b19529d04ba059",
+      "bytes": 117592
+    }
+  ],
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py",
+      "sha256": "a20ec24d9f9360dbdb61b69563952b1cd7e20ecf896eab8a9b717dd1cf310f5f",
+      "bytes": 14835
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/contracts.py",
+      "sha256": "beab7e9c348e774b2f7689ca15a362d00e80600cb5d64d4b67209f2b827f783b",
+      "bytes": 9892
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/execute_source.py",
+      "sha256": "66fb8a56f926be670bdce156028d6df80e61981c29415405a70050abf5a14baa",
+      "bytes": 8042
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/metadata.py",
+      "sha256": "bea589c3e87eff454c9bb7b6eb101c368c440de0915acb436fb7fc596b7b1c9c",
+      "bytes": 17932
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/observe.py",
+      "sha256": "27dad5035f26dd52d63237a274a1e595741163c3e1e3dc2649746c95a46519d2",
+      "bytes": 7522
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/prepare.py",
+      "sha256": "bcb9d043fa14bcfa9e191b9650af2987a0c8c1da654e1851d5732bdf49ffd638",
+      "bytes": 8593
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/run.py",
+      "sha256": "9d2b453f01f3a5114c986bd3d8c693f8256965c02a4585bf95ac0f9b1902d66d",
+      "bytes": 6955
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/runtime_guarded_runner.py",
+      "sha256": "22416ae203803e6a0432dd2196142513a9baf6c600b8b899093527a261b0968a",
+      "bytes": 8337
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/source_runtime.py",
+      "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+      "bytes": 11236
+    }
+  ],
+  "actual_private_parsing_native_producer_preparer_R_or_model_called": false,
+  "actual_PROJ_constructor_or_user_cache_API_called": false,
+  "future_actual_native_success_claimed": false,
+  "source_qualification_not_whole_science_or_owner_admission": true,
+  "predecessor_source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/prepared-source-manifest.json",
+    "sha256": "3f7fdcddf9ef2b081655c67d14fc4657d7c63abc65decd24bdd3aa7e0c0d9abb",
+    "bytes": 14083
+  },
+  "predecessor_source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/source-qualification.json",
+    "sha256": "03718c690c6b4b5dca6d831b929acbea64dcc8106771224a393bda2306d9a31f",
+    "bytes": 6756
+  },
+  "production_source_correspondence": {
+    "check_contracts.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py",
+        "sha256": "a20ec24d9f9360dbdb61b69563952b1cd7e20ecf896eab8a9b717dd1cf310f5f",
+        "bytes": 14835
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/check_contracts.py",
+        "sha256": "a20ec24d9f9360dbdb61b69563952b1cd7e20ecf896eab8a9b717dd1cf310f5f",
+        "bytes": 14835
+      },
+      "byte_identical": true
+    },
+    "common_runner.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      },
+      "byte_identical": true
+    },
+    "contracts.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/contracts.py",
+        "sha256": "beab7e9c348e774b2f7689ca15a362d00e80600cb5d64d4b67209f2b827f783b",
+        "bytes": 9892
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/contracts.py",
+        "sha256": "beab7e9c348e774b2f7689ca15a362d00e80600cb5d64d4b67209f2b827f783b",
+        "bytes": 9892
+      },
+      "byte_identical": true
+    },
+    "execute_source.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/execute_source.py",
+        "sha256": "66fb8a56f926be670bdce156028d6df80e61981c29415405a70050abf5a14baa",
+        "bytes": 8042
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/execute_source.py",
+        "sha256": "66fb8a56f926be670bdce156028d6df80e61981c29415405a70050abf5a14baa",
+        "bytes": 8042
+      },
+      "byte_identical": true
+    },
+    "metadata.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/metadata.py",
+        "sha256": "bea589c3e87eff454c9bb7b6eb101c368c440de0915acb436fb7fc596b7b1c9c",
+        "bytes": 17932
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/metadata.py",
+        "sha256": "bea589c3e87eff454c9bb7b6eb101c368c440de0915acb436fb7fc596b7b1c9c",
+        "bytes": 17932
+      },
+      "byte_identical": true
+    },
+    "observe.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/observe.py",
+        "sha256": "27dad5035f26dd52d63237a274a1e595741163c3e1e3dc2649746c95a46519d2",
+        "bytes": 7522
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/observe.py",
+        "sha256": "27dad5035f26dd52d63237a274a1e595741163c3e1e3dc2649746c95a46519d2",
+        "bytes": 7522
+      },
+      "byte_identical": true
+    },
+    "prepare.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/prepare.py",
+        "sha256": "bcb9d043fa14bcfa9e191b9650af2987a0c8c1da654e1851d5732bdf49ffd638",
+        "bytes": 8593
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/prepare.py",
+        "sha256": "bcb9d043fa14bcfa9e191b9650af2987a0c8c1da654e1851d5732bdf49ffd638",
+        "bytes": 8593
+      },
+      "byte_identical": true
+    },
+    "run.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/run.py",
+        "sha256": "9d2b453f01f3a5114c986bd3d8c693f8256965c02a4585bf95ac0f9b1902d66d",
+        "bytes": 6955
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/run.py",
+        "sha256": "9d2b453f01f3a5114c986bd3d8c693f8256965c02a4585bf95ac0f9b1902d66d",
+        "bytes": 6955
+      },
+      "byte_identical": true
+    },
+    "runtime_contracts.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "byte_identical": true
+    },
+    "runtime_guarded_runner.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/runtime_guarded_runner.py",
+        "sha256": "22416ae203803e6a0432dd2196142513a9baf6c600b8b899093527a261b0968a",
+        "bytes": 8337
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/runtime_guarded_runner.py",
+        "sha256": "22416ae203803e6a0432dd2196142513a9baf6c600b8b899093527a261b0968a",
+        "bytes": 8337
+      },
+      "byte_identical": true
+    },
+    "source_runtime.py": {
+      "qualified_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/source_runtime.py",
+        "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+        "bytes": 11236
+      },
+      "held_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/source_runtime.py",
+        "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+        "bytes": 11236
+      },
+      "byte_identical": true
+    }
+  },
+  "metadata_only_successor_delta": "Correct protocol public-column cardinality from20 to19. Runtime observer already computes19from exact declared fields; all11Python files and qualification commands/24guards/strict10/style10 are byte unchanged."
+}

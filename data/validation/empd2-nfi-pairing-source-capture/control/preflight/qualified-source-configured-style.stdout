@@ -1,0 +1,12 @@
+E402 Module level import not at top of file
+  --> artifacts/science/empd2-nfi-pairing-source-custody/run.py:34:1
+   |
+32 |       verify_inputs,
+33 |   )
+34 | / from source_runtime import (
+35 | |     PYTHON,  # noqa: E402 - authenticate the local import namespace first.
+36 | | )
+   | |_^
+   |
+
+Found 3 errors (2 fixed, 1 remaining).

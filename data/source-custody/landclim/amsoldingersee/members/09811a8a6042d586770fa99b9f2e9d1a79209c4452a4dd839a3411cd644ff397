@@ -1,0 +1,61 @@
+{
+  "schema_version": "landclim-amsoldingersee-source-inputs.v1",
+  "files": {
+    "capture/chronologies.raw": {
+      "bytes": 4940,
+      "sha256": "44d4f13546812cd34fd229ab9e4d033ed7ebafd56cc2a90462b36a0e8b1a31dc"
+    },
+    "capture/dataset.raw": {
+      "bytes": 893,
+      "sha256": "1a1d300846eadc6d01d1d461df5db67b5a2c84b441cf2e76e70d7639945e19e9"
+    },
+    "capture/doi.raw": {
+      "bytes": 109,
+      "sha256": "de5845149ec18e12eb3a0761e2771f19384cafd3c7813c9c3e3069d795c82540"
+    },
+    "capture/download.raw": {
+      "bytes": 298507,
+      "sha256": "f067287ed8e79997933c52802f62b8a8fe487457c9c521f2498252e25cedc08b"
+    },
+    "capture/receipt.json": {
+      "bytes": 6344,
+      "sha256": "e329edaaa2af5f63d28fda86c795dc5c9713e34b84b69660372c80b263c8a0df"
+    },
+    "capture/selected-publication-row.json": {
+      "bytes": 5139,
+      "sha256": "f8bf5e91b17e1715a5e2c58e2c9e6aa9c1c44861639eb630ecf2ec18e1d50845"
+    },
+    "capture/siblings001/chronologies-3873.raw": {
+      "bytes": 63,
+      "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc"
+    },
+    "capture/siblings001/chronologies-3874.raw": {
+      "bytes": 3129,
+      "sha256": "5d4e9606a45fba5b1465f0a7af414d0dd1334fbec046977f4c1247d74db4829b"
+    },
+    "capture/siblings001/dataset-3873.raw": {
+      "bytes": 798,
+      "sha256": "4633e0cb727804ea7d749a87363bd46ecebc6b1c23907519d97d5280d55a04da"
+    },
+    "capture/siblings001/dataset-3874.raw": {
+      "bytes": 985,
+      "sha256": "4c9737804be8dd57db73fe5da943f2dbf7f06c48f11efd43a3a2d24b56276a68"
+    },
+    "capture/siblings001/download-3873.raw": {
+      "bytes": 129077,
+      "sha256": "946de88e33477eadd1be4352967dcbab31da3f103385a2ad758439b2bad90c8d"
+    },
+    "capture/siblings001/download-3874.raw": {
+      "bytes": 110388,
+      "sha256": "8399bf295f8f4d4fead1d6f2f8d3786c15c542a6260ec2bb891f36ad4d83a6e9"
+    },
+    "capture/siblings001/receipt.json": {
+      "bytes": 7581,
+      "sha256": "d62a2dade3e109be05c9009e21c96e1433cca10ab394f30b504c941761b41f92"
+    },
+    "capture/sites.raw": {
+      "bytes": 1197,
+      "sha256": "99fe655e3c5e120098327d28e5e184654bb74bcaad8af875e1f9fe2b87be8c3a"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{"stage": "maintained-outcome-blind-pairing", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 18.84922875004122}
+{"stage": "independent-source-pairing-observer", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 9.907773624989204}
+{"terminal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-empd2-nfi-observed-refusal-replay/terminal.json", "sha256": "1ba385f8f26376e4f9c7c20c1a8a0c318df3d3a1d9c9084b1256fa8ac133385e", "status": "passed"}

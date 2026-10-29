@@ -1,0 +1,169 @@
+{
+  "schema_version": "openland-member-source-controller-qualification.v1",
+  "source_only_actual_exit": 0,
+  "pure_guard_groups": 17,
+  "strict_source_files": 10,
+  "configured_Ruff_files": 10,
+  "configured_format_files": 10,
+  "AST_files": 11,
+  "CLI_help_commands": 4,
+  "source_tools_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "source_checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/qualified-controls.log",
+      "sha256": "818735f2adbeec69de18bc5cf0fc1e81b86545f7b0f920c9197e33ea1029d126",
+      "bytes": 116,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/qualified-strict.log",
+      "sha256": "14fdf673bd175fe32ef42df34666481bb15e465313f7dbef32d0aea2ba76a26e",
+      "bytes": 44,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/qualified-Ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/qualified-format.log",
+      "sha256": "5b9f70ad96522f492ef846065642c069b5627379aff2ab3f74acd2e3b9ecfe34",
+      "bytes": 27,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/AST.json",
+      "sha256": "55db9abe6f9a406cde0163b28f4443ff0cc3efd0506ebc59b4d77403ba23305d",
+      "bytes": 3702,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/help-prepare.py.log",
+      "sha256": "40b22fd79efc74a845eef37e89ffea495303b4e4ce1ce97d5df6d095357ddd2a",
+      "bytes": 371,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/help-run.py.log",
+      "sha256": "59082d1d0343553d89c794ee8e38788c06f92a138de496dbb126df76d437ff84",
+      "bytes": 299,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/help-execute_source.py.log",
+      "sha256": "d6c908728d908876560e46574803571fb52dfdbea88438f1b612bde53d400e62",
+      "bytes": 203,
+      "actual_exit": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/preflight/help-observe.py.log",
+      "sha256": "d5732aadabb529e2fff07c335716854a6084bb27b75051cc80ef6b6aaf44fcab",
+      "bytes": 208,
+      "actual_exit": 0
+    }
+  ],
+  "source_identities": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/check_contracts.py",
+      "sha256": "59eca079a2bb5b302ca0be5ed5e600e4d18f7439f39930727b2c2d65d8d89ecf",
+      "bytes": 13319
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/contracts.py",
+      "sha256": "d8461cb821ff7d72961b10993206ba597f9eed5ff42781d4548c5ef0cabc4b25",
+      "bytes": 10770
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/execute_source.py",
+      "sha256": "17d64fb4a0f0af3b6d6219af21c6f9b0aff92847bcc94222663ab4cc835fa3fe",
+      "bytes": 7498
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/metadata.py",
+      "sha256": "794a229f2abea158a2f5c8c4fa1f35c3f1efd35e912ace2d34aa87b8eae96c38",
+      "bytes": 11283
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/observe.py",
+      "sha256": "59b468b4b6981c9f8e9eabdb9610c8e64292aff855ef6296606b67269ee1fa4a",
+      "bytes": 6795
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/prepare.py",
+      "sha256": "eca3539eacb75f3b57a1f910dc6b449fe9466b25bc8967017ec3f523ee6d6a91",
+      "bytes": 9808
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/run.py",
+      "sha256": "e66dc404a7f81591321bf26f10110852b48ca05da8b64be56dd6fa559ec2640b",
+      "bytes": 7401
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/runtime_guarded_runner.py",
+      "sha256": "22416ae203803e6a0432dd2196142513a9baf6c600b8b899093527a261b0968a",
+      "bytes": 8337
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/source_runtime.py",
+      "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+      "bytes": 11236
+    }
+  ],
+  "immutable_runtime_predecessor": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/source_runtime.py",
+      "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+      "bytes": 11236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/runtime_guarded_runner.py",
+      "sha256": "22416ae203803e6a0432dd2196142513a9baf6c600b8b899093527a261b0968a",
+      "bytes": 8337
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    }
+  ],
+  "reviewed_attribution_pair_reference": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-openland-source-feasibility/recorded-authority.py",
+    "sha256": "3d7c3ef41e2ff3ce1bf91f2f61dd176d6be6a22acd36b8efb9e832990dc86a65",
+    "bytes": 2522
+  },
+  "feasibility_reference": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-openland-source-feasibility/feasibility-review.json",
+    "sha256": "2deeb7434808ca76fd67083e7600302e281eaf786780a1298c464a64e570191c",
+    "bytes": 15554
+  },
+  "source_attribution_bridge": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/source-attribution-bridge.json",
+    "sha256": "d4e4ec2a3288ea07d6e16eaf3ed0617d0e03776913a378dc7072c93639101c3b",
+    "bytes": 994
+  },
+  "source_scientific_counts": "51directory/26upstream/27selected payloads/25modeled CSVs/zero public or independent admission are retained contracts, not a new actual outcome. Synthetic ZIP controls exercise identities/CRC-backed reads, typed tree sizes, traversal/alias/special and role refusals without opening private archive.",
+  "source_authoring_refusals": "Pre-format Ruff style findings and5strict annotation findings in independent tree-list narrowing/zipfile origin typing were retained and corrected. Initial16guards passed; final17guards/strict10/style10 all0. No actual native/data/refusal was reclassified.",
+  "actual_private_archive_member_decode_runtime_census_prepare_producer_model_R_or_install_calls": 0,
+  "new_scientific_or_historical_acquisition_acceptance_claimed": false
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "amsoldingersee-reviewed-source-manifest.v1",
+  "source_only": true,
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/check_contracts.py",
+      "sha256": "28ee46a846dfec90bc28b2a02503d676e7333b9e1457415dd691439e5ff7b854",
+      "bytes": 13519
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/contracts.py",
+      "sha256": "f27542624a0e48784c7c824e55891cd9ecee0a1e5cfcc2b522abb2e9dbe7d0c5",
+      "bytes": 8244
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py",
+      "sha256": "5660548ea51a35f62c502e7981b554457ad954c5de3416597f0a0ae9d5efad1e",
+      "bytes": 3676
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/execute_source.py",
+      "sha256": "915ac73b01dd8022d40bf00ff54ecbcad98566a6986171dfc669b89e7227e5bb",
+      "bytes": 5839
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/metadata.py",
+      "sha256": "800293b2cfec8a0dcc7602096aa5881d59c7881dc936ec436294d29a8cd89ff1",
+      "bytes": 8961
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/observe.py",
+      "sha256": "177a6cb6019d0cefa1d14bd1964e6e5786e89a1f584b1d5f25444077067c8b6d",
+      "bytes": 6645
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/check_style_readonly.py",
+      "sha256": "3e265606647941a25bbfd90604b924e9a6e09591112442041f105d991debd887",
+      "bytes": 505
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/final_entry_controls.py",
+      "sha256": "250e6bee42f40f119660cf00da7587ebcbc5e0112ef6ec2148da5a34f7627666",
+      "bytes": 2280
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/guards-final.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/guards-final.stdout",
+      "sha256": "8ffbe9bd7c623e19bdf84dcffad1c8d3cb1df2bc0134f789e270a0994a58ef3b",
+      "bytes": 655
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/strict-timer-scope.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/strict-timer-scope.stdout",
+      "sha256": "46984ca20bf69f7b14ec1fd9bd82101d56a4e109e68f016fd2a04f22481b09b3",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/style-timer-scope.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/preflight/style-timer-scope.stdout",
+      "sha256": "29f20c3ee57f1f120dc768e38618eb81e56e89f005f4c1237d5b8be6d18d302b",
+      "bytes": 45
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/prepare.py",
+      "sha256": "b1999c588d7f013600ea7e54e8aede10c93a38593f95b4fb4812945456e9e8ea",
+      "bytes": 7112
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/protocol.json",
+      "sha256": "51676e330e48aa766e1c1e356e078425c8cc2f6602311189a86e627a82d7dbee",
+      "bytes": 6747
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/recipe.json",
+      "sha256": "c85ecd66d3dafb44e7ca7e23add150d8c440f764cc470bee497aef7fb3e487b2",
+      "bytes": 1374
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/run.py",
+      "sha256": "824273d84d41156342908fefae86aa432a7e9868eee0fd3011f7a764cdb319ac",
+      "bytes": 8272
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/runtime.py",
+      "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+      "bytes": 17435
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/source-correspondence.json",
+      "sha256": "91ddc0f47cc7ac6e87b7bef3d8a7c01ea18474fe610023d7d3e87cf7338bf01b",
+      "bytes": 3778
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/source-qualification.json",
+      "sha256": "7083e90c7dff03f767cb496b2a6815ab26ba0399a980fd6bda42a7ab893603c4",
+      "bytes": 5136
+    }
+  ],
+  "source_qualification_sha256": "7083e90c7dff03f767cb496b2a6815ab26ba0399a980fd6bda42a7ab893603c4",
+  "preparation_and_native_execution_performed": false
+}

@@ -1,0 +1,80 @@
+{
+  "source_only": true,
+  "actual_candidate_deferred_until_root_preparation": true,
+  "required_peer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/independent-source-review.json",
+    "approved": true,
+    "source_manifest_sha256": "EXACT_HELD_SOURCE_MANIFEST_SHA256"
+  },
+  "primary_lake_reader_job": {
+    "prepare_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/prepare.py",
+      "--candidate",
+      "ROOT_SUPPLIES_ACTUAL_FINAL_CLEAN_CANDIDATE",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review",
+      "--review-sha256",
+      "ROOT_SUPPLIES_EXACT_INDEPENDENT_REVIEW_SHA256"
+    ],
+    "separate_launch_after_registration_readback_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/run.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/plan.json",
+      "--registered-plan-sha256",
+      "ROOT_SUPPLIES_REGISTERED_PLAN_SHA256"
+    ],
+    "stage_timeouts_seconds": [
+      120,
+      120
+    ],
+    "whole_seconds": 720,
+    "outer_common_seconds": 740,
+    "memory_bytes": 4294967296,
+    "inclusive_output_bytes": 134217728,
+    "own_receipt_reserve_bytes": 16384
+  },
+  "queued_separate_prerequisite_job_after_genuine_lake_result": {
+    "prepare_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/prepare.py",
+      "--candidate",
+      "ROOT_SUPPLIES_ACTUAL_FINAL_CLEAN_CANDIDATE",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-prerequisite-custody-review",
+      "--review-sha256",
+      "ROOT_SUPPLIES_EXACT_INDEPENDENT_REVIEW_SHA256",
+      "--include-prerequisites"
+    ],
+    "separate_launch_after_registration_readback_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/run.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-prerequisite-custody-review/plan.json",
+      "--registered-plan-sha256",
+      "ROOT_SUPPLIES_REGISTERED_PLAN_SHA256"
+    ],
+    "stage_timeouts_seconds": [
+      120,
+      240,
+      120
+    ],
+    "whole_seconds": 720,
+    "outer_common_seconds": 740,
+    "memory_bytes": 4294967296,
+    "inclusive_output_bytes": 134217728,
+    "own_receipt_reserve_bytes": 16384
+  },
+  "optional_inputs": "All30 declared raw/normalized files,776424843 bytes; current163site/10637sample projection distinct from original54 site capture. No original historical source-job equivalence claim.",
+  "native_execution_by_worker": false,
+  "integrity_guards_weakened": false
+}

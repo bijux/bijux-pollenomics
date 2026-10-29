@@ -1,0 +1,13 @@
+{
+  "actual_exit": 0,
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/plan.json",
+    "sha256": "f8a5eda54d8a8c66f7cfe7362a4cbe8876ebe15d548c335725524d9227e58ac8",
+    "bytes": 4357610
+  },
+  "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "protected_inputs": 10058,
+  "private_inputs": 14,
+  "author_examples": "Bound original CSV; parsed only by genuine stages",
+  "native_consumers_launched": 0
+}

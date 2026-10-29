@@ -1,0 +1,78 @@
+{
+  "schema_version": "hyde-grid-maintained-interface.v1",
+  "source_only": true,
+  "maintained_source_expected_rows": [
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+      "sha256": "7b81431bc8a66b84fe91baea2c452b58458f8b54b3cabc6ee248dc88cb8d8c0c",
+      "bytes": 62
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+      "sha256": "7939298f093c66e345e210e8d8b2da93e809623887b314261ae2652f6551e99e",
+      "bytes": 151
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+      "sha256": "b19cf8d2675d5ec8e2236c6a2b22b058adeee8c045f6701cc23161395c5d06f7",
+      "bytes": 13373
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+      "sha256": "2e376d9f75b4a8f0b18a25195671d9fbb1f40abf23f6d4382f648f77e9ce5a58",
+      "bytes": 4353
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+      "sha256": "6a9b76cca58905075e649a9bb3456d2eca5130b403a60116abe556d84dbaef30",
+      "bytes": 5775
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+      "sha256": "62646c940fa2511b3b33609f97eeb89d794f3717fd1f5b209ebac00e143c5161",
+      "bytes": 8825
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_grid_conservation.py",
+      "sha256": "ac257ebbe64868f9af83ad8952023d7fbc129b0a91186d30daa0322ba3c83075",
+      "bytes": 8065
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
+      "sha256": "06302225bd7d6e49c8a5fde444813cc47f5792c6ed7298cce039179b37c1d8fa",
+      "bytes": 7258
+    }
+  ],
+  "actual_signature": [
+    "source_root: Path",
+    "output: Path"
+  ],
+  "invocation": "runpy.run_module(bijux_pollenomics_dev.source_completion.hyde_country_grid_conservation, run_name=__main__) after explicitly inserting complete owned four src roots; maintained --source-root/--output arguments unchanged.",
+  "package_initializer": "source_completion/__init__.py imports audit, then evidence/landclim/manifests; these six regular source files and producer+sibling are exact reviewed preimages. No audit function is called.",
+  "independent_reader": "grid_reader imports stdlib only, never producer or sibling; reconstructs literal country-code XLSX, source tables, ISO and21 cropland members.",
+  "scientific_contract": {
+    "countries": [
+      "DK",
+      "FI",
+      "NO",
+      "SE"
+    ],
+    "scenario_count": 3,
+    "CE_labels": [
+      500,
+      1000,
+      1500,
+      1700,
+      1900,
+      2000,
+      2025
+    ],
+    "ordered_rows": 84,
+    "grid_width": 4320,
+    "grid_height": 2160,
+    "mass_tolerance_km2": "0.000001",
+    "selected_nodata_passing_count": 0,
+    "off_selection_values_unqualified": true
+  },
+  "actual_private_decode_or_producer_import": false
+}

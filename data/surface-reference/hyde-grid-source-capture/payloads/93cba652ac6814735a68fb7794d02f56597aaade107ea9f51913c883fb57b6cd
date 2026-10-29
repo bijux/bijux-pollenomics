@@ -1,0 +1,154 @@
+"""Pure future HYDE receipt gates; this does not authenticate a source capsule."""
+
+from __future__ import annotations
+
+from collections.abc import Mapping
+from typing import Any
+
+
+def require(value: object, reason: str) -> None:
+    if not value:
+        raise ValueError(reason)
+
+
+def integer(value: object, expected: int) -> bool:
+    return type(value) is int and value == expected
+
+
+def qualify_scope(
+    plan: Mapping[str, Any],
+    plan_sha256: str,
+    inner: Mapping[str, Any],
+    outer: Mapping[str, Any],
+    producer: Mapping[str, Any],
+    observation: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Distinguish reconstructed science from tracked mismatch without guessing exits.
+
+    A future finite capsule caller must first authenticate exact registered plan,
+    complete native receipts/logs/output catalogue, original source/resource and
+    controller closures. Pure matching dictionaries are never source authority.
+    """
+    require(
+        isinstance(plan_sha256, str)
+        and len(plan_sha256) == 64
+        and all(c in "0123456789abcdef" for c in plan_sha256),
+        "Exact registered plan identity required",
+    )
+    candidate = plan["candidate"]
+    require(
+        isinstance(candidate, str)
+        and len(candidate) == 40
+        and all(c in "0123456789abcdef" for c in candidate),
+        "Actual source-freeze candidate required",
+    )
+    require(
+        plan["canonical_identity_at_source_freeze"]["candidate"] == candidate
+        and plan["canonical_identity_at_source_freeze"]["status"] == "",
+        "Original source was not frozen from a clean candidate",
+    )
+    for result in (inner, outer):
+        require(
+            result["candidate"] == candidate and result["plan_sha256"] == plan_sha256,
+            "Native receipts do not bind the registered source epoch",
+        )
+    require(
+        integer(producer["actual_exit"], 0) and producer["candidate"] == candidate,
+        "No completed maintained producer",
+    )
+    require(
+        observation["candidate"] == candidate
+        and integer(
+            observation["independent_scientific_source_reconstruction_actual_exit"], 0
+        ),
+        "No completed independent native source reconstruction",
+    )
+    pairs = observation["tracked_byte_checkers"]
+    require(
+        isinstance(pairs, list)
+        and len(pairs) == 2
+        and all(type(row["byte_identical"]) is bool for row in pairs),
+        "Exactly two literal tracked-byte outcomes required",
+    )
+    matched = all(row["byte_identical"] for row in pairs)
+    checker = 0 if matched else 2
+    whole = 0 if matched else 1
+    require(
+        integer(observation["tracked_byte_checker_actual_exit"], checker)
+        and integer(observation["actual_exit"], checker)
+        and observation["tracked_bytes_all_equal"] is matched,
+        "Tracked byte outcomes were promoted or misreported",
+    )
+    stages = inner["stages"]
+    declared = plan["stages"]
+    require(len(stages) == len(declared) == 2, "Complete two-stage execution required")
+    for expected, result, name, action, exit_code in zip(
+        declared,
+        stages,
+        ("maintained-grid-producer", "independent-source-grid-observer"),
+        ("producer", "observer"),
+        (0, whole),
+        strict=True,
+    ):
+        require(
+            expected["id"] == result["id"] == name
+            and expected["action"] == result["action"] == action
+            and integer(expected["timeout_seconds"], 600)
+            and integer(result["timeout_seconds"], 600)
+            and expected["argv"] == result["argv"]
+            and integer(result["actual_exit"], exit_code)
+            and result["timed_out"] is False,
+            "Native stage role/argv/time/status differs",
+        )
+    require(
+        integer(inner["actual_exit"], whole)
+        and inner["exception"] is None
+        and inner["after_custody_error"] is None
+        and inner["live_canonical_equality_claimed"] is False
+        and all(
+            inner[key] is True
+            for key in (
+                "memory_bound_pass",
+                "inclusive_storage_bound_pass",
+                "completed_whole_wall_bound_pass",
+            )
+        ),
+        "Inner custody/resources or literal whole differs",
+    )
+    require(
+        integer(outer["actual_exit"], whole)
+        and integer(outer["child_native_exit"], whole)
+        and outer["child_timed_out"] is False
+        and all(
+            outer[key] is True
+            for key in (
+                "registered_plan_unchanged",
+                "memory_bound_pass",
+                "inclusive_storage_bound_pass",
+                "completed_outer_wall_bound_pass",
+            )
+        ),
+        "Outer watchdog/custody/resources or literal whole differs",
+    )
+    scope = observation["source_reconstruction"]
+    require(
+        integer(scope["joined_rows"], 84)
+        and integer(scope["selected_nodata_cells"], 0)
+        and scope["off_selection_values_not_qualified"] is True
+        and scope["grid_dimensions"] == [4320, 2160]
+        and scope["Decimal_mass_tolerance_km2"] == "0.000001",
+        "Independent grid/scientific denominator differs",
+    )
+    return {
+        "source_candidate": candidate,
+        "producer_native_exit": 0,
+        "independent_source_reconstruction_exit": 0,
+        "observer_process_exit": whole,
+        "raw_tracked_byte_checker_exit": checker,
+        "inner_and_outer_whole_exit": whole,
+        "eligible_for_exact_existing_report_admission": matched,
+        "canonical_report_replacement_authorized": False,
+        "historical_unknown_native_epoch_recovered": False,
+        "country_table_prior_admission_relabelled": False,
+        "rights_CRS_BP_ecology_human_or_LRA_acceptance": False,
+    }

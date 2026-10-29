@@ -1,0 +1,182 @@
+{
+  "schema_version": "swedish-protocol-input-declaration-correction.v1",
+  "source_authoring_candidate": "5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87",
+  "changes": [
+    {
+      "owner_id": "regions/nordic/swedish-lake-transfer/report-products",
+      "old_row": {
+        "owner_id": "regions/nordic/swedish-lake-transfer/report-products",
+        "paths": [
+          "docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json",
+          "docs/report/regions/nordic/swedish-lake-transfer/inputs/metadata-SE.json.gz",
+          "docs/report/regions/nordic/swedish-lake-transfer/inputs/training-SE.json.gz",
+          "docs/report/regions/nordic/swedish-lake-transfer/manifest.json",
+          "docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json",
+          "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
+          "docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt",
+          "docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz"
+        ],
+        "producer_inputs": [
+          "data/neotoma/relational/manifest.json",
+          "data/neotoma/relational/reconciliation.json",
+          "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+          "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+          "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+          "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+          "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+          "data/neotoma/relational/surfaces/datasets/part-00001.json",
+          "data/neotoma/relational/surfaces/observations/part-00001.json",
+          "data/neotoma/relational/surfaces/observations/part-00002.json",
+          "data/neotoma/relational/surfaces/observations/part-00003.json",
+          "data/neotoma/relational/surfaces/observations/part-00004.json",
+          "data/neotoma/relational/surfaces/observations/part-00005.json",
+          "data/neotoma/relational/surfaces/observations/part-00006.json",
+          "data/neotoma/relational/surfaces/observations/part-00007.json",
+          "data/neotoma/relational/surfaces/observations/part-00008.json",
+          "data/neotoma/relational/surfaces/orphans/part-00001.json",
+          "data/neotoma/relational/surfaces/samples/part-00001.json",
+          "data/neotoma/relational/surfaces/sites/part-00001.json",
+          "data/neotoma/relational/surfaces/variables/part-00001.json",
+          "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py"
+        ],
+        "role": "unresolved",
+        "verification": "Input preparation requires the pinned private 10,788-row author taxonomy lookup; the protocol is authored JSON. The historical freeze binds earlier producer bytes, reference producer text is a retained snapshot, and manifest.json is verification-only. Do not promote these to independent generated custody."
+      },
+      "proposed_corrected_row": {
+        "owner_id": "regions/nordic/swedish-lake-transfer/report-products",
+        "paths": [
+          "docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json",
+          "docs/report/regions/nordic/swedish-lake-transfer/inputs/metadata-SE.json.gz",
+          "docs/report/regions/nordic/swedish-lake-transfer/inputs/training-SE.json.gz",
+          "docs/report/regions/nordic/swedish-lake-transfer/manifest.json",
+          "docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json",
+          "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
+          "docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt",
+          "docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz"
+        ],
+        "producer_inputs": [
+          "data/neotoma/relational/manifest.json",
+          "data/neotoma/relational/reconciliation.json",
+          "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+          "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+          "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+          "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+          "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+          "data/neotoma/relational/surfaces/datasets/part-00001.json",
+          "data/neotoma/relational/surfaces/observations/part-00001.json",
+          "data/neotoma/relational/surfaces/observations/part-00002.json",
+          "data/neotoma/relational/surfaces/observations/part-00003.json",
+          "data/neotoma/relational/surfaces/observations/part-00004.json",
+          "data/neotoma/relational/surfaces/observations/part-00005.json",
+          "data/neotoma/relational/surfaces/observations/part-00006.json",
+          "data/neotoma/relational/surfaces/observations/part-00007.json",
+          "data/neotoma/relational/surfaces/observations/part-00008.json",
+          "data/neotoma/relational/surfaces/orphans/part-00001.json",
+          "data/neotoma/relational/surfaces/samples/part-00001.json",
+          "data/neotoma/relational/surfaces/sites/part-00001.json",
+          "data/neotoma/relational/surfaces/variables/part-00001.json",
+          "docs/report/regions/nordic/swedish-author-target-pollen/inputs/training-SE.json.gz"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py"
+        ],
+        "role": "unresolved",
+        "verification": "Input preparation requires the pinned private 10,788-row author taxonomy lookup; the protocol is authored JSON. The historical freeze binds earlier producer bytes, reference producer text is a retained snapshot, and manifest.json is verification-only. Do not promote these to independent generated custody."
+      },
+      "scope": "Only wrong DK input declaration replaced by actual protocol-selected SE training; unresolved role/produced and retained roles unchanged. Private qualified LUT remains explicit external source parameter in the runtime plan; this is not admission."
+    },
+    {
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/report-products",
+      "old_row": {
+        "owner_id": "regions/nordic/swedish-neotoma-holdout/report-products",
+        "paths": [
+          "docs/report/regions/nordic/swedish-neotoma-holdout/input-manifest.json",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/metadata-SE.json.gz",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/training-SE.json.gz",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/manifest.json",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/prediction-freeze.json",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/protocol.json",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/reference/parallel-dataset-review-producer.py.txt",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/reference/prediction-producer.py.txt",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/sealed-outcomes/outcomes-SE.json.gz"
+        ],
+        "producer_inputs": [
+          "data/neotoma/relational/manifest.json",
+          "data/neotoma/relational/reconciliation.json",
+          "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+          "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+          "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+          "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+          "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+          "data/neotoma/relational/surfaces/datasets/part-00001.json",
+          "data/neotoma/relational/surfaces/observations/part-00001.json",
+          "data/neotoma/relational/surfaces/observations/part-00002.json",
+          "data/neotoma/relational/surfaces/observations/part-00003.json",
+          "data/neotoma/relational/surfaces/observations/part-00004.json",
+          "data/neotoma/relational/surfaces/observations/part-00005.json",
+          "data/neotoma/relational/surfaces/observations/part-00006.json",
+          "data/neotoma/relational/surfaces/observations/part-00007.json",
+          "data/neotoma/relational/surfaces/observations/part-00008.json",
+          "data/neotoma/relational/surfaces/orphans/part-00001.json",
+          "data/neotoma/relational/surfaces/samples/part-00001.json",
+          "data/neotoma/relational/surfaces/sites/part-00001.json",
+          "data/neotoma/relational/surfaces/variables/part-00001.json",
+          "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py"
+        ],
+        "role": "unresolved",
+        "verification": "Input preparation requires the pinned private author taxonomy lookup. Historical freeze and producer snapshots have distinct custody; the verification-only manifest and authored protocol are not independent generated outputs. Keep the parallel dataset as one core."
+      },
+      "proposed_corrected_row": {
+        "owner_id": "regions/nordic/swedish-neotoma-holdout/report-products",
+        "paths": [
+          "docs/report/regions/nordic/swedish-neotoma-holdout/input-manifest.json",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/metadata-SE.json.gz",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/training-SE.json.gz",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/manifest.json",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/prediction-freeze.json",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/protocol.json",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/reference/parallel-dataset-review-producer.py.txt",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/reference/prediction-producer.py.txt",
+          "docs/report/regions/nordic/swedish-neotoma-holdout/sealed-outcomes/outcomes-SE.json.gz"
+        ],
+        "producer_inputs": [
+          "data/neotoma/relational/manifest.json",
+          "data/neotoma/relational/reconciliation.json",
+          "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+          "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+          "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+          "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+          "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+          "data/neotoma/relational/surfaces/datasets/part-00001.json",
+          "data/neotoma/relational/surfaces/observations/part-00001.json",
+          "data/neotoma/relational/surfaces/observations/part-00002.json",
+          "data/neotoma/relational/surfaces/observations/part-00003.json",
+          "data/neotoma/relational/surfaces/observations/part-00004.json",
+          "data/neotoma/relational/surfaces/observations/part-00005.json",
+          "data/neotoma/relational/surfaces/observations/part-00006.json",
+          "data/neotoma/relational/surfaces/observations/part-00007.json",
+          "data/neotoma/relational/surfaces/observations/part-00008.json",
+          "data/neotoma/relational/surfaces/orphans/part-00001.json",
+          "data/neotoma/relational/surfaces/samples/part-00001.json",
+          "data/neotoma/relational/surfaces/sites/part-00001.json",
+          "data/neotoma/relational/surfaces/variables/part-00001.json",
+          "docs/report/regions/nordic/swedish-author-target-pollen/inputs/training-SE.json.gz"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py"
+        ],
+        "role": "unresolved",
+        "verification": "Input preparation requires the pinned private author taxonomy lookup. Historical freeze and producer snapshots have distinct custody; the verification-only manifest and authored protocol are not independent generated outputs. Keep the parallel dataset as one core."
+      },
+      "scope": "Only wrong DK input declaration replaced by actual protocol-selected SE training; unresolved role/produced and retained roles unchanged. Private qualified LUT remains explicit external source parameter in the runtime plan; this is not admission."
+    }
+  ],
+  "canonical_applied": false,
+  "publication_requires_actual_native_success_and_separate_root_review": true
+}

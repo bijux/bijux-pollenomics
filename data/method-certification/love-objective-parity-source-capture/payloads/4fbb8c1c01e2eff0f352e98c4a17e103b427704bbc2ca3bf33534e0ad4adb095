@@ -1,0 +1,133 @@
+{
+  "schema_version": "love-pandas-missing-token-source-manifest.v1",
+  "source_only": true,
+  "publication_ready": false,
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/check_contracts.py",
+      "sha256": "bf54fdfdeed0aef92aff5b558e187a5959fad758ba58f840a2bfacd32aed1634",
+      "bytes": 57725
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/contracts.py",
+      "sha256": "d456c45b1445281c83aa501eaa1b1fc4c0cd1029a10fa54c061e02197b0aaf80",
+      "bytes": 10959
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/namespace-source-correspondence.json",
+      "sha256": "0690f99456dfa40f0b073ff01d564c3e49b01177260121abb1bb129c7ef3391b",
+      "bytes": 3591
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/objective-source-correspondence.json",
+      "sha256": "65168cfebe420ae9788a6d6dc44dd6d917cece117125914dc7b4c090118fc1db",
+      "bytes": 3570
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/observe.py",
+      "sha256": "cd812e5cd1551a94249ed73e27763356f18ce27dc91083eccb9a8dd9ad7e9d50",
+      "bytes": 28390
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/saved-product-parser-metadata.json",
+      "sha256": "366dd8c9bc62eca9eece20e7ef90450159ffea52f24839f5782e927094b82ac2",
+      "bytes": 6077
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/source-correspondence.json",
+      "sha256": "89c67eb51df7a7ae22e0b896d53055dd579728a92c67e69710bc57b6bd6999af",
+      "bytes": 1632
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/source-qualification.json",
+      "sha256": "eb30bd38eef2a77d7de5dd68494744b2e9519e5a0307ff8567ba4bca36fb1680",
+      "bytes": 8902
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/prepare.py",
+      "sha256": "720a06f263571240c7852a8fce32cf64a0b60f17a71d6864d57957800d408d80",
+      "bytes": 15837
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/produce.py",
+      "sha256": "933b163ca239600bfe9e7e86736eb53f9d152b16809a2bff2e1a89e37a252ed2",
+      "bytes": 19980
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/protocol.json",
+      "sha256": "a3a75d45a2c0861f8ae72cc0606a40e33f3ff66e943ed2eaca56f86e646d308b",
+      "bytes": 16095
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/r_runtime_contracts.py",
+      "sha256": "14eaa0f5a8750bd0ea10b260c3fd992fb552f9c63dfa7a0006dc050e5830b5f8",
+      "bytes": 12402
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/replay.R",
+      "sha256": "e724e683aa7be39846a6e401b753350442a48fca767f545aec0158b326d523de",
+      "bytes": 5622
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/retained_export.py",
+      "sha256": "11927691add4287cf1e6b9b25b1acd27ce8fa5150a3778c178afb2b93a3df865",
+      "bytes": 9873
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/retained_python.py",
+      "sha256": "b723a39c6673816ae27f14ed3ebf36b4af9ecebb405a001536601f108b81b927",
+      "bytes": 15051
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/retained_r.py",
+      "sha256": "fd829f11ce27c2e7883e4178ca572d9198622f141953bc13a0aca0a76a384424",
+      "bytes": 9369
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/run.py",
+      "sha256": "f424405bc56624c191b1d54919278dbba0f9970a45c63fe444e75fa00f9777f5",
+      "bytes": 11846
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/runtime_guarded_runner.py",
+      "sha256": "bf9166151e2a2b9f4bad9c1ed91409660b5c3247f7533f634ed890acb96c6a2c",
+      "bytes": 12517
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/source-binding-forensics.json",
+      "sha256": "36348f6e887b85e159ab16a93807e509365ab3290199e02fb0ba539cc896cf19",
+      "bytes": 2937
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/source-delta.diff",
+      "sha256": "6f0689244ebddb6cdffbb31d4c76ca6e7e5edcb53b65cee230b1c9f6c47266b4",
+      "bytes": 5845
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/source-interface.json",
+      "sha256": "19f5d94f85de2c8d94eb8ce634da98e4e6732cfea30e322b75fee2d6a9e1002b",
+      "bytes": 4163
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/source_runtime.py",
+      "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+      "bytes": 11236
+    }
+  ],
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/source-qualification.json",
+    "sha256": "eb30bd38eef2a77d7de5dd68494744b2e9519e5a0307ff8567ba4bca36fb1680",
+    "bytes": 8902
+  },
+  "scope": "One independent saved-products observer; both models and original failed surrounding jobs remain literal; root alone prepares/registers/launches."
+}

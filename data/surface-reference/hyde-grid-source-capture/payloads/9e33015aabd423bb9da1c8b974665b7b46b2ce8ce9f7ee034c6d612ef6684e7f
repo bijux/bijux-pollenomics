@@ -1,0 +1,179 @@
+{
+  "schema_version": "hyde-grid-declared-source-inputs.v1",
+  "source_root": "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5",
+  "original_report": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json",
+    "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628",
+    "bytes": 5668
+  },
+  "inputs": [
+    {
+      "path": "original/general_files.zip",
+      "sha256": "6c85ebaaa4e18b569be4833454ee0139588acb9001a7c57ca678265c1816f923",
+      "member": "general_files/iso_cr.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/txt/cropland_c.txt",
+      "sha256": "d3ddee4c611af206f5324243c6676c2c9648306970e8c7e108d3cf5d418099bb"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/500AD_lu.zip",
+      "sha256": "7f6ab5077ad2bc0ce81480baf85bbc022dce72735bf23b30d4149c4c55a311a1",
+      "member": "cropland500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/1000AD_lu.zip",
+      "sha256": "46ffc934f4470800284106997e282dfff64953ffe43191d83be848383b9a05fa",
+      "member": "cropland1000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/1500AD_lu.zip",
+      "sha256": "e1b441a2e8b941212887cd89b5b4583b3b44a36b130cb3276b88af2ee5444979",
+      "member": "cropland1500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/1700AD_lu.zip",
+      "sha256": "d4ccccdb190d9038c44bcb4830fc6386215a1ad42b56137d5757e74cf5f5f1ba",
+      "member": "cropland1700AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/1900AD_lu.zip",
+      "sha256": "d8eb34580d9f09849bf8b2aff437d247b64135a65c4fc53eaea13223f31113c4",
+      "member": "cropland1900AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/2000AD_lu.zip",
+      "sha256": "d0a762ccce3256d25c36e1c58894c6a6b05f93075006366854cc7e6176c7d09f",
+      "member": "cropland2000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/2025AD_lu.zip",
+      "sha256": "eaf8a0023c6536b22d87578d84a3d803318ed511f1ea1a15ba0d1d43bd244ec6",
+      "member": "cropland2025AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/txt/cropland_c.txt",
+      "sha256": "b4aa002fe3d0217b4cbdb81513c2d3e2184a2620cb52b39822a42bd9723b8268"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/500AD_lu.zip",
+      "sha256": "f3b785b83a599cce38c18574988b4e6b7f917e6c3004a09c92b0306ed0f7fc47",
+      "member": "cropland500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/1000AD_lu.zip",
+      "sha256": "d4a465b03e53c397cda38c4b3c1188e73197f6c9f9ab641175bb93d1836d0070",
+      "member": "cropland1000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/1500AD_lu.zip",
+      "sha256": "e0e1f965a43ded010f9c9bc22a70da135325f4b91968b61446229599057a59e4",
+      "member": "cropland1500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/1700AD_lu.zip",
+      "sha256": "80d606005ea35ee47fb625e8a1047f7fcce0aeabfdcbcb081ee1e1e7898f63d8",
+      "member": "cropland1700AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/1900AD_lu.zip",
+      "sha256": "e209df53fdf6d10a486071b6150e67f0c4bed8366a90c8ddfc3587efa78c015f",
+      "member": "cropland1900AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/2000AD_lu.zip",
+      "sha256": "e763c82b62e7fd6c19d68113bcff23bfebaf5e71732f39824762a951e738480b",
+      "member": "cropland2000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/2025AD_lu.zip",
+      "sha256": "c3db6d83778185e0b021a197670a4aa1eba3c5c1173b693cbfe708d15078752f",
+      "member": "cropland2025AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/txt/cropland_c.txt",
+      "sha256": "e8f186147691e99d7406e21d17f421b5f8893f45941ef3884c0c45b77df48f1e"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/500AD_lu.zip",
+      "sha256": "ee1902f0a1c092cc1b5f207889724e3a2a31cf8fd6ef96fbf96e1c15dae4f366",
+      "member": "cropland500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/1000AD_lu.zip",
+      "sha256": "3f899bb19b912707b28b495fdfd5d20a302a2f6f67b3937b81f492c01fe1aebc",
+      "member": "cropland1000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/1500AD_lu.zip",
+      "sha256": "fba6b8977870ee62031a402d390e257403c39330eba8a4fe0250c3b44aa8f1ce",
+      "member": "cropland1500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/1700AD_lu.zip",
+      "sha256": "2b2800198f43bfa73944e2a60bd03f799f98dbbf97810849d5162880499c2a1a",
+      "member": "cropland1700AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/1900AD_lu.zip",
+      "sha256": "708f6b53f713f3060876113ab198fc7fabbe18c839262ea0c414602fde16798b",
+      "member": "cropland1900AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/2000AD_lu.zip",
+      "sha256": "8a3a518655e16e7a49c72c6463ef4a377588c271d0a381f32c60dd8a801f7ea9",
+      "member": "cropland2000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/2025AD_lu.zip",
+      "sha256": "e80546e9d2132026b18471f2b887f08d86704d5cdcf8326d78378a69458d4f2f",
+      "member": "cropland2025AD.asc"
+    }
+  ],
+  "grid_hashes_qualified_by_this_author": false,
+  "required_root_preparation": "Every exact25 physical SHA must match before any archive decode, copying source or output creation. No private parent scan.",
+  "maintained_sources": [
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_grid_conservation.py",
+      "sha256": "ac257ebbe64868f9af83ad8952023d7fbc129b0a91186d30daa0322ba3c83075",
+      "bytes": 8065
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
+      "sha256": "06302225bd7d6e49c8a5fde444813cc47f5792c6ed7298cce039179b37c1d8fa",
+      "bytes": 7258
+    }
+  ],
+  "module_import_sources": [
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+      "sha256": "7b81431bc8a66b84fe91baea2c452b58458f8b54b3cabc6ee248dc88cb8d8c0c",
+      "bytes": 62
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+      "sha256": "7939298f093c66e345e210e8d8b2da93e809623887b314261ae2652f6551e99e",
+      "bytes": 151
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+      "sha256": "b19cf8d2675d5ec8e2236c6a2b22b058adeee8c045f6701cc23161395c5d06f7",
+      "bytes": 13373
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+      "sha256": "2e376d9f75b4a8f0b18a25195671d9fbb1f40abf23f6d4382f648f77e9ce5a58",
+      "bytes": 4353
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+      "sha256": "6a9b76cca58905075e649a9bb3456d2eca5130b403a60116abe556d84dbaef30",
+      "bytes": 5775
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+      "sha256": "62646c940fa2511b3b33609f97eeb89d794f3717fd1f5b209ebac00e143c5161",
+      "bytes": 8825
+    }
+  ]
+}

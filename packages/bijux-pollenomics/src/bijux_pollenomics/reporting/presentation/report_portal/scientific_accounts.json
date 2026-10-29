@@ -1675,6 +1675,41 @@
       }
     },
     {
+      "reader_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/sweden-lake-trajectory.md"
+        },
+        {
+          "report_path": "reports/science/source-cohorts.md"
+        }
+      ],
+      "scope_reason": "This methods page defines a separate fixed-count conditional pollen-pair estimand. It preserves the distinction from historical pollen percentages, physical LRA and ecological accuracy.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "Prespecified all-source family allocation and exact count-weighted individual intervals define a conditional Alnus/Plantago lanceolata pair comparison at fixed native point ages. The finite observed scenario resolves one older-minus-younger BUS contrast.",
+          "unsupported_claim": "This selected pollen pair does not establish total vegetation, physical LRA, ecological or land-use accuracy, nominal coverage conditional on source-dependent admission, or a random-total sampling design. Original 48 threshold classes are not recertified.",
+          "actual_verification_performed": "Actual native consumer passed 44 focused guards; independent reconstruction covered 121 source objects, 80 returned intervals, 26 bins and 24 contrasts. Directed 110 digit positive combinatorial tails checked every nontrivial endpoint. Canonical 72 guards, strict12 and configured lint/format passed; two maintained configured commands reproduce the authenticated aggregate bytes without new fits.",
+          "remaining_input_or_review": "Sampling-design and selection qualification, compatible age uncertainty, response/PPE uncertainty and independent ecological observations remain required for broader scientific use. External qualified review and intended-use rights remain open.",
+          "cause_category": "Fixed conditional counting model, fixed response/PPE values, fixed native point chronology and source-dependent incomplete axes.",
+          "consequence": "The method has a finite conditional estimand. Its positive direction runs toward older BP bins; neither that direction nor repeat measurements establish forward-time ecological expansion or independent sites.",
+          "precise_next_acceptance_route": "Inspect the aggregate report, source account and this original method together. Qualify source sampling and chronology before broadening the estimator or its scientific interpretation.",
+          "negative_or_refused_result": "Nineteen adjacent contrasts are indeterminate and four unavailable; no negative contrast is resolved, and all twelve paired lake-direction relations remain unsupported. Missing native axes remain unresolved.",
+          "matched_denominator": "All-source family 121 objects: BUS 69 and BOKE 52. Admitted subset 80: 37 and 43, with 13,415 pair grains; 23 occupied of 26 lake/bin slots, 24 contrasts and 12 cross-lake relations. Refusal reasons overlap."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting.json",
+            "sha256": "98d3061987fdf098c6f8b8091faef5f90aae7490e4527726ca3a46326c3707cd"
+          },
+          {
+            "path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-source.json",
+            "sha256": "ad334ef1f0421f24ea5dbccf26204f1cad00f076f71da9de6b1c37454ce52228"
+          }
+        ]
+      }
+    },
+    {
       "reader_path": "docs/report/countries/sweden/pollen-model-lineage/README.md",
       "canonical_accounts": [
         {
@@ -2277,6 +2312,38 @@
       }
     },
     {
+      "reader_path": "docs/report/method-certification/love-objective-parity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Conditional fixed-candidate source/software correspondence; historical performance and scientific acceptance remain separate.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "One conditional LOVE computational fixture agrees between authenticated DISQOVER source R and the captured public Python solver for 32 fixed candidates in each of eight active calls, with exact input and missing-value support.",
+          "unsupported_claim": "This does not restore the historical 56-file source gate, compare timing or memory, test stochastic optimizer trajectories or convergence, adopt C++, establish ecological accuracy, or admit source rights, human decisions or LRA samples.",
+          "actual_verification_performed": "A genuine R stage completed 256 search objective returns. A separate genuine public Python stage completed 256 search returns and eight solver certifications. A separate saved-product observer completed zero after checking all 264 Python argument contexts, candidate selections and four output products. The two producer jobs retain their original failed whole outcomes; the saved observer has its own successful whole outcome. Metadata assembly and its independent observer authenticate retained bytes without another model call.",
+          "remaining_input_or_review": "A changed mathematical source, input, candidate sequence or missing-value contract requires a separately declared comparison. Historical source closure, workload performance, ecological validation, source-specific rights and qualified human acceptance remain separate.",
+          "cause_category": "Bounded source/software correspondence on one deterministic computational fixture.",
+          "consequence": "Use the exact retained report for this fixed-candidate calculation; do not promote it into historical performance, optimizer or ecological acceptance.",
+          "precise_next_acceptance_route": "Authenticate a changed source and its input/candidate contract before registering the affected native comparison. Qualify performance or ecological claims through their distinct workload and scientific acceptance contracts.",
+          "negative_or_refused_result": "Six undefined local rings remain missing. Earlier source-binding and observer failures remain preserved, including both producer jobs with failed whole outcomes. Missing cells are not zero-filled, and the historical source gate is not waived.",
+          "matched_denominator": "One local and one regional row, ten taxa, 36 rings, local maximum ring ten, two repeats and eight active calls with 32 search candidates each. R has 256 search returns; Python has 256 search plus eight certification returns. Four output products preserve shape, finite support and missing masks under the original tolerances."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/method-certification/love-objective-parity/report.json",
+            "sha256": "b225e6034dd4dd39a6ede63918d7e2a4a9980a49fcc41e73e0498a784f0ff8e8"
+          },
+          {
+            "path": "reports/science/source-cohorts/love-objective-source-custody.json",
+            "sha256": "233ad62df6d452ae2ba6626159a4102ad6c2a870c618385d1b02d84fc26a4f6e"
+          }
+        ]
+      }
+    },
+    {
       "reader_path": "docs/report/method-certification/love-paper-correspondence/README.md",
       "canonical_accounts": [
         {
@@ -2597,7 +2664,7 @@
         "fields": {
           "supported_claim": "The retained R 4.6/DISQOVER 0.9.14 and Python comparison agrees on one exactly shared LOVEexample input set with deterministic fixed candidates and preserved missing values.",
           "unsupported_claim": "Fixed-candidate correspondence supplies no optimizer trajectory or convergence comparison, stochastic draw parity, timing comparison or empirical vegetation accuracy.",
-          "actual_verification_performed": "Read the authored method and retained native-R identity, shared decimal/hexadecimal input account and comparison tolerances; bound the physical report. No R, model or comparator was executed for this qualification.",
+          "actual_verification_performed": "Read the authored method and retained native-R identity, shared decimal/hexadecimal input account and comparison tolerances; bound the physical report. No R, model or comparator was executed for this qualification. Separately, a new conditional LOVE objective report binds completed R and public Python stages from source commit 123c7811e49cc692c32015826c029b8ad99e96d8. Their original whole jobs remain failed; a separate saved-product observer passed. The new report preserves 256 R search returns, 256 Python search returns, eight mandatory Python certifications and the original undefined rings. This does not replace this page's historical source gate, flags or timings.",
           "remaining_input_or_review": "A different candidate, random-draw algorithm or ecological landscape needs its own source-bound comparison and qualified interpretation; this historical result does not certify a later release.",
           "cause_category": "Bounded historical source-method correspondence on a computational fixture.",
           "consequence": "Agreement can support this exact fixed-candidate calculation while leaving optimizer and ecological claims unadmitted.",
@@ -2609,6 +2676,10 @@
           {
             "path": "docs/report/numerical-performance/love-source-comparison/report.json",
             "sha256": "73655d3f9ba41d3c20b7db5fa43360a60ded61d70d1603a1628cf7a6de8b6413"
+          },
+          {
+            "path": "docs/report/method-certification/love-objective-parity/report.json",
+            "sha256": "b225e6034dd4dd39a6ede63918d7e2a4a9980a49fcc41e73e0498a784f0ff8e8"
           }
         ]
       }
@@ -2785,6 +2856,42 @@
           {
             "path": "docs/report/numerical-performance/python-isolated/report.json",
             "sha256": "1c5f2444bce9d941cf6e7fa45f8c61e0ed04afa067008ab085a3163007c2c17c"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/representative-public-calls/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Actual representative Python public-call measurements and retained negative native-adoption evidence; scientific correspondence, broader workloads, human review and release gates retain their separate scopes.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "Completed Python measurements preserve six real author sites, ten taxa and 1,024 conditional joint draws, plus a separate larger LOVE computational workload; no named boundary qualifies as a conservative hotspot in all three isolated workers.",
+          "unsupported_claim": "This bounded machine/workload result grants no new C++ kernel, same-input source-R timing, optimizer convergence, ecological accuracy, portability, native thread-count guarantee or final release acceptance.",
+          "actual_verification_performed": "Original eight-stage execution and independent scientific/output review passed at commit 19642380cc6051ed9d6cfc3fbddfdb56b4feeba7. A separate two-stage metadata assembly and independent retained transport review preserved all 66 output/log files, all 14 worker measurements and six first-plus-seven-warm series without a new model, benchmark, profile, compiler or R call.",
+          "remaining_input_or_review": "A future native proposal requires a qualifying representative boundary, identical-input source-R/Python comparison, conversion-inclusive speed benefit, memory/build/maintenance evidence and separately qualified platforms and scientific use.",
+          "cause_category": "Measured negative native-adoption result with bounded retained numerical and resource custody.",
+          "consequence": "Python/NumPy/SciPy remains the production backend; diagnostic cProfile costs cannot substitute unprofiled conservative boundary measurements.",
+          "precise_next_acceptance_route": "Declare a representative workload and prospective conservative hotspot/adoption thresholds before another native implementation; preserve source/input identities, startup/loading/conversion, first/warm spread, complete scientific outputs and memory evidence.",
+          "negative_or_refused_result": "No boundary reaches at least 50 percent conservative inside share with at most 5 percent instrumentation overhead in every isolated worker. Earlier compiled forward conversion-inclusive ratios 0.928, 0.897 and 0.722 all fail the 2x gate. Source R and compiler execution are false for this run.",
+          "matched_denominator": "Six actual author sites, ten taxa, 1,024 conditional draws; 128 repetitions of one ten-taxon, 36-ring LOVE fixture with 32 fixed candidates, not 128 sites. Three first-plus-seven-warm workers per workload; 14 workers including equal-total two-call sequential/two-process scaling. Six vendor thread limits were requested only; maximum completed worker RSS was 252493824 bytes."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/numerical-performance/representative-public-calls/report.json",
+            "sha256": "5249ce851a8c720fd5c2b62e10bb7b0aac9cb0a8926520c677bdc87134e427c3"
+          },
+          {
+            "path": "docs/report/numerical-performance/native-forward/report.json",
+            "sha256": "4d16a1400d6878f2abf21f796fb190dd72a365f0dd40295639b8635bd807d1d5"
+          },
+          {
+            "path": "docs/report/numerical-performance/native-memory/report.json",
+            "sha256": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06"
           }
         ]
       }
@@ -4320,7 +4427,7 @@
           "report_path": "reports/science/publication-correspondence.md"
         }
       ],
-      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction.",
+      "scope_reason": "Earlier authored qualification: Published-product versus released-author-example correspondence, not authenticated original input reconstruction.\n\n**Separate current source-execution witness.** On source commit `61eb1bfe697d0e7f15831b9c23bc45322ce042e8`, the maintained producer and its source metadata returned zero. The original independent observer failed before reconstruction on the distinct CPython framework launcher argv[0], leaving the original whole result one and its tracked checker unrun. A separate saved-product observer then returned zero: it verified all 14 expected private-input hashes and independently reconstructed the complete ordered report from 11 retained responses, their receipts and selected publication row plus the 17-row author-example CSV. It established complete ordered typed and serialized report equality and a separate tracked byte checker zero. The unchanged report still refuses the historical E#69 bridge, author chronology and reproduction readiness. Dataset 3873/3874/3875 remain declared request labels, while site 2973 is source-bound. The [retained execution witness](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/amsoldingersee-source-custody.json) separates both native histories from the later metadata-only capsule assembly; it admits no new API acquisition, rights decision, human review, ecological truth or LRA input.",
       "qualification": {
         "fields": {
           "supported_claim": "One named historical metadata row is compared with three current Neotoma pollen cores; the retained capture demonstrates a precise unrecovered historical identity rather than an admitted source match.",
@@ -4337,6 +4444,10 @@
           {
             "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json",
             "sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7"
+          },
+          {
+            "path": "reports/science/source-cohorts/amsoldingersee-source-custody.json",
+            "sha256": "f5fa3b0d13017c4cf15cf5332de09880fb39c191c8ca151abd784dc61bffb37e"
           }
         ]
       }
@@ -5348,7 +5459,7 @@
         "fields": {
           "supported_claim": "The retained native-grid account uses exact Decimal country-cell sums to reconcile cropland to source tables at sevenCElabels under three separately retained scenarios.",
           "unsupported_claim": "Conservation does not validate the formal CRS, BP conversion, licence/version conflicts, all release years/variables or ecological accuracy of modeled land use.",
-          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.",
+          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. A maintained source replay from commit 61eb1bfe697d0e7f15831b9c23bc45322ce042e8 completed the grid producer and a separate Decimal reconstruction. Both tracked products matched exactly. The reconstruction joined 84 country, CE-label and scenario rows across 21 crop grids, the ISO grid and three country tables. It checked literal grid dimensions and headers, row widths and endings, selected-country zeros and nonnegative values, and country-table agreement within 0.000001 square kilometres. Values outside the four selected countries were not qualified. The public custody packet preserves the owned source copies, all 62,127 ordered input identities, the cache and generated metadata omissions, and the successful native receipts. Retention does not repeat the grid calculations or recover the unavailable historical runtime. Prior country-table evidence, source rights, formal CRS, calendar mapping, vegetation accuracy, human review and LRA admission remain separate.",
           "remaining_input_or_review": "Source-owner rights, coordinate/time interpretation and intended analytical use remain unresolved; no independent measured vegetation target is supplied.",
           "cause_category": "Numerical source-grid/table conservation on selected modeled variables.",
           "consequence": "Native zero cells and source country labels are preserved without converting cell counts to land area or treating scenario bounds as probability intervals.",
@@ -5360,6 +5471,10 @@
           {
             "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json",
             "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628"
+          },
+          {
+            "path": "reports/science/source-cohorts/hyde-grid-source-custody.json",
+            "sha256": "51c440ce732eeb78f4f8be30e01b0fcf8d82a34ef3a17cea469d2e333232e8fe"
           }
         ]
       }
@@ -5856,7 +5971,7 @@
         "fields": {
           "supported_claim": "The retained attribution ledger distinguishes provider primary flags, literal DOI names, independently supported publication matches and explicit unresolved original-work leads for the85used datasets.",
           "unsupported_claim": "Provider metadata readiness and DOI landing-page similarity do not establish source-specific rights, complete numerical sample identity, LRA inputs or vegetation truth.",
-          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.",
+          "actual_verification_performed": "Earlier verification: Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. Separately, both maintained provider-publication and distinct-DOI producers returned native zero on source commit `82c8fc4ed3d847909d14162f51b77dc59ccc0a70`. Their original observer and whole job failed, and both raw tracked byte checkers returned two; these results remain literal. A separate observer-only native execution returned zero after authenticating every saved provider/DataCite projection, title, landing URL, exact import role and country denominator. The only two report differences are the named governed-policy SHA and its dependent attribution-ledger SHA; the complete remaining ordered typed values agree. The 85 datasets, six primary-link cases and 13 distinct DOI pairs retain their original interpretation, with three registry-declared identities and ten same-target pairs without declared equivalence. Historical and current policy epochs remain separate; original HTTP acquisition, citation selection, source rights, human review and LRA admission are unqualified. The original scientific ownership acceptance criteria have been restored verbatim. The SLU guide, HYDE country products, ABBO age-control report, Swedish cohort screen, OpenLand intake and Neotoma publication-attribution owners remain unresolved because their required original acquisition/copy custody or source-use authority has not been independently established. Genuine current executions, exact-byte checks and retained source captures remain scoped evidence; they do not discharge those original conditions. No numerical result, source chronology, permission, qualified human decision or LRA admission has changed.",
           "remaining_input_or_review": "Six provider primary-link cases and ten distinct DOI pairs still need their exact source-owner decisions; Kuivaj\u00e4rvi and VasikkasuoIleads are not authenticated complete original-work matches.",
           "cause_category": "Publication/source-identity correspondence with scoped unresolved citations.",
           "consequence": "A later original-work review may support a citation without rewriting provider flags or treating separate registrations as identical.",
@@ -5867,11 +5982,19 @@
         "evidence_pins": [
           {
             "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
-            "sha256": "db84557f4b19ba47f44b122e482b157ca91a3dc327c0b0435809599a41b769b3"
+            "sha256": "983286a711b37be4db3dccac200fe24f814ff2b350a906e1a0fd99717104142d"
           },
           {
             "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
-            "sha256": "e9f87385212b52e96e8cf9a0d03ae805715ab337bc2c0646dd1da72c6e64a0f8"
+            "sha256": "61dde7cc0e8943bb8464d907c7927bd795ecb8ec377ba910a2dba9d9c3356823"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-publication-source-custody.json",
+            "sha256": "759cb90a7dea3a5b202ea3d979474292aba6db19482ac34a22577e2ac2182250"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-publication-original-acceptance.json",
+            "sha256": "e9426b4850620e0a7b2833678a74b526837ae0e5f46da16bd616e5360f1f41d5"
           }
         ]
       }
@@ -6018,7 +6141,7 @@
         "fields": {
           "supported_claim": "The retained three-lake development study chooses targets from metadata, freezes predictions before opening separate outcomes and compares three fixed observed-pollen predictors on the31-target count subcomposition.",
           "unsupported_claim": "Three source groups and prior Nordic design exposure do not establish independent confirmation, a Swedish population skill estimate, LRA vegetation reconstruction or measured ecological accuracy.",
-          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.",
+          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. A separate replay at commit 65d4752111915e1157315004d59603469af2d644 completed six maintained prepare, predict and score commands and two independent observers, all with exit 0. Common, inner and outer run results were 0. All ten native products per study family matched the retained bytes exactly. Only four preparation files per family receive retained source admission. Nine protocol, historical freeze, reference-text and verification files remain unresolved under their original study owners; no historical production or freeze certificate is inferred. Both protocols used the exact training-SE input. The original owner recipes incorrectly declared training-DK; those recipes and this correction remain explicit in the capsule and witness. The authored capsule preserves the original public source and controls and all 66,481 input identities. Runtime, private taxonomy lookup, relational inputs and 4,356 bytecode payloads remain omitted. The original generic outer receipt mentions EMPD2; its text is preserved, and the actual Swedish plan and eight command receipts establish the execution scope. These previously exposed direct-pollen development results do not establish untouched confirmation, ecological or field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Authoring the capsule is not a new native retention execution.",
           "remaining_input_or_review": "Basin/parameter/source-period decisions and independent vegetation truth remain separate; frozen historical producer identity must not be silently rewritten as current.",
           "cause_category": "Metadata-selected development transfer with historical freeze custody.",
           "consequence": "Lowest aggregate error in these lakes does not establish uniform site superiority or justify outcome-selected changes to the fixed study.",
@@ -6030,6 +6153,10 @@
           {
             "path": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
             "sha256": "9e70b542d843466cbb2933a6d0c9cbb7c5c4ae6ddfc9fd4e8f8a73ab42d4789c"
+          },
+          {
+            "path": "reports/science/source-lineage/swedish-direct-pollen-preparation.json",
+            "sha256": "a64dfad19cfc41eae4d4e6c810b2078076a2b3d3c2088fbe11dff6a024d095aa"
           }
         ]
       }
@@ -6049,7 +6176,7 @@
         "fields": {
           "supported_claim": "The retained Storasj\u00f6 development result counts one physical core once after matching both parallel datasets at all77depths and freezes three observed-pollen predictors before scoring.",
           "unsupported_claim": "Two duplicate datasets are not two independent cores; this exposed-design bog result does not establish confirmatory method superiority, country-wide performance, LRA or vegetation accuracy.",
-          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.",
+          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. A separate replay at commit 65d4752111915e1157315004d59603469af2d644 completed six maintained prepare, predict and score commands and two independent observers, all with exit 0. Common, inner and outer run results were 0. All ten native products per study family matched the retained bytes exactly. Only four preparation files per family receive retained source admission. Nine protocol, historical freeze, reference-text and verification files remain unresolved under their original study owners; no historical production or freeze certificate is inferred. Both protocols used the exact training-SE input. The original owner recipes incorrectly declared training-DK; those recipes and this correction remain explicit in the capsule and witness. The authored capsule preserves the original public source and controls and all 66,481 input identities. Runtime, private taxonomy lookup, relational inputs and 4,356 bytecode payloads remain omitted. The original generic outer receipt mentions EMPD2; its text is preserved, and the actual Swedish plan and eight command receipts establish the execution scope. These previously exposed direct-pollen development results do not establish untouched confirmation, ecological or field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Authoring the capsule is not a new native retention execution.",
           "remaining_input_or_review": "A genuinely independent target and qualified source/physical/ecological evidence are required for stronger claims; the historical predictor/review bytes remain explicit custody.",
           "cause_category": "Single-core development transfer with parallel-dataset deduplication.",
           "consequence": "An additional repository dataset cannot double the response mass or provide replication when its source count vectors are identical.",
@@ -6061,6 +6188,10 @@
           {
             "path": "docs/report/regions/nordic/swedish-neotoma-holdout/report.json",
             "sha256": "4e208e1016cbc14544ebb45be11f5feffa2c5497b8c50c326d37643419638aab"
+          },
+          {
+            "path": "reports/science/source-lineage/swedish-direct-pollen-preparation.json",
+            "sha256": "a64dfad19cfc41eae4d4e6c810b2078076a2b3d3c2088fbe11dff6a024d095aa"
           }
         ]
       }
@@ -7071,7 +7202,7 @@
         "fields": {
           "supported_claim": "Five lake-parameter rows join five of 54 retained Nordic candidate sites in the captured API pages.",
           "unsupported_claim": "Maximum water depth is not lake radius; live offset pagination cannot certify absence for 49 unmatched sites.",
-          "actual_verification_performed": "Read the five exact source rows, parameter labels, country counts and retained-page consistency posture; no API recapture or basin fit.",
+          "actual_verification_performed": "Earlier verification: Read the five exact source rows, parameter labels, country counts and retained-page consistency posture; no API recapture or basin fit. Separately, the unchanged maintained reader returned native zero as a checker, and an independent complete source-page reader reconstructed every report byte and typed value on source commit `82c8fc4ed3d847909d14162f51b77dc59ccc0a70`. The 24,554 rows, 21 parameter types, 54 original sites and five exact parameter/locator joins remain distinct from the current prerequisite cohort. The checker is not a report producer. No new HTTP capture, basin fit, LRA or human decision is claimed.",
           "remaining_input_or_review": "Historical/time-specific basin meaning, unqualified native area fields, count/taxon/PPE support and use review remain.",
           "cause_category": "Live pagination and site-level geometry are not complete historical basin evidence.",
           "consequence": "Three source area leads do not admit any pollen sample to LRA.",
@@ -7083,6 +7214,10 @@
           {
             "path": "docs/report/source-relations/neotoma/lakeparameters/report.json",
             "sha256": "9c5c48936b10f62b2501a9d26ddad102d606929ee55fbe76614431e731a21fa7"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-lake-source-custody.json",
+            "sha256": "df23f600e89cfd4e285442b5f82480b95521216cad2363f25a91640623953024"
           }
         ]
       }
@@ -7235,7 +7370,7 @@
         "fields": {
           "supported_claim": "The prerequisite projection retains 10,637 sample chronology leads and 163 source-site basin review rows without selecting an executable LRA request.",
           "unsupported_claim": "A necessary count/typed-age candidate or native area value is not an accepted chronology, basin, taxon/PPE/count mask or source right.",
-          "actual_verification_performed": "Read projection denominators, country partitions, review states and lake-parameter join posture; no projection regeneration or model fit.",
+          "actual_verification_performed": "Earlier verification: Read projection denominators, country partitions, review states and lake-parameter join posture; no projection regeneration or model fit. Separately, the maintained current prerequisite producer, lake-source checker and independent source/projection observer each returned native zero on source commit `82c8fc4ed3d847909d14162f51b77dc59ccc0a70`. All 30 raw/normalized inputs were pinned, and the complete 22,907,955-byte projection matched its current governed bytes and typed values: 10,637 necessary source rows, 163 source-site reviews and 14 lake-parameter locator joins. Independent pollen eligibility was not recomputed, and no sample, basin, chronology, source right or model fit was admitted.",
           "remaining_input_or_review": "Qualified source-bound chronology, physical core, permitted use, count support, parameters and justified geometry decisions remain.",
           "cause_category": "Required scientific decisions are deliberately unselected.",
           "consequence": "Historical reproduction needs the authentic selected inputs; a new declared reconstruction needs its own justified profile.",
@@ -7247,6 +7382,10 @@
           {
             "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json",
             "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-lake-source-custody.json",
+            "sha256": "df23f600e89cfd4e285442b5f82480b95521216cad2363f25a91640623953024"
           }
         ]
       }
@@ -7618,7 +7757,7 @@
         "fields": {
           "supported_claim": "The 51-entry OpenLand intake distinguishes exact upstream modeled CSVs from private/local derivative and project-state members.",
           "unsupported_claim": "Pollen-derived modeled cover is not independent vegetation truth; upstream data/code terms do not license a mixed private archive or local script.",
-          "actual_verification_performed": "Read all member roles, rights posture and pinned upstream identity in report.json/members.csv; no archive extraction, script execution or source recapture.",
+          "actual_verification_performed": "Read all member roles, rights posture and pinned upstream identity in report.json/members.csv; no archive extraction, script execution or source recapture. A separate source-built execution used commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87. The unchanged OpenLand producer and independent archive and copy-chain observer both exited 0, and the complete run exited 0. The member CSV matched exactly, with byte-checker exit 0. The report byte checker exited 2 because one source-attribution digest changed. The independent observer verified that this digest was the only report difference, preserved all scientific and rights values, and exited 0. The producer generated members.csv and report.json. The upstream-tree and DOI-lineage files were copies of retained declared inputs; they are not fresh HTTP retrievals or proof of original acquisition. The archive still contains 51 entries, including 25 modeled CSVs and 26 exact upstream blobs. There were 27 selected ZIP member reads and no GeoPackage or editor payload reads or LRA calls. An authored capsule retains 2,209 public members and all 66,430 ordered input identities. The payloads of 4,356 bytecodes, 59,886 runtime authorities and three private archive or intake authorities are omitted. The capsule does not establish fresh bytecode compilation, new native retention execution, public member rights, PANGAEA row equivalence, independent vegetation truth, ecological or human acceptance, or LRA admission. The original scientific ownership acceptance criteria have been restored verbatim. The SLU guide, HYDE country products, ABBO age-control report, Swedish cohort screen, OpenLand intake and Neotoma publication-attribution owners remain unresolved because their required original acquisition/copy custody or source-use authority has not been independently established. Genuine current executions, exact-byte checks and retained source captures remain scoped evidence; they do not discharge those original conditions. No numerical result, source chronology, permission, qualified human decision or LRA admission has changed.",
           "remaining_input_or_review": "Exact input-row relation, member-specific rights and scientific role decisions remain required before public use.",
           "cause_category": "Mixed archive rights and dependent modeled inputs.",
           "consequence": "25 CSVs route to private modeled-source review without a second LandClim authority.",
@@ -7629,7 +7768,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/openland-intake/report.json",
-            "sha256": "6ede25d42a64a041139aab7a32ed6abfb3e2fb19ec0caf932647b7377455e52b"
+            "sha256": "dbe01c0f556eca264e5523a895e19dfe15719ad99adc01f537c27082b6fa6243"
           },
           {
             "path": "docs/report/source-relations/openland-intake/members.csv",
@@ -7638,6 +7777,14 @@
           {
             "path": "docs/report/source-relations/openland-intake/upstream-tree.json",
             "sha256": "4bbd8f7a11b6fc01083dab358143f01b8f06192c8562592758e451436f75eae1"
+          },
+          {
+            "path": "reports/science/source-lineage/openland-member-custody.json",
+            "sha256": "dc437a7dee28a31b1ea341be1e76e0397d54ab0d93a0f6ad146bcbf99116365f"
+          },
+          {
+            "path": "reports/science/source-cohorts/openland-original-acceptance.json",
+            "sha256": "43d6b2a53cfa2837272faafc83040bf06cf66fca866f5172e7df3455db6401b5"
           }
         ]
       }
@@ -7657,7 +7804,7 @@
         "fields": {
           "supported_claim": "Two retained DataCite records establish 931856 IsObsoletedBy 937075 with distinct rights declarations.",
           "unsupported_claim": "DOI supersession does not establish byte/row equivalence or transfer successor licensing to an OpenLand derivative.",
-          "actual_verification_performed": "Read the exact DOI-lineage response fields and intake role decision; no DOI lookup or numerical source join rerun.",
+          "actual_verification_performed": "Read the exact DOI-lineage response fields and intake role decision; no DOI lookup or numerical source join rerun. A separate source-built execution used commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87. The unchanged OpenLand producer and independent archive and copy-chain observer both exited 0, and the complete run exited 0. The member CSV matched exactly, with byte-checker exit 0. The report byte checker exited 2 because one source-attribution digest changed. The independent observer verified that this digest was the only report difference, preserved all scientific and rights values, and exited 0. The producer generated members.csv and report.json. The upstream-tree and DOI-lineage files were copies of retained declared inputs; they are not fresh HTTP retrievals or proof of original acquisition. The archive still contains 51 entries, including 25 modeled CSVs and 26 exact upstream blobs. There were 27 selected ZIP member reads and no GeoPackage or editor payload reads or LRA calls. An authored capsule retains 2,209 public members and all 66,430 ordered input identities. The payloads of 4,356 bytecodes, 59,886 runtime authorities and three private archive or intake authorities are omitted. The capsule does not establish fresh bytecode compilation, new native retention execution, public member rights, PANGAEA row equivalence, independent vegetation truth, ecological or human acceptance, or LRA admission.",
           "remaining_input_or_review": "An input-level join and derivative-specific permission/scientific role review remain missing.",
           "cause_category": "Dataset lineage is narrower than version/rights equivalence.",
           "consequence": "The older restricted record is not replaced silently by an openly licensed successor.",
@@ -7672,7 +7819,11 @@
           },
           {
             "path": "docs/report/source-relations/openland-intake/report.json",
-            "sha256": "6ede25d42a64a041139aab7a32ed6abfb3e2fb19ec0caf932647b7377455e52b"
+            "sha256": "dbe01c0f556eca264e5523a895e19dfe15719ad99adc01f537c27082b6fa6243"
+          },
+          {
+            "path": "reports/science/source-lineage/openland-member-custody.json",
+            "sha256": "dc437a7dee28a31b1ea341be1e76e0397d54ab0d93a0f6ad146bcbf99116365f"
           }
         ]
       }
@@ -8298,15 +8449,15 @@
       "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.",
       "qualification": {
         "fields": {
-          "supported_claim": "The recovered SVAR export retains exact normalized bytes and a two-feature provider identity lead while preserving current zero-candidate refusal.",
+          "supported_claim": "The recovered SVAR export retains exact normalized bytes and a two-feature provider identity lead while preserving current zero-candidate refusal. A separate maintained streaming census and independent reader measure the retained normalized file's 40,565 features and exact seven-field matches for all 99 subset rows, without ranking admission.",
           "unsupported_claim": "Live endpoint availability or matching count does not prove raw capture parity, supported acquisition rights, full identity equivalence or admitted lake ranking.",
-          "actual_verification_performed": "Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing. The maintained source-built isolated-standard-library verifier and independent native source observer both returned zero on ada0128d4b96a0c0655e7b8c24ba81329f34a2cb. Complete source/refusal receipt is byte-identical to publication; all3507 original inputs remain explicit. Exact261041034BGeoJSON and two private metadata files were hashed, not geometrically parsed;40565 remains source metadata claim against40523review/99subset/zero ranks. The42difference and WFS/export linkage, rights and qualified source review remain unresolved. No new provider capture, ranking or native-retention outcome.",
-          "remaining_input_or_review": "Both full identity sets, versioned official source route, approved access/rights and qualified registry review remain required.",
+          "actual_verification_performed": "Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing. The maintained source-built isolated-standard-library verifier and independent native source observer both returned zero on ada0128d4b96a0c0655e7b8c24ba81329f34a2cb. Complete source/refusal receipt is byte-identical to publication; all3507 original inputs remain explicit. Exact261041034BGeoJSON and two private metadata files were hashed, not geometrically parsed;40565 remains source metadata claim against40523review/99subset/zero ranks. The42difference and WFS/export linkage, rights and qualified source review remain unresolved. No new provider capture, ranking or native-retention outcome. Separately, the maintained streaming consumer and independent source reader on source commit `5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87` both returned native zero. They measured 40,565 Feature objects (37,516 Polygon and 3,049 MultiPolygon), no missing geometry, 40,565 distinct nonempty record_id and sjoid values, and 40,564 distinct nonempty sj_uuid and sj_vatten_id values with one unusable value each. All 99 subset rows have exactly one full match and typed agreement for all seven declared fields. The earlier hash-only operation remains distinct; no new WFS, model, ranking or metadata-retention native outcome is claimed.",
+          "remaining_input_or_review": "The historical 40,523 review's complete identity set, a versioned official source route, approved access/rights, provider units/CRS and qualified registry review remain required. The current full normalized-file census and 99 typed subset joins do not supply those authorities.",
           "cause_category": "Missing original capture and unresolved geometry rights/version identity.",
           "consequence": "The 42 net count difference cannot be presented as an omitted lake list, and 99 derived features cannot restore old ranks.",
-          "precise_next_acceptance_route": "Obtain an approved provider route and versioned layer identity comparison, reconcile the candidate subset, then conduct qualified review before ranking.",
+          "precise_next_acceptance_route": "Obtain an approved versioned provider route and the historical review's full identity inventory; compare populations and provider geometry/units/CRS, then obtain qualified source/rights review before registry or ranking admission.",
           "negative_or_refused_result": "raw_wfs_capture_bound_to_export=false, source_population_reconciled=false, qualified_review_accepted=false; 0 ranked candidates.",
-          "matched_denominator": "40,565 normalized export lake claims versus 40,523 review source lakes; 99 derived features; 2 live feature identity checks; 0 admitted candidates; 42 is net count difference."
+          "matched_denominator": "40,565 normalized export lake claims versus 40,523 review source lakes; 99 derived features; 2 live feature identity checks; 0 admitted candidates; 42 is net count difference. Separately measured 40,565 normalized Feature objects: 37,516 Polygon plus 3,049 MultiPolygon; all 99 subset rows match one full feature across seven typed fields. Two native ID fields have 40,565 distinct nonempty values; two have 40,564 plus one unusable value each. These are descriptive source counts, not admitted lakes."
         },
         "evidence_pins": [
           {
@@ -8320,6 +8471,10 @@
           {
             "path": "reports/science/source-lineage/svar-normalized-source.json",
             "sha256": "dd03a001e5d03e442b0805d7f09adf3e81fc3424e65d5bada651bd996522cbf9"
+          },
+          {
+            "path": "docs/report/source-relations/svar/normalized-export/feature-census.json",
+            "sha256": "5ce50017af55e496ca391d34997ce5f182296f8e9db82ea20c118016d30ff0db"
           }
         ]
       }
@@ -8546,7 +8701,7 @@
         "fields": {
           "supported_claim": "The source-bound outcome-free review retains sixteen geographic leads and refuses every lead as a currently admissible observed vegetation pair.",
           "unsupported_claim": "Proximity, plot area and dictionary units do not provide paired vegetation measurements, a regional target, authenticated pollen collection dates or a frozen performance benchmark.",
-          "actual_verification_performed": "Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated. The original SLU guide ownership criterion remains verbatim and unresolved: exact current guide bytes and a genuine current download do not establish the original provider retrieval/copy receipt or the publication/use statement bound to those bytes. Native results remain partial source evidence; no numerical result, permission, human decision or LRA admission changes.",
+          "actual_verification_performed": "Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated. The original SLU guide ownership criterion remains verbatim and unresolved: exact current guide bytes and a genuine current download do not establish the original provider retrieval/copy receipt or the publication/use statement bound to those bytes. Native results remain partial source evidence; no numerical result, permission, human decision or LRA admission changes. The separately retained maintained outcome-blind source replay and independent observer returned native zero and both public products byte-match;16 native joins, 26 source fields, 19 public fields, six metadata columns, 43,892 rows and 6,018 tract/plot keys are checked. No outcome decoder/LRA calls, private payload publication or fresh-compilation equivalence is claimed.",
           "remaining_input_or_review": "Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication.",
           "cause_category": "Independent-measurement admission refusal despite geographic proximity.",
           "consequence": "The sixteen rows are missing benchmark support, not sixteen negative measured observations; benchmark policy and evaluation remain false.",
@@ -8570,6 +8725,10 @@
           {
             "path": "reports/science/source-cohorts/original-owner-acceptance.json",
             "sha256": "e03c2de940f5a127ebd9886ae038b278b7c6e6b8ef8d35cb4755d633a532ab05"
+          },
+          {
+            "path": "reports/science/vegetation-reference/empd2-nfi-pairing-source.json",
+            "sha256": "c1e4d8623b7d695b2c705cf5c3d69f474d107c3458d1aaa8b3e1ddeda82b6050"
           }
         ]
       }
@@ -9032,77 +9191,6 @@
           {
             "path": "docs/report/world/world_scientific_review.json",
             "sha256": "e5d5f31afcd841070bf04f334e6ae369a2bdb1aa992f7dab4761e3c2f9f4bd1d"
-          }
-        ]
-      }
-    },
-    {
-      "reader_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
-      "canonical_accounts": [
-        {
-          "report_path": "reports/science/sweden-lake-trajectory.md"
-        },
-        {
-          "report_path": "reports/science/source-cohorts.md"
-        }
-      ],
-      "scope_reason": "This methods page defines a separate fixed-count conditional pollen-pair estimand. It preserves the distinction from historical pollen percentages, physical LRA and ecological accuracy.",
-      "qualification": {
-        "fields": {
-          "supported_claim": "Prespecified all-source family allocation and exact count-weighted individual intervals define a conditional Alnus/Plantago lanceolata pair comparison at fixed native point ages. The finite observed scenario resolves one older-minus-younger BUS contrast.",
-          "unsupported_claim": "This selected pollen pair does not establish total vegetation, physical LRA, ecological or land-use accuracy, nominal coverage conditional on source-dependent admission, or a random-total sampling design. Original 48 threshold classes are not recertified.",
-          "actual_verification_performed": "Actual native consumer passed 44 focused guards; independent reconstruction covered 121 source objects, 80 returned intervals, 26 bins and 24 contrasts. Directed 110 digit positive combinatorial tails checked every nontrivial endpoint. Canonical 72 guards, strict12 and configured lint/format passed; two maintained configured commands reproduce the authenticated aggregate bytes without new fits.",
-          "remaining_input_or_review": "Sampling-design and selection qualification, compatible age uncertainty, response/PPE uncertainty and independent ecological observations remain required for broader scientific use. External qualified review and intended-use rights remain open.",
-          "cause_category": "Fixed conditional counting model, fixed response/PPE values, fixed native point chronology and source-dependent incomplete axes.",
-          "consequence": "The method has a finite conditional estimand. Its positive direction runs toward older BP bins; neither that direction nor repeat measurements establish forward-time ecological expansion or independent sites.",
-          "precise_next_acceptance_route": "Inspect the aggregate report, source account and this original method together. Qualify source sampling and chronology before broadening the estimator or its scientific interpretation.",
-          "negative_or_refused_result": "Nineteen adjacent contrasts are indeterminate and four unavailable; no negative contrast is resolved, and all twelve paired lake-direction relations remain unsupported. Missing native axes remain unresolved.",
-          "matched_denominator": "All-source family 121 objects: BUS 69 and BOKE 52. Admitted subset 80: 37 and 43, with 13,415 pair grains; 23 occupied of 26 lake/bin slots, 24 contrasts and 12 cross-lake relations. Refusal reasons overlap."
-        },
-        "evidence_pins": [
-          {
-            "path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting.json",
-            "sha256": "98d3061987fdf098c6f8b8091faef5f90aae7490e4527726ca3a46326c3707cd"
-          },
-          {
-            "path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-source.json",
-            "sha256": "ad334ef1f0421f24ea5dbccf26204f1cad00f076f71da9de6b1c37454ce52228"
-          }
-        ]
-      }
-    },
-    {
-      "reader_path": "docs/report/numerical-performance/representative-public-calls/README.md",
-      "canonical_accounts": [
-        {
-          "report_path": "reports/science/method-correspondence.md"
-        }
-      ],
-      "scope_reason": "Actual representative Python public-call measurements and retained negative native-adoption evidence; scientific correspondence, broader workloads, human review and release gates retain their separate scopes.",
-      "qualification": {
-        "fields": {
-          "supported_claim": "Completed Python measurements preserve six real author sites, ten taxa and 1,024 conditional joint draws, plus a separate larger LOVE computational workload; no named boundary qualifies as a conservative hotspot in all three isolated workers.",
-          "unsupported_claim": "This bounded machine/workload result grants no new C++ kernel, same-input source-R timing, optimizer convergence, ecological accuracy, portability, native thread-count guarantee or final release acceptance.",
-          "actual_verification_performed": "Original eight-stage execution and independent scientific/output review passed at commit 19642380cc6051ed9d6cfc3fbddfdb56b4feeba7. A separate two-stage metadata assembly and independent retained transport review preserved all 66 output/log files, all 14 worker measurements and six first-plus-seven-warm series without a new model, benchmark, profile, compiler or R call.",
-          "remaining_input_or_review": "A future native proposal requires a qualifying representative boundary, identical-input source-R/Python comparison, conversion-inclusive speed benefit, memory/build/maintenance evidence and separately qualified platforms and scientific use.",
-          "cause_category": "Measured negative native-adoption result with bounded retained numerical and resource custody.",
-          "consequence": "Python/NumPy/SciPy remains the production backend; diagnostic cProfile costs cannot substitute unprofiled conservative boundary measurements.",
-          "precise_next_acceptance_route": "Declare a representative workload and prospective conservative hotspot/adoption thresholds before another native implementation; preserve source/input identities, startup/loading/conversion, first/warm spread, complete scientific outputs and memory evidence.",
-          "negative_or_refused_result": "No boundary reaches at least 50 percent conservative inside share with at most 5 percent instrumentation overhead in every isolated worker. Earlier compiled forward conversion-inclusive ratios 0.928, 0.897 and 0.722 all fail the 2x gate. Source R and compiler execution are false for this run.",
-          "matched_denominator": "Six actual author sites, ten taxa, 1,024 conditional draws; 128 repetitions of one ten-taxon, 36-ring LOVE fixture with 32 fixed candidates, not 128 sites. Three first-plus-seven-warm workers per workload; 14 workers including equal-total two-call sequential/two-process scaling. Six vendor thread limits were requested only; maximum completed worker RSS was 252493824 bytes."
-        },
-        "evidence_pins": [
-          {
-            "path": "docs/report/numerical-performance/representative-public-calls/report.json",
-            "sha256": "5249ce851a8c720fd5c2b62e10bb7b0aac9cb0a8926520c677bdc87134e427c3"
-          },
-          {
-            "path": "docs/report/numerical-performance/native-forward/report.json",
-            "sha256": "4d16a1400d6878f2abf21f796fb190dd72a365f0dd40295639b8635bd807d1d5"
-          },
-          {
-            "path": "docs/report/numerical-performance/native-memory/report.json",
-            "sha256": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06"
           }
         ]
       }

@@ -1,0 +1,106 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+  "plan_sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 12.562922291981522,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/source-runtime-native-observation-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json",
+    "--registered-plan-sha256",
+    "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4"
+  ],
+  "canonical_before": {
+    "candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+    "status": "",
+    "tracked_inventory_sha256": "27f94e5a3ef5ccbc5277776fbe63634c517cec34f1db1427297b4b713dc906a3"
+  },
+  "canonical_after": {
+    "candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+    "status": "",
+    "tracked_inventory_sha256": "27f94e5a3ef5ccbc5277776fbe63634c517cec34f1db1427297b4b713dc906a3"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "independent-source-runtime-observation",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/source-runtime-native-observation-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json"
+      ],
+      "timeout_seconds": 90,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 9.464630500006024,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-source-runtime-observation.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-source-runtime-observation.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 550486016
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/common-runner.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/common-runner.stdout",
+      "sha256": "d09bc1293e05b61788357339b9484454b1b801a607ad9fa170b981d2702d32c2",
+      "bytes": 164
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-runtime-review.json",
+      "sha256": "9d71bfabd836242b5ec9dcf96e5d2a124200a77dea4975bdf8b19529d04ba059",
+      "bytes": 117592
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-source-runtime-observation.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-source-runtime-observation.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json",
+      "sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4",
+      "bytes": 32228643
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/preparation.json",
+      "sha256": "1391084276f0dd2f4f1609c2d5c8840c2c7c1f36ecb6af14ba582fb87e6109aa",
+      "bytes": 484
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/stage-progress.json",
+      "sha256": "9d8b4b26bae6cee7145576a5b3abc35de36772f8bc7f074ec3b07701d348a09f",
+      "bytes": 1207
+    }
+  ],
+  "output_bytes": 32348090,
+  "resources": {
+    "overall_timeout_seconds": 180,
+    "resident_memory_limit_bytes": 3221225472,
+    "output_byte_limit": 268435456
+  },
+  "scope": "Observer only over unchanged environment and transport from original129 three production0/whole1. Current candidate may differ; no first-party source is executed. Complete original input plus materialized root bytes/namespaces protected before/after. No install/ZIP/environment/model/network repeat, old runtime recovery or first-party installed interface claimed; completed-child RSS and logical bytes are postchecks.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

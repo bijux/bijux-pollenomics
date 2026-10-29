@@ -1,0 +1,9 @@
+{
+  "schema_version": "hyde-grid-current-owner-helper-custody-lineage.v1",
+  "previous_source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/prepared-source-manifest.json",
+    "sha256": "c0e894646a40e43241b78ea194ac374d2182322339446b5856e404fbd7036ad7"
+  },
+  "reason": "The final maintained grouped helper must verify the unique exact current retained owner, its two paths and empty producer recipe, and refuse overlap from any other owner. Packet/source/retention/controller/numerical semantics are unchanged.",
+  "actual_prepare_or_retention_of_predecessor": false
+}

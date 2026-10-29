@@ -1,0 +1,29 @@
+{
+  "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "plan_sha256": "f8a5eda54d8a8c66f7cfe7362a4cbe8876ebe15d548c335725524d9227e58ac8",
+  "actual_exit": 1,
+  "common_actual_exit": 1,
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/terminal.json",
+    "sha256": "55ecb4539701e1d580c6cc9b3ed9762b60bb47822be026cb0fd71998fdedaf5c",
+    "bytes": 7717
+  },
+  "actual_native_stage_exits": [
+    0,
+    1
+  ],
+  "timed_out": false,
+  "error": null,
+  "after_input_error": null,
+  "tracked_byte_checker_exit": null,
+  "tracked_output_admission_passed": false,
+  "independent_review": null,
+  "completed_elapsed_seconds": 36.646905999979936,
+  "completed_child_peak_RSS_bytes_macos": 78741504,
+  "completed_whole_wall_bound_pass": true,
+  "memory_bound_pass": true,
+  "scope": "Current source-bound refusal replay of eleven retained API responses, two acquisition receipts and one publication row plus 17-row author example identity. Retained 2026-09-21 acquisition epoch is not a new HTTP retrieval or original historical E#69 identity recovery. No full 1,128-sequence/model/R/rights/taxonomy/age-depth/human/LRA admission.",
+  "resource_limits": "Completed-child RSS/logical storage/wall postchecks; no OS quota or aggregate descendant census. The 110-second completed wall check starts at run.main, excludes entry verification/imports, and is measured before final output scan/write. The 130-second alarm starts after profile/plan checks, ends before final receipt processing, and does not bound all entry/postprocessing work. Timeout kills and waits the owned common launcher group; its separate-session descendants remain unconfirmed on timeout.",
+  "scientific_or_publication_admission": false,
+  "inclusive_output_bytes": 4523805
+}

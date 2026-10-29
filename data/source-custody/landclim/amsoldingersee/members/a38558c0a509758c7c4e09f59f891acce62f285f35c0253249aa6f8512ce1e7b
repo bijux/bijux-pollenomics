@@ -1,0 +1,15 @@
+{
+  "actual_exit": 0,
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-saved-source-observation/plan.json",
+    "sha256": "252001815e90a22b5f85c1690311ea5c6f349973ceef9099d157fd9aeeee5e8c",
+    "bytes": 9121013
+  },
+  "original_whole_exit": 1,
+  "original_stage_exits": [
+    0,
+    1
+  ],
+  "new_native_stages": 1,
+  "producer_repeated": false
+}

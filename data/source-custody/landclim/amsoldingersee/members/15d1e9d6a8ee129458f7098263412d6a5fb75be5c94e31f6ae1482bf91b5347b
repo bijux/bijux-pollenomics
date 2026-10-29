@@ -1,0 +1,48 @@
+[
+  {
+    "id": "maintained-amsoldingersee-source-refusal",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py",
+      "produce",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 7.066117874986958,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/maintained-amsoldingersee-source-refusal.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/maintained-amsoldingersee-source-refusal.stderr",
+    "stdout_sha256": "7165a31deea731887a8edefaf76bef8ea1e0dd5bd487bfbb657b9f5d829ca68b",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 78741504
+  },
+  {
+    "id": "independent-amsoldingersee-source-joins",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py",
+      "observe",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 1,
+    "timed_out": false,
+    "elapsed_seconds": 8.140331458009314,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/independent-amsoldingersee-source-joins.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-source-refusal-replay/independent-amsoldingersee-source-joins.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "602ae63777b83b7ef042db29bc9825a63aabc17dad1afa9415ae40fb48e23c57",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 78741504
+  }
+]

@@ -1,0 +1,4 @@
+Warning in file(con, "r") :
+  file("") only supports open = "w+" and open = "w+b": using the former
+Error: readLines(system.file("SOURCE_SHA256", package = "disqover"))[1] ==  .... is not TRUE
+Execution halted

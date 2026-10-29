@@ -1,0 +1,18 @@
+_entry_path = Path(__file__).absolute()
+if _entry_path != _entry_path.resolve(strict=True) or any(p.is_symlink() for p in (_entry_path, *_entry_path.parents)):
+    raise ValueError("Physical absolute controller entry and ancestors required")
+_entry_directory = _entry_path.parent
+_expected_python = {'common_runner.py', 'prepare.py', 'run.py', 'runtime_contracts.py', 'check_contracts.py', 'runtime_guarded_runner.py', 'source_runtime.py', 'observe.py', 'execute_source.py', 'contracts.py', 'metadata.py'}
+_present_python = set()
+for _entry in _entry_directory.iterdir():
+    if _entry.is_symlink() or not (_entry.is_dir() or _entry.is_file()):
+        raise ValueError("Controller alias/special entry before helper import")
+    if _entry.is_dir() and _entry.name != "preflight":
+        raise ValueError("Unexpected controller directory before helper import")
+    if _entry.suffix in {".py", ".pyc", ".so", ".dylib", ".pyd"}:
+        if _entry.name not in _expected_python:
+            raise ValueError("Unexpected controller import before helper import")
+        _present_python.add(_entry.name)
+if _present_python != _expected_python:
+    raise ValueError("Incomplete exact controller import namespace")
+sys.path.insert(0, str(_entry_directory))

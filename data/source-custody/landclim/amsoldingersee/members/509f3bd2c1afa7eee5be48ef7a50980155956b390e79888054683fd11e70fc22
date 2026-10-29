@@ -1,0 +1,46 @@
+{
+  "schema_version": "amsoldingersee-saved-observer-source.v1",
+  "source_only": true,
+  "publication_ready": false,
+  "original_execution": {
+    "plan_sha256": "f8a5eda54d8a8c66f7cfe7362a4cbe8876ebe15d548c335725524d9227e58ac8",
+    "common_sha256": "55ecb4539701e1d580c6cc9b3ed9762b60bb47822be026cb0fd71998fdedaf5c",
+    "outer_sha256": "bc55eaf93d31a736263894af13a85cd567928991e276a5869a5cbf79ad5ca979",
+    "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+    "source_native_exit": 0,
+    "source_metadata_exit": 0,
+    "observer_exit": 1,
+    "whole_exit": 1,
+    "original_tracked_checker": null,
+    "refusal": "Actual Python entry argv differs",
+    "original_ordered_inputs": 10058
+  },
+  "framework_relationship": {
+    "declared_BASE": {
+      "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "sha256": "92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4",
+      "bytes": 52640
+    },
+    "observed_App": {
+      "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+      "sha256": "d5e2d4feef9f70f82e65429d1edd50a0e3e70debbbc6f27272f2f6ecd463b498",
+      "bytes": 51584
+    },
+    "not_alias_or_equal_bytes": true,
+    "required_authority": "Both exact physical nonsymlink pins from original input catalog; actual original preparation and source-before/source-after mapped App; exact declared/common BASE argv and byte-identical raw argv[1:]; complete original native/namespace/OS authority revalidation. No generic argv0 normalization or new target probe."
+  },
+  "new_execution": "One genuine saved-product/source reconstruction observer, no maintained source producer repeat. Native output and source-runtime witness remain original and unchanged. Reconstruct all14 original responses/receipts/publication selection plus author17-row metadata only in root-registered native observer; exact typed/serialized JSON and separate tracked byte comparison.",
+  "retained_inputs": "Authenticate original three fixed references, complete common products + common/outer receipts, exact output regular-file and directory membership, precise original failed stderr, and every original10058 input. Freeze source manifest/review expected rows before the original-input census; reject conflicts and repeat full original/current input and namespace/alias/absence checks before writes and after every execution.",
+  "runtime": "Reuse original exact isolated base -I -S -B full framework/stdlib/native/alias/OS authority; new source helpers are additionally pinned. New observer captures actual before/after current process origins. No dependency environment substitution, R, install, runtime probe, HTTP or model call.",
+  "resources": {
+    "one_native_stage_seconds": 45,
+    "completed_run_main_wall_seconds": 110,
+    "alarm_seconds": 130,
+    "completed_child_RSS_bytes_macos": 1073741824,
+    "inclusive_new_owned_output_bytes": 134217728,
+    "free_reserve_bytes": 1073741824,
+    "scope": "Run-main completed110 excludes entry/imports and final output scan/write. Alarm130 starts after profile/plan checks, ends before final receipt processing; no full-entry/postprocessing bound. Completed-child RSS/logical storage postchecks, no OS quota/full descendant census. Timeout kills/waits owned common launcher group; separate-session descendants remain unconfirmed."
+  },
+  "scientific_limits": "Original E#69/historical counts/chronology/transformation/source-use refusals remain. Dataset3873/3874/3875 remain declared request identities, not invented native field joins. No rights/human/ecology/LRA/full1128 study admission.",
+  "source_authorship": "Synthetic/source/typing/style only. No original product/private response/runtime census/preparer/native execution by author."
+}

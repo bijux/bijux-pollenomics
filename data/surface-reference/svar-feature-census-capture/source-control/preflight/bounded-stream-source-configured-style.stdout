@@ -1,0 +1,14 @@
+7 files reformatted, 2 files left unchanged
+SIM117 Use a single `with` statement with multiple contexts instead of nested `with` statements
+   --> artifacts/science/svar-feature-stream-custody/check_contracts.py:106:17
+    |
+104 |           for raw in samples:
+105 |               for parser in (Collection, CollectionScanner):
+106 | /                 with self.subTest(raw=raw, parser=parser):
+107 | |                     with self.assertRaises((ValueError, UnicodeError)):
+    | |_______________________________________________________________________^
+108 |                           list(parser(self.source(raw), block=3).features())
+    |
+help: Combine `with` statements
+
+Found 1 error.

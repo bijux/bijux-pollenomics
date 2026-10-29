@@ -1,0 +1,206 @@
+"""Qualify tracked-source selection while retaining omitted bytecode identities unchanged."""
+
+from __future__ import annotations
+
+from collections.abc import Callable
+from copy import deepcopy
+from functools import partial
+import json
+from pathlib import Path
+import shutil
+import sys
+from typing import Any
+
+SOURCE = Path(__file__).resolve().parent
+sys.path.insert(0, str(SOURCE))
+from contracts import regular_tree  # noqa: E402
+from source_inputs import pin  # noqa: E402
+from source_projection import authorize_metadata, cache_bytecode, project  # noqa: E402
+
+
+def refuses(function: Callable[[], Any]) -> None:
+    try:
+        function()
+    except ValueError:
+        return
+    raise AssertionError("Invalid source selection was accepted")
+
+
+def main() -> None:
+    root = SOURCE / "preflight/artificial-source-projection"
+    assert not root.exists()
+    root.mkdir()
+    groups = 0
+    try:
+        (root / "package/__pycache__").mkdir(parents=True)
+        (root / "package/resources/empty").mkdir(parents=True)
+        (root / "unused-empty").mkdir()
+        source = root / "package/module.py"
+        data = root / "package/resources/data.json"
+        cached = root / "package/__pycache__/module.cpython-311.pyc"
+        source.write_bytes(b"# controlled source\n")
+        data.write_bytes(b'{"resource":0}\n')
+        cached.write_bytes(b"opaque identity-only cache bytes")
+        original = [pin(path) for path in [source, data, cached]]
+        refuses(lambda: regular_tree(root))
+        snapshot, rows = regular_tree(root, allow_cache_bytecode=True)
+        selected = {str(source), str(data)}
+        result = project(root, snapshot, rows, selected)
+        assert {row["path"] for row in result["selected_rows"]} == selected
+        assert len(result["omitted_bytecode_rows"]) == 1
+        omitted = result["omitted_bytecode_rows"][0]
+        assert {key: omitted[key] for key in ["path", "sha256", "bytes"]} == pin(cached)
+        assert (
+            omitted["source_equivalence_claimed"] is False
+            and omitted["executed_or_copied"] is False
+        )
+        assert result["original_regular_file_count"] == 3
+        assert "package/__pycache__" not in result["projected_namespace"]["entries"]
+        assert result["projected_namespace"]["entries"]["unused-empty"] == {
+            "kind": "directory"
+        }
+        assert result["projected_namespace"]["entries"]["package/resources/empty"] == {
+            "kind": "directory"
+        }
+        assert [pin(path) for path in [source, data, cached]] == original
+        groups += 4
+        for name in [
+            "package/unknown.py",
+            "package/native.so",
+            "package/resources/untracked.json",
+            "package/foreign.pyc",
+        ]:
+            unknown = root / name
+            unknown.write_bytes(b"unknown")
+            changed_snapshot, changed_rows = regular_tree(
+                root, allow_cache_bytecode=True
+            )
+            refuses(partial(project, root, changed_snapshot, changed_rows, selected))
+            unknown.unlink()
+            groups += 1
+        # All tracked resources must be retained, even one under a cache-named directory.
+        cache_resource = root / "package/__pycache__/README.txt"
+        cache_resource.write_bytes(b"owned regular resource")
+        changed_snapshot, changed_rows = regular_tree(root, allow_cache_bytecode=True)
+        required = selected | {str(cache_resource)}
+        kept = project(root, changed_snapshot, changed_rows, required)
+        assert (
+            "package/__pycache__" in kept["projected_namespace"]["entries"]
+            and len(kept["selected_rows"]) == 3
+        )
+        cache_resource.unlink()
+        groups += 1
+        refuses(
+            lambda: project(root, snapshot, rows, selected | {str(root / "missing.py")})
+        )
+        refuses(lambda: project(root, snapshot, rows + [rows[0]], selected))
+        refuses(lambda: project(root, snapshot, rows[:-1], selected))
+        groups += 3
+        malformed = deepcopy(snapshot)
+        malformed["entries"]["package/alias"] = {"kind": "symlink"}
+        refuses(lambda: project(root, malformed, rows, selected))
+        groups += 1
+        refuses(lambda: project(root, snapshot, rows, selected | {str(cached)}))
+        groups += 1
+        assert cache_bytecode(Path("package/module.pyc"), {"package/module.py"})
+        assert cache_bytecode(Path("package/module.pyo"), {"package/module.py"})
+        assert cache_bytecode(
+            Path("package/__pycache__/retired.cpython-314.opt-2.pyc"), set()
+        )
+        assert not cache_bytecode(Path("package/__pycache__/unknown.so"), set())
+        assert not cache_bytecode(Path("package/foreign.pyc"), set())
+        groups += 1
+        assert cache_bytecode(
+            Path("package/__pycache__/plugin.cpython-311-pytest-9.0.3.pyc"), set()
+        )
+        assert not cache_bytecode(
+            Path("package/__pycache__/plugin.cpython-311-pytest-invalid.pyc"), set()
+        )
+        assert not cache_bytecode(
+            Path("package/__pycache__/plugin.cpython-311-pytest-9.0.3.so"), set()
+        )
+        groups += 2
+        module = (
+            root
+            / "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+        )
+        module.parent.mkdir(parents=True)
+        module.write_bytes(b"# opaque configured version metadata; never executed\n")
+        configuration = root / "packages/bijux-pollenomics-lra/pyproject.toml"
+        ignore = root / "packages/bijux-pollenomics-lra/.gitignore"
+        configuration.write_text(
+            '[build-system]\nrequires=["hatch-vcs>=0.4"]\nbuild-backend="hatchling.build"\n[tool.hatch.version]\nsource="vcs"\n[tool.hatch.build.hooks.vcs]\nversion-file="src/bijux_pollenomics_lra/_build_version.py"\n'
+        )
+        ignore.write_text("src/bijux_pollenomics_lra/_build_version.py\n")
+        descriptor: dict[str, Any] = {
+            "relative_module": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+            "configured_version_file": "src/bijux_pollenomics_lra/_build_version.py",
+            "producer_owner": "tool.hatch.build.hooks.vcs.version-file",
+            "module_pin": pin(module),
+            "configuration": [pin(configuration), pin(ignore)],
+            "copied_or_executed": False,
+            "model_or_version_equivalence_authority": False,
+        }
+        allowance = authorize_metadata(root, descriptor)
+        version_root = module.parent
+        version_snapshot, version_rows = regular_tree(
+            version_root, allow_cache_bytecode=True
+        )
+        omitted_version = project(
+            version_root, version_snapshot, version_rows, set(), allowance
+        )
+        assert (
+            omitted_version["selected_rows"] == []
+            and omitted_version["omitted_generated_metadata_rows"][0][
+                "executed_or_copied"
+            ]
+            is False
+        )
+        assert (
+            omitted_version["omitted_generated_metadata_rows"][0]["sha256"]
+            == pin(module)["sha256"]
+        )
+        refuses(partial(project, version_root, version_snapshot, version_rows, set()))
+        groups += 2
+        changed = deepcopy(descriptor)
+        changed["relative_module"] = (
+            "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/arbitrary.py"
+        )
+        refuses(partial(authorize_metadata, root, changed))
+        changed = deepcopy(descriptor)
+        changed["module_pin"]["sha256"] = "0" * 64
+        refuses(partial(authorize_metadata, root, changed))
+        module.write_bytes(b"changed")
+        refuses(partial(authorize_metadata, root, descriptor))
+        module.write_bytes(b"# opaque configured version metadata; never executed\n")
+        groups += 3
+        original_configuration = configuration.read_bytes()
+        configuration.write_bytes(
+            original_configuration.replace(b'source="vcs"', b'source="unowned"')
+        )
+        changed = deepcopy(descriptor)
+        changed["configuration"] = [pin(configuration), pin(ignore)]
+        refuses(partial(authorize_metadata, root, changed))
+        configuration.write_bytes(original_configuration)
+        ignore.write_bytes(b"# missing exact ignore ownership\n")
+        changed = deepcopy(descriptor)
+        changed["configuration"] = [pin(configuration), pin(ignore)]
+        refuses(partial(authorize_metadata, root, changed))
+        groups += 2
+    finally:
+        shutil.rmtree(root)
+    print(
+        json.dumps(
+            {
+                "actual_exit": 0,
+                "groups": groups,
+                "actual_first_party_cache_census": False,
+                "private_hash_or_ZIP_decode": False,
+                "source_preparation_or_native": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

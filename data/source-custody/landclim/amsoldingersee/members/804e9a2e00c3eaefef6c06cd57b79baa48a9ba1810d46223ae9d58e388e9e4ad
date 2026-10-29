@@ -1,0 +1,224 @@
+"""Retain actual native outcomes, independent checks and bounded output custody."""
+
+from __future__ import annotations
+
+import argparse
+from contextlib import suppress
+import json
+import os
+from pathlib import Path
+import resource
+import signal
+import subprocess
+import time
+from typing import Any
+
+from contracts import BASE, SOURCE, exact, load, pin, require, sha, verify_plan
+from runtime import profile_guard
+
+
+def stages_passed(plan: dict[str, Any], common: dict[str, Any]) -> bool:
+    declared, actual = plan.get("stages"), common.get("stages")
+    if (
+        not isinstance(declared, list)
+        or not isinstance(actual, list)
+        or len(declared) != len(actual)
+        or len(actual) != 1
+        or type(common.get("actual_exit")) is not int
+        or common["actual_exit"] != 0
+    ):
+        return False
+    roles = (("independent-saved-amsoldingersee-source-joins", "observe"),)
+    for expected, result, (role, command) in zip(declared, actual, roles, strict=True):
+        if not isinstance(expected, dict) or not isinstance(result, dict):
+            return False
+        argv = [
+            str(BASE),
+            "-I",
+            "-S",
+            "-B",
+            str(SOURCE / "entry.py"),
+            command,
+            "--plan",
+            str(Path(plan["output"]) / "plan.json"),
+        ]
+        if not (
+            expected.get("id") == role
+            and expected.get("argv") == argv
+            and type(expected.get("timeout_seconds")) is int
+            and expected["timeout_seconds"] == 45
+            and expected.get("must_succeed") is True
+            and all(
+                exact(result.get(key), expected.get(key))
+                for key in ("id", "argv", "timeout_seconds", "must_succeed")
+            )
+            and type(result.get("actual_exit")) is int
+            and result["actual_exit"] == 0
+            and result.get("timed_out") is False
+        ):
+            return False
+    return True
+
+
+def receipt_bytes(output: Path, record: dict[str, Any], bound: int) -> bytes:
+    used = 0
+    for path in output.rglob("*"):
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Output alias or special",
+        )
+        if path.is_file():
+            used += path.stat().st_size
+    total = used
+    for _ in range(32):
+        raw = (
+            json.dumps(
+                {**record, "inclusive_output_bytes": total}, indent=2, allow_nan=False
+            )
+            + "\n"
+        ).encode()
+        current = used + len(raw)
+        if total == current:
+            require(current <= bound, "Inclusive owned output bound exceeded")
+            return raw
+        total = current
+    raise ValueError("Inclusive receipt size did not converge")
+
+
+def deadline(_signum: int, _frame: Any) -> None:
+    raise TimeoutError("Outer source-replay fail-safe deadline")
+
+
+def main() -> None:
+    started = time.monotonic()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    parser.add_argument("--registered-plan-sha256", required=True)
+    args = parser.parse_args()
+    profile_guard()
+    require(sha(args.plan) == args.registered_plan_sha256, "Registered plan changed")
+    plan = load(args.plan)
+    output = Path(plan["output"])
+    target = output / "amsoldingersee-terminal.json"
+    require(
+        not target.exists()
+        and not target.is_symlink()
+        and not (output / "terminal.json").exists(),
+        "No execution receipt replacement",
+    )
+    child = None
+    code = None
+    timed_out = False
+    error = None
+    after_error = None
+    signal.signal(signal.SIGALRM, deadline)
+    signal.setitimer(signal.ITIMER_REAL, plan["resources"]["outer_timeout_seconds"])
+    try:
+        verify_plan(plan)
+        remaining = plan["resources"]["overall_timeout_seconds"] - (
+            time.monotonic() - started
+        )
+        require(remaining > 0, "Completed wall budget exhausted before source launch")
+        argv = [
+            str(BASE),
+            "-I",
+            "-S",
+            "-B",
+            plan["common_runner"],
+            "--plan",
+            str(args.plan),
+            "--registered-plan-sha256",
+            args.registered_plan_sha256,
+        ]
+        env = {
+            k: v
+            for k, v in os.environ.items()
+            if k not in {"PYTHONPATH", "PYTHONHOME", "PYTHONSTARTUP", "PYTHONUSERBASE"}
+        }
+        env.update(plan["environment"])
+        child = subprocess.Popen(
+            argv, cwd=plan["repository"], env=env, start_new_session=True
+        )
+        code = child.wait(timeout=remaining)
+    except (subprocess.TimeoutExpired, TimeoutError) as exc:
+        timed_out = True
+        error = str(exc)
+        code = 124
+    except Exception as exc:
+        error = str(exc)
+    finally:
+        if child is not None and child.poll() is None:
+            with suppress(ProcessLookupError):
+                os.killpg(child.pid, signal.SIGKILL)
+            child.wait()
+        try:
+            verify_plan(plan)
+            require(
+                sha(args.plan) == args.registered_plan_sha256,
+                "Registered plan changed after execution",
+            )
+        except Exception as exc:
+            after_error = str(exc)
+            if isinstance(exc, TimeoutError):
+                timed_out = True
+        signal.setitimer(signal.ITIMER_REAL, 0)
+    common_path = output / "terminal.json"
+    common = (
+        load(common_path)
+        if common_path.is_file()
+        else {"actual_exit": None, "stages": []}
+    )
+    review_path = output / "independent-source-review.json"
+    review = load(review_path) if review_path.is_file() else None
+    checker = review["tracked_byte_checker_exit"] if review is not None else None
+    elapsed = time.monotonic() - started
+    rss = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
+    resources = plan["resources"]
+    passed = (
+        code == 0
+        and stages_passed(plan, common)
+        and not timed_out
+        and error is None
+        and after_error is None
+        and elapsed <= resources["overall_timeout_seconds"]
+        and rss <= resources["declared_memory_bytes"]
+    )
+    record = {
+        "candidate": plan["candidate"],
+        "plan_sha256": args.registered_plan_sha256,
+        "actual_exit": 0 if passed else 1,
+        "common_actual_exit": code,
+        "common_terminal": pin(common_path) if common_path.is_file() else None,
+        "original_whole_actual_exit": 1,
+        "original_native_stage_exits": [0, 1],
+        "producer_repeated": False,
+        "actual_native_stage_exits": [row["actual_exit"] for row in common["stages"]],
+        "timed_out": timed_out,
+        "error": error,
+        "after_input_error": after_error,
+        "tracked_byte_checker_exit": checker,
+        "tracked_output_admission_passed": checker == 0,
+        "independent_review": pin(review_path) if review_path.is_file() else None,
+        "completed_elapsed_seconds": elapsed,
+        "completed_child_peak_RSS_bytes_macos": rss,
+        "completed_whole_wall_bound_pass": elapsed
+        <= resources["overall_timeout_seconds"],
+        "memory_bound_pass": rss <= resources["declared_memory_bytes"],
+        "scope": plan["scope"],
+        "resource_limits": "Completed-child RSS/logical storage/wall postchecks; no OS quota or aggregate descendant census. The 110-second completed wall check starts at run.main, excludes entry verification/imports, and is measured before final output scan/write. The 130-second alarm starts after profile/plan checks, ends before final receipt processing, and does not bound all entry/postprocessing work. Timeout kills and waits the owned common launcher group; its separate-session descendants remain unconfirmed on timeout.",
+        "scientific_or_publication_admission": False,
+    }
+    raw = receipt_bytes(output, record, resources["declared_storage_bytes"])
+    with target.open("xb") as stream:
+        stream.write(raw)
+    print(
+        json.dumps(
+            {
+                "terminal": pin(target),
+                "actual_exit": record["actual_exit"],
+                "tracked_byte_checker_exit": checker,
+            }
+        ),
+        flush=True,
+    )
+    raise SystemExit(record["actual_exit"])

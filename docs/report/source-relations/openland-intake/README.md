@@ -30,7 +30,7 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 **Unsupported claim.** Pollen-derived modeled cover is not independent vegetation truth; upstream data/code terms do not license a mixed private archive or local script.
 
-**Actual verification performed.** Read all member roles, rights posture and pinned upstream identity in report.json/members.csv; no archive extraction, script execution or source recapture.
+**Actual verification performed.** Read all member roles, rights posture and pinned upstream identity in report.json/members.csv; no archive extraction, script execution or source recapture. A separate source-built execution used commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87. The unchanged OpenLand producer and independent archive and copy-chain observer both exited 0, and the complete run exited 0. The member CSV matched exactly, with byte-checker exit 0. The report byte checker exited 2 because one source-attribution digest changed. The independent observer verified that this digest was the only report difference, preserved all scientific and rights values, and exited 0. The producer generated members.csv and report.json. The upstream-tree and DOI-lineage files were copies of retained declared inputs; they are not fresh HTTP retrievals or proof of original acquisition. The archive still contains 51 entries, including 25 modeled CSVs and 26 exact upstream blobs. There were 27 selected ZIP member reads and no GeoPackage or editor payload reads or LRA calls. An authored capsule retains 2,209 public members and all 66,430 ordered input identities. The payloads of 4,356 bytecodes, 59,886 runtime authorities and three private archive or intake authorities are omitted. The capsule does not establish fresh bytecode compilation, new native retention execution, public member rights, PANGAEA row equivalence, independent vegetation truth, ecological or human acceptance, or LRA admission. The original scientific ownership acceptance criteria have been restored verbatim. The SLU guide, HYDE country products, ABBO age-control report, Swedish cohort screen, OpenLand intake and Neotoma publication-attribution owners remain unresolved because their required original acquisition/copy custody or source-use authority has not been independently established. Genuine current executions, exact-byte checks and retained source captures remain scoped evidence; they do not discharge those original conditions. No numerical result, source chronology, permission, qualified human decision or LRA admission has changed.
 
 **Remaining input or review.** Exact input-row relation, member-specific rights and scientific role decisions remain required before public use.
 
@@ -44,11 +44,15 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 **Matched denominator.** 51 entries: 25 modeled slices, 1 PDF, 1 local derivative, 1 script, 1 configuration, 14 private-state files, 8 directories; 26 exact upstream blobs.
 
-- [Retained qualification evidence: docs/report/source-relations/openland-intake/report.json](report.json) (SHA-256 `6ede25d42a64a041139aab7a32ed6abfb3e2fb19ec0caf932647b7377455e52b`).
+- [Retained qualification evidence: docs/report/source-relations/openland-intake/report.json](report.json) (SHA-256 `dbe01c0f556eca264e5523a895e19dfe15719ad99adc01f537c27082b6fa6243`).
 
 - [Retained qualification evidence: docs/report/source-relations/openland-intake/members.csv](members.csv) (SHA-256 `9bd4f430895d3b0c76522e2f44e7e9d5a4613ece4cafbf5d632c3feafc42c9df`).
 
 - [Retained qualification evidence: docs/report/source-relations/openland-intake/upstream-tree.json](upstream-tree.json) (SHA-256 `4bbd8f7a11b6fc01083dab358143f01b8f06192c8562592758e451436f75eae1`).
+
+- [Retained qualification evidence: reports/science/source-lineage/openland-member-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/openland-member-custody.json) (SHA-256 `dc437a7dee28a31b1ea341be1e76e0397d54ab0d93a0f6ad146bcbf99116365f`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/openland-original-acceptance.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/openland-original-acceptance.json) (SHA-256 `43d6b2a53cfa2837272faafc83040bf06cf66fca866f5172e7df3455db6401b5`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

@@ -70,7 +70,7 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Unsupported claim.** Three source groups and prior Nordic design exposure do not establish independent confirmation, a Swedish population skill estimate, LRA vegetation reconstruction or measured ecological accuracy.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. A separate replay at commit 65d4752111915e1157315004d59603469af2d644 completed six maintained prepare, predict and score commands and two independent observers, all with exit 0. Common, inner and outer run results were 0. All ten native products per study family matched the retained bytes exactly. Only four preparation files per family receive retained source admission. Nine protocol, historical freeze, reference-text and verification files remain unresolved under their original study owners; no historical production or freeze certificate is inferred. Both protocols used the exact training-SE input. The original owner recipes incorrectly declared training-DK; those recipes and this correction remain explicit in the capsule and witness. The authored capsule preserves the original public source and controls and all 66,481 input identities. Runtime, private taxonomy lookup, relational inputs and 4,356 bytecode payloads remain omitted. The original generic outer receipt mentions EMPD2; its text is preserved, and the actual Swedish plan and eight command receipts establish the execution scope. These previously exposed direct-pollen development results do not establish untouched confirmation, ecological or field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Authoring the capsule is not a new native retention execution.
 
 **Remaining input or review.** Basin/parameter/source-period decisions and independent vegetation truth remain separate; frozen historical producer identity must not be silently rewritten as current.
 
@@ -85,6 +85,8 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 **Matched denominator.** Three lakes/cores,268of273samples,63bins,31targets and189score rows;238,797native NISP=231,115assigned+3,825excluded+3,857unmapped; equal-siteIDWMAE0.0173343.
 
 - [Retained qualification evidence: docs/report/regions/nordic/swedish-lake-transfer/report.json](report.json) (SHA-256 `9e70b542d843466cbb2933a6d0c9cbb7c5c4ae6ddfc9fd4e8f8a73ab42d4789c`).
+
+- [Retained qualification evidence: reports/science/source-lineage/swedish-direct-pollen-preparation.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/swedish-direct-pollen-preparation.json) (SHA-256 `a64dfad19cfc41eae4d4e6c810b2078076a2b3d3c2088fbe11dff6a024d095aa`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -1,0 +1,85 @@
+{
+  "schema_version": "love-shared-source-interface.v1",
+  "source_only": true,
+  "public_API": {
+    "source": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+      "sha256": "6a66342a06ff47cb1240349bab0303ab54053e3f82dd8213d9b56a25de6740b8",
+      "bytes": 17295
+    },
+    "functions": [
+      {
+        "name": "run_love",
+        "line": 83,
+        "arguments": "local_pollen: pd.DataFrame, regional_pollen: pd.DataFrame | None, params: pd.DataFrame, rings: pd.DataFrame, config: LoveConfig | RegionalDrawLoveConfig, *, replay_candidates: object | None=None, regional_cover_draws: object | None=None, local_ppe_draws: object | None=None, local_count_draws: object | None=None, _draw_source: RegionalCoverDrawSource | None=None, _local_site_id: str | None=None, _local_sample_id: str | None=None"
+      }
+    ]
+  },
+  "Python_objective": {
+    "source": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+      "sha256": "6a21e37c0a49b1ec944a45acb5fcbfaa08a6e72648e6352a32be285da28b7700",
+      "bytes": 12488
+    },
+    "functions": [
+      {
+        "name": "tf",
+        "line": 93,
+        "arguments": "a: object, vPoldepRegio: object, mKlocal: object, vFlocal: object, vSampleLocPro: object, ppes: object"
+      },
+      {
+        "name": "LOVEoptim",
+        "line": 145,
+        "arguments": "pollenLoc: pd.DataFrame, pollenReg: pd.DataFrame, lParams: Mapping[str, object], dfRadii: pd.DataFrame, maxRingLove: int, repeats: int=10, *, rng: None | int | np.random.Generator=None, stochastic: bool=True, regional_cover_draws: object | None=None, local_count_draws: object | None=None, optimizer: ReplayOptimizer | object | None=None, itermax: int=200, max_evaluations: int | None=None, tolerance: float=0.01, return_samples: bool=False, optimized_profile: OptimizedLoveProfile | str=OptimizedLoveProfile.DISQOVER_SOURCE"
+      }
+    ]
+  },
+  "Python_selector": {
+    "source": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+      "sha256": "0b21d9ade1bfb83ca2e31577093059ef8c7dd0fcc86f5af00cbe65e544d02600",
+      "bytes": 14851
+    },
+    "functions": [
+      {
+        "name": "solve",
+        "line": 71,
+        "arguments": "self, objective: Objective, lower: np.ndarray | None=None, upper: np.ndarray | None=None, max_evaluations: int | None=None, **_: object"
+      },
+      {
+        "name": "solve",
+        "line": 131,
+        "arguments": "self, objective: Objective, lower: np.ndarray, upper: np.ndarray, *, maxiter: int, tolerance: float, **_: object"
+      }
+    ]
+  },
+  "R_source": {
+    "archive": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz",
+      "sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+      "bytes": 822732
+    },
+    "member": "disqover/R/loveoptim.R",
+    "member_sha256": "eca584b47d0aa2589612b9ae200599b4006f6ccf5669e9611159b0599c3feb25",
+    "member_bytes": 15445,
+    "functions": {
+      "LOVEoptim": "function(pollenLoc, pollenReg, lParams, dfRadii, maxRingLove, repeats = 10)",
+      "tf": "function(a, vPoldepRegio, mKlocal, vFlocal, vSampleLocPro, ppes)",
+      "calK": "function(dfRadii, lParams)"
+    },
+    "objective_signature_runtime_checked": true
+  },
+  "unchanged_R_support": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
+    "sha256": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9",
+    "bytes": 5266
+  },
+  "historical_comparator_unexecuted": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/numerical-performance/love-source-comparison/compare.py",
+    "sha256": "0922323faa833dd417562f7c3582f3e42f9874d0c5c49774cb755d4c0beddc99",
+    "bytes": 10061
+  },
+  "new_driver_is_authored": true,
+  "unmodified_historical_replay_executed_claimed": false,
+  "no_model_R_fixture_or_runtime_census_executed_by_source_author": true
+}

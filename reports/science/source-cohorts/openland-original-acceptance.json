@@ -1,0 +1,50 @@
+{
+  "schema_version": "scientific-owner-original-acceptance-correction.v1",
+  "base_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "original_acceptance_authority": {
+    "repository": "bijux/bijux-pollenomics",
+    "commit": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+    "repository_path": "configs/ci/report-ownership.json",
+    "git_blob": "4cf9713757b0d35c15f484bac13e9a4229ca36a5",
+    "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
+    "bytes": 4580598
+  },
+  "owners": [
+    {
+      "owner_id": "source-relations/openland-intake/report-products",
+      "original_owner": {
+        "owner_id": "source-relations/openland-intake/report-products",
+        "role": "unresolved",
+        "paths": [
+          "docs/report/source-relations/openland-intake/doi-lineage.json",
+          "docs/report/source-relations/openland-intake/members.csv",
+          "docs/report/source-relations/openland-intake/report.json",
+          "docs/report/source-relations/openland-intake/upstream-tree.json"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/openland_intake.py",
+          "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py"
+        ],
+        "producer_inputs": [
+          "data/landclim/raw/landclim_sources.json"
+        ],
+        "verification": "Original private ZIP SHA7ed602f3b480a995cd2e1ff6dc445e994442100b1f626a953185849305e2434b is required for report/member production. Retained upstream Git-tree and DOI JSON also need original response/copy custody. Authenticate each input and its role before replay. Zero public member admissions/independent benchmarks and superseded DOI rights remain separate; do not turn derived data into vegetation truth."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "original_upstream_tree_DOI_response_copy_custody",
+          "status": "not_established",
+          "evidence": "The current guarded declaration explicitly disclaims original HTTP retrieval/acquisition for both metadata copies."
+        }
+      ],
+      "exact_remaining_resolver": "Bind original provider response/copy custody to upstream-tree and DOI-lineage JSON; retain genuine ZIP/member/native/attribution evidence separately."
+    }
+  ],
+  "all_current_physical_execution_source_and_product_evidence_preserved": true,
+  "new_native_execution_or_data_acquisition": false,
+  "new_retained_source_entries": 0,
+  "scientific_or_human_decision_changed": false,
+  "permission_or_source_use_decision_added": false,
+  "scope": "Restore unmet original owner acceptance criteria verbatim. Current exact-byte, arithmetic, source-metadata and official-download evidence remains partial and separate from original provider/copy custody and use authority. No historical native result, public source product, raw capsule, authored scientific body, claim register or human decision is rewritten."
+}

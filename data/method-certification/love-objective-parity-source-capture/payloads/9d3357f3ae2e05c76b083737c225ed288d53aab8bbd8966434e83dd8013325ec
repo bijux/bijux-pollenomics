@@ -1,0 +1,17 @@
+{
+  "repository": "/Users/bijan/bijux/bijux-pollenomics",
+  "worktree_authority": "Root supplied clean canonical 143; no Git command by source author. Root alone selects actual future clean preparation candidate.",
+  "before_source_authoring": true,
+  "stages_seconds": [
+    30,
+    180,
+    60,
+    60
+  ],
+  "common_seconds": 540,
+  "outer_runtime_seconds": 600,
+  "completed_child_RSS_bytes": 2147483648,
+  "inclusive_output_bytes": 268435456,
+  "minimum_free_capacity_bytes": 1073741824,
+  "validation": "Pure synthetic stdlib guards and AST; configured strict and style through admitted SOURCE3331 only. No fixture construction, numerical imports, runtime census, R or preparation by source author."
+}

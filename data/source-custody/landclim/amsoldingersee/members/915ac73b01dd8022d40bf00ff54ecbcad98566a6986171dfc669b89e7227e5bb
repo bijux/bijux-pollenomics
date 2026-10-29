@@ -1,0 +1,177 @@
+"""Invoke the unchanged maintained module with bound source and runtime observations."""
+
+from __future__ import annotations
+
+import argparse
+import importlib.abc
+import importlib.util
+from pathlib import Path
+import runpy
+import sys
+import traceback
+from typing import Any
+
+from contracts import (
+    MAINTAINED,
+    MODULE,
+    PACKAGE_ROOTS,
+    SOURCE,
+    dump,
+    exact,
+    load,
+    pin,
+    require,
+    verify_plan,
+)
+from runtime import profile_guard, qualify_process_snapshot, raw_process_snapshot
+
+
+class RefuseModels(importlib.abc.MetaPathFinder):
+    def __init__(self, denied: list[str]) -> None:
+        self.denied = denied
+
+    def find_spec(self, fullname: str, path: Any = None, target: Any = None) -> Any:
+        if fullname.split(".")[0] in {
+            "bijux_pollenomics_lra",
+            "numpy",
+            "scipy",
+            "pandas",
+        }:
+            self.denied.append(fullname)
+            raise ImportError(
+                "Model import forbidden in source-only metadata replay: " + fullname
+            )
+        return None
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = load(args.plan)
+    profile_guard()
+    verify_plan(plan)
+    require(
+        exact(pin(MAINTAINED), plan["maintained_source"]), "Maintained source changed"
+    )
+    require(
+        plan["first_party_source_roots"] == [str(path) for path in PACKAGE_ROOTS],
+        "Exact four source roots required",
+    )
+    output = Path(plan["output"])
+    target = output / "source-runtime-observation.json"
+    record: dict[str, Any] = {
+        "candidate": plan["candidate"],
+        "plan": pin(args.plan),
+        "actual_launcher_argv": list(sys.orig_argv),
+        "executed_module": MODULE,
+        "executed_source_argv": plan["maintained_source_argv"],
+        "maintained_source": plan["maintained_source"],
+        "interpreter_flags": ["-I", "-S", "-B"],
+        "before": None,
+        "after": None,
+        "source_exit": None,
+        "metadata_exit": None,
+        "metadata_error": None,
+        "denied_model_import_attempts": [],
+        "maintained_module_code_matches_pinned_source": False,
+        "generated_report": None,
+    }
+    original_paths = list(sys.path)
+    denial = RefuseModels(record["denied_model_import_attempts"])
+    try:
+        record["before"] = raw_process_snapshot()
+        dump(target, record)
+        qualify_process_snapshot(record["before"], plan["input_pins"], SOURCE)
+        require(
+            not any(
+                name.split(".")[0]
+                in {"bijux_pollenomics_lra", "numpy", "scipy", "pandas"}
+                for name in sys.modules
+            ),
+            "Unexpected model namespace before replay",
+        )
+        sys.meta_path.insert(0, denial)
+        sys.path[1:1] = plan["first_party_source_roots"]
+        spec = importlib.util.find_spec(MODULE)
+        if (
+            spec is None
+            or spec.origin != str(MAINTAINED)
+            or not isinstance(spec.loader, importlib.abc.InspectLoader)
+        ):
+            raise ValueError("Maintained source-backed module origin/loader differs")
+        code = spec.loader.get_code(MODULE)
+        require(
+            code
+            == compile(
+                MAINTAINED.read_bytes(),
+                str(MAINTAINED),
+                "exec",
+                dont_inherit=True,
+                optimize=0,
+            ),
+            "Executed module code differs from pinned source",
+        )
+        record["maintained_module_code_matches_pinned_source"] = True
+        sys.argv = list(plan["maintained_source_argv"])
+        try:
+            runpy.run_module(MODULE, run_name="__main__", alter_sys=True)
+            record["source_exit"] = 0
+        except SystemExit as error:
+            record["source_exit"] = (
+                error.code
+                if type(error.code) is int
+                else (0 if error.code is None else 1)
+            )
+        except Exception:
+            record["source_exit"] = 1
+            traceback.print_exc()
+        finally:
+            sys.path[:] = original_paths
+            if denial in sys.meta_path:
+                sys.meta_path.remove(denial)
+            dump(target, record)
+        record["after"] = raw_process_snapshot()
+        dump(target, record)
+        qualify_process_snapshot(record["after"], plan["input_pins"], SOURCE)
+        profile_guard()
+        require(
+            record["denied_model_import_attempts"] == []
+            and not any(
+                name.split(".")[0]
+                in {"bijux_pollenomics_lra", "numpy", "scipy", "pandas"}
+                for name in sys.modules
+            ),
+            "Metadata replay attempted model imports",
+        )
+        verify_plan(plan)
+        record["metadata_exit"] = 0
+    except Exception as error:
+        record["metadata_exit"] = 1
+        record["metadata_error"] = str(error)
+        traceback.print_exc()
+    finally:
+        sys.path[:] = original_paths
+        if denial in sys.meta_path:
+            sys.meta_path.remove(denial)
+        generated = output / "producer/report.json"
+        record["generated_report"] = pin(generated) if generated.is_file() else None
+        dump(target, record)
+    print(
+        __import__("json").dumps(
+            {
+                "source_runtime": pin(target),
+                "generated_report": record["generated_report"],
+                "source_exit": record["source_exit"],
+                "metadata_exit": record["metadata_exit"],
+            }
+        ),
+        flush=True,
+    )
+    raise SystemExit(
+        0
+        if type(record["source_exit"]) is int
+        and record["source_exit"] == 0
+        and record["metadata_exit"] == 0
+        else 1
+    )

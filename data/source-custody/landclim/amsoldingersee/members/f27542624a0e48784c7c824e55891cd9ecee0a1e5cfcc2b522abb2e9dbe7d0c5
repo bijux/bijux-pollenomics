@@ -1,0 +1,244 @@
+"""Protect the bounded Amsoldingersee source-identity refusal replay."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+from typing import Any
+
+BASE = Path(
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11"
+)
+BASE_SHA = "92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4"
+PREFIX = BASE.parents[1]
+SOURCE = Path(__file__).absolute().parent
+ROOT = SOURCE.parents[2]
+GIT = Path("/Library/Developer/CommandLineTools/usr/bin/git")
+GIT_SHA = "a73bf622a2e470d5d57a4b1d5aef1e8680e67278018d4858a2f93825b7d595c7"
+MODULE = "bijux_pollenomics_dev.source_completion.landclim_amsoldingersee_recovery"
+MAINTAINED = (
+    ROOT
+    / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py"
+)
+MAINTAINED_SHA = "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0"
+INPUT_MANIFEST = ROOT / "data/landclim/review/amsoldingersee-source-inputs.json"
+INPUT_SHA = "09811a8a6042d586770fa99b9f2e9d1a79209c4452a4dd839a3411cd644ff397"
+PRIVATE = Path(
+    "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/amsoldingersee-source-review"
+)
+AUTHOR = PRIVATE.parent / "author-reference/author/site.metadata.csv"
+AUTHOR_SHA = "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de"
+REPORT = (
+    ROOT
+    / "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json"
+)
+OWNER = "publication-replay/landclim-amsoldingersee-source-review/report-products"
+MODULES = {
+    "entry.py",
+    "contracts.py",
+    "runtime.py",
+    "metadata.py",
+    "common_runner.py",
+    "prepare.py",
+    "execute_source.py",
+    "observe.py",
+    "run.py",
+    "check_contracts.py",
+}
+PACKAGE_ROOTS = [
+    ROOT / "packages" / name / "src"
+    for name in (
+        "bijux-pollenomics",
+        "bijux-pollenomics-dev",
+        "bijux-pollenomics-lra",
+        "pollenomics",
+    )
+]
+
+
+def require(value: object, reason: str) -> None:
+    if not value:
+        raise ValueError(reason)
+
+
+def sha(path: Path) -> str:
+    with path.open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def pin(path: Path) -> dict[str, Any]:
+    require(
+        path.is_absolute()
+        and ".." not in path.parts
+        and path.resolve() == path
+        and path.is_file()
+        and not any(p.is_symlink() for p in (path, *path.parents)),
+        "Physical normalized regular input required: " + str(path),
+    )
+    return {"path": str(path), "sha256": sha(path), "bytes": path.stat().st_size}
+
+
+def exact(left: Any, right: Any) -> bool:
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, dict):
+        return left.keys() == right.keys() and all(
+            exact(left[k], right[k]) for k in left
+        )
+    if isinstance(left, list):
+        return len(left) == len(right) and all(
+            exact(a, b) for a, b in zip(left, right, strict=True)
+        )
+    return bool(left == right)
+
+
+def load(path: Path) -> Any:
+    def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
+        require(len(rows) == len({k for k, _ in rows}), "Duplicate JSON key")
+        return dict(rows)
+
+    def constant(value: str) -> None:
+        raise ValueError("Nonfinite JSON: " + value)
+
+    return json.loads(
+        path.read_bytes(), object_pairs_hook=pairs, parse_constant=constant
+    )
+
+
+def dump(path: Path, value: Any) -> None:
+    require(
+        path.is_absolute()
+        and ".." not in path.parts
+        and not any(p.is_symlink() for p in (path, *path.parents)),
+        "Physical owned output required",
+    )
+    require(not path.exists() or path.is_file(), "Nonregular output refused")
+    path.write_text(
+        json.dumps(value, ensure_ascii=False, indent=2, allow_nan=False) + "\n"
+    )
+
+
+def union(*groups: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    records: dict[str, dict[str, Any]] = {}
+    for group in groups:
+        for row in group:
+            require(
+                set(row) == {"path", "sha256", "bytes"}
+                and type(row["bytes"]) is int
+                and row["bytes"] >= 0,
+                "Malformed expected pin",
+            )
+            require(
+                row["path"] not in records or records[row["path"]] == row,
+                "Conflicting originally expected input",
+            )
+            records[row["path"]] = dict(row)
+    return [records[k] for k in sorted(records)]
+
+
+def verify_rows(rows: list[dict[str, Any]]) -> None:
+    for row in rows:
+        require(
+            exact(pin(Path(row["path"])), row),
+            "Originally expected input changed: " + row["path"],
+        )
+
+
+def confined_output(path: Path, *, absent: bool = False) -> Path:
+    require(
+        path.is_absolute()
+        and ".." not in path.parts
+        and path.resolve() == path
+        and path.is_relative_to(ROOT / "artifacts")
+        and path != ROOT / "artifacts"
+        and not path.is_relative_to(SOURCE)
+        and not SOURCE.is_relative_to(path)
+        and not any(p.is_symlink() for p in (path, *path.parents)),
+        "Fresh physical artifact root required",
+    )
+    if absent:
+        require(not path.exists() and not path.is_symlink(), "Preserve existing output")
+    return path
+
+
+def identity() -> dict[str, str]:
+    require(sha(GIT) == GIT_SHA, "Pinned Git tool changed")
+    env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
+    env.update(
+        GIT_OPTIONAL_LOCKS="0", GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull
+    )
+
+    def git(*args: str) -> bytes:
+        return subprocess.check_output([str(GIT), *args], cwd=ROOT, env=env, timeout=30)
+
+    require(git("branch", "--show-current").strip() == b"main", "Local main required")
+    return {
+        "candidate": git("rev-parse", "HEAD").decode().strip(),
+        "status": git("status", "--porcelain").decode(),
+        "tracked_inventory_sha256": hashlib.sha256(
+            git("ls-files", "-s", "-z")
+        ).hexdigest(),
+    }
+
+
+def source_namespace() -> None:
+    for path in SOURCE.iterdir():
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Controller alias/special",
+        )
+        require(
+            not path.is_dir() or path.name == "preflight",
+            "Unknown controller import directory",
+        )
+        if path.suffix in {".py", ".pyc", ".so", ".pyd", ".dylib"}:
+            require(path.name in MODULES, "Unknown controller import member")
+
+
+def source_snapshot() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    from runtime import tree, tree_membership
+
+    namespaces = []
+    rows: list[dict[str, Any]] = []
+    for root in PACKAGE_ROOTS:
+        files, aliases = tree(root)
+        require(not aliases, "First-party source alias")
+        namespaces.append({"root": str(root), "entries": tree_membership(root)})
+        rows.extend(pin(path) for path in sorted(files))
+    return namespaces, rows
+
+
+def verify_plan(plan: dict[str, Any]) -> None:
+    from runtime import absent_path, check_aliases, system_unchanged, tree_membership
+
+    source_namespace()
+    require(
+        plan["repository"] == str(ROOT)
+        and plan["owner_id"] == OWNER
+        and plan["maintained_module"] == MODULE,
+        "Source plan scope changed",
+    )
+    confined_output(Path(plan["output"]))
+    verify_rows(plan["input_pins"])
+    runtime = plan["runtime_profile"]
+    require(
+        check_aliases(runtime["tree_aliases"] + runtime["native_aliases"]),
+        "Runtime aliases changed",
+    )
+    require(system_unchanged(runtime["system_authority"]), "OS authority changed")
+    for namespace in [
+        {"root": runtime["framework_root"], "entries": runtime["framework_membership"]},
+        *plan["first_party_namespaces"],
+    ]:
+        require(
+            tree_membership(Path(namespace["root"])) == namespace["entries"],
+            "Complete source/runtime membership changed",
+        )
+    require(
+        all(absent_path(Path(name)) for name in plan["absent_input_paths"]),
+        "Absent runtime input appeared",
+    )
+    require(identity() == plan["canonical_identity"], "Clean source candidate changed")

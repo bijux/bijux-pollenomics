@@ -1,0 +1,55 @@
+{
+  "schema_version": "swedish-neotoma-pollen-holdout-protocol.v1",
+  "decision_stage": "fixed_before_target_observation_read",
+  "scientific_question": "How do three fixed 31-target direct-pollen baselines transfer from DK/FI/NO sites to one additional Swedish Neotoma core?",
+  "evidence_scope": "development_only_previous_Nordic_outcomes_exposed",
+  "target": {
+    "source_family": "neotoma",
+    "country_code": "SE",
+    "site_id": "neotoma:site:28874",
+    "site_name": "Storasjö",
+    "collection_unit_id": "neotoma:collection-unit:39243",
+    "selected_dataset_id": "neotoma:dataset:54004",
+    "excluded_parallel_dataset_id": "neotoma:dataset:54005",
+    "selection_rule": "largest Swedish site sample count outside the three earlier Swedish target sites, then lower dataset ID for duplicate depth and age lists within one physical core",
+    "selected_sample_count": 77,
+    "selected_sample_ids_sha256_newline_utf8": "c638a136895adf7ef3094537370e4517a82583cc4e29f31692dbf9021db528c6",
+    "parallel_dataset_sample_count": 77,
+    "shared_depths_with_equal_calibrated_age": 77,
+    "age_claim_policy": "source-default comparable calibrated radiocarbon BP sample claim only",
+    "source_age_min_bp": 65,
+    "source_age_max_bp": 10874
+  },
+  "response": {
+    "axis": "retained 31 author target taxa",
+    "source_measure": "reported pollen NISP counts only",
+    "age_bin_width_bp": 500,
+    "excluded_and_unmapped_count_mass": "retain separately",
+    "no_landscape_or_vegetation_truth_claim": true
+  },
+  "training": {
+    "country_codes": ["DK", "FI", "NO"],
+    "site_groups": 81,
+    "input_path": "docs/report/regions/nordic/swedish-author-target-pollen/inputs/training-SE.json.gz",
+    "input_sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80",
+    "target_site_excluded": true
+  },
+  "fixed_methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "scoring": {
+    "unit": "target site by 500-cal-BP bin",
+    "common_support_only_for_method_comparison": true,
+    "refused_training_bins_retained": true,
+    "metrics": ["mean_absolute_fraction_error", "hellinger_distance"],
+    "prediction_files_frozen_before_target_scores": true
+  },
+  "source_identity": {
+    "relational_manifest_path": "data/neotoma/relational/manifest.json",
+    "relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+    "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+    "relational_build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1"
+  }
+}

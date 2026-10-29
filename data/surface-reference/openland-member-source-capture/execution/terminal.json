@@ -1,0 +1,167 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87",
+  "plan_sha256": "e060b579fdc3d30106b7b96df7a909e6e01ba9535e66192dadec1a4867da1f1d",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 27.875556332990527,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-telemetry-custody/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/plan.json",
+    "--registered-plan-sha256",
+    "e060b579fdc3d30106b7b96df7a909e6e01ba9535e66192dadec1a4867da1f1d"
+  ],
+  "canonical_before": {
+    "candidate": "5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87",
+    "status": "",
+    "tracked_inventory_sha256": "fc1ba3d90b42d839d1dc9befc7273ed2232725ec2953c5742efbacd2cf18c928"
+  },
+  "canonical_after": {
+    "candidate": "5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87",
+    "status": "",
+    "tracked_inventory_sha256": "fc1ba3d90b42d839d1dc9befc7273ed2232725ec2953c5742efbacd2cf18c928"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "maintained-openland-member-source",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-telemetry-custody/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/plan.json"
+      ],
+      "timeout_seconds": 90,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 14.680971207970288,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/maintained-openland-member-source.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/maintained-openland-member-source.stderr",
+      "stdout_sha256": "b72e170815aa86ea36dd39f1207b78ad3e5d85d6d9beec3df357cbfe834757fd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 149831680
+    },
+    {
+      "id": "independent-openland-member-copychain-observer",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-telemetry-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/plan.json"
+      ],
+      "timeout_seconds": 90,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 9.364563042006921,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/independent-openland-member-copychain-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/independent-openland-member-copychain-observer.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 149831680
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/independent-openland-member-copychain-observer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/independent-openland-member-copychain-observer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/independent-source-review.json",
+      "sha256": "4ae732b847596513077523121ae9d4838e4718fc65baaefe53ca2329a720f4e9",
+      "bytes": 5943
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/maintained-openland-member-source.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/maintained-openland-member-source.stdout",
+      "sha256": "b72e170815aa86ea36dd39f1207b78ad3e5d85d6d9beec3df357cbfe834757fd",
+      "bytes": 353
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/plan.json",
+      "sha256": "e060b579fdc3d30106b7b96df7a909e6e01ba9535e66192dadec1a4867da1f1d",
+      "bytes": 19306345
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/preparation.json",
+      "sha256": "e251853a7e782193268803da83699703dc8a1f01c990550e8845eec5037635b1",
+      "bytes": 3713
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/producer/members.csv",
+      "sha256": "9bd4f430895d3b0c76522e2f44e7e9d5a4613ece4cafbf5d632c3feafc42c9df",
+      "bytes": 17044
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/producer/report.json",
+      "sha256": "dbe01c0f556eca264e5523a895e19dfe15719ad99adc01f537c27082b6fa6243",
+      "bytes": 3831
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/retained-inputs/doi-lineage.json",
+      "sha256": "52421cacb6bf4f0ec580e7f2d0f2665ab0e87a1184efff6b887247513e3afa27",
+      "bytes": 1868
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/retained-inputs/upstream-tree.json",
+      "sha256": "4bbd8f7a11b6fc01083dab358143f01b8f06192c8562592758e451436f75eae1",
+      "bytes": 9513
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/root-launch.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/runtime-delegate.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/runtime-delegate.stdout",
+      "sha256": "6ec4ed16f5321228103f9ec01a1ef82174b059256ca0576c0338c52512c93c67",
+      "bytes": 332
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/source-execution.json",
+      "sha256": "5c0d99d9a1f77164da854e6029577ee38df0af0e6b93293178f6cb09e99e09a0",
+      "bytes": 344330
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/stage-progress.json",
+      "sha256": "cd49032d3ce17ac44340ff30fff2691ad6ea25f87d6b8853e5861b2da153a9da",
+      "bytes": 2388
+    }
+  ],
+  "output_bytes": 19695660,
+  "resources": {
+    "overall_timeout_seconds": 220,
+    "resident_memory_limit_bytes": 2147483648,
+    "output_byte_limit": 134217728
+  },
+  "scope": "Fresh exact private OpenLand archive/member metadata replay only. Two actual CLI outputs plus two explicitly copied retained metadata inputs. Source attribution digest-only bridge is separate from all scientific and CSV values. No original upstream HTTP/copy acquisition, raw redistribution, public map/export, PANGAEA row-overlap, independent vegetation, interpolation, model, R, rights/human or LRA admission.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

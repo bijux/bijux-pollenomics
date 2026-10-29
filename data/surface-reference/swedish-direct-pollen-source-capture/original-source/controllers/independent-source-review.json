@@ -1,0 +1,20 @@
+{
+  "schema_version": "swedish-absent-import-cache-source-independent-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "e0ae28ea82caa00f93bc74fbe6e69f2698407c64abe73d85590b04eb5765e0e5",
+  "physical_source_members": 20,
+  "prior_root_source_review_sha256": "7890efaab43c63bcc63a4ccb305ee101132d1ec29092c9ff964f2266256dbf73",
+  "unchanged_Python_files": 8,
+  "reviewed_complete_changed_boundaries": [
+    "prepare.py",
+    "execute_source.py",
+    "check_contracts.py"
+  ],
+  "root_source_guards": {
+    "native_session": 56803,
+    "collected_exit": 0,
+    "groups": 26,
+    "log_sha256": "ec34c4ef45537a0dd4d332f8385e55a24af199248f3c9a89e994123169bb0e24"
+  },
+  "scope": "Actual current-tag SourceFileLoader readonly absentcache fallback to exactprotected.py, source/cache roundtrip, explicitabsence and completefirstparty/base/materialized namespace guards. Existing/unpinned/wrongtag/alias/write/escape/binding/absence changes refuse. Attemptedcachemisses separatefrom actualreads. Other8source/native/independent-score/launcher bodies unchanged. Sourceauthor140contextdistinct fromactualfuturecandidate,54scientificpins/twoownerrows unchanged at141. All old failuresimmutable. No cache/source-equivalence/freshcompilation/LRA/vegetation/independentconfirmation/rights/human claim."
+}

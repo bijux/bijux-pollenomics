@@ -1,0 +1,55 @@
+{
+  "candidate": "82c8fc4ed3d847909d14162f51b77dc59ccc0a70",
+  "actual_exit": 0,
+  "actual_module": "bijux_pollenomics_dev.taxa_review.lra_prerequisites",
+  "maintained_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/__main__.py",
+    "sha256": "ec019136eb18bbe7887bab42b0aae01e07996878b2096eafcc446db1e0b8549b",
+    "bytes": 2231
+  },
+  "actual_source_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/__main__.py",
+    "--raw-root",
+    "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/neotoma_pollen_dataset_downloads",
+    "--normalized-root",
+    "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/relational",
+    "--lakeparameter-capture-root",
+    "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters",
+    "--lakeparameter-capture-sha256",
+    "0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lra-prerequisite-custody-review/prerequisite-projection.json"
+  ],
+  "owned_package_origins": [
+    {
+      "module": "bijux_pollenomics",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/__init__.py",
+      "sha256": "e72be5803a76413853e2a0c39d42e380766dec85cd19c5fc0fff727bd1879133",
+      "bytes": 1429
+    },
+    {
+      "module": "bijux_pollenomics_lra",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+      "sha256": "4b8438dee8e9bed9a8ddbd5b875cb115eb5a91b5085dcc305323d6dfbe6acea1",
+      "bytes": 1979
+    },
+    {
+      "module": "bijux_pollenomics_dev",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+      "sha256": "7b81431bc8a66b84fe91baea2c452b58458f8b54b3cabc6ee248dc88cb8d8c0c",
+      "bytes": 62
+    },
+    {
+      "module": "pollenomics",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/pollenomics/src/pollenomics/__init__.py",
+      "sha256": "747a0f33912cb45162b3bbe1812705b7000e029b3e129c9f49ebd75d3735e854",
+      "bytes": 1245
+    }
+  ],
+  "generated_projection": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lra-prerequisite-custody-review/prerequisite-projection.json",
+    "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809",
+    "bytes": 22907955
+  },
+  "scope": "Genuine unchanged source-prerequisite producer; no optimizer, LRA execution, ecological acceptance or outcome model."
+}

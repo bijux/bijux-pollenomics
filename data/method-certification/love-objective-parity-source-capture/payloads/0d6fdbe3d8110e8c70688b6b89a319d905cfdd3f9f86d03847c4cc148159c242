@@ -1,0 +1,3 @@
+{"stage": "public-Python-thirty-two-candidate-replay", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 3.6245946250273846}
+{"stage": "independent-shared-input-and-all-vector-observer", "actual_exit": 1, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 0.7194686249713413}
+{"terminal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/terminal.json", "sha256": "dcb18ec5c33eb904b5044666b7f6546679955ee380ea5a1c8d6311b5595db9d2", "status": "failed"}

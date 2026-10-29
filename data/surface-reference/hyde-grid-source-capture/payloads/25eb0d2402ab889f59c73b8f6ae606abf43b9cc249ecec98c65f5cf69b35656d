@@ -1,0 +1,179 @@
+"""Artificial receipt controls only; no real HYDE receipts or inputs are read."""
+
+from __future__ import annotations
+
+from copy import deepcopy
+from functools import partial
+import json
+from pathlib import Path
+import sys
+from typing import Any
+
+SOURCE = Path(__file__).resolve().parent
+sys.path.insert(0, str(SOURCE))
+from receipt_contract import qualify_scope  # noqa: E402 - owned pure design fixture.
+
+
+def refuses(call: Any) -> None:
+    try:
+        call()
+    except (ValueError, KeyError):
+        return
+    raise AssertionError("Expected closed receipt-scope refusal")
+
+
+def fixture(matched: bool = True) -> list[dict[str, Any]]:
+    stages = [
+        {
+            "id": name,
+            "action": action,
+            "argv": ["/owned/entry.py", action],
+            "timeout_seconds": 600,
+        }
+        for name, action in (
+            ("maintained-grid-producer", "producer"),
+            ("independent-source-grid-observer", "observer"),
+        )
+    ]
+    whole = 0 if matched else 1
+    checker = 0 if matched else 2
+    plan = {
+        "candidate": "a" * 40,
+        "canonical_identity_at_source_freeze": {"candidate": "a" * 40, "status": ""},
+        "stages": stages,
+    }
+    inner = {
+        "candidate": "a" * 40,
+        "plan_sha256": "b" * 64,
+        "actual_exit": whole,
+        "stages": [
+            {**row, "actual_exit": code, "timed_out": False}
+            for row, code in zip(stages, (0, whole), strict=True)
+        ],
+        "exception": None,
+        "after_custody_error": None,
+        "live_canonical_equality_claimed": False,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_whole_wall_bound_pass": True,
+    }
+    outer = {
+        "candidate": "a" * 40,
+        "plan_sha256": "b" * 64,
+        "actual_exit": whole,
+        "child_native_exit": whole,
+        "child_timed_out": False,
+        "registered_plan_unchanged": True,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_outer_wall_bound_pass": True,
+    }
+    producer = {"candidate": "a" * 40, "actual_exit": 0}
+    observer = {
+        "candidate": "a" * 40,
+        "actual_exit": checker,
+        "independent_scientific_source_reconstruction_actual_exit": 0,
+        "tracked_byte_checker_actual_exit": checker,
+        "tracked_bytes_all_equal": matched,
+        "tracked_byte_checkers": [
+            {"byte_identical": True},
+            {"byte_identical": matched},
+        ],
+        "source_reconstruction": {
+            "joined_rows": 84,
+            "selected_nodata_cells": 0,
+            "off_selection_values_not_qualified": True,
+            "grid_dimensions": [4320, 2160],
+            "Decimal_mass_tolerance_km2": "0.000001",
+        },
+    }
+    return [plan, inner, outer, producer, observer]
+
+
+def call(records: list[dict[str, Any]]) -> dict[str, Any]:
+    return qualify_scope(records[0], "b" * 64, *records[1:])
+
+
+def main() -> None:
+    invalid: Any
+    matched = fixture()
+    result = call(matched)
+    assert result["eligible_for_exact_existing_report_admission"] is True
+    mismatched = fixture(False)
+    result = call(mismatched)
+    assert result["eligible_for_exact_existing_report_admission"] is False
+    assert (
+        result["raw_tracked_byte_checker_exit"] == 2
+        and result["observer_process_exit"] == result["inner_and_outer_whole_exit"] == 1
+    )
+    cases = 2
+    for index in (1, 2, 3, 4):
+        for invalid in (False, "0", 2):
+            changed = deepcopy(matched)
+            changed[index]["actual_exit"] = invalid
+            refuses(partial(call, changed))
+            cases += 1
+    for index, key, invalid in (
+        (0, "candidate", "f" * 40),
+        (1, "after_custody_error", "drift"),
+        (1, "live_canonical_equality_claimed", True),
+        (2, "child_timed_out", True),
+        (2, "registered_plan_unchanged", False),
+        (2, "inclusive_storage_bound_pass", False),
+        (4, "independent_scientific_source_reconstruction_actual_exit", 1),
+        (4, "tracked_byte_checker_actual_exit", 2),
+        (4, "tracked_bytes_all_equal", False),
+    ):
+        changed = deepcopy(matched)
+        changed[index][key] = invalid
+        refuses(partial(call, changed))
+        cases += 1
+    for key, invalid in (
+        ("joined_rows", 83),
+        ("selected_nodata_cells", True),
+        ("off_selection_values_not_qualified", False),
+        ("grid_dimensions", [4320, 2159]),
+        ("Decimal_mass_tolerance_km2", "0.1"),
+    ):
+        changed = deepcopy(matched)
+        changed[4]["source_reconstruction"][key] = invalid
+        refuses(partial(call, changed))
+        cases += 1
+    for change in ("missing", "argv", "role", "timeout", "exit"):
+        changed = deepcopy(matched)
+        stage = changed[1]["stages"][1]
+        if change == "missing":
+            changed[1]["stages"].pop()
+        else:
+            key, invalid = {
+                "argv": ("argv", ["other"]),
+                "role": ("id", "other"),
+                "timeout": ("timeout_seconds", True),
+                "exit": ("actual_exit", False),
+            }[change]
+            stage[key] = invalid
+        refuses(partial(call, changed))
+        cases += 1
+    changed = deepcopy(mismatched)
+    changed[1]["actual_exit"] = changed[2]["actual_exit"] = 0
+    refuses(partial(call, changed))
+    cases += 1
+    changed = deepcopy(mismatched)
+    changed[4]["tracked_byte_checker_actual_exit"] = 0
+    refuses(partial(call, changed))
+    cases += 1
+    print(
+        json.dumps(
+            {
+                "actual_exit": 0,
+                "synthetic_cases": cases,
+                "real_HYDE_receipts_or_private_inputs_read": False,
+                "actual_retention_preparer_census_composition_model_or_native_called": False,
+                "scope": "Future receipt scope design only; not a concrete source/capsule/owner admission.",
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,82 @@
+{
+  "schema_version": "swedish-lake-pollen-transfer-protocol.v1",
+  "decision_stage": "fixed_before_target_observation_read",
+  "scientific_question": "How do three fixed 31-target direct-pollen baselines trained on DK/FI/NO sites transfer to three additional Swedish lake cores?",
+  "evidence_scope": "development_only_previous_Nordic_outcomes_exposed",
+  "selection_rule": "All Swedish Neotoma sites outside prior Swedish targets with one EPD pollen dataset, one collection unit, a source site description beginning Lake or Small lake, and at least 50 unique source-default comparable calibrated sample ages; select only those qualified samples, group by physical site, and inspect no target counts before this protocol is committed.",
+  "previous_swedish_target_site_ids": [
+    "neotoma:site:13338",
+    "neotoma:site:28869",
+    "neotoma:site:28872",
+    "neotoma:site:28874"
+  ],
+  "targets": [
+    {
+      "site_id": "neotoma:site:28866",
+      "site_name": "Gilltjärnen",
+      "collection_unit_id": "neotoma:collection-unit:39235",
+      "source_handle": "GILL",
+      "dataset_id": "neotoma:dataset:53991",
+      "source_samples": 101,
+      "selected_samples": 100,
+      "selected_sample_ids_sha256_newline_utf8": "ddb9c889f6de818666cf7f8e33ec71c0e58237b839bce4bc9a7e949c53dfef0f",
+      "selected_age_min_bp": 210.8705,
+      "selected_age_max_bp": 11099.64
+    },
+    {
+      "site_id": "neotoma:site:28887",
+      "site_name": "Lake Avegöl",
+      "collection_unit_id": "neotoma:collection-unit:39256",
+      "source_handle": "AVEG",
+      "dataset_id": "neotoma:dataset:54020",
+      "source_samples": 63,
+      "selected_samples": 62,
+      "selected_sample_ids_sha256_newline_utf8": "fecb6e7169406a25d4cb8a6c9a3b3a999d12a9a858a4337178c2da920d96954a",
+      "selected_age_min_bp": 38.3,
+      "selected_age_max_bp": 7312
+    },
+    {
+      "site_id": "neotoma:site:28889",
+      "site_name": "Flinkasjön",
+      "collection_unit_id": "neotoma:collection-unit:39258",
+      "source_handle": "FLINK",
+      "dataset_id": "neotoma:dataset:54024",
+      "source_samples": 109,
+      "selected_samples": 106,
+      "selected_sample_ids_sha256_newline_utf8": "90649058a47957f5aab5d8250c3a43e9fb51303fd07a1f7e750e866cb523b74c",
+      "selected_age_min_bp": 21.9,
+      "selected_age_max_bp": 12010.5
+    }
+  ],
+  "response": {
+    "axis": "retained 31 author target taxa",
+    "source_measure": "reported pollen NISP counts only",
+    "age_bin_width_bp": 500,
+    "excluded_and_unmapped_count_mass": "retain separately",
+    "no_landscape_or_vegetation_truth_claim": true
+  },
+  "training": {
+    "country_codes": ["DK", "FI", "NO"],
+    "site_groups": 81,
+    "input_path": "docs/report/regions/nordic/swedish-author-target-pollen/inputs/training-SE.json.gz",
+    "input_sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80"
+  },
+  "fixed_methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "scoring": {
+    "unit": "target site by 500-cal-BP bin",
+    "common_support_only_for_method_comparison": true,
+    "refused_training_bins_retained": true,
+    "metrics": ["mean_absolute_fraction_error", "hellinger_distance"],
+    "prediction_files_frozen_before_target_scores": true
+  },
+  "source_identity": {
+    "relational_manifest_path": "data/neotoma/relational/manifest.json",
+    "relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+    "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+    "relational_build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1"
+  }
+}

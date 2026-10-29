@@ -1,0 +1,922 @@
+"""Retain exact native HYDE grid conservation without admitting private grids or ecology."""
+
+from __future__ import annotations
+
+from collections.abc import Callable, Mapping
+import hashlib
+import json
+from pathlib import Path, PurePosixPath
+import re
+from typing import Any
+
+from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
+
+from ...contracts import JsonObject, ReportRebuildError
+from ...retained_source import validated_descriptor
+
+CAPTURE: Any = "data/surface-reference/hyde-grid-source-capture/capture.json"
+CAPTURE_SHA256: Any = "e7d56cec6aa162cccc06e79655047094e76bcf5ed88e75e72969645f6ab71c45"
+
+
+def require(value: object, reason: str) -> None:
+    """Refuse a retained source or scope inconsistency."""
+    if not value:
+        raise ValueError(reason)
+
+
+def integer(value: object, expected: int) -> bool:
+    """Recognize an exact integer count without Boolean or fractional aliases."""
+    return type(value) is int and value == expected
+
+
+def qualify_scope(
+    plan: Mapping[str, Any],
+    plan_sha256: str,
+    inner: Mapping[str, Any],
+    outer: Mapping[str, Any],
+    producer: Mapping[str, Any],
+    observation: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Distinguish reconstructed science from tracked mismatch without guessing exits.
+
+    A future finite capsule caller must first authenticate exact registered plan,
+    complete native receipts/logs/output catalogue, original source/resource and
+    controller closures. Pure matching dictionaries are never source authority.
+    """
+    require(
+        isinstance(plan_sha256, str)
+        and len(plan_sha256) == 64
+        and all(c in "0123456789abcdef" for c in plan_sha256),
+        "Exact registered plan identity required",
+    )
+    candidate = plan["candidate"]
+    require(
+        isinstance(candidate, str)
+        and len(candidate) == 40
+        and all(c in "0123456789abcdef" for c in candidate),
+        "Actual source-freeze candidate required",
+    )
+    require(
+        plan["canonical_identity_at_source_freeze"]["candidate"] == candidate
+        and plan["canonical_identity_at_source_freeze"]["status"] == "",
+        "Original source was not frozen from a clean candidate",
+    )
+    for result in (inner, outer):
+        require(
+            result["candidate"] == candidate and result["plan_sha256"] == plan_sha256,
+            "Native receipts do not bind the registered source epoch",
+        )
+    require(
+        integer(producer["actual_exit"], 0) and producer["candidate"] == candidate,
+        "No completed maintained producer",
+    )
+    require(
+        observation["candidate"] == candidate
+        and integer(
+            observation["independent_scientific_source_reconstruction_actual_exit"], 0
+        ),
+        "No completed independent native source reconstruction",
+    )
+    pairs = observation["tracked_byte_checkers"]
+    require(
+        isinstance(pairs, list)
+        and len(pairs) == 2
+        and all(type(row["byte_identical"]) is bool for row in pairs),
+        "Exactly two literal tracked-byte outcomes required",
+    )
+    matched = all(row["byte_identical"] for row in pairs)
+    checker = 0 if matched else 2
+    whole = 0 if matched else 1
+    require(
+        integer(observation["tracked_byte_checker_actual_exit"], checker)
+        and integer(observation["actual_exit"], checker)
+        and (observation["tracked_bytes_all_equal"] is matched),
+        "Tracked byte outcomes were promoted or misreported",
+    )
+    stages = inner["stages"]
+    declared = plan["stages"]
+    require(len(stages) == len(declared) == 2, "Complete two-stage execution required")
+    for expected, result, name, action, exit_code in zip(
+        declared,
+        stages,
+        ("maintained-grid-producer", "independent-source-grid-observer"),
+        ("producer", "observer"),
+        (0, whole),
+        strict=True,
+    ):
+        require(
+            expected["id"] == result["id"] == name
+            and expected["action"] == result["action"] == action
+            and integer(expected["timeout_seconds"], 600)
+            and integer(result["timeout_seconds"], 600)
+            and (expected["argv"] == result["argv"])
+            and integer(result["actual_exit"], exit_code)
+            and (result["timed_out"] is False),
+            "Native stage role/argv/time/status differs",
+        )
+    require(
+        integer(inner["actual_exit"], whole)
+        and inner["exception"] is None
+        and (inner["after_custody_error"] is None)
+        and (inner["live_canonical_equality_claimed"] is False)
+        and all(
+            inner[key] is True
+            for key in (
+                "memory_bound_pass",
+                "inclusive_storage_bound_pass",
+                "completed_whole_wall_bound_pass",
+            )
+        ),
+        "Inner custody/resources or literal whole differs",
+    )
+    require(
+        integer(outer["actual_exit"], whole)
+        and integer(outer["child_native_exit"], whole)
+        and (outer["child_timed_out"] is False)
+        and all(
+            outer[key] is True
+            for key in (
+                "registered_plan_unchanged",
+                "memory_bound_pass",
+                "inclusive_storage_bound_pass",
+                "completed_outer_wall_bound_pass",
+            )
+        ),
+        "Outer watchdog/custody/resources or literal whole differs",
+    )
+    scope = observation["source_reconstruction"]
+    require(
+        integer(scope["joined_rows"], 84)
+        and integer(scope["selected_nodata_cells"], 0)
+        and (scope["off_selection_values_not_qualified"] is True)
+        and (scope["grid_dimensions"] == [4320, 2160])
+        and (scope["Decimal_mass_tolerance_km2"] == "0.000001"),
+        "Independent grid/scientific denominator differs",
+    )
+    return {
+        "source_candidate": candidate,
+        "producer_native_exit": 0,
+        "independent_source_reconstruction_exit": 0,
+        "observer_process_exit": whole,
+        "raw_tracked_byte_checker_exit": checker,
+        "inner_and_outer_whole_exit": whole,
+        "eligible_for_exact_existing_report_admission": matched,
+        "canonical_report_replacement_authorized": False,
+        "historical_unknown_native_epoch_recovered": False,
+        "country_table_prior_admission_relabelled": False,
+        "rights_CRS_BP_ecology_human_or_LRA_acceptance": False,
+    }
+
+
+PACKAGES = {
+    "bijux-pollenomics",
+    "bijux-pollenomics-lra",
+    "bijux-pollenomics-dev",
+    "pollenomics",
+}
+
+GRID = "docs/report/regions/nordic/hyde-country-cropland/grid-conservation"
+
+META = {
+    GRID + "/report.json",
+    GRID + "/grid-conservation.csv",
+    "configs/ci/report-ownership.json",
+    "packages/bijux-pollenomics-lra/pyproject.toml",
+    "packages/bijux-pollenomics-lra/.gitignore",
+}
+
+GENERATED = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+
+
+def normalized(row: dict[str, Any]) -> dict[str, Any]:
+    """Require a normalized absolute source path with exact byte identity."""
+    require(isinstance(row["path"], str), "Identity path must be text")
+    path = PurePosixPath(row["path"])
+    checksum = row["sha256"]
+    require(
+        isinstance(row["path"], str)
+        and path.is_absolute()
+        and (path.as_posix() == row["path"])
+        and (".." not in path.parts)
+        and ("\\" not in row["path"]),
+        "Normalized original absolute identity required",
+    )
+    require(
+        type(row["bytes"]) is int
+        and row["bytes"] >= 0
+        and isinstance(checksum, str)
+        and (len(checksum) == 64)
+        and all(c in "0123456789abcdef" for c in checksum),
+        "Typed SHA/size identity required",
+    )
+    return {key: row[key] for key in ("path", "sha256", "bytes")}
+
+
+def indexed(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Index original input identities while refusing duplicate paths."""
+    result = {}
+    for row in rows:
+        item = normalized(row)
+        require(item["path"] not in result, "Repeated original input identity")
+        result[item["path"]] = item
+    return result
+
+
+def blob(row: dict[str, Any]) -> str:
+    """Name an authenticated source payload by its SHA-256 identity."""
+    checksum = normalized(row)["sha256"]
+    assert isinstance(checksum, str)
+    return "payloads/" + checksum
+
+
+def join_owned_source(
+    original_root: str,
+    owned_root: str,
+    original_rows: list[dict[str, Any]],
+    selected_rows: list[dict[str, Any]],
+    copied_rows: list[dict[str, Any]],
+    omitted_rows: list[dict[str, Any]],
+    approved_generated_identity: dict[str, Any] | None,
+) -> list[dict[str, Any]]:
+    """Join exact frozen metadata, never look at a later canonical tree.
+
+    A concrete caller must authenticate the original raw source ledger and the
+    source descriptor governing every omission first. This pure join cannot
+    turn arbitrary dictionaries or an old source approval into native proof.
+    """
+    root, owned = (PurePosixPath(original_root), PurePosixPath(owned_root))
+    require(
+        root.is_absolute()
+        and owned.is_absolute()
+        and (root != owned)
+        and (".." not in root.parts)
+        and (".." not in owned.parts),
+        "Separate original and owned source roots required",
+    )
+    originals, selected, copied, omitted = map(
+        indexed, (original_rows, selected_rows, copied_rows, omitted_rows)
+    )
+    require(
+        set(selected).isdisjoint(omitted)
+        and set(originals) == set(selected) | set(omitted),
+        "Original selected/omitted partition is incomplete or overlapping",
+    )
+    expected_copied = set()
+    joined = []
+    for path, row in selected.items():
+        relative = PurePosixPath(path).relative_to(root)
+        parts = relative.parts
+        first_party = (
+            len(parts) >= 4
+            and parts[0] == "packages"
+            and (parts[1] in PACKAGES)
+            and (parts[2] == "src")
+        )
+        require(
+            first_party or relative.as_posix() in META,
+            "Unknown selected source/resource scope",
+        )
+        require(
+            relative.suffix not in {".pyc", ".pyo"}
+            and relative.as_posix() != GENERATED,
+            "Opaque generated/cache identity cannot become an execution source",
+        )
+        require(row == originals[path], "Selected original identity rebaselined")
+        target = str(owned / relative)
+        expected_copied.add(target)
+        require(
+            target in copied
+            and all(copied[target][key] == row[key] for key in ("sha256", "bytes")),
+            "Owned copy is not the exact original per-pin source",
+        )
+        joined.append(
+            {
+                "original_path": path,
+                "owned_path": target,
+                "sha256": row["sha256"],
+                "bytes": row["bytes"],
+                "member": blob(row),
+                "scope": "retained_original_source_from_owned_copy",
+            }
+        )
+    require(set(copied) == expected_copied, "Extra or missing owned source payload")
+    for path, row in omitted.items():
+        require(row == originals[path], "Omitted identity rebaselined")
+        relative = PurePosixPath(path).relative_to(root)
+        require(
+            len(relative.parts) >= 4
+            and relative.parts[0] == "packages"
+            and (relative.parts[1] in PACKAGES)
+            and (relative.parts[2] == "src"),
+            "Opaque source omission outside four-package namespace",
+        )
+        if relative.as_posix() == GENERATED:
+            require(
+                approved_generated_identity is not None
+                and row == normalized(approved_generated_identity),
+                "Only an exact source-reviewed ignored generated-version identity may be omitted",
+            )
+        else:
+            require(
+                relative.suffix in {".pyc", ".pyo"}
+                and (
+                    relative.parent.name == "__pycache__"
+                    and re.fullmatch(
+                        ".+\\.(?:cpython|pypy)-[0-9]+(?:-pytest-[0-9]+\\.[0-9]+\\.[0-9]+)?(?:\\.opt-[0-9]+)?\\.py[co]",
+                        relative.name,
+                    )
+                    is not None
+                    or str(root / relative.with_suffix(".py")) in selected
+                ),
+                "Untracked non-cache code/resource cannot be omitted",
+            )
+    return joined
+
+
+def input_roles(
+    original_inputs: list[dict[str, Any]],
+    controller_inputs: list[dict[str, Any]],
+    runtime_inputs: list[dict[str, Any]],
+    copied_inputs: list[dict[str, Any]],
+    source_ledger: dict[str, Any],
+    private_root: str,
+    declared_private: list[dict[str, Any]],
+    runtime_metadata_inputs: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    """Partition every raw-plan index using separately authenticated finite authorities."""
+    require(
+        PurePosixPath(private_root).is_absolute()
+        and ".." not in PurePosixPath(private_root).parts,
+        "Original private source root required",
+    )
+    expected_private = (
+        {"original/general_files.zip"}
+        | {
+            f"original/gbc2025_7apr_{scenario}/txt/cropland_c.txt"
+            for scenario in ("base", "lower", "upper")
+        }
+        | {
+            f"original/gbc2025_7apr_{scenario}/zip/{year}AD_lu.zip"
+            for scenario in ("base", "lower", "upper")
+            for year in (500, 1000, 1500, 1700, 1900, 2000, 2025)
+        }
+    )
+    require(
+        len(declared_private) == 25
+        and {row["path"] for row in declared_private} == expected_private,
+        "Exact25 declared private inputs required",
+    )
+    inputs = indexed(original_inputs)
+    private = {
+        str(PurePosixPath(private_root) / row["path"]): row for row in declared_private
+    }
+    require(set(private) <= set(inputs), "Original private input missing")
+    for path, row in private.items():
+        require(
+            inputs[path]["sha256"] == row["sha256"],
+            "Original private digest differs from source declaration",
+        )
+    groups = [
+        ("retained_reviewed_controller", indexed(controller_inputs)),
+        ("retained_runtime_authority_metadata", indexed(runtime_metadata_inputs or [])),
+        ("omitted_runtime_identity_only", indexed(runtime_inputs)),
+        ("retained_owned_source_or_metadata", indexed(copied_inputs)),
+        ("retained_raw_original_source_ledger", indexed([source_ledger])),
+        ("omitted_private_identity_only", {path: inputs[path] for path in private}),
+    ]
+    classified = {}
+    for role, rows in groups:
+        for path, row in rows.items():
+            require(
+                path not in classified and path in inputs and (row == inputs[path]),
+                "Conflicting/repeated/rebaselined finite input authority",
+            )
+            classified[path] = role
+    require(
+        set(classified) == set(inputs), "Unknown or omitted original input identity"
+    )
+    return [
+        {
+            "original_index": index,
+            "role": classified[row["path"]],
+            "member": None
+            if classified[row["path"]].startswith("omitted_")
+            else blob(row),
+        }
+        for index, row in enumerate(original_inputs)
+    ]
+
+
+def deduplicated_public_members(
+    original_inputs: list[dict[str, Any]], roles: list[dict[str, Any]]
+) -> dict[str, dict[str, Any]]:
+    """Keep every raw input position while sharing only exact SHA-and-size payloads."""
+    indexed(original_inputs)
+    require(len(roles) == len(original_inputs), "Role index population differs")
+    result: dict[str, dict[str, Any]] = {}
+    for index, (raw, role) in enumerate(zip(original_inputs, roles, strict=True)):
+        require(
+            type(role["original_index"]) is int and role["original_index"] == index,
+            "Original input order changed",
+        )
+        row = normalized(raw)
+        if role["role"] in {
+            "omitted_runtime_identity_only",
+            "omitted_private_identity_only",
+        }:
+            require(role["member"] is None, "Omitted input gained a payload")
+            continue
+        require(
+            role["role"]
+            in {
+                "retained_reviewed_controller",
+                "retained_runtime_authority_metadata",
+                "retained_owned_source_or_metadata",
+                "retained_raw_original_source_ledger",
+            }
+            and role["member"] == blob(row),
+            "Unknown public role/member mapping",
+        )
+        identity = {key: row[key] for key in ("sha256", "bytes")}
+        name = role["member"]
+        require(
+            name not in result or result[name] == identity,
+            "Content-addressed SHA has conflicting sizes",
+        )
+        result[name] = identity
+    return result
+
+
+SCHEMA = "hyde-grid-owned-source-capture.v1"
+
+SOURCE_CANDIDATE = "61eb1bfe697d0e7f15831b9c23bc45322ce042e8"
+
+NATIVE_PLAN_SHA = "54bb026c401decc81422eefd244fa88e728d692dee0fae669c10c1a199625bc3"
+
+NATIVE_SOURCE_SHA = "5d872bd9e164d790833875b685541c779faf8c4af2ee41c88ae3aa2ccc15b15c"
+
+SCOPE = {
+    "metadata_retention_is_not_grid_reexecution": True,
+    "original_grid_native_stages": [0, 0],
+    "original_tracked_byte_checker": 0,
+    "original_inner_and_outer": [0, 0],
+    "private_runtime_bytecode_or_generated_module_payloads_included": False,
+    "original_unavailable_historical_runtime_or_execution_recovered": False,
+    "country_table_prior_source_admission_relabelled": False,
+    "off_selection_grid_values_admitted": False,
+    "formal_CRS_BP_calendar_release_rights_vegetation_human_or_LRA_admitted": False,
+}
+
+
+def json_object(raw: bytes) -> dict[str, Any]:
+    """Decode one strict finite source-custody JSON object."""
+
+    def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
+        require(len(rows) == len({key for key, _ in rows}), "Duplicate packet JSON key")
+        return dict(rows)
+
+    def constant(value: str) -> None:
+        raise ValueError("Nonfinite packet JSON: " + value)
+
+    value = json.loads(raw, object_pairs_hook=pairs, parse_constant=constant)
+    require(isinstance(value, dict), "Packet object required")
+    assert isinstance(value, dict)
+    return value
+
+
+def member_name(name: object) -> str:
+    """Require a normalized confined relative packet member."""
+    require(isinstance(name, str), "Member name must be text")
+    assert isinstance(name, str)
+    path = PurePosixPath(name)
+    require(
+        bool(path.parts)
+        and (not path.is_absolute())
+        and (path.as_posix() == name)
+        and (".." not in path.parts)
+        and ("\\" not in name),
+        "Normalized relative packet member required",
+    )
+    return name
+
+
+def same(left: object, right: object) -> None:
+    """Compare ordered packet values with exact types and membership."""
+    require(type(left) is type(right), "Packet metadata type differs")
+    if isinstance(left, dict) and isinstance(right, dict):
+        require(list(left) == list(right), "Packet object field order differs")
+        for key in left:
+            same(left[key], right[key])
+    elif isinstance(left, list) and isinstance(right, list):
+        require(len(left) == len(right), "Packet list population differs")
+        for a, b in zip(left, right, strict=True):
+            same(a, b)
+    else:
+        require(left == right, "Packet metadata value differs")
+
+
+def roles_from_records(
+    plan: dict[str, Any],
+    ledger: dict[str, Any],
+    source: dict[str, Any],
+    source_pin: dict[str, Any],
+    review_pin: dict[str, Any],
+    runtime_plan: dict[str, Any],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Use raw finite authorities, never a remaining-path catch-all classification."""
+    same(ledger["canonical_identity"], plan["canonical_identity_at_source_freeze"])
+    require(
+        plan["candidate"] == SOURCE_CANDIDATE
+        and plan["canonical_identity_at_source_freeze"]["status"] == "",
+        "Original source epoch differs",
+    )
+    same(ledger["bytecode_payloads_copied_or_executed"], False)
+    same(ledger["bytecode_source_equivalence_claimed"], False)
+    original = ledger["original_sources"]
+    selected = ledger["selected_execution_sources"]
+    copied = ledger["copied_sources"]
+    caches = ledger["omitted_unselected_cache_bytecode"]
+    generated = ledger["omitted_configured_generated_metadata"]
+    require(
+        (len(original), len(selected), len(copied), len(caches), len(generated))
+        == (6539, 2182, 2182, 4356, 1),
+        "Original selected/omitted source populations differ",
+    )
+    for row in caches + generated:
+        require(
+            row["executed_or_copied"] is False
+            and row["source_equivalence_claimed"] is False,
+            "Opaque source omission gained authority",
+        )
+    descriptor = ledger["generated_metadata_ownership"]
+    same(
+        generated[0]["role"],
+        "omitted_configured_generated_version_metadata_identity_only",
+    )
+    same(descriptor["copied_or_executed"], False)
+    same(descriptor["model_or_version_equivalence_authority"], False)
+    joined = join_owned_source(
+        plan["repository"],
+        plan["owned_repository"],
+        original,
+        selected,
+        copied,
+        caches + generated,
+        descriptor["module_pin"],
+    )
+    authority = plan["qualified_source_runtime"]
+    runtime = indexed(runtime_plan["input_pins"])
+    for key in ("plan", "outer", "common", "independent_review"):
+        row = authority[key]
+        require(
+            row["path"] not in runtime or runtime[row["path"]] == row,
+            "Runtime authority conflicts with original input",
+        )
+        runtime[row["path"]] = row
+    authority_rows = [
+        authority[key] for key in ("plan", "outer", "common", "independent_review")
+    ]
+    for row in authority_rows:
+        runtime.pop(row["path"])
+    controls = [*source["files"], source_pin, review_pin]
+    require(
+        source_pin["sha256"] == NATIVE_SOURCE_SHA and len(source["files"]) == 31,
+        "Original reviewed source closure differs",
+    )
+    rows = input_roles(
+        plan["input_pins"],
+        controls,
+        list(runtime.values()),
+        copied,
+        plan["source_ledger"],
+        plan["private_source_root"],
+        plan["declared_inputs"],
+        authority_rows,
+    )
+    require(len(rows) == 62127, "Original ordered input population differs")
+    return (rows, joined)
+
+
+def native_namespace(
+    plan: dict[str, Any],
+    catalogue: dict[str, Any],
+    refs: dict[str, Any],
+    outer: dict[str, Any],
+) -> dict[str, Any]:
+    """Reconstruct the original owned output namespace from retained receipts."""
+    root = PurePosixPath(plan["output"])
+    names = {row["path"] for row in catalogue["files"]}
+    names.update(refs[key]["path"] for key in ("catalogue", "inner", "outer"))
+    names.update(outer[key]["path"] for key in ("stdout", "stderr"))
+    entries: dict[str, dict[str, str]] = {}
+    for name in names:
+        path = PurePosixPath(name)
+        relative = path.relative_to(root)
+        entries[relative.as_posix()] = {"kind": "file"}
+        for parent in relative.parents:
+            if parent != PurePosixPath("."):
+                entries[parent.as_posix()] = {"kind": "directory"}
+    for snapshot in plan["owned_namespace_snapshots"]:
+        prefix = PurePosixPath(snapshot["root"]).relative_to(root)
+        for name, row in snapshot["entries"].items():
+            if row["kind"] == "directory":
+                entries[(prefix / name).as_posix()] = {"kind": "directory"}
+    for name in ("scratch", "cache", "cache/matplotlib"):
+        entries[name] = {"kind": "directory"}
+    return {"root": str(root), "excluded": [], "entries": dict(sorted(entries.items()))}
+
+
+def validate_packet(
+    packet: dict[str, Any], read: Callable[[str], bytes]
+) -> dict[str, Any]:
+    """Read only already retained public bytes; no private grid or model API exists."""
+    require(
+        set(packet)
+        == {
+            "schema_version",
+            "owner_id",
+            "publication_paths",
+            "native_references",
+            "source_controller",
+            "runtime_authority",
+            "public_bindings",
+            "members",
+            "original_input_roles",
+            "original_source_join",
+            "original_output_namespace",
+            "scope",
+        },
+        "Complete packet schema differs",
+    )
+    same(packet["schema_version"], SCHEMA)
+    same(
+        packet["owner_id"],
+        "regions/nordic/hyde-country-cropland/grid-conservation/report-products",
+    )
+    paths = [
+        "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/" + name
+        for name in ("report.json", "grid-conservation.csv")
+    ]
+    same(packet["publication_paths"], paths)
+    same(packet["scope"], SCOPE)
+    members = packet["members"]
+    require(isinstance(members, dict), "Packet member object required")
+    for name, identity in members.items():
+        member_name(name)
+        require(
+            set(identity) == {"sha256", "bytes"}
+            and type(identity["bytes"]) is int
+            and (identity["bytes"] >= 0),
+            "Member identity malformed",
+        )
+        raw = read(name)
+        same({"sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw)}, identity)
+    bindings = packet["public_bindings"]
+    originals = indexed([row["original"] for row in bindings])
+    by_path = {row["original"]["path"]: row["member"] for row in bindings}
+    require(len(bindings) == len(originals), "Repeated public binding")
+    used = set()
+    for path, row in originals.items():
+        name = by_path[path]
+        require(
+            name == blob(row) and name in members,
+            "Public identity member correspondence differs",
+        )
+        same(members[name], {key: row[key] for key in ("sha256", "bytes")})
+        used.add(name)
+    require(used == set(members), "Unbound packet payload")
+
+    def record(row: dict[str, Any]) -> dict[str, Any]:
+        require(
+            row["path"] in originals, "Raw record missing from retained public closure"
+        )
+        same(originals[row["path"]], row)
+        raw = read(by_path[row["path"]])
+        require(
+            len(raw) == row["bytes"]
+            and hashlib.sha256(raw).hexdigest() == row["sha256"],
+            "Raw record buffer differs",
+        )
+        return json_object(raw)
+
+    refs = packet["native_references"]
+    require(
+        set(refs)
+        == {
+            "plan",
+            "source_ledger",
+            "inner",
+            "outer",
+            "producer",
+            "review",
+            "catalogue",
+        },
+        "Native reference set differs",
+    )
+    require(
+        refs["plan"]["sha256"] == NATIVE_PLAN_SHA, "Original registered plan differs"
+    )
+    plan = record(refs["plan"])
+    ledger, inner, outer, producer, review, catalogue = [
+        record(refs[key])
+        for key in (
+            "source_ledger",
+            "inner",
+            "outer",
+            "producer",
+            "review",
+            "catalogue",
+        )
+    ]
+    same(refs["source_ledger"], plan["source_ledger"])
+    result = qualify_scope(plan, NATIVE_PLAN_SHA, inner, outer, producer, review)
+    require(
+        result["eligible_for_exact_existing_report_admission"] is True,
+        "Tracked grid mismatch cannot be admitted",
+    )
+    same(inner["products_manifest"], refs["catalogue"])
+    same(outer["inner_terminal"], refs["inner"])
+    same(
+        packet["original_output_namespace"],
+        native_namespace(plan, catalogue, refs, outer),
+    )
+    same(review["maintained_producer"], refs["producer"])
+    same(producer["LRA_host_facade_imports"], 0)
+    same(producer["omitted_generated_version_module_executed"], False)
+    source_refs = packet["source_controller"]
+    source = record(source_refs["manifest"])
+    peer = record(source_refs["review"])
+    require(
+        peer["approved"] is True
+        and peer["source_manifest_sha256"] == NATIVE_SOURCE_SHA,
+        "Original independent source approval differs",
+    )
+    runtime_refs = packet["runtime_authority"]
+    same(runtime_refs, plan["qualified_source_runtime"])
+    runtime_plan = record(runtime_refs["plan"])
+    for key in ("outer", "common", "independent_review"):
+        actual = record(runtime_refs[key])
+        require(
+            type(actual["actual_exit"]) is int and actual["actual_exit"] == 0,
+            "Original observed runtime proof differs",
+        )
+    roles, joined = roles_from_records(
+        plan,
+        ledger,
+        source,
+        source_refs["manifest"],
+        source_refs["review"],
+        runtime_plan,
+    )
+    same(packet["original_input_roles"], roles)
+    same(packet["original_source_join"], joined)
+    for name, identity in deduplicated_public_members(
+        plan["input_pins"], roles
+    ).items():
+        require(name in members, "Original public input missing")
+        same(members[name], identity)
+    for row in catalogue["files"] + source["files"]:
+        require(row["path"] in originals, "Original public output/source missing")
+        same(originals[row["path"]], row)
+    for stage in inner["stages"]:
+        for key in ("stdout", "stderr"):
+            same(originals[stage[key]["path"]], stage[key])
+    for key in ("stdout", "stderr"):
+        same(originals[outer[key]["path"]], outer[key])
+    require(
+        len(producer["two_produced_products"]) == 2,
+        "Two produced native reports required",
+    )
+    same(producer["two_produced_products"], review["producer_two_products"])
+    for path, comparison, produced in zip(
+        paths,
+        review["tracked_byte_checkers"],
+        producer["two_produced_products"],
+        strict=True,
+    ):
+        same(comparison["generated"], produced)
+        require(
+            comparison["tracked"]["path"]
+            == str(PurePosixPath(plan["owned_repository"]) / path),
+            "Original tracked report path differs",
+        )
+        same(
+            {key: comparison["tracked"][key] for key in ("sha256", "bytes")},
+            {key: produced[key] for key in ("sha256", "bytes")},
+        )
+        same(originals[produced["path"]], produced)
+    return result
+
+
+def _physical(root: Path, name: str) -> Path:
+    member_name(name)
+    path = root / name
+    require(
+        not any(node.is_symlink() for node in (path, *path.parents))
+        and path.is_file()
+        and path.resolve() == path,
+        "Physical confined retained member required",
+    )
+    return path
+
+
+OWNER: Any = "regions/nordic/hyde-country-cropland/grid-conservation/report-products"
+OWNER_PATHS: Any = [
+    "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/grid-conservation.csv",
+    "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json",
+]
+
+
+def source_absent(repository: Path, owners: list[JsonObject]) -> bool:
+    """Recognize a genuinely absent source owner and capture."""
+    capture = repository / CAPTURE
+    return (
+        not any(row.get("owner_id") == OWNER for row in owners)
+        and not capture.exists()
+        and not capture.is_symlink()
+    )
+
+
+def validate_owners(owners: list[JsonObject]) -> None:
+    """Require exact declared owners and publication paths."""
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    require(len(selected) == 1, "Unique HYDE grid source owner required")
+    target = selected[0]
+    same(target.get("role"), "retained_source")
+    same(target.get("paths"), OWNER_PATHS)
+    same(target.get("producer_paths"), [])
+    same(target.get("producer_inputs"), [])
+    for row in owners:
+        paths = row.get("paths")
+        require(
+            isinstance(paths, list) and all(isinstance(name, str) for name in paths),
+            "Typed current owner paths required",
+        )
+        assert isinstance(paths, list)
+        if row is not target:
+            require(
+                not set(paths).intersection(OWNER_PATHS),
+                "Another owner overlaps HYDE grid source products",
+            )
+
+
+def validated_hyde_grid_source_captures(
+    repository: Path,
+    tracked_by_path: dict[str, InventoryEntry],
+    owners: list[JsonObject],
+) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
+    """Admit exact retained grid-conservation source evidence and its limits."""
+    try:
+        if source_absent(repository, owners):
+            return (), {}
+        validate_owners(owners)
+        capture = _physical(repository, CAPTURE)
+        raw = capture.read_bytes()
+        require(
+            hashlib.sha256(raw).hexdigest() == CAPTURE_SHA256,
+            "Exact HYDE grid capsule identity differs",
+        )
+        packet = json_object(raw)
+        resolver = validated_descriptor(
+            repository, Path(CAPTURE).parent.as_posix(), packet["members"]
+        )
+
+        def read(name: str) -> bytes:
+            return resolver.read_source(name)
+
+        result = validate_packet(packet, read)
+        by_path = {
+            row["original"]["path"]: row["member"] for row in packet["public_bindings"]
+        }
+        review_row = packet["native_references"]["review"]
+        review = json_object(read(by_path[review_row["path"]]))
+        entries = []
+        for name, produced in zip(
+            packet["publication_paths"], review["producer_two_products"], strict=True
+        ):
+            public = _physical(repository, name)
+            require(
+                public.read_bytes() == read(by_path[produced["path"]]),
+                "Current published HYDE product differs from actual native result",
+            )
+            entry = tracked_by_path.get(name)
+            require(entry is not None, "Current tracked HYDE product required")
+            assert entry is not None
+            same(entry.path, name.removeprefix("docs/report/"))
+            same(entry.kind, "file")
+            same(entry.sha256, produced["sha256"])
+            same(entry.size, produced["bytes"])
+            entries.append(entry)
+        return tuple(entries), {
+            "owner_id": packet["owner_id"],
+            "capture_sha256": CAPTURE_SHA256,
+            "original_execution_candidate": SOURCE_CANDIDATE,
+            "original_native_stages": [0, 0],
+            "tracked_byte_checker_exit": 0,
+            "paths": [entry.path for entry in entries],
+            "scope": dict(SCOPE),
+            "source_reconstruction": review["source_reconstruction"],
+            "receipt_scope": result,
+        }
+    except (ValueError, KeyError, TypeError, OSError, AssertionError) as error:
+        raise ReportRebuildError("HYDE grid source custody: " + str(error)) from error

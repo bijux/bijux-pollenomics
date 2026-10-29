@@ -1,0 +1,1079 @@
+{
+  "actual_exit": 0,
+  "candidate": "123c7811e49cc692c32015826c029b8ad99e96d8",
+  "numerical_contract": {
+    "candidate_rows": 32,
+    "taxa": 10,
+    "repeats": 2,
+    "max_ring": 10,
+    "candidate_definition": "numpy.linspace(0.1,0.9,320).reshape(32,10), binary64",
+    "regional_basin_m": 300,
+    "local_basin_m": 12.9,
+    "basin_type": "lake",
+    "distance_weighting": "lsm unstable",
+    "stochastic": false,
+    "seed": 7,
+    "maximum_evaluations": 32,
+    "absolute_tolerance": 3e-10,
+    "relative_tolerance": 1e-10,
+    "rounding": "Unchanged DISQOVER source: normalized cover 4 decimals and pollen percentages 2 decimals; Python source r_round.",
+    "active_optimizer_calls": 8,
+    "scope": "One conditional software/source parity workload. No optimizer convergence, 128-call timing, C++, historical56-source restoration, ecological, rights, hosted or human acceptance."
+  },
+  "shared_inputs": {
+    "local": {
+      "rows": 1,
+      "headers": [
+        "age",
+        "Alnus",
+        "Betula",
+        "Corylus",
+        "Fagus",
+        "Fraxinus",
+        "Pinus",
+        "Tilia",
+        "Ulmus",
+        "Gras",
+        "Secale"
+      ],
+      "numeric_headers": [
+        "age",
+        "Alnus",
+        "Betula",
+        "Corylus",
+        "Fagus",
+        "Fraxinus",
+        "Pinus",
+        "Tilia",
+        "Ulmus",
+        "Gras",
+        "Secale"
+      ],
+      "binary64_values_compared": 11
+    },
+    "regional": {
+      "rows": 1,
+      "headers": [
+        "age",
+        "Alnus",
+        "Betula",
+        "Corylus",
+        "Fagus",
+        "Fraxinus",
+        "Pinus",
+        "Tilia",
+        "Ulmus",
+        "Gras",
+        "Secale"
+      ],
+      "numeric_headers": [
+        "age",
+        "Alnus",
+        "Betula",
+        "Corylus",
+        "Fagus",
+        "Fraxinus",
+        "Pinus",
+        "Tilia",
+        "Ulmus",
+        "Gras",
+        "Secale"
+      ],
+      "binary64_values_compared": 11
+    },
+    "ppes": {
+      "rows": 10,
+      "headers": [
+        "Taxon",
+        "fallspeed",
+        "ppe",
+        "ppe.error"
+      ],
+      "numeric_headers": [
+        "fallspeed",
+        "ppe",
+        "ppe.error"
+      ],
+      "binary64_values_compared": 30
+    },
+    "rings": {
+      "rows": 36,
+      "headers": [
+        "no",
+        "mean",
+        "ring",
+        "circle",
+        "inner",
+        "outer",
+        "terrestrial",
+        "peatland"
+      ],
+      "numeric_headers": [
+        "no",
+        "mean",
+        "ring",
+        "circle",
+        "inner",
+        "outer",
+        "terrestrial",
+        "peatland"
+      ],
+      "binary64_values_compared": 288
+    },
+    "candidates": {
+      "rows": 32,
+      "headers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "numeric_headers": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "binary64_values_compared": 320
+    }
+  },
+  "per_call_objectives": [
+    {
+      "call": 1,
+      "vectors_compared": 32,
+      "selected_index_one_based": 1,
+      "maximum_absolute_finite_error": 5.995204332975845e-15
+    },
+    {
+      "call": 2,
+      "vectors_compared": 32,
+      "selected_index_one_based": 1,
+      "maximum_absolute_finite_error": 5.10702591327572e-15
+    },
+    {
+      "call": 3,
+      "vectors_compared": 32,
+      "selected_index_one_based": 1,
+      "maximum_absolute_finite_error": 5.995204332975845e-15
+    },
+    {
+      "call": 4,
+      "vectors_compared": 32,
+      "selected_index_one_based": 1,
+      "maximum_absolute_finite_error": 5.10702591327572e-15
+    },
+    {
+      "call": 5,
+      "vectors_compared": 32,
+      "selected_index_one_based": 1,
+      "maximum_absolute_finite_error": 5.995204332975845e-15
+    },
+    {
+      "call": 6,
+      "vectors_compared": 32,
+      "selected_index_one_based": 1,
+      "maximum_absolute_finite_error": 5.10702591327572e-15
+    },
+    {
+      "call": 7,
+      "vectors_compared": 32,
+      "selected_index_one_based": 1,
+      "maximum_absolute_finite_error": 5.995204332975845e-15
+    },
+    {
+      "call": 8,
+      "vectors_compared": 32,
+      "selected_index_one_based": 1,
+      "maximum_absolute_finite_error": 5.10702591327572e-15
+    }
+  ],
+  "objective_argument_comparison": {
+    "calls": 8,
+    "argument_names": [
+      "vPoldepRegio",
+      "mKlocal",
+      "vFlocal",
+      "vSampleLocPro",
+      "ppes"
+    ],
+    "scalar_pairs": 988
+  },
+  "Python_objective_events": {
+    "search_returns_compared_to_R": 256,
+    "solver_certification_returns": 8,
+    "all_Python_tf_returns": 264,
+    "complete_actual_contexts": 264,
+    "selected_first_finite_minimum_certified": true,
+    "observer_objective_calls": 0
+  },
+  "retained_completed_R": {
+    "references": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/plan.json",
+        "sha256": "2af00a74117e7b8e0d6e46d017076b9f8c0d49742f8f0732b383b9e881376826",
+        "bytes": 57544524
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/terminal.json",
+        "sha256": "ffbd908d393e5c56b8673516bc5f861c3a35ea7d8ea17e01cba9ef76f5c462c7",
+        "bytes": 12799
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/love-parity-terminal.json",
+        "sha256": "d797f572081ce3e0eaacf445c3815a25d885f96e6917bdf54dc42dd68b2d7d82",
+        "bytes": 3940
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/runtime-custody-terminal.json",
+        "sha256": "735f334413b7543f8c9ab0a60bbd98dd8d6e140de1e367526483ceba46454c55",
+        "bytes": 2603
+      }
+    ],
+    "original_candidate": "123c7811e49cc692c32015826c029b8ad99e96d8",
+    "original_whole_actual_exit": 1,
+    "original_stage_actual_exits": [
+      0,
+      1
+    ],
+    "retained_completed_R_stage": {
+      "id": "source-R-thirty-two-candidate-replay",
+      "argv": [
+        "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+        "--vanilla",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/replay.R",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/input",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-R-runner-source-build/library",
+        "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 1.5462925839819945,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/source-R-thirty-two-candidate-replay.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/source-R-thirty-two-candidate-replay.stderr",
+      "stdout_sha256": "bf6745ad83f96685da1da45f160d6bdbceec8234f1f3aedb7d94e4559ead2b2f",
+      "stderr_sha256": "f66b124c06a08d555a5054805ac2a47751424df9008b3c892388463622ba906e",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 172556288
+    },
+    "retained_R_output_root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r",
+    "retained_R_products": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-after-dlls.csv",
+        "sha256": "9c5dfd2645de24a9d16960c9f5fb79424365a89f4a58e19250a5f8abc5b2af0d",
+        "bytes": 2963
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-after-namespaces.csv",
+        "sha256": "8c0cea729efe5ea243b6337144872f927b180d50c69582396ddbc30336724d72",
+        "bytes": 3715
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-before-dlls.csv",
+        "sha256": "9c5dfd2645de24a9d16960c9f5fb79424365a89f4a58e19250a5f8abc5b2af0d",
+        "bytes": 2963
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-before-namespaces.csv",
+        "sha256": "8c0cea729efe5ea243b6337144872f927b180d50c69582396ddbc30336724d72",
+        "bytes": 3715
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-candidate-objectives.csv",
+        "sha256": "573512f58fcc6dabccb38fd723b66eb42eecb13ab73b3e040d9d480547cfbc6c",
+        "bytes": 5549
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-cover.csv",
+        "sha256": "ecd1aa520d8cad9504d4f5f590ff238fcb866b15bca3f907cc9b07ab3b787620",
+        "bytes": 606
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-candidates-hex.txt",
+        "sha256": "76d5f0556dc60433cffd1d90626da512a17de45f9a948393dd531c563d495d3f",
+        "bytes": 6689
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-local-hex.txt",
+        "sha256": "2b28dfc97dc011b6e7a780588e93edb742e1de84b076765b2db2cd2f16161bb3",
+        "bytes": 95
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-local.csv",
+        "sha256": "13c55ad5ac041d1fc0c7d2f2e4054b0bd901292b5baed822396e94eda30eb8e7",
+        "bytes": 123
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-ppes-hex.txt",
+        "sha256": "97c27bf36ea15a3f79c7e0fdbc4c4e3edce0fd8465276dd7e5caf3fe42e4f399",
+        "bytes": 548
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-ppes.csv",
+        "sha256": "9634600cc07023528fa0d6a2371577cc666380a8b09f92f48576b44fdf51666c",
+        "bytes": 254
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-regional-hex.txt",
+        "sha256": "fa5e04d7da944a7e211323a8563092104f05d4197d49fef3046c9e89a204c664",
+        "bytes": 97
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-regional.csv",
+        "sha256": "16778bd8f06d14b6a2ce6f4007df2f02f0a551713dfe83ace337511a7bcdc55a",
+        "bytes": 123
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-rings-hex.txt",
+        "sha256": "ef3739e7d6887e09da07893a185a41dff9c770b3e667a81a53139ce741bed4e1",
+        "bytes": 4571
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-rings.csv",
+        "sha256": "3e33068ae28f7153858a4baf89b26e4af77ba15b7d31646521d6f54c98a08fe3",
+        "bytes": 1764
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-k.csv",
+        "sha256": "c13db512d371783aa48acc67e38c120f00246df9a24874669f7f977df41ec1f1",
+        "bytes": 6964
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-library-paths.txt",
+        "sha256": "92b58fa3a1ff1c12e1f5743a6d4c8d52e5cfdbcc62961206ebb69ba594957172",
+        "bytes": 164
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-objective-contexts.csv",
+        "sha256": "92475b44dd2d0d38219e0dbeaae53f87db6d793b84108468d01cd529a3fbed18",
+        "bytes": 32276
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-objective.csv",
+        "sha256": "3c785cbf539e63cd33b0c23894b31d5ad81e76a792a4c60f34ab0d162668a234",
+        "bytes": 192
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-pollen.csv",
+        "sha256": "ed7546a4c379429a426d9ba73c0879ba369b934ee3644f1262bf161c0028ebdb",
+        "bytes": 529
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-session.txt",
+        "sha256": "00469f9d586729532cae00367bd75f9316acd0d1b30de7a3fce0e09508f10733",
+        "bytes": 1214
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-trace.csv",
+        "sha256": "8f8a7764a79848b600062803952fc46bfae85c573c7829b56455927179365884",
+        "bytes": 255
+      }
+    ],
+    "original_protected_inputs": 115389,
+    "original_product_catalog": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/plan.json",
+        "sha256": "2af00a74117e7b8e0d6e46d017076b9f8c0d49742f8f0732b383b9e881376826",
+        "bytes": 57544524
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/preparation.json",
+        "sha256": "a63a02811bf9761699b956e5d11d33fbd3909a803b8e2e94b2e3cfc2b0578833",
+        "bytes": 8189
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/public-Python-thirty-two-candidate-replay.stderr",
+        "sha256": "bd78a451b2029ae81345d68dce52d2635c1b98425204eb3f32b872c40542ac34",
+        "bytes": 2298
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/public-Python-thirty-two-candidate-replay.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-after-dlls.csv",
+        "sha256": "9c5dfd2645de24a9d16960c9f5fb79424365a89f4a58e19250a5f8abc5b2af0d",
+        "bytes": 2963
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-after-namespaces.csv",
+        "sha256": "8c0cea729efe5ea243b6337144872f927b180d50c69582396ddbc30336724d72",
+        "bytes": 3715
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-before-dlls.csv",
+        "sha256": "9c5dfd2645de24a9d16960c9f5fb79424365a89f4a58e19250a5f8abc5b2af0d",
+        "bytes": 2963
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-before-namespaces.csv",
+        "sha256": "8c0cea729efe5ea243b6337144872f927b180d50c69582396ddbc30336724d72",
+        "bytes": 3715
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-candidate-objectives.csv",
+        "sha256": "573512f58fcc6dabccb38fd723b66eb42eecb13ab73b3e040d9d480547cfbc6c",
+        "bytes": 5549
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-cover.csv",
+        "sha256": "ecd1aa520d8cad9504d4f5f590ff238fcb866b15bca3f907cc9b07ab3b787620",
+        "bytes": 606
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-candidates-hex.txt",
+        "sha256": "76d5f0556dc60433cffd1d90626da512a17de45f9a948393dd531c563d495d3f",
+        "bytes": 6689
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-local-hex.txt",
+        "sha256": "2b28dfc97dc011b6e7a780588e93edb742e1de84b076765b2db2cd2f16161bb3",
+        "bytes": 95
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-local.csv",
+        "sha256": "13c55ad5ac041d1fc0c7d2f2e4054b0bd901292b5baed822396e94eda30eb8e7",
+        "bytes": 123
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-ppes-hex.txt",
+        "sha256": "97c27bf36ea15a3f79c7e0fdbc4c4e3edce0fd8465276dd7e5caf3fe42e4f399",
+        "bytes": 548
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-ppes.csv",
+        "sha256": "9634600cc07023528fa0d6a2371577cc666380a8b09f92f48576b44fdf51666c",
+        "bytes": 254
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-regional-hex.txt",
+        "sha256": "fa5e04d7da944a7e211323a8563092104f05d4197d49fef3046c9e89a204c664",
+        "bytes": 97
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-regional.csv",
+        "sha256": "16778bd8f06d14b6a2ce6f4007df2f02f0a551713dfe83ace337511a7bcdc55a",
+        "bytes": 123
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-rings-hex.txt",
+        "sha256": "ef3739e7d6887e09da07893a185a41dff9c770b3e667a81a53139ce741bed4e1",
+        "bytes": 4571
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-rings.csv",
+        "sha256": "3e33068ae28f7153858a4baf89b26e4af77ba15b7d31646521d6f54c98a08fe3",
+        "bytes": 1764
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-k.csv",
+        "sha256": "c13db512d371783aa48acc67e38c120f00246df9a24874669f7f977df41ec1f1",
+        "bytes": 6964
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-library-paths.txt",
+        "sha256": "92b58fa3a1ff1c12e1f5743a6d4c8d52e5cfdbcc62961206ebb69ba594957172",
+        "bytes": 164
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-objective-contexts.csv",
+        "sha256": "92475b44dd2d0d38219e0dbeaae53f87db6d793b84108468d01cd529a3fbed18",
+        "bytes": 32276
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-objective.csv",
+        "sha256": "3c785cbf539e63cd33b0c23894b31d5ad81e76a792a4c60f34ab0d162668a234",
+        "bytes": 192
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-pollen.csv",
+        "sha256": "ed7546a4c379429a426d9ba73c0879ba369b934ee3644f1262bf161c0028ebdb",
+        "bytes": 529
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-session.txt",
+        "sha256": "00469f9d586729532cae00367bd75f9316acd0d1b30de7a3fce0e09508f10733",
+        "bytes": 1214
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-trace.csv",
+        "sha256": "8f8a7764a79848b600062803952fc46bfae85c573c7829b56455927179365884",
+        "bytes": 255
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/runtime-delegate.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/runtime-delegate.stdout",
+        "sha256": "bf856195bea4992df8498575aa81cc87cb69cb53d49b46c780d1fb8bf8aee380",
+        "bytes": 330
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/source-R-thirty-two-candidate-replay.stderr",
+        "sha256": "f66b124c06a08d555a5054805ac2a47751424df9008b3c892388463622ba906e",
+        "bytes": 363
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/source-R-thirty-two-candidate-replay.stdout",
+        "sha256": "bf6745ad83f96685da1da45f160d6bdbceec8234f1f3aedb7d94e4559ead2b2f",
+        "bytes": 4174
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/stage-progress.json",
+        "sha256": "7e1bd61d11d4b7da2c0e4170fae9acfb89bec3b8a232f43c79261fd0a8614fb7",
+        "bytes": 2704
+      }
+    ],
+    "finalized_protected_products": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/plan.json",
+        "sha256": "2af00a74117e7b8e0d6e46d017076b9f8c0d49742f8f0732b383b9e881376826",
+        "bytes": 57544524
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/preparation.json",
+        "sha256": "a63a02811bf9761699b956e5d11d33fbd3909a803b8e2e94b2e3cfc2b0578833",
+        "bytes": 8189
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/public-Python-thirty-two-candidate-replay.stderr",
+        "sha256": "bd78a451b2029ae81345d68dce52d2635c1b98425204eb3f32b872c40542ac34",
+        "bytes": 2298
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/public-Python-thirty-two-candidate-replay.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-after-dlls.csv",
+        "sha256": "9c5dfd2645de24a9d16960c9f5fb79424365a89f4a58e19250a5f8abc5b2af0d",
+        "bytes": 2963
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-after-namespaces.csv",
+        "sha256": "8c0cea729efe5ea243b6337144872f927b180d50c69582396ddbc30336724d72",
+        "bytes": 3715
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-before-dlls.csv",
+        "sha256": "9c5dfd2645de24a9d16960c9f5fb79424365a89f4a58e19250a5f8abc5b2af0d",
+        "bytes": 2963
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-before-namespaces.csv",
+        "sha256": "8c0cea729efe5ea243b6337144872f927b180d50c69582396ddbc30336724d72",
+        "bytes": 3715
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-candidate-objectives.csv",
+        "sha256": "573512f58fcc6dabccb38fd723b66eb42eecb13ab73b3e040d9d480547cfbc6c",
+        "bytes": 5549
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-cover.csv",
+        "sha256": "ecd1aa520d8cad9504d4f5f590ff238fcb866b15bca3f907cc9b07ab3b787620",
+        "bytes": 606
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-candidates-hex.txt",
+        "sha256": "76d5f0556dc60433cffd1d90626da512a17de45f9a948393dd531c563d495d3f",
+        "bytes": 6689
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-local-hex.txt",
+        "sha256": "2b28dfc97dc011b6e7a780588e93edb742e1de84b076765b2db2cd2f16161bb3",
+        "bytes": 95
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-local.csv",
+        "sha256": "13c55ad5ac041d1fc0c7d2f2e4054b0bd901292b5baed822396e94eda30eb8e7",
+        "bytes": 123
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-ppes-hex.txt",
+        "sha256": "97c27bf36ea15a3f79c7e0fdbc4c4e3edce0fd8465276dd7e5caf3fe42e4f399",
+        "bytes": 548
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-ppes.csv",
+        "sha256": "9634600cc07023528fa0d6a2371577cc666380a8b09f92f48576b44fdf51666c",
+        "bytes": 254
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-regional-hex.txt",
+        "sha256": "fa5e04d7da944a7e211323a8563092104f05d4197d49fef3046c9e89a204c664",
+        "bytes": 97
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-regional.csv",
+        "sha256": "16778bd8f06d14b6a2ce6f4007df2f02f0a551713dfe83ace337511a7bcdc55a",
+        "bytes": 123
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-rings-hex.txt",
+        "sha256": "ef3739e7d6887e09da07893a185a41dff9c770b3e667a81a53139ce741bed4e1",
+        "bytes": 4571
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-input-rings.csv",
+        "sha256": "3e33068ae28f7153858a4baf89b26e4af77ba15b7d31646521d6f54c98a08fe3",
+        "bytes": 1764
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-k.csv",
+        "sha256": "c13db512d371783aa48acc67e38c120f00246df9a24874669f7f977df41ec1f1",
+        "bytes": 6964
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-library-paths.txt",
+        "sha256": "92b58fa3a1ff1c12e1f5743a6d4c8d52e5cfdbcc62961206ebb69ba594957172",
+        "bytes": 164
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-objective-contexts.csv",
+        "sha256": "92475b44dd2d0d38219e0dbeaae53f87db6d793b84108468d01cd529a3fbed18",
+        "bytes": 32276
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-objective.csv",
+        "sha256": "3c785cbf539e63cd33b0c23894b31d5ad81e76a792a4c60f34ab0d162668a234",
+        "bytes": 192
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-pollen.csv",
+        "sha256": "ed7546a4c379429a426d9ba73c0879ba369b934ee3644f1262bf161c0028ebdb",
+        "bytes": 529
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-session.txt",
+        "sha256": "00469f9d586729532cae00367bd75f9316acd0d1b30de7a3fce0e09508f10733",
+        "bytes": 1214
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-trace.csv",
+        "sha256": "8f8a7764a79848b600062803952fc46bfae85c573c7829b56455927179365884",
+        "bytes": 255
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/runtime-delegate.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/runtime-delegate.stdout",
+        "sha256": "16f3cea2ec26876eec5cf566fab4d91107564023580838c68a6b7b047c6eb7cc",
+        "bytes": 550
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/source-R-thirty-two-candidate-replay.stderr",
+        "sha256": "f66b124c06a08d555a5054805ac2a47751424df9008b3c892388463622ba906e",
+        "bytes": 363
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/source-R-thirty-two-candidate-replay.stdout",
+        "sha256": "bf6745ad83f96685da1da45f160d6bdbceec8234f1f3aedb7d94e4559ead2b2f",
+        "bytes": 4174
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/stage-progress.json",
+        "sha256": "7e1bd61d11d4b7da2c0e4170fae9acfb89bec3b8a232f43c79261fd0a8614fb7",
+        "bytes": 2704
+      }
+    ],
+    "common_stdout_tail_contract": "Exact original330B prefix plus only source-defined terminalffbd/statusfailed JSON line; full550B protected separately.",
+    "original_Python_complete": false,
+    "scope": "Only complete genuine R0 products/logs reused; old Python1/whole1 unchanged. New public Python and independent observer are distinct actual stages."
+  },
+  "products": {
+    "cover": {
+      "R": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-cover.csv",
+        "sha256": "ecd1aa520d8cad9504d4f5f590ff238fcb866b15bca3f907cc9b07ab3b787620",
+        "bytes": 606
+      },
+      "Python": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-cover.csv",
+        "sha256": "3a98c6e709f6de3ba18f1f877d0c06df249266587dd000a02bc41061888e359a",
+        "bytes": 406
+      },
+      "shape": [
+        10,
+        10
+      ],
+      "finite_pairs": 40,
+      "NaN_pairs": 60,
+      "maximum_absolute_finite_error": 0.0
+    },
+    "pollen": {
+      "R": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-pollen.csv",
+        "sha256": "ed7546a4c379429a426d9ba73c0879ba369b934ee3644f1262bf161c0028ebdb",
+        "bytes": 529
+      },
+      "Python": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-pollen.csv",
+        "sha256": "7b39d326d8ed2371c2aea8d0cc9f2d00930b5bce684f89b525a97c3fc15abc4f",
+        "bytes": 329
+      },
+      "shape": [
+        10,
+        10
+      ],
+      "finite_pairs": 40,
+      "NaN_pairs": 60,
+      "maximum_absolute_finite_error": 0.0
+    },
+    "objective": {
+      "R": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-objective.csv",
+        "sha256": "3c785cbf539e63cd33b0c23894b31d5ad81e76a792a4c60f34ab0d162668a234",
+        "bytes": 192
+      },
+      "Python": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-objective.csv",
+        "sha256": "94fddda8cbb5537b1b87ce88a0cb5f3c582968b6f91c06e51352f4ef13f8754b",
+        "bytes": 164
+      },
+      "shape": [
+        10,
+        2
+      ],
+      "finite_pairs": 8,
+      "NaN_pairs": 12,
+      "maximum_absolute_finite_error": 4.6629367034256575e-15
+    },
+    "k": {
+      "R": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r/r-k.csv",
+        "sha256": "c13db512d371783aa48acc67e38c120f00246df9a24874669f7f977df41ec1f1",
+        "bytes": 6964
+      },
+      "Python": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-k.csv",
+        "sha256": "eda7737a2c3b8459170c5cf8ab9dc9eac99f81261cab7345749834098be2c0d5",
+        "bytes": 7486
+      },
+      "shape": [
+        36,
+        10
+      ],
+      "finite_pairs": 360,
+      "NaN_pairs": 0,
+      "maximum_absolute_finite_error": 5.102255423716784e-15
+    }
+  },
+  "R_runtime_origins": {
+    "library_paths": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-R-runner-source-build/library",
+      "/Library/Frameworks/R.framework/Versions/4.6/Resources/library"
+    ],
+    "snapshots": {
+      "before": {
+        "namespace_count": 39,
+        "DLL_count": 28
+      },
+      "after": {
+        "namespace_count": 39,
+        "DLL_count": 28
+      }
+    },
+    "scope": "Observed before/after R namespace and getLoadedDLLs origins. No complete transient OS dyld image census claim."
+  },
+  "actual_R_command": [
+    "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+    "--vanilla",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/replay.R",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/input",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-namespace-source-parity/r",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-R-runner-source-build/library",
+    "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+    "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R"
+  ],
+  "actual_Python_command": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/produce.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json",
+    "--mode",
+    "python"
+  ],
+  "retained_completed_Python": {
+    "references": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json",
+        "sha256": "383704f82627e9291ef2706b130dc8aa72cc3c425b9e5c133c5616dcb3d5e388",
+        "bytes": 57583991
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/terminal.json",
+        "sha256": "dcb18ec5c33eb904b5044666b7f6546679955ee380ea5a1c8d6311b5595db9d2",
+        "bytes": 8466
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/love-parity-terminal.json",
+        "sha256": "2031142baf0e256e42d272f48f079fa2cbaa46141bb580e8ce877595806ae53e",
+        "bytes": 3695
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/runtime-custody-terminal.json",
+        "sha256": "e799032c319425bd90af606f47df8a4396c7f80ad21418b90b580de10253c8a7",
+        "bytes": 2604
+      }
+    ],
+    "CSV_encoding_authority": {
+      "Python_CSV_names": [
+        "python-cover.csv",
+        "python-k.csv",
+        "python-objective.csv",
+        "python-pollen.csv"
+      ],
+      "na_rep": "",
+      "decode_only_exact_empty": true,
+      "global_input_R_parser_changed": false,
+      "zero_fill": false,
+      "sources": [
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/produce.py",
+          "sha256": "8540e49ff94f06bfa28bd52287b334a88d480958ae300918be07c6cfddc2aaa0",
+          "bytes": 19908
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/lib/python3.11/site-packages/pandas/core/generic.py",
+          "sha256": "a6a4b494c8896a26c1abe527e6a0d567ea9863dc55726b7bec3c852ff9f81809",
+          "bytes": 476871
+        }
+      ]
+    },
+    "original_candidate": "123c7811e49cc692c32015826c029b8ad99e96d8",
+    "original_whole_actual_exit": 1,
+    "original_stage_actual_exits": [
+      0,
+      1
+    ],
+    "retained_completed_Python_stage": {
+      "id": "public-Python-thirty-two-candidate-replay",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-search-certification-custody/produce.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json",
+        "--mode",
+        "python"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 3.6245946250273846,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 427900928
+    },
+    "retained_Python_output_root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python",
+    "retained_Python_products": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-cover.csv",
+        "sha256": "3a98c6e709f6de3ba18f1f877d0c06df249266587dd000a02bc41061888e359a",
+        "bytes": 406
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-k.csv",
+        "sha256": "eda7737a2c3b8459170c5cf8ab9dc9eac99f81261cab7345749834098be2c0d5",
+        "bytes": 7486
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-objective.csv",
+        "sha256": "94fddda8cbb5537b1b87ce88a0cb5f3c582968b6f91c06e51352f4ef13f8754b",
+        "bytes": 164
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-pollen.csv",
+        "sha256": "7b39d326d8ed2371c2aea8d0cc9f2d00930b5bce684f89b525a97c3fc15abc4f",
+        "bytes": 329
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-trace.json",
+        "sha256": "32a64b0250e9a5c4a7601cf29640b68270f555c61568d6a63a64e6b0b30b343c",
+        "bytes": 2119017
+      }
+    ],
+    "original_protected_inputs": 115446,
+    "original_product_catalog": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/independent-shared-input-and-all-vector-observer.stderr",
+        "sha256": "5a4ba7643b8a052f687550babb0a7eca1e124cfbb5b7325cb18b1142c638c58c",
+        "bytes": 1155
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/independent-shared-input-and-all-vector-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json",
+        "sha256": "383704f82627e9291ef2706b130dc8aa72cc3c425b9e5c133c5616dcb3d5e388",
+        "bytes": 57583991
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/preparation.json",
+        "sha256": "80ea63aa730902289604cb9f0b9825bf299f9a923c68fc917f1691eb5f9b3e77",
+        "bytes": 33511
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-cover.csv",
+        "sha256": "3a98c6e709f6de3ba18f1f877d0c06df249266587dd000a02bc41061888e359a",
+        "bytes": 406
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-k.csv",
+        "sha256": "eda7737a2c3b8459170c5cf8ab9dc9eac99f81261cab7345749834098be2c0d5",
+        "bytes": 7486
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-objective.csv",
+        "sha256": "94fddda8cbb5537b1b87ce88a0cb5f3c582968b6f91c06e51352f4ef13f8754b",
+        "bytes": 164
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-pollen.csv",
+        "sha256": "7b39d326d8ed2371c2aea8d0cc9f2d00930b5bce684f89b525a97c3fc15abc4f",
+        "bytes": 329
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-trace.json",
+        "sha256": "32a64b0250e9a5c4a7601cf29640b68270f555c61568d6a63a64e6b0b30b343c",
+        "bytes": 2119017
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/runtime-delegate.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/runtime-delegate.stdout",
+        "sha256": "d13bc8fe04167ff98b19ad7a0423cd6eb99696afb83473f8961b2c5d43bd687f",
+        "bytes": 343
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/stage-progress.json",
+        "sha256": "95a30b76738cc5f88b3fc707154ff0cfd6f948ff5988026e645fc5fc649036a3",
+        "bytes": 2462
+      }
+    ],
+    "finalized_protected_products": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/independent-shared-input-and-all-vector-observer.stderr",
+        "sha256": "5a4ba7643b8a052f687550babb0a7eca1e124cfbb5b7325cb18b1142c638c58c",
+        "bytes": 1155
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/independent-shared-input-and-all-vector-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/plan.json",
+        "sha256": "383704f82627e9291ef2706b130dc8aa72cc3c425b9e5c133c5616dcb3d5e388",
+        "bytes": 57583991
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/preparation.json",
+        "sha256": "80ea63aa730902289604cb9f0b9825bf299f9a923c68fc917f1691eb5f9b3e77",
+        "bytes": 33511
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/public-Python-thirty-two-candidate-replay.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-cover.csv",
+        "sha256": "3a98c6e709f6de3ba18f1f877d0c06df249266587dd000a02bc41061888e359a",
+        "bytes": 406
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-k.csv",
+        "sha256": "eda7737a2c3b8459170c5cf8ab9dc9eac99f81261cab7345749834098be2c0d5",
+        "bytes": 7486
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-objective.csv",
+        "sha256": "94fddda8cbb5537b1b87ce88a0cb5f3c582968b6f91c06e51352f4ef13f8754b",
+        "bytes": 164
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-pollen.csv",
+        "sha256": "7b39d326d8ed2371c2aea8d0cc9f2d00930b5bce684f89b525a97c3fc15abc4f",
+        "bytes": 329
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/python/python-trace.json",
+        "sha256": "32a64b0250e9a5c4a7601cf29640b68270f555c61568d6a63a64e6b0b30b343c",
+        "bytes": 2119017
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/runtime-delegate.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/runtime-delegate.stdout",
+        "sha256": "0d6fdbe3d8110e8c70688b6b89a319d905cfdd3f9f86d03847c4cc148159c242",
+        "bytes": 567
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-search-certification-parity/stage-progress.json",
+        "sha256": "95a30b76738cc5f88b3fc707154ff0cfd6f948ff5988026e645fc5fc649036a3",
+        "bytes": 2462
+      }
+    ],
+    "common_stdout_tail_contract": "Exact original343B prefix plus only source-defined terminaldcb18/statusfailed224B JSON line; full567B protected separately.",
+    "original_Python_complete": true,
+    "scope": "Only complete genuine Python0 products/logs reused; old observer1/whole1 unchanged. The new plan contains only an independent saved-products observer."
+  },
+  "Python_product_missing_encoding": "Only exact empty fields emitted by authenticated pandas to_csv default encode NaN; R/input/global strict number unchanged.",
+  "old56_source_gate_waived": false,
+  "historical_performance_reproduced": false,
+  "new_CPP_adopted": false,
+  "optimizer_convergence_tested": false,
+  "scope": "One conditional software/source parity workload. No optimizer convergence, 128-call timing, C++, historical56-source restoration, ecological, rights, hosted or human acceptance."
+}

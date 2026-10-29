@@ -1,0 +1,286 @@
+{
+  "schema_version": "love-namespace-source-parity-source-qualification.v1",
+  "source_only": true,
+  "actual_exit": 0,
+  "checks": [
+    {
+      "kind": "guards",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/guards.stdout",
+        "sha256": "dbedc2cc7aaa144b9fe9f8dcd8d2971f3153eabc7d7f8d80e459e9053a4a4788",
+        "bytes": 1522
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/guards.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "kind": "final-snapshot",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/final-snapshot.stdout",
+        "sha256": "e7605e202969ab84a74b69ef51727afd964e12821dbf36779e33cb2af30665b1",
+        "bytes": 268
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/final-snapshot.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "kind": "snapshot-strict",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/snapshot-strict.stdout",
+        "sha256": "5d4b6d285b77932e3d08212c3b4974d0a803f98ec60408ac6ccf6a063fa6c19e",
+        "bytes": 42
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/snapshot-strict.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "kind": "snapshot-ruff",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/snapshot-ruff.stdout",
+        "sha256": "53d8344bc22b88b961f8b5129696c8d83a52488dd720ed7cb1ce83f3f924069c",
+        "bytes": 368
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/snapshot-ruff.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "kind": "snapshot-format",
+      "actual_exit": 0,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/snapshot-format.stdout",
+        "sha256": "fd2299c9f1c6dc869070883e281051bfe93aacf66c1a3b0069f45b4aa410ca50",
+        "bytes": 25
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/snapshot-format.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "existing_unchanged_Python_control_groups": 26,
+  "additional_structural_R_source_control_groups": 10,
+  "R_execution_or_R_syntax_parser_used": false,
+  "additional_source_scope": "Only structural correspondence to an already qualified R probe, exact numerical body and preamble, eight actual-driver mutation negatives, and qualified probe hash; no new native outcome asserted.",
+  "configured_strict_new_preflight_helpers": 1,
+  "configured_Ruff_new_preflight_helpers": 1,
+  "configured_format_new_preflight_helpers": 1,
+  "Python_AST_parsed": 13,
+  "unchanged_Python_sources": [
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/check_contracts.py",
+        "sha256": "42de67169976495b2404489a8603111b0581dc07aa0dd08036729f06c99a3781",
+        "bytes": 23414
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/check_contracts.py",
+        "sha256": "42de67169976495b2404489a8603111b0581dc07aa0dd08036729f06c99a3781",
+        "bytes": 23414
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/contracts.py",
+        "sha256": "440b6286c6de10622141ac711679302f3f8b1ece9c6f844112f61b8a8d87b8bc",
+        "bytes": 10598
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/contracts.py",
+        "sha256": "440b6286c6de10622141ac711679302f3f8b1ece9c6f844112f61b8a8d87b8bc",
+        "bytes": 10598
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/observe.py",
+        "sha256": "7fe9f59bcdc36dbc134355377d78dead23d0aece53607f917c70b966ca96bdc1",
+        "bytes": 20236
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/observe.py",
+        "sha256": "7fe9f59bcdc36dbc134355377d78dead23d0aece53607f917c70b966ca96bdc1",
+        "bytes": 20236
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/prepare.py",
+        "sha256": "de876dbf205d539d430d94edd0756e62fb52e56016a7c0c8004b473764b31b1b",
+        "bytes": 14813
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/prepare.py",
+        "sha256": "de876dbf205d539d430d94edd0756e62fb52e56016a7c0c8004b473764b31b1b",
+        "bytes": 14813
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/produce.py",
+        "sha256": "f08bfe49000632441bf3a84a2893d68610f3b88cd7897ae688b946dda730535e",
+        "bytes": 13964
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/produce.py",
+        "sha256": "f08bfe49000632441bf3a84a2893d68610f3b88cd7897ae688b946dda730535e",
+        "bytes": 13964
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/r_runtime_contracts.py",
+        "sha256": "14eaa0f5a8750bd0ea10b260c3fd992fb552f9c63dfa7a0006dc050e5830b5f8",
+        "bytes": 12402
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/r_runtime_contracts.py",
+        "sha256": "14eaa0f5a8750bd0ea10b260c3fd992fb552f9c63dfa7a0006dc050e5830b5f8",
+        "bytes": 12402
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/retained_export.py",
+        "sha256": "11927691add4287cf1e6b9b25b1acd27ce8fa5150a3778c178afb2b93a3df865",
+        "bytes": 9873
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/retained_export.py",
+        "sha256": "11927691add4287cf1e6b9b25b1acd27ce8fa5150a3778c178afb2b93a3df865",
+        "bytes": 9873
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/run.py",
+        "sha256": "941cfd5617ad0ab3d79155601656361c6ed72a00397aa32b3b51bb340cd44aa3",
+        "bytes": 10294
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/run.py",
+        "sha256": "941cfd5617ad0ab3d79155601656361c6ed72a00397aa32b3b51bb340cd44aa3",
+        "bytes": 10294
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/runtime_guarded_runner.py",
+        "sha256": "1dd00b9bde18ee1e69fb04df6e7c4888a2088ac955b147d46fcc9c8def488ad2",
+        "bytes": 12383
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/runtime_guarded_runner.py",
+        "sha256": "1dd00b9bde18ee1e69fb04df6e7c4888a2088ac955b147d46fcc9c8def488ad2",
+        "bytes": 12383
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/source_runtime.py",
+        "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+        "bytes": 11236
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/source_runtime.py",
+        "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+        "bytes": 11236
+      },
+      "byte_identical": true
+    }
+  ],
+  "reused_source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/preflight/source-qualification.json",
+    "sha256": "b44c040dae47f3446809eccd49494b1b1cd810851a36d859e2fcc3aa96eddcfe",
+    "bytes": 11077
+  },
+  "reused_qualification_scope": "Exact 12 byte-identical controllers. Prior configured strict8/Ruff8/format8 receipts are retained for those unchanged qualified files; no claim of a new twelve-file type run. New helper strict/style1 all0.",
+  "all17_predecessor_manifest_members_unchanged": true,
+  "predecessor_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/prepared-source-manifest.json",
+    "sha256": "cac2b5a4af9ed61fa2e0c49ad81998d8127cdc2d8a6a70503b92cfbf8e0ea202",
+    "bytes": 5028
+  },
+  "namespace_source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/namespace-source-correspondence.json",
+    "sha256": "0690f99456dfa40f0b073ff01d564c3e49b01177260121abb1bb129c7ef3391b",
+    "bytes": 3591
+  },
+  "R_snapshot_diff": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/preflight/R-snapshot-delta.diff",
+    "sha256": "56fcb4b6140fcb59a6ec2460d74832545d3cdb050e9e64236be83e5f303493f1",
+    "bytes": 2152
+  },
+  "numerical_R_body_exact": true,
+  "tolerances_candidates_return_contexts_and_source_binding_unchanged": true,
+  "resource_bounds_unchanged": {
+    "stages_seconds": [
+      180,
+      60,
+      60
+    ],
+    "common_seconds": 540,
+    "outer_seconds": 600,
+    "RSS_bytes": 2147483648,
+    "inclusive_output_bytes": 268435456
+  },
+  "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/protocol.json",
+    "sha256": "7dffcd05b9132a5e93cbf288c976f3fc7c79cbdb9333aae4130ea552cebe5c94",
+    "bytes": 10179
+  },
+  "actual_preparer_native_R_model_install_runtime_census_Git_STATE": false,
+  "publication_ready": false
+}

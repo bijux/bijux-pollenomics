@@ -1,0 +1,264 @@
+"""Bounded custody of completed HYDE grid outputs; no grid or model execution."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+from typing import Any
+
+from runtime_contracts import require_runtime_environment, verify_base_namespaces
+from source_admission import reviewed_controls
+from source_inputs import InputScope, exact_union, pin
+from source_runtime import PYTHON as PYTHON
+from source_runtime import authenticate_runtime
+
+SOURCE = Path(__file__).resolve().parent
+ROOT = SOURCE.parents[2]
+NATIVE = ROOT / "artifacts/science/current-hyde-grid-source-projection-replay"
+NATIVE_SOURCE = ROOT / "artifacts/science/hyde-grid-source-projection-custody"
+PLAN_SHA = "54bb026c401decc81422eefd244fa88e728d692dee0fae669c10c1a199625bc3"
+LEDGER_SHA = "fc75ecfb439b61e6e529e723774f4b96e9850ef511cd751a887a8dc1b09b41fd"
+NATIVE_PINS = {
+    "grid-conservation-terminal.json": "adbd50eb68421431ecb7b59cc7d7656e35f488352c1eeb7221d692f286f1acab",
+    "grid-launch-terminal.json": "ff589753c3769de319c9c43ef7c6b749ab7936c230460c5c1598d749adbe35de",
+    "independent-grid-source-review.json": "5d6c671e9e99509be37c0c8dedf533f8ec88c084a96804c60ed543f0d5121d68",
+    "maintained-producer-execution.json": "d1a5304354572d46d06b0ed814845b0420b1e9c6529e4a0b7f9006e0b1ac483f",
+    "output-products.json": "e34003ef69869818744f2c57ede8b014cda808a658c124a9c2aad904cc8e9023",
+}
+GIT = Path("/Library/Developer/CommandLineTools/usr/bin/git")
+GIT_PIN = {
+    "path": str(GIT),
+    "sha256": "a73bf622a2e470d5d57a4b1d5aef1e8680e67278018d4858a2f93825b7d595c7",
+    "bytes": 3837392,
+}
+CAPTURE = "data/surface-reference/hyde-grid-source-capture/capture.json"
+OWNER = "regions/nordic/hyde-country-cropland/grid-conservation/report-products"
+REPORTS = [
+    "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/" + name
+    for name in ("report.json", "grid-conservation.csv")
+]
+RESOURCES = {
+    "overall_timeout_seconds": 420,
+    "outer_timeout_seconds": 480,
+    "declared_memory_bytes": 2 * 1024**3,
+    "declared_storage_bytes": 512 * 1024**2,
+}
+PACKET_LIMIT = 256 * 1024**2
+
+
+def require(value: object, message: str) -> None:
+    if not value:
+        raise ValueError(message)
+
+
+def strict_equal(left: object, right: object) -> bool:
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, dict) and isinstance(right, dict):
+        return list(left) == list(right) and all(
+            strict_equal(left[k], right[k]) for k in left
+        )
+    if isinstance(left, list) and isinstance(right, list):
+        return len(left) == len(right) and all(
+            strict_equal(a, b) for a, b in zip(left, right, strict=True)
+        )
+    return left == right
+
+
+def load(path: Path) -> dict[str, Any]:
+    def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
+        require(len(rows) == len({key for key, _ in rows}), "Duplicate JSON key")
+        return dict(rows)
+
+    def constant(value: str) -> None:
+        raise ValueError("Nonfinite JSON: " + value)
+
+    value = json.loads(
+        path.read_bytes(), object_pairs_hook=pairs, parse_constant=constant
+    )
+    require(isinstance(value, dict), "JSON object required")
+    assert isinstance(value, dict)
+    return value
+
+
+def registered_plan(path: Path, checksum: str | None = None) -> dict[str, Any]:
+    """Parse the same bytes authenticated by the registered parent invocation."""
+    from packet import json_object
+
+    expected = (
+        checksum
+        if checksum is not None
+        else os.environ.get("BIJUX_METADATA_PLAN_SHA256")
+    )
+    require(
+        isinstance(expected, str)
+        and len(expected) == 64
+        and all(c in "0123456789abcdef" for c in expected),
+        "Registered stage plan SHA required",
+    )
+    require(
+        path.is_absolute()
+        and path.resolve() == path
+        and not any(node.is_symlink() for node in (path, *path.parents)),
+        "Physical registered plan required",
+    )
+    raw = path.read_bytes()
+    require(
+        hashlib.sha256(raw).hexdigest() == expected, "Registered plan buffer differs"
+    )
+    return json_object(raw)
+
+
+def write(path: Path, value: object) -> None:
+    require(not path.exists() and not path.is_symlink(), "Output replacement refused")
+    require(
+        not any(node.is_symlink() for node in (path, *path.parents)),
+        "Output ancestry alias",
+    )
+    with path.open("x") as stream:
+        stream.write(json.dumps(value, indent=2, allow_nan=False) + "\n")
+
+
+def physical(row: dict[str, Any]) -> None:
+    path = Path(row["path"])
+    require(
+        not any(node.is_symlink() for node in (path, *path.parents)),
+        "Historical input ancestry alias",
+    )
+    require(pin(path) == row, "Originally expected input changed: " + str(path))
+
+
+def identity() -> dict[str, str]:
+    require_runtime_environment(dict(os.environ))
+    physical(GIT_PIN)
+    environment = {
+        key: value for key, value in os.environ.items() if not key.startswith("GIT_")
+    }
+    environment.update(
+        GIT_OPTIONAL_LOCKS="0", GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull
+    )
+
+    def git(*args: str) -> bytes:
+        return subprocess.check_output(
+            [str(GIT), *args], cwd=ROOT, env=environment, timeout=60
+        )
+
+    require(
+        git("branch", "--show-current").strip() == b"main",
+        "Current clean main required at preparation",
+    )
+    return {
+        "candidate": git("rev-parse", "HEAD").decode().strip(),
+        "status": git("status", "--porcelain").decode(),
+        "tracked_inventory_sha256": hashlib.sha256(
+            git("ls-files", "-s", "-z")
+        ).hexdigest(),
+    }
+
+
+def fresh_output(path: Path) -> Path:
+    require(
+        path.is_absolute() and ".." not in path.parts and path == path.resolve(),
+        "Normalized output required",
+    )
+    require(
+        path.is_relative_to(ROOT / "artifacts") and path != ROOT / "artifacts",
+        "Artifact output required",
+    )
+    for protected in (SOURCE, NATIVE, NATIVE_SOURCE):
+        require(
+            not path.is_relative_to(protected) and not protected.is_relative_to(path),
+            "Output overlaps protected source/history",
+        )
+    require(
+        not path.exists()
+        and not any(node.is_symlink() for node in (path, *path.parents)),
+        "Fresh physical output required",
+    )
+    return path
+
+
+def verify_private_ancestry(root: Path, names: list[str]) -> None:
+    for name in names:
+        path = root / name
+        require(
+            not any(node.is_symlink() for node in (path, *path.parents)),
+            "Private original source ancestry alias",
+        )
+
+
+def verify_original_private_ancestry() -> None:
+    from packet import json_object
+
+    path = NATIVE / "plan.json"
+    require(
+        not any(node.is_symlink() for node in (path, *path.parents)),
+        "Original registered plan ancestry alias",
+    )
+    raw = path.read_bytes()
+    require(
+        hashlib.sha256(raw).hexdigest() == PLAN_SHA,
+        "Original plan changed before private ancestry check",
+    )
+    original = json_object(raw)
+    names = [row["path"] for row in original["declared_inputs"]]
+    wanted = (
+        {"original/general_files.zip"}
+        | {
+            f"original/gbc2025_7apr_{scenario}/txt/cropland_c.txt"
+            for scenario in ("base", "lower", "upper")
+        }
+        | {
+            f"original/gbc2025_7apr_{scenario}/zip/{year}AD_lu.zip"
+            for scenario in ("base", "lower", "upper")
+            for year in (500, 1000, 1500, 1700, 1900, 2000, 2025)
+        }
+    )
+    require(
+        len(names) == len(set(names)) == 25 and set(names) == wanted,
+        "Exact original25 private names required",
+    )
+    verify_private_ancestry(Path(original["private_source_root"]), names)
+
+
+def checkpoint(
+    authority: dict[str, Any], scope: InputScope, snapshots: list[dict[str, Any]]
+) -> None:
+    reviewed_controls(SOURCE)
+    verify_original_private_ancestry()
+    scope.verify()
+    for snapshot in snapshots:
+        path = Path(snapshot["root"])
+        require(
+            not any(node.is_symlink() for node in (path, *path.parents)),
+            "Historical namespace ancestry alias",
+        )
+    verify_base_namespaces(snapshots)
+    current, _ = authenticate_runtime()
+    require(current == authority, "Qualified runtime authority changed")
+    verify_original_private_ancestry()
+    scope.verify()
+    verify_base_namespaces(snapshots)
+
+
+def execution_scope(plan: dict[str, Any]) -> tuple[dict[str, Any], InputScope]:
+    _, _, controls = reviewed_controls(SOURCE)
+    authority, _ = authenticate_runtime()
+    require(
+        authority == plan["qualified_source_runtime"],
+        "Metadata runtime authority differs",
+    )
+    scope = InputScope(exact_union(plan["input_pins"], controls), [PYTHON])
+    require(
+        scope.rows == plan["input_pins"], "Current metadata controls absent from plan"
+    )
+    require(
+        scope.aliases == plan["runtime_entry_raw_aliases"]
+        and scope.entries == plan["runtime_entry_lexical_paths"],
+        "Metadata lexical entry changed",
+    )
+    checkpoint(authority, scope, plan["historical_namespaces"])
+    return authority, scope

@@ -1,0 +1,286 @@
+"""Pure HYDE per-pin retention joins; no filesystem reads or admission by themselves."""
+
+from __future__ import annotations
+
+from pathlib import PurePosixPath
+import re
+from typing import Any
+
+PACKAGES = {
+    "bijux-pollenomics",
+    "bijux-pollenomics-lra",
+    "bijux-pollenomics-dev",
+    "pollenomics",
+}
+GRID = "docs/report/regions/nordic/hyde-country-cropland/grid-conservation"
+META = {
+    GRID + "/report.json",
+    GRID + "/grid-conservation.csv",
+    "configs/ci/report-ownership.json",
+    "packages/bijux-pollenomics-lra/pyproject.toml",
+    "packages/bijux-pollenomics-lra/.gitignore",
+}
+GENERATED = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+
+
+def require(value: object, reason: str) -> None:
+    if not value:
+        raise ValueError(reason)
+
+
+def normalized(row: dict[str, Any]) -> dict[str, Any]:
+    require(isinstance(row["path"], str), "Identity path must be text")
+    path = PurePosixPath(row["path"])
+    checksum = row["sha256"]
+    require(
+        isinstance(row["path"], str)
+        and path.is_absolute()
+        and path.as_posix() == row["path"]
+        and ".." not in path.parts
+        and "\\" not in row["path"],
+        "Normalized original absolute identity required",
+    )
+    require(
+        type(row["bytes"]) is int
+        and row["bytes"] >= 0
+        and isinstance(checksum, str)
+        and len(checksum) == 64
+        and all(c in "0123456789abcdef" for c in checksum),
+        "Typed SHA/size identity required",
+    )
+    return {key: row[key] for key in ("path", "sha256", "bytes")}
+
+
+def indexed(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    result = {}
+    for row in rows:
+        item = normalized(row)
+        require(item["path"] not in result, "Repeated original input identity")
+        result[item["path"]] = item
+    return result
+
+
+def blob(row: dict[str, Any]) -> str:
+    checksum = normalized(row)["sha256"]
+    assert isinstance(checksum, str)
+    return "payloads/" + checksum
+
+
+def join_owned_source(
+    original_root: str,
+    owned_root: str,
+    original_rows: list[dict[str, Any]],
+    selected_rows: list[dict[str, Any]],
+    copied_rows: list[dict[str, Any]],
+    omitted_rows: list[dict[str, Any]],
+    approved_generated_identity: dict[str, Any] | None,
+) -> list[dict[str, Any]]:
+    """Join exact frozen metadata, never look at a later canonical tree.
+
+    A concrete caller must authenticate the original raw source ledger and the
+    source descriptor governing every omission first. This pure join cannot
+    turn arbitrary dictionaries or an old source approval into native proof.
+    """
+    root, owned = PurePosixPath(original_root), PurePosixPath(owned_root)
+    require(
+        root.is_absolute()
+        and owned.is_absolute()
+        and root != owned
+        and ".." not in root.parts
+        and ".." not in owned.parts,
+        "Separate original and owned source roots required",
+    )
+    originals, selected, copied, omitted = map(
+        indexed, (original_rows, selected_rows, copied_rows, omitted_rows)
+    )
+    require(
+        set(selected).isdisjoint(omitted)
+        and set(originals) == set(selected) | set(omitted),
+        "Original selected/omitted partition is incomplete or overlapping",
+    )
+    expected_copied = set()
+    joined = []
+    for path, row in selected.items():
+        relative = PurePosixPath(path).relative_to(root)
+        parts = relative.parts
+        first_party = (
+            len(parts) >= 4
+            and parts[0] == "packages"
+            and parts[1] in PACKAGES
+            and parts[2] == "src"
+        )
+        require(
+            first_party or relative.as_posix() in META,
+            "Unknown selected source/resource scope",
+        )
+        require(
+            relative.suffix not in {".pyc", ".pyo"}
+            and relative.as_posix() != GENERATED,
+            "Opaque generated/cache identity cannot become an execution source",
+        )
+        require(row == originals[path], "Selected original identity rebaselined")
+        target = str(owned / relative)
+        expected_copied.add(target)
+        require(
+            target in copied
+            and all(copied[target][key] == row[key] for key in ("sha256", "bytes")),
+            "Owned copy is not the exact original per-pin source",
+        )
+        joined.append(
+            {
+                "original_path": path,
+                "owned_path": target,
+                "sha256": row["sha256"],
+                "bytes": row["bytes"],
+                "member": blob(row),
+                "scope": "retained_original_source_from_owned_copy",
+            }
+        )
+    require(set(copied) == expected_copied, "Extra or missing owned source payload")
+    for path, row in omitted.items():
+        require(row == originals[path], "Omitted identity rebaselined")
+        relative = PurePosixPath(path).relative_to(root)
+        require(
+            len(relative.parts) >= 4
+            and relative.parts[0] == "packages"
+            and relative.parts[1] in PACKAGES
+            and relative.parts[2] == "src",
+            "Opaque source omission outside four-package namespace",
+        )
+        if relative.as_posix() == GENERATED:
+            require(
+                approved_generated_identity is not None
+                and row == normalized(approved_generated_identity),
+                "Only an exact source-reviewed ignored generated-version identity may be omitted",
+            )
+        else:
+            require(
+                relative.suffix in {".pyc", ".pyo"}
+                and (
+                    (
+                        relative.parent.name == "__pycache__"
+                        and re.fullmatch(
+                            r".+\.(?:cpython|pypy)-[0-9]+(?:-pytest-[0-9]+\.[0-9]+\.[0-9]+)?(?:\.opt-[0-9]+)?\.py[co]",
+                            relative.name,
+                        )
+                        is not None
+                    )
+                    or str(root / relative.with_suffix(".py")) in selected
+                ),
+                "Untracked non-cache code/resource cannot be omitted",
+            )
+    return joined
+
+
+def input_roles(
+    original_inputs: list[dict[str, Any]],
+    controller_inputs: list[dict[str, Any]],
+    runtime_inputs: list[dict[str, Any]],
+    copied_inputs: list[dict[str, Any]],
+    source_ledger: dict[str, Any],
+    private_root: str,
+    declared_private: list[dict[str, Any]],
+    runtime_metadata_inputs: list[dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    """Partition every raw-plan index using separately authenticated finite authorities."""
+    require(
+        PurePosixPath(private_root).is_absolute()
+        and ".." not in PurePosixPath(private_root).parts,
+        "Original private source root required",
+    )
+    expected_private = (
+        {"original/general_files.zip"}
+        | {
+            f"original/gbc2025_7apr_{scenario}/txt/cropland_c.txt"
+            for scenario in ("base", "lower", "upper")
+        }
+        | {
+            f"original/gbc2025_7apr_{scenario}/zip/{year}AD_lu.zip"
+            for scenario in ("base", "lower", "upper")
+            for year in (500, 1000, 1500, 1700, 1900, 2000, 2025)
+        }
+    )
+    require(
+        len(declared_private) == 25
+        and {row["path"] for row in declared_private} == expected_private,
+        "Exact25 declared private inputs required",
+    )
+    inputs = indexed(original_inputs)
+    private = {
+        str(PurePosixPath(private_root) / row["path"]): row for row in declared_private
+    }
+    require(set(private) <= set(inputs), "Original private input missing")
+    for path, row in private.items():
+        require(
+            inputs[path]["sha256"] == row["sha256"],
+            "Original private digest differs from source declaration",
+        )
+    groups = [
+        ("retained_reviewed_controller", indexed(controller_inputs)),
+        ("retained_runtime_authority_metadata", indexed(runtime_metadata_inputs or [])),
+        ("omitted_runtime_identity_only", indexed(runtime_inputs)),
+        ("retained_owned_source_or_metadata", indexed(copied_inputs)),
+        ("retained_raw_original_source_ledger", indexed([source_ledger])),
+        ("omitted_private_identity_only", {path: inputs[path] for path in private}),
+    ]
+    classified = {}
+    for role, rows in groups:
+        for path, row in rows.items():
+            require(
+                path not in classified and path in inputs and row == inputs[path],
+                "Conflicting/repeated/rebaselined finite input authority",
+            )
+            classified[path] = role
+    require(
+        set(classified) == set(inputs), "Unknown or omitted original input identity"
+    )
+    return [
+        {
+            "original_index": index,
+            "role": classified[row["path"]],
+            "member": None
+            if classified[row["path"]].startswith("omitted_")
+            else blob(row),
+        }
+        for index, row in enumerate(original_inputs)
+    ]
+
+
+def deduplicated_public_members(
+    original_inputs: list[dict[str, Any]], roles: list[dict[str, Any]]
+) -> dict[str, dict[str, Any]]:
+    """Keep every raw input position while sharing only exact SHA-and-size payloads."""
+    indexed(original_inputs)
+    require(len(roles) == len(original_inputs), "Role index population differs")
+    result: dict[str, dict[str, Any]] = {}
+    for index, (raw, role) in enumerate(zip(original_inputs, roles, strict=True)):
+        require(
+            type(role["original_index"]) is int and role["original_index"] == index,
+            "Original input order changed",
+        )
+        row = normalized(raw)
+        if role["role"] in {
+            "omitted_runtime_identity_only",
+            "omitted_private_identity_only",
+        }:
+            require(role["member"] is None, "Omitted input gained a payload")
+            continue
+        require(
+            role["role"]
+            in {
+                "retained_reviewed_controller",
+                "retained_runtime_authority_metadata",
+                "retained_owned_source_or_metadata",
+                "retained_raw_original_source_ledger",
+            }
+            and role["member"] == blob(row),
+            "Unknown public role/member mapping",
+        )
+        identity = {key: row[key] for key in ("sha256", "bytes")}
+        name = role["member"]
+        require(
+            name not in result or result[name] == identity,
+            "Content-addressed SHA has conflicting sizes",
+        )
+        result[name] = identity
+    return result

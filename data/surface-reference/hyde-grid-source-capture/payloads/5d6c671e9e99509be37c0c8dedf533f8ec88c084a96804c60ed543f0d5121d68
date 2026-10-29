@@ -1,0 +1,95 @@
+{
+  "candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "actual_exit": 0,
+  "independent_scientific_source_reconstruction_actual_exit": 0,
+  "tracked_byte_checker_actual_exit": 0,
+  "source_reconstruction": {
+    "ISO_cells": {
+      "DK": 1103,
+      "FI": 9161,
+      "NO": 9699,
+      "SE": 11504
+    },
+    "joined_rows": 84,
+    "selected_nodata_cells": 0,
+    "off_selection_values_not_qualified": true,
+    "grid_dimensions": [
+      4320,
+      2160
+    ],
+    "literal_header": [
+      [
+        "ncols",
+        "4320"
+      ],
+      [
+        "nrows",
+        "2160"
+      ],
+      [
+        "xllcorner",
+        "-180"
+      ],
+      [
+        "yllcorner",
+        "-90"
+      ],
+      [
+        "cellsize",
+        "0.0833333"
+      ],
+      [
+        "NODATA_value",
+        "-9999"
+      ]
+    ],
+    "Decimal_mass_tolerance_km2": "0.000001"
+  },
+  "maintained_producer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/maintained-producer-execution.json",
+    "sha256": "d1a5304354572d46d06b0ed814845b0420b1e9c6529e4a0b7f9006e0b1ac483f",
+    "bytes": 5098
+  },
+  "producer_two_products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/producer/report.json",
+      "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628",
+      "bytes": 5668
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/producer/grid-conservation.csv",
+      "sha256": "1e2da01a1fd2d2f4a2c2cdc1c652ed4ef9b0d2c00b0c2d9989c8db33c643b368",
+      "bytes": 7884
+    }
+  ],
+  "tracked_byte_checkers": [
+    {
+      "tracked": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json",
+        "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628",
+        "bytes": 5668
+      },
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/producer/report.json",
+        "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628",
+        "bytes": 5668
+      },
+      "byte_identical": true
+    },
+    {
+      "tracked": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/owned-source/docs/report/regions/nordic/hyde-country-cropland/grid-conservation/grid-conservation.csv",
+        "sha256": "1e2da01a1fd2d2f4a2c2cdc1c652ed4ef9b0d2c00b0c2d9989c8db33c643b368",
+        "bytes": 7884
+      },
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-grid-source-projection-replay/producer/grid-conservation.csv",
+        "sha256": "1e2da01a1fd2d2f4a2c2cdc1c652ed4ef9b0d2c00b0c2d9989c8db33c643b368",
+        "bytes": 7884
+      },
+      "byte_identical": true
+    }
+  ],
+  "tracked_bytes_all_equal": true,
+  "scope": "No primary source redistribution, official release/rights/formal CRS/BP/vegetation/LRA/human admission. Historical unavailable native proof is not recovered; current actual two-stage proof only."
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "git-retained-source.v1",
+  "capture": {
+    "name": "capture.json",
+    "sha256": "d121668fe9abb7123d73593fce0c13f098e25ce04a074f8b210e21ccf91df0db",
+    "bytes": 21740
+  },
+  "historical_native_epochs": [
+    "5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87"
+  ],
+  "source_revision_correspondence": [
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "8ded3ec583cf54883c9dc59bda659837a2e61433"
+    },
+    {
+      "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
+      "source_revision": "188f559becc122bf04830f55341f0e93d6a21c9b"
+    }
+  ],
+  "git_groups": [
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "8ded3ec583cf54883c9dc59bda659837a2e61433",
+      "member_count": 12,
+      "git_entries_sha256": "b38266b54a0060c19e74913b4ba372034bcd848e46434bbc36adc1025f551f86",
+      "paths": [
+        [
+          "source-control/census.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/census/census.py"
+        ],
+        [
+          "source-control/check_contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/contracts/check_contracts.py"
+        ],
+        [
+          "source-control/contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/contracts/contracts.py"
+        ],
+        [
+          "source-control/first_feature.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/census/first_feature.py"
+        ],
+        [
+          "source-control/observe.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/observation/observe.py"
+        ],
+        [
+          "source-control/preflight/qualify_source.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/contracts/qualify_source.py"
+        ],
+        [
+          "source-control/preflight/source_style.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/contracts/source_style.py"
+        ],
+        [
+          "source-control/prepare.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/preparation/prepare.py"
+        ],
+        [
+          "source-control/run.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/execution/run.py"
+        ],
+        [
+          "source-control/runtime.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/runtime/isolated_profile.py"
+        ],
+        [
+          "source-control/scanner.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/census/scanner.py"
+        ],
+        [
+          "source-control/stream.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_features/census/stream.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
+      "source_revision": "188f559becc122bf04830f55341f0e93d6a21c9b",
+      "member_count": 1,
+      "git_entries_sha256": "d91df2252ee35730e46c630958e8f4c0f57b72fb7597943d250ebbe448f25b87",
+      "paths": [
+        [
+          "source-control/common_runner.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/execution/report_consumer.py"
+        ]
+      ]
+    }
+  ],
+  "generated_members": [],
+  "rewritten_source_epoch_executed": false
+}

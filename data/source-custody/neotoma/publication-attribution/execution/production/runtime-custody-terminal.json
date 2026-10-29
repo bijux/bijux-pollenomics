@@ -1,0 +1,50 @@
+{
+  "schema_version": "atlas-qualified-source-runtime-custody.v1",
+  "plan_sha256": "ca4003d9c94379843d7803d8cc213c7fe89be4789615dce58fcc4a0c779fb11f",
+  "source_candidate": "82c8fc4ed3d847909d14162f51b77dc59ccc0a70",
+  "qualified_source_runtime": {
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json",
+      "sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4",
+      "bytes": 32228643
+    },
+    "outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/runtime-observation-terminal.json",
+      "sha256": "1fcb3926925c5e186b3885e19f0325890f9bd8a536a243793e12e2ee178a7fec",
+      "bytes": 2885
+    },
+    "common": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/terminal.json",
+      "sha256": "300f9518c2b20ce3d79b39e8879f111d6febfb6dd48890f5e9cd02a8d71a431c",
+      "bytes": 5814
+    },
+    "independent_review": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-runtime-review.json",
+      "sha256": "9d71bfabd836242b5ec9dcf96e5d2a124200a77dea4975bdf8b19529d04ba059",
+      "bytes": 117592
+    },
+    "lexical_python": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "observed_runtime_candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+    "current_source_candidate_is_separate": true,
+    "original_bootstrap_whole_actual_exit": 1,
+    "production_stage_actual_exits": [
+      0,
+      0,
+      0
+    ],
+    "new_observer_actual_exit": 0,
+    "selected_distributions": 147
+  },
+  "delegate_actual_exit": 1,
+  "actual_exit": 1,
+  "timed_out": false,
+  "before_runtime_error": null,
+  "after_runtime_error": null,
+  "completed_elapsed_seconds": 43.52015520801069,
+  "completed_child_peak_rss_bytes_macos": 150290432,
+  "output_logical_bytes_before_receipt": 20144955,
+  "output_measurement_error": null,
+  "own_receipt_reserved_bytes": 16384,
+  "resource_bounds_met": false,
+  "scope": "New147 dependency runtime before/after pin/namespace/alias/absence custody around unchanged native stages. Original129 bootstrap whole1 and production3zero remain historical; actual current Neotoma publication source epoch is separate. Completed-child RSS/logical storage postchecks are not OS quotas or aggregate descendants; outer-timeout cleanup does not establish detached descendant termination."
+}

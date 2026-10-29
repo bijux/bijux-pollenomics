@@ -1,0 +1,276 @@
+{
+  "schema_version": "hyde-grid-owner-capture-source-correspondence.v1",
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/lineage/capture-source-manifest.json",
+    "sha256": "c0e894646a40e43241b78ea194ac374d2182322339446b5856e404fbd7036ad7",
+    "bytes": 10851
+  },
+  "predecessor_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/lineage/source-qualification.json",
+    "sha256": "9b9ff00f9d67a332bb7478ac3f80161cdad6bbdf5d79797ffa33316645b1642e",
+    "bytes": 24163
+  },
+  "predecessor_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/lineage/independent-predecessor-source-review.json",
+    "sha256": "e147e4796d16379ddb5ccd6f8378a819390b680eb25beb2ab7d12a1a7bfba818",
+    "bytes": 3040
+  },
+  "byte_exact_controller_files": [
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/assemble.py",
+        "sha256": "d738bf5e349a40c0cda4b111e6f945768fd82ae17e98b9b493206e05455d2988",
+        "bytes": 3717
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/assemble.py",
+        "sha256": "d738bf5e349a40c0cda4b111e6f945768fd82ae17e98b9b493206e05455d2988",
+        "bytes": 3717
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/check_capture.py",
+        "sha256": "2c0ac447ee928cb00a8155f2ed85349c222c28a4c3598169bd6a5a119bf83d1a",
+        "bytes": 7752
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/check_capture.py",
+        "sha256": "2c0ac447ee928cb00a8155f2ed85349c222c28a4c3598169bd6a5a119bf83d1a",
+        "bytes": 7752
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/check_contracts.py",
+        "sha256": "25eb0d2402ab889f59c73b8f6ae606abf43b9cc249ecec98c65f5cf69b35656d",
+        "bytes": 5999
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/check_contracts.py",
+        "sha256": "25eb0d2402ab889f59c73b8f6ae606abf43b9cc249ecec98c65f5cf69b35656d",
+        "bytes": 5999
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/check_retention.py",
+        "sha256": "4650900bf59217640e09c6180333877e245b2f240469db7d23243d6b77a50cc1",
+        "bytes": 7744
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/check_retention.py",
+        "sha256": "4650900bf59217640e09c6180333877e245b2f240469db7d23243d6b77a50cc1",
+        "bytes": 7744
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/check_roles.py",
+        "sha256": "3cba9867ffe725f12a5b10bdf3965282688c2956d1063d00f2a705ecf36ea92a",
+        "bytes": 6826
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/check_roles.py",
+        "sha256": "3cba9867ffe725f12a5b10bdf3965282688c2956d1063d00f2a705ecf36ea92a",
+        "bytes": 6826
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/contracts.py",
+        "sha256": "1bf8d7cb5f9af13785a6fe65d8e3b7dba1111f4670466ad6b9ef34ab4d9e1534",
+        "bytes": 9239
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/contracts.py",
+        "sha256": "1bf8d7cb5f9af13785a6fe65d8e3b7dba1111f4670466ad6b9ef34ab4d9e1534",
+        "bytes": 9239
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/entry.py",
+        "sha256": "6a34dd3c3fddc4fb00948b32459911eb3ce61b7fc7d714f48f21304944e5fd3a",
+        "bytes": 4707
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/entry.py",
+        "sha256": "6a34dd3c3fddc4fb00948b32459911eb3ce61b7fc7d714f48f21304944e5fd3a",
+        "bytes": 4707
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/launch.py",
+        "sha256": "1816b3c9555da5321c8495c4f46b45ad125e9fdf6b1e3bd6c3f65cfc20e66476",
+        "bytes": 6130
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/launch.py",
+        "sha256": "1816b3c9555da5321c8495c4f46b45ad125e9fdf6b1e3bd6c3f65cfc20e66476",
+        "bytes": 6130
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/observe.py",
+        "sha256": "c93a8bb0c02ee0bee83eda404afe062c339f5c6a5a5139560b3ffdce6c4d2bf8",
+        "bytes": 3865
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/observe.py",
+        "sha256": "c93a8bb0c02ee0bee83eda404afe062c339f5c6a5a5139560b3ffdce6c4d2bf8",
+        "bytes": 3865
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/packet.py",
+        "sha256": "22eda9391e614b7523e5b86fd5d3d07c9fe2929a2501ee61e11d463284072ba9",
+        "bytes": 13742
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/packet.py",
+        "sha256": "22eda9391e614b7523e5b86fd5d3d07c9fe2929a2501ee61e11d463284072ba9",
+        "bytes": 13742
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/prepare.py",
+        "sha256": "94933c2e0838d20402d8029227e2dcbc478f447264208fd3c81b205957cd65b9",
+        "bytes": 4921
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/prepare.py",
+        "sha256": "94933c2e0838d20402d8029227e2dcbc478f447264208fd3c81b205957cd65b9",
+        "bytes": 4921
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/receipt_contract.py",
+        "sha256": "93cba652ac6814735a68fb7794d02f56597aaade107ea9f51913c883fb57b6cd",
+        "bytes": 5772
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/receipt_contract.py",
+        "sha256": "93cba652ac6814735a68fb7794d02f56597aaade107ea9f51913c883fb57b6cd",
+        "bytes": 5772
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/retained.py",
+        "sha256": "062b0752bfcf0f9e38d191cdf6876abd0eba4ad42c038e503c4deb8c512756e5",
+        "bytes": 9492
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/retained.py",
+        "sha256": "062b0752bfcf0f9e38d191cdf6876abd0eba4ad42c038e503c4deb8c512756e5",
+        "bytes": 9492
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/retention_contract.py",
+        "sha256": "0d202d6fd78bb7ba7de928a53b9d0ca4d822ef4bebb01a0180489c9e511087cf",
+        "bytes": 10571
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/retention_contract.py",
+        "sha256": "0d202d6fd78bb7ba7de928a53b9d0ca4d822ef4bebb01a0180489c9e511087cf",
+        "bytes": 10571
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/run.py",
+        "sha256": "475ecd47a7363e964e9e9e279c69931f29e6378516404f1e29d6b5ec0b779cc1",
+        "bytes": 7782
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/run.py",
+        "sha256": "475ecd47a7363e964e9e9e279c69931f29e6378516404f1e29d6b5ec0b779cc1",
+        "bytes": 7782
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/source_admission.py",
+        "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+        "bytes": 2788
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/source_admission.py",
+        "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+        "bytes": 2788
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/source_inputs.py",
+        "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+        "bytes": 6994
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/source_inputs.py",
+        "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+        "bytes": 6994
+      }
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-owner-capture-custody/source_runtime.py",
+        "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+        "bytes": 8062
+      },
+      "previous": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-capture-custody/source_runtime.py",
+        "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+        "bytes": 8062
+      }
+    }
+  ],
+  "changed_original_python_files": [
+    "templates/hyde_grid.py"
+  ],
+  "new_python_files": [
+    "check_owner.py"
+  ],
+  "unchanged_template_functions": [
+    "require",
+    "integer",
+    "qualify_scope",
+    "normalized",
+    "indexed",
+    "blob",
+    "join_owned_source",
+    "input_roles",
+    "deduplicated_public_members",
+    "json_object",
+    "member_name",
+    "same",
+    "roles_from_records",
+    "native_namespace",
+    "validate_packet",
+    "_physical"
+  ],
+  "public_guard_AST_exact_after_removing_owners_argument_and_two_owner_only_statements": true,
+  "new_owner_predicate": "Unique exact retained_source owner; exact two sorted paths; empty producer_paths and producer_inputs; all other owners disjoint regardless of role. Disjoint same-family owners remain allowed.",
+  "optional_absent_rule": "Return empty entries/evidence only if both selected owner and capture are absent. Present/dangling-linked capture without owner refuses.",
+  "no_controller_packet_retention_numeric_schema_or_resource_change": true
+}

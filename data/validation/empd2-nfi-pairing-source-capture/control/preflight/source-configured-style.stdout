@@ -1,0 +1,129 @@
+C408 Unnecessary `dict()` call (rewrite as a literal)
+   --> artifacts/science/empd2-nfi-pairing-source-custody/check_contracts.py:185:30
+    |
+183 |         p.write_bytes(p.read_bytes().replace(b'refused_missing_pair_evidence', b'accepted'))
+184 |         value = copy.deepcopy(tracked)
+185 |         value['pairs_csv'] = dict(bytes=p.stat().st_size, sha256=pin(p)['sha256'])
+    |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+186 |         (output / 'report.json').write_text(json.dumps(value))
+187 |         with self.assertRaises(ValueError):
+    |
+help: Rewrite as a literal
+
+E402 Module level import not at top of file
+  --> artifacts/science/empd2-nfi-pairing-source-custody/execute_source.py:22:1
+   |
+20 |           raise ValueError('Unexpected controller import')
+21 |   sys.path.insert(0, str(_entry_directory))
+22 | / from contracts import (
+23 | |     PACKAGE_ROOTS,
+24 | |     PRODUCER,
+25 | |     ROOT,
+26 | |     dump,
+27 | |     exact,
+28 | |     load,
+29 | |     pin,
+30 | |     require,
+31 | |     verify_inputs,
+32 | | )
+   | |_^
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/empd2-nfi-pairing-source-custody/observe.py:19:1
+   |
+17 |           raise ValueError('Unexpected controller import')
+18 |   sys.path.insert(0, str(_entry_directory))
+19 | / from contracts import (
+20 | |     INPUTS,
+21 | |     PACKAGE_ROOTS,
+22 | |     PRODUCER,
+23 | |     REPORT,
+24 | |     ROOT,
+25 | |     dump,
+26 | |     exact,
+27 | |     load,
+28 | |     pin,
+29 | |     require,
+30 | |     sha,
+31 | |     verify_inputs,
+32 | | )
+   | |_^
+33 |   from metadata import (
+34 |       checked_leads,
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/empd2-nfi-pairing-source-custody/observe.py:33:1
+   |
+31 |       verify_inputs,
+32 |   )
+33 | / from metadata import (
+34 | |     checked_leads,
+35 | |     expected_rows,
+36 | |     nfi_metadata,
+37 | |     source_metadata,
+38 | |     validate_products,
+39 | | )
+   | |_^
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/empd2-nfi-pairing-source-custody/prepare.py:21:1
+   |
+19 |           raise ValueError('Unexpected controller import')
+20 |   sys.path.insert(0, str(_entry_directory))
+21 | / from contracts import (
+22 | |     INPUTS,
+23 | |     OWNER,
+24 | |     POLICY,
+25 | |     PRIVATE,
+26 | |     PRODUCER,
+27 | |     REPORT,
+28 | |     ROOT,
+29 | |     SOURCE,
+30 | |     dump,
+31 | |     first_party_snapshot,
+32 | |     identity,
+33 | |     load,
+34 | |     namespace,
+35 | |     output_root,
+36 | |     pin,
+37 | |     require,
+38 | |     union,
+39 | |     verify_inputs,
+40 | | )
+   | |_^
+41 |   from source_runtime import PYTHON, attach_runtime_launcher, authenticate_runtime
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/empd2-nfi-pairing-source-custody/prepare.py:41:1
+   |
+39 |     verify_inputs,
+40 | )
+41 | from source_runtime import PYTHON, attach_runtime_launcher, authenticate_runtime
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/empd2-nfi-pairing-source-custody/run.py:25:1
+   |
+23 |         raise ValueError('Unexpected controller import')
+24 | sys.path.insert(0, str(_entry_directory))
+25 | from contracts import REPORT, ROOT, load, pin, require, sha, verify_inputs
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+26 | from source_runtime import PYTHON
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/empd2-nfi-pairing-source-custody/run.py:26:1
+   |
+24 | sys.path.insert(0, str(_entry_directory))
+25 | from contracts import REPORT, ROOT, load, pin, require, sha, verify_inputs
+26 | from source_runtime import PYTHON
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+
+Found 45 errors (37 fixed, 8 remaining).
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).

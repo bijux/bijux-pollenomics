@@ -1,0 +1,164 @@
+{
+  "schema_version": "svar-normalized-feature-aggregate.v1",
+  "original_execution_candidate": "5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87",
+  "source_identity": {
+    "role": "privately_retained_normalized_SVAR_export",
+    "sha256": "d9a1943d1a35e7ab6d48e06156fef625e7c62c8bc410cecf9d8f592ccb07dfd8",
+    "bytes": 261041034,
+    "source_payload_published": false
+  },
+  "measured_features": {
+    "feature_items": 40565,
+    "proper_Feature_objects": 40565,
+    "missing_or_null_geometry": 0,
+    "geometry_types": {
+      "MultiPolygon": 3049,
+      "Polygon": 37516
+    },
+    "native_identity_field_counts": {
+      "record_id": {
+        "nonempty_string_values": 40565,
+        "distinct_values": 40565,
+        "duplicate_occurrences": 0,
+        "duplicate_values": 0,
+        "missing_or_null_or_empty_or_non_string": 0
+      },
+      "sjoid": {
+        "nonempty_string_values": 40565,
+        "distinct_values": 40565,
+        "duplicate_occurrences": 0,
+        "duplicate_values": 0,
+        "missing_or_null_or_empty_or_non_string": 0
+      },
+      "sj_uuid": {
+        "nonempty_string_values": 40564,
+        "distinct_values": 40564,
+        "duplicate_occurrences": 0,
+        "duplicate_values": 0,
+        "missing_or_null_or_empty_or_non_string": 1
+      },
+      "sj_vatten_id": {
+        "nonempty_string_values": 40564,
+        "distinct_values": 40564,
+        "duplicate_occurrences": 0,
+        "duplicate_values": 0,
+        "missing_or_null_or_empty_or_non_string": 1
+      }
+    },
+    "property_native_type_counts": {
+      "area_km2": {
+        "decimal": 40565
+      },
+      "category": {
+        "string": 40565
+      },
+      "country": {
+        "string": 40565
+      },
+      "district": {
+        "string": 40565
+      },
+      "fallback_name": {
+        "string": 40565
+      },
+      "geometry_type": {
+        "string": 40565
+      },
+      "lake_name_status": {
+        "string": 40565
+      },
+      "layer_key": {
+        "string": 40565
+      },
+      "layer_label": {
+        "string": 40565
+      },
+      "name": {
+        "string": 40565
+      },
+      "record_id": {
+        "string": 40565
+      },
+      "register_name": {
+        "string": 40565
+      },
+      "sj_uuid": {
+        "string": 40565
+      },
+      "sj_vatten_id": {
+        "string": 40565
+      },
+      "sjoid": {
+        "string": 40565
+      },
+      "source": {
+        "string": 40565
+      },
+      "source_url": {
+        "string": 40565
+      },
+      "water_name": {
+        "string": 40565
+      },
+      "water_surface_elevation_m": {
+        "decimal": 40565
+      }
+    },
+    "non_object_properties": 0
+  },
+  "subset_agreement": {
+    "subset_rows": 99,
+    "rows_with_exactly_one_full_match": 99,
+    "join_fields": [
+      "record_id",
+      "sjoid",
+      "sj_uuid",
+      "sj_vatten_id",
+      "area_km2",
+      "country",
+      "layer_key"
+    ],
+    "typed_agreement_counts": {
+      "record_id": 99,
+      "sjoid": 99,
+      "sj_uuid": 99,
+      "sj_vatten_id": 99,
+      "area_km2": 99,
+      "country": 99,
+      "layer_key": 99
+    },
+    "Point_vs_full_geometry_equivalence_claimed": false,
+    "nearest_pollen_selection_rule_reexecuted": false
+  },
+  "population_comparison": {
+    "retained_export_claim": 40565,
+    "retained_review_claim": 40523,
+    "measured_minus_export": 0,
+    "measured_minus_review": 42,
+    "original_review_full_population_membership_available": false,
+    "identities_or_cause_of_42_difference_established": false
+  },
+  "scope": {
+    "raw_WFS_export_parity": false,
+    "provider_units_or_CRS_qualified": false,
+    "geometry_topology_or_effective_basin_area_qualified": false,
+    "source_dates_are_lake_chronology": false,
+    "rights_or_qualified_human_review_admitted": false,
+    "ranking_admitted": false,
+    "current_ranked_candidates": 0,
+    "raw_properties_geometry_or_native_ID_values_published": false,
+    "new_metadata_native_execution_claimed": false
+  },
+  "private_observation_identities": {
+    "feature_ledger": {
+      "sha256": "4b8a210b427bd248e933d4f86c101b2855d8c2706634cfd175e3fb096b184132",
+      "bytes": 57098367
+    },
+    "native_subset_join_metadata": {
+      "sha256": "d065f3b8ae95a34b04b5cfba2817e735f933e49a665ac57730cff904169f7643",
+      "bytes": 135987
+    },
+    "payloads_published": false
+  },
+  "interpretation": "Descriptive measurements of the retained normalized file and exact seven-field checks for all99public subset records. Matching source counts do not recover the old40523identity inventory, establish a provider capture/rights route or admit a governing registry/ranking. Normalized field labels are not independent provider-unit or CRS qualification."
+}

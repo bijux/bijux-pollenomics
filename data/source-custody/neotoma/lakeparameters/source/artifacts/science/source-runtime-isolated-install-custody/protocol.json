@@ -1,0 +1,87 @@
+{
+  "schema_version": "offline-source-runtime-requalification.v1",
+  "candidate": "7513efa1224b22d5de7748140bdd8fce34dca886",
+  "selection_sha256": "54582ea7ac6ea354e5076ea4f07b57cdd40825748dd6cbbf65f006de678c5305",
+  "base_interpreter": {
+    "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "sha256": "92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4"
+  },
+  "selected_distributions": 147,
+  "stages": [
+    {
+      "owner": "Exact cached payload to fresh transport wheels",
+      "timeout_seconds": 150
+    },
+    {
+      "owner": "Original base creates new owned copied venv without bundled pip/setuptools seed",
+      "timeout_seconds": 60
+    },
+    {
+      "owner": "Exact cached pip26.2 module inside fresh owned venv installs only hash-bound147 generated wheels",
+      "timeout_seconds": 240
+    },
+    {
+      "owner": "Independent complete version/RECORD/native/core-origin observation",
+      "timeout_seconds": 90
+    }
+  ],
+  "overall_timeout_seconds": 600,
+  "resident_memory_postcheck_bytes": 3221225472,
+  "completed_owned_output_postcheck_bytes": 8589934592,
+  "memory_scope": "Cumulative completed-child peak RSS, not full descendant RSS",
+  "storage_scope": "Logical all-file output plus own completed receipt; no enforced OS quota",
+  "complete_cache_inputs": "Every selected member is a regular file, exactly listed in original RECORD with hash/size (except its unhashed RECORD self-entry). Exact original METADATA and WHEEL SHA plus complete tags are required; original cache parents are nonsymlink and unchanged before/after. New ZIP SHA is never called the original download/archive identity.",
+  "original_base_scope": "Original base/physical Homebrew framework, initial namespace/stdlib and resolved external native dependencies pinned; lexical parent links preserved by raw-readlink+resolved-target. Darwin shared-cache/system-library load names are recorded without invented raw-file SHA.",
+  "bootstrap_scope": "No network request, source-build fallback, old environment recovery, first-party editable metadata, official installed-interface or scientific/model call. The four first-party package roots are supplied explicitly via PYTHONPATH for later source qualification only.",
+  "optional_release_dependencies_still_missing": [
+    "python-discovery",
+    "twine",
+    "virtualenv"
+  ],
+  "preparation": "Source guards/independent approval -> root invokes preparation -> protected clean-candidate plan -> STATE registration -> separate actual launch. No agent preparation/venv/pip/transport generation.",
+  "typed_checks_prerequisite": "Source-only guards/strict/configured Ruff are qualified using separately admitted cached-source-validation profile3331, not a lost venv identity. Actual fresh environment bootstrap remains unexecuted.",
+  "bootstrap_pip_scope": "The selected147 exclude setuptools, so venv --without-pip prevents unselected seed distributions. A tiny source-pinned entry validates the selected cached pip RECORD payload and origin/version, then executes unchanged pip via runpy with explicit --isolated/offline/hash-required flags and the owned prefix. No source build or seed/uninstall alternative is used.",
+  "base_only_stage_flags": [
+    "-I",
+    "-S",
+    "-B"
+  ],
+  "owned_environment_stage_flags": [
+    "-I",
+    "-B"
+  ],
+  "unused_global_site_packages": "Excluded from the no-site base runtime census, with exact raw link/target spelling recorded before/after; global payloads are not copied or loaded.",
+  "native_loader_self_identifiers": "LC_ID_DYLIB names are recorded as self identity and are not resolved as external dependencies.",
+  "absent_python311_zip": "The actual base initial namespace python311.zip entries must remain absent before/after, including dangling symlink refusal.",
+  "cache_namespace_closure": "All selected archive file AND directory entries are revalidated before/after, including unlisted empty-directory refusal.",
+  "base_namespace_closure": "Complete physical base/stdlib directory, regular-file and lexical-symlink membership (including empty directories) checked before/after, excluding only recorded unused global site subtrees.",
+  "selected_native_closure": "All selected cached Mach-O files plus base native files are scanned by pinned otool; dependency closure permits only selected cached members, pinned external Homebrew physical files or explicitly recorded Darwin shared-cache identities. LC_ID self identity is separate.",
+  "overall_wall_scope": "600-second passing completed-wall postcheck through input and output accounting; final receipt write is outside the measured postcheck. No enforced OS quota or full descendant RSS claim.",
+  "native_architecture": "Both pinned otool load-name and load-command reads select -arch arm64. Exact binary headers are validated separately from dependency rows, including universal payloads.",
+  "loader_environment_admission": "Preparation and launch refuse any present DYLD_* / LD_PRELOAD / LD_LIBRARY_PATH / _PYTHON_HOST_PLATFORM / __PYVENV_LAUNCHER__ key before subprocess/tool invocation, including empty values. Receipt lists only forbidden key names and no values. Child environment clears these keys as defense after refusal.",
+  "native_dependency_inspector": {
+    "path": "/Library/Developer/CommandLineTools/usr/bin/otool-classic",
+    "sha256": "ef0b500f6cb89910209839f66cab6100bb86defd7ebbfa2188a44ff5784a58b9",
+    "architecture": "arm64",
+    "role": "Pinned read-only Mach-O metadata inspector, separate from base/selected-wheel native imports",
+    "Darwin_load_names": [
+      "/usr/lib/libc++.1.dylib",
+      "/usr/lib/libSystem.B.dylib"
+    ]
+  },
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/source-runtime-inspector-custody/prepared-source-manifest.json",
+    "sha256": "98bf5f1ead21397f0db1071e5654d7358092488897da7251f19351ce341a17bb",
+    "whole_actual_exit": 1,
+    "production_stage_actual_exits": [
+      0,
+      0,
+      0
+    ],
+    "observer_actual_exit": 1,
+    "observed_distributions": 146,
+    "missing_only": "pip26.2",
+    "scope": "Original actual environment/output and all registered controller bytes remain immutable. Cached bootstrap pip metadata was visible to its own installer, which skipped installing its wheel; this successor uses a fresh separate output/environment."
+  },
+  "pip_installed_membership": "Hash-required offline pip command includes exactly one --ignore-installed, so cached bootstrap pip metadata cannot satisfy the installation into the fresh owned site. No force-reinstall/uninstall/original146env mutation; unchanged independent observer still requires exact147 selected distributions including pip26.2."
+}

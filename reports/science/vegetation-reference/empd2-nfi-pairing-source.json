@@ -1,0 +1,83 @@
+{
+  "schema_version": "empd2-nfi-retained-refusal-source-review.v1",
+  "capture": {
+    "path": "data/validation/empd2-nfi-pairing-source-capture/capture.json",
+    "sha256": "00212dc7d9438617081a51c68fd3755df1234c5c27ec59ac1d40bf31eff61bb5"
+  },
+  "original_execution_candidate": "97be88f37a117a518c8c4639ccca98927e13cb24",
+  "actual_original_native_stage_exits": [
+    0,
+    0
+  ],
+  "original_execution_receipts": {
+    "plan.json": {
+      "sha256": "0b5a59b1096f8416386a525cd7171dc31a696d9ae9cd15956fe1e855af578629",
+      "bytes": 19344531
+    },
+    "terminal.json": {
+      "sha256": "1ba385f8f26376e4f9c7c20c1a8a0c318df3d3a1d9c9084b1256fa8ac133385e",
+      "bytes": 8758
+    },
+    "pairing-terminal.json": {
+      "sha256": "6629e66ca5d4cc69aad331fb23f0b22336e01b8c40c625675a1483dabbd024cb",
+      "bytes": 5359
+    },
+    "runtime-custody-terminal.json": {
+      "sha256": "de834135c766b4c2392b0788982e3eb76b077c2303c47dc2dbd2e786445da4c3",
+      "bytes": 2598
+    },
+    "source-execution.json": {
+      "sha256": "836ad1646a5753a9a2f2965e02fed16eae7a7759dbccf459e0827b1f6d7ec75b",
+      "bytes": 416438
+    },
+    "independent-pairing-review.json": {
+      "sha256": "f92fce9995e9a7c4006eac1f1f5a8c69060b73e78aa23ae7b377503f661b6114",
+      "bytes": 4463
+    }
+  },
+  "published_products": {
+    "pairs.csv": {
+      "sha256": "dead80111026ca2f0ceb8bd31c36ae3461bdbb1d89f367656d43445f65d94c40",
+      "bytes": 15177
+    },
+    "report.json": {
+      "sha256": "cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642",
+      "bytes": 3000
+    }
+  },
+  "ordered_original_input_identities": 66501,
+  "public_first_party_source_resources": 2159,
+  "omitted_first_party_bytecode_identities": 4356,
+  "retained_declared_controls": 92,
+  "observed_first_party_source_origins": 1163,
+  "nfi_metadata_rows": 43892,
+  "native_tract_plot_keys": 6018,
+  "selected_metadata_columns": [
+    "Year",
+    "TractID",
+    "PlotID",
+    "Inventory_Date",
+    "Easting",
+    "Northing"
+  ],
+  "selected_rows_including_header": 43893,
+  "selected_metadata_cells": 263358,
+  "native_pollen_source_records": 16,
+  "source_fields": 26,
+  "public_fields": 19,
+  "refused_pairs": 16,
+  "admitted_measured_pairs": 0,
+  "selected_pair_distance_checks": 16,
+  "retained_all_pairs_claim_reexecuted": false,
+  "outcome_decoder_calls": 0,
+  "LRA_implementation_calls": 0,
+  "source_custody": "Authored retained public execution/source copies and complete original input catalog bind the already completed maintained producer and independent observer. No new metadata retention native outcome is claimed. Original first-party source/resource bytes remain separate from all 4,356 omitted cache identities; no fresh-compilation or cache/source-equivalence claim.",
+  "private_payloads_published": false,
+  "runtime_or_bytecode_payloads_published": false,
+  "original_timeout": {
+    "native_exit": 124,
+    "whole_exit": 1,
+    "recovered_as_success": false
+  },
+  "limits": "XML/sharedStrings bytes were read; only the six declared metadata columns were semantically selected. Raw outcome bytes are not claimed unread. The 16 selected distances were rechecked, not the full 132 by 43,892 spatial screen. Pollen collection chronology, tree values/units, effective area, taxa/support, leakage/benchmark policy, rights and qualified human/scientific acceptance remain open. Zero measured vegetation pairs are admitted."
+}

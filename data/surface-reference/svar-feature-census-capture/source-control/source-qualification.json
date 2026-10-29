@@ -1,0 +1,115 @@
+{
+  "schema_version": "svar-feature-stream-source-qualification.v1",
+  "observed_at_utc": "2026-10-15T02:43:14.966795+00:00",
+  "source_only": true,
+  "actual_source_check_exit": 0,
+  "pure_guard_groups": 23,
+  "strict_current_controller_files": 9,
+  "configured_Ruff_current_controller_files": 9,
+  "configured_format_current_controller_files": 9,
+  "AST_root_Python_files": 11,
+  "CLI_help_entrypoints": 4,
+  "identity_only_exclusions_from_new_type_and_style_checks": [
+    "common_runner.py is exact previously qualified906239 body",
+    "first_feature.py retains byte-exact original bounded metadata-inspection script; not a future native stage"
+  ],
+  "source_validation_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "source_commands": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/source-command-receipts.json",
+    "sha256": "2d8884b21d6cb2da02b8d41e4db4fdedbb64b310bf8bee2fd089a3bc9a19330e",
+    "bytes": 10817
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/protocol.json",
+    "sha256": "d4f427ecd564d32609828de3f72113ed59370fbf4d8bd67c076b63821c747676",
+    "bytes": 10303
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/source-correspondence.json",
+    "sha256": "4aa395adb5404325dafbb164bb7cd384196e6bbca9b10c352aef99746bdae388",
+    "bytes": 6488
+  },
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/census.py",
+      "sha256": "5b523eef29f9c93d044c11aad7a2d91f23b00cc2e35fcc39c23f3e855f91418a",
+      "bytes": 10545
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/check_contracts.py",
+      "sha256": "d0779506bfb5693d6dd34b48cc74143c918e452398a3429794d2ae8c1ee8088b",
+      "bytes": 16565
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/contracts.py",
+      "sha256": "f15cc7a302d28a7fbf0ed1d7a46ef1c510cf70febe7fde8924fbb856aa4072c3",
+      "bytes": 4457
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/first_feature.py",
+      "sha256": "db412b721aef8a981782e3a1f95d4ae9e03acc582be1a1f548afbc3403d3a00c",
+      "bytes": 5812
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/observe.py",
+      "sha256": "745f9deb6769001141fee980638b0c6f23392ebb728fdbb71145063db394171d",
+      "bytes": 15976
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/prepare.py",
+      "sha256": "86da95dd38ffbc0076ca46d2f48af32a45eb41db92cd89ef36f141664b390bb8",
+      "bytes": 9030
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/run.py",
+      "sha256": "109f9758c7f7e03d0a3cee557863486ce944da9a95f07d1045e9fc7aec028492",
+      "bytes": 8360
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/scanner.py",
+      "sha256": "d1ee4a506b055e053fcdc02bad5fbdf347906eb5682523170857f5404a749e19",
+      "bytes": 6586
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/stream.py",
+      "sha256": "f6abb51788661d6e9364a91ee325e2a19c5d8a01914063ee01aa5af27d4a45ee",
+      "bytes": 6006
+    }
+  ],
+  "prior_bounded_first_feature_observation": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-stream-custody/first-feature-forensics.json",
+    "sha256": "87553c6567141187fecf889dd109097094de59f8cd753b1d64ea540e098e7869",
+    "bytes": 3516
+  },
+  "actual_full_private_JSON_parse_census_preparer_browser_R_model_or_install_called": false,
+  "private_binary_hashing_and_one_bounded_feature_inspection_occurred_separately": true,
+  "prior_failed_style_type_checks_retained": true,
+  "future_genuine_registration_and_execution_required": true,
+  "no_full_science_owner_or_operational_ranking_admission": true,
+  "predecessor_source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-stream-custody/prepared-source-manifest.json",
+    "sha256": "c274592c617bfe8db3161bc57f2a8c3921e7c13e867e316000913c013059cc0b",
+    "bytes": 12018
+  },
+  "predecessor_source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-stream-custody/source-qualification.json",
+    "sha256": "f53cbbfd9486c37ccd5223ecea1bc0a883e99d21d282f71f3a9b61671ec76765",
+    "bytes": 4852
+  },
+  "finite_guard_delta": "Before all owned helper imports, four entrypoints refuse nonphysical/aliased paths, helper .so shadows, unknown import directories, aliases and FIFO. Four prefix guard groups plus signed-zero/mixed-Decimal source-order geometry ledger regression supplement prior18.",
+  "only_algorithm_delta": "Preserve native coordinate source order using reversed child pushes; every other pre-existing function AST and six non-entrypoint/test files are exact."
+}

@@ -44,20 +44,41 @@ from .scientific_captures.author_site_evaluations import (
     validated_author_site_evaluation_captures,
 )
 from .scientific_captures.constrained_author import validated_constrained_author_capture
+from .scientific_captures.controlled_numerical.love_objective import (
+    validated_love_objective_capture,
+)
 from .scientific_captures.controlled_numerical.lra_comparison import (
     validated_controlled_lra_comparison_capture,
+)
+from .scientific_captures.lake_registry.neotoma_lake import (
+    validated_neotoma_lake_capture,
 )
 from .scientific_captures.lake_registry.svar import (
     validated_svar_capture,
 )
+from .scientific_captures.lake_registry.svar_census import (
+    validated_svar_feature_census_capture,
+)
 from .scientific_captures.land_use.hyde_country import (
     validated_hyde_country_capture,
+)
+from .scientific_captures.land_use.hyde_grid import (
+    validated_hyde_grid_source_captures,
+)
+from .scientific_captures.land_use.openland_members import (
+    validated_openland_member_capture,
 )
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
+)
+from .scientific_captures.pollen_source.amsoldingersee import (
+    validated_amsoldingersee_capture,
+)
+from .scientific_captures.pollen_source.neotoma_publication import (
+    validated_neotoma_publication_capture,
 )
 from .scientific_captures.pollen_source.rootsi_chronology import (
     validated_rootsi_capture,
@@ -71,6 +92,9 @@ from .scientific_captures.pollen_source.solsoe_selection import (
 from .scientific_captures.pollen_source.swedish_cohort import (
     validated_swedish_cohort_capture,
 )
+from .scientific_captures.pollen_source.swedish_direct_pollen import (
+    validated_swedish_direct_pollen_capture,
+)
 from .scientific_captures.representative_performance import (
     validated_representative_performance_capture,
 )
@@ -82,6 +106,9 @@ from .scientific_captures.swedish_source_chronology import (
 )
 from .scientific_captures.swedish_static_basin import (
     validated_swedish_static_basin_captures,
+)
+from .scientific_captures.vegetation_reference.empd2_nfi_pairing import (
+    validated_empd2_nfi_pairing_capture,
 )
 from .scientific_captures.vegetation_reference.nfi_measurement import (
     validated_nfi_measurement_capture,
@@ -335,6 +362,39 @@ def validated_maintained_report_sources(
         repository, tracked_by_path, inventory["owners"]
     )
 
+    love_objective_entries, love_objective_evidence = validated_love_objective_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    neotoma_lake_entries, neotoma_lake_evidence = validated_neotoma_lake_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    svar_census_entries, svar_census_evidence = validated_svar_feature_census_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    hyde_grid_entries, hyde_grid_evidence = validated_hyde_grid_source_captures(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    openland_entries, openland_evidence = validated_openland_member_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    amsoldingersee_entries, amsoldingersee_evidence = validated_amsoldingersee_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    neotoma_publication_entries, neotoma_publication_evidence = (
+        validated_neotoma_publication_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    swedish_direct_entries, swedish_direct_evidence = (
+        validated_swedish_direct_pollen_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    empd2_nfi_entries, empd2_nfi_evidence = validated_empd2_nfi_pairing_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    if openland_entries or neotoma_publication_entries:
+        raise ReportRebuildError("Original owner acceptance remains unresolved")
     all_capture_entries = (
         (
             (
@@ -362,6 +422,13 @@ def validated_maintained_report_sources(
         + rootsi_entries
         + swedish_entries
         + hyde_entries
+        + love_objective_entries
+        + neotoma_lake_entries
+        + svar_census_entries
+        + hyde_grid_entries
+        + amsoldingersee_entries
+        + swedish_direct_entries
+        + empd2_nfi_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -441,4 +508,24 @@ def validated_maintained_report_sources(
     if hyde_evidence:
         evidence["current_hyde_country_partial_evidence"] = hyde_evidence
 
+    if love_objective_evidence:
+        evidence["retained_love_objective_source_capture"] = love_objective_evidence
+    if neotoma_lake_evidence:
+        evidence["retained_neotoma_lake_source_capture"] = neotoma_lake_evidence
+    if svar_census_evidence:
+        evidence["retained_svar_census_source_capture"] = svar_census_evidence
+    if hyde_grid_evidence:
+        evidence["retained_hyde_grid_source_capture"] = hyde_grid_evidence
+    if openland_evidence:
+        evidence["current_openland_partial_evidence"] = openland_evidence
+    if amsoldingersee_evidence:
+        evidence["retained_amsoldingersee_source_capture"] = amsoldingersee_evidence
+    if neotoma_publication_evidence:
+        evidence["current_neotoma_publication_partial_evidence"] = (
+            neotoma_publication_evidence
+        )
+    if swedish_direct_evidence:
+        evidence["retained_swedish_direct_source_capture"] = swedish_direct_evidence
+    if empd2_nfi_evidence:
+        evidence["retained_empd2_nfi_source_capture"] = empd2_nfi_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence
