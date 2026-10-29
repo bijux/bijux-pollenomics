@@ -1,0 +1,57 @@
+{
+  "schema_version": "sweden-returned-country-public-source-protocol.v1",
+  "source_only": true,
+  "purpose": "Metadata-only assembly and independent portable source/role observer over an actual normally returned country bundle and a separately passing saved-product semantic observer.",
+  "actual_source_history": {
+    "owned_package_source_epoch": "159 ed6f5dbeae2bbe8e50c1835cb0c39a40277a8485",
+    "country_call_orchestration_epoch": "160 bb932d72721f8c9620f29d179984b52ce755dc37",
+    "country_controller_manifest_sha256": "32700b3d6977d648f338a1fab3265af426b702224967d21ff753c9ba5c8eec98",
+    "country_registered_plan_sha256": "b4458d45c74b43e96cea0b468ba0885b579253273e685185e37aa49ac2347cef",
+    "country_call_returned_normally": true,
+    "actual_country_call_return_events": 1,
+    "country_controller_actual_exit": 1,
+    "country_whole_actual_exit": 1,
+    "sole_denial": "Before-read refusal of an already qualified absent default python311.zip path; no ZIP bytes read",
+    "saved_observer_manifest_sha256": "c182abf3987c140b7a4e5ae006f63f8c62c69b3a4d81e6898b43717f26788c79",
+    "saved_observer_registered_plan_sha256": "6d35aea58a250e0dc62690de47807f626d5c3ab1681c8b73e1830b266e014451",
+    "saved_observer_actual_exit": 0,
+    "saved_whole_actual_exit": 0,
+    "full_return_read_or_import_origin_telemetry_recovered": false,
+    "human_typed_record_channel": "Independent expected ANNO reconstruction; actual saved CSV, GeoJSON, all21 locality CSV columns and summaries are independently checked, not a recovered in-memory return.",
+    "semantic_scientific_result_changes": 8,
+    "separate_tracked_byte_checker_actual_exit": 2
+  },
+  "metadata_candidate": "Actual clean candidate supplied by root; separate from owned159/executed160/saved161 epochs",
+  "resources": {
+    "assembly_seconds": 180,
+    "observer_seconds": 180,
+    "completed_whole_seconds": 480,
+    "outer_seconds": 540,
+    "child_peak_RSS_bytes_macos": 4294967296,
+    "inclusive_original_and_new_logical_bytes": 1073741824,
+    "maximum_registered_plan_bytes": 134217728,
+    "maximum_capture_bytes": 134217728,
+    "maximum_distinct_public_payload_bytes": 536870912,
+    "maximum_public_logical_roles": 8192,
+    "own_and_outer_receipt_reserve_bytes_each": 16384,
+    "forecast_basis": "Frozen identity rows determine actual source/product/metadata byte totals before mkdir; exact pretty plan plus packet bytes plus retained old output totals and16MiB reserve must fit1GiB. Bounds are prospective, not an observed speed guarantee. Two180s children leave120s for repeated complete source/runtime/input scans; parent540s watchdog covers delegated child admission, both stages and final scans. Minimal parent startup/post-reap accounting is measured but has no separate watchdog; no aggregate descendant RSS, detached cleanup or OS quota claim."
+  },
+  "public_payloads": [
+    "Complete original selected four-package non-bytecode source/resources and root markers",
+    "Original published country comparands only",
+    "All40 actual normally returned country output products",
+    "Exact native receipt and complete raw registered plans/receipts/clock/callable/source approvals",
+    "Both actual executed controllers and original pre-country history",
+    "Exact source-bound complete stage streams and late outer PIPE streams"
+  ],
+  "identity_only": [
+    "Every original ordered62332 country and62439 saved-observer input identity",
+    "All original and owned private/raw/normalized data bodies",
+    "Runtime/tool/native libraries and original bytecode/generated metadata",
+    "No cache/source equivalence, redistribution permission or new acquisition inferred"
+  ],
+  "registered_plan_scope": "Outer launch, whole runner and both actual metadata children authenticate and parse the same registered buffer; exact registered SHA is injected after plan environment.",
+  "before_mutation": "Original expected role unions, physical source/data ancestry, raw runtime aliases, complete namespace and exact pretty plan/storage forecast pass immediately before first mkdir.",
+  "author_did_not_execute": ["Actual country/data/API/model/normalization/R/HTTP", "Private payload hash or decode", "Runtime/input census", "Actual preparer or packet assembly or observer"],
+  "publication_boundary": "This controller has no canonical writer or owner admission. Root uniquely prepares/registers/readbacks/separately launches. Current reader/helper composition follows actual assembly0/observer0/whole0 and separate full-source peer. Original criterion, oldf6 receipt and historical comparison remain exact history; no vegetation, rights, biology, human or LRA acceptance."
+}

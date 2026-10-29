@@ -1,0 +1,460 @@
+"""Exercise saved return/source/clock and locality contracts on artificial records."""
+
+from __future__ import annotations
+
+import ast
+from collections import defaultdict
+from copy import deepcopy
+import json
+from pathlib import Path
+import sys
+from types import SimpleNamespace
+from typing import Any
+
+SOURCE = Path(__file__).absolute().parent
+ROOT = SOURCE.parents[2]
+
+
+def main() -> None:
+    sys.path.insert(0, str(SOURCE))
+    from callable_identity import CODE_FIELDS
+    from human_source import PREFIXES, record, same
+    from localities import expected_localities, locality_csv_record
+    from saved_authority import (
+        DENIAL,
+        ORIGINAL_PLAN_SHA,
+        ORIGINAL_SOURCE_SHA,
+        ZIP,
+        qualify_original,
+    )
+
+    cases = []
+    refs = json.loads((SOURCE / "retained-authority.json").read_bytes())["references"]
+    output = Path(refs["plan.json"]["path"]).parent
+    owned = SOURCE / "preflight/ARTIFICIAL-owned-source"
+    stage = {
+        "id": "maintained-full-Sweden-country-consumer",
+        "action": "producer",
+        "timeout_seconds": 600,
+        "argv": [
+            "ARTIFICIAL-runtime",
+            "-I",
+            "-B",
+            "ARTIFICIAL-entry",
+            "producer",
+            "--plan",
+            refs["plan.json"]["path"],
+        ],
+    }
+    plan = {
+        "candidate": "1" * 40,
+        "owned_repository": str(owned),
+        "output": str(output),
+        "stages": [stage],
+        "input_pins": [
+            {
+                "path": str(
+                    SOURCE.parent
+                    / "sweden-country-callable-evidence-custody/prepared-source-manifest.json"
+                ),
+                "sha256": ORIGINAL_SOURCE_SHA,
+                "bytes": 1,
+            }
+        ],
+    }
+    progress = [
+        {
+            **stage,
+            "actual_exit": 1,
+            "timed_out": False,
+            "stdout": refs["maintained-full-Sweden-country-consumer.stdout"],
+            "stderr": refs["maintained-full-Sweden-country-consumer.stderr"],
+        }
+    ]
+    inner = {
+        "actual_exit": 1,
+        "candidate": plan["candidate"],
+        "plan_sha256": ORIGINAL_PLAN_SHA,
+        "stages": progress,
+        "exception": None,
+        "after_custody_error": None,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_whole_wall_bound_pass": True,
+        "products_manifest": refs["output-products.json"],
+    }
+    outer = {
+        "actual_exit": 1,
+        "candidate": plan["candidate"],
+        "plan_sha256": ORIGINAL_PLAN_SHA,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_outer_wall_bound_pass": True,
+        "registered_plan_unchanged": True,
+        "child_timed_out": False,
+        "child_native_exit": 1,
+        "inner_terminal": refs["sweden-country-semantic-terminal.json"],
+        "stdout": refs["launch.stdout"],
+        "stderr": refs["launch.stderr"],
+    }
+    before = {
+        "TZ": "UTC0",
+        "utc": "2026-10-15T12:00:00+00:00",
+        "local_date_today": "2026-10-15",
+        "time_ns": 10**18,
+        "monotonic_ns": 10**15,
+        "tzname": ["UTC", "UTC"],
+        "timezone": 0,
+        "daylight": 0,
+    }
+    after = {
+        **before,
+        "utc": "2026-10-15T12:00:10+00:00",
+        "time_ns": 10**18 + 10**10,
+        "monotonic_ns": 10**15 + 10**10,
+    }
+    clock = {
+        "schema_version": "sweden-native-country-clock-observation.v1",
+        "before": before,
+        "after": after,
+        "source_returned_generated_on": "2026-10-15",
+        "actual_country_calls": [
+            {
+                "country": "Sweden",
+                "version_dir": str(owned / "data/aadr/v66"),
+                "output_dir": str(output / "producer/candidate"),
+                "context_root": str(owned / "data"),
+                "map_reference": None,
+                "published_output_dir": None,
+            }
+        ],
+        "actual_return_events": [
+            {"object_present": True, "object_type": "CountryReport"}
+        ],
+        "telemetry_errors": [],
+        "clock_observation_error": None,
+        "maintained_exception": None,
+        "IO_denials": [DENIAL],
+        "clock_qualification_not_yet_applied": True,
+    }
+    proof = {
+        "schema_version": "cpython-complete-typed-code-correspondence.v1",
+        "all_code_fields": list(CODE_FIELDS),
+        "complete_typed_graphs_equal": True,
+        "differing_code_fields": [],
+        "expected_code_graph_sha256": "2" * 64,
+        "actual_code_graph_sha256": "2" * 64,
+        "marshal_reference_or_intern_identity_compared": False,
+        "bytecode_filename_lines_flags_exception_tables_or_constant_types_ignored": False,
+    }
+    runtime = {
+        "absent_input_paths": [ZIP],
+        "base_namespaces": [
+            {
+                "root": str(Path(ZIP).parents[1]),
+                "excluded": [
+                    str(Path(ZIP).parents[1] / "lib/python3.11/site-packages")
+                ],
+                "entries": {},
+            }
+        ],
+    }
+    original = [plan, inner, outer, clock, proof, progress, refs, runtime]
+    success = qualify_original(*original)
+    assert success["country_call_returned_normally"] is True
+    assert (
+        success["original_whole_actual_exit"]
+        == success["original_controller_actual_exit"]
+        == 1
+    )
+    assert success["full_returned_object_witness_recovered"] is False
+    cases.append(
+        "one_normal_country_return_preserves_controller1_whole1_and_missing_telemetry"
+    )
+
+    def refusal(label: str, values: list[Any]) -> None:
+        try:
+            qualify_original(*values)
+        except (ValueError, KeyError, TypeError):
+            cases.append(label)
+        else:
+            raise AssertionError(label)
+
+    for status in (0, False, True, None):
+        values = deepcopy(original)
+        values[1]["actual_exit"] = status
+        refusal("original_controller_status_" + repr(status), values)
+    for label, index, key, value in (
+        ("original_whole_relabeled", 2, "actual_exit", 0),
+        ("old_plan_rebound", 1, "plan_sha256", "0" * 64),
+        ("absent_return_event", 3, "actual_return_events", []),
+        (
+            "invented_return_type",
+            3,
+            "actual_return_events",
+            [{"object_present": True, "object_type": "dict"}],
+        ),
+        (
+            "country_exception",
+            3,
+            "maintained_exception",
+            {"type": "ValueError", "message": "failed"},
+        ),
+        ("other_denial", 3, "IO_denials", [DENIAL, "foreign"]),
+        ("removed_denial", 3, "IO_denials", []),
+        ("code_graph_mutation", 4, "actual_code_graph_sha256", "0" * 64),
+        ("code_field_omitted", 4, "all_code_fields", list(CODE_FIELDS[:-1])),
+    ):
+        values = deepcopy(original)
+        values[index][key] = value
+        refusal(label, values)
+    for key, clock_value in (("timezone", False), ("daylight", False), ("TZ", None)):
+        values = deepcopy(original)
+        values[3]["before"][key] = clock_value
+        refusal("clock_" + key, values)
+    values = deepcopy(original)
+    values[3]["actual_country_calls"] *= 2
+    refusal("two_country_calls", values)
+    values = deepcopy(original)
+    values[7]["absent_input_paths"] = []
+    refusal("ZIP_not_originally_absent", values)
+    values = deepcopy(original)
+    values[7]["base_namespaces"][0]["entries"]["lib/python311.zip"] = {"kind": "file"}
+    refusal("ZIP_present_in_original_namespace", values)
+    values = deepcopy(original)
+    values[7]["base_namespaces"][0]["excluded"] = [str(Path(ZIP).parent)]
+    refusal("ZIP_outside_frozen_namespace", values)
+
+    # Run the exact maintained locality aggregation on artificial records only.
+    # Its dataclasses and pure scalar helpers are extracted from reviewed public source.
+    ns: dict[str, Any] = {"defaultdict": defaultdict}
+
+    def extract(path: Path, names: set[str]) -> None:
+        tree = ast.parse(path.read_bytes())
+        nodes = [
+            n
+            for n in tree.body
+            if isinstance(n, (ast.FunctionDef, ast.ClassDef)) and n.name in names
+        ]
+        assert len(nodes) == len(names)
+        module = ast.Module(
+            body=[
+                ast.ImportFrom(
+                    module="__future__", names=[ast.alias(name="annotations")], level=0
+                ),
+                *nodes,
+            ],
+            type_ignores=[],
+        )
+        exec(compile(ast.fix_missing_locations(module), str(path), "exec"), ns)
+
+    from dataclasses import dataclass
+
+    ns["dataclass"] = dataclass
+    model = ROOT / "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models"
+    extract(model / "chronology.py", {"AdnaCoordinate", "AdnaChronology"})
+    extract(model / "occurrence_support.py", {"AdnaSampleChronologySupport"})
+    extract(model / "localities.py", {"AdnaLocalitySummary"})
+    extract(
+        ROOT / "packages/bijux-pollenomics/src/bijux_pollenomics/core/bp_time.py",
+        {
+            "normalize_bp_interval",
+            "merge_bp_intervals",
+            "build_bp_interval_label",
+            "midpoint_bp_year",
+        },
+    )
+    extract(
+        ROOT
+        / "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/locality.py",
+        {"summarize_sample_localities", "_mean_bp_from_interval"},
+    )
+
+    class Identity:
+        def __init__(self, value: dict[str, Any]) -> None:
+            self.value = value
+            self.political_entity = value["political_entity"]
+
+        def as_dict(self) -> dict[str, Any]:
+            return deepcopy(self.value)
+
+    rows = []
+    schema: dict[str, str | None] = {key: key for key in PREFIXES}
+    for token, mean, deviation, place in [
+        ("b", "1000", "10", "A"),
+        ("a", "2000", "0", "A"),
+        ("c", "", "", "B"),
+    ]:
+        item = record(
+            {
+                "genetic_id": token,
+                "latitude": "58.5",
+                "longitude": "15.25",
+                "locality": place,
+                "political_entity": "Sweden",
+                "date_mean_bp": mean,
+                "date_stddev_bp": deviation,
+            },
+            schema,
+            "1240k",
+        )
+        assert item is not None
+        rows.append(item)
+    fake = []
+    for item in rows:
+        sample_values = deepcopy(item)
+        sample_values["locality_identity"] = Identity(item["locality_identity"])
+        sample_values["chronology"] = ns["AdnaChronology"](**item["chronology"])
+        sample_values["genetic_id"] = item["identity"]["stable_token"]
+        sample_values["sample_namespace"] = item["identity"]["namespace"]
+        sample_values.update(
+            {key: item["chronology"][key] for key in ("time_start_bp", "time_end_bp")}
+        )
+        fake.append(SimpleNamespace(**sample_values))
+    actual = [value.as_dict() for value in ns["summarize_sample_localities"](fake)]
+    expected = expected_localities(rows)
+    same(actual, expected)
+    cases.append(
+        "full_independent_locality_typed_projection_matches_actual_source_on_artificial_rows"
+    )
+    artifacts = (
+        ROOT
+        / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py"
+    )
+    extract(artifacts, {"serialize_locality_summary"})
+    for actual_object, expected_row in zip(
+        ns["summarize_sample_localities"](fake), expected, strict=True
+    ):
+        value = ns["serialize_locality_summary"](actual_object)
+        value["datasets"] = ",".join(actual_object.datasets)
+        value["sample_ids"] = ";".join(actual_object.sample_ids)
+        for name in ("sample_chronologies", "locality_identity"):
+            value[name] = json.dumps(
+                value[name], ensure_ascii=False, allow_nan=False, separators=(",", ":")
+            )
+        cells = {key: "" if item is None else str(item) for key, item in value.items()}
+        same(cells, locality_csv_record(expected_row))
+    cases.append("all21_locality_CSV_columns_match_exact_maintained_writer_projection")
+    assert expected[0]["sample_ids"] == ["a", "b"]
+    assert (
+        expected[0]["chronology"]["evidence_class"] == "locality_sample_coverage_hull"
+    )
+    assert (
+        expected[0]["sample_chronologies"][0]["chronology"] != expected[0]["chronology"]
+    )
+    cases.append("source_owned_sample_supports_not_replaced_by_display_hull")
+    from contracts import PYTHON, RESOURCES, require, strict_equal
+
+    prepare_tree = ast.parse((SOURCE / "prepare.py").read_bytes())
+    assignments = [
+        node
+        for node in ast.walk(prepare_tree)
+        if isinstance(node, ast.Assign)
+        and any(
+            isinstance(target, ast.Subscript)
+            and isinstance(target.value, ast.Name)
+            and target.value.id == "plan"
+            and isinstance(target.slice, ast.Constant)
+            and target.slice.value == "stages"
+            for target in node.targets
+        )
+    ]
+    assert len(assignments) == 1
+    plan_path = SOURCE / "preflight/ARTIFICIAL-plan.json"
+    expression = ast.Expression(body=assignments[0].value)
+    stages = eval(
+        compile(
+            ast.fix_missing_locations(expression), "<controlled-prepare-stage>", "eval"
+        ),
+        {
+            "__builtins__": {"str": str},
+            "PYTHON": PYTHON,
+            "SOURCE": SOURCE,
+            "plan_path": plan_path,
+        },
+    )
+    run_tree = ast.parse((SOURCE / "run.py").read_bytes())
+    validator = next(
+        node
+        for node in run_tree.body
+        if isinstance(node, ast.FunctionDef) and node.name == "validate_stages"
+    )
+    validator_ns: dict[str, Any] = {
+        "RESOURCES": RESOURCES,
+        "SOURCE": SOURCE,
+        "PYTHON": PYTHON,
+        "require": require,
+        "strict_equal": strict_equal,
+    }
+    module = ast.Module(
+        body=[
+            ast.ImportFrom(
+                module="__future__", names=[ast.alias(name="annotations")], level=0
+            ),
+            validator,
+        ],
+        type_ignores=[],
+    )
+    exec(
+        compile(ast.fix_missing_locations(module), "<actual-stage-validator>", "exec"),
+        validator_ns,
+    )
+    actual_plan = {"stages": stages, "resources": deepcopy(RESOURCES)}
+    validator_ns["validate_stages"](actual_plan, plan_path)
+    assert stages[0]["action"] == "observer" and len(stages) == 1
+    cases.append("actual_prepare_stage_expression_passes_actual_one_observer_validator")
+    for name in ("empty", "two", "producer", "wrong_argv", "Boolean_timeout"):
+        changed = deepcopy(actual_plan)
+        if name == "empty":
+            changed["stages"] = []
+        elif name == "two":
+            changed["stages"] *= 2
+        elif name == "producer":
+            changed["stages"][0]["action"] = "producer"
+        elif name == "wrong_argv":
+            changed["stages"][0]["argv"].append("foreign")
+        else:
+            changed["stages"][0]["timeout_seconds"] = True
+        try:
+            validator_ns["validate_stages"](changed, plan_path)
+        except ValueError:
+            cases.append("actual_stage_refuses_" + name)
+        else:
+            raise AssertionError(name)
+    entry_tree = ast.parse((SOURCE / "entry.py").read_bytes())
+    assert not any(
+        isinstance(node, ast.Compare)
+        and any(
+            isinstance(item, ast.Constant) and item.value == "producer"
+            for item in node.comparators
+        )
+        for node in ast.walk(entry_tree)
+    )
+    observe_tree = ast.parse((SOURCE / "observe.py").read_bytes())
+    assert not any(
+        isinstance(node, ast.ImportFrom) and (node.module or "").startswith("bijux_")
+        for node in ast.walk(observe_tree)
+    )
+    assert not any(
+        isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id
+        in {"replay", "generate_country_report", "load_species_samples"}
+        for node in ast.walk(observe_tree)
+    )
+    cases.append("no_producer_dispatch_or_maintained_API_call_in_saved_observer")
+    result = {
+        "source_only": True,
+        "actual_whole_SOURCE_exit": 0,
+        "groups": len(cases),
+        "cases": cases,
+        "real_country_data_runtime_API_preparer_or_native_executed": False,
+    }
+    (SOURCE / "preflight/saved-source-controls.json").write_text(
+        json.dumps(result, indent=2) + "\n"
+    )
+    print(json.dumps(result))
+
+
+if __name__ == "__main__":
+    main()

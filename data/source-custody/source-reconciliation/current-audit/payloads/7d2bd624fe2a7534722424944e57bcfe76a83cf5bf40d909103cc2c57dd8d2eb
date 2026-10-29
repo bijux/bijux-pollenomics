@@ -1,0 +1,111 @@
+{
+  "schema_version": "current-source-directory-presence-protocol.v1",
+  "source_only": true,
+  "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "candidate": "Exact future clean main identity measured by independently reviewed root preparer, not hardcoded historical delivery ordinal.",
+  "maintained_API_topology": [
+    {
+      "module": "bijux_pollenomics_dev.source_completion.audit",
+      "call": "build_source_audit(root: Path)",
+      "arguments": "root=owned_repository"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.intake_custody",
+      "call": "build_intake_custody_report(repository: Path, private_source_root: Path)",
+      "arguments": "repository=owned_repository, private_source_root=owned_private_root"
+    },
+    {
+      "call": "digest",
+      "arguments": "Complete audit after adding external_intake_custody, excluding its prior audit_sha256"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.audit",
+      "call": "summarize_source_audit(audit: dict)",
+      "arguments": "complete current audit with independently preserved intake posture"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.publication.json_outputs",
+      "call": "publish_json_outputs(outputs)",
+      "arguments": "fresh full-current-audit.json and summary-current.json"
+    }
+  ],
+  "CLI_difference": "Calls the named public source APIs directly, not __main__. No optional intake-root discovery or HYDE name-search branch is invoked.",
+  "independent_observer": "Separate registry/source/status/Neotoma entity/request/SEAD denominator/LandClim literal CSV+ZIP/intake archive and receipt reconstruction; complete typed JSON and serialized-byte agreement, not only counts. Finding order and all current missingness retained.",
+  "accounting_status": "Native stage0 means requested APIs completed and observer agreed. accounting_checks_pass may be false and findings may be nonempty; no forced old321/284/204 or old zero result.",
+  "historical_limit": {
+    "full_audit_sha256": "26116f18017f5695c8782849e9ab827251d033cc56a8e1e76eabf38063c9ba90",
+    "physical_full_audit_available": false,
+    "original_summary_reproduction_or_original_construction_claimed": false,
+    "original_owner_transition_authorized": false
+  },
+  "source_projection": "Four-package complete tracked source/resource copies; original cache bytecode identities retained but not copied/executed or called equivalent to source. Only exact configured generated LRA metadata omitted per reviewed descriptor; original identity retained. Current selected data reads and private intake files copied to separate owned roots, never portable/public by default.",
+  "input_freeze": "Five source-reviewed registry pins and eight maintained source contract pins fixed before any census; same-buffer parsed manifests bound to freshly frozen current identities. Original custody manifest and each original receipt/archive SHA strict. InputScope union refuses duplicate conflicting roles; all original/current/owned files, aliases, selected namespaces, missing paths and pattern memberships checked before first output mkdir and at every stage checkpoint.",
+  "registered_plan": "Outer launch/run and both actual stage parsers hash and decode the same registered buffer. Parent injects exact registered SHA after controlled child environment. Final source entry and reviewed_controls both require exact sorted absolute full manifest schema.",
+  "runtime": "Qualified observed147-distribution source runtime with full original pins, native/alias/namespace/absence closure and failed bootstrap history intact. Four owned first-party roots only; no unqualified cache import. Numerical engine/facade imports and network connection attempts denied in producer.",
+  "resources": {
+    "producer_seconds": 360,
+    "observer_seconds": 240,
+    "completed_inner_seconds": 720,
+    "outer_owned_child_seconds": 780,
+    "memory_bytes": 4294967296,
+    "inclusive_output_bytes": 3221225472,
+    "precopy_metadata_log_output_reserve_bytes": 134217728,
+    "max_plan_bytes": 67108864,
+    "min_free_bytes": 3489660928
+  },
+  "forecast": {
+    "prior_named_scope_bytes": {
+      "neotoma_declared30": 776424843,
+      "sead_normalized53": 536596255,
+      "sead_raw124": 167277313,
+      "original_intake_archives2": 204568300
+    },
+    "named_prior_receipt": "current-neotoma-selected-count-source-review/selected-count-launch-terminal.json:191.668s and1012760576B measured for a different count workload; not a source-audit timing guarantee.",
+    "derivation": "Approximately1.685GB (1.57GiB) named payloads before LandClim/examples/four-package sources and metadata. Current root preparation must calculate exact joint copy forecast and refuse above3GiB minus128MiB reserve before mkdir; final plan<=64MiB and inclusive copies+plan+64MiB remaining reserve rechecked before publishing. Each stage time includes its full runtime/input namespace and hash checks. No measured whole-audit speed or aggregate-descendant memory guarantee.",
+    "budget_refusal": "A larger current read closure, excessive native stage time/RSS, output size or unavailable original bytes refuses; no automatic bound increase or missing-input exemption."
+  },
+  "watchdog_limits": "Real parent owns one session and times its complete run child from original entry clock, including child admission, both stages and final scans. Minimal parent source admission/startup and post-reap accounting consume measured780s but have no separate parent watchdog. Exact child PID timeout and owned-group outer termination; no detached-process/full-descendant or OS quota claim.",
+  "root_only_prepare_argv": [
+    "QUALIFIED_PYTHON",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CLEAN_CANDIDATE",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit"
+  ],
+  "root_only_separate_launch_argv": [
+    "QUALIFIED_PYTHON",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "source_author_actions": "Maintained/public source and parent-supplied exact symlink metadata only, plus artificial directory/source fixtures. No private/body hash, target subtree/runtime census, preparer, tool or source audit execution.",
+  "scientific_limits": [
+    "No live-provider completeness",
+    "No semantic full-source confirmation",
+    "No original missing audit or receipt recovered",
+    "No permitted-use/rights/human acceptance",
+    "No ecological or LRA admission",
+    "No source normalization/model/HTTP repeat"
+  ],
+  "directory_presence_correction": {
+    "source_predecessor_manifest_sha256": "c84ff0eb4705b23c1d322f76786eecbe84339e38d58a9c1358448bd80969d73d",
+    "actual_preparation_refusal": "directory-presence-preparation.stderr",
+    "root_metadata_diagnostic_sha256": "c19d9f8cbeb613025a528fc1c92554452aa6f0271aea5f15e1a5a1ba1f65f529",
+    "role_derivation": "Literal fact ownership paths derive from the five exact reviewed authority buffers before input census. Only the native is_dir-before-file-read branch may observe a directory alias.",
+    "observation": "Lexical path, every raw symlink chain, final physical target and directory type, and exact governing fact/field/index roles; no target body, subtree or historical custody claim.",
+    "owned_projection": "Materialize a plain empty directory for the observed directory-only role. Native is_dir result is preserved; no alias or target subtree is copied. Any separate actual file-reading role retains original no-alias path_at/physical_kind guards and refuses.",
+    "checks": "Original observed raw aliases/type stay exact before/after and every prepared-closure verification; cannot repin a changed alias during census. Existing complete source/private namespace and native findings remain strict.",
+    "no_actual_worker_body_or_census": true
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "aadr-current-default-export-source-protocol.v1",
+  "source_only": true,
+  "purpose": "Genuine original AADR ANNO metadata to current maintained default v2 sample exports, with separate independent raw reconstruction and original-row support audit.",
+  "changed_dependency": "Current default exports own sample_chronology and sample_identity JSON fields. A 27-column historical v1 CSV is not a lossless inverse of original ANNO input.",
+  "source_root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody",
+  "declared_inputs": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/declared-inputs.json",
+    "sha256": "06713e3395e9ae6dddb31359074049588a2b94f79d8502e4b46c2ddbfcc5a633",
+    "bytes": 7379
+  },
+  "root_only_preparation": {
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/entry.py",
+      "prepare",
+      "--candidate",
+      "ACTUAL_CURRENT_CLEAN_MAIN_SHA",
+      "--review-sha256",
+      "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export"
+    ],
+    "requirements": [
+      "Authenticate exact source manifest and independently approved peer before local imports.",
+      "Refuse loader environment overrides before pinned Git invocation.",
+      "Require exact clean main; fully hash both original ANNO files, release manifest and four v1 CSVs before any decoder.",
+      "Require exact closed raw release namespace and all reviewed semantic source-contract hashes.",
+      "Capture complete original four-package source/resource namespace including omitted cache/generated identities; independently copy every tracked regular source/resource with exact projected membership.",
+      "Freeze exact owned source and raw source/runtime namespaces before plan creation. No fake Git repository or later live-main equality."
+    ]
+  },
+  "root_only_registration": "Register unique actual plan with its actual SHA, confirm exact readback, then launch in a separate invocation.",
+  "root_only_launch": {
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/entry.py",
+      "launch",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/plan.json",
+      "--registered-plan-sha256",
+      "ACTUAL_REGISTERED_PLAN_SHA256"
+    ]
+  },
+  "stages": [
+    {
+      "id": "maintained-sample-producer",
+      "action": "producer",
+      "timeout_seconds": 180
+    },
+    {
+      "id": "independent-source-sample-observer",
+      "action": "observer",
+      "timeout_seconds": 180
+    }
+  ],
+  "resources": {
+    "completed_whole_seconds": 420,
+    "outer_wall_seconds": 480,
+    "declared_peak_child_RSS_bytes": 2147483648,
+    "inclusive_owned_storage_bytes": 536870912,
+    "precopy_free_reserve_bytes": 1073741824
+  },
+  "resource_mechanism": "The outer launcher owns one process group and bounds the full child including custody scans. Stdlib child stages inherit that group. Stage timeouts kill and wait for the exact still-owned child PID; outer timeout kills and waits for its owned group. Completed run final checks include namespace, inputs, catalogue, wall and logical storage accounting.",
+  "resource_limitations": [
+    "No OS memory or storage quota.",
+    "No claim of summed simultaneous descendant RSS or detached descendant cleanup.",
+    "Actual launcher argv spelling and lexical stage argv remain distinct literal evidence."
+  ],
+  "maintained_calls": [
+    "build_homo_sapiens_runtime_manifest_for_version_dir(version_dir)",
+    "AdnaSampleQuery(political_entity=country)",
+    "load_species_samples(manifest, query=AdnaSampleQuery(political_entity=country))",
+    "write_samples_csv(output_path, samples) with default v2 schema",
+    "write_samples_geojson(output_path, samples) with default v2 schema"
+  ],
+  "products": {
+    "maintained_default_exports": "Four 29-field CSVs, four GeoJSON collections and four full typed-record JSON witnesses.",
+    "producer_witness": "maintained-producer-execution.json",
+    "independent_witness": "independent-current-export-review.json",
+    "inner_terminal": "sample-export-terminal.json",
+    "outer_terminal": "sample-launch-terminal.json"
+  },
+  "observer_scope": [
+    "Every typed nested coordinate/identity/chronology/default/native provenance value is independently reconstructed from original ANNO rows.",
+    "Every current CSV cell and full GeoJSON object is independently compared.",
+    "All differences in common historical v1 fields and population are reported without forcing original bytes or chronology equivalence.",
+    "Original dataset and row-ordinal chronology witnesses for every duplicate ID remain ordered and complete. Unequal/disjoint span pair counts, union, merged hull and any introduced open BP gaps are reported.",
+    "Any gap introduced by the unchanged software hull is explicitly scientifically refused. Software export equality does not validate chronology or remove evidence."
+  ],
+  "nonclaims": [
+    "No lossless v1 inverse or missing historical receipt recovery.",
+    "No recovered rich source metadata where the maintained record uses empty/default values.",
+    "No chronology calibration, no disjoint-support scientific acceptance, no genotype, human biological, rights, ecological, pollen, or LRA acceptance.",
+    "No data/API execution, actual preparer, runtime census, producer or native observer performed during source qualification."
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "sweden-lake-evidence-richness.v3",
+  "country": "Sweden",
+  "radii_km": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "candidate_count": 0,
+  "methodology": {
+    "candidate_derivation": "No SVAR lake candidates were admitted because the derived review subset exists without its governing normalized registry.",
+    "candidate_source": "svar_registry_authority_unavailable",
+    "availability_status": "blocked",
+    "refusal_reason": "governing_svar_registry_missing",
+    "governing_surface": "data/svar/normalized/sweden_lake_registry.geojson",
+    "derived_subset_admitted": false,
+    "distance_bands": [
+      10,
+      20,
+      30,
+      40,
+      50
+    ],
+    "temporal_navigation": {
+      "candidate_count": 0,
+      "candidate_with_numeric_context_count": 0,
+      "candidate_with_direct_numeric_pollen_count": 0,
+      "context_summary_count": 0,
+      "context_source_layer_counts": {},
+      "context_window_counts": {},
+      "context_radius_km": 50,
+      "interpretation_rule": "Temporal context summaries support time navigation for the ranked lake set. They remain explicitly separate from direct lake pollen chronology."
+    },
+    "source_temporal_coverage": {
+      "neotoma_pollen": {
+        "record_count": 98,
+        "numeric_interval_record_count": 0,
+        "numeric_interval_share": 0.0,
+        "capture_posture": "calendar_comparable_system_context_without_compact_chronology",
+        "source_bp_labelled_context_record_count": 169,
+        "calendar_comparable_bp_system_context_record_count": 158,
+        "compact_chronology_row_record_count": 0,
+        "spatial_representation": "site point inventory",
+        "temporal_support_posture": "calendar_comparable_system_context_without_compact_chronology",
+        "temporal_support_note": "The compact Neotoma points retain source BP-labelled context without promoting site-level extrema to numeric chronology; admitted sample-owned relational claims govern chronological comparison.",
+        "temporal_scope": "source-labelled site context with separate sample chronology",
+        "distance_scoring_posture": "supporting_pollen_context",
+        "distance_scoring_note": "Use Neotoma to compare pollen context around lakes; only promote it into chronology-aware support when a numeric interval is actually present.",
+        "detail_metrics": {
+          "site_count_with_source_bp_labelled_context": 169,
+          "site_count_with_calendar_comparable_bp_system_context": 158,
+          "site_count_with_compact_chronology_rows": 0,
+          "site_count_without_source_bp_labelled_context": 24
+        },
+        "caveats": [
+          "Source age-range labels include calendar-comparable BP systems, but the compact site layer withholds numeric intervals because extrema do not establish continuous site coverage.",
+          "Some checked-in Neotoma sites remain spatial context only because they do not carry source age-range context."
+        ]
+      },
+      "landclim_pollen": {
+        "record_count": 198,
+        "numeric_interval_record_count": 0,
+        "numeric_interval_share": 0.0,
+        "spatial_representation": "site-sequence points plus time-window model polygons",
+        "temporal_support_posture": "numeric_site_and_reveals_window_intervals",
+        "temporal_support_note": "LandClim sequence points carry explicit temporal posture and REVEALS model cells are published as separate, filterable time-window records.",
+        "temporal_scope": "site-sequence coverage and modeled vegetation windows",
+        "distance_scoring_posture": "supporting_pollen_context",
+        "distance_scoring_note": "Use LandClim to strengthen pollen context around lakes; do not treat it as direct human or archaeological evidence.",
+        "detail_metrics": {
+          "site_sequence_record_count": 490,
+          "numeric_interval_record_count": 368,
+          "grid_cell_count": 77,
+          "temporal_grid_feature_count": 2515
+        },
+        "caveats": [
+          "REVEALS windows are modeled vegetation estimates, not sample-owned chronologies."
+        ],
+        "capture_posture": "numeric_site_sequence_intervals"
+      },
+      "sead_archaeology": {
+        "record_count": 1925,
+        "numeric_interval_record_count": 0,
+        "numeric_interval_share": 0.0,
+        "capture_posture": "linked_chronology_captured",
+        "site_inventory_only_record_count": 838,
+        "spatial_representation": "site inventory plus record-level chronology points",
+        "temporal_support_posture": "linked_chronology_captured",
+        "temporal_support_note": "The optional four-country SEAD site inventory is spatial context, never BP-filtered by its site envelopes. The separate Swedish discovery layer filters only eligible linked record intervals and withholds unresolved features in narrowed windows.",
+        "temporal_scope": "linked archaeology chronology",
+        "distance_scoring_posture": "contextual_archaeology_only",
+        "distance_scoring_note": "Use SEAD to measure archaeology context around lakes; only an eligible linked source-record interval can support a same-period comparison, never a site envelope.",
+        "detail_metrics": {
+          "unresolved_site_count": 1219,
+          "captured_chronology_record_count": 25109,
+          "mapped_temporal_feature_count": 7244,
+          "mapped_chronology_record_count": 13170
+        }
+      }
+    },
+    "raa_density_authority": {
+      "admitted": false,
+      "reason_codes": [
+        "missing_raw_inventory",
+        "missing_raw_summary",
+        "missing_scientific_review"
+      ],
+      "archived_feature_count": null,
+      "heritage_site_count": null,
+      "density_site_count": null,
+      "density_feature_count": null,
+      "reviewer_id": null
+    }
+  },
+  "assessments": []
+}

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/entry.py", line 152, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/entry.py", line 142, in main
+    producer()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/execute.py", line 205, in main
+    require(
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/contracts.py", line 42, in require
+    raise ValueError(message)
+ValueError: Country callable code differs from exact pinned source

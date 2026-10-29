@@ -1,0 +1,150 @@
+{
+  "schema_version": "sweden-portable-country-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "b8741579061bd856303277e07f07c2a9cd78cfb87092ac09ecb640affa058cd7",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/prepared-source-manifest.json",
+    "sha256": "b8741579061bd856303277e07f07c2a9cd78cfb87092ac09ecb640affa058cd7",
+    "bytes": 10487
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/source-qualification.json",
+    "sha256": "6db90eddf8c2bb39ac32c05611864ecea209fb75d61e294022e556cc2c3720c8",
+    "bytes": 9842
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/protocol.json",
+    "sha256": "2e5c647c5dfc7eba6c59247ccadfaa1252824d59b752d68860cdc0c33e060107",
+    "bytes": 4661
+  },
+  "recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/recipe.json",
+    "sha256": "5c1ab53a7dbbaaf43662e3604f465e417fa51390f26d352a1cbe5dcf8cd07ca5",
+    "bytes": 1397
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/source-correspondence.json",
+    "sha256": "31269ae757d4668cfce57ba74acbf57a76d88ff738d2d20ac6e51cda557db1bc",
+    "bytes": 5746
+  },
+  "authenticated_source_members": 42,
+  "authenticated_python_ASTs": 24,
+  "exact_qualified_saved_source_copies": 9,
+  "unchanged_contract_function_ASTs": [
+    "require",
+    "load",
+    "write",
+    "verify_private_ancestry",
+    "git_environment",
+    "identity",
+    "fresh_output",
+    "regular_tree",
+    "registered_plan",
+    "stage_plan",
+    "bootstrap",
+    "strict_equal"
+  ],
+  "runtime_metadata_validator_AST_exact": true,
+  "author_final_complete_schema_both_gate_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/preflight/final-admission-proof.json",
+    "sha256": "ee5ec10006b806793d0ed308646ac3757b520992e294af78ef13613ff63ca316",
+    "bytes": 1384
+  },
+  "independent_controls": {
+    "actual_exit": 0,
+    "session": 75080,
+    "groups": 37,
+    "profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "driver": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-portable-country-independent-review/check_source.py",
+      "sha256": "c7137941ea866a1784fe46ace653fa9c1b4ac9a3fedbd1e0f4b447bd0f0ecb84",
+      "bytes": 13198
+    },
+    "proof": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-portable-country-independent-review/independent-controls.json",
+      "sha256": "1b7abdbd0b9bb687cb06c17906923614c0f7a022f6186849014f37497ca2e573",
+      "bytes": 2211
+    },
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-portable-country-independent-review/controls.stdout",
+      "sha256": "18e6f134e62ed0a56fccbc72a18fb2ff5c2c4356d76cf4941a5e305d0d6a67c4",
+      "bytes": 33
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-portable-country-independent-review/controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cases": [
+      "actual qualifier preserves original1/normalreturn1/saved0/checker2 on artificial metadata",
+      "Boolean saved zero",
+      "original whole relabeled",
+      "invent full returned object",
+      "invent read ledger",
+      "new country call",
+      "weaken original criterion",
+      "hide custody refusal",
+      "omit semantic class",
+      "Boolean semantic count",
+      "unknown byte status",
+      "missing saved review catalogue role",
+      "missing saved history input role",
+      "wrong original product root",
+      "runtime candidate conflated",
+      "complete ordered country/saved input ledgers with owned private bodies excluded",
+      "owned private body cannot masquerade as package source",
+      "private body cannot masquerade as executed controller source",
+      "registered SHA placeholder changes only metadata digest and preserves exact payload/encoded forecast length",
+      "same-byte original source ancestor alias",
+      "actual checkpoint performs original ancestry check before expected-body verification",
+      "verify complete42 final schema",
+      "reviewed_controls complete42 final schema",
+      "verify mandatory country-authority.json omitted",
+      "reviewed_controls mandatory country-authority.json omitted",
+      "verify mandatory saved-authority.json omitted",
+      "reviewed_controls mandatory saved-authority.json omitted",
+      "verify mandatory declared-inputs.json omitted",
+      "reviewed_controls mandatory declared-inputs.json omitted",
+      "verify mandatory members.py omitted",
+      "reviewed_controls mandatory members.py omitted",
+      "verify file shadow",
+      "reviewed_controls file shadow",
+      "verify FIFO shadow",
+      "reviewed_controls FIFO shadow",
+      "verify directory shadow",
+      "reviewed_controls directory shadow"
+    ]
+  },
+  "semantic_review": [
+    "The complete original owner criterion remains literal in source declaration and native witness. Current governed-receipt succession is separate from historical receipt construction and eventual canonical adjudication.",
+    "Original country controller1/whole1 and one normally returned country call remain distinct from saved observer0/whole0 and future metadata assembly/observer outcomes.",
+    "All six semantic classes and separate exact byte checker0-or2 are preserved; actual checker2 and scientific differences are not forced to zero.",
+    "Expected typed ANNO reconstruction is not a captured full return; actual saved CSV/GeoJSON/locality/summary comparisons remain separately labelled. Missing full-return/read-origin telemetry is not reconstructed.",
+    "Public selectors retain complete owned public source/resources, original comparands, derived country outputs, raw plans/ledgers/controller files/stream histories and original ordered identities. Owned private/normalized and runtime/bytecode bodies remain omitted.",
+    "Both metadata stages reconstruct the closed content-addressed packet and descriptor from immutable original roles. Actual registered SHA replaces one fixed-length placeholder after preparation; no captured code is imported.",
+    "Mandatory source JSON declarations and original source/private ancestor checks are explicit, with no extra private body hashing for ancestry checks."
+  ],
+  "findings": [],
+  "prior_reviewer_harness_refusal": {
+    "session": 22432,
+    "actual_exit": 1,
+    "reason": "Artificial prefix lacked its own preflight parent and imported source outside SOURCE3331 reviewer namespace. Corrected only reviewer-owned fixture creation and byte-exact source-copy imports. No production source or predicate changed.",
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-portable-country-independent-review/initial-controls.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-portable-country-independent-review/initial-controls.stderr",
+      "sha256": "c9a0f2496081cf603cda0db0e1d615c74ff5511244d1fc0a5c23ac610c569b2a",
+      "bytes": 2311
+    }
+  },
+  "limitations": [
+    "Approval covers source and artificial controls, not an actual retainer/preparer/packet or canonical owner admission.",
+    "No real saved product/private body, runtime/SDK census, country/API/model/R, Git, native process, canonical or STATE operation was executed.",
+    "The copied source used by controls is the reviewed authored controller, not code from a retained packet. Only the artificial construction prefix is reused from author fixtures; mutations and gate/custody controls are independent.",
+    "Original generated receipt construction, historical full return/read origins, vegetation accuracy, acquisition/redistribution rights, human approval and LRA remain unqualified."
+  ]
+}

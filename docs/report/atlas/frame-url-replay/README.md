@@ -30,6 +30,53 @@ All modeled frames are labeled `context_only`, with interpolation and propagatio
 
 Twelve earlier atlas browser candidate producer regressions remain historical source checks. The current browser verifier passed with zero runtime errors; the receipt binds the input and served byte hashes.
 
+## Original numerical source custody
+
+The retained [request](reference/native-product/request.json) declares a synthetic,
+exploratory calculation with seed 7, one deterministic REVEALS iteration and one
+analytical LOVE repeat. Its [scientific manifest](reference/native-product/scientific_manifest.json)
+names the Python/NumPy/SciPy backend, disqover 0.9.14 compatibility and engine
+version `0.1.9.dev37`. These identities describe the retained calculation;
+the atlas frame producer reuses its results.
+
+All 24 retained reference files agree with their recorded SHA256 identities.
+The 11 numerical CSV files also agree with the original product manifest and
+the nested checksum lengths and hashes.
+The retained primary means are:
+
+| Retained stage | Native unit | Alnus | Betula |
+| --- | --- | --- | --- |
+| Regional REVEALS | percent | 60.0 | 40.0 |
+| Local analytical LOVE | fraction | 0.9315214003755345 | 0.06847859962446534 |
+
+The regional and local standard-deviation cells are empty for both taxa. Those
+four missing statistics remain unavailable. Local `cover_q10.csv` and
+`cover_q90.csv` are byte-identical to `cover_mean.csv` in this deterministic
+one-repeat product; they do not establish a calibrated uncertainty interval.
+Chronology, basin geometry, parameter domain, spatial model and PPE covariance
+remain explicitly omitted uncertainty channels in the request.
+
+The declared host version identifies reachable source revision
+[`1f01c1bb8ff1d3d423f20202cfd72195ea6057d8`](https://github.com/bijux/bijux-pollenomics/tree/1f01c1bb8ff1d3d423f20202cfd72195ea6057d8).
+At that revision, exact Git bodies independently match 92 of the product's
+93 recorded code/resource SHA256 identities: 48 engine files, 43 host adapter
+files and the host publication file `core/owned_tree.py`. The remaining engine
+identity is the generated `_build_version.py`, recorded as
+`d26d7669ad664274e59725c164db5c803b340331ecc29807dd255d2f9b20721f`;
+its original bytes or an exact authenticated derivation remain unbound.
+
+The original request also names `raw_snapshot.txt`, `chronology.txt`,
+`geometry.txt`, `taxa.txt`, `parameters.txt`, `dependency_lock.txt` and
+`decision.txt`. Their original hash-bound bodies remain unavailable at the
+report product's declared relative paths; absence from every possible custody
+location has not been established. The original numerical invocation and
+terminal are also unbound. The source correspondence and retained results
+therefore advance custody evidence while the original numerical-producer
+criterion remains unresolved. A new calculation would carry its own execution
+identity and could not retrospectively certify this product. Scientific
+acceptance remains `not_evaluated`, with no empirical vegetation accuracy or
+publication authorization established.
+
 ## Reproduction
 
 From the repository root, use an absent destination below `artifacts/` and the retained product and geometry inputs:

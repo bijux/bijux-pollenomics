@@ -1,0 +1,31 @@
+{
+  "schema_version": "git-retained-source.v1",
+  "capture": {
+    "name": "capture.json",
+    "sha256": "e1688f600fb46aa608de34aa7f3f9a638c3b4b41b793f7752b69f68771307fe7",
+    "bytes": 913
+  },
+  "historical_native_epochs": [],
+  "source_revision_correspondence": [
+    {
+      "historical_source_commit": "e643986a963f903f987b1e75753a617d9114e7eb",
+      "source_revision": "459592e88230b899f3527017ef297cf19392330d"
+    }
+  ],
+  "git_groups": [
+    {
+      "historical_source_commit": "e643986a963f903f987b1e75753a617d9114e7eb",
+      "source_revision": "459592e88230b899f3527017ef297cf19392330d",
+      "git_entries_sha256": "19848b4117c99b21e2b020b798769495277eed570ee4fdd1eaede7a3ff906df4",
+      "member_count": 1,
+      "paths": [
+        [
+          "api-before-relocation.py",
+          "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py"
+        ]
+      ]
+    }
+  ],
+  "generated_members": [],
+  "rewritten_source_epoch_executed": false
+}

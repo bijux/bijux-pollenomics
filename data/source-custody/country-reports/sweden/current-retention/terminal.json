@@ -1,0 +1,103 @@
+{
+  "schema_version": "sweden-country-semantic-terminal.v1",
+  "candidate": "61d24c1ebcd705ef5805d15d5a9863292c5089c9",
+  "plan_sha256": "eb6ea543166a950038caebbef12836ea1be84367c799620a01f932ee406dd2dc",
+  "actual_exit": 0,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/plan.json",
+    "--registered-plan-sha256",
+    "eb6ea543166a950038caebbef12836ea1be84367c799620a01f932ee406dd2dc"
+  ],
+  "stages": [
+    {
+      "id": "portable-returned-country-source-assembly",
+      "action": "assembler",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/entry.py",
+        "assembler",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 72.13526175002335,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/portable-returned-country-source-assembly.stdout",
+        "sha256": "4b980e7c45bd02bec68dce1a44ce7ad2047ded2e286feccb8e9669c6f292dd9f",
+        "bytes": 256
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/portable-returned-country-source-assembly.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "id": "independent-portable-country-source-observer",
+      "action": "observer",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/entry.py",
+        "observer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 74.64680899999803,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/independent-portable-country-source-observer.stdout",
+        "sha256": "6242317a018cd5d986d28ab757904e2108e397dd73e1bb3fab2c35ca82c30434",
+        "bytes": 288
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/independent-portable-country-source-observer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "exception": null,
+  "after_custody_error": null,
+  "completed_elapsed_seconds": 216.7944403750007,
+  "completed_child_peak_RSS_bytes_macos": 1375223808,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_whole_wall_bound_pass": true,
+  "products_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/output-products.json",
+    "sha256": "36d66d88db5bac12087a2b7eb584e1a86cc5c459d740037e90ee149f026f8e85",
+    "bytes": 745470
+  },
+  "products_count_before_manifest": 2390,
+  "own_receipt_reserve_bytes": 16384,
+  "outer_receipt_reserve_bytes": 16384,
+  "source_freeze_identity": {
+    "candidate": "61d24c1ebcd705ef5805d15d5a9863292c5089c9",
+    "status": "",
+    "tracked_inventory_sha256": "5112d5c81176dbc81a6c31920bdf5e174636c4445dc86cdce7f7bf82f38dc805"
+  },
+  "live_canonical_equality_claimed": false,
+  "OS_quota_or_full_descendant_RSS_claimed": false,
+  "resources": {
+    "overall_timeout_seconds": 480,
+    "outer_timeout_seconds": 540,
+    "declared_memory_bytes": 4294967296,
+    "declared_storage_bytes": 1073741824
+  },
+  "retained_input_output_logical_bytes_included": 192317510,
+  "scope": "Two public-source metadata stages only. Actual country call returned normally inside original controller1/whole1; separate saved observer0/whole0 is retained. No recovered full return, read ledger or import origins, and no country/API/data normalization/model/R/HTTP repetition."
+}

@@ -30,6 +30,12 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.adna.current_domain import (
+    validated_current_domain_evidence,
+)
+from .scientific_captures.adna.current_export import (
+    validated_aadr_current_export_evidence,
+)
 from .scientific_captures.author_grid.admission import (
     validated_author_grid_capture,
 )
@@ -49,6 +55,9 @@ from .scientific_captures.controlled_numerical.love_objective import (
 )
 from .scientific_captures.controlled_numerical.lra_comparison import (
     validated_controlled_lra_comparison_capture,
+)
+from .scientific_captures.country_reports.sweden import (
+    validated_sweden_country_capture,
 )
 from .scientific_captures.lake_registry.neotoma_lake import (
     validated_neotoma_lake_capture,
@@ -77,6 +86,9 @@ from .scientific_captures.nordic_static_basin import (
 from .scientific_captures.pollen_source.amsoldingersee import (
     validated_amsoldingersee_capture,
 )
+from .scientific_captures.pollen_source.neotoma_counts import (
+    validated_neotoma_selected_count_evidence,
+)
 from .scientific_captures.pollen_source.neotoma_publication import (
     validated_neotoma_publication_capture,
 )
@@ -97,6 +109,9 @@ from .scientific_captures.pollen_source.swedish_direct_pollen import (
 )
 from .scientific_captures.representative_performance import (
     validated_representative_performance_capture,
+)
+from .scientific_captures.source_accounting.current_audit import (
+    validated_current_source_accounting_capture,
 )
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
@@ -395,6 +410,25 @@ def validated_maintained_report_sources(
     )
     if openland_entries or neotoma_publication_entries:
         raise ReportRebuildError("Original owner acceptance remains unresolved")
+    adna_current_export_evidence = validated_aadr_current_export_evidence(
+        repository, inventory["owners"]
+    )
+    adna_current_domain_evidence = validated_current_domain_evidence(
+        repository, inventory["owners"], adna_current_export_evidence
+    )
+    neotoma_count_evidence = validated_neotoma_selected_count_evidence(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    source_accounting_entries, source_accounting_evidence = (
+        validated_current_source_accounting_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    sweden_semantic_entries, sweden_semantic_evidence = (
+        validated_sweden_country_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
     all_capture_entries = (
         (
             (
@@ -429,6 +463,8 @@ def validated_maintained_report_sources(
         + amsoldingersee_entries
         + swedish_direct_entries
         + empd2_nfi_entries
+        + source_accounting_entries
+        + sweden_semantic_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -528,4 +564,16 @@ def validated_maintained_report_sources(
         evidence["retained_swedish_direct_source_capture"] = swedish_direct_evidence
     if empd2_nfi_evidence:
         evidence["retained_empd2_nfi_source_capture"] = empd2_nfi_evidence
+    if adna_current_export_evidence is not None:
+        evidence["retained_adna_current_export_evidence"] = adna_current_export_evidence
+    if adna_current_domain_evidence is not None:
+        evidence["retained_adna_current_domain_evidence"] = adna_current_domain_evidence
+    if neotoma_count_evidence:
+        evidence["current_neotoma_selected_count_partial_evidence"] = (
+            neotoma_count_evidence
+        )
+    if source_accounting_entries:
+        evidence["retained_current_source_accounting"] = source_accounting_evidence
+    if sweden_semantic_evidence is not None:
+        evidence["retained_sweden_current_semantic_replay"] = sweden_semantic_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

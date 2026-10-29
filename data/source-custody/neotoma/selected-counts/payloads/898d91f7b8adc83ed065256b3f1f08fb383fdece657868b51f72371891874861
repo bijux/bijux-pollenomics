@@ -1,0 +1,143 @@
+{
+  "schema_version": "neotoma-current-count-source-protocol.v1",
+  "source_only": true,
+  "root_only_prepare_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "DYNAMIC_ACTUAL_CLEAN_MAIN_SHA",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-source-review"
+  ],
+  "root_only_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-source-review/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "unique_root_registration_and_readback_required_before_separate_launch": true,
+  "prospective_output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-source-review",
+  "producer": "Actual maintained read_neotoma_evidence(raw_root,normalized_root) and build_neotoma_candidate_series(evidence, selected_sample_ids), called from exact owned four-package source. No normalization/model/R/HTTP.",
+  "request_roles": [
+    {
+      "sample_id": 173174,
+      "dataset_id": 19913,
+      "site_id": 13338,
+      "part": "part-004.json",
+      "normalized_sample_row_index": 190
+    },
+    {
+      "sample_id": 552101,
+      "dataset_id": 53995,
+      "site_id": 28869,
+      "part": "part-008.json",
+      "normalized_sample_row_index": 10690
+    },
+    {
+      "sample_id": 552389,
+      "dataset_id": 54001,
+      "site_id": 28872,
+      "part": "part-008.json",
+      "normalized_sample_row_index": 10911
+    }
+  ],
+  "source_inputs": {
+    "original_catalog_roles": 30,
+    "declared_original_bytes": 776424843,
+    "all_nine_raw_parts_and_all_normalized_surfaces_pinned_before_decode": true,
+    "exact_closed_raw_and_normalized_namespaces": true,
+    "six_existing_public_receipts_manifests_reports_bound": true,
+    "private_payloads_copied_to_owned_source_or_publication": false
+  },
+  "source_custody": "Physical noalias held entry before any helper import; exact Git executable/size/SHA and loader-environment rejection before any Git command; original expected held/declared/semantic rows preserved across runtime/source census by conflict-refusing InputScope; final source/member/alias checks before first output and before plan publication. Copy complete tracked four-package source/resources; preserve but do not execute/copy original cache bytecode and only exact configured generated LRA build-version omission. Future source execution uses owned source independent from later canonical edits.",
+  "runtime_custody": "Unchanged qualified actual147 runtime source helper authenticates its original successful observation and failed original bootstrap distinction, complete original pins/namespaces/aliases/absence/native origin closure; source runtime epoch and new source candidate are distinct. Site-enabled -I-B execution. No unqualified runtime substitution.",
+  "plan_binding": "Parent/common runner and both actual children parse the same raw plan bytes only after exact registered SHA. Parent updates plan environment before injecting the registered child SHA. Missing/wrong/rebound plan buffers refuse before payload decode.",
+  "stages": [
+    {
+      "id": "maintained-selected-source-series",
+      "timeout_seconds": 180,
+      "action": "producer"
+    },
+    {
+      "id": "independent-native-count-locator-observer",
+      "timeout_seconds": 120,
+      "action": "observer"
+    }
+  ],
+  "resources": {
+    "completed_whole_seconds": 330,
+    "outer_owned_child_seconds": 390,
+    "declared_peak_RSS_bytes": 4294967296,
+    "inclusive_owned_output_bytes": 134217728
+  },
+  "memory_forecast": {
+    "basis": "Conservative source metadata forecast; no private preflight or actual memory guarantee. Maintained reader authenticates and loads complete raw and normalized authorities. Independent observer retains indexed non-observation surfaces and two raw parts, then reads observation parts in sequence.",
+    "prior_named_actual_receipt": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/source-custody/neotoma/lakeparameters/execution/prerequisites/lakeparameter-terminal.json",
+      "sha256": "eb06b22a66f876afe4fac9bc2d091a85cf04e381c23001dfffda06fad331658f",
+      "bytes": 2045
+    },
+    "prior_actual_completed_child_peak_rss_bytes_macos": 2016460800,
+    "prior_declared_memory_bytes": 4294967296,
+    "decision": "Use4GiB before freeze rather than claim decoded776MB source fits2GiB. Runtime verifies observed child RSS after completion; no aggregate descendant RSS or OS quota claim."
+  },
+  "watchdog_scope": "390s real parent wait covers entire delegated inner child including source admission, both stages and final scans. Parent entry/startup and post-reap receipt accounting consume measured outer time but have no separate parent watchdog. Children inherit inner owned session; timeout kills that owned group, no detached-descendant proof. Completed inner wall330/RSS/storage checks retain all failures and native exits.",
+  "independent_scientific_scope": [
+    "Complete canonical maintained selected-series typed/byte comparison to separately implemented raw/normalized reconstruction.",
+    "Exact sample/dataset/collection-unit/site roles, raw parent source payloads/native IDs/snapshot/build and companion site.dataset fields; retained country consistency only, no independent boundary attribution.",
+    "Every selected raw observation including multiplicity, exact typed taxon/name/element/unit/value, legitimate zero and missing/null/fractional/nonfinite/Boolean/negative/noncount refusal; all three full selected mass rows and original normalized row locators/canonical hashes.",
+    "All native sample age alternatives, default-source assertions and bounds retained with independently checked refusal semantics; no selected chronology or hull/support collapse.",
+    "Actual own-source API origins and no numerical engine/facade imports.",
+    "Historical original_mass_sha256 and manifest historical comparisons remain explicitly unrecovered construction assertions; public files are authenticated without claiming their original construction or physical-core proof."
+  ],
+  "claims_not_made": [
+    "Original fe589394 mass object or missing historical receipt recovered",
+    "Original independent custody-manifest construction/approval recovered",
+    "New HTTP acquisition/source-rights authority",
+    "Common physical core from coordinate proximity or matching counts",
+    "Selected age/uncertainty/basin/taxon/PPE/count-denominator/scientific/human/LRA admission"
+  ],
+  "source_only_author_did_not_execute": [
+    "Private payload body decoding or application/numerical/native API",
+    "Target runtime or import census",
+    "Preparation/owned-source copying/source export",
+    "Model/R/HTTP/Git/STATE/canonical mutation"
+  ],
+  "followthrough": "After actual genuine pass only, root may prepare a separately scoped current-source certificate/retained admission. These controls neither change the four existing unresolved historical owner clauses nor predeclare their closure.",
+  "prior_read_only_identity_check_disclosure": {
+    "receipt": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-feasibility/physical-input-feasibility.json",
+      "sha256": "146f24d00324ee6259b886c63290e2d807b6e89681b93b83005cd309f856cab2",
+      "bytes": 34959
+    },
+    "finite_SHA_only_check": {
+      "occurred_before_parent_narrowed_private_checks_to_lstat_and_declared_hashes": true,
+      "exact_scope": "Ten unique declared core-manifest inputs: two raw archive parts, raw manifest, LandClim metadata workbook and receipt, governed prerequisite projection, two maintained source modules, two public count-mass JSONs. All matched declared SHA/size. Streaming hashes only; raw/workbook/projection bodies not decoded.",
+      "files": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abborrtjarne_core.py",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+        "data/landclim/raw/landclim_sources.json",
+        "docs/report/source-relations/neotoma/lra-prerequisites/projection.json",
+        "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_core_correspondence.py",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json"
+      ],
+      "further_private_payload_hashing_after_narrowed_instruction": false
+    },
+    "scientific_data_consumer_or_source_acquisition_authority_claimed": false,
+    "current_private_feasibility_checks_after_narrowed_instruction": "Physical lstat/noalias/size and declared expected identities only; no additional private payload SHA computation or body decoding."
+  }
+}

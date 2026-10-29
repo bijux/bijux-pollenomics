@@ -1,0 +1,183 @@
+"""Reconstruct every selected typed field and both v2 transports from original ANNO rows."""
+
+from __future__ import annotations
+
+import argparse
+from collections import Counter
+import csv
+import json
+from pathlib import Path
+from typing import Any
+
+from contracts import COUNTRIES, checkpoint, execution_scope, require, stage_plan, write
+from independent import (
+    CURRENT_FIELDS,
+    FIELDS,
+    csv_record,
+    geojson,
+    historical,
+    reconstruct,
+    same,
+    typed_record,
+)
+from source_inputs import pin
+
+
+def read_json(path: Path) -> Any:
+    def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
+        require(len(rows) == len({key for key, _ in rows}), "Duplicate output JSON key")
+        return dict(rows)
+
+    def refuse(value: str) -> None:
+        raise ValueError("Nonfinite output JSON: " + value)
+
+    return json.loads(path.read_bytes(), object_pairs_hook=pairs, parse_constant=refuse)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = stage_plan(args.plan)
+    authority, scope = execution_scope(plan)
+    require(
+        plan["countries"] == list(COUNTRIES),
+        "Exact four native country queries required",
+    )
+    release = Path(plan["release_directory"])
+    paths = [
+        release / "1240k/v66.1240K.aadr.PUB.anno",
+        release / "ho/v66.HO.aadr.PUB.anno",
+    ]
+    expected, counts, raw_counts, support_audits = reconstruct(paths, list(COUNTRIES))
+    output = Path(plan["output"])
+    witness = read_json(output / "maintained-producer-execution.json")
+    require(
+        type(witness["actual_exit"]) is int
+        and witness["actual_exit"] == 0
+        and witness["candidate"] == plan["candidate"],
+        "Actual maintained producer witness differs",
+    )
+    require(
+        witness["numerical_import_attempts"] == []
+        and witness["new_current_source_contract"] is True
+        and witness["legacy_v1_inverse_or_historical_reproduction_claimed"] is False
+        and witness[
+            "rich_native_provenance_recovered_or_genotype_rights_ecology_human_LRA_admitted"
+        ]
+        is False,
+        "Producer scope inflated",
+    )
+    require(
+        [row["country_query"] for row in witness["countries"]] == list(COUNTRIES),
+        "Producer country population differs",
+    )
+    actual_files = set()
+    for path in (output / "producer").iterdir():
+        require(
+            path.is_file() and not path.is_symlink(),
+            "Producer alias/special/unknown directory",
+        )
+        actual_files.add(path.name)
+    require(
+        actual_files
+        == {
+            country.casefold() + suffix
+            for country in COUNTRIES
+            for suffix in (".csv", ".geojson", ".typed.json")
+        },
+        "Exact twelve generated products required",
+    )
+    reviews = []
+    for country, recorded in zip(COUNTRIES, witness["countries"], strict=True):
+        stem = country.casefold()
+        samples = expected[country]
+        typed_path = output / "producer" / (stem + ".typed.json")
+        typed = read_json(typed_path)
+        same(
+            typed,
+            {
+                "country_query": country,
+                "actual_typed_records": [typed_record(sample) for sample in samples],
+                "actual_dataset_row_counts": counts[country],
+            },
+        )
+        require(
+            type(recorded["sample_count"]) is int
+            and recorded["sample_count"] == len(samples),
+            "Producer sample count differs from independent raw reconstruction",
+        )
+        same(recorded["dataset_row_counts"], counts[country])
+        csv_path = output / "producer" / (stem + ".csv")
+        with csv_path.open(encoding="utf8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            require(
+                reader.fieldnames == list(CURRENT_FIELDS),
+                "Current native CSV must have exact29 fields",
+            )
+            actual_csv = list(reader)
+        expected_csv = [csv_record(sample) for sample in samples]
+        same(actual_csv, expected_csv)
+        geo_path = output / "producer" / (stem + ".geojson")
+        same(read_json(geo_path), geojson(samples))
+        for role, path in (
+            ("csv", csv_path),
+            ("geojson", geo_path),
+            ("typed", typed_path),
+        ):
+            same(recorded["products"][role], pin(path))
+        old_path = (
+            Path(plan["private_source_root"])
+            / f"docs/report/countries/{stem}/{stem}_aadr_v66_samples.csv"
+        )
+        with old_path.open(encoding="utf8", newline="") as handle:
+            reader = csv.DictReader(handle)
+            require(
+                reader.fieldnames == list(FIELDS),
+                "Retained comparison requires exact27-field v1 header",
+            )
+            old = list(reader)
+        require(
+            all(row["schema_version"] == "adna-sample-record-export.v1" for row in old),
+            "Historical comparison schema differs",
+        )
+        comparisons = historical(old, expected_csv)
+        reviews.append(
+            {
+                "country_query": country,
+                "current_unique_samples": len(samples),
+                "current_dataset_row_counts": counts[country],
+                "full_typed_and_v2_CSV_GeoJSON_equal": True,
+                "chronology_refusals": dict(
+                    sorted(
+                        Counter(
+                            sample["chronology"]["refusal_reason_code"] or "not_refused"
+                            for sample in samples
+                        ).items()
+                    )
+                ),
+                "legacy_v1_comparison": comparisons,
+                "duplicate_native_chronology_support_audit": support_audits[country],
+            }
+        )
+    checkpoint(authority, scope, plan["owned_namespace_snapshots"])
+    write(
+        output / "independent-current-export-review.json",
+        {
+            "candidate": plan["candidate"],
+            "actual_exit": 0,
+            "independent_raw_source_rows_observed": raw_counts,
+            "countries": reviews,
+            "actual_producer_witness": pin(
+                output / "maintained-producer-execution.json"
+            ),
+            "full_typed_metadata_and_both_default_v2_transports_verified": True,
+            "historical_byte_equality_required_or_assumed": False,
+            "software_interval_hull_does_not_validate_disjoint_scientific_support": True,
+            "disjoint_support_gaps_remain_scientifically_refused": True,
+            "old_v1_inverse_or_original_missing_receipt_recovery": False,
+            "optional_native_and_chronology_provenance_defaults_are_not_recovered_evidence": True,
+            "genotype_biology_ecology_rights_calibration_or_LRA_acceptance": False,
+            "independent_observer_calls_public_loader_or_exporter": False,
+        },
+    )

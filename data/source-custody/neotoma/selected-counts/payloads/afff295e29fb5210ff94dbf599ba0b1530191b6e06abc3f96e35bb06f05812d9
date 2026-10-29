@@ -1,0 +1,74 @@
+{
+  "schema_version": "neotoma-swedish-lake-count-mass-crosscheck.v1",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "original_mass_sha256": "fe589394b134de482195045819437c4cd567ea15833e54cb002fb95648024e19",
+  "lra_accepted_samples": 0,
+  "sample_rows": [
+    {
+      "count_candidate_observations": 53,
+      "country_code": "SE",
+      "known_compatible_pollen_denominator_status": "not_evaluated",
+      "lra_admission_status": "refused",
+      "nonpollen_count_observations": 6,
+      "observations": 53,
+      "pollen_count_observations": 46,
+      "refused_count_observations": 0,
+      "sample_id": "neotoma:sample:552101",
+      "source_locator": {
+        "authority": "normalized",
+        "path": "surfaces/samples/part-00001.json",
+        "row_index": 10690,
+        "row_sha256": "495dd1e3a626dc943daa3a0767528000eabe1bb1b838221b28c656a2acdfbe5c",
+        "surface": "samples"
+      },
+      "source_unit_partitions": [
+        {
+          "nonpollen_count_observations": 6,
+          "nonpollen_exact_count_sum": 131,
+          "nonpollen_observed_zero_observations": 0,
+          "pollen_count_observations": 46,
+          "pollen_exact_count_sum": 1963,
+          "pollen_observed_zero_observations": 0,
+          "source_unit": "NISP",
+          "unresolved_label_count_observations": 1,
+          "unresolved_label_exact_count_sum": 11,
+          "unresolved_label_observed_zero_observations": 0
+        }
+      ],
+      "unresolved_label_count_observations": 1
+    },
+    {
+      "count_candidate_observations": 53,
+      "country_code": "SE",
+      "known_compatible_pollen_denominator_status": "not_evaluated",
+      "lra_admission_status": "refused",
+      "nonpollen_count_observations": 10,
+      "observations": 54,
+      "pollen_count_observations": 43,
+      "refused_count_observations": 1,
+      "sample_id": "neotoma:sample:552389",
+      "source_locator": {
+        "authority": "normalized",
+        "path": "surfaces/samples/part-00001.json",
+        "row_index": 10911,
+        "row_sha256": "d64d7bf5da94f411daebe4df4bdeaf48d08fc71876727e7bebd2949111c48277",
+        "surface": "samples"
+      },
+      "source_unit_partitions": [
+        {
+          "nonpollen_count_observations": 10,
+          "nonpollen_exact_count_sum": 279,
+          "nonpollen_observed_zero_observations": 0,
+          "pollen_count_observations": 43,
+          "pollen_exact_count_sum": 540,
+          "pollen_observed_zero_observations": 0,
+          "source_unit": "NISP",
+          "unresolved_label_count_observations": 0,
+          "unresolved_label_exact_count_sum": 0,
+          "unresolved_label_observed_zero_observations": 0
+        }
+      ],
+      "unresolved_label_count_observations": 0
+    }
+  ]
+}

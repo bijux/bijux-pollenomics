@@ -1,0 +1,203 @@
+"""Authenticate completed current source-audit receipts and select only exact public custody payloads."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
+
+from contracts import (
+    LEDGER_SHA,
+    NATIVE,
+    NATIVE_SOURCE,
+    PACKET_LIMIT,
+    PLAN_SHA,
+    SOURCE,
+    SOURCE_SHA,
+    physical,
+    require,
+    verify_original_and_owned_data_ancestry,
+)
+from packet import (
+    INNER_SHA,
+    OUTER_SHA,
+    SCHEMA,
+    SCOPE,
+    blob,
+    data_copy_correspondence,
+    indexed,
+    input_roles,
+    json_object,
+    outer_stream_correspondence,
+    output_namespace,
+    qualify_scope,
+    retention_input_rows,
+    selected_catalogue_rows,
+    source_join,
+    validate_packet,
+)
+from runtime_contracts import namespace_snapshot, verify_base_namespaces
+from source_admission import reviewed_controls
+from source_inputs import exact_union, pin, verify_rows
+
+
+def expected(path: Path, checksum: str) -> tuple[dict[str, Any], dict[str, Any]]:
+    require(
+        path.is_file()
+        and path.is_absolute()
+        and path == path.resolve()
+        and not any(p.is_symlink() for p in (path, *path.parents)),
+        "Physical sealed JSON required",
+    )
+    raw = path.read_bytes()
+    require(hashlib.sha256(raw).hexdigest() == checksum, "Sealed JSON buffer differs")
+    row = {"path": str(path), "sha256": checksum, "bytes": len(raw)}
+    return row, json_object(raw)
+
+
+def authenticate(
+    inner_sha: str, outer_sha: str
+) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
+    require(
+        inner_sha == INNER_SHA and outer_sha == OUTER_SHA,
+        "Exact genuine native receipt identities required",
+    )
+    plan_pin, plan = expected(NATIVE / "plan.json", PLAN_SHA)
+    ledger_pin, ledger = expected(NATIVE / "original-source-ledger.json", LEDGER_SHA)
+    inner_pin, inner = expected(NATIVE / "source-audit-terminal.json", inner_sha)
+    outer_pin, outer = expected(NATIVE / "source-audit-launch-terminal.json", outer_sha)
+    require(outer["inner_terminal"] == inner_pin, "Outer/inner literal binding differs")
+    catalogue_pin = inner["products_manifest"]
+    require(
+        catalogue_pin["path"] == str(NATIVE / "output-products.json"),
+        "Catalogue path differs",
+    )
+    catalogue = expected(Path(catalogue_pin["path"]), catalogue_pin["sha256"])[1]
+    original_products = indexed(catalogue["files"])
+    refs = {
+        "plan": plan_pin,
+        "source_ledger": ledger_pin,
+        "inner": inner_pin,
+        "outer": outer_pin,
+        "catalogue": catalogue_pin,
+    }
+    documents = {}
+    for name, key in (
+        ("source-execution.json", "producer"),
+        ("independent-current-audit-review.json", "review"),
+    ):
+        row = original_products[str(NATIVE / name)]
+        refs[key] = row
+        documents[key] = expected(Path(row["path"]), row["sha256"])[1]
+    result = qualify_scope(
+        plan, inner, outer, documents["producer"], documents["review"]
+    )
+    require(
+        len(catalogue["files"]) == inner["products_count_before_manifest"],
+        "Native product population differs",
+    )
+    source_pin, source = expected(
+        NATIVE_SOURCE / "prepared-source-manifest.json", SOURCE_SHA
+    )
+    native_inputs = indexed(plan["input_pins"])
+    peer_pin = native_inputs[str(NATIVE_SOURCE / "independent-source-review.json")]
+    peer = expected(Path(peer_pin["path"]), peer_pin["sha256"])[1]
+    require(
+        peer["approved"] is True and peer["source_manifest_sha256"] == SOURCE_SHA,
+        "Original source approval differs",
+    )
+    authority = plan["qualified_source_runtime"]
+    runtime_plan = expected(
+        Path(authority["plan"]["path"]), authority["plan"]["sha256"]
+    )[1]
+    roles = input_roles(plan, ledger, source, source_pin, peer_pin, runtime_plan)
+    joined = source_join(plan, ledger)
+    stream_correspondence = outer_stream_correspondence(catalogue, outer, inner_pin)
+    own_manifest, own_peer, own_controls = reviewed_controls(SOURCE)
+    public = exact_union(
+        selected_catalogue_rows(plan, catalogue),
+        [row["identity"] for row in roles if row["payload_member"] is not None],
+        list(refs.values()),
+        [outer["stdout"], outer["stderr"]],
+        source["files"],
+        [source_pin, peer_pin],
+        [authority[k] for k in ("plan", "outer", "common", "independent_review")],
+        own_controls,
+    )
+    expected_namespace = output_namespace(plan, catalogue, refs, outer)
+    require(
+        namespace_snapshot(NATIVE, [])["entries"] == expected_namespace["entries"],
+        "Native namespace differs",
+    )
+    bindings = []
+    members: dict[str, dict[str, Any]] = {}
+    sources = {}
+    for row in public:
+        physical(row)
+        name = blob(row)
+        value = {k: row[k] for k in ("sha256", "bytes")}
+        require(
+            name not in members or members[name] == value,
+            "Content address has conflicting size",
+        )
+        members[name] = value
+        sources[name] = row
+        bindings.append({"original": row, "member": name})
+    packet = {
+        "schema_version": SCHEMA,
+        "native_references": refs,
+        "source_controller": {"manifest": source_pin, "review": peer_pin},
+        "metadata_source_controller": {
+            "manifest": pin(own_manifest),
+            "review": pin(own_peer),
+        },
+        "runtime_authority": authority,
+        "public_bindings": bindings,
+        "members": dict(sorted(members.items())),
+        "original_input_roles": roles,
+        "original_data_copy_correspondence": data_copy_correspondence(plan),
+        "original_source_join": joined,
+        "original_output_namespace": expected_namespace,
+        "outer_stream_catalogue_correspondence": stream_correspondence,
+        "receipt_scope": result,
+        "scope": SCOPE,
+    }
+
+    def read(name: str) -> bytes:
+        row = sources[name]
+        physical(row)
+        raw = Path(row["path"]).read_bytes()
+        require(
+            hashlib.sha256(raw).hexdigest() == row["sha256"]
+            and len(raw) == row["bytes"],
+            "Public same-buffer mismatch",
+        )
+        return raw
+
+    validate_packet(packet, read)
+    snapshots = [expected_namespace]
+    verify_base_namespaces(snapshots)
+    inputs = exact_union(retention_input_rows(plan), public)
+    verify_original_and_owned_data_ancestry()
+    verify_rows(inputs)
+    require(
+        namespace_snapshot(NATIVE, [])["entries"] == expected_namespace["entries"],
+        "Native namespace changed during census",
+    )
+    raw = (json.dumps(packet, indent=2, allow_nan=False) + "\n").encode()
+    forecast = len(raw) + sum(row["bytes"] for row in members.values())
+    require(forecast <= PACKET_LIMIT, "Exact packet forecast exceeds finite budget")
+    return (
+        {
+            "packet": packet,
+            "public_rows": public,
+            "member_sources": sources,
+            "exact_packet_bytes": len(raw),
+            "unique_payload_bytes": forecast - len(raw),
+            "total_packet_bytes": forecast,
+            "original_source_input_count": 63315,
+        },
+        inputs,
+        snapshots,
+    )

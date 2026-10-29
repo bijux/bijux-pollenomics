@@ -1,0 +1,29 @@
+[
+  {
+    "id": "maintained-full-Sweden-country-consumer",
+    "action": "producer",
+    "timeout_seconds": 600,
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/entry.py",
+      "producer",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-country-semantic-replay/plan.json"
+    ],
+    "actual_exit": 1,
+    "timed_out": false,
+    "elapsed_seconds": 33.696431207994465,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-country-semantic-replay/maintained-full-Sweden-country-consumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-country-semantic-replay/maintained-full-Sweden-country-consumer.stderr",
+      "sha256": "0f0341c57cc42353be2ab0dcd1fa2e1a8c98b2f95a9d7f76e967e929e1f525a7",
+      "bytes": 679
+    }
+  }
+]

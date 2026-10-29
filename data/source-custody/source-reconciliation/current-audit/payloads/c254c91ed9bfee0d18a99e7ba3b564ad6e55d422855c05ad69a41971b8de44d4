@@ -1,0 +1,602 @@
+"""Test source accounting with artificial authorities and physical owned fixtures only."""
+
+from __future__ import annotations
+
+import ast
+from collections.abc import Callable
+from copy import deepcopy
+import json
+import os
+from pathlib import Path
+import sys
+import tempfile
+import types
+from typing import Any
+from zipfile import ZipFile
+
+SOURCE = Path(__file__).absolute().parent
+sys.path.insert(0, str(SOURCE))
+from contracts import (  # noqa: E402
+    PYTHON,
+    RESOURCES,
+    registered_plan,
+    stage_plan,
+)  # noqa: E402
+from contracts import (  # noqa: E402
+    SOURCE as ACTUAL_SOURCE,
+)
+from inputs.closure import (  # noqa: E402
+    AUTHORITIES,
+    Closure,
+    collect_private,
+    collect_repository,
+    verify_projection,
+)
+from launch import remaining_seconds  # noqa: E402
+from prepare import reviewed_json  # noqa: E402
+from review import intakes, landclim, registries, relations  # noqa: E402
+from review.reader import Reader, digest, object_bytes, same  # noqa: E402
+from review.result import reconstruct, summary  # noqa: E402
+from run import validate_stages  # noqa: E402
+from source_inputs import exact_union, pin  # noqa: E402
+
+ROOT = SOURCE.parents[2]
+MAINTAINED = (
+    ROOT / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion"
+)
+
+
+def refuses(call: Any) -> None:
+    try:
+        call()
+    except (ValueError, TypeError, KeyError):
+        return
+    raise AssertionError("Artificial invalid contract accepted")
+
+
+def emit(root: Path, name: str, value: Any) -> Path:
+    target = root / name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(value, sort_keys=True) + "\n")
+    return target
+
+
+def source_modules() -> dict[str, types.ModuleType]:
+    package = types.ModuleType("controlled_source_audit")
+    package.__path__ = []
+    sys.modules[package.__name__] = package
+    modules = {}
+    for name in ("evidence", "manifests", "landclim", "audit", "intake_custody"):
+        module = types.ModuleType(package.__name__ + "." + name)
+        module.__package__ = package.__name__
+        module.__file__ = str(MAINTAINED / (name + ".py"))
+        sys.modules[module.__name__] = module
+        exec(
+            compile((MAINTAINED / (name + ".py")).read_text(), module.__file__, "exec"),
+            module.__dict__,
+        )
+        modules[name] = module
+    return modules
+
+
+def intake_fixture(root: Path, private: Path) -> None:
+    receipts = []
+    archives = []
+    for ident in sorted(intakes.IDS):
+        received = not ident.endswith("OPENLAND-001")
+        archive = None
+        if received:
+            path = private / (ident + ".archive")
+            path.write_bytes(b"controlled original archive " + ident.encode())
+            archive = {
+                "intake_id": ident,
+                "relative_path": path.name,
+                "sha256": pin(path)["sha256"],
+                "bytes": path.stat().st_size,
+            }
+            archives.append(archive)
+        receipt = {
+            "intake_id": ident,
+            "lifecycle_state": "received" if received else "unavailable",
+            "delivery": {
+                "materialization_status": "received" if received else "unavailable",
+                "sha256": archive["sha256"] if archive else None,
+                "byte_size": archive["bytes"] if archive else None,
+            },
+            "country_coverage": [
+                {"country_code": country, "content_state": "unqualified"}
+                for country in ("DK", "FI", "NO", "SE")
+            ],
+            "decision": {
+                "public_release_allowed": False,
+                "disposition": "retained_only",
+            },
+            "rights": {"status": "restricted"},
+        }
+        path = emit(private, "source-intakes/receipts/" + ident + ".json", receipt)
+        receipts.append(
+            {
+                "intake_id": ident,
+                "path": path.name,
+                "sha256": pin(path)["sha256"],
+                "bytes": path.stat().st_size,
+            }
+        )
+    emit(
+        private,
+        "source-intakes/custody.json",
+        {
+            "schema_version": "source-intake-custody.v1",
+            "receipts": receipts,
+            "archives": archives,
+        },
+    )
+    lookup = {row["intake_id"]: row for row in archives}
+    emit(
+        root,
+        intakes.REPORTS["EXT-2026-09-04-OPENLAND-002"],
+        {
+            "source_archive": {
+                "sha256": lookup["EXT-2026-09-04-OPENLAND-002"]["sha256"]
+            },
+            "independent_vegetation_benchmarks": 0,
+            "rights": {"public_map_or_export_authorized": False},
+        },
+    )
+    emit(
+        root,
+        intakes.REPORTS["EXT-2026-09-04-ROOTSI-001"],
+        {"admission": {"ecological": False, "rights": False}},
+    )
+    emit(
+        private,
+        "landclim/rootsi-workbooks/manifest.json",
+        {"archive_sha256": lookup["EXT-2026-09-04-ROOTSI-001"]["sha256"]},
+    )
+
+
+def base(root: Path) -> None:
+    families = []
+    stages = []
+    cells = []
+    capabilities = []
+    for key in ("neotoma", "sead", "landclim"):
+        families.append(
+            {
+                "source_key": key,
+                "display_name": key,
+                "domain_group": "fixture",
+                "evidence_role": "source_only",
+                "layer_contracts": {
+                    "raw": {
+                        "repository_path": "data/fixture",
+                        "example_artifacts": [
+                            "data/missing.json",
+                            "data/empty-directory",
+                            "data/<template>.json",
+                        ],
+                    }
+                },
+            }
+        )
+        stages.append(
+            {
+                "source_key": key,
+                **dict.fromkeys(
+                    (
+                        "authority_status",
+                        "raw_status",
+                        "normalized_status",
+                        "reviewed_status",
+                        "published_status",
+                    ),
+                    "pending",
+                ),
+            }
+        )
+        for country in ("DK", "FI", "NO", "SE"):
+            cells.append(
+                {
+                    "source_family": key,
+                    "country_code": country,
+                    "country_dimension": "source_reported",
+                    "availability_status": "fixture",
+                }
+            )
+        capabilities.append(
+            {
+                "source_key": key,
+                "dimension": "chronology",
+                "human_review_required": True,
+                "support": "supported",
+                "materialization": "missing",
+                "evidence_paths": ["data/missing.json"],
+                "present_evidence_paths": ["data/missing.json"],
+                "missing_evidence_paths": [],
+            }
+        )
+    emit(root, AUTHORITIES["families"], {"rows": families, "row_count": 3})
+    emit(
+        root,
+        AUTHORITIES["stages"],
+        {
+            "rows": stages,
+            "row_count": 3,
+            "capability_materialization_audit": {"rows": capabilities},
+        },
+    )
+    emit(root, AUTHORITIES["countries"], {"cells": cells, "cell_count": len(cells)})
+    emit(
+        root,
+        AUTHORITIES["postures"],
+        {
+            "rows": [
+                {"source_key": key, "status": "not_qualified"}
+                for key in ("neotoma", "sead", "landclim")
+            ]
+        },
+    )
+    emit(
+        root,
+        AUTHORITIES["ownership"],
+        {
+            "rows": [
+                {
+                    "fact_key": "sead_archaeology_context",
+                    "governing_surface_path": "data/sead/normalized/acquisitions/fixture/manifest.json",
+                    "supporting_surface_paths": [
+                        "data/pattern/<file>.json",
+                        "data/empty-directory",
+                    ],
+                }
+            ]
+        },
+    )
+    (root / "data/empty-directory").mkdir()
+    emit(root, "data/pattern/a.json", {"fixture": 1})
+    dataset = {
+        "rows": [
+            {"id": "dataset-native", "source_dataset_id": 11, "country_code": "SE"}
+        ],
+        "row_count": 1,
+    }
+    part = emit(root, "data/neotoma/relational/datasets.json", dataset)
+    emit(
+        root,
+        "data/neotoma/relational/manifest.json",
+        {
+            "source_snapshot_id": "fixture",
+            "surfaces": {
+                "datasets": {
+                    "id_field": "id",
+                    "row_count": 2,
+                    "part_count": 1,
+                    "parts": [
+                        {
+                            "path": part.name,
+                            "row_count": 1,
+                            "sha256": "0" * 64,
+                            "byte_count": part.stat().st_size,
+                        }
+                    ],
+                }
+            },
+        },
+    )
+    rawpart = emit(
+        root,
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/raw.json",
+        {
+            "rows": [{"site": {"dataset": {"datasetid": 11}}}],
+            "row_count": 1,
+            "downloaded_dataset_ids": [11],
+        },
+    )
+    emit(
+        root,
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        {
+            "requested_dataset_ids": [11, 12],
+            "downloaded_dataset_ids": [11],
+            "requested_dataset_count": 2,
+            "downloaded_dataset_count": 1,
+            "part_count": 1,
+            "parts": [
+                {
+                    "filename": rawpart.name,
+                    "row_count": 1,
+                    "downloaded_dataset_ids": [11],
+                }
+            ],
+        },
+    )
+    native = {
+        "observation_count": 2,
+        **{
+            key: {"fixture": 1}
+            for key in (
+                "country_counts",
+                "observation_table_counts",
+                "chronology_link_status_counts",
+                "taxon_status_counts",
+                "unit_status_counts",
+            )
+        },
+    }
+    emit(
+        root,
+        "data/sead/normalized/acquisitions/fixture/source_native_observations.json",
+        native,
+    )
+    emit(
+        root,
+        "data/sead/normalized/acquisitions/fixture/manifest.json",
+        {
+            "observation_count": 3,
+            "eligible_event_count": 0,
+            "refused_event_count": 2,
+            "files": [{"path": "absent.json", "sha256": "0" * 64}],
+        },
+    )
+    emit(
+        root,
+        "data/sead/raw/acquisitions/fixture/manifest.json",
+        {"files": [], "source_run_id": "fixture"},
+    )
+    taxonomy = root / "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+    taxonomy.parent.mkdir(parents=True)
+    taxonomy.write_text(
+        "Plant taxa/Pollen-morphological types,Land-cover types (LCTs),PFT,PFT definition,FSP (m/s),PPE (SD)\nTaxon,Forest (F),P1,definition,0.1,1 (0.1)\nSecond,,,,0.2,2 (0.2)\n"
+    )
+    with ZipFile(
+        root / "data/landclim/raw/landclim_ii_reveals_results.zip", "x"
+    ) as archive:
+        archive.writestr(
+            "points.csv", "F,P1,UNKNOWN\n1,0.2,0.1\n100,0.3,0.2\nnan,0,0\n"
+        )
+    emit(root, "data/source_intake_contract.schema.json", {"type": "object"})
+    for name in ("openland-intake", "rootsi-landclim-overlap"):
+        emit(root, "docs/report/source-relations/" + name + "/report.json", {})
+
+
+def equivalence(root: Path, modules: dict[str, types.ModuleType]) -> None:
+    expected = modules["audit"].build_source_audit(root)
+    r = Reader(root)
+    prefix, families, ownership = registries.reconstruct(r)
+    neo, sead, climate = (
+        relations.neotoma(r),
+        relations.sead(
+            r, ownership["sead_archaeology_context"]["governing_surface_path"]
+        ),
+        landclim.reconstruct(r),
+    )
+    same(prefix, {key: expected[key] for key in prefix})
+    same(neo, expected["neotoma_relational_reconciliation"])
+    same(sead, expected["sead_authority_reconciliation"])
+    same(climate, expected["landclim_publication_inventory"])
+    same(sorted(r.files.values(), key=lambda row: row["path"]), expected["input_files"])
+    same(
+        sorted(r.verifications.values(), key=lambda row: row["path"]),
+        expected["manifest_byte_verifications"],
+    )
+    same(
+        sorted(
+            r.issues, key=lambda row: (row["path"], row["reason_code"], digest(row))
+        ),
+        expected["accounting_findings"],
+    )
+    assert (
+        families == {"neotoma", "sead", "landclim"}
+        and expected["accounting_checks_pass"] is False
+    )
+    expected["external_intake_custody"] = {
+        "private_custody_manifest_sha256": "fixture",
+        "receipt_count": 3,
+        "verified_original_archives": 2,
+        "country_claim_rows": 12,
+        "scientific_admission": "not_established_by_custody",
+        "historical_receipts": [],
+    }
+    expected["audit_sha256"] = digest(
+        {key: value for key, value in expected.items() if key != "audit_sha256"}
+    )
+    same(summary(expected), modules["audit"].summarize_source_audit(expected))
+
+
+def main() -> None:
+    groups = []
+    modules = source_modules()
+    for left, right in (
+        (False, 0),
+        (0, 0.0),
+        ([1, 2], [2, 1]),
+        (0.0, -0.0),
+        ({"x": 1}, {"x": 2}),
+        (float("nan"), float("nan")),
+    ):
+        refuses(lambda a=left, b=right: same(a, b))
+    groups.append("typed-refusal-and-signed-zero")
+    for raw in (b'{"x":1,"x":2}', b'{"x":NaN}', b"[]"):
+        refuses(lambda value=raw: object_bytes(value))
+    groups.append("strict-source-json")
+    with tempfile.TemporaryDirectory(dir=SOURCE / "preflight") as name:
+        owned = Path(name)
+        root = owned / "repository"
+        root.mkdir()
+        base(root)
+        equivalence(root, modules)
+        groups.append("full-native-source-API-fixture-and-finding-preservation")
+        private = owned / "private"
+        private.mkdir()
+        intake_fixture(root, private)
+        actual_intake = modules["intake_custody"].build_intake_custody_report(
+            root, private
+        )
+        same(intakes.reconstruct(root, private), actual_intake)
+        expected_audit = modules["audit"].build_source_audit(root)
+        expected_audit["external_intake_custody"] = actual_intake
+        expected_audit["audit_sha256"] = digest(
+            {
+                key: value
+                for key, value in expected_audit.items()
+                if key != "audit_sha256"
+            }
+        )
+        actual_audit, actual_summary = reconstruct(root, private)
+        same(actual_audit, expected_audit)
+        same(actual_summary, modules["audit"].summarize_source_audit(expected_audit))
+        groups.append(
+            "complete-three-API-assembly-independent-original-custody-and-summary"
+        )
+        private_projection = collect_private(
+            private,
+            {
+                **pin(private / "source-intakes/custody.json"),
+                "path": "source-intakes/custody.json",
+            },
+        )
+        verify_projection(private_projection)
+        original_report = (
+            root / intakes.REPORTS["EXT-2026-09-04-ROOTSI-001"]
+        ).read_bytes()
+        emit(
+            root,
+            intakes.REPORTS["EXT-2026-09-04-ROOTSI-001"],
+            {"admission": {"ecological": True}},
+        )
+        refuses(lambda: intakes.reconstruct(root, private))
+        (root / intakes.REPORTS["EXT-2026-09-04-ROOTSI-001"]).write_bytes(
+            original_report
+        )
+        archive_path = private / "EXT-2026-09-04-ROOTSI-001.archive"
+        old_archive = archive_path.read_bytes()
+        archive_path.write_bytes(old_archive + b"changed")
+        refuses(lambda: intakes.reconstruct(root, private))
+        refuses(lambda: verify_projection(private_projection))
+        archive_path.write_bytes(old_archive)
+        groups.append("original-archive-change-and-current-admission-inflation-refused")
+        rows = [{**pin(root / value), "path": value} for value in AUTHORITIES.values()]
+        frozen = collect_repository(root, rows)
+        expected = modules["audit"].build_source_audit(root)
+        same(
+            frozen["reader_paths"],
+            sorted(row["path"] for row in expected["input_files"]),
+        )
+        groups.append("complete-literal-read-closure-vs-actual-source")
+        emit(root, "data/pattern/b.json", {"fixture": 2})
+        refuses(lambda: verify_projection(frozen))
+        (root / "data/pattern/b.json").unlink()
+        groups.append("wildcard-membership-addition")
+        emit(root, "data/missing.json", {})
+        refuses(lambda: verify_projection(frozen))
+        (root / "data/missing.json").unlink()
+        groups.append("declared-absence-replacement")
+        path = root / AUTHORITIES["families"]
+        original = path.read_bytes()
+        path.write_bytes(original + b" ")
+        refuses(lambda: collect_repository(root, rows))
+        path.write_bytes(original)
+        groups.append("old-authority-changed-before-new-census")
+        closure = Closure(root)
+        closure.add("data/pattern/a.json")
+        prefix = closure.finish()
+        target = root / "data/pattern/a.json"
+        old = target.read_bytes()
+        target.write_bytes(old + b" ")
+        refuses(lambda: verify_projection(prefix))
+        target.write_bytes(old)
+        groups.append("frozen-payload-change")
+        alias = root / "data/alias.json"
+        alias.symlink_to(target)
+        refuses(lambda: closure.add("data/alias.json"))
+        alias.unlink()
+        fifo = root / "data/special.json"
+        os.mkfifo(fifo)
+        refuses(lambda: closure.add("data/special.json"))
+        fifo.unlink()
+        groups.append("alias-and-special-refused-before-read")
+        for name in ("../outside", "/absolute", ".", ""):
+            refuses(lambda value=name: closure.add(value))
+        groups.append("path-prefix-confinement")
+        duplicate = emit(root, "data/duplicate.json", {})
+        duplicate.write_bytes(b'{"x":1,"x":2}')
+        refuses(lambda: closure.metadata("data/duplicate.json"))
+        groups.append("same-buffer-metadata-key-refusal")
+        row = pin(target)
+        refuses(lambda: exact_union([row], [{**row, "sha256": "0" * 64}]))
+        groups.append("conflicting-role-identity-refusal")
+        reviewed_metadata = emit(owned, "reviewed.json", {"expected": True})
+        reviewed_row = pin(reviewed_metadata)
+        same(reviewed_json(reviewed_metadata, [reviewed_row]), {"expected": True})
+        reviewed_metadata.write_text('{"expected":false}')
+        refuses(lambda: reviewed_json(reviewed_metadata, [reviewed_row]))
+        groups.append("same-buffer-reviewed-declaration-before-expansion")
+        plan_path = owned / "plan.json"
+        plan = {"x": 1}
+        plan_path.write_text(json.dumps(plan))
+        exact = pin(plan_path)["sha256"]
+        same(registered_plan(plan_path, exact), plan)
+        for wrong in ("", "0" * 64, False):
+            refuses(lambda value=wrong: registered_plan(plan_path, value))
+        os.environ["BIJUX_REGISTERED_PLAN_SHA256"] = exact
+        same(stage_plan(plan_path), plan)
+        plan_path.write_text('{"x":2}')
+        refuses(lambda: stage_plan(plan_path))
+        del os.environ["BIJUX_REGISTERED_PLAN_SHA256"]
+        groups.append("same-buffer-child-registration-and-rebound-refusal")
+        stages = [
+            {
+                "id": ident,
+                "action": action,
+                "timeout_seconds": seconds,
+                "argv": [
+                    str(PYTHON),
+                    "-I",
+                    "-B",
+                    str(ACTUAL_SOURCE / "entry.py"),
+                    action,
+                    "--plan",
+                    str(plan_path),
+                ],
+            }
+            for ident, action, seconds in (
+                ("maintained-current-source-audit", "producer", 360),
+                ("independent-current-source-audit-observer", "observer", 240),
+            )
+        ]
+        actual_plan = {"resources": RESOURCES, "stages": stages}
+        validate_stages(actual_plan, plan_path)
+        mutations: tuple[Callable[[dict[str, Any]], Any], ...] = (
+            lambda p: p["stages"].reverse(),
+            lambda p: p["stages"][0].update(timeout_seconds=True),
+            lambda p: p["resources"].update(overall_timeout_seconds=721),
+            lambda p: p["stages"][0]["argv"].append("--different"),
+        )
+        for mutate in mutations:
+            wrong_plan = deepcopy(actual_plan)
+            mutate(wrong_plan)
+            refuses(lambda value=wrong_plan: validate_stages(value, plan_path))
+        groups.append("actual-two-stage-plan-positive-and-four-negatives")
+        same(remaining_seconds(10.0, 20.0, 780), 770.0)
+        refuses(lambda: remaining_seconds(10, 800, 780))
+        refuses(lambda: remaining_seconds(10, 9, 780))
+        groups.append("real-outer-watchdog-clock")
+        # Actual whole source/member schema is exercised after the final manifest is frozen.
+    for path in sorted(SOURCE.rglob("*.py")):
+        if "preflight" not in path.relative_to(SOURCE).parts:
+            ast.parse(path.read_text())
+    print(
+        json.dumps(
+            {
+                "source_only": True,
+                "actual_exit": 0,
+                "controlled_groups": len(groups),
+                "groups": groups,
+                "actual_private_or_repository_payload_consumer": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,102 @@
+{
+  "schema_version": "aadr-owned-source-controller-correspondence.v1",
+  "source_only": true,
+  "four_runtime_helpers": [
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/source_inputs.py",
+        "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+        "bytes": 6994
+      },
+      "reviewed_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/source_inputs.py",
+        "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+        "bytes": 6994
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/source_runtime.py",
+        "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+        "bytes": 8062
+      },
+      "reviewed_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/source_runtime.py",
+        "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+        "bytes": 8062
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/source_admission.py",
+        "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+        "bytes": 2788
+      },
+      "reviewed_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/source_admission.py",
+        "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+        "bytes": 2788
+      },
+      "byte_identical": true
+    },
+    {
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "reviewed_predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "byte_identical": true
+    }
+  ],
+  "projection": {
+    "current": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/source_projection.py",
+      "sha256": "d1d3d69db2d2491d341ca0e9412f07008d6a998561b024b94dccd6ec4e89517c",
+      "bytes": 6934
+    },
+    "reviewed_predecessor": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/source_projection.py",
+      "sha256": "8f724839411f4d09326af5515a0f1e6e0307e4d5eebfecb753db229ba9bcdac7",
+      "bytes": 6925
+    },
+    "only_module_docstring_changed": true,
+    "all_non_docstring_AST_equal": true
+  },
+  "generated_metadata_omission": {
+    "current": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/generated-source-omission.json",
+      "sha256": "09055e3ce3b1ee6c6475c15d6d45c421cb64cd5360c0d8d00392b22a87787624",
+      "bytes": 1163
+    },
+    "reviewed_predecessor": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/generated-source-omission.json",
+      "sha256": "09055e3ce3b1ee6c6475c15d6d45c421cb64cd5360c0d8d00392b22a87787624",
+      "bytes": 1163
+    },
+    "byte_identical": true,
+    "role": "Exact configured ignored version metadata and bytecode identity-only omissions; no copied/executed metadata or arbitrary source exception."
+  },
+  "adapted_controller_boundaries": [
+    "Actual pre-import whole source/peer verification, raw entry path and ancestor alias refusal.",
+    "Pinned clean-main Git and loader environment before tool invocation.",
+    "Expected seven raw/historical full input identities before parse and complete closed source namespaces.",
+    "Complete four-package owned tracked source/resources and original omitted identity ledger.",
+    "Same-buffer registered plan authority carried into both exact stage environments.",
+    "Two native stages with bounded owned launch group, complete custody/postchecks and catalogue.",
+    "Actual maintained public loader/writers plus separate independent typed/transport reconstruction.",
+    "Original per-row duplicate chronology support audit independent of software interval hull."
+  ],
+  "scientific_predicates": "Current raw/merge/transport semantics are independently implemented and checked against actual maintained domain/writer ASTs using artificial source records only. No canonical code changed.",
+  "predecessor_source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-grid-source-projection-custody/prepared-source-manifest.json",
+    "sha256": "5d872bd9e164d790833875b685541c779faf8c4af2ee41c88ae3aa2ccc15b15c",
+    "bytes": 9398
+  }
+}

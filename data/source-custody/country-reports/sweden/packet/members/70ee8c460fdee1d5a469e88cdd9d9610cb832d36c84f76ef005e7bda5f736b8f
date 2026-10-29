@@ -1,0 +1,41 @@
+{
+  "byte_exact_helpers": [
+    {
+      "name": "source_runtime.py",
+      "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+      "bytes": 8062,
+      "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_runtime.py"
+    },
+    {
+      "name": "runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576,
+      "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/runtime_contracts.py"
+    },
+    {
+      "name": "source_inputs.py",
+      "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+      "bytes": 6994,
+      "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_inputs.py"
+    },
+    {
+      "name": "source_projection.py",
+      "sha256": "fc94f84dd02447d2590738a7e2eca8e6f36db917dae99b20054e317b060e4edf",
+      "bytes": 6937,
+      "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_projection.py"
+    },
+    {
+      "name": "source_admission.py",
+      "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+      "bytes": 2788,
+      "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_admission.py"
+    },
+    {
+      "name": "generated-source-omission.json",
+      "sha256": "09055e3ce3b1ee6c6475c15d6d45c421cb64cd5360c0d8d00392b22a87787624",
+      "bytes": 1163,
+      "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/generated-source-omission.json"
+    }
+  ],
+  "human_independent_source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/independent.py"
+}

@@ -1,0 +1,211 @@
+"""Artificial directory-only alias observations without unconsumed target reads."""
+
+from __future__ import annotations
+
+import ast
+from copy import deepcopy
+import json
+from pathlib import Path
+import sys
+import tempfile
+from typing import Any
+from unittest.mock import patch
+
+sys.path.insert(0, str(Path(__file__).absolute().parent))
+from check_controls import base, emit, source_modules  # noqa: E402
+from inputs.closure import (  # noqa: E402
+    AUTHORITIES,
+    Closure,
+    collect_repository,
+    directory_presence,
+    ownership_path_roles,
+    verify_projection,
+)
+from source_inputs import pin  # noqa: E402
+
+SOURCE = Path(__file__).absolute().parent
+CASES: list[str] = []
+
+
+def refuses(label: str, call: Any) -> None:
+    try:
+        call()
+    except (ValueError, KeyError, OSError, RuntimeError):
+        CASES.append(label)
+        return
+    raise AssertionError("Directory observation escape accepted: " + label)
+
+
+def main() -> None:
+    # No generic file-read guard changes accompany this directory-only role.
+    old = ast.parse(
+        (SOURCE.parent / "current-source-audit-custody/inputs/closure.py").read_bytes()
+    )
+    new = ast.parse((SOURCE / "inputs/closure.py").read_bytes())
+    for name in ("path_at", "physical_kind"):
+        a = next(
+            n for n in old.body if isinstance(n, ast.FunctionDef) and n.name == name
+        )
+        b = next(
+            n for n in new.body if isinstance(n, ast.FunctionDef) and n.name == name
+        )
+        assert ast.dump(a) == ast.dump(b)
+    CASES.append("strict generic file/alias/special predicates AST unchanged")
+    with tempfile.TemporaryDirectory(dir=SOURCE / "preflight") as directory:
+        fixture = Path(directory)
+        root = fixture / "repository"
+        root.mkdir()
+        base(root)
+        target = root / "data/aadr"
+        target.mkdir()
+        unread = target / "unconsumed.tsv"
+        unread.write_bytes(b"artificial never-read payload")
+        alias_name = "data/adna/species/homo_sapiens/raw/aadr"
+        alias = root / alias_name
+        alias.parent.mkdir(parents=True)
+        alias.symlink_to("../../../../aadr", target_is_directory=True)
+        ownership_path = root / AUTHORITIES["ownership"]
+        ownership = json.loads(ownership_path.read_bytes())
+        ownership["rows"].append(
+            {
+                "fact_key": "human_archive_program_identity",
+                "governing_surface_path": "data/aadr",
+                "supporting_surface_paths": [alias_name],
+            }
+        )
+        emit(root, AUTHORITIES["ownership"], ownership)
+        expected = [{**pin(root / name), "path": name} for name in AUTHORITIES.values()]
+        frozen = collect_repository(root, expected)
+        proof = frozen["directory_presence_aliases"][alias_name]
+        assert proof["raw_alias_chain"] == [
+            {
+                "path": str(alias),
+                "raw_link": "../../../../aadr",
+                "physical_target": str(target),
+                "target_type": "directory",
+            }
+        ]
+        assert frozen["observations"][alias_name] == "directory_presence_alias"
+        assert alias_name not in frozen["reader_paths"]
+        assert str(unread) not in {row["path"] for row in frozen["files"]}
+        assert proof["target_contents_read_or_copied"] is False
+        CASES.append(
+            "reviewed literal ownership alias has exact raw chain and directory type only"
+        )
+        with patch.object(
+            Path, "read_bytes", side_effect=AssertionError("directory body read")
+        ):
+            directory_presence(
+                root, alias_name, ownership_path_roles(ownership)[alias_name]
+            )
+        CASES.append("directory presence never opens target bytes")
+        maintained = source_modules()["audit"].build_source_audit(root)
+        assert frozen["reader_paths"] == sorted(
+            row["path"] for row in maintained["input_files"]
+        )
+        CASES.append(
+            "current maintained reader input closure excludes only native directory branch"
+        )
+        owned = fixture / "owned"
+        owned.mkdir()
+        # The exact planned materialization, not a symlink or target subtree copy.
+        for name, kind in frozen["observations"].items():
+            if kind in {"directory", "directory_presence_alias"}:
+                (owned / name).mkdir(parents=True, exist_ok=True)
+        assert (owned / alias_name).is_dir() and not (owned / alias_name).is_symlink()
+        assert not (owned / alias_name / "unconsumed.tsv").exists()
+        CASES.append(
+            "owned projection materializes plain directory without target contents"
+        )
+        guarded = Closure(root)
+        guarded.ownership_roles = ownership_path_roles(ownership)
+        guarded.ownership_path(alias_name)
+        refuses(
+            "same alias cannot enter actual file read",
+            lambda: guarded.add(alias_name, reader=True),
+        )
+        refuses(
+            "same alias cannot enter JSON reader", lambda: guarded.metadata(alias_name)
+        )
+        refuses(
+            "unreviewed directory role",
+            lambda: guarded.ownership_path("data/aadr/unknown"),
+        )
+        for name in ("../outside", "/absolute", ".", "data//aadr"):
+            refuses(
+                "non-normalized directory role",
+                lambda n=name: directory_presence(
+                    root, n, [{"native_branch": "is_dir_before_any_file_read"}]
+                ),
+            )
+        alias.unlink()
+        alias.symlink_to(target, target_is_directory=True)
+        refuses("same-target changed raw alias", lambda: verify_projection(frozen))
+        refuses(
+            "cannot rebaseline alias during closure freeze",
+            lambda: guarded.ownership_path(alias_name),
+        )
+        alias.unlink()
+        alias.symlink_to("../../../../aadr", target_is_directory=True)
+        verify_projection(frozen)
+        changed = deepcopy(frozen)
+        changed["directory_presence_aliases"] = {}
+        refuses(
+            "missing original directory alias ledger",
+            lambda: verify_projection(changed),
+        )
+        saved = unread.read_bytes()
+        unread.write_bytes(saved + b"more")
+        verify_projection(frozen)
+        CASES.append("unconsumed subtree changes are outside directory-presence claim")
+        alias.unlink()
+        alias.symlink_to(unread)
+        refuses(
+            "actual file alias cannot gain directory role",
+            lambda: collect_repository(root, expected),
+        )
+        alias.unlink()
+        alias.symlink_to(root / "missing")
+        refuses("dangling ownership alias", lambda: collect_repository(root, expected))
+        alias.unlink()
+        alias.mkdir()
+        refuses(
+            "directory alias replaced by plain directory",
+            lambda: verify_projection(frozen),
+        )
+        alias.rmdir()
+        alias.symlink_to("../../../../aadr", target_is_directory=True)
+        # Traverse a same-target chain and authenticate every raw alias.
+        middle = root / "data/middle"
+        middle.symlink_to("aadr", target_is_directory=True)
+        alias.unlink()
+        alias.symlink_to("../../../../middle", target_is_directory=True)
+        chained = directory_presence(
+            root, alias_name, ownership_path_roles(ownership)[alias_name]
+        )
+        assert len(chained["raw_alias_chain"]) == 2
+        CASES.append("complete intermediate raw alias chain recorded")
+        middle.unlink()
+        middle.symlink_to(target, target_is_directory=True)
+        assert (
+            directory_presence(
+                root, alias_name, ownership_path_roles(ownership)[alias_name]
+            )
+            != chained
+        )
+        CASES.append("same final directory cannot hide intermediate raw alias changes")
+    print(
+        json.dumps(
+            {
+                "source_only": True,
+                "actual_exit": 0,
+                "artificial_groups": len(CASES),
+                "checks": CASES,
+                "actual_data_or_target_body_census": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

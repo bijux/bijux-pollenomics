@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweden lake evidence richness</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      display: grid;
+      min-height: 100vh;
+      place-items: center;
+    }
+    main {
+      max-width: 42rem;
+      padding: 2rem;
+      background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: 1rem;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+    }
+    h1 {
+      margin-top: 0;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .meta {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Sweden lake evidence richness</h1>
+    <p>No Sweden lake candidates were available for this bundle because the required pollen context files were missing or did not produce any lake-basin candidates.</p>
+    <p class="meta">Version v66 · generated 2026-10-15</p>
+  </main>
+</body>
+</html>

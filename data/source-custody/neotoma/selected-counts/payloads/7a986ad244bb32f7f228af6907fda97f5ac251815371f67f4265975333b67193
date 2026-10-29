@@ -1,0 +1,242 @@
+"""Certify exact selected source counts and locators without recovering historical receipts."""
+
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+from typing import Any
+
+from contracts import (
+    PYTHON,
+    SAMPLE_IDS,
+    SOURCE,
+    checkpoint,
+    execution_scope,
+    stage_plan,
+    write,
+)
+from independent import canonical, require, same
+from source_inputs import pin
+from source_reader import read, reconstruct, requests
+
+
+def validate_witness(plan: dict[str, Any], witness: dict[str, Any]) -> None:
+    require(
+        type(witness["actual_exit"]) is int and witness["actual_exit"] == 0,
+        "Maintained producer did not pass",
+    )
+    require(witness["candidate"] == plan["candidate"], "Actual source epoch differs")
+    same(
+        witness["selected_sample_ids"],
+        list(SAMPLE_IDS),
+        "actual selected sample arguments",
+    )
+    requests(witness["distinct_native_request_roles"])
+    same(
+        witness["distinct_native_request_roles"],
+        plan["selected_samples"],
+        "actual request roles",
+    )
+    same(
+        witness["maintained_public_calls"],
+        [
+            "read_neotoma_evidence(raw_root, normalized_root)",
+            "build_neotoma_candidate_series(evidence, selected_sample_ids)",
+        ],
+        "actual maintained call schedule",
+    )
+    same(
+        witness["actual_argv"][1:],
+        [
+            "-I",
+            "-B",
+            str(SOURCE / "entry.py"),
+            "producer",
+            "--plan",
+            str(Path(plan["output"]) / "plan.json"),
+        ],
+        "actual child flags/entry/action/plan",
+    )
+    require(
+        witness["actual_executable"] == str(PYTHON),
+        "Actual qualified lexical interpreter differs",
+    )
+    require(
+        witness["raw_root"] == plan["raw_root"]
+        and witness["normalized_root"] == plan["normalized_root"],
+        "Actual data source roles differ",
+    )
+    require(
+        witness["numerical_import_attempts"] == [], "Numerical engine import attempted"
+    )
+    for field in (
+        "normalization_HTTP_model_or_R_executed",
+        "original_mass_or_manifest_constructor_recovered",
+        "physical_core_chronology_denominator_rights_human_or_LRA_admitted",
+    ):
+        require(witness[field] is False, "Producer scope promoted: " + field)
+    protected = {row["path"]: row for row in plan["input_pins"]}
+    owned = Path(plan["owned_repository"])
+    roots = [
+        str(owned / "packages" / name / "src")
+        for name in (
+            "bijux-pollenomics",
+            "bijux-pollenomics-lra",
+            "bijux-pollenomics-dev",
+            "pollenomics",
+        )
+    ]
+    same(witness["owned_package_search_roots"], roots, "full owned source search roots")
+    origins = witness["actual_first_party_origins"]
+    require(
+        type(origins) is list and bool(origins),
+        "Observed maintained source origins missing",
+    )
+    names = []
+    for row in origins:
+        physical = {key: row[key] for key in ("path", "sha256", "bytes")}
+        require(
+            Path(row["path"]).is_relative_to(owned)
+            and protected.get(row["path"]) == physical
+            and pin(Path(row["path"])) == physical,
+            "Maintained origin left protected owned source",
+        )
+        names.append(row["module"])
+    require(
+        len(names) == len(set(names))
+        and "bijux_pollenomics.analysis.lra.materialization.reading" in names
+        and "bijux_pollenomics.analysis.lra.materialization.neotoma.series.projection"
+        in names,
+        "Actual maintained API origins incomplete",
+    )
+
+
+def retained_rows(
+    declared: dict[str, Any], masses: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    by_id = {row["sample_id"]: row for row in masses}
+    require(
+        len(by_id) == len(masses) == 3,
+        "Three distinct independently reconstructed sample masses required",
+    )
+    root = Path(declared["source_root"])
+    results = []
+    for domain, schema, key in [
+        ("abbo-core-identity", "neotoma-sample-count-mass-crosscheck.v1", "sample_row"),
+        (
+            "swedish-lake-core-identity",
+            "neotoma-swedish-lake-count-mass-crosscheck.v1",
+            "sample_rows",
+        ),
+    ]:
+        directory = root / "docs/report/source-relations/neotoma" / domain
+        receipt = read(directory / "count-mass-crosscheck.json")
+        require(
+            set(receipt)
+            == {
+                "schema_version",
+                "source_snapshot_id",
+                "original_mass_sha256",
+                "lra_accepted_samples",
+                key,
+            },
+            "Exact retained count receipt schema fields required",
+        )
+        require(
+            receipt["schema_version"] == schema
+            and receipt["source_snapshot_id"] == declared["source_snapshot_id"],
+            "Original retained source/schema differs",
+        )
+        require(
+            type(receipt["lra_accepted_samples"]) is int
+            and receipt["lra_accepted_samples"] == 0,
+            "Retained source admission changed",
+        )
+        require(
+            receipt["original_mass_sha256"] == declared["historical_mass_sha256_claim"],
+            "Historical mass assertion changed, not recovered",
+        )
+        rows = [receipt[key]] if key == "sample_row" else receipt[key]
+        wanted = (
+            ["neotoma:sample:173174"]
+            if key == "sample_row"
+            else ["neotoma:sample:552101", "neotoma:sample:552389"]
+        )
+        same([row["sample_id"] for row in rows], wanted, "retained sample role/order")
+        for row in rows:
+            same(
+                row,
+                by_id[row["sample_id"]],
+                "complete native reconstructed saved count row",
+            )
+        manifest = read(directory / "manifest.json")
+        results.append(
+            {
+                "domain": domain,
+                "actual_count_receipt": pin(directory / "count-mass-crosscheck.json"),
+                "native_scientific_row_reconstruction_equal": True,
+                "saved_custody_manifest": pin(directory / "manifest.json"),
+                "existing_report": pin(directory / "report.json"),
+                "historical_comparison_fields_retained": manifest[
+                    "historical_comparison"
+                ],
+                "original_mass_sha256_historical_claim": receipt[
+                    "original_mass_sha256"
+                ],
+                "original_mass_object_recovered": False,
+                "original_mass_or_manifest_construction_approval_recovered": False,
+            }
+        )
+    return results
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = stage_plan(args.plan)
+    authority, scope = execution_scope(plan)
+    output = Path(plan["output"])
+    witness = read(output / "maintained-producer-execution.json")
+    validate_witness(plan, witness)
+    product = output / "selected-series.json"
+    same(pin(product), witness["product"], "genuine maintained product custody")
+    expected, masses, identities = reconstruct(plan["source_declaration"])
+    actual = read(product)
+    same(
+        actual,
+        expected,
+        "complete actual series versus independent source reconstruction",
+    )
+    require(
+        product.read_bytes() == canonical(expected),
+        "Full maintained canonical series bytes differ",
+    )
+    comparisons = retained_rows(plan["source_declaration"], masses)
+    checkpoint(authority, scope, plan["owned_namespace_snapshots"])
+    write(
+        output / "independent-source-review.json",
+        {
+            "schema_version": "neotoma-current-selected-count-source-review.v1",
+            "candidate": plan["candidate"],
+            "actual_exit": 0,
+            "actual_maintained_series": pin(product),
+            "full_typed_and_canonical_series_equal": True,
+            "selected_sample_identities": identities,
+            "current_source_count_mass_rows": masses,
+            "selected_denominators": expected["selected_denominators"],
+            "retained_receipt_row_comparisons": comparisons,
+            "all_native_age_alternatives_and_raw_bounds_preserved": True,
+            "chronology_selection_or_support_hull_performed": False,
+            "source_unit_zero_missing_fraction_and_noncount_refusals_preserved": True,
+            "original_mass_or_manifest_construction_approval_recovered": False,
+            "original_HTTP_capture_or_physical_core_identity_recovered": False,
+            "country_attribution_independently_recomputed": False,
+            "pollen_denominator_taxon_PPE_rights_human_model_or_LRA_admitted": False,
+            "scope": "New current source-specific exact three-sample native/normalized identity, observation, age alternative, locator and count-mass proof. Existing historical mass SHA and manifest comparison fields remain assertions from their own unrecovered construction epoch; no original receipt, physical core equivalence, chronology selection, source use or scientific admission follows.",
+        },
+    )
+
+
+if __name__ == "__main__":
+    main()

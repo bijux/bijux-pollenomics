@@ -1,0 +1,29 @@
+{
+  "schema_version": "cpython-complete-typed-code-correspondence.v1",
+  "all_code_fields": [
+    "co_argcount",
+    "co_posonlyargcount",
+    "co_kwonlyargcount",
+    "co_nlocals",
+    "co_stacksize",
+    "co_flags",
+    "co_code",
+    "co_consts",
+    "co_names",
+    "co_varnames",
+    "co_filename",
+    "co_name",
+    "co_qualname",
+    "co_firstlineno",
+    "co_linetable",
+    "co_exceptiontable",
+    "co_freevars",
+    "co_cellvars"
+  ],
+  "expected_code_graph_sha256": "9b136e7e5fd90bbda009c49b242e9b13f635fdbbc31e129c9c446e987aa02af1",
+  "actual_code_graph_sha256": "9b136e7e5fd90bbda009c49b242e9b13f635fdbbc31e129c9c446e987aa02af1",
+  "differing_code_fields": [],
+  "complete_typed_graphs_equal": true,
+  "marshal_reference_or_intern_identity_compared": false,
+  "bytecode_filename_lines_flags_exception_tables_or_constant_types_ignored": false
+}

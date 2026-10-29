@@ -1,0 +1,9 @@
+artifacts/science/sweden-country-semantic-custody/check_controls.py:801: error:
+Value of type "object" is not indexable  [index]
+        human_overlap["sample_chronologies"][0]["chronology"].update(
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/check_controls.py:812: error:
+Value of type "object" is not indexable  [index]
+        human_overlap["sample_chronologies"][0]["chronology"]["refusal_rea...
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Found 2 errors in 1 file (checked 19 source files)

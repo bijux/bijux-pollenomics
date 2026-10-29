@@ -1,0 +1,116 @@
+"""Seal named public source correspondence and the prospective country protocol."""
+import ast
+import hashlib
+import json
+from pathlib import Path
+
+SOURCE = Path(__file__).absolute().parents[2]
+ROOT = SOURCE.parents[2]
+
+def row(path):
+    assert path.is_file() and not any(p.is_symlink() for p in (path, *path.parents))
+    raw = path.read_bytes()
+    return {'path':str(path), 'sha256':hashlib.sha256(raw).hexdigest(), 'bytes':len(raw)}
+
+def write(name, value):
+    (SOURCE/name).write_text(json.dumps(value, indent=2, allow_nan=False)+'\n')
+
+declaration=json.loads((SOURCE/'declared-inputs.json').read_bytes())
+prefix=list(declaration['maintained_source_contracts'][:40])
+declaration['maintained_source_contracts']=list(prefix)
+extra_names=[
+    'adna/domain/locality.py',
+    'adna/domain/models/localities.py',
+    'adna/domain/models/occurrence_support.py',
+    'adna/domain/models/chronology.py',
+    'adna/domain/models/samples.py',
+    'core/repository.py',
+    'core/geospatial/distance.py',
+    'core/temporal_semantics.py',
+    'reporting/rendering/__init__.py',
+    'reporting/rendering/artifacts.py',
+    'reporting/rendering/record_exports.py',
+    'reporting/adna/country_outputs/models.py',
+    'adna/governance/atlas_candidates/sample_support.py',
+    'analysis/fieldwork/land_use/models.py',
+]
+existing={item['path'] for item in prefix}
+added=[]
+for name in extra_names:
+    relative='packages/bijux-pollenomics/src/bijux_pollenomics/'+name
+    if relative in existing:
+        continue
+    item=row(ROOT/relative)
+    item['path']=relative
+    declaration['maintained_source_contracts'].append(item)
+    added.append(item)
+write('declared-inputs.json',declaration)
+
+local=[]
+for path in sorted(SOURCE.glob('*.py')):
+    tree=ast.parse(path.read_bytes())
+    for node in ast.walk(tree):
+        if isinstance(node,ast.BinOp) and isinstance(node.op,ast.Div) and isinstance(node.left,ast.Name) and node.left.id=='SOURCE' and isinstance(node.right,ast.Constant) and isinstance(node.right.value,str):
+            name=node.right.value
+            # Plan and approval are created by sealing and independent review.
+            generated=name in {'prepared-source-manifest.json','independent-source-review.json'}
+            output_role=name.startswith('preflight/')
+            assert generated or output_role or (SOURCE/name).is_file(), (path,name)
+            local.append({'source':path.name,'member':name,'generated_admission_control':generated,'synthetic_output_role':output_role})
+
+helpers=json.loads((SOURCE/'inherited-source-correspondence.json').read_bytes())
+for item in helpers['byte_exact_helpers']:
+    actual=row(SOURCE/item['name']); original=row(Path(item['source']))
+    assert actual['sha256']==original['sha256']==item['sha256'] and actual['bytes']==item['bytes']
+human=row(SOURCE/'human_source.py')
+human_original=row(Path(helpers['human_independent_source']))
+assert human['sha256']==human_original['sha256'] and human['bytes']==human_original['bytes']
+correspondence={
+ 'schema_version':'sweden-country-controller-source-correspondence.v1',
+ 'source_only':True,
+ 'inherited_byte_exact':helpers,
+ 'human_reader_byte_exact':{'current':human,'original':human_original},
+ 'original_reviewed_source_prefix':prefix,
+ 'additional_named_public_source_pins':added,
+ 'all_reviewed_source_rows':declaration['maintained_source_contracts'],
+ 'source_relative_literal_metadata_and_entry_roles':local,
+ 'metadata_roles_required_in_final_manifest':['declared-inputs.json','generated-source-omission.json','source-design.json'],
+ 'owned_repository_root_markers':['pyproject.toml','packages/bijux-pollenomics/pyproject.toml','packages/bijux-pollenomics-lra/pyproject.toml','packages/bijux-pollenomics-lra/.gitignore','configs/ci/report-ownership.json'],
+ 'actual_source_or_data_API_execution':False,
+ 'private_payload_opened_or_hashed':False,
+}
+write('source-correspondence.json',correspondence)
+metadata=ROOT/'artifacts/science/sweden-country-root-input-metadata/named-context-metadata.json'
+assert row(metadata)['sha256']=='1eca5db01c3f0daf97ff701647a6ba4e35656f6813955531e7ed23cf77d2f62a'
+write('protocol.json',{
+ 'schema_version':'sweden-country-semantic-source-protocol.v1',
+ 'source_only':True,
+ 'original_owner':declaration['original_owner'],
+ 'actual_candidate':'Root selects the then-current clean main revision. No source-author Git command or guessed current revision.',
+ 'source_runtime':'Qualified lexical147 Python3.11.13; exact complete runtime/native/namespace/alias authorities revalidated at preparation and before/after both stages.',
+ 'source_validation_profile':'3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b; source-only synthetic controls and strict/configured style, separate from the future native interpreter.',
+ 'purpose':'One genuine maintained replay() invoking the full public generate_country_report() once, followed by an independent source/typed/semantic/clock observer. Reproducibility evidence only.',
+ 'stages':[{'id':'maintained-full-Sweden-country-consumer','seconds':600},{'id':'independent-source-semantic-clock-observer','seconds':360}],
+ 'resources':{'completed_whole_seconds':1140,'outer_measured_seconds':1200,'child_peak_RSS_bytes_macos':8*1024**3,'inclusive_owned_storage_bytes':1024**3,'plan_bytes':128*1024**2,'selected_data_bytes':512*1024**2,'single_JSON_bytes':256*1024**2,'selected_input_files':2048,'glob_members_each':512},
+ 'forecast':'Prospective bounds, not measured performance. The full four-package source/resource copy, runtime/input namespace checks, data projection, both consumers, logs and receipts count toward logical owned storage. Preparation refuses the caps before decoding or dispatch and requires refreeze to widen.',
+ 'named_context_metadata_forecast_only':row(metadata),
+ 'clock_contract':'Native date.today() remains unchanged. The child receives TZ=UTC; exact typed UTC timezone/daylight/tzname and native wall/monotonic observations must bracket one real CountryReport on the same UTC calendar day. Crossing midnight or a different returned generated_on refuses; historical dates are never forced.',
+ 'watchdog_limits':'The1200-second parent watchdog bounds its delegated child including admission/imports, both stage processes and final scans. Parent entry/startup and post-reap accounting consume measured elapsed but have no independent parent watchdog; no detached/full-descendant or OS quota guarantee.',
+ 'data_closure':'Original seven required inputs;105 per-species roles for15 species;13 context roles; complete source-supported unsorted species sample-record glob and sorted release ANNO glob;30 published filenames plus complete optional map assets; four complete owned first-party source/resource trees and root metadata. Exact source-supported absences stay unavailable/refused, never measured zero.',
+ 'source_and_cache_roles':'Only tracked source/resource projection is executable. Original bytecode and the exact configured generated LRA version omission remain full ordered identity records. No bytecode/source equivalence or live canonical data fallback.',
+ 'observer':'Reconstruct the complete six-category native semantic receipt and hash roles, report ordered type-sensitive historical synthesis differences separately, compare all actual typed human records/current default exports, individual chronology supports, source-joined animal context records, full LandClim/SEAD source joins, actual output membership and full clock/custody. Native semantic differences are observations, not forced to zero.',
+ 'original_receipt':'Retained and checked separately. A tracked checker may return2 for genuine changed output and is never relabeled as native failure or zero. No recovery of original receipt constructor, historical native timing or old acquisition.',
+ 'scope_limits':{'vegetation_validation':False,'ecological_truth':False,'rights_acceptance':False,'human_or_biology_acceptance':False,'LRA_admission':False,'independent_lake_ranking_recomputed':False,'ten_species_API_population_reproduced':False,'owner_transition_preapproved':False},
+ 'source_author_actions':{'named_public_source_and_public_metadata_read':True,'synthetic_source_controls':True,'private_body_decode_or_hash':False,'country_API_or_replay':False,'actual_runtime_or_input_census':False,'preparer_or_registered_native':False,'canonical_or_Git_or_STATE_mutation':False},
+ 'registration':'After independent exact source approval, root alone prepares once, persists unique registration and reads it back, then launches separately with the frozen plan SHA. Actual producer/observer/whole results remain unknown until collected.',
+})
+python=str(ROOT/'artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python')
+write('recipe.json',{
+ 'schema_version':'sweden-country-semantic-root-recipe.v1',
+ 'source_only':True,
+ 'prepare_argv':[python,'-I','-B',str(SOURCE/'entry.py'),'prepare','--candidate','<ACTUAL_CLEAN_CANDIDATE>','--review-sha256','<EXACT_INDEPENDENT_SOURCE_REVIEW_SHA>','--output',str(ROOT/'artifacts/science/current-sweden-country-semantic-replay')],
+ 'launch_argv':[python,'-I','-B',str(SOURCE/'entry.py'),'launch','--plan',str(ROOT/'artifacts/science/current-sweden-country-semantic-replay/plan.json'),'--registered-plan-sha256','<ACTUAL_REGISTERED_PLAN_SHA>'],
+ 'root_only_separate_prepare_register_readback_launch':True,
+ 'actual_execution_performed_by_author':False,
+})
+print(json.dumps({'source_files':len(list(SOURCE.glob('*.py'))),'maintained_source_pins':len(declaration['maintained_source_contracts']),'extra_public_pins_added':len(added),'local_source_roles':len(local),'source_only':True}))

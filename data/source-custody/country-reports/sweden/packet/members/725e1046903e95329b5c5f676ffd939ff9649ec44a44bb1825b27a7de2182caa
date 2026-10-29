@@ -1,0 +1,275 @@
+{
+  "schema_version": "sweden-callable-diagnostic-correspondence.v1",
+  "source_only": true,
+  "original_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/prepared-source-manifest.json",
+    "sha256": "935ee0e123e1b4dd7b941b9cd3f0fc1525b6ac35ef314bb190b8781519cba476",
+    "bytes": 11849
+  },
+  "original_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/source-qualification.json",
+    "sha256": "b816725dbb9c36474c2d2fa8fbfde1408c6b2ad2bc8c65bec271c84a1fa3612e",
+    "bytes": 9862
+  },
+  "byteexact_old_python": [
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/callable_identity.py",
+        "sha256": "76ab1a23fce193ae459dbda6b809b626e9861fc179dfd92d3231ef46c9f8cf8c",
+        "bytes": 3846
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/callable_identity.py",
+        "sha256": "76ab1a23fce193ae459dbda6b809b626e9861fc179dfd92d3231ef46c9f8cf8c",
+        "bytes": 3846
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/check_callable.py",
+        "sha256": "2d550e668f840273fc61ae68a7805481f9896b8aa78af800d6b90008f4be8cf7",
+        "bytes": 10115
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/check_callable.py",
+        "sha256": "2d550e668f840273fc61ae68a7805481f9896b8aa78af800d6b90008f4be8cf7",
+        "bytes": 10115
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/check_controls.py",
+        "sha256": "31240d9a45b05e2b9e9451aa96610cf051dee4bcd9966bc88f89c068188a867b",
+        "bytes": 32008
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/check_controls.py",
+        "sha256": "31240d9a45b05e2b9e9451aa96610cf051dee4bcd9966bc88f89c068188a867b",
+        "bytes": 32008
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/clock_contract.py",
+        "sha256": "8ee36763fba54234aadf65d71693c1241516134b843bba400c66c6f512888ad1",
+        "bytes": 2853
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/clock_contract.py",
+        "sha256": "8ee36763fba54234aadf65d71693c1241516134b843bba400c66c6f512888ad1",
+        "bytes": 2853
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/contracts.py",
+        "sha256": "ab08f74442fd2ea474b1911187f72ca4b7d9ba38a46ce9654a2e489e6a66bf44",
+        "bytes": 8927
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/contracts.py",
+        "sha256": "ab08f74442fd2ea474b1911187f72ca4b7d9ba38a46ce9654a2e489e6a66bf44",
+        "bytes": 8927
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/data_roles.py",
+        "sha256": "5517ae3d3b58a4e6632f49d2c875bb250d589c0b94a20cae343ef2a6f76d0385",
+        "bytes": 7060
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/data_roles.py",
+        "sha256": "5517ae3d3b58a4e6632f49d2c875bb250d589c0b94a20cae343ef2a6f76d0385",
+        "bytes": 7060
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/entry.py",
+        "sha256": "21ed9039a7176d717217c22e0dc14f44b80a2482943fef852869885ab5340a70",
+        "bytes": 5058
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/entry.py",
+        "sha256": "21ed9039a7176d717217c22e0dc14f44b80a2482943fef852869885ab5340a70",
+        "bytes": 5058
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/execute.py",
+        "sha256": "cec9cac27a329a72dff0f9c4ad89435da212f5f1f0c7ceedbbbe2b301c7a807a",
+        "bytes": 10049
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/execute.py",
+        "sha256": "cec9cac27a329a72dff0f9c4ad89435da212f5f1f0c7ceedbbbe2b301c7a807a",
+        "bytes": 10049
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/human_source.py",
+        "sha256": "079627288ab0a640a3477663897113af1c2e233804ffa9a46e4841034a5f8eb0",
+        "bytes": 23688
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/human_source.py",
+        "sha256": "079627288ab0a640a3477663897113af1c2e233804ffa9a46e4841034a5f8eb0",
+        "bytes": 23688
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/independent.py",
+        "sha256": "1dee3fb17b623198edf135ae62222496091a9d344fa08667090202f4c46149e1",
+        "bytes": 32783
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/independent.py",
+        "sha256": "1dee3fb17b623198edf135ae62222496091a9d344fa08667090202f4c46149e1",
+        "bytes": 32783
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/launch.py",
+        "sha256": "7cb1149aaa16a4cfb9b37583f829359607fe8ceed185e0f5de711f463f1e7497",
+        "bytes": 6381
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/launch.py",
+        "sha256": "7cb1149aaa16a4cfb9b37583f829359607fe8ceed185e0f5de711f463f1e7497",
+        "bytes": 6381
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/observe.py",
+        "sha256": "4c4f33aab248b65d9a8c37d1287dc572e1e67fada9d5018812c05ac051b1cc76",
+        "bytes": 11523
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/observe.py",
+        "sha256": "4c4f33aab248b65d9a8c37d1287dc572e1e67fada9d5018812c05ac051b1cc76",
+        "bytes": 11523
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/prepare.py",
+        "sha256": "7400515323c7fd5c20f80233d314b5dc17daf2b0911df300444c552124646c16",
+        "bytes": 9111
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/prepare.py",
+        "sha256": "7400515323c7fd5c20f80233d314b5dc17daf2b0911df300444c552124646c16",
+        "bytes": 9111
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/retained.py",
+        "sha256": "d6f03317f11a0a2cf28c9b803c95d125cdc98278fcf7f2508dc98f8b26f3a3f1",
+        "bytes": 8815
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/retained.py",
+        "sha256": "d6f03317f11a0a2cf28c9b803c95d125cdc98278fcf7f2508dc98f8b26f3a3f1",
+        "bytes": 8815
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/run.py",
+        "sha256": "8a4246a589e906dea81857dcd36f73ece81c77954b06ef9ce2179803393804ad",
+        "bytes": 8092
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/run.py",
+        "sha256": "8a4246a589e906dea81857dcd36f73ece81c77954b06ef9ce2179803393804ad",
+        "bytes": 8092
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/semantic_contract.py",
+        "sha256": "13e0a74c67d079241d1f160b5c91e14efbb4af57c7354af2548ea7ae7521b724",
+        "bytes": 3427
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/semantic_contract.py",
+        "sha256": "13e0a74c67d079241d1f160b5c91e14efbb4af57c7354af2548ea7ae7521b724",
+        "bytes": 3427
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/source_admission.py",
+        "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+        "bytes": 2788
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/source_admission.py",
+        "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+        "bytes": 2788
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/source_inputs.py",
+        "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+        "bytes": 6994
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/source_inputs.py",
+        "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+        "bytes": 6994
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/source_projection.py",
+        "sha256": "fc94f84dd02447d2590738a7e2eca8e6f36db917dae99b20054e317b060e4edf",
+        "bytes": 6937
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/source_projection.py",
+        "sha256": "fc94f84dd02447d2590738a7e2eca8e6f36db917dae99b20054e317b060e4edf",
+        "bytes": 6937
+      }
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/source_runtime.py",
+        "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+        "bytes": 8062
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/source_runtime.py",
+        "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+        "bytes": 8062
+      }
+    }
+  ],
+  "only_production_change": "CountryIO stores one exact wrapper diagnostic path and permits only fresh O_CREAT|O_EXCL open at that path. Existing input reads, all other writes and all mutation handlers remain exact.",
+  "CountryIO_full_module_AST_restored_by_removing_only_two_named_additions": true,
+  "unchanged_source_groups_reused": 113,
+  "reused_groups_scope": "Exact codegraph, retained-input custody, scientific, UTC-clock and other IO predicates; new diagnostic IO branch separately exercised through real audit hook.",
+  "new_synthetic_groups": 10,
+  "parsed_root_Python_files": 23,
+  "retained_source_data_not_copied_or_executed": true
+}

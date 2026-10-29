@@ -1,0 +1,26 @@
+{
+  "schema_version": "sweden-public-source-metadata-recipe.v1",
+  "source_only": true,
+  "prepare_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-retained-source-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CLEAN_CURRENT_HEAD",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_REVIEW_SHA256",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication"
+  ],
+  "launch": "Read the actual prepared plan, uniquely register its actual digest and read it back; only then separately run plan.argv with the actual registered digest.",
+  "metadata_stage_ids": [
+    "portable-returned-country-source-assembly",
+    "independent-portable-country-source-observer"
+  ],
+  "actual_launch_by_author": false,
+  "actual_preparation_by_author": false,
+  "current_controller_authority": "This held source/manifest/independent peer is current metadata authority, separate from the original scientific input roles and retained with later publication proof.",
+  "publication_condition": "Actual assembly0/independent observer0/whole0, frozen capture identity and later peer-approved reader/helper composition; current result never precomputed."
+}

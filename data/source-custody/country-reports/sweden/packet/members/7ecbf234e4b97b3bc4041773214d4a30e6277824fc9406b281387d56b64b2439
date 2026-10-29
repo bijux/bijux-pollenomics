@@ -1,0 +1,131 @@
+{
+  "schema_version": "sweden-callable-diagnostic-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "32700b3d6977d648f338a1fab3265af426b702224967d21ff753c9ba5c8eec98",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/prepared-source-manifest.json",
+    "sha256": "32700b3d6977d648f338a1fab3265af426b702224967d21ff753c9ba5c8eec98",
+    "bytes": 11696
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/source-qualification.json",
+    "sha256": "ba6dbe458d56f1c0f2f96b93714514da0ac4400d334083f99fcfec6042c8c3c7",
+    "bytes": 4244
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/protocol.json",
+    "sha256": "6abd8355eaaed408ccf3fce958e53ca5a80130f9dbbaa8b2362e3794de289f79",
+    "bytes": 6617
+  },
+  "recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/recipe.json",
+    "sha256": "37598797948f96ec358e2e2b0ce6ebc07da9f4a00ece9eef445b9b9c4f142b22",
+    "bytes": 1236
+  },
+  "scope": "Narrow active-audit writer integration and exact unchanged source controls only; not a country producer, data or ownership admission.",
+  "authentication": {
+    "held_members": 46,
+    "Python_AST": 26,
+    "root_Python": 23,
+    "predecessor_members": 48,
+    "byteexact_old_Python": 21,
+    "only_changed_production_module": "execution_guard.py",
+    "full_predecessor_module_AST_restored_by_removing_exact_named_attribute_and_branch": true,
+    "authenticated_qualification_logs": 12
+  },
+  "actual_independent_controls": {
+    "profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "session_id": 9885,
+    "actual_whole_exit": 0,
+    "groups": 24,
+    "result": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-diagnostic-independent-review/independent-controls.json",
+      "sha256": "0a86426c3afb6dc2cb42fb212a13e90a66296ef9bad0702d59739f7fac5dcc38",
+      "bytes": 1354
+    },
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-diagnostic-independent-review/controls.stdout",
+      "sha256": "fd50b5529083aaaaeb2d99bc74b3de5714954d88a3515fb6592f1a66de653580",
+      "bytes": 48
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-diagnostic-independent-review/controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "driver": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-diagnostic-independent-review/check_source.py",
+      "sha256": "23f363a09582d7a84a575b214b29c9585435aa919fcf9626d696a5284943c093",
+      "bytes": 7630
+    }
+  },
+  "actual_route_proof": "Executed the exact held execute.main diagnostic-write AST with actual contracts.write and actual CountryIO installed using sys.addaudithook, over artificial output/source files. Exact exclusive fresh diagnostic write passed; undeclared sibling/prefix sibling, unrelated root JSON, overwrite/append/readwrite, source-write, alias, remove and rename routes refused. Normal producer output and declared input reads still passed. Diagnostic bytes remained exact.",
+  "actual_final_admission": "Both distinct actual entry.verify and source_admission.reviewed_controls passed the complete46 controlled schema and tamper/native/FIFO/import-directory refusals; author20-case full-schema proof separately authenticated.",
+  "author_final_gate": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/held-entry-proof.json",
+    "sha256": "0c6f3501073c2f419f8dba23b8ab7ec9c2d6cc5bb4a378a7bb116a3339a14d0b",
+    "bytes": 1169
+  },
+  "findings": [],
+  "previous_review_gap": "935ee source approval missed the new wrapper write under the active producer audit hook. That source/approval and real8460 refusal remain unchanged. This review directly exercises the previously omitted integration.",
+  "original_source_fixture": {
+    "source_manifest_sha256": "935ee0e123e1b4dd7b941b9cd3f0fc1525b6ac35ef314bb190b8781519cba476",
+    "session_id": 22585,
+    "actual_whole_exit": 1,
+    "observed_source_fixture_refusal": "PermissionError at exact actual contracts.write/open event and CountryIO135 for artificial wrapper diagnostic path; no country API or data read.",
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-diagnostic-independent-review/predecessor-route.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-diagnostic-independent-review/predecessor-route.stderr",
+      "sha256": "ffcf99abf2b8582f65c6dd572745974f442433308b945c00a1d65a5233c5c057",
+      "bytes": 2519
+    }
+  },
+  "reviewer_metadata_count_correction": "Final manifest includes23 root Python plus3 declared preflight scripts; all26 ASTs parsed. Initial seal asserted root-only23 against all declared Python and was corrected without source changes or repeating controls.",
+  "reviewer_initial_selector_refusal": {
+    "session_id": 84335,
+    "actual_whole_exit": 1,
+    "reason": "AST selector also matched the later execution witness containing a diagnostic pin. Narrowed to first writer path argument; no production finding or real consumer execution.",
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-diagnostic-independent-review/initial-predecessor-route.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-diagnostic-independent-review/initial-predecessor-route.stderr",
+      "sha256": "f94bd01124f824893cc66cf7f48eee8b7546dba565c0aabfc10f40416c1cb9ee",
+      "bytes": 1425
+    }
+  },
+  "unchanged_controls_reuse": {
+    "source_qualification": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/source-qualification.json",
+      "sha256": "b816725dbb9c36474c2d2fa8fbfde1408c6b2ad2bc8c65bec271c84a1fa3612e",
+      "bytes": 9862
+    },
+    "groups": 113,
+    "independent_peer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-independent-review/independent-source-review.json",
+      "sha256": "5d313201c0af162b2e4417c895ce0eadd746f6c6d54ee4809ccdb8fee2c9511e",
+      "bytes": 6942
+    },
+    "repeated": false
+  },
+  "historical_scopes": [
+    "Original23015 remains controller1/whole1 before country call.",
+    "Original8460 remains a diagnostic writer refusal before country call; no written diagnostic or raw clock product was invented.",
+    "Full typed code graph, actual compiler flags, original owned source/data and literal owner criterion remain unchanged."
+  ],
+  "nonclaims": {
+    "actual_country_or_replay_API": false,
+    "private_body_hash_decode": false,
+    "runtime_SDK_census": false,
+    "actual_preparer_or_native": false,
+    "Git_STATE_canonical_mutation": false,
+    "new_scientific_rights_human_or_LRA_acceptance": false
+  }
+}

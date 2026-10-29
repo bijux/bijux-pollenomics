@@ -145,6 +145,41 @@
       "descriptor": "source-transport.json",
       "sha256": "85cc10be32b2d8271e1a2111cebf783528502b4538a69327f77932996c20d73a",
       "bytes": 580320
+    },
+    "data/adna/current-default-export-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "6bc28ba95e20170dfdeb900163b58e2242758774aae55e8bfd7b916943415e7b",
+      "bytes": 520728
+    },
+    "data/source-custody/adna/animal-current-exports": {
+      "descriptor": "source-transport.json",
+      "sha256": "de3ad41dda82bbf7ed705c59c284e5ec3dda84309793b7bde8e6a3624c7cbf70",
+      "bytes": 523681
+    },
+    "data/source-custody/country-reports/sweden/packet": {
+      "descriptor": "source-transport.json",
+      "sha256": "af7282b96b14ca6b942329d038622fac11e3663474e7789984a52e80d25e8840",
+      "bytes": 480584
+    },
+    "data/source-custody/lra-uncertainty-layout": {
+      "descriptor": "source-transport.json",
+      "sha256": "22cce5733a75b9f3ae2da0b8891e2eb64d187310a36d294ed0d742c03a2d1f00",
+      "bytes": 964
+    },
+    "data/source-custody/neotoma/selected-counts": {
+      "descriptor": "source-transport.json",
+      "sha256": "15014c81ed9b981e59c13a92a050fce1085f1444fced8e0d9c99d206699ee1ce",
+      "bytes": 521000
+    },
+    "data/source-custody/source-reconciliation/current-audit": {
+      "descriptor": "source-transport.json",
+      "sha256": "c8bc97b5e34826e1488e737d2de5ce836fa0333bc02153761bbfb2e4e1cc4649",
+      "bytes": 523690
+    },
+    "data/source-custody/country-reports/sweden/current-retention": {
+      "descriptor": "source-transport.json",
+      "sha256": "052adce5aef1492401538037f824ccb6be45f8dfdd631f3e92658ad6a9050cf0",
+      "bytes": 5757
     }
   },
   "source_revisions": {

@@ -1,0 +1,102 @@
+{
+  "schema_version": "current-source-audit-terminal.v1",
+  "candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "plan_sha256": "1263d63a7e28abf920bb795f05e4fd1e2a6f53c35c7850470763447b15d576cc",
+  "actual_exit": 0,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/plan.json",
+    "--registered-plan-sha256",
+    "1263d63a7e28abf920bb795f05e4fd1e2a6f53c35c7850470763447b15d576cc"
+  ],
+  "stages": [
+    {
+      "id": "maintained-current-source-audit",
+      "action": "producer",
+      "timeout_seconds": 360,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+        "producer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 58.96159129199805,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/maintained-current-source-audit.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/maintained-current-source-audit.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "id": "independent-current-source-audit-observer",
+      "action": "observer",
+      "timeout_seconds": 240,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+        "observer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 62.24454770801822,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/independent-current-source-audit-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/independent-current-source-audit-observer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "exception": null,
+  "after_custody_error": null,
+  "completed_elapsed_seconds": 178.19009579101112,
+  "completed_child_peak_RSS_bytes_macos": 875134976,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_whole_wall_bound_pass": true,
+  "products_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/output-products.json",
+    "sha256": "77fdcf87dfd3081b43297c6960340fa4a7406349c5d31447d70a2e55bea8cda2",
+    "bytes": 945022
+  },
+  "products_count_before_manifest": 2803,
+  "own_receipt_reserve_bytes": 16384,
+  "outer_receipt_reserve_bytes": 16384,
+  "source_freeze_identity": {
+    "candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+    "status": "",
+    "tracked_inventory_sha256": "8bccb65f61745d2ababd164521fe2c0c722b176b6ca5dc6d32576a77c5a9b483"
+  },
+  "live_canonical_equality_claimed": false,
+  "OS_quota_or_full_descendant_RSS_claimed": false,
+  "resources": {
+    "overall_timeout_seconds": 720,
+    "outer_timeout_seconds": 780,
+    "declared_memory_bytes": 4294967296,
+    "declared_storage_bytes": 3221225472
+  },
+  "scope": "Fresh current mechanical source-audit and intake-custody accounting with complete typed source/summary reconstruction. Findings and missing inputs are native results, not forced old counts or zero. Original26116f full audit remains unavailable; no original summary reproduction, source completeness, rights/human/ecological/LRA admission or new model/HTTP claim."
+}

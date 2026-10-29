@@ -1,0 +1,705 @@
+"""Independent stdlib reconstruction of the declared current AADR metadata semantics."""
+
+from __future__ import annotations
+
+from bisect import bisect_left
+from collections import Counter
+from copy import deepcopy
+import csv
+from decimal import ROUND_HALF_EVEN, Decimal
+import json
+import math
+from pathlib import Path
+import re
+import struct
+from typing import Any
+
+FIELDS = (
+    "schema_version",
+    "species_latin_name",
+    "species_common_name",
+    "source_family",
+    "sample_namespace",
+    "genetic_id",
+    "master_id",
+    "group_id",
+    "locality",
+    "political_entity",
+    "latitude",
+    "longitude",
+    "publication",
+    "year_first_published",
+    "full_date",
+    "date_mean_bp",
+    "date_stddev_bp",
+    "time_start_bp",
+    "time_end_bp",
+    "time_mean_bp",
+    "time_label",
+    "dating_basis",
+    "coordinate_confidence",
+    "data_type",
+    "molecular_sex",
+    "datasets",
+    "accession_lineage",
+)
+CURRENT_FIELDS = (*FIELDS, "sample_chronology", "sample_identity")
+PREFIXES = {
+    "genetic_id": ("Genetic ID",),
+    "master_id": ("Master ID", "Persistent Genetic ID"),
+    "group_id": ("Group ID",),
+    "locality": ("Locality",),
+    "political_entity": ("Political Entity",),
+    "latitude": ("Lat.", "Latitude"),
+    "longitude": ("Long.", "Longitude"),
+    "publication": ("Publication abbreviation",),
+    "year_first_published": (
+        "Year data from this individual was first published",
+        "Year first published",
+    ),
+    "full_date": ("Full Date",),
+    "date_mean_bp": ("Date mean in BP",),
+    "date_stddev_bp": ("Date standard deviation in BP",),
+    "data_type": ("Data type",),
+    "molecular_sex": ("Molecular Sex",),
+}
+DEFAULTS = dict.fromkeys(
+    (
+        "project_accession",
+        "paper_doi",
+        "paper_url",
+        "supplementary_source",
+        "inclusion_note",
+        "chronology_strength",
+        "chronology_normalization_status",
+        "chronology_provenance_path",
+        "chronology_provenance_kind",
+        "chronology_provenance_locator",
+        "chronology_provenance_text",
+        "chronology_conflict_note",
+        "sample_basis",
+        "archive_native_sample_id",
+        "paper_native_sample_label",
+        "supplementary_table_sample_label",
+        "sample_evidence_status",
+        "sample_lineage_path",
+        "sample_lineage_locator",
+        "sample_lineage_excerpt",
+        "sample_identity_resolution",
+        "sample_ambiguity_note",
+        "source_native_tax_id",
+        "source_native_scientific_name",
+        "archive_native_experiment_id",
+    ),
+    "",
+)
+DEFAULTS.update(
+    inclusion_status="included",
+    taxon_alignment_status="not_reported",
+    source_native_identity_kind="biological_sample",
+)
+IDENTITY_KEYS = (
+    "master_id",
+    "group_id",
+    "archive_native_sample_id",
+    "archive_native_experiment_id",
+    "paper_native_sample_label",
+    "supplementary_table_sample_label",
+    "source_native_identity_kind",
+    "source_native_tax_id",
+    "source_native_scientific_name",
+    "project_accession",
+    "sample_basis",
+    "sample_evidence_status",
+    "sample_identity_resolution",
+    "sample_ambiguity_note",
+    "sample_lineage_path",
+    "sample_lineage_locator",
+    "sample_lineage_excerpt",
+)
+
+
+def require(value: object, reason: str) -> None:
+    if not value:
+        raise ValueError(reason)
+
+
+def same(left: Any, right: Any) -> None:
+    require(type(left) is type(right), "Metadata type differs")
+    if isinstance(left, dict):
+        require(set(left) == set(right), "Metadata key population differs")
+        for key in left:
+            same(left[key], right[key])
+    elif isinstance(left, list):
+        require(len(left) == len(right), "Metadata list population differs")
+        for a, b in zip(left, right, strict=True):
+            same(a, b)
+    elif isinstance(left, float):
+        require(
+            math.isfinite(left)
+            and math.isfinite(right)
+            and struct.pack("!d", left) == struct.pack("!d", right),
+            "Finite binary64 metadata differs",
+        )
+    else:
+        require(left == right, "Metadata value differs")
+
+
+def clean(value: str | None) -> str:
+    return " ".join((value or "").split())
+
+
+def header_schema(fields: list[str]) -> dict[str, str | None]:
+    result: dict[str, str | None] = {}
+    lowered = {name.casefold(): name for name in fields}
+    for key, prefixes in PREFIXES.items():
+        match = next(
+            (lowered[p.casefold()] for p in prefixes if p.casefold() in lowered), None
+        )
+        if match is None:
+            match = next(
+                (
+                    name
+                    for prefix in prefixes
+                    for name in fields
+                    if name.casefold().startswith(prefix.casefold())
+                ),
+                None,
+            )
+        require(
+            match is not None or key in {"year_first_published", "date_stddev_bp"},
+            "Required native AADR header absent",
+        )
+        result[key] = match
+    return result
+
+
+def rounded(value: str) -> int | None:
+    candidate = value.strip().replace(",", "")
+    if not candidate:
+        return None
+    try:
+        binary = float(candidate)
+    except ValueError:
+        return None
+    if math.isnan(binary):
+        return None
+    require(math.isfinite(binary), "Infinite source date cannot be normalized")
+    return int(Decimal.from_float(binary).to_integral_value(rounding=ROUND_HALF_EVEN))
+
+
+def chronology(mean: str, std: str, full_date: str) -> dict[str, Any]:
+    mu, sigma = rounded(mean), rounded(std)
+    interval = (
+        None
+        if mu is None
+        else (mu, mu)
+        if sigma is None or sigma <= 0
+        else (mu - 2 * sigma, mu + 2 * sigma)
+    )
+    refusal = ""
+    if interval is not None:
+        if min(interval) < 0:
+            refusal = "negative_bp"
+        elif max(interval) > 2**53 - 1:
+            refusal = "unsafe_integer_bp"
+    admitted = interval is not None and not refusal
+    label = full_date
+    if not label and interval is not None:
+        label = (
+            f"{interval[0]} BP"
+            if interval[0] == interval[1]
+            else f"{interval[0]}-{interval[1]} BP"
+        )
+    return {
+        "original_text": label,
+        "time_start_bp": interval[0] if interval is not None and admitted else None,
+        "time_end_bp": interval[1] if interval is not None and admitted else None,
+        "time_mean_bp": mu if admitted else None,
+        "date_stddev_bp": std,
+        "source_mean_bp_text": mean,
+        "dating_basis": "bp_mean_and_stddev"
+        if interval is not None and std
+        else "bp_window"
+        if interval is not None
+        else "archaeological_period"
+        if full_date
+        else "unknown",
+        "evidence_class": "direct_numeric_sample_date"
+        if interval is not None
+        else "unresolved",
+        "precision_posture": "sample_precise_interval"
+        if interval is not None
+        else "unresolved",
+        "refusal_reason_code": refusal,
+    }
+
+
+def slug(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.strip().casefold()).strip("-") or "unknown"
+
+
+def record(
+    row: dict[str, str], schema: dict[str, str | None], dataset: str
+) -> dict[str, Any] | None:
+    values = {
+        key: clean(row.get(column, "")) if column else ""
+        for key, column in schema.items()
+    }
+    token, lat, lon = values["genetic_id"], values["latitude"], values["longitude"]
+    if not token or not lat or not lon:
+        return None
+    try:
+        latitude, longitude = float(lat), float(lon)
+    except ValueError:
+        return None
+    require(
+        math.isfinite(latitude) and math.isfinite(longitude),
+        "Nonfinite source coordinate cannot be published",
+    )
+    locality = values["locality"] or "Unspecified locality"
+    political = values["political_entity"]
+    identity = {
+        "namespace": "homo_sapiens:aadr_genetic_id",
+        "stable_token": token,
+        "accession_lineage": [
+            "species:Homo sapiens",
+            "source:AADR",
+            "release:v66",
+            "dataset:" + dataset,
+            "genetic_id:" + token,
+        ],
+    }
+    locality_identity = {
+        "namespace": "homo_sapiens:locality",
+        "stable_token": "homo_sapiens:"
+        + ":".join(map(slug, ["AADR", political, locality, lat + ":" + lon])),
+        "locality_text": locality,
+        "political_entity": political,
+        "source_anchor_tokens": ["AADR", lat, lon],
+    }
+    return {
+        "identity": identity,
+        "locality_identity": locality_identity,
+        "species_latin_name": "Homo sapiens",
+        "species_common_name": "human",
+        "source_family": "AADR",
+        "source_release": "v66",
+        "record_modality": "metadata_only",
+        "review_strength": "curated_release_metadata",
+        "provenance_quality": "release_manifest_pinned",
+        "master_id": values["master_id"],
+        "group_id": values["group_id"],
+        "locality": locality,
+        "political_entity": political,
+        "latitude": latitude,
+        "longitude": longitude,
+        "latitude_text": lat,
+        "longitude_text": lon,
+        "coordinate_confidence": "unknown",
+        "publication": values["publication"],
+        "year_first_published": values["year_first_published"],
+        "full_date": values["full_date"],
+        "chronology": chronology(
+            values["date_mean_bp"], values["date_stddev_bp"], values["full_date"]
+        ),
+        "data_type": values["data_type"],
+        "molecular_sex": values["molecular_sex"],
+        "datasets": [dataset],
+        **DEFAULTS,
+    }
+
+
+def merge(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
+    result = deepcopy(left)
+    result["identity"]["accession_lineage"] = list(
+        dict.fromkeys(
+            left["identity"]["accession_lineage"]
+            + right["identity"]["accession_lineage"]
+        )
+    )
+    result["datasets"] = sorted(set(left["datasets"]) | set(right["datasets"]))
+    for key in (
+        "master_id",
+        "group_id",
+        "latitude_text",
+        "longitude_text",
+        "coordinate_confidence",
+        "publication",
+        "year_first_published",
+        "full_date",
+        "data_type",
+        "molecular_sex",
+    ):
+        result[key] = left[key] or right[key]
+    a, b = left["chronology"], right["chronology"]
+    spans = [
+        (item["time_start_bp"], item["time_end_bp"])
+        for item in (a, b)
+        if item["time_start_bp"] is not None and item["time_end_bp"] is not None
+    ]
+    interval = (
+        (min(item[0] for item in spans), max(item[1] for item in spans))
+        if spans
+        else None
+    )
+    c = result["chronology"]
+    c["time_start_bp"], c["time_end_bp"] = (
+        interval if interval is not None else (None, None)
+    )
+    c["time_mean_bp"] = next(
+        (item["time_mean_bp"] for item in (a, b) if item["time_mean_bp"] is not None),
+        None,
+    )
+    if c["time_mean_bp"] is None and interval is not None:
+        c["time_mean_bp"] = int(
+            (Decimal(interval[0] + interval[1]) / 2).to_integral_value(
+                rounding=ROUND_HALF_EVEN
+            )
+        )
+    c["original_text"] = next(
+        (
+            clean(value)
+            for value in (
+                a["original_text"],
+                b["original_text"],
+                left["full_date"],
+                right["full_date"],
+            )
+            if clean(value)
+        ),
+        "",
+    )
+    if not c["original_text"] and interval is not None:
+        c["original_text"] = (
+            f"{interval[0]} BP"
+            if interval[0] == interval[1]
+            else f"{interval[0]}-{interval[1]} BP"
+        )
+    for key in (
+        "date_stddev_bp",
+        "source_mean_bp_text",
+        "dating_basis",
+        "evidence_class",
+        "precision_posture",
+        "refusal_reason_code",
+    ):
+        c[key] = a[key] or b[key]
+    c["dating_basis"] = c["dating_basis"] or "unknown"
+    return result
+
+
+def duplicate_support_audit(
+    groups: dict[str, list[dict[str, Any]]], merged: dict[str, dict[str, Any]]
+) -> dict[str, Any]:
+    """Retain row supports independently of the software merger's interval hull."""
+    duplicates = []
+    totals: Counter[str] = Counter()
+    for token, evidence in sorted(groups.items()):
+        if len(evidence) < 2:
+            continue
+        spans = []
+        for row in evidence:
+            chronology_value = row["chronology"]
+            start, end = (
+                chronology_value["time_start_bp"],
+                chronology_value["time_end_bp"],
+            )
+            if start is not None and end is not None:
+                require(
+                    type(start) is int and type(end) is int and start <= end,
+                    "Original duplicate support must be an ordered integer span",
+                )
+                spans.append((start, end))
+        span_counts = Counter(spans)
+        pair_count = len(spans) * (len(spans) - 1) // 2
+        unequal = pair_count - sum(
+            count * (count - 1) // 2 for count in span_counts.values()
+        )
+        ends = sorted(end for _, end in spans)
+        disjoint = sum(bisect_left(ends, start) for start, _ in spans)
+        union: list[list[int]] = []
+        for start, end in sorted(spans):
+            if union and start <= union[-1][1]:
+                union[-1][1] = max(end, union[-1][1])
+            else:
+                union.append([start, end])
+        gaps = [
+            [left[1], right[0]] for left, right in zip(union, union[1:], strict=False)
+        ]
+        actual = merged[token]["chronology"]
+        hull = [actual["time_start_bp"], actual["time_end_bp"]]
+        require(
+            hull == ([union[0][0], union[-1][1]] if union else [None, None]),
+            "Merged support differs from the observed native-row hull",
+        )
+        totals.update(
+            {
+                "duplicate_ids": 1,
+                "native_rows": len(evidence),
+                "valid_native_spans": len(spans),
+                "rows_without_valid_span": len(evidence) - len(spans),
+                "unequal_span_pairs": unequal,
+                "disjoint_span_pairs": disjoint,
+                "ids_with_hull_gaps": int(bool(gaps)),
+            }
+        )
+        duplicates.append(
+            {
+                "stable_token": token,
+                "ordered_native_rows": evidence,
+                "valid_support_union": union,
+                "merged_output_hull": hull,
+                "unequal_span_pairs": unequal,
+                "disjoint_span_pairs": disjoint,
+                "open_gaps_introduced_by_hull": gaps,
+                "scientific_support_refusal": "disjoint_native_support_hull"
+                if gaps
+                else "",
+                "software_merge_match_is_scientific_chronology_validation": False,
+            }
+        )
+    return {
+        "counts": {
+            name: totals[name]
+            for name in (
+                "duplicate_ids",
+                "native_rows",
+                "valid_native_spans",
+                "rows_without_valid_span",
+                "unequal_span_pairs",
+                "disjoint_span_pairs",
+                "ids_with_hull_gaps",
+            )
+        },
+        "duplicates": duplicates,
+        "original_supports_preserved": True,
+        "gap_endpoints_are_open_BP_intervals": True,
+        "calibration_or_chronology_scientifically_validated": False,
+    }
+
+
+def reconstruct(
+    paths: list[Path], countries: list[str]
+) -> tuple[
+    dict[str, list[dict[str, Any]]],
+    dict[str, dict[str, int]],
+    dict[str, int],
+    dict[str, Any],
+]:
+    selected: dict[str, dict[str, dict[str, Any]]] = {
+        country: {} for country in countries
+    }
+    counts: dict[str, Counter[str]] = {country: Counter() for country in countries}
+    raw_counts = {}
+    supports: dict[str, dict[str, list[dict[str, Any]]]] = {
+        country: {} for country in countries
+    }
+    for path in paths:
+        dataset = path.parent.name
+        count = 0
+        with path.open(encoding="utf8", newline="") as handle:
+            reader = csv.DictReader(handle, delimiter="\t")
+            schema = header_schema(list(reader.fieldnames or []))
+            for raw in reader:
+                count += 1
+                require(count <= 200000, "Declared source row bound exceeded")
+                value = record(raw, schema, dataset)
+                if value is None:
+                    continue
+                country = next(
+                    (
+                        name
+                        for name in countries
+                        if value["political_entity"].casefold() == name.casefold()
+                    ),
+                    None,
+                )
+                if country is None:
+                    continue
+                counts[country][dataset] += 1
+                token = value["identity"]["stable_token"]
+                supports[country].setdefault(token, []).append(
+                    {
+                        "dataset": dataset,
+                        "source_row_ordinal_after_header": count,
+                        "chronology": deepcopy(value["chronology"]),
+                    }
+                )
+                selected[country][token] = (
+                    merge(selected[country][token], value)
+                    if token in selected[country]
+                    else value
+                )
+        raw_counts[dataset] = count
+    rows = {
+        country: sorted(
+            values.values(),
+            key=lambda v: (
+                v["locality"].casefold(),
+                v["master_id"].casefold(),
+                v["identity"]["stable_token"].casefold(),
+            ),
+        )
+        for country, values in selected.items()
+    }
+    return (
+        rows,
+        {country: dict(sorted(value.items())) for country, value in counts.items()},
+        raw_counts,
+        {
+            country: duplicate_support_audit(supports[country], selected[country])
+            for country in countries
+        },
+    )
+
+
+def export_record(sample: dict[str, Any]) -> dict[str, Any]:
+    c = sample["chronology"]
+    support = {
+        "schema_version": "adna-sample-chronology-support.v1",
+        "sample_id": sample["identity"]["stable_token"],
+        "chronology": deepcopy(c),
+        "source_release": sample["source_release"],
+        "provenance_path": sample["chronology_provenance_path"],
+        "provenance_locator": sample["chronology_provenance_locator"],
+        "provenance_excerpt": sample["chronology_provenance_text"],
+        "provenance_kind": sample["chronology_provenance_kind"],
+        "chronology_strength": sample["chronology_strength"],
+        "normalization_status": sample["chronology_normalization_status"],
+        "conflict_note": sample["chronology_conflict_note"],
+        **dict.fromkeys(
+            ("reference_epoch", "age_type", "calibration_status", "model"),
+            "not_separately_declared",
+        ),
+    }
+    identity = {
+        "namespace": sample["identity"]["namespace"],
+        "stable_token": sample["identity"]["stable_token"],
+        "accession_lineage": sample["identity"]["accession_lineage"],
+        **{key: sample[key] for key in IDENTITY_KEYS},
+    }
+    result = {
+        key: sample[key]
+        for key in (
+            "species_latin_name",
+            "species_common_name",
+            "source_family",
+            "master_id",
+            "group_id",
+            "locality",
+            "political_entity",
+            "publication",
+            "year_first_published",
+            "full_date",
+            "coordinate_confidence",
+            "data_type",
+            "molecular_sex",
+            "datasets",
+        )
+    }
+    result.update(
+        schema_version="adna-sample-record-export.v2",
+        sample_namespace=sample["identity"]["namespace"],
+        genetic_id=sample["identity"]["stable_token"],
+        latitude=sample["latitude_text"],
+        longitude=sample["longitude_text"],
+        date_mean_bp=c["source_mean_bp_text"]
+        or (str(c["time_mean_bp"]) if c["time_mean_bp"] is not None else ""),
+        date_stddev_bp=c["date_stddev_bp"],
+        time_start_bp=c["time_start_bp"],
+        time_end_bp=c["time_end_bp"],
+        time_mean_bp=c["time_mean_bp"],
+        time_label=c["original_text"],
+        dating_basis=c["dating_basis"],
+        accession_lineage=sample["identity"]["accession_lineage"],
+        sample_chronology=support,
+        sample_identity=identity,
+    )
+    require(
+        set(result) == set(CURRENT_FIELDS),
+        "Independent export field population differs",
+    )
+    return {key: result[key] for key in CURRENT_FIELDS}
+
+
+def typed_record(sample: dict[str, Any]) -> dict[str, Any]:
+    result = deepcopy(sample)
+    result["coordinates"] = {
+        key: result.pop(key)
+        for key in ("latitude", "longitude", "latitude_text", "longitude_text")
+    }
+    result["coordinates"]["confidence"] = result.pop("coordinate_confidence")
+    return result
+
+
+def csv_record(sample: dict[str, Any]) -> dict[str, str]:
+    value = export_record(sample)
+    for key in ("sample_chronology", "sample_identity"):
+        value[key] = json.dumps(
+            value[key], ensure_ascii=False, allow_nan=False, separators=(",", ":")
+        )
+    value["datasets"] = ",".join(sample["datasets"])
+    value["accession_lineage"] = ";".join(sample["identity"]["accession_lineage"])
+    return {key: "" if item is None else str(item) for key, item in value.items()}
+
+
+def geojson(samples: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        "schema_version": "adna-sample-geojson-collection.v2",
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "schema_version": "adna-sample-geojson.v2",
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [s["longitude"], s["latitude"]],
+                },
+                "properties": export_record(s),
+            }
+            for s in samples
+        ],
+    }
+
+
+def historical(
+    rows: list[dict[str, str]], current: list[dict[str, str]]
+) -> dict[str, Any]:
+    old = {row["genetic_id"]: row for row in rows}
+    new = {row["genetic_id"]: row for row in current}
+    require(
+        len(old) == len(rows) and len(new) == len(current),
+        "Historical/current genetic IDs must be unique",
+    )
+    differences = []
+    for token in sorted(set(old) | set(new)):
+        if token not in old or token not in new:
+            differences.append(
+                {
+                    "genetic_id": token,
+                    "missing_from": "old_v1" if token not in old else "current_v2",
+                }
+            )
+        else:
+            for key in FIELDS[1:]:
+                if old[token][key] != new[token][key]:
+                    differences.append(
+                        {
+                            "genetic_id": token,
+                            "field": key,
+                            "old_v1": old[token][key],
+                            "current_v2": new[token][key],
+                        }
+                    )
+    return {
+        "old_rows": len(old),
+        "current_rows": len(new),
+        "intentional_schema_transition": [
+            "adna-sample-record-export.v1",
+            "adna-sample-record-export.v2",
+        ],
+        "all_other_legacy_fields_equal": not differences,
+        "differences": differences,
+        "historical_whole_byte_equivalence_or_rich_provenance_recovery_claimed": False,
+    }
