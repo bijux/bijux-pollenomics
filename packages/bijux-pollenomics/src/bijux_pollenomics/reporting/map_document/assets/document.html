@@ -2255,7 +2255,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                     <span class="control-group-label">Candidate relations</span>
                     <h3>Cross-border Filters</h3>
                   </div>
-                  <span id="relation-summary" class="control-group-summary" aria-live="polite">Checking governed candidates</span>
+                  <span id="relation-summary" role="status" aria-live="polite" aria-atomic="true" class="control-group-summary">Checking governed candidates</span>
                 </summary>
                 <div class="control-group-body">
                   <label class="field-label" for="country-pair-filter"><span>Country pair</span><span>Direction-neutral</span></label>
@@ -5604,9 +5604,14 @@ __URL_STATE_CONTROLLER__
         crossBorderOnlyCheckbox.checked = crossBorderOnly;
         countryPairFilter.innerHTML = '<option value="all">All country pairs</option>' + COUNTRY_PAIR_KEYS.map((key) => `<option value="${escapeHtml(key)}" ${activeCountryPair === key ? 'selected' : ''}>${escapeHtml(key.replace('|', ' ↔ '))}</option>`).join('');
         relationSummary.textContent = available
-          ? `${visibleGovernedEdges().length} of ${GOVERNED_EDGE_ELIGIBILITY_COUNT} governed candidates visible · ${sequencePosture}`
+          ? `${visibleGovernedEdges().length} of ${GOVERNED_EDGE_ELIGIBILITY_COUNT} governed candidates visible to filters (admitted denominator) · Showing ${edgeRenderSummary.shown} of ${edgeRenderSummary.viewport_count} loaded display-eligible viewport candidates (display limit ${edgeRenderSummary.limit}) · ${sequencePosture}${edgeRenderSummary.shown < edgeRenderSummary.viewport_count ? ' · Zoom in or narrow country and signal filters to inspect other candidates.' : ''}`
           : `Candidates unavailable: ${STATIC_ATLAS_INLINE ? 'governed_map_edge_model_not_available' : STATIC_ATLAS_CHUNKS.edges.reason_code} · ${sequencePosture}`;
         relationSummary.dataset.sequenceStatus = STATIC_ATLAS_INLINE ? 'unavailable' : STATIC_ATLAS_CHUNKS.sequences.status;
+        relationSummary.dataset.filterMatchedCandidateCount = String(visibleGovernedEdges().length);
+        relationSummary.dataset.admittedCandidateCount = String(GOVERNED_EDGE_ELIGIBILITY_COUNT);
+        relationSummary.dataset.renderedCandidateCount = String(edgeRenderSummary.shown);
+        relationSummary.dataset.viewportCandidateCount = String(edgeRenderSummary.viewport_count);
+        relationSummary.dataset.renderLimit = String(edgeRenderSummary.limit);
       }
       function selectSourceChronologyLevel(level) {
         const layer = sourceChronologyLayerForLevel(level);
@@ -6599,17 +6604,23 @@ __URL_STATE_CONTROLLER__
         }
         return merged;
       }
+      let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
+      __EDGE_DISPLAY_CONTROLLER__
       function renderEdgeLayers() {
+        edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
         if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.status !== 'available') return;
         const entriesByRecordId = new Map(
           visiblePointEntries
             .filter((entry) => entry.feature.record_id)
             .map((entry) => [String(entry.feature.record_id), entry])
         );
-        visibleGovernedEdges().forEach((edge) => {
-          const source = entriesByRecordId.get(String(edge.source_record_id));
-          const target = entriesByRecordId.get(String(edge.target_record_id));
-          if (!source || !target) return;
+        const selection = atlasEdgeRenderSelection(
+          visibleGovernedEdges(), entriesByRecordId,
+          map._loaded ? map.getZoom() : 0, featureCoordinatePair,
+          map._loaded ? (coordinates) => atlasEdgeIntersectsViewport(map, coordinates) : null
+        );
+        edgeRenderSummary = { shown: selection.rows.length, viewport_count: selection.viewport_count, limit: selection.limit };
+        selection.rows.forEach(({ edge, source, target }) => {
           const signal = scientificSignalById(edge.signal_id);
           const color = signal ? signal.color : '#6d28d9';
           const presentation = edgeScientificPresentation(edge);
