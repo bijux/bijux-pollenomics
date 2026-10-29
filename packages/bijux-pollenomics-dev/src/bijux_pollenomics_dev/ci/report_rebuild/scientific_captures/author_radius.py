@@ -11,6 +11,10 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
+from .presentation.correspondence import (
+    PRESENTATION_SOURCE,
+    validated_presentation_source_correspondence,
+)
 from .source_correspondence import validated_metadata_source_correspondence
 
 CAPTURE = "data/method-certification/author-radius-source-capture/capture.json"
@@ -449,6 +453,7 @@ def validated_author_radius_capture(
     if len({_member_name(_object(r).get("path")) for r in projection}) != 2136:
         raise ReportRebuildError("Radius historical source projection duplicates")
     current_metadata_correspondences = []
+    current_presentation_correspondences = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
@@ -470,11 +475,18 @@ def validated_author_radius_capture(
         if current.stat().st_size != row.get("bytes") or hashlib.sha256(
             current.read_bytes()
         ).hexdigest() != row.get("sha256"):
-            current_metadata_correspondences.append(
-                validated_metadata_source_correspondence(
-                    repository, row, retained_candidates[0]
+            if name == PRESENTATION_SOURCE:
+                current_presentation_correspondences.append(
+                    validated_presentation_source_correspondence(
+                        repository, row, retained_candidates[0]
+                    )
                 )
-            )
+            else:
+                current_metadata_correspondences.append(
+                    validated_metadata_source_correspondence(
+                        repository, row, retained_candidates[0]
+                    )
+                )
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 5:
         raise ReportRebuildError("Radius needs exactly five genuine produced outputs")
@@ -575,8 +587,10 @@ def validated_author_radius_capture(
         "authenticated_generated_paired_outputs": 2,
         "current_scientific_projection": 2136,
         "current_projection_byteequal_members": 2136
-        - len(current_metadata_correspondences),
+        - len(current_metadata_correspondences)
+        - len(current_presentation_correspondences),
         "current_metadata_source_correspondences": current_metadata_correspondences,
+        "current_presentation_source_correspondences": current_presentation_correspondences,
         "original_projection_members_retained_unchanged": 2136,
         "paths_sha256": canonical_json_sha256(sorted(names)),
         "scope": "Three genuine source-bound fixed-vegetation radius products and separate generated paired2 retain fourteen exposed English sites, three methods/factors, exact195/192/3 training source custody and BECKHAM refusal. Both original execution epochs and full historicalsource/resources stay explicit; no refit/R, physicalradius, vegetation-accuracy, equal-information independent ranking, Nordic/ecological/rights/human acceptance.",
