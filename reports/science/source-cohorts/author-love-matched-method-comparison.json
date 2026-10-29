@@ -1,0 +1,135 @@
+{
+  "counts": {
+    "all_folds": 15,
+    "cohort_refused_folds": 0,
+    "cohort_scored_folds": 15,
+    "matched_folds": 14,
+    "original_refused_folds": 1,
+    "original_scored_folds": 14,
+    "paired_baseline_rows": 42
+  },
+  "execution": {
+    "actual_session": 97193,
+    "candidate": "b30acdff340aa36c9ab28974232f73badd53393d",
+    "collected_execution": {
+      "bytes": 172,
+      "path": "artifacts/science/author-love-matched-native-score-execution/collected-execution.json",
+      "sha256": "245130ae5fb88e718d827af075ed251586db50918184b5ca9ec101605a0ef8cb"
+    },
+    "common_exit": 0,
+    "completed_child_peak_rss_bytes_macos": 175046656,
+    "elapsed_seconds": 23.018633208004758,
+    "exit_scope": "native_exit is the saved comparison stage; common_exit is the scientific runner; outer_exit is the root collected tool process, not a separate engine-runtime wrapper.",
+    "inputs_before_after_equal": true,
+    "logical_native_output_bytes_before_terminal": 278162,
+    "native_exit": 0,
+    "native_terminal": {
+      "bytes": 2374,
+      "path": "artifacts/science/author-love-matched-native-score-execution/native/terminal.json",
+      "sha256": "ffb2570905da24bdd997fd5d55f7b064b219bd72e03190d2437fb21bcdaffa9d"
+    },
+    "outer_exit": 0,
+    "plan": {
+      "bytes": 104044,
+      "path": "artifacts/science/author-love-matched-native-score-execution/plan.json",
+      "sha256": "6337c9b8e079dfea7fefacdda5dfb6c7180cd176a8f6cda2bcb0ea6143293166"
+    },
+    "resource_scope": "Native process-group stage deadlines and completed-child RSS/logical native-output postchecks; no OS memory/storage quotas, aggregate descendant memory or independent whole-process wall/network sandbox claim.",
+    "resources": {
+      "declared_memory_bytes": 536870912,
+      "declared_storage_bytes": 8388608,
+      "maximum_parallel_workers": 1,
+      "numerical_threads_per_worker": 1,
+      "overall_timeout_seconds": 60
+    },
+    "runtime_before_after_equal": true,
+    "runtime_scope": "The admitted SOURCE3331 executor authenticates its cached source runtime before and after the successful stage; no installed engine or distribution qualification.",
+    "source_before_after_equal": true
+  },
+  "independent_output_review": {
+    "bytes": 1353,
+    "path": "artifacts/science/author-love-matched-method-independent-review/independent-output-review.json",
+    "sha256": "8bec264c448ad6a74d136467fb7653f784f35f6f0f75fd05d17593096a5e67b0"
+  },
+  "interpretation": "All three equal-fold mean total-variation differences are slightly positive on the same14folds. All31pairs with any worse nonbias error and all3unpaired BECKHAM scores are retained. Joint starting-grid/unrounded-adapter change, dependent descriptive point comparisons only; no causal starting-point effect, significance, superiority, method selection, measured vegetation accuracy or untouched confirmation.",
+  "mean_total_variation_deltas": {
+    "inverse_distance_squared": 2.713366999731618e-06,
+    "nearest_site": 2.354332470630438e-06,
+    "training_mean": 1.5264606050320001e-06
+  },
+  "negative_transfer_pairs": 31,
+  "prior_native_refusals": [
+    {
+      "bytes": 2366,
+      "path": "artifacts/science/author-love-matched-method-execution/native/terminal.json",
+      "sha256": "5900d932904bfa016fd60bc608c8f2d5b2da5e48712d977aa4d7c7413ba82403"
+    },
+    {
+      "bytes": 2376,
+      "path": "artifacts/science/author-love-matched-preservation-count-execution/native/terminal.json",
+      "sha256": "4cf537baf79cc90a007a72337cbc251aa4f173ae82c3a764fe2644fb03d155e3"
+    }
+  ],
+  "producer_sources": [
+    {
+      "bytes": 10685,
+      "name": "comparison.py",
+      "sha256": "bf9b257b72e8e5c49ca836d165b14105d55717a049d20635794d2b62065718bd"
+    },
+    {
+      "bytes": 7201,
+      "name": "replay.py",
+      "sha256": "402157e6c103451608ee508f34646894de9a4a4c036a8c13a429e49f4ac962cc"
+    },
+    {
+      "bytes": 14409,
+      "name": "sources.py",
+      "sha256": "d78a1f5a336350d05d6c8d164b065b06a611dd37570c9d861c1fc6157037ac4c"
+    }
+  ],
+  "products": {
+    "fold_dispositions": {
+      "name": "fold-dispositions.csv",
+      "original_reference": {
+        "bytes": 1844,
+        "path": "artifacts/science/author-love-matched-native-score-execution/native/products/fold-dispositions.csv",
+        "sha256": "9293ffd67fc6feae262f53f64f83db4091d14cbbbabed42dabb5c8c1a55c25d0"
+      }
+    },
+    "paired_scores": {
+      "name": "paired-scores.csv",
+      "original_reference": {
+        "bytes": 42398,
+        "path": "artifacts/science/author-love-matched-native-score-execution/native/products/paired-scores.csv",
+        "sha256": "9ad9a7c730ec479a3a779726c93a466964cf88287e6893288c8ab1b77523a890"
+      }
+    },
+    "report": {
+      "name": "report.json",
+      "original_reference": {
+        "bytes": 232876,
+        "path": "artifacts/science/author-love-matched-native-score-execution/native/products/report.json",
+        "sha256": "27a3e26512acfee8142555c82425c8a3378ee50bae668585e2513e8c443ff4da"
+      }
+    }
+  },
+  "protocol": {
+    "bytes": 17497,
+    "path": "artifacts/science/author-love-matched-method-proposal/native-score-schema/protocol.json",
+    "sha256": "a53b0c1f8691b204d3cd19326f2055033740105a22efe57abab36025a3df25fd"
+  },
+  "received_qualified_human_decisions": 0,
+  "release_admission": false,
+  "schema_version": "author-love-matched-method-execution-authority.v1",
+  "scientific_design_candidate": "bfee143ff2fc07624d931300f81dabda1f1dceea",
+  "scientific_overlay": {
+    "canonical_source_candidate": "b30acdff340aa36c9ab28974232f73badd53393d",
+    "scope": "The three scientific source files and protocol were held artifact proposals during native execution; publication adopts their exact bytes separately.",
+    "source_files_in_candidate_git_tree": false,
+    "source_files_were_separately_authenticated_before_execution": true
+  },
+  "scope": "Descriptive paired development comparison, equal-fold weighting on14 common folds only. Preserve all15 dispositions, all baselines, null/infinite deviance categories and every metric-worsening transfer case. Shared training and reused inputs make comparisons dependent; no inferential intervals, significance, method selection or superiority claim. No refits or rescoring, target-label tuning, independent vegetation accuracy, untouched confirmation, uncertainty calibration, R parity, source-rights or whole scientific/release acceptance.",
+  "source_candidate": "b30acdff340aa36c9ab28974232f73badd53393d",
+  "source_rights_admitted": false,
+  "unmatched_cohort_scores": 3
+}

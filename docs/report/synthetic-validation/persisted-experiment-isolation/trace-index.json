@@ -1,0 +1,2411 @@
+{
+  "objects": [
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/run_manifest.json"
+      ],
+      "retention_key": "sha256:015374757fc428db9477ed77231b7d1a0481b38ad644004883446c8faa3f992e",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "015374757fc428db9477ed77231b7d1a0481b38ad644004883446c8faa3f992e"
+    },
+    {
+      "bytes": 1775,
+      "logical_paths": [
+        "fitted-target-perturbed-predictions/failures.json"
+      ],
+      "retention_key": "sha256:01ed90616ac60d367415773aa70ed5e3ea22b5039fc2a0154c5ef223fe57524a",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "01ed90616ac60d367415773aa70ed5e3ea22b5039fc2a0154c5ef223fe57524a"
+    },
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/run_manifest.json"
+      ],
+      "retention_key": "sha256:025f70215d5180b59769924b4fa47204aa1ba7876f059877436e9a3bb20a2987",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "025f70215d5180b59769924b4fa47204aa1ba7876f059877436e9a3bb20a2987"
+    },
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/operations.json",
+        "fitted-target-perturbed-predictions/operations.json"
+      ],
+      "retention_key": "sha256:0275272adc0e060e2c9758a07494f7001c34287c6d8ad2aaea25e82f0e5e9733",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "0275272adc0e060e2c9758a07494f7001c34287c6d8ad2aaea25e82f0e5e9733"
+    },
+    {
+      "bytes": 44,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/outliers.csv"
+      ],
+      "retention_key": "sha256:02f65e86c59d6b1dab72d0f3aaebe2aaaa771b0a376db0d115e7e2a9e299e8f3",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "02f65e86c59d6b1dab72d0f3aaebe2aaaa771b0a376db0d115e7e2a9e299e8f3"
+    },
+    {
+      "bytes": 52,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/outliers_quantiles.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/outliers_quantiles.csv"
+      ],
+      "retention_key": "sha256:03a2f57496c874f94f54cdfe916cd77e8a3eec8b6eb8ccbfae90ad4447bf2c90",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "03a2f57496c874f94f54cdfe916cd77e8a3eec8b6eb8ccbfae90ad4447bf2c90"
+    },
+    {
+      "bytes": 107,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/cover_mean.csv",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/cover_q10.csv",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/cover_q90.csv"
+      ],
+      "retention_key": "sha256:048afb24d4626d1910d0790627d6c46f9b1db38b4d14851128875e5da2735ee5",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "048afb24d4626d1910d0790627d6c46f9b1db38b4d14851128875e5da2735ee5"
+    },
+    {
+      "bytes": 22407,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/manifest.json"
+      ],
+      "retention_key": "sha256:068dfcb61c77430570cf06cfa29c0170923c49dba75ddaa541db8243115f23a2",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "068dfcb61c77430570cf06cfa29c0170923c49dba75ddaa541db8243115f23a2"
+    },
+    {
+      "bytes": 20283,
+      "logical_paths": [
+        "baselines-target-perturbed-scores/manifest.json"
+      ],
+      "retention_key": "sha256:06fe2447d890623358de5b17d62aeb02bf7fb31d6019af55e00d76f69e26e853",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "06fe2447d890623358de5b17d62aeb02bf7fb31d6019af55e00d76f69e26e853"
+    },
+    {
+      "bytes": 47,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/cover_sd.csv",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/cover_sd.csv",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/cover_sd.csv"
+      ],
+      "retention_key": "sha256:07910e29d5487de42fb41a7a25a9a206b02e8fb9e66fb81bb24a1c72740b9b7e",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "07910e29d5487de42fb41a7a25a9a206b02e8fb9e66fb81bb24a1c72740b9b7e"
+    },
+    {
+      "bytes": 1239,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/regional_reveals/run_manifest.json"
+      ],
+      "retention_key": "sha256:0793cf3e86c67144494d4c27cf35797ab8fb219c999c3acb83484ebfebfce5b7",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "0793cf3e86c67144494d4c27cf35797ab8fb219c999c3acb83484ebfebfce5b7"
+    },
+    {
+      "bytes": 10257,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/predictions.json"
+      ],
+      "retention_key": "sha256:087c4d6ddafbaa78e8ccb8dd7e36014685b8c051bae4b6244a30028cf9b9e343",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "087c4d6ddafbaa78e8ccb8dd7e36014685b8c051bae4b6244a30028cf9b9e343"
+    },
+    {
+      "bytes": 1746,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0003/summary/receipt.json",
+        "fitted-reference-predictions/batches/fold-0003/summary/receipt.json"
+      ],
+      "retention_key": "sha256:0916c19b9328473294e42ad25be8aa0c96da488b231ef62ea38e5289e963da18",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "0916c19b9328473294e42ad25be8aa0c96da488b231ef62ea38e5289e963da18"
+    },
+    {
+      "bytes": 43579,
+      "logical_paths": [
+        "baselines-reference-scores/manifest.json"
+      ],
+      "retention_key": "sha256:099ecdeac0d4f70b7f10a163f46bd9a982fddcd7e284d833371acf9ca406b9d4",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "099ecdeac0d4f70b7f10a163f46bd9a982fddcd7e284d833371acf9ca406b9d4"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0000/items/000001/receipt.json",
+        "fitted-reference-predictions/batches/fold-0000/items/000001/receipt.json"
+      ],
+      "retention_key": "sha256:0b68f43857bc83eddbcaa1c72180ddbfab9a21611cffc874965e5d67dc0d0849",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "0b68f43857bc83eddbcaa1c72180ddbfab9a21611cffc874965e5d67dc0d0849"
+    },
+    {
+      "bytes": 5513,
+      "logical_paths": [
+        "baselines-reference-scores/paired_baseline_differences.json"
+      ],
+      "retention_key": "sha256:0cec741199d70f9df54b6c9af4f7b967310ef4b047b4b8336b9f91fdad469c94",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "0cec741199d70f9df54b6c9af4f7b967310ef4b047b4b8336b9f91fdad469c94"
+    },
+    {
+      "bytes": 107,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/aux_Kloc.csv",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/aux_Kloc.csv",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/aux_Kloc.csv"
+      ],
+      "retention_key": "sha256:0de49124a646f8a1e4b5650daf62b63009fc8a92bd6dd7037b1fefdd433b87f3",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "0de49124a646f8a1e4b5650daf62b63009fc8a92bd6dd7037b1fefdd433b87f3"
+    },
+    {
+      "bytes": 2374,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/checksums.json"
+      ],
+      "retention_key": "sha256:0ec31ecbe942c728b090f46efcc2e4570f53317fd3166c44771b2db01d96dde9",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "0ec31ecbe942c728b090f46efcc2e4570f53317fd3166c44771b2db01d96dde9"
+    },
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/run_manifest.json"
+      ],
+      "retention_key": "sha256:0f098aeba3fab5f7b32145263a3def02348a495fcb7d3caa261ebcf84048b76f",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "0f098aeba3fab5f7b32145263a3def02348a495fcb7d3caa261ebcf84048b76f"
+    },
+    {
+      "bytes": 2093,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/training.json"
+      ],
+      "retention_key": "sha256:111abbc702e2a5f4698fcc8dd8a6d1f99cdba162a68c27a52e82cdbaf301818f",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "111abbc702e2a5f4698fcc8dd8a6d1f99cdba162a68c27a52e82cdbaf301818f"
+    },
+    {
+      "bytes": 2374,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/checksums.json"
+      ],
+      "retention_key": "sha256:121d405d290b4ee27db5def203804020bfa1a9615f889ba9a1bbe9f0bcd32cb1",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "121d405d290b4ee27db5def203804020bfa1a9615f889ba9a1bbe9f0bcd32cb1"
+    },
+    {
+      "bytes": 741513,
+      "logical_paths": [
+        "report.json"
+      ],
+      "retention_key": "sha256:129b5be130b1c7a718797f36ca47e1c930e911ac6a16e9725db03ea406e56911",
+      "roles": [
+        "raw-witness-report"
+      ],
+      "sha256": "129b5be130b1c7a718797f36ca47e1c930e911ac6a16e9725db03ea406e56911"
+    },
+    {
+      "bytes": 94304,
+      "logical_paths": [
+        "baselines-reference-predictions/manifest.json"
+      ],
+      "retention_key": "sha256:1459f4ad2aa70f24edf40269271d058266577980a72bd61be7b6a4f2de43c785",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "1459f4ad2aa70f24edf40269271d058266577980a72bd61be7b6a4f2de43c785"
+    },
+    {
+      "bytes": 528,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/regional_reveals/checksums.json"
+      ],
+      "retention_key": "sha256:160370dc60af90fe83e76d20d1105014c11c816159098a76a270ee93e963363d",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "160370dc60af90fe83e76d20d1105014c11c816159098a76a270ee93e963363d"
+    },
+    {
+      "bytes": 1770,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/scientific_manifest.json"
+      ],
+      "retention_key": "sha256:18c47ed7fde568e5b2c9678d8cf47faf124be0d93c19e863a20706a063042190",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "18c47ed7fde568e5b2c9678d8cf47faf124be0d93c19e863a20706a063042190"
+    },
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/run_manifest.json"
+      ],
+      "retention_key": "sha256:19e557b45b64f373d5ca9773b9b37128abf64a9d69e6ff527140366d5a6b5d34",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "19e557b45b64f373d5ca9773b9b37128abf64a9d69e6ff527140366d5a6b5d34"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0003/items/000001/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0001/items/000001/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0003/items/000001/receipt.json"
+      ],
+      "retention_key": "sha256:1a05cdaac80218e2eb6ba16ed61511ccdeaf4e5b003cd20958d6d2bf5a80fb94",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "1a05cdaac80218e2eb6ba16ed61511ccdeaf4e5b003cd20958d6d2bf5a80fb94"
+    },
+    {
+      "bytes": 1123,
+      "logical_paths": [
+        "reference-inputs/p03-geometry.json",
+        "target-perturbed-inputs/p03-geometry.json"
+      ],
+      "retention_key": "sha256:1c7cd88335f03c3a9266ac12c1a997db8c08d22293904a43946b840afb45c838",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "1c7cd88335f03c3a9266ac12c1a997db8c08d22293904a43946b840afb45c838"
+    },
+    {
+      "bytes": 47,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/cover_sd.csv",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/cover_sd.csv"
+      ],
+      "retention_key": "sha256:1dfbc20d16db09f98e73731d11cb1fe598821c71bc30d08f4136f6a189590ec4",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "1dfbc20d16db09f98e73731d11cb1fe598821c71bc30d08f4136f6a189590ec4"
+    },
+    {
+      "bytes": 710,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0000/items/000001/receipt.json"
+      ],
+      "retention_key": "sha256:1e2a3f1c7e1dc463aae4173c1ee8c5ba59a0d2c015db358342ff27f499218d3a",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "1e2a3f1c7e1dc463aae4173c1ee8c5ba59a0d2c015db358342ff27f499218d3a"
+    },
+    {
+      "bytes": 275,
+      "logical_paths": [
+        "reference-inputs/p03-raw.json",
+        "target-perturbed-inputs/p03-raw.json"
+      ],
+      "retention_key": "sha256:1f497079105affc72fb8fadcdf05443f4ba589ba3c2c0409bb3c221e8c2be98e",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "1f497079105affc72fb8fadcdf05443f4ba589ba3c2c0409bb3c221e8c2be98e"
+    },
+    {
+      "bytes": 3238,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/request.json"
+      ],
+      "retention_key": "sha256:20cac0b751d0555868de895ec755170eaefeb12c67ef3579384f25c0ac24afdc",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "20cac0b751d0555868de895ec755170eaefeb12c67ef3579384f25c0ac24afdc"
+    },
+    {
+      "bytes": 2374,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/checksums.json"
+      ],
+      "retention_key": "sha256:21108b9294ae7ecaff3755506edf3f7e7c314656c1ed2cdcd9cb4d9f2362ebd7",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "21108b9294ae7ecaff3755506edf3f7e7c314656c1ed2cdcd9cb4d9f2362ebd7"
+    },
+    {
+      "bytes": 47,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/cover_sd.csv",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/cover_sd.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/cover_sd.csv"
+      ],
+      "retention_key": "sha256:22e85ba4635821f10869f8daa13aab49f5751bffa0f109f0baf0c300426bc1d3",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "22e85ba4635821f10869f8daa13aab49f5751bffa0f109f0baf0c300426bc1d3"
+    },
+    {
+      "bytes": 107,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/aux_Kreg.csv",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/aux_Kreg.csv",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/aux_Kreg.csv"
+      ],
+      "retention_key": "sha256:238071c64a391565863518637794f554cb2db36663579e6bc3c7c7a10d2c6ea8",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "238071c64a391565863518637794f554cb2db36663579e6bc3c7c7a10d2c6ea8"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0000/items/000000/receipt.json",
+        "baselines-reference-predictions/batches/fold-0001/items/000000/receipt.json",
+        "fitted-reference-predictions/batches/fold-0000/items/000000/receipt.json",
+        "fitted-reference-predictions/batches/fold-0001/items/000000/receipt.json"
+      ],
+      "retention_key": "sha256:24025cb217ae0f82ed880d97f01ef7a1e02fa787dfc6008a2204299501572488",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "24025cb217ae0f82ed880d97f01ef7a1e02fa787dfc6008a2204299501572488"
+    },
+    {
+      "bytes": 22407,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/manifest.json"
+      ],
+      "retention_key": "sha256:26878ccf9476a4251cd6867b104ec99e5dd8cc5ace6be165fb4fd397d0ec7a37",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "26878ccf9476a4251cd6867b104ec99e5dd8cc5ace6be165fb4fd397d0ec7a37"
+    },
+    {
+      "bytes": 3036,
+      "logical_paths": [
+        "baselines-reference-predictions/experiment.json"
+      ],
+      "retention_key": "sha256:272af6c9a8fffaa291e75f42a4920505d789aec64dee2ca327ef99c8d0fd7613",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "272af6c9a8fffaa291e75f42a4920505d789aec64dee2ca327ef99c8d0fd7613"
+    },
+    {
+      "bytes": 49051,
+      "logical_paths": [
+        "fitted-target-perturbed-predictions/manifest.json"
+      ],
+      "retention_key": "sha256:27917bd945ca1de0ef2fd3ead30df73053640ea1a91078547f82b2677c8e7245",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "27917bd945ca1de0ef2fd3ead30df73053640ea1a91078547f82b2677c8e7245"
+    },
+    {
+      "bytes": 275,
+      "logical_paths": [
+        "reference-inputs/p01-raw.json"
+      ],
+      "retention_key": "sha256:28618ea490b77bf108a7af2a1e8173205a62ec5213e8f6b060352749a8d36d36",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "28618ea490b77bf108a7af2a1e8173205a62ec5213e8f6b060352749a8d36d36"
+    },
+    {
+      "bytes": 2219,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/run_manifest.json"
+      ],
+      "retention_key": "sha256:28c5f03b70f11679391526ec73b136e427057d8f1269f84e8108887d81161123",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "28c5f03b70f11679391526ec73b136e427057d8f1269f84e8108887d81161123"
+    },
+    {
+      "bytes": 3238,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/request.json"
+      ],
+      "retention_key": "sha256:29e69756368e81e44ad91abd08a77de331b07219339b47ae63f7c1bf29b79aeb",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "29e69756368e81e44ad91abd08a77de331b07219339b47ae63f7c1bf29b79aeb"
+    },
+    {
+      "bytes": 234,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/regional_reveals/reconstruction.csv",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/regional_reveals/reconstruction.csv",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/regional_reveals/reconstruction.csv"
+      ],
+      "retention_key": "sha256:2a306aabc0200da4d12069e5346cedc4765f68359d6a245d416248ac180f0475",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "2a306aabc0200da4d12069e5346cedc4765f68359d6a245d416248ac180f0475"
+    },
+    {
+      "bytes": 1770,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/scientific_manifest.json"
+      ],
+      "retention_key": "sha256:2a5c1cde1f8f6b8eed55f388032f0e21410e486076dcc4189de613d8fcbd892a",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "2a5c1cde1f8f6b8eed55f388032f0e21410e486076dcc4189de613d8fcbd892a"
+    },
+    {
+      "bytes": 275,
+      "logical_paths": [
+        "reference-inputs/p02-raw.json",
+        "target-perturbed-inputs/p02-raw.json"
+      ],
+      "retention_key": "sha256:2dbb9746133f20571062c488138d5fd1857a9917bdf0da6c5a295a3345721f60",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "2dbb9746133f20571062c488138d5fd1857a9917bdf0da6c5a295a3345721f60"
+    },
+    {
+      "bytes": 2219,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/run_manifest.json"
+      ],
+      "retention_key": "sha256:2e38523442eb99015ba82c669b2ed61e9f8bdd061e24ed59e86efeddfdd4304f",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "2e38523442eb99015ba82c669b2ed61e9f8bdd061e24ed59e86efeddfdd4304f"
+    },
+    {
+      "bytes": 107,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/aux_Kreg.csv",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/aux_Kreg.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/aux_Kreg.csv"
+      ],
+      "retention_key": "sha256:2ed510e127a53e357c8b39dd45b72920d36169f639a20d9dc04124d14f4ecf86",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "2ed510e127a53e357c8b39dd45b72920d36169f639a20d9dc04124d14f4ecf86"
+    },
+    {
+      "bytes": 1397,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/checksums.json"
+      ],
+      "retention_key": "sha256:2f3532d244ffb173b1b6192652a40dabe10c7d3a12844ce75a6555d87de35ed2",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "2f3532d244ffb173b1b6192652a40dabe10c7d3a12844ce75a6555d87de35ed2"
+    },
+    {
+      "bytes": 29840,
+      "logical_paths": [
+        "fitted-reference-scores/manifest.json"
+      ],
+      "retention_key": "sha256:30538f75c4cfef4f1c9bb43d46d8cecef6e820b28811ffc29b8ed49c342c84db",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "30538f75c4cfef4f1c9bb43d46d8cecef6e820b28811ffc29b8ed49c342c84db"
+    },
+    {
+      "bytes": 528,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/regional_reveals/checksums.json"
+      ],
+      "retention_key": "sha256:30e5695008d76b9712a7d5f85c0ce197062cbe73639a6c3cdf0933250443770d",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "30e5695008d76b9712a7d5f85c0ce197062cbe73639a6c3cdf0933250443770d"
+    },
+    {
+      "bytes": 109,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/aux_Kloc.csv",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/aux_Kloc.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/aux_Kloc.csv"
+      ],
+      "retention_key": "sha256:3124f49474cda94c206e98acce000b2487ca79bae64f427c4e38acc95fd8080e",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "3124f49474cda94c206e98acce000b2487ca79bae64f427c4e38acc95fd8080e"
+    },
+    {
+      "bytes": 259,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/result_contract.json",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/result_contract.json",
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/result_contract.json",
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/result_contract.json",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/result_contract.json",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/result_contract.json",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/result_contract.json",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/result_contract.json"
+      ],
+      "retention_key": "sha256:32bf9d587a2cb77f63ce9f906422bec4cc0b65b2a821b7e3411aa85730499e32",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "32bf9d587a2cb77f63ce9f906422bec4cc0b65b2a821b7e3411aa85730499e32"
+    },
+    {
+      "bytes": 24335,
+      "logical_paths": [
+        "fitted-reference-scores/scores.json"
+      ],
+      "retention_key": "sha256:32e630f3112eee70fae68273101ff558b5b2658d72853800852eeda2af08f24e",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "32e630f3112eee70fae68273101ff558b5b2658d72853800852eeda2af08f24e"
+    },
+    {
+      "bytes": 3238,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/request.json"
+      ],
+      "retention_key": "sha256:3453acac0cddd76e7b73782c690b7e0efa9b732f071ce35c405a9449ae5943a2",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "3453acac0cddd76e7b73782c690b7e0efa9b732f071ce35c405a9449ae5943a2"
+    },
+    {
+      "bytes": 108,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/cover_mean.csv",
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/cover_q10.csv",
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/cover_q90.csv"
+      ],
+      "retention_key": "sha256:3515b734c718f26595fb5041fd12af7a56695fac209afa505f2300d624ff8895",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "3515b734c718f26595fb5041fd12af7a56695fac209afa505f2300d624ff8895"
+    },
+    {
+      "bytes": 107,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/aux_Kreg.csv",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/aux_Kreg.csv"
+      ],
+      "retention_key": "sha256:3712376e008bcd285263c708460619cf702a505378de096825bf95b73fc01c98",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "3712376e008bcd285263c708460619cf702a505378de096825bf95b73fc01c98"
+    },
+    {
+      "bytes": 3,
+      "logical_paths": [
+        "baselines-reference-predictions/failures.json",
+        "fitted-reference-predictions/failures.json"
+      ],
+      "retention_key": "sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "bytes": 1239,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/regional_reveals/run_manifest.json"
+      ],
+      "retention_key": "sha256:3755e8558357626bacca9630141a94c92d9c403b4b3da2faa6ed030dc2daeca9",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "3755e8558357626bacca9630141a94c92d9c403b4b3da2faa6ed030dc2daeca9"
+    },
+    {
+      "bytes": 320,
+      "logical_paths": [
+        "reference-inputs/p02-outcome.json",
+        "target-perturbed-inputs/p02-outcome.json"
+      ],
+      "retention_key": "sha256:3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+    },
+    {
+      "bytes": 1124,
+      "logical_paths": [
+        "reference-inputs/p04-geometry.json",
+        "target-perturbed-inputs/p04-geometry.json"
+      ],
+      "retention_key": "sha256:389618442ce2af9d1e22bd8d7d4c9a5de65212cbbfc024fdce98ee0f66375464",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "389618442ce2af9d1e22bd8d7d4c9a5de65212cbbfc024fdce98ee0f66375464"
+    },
+    {
+      "bytes": 2219,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/run_manifest.json"
+      ],
+      "retention_key": "sha256:3af54e809616e3948d8b6bc39ced7093b09da8fef9b920239d6bed773bf9be9a",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "3af54e809616e3948d8b6bc39ced7093b09da8fef9b920239d6bed773bf9be9a"
+    },
+    {
+      "bytes": 7378,
+      "logical_paths": [
+        "baselines-reference-predictions/operations.json",
+        "fitted-reference-predictions/operations.json"
+      ],
+      "retention_key": "sha256:3c17e38bd88b959c464c7efda1a9f930462a9a662e17d53c5807fb56f968f275",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "3c17e38bd88b959c464c7efda1a9f930462a9a662e17d53c5807fb56f968f275"
+    },
+    {
+      "bytes": 2316,
+      "logical_paths": [
+        "baselines-target-perturbed-scores/summaries.json"
+      ],
+      "retention_key": "sha256:3d615dda3f89c8e2fb805e088f0989977cbaed2d6526ac8d1fcda33e40e83e19",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "3d615dda3f89c8e2fb805e088f0989977cbaed2d6526ac8d1fcda33e40e83e19"
+    },
+    {
+      "bytes": 215744,
+      "logical_paths": [
+        "read-journal.jsonl"
+      ],
+      "retention_key": "sha256:4246b46dc2765953aa226479d47b830cd2d5e85e09f3ab1880850befe1ee655d",
+      "roles": [
+        "flushed-read-journal"
+      ],
+      "sha256": "4246b46dc2765953aa226479d47b830cd2d5e85e09f3ab1880850befe1ee655d"
+    },
+    {
+      "bytes": 3739,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/preparations.json"
+      ],
+      "retention_key": "sha256:4463e4dd9cd4fe38a4358dc51705c051777164c436dcaec54f08853de970625f",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "4463e4dd9cd4fe38a4358dc51705c051777164c436dcaec54f08853de970625f"
+    },
+    {
+      "bytes": 320,
+      "logical_paths": [
+        "reference-inputs/p04-outcome.json",
+        "target-perturbed-inputs/p04-outcome.json"
+      ],
+      "retention_key": "sha256:4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+    },
+    {
+      "bytes": 59,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/regional_reveals/deposition_factors.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/regional_reveals/deposition_factors.csv"
+      ],
+      "retention_key": "sha256:4cca3d81773ea199e3070b33011ac655244ab71c6f95c6e3519e6fa087de92e3",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "4cca3d81773ea199e3070b33011ac655244ab71c6f95c6e3519e6fa087de92e3"
+    },
+    {
+      "bytes": 109,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/cover_mean.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/cover_q10.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/cover_q90.csv"
+      ],
+      "retention_key": "sha256:4ef0beadd8cb6bd6214c3dfa9678deb7ee5d32e1d4d3d7fe571c804505ff9c92",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "4ef0beadd8cb6bd6214c3dfa9678deb7ee5d32e1d4d3d7fe571c804505ff9c92"
+    },
+    {
+      "bytes": 2026,
+      "logical_paths": [
+        "baselines-reference-predictions/folds.json",
+        "baselines-target-perturbed-predictions/folds.json",
+        "fitted-reference-predictions/folds.json",
+        "fitted-target-perturbed-predictions/folds.json"
+      ],
+      "retention_key": "sha256:4f970336d948792cb3624092ad1d0c5642960057dcbde087391b0741cdefc229",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "4f970336d948792cb3624092ad1d0c5642960057dcbde087391b0741cdefc229"
+    },
+    {
+      "bytes": 7353,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0001/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0001/receipt.json"
+      ],
+      "retention_key": "sha256:507ddcff8c78ca84f5a6523e72ae725fc494c96d9abf013294ac8d230bad6c8d",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "507ddcff8c78ca84f5a6523e72ae725fc494c96d9abf013294ac8d230bad6c8d"
+    },
+    {
+      "bytes": 1397,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/checksums.json"
+      ],
+      "retention_key": "sha256:53ec7689c2085782ad4208e9c9f08d270ef75a44cbfb4e1d744ec258df7d9749",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "53ec7689c2085782ad4208e9c9f08d270ef75a44cbfb4e1d744ec258df7d9749"
+    },
+    {
+      "bytes": 1121,
+      "logical_paths": [
+        "reference-inputs/p01-geometry.json",
+        "target-perturbed-inputs/p01-geometry.json"
+      ],
+      "retention_key": "sha256:57788fd5811f690953250efe01453f26e83387193894aa461ac9835bf10145b1",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "57788fd5811f690953250efe01453f26e83387193894aa461ac9835bf10145b1"
+    },
+    {
+      "bytes": 44,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/outliers.csv",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/outliers.csv"
+      ],
+      "retention_key": "sha256:598e2550f4f2a3230855dec59ab51d346aa13a8f13ccd7c28c9938b450b64549",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "598e2550f4f2a3230855dec59ab51d346aa13a8f13ccd7c28c9938b450b64549"
+    },
+    {
+      "bytes": 2190,
+      "logical_paths": [
+        "baselines-reference-scores/summaries.json"
+      ],
+      "retention_key": "sha256:59cd609c031a189810d880182fdcaf182adb8cb58aed8e5d7104ab469922cf87",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "59cd609c031a189810d880182fdcaf182adb8cb58aed8e5d7104ab469922cf87"
+    },
+    {
+      "bytes": 1770,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/scientific_manifest.json"
+      ],
+      "retention_key": "sha256:5ab46372c44f6bb6c9869fdbf37f95248df226b9041edc23e65f300a768d9f1b",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "5ab46372c44f6bb6c9869fdbf37f95248df226b9041edc23e65f300a768d9f1b"
+    },
+    {
+      "bytes": 1770,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/scientific_manifest.json"
+      ],
+      "retention_key": "sha256:5c8d57c19ef2aa0737f066d989fde287795a973be9e2ab7fed7d4e7e1749798d",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "5c8d57c19ef2aa0737f066d989fde287795a973be9e2ab7fed7d4e7e1749798d"
+    },
+    {
+      "bytes": 1542,
+      "logical_paths": [
+        "fitted-target-perturbed-scores/summaries.json"
+      ],
+      "retention_key": "sha256:5d7b34be4b7eb7e0b9cc11f5fc8d52f68dbb9f561ab7e4214996082b456cf526",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "5d7b34be4b7eb7e0b9cc11f5fc8d52f68dbb9f561ab7e4214996082b456cf526"
+    },
+    {
+      "bytes": 2374,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/checksums.json"
+      ],
+      "retention_key": "sha256:5eb6248f85260833bce674e4cbb278cb8bb35e4a2982603e2cd7f67f05450039",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "5eb6248f85260833bce674e4cbb278cb8bb35e4a2982603e2cd7f67f05450039"
+    },
+    {
+      "bytes": 3238,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/request.json"
+      ],
+      "retention_key": "sha256:5f719018ff85c9e42902a1d75ef3bb9e77d8f5ca731b5b5387d59c4cae7e1126",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "5f719018ff85c9e42902a1d75ef3bb9e77d8f5ca731b5b5387d59c4cae7e1126"
+    },
+    {
+      "bytes": 108,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/cover_mean.csv",
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/cover_q10.csv",
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/cover_q90.csv"
+      ],
+      "retention_key": "sha256:5f9ef35c43e55aad9d5fce8b4c77f025595b66330a915e2c076bdb05de074769",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "5f9ef35c43e55aad9d5fce8b4c77f025595b66330a915e2c076bdb05de074769"
+    },
+    {
+      "bytes": 52,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/outliers_quantiles.csv"
+      ],
+      "retention_key": "sha256:61cdaf27f2b781705469f99d58b7dced0296e107de98cbb45eb8422ceb0e5cbe",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "61cdaf27f2b781705469f99d58b7dced0296e107de98cbb45eb8422ceb0e5cbe"
+    },
+    {
+      "bytes": 22407,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/manifest.json"
+      ],
+      "retention_key": "sha256:63adf101bc10830de8254f62530e2169257c5a03a06e52f9833a06e05993a421",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "63adf101bc10830de8254f62530e2169257c5a03a06e52f9833a06e05993a421"
+    },
+    {
+      "bytes": 1239,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/regional_reveals/run_manifest.json"
+      ],
+      "retention_key": "sha256:6433b562683e603c5d4966afd67be59a21e4a2ee72d21f36aa9efaffa8662823",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "6433b562683e603c5d4966afd67be59a21e4a2ee72d21f36aa9efaffa8662823"
+    },
+    {
+      "bytes": 2219,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/run_manifest.json"
+      ],
+      "retention_key": "sha256:64fc35d4bf50767c09564bb6c385bd4b27911d5fa2c7db4b1995874879cf4f09",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "64fc35d4bf50767c09564bb6c385bd4b27911d5fa2c7db4b1995874879cf4f09"
+    },
+    {
+      "bytes": 31,
+      "logical_paths": [
+        "reference-inputs/decision.json",
+        "target-perturbed-inputs/decision.json"
+      ],
+      "retention_key": "sha256:655bded17ed79580db4772fdf6473c6365a5087f89e1574162a266b3b90d52ec",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "655bded17ed79580db4772fdf6473c6365a5087f89e1574162a266b3b90d52ec"
+    },
+    {
+      "bytes": 1397,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/checksums.json"
+      ],
+      "retention_key": "sha256:667c787e97ea6e94f2996ef157d8ce28600b954a15cf34f39a7bd06ef8008b68",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "667c787e97ea6e94f2996ef157d8ce28600b954a15cf34f39a7bd06ef8008b68"
+    },
+    {
+      "bytes": 2219,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/run_manifest.json"
+      ],
+      "retention_key": "sha256:69151db0dd339c03f4b02aae66b478a3136cebb8cb8eaca4a58a82157da4fc89",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "69151db0dd339c03f4b02aae66b478a3136cebb8cb8eaca4a58a82157da4fc89"
+    },
+    {
+      "bytes": 275,
+      "logical_paths": [
+        "reference-inputs/p04-raw.json",
+        "target-perturbed-inputs/p04-raw.json"
+      ],
+      "retention_key": "sha256:6bb3bb4555a93a43af61a04472ff831fff53988e9735eccea140e3c905cbd583",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "6bb3bb4555a93a43af61a04472ff831fff53988e9735eccea140e3c905cbd583"
+    },
+    {
+      "bytes": 3238,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/request.json"
+      ],
+      "retention_key": "sha256:6bc13446273cf36289a4213b613962530d1cbbd909c194a336264ec6bb354caf",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "6bc13446273cf36289a4213b613962530d1cbbd909c194a336264ec6bb354caf"
+    },
+    {
+      "bytes": 3240,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/request.json"
+      ],
+      "retention_key": "sha256:6bcb6180cce5fa4a594378af8e03e6f28c164b19cafd4cfb654a948d76307328",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "6bcb6180cce5fa4a594378af8e03e6f28c164b19cafd4cfb654a948d76307328"
+    },
+    {
+      "bytes": 34629,
+      "logical_paths": [
+        "baselines-reference-scores/scores.json"
+      ],
+      "retention_key": "sha256:6bdf306d364db0ae8dd841cf8a9bf30895ba4774fa13e734f80f512b00e73572",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "6bdf306d364db0ae8dd841cf8a9bf30895ba4774fa13e734f80f512b00e73572"
+    },
+    {
+      "bytes": 46861,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/manifest.json"
+      ],
+      "retention_key": "sha256:6de23c0be81984e4bbaa2a4a50460be2bb1f4a5f6c8ac3acdfb20053cccecced",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "6de23c0be81984e4bbaa2a4a50460be2bb1f4a5f6c8ac3acdfb20053cccecced"
+    },
+    {
+      "bytes": 2219,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/run_manifest.json"
+      ],
+      "retention_key": "sha256:6e57bf256c69335a186899390d5fe1fef2d0463ecf89741684da21c5f4b9f195",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "6e57bf256c69335a186899390d5fe1fef2d0463ecf89741684da21c5f4b9f195"
+    },
+    {
+      "bytes": 1239,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/regional_reveals/run_manifest.json"
+      ],
+      "retention_key": "sha256:7225228a2eef6ab0e4f8c64a95e042e99c7c4a61d1783e437b8458f03c87b65c",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "7225228a2eef6ab0e4f8c64a95e042e99c7c4a61d1783e437b8458f03c87b65c"
+    },
+    {
+      "bytes": 44,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/outliers.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/outliers.csv"
+      ],
+      "retention_key": "sha256:7574c782f4aaf658634ec94f1cb9db190e347565283a29c26e2240e289fe4936",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "7574c782f4aaf658634ec94f1cb9db190e347565283a29c26e2240e289fe4936"
+    },
+    {
+      "bytes": 1746,
+      "logical_paths": [
+        "fitted-target-perturbed-predictions/batches/fold-0000/summary/receipt.json"
+      ],
+      "retention_key": "sha256:77a1521c4475f3977a629b2a28bdb1be2cfaeffdadf36e7c3fee0aacc4d8904e",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "77a1521c4475f3977a629b2a28bdb1be2cfaeffdadf36e7c3fee0aacc4d8904e"
+    },
+    {
+      "bytes": 34,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/aux_valid_ring.csv",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/aux_valid_ring.csv"
+      ],
+      "retention_key": "sha256:78ec0cfabaed95562af6c7cf8c72f83512dfc0744112bd79ceca586345d69d6f",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "78ec0cfabaed95562af6c7cf8c72f83512dfc0744112bd79ceca586345d69d6f"
+    },
+    {
+      "bytes": 52,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/outliers_quantiles.csv"
+      ],
+      "retention_key": "sha256:7a1cabe0ed49b9ba99f027ca2dadbb5f07dc91653722ecb652b0bcd63bbfd8e9",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "7a1cabe0ed49b9ba99f027ca2dadbb5f07dc91653722ecb652b0bcd63bbfd8e9"
+    },
+    {
+      "bytes": 1239,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/regional_reveals/run_manifest.json"
+      ],
+      "retention_key": "sha256:7a687ca684da990cc415bd37b32d379f9887d2543d397966e65f6d98e3bfdd05",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "7a687ca684da990cc415bd37b32d379f9887d2543d397966e65f6d98e3bfdd05"
+    },
+    {
+      "bytes": 38,
+      "logical_paths": [
+        "reference-inputs/dependency_lock.json",
+        "target-perturbed-inputs/dependency_lock.json"
+      ],
+      "retention_key": "sha256:7b405084dcf7ea511825d94b754719cbe89f3eb29a47cf7acaacaa429d1f952d",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "7b405084dcf7ea511825d94b754719cbe89f3eb29a47cf7acaacaa429d1f952d"
+    },
+    {
+      "bytes": 57,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/regional_reveals/deposition_factors.csv",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/regional_reveals/deposition_factors.csv",
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/regional_reveals/deposition_factors.csv",
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/regional_reveals/deposition_factors.csv",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/regional_reveals/deposition_factors.csv",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/regional_reveals/deposition_factors.csv"
+      ],
+      "retention_key": "sha256:7cfff9952c5bebead9fee462272c04691c14d2b6f4265359529cf9c88f46f353",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "7cfff9952c5bebead9fee462272c04691c14d2b6f4265359529cf9c88f46f353"
+    },
+    {
+      "bytes": 528,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/regional_reveals/checksums.json"
+      ],
+      "retention_key": "sha256:7d38a19204b4e2ebc0919325ea6cb118d37736679110ce2869b5e3bf551289ff",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "7d38a19204b4e2ebc0919325ea6cb118d37736679110ce2869b5e3bf551289ff"
+    },
+    {
+      "bytes": 22407,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/manifest.json"
+      ],
+      "retention_key": "sha256:7ef6d10c6f78adde552da8ed1cb3181090e2e61a05e31da6821dcd9b8752d316",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "7ef6d10c6f78adde552da8ed1cb3181090e2e61a05e31da6821dcd9b8752d316"
+    },
+    {
+      "bytes": 2374,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/checksums.json"
+      ],
+      "retention_key": "sha256:7f39b476c8ea80ea10c090a46a7f780cfd28b3ae4015a08c337d268d46e31be4",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "7f39b476c8ea80ea10c090a46a7f780cfd28b3ae4015a08c337d268d46e31be4"
+    },
+    {
+      "bytes": 710,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0000/items/000000/receipt.json"
+      ],
+      "retention_key": "sha256:7fa71bc037e0b33f7429d1d0a699966f4fda7274452a4b5962c9967380f0c738",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "7fa71bc037e0b33f7429d1d0a699966f4fda7274452a4b5962c9967380f0c738"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0003/items/000000/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0003/items/000000/receipt.json"
+      ],
+      "retention_key": "sha256:801856dee240fa601b60b879f7fc7fa3c7b0d155bfd21ccc426cbdd85362451d",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "801856dee240fa601b60b879f7fc7fa3c7b0d155bfd21ccc426cbdd85362451d"
+    },
+    {
+      "bytes": 1126,
+      "logical_paths": [
+        "reference-inputs/p02-geometry.json",
+        "target-perturbed-inputs/p02-geometry.json"
+      ],
+      "retention_key": "sha256:81520ec6e851b2ef9f83775cf78b0466005fb054e03275dc43d424b1bf51d57d",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "81520ec6e851b2ef9f83775cf78b0466005fb054e03275dc43d424b1bf51d57d"
+    },
+    {
+      "bytes": 1748,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0000/summary/receipt.json"
+      ],
+      "retention_key": "sha256:817ffed216c590e63c284851c2b7544a81f78bfac905cad43d939802d1c65827",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "817ffed216c590e63c284851c2b7544a81f78bfac905cad43d939802d1c65827"
+    },
+    {
+      "bytes": 33,
+      "logical_paths": [
+        "reference-inputs/parameters.json",
+        "target-perturbed-inputs/parameters.json"
+      ],
+      "retention_key": "sha256:835848eef90db53a9d3e0cde237f6bb3f500b1528436609e94befdf15abea4b5",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "835848eef90db53a9d3e0cde237f6bb3f500b1528436609e94befdf15abea4b5"
+    },
+    {
+      "bytes": 44,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/outliers.csv"
+      ],
+      "retention_key": "sha256:83e52314a0692fe7f50c5401ee7a5eaf1f0d5db8a74642231ccce930d8ba09d5",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "83e52314a0692fe7f50c5401ee7a5eaf1f0d5db8a74642231ccce930d8ba09d5"
+    },
+    {
+      "bytes": 1746,
+      "logical_paths": [
+        "fitted-target-perturbed-predictions/batches/fold-0001/summary/receipt.json"
+      ],
+      "retention_key": "sha256:85aac07c01fc9c7a1484eb7e143fe0cc322267556b51491942db39fd611a324e",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "85aac07c01fc9c7a1484eb7e143fe0cc322267556b51491942db39fd611a324e"
+    },
+    {
+      "bytes": 22407,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/manifest.json"
+      ],
+      "retention_key": "sha256:85e4a6219ee38959bbf10d02d0d63259d94ea1896bbd7637232b753b41612c89",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "85e4a6219ee38959bbf10d02d0d63259d94ea1896bbd7637232b753b41612c89"
+    },
+    {
+      "bytes": 524,
+      "logical_paths": [
+        "baselines-reference-scores/outcome_inventory.json",
+        "fitted-reference-scores/outcome_inventory.json"
+      ],
+      "retention_key": "sha256:863ad90a5e6c7ae51ee7b4f953e365b89a647bf1b07f0574b7078c64d54404bb",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "863ad90a5e6c7ae51ee7b4f953e365b89a647bf1b07f0574b7078c64d54404bb"
+    },
+    {
+      "bytes": 7351,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0003/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0003/receipt.json"
+      ],
+      "retention_key": "sha256:89d3ef578d7b5e484302096dc6d9a974f1a1ba98f984c9b31b4f31a3a91228b4",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "89d3ef578d7b5e484302096dc6d9a974f1a1ba98f984c9b31b4f31a3a91228b4"
+    },
+    {
+      "bytes": 1397,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/checksums.json"
+      ],
+      "retention_key": "sha256:8a3ab2bbe0569419d9a9ddaa74dca7077d116673c34a7cd2bc2812b143b46a22",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "8a3ab2bbe0569419d9a9ddaa74dca7077d116673c34a7cd2bc2812b143b46a22"
+    },
+    {
+      "bytes": 1381,
+      "logical_paths": [
+        "baselines-target-perturbed-scores/paired_baseline_differences.json"
+      ],
+      "retention_key": "sha256:8cbe043879683829a816be87b85518eac83d45b28f754b0331e7f6525536e0b8",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "8cbe043879683829a816be87b85518eac83d45b28f754b0331e7f6525536e0b8"
+    },
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/run_manifest.json"
+      ],
+      "retention_key": "sha256:8dad7c61db8e5532f781e6ad21edbd92d1ecd22d104093ed3b798bdd3901cfc5",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "8dad7c61db8e5532f781e6ad21edbd92d1ecd22d104093ed3b798bdd3901cfc5"
+    },
+    {
+      "bytes": 1746,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0000/summary/receipt.json",
+        "fitted-reference-predictions/batches/fold-0000/summary/receipt.json"
+      ],
+      "retention_key": "sha256:8e14923d98ccd4d0f4417cd2bfd309e115e9a57c3333d925df480f859f34bb25",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "8e14923d98ccd4d0f4417cd2bfd309e115e9a57c3333d925df480f859f34bb25"
+    },
+    {
+      "bytes": 7353,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0000/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0000/receipt.json"
+      ],
+      "retention_key": "sha256:90391ed48f0e75d83992c375dea6e71786abfdc71ef3e54d114c5d2832cb0021",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "90391ed48f0e75d83992c375dea6e71786abfdc71ef3e54d114c5d2832cb0021"
+    },
+    {
+      "bytes": 1239,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/regional_reveals/run_manifest.json"
+      ],
+      "retention_key": "sha256:90dd6b02caa4c91d995b6a516f25b8995e39fdaaf2167a7abe687450ad71eaea",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "90dd6b02caa4c91d995b6a516f25b8995e39fdaaf2167a7abe687450ad71eaea"
+    },
+    {
+      "bytes": 52,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/outliers_quantiles.csv"
+      ],
+      "retention_key": "sha256:910cbe53ed83f239689f9b01f536b018a76212e68d720cc87f98498054db66b9",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "910cbe53ed83f239689f9b01f536b018a76212e68d720cc87f98498054db66b9"
+    },
+    {
+      "bytes": 2792,
+      "logical_paths": [
+        "fitted-reference-scores/paired_baseline_differences.json"
+      ],
+      "retention_key": "sha256:91fe8eb24f7c2e6d3bd44a2ea0694c82cf6e824dc7de85c9cd94d8725d773972",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "91fe8eb24f7c2e6d3bd44a2ea0694c82cf6e824dc7de85c9cd94d8725d773972"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0003/items/000000/receipt.json",
+        "fitted-reference-predictions/batches/fold-0003/items/000000/receipt.json"
+      ],
+      "retention_key": "sha256:924b7e0a5b2f9a4c16e7bd8d69e334f38c90c9c3ebca12b58c2a2da0b4addacf",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "924b7e0a5b2f9a4c16e7bd8d69e334f38c90c9c3ebca12b58c2a2da0b4addacf"
+    },
+    {
+      "bytes": 110,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/cover_mean.csv",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/cover_q10.csv",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/cover_q90.csv"
+      ],
+      "retention_key": "sha256:9571e5fbc31bcea8635a33d5be82f056ca63a026ba05989c533ccdd2b953d33f",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "9571e5fbc31bcea8635a33d5be82f056ca63a026ba05989c533ccdd2b953d33f"
+    },
+    {
+      "bytes": 15339,
+      "logical_paths": [
+        "baselines-target-perturbed-scores/scores.json"
+      ],
+      "retention_key": "sha256:97a2922ba8dfdb241f0c9830094d0a0039ec84c7b2f483b36fa36e05dc3b708f",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "97a2922ba8dfdb241f0c9830094d0a0039ec84c7b2f483b36fa36e05dc3b708f"
+    },
+    {
+      "bytes": 238,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/regional_reveals/reconstruction.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/regional_reveals/reconstruction.csv"
+      ],
+      "retention_key": "sha256:97ef4d0d7999d36cd455ddd1784085a34c10e1a018b00b26d8ed702061e0dbf5",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "97ef4d0d7999d36cd455ddd1784085a34c10e1a018b00b26d8ed702061e0dbf5"
+    },
+    {
+      "bytes": 52,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/outliers_quantiles.csv"
+      ],
+      "retention_key": "sha256:99d8f25f013ab085800c69b4235a0abdeb1e93207477b7faf7e5395e2ac2fee7",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "99d8f25f013ab085800c69b4235a0abdeb1e93207477b7faf7e5395e2ac2fee7"
+    },
+    {
+      "bytes": 7344,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0003/receipt.json",
+        "fitted-reference-predictions/batches/fold-0003/receipt.json"
+      ],
+      "retention_key": "sha256:9ba67de1068fcb37a55bd4205b6c6a86245d7dfb19443a95f8ddced9b62da07b",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "9ba67de1068fcb37a55bd4205b6c6a86245d7dfb19443a95f8ddced9b62da07b"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0001/items/000001/receipt.json",
+        "baselines-reference-predictions/batches/fold-0003/items/000001/receipt.json",
+        "fitted-reference-predictions/batches/fold-0001/items/000001/receipt.json",
+        "fitted-reference-predictions/batches/fold-0003/items/000001/receipt.json"
+      ],
+      "retention_key": "sha256:9c6e09b0b039e4dc60a0f0c2fea1be4b8291565dbba088681cefd2cb7a59887e",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "9c6e09b0b039e4dc60a0f0c2fea1be4b8291565dbba088681cefd2cb7a59887e"
+    },
+    {
+      "bytes": 1074,
+      "logical_paths": [
+        "baselines-reference-scores/outcome_access.json"
+      ],
+      "retention_key": "sha256:9e8187446859c56ff8533e57ffa8a0d6ebf0d40ac87829032ab57f5d6f6b8b8a",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "9e8187446859c56ff8533e57ffa8a0d6ebf0d40ac87829032ab57f5d6f6b8b8a"
+    },
+    {
+      "bytes": 1456,
+      "logical_paths": [
+        "fitted-reference-scores/summaries.json"
+      ],
+      "retention_key": "sha256:9f68047b765d2b4bcb52ef8b5a0d0ff29e17223413eaf2fe5b6fb2e729277b35",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "9f68047b765d2b4bcb52ef8b5a0d0ff29e17223413eaf2fe5b6fb2e729277b35"
+    },
+    {
+      "bytes": 27,
+      "logical_paths": [
+        "reference-inputs/taxa.json",
+        "target-perturbed-inputs/taxa.json"
+      ],
+      "retention_key": "sha256:a1e8e1665b493c4ce96aa05a8cfd4daa329c0c5b8bfcfc1ce19534e2946ca4b0",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "a1e8e1665b493c4ce96aa05a8cfd4daa329c0c5b8bfcfc1ce19534e2946ca4b0"
+    },
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/run_manifest.json"
+      ],
+      "retention_key": "sha256:a29785ef0a2a07caaccddeae8eb912f2b1fe31f257e6e5c7d41b421442e36d64",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "a29785ef0a2a07caaccddeae8eb912f2b1fe31f257e6e5c7d41b421442e36d64"
+    },
+    {
+      "bytes": 1397,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/checksums.json"
+      ],
+      "retention_key": "sha256:a3fcd960b3e31cb43886b39371351fe2bebd8d16c4f35a62e2aead698f35836b",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "a3fcd960b3e31cb43886b39371351fe2bebd8d16c4f35a62e2aead698f35836b"
+    },
+    {
+      "bytes": 320,
+      "logical_paths": [
+        "reference-inputs/p01-outcome.json"
+      ],
+      "retention_key": "sha256:a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+    },
+    {
+      "bytes": 710,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0001/items/000001/receipt.json"
+      ],
+      "retention_key": "sha256:a6a6c7999a1a36e2cc4b47dbe5e4cf8aff65b7cbe45a06e0a9ee2ddf41d5410e",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "a6a6c7999a1a36e2cc4b47dbe5e4cf8aff65b7cbe45a06e0a9ee2ddf41d5410e"
+    },
+    {
+      "bytes": 2219,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/run_manifest.json"
+      ],
+      "retention_key": "sha256:a85bda29b0b234ecc6888fbd1790b9b12db489cb4f13b881bb4698ff3bb33c3f",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "a85bda29b0b234ecc6888fbd1790b9b12db489cb4f13b881bb4698ff3bb33c3f"
+    },
+    {
+      "bytes": 242,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/regional_reveals/result_contract.json",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/regional_reveals/result_contract.json",
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/regional_reveals/result_contract.json",
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/regional_reveals/result_contract.json",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/regional_reveals/result_contract.json",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/regional_reveals/result_contract.json",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/regional_reveals/result_contract.json",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/regional_reveals/result_contract.json"
+      ],
+      "retention_key": "sha256:a8924b7e4bbcf33a7e372473fbc0da683bde5df05be88c6661f0f638a557b253",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "a8924b7e4bbcf33a7e372473fbc0da683bde5df05be88c6661f0f638a557b253"
+    },
+    {
+      "bytes": 528,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/regional_reveals/checksums.json"
+      ],
+      "retention_key": "sha256:a9bf09fd4c48dfc5395282e46dcf2054e1770324a5ab0fcbf0abf96d81baf0d4",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "a9bf09fd4c48dfc5395282e46dcf2054e1770324a5ab0fcbf0abf96d81baf0d4"
+    },
+    {
+      "bytes": 528,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/regional_reveals/checksums.json"
+      ],
+      "retention_key": "sha256:aa059b5afa151be1b742eb6a511590daa0efb4805192331f766ad66a5ae14812",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "aa059b5afa151be1b742eb6a511590daa0efb4805192331f766ad66a5ae14812"
+    },
+    {
+      "bytes": 1239,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/regional_reveals/run_manifest.json"
+      ],
+      "retention_key": "sha256:aabd36ab4e7f17a61c7d1245ce5bc59b81b6f80d2a8f914b31a87e4512396290",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "aabd36ab4e7f17a61c7d1245ce5bc59b81b6f80d2a8f914b31a87e4512396290"
+    },
+    {
+      "bytes": 108,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/cover_mean.csv",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/cover_q10.csv",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/cover_q90.csv"
+      ],
+      "retention_key": "sha256:ab542cba67e1646a0a3e8068fe79d814653000475547e597fc515d2a8351969a",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "ab542cba67e1646a0a3e8068fe79d814653000475547e597fc515d2a8351969a"
+    },
+    {
+      "bytes": 3449,
+      "logical_paths": [
+        "fitted-reference-predictions/experiment.json"
+      ],
+      "retention_key": "sha256:abb52c53a57b0ed1628586da92dcd93b83cfaa8d2b5e4fa2a5063fcbed8dfc13",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "abb52c53a57b0ed1628586da92dcd93b83cfaa8d2b5e4fa2a5063fcbed8dfc13"
+    },
+    {
+      "bytes": 44,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/outliers.csv"
+      ],
+      "retention_key": "sha256:abb674efefd12597f5d348fa194b8f74aff440523b80b17defcd7d9c6003e543",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "abb674efefd12597f5d348fa194b8f74aff440523b80b17defcd7d9c6003e543"
+    },
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/run_manifest.json"
+      ],
+      "retention_key": "sha256:ad85db8197e735843abbb4be178be2f06f181a592b5497bccaa85142621ca213",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "ad85db8197e735843abbb4be178be2f06f181a592b5497bccaa85142621ca213"
+    },
+    {
+      "bytes": 1747,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0001/summary/receipt.json"
+      ],
+      "retention_key": "sha256:adc649eee24363d50d6ed3e5ea302f4ca4eb48f71ba0aa245e54b659db6fab40",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "adc649eee24363d50d6ed3e5ea302f4ca4eb48f71ba0aa245e54b659db6fab40"
+    },
+    {
+      "bytes": 524,
+      "logical_paths": [
+        "baselines-target-perturbed-scores/outcome_inventory.json",
+        "fitted-target-perturbed-scores/outcome_inventory.json"
+      ],
+      "retention_key": "sha256:af8df6eff6356596badcaffc723c2b8a0d62ae9fc8b469353457a8d84ddad631",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "af8df6eff6356596badcaffc723c2b8a0d62ae9fc8b469353457a8d84ddad631"
+    },
+    {
+      "bytes": 2374,
+      "logical_paths": [
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/checksums.json"
+      ],
+      "retention_key": "sha256:b20804e99f439eaa342a4c343b833369ffa5c6353b69c6706704b0e16d7cd303",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "b20804e99f439eaa342a4c343b833369ffa5c6353b69c6706704b0e16d7cd303"
+    },
+    {
+      "bytes": 22407,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/manifest.json"
+      ],
+      "retention_key": "sha256:b3a8477559d5d171c1035fd84a0d08f982da5677bcd4677f5cc6d893902021ec",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "b3a8477559d5d171c1035fd84a0d08f982da5677bcd4677f5cc6d893902021ec"
+    },
+    {
+      "bytes": 320,
+      "logical_paths": [
+        "reference-inputs/p03-outcome.json",
+        "target-perturbed-inputs/p03-outcome.json"
+      ],
+      "retention_key": "sha256:b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+    },
+    {
+      "bytes": 528,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/regional_reveals/checksums.json"
+      ],
+      "retention_key": "sha256:b54a8ba2d3c80b488e6b2b2039a07c73da6a689125ef73855c7593a97abeb942",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "b54a8ba2d3c80b488e6b2b2039a07c73da6a689125ef73855c7593a97abeb942"
+    },
+    {
+      "bytes": 1846,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/run_manifest.json"
+      ],
+      "retention_key": "sha256:b5ff322698a48ef8c6834aa4b7817a0c36207b226762ed6440357862626c369e",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "b5ff322698a48ef8c6834aa4b7817a0c36207b226762ed6440357862626c369e"
+    },
+    {
+      "bytes": 22407,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/manifest.json"
+      ],
+      "retention_key": "sha256:b75a7e237ed81d6294da967149bcb448a74129fdc6e6b190bcb45d48f0e874f8",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "b75a7e237ed81d6294da967149bcb448a74129fdc6e6b190bcb45d48f0e874f8"
+    },
+    {
+      "bytes": 3240,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/request.json"
+      ],
+      "retention_key": "sha256:b7f613ba723a3e933a6487bf61e13ebd3528242bc9c995923ced46f722fbee1e",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "b7f613ba723a3e933a6487bf61e13ebd3528242bc9c995923ced46f722fbee1e"
+    },
+    {
+      "bytes": 528,
+      "logical_paths": [
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/regional_reveals/checksums.json"
+      ],
+      "retention_key": "sha256:b7f61961e43387625f6c06e10bce807947f8255a5b22f0f3af2993193d8ce6a4",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "b7f61961e43387625f6c06e10bce807947f8255a5b22f0f3af2993193d8ce6a4"
+    },
+    {
+      "bytes": 34,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/aux_valid_ring.csv",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/local_love/aux_valid_ring.csv",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/aux_valid_ring.csv"
+      ],
+      "retention_key": "sha256:bcbce7b07c029c3a2394d311266f7b849bef56344028f239553f730bbb6b7fce",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "bcbce7b07c029c3a2394d311266f7b849bef56344028f239553f730bbb6b7fce"
+    },
+    {
+      "bytes": 1074,
+      "logical_paths": [
+        "fitted-reference-scores/outcome_access.json"
+      ],
+      "retention_key": "sha256:bcccc88f6c02d68260bbe3e5d00dad8dac8f0d6dfb29eb887dca6fe9b06dee12",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "bcccc88f6c02d68260bbe3e5d00dad8dac8f0d6dfb29eb887dca6fe9b06dee12"
+    },
+    {
+      "bytes": 700,
+      "logical_paths": [
+        "fitted-target-perturbed-scores/paired_baseline_differences.json"
+      ],
+      "retention_key": "sha256:be8e10fcb598d9ecd06501f0967c219a55f032a87fd4a56bc0ff12839306a107",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "be8e10fcb598d9ecd06501f0967c219a55f032a87fd4a56bc0ff12839306a107"
+    },
+    {
+      "bytes": 318,
+      "logical_paths": [
+        "target-perturbed-inputs/p01-outcome.json"
+      ],
+      "retention_key": "sha256:bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+    },
+    {
+      "bytes": 1770,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/scientific_manifest.json"
+      ],
+      "retention_key": "sha256:bf7bf83974a9c72f98aa6167afaac7eb69decedd91116b2e12113e9e1f8491fd",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "bf7bf83974a9c72f98aa6167afaac7eb69decedd91116b2e12113e9e1f8491fd"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0002/items/000001/receipt.json",
+        "baselines-target-perturbed-predictions/batches/fold-0002/items/000001/receipt.json",
+        "fitted-reference-predictions/batches/fold-0002/items/000001/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0002/items/000001/receipt.json"
+      ],
+      "retention_key": "sha256:bf87cb1e6fa666697a7d847a03986560d680dccf971570342ed958094afe6319",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "bf87cb1e6fa666697a7d847a03986560d680dccf971570342ed958094afe6319"
+    },
+    {
+      "bytes": 52,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/outliers_quantiles.csv",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/local_love/outliers_quantiles.csv"
+      ],
+      "retention_key": "sha256:c1057b3d179a76e50197749debdd23713ed7387f3a23b1a20d974415f48b1b05",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "c1057b3d179a76e50197749debdd23713ed7387f3a23b1a20d974415f48b1b05"
+    },
+    {
+      "bytes": 3238,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/request.json"
+      ],
+      "retention_key": "sha256:c13281445a6de4a379108f08e0bdc9b083b6e3471104c9148ff1efe9dfca87d4",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "c13281445a6de4a379108f08e0bdc9b083b6e3471104c9148ff1efe9dfca87d4"
+    },
+    {
+      "bytes": 1770,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/scientific_manifest.json"
+      ],
+      "retention_key": "sha256:c2db2658053560428666c3df703ecd3f38e333d02a9c757fb712c8557926320b",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "c2db2658053560428666c3df703ecd3f38e333d02a9c757fb712c8557926320b"
+    },
+    {
+      "bytes": 3449,
+      "logical_paths": [
+        "fitted-target-perturbed-predictions/experiment.json"
+      ],
+      "retention_key": "sha256:c3ca506966feb193ba654776dca50911b853648786c8e77495a4fffdfe0bebb7",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "c3ca506966feb193ba654776dca50911b853648786c8e77495a4fffdfe0bebb7"
+    },
+    {
+      "bytes": 107,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/aux_Kloc.csv",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/aux_Kloc.csv"
+      ],
+      "retention_key": "sha256:c3f0cf5ffead068f8243e5d630082ed9697eb8f66357e1148f98326caba8b316",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "c3f0cf5ffead068f8243e5d630082ed9697eb8f66357e1148f98326caba8b316"
+    },
+    {
+      "bytes": 33,
+      "logical_paths": [
+        "reference-inputs/chronology.json",
+        "target-perturbed-inputs/chronology.json"
+      ],
+      "retention_key": "sha256:c420dd92f04d5f347e970a14fb38c16e7d42212122391a08efac182fae74e456",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "c420dd92f04d5f347e970a14fb38c16e7d42212122391a08efac182fae74e456"
+    },
+    {
+      "bytes": 1239,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/regional_reveals/run_manifest.json"
+      ],
+      "retention_key": "sha256:c79b43142852762fceb986d1b5274feaca17b3b34a50830d3effad1c91bdff27",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "c79b43142852762fceb986d1b5274feaca17b3b34a50830d3effad1c91bdff27"
+    },
+    {
+      "bytes": 8365,
+      "logical_paths": [
+        "baselines-reference-predictions/training.json"
+      ],
+      "retention_key": "sha256:c8ce897c861521964feed84e6cb1cca3d76635836fe37e2027490a0effc91fec",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "c8ce897c861521964feed84e6cb1cca3d76635836fe37e2027490a0effc91fec"
+    },
+    {
+      "bytes": 1397,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/local_love/checksums.json"
+      ],
+      "retention_key": "sha256:c9157287a1a95415fa758cfb95f1fa3a385647ca68e1c3597c035a4b5fbb10e4",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "c9157287a1a95415fa758cfb95f1fa3a385647ca68e1c3597c035a4b5fbb10e4"
+    },
+    {
+      "bytes": 2374,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/checksums.json"
+      ],
+      "retention_key": "sha256:c97fccc531fe3ef03030ed6fe5f9085db5e14552145b1b2ece63aefbdcc72d91",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "c97fccc531fe3ef03030ed6fe5f9085db5e14552145b1b2ece63aefbdcc72d91"
+    },
+    {
+      "bytes": 602,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/product_manifest.json",
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/product_manifest.json",
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/product_manifest.json",
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/product_manifest.json",
+        "cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/product_manifest.json",
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/product_manifest.json",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/product_manifest.json",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/product_manifest.json"
+      ],
+      "retention_key": "sha256:cb276d5619033af046a9f00aed1e991b315a944af2d172b41e67e4d195039abd",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "cb276d5619033af046a9f00aed1e991b315a944af2d172b41e67e4d195039abd"
+    },
+    {
+      "bytes": 1746,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0003/summary/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0003/summary/receipt.json"
+      ],
+      "retention_key": "sha256:cec47962dc15b39b7900af00071450901d00e183b4028e470120e6c67acb003b",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "cec47962dc15b39b7900af00071450901d00e183b4028e470120e6c67acb003b"
+    },
+    {
+      "bytes": 41019,
+      "logical_paths": [
+        "baselines-reference-predictions/predictions.json"
+      ],
+      "retention_key": "sha256:cee543b2dd9bd0f53072fb90444c654704cc26a5704be8169e50e46929f0daf2",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "cee543b2dd9bd0f53072fb90444c654704cc26a5704be8169e50e46929f0daf2"
+    },
+    {
+      "bytes": 3036,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/experiment.json"
+      ],
+      "retention_key": "sha256:cfb8eecfdb06b512dbdfbae588d4cf6c12db7c462bc30d98d27702156d3a3e24",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "cfb8eecfdb06b512dbdfbae588d4cf6c12db7c462bc30d98d27702156d3a3e24"
+    },
+    {
+      "bytes": 68878,
+      "logical_paths": [
+        "fitted-reference-predictions/predictions.json"
+      ],
+      "retention_key": "sha256:d3586eef057823aba6dff98a485548c1ffe13464d407ec2bf2dd94f0e478466b",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "d3586eef057823aba6dff98a485548c1ffe13464d407ec2bf2dd94f0e478466b"
+    },
+    {
+      "bytes": 528,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/regional_reveals/checksums.json"
+      ],
+      "retention_key": "sha256:d3f77fab43c447c624a52e76ebd7aac8b1ea155e240fedc34dbc9ba59a778bc8",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "d3f77fab43c447c624a52e76ebd7aac8b1ea155e240fedc34dbc9ba59a778bc8"
+    },
+    {
+      "bytes": 2374,
+      "logical_paths": [
+        "cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/checksums.json"
+      ],
+      "retention_key": "sha256:d588549271cdb4135c092a279349b914315af1709fdeace11a6eff4397a54b07",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "d588549271cdb4135c092a279349b914315af1709fdeace11a6eff4397a54b07"
+    },
+    {
+      "bytes": 2219,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/run_manifest.json"
+      ],
+      "retention_key": "sha256:d61ff2741868f0ac7b42292a86f23ff345d3d7c288620cf002e9a590ba919647",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "d61ff2741868f0ac7b42292a86f23ff345d3d7c288620cf002e9a590ba919647"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "fitted-target-perturbed-predictions/batches/fold-0000/items/000001/receipt.json"
+      ],
+      "retention_key": "sha256:d94ef3726748ddd39ef2c51c7c5799a821f9f8b6e0f1eea0bc483d22574ec23a",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "d94ef3726748ddd39ef2c51c7c5799a821f9f8b6e0f1eea0bc483d22574ec23a"
+    },
+    {
+      "bytes": 1397,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/local_love/checksums.json"
+      ],
+      "retention_key": "sha256:dbfeb71d5b2a947eb840f724649cd68e816800e2918411b7c99922f3c4894b1e",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "dbfeb71d5b2a947eb840f724649cd68e816800e2918411b7c99922f3c4894b1e"
+    },
+    {
+      "bytes": 275,
+      "logical_paths": [
+        "target-perturbed-inputs/p01-raw.json"
+      ],
+      "retention_key": "sha256:dc68c67057ded171df397ccd3a2c7a08847a7afe6d8a8090f85eb85d30d9e6e0",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "dc68c67057ded171df397ccd3a2c7a08847a7afe6d8a8090f85eb85d30d9e6e0"
+    },
+    {
+      "bytes": 17222,
+      "logical_paths": [
+        "fitted-target-perturbed-predictions/predictions.json"
+      ],
+      "retention_key": "sha256:dcf42366fe4e7c01ca136f5d6421dc01260fd11f12f251bddd6d96d9369d5223",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "dcf42366fe4e7c01ca136f5d6421dc01260fd11f12f251bddd6d96d9369d5223"
+    },
+    {
+      "bytes": 800,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/failures.json"
+      ],
+      "retention_key": "sha256:ddf542ff72e0b2a57b9aa688672cae200ac7c1cf9bd19599a517cac9483f3993",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "ddf542ff72e0b2a57b9aa688672cae200ac7c1cf9bd19599a517cac9483f3993"
+    },
+    {
+      "bytes": 7351,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0002/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0002/receipt.json"
+      ],
+      "retention_key": "sha256:de00b31ca10f9ccf38f1347ed06087edadf072e45a2fe3e47c07a265c0654d24",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "de00b31ca10f9ccf38f1347ed06087edadf072e45a2fe3e47c07a265c0654d24"
+    },
+    {
+      "bytes": 11494,
+      "logical_paths": [
+        "fitted-target-perturbed-scores/scores.json"
+      ],
+      "retention_key": "sha256:de5592c679c667bf286f7e5655e192dab027eab5582d16198e0097d4a5ff237d",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "de5592c679c667bf286f7e5655e192dab027eab5582d16198e0097d4a5ff237d"
+    },
+    {
+      "bytes": 34,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/aux_valid_ring.csv",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/aux_valid_ring.csv",
+        "cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/local_love/aux_valid_ring.csv"
+      ],
+      "retention_key": "sha256:e5af278dcd961691f3436492770c233f8c2fe433a857c0e350713f5c63ffb0ea",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "e5af278dcd961691f3436492770c233f8c2fe433a857c0e350713f5c63ffb0ea"
+    },
+    {
+      "bytes": 7346,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0001/receipt.json",
+        "fitted-reference-predictions/batches/fold-0001/receipt.json"
+      ],
+      "retention_key": "sha256:e688f7c5fd67bc7bbfeb44af8bd2dec6b787685438cfcaf917a7c8a0020eedfd",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "e688f7c5fd67bc7bbfeb44af8bd2dec6b787685438cfcaf917a7c8a0020eedfd"
+    },
+    {
+      "bytes": 22407,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/manifest.json"
+      ],
+      "retention_key": "sha256:e8bec0ad779298e04e893757e2c227d56ee1fac7f3e6e8530ad30d1248717f87",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "e8bec0ad779298e04e893757e2c227d56ee1fac7f3e6e8530ad30d1248717f87"
+    },
+    {
+      "bytes": 7346,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0000/receipt.json",
+        "fitted-reference-predictions/batches/fold-0000/receipt.json"
+      ],
+      "retention_key": "sha256:eb2543d12dfbcb215885aac4bdedb4cd095f3847f86dbb14d2ea37b006ce030f",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "eb2543d12dfbcb215885aac4bdedb4cd095f3847f86dbb14d2ea37b006ce030f"
+    },
+    {
+      "bytes": 44,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/outliers.csv"
+      ],
+      "retention_key": "sha256:ec2d74bb0dbaa58d376ad915b73e22090a1e27b9c7719d8fc6d6b5123bbfc89c",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "ec2d74bb0dbaa58d376ad915b73e22090a1e27b9c7719d8fc6d6b5123bbfc89c"
+    },
+    {
+      "bytes": 7344,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0002/receipt.json",
+        "fitted-reference-predictions/batches/fold-0002/receipt.json"
+      ],
+      "retention_key": "sha256:ecb8d4b126ca5a94a594a27988bc863301a0c04a1f1fae75f97f70194b8debd8",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "ecb8d4b126ca5a94a594a27988bc863301a0c04a1f1fae75f97f70194b8debd8"
+    },
+    {
+      "bytes": 1746,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0002/summary/receipt.json",
+        "baselines-target-perturbed-predictions/batches/fold-0002/summary/receipt.json",
+        "fitted-reference-predictions/batches/fold-0002/summary/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0002/summary/receipt.json"
+      ],
+      "retention_key": "sha256:edae29309a6f58b20377188ee216909f5e38b101cba59acc4e7a6138e7ddd45d",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "edae29309a6f58b20377188ee216909f5e38b101cba59acc4e7a6138e7ddd45d"
+    },
+    {
+      "bytes": 110,
+      "logical_paths": [
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/cover_mean.csv",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/cover_q10.csv",
+        "cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/local_love/cover_q90.csv"
+      ],
+      "retention_key": "sha256:eead5c8b04c44c66bb2fc970e646b4b8ece2908c7e89271244ef4492093f3f00",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "eead5c8b04c44c66bb2fc970e646b4b8ece2908c7e89271244ef4492093f3f00"
+    },
+    {
+      "bytes": 1770,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/scientific_manifest.json"
+      ],
+      "retention_key": "sha256:efeaa0308eff4aa58b72ecb70ec7f86738853b9938d085a3a34d1ea429dc568e",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "efeaa0308eff4aa58b72ecb70ec7f86738853b9938d085a3a34d1ea429dc568e"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-target-perturbed-predictions/batches/fold-0001/items/000000/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0000/items/000000/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0001/items/000000/receipt.json"
+      ],
+      "retention_key": "sha256:f21abe6dcc26d178aec6b7c9e0f7d93072a56700b8937f81fc1d669fce82aa1b",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "f21abe6dcc26d178aec6b7c9e0f7d93072a56700b8937f81fc1d669fce82aa1b"
+    },
+    {
+      "bytes": 1397,
+      "logical_paths": [
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/local_love/checksums.json"
+      ],
+      "retention_key": "sha256:f298bd367f424c71706becdbc7b98e0b267cd7b6702a8f7654948c8ca45c4e22",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "f298bd367f424c71706becdbc7b98e0b267cd7b6702a8f7654948c8ca45c4e22"
+    },
+    {
+      "bytes": 270,
+      "logical_paths": [
+        "fitted-target-perturbed-scores/outcome_access.json"
+      ],
+      "retention_key": "sha256:f51a4d9001b6700953ee7462ac2351f80f847e37e22786a52cbc4972b9999565",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "f51a4d9001b6700953ee7462ac2351f80f847e37e22786a52cbc4972b9999565"
+    },
+    {
+      "bytes": 98934,
+      "logical_paths": [
+        "fitted-reference-predictions/manifest.json"
+      ],
+      "retention_key": "sha256:f69967f3d26812bc62f34193b6a3207a4e96d0bb7142606b579c86289389b3be",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "f69967f3d26812bc62f34193b6a3207a4e96d0bb7142606b579c86289389b3be"
+    },
+    {
+      "bytes": 14993,
+      "logical_paths": [
+        "fitted-target-perturbed-scores/manifest.json"
+      ],
+      "retention_key": "sha256:f7c2e07a55543bde648785343273618128e12940e14bf1b9c5498f392ee0a52a",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "f7c2e07a55543bde648785343273618128e12940e14bf1b9c5498f392ee0a52a"
+    },
+    {
+      "bytes": 270,
+      "logical_paths": [
+        "baselines-target-perturbed-scores/outcome_access.json"
+      ],
+      "retention_key": "sha256:f8561360107afc3961097e0e7baa99169d21a6dd5bf02705a8ef20f0f948c99b",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "f8561360107afc3961097e0e7baa99169d21a6dd5bf02705a8ef20f0f948c99b"
+    },
+    {
+      "bytes": 709,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0002/items/000000/receipt.json",
+        "baselines-target-perturbed-predictions/batches/fold-0002/items/000000/receipt.json",
+        "fitted-reference-predictions/batches/fold-0002/items/000000/receipt.json",
+        "fitted-target-perturbed-predictions/batches/fold-0002/items/000000/receipt.json"
+      ],
+      "retention_key": "sha256:f9fbaa857b608cc6bbb36c4854cedbda1251e7f5c302bc384fc03a9e507bca36",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "f9fbaa857b608cc6bbb36c4854cedbda1251e7f5c302bc384fc03a9e507bca36"
+    },
+    {
+      "bytes": 110,
+      "logical_paths": [
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/cover_mean.csv",
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/cover_q10.csv",
+        "cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/local_love/cover_q90.csv"
+      ],
+      "retention_key": "sha256:fa1182eaa60548151cc23df288f9e9c607aacc4ea3aefbcaac406618e2786ae5",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "fa1182eaa60548151cc23df288f9e9c607aacc4ea3aefbcaac406618e2786ae5"
+    },
+    {
+      "bytes": 1770,
+      "logical_paths": [
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/scientific_manifest.json"
+      ],
+      "retention_key": "sha256:fb33944d5a6e1831f113669276eeea608df570ce52b65aec660507269906d549",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "fb33944d5a6e1831f113669276eeea608df570ce52b65aec660507269906d549"
+    },
+    {
+      "bytes": 14945,
+      "logical_paths": [
+        "baselines-reference-predictions/preparations.json"
+      ],
+      "retention_key": "sha256:fc95afcd6ad5cf908f34d28272ca4ebfe551976348326c411faa46702fe1574d",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "fc95afcd6ad5cf908f34d28272ca4ebfe551976348326c411faa46702fe1574d"
+    },
+    {
+      "bytes": 1746,
+      "logical_paths": [
+        "baselines-reference-predictions/batches/fold-0001/summary/receipt.json",
+        "fitted-reference-predictions/batches/fold-0001/summary/receipt.json"
+      ],
+      "retention_key": "sha256:fd82720bee1b872df6f3f2516496ad6e98565f86a9490ec98cfd96ccdb5468d2",
+      "roles": [
+        "experiment-product-file"
+      ],
+      "sha256": "fd82720bee1b872df6f3f2516496ad6e98565f86a9490ec98cfd96ccdb5468d2"
+    },
+    {
+      "bytes": 238,
+      "logical_paths": [
+        "cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/regional_reveals/reconstruction.csv",
+        "cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/regional_reveals/reconstruction.csv",
+        "cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/regional_reveals/reconstruction.csv"
+      ],
+      "retention_key": "sha256:ffa17fe266fb92d21eb0a6ac5c2bb89b9a2a083e83b21e3586653b1639c62968",
+      "roles": [
+        "analytical-basin-cache-file"
+      ],
+      "sha256": "ffa17fe266fb92d21eb0a6ac5c2bb89b9a2a083e83b21e3586653b1639c62968"
+    }
+  ],
+  "schema_version": "persisted-experiment-isolation-trace-index.v1"
+}

@@ -1,0 +1,14 @@
+{
+  "exposure": "retrospective prior-exposed English development; no new untouched cohort or measured vegetation accuracy",
+  "ordering": "exclusive_prediction_freeze_reopened_before_target_decode",
+  "outcome": {
+    "path": "BECKHAM-raw.json",
+    "sha256": "2d1103760390e12dcdca46bd42779021d99c5a17fb6c086701fc1bb979137abf"
+  },
+  "prediction_freeze": {
+    "bytes": 69040,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-development-fold-execution/native/products/prediction-freeze.json",
+    "sha256": "5d57b8bcd859d013ddcd554ab1bea2ef2207a6c42820cf1d69fab4777cb528e1"
+  },
+  "record_id": "author:BECKHAM"
+}

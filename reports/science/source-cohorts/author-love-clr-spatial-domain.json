@@ -1,0 +1,119 @@
+{
+  "actual_exit": 0,
+  "approved": true,
+  "candidate": "23ea4670d12ee6f61e0fb086c20f6dfe455eb0e4",
+  "collected_execution": {
+    "bytes": 377,
+    "path": "artifacts/science/author-love-clr-spatial-scale-execution/collected-execution.json",
+    "sha256": "049131aff040fe9b56d83659e3014cfc99b66b5a3982644825d15ababd73892c"
+  },
+  "limits": [
+    "Scientific main return is not observed by the unchanged borrowed consumer.",
+    "Zero computation counts are source-control-flow-qualified, not runtime instrumentation of arbitrary library internals.",
+    "Dataset-specific positive-only CLR domain witness; no tuning winner, physical validation, untouched holdout, or whole V3-24 closure.",
+    "Original nominal native1, separate recovery0 and unknown original later origin/final return remain literal."
+  ],
+  "native_status": {
+    "collector_exit": 0,
+    "native_exit": 0,
+    "scientific_main_return": "not_observed_by_unchanged_consumer",
+    "stage_exit": 0
+  },
+  "native_terminal": {
+    "bytes": 2370,
+    "path": "artifacts/science/author-love-clr-spatial-scale-execution/native/terminal.json",
+    "sha256": "1347e8fdedc1f9484498beef41bc99db3d312493d83699854392433b3b6fcd34"
+  },
+  "original_independent_review": {
+    "bytes": 3519,
+    "sha256": "ea253aeed96251c294cf7be16070afa68401ea9968b94e77f304da05ce1fc359"
+  },
+  "plan": {
+    "bytes": 906593,
+    "path": "artifacts/science/author-love-clr-spatial-scale-execution/plan.json",
+    "sha256": "9af68d3956d0937b359c320df51e492bd2f93f85976a94323331cedf311e1cb3"
+  },
+  "products": [
+    {
+      "bytes": 670345,
+      "path": "artifacts/science/author-love-clr-spatial-scale-execution/native/products/candidate-refusals.json",
+      "sha256": "912d9cfe9949eb25da7622b1fe0e4516ebe671e6bd0a2850fbe05d2409811333"
+    },
+    {
+      "bytes": 789531,
+      "path": "artifacts/science/author-love-clr-spatial-scale-execution/native/products/selection-freeze.json",
+      "sha256": "2ee261a3c024e8b1073cb7d5f698dfd1dec8acc97782104f0efe47b15c9db480"
+    },
+    {
+      "bytes": 6238,
+      "path": "artifacts/science/author-love-clr-spatial-scale-execution/native/products/report.json",
+      "sha256": "795f5ac3e28bfbac1c702de58e2c4f45ee1c276b5f35ac14700c5f18f1bc6387"
+    }
+  ],
+  "proof": [
+    "Independently reconstructed all225 grouped train-only folds from15 source site identities and2715 saved ancestry rows.",
+    "Exact450 distinct API refusal rows,420 inner dispositions and15 null choices; no producer/model import or invocation.",
+    "Maintained spatial/model.py positive-only guard raises this exact typed refusal before numerical ridge work; source and registered before/after custody bound."
+  ],
+  "protocol": {
+    "bytes": 12716,
+    "path": "artifacts/science/author-love-clr-spatial-scale-proposal/protocol.json",
+    "sha256": "5ff3a6cb2b49f0e506a2eb694b8104f46ed6159484474e5d3b7a7a13ea8e41c4"
+  },
+  "public_products": {
+    "docs/report/pollen-reconstruction/author-lra-constrained/clr-spatial-domain/report.json": {
+      "bytes": 14946,
+      "sha256": "e77231ca38ac41d2ed45550e669b246d2f624fb56d93dee384df678f890eb49d"
+    },
+    "docs/report/pollen-reconstruction/author-lra-constrained/clr-spatial-domain/trace-index.json": {
+      "bytes": 1096,
+      "sha256": "b3964206399b10c3a273fc588dfbd8d2d1cde36ef7eb668276e58b4133e9baa0"
+    }
+  },
+  "public_sources": {
+    "reports/science/author-love-clr-spatial-domain/protocol.json": {
+      "bytes": 12716,
+      "sha256": "5ff3a6cb2b49f0e506a2eb694b8104f46ed6159484474e5d3b7a7a13ea8e41c4"
+    },
+    "reports/science/author-love-clr-spatial-domain/source-locations.json": {
+      "bytes": 1352,
+      "sha256": "c82ee0e57b453a5b3a9f972ec6963b9929bb778a2c5b46cea2d3b32f64b1503f"
+    },
+    "reports/science/author-love-clr-spatial-domain/source/inputs.py": {
+      "bytes": 13877,
+      "sha256": "1cbe89824d6430cd5efa623522e4fd8427c6828a723be3b87d9a903d03642e2e"
+    },
+    "reports/science/author-love-clr-spatial-domain/source/replay.py": {
+      "bytes": 14922,
+      "sha256": "f026e243274744df04e4ee4ed9eb7434166732fcdaf124793e3a8a9c21e2664c"
+    }
+  },
+  "raw_trace_retention": "Content-addressed retained scientific objects outside product Git; public callback authenticates these compact products and exact source bytes without opening raw payloads.",
+  "review_source": {
+    "bytes": 11369,
+    "path": "artifacts/science/author-love-clr-output-independent-review/review_outputs.py",
+    "sha256": "02667d0f23f2484ecf9ed8317c6555d6b0819c15c374ad7dd09dfb93fe2f9530"
+  },
+  "schema_version": "author-love-clr-output-review.v1",
+  "scientific_saved_products_admitted": true,
+  "summary": {
+    "actual_expected_domain_refusals": 450,
+    "contexts": 225,
+    "inner_dispositions": 420,
+    "logical_ancestry_rows": 2715,
+    "maintained_fit_API_attempts": 450,
+    "new_LOVE_runs": 0,
+    "new_REVEALS_runs": 0,
+    "new_forward_calls": 0,
+    "new_kernel_calls": 0,
+    "new_optimizer_attempts": 0,
+    "new_score_calls": 0,
+    "outer_candidate_dispositions": 30,
+    "saved_nominal_requests": 39,
+    "selected_outer_dispositions": 15,
+    "selected_outer_refusals": 15,
+    "selected_zero_cells": 80,
+    "selected_zero_containing_requests": 26,
+    "successful_ridge_solves": 0
+  }
+}

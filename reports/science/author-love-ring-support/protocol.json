@@ -1,0 +1,174 @@
+{
+  "admitted_descriptor": {
+    "bytes": 6585,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-transport-registered-plan-recovery-execution/recovered-shards.json",
+    "sha256": "f8abdbe5c8bad519599fc5c756605c9c8679ec345956df85adcca82c413a487b"
+  },
+  "candidate_freeze": {
+    "bytes": 127260565,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-canonical-ancestry-execution/native/products/candidate-prediction-freeze.json",
+    "sha256": "675ae5d4721f0c68cc7aa3c231d0b71ed1cb97f2d753ba825c08d4c5485948fb"
+  },
+  "canonical_sources": {
+    "common": {
+      "bytes": 5643,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/common.py",
+      "sha256": "f6938a40eb4e99b4cfdbcdcfc53f95f93857f3a694238a632a3be55ed5f44673"
+    },
+    "replay": {
+      "bytes": 20225,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/replay.py",
+      "sha256": "e60bc275372655b400e1ae0a92e97abb05cb36824ff64c935493a72f1b4f862a"
+    },
+    "requests": {
+      "bytes": 4725,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/requests.py",
+      "sha256": "7c800249f454c8a0e93266f87605c65d9d4d926ab7d2149d53d4393466d0dbd6"
+    },
+    "training": {
+      "bytes": 4432,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/training.py",
+      "sha256": "9b7d3712e6e2b29ff8a015f9ce5810a0fe53da25c0a80c3d69d1f22489a179aa"
+    }
+  },
+  "counts": {
+    "inner_slots": 630,
+    "new_fits": 0,
+    "new_forward_calls": 0,
+    "new_kernel_calls": 0,
+    "new_scores": 0,
+    "nominal_prediction_slots": 675,
+    "outer_slots": 45,
+    "projected_ring_zero_attempts": 1248,
+    "unique_requests": 39
+  },
+  "equivalence_source": {
+    "bytes": 13841,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-support-equivalence-proposal/source/equivalence.py",
+    "sha256": "82d966d777269c70fd5501ce790e55b225fe9ed33584f00ce9fe6b11ce4de1a4"
+  },
+  "nested_protocol": {
+    "bytes": 50782,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/protocol.json",
+    "sha256": "97a38c0e30edcdc8667aa85db61c1b8dc2b02ebec0fbd7d6b609267117f8e047"
+  },
+  "operator_sources": [
+    {
+      "bytes": 7167,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/adapter.py",
+      "sha256": "03eb7b10f7588161f3289cadd1b72ecad57025e655ade54978734a14cf3dc880"
+    },
+    {
+      "bytes": 17295,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+      "sha256": "6a66342a06ff47cb1240349bab0303ab54053e3f82dd8213d9b56a25de6740b8"
+    },
+    {
+      "bytes": 12488,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+      "sha256": "6a21e37c0a49b1ec944a45acb5fcbfaa08a6e72648e6352a32be285da28b7700"
+    },
+    {
+      "bytes": 3300,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
+      "sha256": "f33c781841c10f1776a7e6e41ef3a93f2e4ac6ca0282d93fe7620ad09cbd9567"
+    },
+    {
+      "bytes": 7204,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py",
+      "sha256": "ef05a86be898f4903a63edea9a2dddf35fba2d097bf24f430c72a123b368a4be"
+    },
+    {
+      "bytes": 9757,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+      "sha256": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d"
+    },
+    {
+      "bytes": 16188,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py",
+      "sha256": "6383372379623ced187c8b8b5dd43f813dd5ec384a467f872bb99b579e2d1e38"
+    },
+    {
+      "bytes": 20248,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py",
+      "sha256": "b499c48f0a5051e31d0f918f01d4ffc2d9a79966ee1c34fada5cdc2085209351"
+    },
+    {
+      "bytes": 5361,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.py",
+      "sha256": "0cfae4ed1afdd9b74a971ed1d435557c2bb8695bc98a708d9b24ed03977d42af"
+    },
+    {
+      "bytes": 8552,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py",
+      "sha256": "6777f80668d1040d511523b484d5efc325105dfe79cccf7008463631ed409275"
+    },
+    {
+      "bytes": 9260,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
+      "sha256": "a7dc210875ea6fb8e5450f687ba0a044485de3a2c163064f43af1834101fadfa"
+    },
+    {
+      "bytes": 6229,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+      "sha256": "3c930d81b7249626b437b536636970f96c06d369163e02b7e2f338c7f3d267a0"
+    }
+  ],
+  "parameter_support_design": {
+    "bytes": 12263,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-parameter-support-proposal/protocol.json",
+    "sha256": "8e7b3f03fcf5ea6a66b7b658bbeffad3c94bd629b993ba14fa3540da95744c91"
+  },
+  "predictor_lineage_proof": {
+    "bytes": 1661,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-proposal/source-inverse.json",
+    "sha256": "b1afb532bdf889fa55f8ce45fc531c1d581f0770a8e3b35f6895496696763c5f"
+  },
+  "prepared_inputs": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/constrained-inputs",
+  "publication_authority": {
+    "bytes": 12604,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/source-cohorts/author-love-nested-transport.json",
+    "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+  },
+  "resources": {
+    "cpu_workers": 1,
+    "maximum_completed_child_rss_bytes": 4294967296,
+    "maximum_output_bytes": 16777216,
+    "native_timeout_seconds": 60,
+    "resource_scope": "Process-group native timeout and completed-child RSS/output postchecks; no independent whole-wall or OS memory quota.",
+    "threads_per_worker": 1
+  },
+  "schema_version": "author-love-admitted-ring-support-protocol.v1",
+  "scientific_scope": "Source-derived 500 m request aliases and conditional numerical-value projection from existing nominal GPM compatibility algebra. Not empirical RSAP, new prediction manifests, joint PPE uncertainty, independent evaluation, or whole scientific acceptance. All sites are exposed retrospective development. Preserve original fit native1 and separate saved-product recovery0.",
+  "source_candidate": "992257309805272a22e53c7ebb2cf5004117185e",
+  "source_metadata": [
+    {
+      "bytes": 176,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/source-metadata/bijux_pollenomics_lra-0.1.9.dev1462.dist-info/METADATA",
+      "sha256": "ad546c7cd96bfeda44dda3be3107137ce8357937b7b322018745d107d9c2aad8"
+    },
+    {
+      "bytes": 84,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/source-metadata/bijux_pollenomics_lra-0.1.9.dev1462.dist-info/entry_points.txt",
+      "sha256": "15f6da0ca20c07ae66dae4aef73b2fcaf3a0b3a13d7663fe8ff2bbe72b17915c"
+    },
+    {
+      "bytes": 1948,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/source-metadata/derivation.json",
+      "sha256": "711c406f3909690e97980860093cd1e764a65d034f5320d9b36408dcf58240f3"
+    }
+  ],
+  "source_metadata_root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/source-metadata",
+  "sources": {
+    "projection": {
+      "bytes": 11262,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-proposal/source/projection.py",
+      "sha256": "f7dc5df50c1f1ecd07c430f957d9c32eed56e47c5c05f78c611edc25466150c1"
+    },
+    "replay": {
+      "bytes": 14719,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-proposal/source/replay.py",
+      "sha256": "bf9e4f1c9ecb5620230c6a5ea3cde005665ee91917a562fafdab308c97b3ee81"
+    }
+  }
+}

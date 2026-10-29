@@ -1,0 +1,26 @@
+{
+  "exact_executed_source_locations": [
+    {
+      "bytes": 14719,
+      "canonical_path": "reports/science/author-love-ring-support/source/replay.py",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-proposal/source/replay.py",
+      "sha256": "bf9e4f1c9ecb5620230c6a5ea3cde005665ee91917a562fafdab308c97b3ee81"
+    },
+    {
+      "bytes": 11262,
+      "canonical_path": "reports/science/author-love-ring-support/source/projection.py",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-proposal/source/projection.py",
+      "sha256": "f7dc5df50c1f1ecd07c430f957d9c32eed56e47c5c05f78c611edc25466150c1"
+    },
+    {
+      "bytes": 13841,
+      "canonical_path": "reports/science/author-love-ring-support/source/equivalence.py",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-support-equivalence-proposal/source/equivalence.py",
+      "sha256": "82d966d777269c70fd5501ce790e55b225fe9ed33584f00ce9fe6b11ce4de1a4"
+    }
+  ],
+  "executed_protocol_sha256": "8e0cf5c97bac4ab5c04f29e88e06a0948e91c6be4e4db4df1b2637cde993d9f8",
+  "replay_requirement": "The byte-exact executed protocol binds its original absolute entry, source/runtime metadata, registered plan and original nominal certificate/recovery/freeze dependencies. Restore those authenticated locations and their complete dependency closure before execution. The canonical source directory preserves repository-root depth; the public source relocation is provenance, not a newly executed protocol.",
+  "schema_version": "author-love-ring-support-source-locations.v1",
+  "standalone_portable_replay": false
+}

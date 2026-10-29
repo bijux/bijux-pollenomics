@@ -1,0 +1,676 @@
+{
+  "execution": {
+    "candidate": "5998a3c616e02c9e702fae8048ffbff6f40435d2",
+    "common_exit": 0,
+    "common_seconds": 63.16767054103548,
+    "inputs_before_after_equal": true,
+    "native_exit": 0,
+    "native_stage_seconds": 43.15208895801334,
+    "outer_exit": 0,
+    "plan_sha256": "4b9d47810542c4b6532973c125f8a89eaedc81d8c7407a450c4d2ddf45b8ea28",
+    "producer_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-reuse-proposal/proposal/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py",
+      "--repository",
+      "/Users/bijan/bijux/bijux-pollenomics",
+      "--prepared",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/constrained-inputs",
+      "--protocol",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-reuse-proposal/protocol.json",
+      "--protocol-sha256",
+      "6a87258f9495c417efb45e5a973a566134c7f7f28cecbe741777577ed0066585",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/native/products"
+    ],
+    "registered_wrapper_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/atlas-canonical-source-export-controller/runtime_guarded_runner.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/plan.json",
+      "--registered-plan-sha256",
+      "4b9d47810542c4b6532973c125f8a89eaedc81d8c7407a450c4d2ddf45b8ea28"
+    ],
+    "runtime_before_after_equal": true,
+    "source_before_after_equal": true,
+    "stage_id": "source-bound-love-cohort-development",
+    "timed_out": false,
+    "wrapper_seconds": 107.25440620799782
+  },
+  "execution_manifest_sha256": "5291ca65695b52f3392ac1dc2ae1d9b02221108008eebef7649017329668d5db",
+  "independent_semantics": {
+    "accepted": 1588,
+    "counts": {
+      "folds": 15,
+      "logical_attempt_references": 12480,
+      "logical_requests": 195,
+      "new_attempts": 896,
+      "prediction_slots": 45,
+      "reused_attempts": 832,
+      "unique_attempts": 1728,
+      "unique_requests": 27
+    },
+    "failures": [],
+    "new_lifecycle_events": 1792,
+    "predicted_folds": 15,
+    "prediction_freeze_sha256": "1459879a51fe6263e587316a7eeaf80baffbe74b717618024618b7d5f944d81b",
+    "refused": 140,
+    "refused_folds": 0,
+    "refused_rings": [],
+    "reused_attempts": 832,
+    "scope": "Homogeneous retrospective prior-exposed fixed-start pollen development diagnostic. Every fold excludes its own target from training; source pollen is legitimately training in other folds. Original uniform scores remain separate; no global-unread, independent vegetation, uncertainty, global-optimum, R-parity or release admission.",
+    "scores": [
+      {
+        "fold_id": "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+        "observed_total_count": 2207,
+        "record_id": "author:GOURTEMIRES",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": 1.2685165418080401e-18,
+            "deviance": 1345.4796571944219,
+            "mae_fraction": 0.019471898751692317,
+            "rmse_fraction": 0.05208409741657348,
+            "total_variation": 0.29207848127538477
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": -2.3707887505016364e-18,
+            "deviance": 457.93182985672536,
+            "mae_fraction": 0.009192122321975301,
+            "rmse_fraction": 0.025634186491041634,
+            "total_variation": 0.1378818348296295
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 1.0516761073109392e-18,
+            "deviance": 514.3129020330759,
+            "mae_fraction": 0.00940474673010345,
+            "rmse_fraction": 0.02693018259538629,
+            "total_variation": 0.14107120095155176
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+        "observed_total_count": 833,
+        "record_id": "author:LONGBREACH",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": 4.04768811061255e-18,
+            "deviance": 464.4904666775387,
+            "mae_fraction": 0.01833507133718103,
+            "rmse_fraction": 0.054433824424467425,
+            "total_variation": 0.27502607005771545
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": 1.9154238380577246e-18,
+            "deviance": 106.99002924398393,
+            "mae_fraction": 0.008350384129679948,
+            "rmse_fraction": 0.021057922265900954,
+            "total_variation": 0.12525576194519922
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 6.95696394011532e-18,
+            "deviance": 95.11492417181776,
+            "mae_fraction": 0.00770556721083994,
+            "rmse_fraction": 0.019068456145098674,
+            "total_variation": 0.1155835081625991
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+        "observed_total_count": 1150,
+        "record_id": "author:CUTHILL2",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -1.9985460046149465e-18,
+            "deviance": 541.000151153909,
+            "mae_fraction": 0.017166398554870673,
+            "rmse_fraction": 0.039363323854614024,
+            "total_variation": 0.2574959783230601
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": -8.167656366057467e-19,
+            "deviance": 380.20235794422774,
+            "mae_fraction": 0.016306794233196278,
+            "rmse_fraction": 0.03932512474923839,
+            "total_variation": 0.24460191349794416
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 3.292360597114315e-18,
+            "deviance": 617.5633048860313,
+            "mae_fraction": 0.020929177206194426,
+            "rmse_fraction": 0.05456383531529782,
+            "total_variation": 0.3139376580929164
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+        "observed_total_count": 1861,
+        "record_id": "author:HARESDOWN",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -7.336434700485247e-18,
+            "deviance": 2440.190808381113,
+            "mae_fraction": 0.03135291702672644,
+            "rmse_fraction": 0.08106633917270999,
+            "total_variation": 0.4702937554008966
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": -4.737963493761655e-18,
+            "deviance": 508.9026592367569,
+            "mae_fraction": 0.014241993638165383,
+            "rmse_fraction": 0.03148628523060597,
+            "total_variation": 0.21362990457248074
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": -2.768329547079655e-18,
+            "deviance": 429.96949819266655,
+            "mae_fraction": 0.01293239209493099,
+            "rmse_fraction": 0.02861453741054199,
+            "total_variation": 0.19398588142396483
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+        "observed_total_count": 2092,
+        "record_id": "author:BROADOWN",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -3.06287113727155e-18,
+            "deviance": 1434.6579382376733,
+            "mae_fraction": 0.02256439473097958,
+            "rmse_fraction": 0.05022420402996875,
+            "total_variation": 0.3384659209646937
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": 2.949029909160572e-18,
+            "deviance": 863.453549238058,
+            "mae_fraction": 0.015933570312526218,
+            "rmse_fraction": 0.03471742501466679,
+            "total_variation": 0.23900355468789328
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 2.03468607703113e-18,
+            "deviance": 949.9458828160435,
+            "mae_fraction": 0.017502052764840695,
+            "rmse_fraction": 0.038797087444649644,
+            "total_variation": 0.26253079147261044
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+        "observed_total_count": 2399,
+        "record_id": "author:NTWITCHEN",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -2.356332721535163e-18,
+            "deviance": 1728.3291861517696,
+            "mae_fraction": 0.020446874961917504,
+            "rmse_fraction": 0.05043884845271385,
+            "total_variation": 0.3067031244287626
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": 2.49366499671666e-19,
+            "deviance": 1133.9035983374836,
+            "mae_fraction": 0.0187089813525859,
+            "rmse_fraction": 0.040429900898191866,
+            "total_variation": 0.2806347202887885
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 5.887217796596289e-18,
+            "deviance": 1098.8292695762752,
+            "mae_fraction": 0.01861561811990002,
+            "rmse_fraction": 0.04107984128394865,
+            "total_variation": 0.2792342717985003
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+        "observed_total_count": 971,
+        "record_id": "author:WINNEYS",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": 4.4181238528784306e-18,
+            "deviance": 1372.0208729531778,
+            "mae_fraction": 0.03332230327448145,
+            "rmse_fraction": 0.083144141415412,
+            "total_variation": 0.49983454911722175
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": -3.6627963393801956e-18,
+            "deviance": 952.9100078941854,
+            "mae_fraction": 0.029514106226611565,
+            "rmse_fraction": 0.07105926050443011,
+            "total_variation": 0.4427115933991735
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": -1.4383748821641026e-18,
+            "deviance": 1009.7338584194457,
+            "mae_fraction": 0.029414166877699568,
+            "rmse_fraction": 0.07201279728111434,
+            "total_variation": 0.44121250316549354
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+        "observed_total_count": 915,
+        "record_id": "author:WINDMILL",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -3.520043053336271e-18,
+            "deviance": 815.0800447525708,
+            "mae_fraction": 0.02371508143102685,
+            "rmse_fraction": 0.06730000799061488,
+            "total_variation": 0.3557262214654027
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": -7.661695352230898e-19,
+            "deviance": 287.2116863014697,
+            "mae_fraction": 0.01154520872057953,
+            "rmse_fraction": 0.028536058432797884,
+            "total_variation": 0.17317813080869293
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": -1.3010426069826053e-18,
+            "deviance": 250.42194542758253,
+            "mae_fraction": 0.012870889371281748,
+            "rmse_fraction": 0.03234273678584611,
+            "total_variation": 0.19306334056922622
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+        "observed_total_count": 2336,
+        "record_id": "author:MOLECHAM",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -4.481368979606752e-19,
+            "deviance": 2442.1844865982794,
+            "mae_fraction": 0.02691604140152819,
+            "rmse_fraction": 0.06904247681425923,
+            "total_variation": 0.40374062102292285
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": 5.934199890737328e-18,
+            "deviance": 2086.6824329975902,
+            "mae_fraction": 0.02352925139079744,
+            "rmse_fraction": 0.06319566151862094,
+            "total_variation": 0.3529387708619616
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": -3.9284258716391445e-18,
+            "deviance": 1744.0568631907954,
+            "mae_fraction": 0.01964860780025272,
+            "rmse_fraction": 0.05186299587449544,
+            "total_variation": 0.2947291170037908
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+        "observed_total_count": 699,
+        "record_id": "author:BECKHAM",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": 7.52797708429102e-18,
+            "deviance": 651.8732810577169,
+            "mae_fraction": 0.027367952997044944,
+            "rmse_fraction": 0.06388129856868874,
+            "total_variation": 0.4105192949556742
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": 3.756760527662273e-18,
+            "deviance": 516.9511287490752,
+            "mae_fraction": 0.02249285400879284,
+            "rmse_fraction": 0.05474310894854353,
+            "total_variation": 0.3373928101318926
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": -7.101524229780054e-18,
+            "deviance": 516.7064195318193,
+            "mae_fraction": 0.022667139685827217,
+            "rmse_fraction": 0.05502581221911692,
+            "total_variation": 0.34000709528740825
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+        "observed_total_count": 274,
+        "record_id": "author:COMERSLA",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -7.517135062566164e-19,
+            "deviance": 144.694606279516,
+            "mae_fraction": 0.019460335585324187,
+            "rmse_fraction": 0.05191446099622304,
+            "total_variation": 0.2919050337798628
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": 5.149960319306146e-18,
+            "deviance": 103.60694972179625,
+            "mae_fraction": 0.018167362755452523,
+            "rmse_fraction": 0.04571901470795034,
+            "total_variation": 0.27251044133178787
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 5.1716443627558565e-18,
+            "deviance": 90.53926710435891,
+            "mae_fraction": 0.016467897538904434,
+            "rmse_fraction": 0.039581436659891514,
+            "total_variation": 0.2470184630835665
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+        "observed_total_count": 2547,
+        "record_id": "author:LOBBSBOG",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -1.3444106938820255e-18,
+            "deviance": 2147.8008058081296,
+            "mae_fraction": 0.027216515709775322,
+            "rmse_fraction": 0.06395298750333905,
+            "total_variation": 0.4082477356466298
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": -2.999626010543229e-18,
+            "deviance": 583.9266233290442,
+            "mae_fraction": 0.010935587193482702,
+            "rmse_fraction": 0.03117074775806033,
+            "total_variation": 0.16403380790224054
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 1.0227640493779925e-18,
+            "deviance": 459.2782763279417,
+            "mae_fraction": 0.0092275575964176,
+            "rmse_fraction": 0.026554761372454567,
+            "total_variation": 0.138413363946264
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+        "observed_total_count": 553,
+        "record_id": "author:LARKBARR",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -4.6439993054795776e-18,
+            "deviance": 508.86726726228994,
+            "mae_fraction": 0.02871424135009263,
+            "rmse_fraction": 0.0858944743752039,
+            "total_variation": 0.43071362025138943
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": 4.336808689942018e-20,
+            "deviance": 268.35519988546844,
+            "mae_fraction": 0.020347944397669175,
+            "rmse_fraction": 0.0617715406944683,
+            "total_variation": 0.3052191659650376
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 2.6508743117270583e-18,
+            "deviance": 274.6943068828895,
+            "mae_fraction": 0.021625757079866893,
+            "rmse_fraction": 0.06402243360253092,
+            "total_variation": 0.3243863561980034
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+        "observed_total_count": 1439,
+        "record_id": "author:HANGINGS",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -1.9226518525409613e-18,
+            "deviance": 913.7151724444348,
+            "mae_fraction": 0.02169009139992399,
+            "rmse_fraction": 0.046774147033111245,
+            "total_variation": 0.32535137099885986
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": -9.121754277844711e-18,
+            "deviance": 3137.1589574787477,
+            "mae_fraction": 0.04437667061391583,
+            "rmse_fraction": 0.1317520599396171,
+            "total_variation": 0.6656500592087374
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": -6.0137080500529315e-18,
+            "deviance": 3097.6296929403698,
+            "mae_fraction": 0.04416675771544475,
+            "rmse_fraction": 0.13106468252310216,
+            "total_variation": 0.6625013657316713
+          }
+        ]
+      },
+      {
+        "fold_id": "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51",
+        "observed_total_count": 297,
+        "record_id": "author:WHH05",
+        "scores": [
+          {
+            "baseline": "training_mean",
+            "bias_fraction": -1.4275328604392474e-18,
+            "deviance": 1554.7017666398706,
+            "mae_fraction": 0.057457781611037755,
+            "rmse_fraction": 0.17565041288345692,
+            "total_variation": 0.8618667241655663
+          },
+          {
+            "baseline": "nearest_site",
+            "bias_fraction": -2.5460681017201263e-18,
+            "deviance": 1166.9707743117547,
+            "mae_fraction": 0.054705942182933766,
+            "rmse_fraction": 0.16618865691688262,
+            "total_variation": 0.8205891327440065
+          },
+          {
+            "baseline": "inverse_distance_squared",
+            "bias_fraction": 3.1694843508992914e-18,
+            "deviance": 1168.1843686698107,
+            "mae_fraction": 0.05471863361164299,
+            "rmse_fraction": 0.1661746450972471,
+            "total_variation": 0.8207795041746448
+          }
+        ]
+      }
+    ]
+  },
+  "original_receipts": {
+    "common": {
+      "bytes": 2137,
+      "sha256": "970c175fa01980f6819ca9961920ea4bdb8f4fa91fc633feb4c3d3b49ceef8b5"
+    },
+    "independent_review": {
+      "bytes": 20728,
+      "sha256": "a11b4f68da0422928f932aa84dfe1ad1d7534844cb406dea3c50bad40701107b"
+    },
+    "outer": {
+      "bytes": 2604,
+      "sha256": "5b7f94bdc9fffb1c1bd79a19b9ab73803d8d2a20c1d57982c5fc1ab86926110d"
+    }
+  },
+  "plan": {
+    "bytes": 23096630,
+    "sha256": "4b9d47810542c4b6532973c125f8a89eaedc81d8c7407a450c4d2ddf45b8ea28"
+  },
+  "producer_sources": [
+    {
+      "bytes": 18124,
+      "name": "replay.py",
+      "sha256": "2b3f23c22974b07177feb9b7c9b7e3d078cb8ec3f94b3d0e350a5b4cb472c907"
+    },
+    {
+      "bytes": 8552,
+      "name": "pool.py",
+      "sha256": "6777f80668d1040d511523b484d5efc325105dfe79cccf7008463631ed409275"
+    }
+  ],
+  "products": {
+    "outcome_access": {
+      "name": "outcome-access.jsonl",
+      "original_reference": {
+        "bytes": 8117,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/native/products/outcome-access.jsonl",
+        "sha256": "08643e07835ca56f79835d4e3d0e563f6bcca1bc14158d15e4d1d6b936b5bd06"
+      }
+    },
+    "prediction_freeze": {
+      "name": "prediction-freeze.json",
+      "original_reference": {
+        "bytes": 1625224,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/native/products/prediction-freeze.json",
+        "sha256": "1459879a51fe6263e587316a7eeaf80baffbe74b717618024618b7d5f944d81b"
+      }
+    },
+    "report": {
+      "name": "report.json",
+      "original_reference": {
+        "bytes": 138328,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/native/products/report.json",
+        "sha256": "e9b96bd8f2d8bb3c625d6e9fd847d3db27a16f0cc42f0623d40ccb0db94a0d9b"
+      }
+    },
+    "training": {
+      "name": "training.json",
+      "original_reference": {
+        "bytes": 2625790,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/native/products/training.json",
+        "sha256": "ba24a3d9d7a41b8be459c61078ff975422483ce9b8c26eac8155ea02f4938e2f"
+      }
+    },
+    "trials": {
+      "name": "trials.jsonl",
+      "original_reference": {
+        "bytes": 2514896,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/native/products/trials.jsonl",
+        "sha256": "3db9d3c352e869ea09d44d0577c32d3ebe16f7944001bedd5e2ae6e81386fad9"
+      }
+    }
+  },
+  "protocol": {
+    "bytes": 110402,
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/protocol.json",
+    "sha256": "6a87258f9495c417efb45e5a973a566134c7f7f28cecbe741777577ed0066585"
+  },
+  "resources": {
+    "actual_completed_child_peak_rss_bytes": 396263424,
+    "actual_output_logical_bytes_before_receipt": 30015992,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 67108864,
+    "native_wall_seconds": 600,
+    "resource_bounds_met": true,
+    "scope": "Wall limits enforced; completed-child peak RSS and job-root logical storage are postchecks, not OS quotas or aggregate descendant bounds. No network sandbox claim.",
+    "whole_wall_seconds": 1220
+  },
+  "runtime": {
+    "common": {
+      "bytes": 5814,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/terminal.json",
+      "sha256": "300f9518c2b20ce3d79b39e8879f111d6febfb6dd48890f5e9cd02a8d71a431c"
+    },
+    "current_source_candidate_is_separate": true,
+    "independent_review": {
+      "bytes": 117592,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-runtime-review.json",
+      "sha256": "9d71bfabd836242b5ec9dcf96e5d2a124200a77dea4975bdf8b19529d04ba059"
+    },
+    "lexical_python": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "new_observer_actual_exit": 0,
+    "observed_runtime_candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+    "original_bootstrap_whole_actual_exit": 1,
+    "outer": {
+      "bytes": 2885,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/runtime-observation-terminal.json",
+      "sha256": "1fcb3926925c5e186b3885e19f0325890f9bd8a536a243793e12e2ee178a7fec"
+    },
+    "plan": {
+      "bytes": 32228643,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json",
+      "sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4"
+    },
+    "production_stage_actual_exits": [
+      0,
+      0,
+      0
+    ],
+    "selected_distributions": 147
+  },
+  "schema_version": "author-love-cohort-execution-authority.v1",
+  "scope": "Homogeneous retrospective prior-exposed fixed-start pollen development diagnostic. Every fold excludes its own target from training; source pollen is legitimately training in other folds. Original uniform scores remain separate; no global-unread, independent vegetation, uncertainty, global-optimum, R-parity or release admission.",
+  "source_candidate": "5998a3c616e02c9e702fae8048ffbff6f40435d2",
+  "source_overlay": {
+    "files": [
+      {
+        "bytes": 18124,
+        "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py",
+        "sha256": "2b3f23c22974b07177feb9b7c9b7e3d078cb8ec3f94b3d0e350a5b4cb472c907"
+      },
+      {
+        "bytes": 8552,
+        "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py",
+        "sha256": "6777f80668d1040d511523b484d5efc325105dfe79cccf7008463631ed409275"
+      },
+      {
+        "bytes": 110402,
+        "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/protocol.json",
+        "sha256": "6a87258f9495c417efb45e5a973a566134c7f7f28cecbe741777577ed0066585"
+      }
+    ],
+    "present_in_base_git_tree": false,
+    "scope": "The three scientific cohort files were independently authenticated and executed from an artifact proposal, absent from clean5998baseGit. Publication retains exact executed bytes; maintained numerical engine and prior witnesses were consumed from pinned base."
+  },
+  "source_proposal_sha256": "550de539c811b82bcee8b13737c08db7841fddff9f9a563ca2a97ffb334a03ef"
+}

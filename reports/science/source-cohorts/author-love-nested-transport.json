@@ -1,0 +1,303 @@
+{
+  "execution": {
+    "candidate": "70dd58ce28071d3b4ef34af2c800370a52d42bf9",
+    "inputs_before_after_equal": true,
+    "native_exit": 0,
+    "native_terminal": {
+      "bytes": 2572,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-canonical-ancestry-execution/native/terminal.json",
+      "sha256": "a64da9536efd256b26833cb551b3501100c32fe56aae6f8822276999263bfdc9"
+    },
+    "plan": {
+      "bytes": 921035,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-canonical-ancestry-execution/plan.json",
+      "sha256": "bd31fa5e953bbe777ef28bcd6fcba26e8344334b8ae1aebc33bdfef9bd809c9f"
+    },
+    "runtime_before_after_equal": true,
+    "scientific_source_manifest": {
+      "bytes": 4025,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-ancestry-serialization-proposal/source-proposal.json",
+      "sha256": "51039b4e0fcad6575e4815fd363ecbe66c3ea9b23c220484c90307b7eb7b69d5"
+    },
+    "scope": "Retrospective nested transport development only. Native stage process-group deadline600s; completed-child macOS RSS and logical native output bytes are postchecks, not OS or aggregate descendant quotas or independent whole-wall/network sandbox. SOURCE3331 authenticates existing cached147 before/after; same canonical four complete semantic source/resource trees and reused bounded metadata3files are pinned, not copied or installed. Original193 snapshot metadata only; no private source body loop. All accepted/refused results remain separate from scientific/rights/untouched/release acceptance.",
+    "source_before_after_equal": true,
+    "source_runtime_executor": {
+      "bytes": 3710,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "sha256": "491c5379cbb1a004a5cc3084a2d45846d7c74843beed5dce34b89ddbaabefb38"
+    },
+    "source_runtime_profile": {
+      "bytes": 8826542,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b"
+    }
+  },
+  "independent_semantics": {
+    "actual_new_attempts": 10752,
+    "approved": true,
+    "inner_prediction_dispositions": {
+      "1overd": {
+        "expected": 630,
+        "predicted": 630,
+        "refused": 0
+      },
+      "gpm neutral": {
+        "expected": 630,
+        "predicted": 630,
+        "refused": 0
+      },
+      "gpm unstable": {
+        "expected": 630,
+        "predicted": 630,
+        "refused": 0
+      },
+      "lsm unstable": {
+        "expected": 630,
+        "predicted": 630,
+        "refused": 0
+      },
+      "lsm unstable low": {
+        "expected": 630,
+        "predicted": 630,
+        "refused": 0
+      }
+    },
+    "new_attempts_accepted": 10209,
+    "new_attempts_refused": 543,
+    "observation": {
+      "bytes": 3402,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-evaluation-output-observation/native/observation.json",
+      "sha256": "14a14d155ac358c0307349d31791d1980dc8357931cb6eda0a8a88dd525ba697"
+    },
+    "observer_native_terminal": {
+      "bytes": 2357,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-evaluation-output-observation/native/terminal.json",
+      "sha256": "9e67529a026b831f1dc0d9bcc0c1b274a170751929077f2c9e9c133ea854fe37"
+    },
+    "observer_plan": {
+      "bytes": 926757,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-evaluation-output-observation/plan.json",
+      "sha256": "d1930ed5572cf91361028f43beb2e637b1da89f5816582f1281b9fa706ffd8d3"
+    },
+    "review": {
+      "bytes": 8679,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-evaluation-plan-independent-review/independent-output-review.json",
+      "sha256": "83e7fb35927e731c25065abac6771d108044e9d26cf031f314d13d923e3b8113"
+    },
+    "scientific_saved_products_admitted": true,
+    "source_candidate": "70dd58ce28071d3b4ef34af2c800370a52d42bf9",
+    "summary": {
+      "accepted_new": 10209,
+      "candidate_dispositions": 3375,
+      "chosen_methods": {
+        "1overd": 16,
+        "gpm neutral": 0,
+        "gpm unstable": 0,
+        "lsm unstable": 1,
+        "lsm unstable low": 28
+      },
+      "independent_numeric_cells": 118125,
+      "inner_scores": 3150,
+      "model_or_objective_calls": 0,
+      "new_attempts": 10752,
+      "observed_total_count": 20573,
+      "outer_candidate_dispositions": 225,
+      "outer_scored": 225,
+      "refused_new": 543,
+      "reused_attempts": 1728,
+      "selected_dispositions": 45,
+      "selected_refused": 0,
+      "selected_scored": 45
+    },
+    "total_unique_attempts": 12480
+  },
+  "producer_sources": [
+    {
+      "bytes": 5643,
+      "name": "common.py",
+      "sha256": "f6938a40eb4e99b4cfdbcdcfc53f95f93857f3a694238a632a3be55ed5f44673"
+    },
+    {
+      "bytes": 20225,
+      "name": "replay.py",
+      "sha256": "e60bc275372655b400e1ae0a92e97abb05cb36824ff64c935493a72f1b4f862a"
+    },
+    {
+      "bytes": 4725,
+      "name": "requests.py",
+      "sha256": "7c800249f454c8a0e93266f87605c65d9d4d926ab7d2149d53d4393466d0dbd6"
+    },
+    {
+      "bytes": 17993,
+      "name": "selection.py",
+      "sha256": "d7a64e566a61d8cc95cb89809b7e12bc6446d38cdcb5f4e079d79d053c1a9e78"
+    },
+    {
+      "bytes": 4432,
+      "name": "training.py",
+      "sha256": "9b7d3712e6e2b29ff8a015f9ce5810a0fe53da25c0a80c3d69d1f22489a179aa"
+    }
+  ],
+  "products": {
+    "report": {
+      "name": "report.json",
+      "original_reference": {
+        "bytes": 843443,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-canonical-ancestry-execution/native/products/report.json",
+        "sha256": "7416e0a72b901ce3f4344c24ca44c76fb13da5abd734eb9d8fc9068461c6e5ab"
+      }
+    },
+    "trace_index": {
+      "name": "trace-index.json",
+      "original_reference": {
+        "bytes": 4894,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-transport-publication/trace-index.json",
+        "sha256": "e40e80ae32d7354d5735c3847e75ee21b519dca397d9e9fb5d8022b8a1f7e3c2"
+      }
+    }
+  },
+  "protocol": {
+    "bytes": 50782,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-ancestry-serialization-proposal/protocol.json",
+    "sha256": "97a38c0e30edcdc8667aa85db61c1b8dc2b02ebec0fbd7d6b609267117f8e047"
+  },
+  "raw_trace_products": {
+    "evaluation:candidate-prediction-freeze.json": {
+      "bytes": 127260565,
+      "sha256": "675ae5d4721f0c68cc7aa3c231d0b71ed1cb97f2d753ba825c08d4c5485948fb"
+    },
+    "evaluation:inner-label-access.jsonl": {
+      "bytes": 1241940,
+      "sha256": "0c2d20aff230455c360cb191f47cb6d3a5fdadb5598dd150c00ab81f95e12823"
+    },
+    "evaluation:inner-scores.json": {
+      "bytes": 14781498,
+      "sha256": "bf706890860b5a4e890fd26f352ee7afda7e5293175055880ff32fb972b8ff6e"
+    },
+    "evaluation:outer-label-access.jsonl": {
+      "bytes": 147570,
+      "sha256": "0da25c98e050946b1a8f6499199ad0147e94d909281499237cde057d8e8dbf4f"
+    },
+    "evaluation:report.json": {
+      "bytes": 843443,
+      "sha256": "7416e0a72b901ce3f4344c24ca44c76fb13da5abd734eb9d8fc9068461c6e5ab"
+    },
+    "evaluation:selected-prediction-freeze.json": {
+      "bytes": 1759866,
+      "sha256": "981173937e5c0346fffc1a10902ca2f05d1236aecb0e4a184d0a54811ab3be95"
+    },
+    "evaluation:transport-selection.json": {
+      "bytes": 51461,
+      "sha256": "20961e961d12e278ed58af3fa8f6ed81e9ccb184d9844de75a1ea1618ce56180"
+    },
+    "fit:1overd:training": {
+      "bytes": 12964857,
+      "sha256": "79290f1658ee069d7a52fbdf8720e4eb4c680d94d982a9ddab6b86e6a72b8417"
+    },
+    "fit:1overd:trials": {
+      "bytes": 7059579,
+      "sha256": "dbdc65b7f2dfb8c6f581d788819529dad2f81ea59869672b121046928a93a743"
+    },
+    "fit:gpm neutral:training": {
+      "bytes": 8414108,
+      "sha256": "b2ca549a4ab331e712030167f82bc4a17006b4c7bdefc45c6be3752acc1fb99a"
+    },
+    "fit:gpm neutral:trials": {
+      "bytes": 2162037,
+      "sha256": "8de7b143baa059496508040a9402563ea3eca87c3fc0313fb8a426dc81af76e1"
+    },
+    "fit:gpm unstable:training": {
+      "bytes": 12896089,
+      "sha256": "4ddd5ab69855b6b2073471666700cb54628c3884a1fd58197d284f30a3014246"
+    },
+    "fit:gpm unstable:trials": {
+      "bytes": 6995580,
+      "sha256": "304238b7a50f241e40d80b3bc24547a3b751b45df6eadd8bd646742dbcc11c45"
+    },
+    "fit:lsm unstable low:training": {
+      "bytes": 12938565,
+      "sha256": "0bb64d1f64f63f33b3ad105fef3f339c8d14340e10439ad2678f01d8d1eb3f68"
+    },
+    "fit:lsm unstable low:trials": {
+      "bytes": 7035553,
+      "sha256": "23da0ddce33e70b31dc9e1a7081890927bbdfc9ee9d822c8a679662e2f4735a5"
+    },
+    "fit:lsm unstable:training": {
+      "bytes": 12922472,
+      "sha256": "4a1e74a12012a9d8877b2eed64365262ce4ff088f150151150d223f2004745e7"
+    },
+    "fit:lsm unstable:trials": {
+      "bytes": 7020453,
+      "sha256": "b1a01eb5424d6607d730110d426c7d52ebc6b4b5aed59ef469ab7ba688fb25fe"
+    }
+  },
+  "record_ids": [
+    "author:BECKHAM",
+    "author:BROADOWN",
+    "author:COMERSLA",
+    "author:CUTHILL2",
+    "author:GOURTEMIRES",
+    "author:HANGINGS",
+    "author:HARESDOWN",
+    "author:LARKBARR",
+    "author:LOBBSBOG",
+    "author:LONGBREACH",
+    "author:MOLECHAM",
+    "author:NTWITCHEN",
+    "author:WHH05",
+    "author:WINDMILL",
+    "author:WINNEYS"
+  ],
+  "replay_scope": "Seventeen scientific objects alone do not supply complete replay. Preserve exact original37input identities, canonical70dd source and resources, original7953 and current97a protocols, source manifests/projections, source-location mapping, five explicit saved-product certificates and independent reviews, original native1 terminals, successful no-fit recovery and evaluation plans/terminals, cached runtime/controller metadata and qualified source namespace. Public training-source is provenance-only until its four shared modules are staged into the declared original namespace.",
+  "schema_version": "author-love-nested-transport-publication-authority.v1",
+  "scientific_scope": "Prior-exposed retrospective development only. No untouched or unbiased accuracy, independent vegetation truth, other setting axes, qualified human review, rights or release acceptance.",
+  "source_candidate": "70dd58ce28071d3b4ef34af2c800370a52d42bf9",
+  "training_recovery": {
+    "observer_native_exit": 0,
+    "observer_native_terminal": {
+      "bytes": 4044,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-transport-registered-plan-recovery-execution/native/terminal.json",
+      "sha256": "3d793e6d458846800ef21927e7b040208cd93c7067a11fc7a463ee0b2bed303e"
+    },
+    "observer_plan": {
+      "bytes": 919652,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-transport-registered-plan-recovery-execution/plan.json",
+      "sha256": "d9be602e42eb01ea58d96afb603c69f6a27f51ad8c3ced3ee40995fc9e05304a"
+    },
+    "original_full_import_origin_admission": "not established",
+    "original_native_exits": {
+      "1overd": 1,
+      "gpm neutral": 1,
+      "gpm unstable": 1,
+      "lsm unstable": 1,
+      "lsm unstable low": 1
+    },
+    "original_native_qualification": "refused_post_scientific_body_origin",
+    "original_post_report_final_return": "not established",
+    "original_scientific_manifest": {
+      "bytes": 5700,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-baseline-applicability-proposal/source-proposal.json",
+      "sha256": "32330c14ee199401c96e2a9aa25269e8d13b1f17e63b7144abab65c357760930"
+    },
+    "original_training_protocol_sha256": "7953aec717a0bf440eca6d26e5c4d9bca03e3d783a005ab311f09d3d9b4db4dd",
+    "review_index": {
+      "bytes": 5207,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-transport-saved-recovery-independent-review/output-review-index.json",
+      "sha256": "ef193795f24f3fbd12136db45689aff9426c7a9237cb27a6158a86c2ac07baef"
+    }
+  },
+  "training_source": {
+    "entry": {
+      "bytes": 11244,
+      "sha256": "c84ec49c97fc4e66495f9dab0b83cc8bc93f4645a788bfd838a06f0c64618f05"
+    },
+    "location": {
+      "bytes": 2428,
+      "sha256": "967905c94613ce41a34c726ea1ffacca72d46b3bc5a765fa0845dffdb3dc712f"
+    },
+    "protocol": {
+      "bytes": 49209,
+      "sha256": "7953aec717a0bf440eca6d26e5c4d9bca03e3d783a005ab311f09d3d9b4db4dd"
+    }
+  }
+}

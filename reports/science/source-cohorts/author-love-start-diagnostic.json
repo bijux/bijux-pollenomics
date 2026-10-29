@@ -1,0 +1,222 @@
+{
+  "schema_version": "author-love-fixed-start-execution-authority.v1",
+  "source_candidate": "64685821de6216983c629df167abe0c16caa57ec",
+  "selection_sha256": "efa17dad2becc4bd1737b8a771fff42764bdf246e83d8db1c6e39eba8fbffe7b",
+  "producer_sha256": "b499c48f0a5051e31d0f918f01d4ffc2d9a79966ee1c34fada5cdc2085209351",
+  "plan": {
+    "sha256": "ec6169872d1bfc30f54d183b9ab70006451576e2e6943e59622e5a59a15eb508",
+    "bytes": 23173346
+  },
+  "original_receipts": {
+    "common": {
+      "sha256": "f3ea01838a852e3d2d7bdfe4935664200c1f455c3db00fe52d7ed4de1dcbedd6",
+      "bytes": 2204
+    },
+    "outer": {
+      "sha256": "0cd8a65a475c786f87ed9d1697110c6c0add552d955fc50157b6e8669ad8896b",
+      "bytes": 2603
+    },
+    "independent_review": {
+      "sha256": "2005c5fe4253000daa9c15ebdb3c05c9b1aaad22121fc08a487b3c3763d9fffb",
+      "bytes": 5280
+    }
+  },
+  "execution": {
+    "candidate": "64685821de6216983c629df167abe0c16caa57ec",
+    "plan_sha256": "ec6169872d1bfc30f54d183b9ab70006451576e2e6943e59622e5a59a15eb508",
+    "stage_id": "fixed-positive-start-love-training-comparison",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/lra-scientific-acceptance-selection/execution-regional-start-source/consume.py"
+    ],
+    "producer_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/lra-scientific-acceptance-selection/regional-start-proposal/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py",
+      "--repository",
+      "/Users/bijan/bijux/bijux-pollenomics",
+      "--prepared",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/constrained-inputs",
+      "--selection",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/lra-scientific-acceptance-selection/selected-regional-start-intent.json",
+      "--selection-sha256",
+      "efa17dad2becc4bd1737b8a771fff42764bdf246e83d8db1c6e39eba8fbffe7b",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-regional-start-execution/native/report.json",
+      "--trials",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-regional-start-execution/native/trials.jsonl"
+    ],
+    "native_exit": 0,
+    "common_exit": 0,
+    "outer_exit": 0,
+    "timed_out": false,
+    "source_before_after_equal": true,
+    "inputs_before_after_equal": true,
+    "runtime_before_after_equal": true,
+    "native_stage_seconds": 10.868443207989912,
+    "common_seconds": 19.429159375024028,
+    "runtime_wrapper_seconds": 35.41880254202988
+  },
+  "runtime": {
+    "reference_sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4",
+    "source_input_pins_sha256": "dbd748ef062ab9807e631ce878dfea25806272fa3ae76695d77d1fec7bbfa7f1",
+    "source_input_pins_serialization": "Original registered love_source_input_pins encoded as UTF-8 JSON with sorted keys and compact comma/colon separators; no trailing newline.",
+    "lexical_python": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "distribution_count": 147,
+    "source_metadata_projection": {
+      "version": "0.1.9.dev1462",
+      "derivation": {
+        "sha256": "101d441198464987ad7081a0103f08f6a91f977922ef248b5fd13eaef56e9449",
+        "bytes": 1964
+      },
+      "engine_discovery": {
+        "sha256": "2bd7d1bea99383d28f465434367f41d473cf9cc2ba7e1dee64815aeb44c2cbfb",
+        "bytes": 1717
+      },
+      "installed_distribution_qualification_claimed": false
+    }
+  },
+  "resources": {
+    "wall_limit_seconds": 600,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 67108864,
+    "memory_bound_pass": true,
+    "storage_bound_pass": true,
+    "memory_measurement_scope": "Completed-child peak RSS reported by the native/runtime wrappers on macOS; not aggregate live descendants or an enforced OS memory quota.",
+    "storage_measurement_scope": "Logical bytes of all owned output roots, including registered plan and isolated metadata, measured afterward with receipt reserve; not an enforced filesystem quota.",
+    "completed_child_peak_rss_bytes": 385318912,
+    "logical_output_bytes_before_runtime_receipt": 23879618,
+    "runtime_receipt_reserve_bytes": 16384,
+    "wrapper_overall_limit_seconds": 1220
+  },
+  "independent_semantics": {
+    "attempts": 128,
+    "ledger_rows": 256,
+    "held_out_prediction_count": 0,
+    "all_source_baselines_and_refusals_preserved": true
+  },
+  "acceptance": {
+    "untouched_confirmation": false,
+    "vegetation_accuracy": false,
+    "global_optimum": false,
+    "R_optimizer_parity": false,
+    "source_rights": false,
+    "release_acceptance": false
+  },
+  "inputs": [
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/experiment.json",
+      "sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+      "bytes": 10913
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/source-report.json",
+      "sha256": "e89867dd2baebe347c18256c094281162ac9107f5d5a862fe090d0b28f86b7dc",
+      "bytes": 888
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506",
+      "bytes": 107
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/taxa.json",
+      "sha256": "23ea956d3a64f6111c337e9e322cae32855e8604881483e9b12a2b27916c75e0",
+      "bytes": 655
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/parameters.json",
+      "sha256": "33ab18119b606287f46989e92fe4c88c47560dd4964132f90591230894a373c6",
+      "bytes": 174
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb",
+      "bytes": 95
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/decision.json",
+      "sha256": "774b314f43f07138ae5ec99cf7b4e12e5314b133f4046bf47ecb9e66eda2bdd8",
+      "bytes": 496
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/BROADOWN-raw.json",
+      "sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+      "bytes": 846
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/BROADOWN-geometry.json",
+      "sha256": "3945348d26462772b3d223c896b76aa5c8371b2580c0b0c9ab6a294fffd9af24",
+      "bytes": 1274
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/CUTHILL2-raw.json",
+      "sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+      "bytes": 841
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/CUTHILL2-geometry.json",
+      "sha256": "afc2d3c3a803add89446edfaed388d822ce448f55fe428118349fec05df8e7b9",
+      "bytes": 1274
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/LONGBREACH-raw.json",
+      "sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+      "bytes": 843
+    },
+    {
+      "path": "data/method-certification/author-optimizer-diagnostic-source-capture/executions/optimizer-diagnostics/controlled-inputs/artifacts/science/current-author-development-inputs/constrained-inputs/LONGBREACH-geometry.json",
+      "sha256": "2af6d37741816cc0d2a13618e8cfb4865e1af3e5dec3b039ddfdd3e99b576d0e",
+      "bytes": 1271
+    }
+  ],
+  "products": {
+    "report": {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/report.json",
+      "sha256": "29386982ad042292b918d25ac5891760c045b83a7edeebaf08b256e571719ddd",
+      "bytes": 343461
+    },
+    "trials": {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/trials.jsonl",
+      "sha256": "fe7b2734419a7c98cbfc6215ac83950887111acda629ef75586ae294c8050f75",
+      "bytes": 355657
+    }
+  },
+  "public_protocol": {
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/protocol.json",
+    "sha256": "d257517c80ea407de3c186a8fa611d3a68ef95aae2ee706173849148fe6a37d8",
+    "bytes": 6178
+  },
+  "observations": {
+    "accepted": 84,
+    "refused": 44,
+    "objective_calls": 54038,
+    "jacobian_calls": 16390,
+    "regional_handoffs": [
+      {
+        "item_id": "author:CUTHILL2",
+        "native_percent_sum": 99.99899999999998,
+        "raw_fraction_sum": 0.99999,
+        "normalized_direction_sum": 0.9999999999999999,
+        "precision_decimal_places": 3,
+        "normalized_direction_used_only_for_start": true
+      },
+      {
+        "item_id": "author:LONGBREACH",
+        "native_percent_sum": 99.99899999999998,
+        "raw_fraction_sum": 0.99999,
+        "normalized_direction_sum": 0.9999999999999999,
+        "precision_decimal_places": 3,
+        "normalized_direction_used_only_for_start": true
+      }
+    ]
+  },
+  "source_overlay": {
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py",
+    "present_in_base_git_tree": false,
+    "scope": "New diagnostic source ran as a separately authenticated physical overlay on the recorded clean base candidate; publication preserves its exact source bytes."
+  },
+  "attestation": "Compact repository-specific account derived from actual native/common/runtime terminals and independent saved-output review. Receipt hashes identify original immutable metadata; this document is not their original serialization and portable readers do not dereference historical artifact paths.",
+  "scientific_scope": "Previously exposed English training-only optimizer convergence diagnostic; 32 starting points per objective are neither independent samples nor uncertainty draws. The original rounded regional values remain in the objective; only the regional starting direction is normalized. No held-out score or complete outer-fold reconstruction was produced."
+}

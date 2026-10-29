@@ -1,0 +1,25 @@
+{
+  "declared_source_design_epoch": "cc4ad45cba2e3a52c04843ca675e1f439343e553",
+  "executed_protocol": {
+    "bytes": 12716,
+    "path": "artifacts/science/author-love-clr-spatial-scale-proposal/protocol.json",
+    "sha256": "5ff3a6cb2b49f0e506a2eb694b8104f46ed6159484474e5d3b7a7a13ea8e41c4"
+  },
+  "executed_source_epoch": "23ea4670d12ee6f61e0fb086c20f6dfe455eb0e4",
+  "reproduction_scope": "Exact scientific source and protocol bytes; original CLI requires the declared retained37 inputs and admitted nominal training/certificate. Private artifact paths in the original protocol are historical input locations, not portable public download promises.",
+  "schema_version": "author-love-clr-source-locations.v1",
+  "source_members": [
+    {
+      "bytes": 13877,
+      "original_path": "artifacts/science/author-love-clr-spatial-scale-proposal/source/inputs.py",
+      "public_path": "reports/science/author-love-clr-spatial-domain/source/inputs.py",
+      "sha256": "1cbe89824d6430cd5efa623522e4fd8427c6828a723be3b87d9a903d03642e2e"
+    },
+    {
+      "bytes": 14922,
+      "original_path": "artifacts/science/author-love-clr-spatial-scale-proposal/source/replay.py",
+      "public_path": "reports/science/author-love-clr-spatial-domain/source/replay.py",
+      "sha256": "f026e243274744df04e4ee4ed9eb7434166732fcdaf124793e3a8a9c21e2664c"
+    }
+  ]
+}

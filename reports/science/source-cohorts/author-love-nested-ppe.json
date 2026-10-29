@@ -1,0 +1,312 @@
+{
+  "execution": {
+    "candidate": "992257309805272a22e53c7ebb2cf5004117185e",
+    "inputs_before_after_equal": true,
+    "native_exit": 0,
+    "native_terminal": {
+      "bytes": 2535,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-evaluation-execution/native/terminal.json",
+      "sha256": "062c10cc16d5c431bf4adfd7ee595de9da0cb1ac1e14ed1488d21a99c754e6c3"
+    },
+    "plan": {
+      "bytes": 916302,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-evaluation-execution/plan.json",
+      "sha256": "540cef82c27f0a6ccb9dc457d6f26babebaad4e9c5a42673f2ba6f0a4a3de997"
+    },
+    "runtime_before_after_equal": true,
+    "scientific_source_manifest": {
+      "bytes": 3938,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-sensitivity-proposal/source-proposal.json",
+      "sha256": "c4da59ac28c9ef5a9c91f4f3537eaf7a6cba0b4d649aeeb0a5ca9e61f668e219"
+    },
+    "scope": "Retrospective nested PPE development only. Native stage process-group deadline600s; completed-child macOS RSS and logical native output bytes are postchecks, not OS or aggregate descendant quotas or independent whole-wall/network sandbox. SOURCE3331 authenticates existing cached147 before/after; same canonical four complete semantic source/resource trees and reused bounded metadata3files are pinned, not copied or installed. Original193 snapshot metadata only; no private source body loop. All accepted/refused results remain separate from scientific/rights/untouched/release acceptance.",
+    "source_before_after_equal": true,
+    "source_runtime_executor": {
+      "bytes": 3710,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "sha256": "491c5379cbb1a004a5cc3084a2d45846d7c74843beed5dce34b89ddbaabefb38"
+    },
+    "source_runtime_profile": {
+      "bytes": 8826542,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b"
+    }
+  },
+  "fitting_execution": {
+    "ppe-minus-source-sd": {
+      "independent_training_review": {
+        "bytes": 6200,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-support-independent-review/independent-ppe-training-output-review.json",
+        "sha256": "b1759548cfefdd2ee1f6fd9f974135910d9f8abb643578d83e5a09f4a8631320"
+      },
+      "inputs_before_after_equal": true,
+      "native_exit": 0,
+      "native_terminal": {
+        "bytes": 2526,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-minus-source-sd-execution/native/terminal.json",
+        "sha256": "3a54fe439bb3624808392c303280e3628034010bc272fc1e15a8d9602534f2a7"
+      },
+      "plan": {
+        "bytes": 909057,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-minus-source-sd-execution/plan.json",
+        "sha256": "e69387edcd39fc34167f2df58268c7b5862a09524b8b42c47baf3678732cdedc"
+      },
+      "runtime_before_after_equal": true,
+      "source_before_after_equal": true,
+      "summary": {
+        "accepted_new": 2338,
+        "accepted_unique": 2338,
+        "logical_requests": 2715,
+        "method": "ppe-minus-source-sd",
+        "model_or_objective_calls": 0,
+        "new_attempts": 2496,
+        "new_events": 4992,
+        "numerical_requests": 39,
+        "refused_new": 158,
+        "refused_rings": [],
+        "refused_unique": 158,
+        "reused_attempts": 0,
+        "unique_attempts": 2496
+      }
+    },
+    "ppe-plus-source-sd": {
+      "independent_training_review": {
+        "bytes": 6200,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-support-independent-review/independent-ppe-training-output-review.json",
+        "sha256": "b1759548cfefdd2ee1f6fd9f974135910d9f8abb643578d83e5a09f4a8631320"
+      },
+      "inputs_before_after_equal": true,
+      "native_exit": 0,
+      "native_terminal": {
+        "bytes": 2524,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-plus-source-sd-execution/native/terminal.json",
+        "sha256": "39d6c67327889caf889a47db607d89dc3610d91193927f585a4d9773b6780ee2"
+      },
+      "plan": {
+        "bytes": 909049,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-plus-source-sd-execution/plan.json",
+        "sha256": "3db6f92c0649e3e9d454c7f7b9c9d7139d9d88db73d56d884a80176533212a83"
+      },
+      "runtime_before_after_equal": true,
+      "source_before_after_equal": true,
+      "summary": {
+        "accepted_new": 2334,
+        "accepted_unique": 2334,
+        "logical_requests": 2715,
+        "method": "ppe-plus-source-sd",
+        "model_or_objective_calls": 0,
+        "new_attempts": 2496,
+        "new_events": 4992,
+        "numerical_requests": 39,
+        "refused_new": 162,
+        "refused_rings": [],
+        "refused_unique": 162,
+        "reused_attempts": 0,
+        "unique_attempts": 2496
+      }
+    }
+  },
+  "independent_semantics": {
+    "actual_new_attempts": 4992,
+    "approved": true,
+    "inner_prediction_dispositions": {
+      "gpm neutral": {
+        "expected": 630,
+        "predicted": 630,
+        "refused": 0
+      },
+      "ppe-minus-source-sd": {
+        "expected": 630,
+        "predicted": 630,
+        "refused": 0
+      },
+      "ppe-plus-source-sd": {
+        "expected": 630,
+        "predicted": 630,
+        "refused": 0
+      }
+    },
+    "new_attempts_accepted": 4672,
+    "new_attempts_refused": 320,
+    "observation": {
+      "bytes": 3379,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-evaluation-output-observation/native/observation.json",
+      "sha256": "7338b1e0ed67ca1f9d49af0c4220aeaf6775f1a5edf949081d10411e29282fa4"
+    },
+    "observer_native_terminal": {
+      "bytes": 2344,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-evaluation-output-observation/native/terminal.json",
+      "sha256": "513331a9547ef6ccb2fbca513ad950993b0cb59b8ddf79677a92420f53b600bb"
+    },
+    "observer_plan": {
+      "bytes": 921442,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-evaluation-output-observation/plan.json",
+      "sha256": "16c43a96808991891451980268275d7a0612881a3a1528ce103d1a97c251f402"
+    },
+    "review": {
+      "bytes": 7894,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-support-independent-review/independent-ppe-evaluation-output-review.json",
+      "sha256": "02744e210d74581e34bb46cc04e0dc0cc0be756581c7a7fd4d51e6c3d42e1750"
+    },
+    "scientific_saved_products_admitted": true,
+    "source_candidate": "992257309805272a22e53c7ebb2cf5004117185e",
+    "summary": {
+      "accepted_new": 4672,
+      "candidate_dispositions": 2025,
+      "chosen_methods": {
+        "gpm neutral": 1,
+        "ppe-minus-source-sd": 28,
+        "ppe-plus-source-sd": 16
+      },
+      "independent_numeric_cells": 70875,
+      "inner_scores": 1890,
+      "model_or_objective_calls": 0,
+      "new_attempts": 4992,
+      "nominal_saved_prediction_slots_reused": 675,
+      "observed_total_count": 20573,
+      "outer_candidate_dispositions": 135,
+      "outer_scored": 135,
+      "refused_new": 320,
+      "reused_attempts": 2496,
+      "selected_dispositions": 45,
+      "selected_refused": 0,
+      "selected_scored": 45
+    },
+    "total_unique_attempts": 7488
+  },
+  "nominal_reuse": {
+    "attempts": 2496,
+    "combined_new_freeze_embeds_nominal_slot_values": true,
+    "original_full_import_origin_admission": "not established",
+    "original_native_exit": 1,
+    "original_native_qualification": "refused_post_scientific_body_origin",
+    "original_post_report_final_return": "not established",
+    "prediction_slots": 675,
+    "publication_authority": {
+      "bytes": 12604,
+      "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+      "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+    },
+    "saved_product_observer_native_exit": 0,
+    "separate_nominal_source_fit_or_ledger_copies": false,
+    "source_candidate": "70dd58ce28071d3b4ef34af2c800370a52d42bf9",
+    "training_protocol_sha256": "7953aec717a0bf440eca6d26e5c4d9bca03e3d783a005ab311f09d3d9b4db4dd"
+  },
+  "producer_sources": [
+    {
+      "bytes": 13687,
+      "name": "common.py",
+      "sha256": "20b8852245d01ab0fc2c1b75dbbee228a2a873be58aa9563985890a0d46f38f1"
+    },
+    {
+      "bytes": 16790,
+      "name": "replay.py",
+      "sha256": "5e2a1b32bf679ec19a9fd3f775a5401a376fec8d01b4871281e11554d10cc6a3"
+    },
+    {
+      "bytes": 6261,
+      "name": "requests.py",
+      "sha256": "6e2ba5052715531f8731a23d16a6a807ce383e9f57f432b63953beafce33b3e8"
+    },
+    {
+      "bytes": 18028,
+      "name": "selection.py",
+      "sha256": "59c4ca43d4bff01a3d3b5e22a0c4dc461eee49d2341ebb4e836d21feacf188e0"
+    },
+    {
+      "bytes": 2136,
+      "name": "training.py",
+      "sha256": "4c7a698035174c459e01d6c2a59284f7747683d5cab36a7a3b1cb43217349503"
+    }
+  ],
+  "products": {
+    "report": {
+      "name": "report.json",
+      "original_reference": {
+        "bytes": 562465,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-evaluation-execution/native/products/report.json",
+        "sha256": "514c58e7a0f1f7666b356636b395624c35f43948ba99971521cf3780e75d2fef"
+      }
+    },
+    "trace_index": {
+      "name": "trace-index.json",
+      "original_reference": {
+        "bytes": 3240,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-publication/trace-index.json",
+        "sha256": "d90d0b1552c20ba63674fe5d06a60017f6f9ac79d1ad626f7c1dd53d06eb0a5b"
+      }
+    }
+  },
+  "protocol": {
+    "bytes": 59560,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-nested-sensitivity-proposal/protocol.json",
+    "sha256": "d9f4fbae4c8aa373158abfba5a7062dc01a39ebd584cde7e5938f5c6141718b4"
+  },
+  "raw_trace_products": {
+    "evaluation:candidate-prediction-freeze.json": {
+      "bytes": 75177728,
+      "sha256": "f60f2ca322316b5ee823ad5ac96302e960d921e920c0444f6e6a4bfd71845fb5"
+    },
+    "evaluation:inner-label-access.jsonl": {
+      "bytes": 735714,
+      "sha256": "3d12a2ea764b50ca1e8a0343e5c577b2cc861c686959cd56e013f741acb37c08"
+    },
+    "evaluation:inner-scores.json": {
+      "bytes": 8874791,
+      "sha256": "655c46ba5307e439fb2dbab23af8ae5db93e86145fb3be469444447e20a84199"
+    },
+    "evaluation:outer-label-access.jsonl": {
+      "bytes": 87948,
+      "sha256": "9e7693f6a51a4ab7deb6a214890b7935cb69b79e23b6a7c490afa9270068f039"
+    },
+    "evaluation:report.json": {
+      "bytes": 562465,
+      "sha256": "514c58e7a0f1f7666b356636b395624c35f43948ba99971521cf3780e75d2fef"
+    },
+    "evaluation:selected-prediction-freeze.json": {
+      "bytes": 1710885,
+      "sha256": "d3a0c4f96a5fb6460f67f39c1d8a63fdeea3f107035a099463b650545a69ab70"
+    },
+    "evaluation:transport-selection.json": {
+      "bytes": 37960,
+      "sha256": "1e6cf6857d21fd0439b33f46b59df598f5228a32ebf33262a379011ecb913e6a"
+    },
+    "fit:ppe-minus-source-sd:training": {
+      "bytes": 12908274,
+      "sha256": "5c218b79ce81cb667a8c3a5c51fe9b969f6ad11ddf3a5e74d6953f6aee63baca"
+    },
+    "fit:ppe-minus-source-sd:trials": {
+      "bytes": 7007573,
+      "sha256": "63c844054b09c1a00d6e3738c9fadc7b396a39a35b6ab10f79db582517531e19"
+    },
+    "fit:ppe-plus-source-sd:training": {
+      "bytes": 12912337,
+      "sha256": "6371c7f23915965acc2bcc489399d7de4320cfa7ac02adc67e0ecac6a294df18"
+    },
+    "fit:ppe-plus-source-sd:trials": {
+      "bytes": 7012156,
+      "sha256": "563bc830a408f3c30907d129a8e7b05047ea06e62f3d6e4d3f46924f02392552"
+    }
+  },
+  "record_ids": [
+    "author:BECKHAM",
+    "author:BROADOWN",
+    "author:COMERSLA",
+    "author:CUTHILL2",
+    "author:GOURTEMIRES",
+    "author:HANGINGS",
+    "author:HARESDOWN",
+    "author:LARKBARR",
+    "author:LOBBSBOG",
+    "author:LONGBREACH",
+    "author:MOLECHAM",
+    "author:NTWITCHEN",
+    "author:WHH05",
+    "author:WINDMILL",
+    "author:WINNEYS"
+  ],
+  "replay_scope": "Eleven new scientific objects alone are insufficient. Exact original37inputs and canonical computational/resource namespaces, originalnominal70dd/7953/f82 certificate/recovery/freeze lineage, actual currentPPE/source/native/runtime/independentadmission pins must also resolve; no separate nominalsource or fitstream copy is supplied.",
+  "schema_version": "author-love-nested-ppe-publication-authority.v1",
+  "scientific_scope": "Prior-exposed synchronized deterministic marginal source-SD PPE contrasts propagated through REVEALS/LOVE/forward. Regional values change; source3decimal rounding/rawfraction rule remains. No jointdraw/CI/calibratedcoverage,vegetationtruth,untouchedaccuracy,source-rights/human/release acceptance.",
+  "source_candidate": "992257309805272a22e53c7ebb2cf5004117185e"
+}

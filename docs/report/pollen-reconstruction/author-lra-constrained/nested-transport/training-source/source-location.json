@@ -1,0 +1,44 @@
+{
+  "direct_canonical_training_replay_supported": false,
+  "members": [
+    {
+      "bytes": 5643,
+      "canonical_path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/common.py",
+      "git_blob_sha1": "c247835e9bed1930f7c39563bd26ee79781c79db",
+      "logical_path": "common.py",
+      "sha256": "f6938a40eb4e99b4cfdbcdcfc53f95f93857f3a694238a632a3be55ed5f44673"
+    },
+    {
+      "bytes": 11244,
+      "canonical_path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/training-source/replay.py",
+      "git_blob_sha1": "1a7f5a20e126c7c7359986d935e22d35de897144",
+      "logical_path": "replay.py",
+      "sha256": "c84ec49c97fc4e66495f9dab0b83cc8bc93f4645a788bfd838a06f0c64618f05"
+    },
+    {
+      "bytes": 4725,
+      "canonical_path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/requests.py",
+      "git_blob_sha1": "032e1fcae0f9c26c183cdf6ee091bd0ba17c55be",
+      "logical_path": "requests.py",
+      "sha256": "7c800249f454c8a0e93266f87605c65d9d4d926ab7d2149d53d4393466d0dbd6"
+    },
+    {
+      "bytes": 17993,
+      "canonical_path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/selection.py",
+      "git_blob_sha1": "f5f30adb13f71515e4b61ce205f9ac2d4925658b",
+      "logical_path": "selection.py",
+      "sha256": "d7a64e566a61d8cc95cb89809b7e12bc6446d38cdcb5f4e079d79d053c1a9e78"
+    },
+    {
+      "bytes": 4432,
+      "canonical_path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/training.py",
+      "git_blob_sha1": "31666fb3156d16ae2d5db12b1fc6d961ac7aa047",
+      "logical_path": "training.py",
+      "sha256": "9b7d3712e6e2b29ff8a015f9ce5810a0fe53da25c0a80c3d69d1f22489a179aa"
+    }
+  ],
+  "original_protocol_sha256": "7953aec717a0bf440eca6d26e5c4d9bca03e3d783a005ab311f09d3d9b4db4dd",
+  "original_scientific_manifest_sha256": "32330c14ee199401c96e2a9aa25269e8d13b1f17e63b7144abab65c357760930",
+  "schema_version": "author-love-transport-training-source-location.v1",
+  "scope": "Preserved exact original executed training entry and protocol; four unchanged modules resolve from shared maintained evaluation sources by content/Git identity. The original SOURCE_NAMES guard requires a complete isolated five-file view. This source-location map is provenance, not a claim that the sparse training-source directory runs directly."
+}

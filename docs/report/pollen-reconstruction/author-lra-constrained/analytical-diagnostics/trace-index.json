@@ -1,0 +1,29 @@
+{
+  "objects": [
+    {
+      "bytes": 1116,
+      "retention_key": "sha256:8ee6895e658235e6f0b140781ee4e34c1b9d02f0d3d9919170c78e7250a1319f",
+      "roles": [
+        "analytical-native-report"
+      ],
+      "sha256": "8ee6895e658235e6f0b140781ee4e34c1b9d02f0d3d9919170c78e7250a1319f"
+    },
+    {
+      "bytes": 2674,
+      "retention_key": "sha256:760fc26a15a39f3783f7b5d1e774f1a9d41920f4c4ab4257bd677fc108ca5ec0",
+      "roles": [
+        "analytical-native-terminal"
+      ],
+      "sha256": "760fc26a15a39f3783f7b5d1e774f1a9d41920f4c4ab4257bd677fc108ca5ec0"
+    },
+    {
+      "bytes": 332259,
+      "retention_key": "sha256:d1224689e66220c50182a819ddde14e6ba5d09f4f009c777128ceefab6382fc1",
+      "roles": [
+        "analytical-raw-diagnostics"
+      ],
+      "sha256": "d1224689e66220c50182a819ddde14e6ba5d09f4f009c777128ceefab6382fc1"
+    }
+  ],
+  "schema_version": "author-love-analytical-trace-index.v1"
+}

@@ -1,0 +1,29 @@
+{
+  "all450_candidate_rows_and420_inner_rows_retained": true,
+  "independent_output_review": {
+    "bytes": 3519,
+    "sha256": "ea253aeed96251c294cf7be16070afa68401ea9968b94e77f304da05ce1fc359"
+  },
+  "objects": [
+    {
+      "bytes": 670345,
+      "logical_name": "candidate-refusals.json",
+      "retention_key": "sha256:912d9cfe9949eb25da7622b1fe0e4516ebe671e6bd0a2850fbe05d2409811333",
+      "sha256": "912d9cfe9949eb25da7622b1fe0e4516ebe671e6bd0a2850fbe05d2409811333"
+    },
+    {
+      "bytes": 6238,
+      "logical_name": "report.json",
+      "retention_key": "sha256:795f5ac3e28bfbac1c702de58e2c4f45ee1c276b5f35ac14700c5f18f1bc6387",
+      "sha256": "795f5ac3e28bfbac1c702de58e2c4f45ee1c276b5f35ac14700c5f18f1bc6387"
+    },
+    {
+      "bytes": 789531,
+      "logical_name": "selection-freeze.json",
+      "retention_key": "sha256:2ee261a3c024e8b1073cb7d5f698dfd1dec8acc97782104f0efe47b15c9db480",
+      "sha256": "2ee261a3c024e8b1073cb7d5f698dfd1dec8acc97782104f0efe47b15c9db480"
+    }
+  ],
+  "raw_payloads_in_product_git": false,
+  "schema_version": "author-love-clr-trace-index.v1"
+}
