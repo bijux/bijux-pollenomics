@@ -109,7 +109,7 @@ _LABORATORY_TAXON_GROUPS = frozenset({"Laboratory", "Laboratory analyses"})
 _ADMINISTRATIVE_ECOLOGICAL_GROUPS = frozenset({"ADMN"})
 _ADMINISTRATIVE_TAXON_GROUPS = frozenset({"Administrative", "Administrative variables"})
 _QUALIFIER_PATTERNS = (
-    ("cf", re.compile(r"(?:^|\s)cf\.\s", re.IGNORECASE)),
+    ("cf", re.compile(r"(?:^|\s)cf\.?\s", re.IGNORECASE)),
     ("type", re.compile(r"(?:-|\.|\s)type(?:\b|\))", re.IGNORECASE)),
     ("undifferentiated", re.compile(r"\bundiff\.?\b", re.IGNORECASE)),
     ("combined_taxa", re.compile(r"/")),

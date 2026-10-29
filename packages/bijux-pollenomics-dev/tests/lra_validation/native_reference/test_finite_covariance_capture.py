@@ -294,3 +294,27 @@ def test_retained_comparison_refuses_unsupported_profile_before_authentication(
             retained_capture_profile=profile,  # type: ignore[arg-type]
         )
     assert calls == []
+
+
+def test_different_build_marker_does_not_extend_native_source_epoch(
+    repository: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """A historical fixture never authorizes a different current generated module."""
+    original = capture.validated_finite_covariance_capture(repository)
+    assert len(original.raw_sha256) == 138
+    assert len(original.source_context["protected_science_sha256"]) == 68
+    original_file = _file
+    full = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+    wrong = b"__version__ = version = '0.0.0+controlled-other-build'\n"
+
+    def changed_file(root: Path, relative: str) -> bytes:
+        return wrong if relative == full else original_file(root, relative)
+
+    def changed_generated(_repository: Path, _context: dict[str, Any]) -> bytes:
+        return wrong
+
+    monkeypatch.setattr(capture, "_file", changed_file)
+    monkeypatch.setattr(capture, "_generated_source", changed_generated)
+    with pytest.raises(ValueError, match="protected source|generated source"):
+        capture.validated_finite_covariance_capture(repository)

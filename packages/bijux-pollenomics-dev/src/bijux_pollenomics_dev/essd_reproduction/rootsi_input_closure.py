@@ -220,11 +220,29 @@ def _publication_matches(
     inputs: _Inputs,
 ) -> dict[int, tuple[tuple[_Candidate, ...], tuple[_Candidate, ...]]]:
     result: dict[int, tuple[tuple[_Candidate, ...], tuple[_Candidate, ...]]] = {}
+    if not inputs.rootsi:
+        return {row.worksheet_row: ((), ()) for row in inputs.publication.records}
+    sequences: dict[str, set[int]] = {}
+    sites: dict[tuple[str, str], set[int]] = {}
+    for index, rootsi in enumerate(inputs.rootsi):
+        sequences.setdefault(_normalized(rootsi.site_label), set()).add(index)
+        if rootsi.sample_count_claim is not None:
+            key = (_normalized(rootsi.site_name), str(rootsi.sample_count_claim))
+            sites.setdefault(key, set()).add(index)
     for publication in inputs.publication.records:
+        # Validate the same three columns even when no indexed candidate matches.
+        sequence = _raw(publication, "csvfilename")
+        site = _raw(publication, "SiteName")
+        samples = _raw(publication, "nPollenSamples")
+        indexes = set(sequences.get(_normalized(_sequence_stem(sequence)), ()))
+        if samples is not None:
+            indexes.update(sites.get((_normalized(site), samples), ()))
+        # Original indices preserve duplicates and source order; the original
+        # predicate owns reasons, exact sample text, and lazy country validation.
         observed = tuple(
             candidate
-            for rootsi in inputs.rootsi
-            if (candidate := _match(rootsi, publication)) is not None
+            for index in sorted(indexes)
+            if (candidate := _match(inputs.rootsi[index], publication)) is not None
         )
         accepted_country = tuple(row for row in observed if row.country_agrees)
         rejected_country = tuple(row for row in observed if not row.country_agrees)

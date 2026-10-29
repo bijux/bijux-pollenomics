@@ -1,0 +1,488 @@
+{
+  "candidate": "ba3a0c1da916b315eb96b7e521ebabacf4487638",
+  "execution": {
+    "record": {
+      "candidate": "ba3a0c1da916b315eb96b7e521ebabacf4487638",
+      "canonical_before_after_unchanged": true,
+      "collector_exit": 0,
+      "command": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "-X",
+        "pycache_prefix=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-python-retained-R-comparison/source-pycache",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/required-native-oracle-selection/compare.py",
+        "--inputs",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/required-native-oracle-selection/input-contract.json",
+        "--registered-inputs-sha256",
+        "e51f05ce170bbe69bce1fc4ab6f6277b5c98791ccbc08e1d337060d1ac661803",
+        "--candidate",
+        "ba3a0c1da916b315eb96b7e521ebabacf4487638",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-python-retained-R-comparison"
+      ],
+      "completed_child_macos_rss_bytes": 357957632,
+      "core_cases": 43,
+      "domain_cases": 23,
+      "elapsed_seconds": 17.608993125031702,
+      "limits": "180s owned native process-group watchdog;240s outer elapsed/2GiBcompletedchildRSS/64MiB output postchecks; noOS/aggregatequota/network bound claimed.",
+      "native_process_exit": 0,
+      "plan_sha256": "0b9fb4d7c5f7e222787c00d33b98ef35b05b1538ad042e443b6f7cc35c70d07e",
+      "regular_output_bytes_before_terminal": 203186,
+      "report": {
+        "bytes": 139837,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-python-retained-R-comparison/report.json",
+        "sha256": "01bdf20cd4a1d02c1439e6042cde7eb5ba8e43b85ffbe87c3dd9b15100c0e1ec"
+      },
+      "schema_version": "current-python-retained-R-root-execution.v1",
+      "scope": "Exactly43core+23source-domain currentPython expectations against original genuine savedR; no newR/author calls;14074 originalauthorpairs reused within scope; no wholehosted/release closure.",
+      "terminal_reserve_bytes": 1048576,
+      "timed_out": false
+    },
+    "source": {
+      "bytes": 1996,
+      "path": "artifacts/science/current-python-retained-R-execution/execution.json",
+      "sha256": "e1487c6443a0e8deca97eeba5f0d1ffebe7e07b200c1de50e14b5c79972e57fa"
+    }
+  },
+  "original_R": {
+    "capture_manifest": {
+      "bytes": 40370,
+      "path": "data/method-certification/native-r-finite-covariance/capture/capture.json",
+      "sha256": "008cb45fa66f8b7c96915678ee3f1ec3026924ba3fe81050ca773515e030199b"
+    },
+    "current_66_is_new_R_execution": false,
+    "historical_environment": {
+      "bytes": 3123,
+      "path": "docs/report/method-certification/current-r-oracle/retained-vector-historical-environment.json",
+      "sha256": "50a644274edddf3ac4740e807ee9f69c9d88206ea651d5681ec90dee7e064ffc"
+    },
+    "source_epoch": "92a0adc1f00245c1a51b4e096e1eaac4c23325e5"
+  },
+  "public_report": {
+    "bytes": 139837,
+    "path": "docs/report/method-certification/current-r-oracle/current-python-comparison.json",
+    "sha256": "01bdf20cd4a1d02c1439e6042cde7eb5ba8e43b85ffbe87c3dd9b15100c0e1ec"
+  },
+  "raw_report": {
+    "bytes": 139837,
+    "path": "artifacts/science/current-python-retained-R-comparison/report.json",
+    "sha256": "01bdf20cd4a1d02c1439e6042cde7eb5ba8e43b85ffbe87c3dd9b15100c0e1ec"
+  },
+  "saved_output_object_count": 67,
+  "saved_output_objects": [
+    {
+      "bytes": 152,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0000-current-Python.npy",
+      "sha256": "ccbac1139883f71f9875026936cc857cb7fcbcc742695d20ae58f627c517dc85"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0001-current-Python.npy",
+      "sha256": "7c2373354dae4d628e10bea7c1a8cd4f1a490d4837a578391565f98976da2e96"
+    },
+    {
+      "bytes": 152,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0002-current-Python.npy",
+      "sha256": "6988a2064a6dbf3e524427a6b41b448fd7d9a4b1229b5bd2cc36e0b8450647d3"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0003-current-Python.npy",
+      "sha256": "0ab9b46dcfac686e70a71d87e20600dd12b77873543a97c1156677dee2dc8c27"
+    },
+    {
+      "bytes": 152,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0004-current-Python.npy",
+      "sha256": "4af0789a8a42d85f8c679d84cae4443c7b6862a1fd946b89215f8662399e0ad2"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0005-current-Python.npy",
+      "sha256": "d0e8761a75efbc2551709ebf656367aac032f3fa518581ef24696960b2d0c56a"
+    },
+    {
+      "bytes": 152,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0006-current-Python.npy",
+      "sha256": "71a472ca2792cb664d374af4b35995ee724e5810289b194f274086671fa545fe"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0007-current-Python.npy",
+      "sha256": "068752f06ff7e4990481a5a312d679747ec2454c20d3346686a33121b6a45ea9"
+    },
+    {
+      "bytes": 152,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0008-current-Python.npy",
+      "sha256": "87a24975d46a72bd66184ac7050dff101ad5710b71fc9cb3b5f24df737dcd23e"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0009-current-Python.npy",
+      "sha256": "1a0b8c80a38a86a9bd8c68306a902011df19a05ef43ccb54b1f557561b1d26a2"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0010-current-Python.npy",
+      "sha256": "cf5916a805fe5eadfb35921d60dba281f9db3a429ff28d3100d9b77fcbd7d04f"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0011-current-Python.npy",
+      "sha256": "4c78dbee382b2584365f20610ce2796994fa180a9f681cb68ac1d854ff25b6c5"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0012-current-Python.npy",
+      "sha256": "01cba4e55eae277e911fc6bb6bed01d77b70cc9b3f8a01f1df72336ca118beb1"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0013-current-Python.npy",
+      "sha256": "4eca80c78b4392db9cb55f5d8dd43cea0f15e15a94a1c50c45f566af55279923"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0014-current-Python.npy",
+      "sha256": "259c8edf9b96abac3d8f80675423bdab5670458ea57d9f49fb7b34b4ee5bee99"
+    },
+    {
+      "bytes": 752,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0015-current-Python.npy",
+      "sha256": "5f95cf46671c1f223380586123a7c1bd8dc27ec75967f58c1e83068fb10bbfce"
+    },
+    {
+      "bytes": 752,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0016-current-Python.npy",
+      "sha256": "e3bb29e9820bbe874d01306337f46f1da8c5c77390d7cd2789ed3fb00e9659a8"
+    },
+    {
+      "bytes": 2144,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0017-current-Python.npy",
+      "sha256": "12b297da18cb3ac493189d91c83941df26157f805cd105c603c90346620fa030"
+    },
+    {
+      "bytes": 248,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0018-current-Python.npy",
+      "sha256": "ec3601bdddb1a2874d613316f2033db47a56ad58b4312c7e7d419d068fb706bb"
+    },
+    {
+      "bytes": 208,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0019-current-Python.npy",
+      "sha256": "5f221b038ebe442769a2a422c86da70750ba6e02d079fdeb3e6b784494f37def"
+    },
+    {
+      "bytes": 3008,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0020-current-Python.npy",
+      "sha256": "2eca00427933fc26db54fcb5de9f2199a6bbcef02c2893f2b859f75ab4b07da2"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0021-current-Python.npy",
+      "sha256": "a434d4836af108888d64dde170600a61c749124a565a4891f258e4bd4954bf16"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0022-current-Python.npy",
+      "sha256": "585156bded0d2719f893e4a192887ad0e38c9d8a5a49b456faa685364a9023c9"
+    },
+    {
+      "bytes": 3488,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0023-current-Python.npy",
+      "sha256": "135f29e5567adc69bcb148c829281634c2256360e5f5c042112c34485b6021d1"
+    },
+    {
+      "bytes": 5088,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0024-current-Python.npy",
+      "sha256": "032acb614dc7ce16aa76bf7c938df2eccda90423587ddba7953b606e7a0b761e"
+    },
+    {
+      "bytes": 3568,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0025-current-Python.npy",
+      "sha256": "883ddd893b234439c201d0a5536fda55df6f7785dc8351d4dd2c4a805ad96cff"
+    },
+    {
+      "bytes": 448,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0026-current-Python.npy",
+      "sha256": "15f87ccefbb6956e81fe73360ec096224de28c17e885be4ed6c5d133a3e2d794"
+    },
+    {
+      "bytes": 1280,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0027-current-Python.npy",
+      "sha256": "29d1a2e20fefaf47ac3edfcb5318499d7a7ecffecf65ebeec243ba4621d6c216"
+    },
+    {
+      "bytes": 5168,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0028-current-Python.npy",
+      "sha256": "80ba1219425eddccd2760649fd9888baba27ad4b13bf8b98925fbf530f3b4c2b"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0029-current-Python.npy",
+      "sha256": "2d43b08207545c43a628dc0d1c4d560a119ff8114c0688e391d80d655545d0fb"
+    },
+    {
+      "bytes": 280,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0030-current-Python.npy",
+      "sha256": "c0fb8263009bec64be18c4df6d88d549e6f188e2e6978e8981dc9c04096b2344"
+    },
+    {
+      "bytes": 3856,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0031-current-Python.npy",
+      "sha256": "decf1e8858dfba290bcf092c2f7b344d893d5072826a6c2bfa32f3ad5d1dc0c9"
+    },
+    {
+      "bytes": 448,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0032-current-Python.npy",
+      "sha256": "15f87ccefbb6956e81fe73360ec096224de28c17e885be4ed6c5d133a3e2d794"
+    },
+    {
+      "bytes": 1280,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0033-current-Python.npy",
+      "sha256": "29d1a2e20fefaf47ac3edfcb5318499d7a7ecffecf65ebeec243ba4621d6c216"
+    },
+    {
+      "bytes": 6224,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0034-current-Python.npy",
+      "sha256": "7b18a760924ee9a30e637066b6da9410f68b2ce0eb5cb8a429ef0410b7f2dc02"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0035-current-Python.npy",
+      "sha256": "2d43b08207545c43a628dc0d1c4d560a119ff8114c0688e391d80d655545d0fb"
+    },
+    {
+      "bytes": 280,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0036-current-Python.npy",
+      "sha256": "c0fb8263009bec64be18c4df6d88d549e6f188e2e6978e8981dc9c04096b2344"
+    },
+    {
+      "bytes": 4240,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0037-current-Python.npy",
+      "sha256": "697326307eaa4a84712f828c9900e536bb54c934072c2cee4e359b8084a5c938"
+    },
+    {
+      "bytes": 448,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0038-current-Python.npy",
+      "sha256": "15f87ccefbb6956e81fe73360ec096224de28c17e885be4ed6c5d133a3e2d794"
+    },
+    {
+      "bytes": 1280,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0039-current-Python.npy",
+      "sha256": "29d1a2e20fefaf47ac3edfcb5318499d7a7ecffecf65ebeec243ba4621d6c216"
+    },
+    {
+      "bytes": 7808,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0040-current-Python.npy",
+      "sha256": "c875fb014c626975bf0dc1c4108b68d31829772810f6d841ba5487f1fd44ae04"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0041-current-Python.npy",
+      "sha256": "2d43b08207545c43a628dc0d1c4d560a119ff8114c0688e391d80d655545d0fb"
+    },
+    {
+      "bytes": 280,
+      "path": "artifacts/science/current-python-retained-R-comparison/C0042-current-Python.npy",
+      "sha256": "c0fb8263009bec64be18c4df6d88d549e6f188e2e6978e8981dc9c04096b2344"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F001-current-Python.npy",
+      "sha256": "7a8fb9b66cb92107937e66e74fc14f0b82c9631892c4b5c893733f873d189b60"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F002-current-Python.npy",
+      "sha256": "b34a340f44cd5b4018626411e2526dcae59d73db5d286dc2ab614b75ab589d53"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F003-current-Python.npy",
+      "sha256": "fe971084401c3af5875d0276379db2621c6ccd9cb0e795b4e579e16021434ff0"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F004-current-Python.npy",
+      "sha256": "a9cf407c81aaa11bd6ffeeaa8988b9f8a07f3206c9e8628c57fbd82c6605d56f"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F005-current-Python.npy",
+      "sha256": "1ca56ba453316d63a4d0d116faa3ac2512186f1ef75238de31cef7a320c6e557"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F006-current-Python.npy",
+      "sha256": "833184de496aff3485e2374abcf3765e51a2369815ee73bb867726636990ff89"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F007-current-Python.npy",
+      "sha256": "00ce61c62f106b2d1e02d34212b5c3668f1e34d0b3acdf22b70067ff05463a8a"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F008-current-Python.npy",
+      "sha256": "efc495a727fae3c7e4c4518e85122fc3fddbb696903ee939b90efb12d2aa05bb"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F009-current-Python.npy",
+      "sha256": "3dfa29750d2041091911c87f70d8b348ef34f74d8fd76695efb38cae2195db00"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F010-current-Python.npy",
+      "sha256": "f4a0c0f0c556651d5345a83c945ced395e8e79bec5b6ed6227b068edd7036ee9"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F011-current-Python.npy",
+      "sha256": "569a8f4e33b51153512ea8ad4c70f7fb38e90afadb6a9aa123bd805f12cd9ba9"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F012-current-Python.npy",
+      "sha256": "93a7d302f29b5725bf882ed642e0f3b2be9b96e10931530718dbf698af176d3e"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/F013-current-Python.npy",
+      "sha256": "cbf2f269bb6318f06f9915bd3e9e1bce2c8b6e4fabb9458b613ceebff03ed53e"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/S001-current-Python.npy",
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/S002-current-Python.npy",
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/S003-current-Python.npy",
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573"
+    },
+    {
+      "bytes": 136,
+      "path": "artifacts/science/current-python-retained-R-comparison/S004-current-Python.npy",
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573"
+    },
+    {
+      "bytes": 224,
+      "path": "artifacts/science/current-python-retained-R-comparison/S005-current-Python.npy",
+      "sha256": "098281fb85dc2d7bb49bae41b8722e6699192a5922a41050b504fc420782e25d"
+    },
+    {
+      "bytes": 272,
+      "path": "artifacts/science/current-python-retained-R-comparison/S006-current-Python.npy",
+      "sha256": "b36fd1a2c8c70ef61f06f1d0752795b1de59c74ae8f32ce88264dcc0b3fa2db1"
+    },
+    {
+      "bytes": 144,
+      "path": "artifacts/science/current-python-retained-R-comparison/S007-current-Python.npy",
+      "sha256": "f6e370ed2918607a4e9d6f78786b4333f238fb616b8864b8412bb78a7ff0e6ae"
+    },
+    {
+      "bytes": 144,
+      "path": "artifacts/science/current-python-retained-R-comparison/S008-current-Python.npy",
+      "sha256": "a5d6728702b6df85ff7574fa8efb377113f9f7ca52cd5424ad6f9c6fb399c5bb"
+    },
+    {
+      "bytes": 176,
+      "path": "artifacts/science/current-python-retained-R-comparison/S009-current-Python.npy",
+      "sha256": "2e08b2be06a5da15885351bdeca69201d36fcb57d963c559d819d4612dc603bb"
+    },
+    {
+      "bytes": 192,
+      "path": "artifacts/science/current-python-retained-R-comparison/S010-current-Python.npy",
+      "sha256": "699caed71f610c70f44320b242eaad7d5eac1889bd01f0ea090876a1d2c1c83b"
+    },
+    {
+      "bytes": 139837,
+      "path": "artifacts/science/current-python-retained-R-comparison/report.json",
+      "sha256": "01bdf20cd4a1d02c1439e6042cde7eb5ba8e43b85ffbe87c3dd9b15100c0e1ec"
+    }
+  ],
+  "schema_version": "current-python-retained-R-trace-index.v1",
+  "scientific_source_provenance": [
+    {
+      "bytes": 4682,
+      "path": "artifacts/science/required-native-oracle-selection/source-proposal.json",
+      "sha256": "40621bb0502f3da8f38408d6e88c1ed027d9d2e2c708b38bf81c382249f5e37d"
+    },
+    {
+      "bytes": 14900,
+      "path": "artifacts/science/required-native-oracle-selection/compare.py",
+      "sha256": "4f6f5aa79792351dae455940b344e8bd0bb75d949479e9fa8bb247c597671712"
+    },
+    {
+      "bytes": 851112,
+      "path": "artifacts/science/required-native-oracle-selection/input-contract.json",
+      "sha256": "e51f05ce170bbe69bce1fc4ab6f6277b5c98791ccbc08e1d337060d1ac661803"
+    },
+    {
+      "bytes": 4224,
+      "path": "artifacts/science/required-native-oracle-selection/execution-recipe.json",
+      "sha256": "0b9fb4d7c5f7e222787c00d33b98ef35b05b1538ad042e443b6f7cc35c70d07e"
+    },
+    {
+      "bytes": 2796,
+      "path": "artifacts/science/required-native-oracle-selection/qualification.json",
+      "sha256": "079018394eee499dbe977d0d0ed7273e5dfc0d6ae11ab4263e7857e24359f997"
+    },
+    {
+      "bytes": 27089,
+      "path": "artifacts/science/required-native-oracle-selection/selection.json",
+      "sha256": "d241ac2c0ad8d64f79e7a726adda7be43bc770d7218d67aff71070647eccc167"
+    },
+    {
+      "bytes": 5238,
+      "path": "artifacts/science/required-native-oracle-selection/import-handoff.json",
+      "sha256": "ca7a2a8b3ecac802373e6c8e97b6f8e7782744251093ab37d756daca918c47a9"
+    }
+  ],
+  "scope": {
+    "current_publication_HEAD_recomputation_claimed": false,
+    "current_python_case_count": 66,
+    "hosted_linux_certification": false,
+    "installed_first_party_claimed": false,
+    "new_R_calls": 0,
+    "new_author_calls": 0,
+    "observation_epoch_only": "ba3a0c1da916b315eb96b7e521ebabacf4487638",
+    "reused_author_pairs": 14074,
+    "whole_release_admitted": false
+  },
+  "source_epoch_note": "The full registered input closure authenticated source at the ba3a execution. Subsequent reader/route metadata changes do not retroactively change that result or require the historical complete source map to equal future HEAD. No source/runtime packages are vendored.",
+  "summary": {
+    "core": {
+      "cases": 43,
+      "finite_numeric_pairs": 3591,
+      "matching_nan_pairs": 1782,
+      "maximum_absolute_error": 2.4868995751603507e-14,
+      "maximum_relative_error_to_current_Python": 1.0,
+      "nonfinite_mask_mismatches": 0,
+      "nonidentical_finite_or_label_positions": 1926,
+      "ordered_labels": 169,
+      "passed": 43,
+      "unequal_zero_reference_entries": 0,
+      "values": 5542
+    },
+    "source_domains": {
+      "cases": 23,
+      "finite_numeric_pairs": 274,
+      "matching_nan_pairs": 12,
+      "maximum_absolute_error": 5.551115123125783e-16,
+      "maximum_relative_error_to_current_Python": 6.780649216896142e-13,
+      "nonfinite_mask_mismatches": 0,
+      "nonidentical_finite_or_label_positions": 222,
+      "ordered_labels": 0,
+      "passed": 23,
+      "unequal_zero_reference_entries": 0,
+      "values": 286
+    }
+  }
+}
