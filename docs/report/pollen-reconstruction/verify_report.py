@@ -134,7 +134,7 @@ def verify_author_radius_sensitivity() -> None:
         or frozen["source"]["experiment_sha256"]
         != "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4"
         or frozen["source"]["prediction_manifest_sha256"]
-        != "56bc555a2373fb16c291e6fb9dc50cc43b5f99f7b03dc6e516c00c14d953329f"
+        != "e07c2f2a576dee9637a042ae2ae478ec4855fa7d4a67a828ce49429a948f4ec5"
         or frozen["factors"] != [0.8, 1.0, 1.2]
         or report["prediction_freeze_sha256"] != sha256(frozen_path)
         or report["eligible_sites"] != 15
