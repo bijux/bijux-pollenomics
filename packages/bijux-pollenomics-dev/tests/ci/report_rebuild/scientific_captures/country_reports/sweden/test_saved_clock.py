@@ -13,7 +13,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.country_reports
 
 
 def observations() -> tuple[dict[str, Any], dict[str, Any]]:
-    before = {
+    before: dict[str, Any] = {
         "TZ": "UTC0",
         "timezone": 0,
         "daylight": 0,
