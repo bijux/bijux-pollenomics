@@ -11,17 +11,10 @@ from bijux_pollenomics_dev.ci import atlas_browser
 
 
 def test_interception_requires_exact_cancellation_and_drains_pending_replies() -> None:
-    probe = Path(atlas_browser.__file__).with_name("probe.mjs").read_text()
-    match = re.search(
-        r"function providerInterception.*?\n}\n\nasync function openAtlas",
-        probe,
-        re.DOTALL,
-    )
-    assert match is not None
-    helper = match.group(0).removesuffix("\n\nasync function openAtlas")
+    module = Path(atlas_browser.__file__).with_name("provider-failures.mjs").as_uri()
     script = (
-        helper
-        + r"""
+        f"import {{ providerInterception }} from {json.dumps(module)};\n"
+        r"""
 async function exercise(cancellation, errorPayload, canceledId = 'network-1') {
   const requests = [];
   const failures = [{ kind: 'console-error', detail: 'application error' }];
@@ -37,15 +30,22 @@ async function exercise(cancellation, errorPayload, canceledId = 'network-1') {
     requestId: 'fetch-1', networkId: 'network-1', request: { url: 'https://tile.example/1' },
   }});
   let settled = false;
-  const finishing = tracker.settle().then(() => { settled = true; });
+  let targetClosed = false;
+  const finishing = tracker.settle(async () => {
+    tracker.handle({method:'Fetch.requestPaused',params:{
+      requestId:'late-fetch',networkId:'late-network',request:{url:'https://tile.example/late'},
+    }});
+    targetClosed = true;
+    commands.push({method:'Target.closeTarget'});
+  }).then(() => { settled = true; });
   await Promise.resolve();
-  const settledBeforeReply = settled;
+  const settledBeforeReply = settled, closedBeforeReply = targetClosed;
   if (cancellation !== null) tracker.handle({ method: 'Network.loadingFailed', params: {
     requestId: canceledId, canceled: cancellation,
   }});
   rejectRequest(new Error(JSON.stringify(errorPayload)));
   await finishing;
-  return { settledBeforeReply, failures, requests, commands };
+  return { settledBeforeReply, closedBeforeReply, failures, requests, commands };
 }
 const stale = { code: -32602, message: 'Invalid InterceptionId.' };
 console.log(JSON.stringify({
@@ -68,13 +68,26 @@ console.log(JSON.stringify({
     results = json.loads(completed.stdout)
     for result in results.values():
         assert result["settledBeforeReply"] is False
+        assert result["closedBeforeReply"] is False
+        assert (
+            result["requests"][1]["interception_status"]
+            == "target_closed_without_response"
+        )
         assert result["failures"][0] == {
             "kind": "console-error",
             "detail": "application error",
         }
         assert [row["method"] for row in result["commands"]] == [
             "Fetch.failRequest",
-            "Fetch.disable",
+            "Network.setBlockedURLs",
+            "Page.stopLoading",
+            "Target.closeTarget",
+        ]
+        assert result["commands"][1]["params"]["urls"] == [
+            "*://tile.openstreetmap.org/*",
+            "*://*.tile.openstreetmap.org/*",
+            "*://tile.opentopomap.org/*",
+            "*://*.tile.opentopomap.org/*",
         ]
     assert len(results["canceled"]["failures"]) == 1
     assert results["canceled"]["requests"][0]["interception_status"] == (
@@ -98,6 +111,6 @@ def test_provider_verdict_is_taken_after_interception_teardown() -> None:
             "const failureResult = {"
         )
     close = probe[probe.index("async function closeAtlas(") :]
-    assert close.index("await atlas.interception.settle();") < close.index(
+    assert close.index("await atlas.interception.settle(async () =>") < close.index(
         "atlas.cdp.close();"
     )

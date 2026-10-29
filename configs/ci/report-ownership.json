@@ -23892,6 +23892,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/playback_keyboard_candidate.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/probe.mjs",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-accessibility.mjs",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-failures.mjs",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/raa-retained-context.mjs",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/runner.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/signed-native-lra.mjs",

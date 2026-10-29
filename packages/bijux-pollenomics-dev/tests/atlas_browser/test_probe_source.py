@@ -812,11 +812,20 @@ def test_provider_failure_uses_request_interception() -> None:
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
     )
 
+    interceptor = (
+        Path(atlas_browser.__file__)
+        .with_name("provider-failures.mjs")
+        .read_text(encoding="utf-8")
+    )
     assert "Fetch.enable" in probe
-    assert "Fetch.requestPaused" in probe
-    assert "Fetch.failRequest" in probe
-    assert "errorReason: 'Failed'" in probe
-    assert "Fetch.fulfillRequest" not in probe
+    assert "providerInterception" in probe
+    assert "from './provider-failures.mjs'" in probe
+    assert "interception.handle(event)" in probe
+    assert "Fetch.requestPaused" in interceptor
+    assert "Fetch.failRequest" in interceptor
+    assert "errorReason: 'Failed'" in interceptor
+    assert "Fetch.fulfillRequest" in interceptor
+    assert "providerFailure: failure" in interceptor
     assert "refusal_observation: failureObservation" in probe
     assert "timed_out: true" in probe
     refusal = re.search(
