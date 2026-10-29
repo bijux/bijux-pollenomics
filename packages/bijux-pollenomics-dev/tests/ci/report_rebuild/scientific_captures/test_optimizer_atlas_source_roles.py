@@ -230,7 +230,10 @@ def test_six_role_facts_have_truthful_current_historical_and_exact_partitions(
         correspondences.append(facts)
     actual = module._optimizer_projection_accounting(correspondences, [])
     historical = [
-        value for value in correspondences if value["role"].startswith("historical_")
+        value
+        for value in correspondences
+        if value["role"]
+        in {"historical_browser_orchestration", "historical_capture_admission"}
     ]
     finite = [
         value for value in correspondences if value["role"] == "finite_atlas_extension"
@@ -254,7 +257,7 @@ def test_existing_historical_policy_and_unknown_roles_do_not_change_partitions()
         "historical_only_projection_roles": [],
         "current_projection_byteequal_members": 2072,
     }
-    historical = [
+    historical: list[dict[str, object]] = [
         {"classification": "historical_private_control_current_absence"},
         {"classification": "historical_generated_version_metadata"},
         {
@@ -266,7 +269,7 @@ def test_existing_historical_policy_and_unknown_roles_do_not_change_partitions()
             "role": "historical_capture_admission",
         },
     ]
-    current = [
+    current: list[dict[str, object]] = [
         {
             "classification": "optimizer_atlas_source_custody",
             "role": "finite_atlas_extension",
