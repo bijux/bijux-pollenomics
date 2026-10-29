@@ -51726,32 +51726,8 @@
         "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
         "docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt"
       ],
-      "producer_inputs": [
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/reconciliation.json",
-        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
-        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
-        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
-        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
-        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
-        "data/neotoma/relational/surfaces/datasets/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00002.json",
-        "data/neotoma/relational/surfaces/observations/part-00003.json",
-        "data/neotoma/relational/surfaces/observations/part-00004.json",
-        "data/neotoma/relational/surfaces/observations/part-00005.json",
-        "data/neotoma/relational/surfaces/observations/part-00006.json",
-        "data/neotoma/relational/surfaces/observations/part-00007.json",
-        "data/neotoma/relational/surfaces/observations/part-00008.json",
-        "data/neotoma/relational/surfaces/orphans/part-00001.json",
-        "data/neotoma/relational/surfaces/samples/part-00001.json",
-        "data/neotoma/relational/surfaces/sites/part-00001.json",
-        "data/neotoma/relational/surfaces/variables/part-00001.json",
-        "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py"
-      ],
+      "producer_inputs": [],
+      "producer_paths": [],
       "role": "unresolved",
       "verification": "These remaining protocol, historical freeze, reference-text and verification artifacts are unresolved. The current maintained preparation command genuinely produced four different files, which have a separate source-preparation-products owner. It did not produce or authenticate the historical authorship, freeze timestamp, original reference or whole-family verification represented here. The former whole-family producer recipe is preserved in the source capsule and witness. Its training-DK declaration did not match the actual protocol-selected training-SE input. Neither the actual replay nor the owner partition supplies a new historical-production certificate, untouched confirmation, source rights, human approval or LRA admission."
     },
@@ -51915,32 +51891,8 @@
         "docs/report/regions/nordic/swedish-neotoma-holdout/reference/parallel-dataset-review-producer.py.txt",
         "docs/report/regions/nordic/swedish-neotoma-holdout/reference/prediction-producer.py.txt"
       ],
-      "producer_inputs": [
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/reconciliation.json",
-        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
-        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
-        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
-        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
-        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
-        "data/neotoma/relational/surfaces/datasets/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00002.json",
-        "data/neotoma/relational/surfaces/observations/part-00003.json",
-        "data/neotoma/relational/surfaces/observations/part-00004.json",
-        "data/neotoma/relational/surfaces/observations/part-00005.json",
-        "data/neotoma/relational/surfaces/observations/part-00006.json",
-        "data/neotoma/relational/surfaces/observations/part-00007.json",
-        "data/neotoma/relational/surfaces/observations/part-00008.json",
-        "data/neotoma/relational/surfaces/orphans/part-00001.json",
-        "data/neotoma/relational/surfaces/samples/part-00001.json",
-        "data/neotoma/relational/surfaces/sites/part-00001.json",
-        "data/neotoma/relational/surfaces/variables/part-00001.json",
-        "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py"
-      ],
+      "producer_inputs": [],
+      "producer_paths": [],
       "role": "unresolved",
       "verification": "These remaining protocol, historical freeze, reference-text and verification artifacts are unresolved. The current maintained preparation command genuinely produced four different files, which have a separate source-preparation-products owner. It did not produce or authenticate the historical authorship, freeze timestamp, original reference or whole-family verification represented here. The former whole-family producer recipe is preserved in the source capsule and witness. Its training-DK declaration did not match the actual protocol-selected training-SE input. Neither the actual replay nor the owner partition supplies a new historical-production certificate, untouched confirmation, source rights, human approval or LRA admission."
     },
