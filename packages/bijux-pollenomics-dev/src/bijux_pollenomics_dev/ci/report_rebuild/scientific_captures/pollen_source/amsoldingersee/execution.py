@@ -22,11 +22,13 @@ REFERENCE_SHAS = {
 
 
 def require(value: object, reason: str) -> None:
+    """Refuse a retained source or scope inconsistency."""
     if not value:
         raise ValueError(reason)
 
 
 def exact(left: Any, right: Any) -> bool:
+    """Compare source values without Boolean, numeric or membership aliases."""
     if type(left) is not type(right):
         return False
     if isinstance(left, dict):
@@ -41,6 +43,7 @@ def exact(left: Any, right: Any) -> bool:
 
 
 def native_histories(jobs: dict[str, dict[str, Any]]) -> None:
+    """Authenticate original source-stage exits and their resource receipts."""
     for label, exits, whole, count in (
         ("production", [0, 1], 1, 10058),
         ("observation", [0], 0, 10094),
@@ -188,6 +191,7 @@ def native_histories(jobs: dict[str, dict[str, Any]]) -> None:
 
 
 def refusal(report: dict[str, Any]) -> None:
+    """Preserve the original source refusal without admitting a chronology."""
     require(
         report["schema_version"] == "landclim-amsoldingersee-source-review.v1"
         and report["admission"] == "refused_historical_input_identity",

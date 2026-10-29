@@ -8,6 +8,8 @@ import json
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+from ....contracts import ReportRebuildError
+from ....retained_source import validate_capsule
 from .execution import exact, require
 
 PUBLIC = {"public_source", "public_control", "public_result"}
@@ -15,6 +17,8 @@ OMITTED = {"private_identity_only", "runtime_identity_only", "bytecode_identity_
 
 
 def load(path: Path) -> Any:
+    """Decode retained JSON with duplicate and nonfinite refusals."""
+
     def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
         require(
             len(rows) == len({key for key, _ in rows}), "Duplicate capsule JSON key"
@@ -27,19 +31,18 @@ def load(path: Path) -> Any:
 
 
 def content(path: Path) -> dict[str, Any]:
+    """Hash an ordinary retained member without interpreting its contents."""
     with path.open("rb") as stream:
         digest = hashlib.file_digest(stream, "sha256").hexdigest()
     return {"sha256": digest, "bytes": path.stat().st_size}
 
 
 def namespace(root: Path, members: dict[str, Any]) -> None:
-    require(
-        root == root.resolve()
-        and not any(p.is_symlink() for p in (root, *root.parents)),
-        "Physical capsule root required",
-    )
-    directories: set[str] = set()
-    files = set()
+    """Validate confined logical members against exact Git and physical custody."""
+    prefix = "data/source-custody/landclim/amsoldingersee"
+    require(root.as_posix().endswith("/" + prefix), "Exact capsule prefix required")
+    repository = root.parents[len(PurePosixPath(prefix).parts) - 1]
+    require(repository / prefix == root, "Exact repository capsule required")
     for name, expected in members.items():
         relative = PurePosixPath(name)
         require(
@@ -57,33 +60,16 @@ def namespace(root: Path, members: dict[str, Any]) -> None:
             and expected["bytes"] >= 0,
             "Content member identity/name differs",
         )
-        directories.update(
-            parent.as_posix() for parent in relative.parents if parent.as_posix() != "."
-        )
-    actual_dirs = set()
-    for path in root.rglob("*"):
-        require(
-            not path.is_symlink() and (path.is_file() or path.is_dir()),
-            "Capsule alias or special member",
-        )
-        if path.is_dir():
-            actual_dirs.add(path.relative_to(root).as_posix())
-        else:
-            files.add(path.relative_to(root).as_posix())
-    require(
-        files == {"capture.json", *members} and actual_dirs == directories,
-        "Complete capsule file/directory membership differs",
-    )
-    for name, expected in members.items():
-        require(
-            exact(content(root / name), expected),
-            "Capsule original member bytes changed",
-        )
+    try:
+        validate_capsule(repository, prefix, members)
+    except ReportRebuildError as error:
+        raise ValueError(str(error)) from error
 
 
 def catalogs(
     root: Path, capture: dict[str, Any], jobs: dict[str, dict[str, Any]]
 ) -> None:
+    """Rejoin each original source identity to its declared retention role."""
     members = capture["members"]
     retained = set()
     counts = {}

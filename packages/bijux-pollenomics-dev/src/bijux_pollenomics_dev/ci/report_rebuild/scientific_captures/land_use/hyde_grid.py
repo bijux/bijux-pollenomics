@@ -12,17 +12,20 @@ from typing import Any
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ...contracts import JsonObject, ReportRebuildError
+from ...retained_source import validated_descriptor
 
 CAPTURE: Any = "data/surface-reference/hyde-grid-source-capture/capture.json"
 CAPTURE_SHA256: Any = "e7d56cec6aa162cccc06e79655047094e76bcf5ed88e75e72969645f6ab71c45"
 
 
 def require(value: object, reason: str) -> None:
+    """Refuse a retained source or scope inconsistency."""
     if not value:
         raise ValueError(reason)
 
 
 def integer(value: object, expected: int) -> bool:
+    """Recognize an exact integer count without Boolean or fractional aliases."""
     return type(value) is int and value == expected
 
 
@@ -186,6 +189,7 @@ GENERATED = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_ver
 
 
 def normalized(row: dict[str, Any]) -> dict[str, Any]:
+    """Require a normalized absolute source path with exact byte identity."""
     require(isinstance(row["path"], str), "Identity path must be text")
     path = PurePosixPath(row["path"])
     checksum = row["sha256"]
@@ -209,6 +213,7 @@ def normalized(row: dict[str, Any]) -> dict[str, Any]:
 
 
 def indexed(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Index original input identities while refusing duplicate paths."""
     result = {}
     for row in rows:
         item = normalized(row)
@@ -218,6 +223,7 @@ def indexed(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
 
 
 def blob(row: dict[str, Any]) -> str:
+    """Name an authenticated source payload by its SHA-256 identity."""
     checksum = normalized(row)["sha256"]
     assert isinstance(checksum, str)
     return "payloads/" + checksum
@@ -463,6 +469,7 @@ SCOPE = {
 
 
 def json_object(raw: bytes) -> dict[str, Any]:
+    """Decode one strict finite source-custody JSON object."""
 
     def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
         require(len(rows) == len({key for key, _ in rows}), "Duplicate packet JSON key")
@@ -478,6 +485,7 @@ def json_object(raw: bytes) -> dict[str, Any]:
 
 
 def member_name(name: object) -> str:
+    """Require a normalized confined relative packet member."""
     require(isinstance(name, str), "Member name must be text")
     assert isinstance(name, str)
     path = PurePosixPath(name)
@@ -493,6 +501,7 @@ def member_name(name: object) -> str:
 
 
 def same(left: object, right: object) -> None:
+    """Compare ordered packet values with exact types and membership."""
     require(type(left) is type(right), "Packet metadata type differs")
     if isinstance(left, dict) and isinstance(right, dict):
         require(list(left) == list(right), "Packet object field order differs")
@@ -594,6 +603,7 @@ def native_namespace(
     refs: dict[str, Any],
     outer: dict[str, Any],
 ) -> dict[str, Any]:
+    """Reconstruct the original owned output namespace from retained receipts."""
     root = PurePosixPath(plan["output"])
     names = {row["path"] for row in catalogue["files"]}
     names.update(refs[key]["path"] for key in ("catalogue", "inner", "outer"))
@@ -818,6 +828,7 @@ OWNER_PATHS: Any = [
 
 
 def source_absent(repository: Path, owners: list[JsonObject]) -> bool:
+    """Recognize a genuinely absent source owner and capture."""
     capture = repository / CAPTURE
     return (
         not any(row.get("owner_id") == OWNER for row in owners)
@@ -827,6 +838,7 @@ def source_absent(repository: Path, owners: list[JsonObject]) -> bool:
 
 
 def validate_owners(owners: list[JsonObject]) -> None:
+    """Require exact declared owners and publication paths."""
     selected = [row for row in owners if row.get("owner_id") == OWNER]
     require(len(selected) == 1, "Unique HYDE grid source owner required")
     target = selected[0]
@@ -853,6 +865,7 @@ def validated_hyde_grid_source_captures(
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
+    """Admit exact retained grid-conservation source evidence and its limits."""
     try:
         if source_absent(repository, owners):
             return (), {}
@@ -864,26 +877,12 @@ def validated_hyde_grid_source_captures(
             "Exact HYDE grid capsule identity differs",
         )
         packet = json_object(raw)
-        physical_files: set[str] = set()
-        physical_dirs: set[str] = set()
-        for path in capture.parent.rglob("*"):
-            require(
-                not path.is_symlink() and (path.is_file() or path.is_dir()),
-                "Capsule alias/special refused",
-            )
-            name = path.relative_to(capture.parent).as_posix()
-            if path.is_dir():
-                physical_dirs.add(name)
-            else:
-                physical_files.add(name)
-        require(
-            physical_files == set(packet["members"]) | {"capture.json"}
-            and physical_dirs == {"payloads"},
-            "Complete HYDE capsule membership differs",
+        resolver = validated_descriptor(
+            repository, Path(CAPTURE).parent.as_posix(), packet["members"]
         )
 
         def read(name: str) -> bytes:
-            return _physical(capture.parent, name).read_bytes()
+            return resolver.read_source(name)
 
         result = validate_packet(packet, read)
         by_path = {

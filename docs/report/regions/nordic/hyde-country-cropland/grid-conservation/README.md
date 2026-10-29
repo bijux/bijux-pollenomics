@@ -65,13 +65,11 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Matched denominator.** 84country/year/scenario rows; four countries,sevenCElabels500/1000/1500/1700/1900/2000/2025,three scenarios; each grid2,160×4,320cells, tolerance1e-6km².
 
-Qualified authored reader SHA-256: `2f30ffdd70b442222f6d1d324ffaba7fb39b39c64ee973e878bb3f4cf83498fc`.
-
 - [Retained qualification evidence: docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json](report.json) (SHA-256 `adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628`).
 
 - [Retained qualification evidence: reports/science/source-cohorts/hyde-grid-source-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/hyde-grid-source-custody.json) (SHA-256 `51c440ce732eeb78f4f8be30e01b0fcf8d82a34ef3a17cea469d2e333232e8fe`).
 
-- [Canonical scientific account: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md) (source SHA-256 `995c8f3d6ee273554fc0d97f68dcd8bb8a0bb4cf8da56759f8adceda337f8c29`).
+- [Canonical scientific account: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

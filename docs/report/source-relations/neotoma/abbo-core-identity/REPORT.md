@@ -16,7 +16,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** This interpretation adds no independent core identification or numerical check beyond the owning comparison report.
 
-**Actual verification performed.** Read the generated prose against the same report and manifest, checking native count categories and differing end labels; no replay. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner’s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.
+**Actual verification performed.** Read the generated prose against the same report and manifest, checking native count categories and differing end labels; no replay.
 
 **Remaining input or review.** Physical core, selected age support, denominator, parameter applicability and analytical rights remain unqualified.
 
@@ -30,15 +30,11 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Matched denominator.** 1 generated interpretation of 107-sample ABBO/ABB lead and 1 selected sample; 0 additional fits or independent observations.
 
-Qualified authored reader SHA-256: `b5d9ff1f62aafb0aa12e933a49114c01bfdf3400aa259257fbe9d954f35bbffe`.
-
 - [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-core-identity/report.json](report.json) (SHA-256 `e7b22e4cc7caf8831422307dd6b89b7da9b6f8afc07daadb84f07268fdcaa2ea`).
 
 - [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-core-identity/manifest.json](manifest.json) (SHA-256 `c817748f52c5cda435d2f5bbfb746f442aa346ca4f4d2ca71b38ae360bf6739c`).
 
-- [Retained qualification evidence: reports/science/source-cohorts/neotoma-selected-counts.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/neotoma-selected-counts.json) (SHA-256 `5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18`).
-
-- [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md) (source SHA-256 `264420c81e18a6ee56b0b612e657f881fa26829a9cc060114d69b15d2491120f`).
+- [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

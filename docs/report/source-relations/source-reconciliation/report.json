@@ -54,9 +54,9 @@
     "scientific_admission": "not_established_by_custody",
     "verified_original_archives": 2
   },
-  "full_audit_sha256": "3ec6ed5dc52d23c88fead8b33f812ca31f1206c8cb497780c78bc7ea04c8aa3b",
+  "full_audit_sha256": "26116f18017f5695c8782849e9ab827251d033cc56a8e1e76eabf38063c9ba90",
   "full_source_confirmation": false,
-  "input_closure_sha256": "f14fe4716aaad7bf04a7608a55be7282db9a3ca291be8f0ee59fd6a197200f4f",
+  "input_closure_sha256": "6ff99f5312aacb5b7b7e0028b89bded250007facd749bb3061888bcd632b3ef9",
   "input_file_count": 321,
   "manifest_byte_verification_count": 204,
   "present_input_file_count": 284,
@@ -475,5 +475,5 @@
     "sead_source_table_count": 61
   },
   "status_namespace_note": "Original source-stage, country-availability and semantic-capability records retain their native fields; accounting_checks_pass is only mechanical reconciliation.",
-  "summary_sha256": "dce26aa492893734a6be6c91cf552b07b073c28602aa54702d64ef033a7d5b1e"
+  "summary_sha256": "5b290a3cbf5777ae9aba8108e620a99f17a1b118cdca3c4e23da6b1e34c7e816"
 }
