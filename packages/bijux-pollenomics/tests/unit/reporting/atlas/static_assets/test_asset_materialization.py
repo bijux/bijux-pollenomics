@@ -241,7 +241,7 @@ def test_accepted_scientific_fixture_populates_truthful_atlas_domains(
     )
     assert len({row["color"] for row in observed_signals}) == len(observed_signals)
     assert all(row["non_color_cue"] for row in observed_signals)
-    edge_records = mapping_rows(payloads["atlas-edges-chunk.v1"]["records"])
+    edge_records = mapping_rows(payloads["atlas-edges-chunk.v2"]["records"])
     assert edge_records[0]["cross_border"] is True
 
 

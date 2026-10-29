@@ -2553,7 +2553,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         provenance: ['atlas-provenance-chunk.v2', 'atlas-provenance-chunk.v3'],
         nodes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-node-chunk.v2'] : ['atlas-node-chunk.v1'],
         details: ['atlas-details-chunk.v1'],
-        edges: ['atlas-edges-chunk.v1'],
+        edges: ['atlas-edges-chunk.v1', 'atlas-edges-chunk.v2'],
         sequences: ['atlas-sequences-chunk.v1'],
         indexes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-static-indexes.v4'] : ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', 'atlas-static-indexes.v3', 'atlas-static-indexes.v5'],
       };
@@ -2971,6 +2971,56 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (referenceCount !== payload.reference_count) staticAtlasFailure(`${row.asset_key} merged reference count mismatch`);
         return merged;
       }
+      function validateStaticAtlasEdgeAssets(payload) {
+        if (payload.schema_version !== STATIC_ATLAS_BOOTSTRAP.compatibility?.edge_schema) staticAtlasFailure('edge compatibility schema mismatch');
+        if (payload.schema_version === 'atlas-edges-chunk.v1') {
+          if (Object.hasOwn(payload, 'endpoint_node_assets') || Object.hasOwn(payload, 'endpoint_node_geometry')) staticAtlasFailure('legacy edge endpoint assets are undeclared');
+          return new Map();
+        }
+        const references = payload.endpoint_node_assets, geometry = payload.endpoint_node_geometry;
+        if (!references || typeof references !== 'object' || Array.isArray(references) || !geometry || typeof geometry !== 'object' || Array.isArray(geometry)) staticAtlasFailure('edge endpoint assets or geometry are missing');
+        const endpoints = new Set(payload.records.flatMap(edge => [edge.source_record_id, edge.target_record_id]));
+        for (const rows of [references, geometry]) {
+          if ([...endpoints].some(id => typeof id !== 'string' || !id) || Object.keys(rows).length !== endpoints.size || Object.keys(rows).some(id => !endpoints.has(id))) staticAtlasFailure('edge endpoint asset membership is incomplete');
+        }
+        const nodeRows = new Map();
+        for (const row of STATIC_ATLAS_BOOTSTRAP.assets) {
+          if (row.domain !== 'nodes' || row.layer_kind !== 'point') continue;
+          if (nodeRows.has(row.asset_key)) staticAtlasFailure('edge endpoint asset is duplicated');
+          nodeRows.set(row.asset_key, row);
+        }
+        for (const recordId of endpoints) {
+          const keys = references[recordId], hints = geometry[recordId];
+          if (!Array.isArray(keys) || !keys.length || keys.some((key, index) => typeof key !== 'string' || !nodeRows.has(key) || (index > 0 && keys[index - 1] >= key))) staticAtlasFailure('edge endpoint asset references are invalid or foreign');
+          if (!Array.isArray(hints) || !hints.length) staticAtlasFailure('edge endpoint geometry is incomplete');
+          const declared = new Set(keys), found = new Set();
+          let previous = null;
+          for (const hint of hints) {
+            if (!hint || Object.keys(hint).sort().join('|') !== 'asset_key|feature_index|latitude|longitude' || !declared.has(hint.asset_key) || !Number.isSafeInteger(hint.feature_index) || hint.feature_index < 0 || (previous && (hint.asset_key < previous.asset_key || (hint.asset_key === previous.asset_key && hint.feature_index <= previous.feature_index)))) staticAtlasFailure('edge endpoint geometry reference is invalid');
+            found.add(hint.asset_key);
+            previous = hint;
+          }
+          if (found.size !== declared.size) staticAtlasFailure('edge endpoint geometry asset membership is incomplete');
+        }
+        return nodeRows;
+      }
+      function validateLoadedStaticAtlasEdgeAssets() {
+        const edges = STATIC_ATLAS_CHUNKS.edges;
+        if (!edges || edges.schema_version !== 'atlas-edges-chunk.v2') return;
+        const loaded = new Map();
+        for (const part of STATIC_ATLAS_CHUNKS.nodes) {
+          const positions = new Map(part.feature_indexes.map((position, index) => [position, part.features[index]]));
+          if (positions.size !== part.feature_indexes.length) staticAtlasFailure('edge endpoint node positions are duplicated');
+          loaded.set(part.asset_key, positions);
+        }
+        for (const [recordId, hints] of Object.entries(edges.endpoint_node_geometry)) {
+          for (const hint of hints) {
+            if (!loaded.has(hint.asset_key)) continue;
+            const feature = loaded.get(hint.asset_key).get(hint.feature_index);
+            if (!feature || feature.record_id !== recordId || JSON.stringify(feature.latitude ?? null) !== JSON.stringify(hint.latitude) || JSON.stringify(feature.longitude ?? null) !== JSON.stringify(hint.longitude)) staticAtlasFailure('edge endpoint geometry differs from its node record');
+          }
+        }
+      }
       function validateStaticAtlasPayload(row, payload) {
         if (!payload || typeof payload !== 'object') staticAtlasFailure(`${row.asset_key} payload is invalid`);
         staticAtlasTemporalIdentity(payload, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
@@ -2984,6 +3034,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (payload.features.length !== row.record_count || payload.layer_key !== row.layer_key || payload.layer_index !== row.layer_index || payload.layer_kind !== row.layer_kind) staticAtlasFailure(`${row.asset_key} layer accounting mismatch`);
         }
         if ((row.domain === 'edges' || row.domain === 'sequences') && (!Array.isArray(payload.records) || payload.records.length !== row.record_count)) staticAtlasFailure(`${row.asset_key} record accounting mismatch`);
+        if (row.domain === 'edges') validateStaticAtlasEdgeAssets(payload);
         if (row.domain === 'details' && (!Array.isArray(payload.records) || payload.records.length !== row.record_count || payload.records.some((record) => !record || typeof record.record_id !== 'string'))) staticAtlasFailure(`${row.asset_key} detail accounting mismatch`);
         if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.scientific_signals) || (payload.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(payload.detail_records)))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
         staticAtlasTemporalIdentity(payload, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
@@ -4780,19 +4831,37 @@ __URL_STATE_CONTROLLER__
         const [south, west, north, east] = row.bounds.map(Number);
         return north >= bounds.getSouth() && south <= bounds.getNorth() && east >= bounds.getWest() && west <= bounds.getEast();
       }
+      function staticAtlasNodeSelectionNeeded(row) {
+        const layer = staticAtlasLayerForRow(row);
+        return Boolean(layer && activeLayerKeys.has(layer.key)
+          && staticAtlasCountryNeeded(row, layer) && staticAtlasTimeNeeded(row, layer)
+          && staticAtlasSignalNeeded(row, layer));
+      }
+      function requiredStaticAtlasEdgeNodeKeys() {
+        if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.schema_version === 'atlas-edges-chunk.v1') return new Set();
+        const edges = STATIC_ATLAS_CHUNKS.edges, nodeRows = validateStaticAtlasEdgeAssets(edges);
+        const result = new Set();
+        for (const edge of visibleGovernedEdges()) {
+          const source = edges.endpoint_node_geometry[edge.source_record_id].filter(hint => staticAtlasNodeSelectionNeeded(nodeRows.get(hint.asset_key)));
+          const target = edges.endpoint_node_geometry[edge.target_record_id].filter(hint => staticAtlasNodeSelectionNeeded(nodeRows.get(hint.asset_key)));
+          const intersects = !map._loaded || source.some(left => {
+            const a = featureCoordinatePair(left);
+            return a && target.some(right => {
+              const b = featureCoordinatePair(right);
+              return b && atlasEdgeIntersectsViewport(map, [[a.latitude, a.longitude], [b.latitude, b.longitude]]);
+            });
+          });
+          if (intersects) [...source, ...target].forEach(hint => result.add(hint.asset_key));
+        }
+        return result;
+      }
       function requiredStaticAtlasNodeAssets() {
         if (STATIC_ATLAS_INLINE) return [];
+        const endpointKeys = requiredStaticAtlasEdgeNodeKeys();
         const required = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => {
           if (row.domain !== 'nodes' || staticAtlasLoadedAssets.has(row.asset_key)) return false;
-          const layer = staticAtlasLayerForRow(row);
-          return Boolean(
-            layer
-            && activeLayerKeys.has(layer.key)
-            && staticAtlasCountryNeeded(row, layer)
-            && staticAtlasTimeNeeded(row, layer)
-            && staticAtlasSignalNeeded(row, layer)
-            && staticAtlasViewportNeeded(row)
-          );
+          return staticAtlasNodeSelectionNeeded(row)
+            && (endpointKeys.has(row.asset_key) || staticAtlasViewportNeeded(row));
         });
         if (Object.hasOwn(STATIC_ATLAS_BOOTSTRAP.compatibility || {}, 'search_index_abi')) {
           if (STATIC_ATLAS_BOOTSTRAP.compatibility.search_index_abi !== 'atlas-substring-postings.v1') staticAtlasFailure('unsupported search ABI');
@@ -4831,6 +4900,7 @@ __URL_STATE_CONTROLLER__
         const signal = beginStaticAtlasSelection(required);
         await waitForStaticAtlasSelection(Promise.all(required.map((row) => loadStaticAtlasAsset(row, true))), signal);
         signal.throwIfAborted();
+        validateLoadedStaticAtlasEdgeAssets();
         refreshStaticAtlasLayers();
         return required;
       }

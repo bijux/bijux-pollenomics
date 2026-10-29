@@ -16,6 +16,7 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_BYTES,
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
+from .edges import validate_edge_endpoint_assets
 from .index_bundles import decode_index_bundle
 from .indexes import build_indexes
 from .models import StaticAtlasAssets
@@ -193,6 +194,11 @@ def _validate_static_payloads(
         "sequences": compatibility.get("sequence_schema"),
         "indexes": compatibility.get("index_schema"),
     }
+    node_payloads = {
+        str(row["asset_key"]): payloads[str(row["asset_key"])]
+        for row in asset_rows
+        if row.get("domain") == "nodes"
+    }
     detail_record_assets: dict[str, str] = {}
     detail_record_order: list[str] = []
     index_payload: Mapping[str, object] | None = None
@@ -213,6 +219,8 @@ def _validate_static_payloads(
             raise ValueError(f"static atlas {asset_key} payload identity changed")
         if payload.get("schema_version") != expected_schemas.get(domain):
             raise ValueError(f"static atlas {asset_key} schema changed")
+        if domain == "edges":
+            validate_edge_endpoint_assets(payload, node_payloads)
         if domain == "details":
             records = payload.get("records")
             if not isinstance(records, list) or any(

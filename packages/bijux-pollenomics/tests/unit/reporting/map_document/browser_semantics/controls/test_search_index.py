@@ -156,6 +156,11 @@ def test_real_writer_codec_and_search_renderer_preserve_visible_substrings(
                     for row in normalize_asset_inventory(assets.manifest["assets"])
                     if row["domain"] == "indexes"
                 ),
+                "edges": next(
+                    value
+                    for value in payloads.values()
+                    if str(value["schema_version"]).startswith("atlas-edges-chunk.")
+                ),
                 "bootstrap": assets.manifest,
                 "assetRows": normalize_asset_inventory(assets.manifest["assets"]),
             }
@@ -165,7 +170,8 @@ def test_real_writer_codec_and_search_renderer_preserve_visible_substrings(
 const assert=require('node:assert/strict');
 function staticAtlasFailure(message){throw new Error(message)}
 const STATIC_ATLAS_INLINE=false, STATIC_ATLAS_BOOTSTRAP=data.bootstrap;
-const STATIC_ATLAS_CHUNKS={indexes:data.index,provenance:{layers:data.points.map((layer,layer_index)=>({layer_kind:'point',layer_index,layer,feature_count:layer.features.length}))}};
+const STATIC_ATLAS_CHUNKS={indexes:data.index,edges:data.edges,provenance:{layers:data.points.map((layer,layer_index)=>({layer_kind:'point',layer_index,layer,feature_count:layer.features.length}))}};
+function visibleGovernedEdges(){return STATIC_ATLAS_CHUNKS.edges.records;}
 const staticAtlasSearchFeatureKeys=new WeakMap(),staticAtlasLoadedAssets=new Set(),ALL_LAYERS=data.points,activeLayerKeys=new Set();
 let visiblePointEntries=data.points.flatMap((layer,i)=>layer.features.map((feature,j)=>{staticAtlasSearchFeatureKeys.set(feature,`d:${i}:${j}`);return {layer,feature,neighborContext:j===1}}));
 let buttons=[],focused=-1;const searchInput={value:''},searchClearButton={},searchCount={dataset:{}},searchResults={hidden:true,innerHTML:'',querySelectorAll(){buttons=[];return Array.from({length:(this.innerHTML.match(/data-search-index=/g)||[]).length},()=>({addEventListener(event,fn){buttons.push(fn)}}))}};

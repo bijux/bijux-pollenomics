@@ -26,6 +26,7 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_BYTES,
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
+from .edges import EDGE_SCHEMA, edge_endpoint_assets, edge_endpoint_geometry
 from .index_bundles import (
     build_index_bundle,
 )
@@ -100,6 +101,11 @@ def write_static_atlas_assets(
         polygon_layers=polygon_layers,
         temporal_profile=temporal_profile,
     )
+    endpoint_nodes = {
+        f"nodes:{index}": payload for index, payload in enumerate(node_payloads, 1)
+    }
+    endpoint_assets = edge_endpoint_assets(evidence.edge_records, endpoint_nodes)
+    endpoint_geometry = edge_endpoint_geometry(evidence.edge_records, endpoint_nodes)
     detail_partitions = partition_features(
         [dict(record) for record in evidence.detail_records],
         target_bytes=ATLAS_DETAIL_CHUNK_TARGET_BYTES,
@@ -210,7 +216,17 @@ def write_static_atlas_assets(
                 domain,
                 len(records),
                 {
-                    "schema_version": f"atlas-{domain}-chunk.v1",
+                    "schema_version": EDGE_SCHEMA
+                    if domain == "edges"
+                    else f"atlas-{domain}-chunk.v1",
+                    **(
+                        {
+                            "endpoint_node_assets": endpoint_assets,
+                            "endpoint_node_geometry": endpoint_geometry,
+                        }
+                        if domain == "edges"
+                        else {}
+                    ),
                     "scope_slug": slug,
                     "version": version,
                     "build_id": build_id,
@@ -303,7 +319,7 @@ def write_static_atlas_assets(
             if temporal_profile is not None
             else "atlas-node-chunk.v1",
             "detail_schema": "atlas-details-chunk.v1",
-            "edge_schema": "atlas-edges-chunk.v1",
+            "edge_schema": EDGE_SCHEMA,
             "sequence_schema": "atlas-sequences-chunk.v1",
             "index_schema": index_bundle["schema_version"],
             "search_index_abi": indexes["search_index_abi"],
