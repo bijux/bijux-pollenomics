@@ -1,0 +1,102 @@
+{
+  "schema_version": "adna-owned-sample-export-terminal.v1",
+  "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+  "plan_sha256": "86618be564ff435074e2518a383e0bd1066e9e479bf397296edf6bd8d944d7bc",
+  "actual_exit": 0,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/plan.json",
+    "--registered-plan-sha256",
+    "86618be564ff435074e2518a383e0bd1066e9e479bf397296edf6bd8d944d7bc"
+  ],
+  "stages": [
+    {
+      "id": "maintained-sample-producer",
+      "action": "producer",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/entry.py",
+        "producer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 44.8023670000257,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/maintained-sample-producer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/maintained-sample-producer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "id": "independent-source-sample-observer",
+      "action": "observer",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/entry.py",
+        "observer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 29.21698450000258,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/independent-source-sample-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/independent-source-sample-observer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "exception": null,
+  "after_custody_error": null,
+  "completed_elapsed_seconds": 116.41594908299157,
+  "completed_child_peak_RSS_bytes_macos": 549715968,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_whole_wall_bound_pass": true,
+  "products_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/output-products.json",
+    "sha256": "edceec401619d9cfeae619de0199870575d5ee9d097000c8d47bb7b483e05d41",
+    "bytes": 738726
+  },
+  "products_count_before_manifest": 2205,
+  "own_receipt_reserve_bytes": 16384,
+  "outer_receipt_reserve_bytes": 16384,
+  "source_freeze_identity": {
+    "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+    "status": "",
+    "tracked_inventory_sha256": "e8b342baaf623428b5037c4445c2affbf0d2b5c9f11f316771b8fe9c6e37ee1d"
+  },
+  "live_canonical_equality_claimed": false,
+  "OS_quota_or_full_descendant_RSS_claimed": false,
+  "resources": {
+    "overall_timeout_seconds": 420,
+    "outer_timeout_seconds": 480,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 536870912
+  },
+  "scope": "Genuine current maintained AADR raw ANNO to default v2 CSV/GeoJSON metadata export and independent full typed reconstruction. Historical v1 comparison is reported without forced byte equality. No rich-provenance recovery, genotype, rights, human biology, ecology, pollen or LRA admission."
+}

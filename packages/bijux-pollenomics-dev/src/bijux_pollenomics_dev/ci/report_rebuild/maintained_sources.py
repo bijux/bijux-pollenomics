@@ -30,6 +30,9 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.adna.current_export import (
+    validated_aadr_current_export_evidence,
+)
 from .scientific_captures.author_grid.admission import validated_author_grid_capture
 from .scientific_captures.author_native_reference import (
     validated_author_native_reference_capture,
@@ -276,6 +279,9 @@ def validated_maintained_report_sources(
             ):
                 raise ReportRebuildError(f"maintained source inventory differs: {path}")
             selected.append(entry)
+    adna_current_export_evidence = validated_aadr_current_export_evidence(
+        repository, inventory["owners"]
+    )
     capture_entries, capture_evidence = validated_swedish_static_basin_captures(
         repository, tracked_by_path, inventory["owners"]
     )
@@ -443,6 +449,8 @@ def validated_maintained_report_sources(
         },
         "inventory": inventory_json(sorted(selected, key=lambda entry: entry.path)),
     }
+    if adna_current_export_evidence is not None:
+        evidence["retained_adna_current_export_evidence"] = adna_current_export_evidence
     if capture_entries:
         evidence["retained_scientific_captures"] = capture_evidence
     if parameter_entries:

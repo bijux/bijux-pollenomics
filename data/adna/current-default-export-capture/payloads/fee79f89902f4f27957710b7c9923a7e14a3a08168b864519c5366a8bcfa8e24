@@ -1,0 +1,75 @@
+{
+  "schema_version": "aadr-current-export-source-qualification.v1",
+  "source_only": true,
+  "actual_exit": 0,
+  "source_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "final_checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/final-guards.json",
+      "sha256": "c3461a02eee3774e28520fe170107a1cda09d34d0a4e254170ed37ce186acbf0",
+      "bytes": 1155
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/final-strict.json",
+      "sha256": "de3725cfb7a9b1e16ec35eaa33f1a59412d7105cbe9e87727dbaa257d1e73f04",
+      "bytes": 2389
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/final-ruff.json",
+      "sha256": "25ac1cd1191de438d428084c8cd5628a206e42295721ee168de4537553d91d85",
+      "bytes": 2397
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/final-format.json",
+      "sha256": "869303048bf9cb218ab43a20c3065ec4669e13b04a3d4ce87eea4bc8cd30d3ef",
+      "bytes": 2417
+    }
+  ],
+  "final_AST": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/final-ast.json",
+    "sha256": "4d149acb027457b23b4fb298a2236515e795665dc97820075bd2152365b19462",
+    "bytes": 3369
+  },
+  "artificial_groups": 75,
+  "strict_authored_or_adapted_files": 10,
+  "configured_Ruff_files": 14,
+  "configured_format_files": 14,
+  "AST_files": 14,
+  "source_tool_driver": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/qualify_source.py",
+    "sha256": "38ad61f26272c657df96bd2512caab151cd77fad630ab28797e6806372a51b43",
+    "bytes": 2513
+  },
+  "synthetic_scope": [
+    "Real maintained dataclass/as_dict/CSV/GeoJSON function ASTs exercised on artificial records without project module imports.",
+    "Equal/overlap/touch/disjoint/bridged/missing duplicate row supports; full evidence retained, hull gaps refused scientifically.",
+    "Exact reviewed namespace/manifest/peer fixtures, helper tamper, FIFO, extension, directory and entry alias refusal.",
+    "Raw release namespace/ancestry, same-buffer plan tamper and strict two-role/time/argv resource guards.",
+    "Loader rejection before pinned Git and source-stage call ordering."
+  ],
+  "retained_source_check_diagnostics": {
+    "initial_control_annotations": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/initial-control-qualification",
+    "serializer_contract_pass": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/serializer-contract-qualification",
+    "support_pair_style_diagnostic": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/support-audit-style-diagnostic",
+    "description": "Initial source-control annotation/import issues and adjacent-pair Ruff style refusal were corrected before the final all-zero checks. No native or data consumer ran."
+  },
+  "actual_raw_body_hash_or_decode": false,
+  "actual_project_API_import_or_conversion": false,
+  "actual_preparer_or_runtime_census_or_native": false,
+  "canonical_changes": false,
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/protocol.json",
+    "sha256": "b445a2547e0d47f2fcd3a460f0a14b0af6fe2701bfee48a0a79c3c466b0ff827",
+    "bytes": 5983
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/source-correspondence.json",
+    "sha256": "a0b00ce7b2e35be312c74aab33b44f0af5d37bfa7b3aa41e194549a6d6de0dce",
+    "bytes": 5174
+  }
+}

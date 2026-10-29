@@ -1,0 +1,242 @@
+{
+  "schema_version": "adna-public-taxon-metadata-diagnostic.v1",
+  "source_only": true,
+  "root_authorized_scope": "Read declared public normalized JSON identity/taxon/provenance metadata only; no full scientific consumer or private body parse",
+  "containers": [
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/bos_taurus/normalized/sample_records.json",
+        "sha256": "d5060a5f657a2db322a99b23a12f5467959dd95f8fbb1a9fc9d6a45a5b5dcbc6",
+        "bytes": 583597
+      },
+      "container_species": "Bos taurus",
+      "source_taxon_counts": {
+        "Bos taurus": 129,
+        "Bos primigenius": 3
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": [
+        {
+          "identity": {
+            "namespace": "bos_taurus:curated_sample",
+            "stable_token": "bos_taurus:sample:prjna705960:samn18106827",
+            "accession_lineage": [
+              "species:Bos primigenius",
+              "source:ENA",
+              "project:PRJNA705960",
+              "sample:prjna705960:samn18106827"
+            ]
+          },
+          "species_latin_name": "Bos primigenius",
+          "source_native_tax_id": "9909",
+          "source_native_scientific_name": "Bos primigenius",
+          "project_accession": "PRJNA705960",
+          "master_id": "prjna705960:samn18106827",
+          "taxon_alignment_status": "project_species_mismatch",
+          "inclusion_status": "sample_context_blocked"
+        },
+        {
+          "identity": {
+            "namespace": "bos_taurus:curated_sample",
+            "stable_token": "bos_taurus:sample:prjna705960:samn18106828",
+            "accession_lineage": [
+              "species:Bos primigenius",
+              "source:ENA",
+              "project:PRJNA705960",
+              "sample:prjna705960:samn18106828"
+            ]
+          },
+          "species_latin_name": "Bos primigenius",
+          "source_native_tax_id": "9909",
+          "source_native_scientific_name": "Bos primigenius",
+          "project_accession": "PRJNA705960",
+          "master_id": "prjna705960:samn18106828",
+          "taxon_alignment_status": "project_species_mismatch",
+          "inclusion_status": "sample_context_blocked"
+        },
+        {
+          "identity": {
+            "namespace": "bos_taurus:curated_sample",
+            "stable_token": "bos_taurus:sample:prjna705960:samn18106829",
+            "accession_lineage": [
+              "species:Bos primigenius",
+              "source:ENA",
+              "project:PRJNA705960",
+              "sample:prjna705960:samn18106829"
+            ]
+          },
+          "species_latin_name": "Bos primigenius",
+          "source_native_tax_id": "9909",
+          "source_native_scientific_name": "Bos primigenius",
+          "project_accession": "PRJNA705960",
+          "master_id": "prjna705960:samn18106829",
+          "taxon_alignment_status": "project_species_mismatch",
+          "inclusion_status": "sample_context_blocked"
+        }
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/camelus_dromedarius/normalized/sample_records.json",
+        "sha256": "36d05818a7674783683e1198d3d114f7b1a9b3f5f96d2d1c2be71b06c6ece629",
+        "bytes": 134940
+      },
+      "container_species": "Camelus dromedarius",
+      "source_taxon_counts": {
+        "Camelus dromedarius": 31
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": []
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/canis_lupus_familiaris/normalized/sample_records.json",
+        "sha256": "24f55ac6ace7c8ebe69b016ca86013d44e33d916723479469c61c7121670c3d3",
+        "bytes": 16125
+      },
+      "container_species": "Canis lupus familiaris",
+      "source_taxon_counts": {
+        "Canis lupus familiaris": 4
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": []
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/capra_hircus/normalized/sample_records.json",
+        "sha256": "8dbb479f68b409832ef790940544f8480a61f5d2495674d06696229a5a04e153",
+        "bytes": 362636
+      },
+      "container_species": "Capra hircus",
+      "source_taxon_counts": {
+        "Capra hircus": 82
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": []
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/equus_asinus/normalized/sample_records.json",
+        "sha256": "c7a49dd79e4bde1c27e92a8e66200694c7d24c41af72c892c21ffa381f8df526",
+        "bytes": 2934
+      },
+      "container_species": "Equus asinus",
+      "source_taxon_counts": {},
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": []
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/equus_caballus/normalized/sample_records.json",
+        "sha256": "9b0af17de81f8be2753433b9a65fb9768296b848f88ac1bc7587f1dbc6f86587",
+        "bytes": 2365153
+      },
+      "container_species": "Equus caballus",
+      "source_taxon_counts": {
+        "Equus caballus": 550
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": []
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/felis_catus/normalized/sample_records.json",
+        "sha256": "07670ff7e5cb629c8c3951c3e7242a2170a2d411bc13e93c401c37ca6d43277f",
+        "bytes": 444485
+      },
+      "container_species": "Felis catus",
+      "source_taxon_counts": {
+        "Felis catus": 106
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": []
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/ovis_aries/normalized/sample_records.json",
+        "sha256": "479fe9fe9e149829987f228d7e49b45f2b1307b5b9078e4950e97a5a7890a917",
+        "bytes": 818123
+      },
+      "container_species": "Ovis aries",
+      "source_taxon_counts": {
+        "Ovis aries": 199,
+        "Capra hircus": 1
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": [
+        {
+          "identity": {
+            "namespace": "ovis_aries:curated_sample",
+            "stable_token": "ovis_aries:sample:prjeb41594:samea8022722",
+            "accession_lineage": [
+              "species:Capra hircus",
+              "source:ENA",
+              "project:PRJEB41594",
+              "sample:prjeb41594:samea8022722"
+            ]
+          },
+          "species_latin_name": "Capra hircus",
+          "source_native_tax_id": "9925",
+          "source_native_scientific_name": "Capra hircus",
+          "project_accession": "PRJEB41594",
+          "master_id": "prjeb41594:samea8022722",
+          "taxon_alignment_status": "project_species_mismatch",
+          "inclusion_status": "sample_context_blocked"
+        }
+      ]
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/rangifer_tarandus/normalized/sample_records.json",
+        "sha256": "ce12e3391bd5a3456a3d78bb6586c44a70dccd721aafe2c4b597c361491a49db",
+        "bytes": 97601
+      },
+      "container_species": "Rangifer tarandus",
+      "source_taxon_counts": {
+        "Rangifer tarandus": 20
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": []
+    },
+    {
+      "input": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/adna/species/sus_scrofa_domesticus/normalized/sample_records.json",
+        "sha256": "907bb2e89b53f4233baa6a55eac504e5b6bc4d219e100deaf7456cf29dd91093",
+        "bytes": 1542156
+      },
+      "container_species": "Sus scrofa domesticus",
+      "source_taxon_counts": {
+        "Sus scrofa domesticus": 343
+      },
+      "identity_metadata_join_failures": [],
+      "distinct_source_taxa_retained": []
+    }
+  ],
+  "namespace_crossings_observed": 0,
+  "source_taxon_variations_observed": 4,
+  "conclusion": "The failed observer conflated project/container taxonomy with source-owned sample taxonomy; four known exceptions remain blocked, not accepted as wild/domestic analytical proxies.",
+  "scientific_consumer_pass_or_full_clause_adjudication_claimed": false,
+  "galician_exact_accession_authority": {
+    "public_document": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/dna-scope/galician-cattle-paper.json",
+      "sha256": "34f3899c37c437d55c8a891d834a7f119edf4ede46f076da03160e9f31a8b567",
+      "bytes": 7829
+    },
+    "hash_exactly_declared_by_original_pinned_source": true,
+    "public_crosswalk_projection": [
+      {
+        "biosample_accession": "SAMN18106827",
+        "source_species": "Bos primigenius"
+      },
+      {
+        "biosample_accession": "SAMN18106828",
+        "source_species": "Bos primigenius"
+      },
+      {
+        "biosample_accession": "SAMN18106829",
+        "source_species": "Bos primigenius"
+      }
+    ],
+    "scope": "Public documentary metadata only; underlying private/archive source bodies not reparsed and no original acquisition reauthentication"
+  }
+}
