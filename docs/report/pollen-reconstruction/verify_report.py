@@ -94,15 +94,15 @@ def _radius_paired_retained_sha256(name: str, path: Path) -> str:
         "direct_mae": (
             "docs/report/pollen-reconstruction/author-lra-constrained/"
             "direct-pollen/matched-scores.csv",
-            "a1299c24ad4ac875b0cf9d0ec10251719a63ed46",
-            "623b0eb20e46e86fccbd48e840fa20e1882b89bf17ef3ef81c89e63c3a2c6f50",
+            "7d86702109e2d3e12e7f879b460823e9e81d457a",
+            "3a1f3835df417403ded587aa64a036edad50dfb244969c99ed45e70e58322dd5",
             12440,
         ),
         "direct_hellinger": (
             "docs/report/pollen-reconstruction/author-lra-constrained/"
             "direct-pollen/paired-hellinger.json",
-            "0f552f401fc02e27e8745abdfce44e9c4a181b2c",
-            "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+            "82705385b1e9a334809904757c1536b6a4edcd12",
+            "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
             26709,
         ),
     }
@@ -114,7 +114,7 @@ def _radius_paired_retained_sha256(name: str, path: Path) -> str:
     member = GitSourceMember(
         member=relative,
         repository_path=relative,
-        source_revision="a734ef042e20ae18042583caa2bd9894cb018b1e",
+        source_revision="535b508c6c3d9a771394cfe191e7265f5d937198",
         git_blob=blob,
         sha256=checksum,
         bytes=size,
