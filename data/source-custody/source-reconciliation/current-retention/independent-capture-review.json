@@ -1,0 +1,37 @@
+{
+  "actual_exit": 0,
+  "metadata_only": true,
+  "capture": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/packet/capture.json",
+    "sha256": "c7f755751a4da3e2e3eefbe83bb6d0e72be73461f4dc8faba659367c1bb60c68",
+    "bytes": 33636603
+  },
+  "original_ordered_inputs": 63315,
+  "original_source_join_count": 7142,
+  "retained_payloads": 2269,
+  "actual_packet_bytes": 110733995,
+  "receipt_scope": {
+    "native_source_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+    "native_stage_exits": [
+      0,
+      0
+    ],
+    "native_inner_and_outer_exits": [
+      0,
+      0
+    ],
+    "source_families": 11,
+    "country_cells": 198,
+    "capability_cells": 187,
+    "input_records": 321,
+    "present": 284,
+    "native_missing": 37,
+    "native_missing_absent": 35,
+    "native_directory_as_file": 2,
+    "mechanical_findings": 0,
+    "full_source_confirmation": false,
+    "original_owner_remains_unresolved": true
+  },
+  "raw_or_selected_rows_decoded_or_consumer_repeated": false,
+  "original_owner_acceptance_changed": false
+}

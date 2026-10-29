@@ -1,0 +1,102 @@
+{
+  "schema_version": "current-source-audit-metadata-capture-terminal.v1",
+  "candidate": "1931cba9dcf60ff0297f8d438c4d2866a19f37b6",
+  "plan_sha256": "8a44b18a87dfe1aaa00325d7c86fe833e109026979b8b81b2667e4e85456b370",
+  "actual_exit": 0,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/plan.json",
+    "--registered-plan-sha256",
+    "8a44b18a87dfe1aaa00325d7c86fe833e109026979b8b81b2667e4e85456b370"
+  ],
+  "stages": [
+    {
+      "id": "retained-current-source-audit-assembly",
+      "action": "assemble",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/entry.py",
+        "assemble",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 65.2217185840127,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/retained-current-source-audit-assembly.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/retained-current-source-audit-assembly.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "id": "independent-current-source-audit-capture-observer",
+      "action": "observer",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/entry.py",
+        "observer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 63.11597870802507,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/independent-current-source-audit-capture-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/independent-current-source-audit-capture-observer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "exception": null,
+  "after_custody_error": null,
+  "completed_elapsed_seconds": 183.91936079098377,
+  "completed_child_peak_RSS_bytes_macos": 573276160,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_whole_wall_bound_pass": true,
+  "products_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/output-products.json",
+    "sha256": "b8d2b2250359b3ee973acf53659a418a243888b4c93e72f2839d407d68540987",
+    "bytes": 681100
+  },
+  "products_count_before_manifest": 2279,
+  "own_receipt_reserve_bytes": 16384,
+  "outer_receipt_reserve_bytes": 16384,
+  "source_freeze_identity": {
+    "candidate": "1931cba9dcf60ff0297f8d438c4d2866a19f37b6",
+    "status": "",
+    "tracked_inventory_sha256": "a987681b4323d6aafd7cefab814ed38204442a55f93cb6765f035700030e7a01"
+  },
+  "live_canonical_equality_claimed": false,
+  "OS_quota_or_full_descendant_RSS_claimed": false,
+  "resources": {
+    "overall_timeout_seconds": 420,
+    "outer_timeout_seconds": 480,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 536870912
+  },
+  "scope": "Metadata retention of the genuine current source accounting producer and complete independent reconstruction. All599 original data/private input bodies and execution copies remain identity-only; no original26116f audit or original summary construction recovery, source semantic confirmation, ownership transition, rights, human, ecological or LRA acceptance."
+}
