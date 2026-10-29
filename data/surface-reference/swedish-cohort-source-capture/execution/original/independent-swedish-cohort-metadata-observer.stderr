@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/observe.py", line 130, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/observe.py", line 64, in main
+    expected = independently_joined_report(ROOT, Path(declared["private_root"]))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/metadata.py", line 209, in report
+    site_ids = dataset_sites(inventory["data"])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/metadata.py", line 96, in dataset_sites
+    datasets = [row["datasetid"] for row in records]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/metadata.py", line 96, in <listcomp>
+    datasets = [row["datasetid"] for row in records]
+                ~~~^^^^^^^^^^^^^
+KeyError: 'datasetid'

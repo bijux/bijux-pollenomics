@@ -65,6 +65,9 @@ from .scientific_captures.pollen_source.solsoe_pollen import (
 from .scientific_captures.pollen_source.solsoe_selection import (
     validated_solsoe_selection_capture,
 )
+from .scientific_captures.pollen_source.swedish_cohort import (
+    validated_swedish_cohort_capture,
+)
 from .scientific_captures.representative_performance import (
     validated_representative_performance_capture,
 )
@@ -312,6 +315,9 @@ def validated_maintained_report_sources(
     rootsi_entries, rootsi_evidence = validated_rootsi_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    swedish_entries, swedish_evidence = validated_swedish_cohort_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -330,6 +336,7 @@ def validated_maintained_report_sources(
         + solsoe_entries
         + solsoe_pollen_entries
         + svar_entries
+        + swedish_entries
         + rootsi_entries
         + controlled_numerical_entries
     )
@@ -402,4 +409,6 @@ def validated_maintained_report_sources(
         evidence["retained_svar_normalized_source"] = svar_evidence
     if rootsi_entries:
         evidence["retained_rootsi_workbook_chronology"] = rootsi_evidence
+    if swedish_entries:
+        evidence["retained_swedish_cohort_metadata"] = swedish_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

@@ -1,0 +1,31 @@
+bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py:292: error:
+Incompatible types in assignment (expression has type "bytes", variable has type
+"str")  [assignment]
+        prefix = b"original stage summaries\n"
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py:311: error:
+Argument 1 to "validate_launch_log" has incompatible type "str"; expected
+"bytes"  [arg-type]
+        validate_launch_log(prefix + tail, original_log, common_pin, outer...
+                            ^~~~~~~~~~~~~
+bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py:311: error:
+Unsupported operand types for + ("str" and "bytes")  [operator]
+        validate_launch_log(prefix + tail, original_log, common_pin, outer...
+                                     ^~~~
+bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py:313: error:
+Unsupported operand types for + ("bytes" and "str")  [operator]
+            b"X" + prefix[1:] + tail,
+                   ^~~~~~~~~~
+bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py:314: error:
+Unsupported operand types for + ("str" and "bytes")  [operator]
+            prefix + tail[:-1],
+                     ^~~~~~~~~
+bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py:315: error:
+Unsupported operand types for + ("str" and "bytes")  [operator]
+            prefix + tail + b"unrecorded",
+                     ^~~~
+bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py:322: error:
+Unsupported operand types for + ("str" and "bytes")  [operator]
+            prefix + tail,
+                     ^~~~
+Found 7 errors in 1 file (checked 9 source files)

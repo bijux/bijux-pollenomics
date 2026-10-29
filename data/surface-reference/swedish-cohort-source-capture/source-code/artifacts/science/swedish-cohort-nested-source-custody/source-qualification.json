@@ -1,0 +1,146 @@
+{
+  "schema_version": "swedish-nested-source-source-qualification.v1",
+  "source_only_actual_exit": 0,
+  "meaningful_guard_groups": 23,
+  "strict_files": 9,
+  "configured_Ruff_files": 9,
+  "configured_format_files": 9,
+  "AST_files": 10,
+  "checks": {
+    "guards": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/source-guards.log",
+      "sha256": "60f19e9f223116a50b3dd7f05a848f4405c9ff12610e1ebfc9cee7f585f540ba",
+      "bytes": 62,
+      "actual_exit": 0
+    },
+    "strict": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/source-strict.log",
+      "sha256": "46984ca20bf69f7b14ec1fd9bd82101d56a4e109e68f016fd2a04f22481b09b3",
+      "bytes": 43,
+      "actual_exit": 0
+    },
+    "Ruff": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/source-Ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19,
+      "actual_exit": 0
+    },
+    "format": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/source-format.log",
+      "sha256": "2ce9758b9f8abd876ec3e76c589e099e8b05377b1e7ea2331e81ee80f07bdff8",
+      "bytes": 26,
+      "actual_exit": 0
+    }
+  },
+  "guard_receipt": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/qualified-source-controls/receipt.json",
+    "sha256": "838876d3d3a04a6e556545186c4f4310da4f141474d0269a89cbde9b9fca79ea",
+    "bytes": 1930
+  },
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py",
+      "sha256": "a40bab653e2e6fd1395ba4b84c15d38f7c99892d162f1e9744223cf8fd00a871",
+      "bytes": 15310
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/contracts.py",
+      "sha256": "35f11e526c613aea57f0f64d10055f6bf4e687e994c1f6c231ca0af09b1a3c5f",
+      "bytes": 7658
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/custody.py",
+      "sha256": "ebdfd4212f719336d382808974a0cca8e2d042208941c38aede8eeee5b5fb9eb",
+      "bytes": 6798
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/execute_source.py",
+      "sha256": "4c92f6c1828c889bb5c661e903758f2845706ead675496b2d6b4dd84f579b137",
+      "bytes": 3839
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/metadata.py",
+      "sha256": "8be89912194e5fa18b2b7c8a15834ea7e5fe40f49bbf368f4f4dc5e8cc32eaf7",
+      "bytes": 18349
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/observe.py",
+      "sha256": "828f9a8d66e19962be5aaffa37ad3f83be42b4f959aafe079f7c29213380eb32",
+      "bytes": 5850
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/prepare.py",
+      "sha256": "252550b83a589a23c96b6f205409a12844b58d14dcc26ee314e1991303f84179",
+      "bytes": 6502
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/run.py",
+      "sha256": "2e30d8401899f9bda0ba0bdae27d9948775d21ed57b323de3ef4a5c4c71bfb01",
+      "bytes": 8518
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    }
+  ],
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/source-correspondence.json",
+    "sha256": "3ba900f170634116e722963ae53da0313ed48c8cbaa8731d0f8459188cef4585",
+    "bytes": 1481
+  },
+  "metadata_shape": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/metadata-input-shape.json",
+    "sha256": "9d06a928e1e9b93209d1a67a05e4fde8aa75c607ddbdc4b9821c6c00985c5df6",
+    "bytes": 753
+  },
+  "source_delta": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/source-observer.diff",
+    "sha256": "1306ca60cbc1c32a564be815b58f8cd93186a281e5e890663e1c700e41765339",
+    "bytes": 23488
+  },
+  "predecessor_source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/prepared-source-manifest.json",
+    "sha256": "8b7e3f52baee6f1cfdd1b654cc7d0992504ad838b910c5e798ea2c351528b08a",
+    "bytes": 5976
+  },
+  "source_tools_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "initial_source_only_refusals": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/guards.log",
+      "sha256": "981c078f4dd6e0c47b04dd89b5a6ab9dc6496bac75c0eb9c8b4bda5c66636399",
+      "bytes": 1389
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/strict.log",
+      "sha256": "3bb32ff0f3a0d9114bc12851f51745b6ca65ec054cdf5f15ad2afe1f1561eebb",
+      "bytes": 284
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/qualified-strict.log",
+      "sha256": "86e23024e49aa369f88aed51aebfbdc37eff6356d0a51c9cff8ac2b6950b24a9",
+      "bytes": 1881
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/held-format.log",
+      "sha256": "b48e12b0ac584e7c68a8aeb6afced03a949cda9a80ed53778f3ac0f5adac636a",
+      "bytes": 163
+    }
+  ],
+  "construction_common_formatter_output": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/formatted-common-construction.py",
+    "sha256": "77b7fc3ded403a7437ae45de6897fed079435ebe5b6e93c2314c640bb4f9d391",
+    "bytes": 8921
+  },
+  "common906_restored_before_all_qualified_checks": true,
+  "actual_fullprivate_metadata_join_XLSdecode_xlrd_import_preparer_inspector_R_model_source_producer_calls": 0
+}

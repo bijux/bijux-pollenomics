@@ -1,0 +1,23 @@
+{
+  "source": {
+    "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/neotoma-sweden-datasets-current.json",
+    "sha256": "f792b798c9c0eeca1954abbb6adc5e49571b6f0b686e3f439f288376294774b8",
+    "bytes": 99956
+  },
+  "observed_serialized_shape": {
+    "top_keys": [
+      "status",
+      "data",
+      "message"
+    ],
+    "record_key_sets": [
+      [
+        "site"
+      ]
+    ],
+    "records_with_exactly_one_site_datasets_member": 102,
+    "nested_datasetid_type": "int",
+    "site_siteid_type": "int"
+  },
+  "scope": "Read-only relevant serialized keys, container cardinality and field types. No raw identities, metadata join, numerical report comparison, producer or full26-private-metadata consumer executed."
+}

@@ -1,0 +1,5 @@
+bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py:305: error:
+Call to untyped function (unknown) in typed context  [no-untyped-call]
+            mutation(altered)
+            ^~~~~~~~~~~~~~~~~
+Found 1 error in 1 file (checked 9 source files)

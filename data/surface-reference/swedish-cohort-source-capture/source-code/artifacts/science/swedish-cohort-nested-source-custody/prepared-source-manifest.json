@@ -1,0 +1,193 @@
+{
+  "schema_version": "swedish-nested-source-observer-prepared-source.v1",
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "a40bab653e2e6fd1395ba4b84c15d38f7c99892d162f1e9744223cf8fd00a871",
+      "bytes": 15310
+    },
+    {
+      "path": "common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "35f11e526c613aea57f0f64d10055f6bf4e687e994c1f6c231ca0af09b1a3c5f",
+      "bytes": 7658
+    },
+    {
+      "path": "custody.py",
+      "sha256": "ebdfd4212f719336d382808974a0cca8e2d042208941c38aede8eeee5b5fb9eb",
+      "bytes": 6798
+    },
+    {
+      "path": "execute_source.py",
+      "sha256": "4c92f6c1828c889bb5c661e903758f2845706ead675496b2d6b4dd84f579b137",
+      "bytes": 3839
+    },
+    {
+      "path": "metadata.py",
+      "sha256": "8be89912194e5fa18b2b7c8a15834ea7e5fe40f49bbf368f4f4dc5e8cc32eaf7",
+      "bytes": 18349
+    },
+    {
+      "path": "observe.py",
+      "sha256": "828f9a8d66e19962be5aaffa37ad3f83be42b4f959aafe079f7c29213380eb32",
+      "bytes": 5850
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "252550b83a589a23c96b6f205409a12844b58d14dcc26ee314e1991303f84179",
+      "bytes": 6502
+    },
+    {
+      "path": "run.py",
+      "sha256": "2e30d8401899f9bda0ba0bdae27d9948775d21ed57b323de3ef4a5c4c71bfb01",
+      "bytes": 8518
+    },
+    {
+      "path": "runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "declared-inputs.json",
+      "sha256": "2285665dc8cea9788440ff961069cb957f40f9240b3cfad35a6adeedf3d24911",
+      "bytes": 8751
+    },
+    {
+      "path": "predecessor-prepared-source-manifest.json",
+      "sha256": "8b7e3f52baee6f1cfdd1b654cc7d0992504ad838b910c5e798ea2c351528b08a",
+      "bytes": 5976
+    },
+    {
+      "path": "predecessor-source-qualification.json",
+      "sha256": "53319462cd9b93ebe44059fda606af1766ddf813c6cd7f9e8e9d680944eb6df6",
+      "bytes": 5522
+    },
+    {
+      "path": "predecessor-independent-source-review.json",
+      "sha256": "3ec08600391a04feae2b2616cdfb6c187cb44feb109f8a1fb89a7453cf8f2b7c",
+      "bytes": 4069
+    },
+    {
+      "path": "metadata-input-shape.json",
+      "sha256": "9d06a928e1e9b93209d1a67a05e4fde8aa75c607ddbdc4b9821c6c00985c5df6",
+      "bytes": 753
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "e4c38c9562cf26a0e9fb2687a9e85b2485885a137cb4bad72df1eb829297dfde",
+      "bytes": 3220
+    },
+    {
+      "path": "preparation-recipe.json",
+      "sha256": "f0a51b01eabc5a5a857b422a1af6460c9158af75af3c1cfc6deb09ca21fb2f38",
+      "bytes": 894
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "5f02811aa9398c02ac21ff1a4b5fed1217dfaae605df658cb6962d425091b44b",
+      "bytes": 6919
+    },
+    {
+      "path": "source-observer.diff",
+      "sha256": "1306ca60cbc1c32a564be815b58f8cd93186a281e5e890663e1c700e41765339",
+      "bytes": 23488
+    },
+    {
+      "path": "preflight/source-correspondence.json",
+      "sha256": "3ba900f170634116e722963ae53da0313ed48c8cbaa8731d0f8459188cef4585",
+      "bytes": 1481
+    },
+    {
+      "path": "preflight/qualified-source-controls/receipt.json",
+      "sha256": "838876d3d3a04a6e556545186c4f4310da4f141474d0269a89cbde9b9fca79ea",
+      "bytes": 1930
+    },
+    {
+      "path": "preflight/source-guards.log",
+      "sha256": "60f19e9f223116a50b3dd7f05a848f4405c9ff12610e1ebfc9cee7f585f540ba",
+      "bytes": 62
+    },
+    {
+      "path": "preflight/source-strict.log",
+      "sha256": "46984ca20bf69f7b14ec1fd9bd82101d56a4e109e68f016fd2a04f22481b09b3",
+      "bytes": 43
+    },
+    {
+      "path": "preflight/source-Ruff.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "preflight/source-format.log",
+      "sha256": "2ce9758b9f8abd876ec3e76c589e099e8b05377b1e7ea2331e81ee80f07bdff8",
+      "bytes": 26
+    },
+    {
+      "path": "preflight/guards.log",
+      "sha256": "981c078f4dd6e0c47b04dd89b5a6ab9dc6496bac75c0eb9c8b4bda5c66636399",
+      "bytes": 1389
+    },
+    {
+      "path": "preflight/strict.log",
+      "sha256": "3bb32ff0f3a0d9114bc12851f51745b6ca65ec054cdf5f15ad2afe1f1561eebb",
+      "bytes": 284
+    },
+    {
+      "path": "preflight/qualified-strict.log",
+      "sha256": "86e23024e49aa369f88aed51aebfbdc37eff6356d0a51c9cff8ac2b6950b24a9",
+      "bytes": 1881
+    },
+    {
+      "path": "preflight/held-format.log",
+      "sha256": "b48e12b0ac584e7c68a8aeb6afced03a949cda9a80ed53778f3ac0f5adac636a",
+      "bytes": 163
+    },
+    {
+      "path": "preflight/formatted-common-construction.py",
+      "sha256": "77b7fc3ded403a7437ae45de6897fed079435ebe5b6e93c2314c640bb4f9d391",
+      "bytes": 8921
+    }
+  ],
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/source-qualification.json",
+    "sha256": "5f02811aa9398c02ac21ff1a4b5fed1217dfaae605df658cb6962d425091b44b",
+    "bytes": 6919
+  },
+  "preparation_recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preparation-recipe.json",
+    "sha256": "f0a51b01eabc5a5a857b422a1af6460c9158af75af3c1cfc6deb09ca21fb2f38",
+    "bytes": 894
+  },
+  "original_execution": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json",
+      "sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+      "bytes": 1451833
+    },
+    "common": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/terminal.json",
+      "sha256": "324e7e084d6a111608b84f2863f6536ee6d03ae69cb53adcc9936390107ac02a",
+      "bytes": 7398
+    },
+    "outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/swedish-cohort-terminal.json",
+      "sha256": "9baf18964647c6a0d2a66d9d6d546362f3da7daff2adb62aed6a982925b2113f",
+      "bytes": 1330
+    },
+    "native_stage_exits": [
+      0,
+      1
+    ],
+    "whole_actual_exit": 1,
+    "original_pin_count": 3537,
+    "no_relabelled_original_passing_aggregate": true
+  },
+  "independent_source_review_required": true,
+  "actual_preparation_or_native_execution": false,
+  "scope": "Observer-only correction of native nested dataset ID shape; original producer0/observer1 and whole1 remain immutable. Full real metadata-source joins require root registration/actual native observer. No new source acquisition/rights/scientific acceptance."
+}

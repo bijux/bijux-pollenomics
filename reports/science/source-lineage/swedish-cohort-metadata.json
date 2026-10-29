@@ -1,0 +1,77 @@
+{
+  "schema_version": "swedish-cohort-metadata-source-review.v1",
+  "public_capture": {
+    "path": "data/surface-reference/swedish-cohort-source-capture/capture.json",
+    "sha256": "a777339c3eb30ea62669b1054aea12a9363cf82d8cef57da907bb8a29727379e",
+    "bytes": 2589685
+  },
+  "original_source_execution": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "plan_sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+    "native_stage_exits": [
+      0,
+      1
+    ],
+    "whole_actual_exit": 1
+  },
+  "corrected_observer_execution": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "plan_sha256": "31dd70673048842d4d2ae84efaa6a09ffdda6f6f8e41b6966266b956fa732084",
+    "native_stage_exits": [
+      0
+    ],
+    "whole_actual_exit": 0
+  },
+  "joint_completed_roles": {
+    "retained_producer_native_exit": 0,
+    "corrected_independent_metadata_observer_exit": 0,
+    "corrected_tracked_byte_checker_exit": 0,
+    "producer_rerun": false
+  },
+  "publication_paths": [
+    "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
+  ],
+  "original_input_count": 3537,
+  "corrected_observer_input_count": 3581,
+  "input_scope_counts": {
+    "runtime_identity_only": 3481,
+    "private_source_identity_only": 26,
+    "retained_prior_execution_product": 12,
+    "retained_execution_source": 56,
+    "existing_public_relation_reference": 5,
+    "retained_produced_product": 1
+  },
+  "source_receipts": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json",
+      "sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+      "bytes": 1451833
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/swedish-cohort-terminal.json",
+      "sha256": "9baf18964647c6a0d2a66d9d6d546362f3da7daff2adb62aed6a982925b2113f",
+      "bytes": 1330
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/plan.json",
+      "sha256": "31dd70673048842d4d2ae84efaa6a09ffdda6f6f8e41b6966266b956fa732084",
+      "bytes": 1464228
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/swedish-metadata-observer-terminal.json",
+      "sha256": "008b666005bc4a6d3ce03ce5b0f88b7bff1f457582999eb06472debb664ea639",
+      "bytes": 1659
+    }
+  ],
+  "scope": {
+    "new_native_retention_execution_claimed": false,
+    "raw_private_metadata_redistributed": false,
+    "runtime_payloads_redistributed": false,
+    "new_network_acquisition_or_rights_human_acceptance": false,
+    "pollen_count_observations_opened": false,
+    "fresh_distinct_physical_cohort_admitted": false,
+    "selected_calibrated_sample_chronology_admitted": false,
+    "ecological_or_LRA_admission": false
+  },
+  "custody": "Authored retention of completed metadata-only source0/observer1/whole1 and separately corrected observer0/whole0; no producer rerun or relabelled old whole0. Complete source epochs and predicates remain literal; only raw nested dataset ID location corrected.26private metadata payloads and runtime bytes are omitted identities.102record99site/206all-country/66title62retained3unmatched1generic/37events are metadata scope, not fresh physical cores, selected chronology, rights, ecology or LRA admission."
+}

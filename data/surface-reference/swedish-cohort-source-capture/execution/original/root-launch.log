@@ -1,0 +1,4 @@
+{"stage": "maintained-swedish-cohort-source", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 0.18491799995535985}
+{"stage": "independent-swedish-cohort-metadata-observer", "actual_exit": 1, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 0.2981003330205567}
+{"terminal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/terminal.json", "sha256": "324e7e084d6a111608b84f2863f6536ee6d03ae69cb53adcc9936390107ac02a", "status": "failed"}
+{"terminal": {"path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/swedish-cohort-terminal.json", "sha256": "9baf18964647c6a0d2a66d9d6d546362f3da7daff2adb62aed6a982925b2113f", "bytes": 1330}, "actual_exit": 1}

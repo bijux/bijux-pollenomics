@@ -50,7 +50,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** A missing literal handle is not proof of a distinct core, and metadata discovery does not validate an untouched independent holdout.
 
-**Actual verification performed.** Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request.
+**Actual verification performed.** Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request. Canonical Swedish source production returned0 on c292dafa60f9d992f162c92dd327207d9aefd76b; its original observer1 and whole1 remain literal. A separately registered corrected nested-source independent observer and complete tracked-byte check returned0, without producer repetition; the full typed report and publication bytes are unchanged. The authored78member capsule preserves3537 original and3581 corrected input identities, with26private metadata and3481runtime payloads omitted.102records/99sites,206all-country handles,66titles (62retained/3unmatched/1generic),37events and original cross-archive/UNASSIGNED collisions are retained metadata scope. No new acquisition, count observations, fresh physical cohort, calibrated selected sample ages, country normalization, rights/human/ecology/LRA admission or new retention-native outcome.
 
 **Remaining input or review.** A truly distinct physical core, selected calibrated sample ages, permitted use and frozen pre-exposure prediction protocol remain needed.
 
@@ -69,6 +69,8 @@ Qualified authored reader SHA-256: `0aacdf2816cf17ce133e08186066164b2636f710cb21
 - [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-cohort-availability/report.json](report.json) (SHA-256 `dc915089ee968411dafb97c269693613b89dbcbfecbd3e92a580405ea50cad89`).
 
 - [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json](sources.json) (SHA-256 `c7e2c67488faec670c585fdb3d03c067cb58449bf0e4a49032698c5a1c9aad81`).
+
+- [Retained qualification evidence: reports/science/source-lineage/swedish-cohort-metadata.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/swedish-cohort-metadata.json) (SHA-256 `b4e9e507cfd56ccc9dbda8d78c23a7d652baaf08032c85f5771feee16ec927fd`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 
