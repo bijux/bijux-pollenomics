@@ -6,13 +6,13 @@
   "input_sha256": {
     "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
     "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9",
-    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py": "ebf5a2b6a20ccee96b06851f2ea85db9b36c05da123d21b59197b92d25f30269",
-    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py": "c4c368a02c9757e9f899a079b4d2b93a893c8493350aeaa910f8e5fa5d5049a1",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py": "8c1fd09287191b9fdb30499c57f82fc2711ed34979ecec852b227cb1dfdf50eb",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py": "7580a831eb025a0aba9bbc8b55d57c63bd47781130983ff0d1c73673060c98ed",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
-    "docs/report/method-certification/paired-love-draws/replay.R": "960fb50e63a3ce9a53464f5ef239fa7655f527477e3d993e4ce0d04a196dd171",
-    "docs/report/method-certification/paired-love-draws/replay.py": "2d2ba1a42c2fd3e71129d20b857db2c9d60be21c3337fd31f5e7ddb925d21e35"
+    "artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/paired-love-draws/replay.R": "0a49c5f60abf02c1215ba11ee695e12146f9f6b3a70b74ac99fe0116e6b50470",
+    "artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/paired-love-draws/replay.py": "2d2ba1a42c2fd3e71129d20b857db2c9d60be21c3337fd31f5e7ddb925d21e35"
   },
   "paired_finite_values": 120,
   "paired_missing_values": 280,

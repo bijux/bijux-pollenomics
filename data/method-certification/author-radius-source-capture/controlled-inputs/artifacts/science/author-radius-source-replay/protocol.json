@@ -1,0 +1,82 @@
+{
+  "schema_version": "source-bound-author-radius-comparison-preparation.v1",
+  "status": "held_source_only_no_plan_or_forward_execution",
+  "candidate": "Dynamic clean local main after the reviewed radius guard; first available base 2784d4eae839e4a4e43f80ec77fd26bd0172aff0. Candidate must equal actual HEAD with exact full index/status held through native terminal.",
+  "source_execution": {
+    "candidate": "22c6e480ba4690cc508202925a8773afe95ab36e",
+    "plan_sha256": "7a75256e79a577280d8bd828380ebb8438b80914e3aa8c5ddc390fa428e6428c",
+    "outer_terminal_sha256": "c4ab7b6a50c989cd646454ae2b52020df2bbdc749a4806077a45917117fc1539",
+    "original_inputs": 33336,
+    "complete_produced_work_files": 900,
+    "native_training": [
+      195,
+      192,
+      3
+    ],
+    "scored_sites": 14,
+    "refused_site": "author:BECKHAM",
+    "old_3d6_terminal_available": false
+  },
+  "producer": {
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
+    "sha256": "6fab1e6e225b2d9308bc75a3ff167ea6a5be621357f66ac1f0b3bf8109a1a469",
+    "published_predictions_sha256": "85ce8fd89d992db10a17f15b799fa5c96de0c658eb0eec1a9e117e51a008e110",
+    "future_actual_calls": [
+      "freeze",
+      "score"
+    ],
+    "prepare_only_call": "_sources metadata intake; no freeze/score/forward at preparation"
+  },
+  "original_source_custody": "Byte-identical already-qualified constrained retained custody helper reauthenticates every original registered pin, five actual runtime aliases, original nine controls, all 900 produced files and original native population. Changes to tracked metadata require exact original/current Git blobs; protected original scientific source projection must remain exact. This is not whole-tree equivalence or a relabelled historical execution.",
+  "comparison": {
+    "old_frozen_sha256": "ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44",
+    "old_report_sha256": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129",
+    "old_scores_sha256": "60bf6b4cc25bf94a9afbb241370d55e7be17239c20e25881b4cc862e452eb494",
+    "allowed_metadata": "All six source digest leaves, per-row published_prediction_sha256 independently joined to actual117 prediction, and report prediction_freeze_sha256 independently reconstructed. All other complete JSON scalar types/array orders/numbers and CSV bytes must remain exact.",
+    "tolerance": "No new cross-epoch tolerance. Maintained factor-one pollen equality and score baseline abs 1e-15 remain unchanged.",
+    "independent_population": "42 actual saved predictions/30 taxa/14 sites \u00d7 three factors produce126 rows; preserve all 195/192/3 native training receipts, original15site denominator and BECKHAM refusal."
+  },
+  "resources": {
+    "stages_seconds": [
+      60,
+      60,
+      90
+    ],
+    "overall_seconds": 240,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_output_bytes": 134217728,
+    "own_terminal_reserved_bytes": 16384,
+    "workers": 1,
+    "threads_per_vendor": 1
+  },
+  "control_reuse": {
+    "custody_original_sha256": "e8ec7a58dd517ad257421e9b2e70923475e932bccac22c80a20155dc6f814012",
+    "custody_byte_exact": true,
+    "runner_original_sha256": "c57917ef5d466346d787356d4948025d1506aba29458c4978777ab84d91e5aa5",
+    "runner_AST_unchanged_except_terminal_filename": true
+  },
+  "scope": "Future forward fixed-vegetation sensitivity and scoring only. No new fitting, optimizer, R, full cohort, Nordic/ecological/rights/human or official release acceptance. Separate paired radius comparison remains dependent and unexecuted until genuine radius three-stage zero.",
+  "future_prepare_argv": [
+    "artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/prepare.py",
+    "--candidate",
+    "ACTUAL_FINAL_CLEAN_SHA",
+    "--output",
+    "ABSENT_OWNED_ARTIFACT_OUTPUT"
+  ],
+  "future_registered_run_argv": [
+    "artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/run.py",
+    "--plan",
+    "NEW_OUTPUT/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "preserved_source_predecessor": {
+    "manifest": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-comparison-custody/prepared-source-manifest.json",
+    "sha256": "01f0994e0d09b9ad402e29206615732a6cb2656bd2835385bf22302f8fe5bdb5",
+    "reason": "Only unordered custody current-pin population is normalized by path before replay comparison; original ordered scientific arrays remain exact. Old source not prepared or executed."
+  }
+}

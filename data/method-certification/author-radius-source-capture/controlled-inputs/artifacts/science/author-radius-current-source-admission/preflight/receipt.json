@@ -1,0 +1,161 @@
+{
+  "schema_version": "radius-paired-configured-source-qualification.v1",
+  "pure_control_cases": 15,
+  "strict_files": 7,
+  "configured_lint_and_format_files": 7,
+  "AST_files": 7,
+  "checks": [
+    {
+      "name": "pure-controls",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/check_contracts.py"
+      ],
+      "actual_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "187c0ec928401632f245699188a20ff21b1462fc4de8141c8270ecbe91c781a2"
+    },
+    {
+      "name": "strict",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "mypy",
+        "--strict",
+        "--config-file",
+        "/Users/bijan/bijux/bijux-pollenomics/configs/mypy.ini",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/preflight/mypy",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/check_contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/custody.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/proposal/docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
+      ],
+      "actual_exit": 0,
+      "stdout_sha256": "050c52a2b0c61e8b681ef5c485e0bc03340b8d55148e0acef27d744c8be42033",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ruff",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--config",
+        "/Users/bijan/bijux/bijux-pollenomics/configs/ruff.toml",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/preflight/ruff",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/check_contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/custody.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/proposal/docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
+      ],
+      "actual_exit": 0,
+      "stdout_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "format",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "--config",
+        "/Users/bijan/bijux/bijux-pollenomics/configs/ruff.toml",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/preflight/ruff",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/check_contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/custody.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/proposal/docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
+      ],
+      "actual_exit": 0,
+      "stdout_sha256": "0321fffcb91606a42c0a19d8c1121d5c544379d663821fce616c71a7bb62f6b5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "prepare.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/prepare.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout_sha256": "10ea01c0c0cd8218f70e1b8d5c4cbc568c131eb0ce56ed6fdd253896e7f38466",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "observe.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/observe.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout_sha256": "1d35ae0470e14687c5e6d149070811fdaaa5d863ac3085e79af3d3a018bd6334",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "run.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/run.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout_sha256": "47232bb088aef0db6dbad4101aea5b2c35e9709313cfac8222a539d033770ff1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_files": {
+    "check_contracts.py": {
+      "sha256": "b4885e8cdf15cad008fc244249a5f875747311b68ffda07b4a36618399e67e7d",
+      "bytes": 5101
+    },
+    "contracts.py": {
+      "sha256": "aa6f5b4f8dc8b70e4043d25f28144d56602a9aa4bdf0427084bccdb29fa58fa9",
+      "bytes": 6074
+    },
+    "custody.py": {
+      "sha256": "871dd016cf3d9f3a8ce47b781c9bc48826f01e59eb672d299d22ca02e9c07718",
+      "bytes": 8493
+    },
+    "observe.py": {
+      "sha256": "f94781b45c38de55771d8ccd751bc19f08fd05d33f0e9ca44658494b56a9bd61",
+      "bytes": 2846
+    },
+    "prepare.py": {
+      "sha256": "0a48f10bb30f024575aad0a2c301cb3c47d4ed073d2bb9bb5c3f0e252f4b3ecd",
+      "bytes": 8595
+    },
+    "run.py": {
+      "sha256": "d48fcf9e5814f2d9e19dd996a533856727fd7d1428f51265f32413bbdd1926fc",
+      "bytes": 3751
+    },
+    "proposal/docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py": {
+      "sha256": "dba9fac988376d95da7b6aa802674828d410d2e70d0fcb839362084dc5d969e8",
+      "bytes": 7594
+    }
+  },
+  "actual_exit": 0,
+  "no_preparation_paired_forward_fit_R_or_native_execution": true
+}

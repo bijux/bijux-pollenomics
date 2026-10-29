@@ -1,0 +1,7 @@
+{
+  "path": "reports/source-lock.json",
+  "existing_key": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py",
+  "old_sha256": "3675bd6025bf45b7e80379afe96c1e6e1609247d285494601a173afee3023419",
+  "new_sha256": "dba9fac988376d95da7b6aa802674828d410d2e70d0fcb839362084dc5d969e8",
+  "scope": "One existing leaf only. The proposed lock wholefile is a guarded base122 illustration, not applicable over later performance/R2 lock changes. Root composes/rebases the single leaf before eventual publication."
+}

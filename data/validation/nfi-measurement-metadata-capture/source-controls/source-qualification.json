@@ -1,0 +1,55 @@
+{
+  "schema_version": "nfi-source-policy-source-qualification.v1",
+  "source_only_native_exit": 0,
+  "fresh_source_fact_guard_cases": 1,
+  "reused_predecessor_full_decoder_guard_groups": 5,
+  "prior_decoder_guard_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-measurement-metadata-custody/source-qualification.json",
+    "sha256": "b3eca8c5ee92a5c9def4e0687b1610c3fdc0a5ade892981bef5eeaa41b9d1f66",
+    "bytes": 2802
+  },
+  "strict_python_files": 7,
+  "ruff_python_files": 7,
+  "format_python_files": 7,
+  "AST_python_files": 7,
+  "help_entrypoints": 1,
+  "unchanged_Python_sources": 5,
+  "actual_private_projection_maintained_producer_or_preparer_calls": 0,
+  "source_checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/preflight/source-fact-guard.log",
+      "sha256": "fb184ea57734512b1f088f9181209901b9cd46df3eb7eaa2500ea9e48dde20b5",
+      "bytes": 98
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/preflight/strict.log",
+      "sha256": "050c52a2b0c61e8b681ef5c485e0bc03340b8d55148e0acef27d744c8be42033",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/preflight/lint.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/preflight/format.log",
+      "sha256": "0321fffcb91606a42c0a19d8c1121d5c544379d663821fce616c71a7bb62f6b5",
+      "bytes": 26
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/preflight/prepare-help.log",
+      "sha256": "f9870d2ef688bfaca8bfcb25706e0c2c7ba2685e607145575cdabf9a38633ba5",
+      "bytes": 370
+    }
+  ],
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/source-correspondence.json",
+    "sha256": "22edad9acd08eb7f436936b8abadda1eff1655ac59fd41be506feebdb6730756",
+    "bytes": 5248
+  },
+  "actual_source_use_evidence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/slu-calibration-guide-source-review/retained-source-review.json",
+    "sha256": "8be8d30b38ab3f6848f809edb8d7881c490a1dc0022365d71809957a3c630350",
+    "bytes": 4342
+  }
+}

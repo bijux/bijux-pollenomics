@@ -1,0 +1,20 @@
+[
+  {
+    "id": "metadata-only-R-namespace-and-DLL-custody",
+    "argv": [
+      "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+      "--vanilla",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/runtime-probe.R"
+    ],
+    "timeout_seconds": 30,
+    "must_succeed": true,
+    "actual_exit": 1,
+    "timed_out": false,
+    "elapsed_seconds": 0.7289051249972545,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/metadata-only-R-namespace-and-DLL-custody.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/metadata-only-R-namespace-and-DLL-custody.stderr",
+    "stdout_sha256": "3ce7449edd149e0cf72a510837c77819bc82825c11f4f29391615d7b6d8d20c0",
+    "stderr_sha256": "29904b41cdb3f8b8dc9886f57f86aaae875c9942f2dfca83628b31776557936c",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 149766144
+  }
+]

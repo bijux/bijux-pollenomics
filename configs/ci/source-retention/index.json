@@ -45,6 +45,26 @@
       "descriptor": "source-transport.json",
       "sha256": "08e9657776a8f3136fab6c99eef1990ebc76a6769332abd3faa8015766276b48",
       "bytes": 660562
+    },
+    "data/numerical-performance/representative-public-call-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "44e483e6d858f6ec92b5e0ed823278232fb180edf73bc6ab15757ade2433bd57",
+      "bytes": 576128
+    },
+    "data/validation/nfi-measurement-metadata-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "a7cc75debf7e1b22ffd1d82d169d6b41bb21853fb5323f7a814c5df74ba05e1a",
+      "bytes": 577877
+    },
+    "data/method-certification/controlled-lra-numerical-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "c82a1c28df9269101142dc889cfce6387308b2b5a4c6b95769d02eae1c31a3a8",
+      "bytes": 583100
+    },
+    "data/method-certification/author-radius-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "39d7d023c59056ad6bee8b0b7de842288cef72df850ef5616f6c3d78c282d061",
+      "bytes": 1276747
     }
   },
   "source_revisions": {

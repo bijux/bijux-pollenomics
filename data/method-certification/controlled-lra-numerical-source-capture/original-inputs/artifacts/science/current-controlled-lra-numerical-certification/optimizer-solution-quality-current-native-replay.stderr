@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/replay.py", line 228, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/replay.py", line 147, in main
+    raise RuntimeError(
+RuntimeError: Source R optimizer exited 1; see retained logs

@@ -2,46 +2,119 @@
   "schema_version": "landclim-correspondence-custody.v1",
   "producer": {
     "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
-    "bytes": 15379,
-    "sha256": "4523c7ecacb6bb4c3c25a116a7345e539b17d99e70f0b683c7b595961e9e6752"
+    "sha256": "d9ad52964f545a5ba5ca14f4e3a5f06f50e3e9a9904fa1f0d029f3d924874ffa",
+    "bytes": 15613
   },
-  "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
-  "original_run": "v4/paper-correspondence/author-example-final",
-  "original_outputs": {
-    "REPORT.md": {
-      "bytes": 1172,
-      "sha256": "07565129d2d5aac5de919cc822997e2c79419c2585b66c600f158f9411fb57ef",
-      "retained_relation": "exact_bytes"
+  "method_source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "source_execution_candidate": "e282e08d796528488b438edd3ea661fb94b97b5d",
+  "numerical_review_candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+  "correspondence_candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+  "retained_numerical_execution": {
+    "plan.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/plan.json",
+      "sha256": "a17d914be6bbc138b0b5e95b9328375ba4776f1e5eaebd5bd04f81184d16ad40",
+      "bytes": 65927176
     },
-    "paper-correspondence.csv": {
-      "bytes": 1835021,
-      "sha256": "89a38f0686e6c5087c9d650b0826a67519af2b4a7bdfb27e368b29ba1f884942",
-      "retained_relation": "newline_normalized_equal"
+    "terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/terminal.json",
+      "sha256": "4378d571805bc3e0abf0a076a5a3dede625a85faf63d9b3ad344c77be8c29a4d",
+      "bytes": 60627
     },
-    "report.json": {
-      "bytes": 19162,
-      "sha256": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f",
-      "retained_relation": "exact_bytes"
+    "author-grid-review-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/author-grid-review-terminal.json",
+      "sha256": "42e4a37997ff8f5d24fe9352cf9afd9282d65dda30f85cc818c22f231caa593c",
+      "bytes": 919
+    },
+    "independent-review.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/independent-review.json",
+      "sha256": "5c0186d8f36fc65ec640222efcdc242a76be34ed0bb47780345e715ba1fa958a",
+      "bytes": 21150
+    },
+    "retained-products/report.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/report.json",
+      "sha256": "4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f",
+      "bytes": 55141
     }
   },
-  "retained_files": {
-    "README.md": {
-      "bytes": 1653,
-      "sha256": "5cc14183c22734858856aee54b24f184d73511d433cbb74b60e6ca5124ff2904"
-    },
-    "REPORT.md": {
-      "bytes": 1172,
-      "sha256": "07565129d2d5aac5de919cc822997e2c79419c2585b66c600f158f9411fb57ef"
-    },
-    "paper-correspondence.csv": {
-      "bytes": 1820946,
-      "sha256": "9c574919c250b9fe386154b72266869b290365ee9afe5d8a270250ed01c211d8"
-    },
-    "report.json": {
-      "bytes": 19162,
-      "sha256": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f"
-    }
-  },
+  "original_numerical_whole_job_actual_exit": 1,
+  "successful_numerical_stage_exits": [
+    0,
+    0
+  ],
+  "saved_output_observer_actual_exit": 0,
   "fresh_execution": "docs/report/publication-replay/landclim-example-reexecution/report.json",
-  "fresh_replay_relation": "row-level CSV and generated Markdown byte-identical; JSON differs only in execution receipt digest"
+  "fresh_execution_sha256": "4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f",
+  "fresh_replay_relation": "New complete row-level correspondence is generated only from the exact saved original-R/current-Python tables authenticated by the declared successful observer. No historical byte-identity or old9dd1 certificate is inferred.",
+  "retained_files": {
+    "REPORT.md": {
+      "sha256": "07565129d2d5aac5de919cc822997e2c79419c2585b66c600f158f9411fb57ef",
+      "bytes": 1172
+    },
+    "paper-correspondence.csv": {
+      "sha256": "1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029",
+      "bytes": 1820977
+    },
+    "report.json": {
+      "sha256": "efcfce2e75ea4c98367e22bd8f0d4d28e123776b52436bef2e966f615f4b16bc",
+      "bytes": 19161
+    }
+  },
+  "reference_receipt_sha256": "b8adff41d1c1ee59881a053aa965f8514e964f8bf86968efed320dc445432746",
+  "native_comparison_sha256": "0b8567330bb61e9c4b7954e88c987a9c0786816f278aba442ec309cb75eef56e",
+  "historical_9dd1_raw_receipt_available": false,
+  "current_source_metadata_bridges": [
+    {
+      "path": "configs/ci/report-ownership.json",
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/configs/ci/report-ownership.json",
+        "sha256": "e061247003f08955067f61db21dab5678323c35e029b51c5cd820fe61b20af2c",
+        "bytes": 9721872
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/configs/ci/report-ownership.json",
+        "sha256": "abbbdb7db303b732ac83f0262cdb1c44150e233a544755849ac170cb052b876f",
+        "bytes": 9722494
+      },
+      "original_Git_candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+      "current_Git_candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
+        "sha256": "3d2697284c6bdfe08a9291204cfd2b33245726809c6da4c0055dadbca9e8e4fc",
+        "bytes": 11436
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
+        "sha256": "6d69de15c05d0c761afc021200568b0a679d16594cfb286f7ff6919a1ab5daa4",
+        "bytes": 12255
+      },
+      "original_Git_candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+      "current_Git_candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251"
+    },
+    {
+      "path": "reports/source-lock.json",
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/source-lock.json",
+        "sha256": "3f12d260d49759294c39687d19f825649570e90b7f067513eeff144db8ca3705",
+        "bytes": 295847
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/source-lock.json",
+        "sha256": "66c0f03ed09453d1f9e5a91df399e789310869882cc71f5f0bb87ed84a255700",
+        "bytes": 295847
+      },
+      "original_Git_candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+      "current_Git_candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251"
+    }
+  ],
+  "admission": {
+    "two_grid_computational_control_only": true,
+    "full1128_study_reproduction": false,
+    "independent_measured_vegetation_accuracy": false,
+    "private_source_redistribution_rights": false,
+    "qualified_human_or_official_release": false
+  },
+  "source_column_vocabulary": "The maintained CSV column installed_lra names the current Python comparison values; installation acceptance is a separate consumer and is not asserted by this metadata ledger."
 }

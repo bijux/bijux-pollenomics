@@ -1,0 +1,77 @@
+{
+  "schema_version": "controlled-lra-runtime-probe-source.v1",
+  "files": [
+    {
+      "path": "check_contract.py",
+      "sha256": "22f567ee427ac2f1539818ca99642c75e59532fd82e15f9cd81c3a3c73874e84",
+      "bytes": 24970
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "68dd43e3b1246c7ef2b733a7ff380ac575d0358661a61576fa8325adf994f4c5",
+      "bytes": 12064
+    },
+    {
+      "path": "observe_numerical.py",
+      "sha256": "14a2e9f92ce7c29b052dc64e5576613e04e528125340407a42d8d6b974e6bf5d",
+      "bytes": 12350
+    },
+    {
+      "path": "observe_runtime_probe.py",
+      "sha256": "aad775d579b5e22d3f8ae7b96beb8eb4a2469c43bd46287ee96ce50dd971bf2d",
+      "bytes": 5477
+    },
+    {
+      "path": "oracle_metadata.R",
+      "sha256": "220d5c9e13e51d4689ee79847ef94b884e68738d8a83197a7910f7acc3d5082e",
+      "bytes": 5196
+    },
+    {
+      "path": "preflight/qualified-introspection-module-census.json",
+      "sha256": "3241f4156f9952ca62ebbf5906281bb3942747f056f7ea97c6655ca7a722bec8",
+      "bytes": 73264
+    },
+    {
+      "path": "prepare_runtime_probe.py",
+      "sha256": "693d0baf638503125a179b1ef6f04456031fc15c38ce4a32c4543edfb66d4f4d",
+      "bytes": 13195
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "498d39315ca2bdeba495c5d0d5daaf13309e85bee5d27e1c7876fa2abd3c0375",
+      "bytes": 4523
+    },
+    {
+      "path": "run.py",
+      "sha256": "d5d7870617a96ce1ef9146f72e3544e4c375313e79e5701a6ea163b33380892b",
+      "bytes": 4092
+    },
+    {
+      "path": "runtime_custody.py",
+      "sha256": "6e66857241441b18521ec0de49e667a74546cfb27ffad4f2e2d5dea66a0305a7",
+      "bytes": 13968
+    },
+    {
+      "path": "source-correspondence.json",
+      "sha256": "0920aa6dca669c225029126537d4321488575ef94b2aca349efdb649c6091479",
+      "bytes": 5201
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "7050d0b5bed5b4cc135be562a71ef4a6e2c83865c424e82a58d7a663125fab37",
+      "bytes": 2788
+    }
+  ],
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-introspection/source-qualification.json",
+    "sha256": "7050d0b5bed5b4cc135be562a71ef4a6e2c83865c424e82a58d7a663125fab37",
+    "bytes": 2788
+  },
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-namespace-custody/prepared-source-manifest.json",
+    "sha256": "7f4d593e68dfc2a77f9a09832453c9f6a76f0f95f6182b9e1b5808db7cdb243b",
+    "bytes": 2747
+  },
+  "source_candidate_parameter": "Dynamic exact clean local main; no new preparation/native probe or numerical execution",
+  "scope": "Metadata-only named R core LAPACK introspection custody; future numerical certification remains pending genuine probe admission."
+}

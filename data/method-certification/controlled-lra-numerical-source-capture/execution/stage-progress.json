@@ -1,0 +1,75 @@
+[
+  {
+    "id": "optimizer-solution-quality-current-native-replay",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/optimizer-solution-quality/replay.py",
+      "--repository",
+      "/Users/bijan/bijux/bijux-pollenomics",
+      "--library",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library",
+      "--rscript",
+      "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality"
+    ],
+    "timeout_seconds": 75,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 4.947838208987378,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality-current-native-replay.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality-current-native-replay.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 196214784
+  },
+  {
+    "id": "paired-love-draws-current-native-replay",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/paired-love-draws/replay.py",
+      "--repository",
+      "/Users/bijan/bijux/bijux-pollenomics",
+      "--library",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library",
+      "--rscript",
+      "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws"
+    ],
+    "timeout_seconds": 75,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 3.2253985420102254,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws-current-native-replay.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws-current-native-replay.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 199098368
+  },
+  {
+    "id": "independent-ordered-values-objectives-and-runtime",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/observe_numerical.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/plan.json"
+    ],
+    "timeout_seconds": 30,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 20.264223749982193,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/independent-ordered-values-objectives-and-runtime.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/independent-ordered-values-objectives-and-runtime.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 199098368
+  }
+]

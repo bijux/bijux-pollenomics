@@ -1,0 +1,43 @@
+[
+  {
+    "id": "maintained-original-NFI-selected-metadata",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/invoke.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 4.983278791012708,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/maintained-original-NFI-selected-metadata.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/maintained-original-NFI-selected-metadata.stderr",
+    "stdout_sha256": "f6b7ec73c2d69dec7427033ba2bc0af2ddd09993be4ce9fd3d1830f53a9207c4",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 124878848
+  },
+  {
+    "id": "independent-dictionary-header-area-time-and-owner",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 6.513461041962728,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/independent-dictionary-header-area-time-and-owner.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/independent-dictionary-header-area-time-and-owner.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 161660928
+  }
+]

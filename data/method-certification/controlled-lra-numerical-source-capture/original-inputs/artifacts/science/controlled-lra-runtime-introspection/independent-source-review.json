@@ -1,0 +1,19 @@
+{
+  "approved": true,
+  "source_manifest_sha256": "ecd0cdea9671bc2b65e2f674d9b0d7ee348c5e337c79bcebba0f3b58abbdf7ae",
+  "reviewer": "root",
+  "checks": {
+    "all_12_source_members_exact": true,
+    "actual_pure_guard_exit": 0,
+    "pure_guard_cases": 17,
+    "metadata_only_original_script_null": true,
+    "observer_preserves_complete_input_checks_and_no_numerical_execution": true,
+    "only_named_R_4_6_flat_lapack_module_added": true,
+    "Makeconf_and_R_header_layout_required": true,
+    "complete_MachO_closure_and_framework_aliases_pinned": true,
+    "sessionInfo_introspection_precedes_namespace_DLL_enumeration": true,
+    "failed_original_and_introspection_probe_products_preserved": true,
+    "contracts_observe_numerical_runtime_observer_and_runner_byte_identical": true
+  },
+  "scope": "Independent source review only. No R numerical or metadata execution. Root compared exact predecessor diffs and retained unknown offending identity of original erased snapshot."
+}

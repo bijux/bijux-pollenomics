@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2135,
-  "paths_sha256": "3eb965df604d5b963d575372fab7c0393ea8f30700ef6b1c5f689681f5f93898",
+  "path_count": 2137,
+  "paths_sha256": "f938c38c5a892580c6b9e335d6f258f601781e7ed931a6bfc67430d0a6e7024d",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -25135,16 +25135,10 @@
         "docs/report/method-certification/optimizer-solution-quality/report.json",
         "docs/report/method-certification/optimizer-solution-quality/summary.csv"
       ],
-      "producer_inputs": [
-        "docs/report/method-certification/optimizer-solution-quality/cases.json",
-        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
-      ],
-      "producer_paths": [
-        "docs/report/method-certification/optimizer-solution-quality/replay.py",
-        "docs/report/method-certification/optimizer-solution-quality/solver.R"
-      ],
-      "role": "unresolved",
-      "verification": "The solver comparison needs the external Rscript binary, isolated R library with exact DISQOVER marker and live optimizer execution. Retained report/case outputs and R session are execution evidence, not independently reproducible bytes from repository files alone."
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Authenticate exact original source/native/publication custody through the sealed data/method-certification/controlled-lra-numerical-source-capture SourceCapsule and unchanged original numerical/refusal/denominator predicates. Historical metadata/IO/rendering/version roles remain separate from default current mathematical source checks. This retained-output reader adds no fresh R, model, timing, browser, source acquisition, ecological/rights or human/field admission."
     },
     {
       "owner_id": "method-certification/optimizer-solution-quality/source-code",
@@ -26581,7 +26575,7 @@
     },
     {
       "owner_id": "method-certification/paired-love-draws/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/method-certification/paired-love-draws/draws.json",
         "docs/report/method-certification/paired-love-draws/python-values.csv",
@@ -26590,20 +26584,9 @@
         "docs/report/method-certification/paired-love-draws/report.json",
         "docs/report/method-certification/paired-love-draws/setup.json"
       ],
-      "producer_paths": [
-        "docs/report/method-certification/paired-love-draws/replay.R",
-        "docs/report/method-certification/paired-love-draws/replay.py"
-      ],
-      "producer_inputs": [
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
-        "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
-        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
-      ],
-      "verification": "The real Python/R replay consumes the pinned disqover archive and example fixtures, requires a separately bound installed R library and exact Rscript binary (retained SHA d918ce5022d859e20c38094bb0b6199186cefd8bb96ffeb58618471c9a65a22d), and generates six declared outputs. Reuse the existing scoped R result; do not copy r-session.txt as newly generated. Bind runtime and installation/source custody, then compare all outputs under a governed metadata normalization decision if needed. No unchanged R rerun or broad release qualification follows from this declaration."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Authenticate exact original source/native/publication custody through the sealed data/method-certification/controlled-lra-numerical-source-capture SourceCapsule and unchanged original numerical/refusal/denominator predicates. Historical metadata/IO/rendering/version roles remain separate from default current mathematical source checks. This retained-output reader adds no fresh R, model, timing, browser, source acquisition, ecological/rights or human/field admission."
     },
     {
       "owner_id": "method-certification/paired-love-draws/source-code",
@@ -30391,17 +30374,15 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/scores.csv"
       ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Frozen radius predictions and scored outputs require the original source-bound forward run and target-score custody; only the later four-ledger paired join has a repository-contained producer route."
+      "verification": "Authenticate exact original source/native/publication custody through the sealed data/method-certification/author-radius-source-capture SourceCapsule and unchanged original numerical/refusal/denominator predicates. Historical metadata/IO/rendering/version roles remain separate from default current mathematical source checks. This retained-output reader adds no fresh R, model, timing, browser, source acquisition, ecological/rights or human/field admission."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/source-code",
@@ -64970,11 +64951,9 @@
         "docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json"
       ],
       "producer_inputs": [],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/measurement_schema.py"
-      ],
-      "role": "unresolved",
-      "verification": "With a governed private store, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.empd2_nfi_reference.measurement_schema --private-source-store <qualified-private-store> --output artifacts/jobs/vegetation-context-reproduction/empd2-nfi-measurement-schema.json`; compare the retained JSON bytes. This reads only the specified NFI header/date/area/land-use fields and leaves tree outcome cells sealed."
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Authenticate exact original source/native/publication custody through the sealed data/validation/nfi-measurement-metadata-capture SourceCapsule and unchanged original numerical/refusal/denominator predicates. Historical metadata/IO/rendering/version roles remain separate from default current mathematical source checks. This retained-output reader adds no fresh R, model, timing, browser, source acquisition, ecological/rights or human/field admission."
     },
     {
       "owner_id": "validation/empd2-nfi-pairing/reader-account",
@@ -67306,9 +67285,14 @@
         "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-window-cells.csv"
       ],
       "producer_paths": [
+        "docs/report/method-certification/optimizer-solution-quality/replay.py",
+        "docs/report/method-certification/optimizer-solution-quality/solver.R",
+        "docs/report/method-certification/paired-love-draws/replay.R",
+        "docs/report/method-certification/paired-love-draws/replay.py",
         "docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py",
         "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py",
         "docs/report/pollen-reconstruction/author-lra-constrained/prepare.py",
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py",
         "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
         "docs/report/pollen-reconstruction/author-lra-constrained/report.py",
         "docs/report/pollen-reconstruction/author-lra-constrained/score.py",
@@ -67433,10 +67417,15 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_native_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_optimizer_diagnostics.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_radius.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/lra_comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/representative_performance.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_correspondence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/documentation.py",
@@ -67445,6 +67434,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_static_basin.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/vegetation_reference/nfi_measurement.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_contracts/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_contracts/pangaea_abbo_age_controls.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_contracts/pangaea_abbo_profile.py",
@@ -67549,6 +67539,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/memory_compare.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profile_summary.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/retained_performance.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/py.typed",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/quality/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/quality/deptry_scan.py",
@@ -69564,6 +69555,33 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Historical feasibility attempt report was not produced by the bounded optimizer diagnostic; its original execution remains unresolved."
+    },
+    {
+      "owner_id": "numerical-performance/representative-public-calls/report-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/numerical-performance/representative-public-calls/report.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Authenticate exact original source/native/publication custody through the sealed data/numerical-performance/representative-public-call-capture SourceCapsule and unchanged original numerical/refusal/denominator predicates. Historical metadata/IO/rendering/version roles remain separate from default current mathematical source checks. This retained-output reader adds no fresh R, model, timing, browser, source acquisition, ecological/rights or human/field admission."
+    },
+    {
+      "owner_id": "numerical-performance/representative-public-calls/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/numerical-performance/representative-public-calls/README.md"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+      ],
+      "verification": "Maintain authored measured-workload limitations and exact scientific qualification/evidence against the retained performance report; metadata custody does not replay timing or grant native adoption. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
     }
   ]
 }

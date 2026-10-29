@@ -1,0 +1,154 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+  "plan_sha256": "8ab1ec873ded81bec4475fb2e8065dc3a5be9d6d5e6bcf3d2e88446dee6bc829",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 10.300658749998547,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/plan.json",
+    "--registered-plan-sha256",
+    "8ab1ec873ded81bec4475fb2e8065dc3a5be9d6d5e6bcf3d2e88446dee6bc829"
+  ],
+  "canonical_before": {
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "status": "",
+    "tracked_inventory_sha256": "5158fc8bdab4c0bacd90dfef3e64698130633efaa3ee3e62da0482a679043114"
+  },
+  "canonical_after": {
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "status": "",
+    "tracked_inventory_sha256": "5158fc8bdab4c0bacd90dfef3e64698130633efaa3ee3e62da0482a679043114"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "maintained-four-ledger-radius-paired-join",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/proposal/docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py",
+        "--study",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/study/radius-sensitivity",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/paired"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.24144629196962342,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/maintained-four-ledger-radius-paired-join.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/maintained-four-ledger-radius-paired-join.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 29507584
+    },
+    {
+      "id": "independent-complete-paired-science-and-source-observer",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/plan.json"
+      ],
+      "timeout_seconds": 90,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 8.0416030419874,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/independent-complete-paired-science-and-source-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/independent-complete-paired-science-and-source-observer.stderr",
+      "stdout_sha256": "300018db982157d23f85d4464ff03be3927a44112b28efbff3803ff9b6964f90",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 178192384
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/independent-complete-paired-science-and-source-observer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/independent-complete-paired-science-and-source-observer.stdout",
+      "sha256": "300018db982157d23f85d4464ff03be3927a44112b28efbff3803ff9b6964f90",
+      "bytes": 218
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/independent-paired-review.json",
+      "sha256": "7581607b981a3c2bd917293c5dc2812ddb4242dddeeb9d460a365f56d6547bac",
+      "bytes": 520673
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/maintained-four-ledger-radius-paired-join.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/maintained-four-ledger-radius-paired-join.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/paired/paired-scores.csv",
+      "sha256": "b41922204b95a4b09be216565722f8c3e8a4ce9ec70feb44518274af1e901943",
+      "bytes": 28686
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/paired/report.json",
+      "sha256": "eed5d539635abaa7aa305d86845b644a922d52943655d412498b3fdb540c248c",
+      "bytes": 5514
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/plan.json",
+      "sha256": "8ab1ec873ded81bec4475fb2e8065dc3a5be9d6d5e6bcf3d2e88446dee6bc829",
+      "bytes": 10145947
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/stage-progress.json",
+      "sha256": "f26fed3deda495178ad4e8d6f35bfc9ef35fa9580ca75cc32834f22e61bd1821",
+      "bytes": 2584
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/study/direct-pollen/matched-scores.csv",
+      "sha256": "3a1f3835df417403ded587aa64a036edad50dfb244969c99ed45e70e58322dd5",
+      "bytes": 12440
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/study/direct-pollen/paired-hellinger.json",
+      "sha256": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
+      "bytes": 26709
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/study/radius-sensitivity/scored/report.json",
+      "sha256": "ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a",
+      "bytes": 3086
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison/study/radius-sensitivity/scored/scores.csv",
+      "sha256": "60bf6b4cc25bf94a9afbb241370d55e7be17239c20e25881b4cc862e452eb494",
+      "bytes": 20025
+    }
+  ],
+  "output_bytes": 10765882,
+  "resources": {
+    "overall_timeout_seconds": 240,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 134217728,
+    "maximum_parallel_workers": 1,
+    "numerical_threads_per_worker": 1
+  },
+  "scope": "Real paired table construction only, after genuine radius three-stage zero. Original forward execution candidate2784 and constrained candidate22c6 remain distinct. No forward, fit, inversion, optimizer or R repeat. Original full pins use exact old/current Git bridges with unchanged scientific source projection. No ecological, independent/equal-information ranking, physical-radius or rights acceptance.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

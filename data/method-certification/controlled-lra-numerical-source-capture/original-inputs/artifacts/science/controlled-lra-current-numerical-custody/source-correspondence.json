@@ -1,0 +1,70 @@
+{
+  "schema_version": "controlled-lra-qualified-numerical-source-correspondence.v1",
+  "initial_numerical_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-alias-custody/prepared-source-manifest.json",
+    "sha256": "bb7d1212f19a10ead198872d04a2538deb616ca505d018cb845823b7fefcd721",
+    "bytes": 2950
+  },
+  "qualified_runtime_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-introspection/prepared-source-manifest.json",
+    "sha256": "ecd0cdea9671bc2b65e2f674d9b0d7ee348c5e337c79bcebba0f3b58abbdf7ae",
+    "bytes": 2743
+  },
+  "unchanged_numerical_contract_and_runner": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/contracts.py",
+      "sha256": "68dd43e3b1246c7ef2b733a7ff380ac575d0358661a61576fa8325adf994f4c5",
+      "bytes": 12064
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/run.py",
+      "sha256": "80823aca701d7d57a89498f3db4cec9c15c3bd924977a0f1a1b69c488ac11c69",
+      "bytes": 4094
+    }
+  ],
+  "exact_qualified_runtime_helpers": [
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-introspection/runtime_custody.py",
+        "sha256": "6e66857241441b18521ec0de49e667a74546cfb27ffad4f2e2d5dea66a0305a7",
+        "bytes": 13968
+      },
+      "copy": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/runtime_custody.py",
+        "sha256": "6e66857241441b18521ec0de49e667a74546cfb27ffad4f2e2d5dea66a0305a7",
+        "bytes": 13968
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-introspection/oracle_metadata.R",
+        "sha256": "220d5c9e13e51d4689ee79847ef94b884e68738d8a83197a7910f7acc3d5082e",
+        "bytes": 5196
+      },
+      "copy": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/oracle_metadata.R",
+        "sha256": "220d5c9e13e51d4689ee79847ef94b884e68738d8a83197a7910f7acc3d5082e",
+        "bytes": 5196
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-introspection/observe_runtime_probe.py",
+        "sha256": "aad775d579b5e22d3f8ae7b96beb8eb4a2469c43bd46287ee96ce50dd971bf2d",
+        "bytes": 5477
+      },
+      "copy": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/observe_runtime_probe.py",
+        "sha256": "aad775d579b5e22d3f8ae7b96beb8eb4a2469c43bd46287ee96ce50dd971bf2d",
+        "bytes": 5477
+      }
+    }
+  ],
+  "delta": "Prepare adds authentic qualified probe receipt/all original input/product pin verification plus two raw framework aliases; observer adds same prerequisite binding and metadata_only=false/raw path checks. No canonical Python/R numerical functions/cases or objective/paired thresholds changed.",
+  "actual_source_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/qualified-prerequisite-and-numerical-source.json",
+    "sha256": "c55592abc6d49b344f31ef1e76a24c3e0bed26f1d1a170d173f78590e9cfc609",
+    "bytes": 3947
+  },
+  "original_failed_Python_fit_and_native_failure": "Both original failures and initial Python fit remain literal immutable products, transitively authenticated through the successful runtime probe inputs; no older execution is relabelled."
+}

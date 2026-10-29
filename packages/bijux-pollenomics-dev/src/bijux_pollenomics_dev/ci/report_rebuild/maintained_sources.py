@@ -36,15 +36,22 @@ from .scientific_captures.author_native_reference import (
 from .scientific_captures.author_optimizer_diagnostics import (
     validated_author_optimizer_diagnostic_capture,
 )
+from .scientific_captures.author_radius import validated_author_radius_capture
 from .scientific_captures.author_site_evaluations import (
     validated_author_site_evaluation_captures,
 )
 from .scientific_captures.constrained_author import validated_constrained_author_capture
+from .scientific_captures.controlled_numerical.lra_comparison import (
+    validated_controlled_lra_comparison_capture,
+)
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
+)
+from .scientific_captures.representative_performance import (
+    validated_representative_performance_capture,
 )
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
@@ -54,6 +61,9 @@ from .scientific_captures.swedish_source_chronology import (
 )
 from .scientific_captures.swedish_static_basin import (
     validated_swedish_static_basin_captures,
+)
+from .scientific_captures.vegetation_reference.nfi_measurement import (
+    validated_nfi_measurement_capture,
 )
 from .scientific_captures.vegetation_reference.slu_guide import (
     validated_slu_guide_capture,
@@ -258,18 +268,40 @@ def validated_maintained_report_sources(
             repository, tracked_by_path, inventory["owners"]
         )
     )
+    performance_entries, performance_evidence = (
+        validated_representative_performance_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    nfi_entries, nfi_evidence = validated_nfi_measurement_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    controlled_entries, controlled_evidence = (
+        validated_controlled_lra_comparison_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    radius_entries, radius_evidence = validated_author_radius_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         (
-            capture_entries
-            + parameter_entries
-            + chronology_entries
-            + nordic_entries
-            + linux_entries
-            + author_entries
-            + author_native_entries
+            (
+                capture_entries
+                + parameter_entries
+                + chronology_entries
+                + nordic_entries
+                + linux_entries
+                + author_entries
+                + author_native_entries
+            )
+            + constrained_entries
+            + optimizer_entries
         )
-        + constrained_entries
-        + optimizer_entries
+        + performance_entries
+        + nfi_entries
+        + controlled_entries
+        + radius_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -320,4 +352,12 @@ def validated_maintained_report_sources(
         evidence["retained_constrained_author_capture"] = constrained_evidence
     if optimizer_entries:
         evidence["retained_author_optimizer_diagnostic_capture"] = optimizer_evidence
+    if performance_entries:
+        evidence["retained_representative_performance_capture"] = performance_evidence
+    if nfi_entries:
+        evidence["retained_nfi_measurement_capture"] = nfi_evidence
+    if controlled_entries:
+        evidence["retained_controlled_lra_comparison_capture"] = controlled_evidence
+    if radius_entries:
+        evidence["retained_author_radius_capture"] = radius_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

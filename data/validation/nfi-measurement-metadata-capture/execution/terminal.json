@@ -1,0 +1,136 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+  "plan_sha256": "22fb7f1d219ee2adf9f98bf682615199df8c18d3fc681f28decf3209bb46c601",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 15.265631666989066,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/plan.json",
+    "--registered-plan-sha256",
+    "22fb7f1d219ee2adf9f98bf682615199df8c18d3fc681f28decf3209bb46c601"
+  ],
+  "canonical_before": {
+    "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+    "status": "",
+    "tracked_inventory_sha256": "1806ca51ab6cc2724abdf26a41ef5a6a4ac2ca53ac30478e8bb23090021b47c5"
+  },
+  "canonical_after": {
+    "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+    "status": "",
+    "tracked_inventory_sha256": "1806ca51ab6cc2724abdf26a41ef5a6a4ac2ca53ac30478e8bb23090021b47c5"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "maintained-original-NFI-selected-metadata",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/invoke.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 4.983278791012708,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/maintained-original-NFI-selected-metadata.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/maintained-original-NFI-selected-metadata.stderr",
+      "stdout_sha256": "f6b7ec73c2d69dec7427033ba2bc0af2ddd09993be4ce9fd3d1830f53a9207c4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 124878848
+    },
+    {
+      "id": "independent-dictionary-header-area-time-and-owner",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 6.513461041962728,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/independent-dictionary-header-area-time-and-owner.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/independent-dictionary-header-area-time-and-owner.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 161660928
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/independent-dictionary-header-area-time-and-owner.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/independent-dictionary-header-area-time-and-owner.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/independent-metadata-review.json",
+      "sha256": "b4f19bc9d5345959fdc1472609ee4c3691b3c70f8399c0dee7f53bd5f6eecb29",
+      "bytes": 3445
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/loaded-source-origins.json",
+      "sha256": "e3a75f8601736b238ce8ff37badf5d2180ce0e26bc9061067c0e81aec0d5cdb3",
+      "bytes": 372791
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/maintained-original-NFI-selected-metadata.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/maintained-original-NFI-selected-metadata.stdout",
+      "sha256": "f6b7ec73c2d69dec7427033ba2bc0af2ddd09993be4ce9fd3d1830f53a9207c4",
+      "bytes": 31
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/nfi-measurement-schema.json",
+      "sha256": "5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505",
+      "bytes": 2537
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/plan.json",
+      "sha256": "22fb7f1d219ee2adf9f98bf682615199df8c18d3fc681f28decf3209bb46c601",
+      "bytes": 9230340
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/producer-origin.json",
+      "sha256": "551101a3c278194a95e8b3070ba2a54818e81c233b7d99f2ca60e43665a18d5b",
+      "bytes": 1241
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/stage-progress.json",
+      "sha256": "519ed85500d9338defa333e7ba17d79f1cb70da46bd7da308d2efa6b41eff2d8",
+      "bytes": 2270
+    }
+  ],
+  "output_bytes": 9612655,
+  "resources": {
+    "overall_timeout_seconds": 110,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "Genuine original workbook selected-field metadata replay only. Full worksheet XML streams include unselected cells, semantic decoders only dictionary/header and D-G-H; no tree measurement outcomes decoded/displayed/scored, benchmark/admission/target mapping/model choice remain absent. No private workbook redistribution, original retrieval identity invented or calibration guide ownership closure. Memory/storage are completed postchecks, no OS quota/full descendant RSS claim.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "aux_K.csv": {
+    "sha256": "cd6b65a6b0d09b3b871dd26579532a64ee6bc13f1db4e9c2c1659a32ac5f7752",
+    "bytes": 1740
+  },
+  "aux_terrestrial_fraction.csv": {
+    "sha256": "78e0a1889784319c6ab60443107b97bf568098954e3a7ac865817e727d062152",
+    "bytes": 42
+  },
+  "cover_mean.csv": {
+    "sha256": "e73c46d0b42d7d1999216f9eb77bc63cd853c95ff9e28b278da5e508d27650d2",
+    "bytes": 1691
+  },
+  "cover_q10.csv": {
+    "sha256": "e73c46d0b42d7d1999216f9eb77bc63cd853c95ff9e28b278da5e508d27650d2",
+    "bytes": 1691
+  },
+  "cover_q90.csv": {
+    "sha256": "e73c46d0b42d7d1999216f9eb77bc63cd853c95ff9e28b278da5e508d27650d2",
+    "bytes": 1691
+  },
+  "objective_values.csv": {
+    "sha256": "8bc5843d028d9df1f98ad59299fd8aead48a3530ddb0999669c759d19d2fe272",
+    "bytes": 58
+  },
+  "optimizer_diagnostics.json": {
+    "sha256": "b4b235ebca7998b4e08cd7e78fa729d45f198e71608a9bed7a7ab09f95907f20",
+    "bytes": 2205
+  },
+  "pollen_percentages_mean.csv": {
+    "sha256": "2ed1fee48155e5daf003ce91aa2a27f506bab032fb9b6c247120947ea5abf7ca",
+    "bytes": 673
+  },
+  "pollen_percentages_q10.csv": {
+    "sha256": "2ed1fee48155e5daf003ce91aa2a27f506bab032fb9b6c247120947ea5abf7ca",
+    "bytes": 673
+  },
+  "pollen_percentages_q90.csv": {
+    "sha256": "2ed1fee48155e5daf003ce91aa2a27f506bab032fb9b6c247120947ea5abf7ca",
+    "bytes": 673
+  },
+  "result_contract.json": {
+    "sha256": "73909bf3e33ecd01105d990d8bfe6d6c25ce9643765d26e9be0296050b6e0963",
+    "bytes": 259
+  },
+  "run_manifest.json": {
+    "sha256": "c71adbc925c228fec87876bd7eb8d02ef2736277e70a56c8ee9c62abc184ae34",
+    "bytes": 1981
+  }
+}

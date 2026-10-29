@@ -1,0 +1,166 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "plan_sha256": "fb37c521a0e1e92bb5e9369f2a0da84b1474183fbca350ca0c957cde12bf22f5",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 13.281546000041999,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/plan.json",
+    "--registered-plan-sha256",
+    "fb37c521a0e1e92bb5e9369f2a0da84b1474183fbca350ca0c957cde12bf22f5"
+  ],
+  "canonical_before": {
+    "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+    "status": "",
+    "tracked_inventory_sha256": "8dca788ab48417cd0374fea54fa454d1762a60a1c811fffa7e331a110485b78a"
+  },
+  "canonical_after": {
+    "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+    "status": "",
+    "tracked_inventory_sha256": "8dca788ab48417cd0374fea54fa454d1762a60a1c811fffa7e331a110485b78a"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "source-bound-three-training-item-gradient-diagnostic",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py",
+        "--prepared",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/constrained-inputs",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/gradient.json"
+      ],
+      "timeout_seconds": 240,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 4.661607000045478,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/source-bound-three-training-item-gradient-diagnostic.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/source-bound-three-training-item-gradient-diagnostic.stderr",
+      "stdout_sha256": "65a54d1b5e557000272bb6651bd7567d233f4788b745381f7c3ec6b6f7eb47e2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 209453056
+    },
+    {
+      "id": "source-bound-finite-best-candidate-diagnostic",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite_candidate.py",
+        "--inputs",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/feasibility/extended/inputs",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/finite.json"
+      ],
+      "timeout_seconds": 240,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 4.794902749999892,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/source-bound-finite-best-candidate-diagnostic.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/source-bound-finite-best-candidate-diagnostic.stderr",
+      "stdout_sha256": "0de8b9f2558c60c8dd405c01a31cae6542f908e225aa28b698e7c645a2cc2cf1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 209453056
+    },
+    {
+      "id": "independent-complete-original-science-and-refusal-comparison",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/plan.json"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 1.9796081659733318,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/independent-complete-original-science-and-refusal-comparison.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/independent-complete-original-science-and-refusal-comparison.stderr",
+      "stdout_sha256": "171406d7a3aaaeaec80325000e1229a1e022d0456458f496f4e2a59e5d7a6fe0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 209453056
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/finite.json",
+      "sha256": "0de8b9f2558c60c8dd405c01a31cae6542f908e225aa28b698e7c645a2cc2cf1",
+      "bytes": 1431
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/gradient.json",
+      "sha256": "8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d",
+      "bytes": 8370
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/independent-complete-original-science-and-refusal-comparison.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/independent-complete-original-science-and-refusal-comparison.stdout",
+      "sha256": "171406d7a3aaaeaec80325000e1229a1e022d0456458f496f4e2a59e5d7a6fe0",
+      "bytes": 79
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/independent-diagnostic-review.json",
+      "sha256": "d36511f2a2c26c223294a79fe5307548b02cf8e3ab1bb78bb496290ee1ccf798",
+      "bytes": 1800
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/plan.json",
+      "sha256": "fb37c521a0e1e92bb5e9369f2a0da84b1474183fbca350ca0c957cde12bf22f5",
+      "bytes": 9304844
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/source-bound-finite-best-candidate-diagnostic.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/source-bound-finite-best-candidate-diagnostic.stdout",
+      "sha256": "0de8b9f2558c60c8dd405c01a31cae6542f908e225aa28b698e7c645a2cc2cf1",
+      "bytes": 1431
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/source-bound-three-training-item-gradient-diagnostic.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/source-bound-three-training-item-gradient-diagnostic.stdout",
+      "sha256": "65a54d1b5e557000272bb6651bd7567d233f4788b745381f7c3ec6b6f7eb47e2",
+      "bytes": 53
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/stage-progress.json",
+      "sha256": "06b35c0e014ead81571d15561716a6fb400fab22af5818018ba87a5f2afc329c",
+      "bytes": 3856
+    }
+  ],
+  "output_bytes": 9321864,
+  "resources": {
+    "overall_timeout_seconds": 600,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 67108864,
+    "maximum_parallel_workers": 1,
+    "numerical_threads_per_worker": 1
+  },
+  "scope": "Two unchanged bounded prior-exposed English author development diagnostics, using exact genuine114 derived inputs and complete193member private authority. Three declared problematic training items/two rings and one finite best-candidate pair. Maintained diagnostic optimizer bodies genuinely run; no full15fold/195fit/newR/newheldoutprediction. Complete typed outputs must equal governed historical reports; any scalar/count/type/convergence delta is retained as refusal rather than updating expectations. No ecological/Nordic/rights/human or official release admission.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "representative-public-call-profiling.v1",
+  "status": "Held source preparation only; actual candidate selected by root later; no source checkout, preparation, plan freeze, numerical call, R or compilation performed.",
+  "current_source_at_preparation": "7d78139e903a2cf4b70fbe07dd581758d7544ff5",
+  "source_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-protocol/protocol.json",
+    "sha256": "b9c42e436a867e0cf659d2cb710532aef98f83573329a18587c57af309d3426a",
+    "bytes": 8101
+  },
+  "retained_performance_authority": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-input-custody/retained-source-review.json",
+    "sha256": "0f39df9c5c01f0bd2e9d74966445507d92a16f24cacb4103a9cd2a6166f9aed5",
+    "bytes": 2319
+  },
+  "historical_seven_workloads": [
+    "reveals-interactive",
+    "reveals-reference-series",
+    "love-analytical",
+    "love-optimized-replay",
+    "lra-replicated-series",
+    "forward-validated",
+    "forward-dot-compute"
+  ],
+  "retained_scope": "Seven historical workload contracts remain frozen historical evidence, not fresh measurements. The already completed 64 source-derived coordinate replica/scalar serialization comparison is retained and not repeated. Forward compiled candidates still failed their 2x full-call conversion-inclusive gate.",
+  "new_workloads": [
+    {
+      "name": "author-conditional-joint-draws",
+      "source": "193-member original private ESSD author capsule authenticated by maintained 195-input snapshot validator",
+      "sites": 6,
+      "positive_taxa": 10,
+      "selected_counts": [
+        289,
+        293,
+        2223,
+        2786,
+        4251,
+        562
+      ],
+      "draws": 1024,
+      "public_api": "bijux_pollenomics_lra.api.joint_site_cover_draws",
+      "authority": "Adopted current uncertainty report/draws/CSV and genuine two-stage producer/observer zero; same report/draw output values must match exactly. Conditional static geometry and shared PPE/count draw closure; not ecological accuracy."
+    },
+    {
+      "name": "love-larger-fixed-candidate-batch",
+      "logical_public_calls": 128,
+      "physical_published_fixture": 1,
+      "taxa": 10,
+      "rings": 36,
+      "fixed_candidates_per_call": 32,
+      "repeats": 2,
+      "stochastic": false,
+      "seed": 7,
+      "public_api": "bijux_pollenomics_lra.api.run_love",
+      "shape": "Larger computational batch of one source LOVEexample, never 128 independent sites, ages or scientific observations. Fixed candidate replay, no optimizer convergence or newly fitted predictions. Mean cover must match retained optimized replay baseline."
+    }
+  ],
+  "sampling": {
+    "primary_processes": 6,
+    "per_workload_isolated_processes": 3,
+    "per_process_public_calls": "First plus seven warm calls; no OS cold-cache claim. Body timer starts after stdlib imports; common stage wall clock includes full process startup. Input loading/construction/conversion and output projection/serialization are measured separately from full public call.",
+    "additional_diagnostics": "One separate cProfile public call and three baseline, three passthrough and three individually instrumented public calls for each named boundary. Profiles are diagnostic and do not qualify unprofiled hotspot admission. Exact output and unmodified input identities required throughout.",
+    "boundaries": [
+      "joint_site_draws._closed_joint_draws",
+      "optimized.tf",
+      "optimized.calK"
+    ],
+    "scaling": "For each workload, compare equal two-call total work in two sequential fresh processes versus two concurrent processes. Eight scaling worker processes, one public workload each; maximum concurrency two. All repeats retained."
+  },
+  "hotspot_rule": "Each of three primary processes must independently have conservative boundary share >=0.50 using minimum inside cost minus clock/passthrough overhead against maximum full baseline time; instrumentation overhead <=5%; every input/output identical. Nested costs never summed. Spread is descriptive, not a confidence interval. Failure or no dominant boundary is retained.",
+  "native_admission": {
+    "new_cpp_allowed": false,
+    "source_R_executed": false,
+    "further_required": "Any measured hotspot still requires current identical-input source-R/Python parity and a separately reviewed bounded candidate. No compilation from this plan. Prospective compiled acceptance retains >=2x conversion-inclusive full-call speed, <=1.25 peak RSS ratio and existing explicit atol/rtol; no weakened baseline or adoption claim."
+  },
+  "thread_observation": "Six vendor thread variables exactly 1 and max two processes are requested. The immutable admitted runtime lacks threadpoolctl/psutil; no observed native thread counter or actual vendor enforcement is claimed.",
+  "resources": {
+    "overall_timeout_seconds": 1200,
+    "completed_child_peak_rss_bytes": 2147483648,
+    "logical_output_budget_including_16384_byte_receipt_reserve": 268435456,
+    "max_parallel_workers": 2,
+    "OS_quota_or_full_descendant_census": false
+  },
+  "custody": "Qualified lexical Python3.11 entry, full runtime/stdlib files plus declared resolved aliases, complete four package source roots/resources, original private snapshot members, fixed actual producer/observer receipts, source baselines and all local controllers are pinned. Canonical main HEAD/status/index and all pins remain exact before/after the common runner. No runtime mutation/install.",
+  "outputs": "Exclusive normalized nonsymlink files under selected new repository artifacts output. Pure storage tests cover traversal, ancestor links, replacement and zero/null. Full scientific output per worker, all timings, profiles, scaling, independent joins and terminal remain reviewable.",
+  "runner_lineage": {
+    "retained": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/run.py",
+      "sha256": "e9c63bb2dd18d0870ebeb5ad2186958252675c4c76250c86b41cbead0a7380e4",
+      "bytes": 3690
+    },
+    "current": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/run.py",
+      "sha256": "86ce5ea4f8860cc2a7266eff3fbd5f0abb7ef5ab0f9df0e730c3cc1d019a42c7",
+      "bytes": 3690
+    },
+    "only_byte_difference": "Output terminal filename; completed memory/storage/input/exit behavior unchanged."
+  },
+  "invocations": {
+    "source_prepare": "artifacts/science/runtime/environment/bin/python -B artifacts/science/representative-performance-source-capture/prepare.py --candidate FINAL_SHA --output /Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile",
+    "source_only_admission": "Same command plus --check-inputs-only; requires exact independent review and creates no output.",
+    "native_after_root_registration": "artifacts/science/runtime/environment/bin/python -B artifacts/science/representative-performance-source-capture/run.py --plan OUTPUT/plan.json --registered-plan-sha256 REGISTERED_SHA"
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/qualification.json",
+    "sha256": "a1300c4401748eb531395a124b0e6f197c44617c8f57b4af9184258278cc5b27",
+    "bytes": 12441
+  },
+  "limitations": "No independent ecological/vegetation/source rights/human or official release admission. No current same-input R result, compiler spike or benchmark result exists from this preparation."
+}

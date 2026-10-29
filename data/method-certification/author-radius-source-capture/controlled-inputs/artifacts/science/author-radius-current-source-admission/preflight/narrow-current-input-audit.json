@@ -1,0 +1,40 @@
+{
+  "schema_version": "narrow-source-qualified-radius-input-preflight.v1",
+  "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+  "custody_source_sha256": "871dd016cf3d9f3a8ce47b781c9bc48826f01e59eb672d299d22ca02e9c07718",
+  "original_radius_registered_pins": 34271,
+  "exact_current_physical_pins": 34284,
+  "exact_original_work_members": 900,
+  "original_scientific_source_projection_count": 2136,
+  "only_two_permitted_git_authenticated_changes": [
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
+        "sha256": "3d2697284c6bdfe08a9291204cfd2b33245726809c6da4c0055dadbca9e8e4fc",
+        "bytes": 11436
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
+        "sha256": "6ffcac9782bdc5f5ab3d98e28ffac3e61d79a82c7245faeef0a9371b5665befc",
+        "bytes": 12695
+      },
+      "original_git_candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+      "current_git_candidate": "aed78f8befdf0449789249e780ad80f13f44e086"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json",
+        "sha256": "f6175a21f4e040c0f85e2ca3f276e0d4eeef65efcaa371f7e525486a7535526a",
+        "bytes": 840350
+      },
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json",
+        "sha256": "e6aeee9351f478d170e58b40eb3b39e25edc847d25c4d9c9513260c522bb1344",
+        "bytes": 844289
+      },
+      "original_git_candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+      "current_git_candidate": "aed78f8befdf0449789249e780ad80f13f44e086"
+    }
+  ],
+  "no_plan_or_paired_or_forward_or_model_execution": true
+}

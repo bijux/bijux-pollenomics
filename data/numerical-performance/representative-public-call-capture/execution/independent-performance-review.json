@@ -1,0 +1,227 @@
+{
+  "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "scientific_sources_outputs_and_all_repeated_identities_pass": true,
+  "observations": [
+    {
+      "worker": 0,
+      "workload": "author-conditional-joint-draws",
+      "first_seconds": 0.0008305830415338278,
+      "warm_seconds": [
+        0.0007182499975897372,
+        0.0010851669940166175,
+        0.0009909170330502093,
+        0.000968625012319535,
+        0.0009497080463916063,
+        0.0009408750338479877,
+        0.0009552499977871776
+      ],
+      "warm_median_seconds": 0.0009552499977871776,
+      "warm_min_seconds": 0.0007182499975897372,
+      "warm_max_seconds": 0.0010851669940166175,
+      "whole_worker_peak_RSS_bytes": 209158144
+    },
+    {
+      "worker": 1,
+      "workload": "author-conditional-joint-draws",
+      "first_seconds": 0.0008313329890370369,
+      "warm_seconds": [
+        0.0007552080205641687,
+        0.0008718749741092324,
+        0.0008489169995300472,
+        0.0007734170067124069,
+        0.0007722089649178088,
+        0.000784709001891315,
+        0.0007739170105196536
+      ],
+      "warm_median_seconds": 0.0007739170105196536,
+      "warm_min_seconds": 0.0007552080205641687,
+      "warm_max_seconds": 0.0008718749741092324,
+      "whole_worker_peak_RSS_bytes": 210649088
+    },
+    {
+      "worker": 2,
+      "workload": "author-conditional-joint-draws",
+      "first_seconds": 0.0008304169750772417,
+      "warm_seconds": [
+        0.0007640839903615415,
+        0.0008151249494403601,
+        0.000738415983505547,
+        0.0010453749564476311,
+        0.0010256250388920307,
+        0.0010127080022357404,
+        0.001021042000502348
+      ],
+      "warm_median_seconds": 0.0010127080022357404,
+      "warm_min_seconds": 0.000738415983505547,
+      "warm_max_seconds": 0.0010453749564476311,
+      "whole_worker_peak_RSS_bytes": 209125376
+    },
+    {
+      "worker": 0,
+      "workload": "love-larger-fixed-candidate-batch",
+      "first_seconds": 2.867185417038854,
+      "warm_seconds": [
+        2.801637875032611,
+        2.8074027089751326,
+        2.764516166993417,
+        2.811649082985241,
+        2.781291167018935,
+        2.8655127080273814,
+        2.9602626250125468
+      ],
+      "warm_median_seconds": 2.8074027089751326,
+      "warm_min_seconds": 2.764516166993417,
+      "warm_max_seconds": 2.9602626250125468,
+      "whole_worker_peak_RSS_bytes": 241401856
+    },
+    {
+      "worker": 1,
+      "workload": "love-larger-fixed-candidate-batch",
+      "first_seconds": 2.842722249974031,
+      "warm_seconds": [
+        2.8118055829545483,
+        2.8306367499753833,
+        2.775882333982736,
+        2.751611542014871,
+        2.767751084000338,
+        2.7448422919842415,
+        2.78167375002522
+      ],
+      "warm_median_seconds": 2.775882333982736,
+      "warm_min_seconds": 2.7448422919842415,
+      "warm_max_seconds": 2.8306367499753833,
+      "whole_worker_peak_RSS_bytes": 240025600
+    },
+    {
+      "worker": 2,
+      "workload": "love-larger-fixed-candidate-batch",
+      "first_seconds": 2.816526416980196,
+      "warm_seconds": [
+        2.816887416993268,
+        2.790367499983404,
+        2.7893995419726707,
+        2.7909332090057433,
+        2.754365874978248,
+        2.7749613749911077,
+        2.7830130830407143
+      ],
+      "warm_median_seconds": 2.7893995419726707,
+      "warm_min_seconds": 2.754365874978248,
+      "warm_max_seconds": 2.816887416993268,
+      "whole_worker_peak_RSS_bytes": 252493824
+    }
+  ],
+  "all_worker_boundary_assessments": {
+    "bijux_pollenomics_lra.reconstruction.uncertainty.joint_site_draws:_closed_joint_draws": [
+      {
+        "instrumentation_overhead_ratio": 0.24956418234214375,
+        "conservative_measured_boundary_share": 0.04249381864080042,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.19580567923719075,
+        "conservative_measured_boundary_share": 0.18693385625018677,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.0,
+        "conservative_measured_boundary_share": 0.36190837666970416,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      }
+    ],
+    "bijux_pollenomics_lra.reconstruction.optimized:tf": [
+      {
+        "instrumentation_overhead_ratio": 0.0,
+        "conservative_measured_boundary_share": 0.20743053413613485,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.008358961285958415,
+        "conservative_measured_boundary_share": 0.19995178325107066,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.007183928011337331,
+        "conservative_measured_boundary_share": 0.2103680684523742,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      }
+    ],
+    "bijux_pollenomics_lra.reconstruction.optimized:calK": [
+      {
+        "instrumentation_overhead_ratio": 0.015674740157463334,
+        "conservative_measured_boundary_share": 0.10668604087775639,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.0,
+        "conservative_measured_boundary_share": 0.10993080295687245,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      },
+      {
+        "instrumentation_overhead_ratio": 0.0,
+        "conservative_measured_boundary_share": 0.09891627313305074,
+        "qualified_measured_hotspot": false,
+        "allows_compilation": false
+      }
+    ]
+  },
+  "qualified_all_three_worker_hotspots": [],
+  "scaling": {
+    "rows": [
+      {
+        "mode": "sequential",
+        "workload": "author-conditional-joint-draws",
+        "workers": [
+          100,
+          101
+        ],
+        "wall_seconds": 4.623789416975342,
+        "total_work": "2identical public workload calls; one numerical thread per worker"
+      },
+      {
+        "mode": "parallel",
+        "workload": "author-conditional-joint-draws",
+        "workers": [
+          102,
+          103
+        ],
+        "wall_seconds": 2.4152667919988744,
+        "total_work": "2identical public workload calls; one numerical thread per worker"
+      },
+      {
+        "mode": "sequential",
+        "workload": "love-larger-fixed-candidate-batch",
+        "workers": [
+          100,
+          101
+        ],
+        "wall_seconds": 10.846913665998727,
+        "total_work": "2identical public workload calls; one numerical thread per worker"
+      },
+      {
+        "mode": "parallel",
+        "workload": "love-larger-fixed-candidate-batch",
+        "workers": [
+          102,
+          103
+        ],
+        "wall_seconds": 5.434701666992623,
+        "total_work": "2identical public workload calls; one numerical thread per worker"
+      }
+    ],
+    "scope": "Independent fresh-process equal-total-work1vs2worker throughput diagnostic; startup/load costs included; no machine/platform extrapolation."
+  },
+  "new_cpp_allowed": false,
+  "source_R_same_input_comparison_executed": false,
+  "thread_scope": "One numerical thread is requested through six pinned vendor environment variables; immutable runtime lacks threadpoolctl, so no native thread-counter observation is claimed. Maximum two worker processes is independently bounded.",
+  "remaining": "Any candidate still requires actual current identical-input sourceR/Python comparison and a separately reviewed compiled proposal under the existing2x conversion-inclusive/1.25RSS gates. No C++ adoption, optimizer convergence, field-site/vegetation/right/human or official release conclusion.",
+  "scope": "Source-qualified actual six-site/ten-taxon/1024stored conditional joint draw public calls and128synthetic computational LOVEexample repetitions, never128independent sites. Three isolated first+sevenwarm calls each, separate diagnostic profile and unprofiled one-boundary measurements, equal-total1vs2workers. No sourceR execution, optimizer search, newC++compiler/kernel, ecological/rights/human or release admission; old seven-workload/64replica timings retain historical scope. Confirmed measured hotspot alone cannot authorize compilation: same-input currentR/Python and separately reviewed prospective spike remain required."
+}

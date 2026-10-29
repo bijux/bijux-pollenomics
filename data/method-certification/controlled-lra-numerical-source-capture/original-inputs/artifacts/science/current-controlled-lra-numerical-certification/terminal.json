@@ -1,0 +1,136 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+  "plan_sha256": "69dc4d4cd1487349ac9f578175f5d156bbceb193c4f6adcca283bbc8688dfb7f",
+  "actual_exit": 1,
+  "status": "failed",
+  "elapsed_seconds": 6.798641624976881,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/plan.json",
+    "--registered-plan-sha256",
+    "69dc4d4cd1487349ac9f578175f5d156bbceb193c4f6adcca283bbc8688dfb7f"
+  ],
+  "canonical_before": {
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "status": "",
+    "tracked_inventory_sha256": "5158fc8bdab4c0bacd90dfef3e64698130633efaa3ee3e62da0482a679043114"
+  },
+  "canonical_after": {
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "status": "",
+    "tracked_inventory_sha256": "5158fc8bdab4c0bacd90dfef3e64698130633efaa3ee3e62da0482a679043114"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "optimizer-solution-quality-current-native-replay",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/replay.py",
+        "--repository",
+        "/Users/bijan/bijux/bijux-pollenomics",
+        "--library",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library",
+        "--rscript",
+        "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality"
+      ],
+      "timeout_seconds": 75,
+      "must_succeed": true,
+      "actual_exit": 1,
+      "timed_out": false,
+      "elapsed_seconds": 4.271552374993917,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality-current-native-replay.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality-current-native-replay.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "9f8afdb0151b814254bb6ac6f52d12115c4814983dfa351d28c8239abb708a87",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 168001536
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality/python-fits.csv",
+      "sha256": "a7a27587208dd41dfdcece0a23755aab7ccc564cd2d26d96622e6e417b1ca09d",
+      "bytes": 347
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality/r-stderr.log",
+      "sha256": "752e1281db0f58293a95695d38ea38b4910cd0de8f25bb27521f49ed485b6809",
+      "bytes": 579
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality/r-stdout.log",
+      "sha256": "3ce7449edd149e0cf72a510837c77819bc82825c11f4f29391615d7b6d8d20c0",
+      "bytes": 46
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality/same-process-runtime.json",
+      "sha256": "7ef8466ff167a6a84696c9505a9aa5ea4563c6edfa980bde16a6da972066af2d",
+      "bytes": 979
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality-current-native-replay.stderr",
+      "sha256": "9f8afdb0151b814254bb6ac6f52d12115c4814983dfa351d28c8239abb708a87",
+      "bytes": 497
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality-current-native-replay.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/cases.json",
+      "sha256": "747c5f5535c0a6dedfc93723b13383312a4204e11332f56e3f4c641f619d2af7",
+      "bytes": 714
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/replay.py",
+      "sha256": "450a03523ed43d07b4e3f326056264d48e28e4749beea57ad4d21425c145df47",
+      "bytes": 7807
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/solver.R",
+      "sha256": "a07b627bebe52aefc41ac1baa9de664b6f0f56d499e62416278becc0291a9713",
+      "bytes": 3326
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/paired-love-draws/replay.R",
+      "sha256": "d61f809d07ba66370c540b50ee20c232cad2b6e6532c9aef3299057500180873",
+      "bytes": 3308
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/paired-love-draws/replay.py",
+      "sha256": "2d2ba1a42c2fd3e71129d20b857db2c9d60be21c3337fd31f5e7ddb925d21e35",
+      "bytes": 8802
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/plan.json",
+      "sha256": "69dc4d4cd1487349ac9f578175f5d156bbceb193c4f6adcca283bbc8688dfb7f",
+      "bytes": 11981197
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/stage-progress.json",
+      "sha256": "798400d55d0eb4545df90e9be25f7f0b1ab4186813b678b7517bbf39422c8f2b",
+      "bytes": 1550
+    }
+  ],
+  "output_bytes": 12009152,
+  "resources": {
+    "overall_timeout_seconds": 210,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "New controlled current Python/Darwin-R certification of two declared fixtures; unchanged numerical scripts/tolerances, real artifact wrappers in report source hashes, before/after same-process namespaces/DLLs. Old reports/candidates/timing and original unpinned-jsonlite limit remain historical. No ecological, human, platform matrix or release acceptance. Numerical thread variables requested only; host network access not kernel-denied, no network/source/install operation in declared commands.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

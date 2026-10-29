@@ -1,0 +1,77 @@
+{
+  "schema_version": "nfi-measurement-metadata-source.v1",
+  "files": [
+    {
+      "path": "check_contract.py",
+      "sha256": "69085718b9421de3ca13e39143a5b0613ada8991984e64fd674b5e00320a6f79",
+      "bytes": 5898
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "8b2954bcadbc51d84940e48c0134abee605b8de336275737a0a879a819bd06ad",
+      "bytes": 7555
+    },
+    {
+      "path": "invoke.py",
+      "sha256": "0bc57ccad6508e49fe37b70b61c1bb025709057d3872fbf1fbb01b1a708cf2b4",
+      "bytes": 2309
+    },
+    {
+      "path": "observe.py",
+      "sha256": "5c479fc28c171f117aa46e5d24c1e1840ced17e5f006692156e2499f4fe4b238",
+      "bytes": 4775
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "6605dc1349ef25db270f07d6d6f0ffe795784cc2418d92b6d024eb6933247158",
+      "bytes": 10743
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "7f76da1a8f4019b90de66314e9b811e719c434c3a1775700f5f2f11250c5c417",
+      "bytes": 3126
+    },
+    {
+      "path": "run.py",
+      "sha256": "d2ecbc695bc1e3376c49fbee26f9306f6fdfa9fad66d2dd1b87bb90bd105fa46",
+      "bytes": 4086
+    },
+    {
+      "path": "runtime_custody.py",
+      "sha256": "0964eec589d0f69f97201b1bfbde558f33f41ab1e775fc53f879c85493af4d20",
+      "bytes": 12005
+    },
+    {
+      "path": "source-correspondence.json",
+      "sha256": "22edad9acd08eb7f436936b8abadda1eff1655ac59fd41be506feebdb6730756",
+      "bytes": 5248
+    },
+    {
+      "path": "source-feasibility.json",
+      "sha256": "e07adc0228ec69103fb0164d98bb5b2b5334b70b64112f356737ce9f62a6882a",
+      "bytes": 4004
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "4bd7ddf4880d3a3342b0259af8cb45383db7ed844d1a1c2266301224351dfef4",
+      "bytes": 2444
+    }
+  ],
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/source-qualification.json",
+    "sha256": "4bd7ddf4880d3a3342b0259af8cb45383db7ed844d1a1c2266301224351dfef4",
+    "bytes": 2444
+  },
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-measurement-metadata-custody/prepared-source-manifest.json",
+    "sha256": "b35e00a46ea2a86021c04285bb892be6dd2102fbd377c62ec4d7fe3a2f818e8b",
+    "bytes": 2104
+  },
+  "source_use_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/slu-calibration-guide-source-review/retained-source-review.json",
+    "sha256": "8be8d30b38ab3f6848f809edb8d7881c490a1dc0022365d71809957a3c630350",
+    "bytes": 4342
+  },
+  "source_candidate_parameter": "Dynamic exact clean local main; no preparation/private workbook metadata/model execution",
+  "scope": "Same bounded original-workbook metadata replay; only guide source-use evidence-limit facts corrected. Original guide retrieval/copy and authenticated source-page literal href remain unqualified."
+}

@@ -1,0 +1,488 @@
+{
+  "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "worker": 1,
+  "rows": [
+    {
+      "workload": "love-larger-fixed-candidate-batch",
+      "contract": {
+        "source": "128 logical computational repetitions of one published LOVEexample; no independent field sites/ages",
+        "logical_calls": 128,
+        "physical_fixture": 1,
+        "taxa": 10,
+        "rings": 36,
+        "repeats": 2,
+        "candidates": 32,
+        "config": {
+          "method": "optimized",
+          "regional_basin_type": "lake",
+          "regional_basin_diameter_m": 300,
+          "local_basin_diameter_m": 12.9,
+          "max_ring": 10,
+          "distance_weighting": "lsm unstable",
+          "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+          "repeats": 2,
+          "stochastic": false,
+          "seed": 7,
+          "retain_samples": false,
+          "ppe_error": true,
+          "optimizer_iterations": 200,
+          "optimizer_max_evaluations": 32,
+          "optimizer_tolerance": 0.01,
+          "optimized_profile": "disqover-0.9.14-source"
+        },
+        "optimizer_search_convergence": false
+      },
+      "input_identity": "2fcc2109bf66e65b4abb5497ef46e34d220387803c41e84703f2f4aa5ffdd9d0",
+      "construction_loading_conversion_seconds": 1.9817666670423932,
+      "first_public_call_seconds": 2.842722249974031,
+      "warm_public_call_seconds": [
+        2.8118055829545483,
+        2.8306367499753833,
+        2.775882333982736,
+        2.751611542014871,
+        2.767751084000338,
+        2.7448422919842415,
+        2.78167375002522
+      ],
+      "output_projection_seconds": [
+        0.06039649999001995,
+        0.059353207994718105,
+        0.06059708300745115,
+        0.08201112505048513,
+        0.08493479201570153,
+        0.08540354098659009,
+        0.06107795803109184,
+        0.05922704195836559
+      ],
+      "scientific_output_sha256": "47e6a49fe5b768571542ab1c5058da498455797e9b4907bb6cf3f97debfd69d1",
+      "scientific_output_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-1/love-larger-fixed-candidate-batch.json",
+      "diagnostic_profile_total_seconds": 5.7291604300000065,
+      "diagnostic_top_self": [
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'reduce' of 'numpy.ufunc' objects>",
+          "calls": 604800,
+          "self_seconds": 0.381171205,
+          "cumulative_seconds": 0.381171205
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+          "line": 234,
+          "function": "dispersal_factor",
+          "calls": 48640,
+          "self_seconds": 0.21646615700000002,
+          "cumulative_seconds": 0.7040783300000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+          "line": 98,
+          "function": "vector",
+          "calls": 247424,
+          "self_seconds": 0.19986134300000002,
+          "cumulative_seconds": 0.517492146
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "calls": 2363648,
+          "self_seconds": 0.181846586,
+          "cumulative_seconds": 0.288186008
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py",
+          "line": 16,
+          "function": "_canonical",
+          "calls": 89472,
+          "self_seconds": 0.179529358,
+          "cumulative_seconds": 0.5964643000000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+          "line": 61,
+          "function": "love_pollen",
+          "calls": 34816,
+          "self_seconds": 0.153205437,
+          "cumulative_seconds": 0.885976674
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 86,
+          "function": "_wrapreduction_any_all",
+          "calls": 189312,
+          "self_seconds": 0.13439675,
+          "cumulative_seconds": 0.35749868100000004
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_ufunclike_impl.py",
+          "line": 62,
+          "function": "isposinf",
+          "calls": 84736,
+          "self_seconds": 0.12505438600000002,
+          "cumulative_seconds": 0.12505438600000002
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py",
+          "line": 4714,
+          "function": "_quantile",
+          "calls": 20992,
+          "self_seconds": 0.11498116300000001,
+          "cumulative_seconds": 0.595428058
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+          "line": 51,
+          "function": "logeuclidean",
+          "calls": 33792,
+          "self_seconds": 0.10453223900000001,
+          "cumulative_seconds": 0.252551174
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_ufunclike_impl.py",
+          "line": 132,
+          "function": "isneginf",
+          "calls": 84736,
+          "self_seconds": 0.102497212,
+          "cumulative_seconds": 0.102497212
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+          "line": 72,
+          "function": "finite_number",
+          "calls": 147584,
+          "self_seconds": 0.099539744,
+          "cumulative_seconds": 0.14503190900000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
+          "line": 12,
+          "function": "_deposition_components",
+          "calls": 34816,
+          "self_seconds": 0.09419316900000001,
+          "cumulative_seconds": 0.181070231
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+          "line": 216,
+          "function": "custom_objective",
+          "calls": 32768,
+          "self_seconds": 0.09155605600000001,
+          "cumulative_seconds": 1.353898196
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+          "line": 43,
+          "function": "scalar",
+          "calls": 399360,
+          "self_seconds": 0.08889514300000001,
+          "cumulative_seconds": 0.124539991
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/pandas/core/construction.py",
+          "line": 517,
+          "function": "sanitize_array",
+          "calls": 27776,
+          "self_seconds": 0.0759287,
+          "cumulative_seconds": 0.231953175
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py",
+          "line": 4679,
+          "function": "_get_indexes",
+          "calls": 20992,
+          "self_seconds": 0.07009478000000001,
+          "cumulative_seconds": 0.177138302
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/_core/fromnumeric.py",
+          "line": 2436,
+          "function": "any",
+          "calls": 185984,
+          "self_seconds": 0.067864247,
+          "cumulative_seconds": 0.416675067
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method numpy.asarray>",
+          "calls": 511232,
+          "self_seconds": 0.06622648,
+          "cumulative_seconds": 0.10120180100000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_nanfunctions_impl.py",
+          "line": 144,
+          "function": "_remove_nan_1d",
+          "calls": 51200,
+          "self_seconds": 0.052097342000000005,
+          "cumulative_seconds": 0.11355366400000001
+        }
+      ],
+      "diagnostic_top_cumulative": [
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py",
+          "line": 138,
+          "function": "batch",
+          "calls": 1,
+          "self_seconds": 4.000000000000001e-06,
+          "cumulative_seconds": 5.729986708
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py",
+          "line": 139,
+          "function": "<listcomp>",
+          "calls": 1,
+          "self_seconds": 0.001003998,
+          "cumulative_seconds": 5.7299827080000005
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+          "line": 83,
+          "function": "run_love",
+          "calls": 128,
+          "self_seconds": 0.0032274010000000004,
+          "cumulative_seconds": 5.728978710000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+          "line": 145,
+          "function": "LOVEoptim",
+          "calls": 128,
+          "self_seconds": 0.018131486000000002,
+          "cumulative_seconds": 4.861848667
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+          "line": 170,
+          "function": "optimize_box",
+          "calls": 1024,
+          "self_seconds": 0.016501946,
+          "cumulative_seconds": 1.553202135
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+          "line": 71,
+          "function": "solve",
+          "calls": 1024,
+          "self_seconds": 0.010808901000000001,
+          "cumulative_seconds": 1.40020798
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+          "line": 94,
+          "function": "<listcomp>",
+          "calls": 1024,
+          "self_seconds": 0.016937723000000002,
+          "cumulative_seconds": 1.3775772560000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+          "line": 216,
+          "function": "custom_objective",
+          "calls": 32768,
+          "self_seconds": 0.09155605600000001,
+          "cumulative_seconds": 1.353898196
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+          "line": 287,
+          "function": "objective",
+          "calls": 33792,
+          "self_seconds": 0.01071591,
+          "cumulative_seconds": 1.1602647270000002
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+          "line": 93,
+          "function": "tf",
+          "calls": 33792,
+          "self_seconds": 0.036083456,
+          "cumulative_seconds": 1.1495488170000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+          "line": 195,
+          "function": "_regional_cover",
+          "calls": 256,
+          "self_seconds": 0.0017981490000000002,
+          "cumulative_seconds": 1.1353767030000002
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+          "line": 474,
+          "function": "REVEALSinR",
+          "calls": 256,
+          "self_seconds": 0.001494131,
+          "cumulative_seconds": 1.05378009
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+          "line": 336,
+          "function": "_reconstruct_frame",
+          "calls": 256,
+          "self_seconds": 0.0061992010000000005,
+          "cumulative_seconds": 1.052285959
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+          "line": 244,
+          "function": "_summary_frames",
+          "calls": 256,
+          "self_seconds": 0.001473584,
+          "cumulative_seconds": 0.958274586
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_function_base_impl.py",
+          "line": 3815,
+          "function": "_ureduce",
+          "calls": 21760,
+          "self_seconds": 0.021779627000000003,
+          "cumulative_seconds": 0.913655984
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_nanfunctions_impl.py",
+          "line": 1405,
+          "function": "nanquantile",
+          "calls": 512,
+          "self_seconds": 0.0007303580000000001,
+          "cumulative_seconds": 0.8881198260000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+          "line": 61,
+          "function": "love_pollen",
+          "calls": 34816,
+          "self_seconds": 0.153205437,
+          "cumulative_seconds": 0.885976674
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_nanfunctions_impl.py",
+          "line": 1577,
+          "function": "_nanquantile_unchecked",
+          "calls": 512,
+          "self_seconds": 0.0005465180000000001,
+          "cumulative_seconds": 0.885496759
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_nanfunctions_impl.py",
+          "line": 1605,
+          "function": "_nanquantile_ureduce_func",
+          "calls": 512,
+          "self_seconds": 0.0007180330000000001,
+          "cumulative_seconds": 0.8822690320000001
+        },
+        {
+          "file": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/lib/python3.11/site-packages/numpy/lib/_shape_base_impl.py",
+          "line": 278,
+          "function": "apply_along_axis",
+          "calls": 512,
+          "self_seconds": 0.041065438,
+          "cumulative_seconds": 0.8814971890000001
+        }
+      ],
+      "profile_is_unprofiled_hotspot_evidence": false,
+      "warnings": [
+        "Terrestrial area exceeds geometric ring area; the source ratio is retained rather than clipped"
+      ],
+      "measured_unprofiled_boundaries": [
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.optimized",
+          "attribute": "tf",
+          "call_count_per_instrumented_public_call": 33792,
+          "timings_seconds": {
+            "baseline": [
+              2.7752282909932546,
+              2.7676484170369804,
+              2.7369931249995716
+            ],
+            "passthrough": [
+              2.745939167041797,
+              2.7554221249883994,
+              2.7992986669996753
+            ],
+            "instrumented": [
+              2.806579500029329,
+              2.7907830830081366,
+              2.778554084012285
+            ],
+            "inside": [
+              0.6227373724104837,
+              0.6217009501415305,
+              0.6184728147927672
+            ],
+            "clock_cost": [
+              0.0012488559586927295,
+              0.0012554270797409117,
+              0.0012033787788823247
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.008358961285958415,
+            "conservative_measured_boundary_share": 0.19995178325107066,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        },
+        {
+          "module": "bijux_pollenomics_lra.reconstruction.optimized",
+          "attribute": "calK",
+          "call_count_per_instrumented_public_call": 128,
+          "timings_seconds": {
+            "baseline": [
+              2.808805749984458,
+              2.783098332991358,
+              2.8398413329850882
+            ],
+            "passthrough": [
+              2.8254183340468444,
+              2.852579958969727,
+              2.814319958037231
+            ],
+            "instrumented": [
+              2.7834844579920173,
+              2.762423917010892,
+              2.7959955420228653
+            ],
+            "inside": [
+              0.38167262193746865,
+              0.3820969997905195,
+              0.38671141618397087
+            ],
+            "clock_cost": [
+              4.662550054490566e-06,
+              4.957953933626413e-06,
+              4.627101588994265e-06
+            ]
+          },
+          "assessment": {
+            "instrumentation_overhead_ratio": 0.0,
+            "conservative_measured_boundary_share": 0.10993080295687245,
+            "qualified_measured_hotspot": false,
+            "allows_compilation": false
+          },
+          "scope": "Separate otherwise unprofiled complete public calls; one boundary at a time, never summed nested costs. Conservative min/max spread and empty clock correction are descriptive measurements, not a confidence interval or sourceR parity."
+        }
+      ]
+    }
+  ],
+  "worker_body_seconds": 82.44443587498972,
+  "peak_RSS_native": 240025600,
+  "rss_units": "bytes",
+  "thread_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "native_thread_counters_observed": false,
+  "R_or_compiler_executed": false,
+  "source_origins": {
+    "bijux_pollenomics_lra": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+    "bijux_pollenomics_dev": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py"
+  },
+  "limits": "Fresh process first call is not guaranteed OS-cold. Seven warm observations include all repeats; profiles are diagnostic only. Full public calls exclude separately measured input construction/projection; no compiled adoption or sourceR parity claim."
+}

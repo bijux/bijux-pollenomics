@@ -1,0 +1,212 @@
+{
+  "scope": "Source-only pure guards/import signatures/parser help/static qualification; no numerical workloads, producer, source preparation, plan freeze, R or compilation.",
+  "cases": 18,
+  "strict_files": 5,
+  "configured_lint_and_format_files": 9,
+  "AST_files": 9,
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/boundary.py",
+      "sha256": "f09ff1197cfacd9ad0027a3828d52efa48aaf9fbce463288157fa84da43b2af4",
+      "bytes": 1682
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/check_contracts.py",
+      "sha256": "2f474cd31c550edbc3c42c89ce7df67a508f8cdf2dd002fa95ead6db51234539",
+      "bytes": 4414
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+      "sha256": "3ee0065468f1bb6c83f3bd265829f384ea7554ab68cab4e66d74491a141a62ea",
+      "bytes": 8971
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/observe.py",
+      "sha256": "5fdfcab2a3988077b57546d8e6844586baa20f4ed2aa4d7a157ca7df0bdad3b8",
+      "bytes": 8445
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/prepare.py",
+      "sha256": "6e3796f1e5f34003b6270201240b238d8c5e09c13a8cb55526344d63b9aa98c1",
+      "bytes": 13727
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/run.py",
+      "sha256": "86ce5ea4f8860cc2a7266eff3fbd5f0abb7ef5ab0f9df0e730c3cc1d019a42c7",
+      "bytes": 3690
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/scaling.py",
+      "sha256": "5e009c4c042d2f9e7e95743d5844f25e2c6ab57b0ac92e0bd8ce0808853dcb5a",
+      "bytes": 3089
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/storage.py",
+      "sha256": "bea316312519e5aac06d8006be90e0038963832432ba4c2f2f93138d6f1ec10a",
+      "bytes": 998
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py",
+      "sha256": "c7b85206cb4a20a09e3e847abd2ec89a2420328bb8d8fc27b9319c16a4a8924a",
+      "bytes": 6224
+    }
+  ],
+  "commands": [
+    {
+      "label": "guards",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/check_contracts.py"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/guards.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/guards.stderr"
+    },
+    {
+      "label": "lint",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--config",
+        "configs/ruff.toml",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/ruff-cache",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/boundary.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/check_contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/scaling.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/storage.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/lint.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/lint.stderr"
+    },
+    {
+      "label": "format",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "--config",
+        "configs/ruff.toml",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/boundary.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/check_contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/scaling.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/storage.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/format.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/format.stderr"
+    },
+    {
+      "label": "strict",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "mypy",
+        "--config-file",
+        "configs/mypy.ini",
+        "--strict",
+        "--follow-imports=silent",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/boundary.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/scaling.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/storage.py"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/strict.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/strict.stderr"
+    },
+    {
+      "label": "prepare.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/prepare.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/prepare.py-help.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/prepare.py-help.stderr"
+    },
+    {
+      "label": "measure.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/measure.py-help.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/measure.py-help.stderr"
+    },
+    {
+      "label": "scaling.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/scaling.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/scaling.py-help.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/scaling.py-help.stderr"
+    },
+    {
+      "label": "observe.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/observe.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/observe.py-help.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/observe.py-help.stderr"
+    },
+    {
+      "label": "run.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/run.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/run.py-help.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/run.py-help.stderr"
+    },
+    {
+      "label": "api-signatures",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-c",
+        "import inspect,json,importlib\nfrom bijux_pollenomics_lra.api import run_love,joint_site_cover_draws,LoveConfig\nfrom bijux_pollenomics_lra.resources.examples import load_love_example\nfrom bijux_pollenomics_lra.reconstruction import optimized\nfrom bijux_pollenomics_lra.reconstruction.uncertainty import joint_site_draws\nassert 'replay_candidates' in inspect.signature(run_love).parameters\nassert 'taxon_measured' in inspect.signature(joint_site_cover_draws).parameters\nfor f in (optimized.tf, optimized.calK, joint_site_draws._closed_joint_draws): assert callable(f)\nassert hasattr(LoveConfig,'as_dict')\nprint(json.dumps({'imports_and_signatures':True,'numerical_public_calls':0,'threadpoolctl_available':importlib.util.find_spec('threadpoolctl') is not None}))"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/api-signatures.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/api-signatures.stderr"
+    }
+  ],
+  "all_actual_exit_zero": true
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "optimizer-solution-quality-current-native-replay",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/replay.py",
+      "--repository",
+      "/Users/bijan/bijux/bijux-pollenomics",
+      "--library",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library",
+      "--rscript",
+      "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality"
+    ],
+    "timeout_seconds": 75,
+    "must_succeed": true,
+    "actual_exit": 1,
+    "timed_out": false,
+    "elapsed_seconds": 4.271552374993917,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality-current-native-replay.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality-current-native-replay.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "9f8afdb0151b814254bb6ac6f52d12115c4814983dfa351d28c8239abb708a87",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 168001536
+  }
+]

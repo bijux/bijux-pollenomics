@@ -1,0 +1,403 @@
+{
+  "native_exit": 0,
+  "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+  "plan_sha256": "05ec9e3e9b62b2fd66adc46b03b35a84d8160af62cfe0aa870f73d324f732992",
+  "actual_two_producers": [
+    {
+      "id": "optimizer-solution-quality-current-native-replay",
+      "actual_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "paired-love-draws-current-native-replay",
+      "actual_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "findings": {
+    "optimizer-solution-quality": {
+      "scientific_checks": {
+        "ordered_cases": 3,
+        "cases": [
+          {
+            "case": "symmetric-interior",
+            "independent_scalar_python": 0.002825602463402348,
+            "independent_scalar_R": 0.00282560246320975,
+            "known_optimum": 0.0028256024632098667,
+            "R_iteration_cap_not_convergence": true
+          },
+          {
+            "case": "constrained-boundary",
+            "independent_scalar_python": 5.529002416369053,
+            "independent_scalar_R": 5.529002416163854,
+            "known_optimum": 5.529002416163855,
+            "R_iteration_cap_not_convergence": true
+          },
+          {
+            "case": "composition-ambiguous",
+            "independent_scalar_python": 0.004894078373966672,
+            "independent_scalar_R": 0.00489407837395123,
+            "known_optimum": 0.004894078373951329,
+            "R_iteration_cap_not_convergence": true
+          }
+        ],
+        "cross_evaluation_threshold": 1e-10,
+        "optimum_gap_threshold": 0.0001,
+        "scientific_acceptance": "not_evaluated"
+      },
+      "same_process_runtime": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/same-process-runtime.json",
+        "sha256": "9a2b0510ade904b2fad23ae6282f989dca11b6fb48ad364ab4fe7eb2ba637a7c",
+        "bytes": 47664
+      },
+      "namespace_counts": {
+        "before_namespaces": 40,
+        "before_DLLs": 29,
+        "after_namespaces": 40,
+        "after_DLLs": 29
+      },
+      "report": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/report.json",
+        "sha256": "eb473519e413849339ae4080cb2346f66426d5d7823ae67399778fbb5883a0f1",
+        "bytes": 1746
+      },
+      "all_current_products": [
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/python-fits.csv",
+          "sha256": "a7a27587208dd41dfdcece0a23755aab7ccc564cd2d26d96622e6e417b1ca09d",
+          "bytes": 347
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/r-fits.csv",
+          "sha256": "540be5db7a0a2febeccb0d12590ed3939cc045a8666f4835b514c187e716f05d",
+          "bytes": 379
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/r-session.txt",
+          "sha256": "f0773178bf5c1c530365d350d05771e93b4d2085cd2118124929ec62f0e2e3b2",
+          "bytes": 1123
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/report.json",
+          "sha256": "eb473519e413849339ae4080cb2346f66426d5d7823ae67399778fbb5883a0f1",
+          "bytes": 1746
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/summary.csv",
+          "sha256": "79edce68dbe2624d22590e4ac1c0ebfd2401d76b7ec9006956d47ceb79ec35bd",
+          "bytes": 748
+        }
+      ]
+    },
+    "paired-love-draws": {
+      "scientific_checks": {
+        "paired_finite_values": 120,
+        "paired_missing_values": 280,
+        "maximum_absolute_difference": 6.927791673660977e-14,
+        "prospective_absolute_tolerance": 3e-10,
+        "same_seed_trajectory_claim": false,
+        "scientific_acceptance": "not_evaluated"
+      },
+      "same_process_runtime": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/same-process-runtime.json",
+        "sha256": "be6c424b1b1b743aa95adafe9cb3624bee8f780705d5d7e99e08cd1b650ae1c2",
+        "bytes": 47712
+      },
+      "namespace_counts": {
+        "before_namespaces": 40,
+        "before_DLLs": 29,
+        "after_namespaces": 40,
+        "after_DLLs": 29
+      },
+      "report": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/report.json",
+        "sha256": "c8600da2a949bac39711ce60d3a89165461683026d9eded39bf48d9f3e8f5c99",
+        "bytes": 2328
+      },
+      "all_current_products": [
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/draws.json",
+          "sha256": "904a7833ab0396e4a44f6bb8501a7b1180c48cdadb4714189aa2b41abd3d0351",
+          "bytes": 6833
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/python-values.csv",
+          "sha256": "390fe61025bbdbdaf3e648ca329773b1c2f6f26ae950c3b9bf78c65f8380b0c5",
+          "bytes": 7808
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/r-session.txt",
+          "sha256": "f0773178bf5c1c530365d350d05771e93b4d2085cd2118124929ec62f0e2e3b2",
+          "bytes": 1123
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/r-values.csv",
+          "sha256": "3422da89a5e9ab9dee7b0ced0dc2f02196b712071d8a66d445a7e55b42ec2422",
+          "bytes": 7574
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/report.json",
+          "sha256": "c8600da2a949bac39711ce60d3a89165461683026d9eded39bf48d9f3e8f5c99",
+          "bytes": 2328
+        },
+        {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/setup.json",
+          "sha256": "9ac28398214f733ea6b193a78a4da570b654806945703be7c2238a4021c8029b",
+          "bytes": 9519
+        }
+      ]
+    }
+  },
+  "eleven_complete_public_product_comparisons": [
+    {
+      "family": "optimizer-solution-quality",
+      "path": "python-fits.csv",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/python-fits.csv",
+        "sha256": "a7a27587208dd41dfdcece0a23755aab7ccc564cd2d26d96622e6e417b1ca09d",
+        "bytes": 347
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/python-fits.csv",
+        "sha256": "a7a27587208dd41dfdcece0a23755aab7ccc564cd2d26d96622e6e417b1ca09d",
+        "bytes": 347
+      },
+      "exact_bytes": true
+    },
+    {
+      "family": "optimizer-solution-quality",
+      "path": "r-fits.csv",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/r-fits.csv",
+        "sha256": "540be5db7a0a2febeccb0d12590ed3939cc045a8666f4835b514c187e716f05d",
+        "bytes": 379
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/r-fits.csv",
+        "sha256": "540be5db7a0a2febeccb0d12590ed3939cc045a8666f4835b514c187e716f05d",
+        "bytes": 379
+      },
+      "exact_bytes": true
+    },
+    {
+      "family": "optimizer-solution-quality",
+      "path": "r-session.txt",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/r-session.txt",
+        "sha256": "f0773178bf5c1c530365d350d05771e93b4d2085cd2118124929ec62f0e2e3b2",
+        "bytes": 1123
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/r-session.txt",
+        "sha256": "f0773178bf5c1c530365d350d05771e93b4d2085cd2118124929ec62f0e2e3b2",
+        "bytes": 1123
+      },
+      "exact_bytes": true
+    },
+    {
+      "family": "optimizer-solution-quality",
+      "path": "report.json",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/report.json",
+        "sha256": "eb473519e413849339ae4080cb2346f66426d5d7823ae67399778fbb5883a0f1",
+        "bytes": 1746
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/report.json",
+        "sha256": "62da8c5e4af32da8feeb297c1fc63d1a02e1c19c5d765cd8fab5ccbd71584aba",
+        "bytes": 1590
+      },
+      "exact_bytes": false,
+      "all_typed_differences": [
+        {
+          "path": "$.input_sha256.artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/optimizer-solution-quality/cases.json",
+          "before": null,
+          "after": "747c5f5535c0a6dedfc93723b13383312a4204e11332f56e3f4c641f619d2af7",
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/optimizer-solution-quality/replay.py",
+          "before": null,
+          "after": "450a03523ed43d07b4e3f326056264d48e28e4749beea57ad4d21425c145df47",
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/optimizer-solution-quality/solver.R",
+          "before": null,
+          "after": "dc0c6ee28f965913c158853f457819c65f78eb0b9bef6af552d27959b90beab4",
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.docs/report/method-certification/optimizer-solution-quality/cases.json",
+          "before": "747c5f5535c0a6dedfc93723b13383312a4204e11332f56e3f4c641f619d2af7",
+          "after": null,
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.docs/report/method-certification/optimizer-solution-quality/replay.py",
+          "before": "450a03523ed43d07b4e3f326056264d48e28e4749beea57ad4d21425c145df47",
+          "after": null,
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.docs/report/method-certification/optimizer-solution-quality/solver.R",
+          "before": "e24a7783669d2603d1c5f038da75cb10d6b75ae32c738262a5f44dcc1df69178",
+          "after": null,
+          "kind": "membership"
+        }
+      ]
+    },
+    {
+      "family": "optimizer-solution-quality",
+      "path": "summary.csv",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/optimizer-solution-quality/summary.csv",
+        "sha256": "79edce68dbe2624d22590e4ac1c0ebfd2401d76b7ec9006956d47ceb79ec35bd",
+        "bytes": 748
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/summary.csv",
+        "sha256": "79edce68dbe2624d22590e4ac1c0ebfd2401d76b7ec9006956d47ceb79ec35bd",
+        "bytes": 748
+      },
+      "exact_bytes": true
+    },
+    {
+      "family": "paired-love-draws",
+      "path": "draws.json",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/draws.json",
+        "sha256": "904a7833ab0396e4a44f6bb8501a7b1180c48cdadb4714189aa2b41abd3d0351",
+        "bytes": 6833
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/draws.json",
+        "sha256": "904a7833ab0396e4a44f6bb8501a7b1180c48cdadb4714189aa2b41abd3d0351",
+        "bytes": 6833
+      },
+      "exact_bytes": true
+    },
+    {
+      "family": "paired-love-draws",
+      "path": "python-values.csv",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/python-values.csv",
+        "sha256": "390fe61025bbdbdaf3e648ca329773b1c2f6f26ae950c3b9bf78c65f8380b0c5",
+        "bytes": 7808
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/python-values.csv",
+        "sha256": "390fe61025bbdbdaf3e648ca329773b1c2f6f26ae950c3b9bf78c65f8380b0c5",
+        "bytes": 7808
+      },
+      "exact_bytes": true
+    },
+    {
+      "family": "paired-love-draws",
+      "path": "r-session.txt",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/r-session.txt",
+        "sha256": "f0773178bf5c1c530365d350d05771e93b4d2085cd2118124929ec62f0e2e3b2",
+        "bytes": 1123
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/r-session.txt",
+        "sha256": "f0773178bf5c1c530365d350d05771e93b4d2085cd2118124929ec62f0e2e3b2",
+        "bytes": 1123
+      },
+      "exact_bytes": true
+    },
+    {
+      "family": "paired-love-draws",
+      "path": "r-values.csv",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/r-values.csv",
+        "sha256": "3422da89a5e9ab9dee7b0ced0dc2f02196b712071d8a66d445a7e55b42ec2422",
+        "bytes": 7574
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/r-values.csv",
+        "sha256": "3422da89a5e9ab9dee7b0ced0dc2f02196b712071d8a66d445a7e55b42ec2422",
+        "bytes": 7574
+      },
+      "exact_bytes": true
+    },
+    {
+      "family": "paired-love-draws",
+      "path": "report.json",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/report.json",
+        "sha256": "c8600da2a949bac39711ce60d3a89165461683026d9eded39bf48d9f3e8f5c99",
+        "bytes": 2328
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/report.json",
+        "sha256": "bdb5984e4e37cfca64ba6ebc766db421c80c13570b67dabbd4d1239baf2650e0",
+        "bytes": 2224
+      },
+      "exact_bytes": false,
+      "all_typed_differences": [
+        {
+          "path": "$.input_sha256.artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/paired-love-draws/replay.R",
+          "before": null,
+          "after": "0a49c5f60abf02c1215ba11ee695e12146f9f6b3a70b74ac99fe0116e6b50470",
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/paired-love-draws/replay.py",
+          "before": null,
+          "after": "2d2ba1a42c2fd3e71129d20b857db2c9d60be21c3337fd31f5e7ddb925d21e35",
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.docs/report/method-certification/paired-love-draws/replay.R",
+          "before": "960fb50e63a3ce9a53464f5ef239fa7655f527477e3d993e4ce0d04a196dd171",
+          "after": null,
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.docs/report/method-certification/paired-love-draws/replay.py",
+          "before": "2d2ba1a42c2fd3e71129d20b857db2c9d60be21c3337fd31f5e7ddb925d21e35",
+          "after": null,
+          "kind": "membership"
+        },
+        {
+          "path": "$.input_sha256.packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+          "before": "ebf5a2b6a20ccee96b06851f2ea85db9b36c05da123d21b59197b92d25f30269",
+          "after": "8c1fd09287191b9fdb30499c57f82fc2711ed34979ecec852b227cb1dfdf50eb",
+          "before_type": "str",
+          "after_type": "str"
+        },
+        {
+          "path": "$.input_sha256.packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+          "before": "c4c368a02c9757e9f899a079b4d2b93a893c8493350aeaa910f8e5fa5d5049a1",
+          "after": "7580a831eb025a0aba9bbc8b55d57c63bd47781130983ff0d1c73673060c98ed",
+          "before_type": "str",
+          "after_type": "str"
+        }
+      ]
+    },
+    {
+      "family": "paired-love-draws",
+      "path": "setup.json",
+      "current": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/setup.json",
+        "sha256": "9ac28398214f733ea6b193a78a4da570b654806945703be7c2238a4021c8029b",
+        "bytes": 9519
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/setup.json",
+        "sha256": "9ac28398214f733ea6b193a78a4da570b654806945703be7c2238a4021c8029b",
+        "bytes": 9519
+      },
+      "exact_bytes": true
+    }
+  ],
+  "historical_execution_proofs_recovered": false,
+  "fresh_source_R_executed": true,
+  "source_functions_and_tolerances_unchanged": true,
+  "fresh_scientific_acceptance": "not_evaluated",
+  "scope": "Independent scalar objective calculation and complete ordered pair/missing-mask review; new current execution only, original source/runtime limits remain historical. No optimizer trajectory, calibrated uncertainty, ecological/human or release acceptance."
+}

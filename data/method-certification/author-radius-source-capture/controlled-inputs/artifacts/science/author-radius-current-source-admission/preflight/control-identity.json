@@ -1,0 +1,18 @@
+{
+  "resource_runner_predecessor": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/run.py",
+  "resource_runner_predecessor_sha256": "65c951b62d387fbe1a51e87d2dedf3c60cef4820db1670bc65a72c383cffe230",
+  "resource_loop_exit_accounting_and_native_preservation_AST_exact_except_terminal_name_and_annotations": true,
+  "current_input_audit": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/preflight/narrow-current-input-audit.json",
+    "sha256": "4c8c26387889f7e404e7b71d272fb5b33a4f169d7d2b892dea064a370bc66e0e"
+  },
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/preflight/receipt.json",
+    "sha256": "6d85338fbaccf3c1e63d0d01aef971f72bc145cdfc7ebbe6e109176df620a8ba",
+    "pure_controls": 15,
+    "strict_files": 7,
+    "Ruff_format_files": 7,
+    "actual_exit": 0
+  },
+  "metadata_only_preparation_or_native_execution": false
+}

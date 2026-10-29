@@ -1,0 +1,93 @@
+{
+  "schema_version": "author-radius-paired-current-source-protocol.v1",
+  "status": "source_only_no_preparation_no_native",
+  "immutable_base_candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+  "pending_source_overlays": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-lock-membership/guarded-source-proposal.json",
+      "sha256": "aec7b22eb9b4db48477805187886096c4136f3d00b53761c213ae7d549ddc046",
+      "scope": "Root commits independently; source preparation requires actual clean candidate. Do not overwrite its shared metadata with base122 files."
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-producer-custody/prepared-source-manifest.json",
+      "sha256": "c5d7ed7d95910f952747b083c3374bf3b4595ebfe3dea20d1d8dacea1bced43d",
+      "scope": "R2 ledger controller only. Future publication unprepared; root serializes any account/registry/quality/PDF/lock edits."
+    }
+  ],
+  "radius_execution": {
+    "candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+    "plan_sha256": "0442ab3ec6a44b2ed57a4e4078a3aa2bcb690c51b79a1d08e7bdeb074ea7065e",
+    "outer_sha256": "3c4b7c6ffc7bb3242894fdf9f06ad3e88d5dd55022da4643858320a654289957",
+    "observer_sha256": "262e6e4b49e6f0779349509ad15ead6a5277ab3964d2ea8952eef149f1b63792",
+    "actual_native_stages": 3,
+    "original_registered_pins": 34271,
+    "original_constrained_source_candidate": "22c6e480ba4690cc508202925a8773afe95ab36e",
+    "original_constrained_pins": 33336,
+    "original_work_files": 900,
+    "training_attempts_completed_refused": [
+      195,
+      192,
+      3
+    ],
+    "scored_sites": 14,
+    "excluded_site": "author:BECKHAM"
+  },
+  "necessary_new_consumer": "Maintained paired_comparison.py direct produce CLI, with exactly three EXPECTED digest literal changes; source script otherwise exact AST. Four read-only copied genuine public ledgers only. No forward-model or fit repeat. Direct and radius actual source e07c prediction manifest rejoined.",
+  "actual_stages": [
+    {
+      "id": "maintained-four-ledger-radius-paired-join",
+      "seconds": 60
+    },
+    {
+      "id": "independent-complete-paired-science-and-source-observer",
+      "seconds": 90
+    }
+  ],
+  "resources": {
+    "overall_seconds": 240,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_logical_output_bytes": 134217728,
+    "receipt_reserve": 16384,
+    "workers": 1,
+    "numerical_threads": 1,
+    "network": "No network stage or install; no OS network sandbox claim."
+  },
+  "qualification": "Complete paired JSON typed/ordered numerical equality except source_sha256/producer_sha256, exact historical paired CSV bytes, all126 source-row arithmetic/observation/prediction joins; BECKHAM excluded. Actual original34271 protected pins revalidated; only the two observed maintained-source registry/scientific-account changes may use exact original/current Git blobs, with every other original pin exact; the entire original2136-path scientific source projection stays exact. All four current package regular source/resources and qualified runtime/stdlib pinned.",
+  "future_prepare_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/prepare.py",
+    "--candidate",
+    "ACTUAL_FUTURE_CLEAN_GIT_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-paired-comparison"
+  ],
+  "future_registered_run_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-current-source-admission/run.py",
+    "--plan",
+    "ACTUAL_OUTPUT/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA"
+  ],
+  "publication_followthrough": "After genuine paired two-stage zero, publish coherent actual radius3+paired2 outputs, render and qualify existing reader and nine fields with exact current account/registry/quality/lock preimages, preserve all human/expert decisions. Prepare a complete retained-source capsule for both original radius3stage and new paired2stage epochs; no module constant or packet digest until actual metadata assembly0. Keep original120 radius/source117fit and later paired candidate separate.",
+  "owner_scope": {
+    "radius_report_products": "unresolved original3 paths; actual current radius0 now available for new truthful retained-source admission",
+    "radius_paired_comparison": "generated existing2paths; requires genuine current paired run rather than copying old producer claims"
+  },
+  "scientific_limits": "English prior-exposed fixed-vegetation forward sensitivity, 30taxon observed denominator,14pairedtargets,3methods,3radiusfactors. Direct uses14trainingpollen while LRA uses regionalanchor+13local predictors; no equal-information independent ranking/physicalradius/age-specific basin/vegetation accuracy/Nordic/ecological/rights claim.",
+  "root_controlled_input_preflight": {
+    "path": "artifacts/science/author-radius-current-source-admission/preflight/current-input-audit.json",
+    "sha256": "8267e8cb670e7935bc214622e28732e91b194ab0042d466b524cb1325dea499d",
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "original_pins": 34271,
+    "complete_work_files": 900,
+    "exact_scientific_projection_paths": 2136,
+    "exact_two_git_authenticated_changes": [
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
+    ],
+    "actual_source_preparation_or_scientific_consumer": false
+  }
+}

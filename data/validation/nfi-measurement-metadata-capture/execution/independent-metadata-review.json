@@ -1,0 +1,71 @@
+{
+  "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+  "plan_sha256": "22fb7f1d219ee2adf9f98bf682615199df8c18d3fc681f28decf3209bb46c601",
+  "actual_maintained_producer_native_exit": 0,
+  "source_original": {
+    "path": "/Users/bijan/bijux/-bijux-pollenomics-data/reference-sources/empd2-nfi/nfi/swedish-plot-data.xlsx",
+    "sha256": "862d13f26b868e3b32504f0f714f369018e700e54b245fcd2e16c80640316294",
+    "bytes": 14381338
+  },
+  "public_product": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/nfi-measurement-schema.json",
+    "sha256": "5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505",
+    "bytes": 2537
+  },
+  "retained_product": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json",
+    "sha256": "5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505",
+    "bytes": 2537
+  },
+  "exact_typed_and_raw_bytes": true,
+  "source_projection_scope": {
+    "semantic_cells_decoded": {
+      "dictionary": 96,
+      "header": 47,
+      "support": 131676
+    },
+    "measurement_outcome_cells_decoded": 0,
+    "native_metadata_columns": [
+      "D",
+      "G",
+      "H"
+    ],
+    "worksheet_XML_streamed_including_unselected_cells": true,
+    "no_tree_outcome_values_displayed_or_scored": true
+  },
+  "plot_year_rows": 43892,
+  "metadata_cells_decoded": 131676,
+  "measurement_outcome_cells_decoded": 0,
+  "source_field_dictionary_and_header_qualified": true,
+  "inventory_time_scale": "Original native Excel serials; no BP/calendar collection-year substitution",
+  "plot_area": "153.94m2 per undivided plot-year; not regional vegetation area",
+  "land_use": "Codes only; no inferred class meaning",
+  "benchmark_admission": "no_measured_pairs_admitted",
+  "calibration_guide": {
+    "physical": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
+      "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+      "bytes": 136339
+    },
+    "retained_owner_admitted": false,
+    "missing_evidence": [
+      "Original provider retrieval/copy receipt bound to exact guide SHA",
+      "Authenticated retained official-page body with literal PDF href"
+    ],
+    "source_use_statements_verified": true,
+    "source_use_evidence": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/slu-calibration-guide-source-review/retained-source-review.json",
+      "sha256": "8be8d30b38ab3f6848f809edb8d7881c490a1dc0022365d71809957a3c630350",
+      "bytes": 4342
+    },
+    "source_use_literal_text": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/slu-calibration-guide-source-review/guide-literal-source-text.txt",
+      "sha256": "c13f68fd685f0ca6a83875c2c809d1e6fb9f102b11e9389001743db4bd2a8d85",
+      "bytes": 3328
+    },
+    "source_use_scope": "Exact retained PDF states CC0 1.0 and temporary forest plot use for remote-sensing calibration/validation, with no geographic area totals/means. This does not authenticate original provider retrieval/copy or literal href.",
+    "source_history_limit": "Original provider retrieval/copy chain and authenticated retained official-page literal PDF href remain unqualified; source-use wording is directly verified from exact PDF."
+  },
+  "raw_private_workbook_redistributed": false,
+  "actual_exit": 0
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+  "plan_sha256": "7942fdc54a2e7fb88a485015fa1a125370472de63c064931535237bb7c3c61a5",
+  "actual_exit": 1,
+  "status": "failed",
+  "elapsed_seconds": 6.100348707986996,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/plan.json",
+    "--registered-plan-sha256",
+    "7942fdc54a2e7fb88a485015fa1a125370472de63c064931535237bb7c3c61a5"
+  ],
+  "canonical_before": {
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "status": "",
+    "tracked_inventory_sha256": "5158fc8bdab4c0bacd90dfef3e64698130633efaa3ee3e62da0482a679043114"
+  },
+  "canonical_after": {
+    "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+    "status": "",
+    "tracked_inventory_sha256": "5158fc8bdab4c0bacd90dfef3e64698130633efaa3ee3e62da0482a679043114"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "metadata-only-R-namespace-and-DLL-custody",
+      "argv": [
+        "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+        "--vanilla",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/runtime-probe.R"
+      ],
+      "timeout_seconds": 30,
+      "must_succeed": true,
+      "actual_exit": 1,
+      "timed_out": false,
+      "elapsed_seconds": 0.7289051249972545,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/metadata-only-R-namespace-and-DLL-custody.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/metadata-only-R-namespace-and-DLL-custody.stderr",
+      "stdout_sha256": "3ce7449edd149e0cf72a510837c77819bc82825c11f4f29391615d7b6d8d20c0",
+      "stderr_sha256": "29904b41cdb3f8b8dc9886f57f86aaae875c9942f2dfca83628b31776557936c",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 149766144
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/metadata-only-R-namespace-and-DLL-custody.stderr",
+      "sha256": "29904b41cdb3f8b8dc9886f57f86aaae875c9942f2dfca83628b31776557936c",
+      "bytes": 761
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/metadata-only-R-namespace-and-DLL-custody.stdout",
+      "sha256": "3ce7449edd149e0cf72a510837c77819bc82825c11f4f29391615d7b6d8d20c0",
+      "bytes": 46
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/plan.json",
+      "sha256": "7942fdc54a2e7fb88a485015fa1a125370472de63c064931535237bb7c3c61a5",
+      "bytes": 11999774
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/runtime-observation.json",
+      "sha256": "5eee84b91f4877a8017ee37daf6a268cc881d985d95b7eb88ab896c8b315e025",
+      "bytes": 46840
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/runtime-probe.R",
+      "sha256": "b3351a74ae00e74b4cf3496abcac395765fa660206e8c5c87f20ab1fe19b2567",
+      "bytes": 4237
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/stage-progress.json",
+      "sha256": "225d31923084e61f3b12907465200bdae16a6440ed50de70fc990e70c8e1ba46",
+      "bytes": 1009
+    }
+  ],
+  "output_bytes": 12052667,
+  "resources": {
+    "overall_timeout_seconds": 65,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "Actual metadata-only namespace loading/runtime observation; no original numerical R source, Python optimizer/fit, model, installation, source acquisition or ecological/release qualification. Complete raw before/after metadata retained before admission checks. Requested thread limits and completed resource postchecks only; no kernel network denial/full descendant RSS claim.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

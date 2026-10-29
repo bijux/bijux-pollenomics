@@ -47,6 +47,11 @@ The producer verifies the exact source archive and installed marker, hashes its
 input closure and outputs, retains failures under the artifact run, and only
 writes a passed report after every numeric and missing-position comparison.
 
+The retained [current-source execution capsule](https://github.com/bijux/bijux-pollenomics/blob/main/data/method-certification/controlled-lra-numerical-source-capture/capture.json) records a separate genuine three-stage certification at source commit `60bf419979bdc682ef227fb01e42a4f5ed6e2722`, followed by metadata retention at `d027effd6c0ac91512cd586c3a51db987ea46d54`. Both maintained numerical replays and the independent observer returned zero. The capsule retains all eleven raw products, complete original first-party source and controls, both same-process namespace/DLL observations and every original input identity. The original source functions, case arrays and prospective tolerances were unchanged. Nine published products are byte-identical to their earlier accounts; the two report JSON products differ only in independently enumerated executed input-path identities. The older missing execution proofs are not recovered or relabelled. Runtime binaries are not redistributed; executing again requires a separately qualified runtime.
+
+The fresh controlled certification retained all 400 cells: 120 finite values passed the unchanged `3e-10` bound and 280 missing cells remained missing. These are two explicit repeats of one ten-taxon fixture, with six local PPE/count realizations and three eligible rings; they do not create two independent source datasets or pair equal-seed random trajectories.
+
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
@@ -57,21 +62,21 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Unsupported claim.** Matched explicit draws do not establish R/NumPy seed trajectory equivalence, calibrated interval coverage, physically valid vegetation compositions, relevant source area or measured ecological accuracy.
 
-**Actual verification performed.** Reviewed the retained setup, draw and report accounts and their exact public identities, including finite/missing partitions and comparison tolerance. No R execution, draw generation or analytical model was rerun for this reader qualification.
+**Actual verification performed.** A separately retained current-source certification executed the unchanged paired-draw Python and native-R replays plus an independent observer at source commit 60bf419979bdc682ef227fb01e42a4f5ed6e2722. All three native stages returned zero, preserving 120 finite and 280 missing cells, the prospective 3e-10 tolerance, exact original setup/draws and same-process namespace/DLL observations. This reader qualification does not establish ecological or human scientific acceptance.
 
-**Remaining input or review.** A current-source owner replay must preserve the same setup and arrays; scientific application needs physical and observational source support and independent interpretation of invalid and negative cases.
+**Remaining input or review.** The named current-source arithmetic replay and complete source/draw custody are retained. Scientific application still needs physical and observational source support and independent interpretation of invalid/negative cases; the historical missing native proof is not reconstructed. Re-execution requires newly qualified runtime bytes.
 
 **Cause category.** Conditional cross-language arithmetic correspondence with fixed shared draws.
 
 **Consequence.** The small finite-cell differences support the declared calculation only; matching missing cells and inadmissible estimates remain part of the result.
 
-**Precise next acceptance route.** Replay the paired-LOVE owner using the exact committed draw arrays and nonfinite mask, retain the regional total 0.99999 and all invalid cases, then separately review any physically justified scientific case.
+**Precise next acceptance route.** Cite the retained paired-draw certification only for its supplied setup, explicit draws, missing mask and rounded regional total; separately admit and independently review any physically justified applied scientific case.
 
 **Negative or refused result.** Seven of ten cases are invalid. The 280 matched missing cells remain missing; neither the comparison nor renormalization silently converts them into valid predictions.
 
 **Matched denominator.** Ten taxa by ten rings, two explicit repeats, six local PPE/count realizations, three eligible cases;120 finite Mean/Q10/Q90/SD cells agree within 3e-10, maximum 6.927791673660977e-14, with 280 matched missing cells.
 
-- [Retained qualification evidence: docs/report/method-certification/paired-love-draws/report.json](report.json) (SHA-256 `bdb5984e4e37cfca64ba6ebc766db421c80c13570b67dabbd4d1239baf2650e0`).
+- [Retained qualification evidence: docs/report/method-certification/paired-love-draws/report.json](report.json) (SHA-256 `c8600da2a949bac39711ce60d3a89165461683026d9eded39bf48d9f3e8f5c99`).
 
 - [Retained qualification evidence: docs/report/method-certification/paired-love-draws/draws.json](draws.json) (SHA-256 `904a7833ab0396e4a44f6bb8501a7b1180c48cdadb4714189aa2b41abd3d0351`).
 

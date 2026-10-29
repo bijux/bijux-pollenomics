@@ -1,0 +1,114 @@
+{
+  "checks": [
+    {
+      "check": "controls",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/check_contracts.py"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "check": "strict",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "mypy",
+        "--strict",
+        "--config-file",
+        "/Users/bijan/bijux/bijux-pollenomics/configs/mypy.ini",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/preflight/mypy",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/custody.py"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "check": "ruff",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--config",
+        "/Users/bijan/bijux/bijux-pollenomics/configs/ruff.toml",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/preflight/ruff",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/custody.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/check_contracts.py"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "check": "format",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "--config",
+        "/Users/bijan/bijux/bijux-pollenomics/configs/ruff.toml",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/preflight/ruff",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/custody.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/check_contracts.py"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "check": "prepare.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/prepare.py",
+        "--help"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "check": "observe.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/observe.py",
+        "--help"
+      ],
+      "actual_exit": 0
+    },
+    {
+      "check": "run.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/run.py",
+        "--help"
+      ],
+      "actual_exit": 0
+    }
+  ],
+  "source_sha256": {
+    "custody.py": "e8ec7a58dd517ad257421e9b2e70923475e932bccac22c80a20155dc6f814012",
+    "contracts.py": "35599202508cf7840a0b56ab8dd36230341010a318b37b4b0a35800ceb0cbb12",
+    "prepare.py": "3a96cf495152995c66a06f380c22ffb6f4dc5de670b859163b6c82628a2db9c7",
+    "observe.py": "4ad736f867022282d872f4537cb23affb516f62bc63c8ab8d1fad5825c618a07",
+    "run.py": "65c951b62d387fbe1a51e87d2dedf3c60cef4820db1670bc65a72c383cffe230",
+    "check_contracts.py": "1f432c63c230722add9c12f768f643c16bce798d3042a98d1249573a5815068c"
+  },
+  "AST_files": 6,
+  "actual_exit": 0,
+  "scope": "Fifteen pure controls use retained radius numbers/current saved source predictions for metadata-only comparison. No source authentication/preparation/plan, freeze/forward/scoring/model/R or canonical mutation."
+}

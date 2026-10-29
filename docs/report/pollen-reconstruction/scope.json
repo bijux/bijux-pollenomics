@@ -166,7 +166,7 @@
   "author_lra_forward_radius_sensitivity": {
     "source": "previously exposed English author TW5 constrained LOVE predictions",
     "report": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
-    "prediction_freeze_sha256": "ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44",
+    "prediction_freeze_sha256": "a50a8cb0790b9eef63643a5d305e1f021dbe52e098fec24c3ea595480bd62202",
     "modeled_radius_factors": [0.8, 1.0, 1.2],
     "eligible_sites": 15,
     "scored_sites": 14,

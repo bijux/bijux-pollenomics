@@ -994,13 +994,13 @@
         "fields": {
           "supported_claim": "The retained original-paper comparison matches all seven distinct 1983 radiocarbon controls and describes explicit 1981/1983 core intervals and a 9000BC basin figure.",
           "unsupported_claim": "An ungeoreferenced 9000BC reconstruction and conditional calendar conversion cannot identify the 79 author input samples or provide one radius valid for every sample age.",
-          "actual_verification_performed": "Read the retained primary-source account, control-match counts and conditional core selection; pinned its report. No privatePDF inspection or source-control replay was repeated.",
+          "actual_verification_performed": "Read the retained historical v1 account and source-bound closed central-point predicate controls. The older 76/74 comparison omitted two stated outer endpoints; no corrected source replay or fresh PDF table extraction was performed in this reading qualification.",
           "remaining_input_or_review": "The original author sample IDs, historical chronology and georeferenced time-specific basin outline remain missing for LRA.",
           "cause_category": "Historical core lineage established in part; author selection and physical basin support unresolved.",
-          "consequence": "Seven date matches support 1983 core lineage, while conditional 76/74 sample selections remain distinguishable from the published 79.",
-          "precise_next_acceptance_route": "Reproduce against the exact 12,519,377-byte OdgaardPDF and Neotoma controls, then authenticate the author input selection and dated basin geometry without transferring static figure support.",
-          "negative_or_refused_result": "Conditional selections miss the author denominator:76 samples or 74 within the LandClim span versus 79 published. LRA-admitted 0.",
-          "matched_denominator": "Seven primary controls match 14Neotoma chronology-view rows;92 source samples yield 76 conditional selections(56+20),or 74 withspanrestriction;51 corings underlie one 9000BC basin reconstruction."
+          "consequence": "Seven declared date matches support the documented 1983 core lineage. Historical half-unbounded 76/74 proxies remain distinct from complete closed central-point membership, uncertainty support, source eligibility and the published 79 author rows.",
+          "precise_next_acceptance_route": "Run the corrected maintained source under a registered isolated stdlib profile, preserve all 92 raw source rows/refusals and independently verify native central-point inclusion/exclusion before reporting its total. Original 79 membership, chronology and dated basin/rights review remain separate.",
+          "negative_or_refused_result": "Historical 76/74 proxies are not the complete paper intervals and do not recover79 author samples. Native352996 remains refused/negative_bp even if its central point is inside. LRA-admitted 0.",
+          "matched_denominator": "Seven declared radiocarbon controls occur in 14 chronology-view relation rows; 92 raw central-age source records. Historical half-unbounded selection 76 (56+20), bounded 74; corrected complete-interval total is pending registered replay. One 9000 BC basin figure from 51 corings is not age-specific sample support."
         },
         "evidence_pins": [
           {
@@ -2340,18 +2340,18 @@
         "fields": {
           "supported_claim": "Three declared objective surfaces compare retained RcppDE and bounded Python candidates by actual objective and cross-evaluation gaps, with separate handling of nonunique minimizing vectors.",
           "unsupported_claim": "Small objective gaps do not prove parameter identifiability, unique vector recovery, calibrated confidence, convergence of the R run, paper reproduction or ecological accuracy.",
-          "actual_verification_performed": "Reviewed the three-case objective contract, retained candidate/evaluation summaries and exact report/case JSON bytes. No optimizer, RcppDE process or independent objective computation was executed in this reader qualification.",
-          "remaining_input_or_review": "The configured current-source owner must replay exact cases and candidate cross-evaluation; an applied scientific objective additionally needs identifiable parameters and justified observation/model assumptions.",
+          "actual_verification_performed": "A separately retained current-source certification executed the unchanged three-case Python and native-R replays plus an independent observer at source commit 60bf419979bdc682ef227fb01e42a4f5ed6e2722. All three native stages returned zero; exact objectives, common-candidate evaluations, prospective thresholds, original inputs and same-process namespace/DLL observations were retained. This reading qualification does not establish ecological or human scientific acceptance.",
+          "remaining_input_or_review": "The named current-source numerical replay is retained separately from absent historical execution proofs. An applied scientific objective still needs identifiable parameters, justified observation/model assumptions and independent scientific review. Re-execution requires newly qualified runtime bytes rather than inferred availability.",
           "cause_category": "Bounded numerical objective correspondence with nonunique solutions and iteration limits.",
           "consequence": "Objective agreement can support the named mathematical comparison even when coordinates differ; reaching a fixed iteration cap supplies no convergence certificate.",
-          "precise_next_acceptance_route": "Replay the three declared symmetric, boundary and ambiguous cases under frozen budgets and compare both candidates in both objectives before interpreting any fitted physical parameter.",
+          "precise_next_acceptance_route": "Use the retained three-case certification within its exact source/input/runtime epoch; require a justified applied case and independent review before interpreting fitted physical parameters. Preserve the nonunique-vector and R iteration-cap limitations.",
           "negative_or_refused_result": "The R comparator reaches its 400-iteration cap. Ambiguous/nonunique vectors remain acceptable only under the stated objective-gap criterion, not as evidence of unique recovered parameters.",
           "matched_denominator": "Three objective cases; Python 29\u201340 iterations and 600\u20131230 evaluations, R 400-iteration caps and 8020 or 12030 evaluations; declared objective gap below 1e-4 and cross-evaluation gap below 1e-10."
         },
         "evidence_pins": [
           {
             "path": "docs/report/method-certification/optimizer-solution-quality/report.json",
-            "sha256": "62da8c5e4af32da8feeb297c1fc63d1a02e1c19c5d765cd8fab5ccbd71584aba"
+            "sha256": "eb473519e413849339ae4080cb2346f66426d5d7823ae67399778fbb5883a0f1"
           },
           {
             "path": "docs/report/method-certification/optimizer-solution-quality/cases.json",
@@ -2406,18 +2406,18 @@
         "fields": {
           "supported_claim": "The retained analytical LOVE comparison uses the exact same two explicit draw realizations and setup in Python and DISQOVER 0.9.14, preserving invalid cases and the rounded regional-vector sum.",
           "unsupported_claim": "Matched explicit draws do not establish R/NumPy seed trajectory equivalence, calibrated interval coverage, physically valid vegetation compositions, relevant source area or measured ecological accuracy.",
-          "actual_verification_performed": "Reviewed the retained setup, draw and report accounts and their exact public identities, including finite/missing partitions and comparison tolerance. No R execution, draw generation or analytical model was rerun for this reader qualification.",
-          "remaining_input_or_review": "A current-source owner replay must preserve the same setup and arrays; scientific application needs physical and observational source support and independent interpretation of invalid and negative cases.",
+          "actual_verification_performed": "A separately retained current-source certification executed the unchanged paired-draw Python and native-R replays plus an independent observer at source commit 60bf419979bdc682ef227fb01e42a4f5ed6e2722. All three native stages returned zero, preserving 120 finite and 280 missing cells, the prospective 3e-10 tolerance, exact original setup/draws and same-process namespace/DLL observations. This reader qualification does not establish ecological or human scientific acceptance.",
+          "remaining_input_or_review": "The named current-source arithmetic replay and complete source/draw custody are retained. Scientific application still needs physical and observational source support and independent interpretation of invalid/negative cases; the historical missing native proof is not reconstructed. Re-execution requires newly qualified runtime bytes.",
           "cause_category": "Conditional cross-language arithmetic correspondence with fixed shared draws.",
           "consequence": "The small finite-cell differences support the declared calculation only; matching missing cells and inadmissible estimates remain part of the result.",
-          "precise_next_acceptance_route": "Replay the paired-LOVE owner using the exact committed draw arrays and nonfinite mask, retain the regional total 0.99999 and all invalid cases, then separately review any physically justified scientific case.",
+          "precise_next_acceptance_route": "Cite the retained paired-draw certification only for its supplied setup, explicit draws, missing mask and rounded regional total; separately admit and independently review any physically justified applied scientific case.",
           "negative_or_refused_result": "Seven of ten cases are invalid. The 280 matched missing cells remain missing; neither the comparison nor renormalization silently converts them into valid predictions.",
           "matched_denominator": "Ten taxa by ten rings, two explicit repeats, six local PPE/count realizations, three eligible cases;120 finite Mean/Q10/Q90/SD cells agree within 3e-10, maximum 6.927791673660977e-14, with 280 matched missing cells."
         },
         "evidence_pins": [
           {
             "path": "docs/report/method-certification/paired-love-draws/report.json",
-            "sha256": "bdb5984e4e37cfca64ba6ebc766db421c80c13570b67dabbd4d1239baf2650e0"
+            "sha256": "c8600da2a949bac39711ce60d3a89165461683026d9eded39bf48d9f3e8f5c99"
           },
           {
             "path": "docs/report/method-certification/paired-love-draws/draws.json",
@@ -3493,7 +3493,7 @@
         "fields": {
           "supported_claim": "A target-basin forward diagnostic varies radius factors 0.8/1.0/1.2 while freezing previously reconstructed vegetation and training fits. The matched direct-pollen aggregate advantage persists across these scenarios, with site/method/metric disagreements retained.",
           "unsupported_claim": "A newly fitted LOVE reconstruction, physical radius selection, age-specific surveyed basin geometry, independent/equal-information model ranking, chronology/PPE uncertainty or measured vegetation accuracy.",
-          "actual_verification_performed": "The reader and retained freeze, scored and paired ledgers were inspected. Retained source replay reports exact unvaried forward fractions and 42 baseline scores within 1e-15;126 radius scores are byte-identical under a separately regenerated source bundle despite differing metadata identities. This qualification performs no forward, inversion or source replay.",
+          "actual_verification_performed": "The original forward and score consumers completed on captured source 2784d4eae839; the maintained four-ledger paired join separately completed on aed78f8befdf. Independent observers verified all 126 rows, exact source-observation/prediction joins, unchanged ordered typed scientific values and byte-identical historical radius and paired CSVs. Full original 195/192/3 training custody, 900 derived work files and BECKHAM refusal remain retained. The metadata capture preserves both execution epochs; this publication repeats no fit, forward, optimizer or R calculation.",
           "remaining_input_or_review": "Radii are declared source-profile assumptions, vegetation/training fits stay fixed, outcomes were already exposed and BECKHAM remains refused. Direct pollen uses 14 training pollen sites while LRA uses a regional anchor plus 13 local predictors; those information sets differ.",
           "cause_category": "data | assumption | comparability | qualified review",
           "consequence": "Interpret changes as conditional transport sensitivity on 14 paired exposed targets. Do not select a radius from these scores or describe the direct/LRA difference as an independent vegetation-accuracy ranking.",
@@ -3504,15 +3504,15 @@
         "evidence_pins": [
           {
             "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json",
-            "sha256": "ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44"
+            "sha256": "a50a8cb0790b9eef63643a5d305e1f021dbe52e098fec24c3ea595480bd62202"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
-            "sha256": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129"
+            "sha256": "ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a"
           },
           {
             "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json",
-            "sha256": "c1bf2d0ef2b4eecde08cc4ff372e0d99a18dbad30d05d20a2ccbdc73504eba67"
+            "sha256": "eed5d539635abaa7aa305d86845b644a922d52943655d412498b3fdb540c248c"
           }
         ]
       }
@@ -4331,28 +4331,28 @@
       "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction.",
       "qualification": {
         "fields": {
-          "supported_claim": "The installed publication profile agrees within predeclared tolerances with an exact author-R replay on the retained 17-site two-grid example, preserving available support, missing masks and fractional mean/SE units.",
+          "supported_claim": "The released author-R/current-source-Python two-grid calculation agrees on every supported mean/SE cell within original tolerances; original source support and raw missing-value representations are retained.",
           "unsupported_claim": "This is not historical 1,128-input reconstruction, agreement with the PANGAEA published estimates, a resolved PFT transformation, independent measured vegetation accuracy or native R certification of new scenarios.",
-          "actual_verification_performed": "The narrative explains the row-level ledger, retained receipt and independent reexecution; its report/CSV/manifest bytes were inspected. All 14,074 retained mean/SE values pass the original mean 1e-11+1e-10 relative and SE 5e-8+1e-9 relative criteria. This qualification runs no R, native REVEALS or new numerical comparison.",
+          "actual_verification_performed": "The original author R and current source Python stages genuinely completed on commit e282e08d796528488b438edd3ea661fb94b97b5d. Their original third-observer refusal and whole-job exit1 remain unchanged. The complete saved-source observer on 2784d4eae839e4a4e43f80ec77fd26bd0172aff0 passed; the separate maintained correspondence writer on e1ca9def55e7cd3e68ac6f20270059e743373251 returned0, while its original observer and aggregate returned1. The corrected saved-ledger observer genuinely passed with terminal 71d5f761f80e074d30fb1b13c4c0d53a3d34c86f9d5fa3dfa9e045bfb1ffbf45, rejoining every one of 14,074 ordered mean/SE cells to original R/current Python and the complete source support. Published reexecution report SHA256 4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f; ledger SHA256 1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029. All184 available and241 unavailable site-bins remain source-bound. Original R off-support zero placeholders remain excluded; Python off-support values remain missing. Original mean/SE tolerances,1000 exact shared bootstrap draws and all17 source sites remain retained. Historical9dd1 raw proof is unavailable and is not used. No new math is executed for publication and no full1128study, independent vegetation, Nordic, source-rights, human or official release acceptance is asserted. Actual numerical calls used current source modules. Legacy raw installed-LRA wording and installed_lra column vocabulary do not establish installed-distribution execution, and independent installed-distribution receipts are not used as this run's numerical proof. This website reading route executes no numerical producer.",
           "remaining_input_or_review": "Historical count/chronology revisions, complete paper cohort, source-use rights and the 11/12/13 PFT/ISTS discrepancy remain open; the author and archive time axes have only one exact shared interval. Independent measured vegetation and external review remain separate.",
           "cause_category": "data | comparability | assumption | qualified review",
           "consequence": "Use numerical parity as a control for this prepared source example. Missing site/bins remain unavailable, not observed zero; shared author inputs and code lineage do not become independent ecological evidence.",
           "precise_next_acceptance_route": "Authenticate a named historical grid/window production snapshot and taxon/PFT transformation, then compare that exact source closure. Preserve the existing two-grid tolerance/missing-mask evidence and qualify any new measured-target or release claim separately.",
-          "negative_or_refused_result": "No missing/extra keys among supported comparisons; the unavailable site-bins and seven unsupported regional bins in grid 512 remain excluded. Archive modeled-product differences and unresolved functional-type semantics are not removed by source-example parity.",
-          "matched_denominator": "17 sites: grid 512 has nine, grid 562 eight; 25 bins/31 taxa. Available site-bins are 97/225 and 87/200; regional support 18/25 and 25/25. The 14,074 paired mean/SE values have maximum residuals 1.83881e-13/7.15331e-14 fraction. Two examples are not 1,128 authenticated historical records."
+          "negative_or_refused_result": "Original numerical whole1 and earlier observer1 remain literal; later saved-source and saved-ledger observers passed separately. Source-unavailable R zero placeholders and Python missing values are excluded, never observations. No full study, measured vegetation, rights, human or official release acceptance.",
+          "matched_denominator": "17 sites in2 grids:9+8,25bins,31taxa;184/425 supported site-bins,241 missing;43/50 supported regional bins;14,074 supported mean/SE pairs,77 original R CSVs,1000 exact shared bootstrap draws."
         },
         "evidence_pins": [
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/report.json",
-            "sha256": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f"
+            "sha256": "efcfce2e75ea4c98367e22bd8f0d4d28e123776b52436bef2e966f615f4b16bc"
           },
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv",
-            "sha256": "9c574919c250b9fe386154b72266869b290365ee9afe5d8a270250ed01c211d8"
+            "sha256": "1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029"
           },
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/manifest.json",
-            "sha256": "da0c47d31334b3789d856a0b7e624b57f5bd85231201e9fbb97c955856259793"
+            "sha256": "ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef"
           }
         ]
       }
@@ -4364,31 +4364,31 @@
           "report_path": "reports/science/publication-correspondence.md"
         }
       ],
-      "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction.",
+      "scope_reason": "Current source-Python numerical calculation. The preserved raw generator wording 'installed LRA' and CSV identifier installed_lra are legacy vocabulary, not installed-distribution execution. Separate installed-distribution qualification does not establish this run's source or numerical identity.",
       "qualification": {
         "fields": {
-          "supported_claim": "The installed publication profile agrees within predeclared tolerances with an exact author-R replay on the retained 17-site two-grid example, preserving available support, missing masks and fractional mean/SE units.",
+          "supported_claim": "The released author-R/current-source-Python two-grid calculation agrees on every supported mean/SE cell within original tolerances; original source support and raw missing-value representations are retained.",
           "unsupported_claim": "This is not historical 1,128-input reconstruction, agreement with the PANGAEA published estimates, a resolved PFT transformation, independent measured vegetation accuracy or native R certification of new scenarios.",
-          "actual_verification_performed": "The generated summary and exact report/CSV were inspected, including supported keys and declared tolerance outcomes. All 14,074 retained mean/SE values pass the original mean 1e-11+1e-10 relative and SE 5e-8+1e-9 relative criteria. This qualification runs no R, native REVEALS or new numerical comparison.",
+          "actual_verification_performed": "The original author R and current source Python stages genuinely completed on commit e282e08d796528488b438edd3ea661fb94b97b5d. Their original third-observer refusal and whole-job exit1 remain unchanged. The complete saved-source observer on 2784d4eae839e4a4e43f80ec77fd26bd0172aff0 passed; the separate maintained correspondence writer on e1ca9def55e7cd3e68ac6f20270059e743373251 returned0, while its original observer and aggregate returned1. The corrected saved-ledger observer genuinely passed with terminal 71d5f761f80e074d30fb1b13c4c0d53a3d34c86f9d5fa3dfa9e045bfb1ffbf45, rejoining every one of 14,074 ordered mean/SE cells to original R/current Python and the complete source support. Published reexecution report SHA256 4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f; ledger SHA256 1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029. All184 available and241 unavailable site-bins remain source-bound. Original R off-support zero placeholders remain excluded; Python off-support values remain missing. Original mean/SE tolerances,1000 exact shared bootstrap draws and all17 source sites remain retained. Historical9dd1 raw proof is unavailable and is not used. No new math is executed for publication and no full1128study, independent vegetation, Nordic, source-rights, human or official release acceptance is asserted. Actual numerical calls used current source modules. Legacy raw installed-LRA wording and installed_lra column vocabulary do not establish installed-distribution execution, and independent installed-distribution receipts are not used as this run's numerical proof. This website reading route executes no numerical producer.",
           "remaining_input_or_review": "Historical count/chronology revisions, complete paper cohort, source-use rights and the 11/12/13 PFT/ISTS discrepancy remain open; the author and archive time axes have only one exact shared interval. Independent measured vegetation and external review remain separate.",
           "cause_category": "data | comparability | assumption | qualified review",
           "consequence": "Use numerical parity as a control for this prepared source example. Missing site/bins remain unavailable, not observed zero; shared author inputs and code lineage do not become independent ecological evidence.",
           "precise_next_acceptance_route": "Authenticate a named historical grid/window production snapshot and taxon/PFT transformation, then compare that exact source closure. Preserve the existing two-grid tolerance/missing-mask evidence and qualify any new measured-target or release claim separately.",
-          "negative_or_refused_result": "No missing/extra keys among supported comparisons; the unavailable site-bins and seven unsupported regional bins in grid 512 remain excluded. Archive modeled-product differences and unresolved functional-type semantics are not removed by source-example parity.",
-          "matched_denominator": "17 sites: grid 512 has nine, grid 562 eight; 25 bins/31 taxa. Available site-bins are 97/225 and 87/200; regional support 18/25 and 25/25. The 14,074 paired mean/SE values have maximum residuals 1.83881e-13/7.15331e-14 fraction. Two examples are not 1,128 authenticated historical records."
+          "negative_or_refused_result": "Original numerical whole1 and earlier observer1 remain literal; later saved-source and saved-ledger observers passed separately. Source-unavailable R zero placeholders and Python missing values are excluded, never observations. No full study, measured vegetation, rights, human or official release acceptance.",
+          "matched_denominator": "17 sites in2 grids:9+8,25bins,31taxa;184/425 supported site-bins,241 missing;43/50 supported regional bins;14,074 supported mean/SE pairs,77 original R CSVs,1000 exact shared bootstrap draws."
         },
         "evidence_pins": [
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/report.json",
-            "sha256": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f"
+            "sha256": "efcfce2e75ea4c98367e22bd8f0d4d28e123776b52436bef2e966f615f4b16bc"
           },
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv",
-            "sha256": "9c574919c250b9fe386154b72266869b290365ee9afe5d8a270250ed01c211d8"
+            "sha256": "1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029"
           },
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/manifest.json",
-            "sha256": "da0c47d31334b3789d856a0b7e624b57f5bd85231201e9fbb97c955856259793"
+            "sha256": "ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef"
           }
         ]
       }
@@ -4403,20 +4403,20 @@
       "scope_reason": "Published-product versus released-author-example correspondence, not authenticated original input reconstruction.",
       "qualification": {
         "fields": {
-          "supported_claim": "This citation pointer locates an actual independent reexecution of released author R and installed native REVEALS on the same 17 prepared author sites, with paired support and undefined-mask checks.",
+          "supported_claim": "The released author-R/current-source-Python two-grid calculation agrees on every supported mean/SE cell within original tolerances; original source support and raw missing-value representations are retained.",
           "unsupported_claim": "The pointer supplies zero new fits or numerical checks and cannot establish historical 1,128-record reproduction, PFT identity, private-source redistribution rights or independent vegetation accuracy.",
-          "actual_verification_performed": "The pointer and retained execution account were inspected and bound. The linked actual run verifies 193 private source members,26 R inputs/77 R CSV outputs and 46 native source files; original R functions remain unchanged despite pure KPf memoization. No R/library/model was rerun for this qualification.",
+          "actual_verification_performed": "The original author R and current source Python stages genuinely completed on commit e282e08d796528488b438edd3ea661fb94b97b5d. Their original third-observer refusal and whole-job exit1 remain unchanged. The complete saved-source observer on 2784d4eae839e4a4e43f80ec77fd26bd0172aff0 passed; the separate maintained correspondence writer on e1ca9def55e7cd3e68ac6f20270059e743373251 returned0, while its original observer and aggregate returned1. The corrected saved-ledger observer genuinely passed with terminal 71d5f761f80e074d30fb1b13c4c0d53a3d34c86f9d5fa3dfa9e045bfb1ffbf45, rejoining every one of 14,074 ordered mean/SE cells to original R/current Python and the complete source support. Published reexecution report SHA256 4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f; ledger SHA256 1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029. All184 available and241 unavailable site-bins remain source-bound. Original R off-support zero placeholders remain excluded; Python off-support values remain missing. Original mean/SE tolerances,1000 exact shared bootstrap draws and all17 source sites remain retained. Historical9dd1 raw proof is unavailable and is not used. No new math is executed for publication and no full1128study, independent vegetation, Nordic, source-rights, human or official release acceptance is asserted. Actual numerical calls used current source modules. Legacy raw installed-LRA wording and installed_lra column vocabulary do not establish installed-distribution execution, and independent installed-distribution receipts are not used as this run's numerical proof. This website reading route executes no numerical producer.",
           "remaining_input_or_review": "Authenticated historical production inputs and revisions, paper/archive PFT disposition, source-use decisions, independent measured vegetation and qualified external review remain unresolved.",
           "cause_category": "Citation routing | data | comparability | qualified review",
           "consequence": "The linked actual calculation is a source-specific computational control. Byte-identical numeric outputs do not identify historical input membership or turn this website alias into another independent execution.",
           "precise_next_acceptance_route": "Follow the canonical reexecution receipt and exact private snapshot for an intentional owner replay; obtain an authenticated production grid/window source closure before extending the historical claim or admitting ecological accuracy.",
-          "negative_or_refused_result": "Missing source-site/bin support and undefined masks remain part of the comparison. The original 25-window random stream is not equivalent to a separately seeded one-window experiment; full historical study and measured vegetation claims remain false.",
-          "matched_denominator": "Own population zero new observations, fits or scientific checks. Linked population 17 prepared sites in two grids \u00d725 bins \u00d731 taxa;184/425 available site-bins,77 original R CSVs and 101 native grid data files byte-identical to the earlier run."
+          "negative_or_refused_result": "Original numerical whole1 and earlier observer1 remain literal; later saved-source and saved-ledger observers passed separately. Source-unavailable R zero placeholders and Python missing values are excluded, never observations. No full study, measured vegetation, rights, human or official release acceptance.",
+          "matched_denominator": "17 sites in2 grids:9+8,25bins,31taxa;184/425 supported site-bins,241 missing;43/50 supported regional bins;14,074 supported mean/SE pairs,77 original R CSVs,1000 exact shared bootstrap draws."
         },
         "evidence_pins": [
           {
             "path": "docs/report/publication-replay/landclim-example-reexecution/report.json",
-            "sha256": "f210ece3b8055c189759f1e91555321b6ffa8fa92ae186a92ae62fe5831d0540"
+            "sha256": "4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f"
           }
         ]
       }
@@ -9007,6 +9007,42 @@
           {
             "path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-source.json",
             "sha256": "ad334ef1f0421f24ea5dbccf26204f1cad00f076f71da9de6b1c37454ce52228"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/numerical-performance/representative-public-calls/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        }
+      ],
+      "scope_reason": "Actual representative Python public-call measurements and retained negative native-adoption evidence; scientific correspondence, broader workloads, human review and release gates retain their separate scopes.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "Completed Python measurements preserve six real author sites, ten taxa and 1,024 conditional joint draws, plus a separate larger LOVE computational workload; no named boundary qualifies as a conservative hotspot in all three isolated workers.",
+          "unsupported_claim": "This bounded machine/workload result grants no new C++ kernel, same-input source-R timing, optimizer convergence, ecological accuracy, portability, native thread-count guarantee or final release acceptance.",
+          "actual_verification_performed": "Original eight-stage execution and independent scientific/output review passed at commit 19642380cc6051ed9d6cfc3fbddfdb56b4feeba7. A separate two-stage metadata assembly and independent retained transport review preserved all 66 output/log files, all 14 worker measurements and six first-plus-seven-warm series without a new model, benchmark, profile, compiler or R call.",
+          "remaining_input_or_review": "A future native proposal requires a qualifying representative boundary, identical-input source-R/Python comparison, conversion-inclusive speed benefit, memory/build/maintenance evidence and separately qualified platforms and scientific use.",
+          "cause_category": "Measured negative native-adoption result with bounded retained numerical and resource custody.",
+          "consequence": "Python/NumPy/SciPy remains the production backend; diagnostic cProfile costs cannot substitute unprofiled conservative boundary measurements.",
+          "precise_next_acceptance_route": "Declare a representative workload and prospective conservative hotspot/adoption thresholds before another native implementation; preserve source/input identities, startup/loading/conversion, first/warm spread, complete scientific outputs and memory evidence.",
+          "negative_or_refused_result": "No boundary reaches at least 50 percent conservative inside share with at most 5 percent instrumentation overhead in every isolated worker. Earlier compiled forward conversion-inclusive ratios 0.928, 0.897 and 0.722 all fail the 2x gate. Source R and compiler execution are false for this run.",
+          "matched_denominator": "Six actual author sites, ten taxa, 1,024 conditional draws; 128 repetitions of one ten-taxon, 36-ring LOVE fixture with 32 fixed candidates, not 128 sites. Three first-plus-seven-warm workers per workload; 14 workers including equal-total two-call sequential/two-process scaling. Six vendor thread limits were requested only; maximum completed worker RSS was 252493824 bytes."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/numerical-performance/representative-public-calls/report.json",
+            "sha256": "5249ce851a8c720fd5c2b62e10bb7b0aac9cb0a8926520c677bdc87134e427c3"
+          },
+          {
+            "path": "docs/report/numerical-performance/native-forward/report.json",
+            "sha256": "4d16a1400d6878f2abf21f796fb190dd72a365f0dd40295639b8635bd807d1d5"
+          },
+          {
+            "path": "docs/report/numerical-performance/native-memory/report.json",
+            "sha256": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06"
           }
         ]
       }

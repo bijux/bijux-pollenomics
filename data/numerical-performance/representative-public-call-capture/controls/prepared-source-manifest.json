@@ -1,0 +1,63 @@
+{
+  "schema_version": "representative-performance-source-preparation.v1",
+  "files": [
+    {
+      "path": "boundary.py",
+      "sha256": "f09ff1197cfacd9ad0027a3828d52efa48aaf9fbce463288157fa84da43b2af4",
+      "bytes": 1682
+    },
+    {
+      "path": "check_contracts.py",
+      "sha256": "2f474cd31c550edbc3c42c89ce7df67a508f8cdf2dd002fa95ead6db51234539",
+      "bytes": 4414
+    },
+    {
+      "path": "measure.py",
+      "sha256": "3ee0065468f1bb6c83f3bd265829f384ea7554ab68cab4e66d74491a141a62ea",
+      "bytes": 8971
+    },
+    {
+      "path": "observe.py",
+      "sha256": "5fdfcab2a3988077b57546d8e6844586baa20f4ed2aa4d7a157ca7df0bdad3b8",
+      "bytes": 8445
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "6e3796f1e5f34003b6270201240b238d8c5e09c13a8cb55526344d63b9aa98c1",
+      "bytes": 13727
+    },
+    {
+      "path": "run.py",
+      "sha256": "86ce5ea4f8860cc2a7266eff3fbd5f0abb7ef5ab0f9df0e730c3cc1d019a42c7",
+      "bytes": 3690
+    },
+    {
+      "path": "scaling.py",
+      "sha256": "5e009c4c042d2f9e7e95743d5844f25e2c6ab57b0ac92e0bd8ce0808853dcb5a",
+      "bytes": 3089
+    },
+    {
+      "path": "storage.py",
+      "sha256": "bea316312519e5aac06d8006be90e0038963832432ba4c2f2f93138d6f1ec10a",
+      "bytes": 998
+    },
+    {
+      "path": "workloads.py",
+      "sha256": "c7b85206cb4a20a09e3e847abd2ec89a2420328bb8d8fc27b9319c16a4a8924a",
+      "bytes": 6224
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "987f399ab9571744d14fcef83e0b6b40932ae1e506ceab7421c379ebb802ad22",
+      "bytes": 7603
+    },
+    {
+      "path": "source-preflight/qualification.json",
+      "sha256": "a1300c4401748eb531395a124b0e6f197c44617c8f57b4af9184258278cc5b27",
+      "bytes": 12441
+    }
+  ],
+  "source_only": true,
+  "actual_public_calls_or_plan": false,
+  "scope": "Bounded prospective current-source Python profiling; no R/compile or adoption. Independent review required before actual source preparation."
+}

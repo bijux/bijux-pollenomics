@@ -1,0 +1,852 @@
+{
+  "cached_public_archive_count": 5,
+  "core_passed": 43,
+  "domains_passed": 23,
+  "execution_receipt": {
+    "sha256": "8b2b7f4b279a32ad0d3ddfa0653ecfa2fd8928aba2cf281451a045c699f00d04",
+    "size": 31591
+  },
+  "independent_terminal_review": {
+    "path": "execution-evidence/independent-terminal-review.json",
+    "sha256": "a16ef2733235f434e96cdf123671e26778067d3f3bdb8c8d76a2d90e6e3a1835",
+    "size": 8615
+  },
+  "original_certificate_sha256": "881c1f65b62c890fbb583c499493c21318f21857960998ca662fbb1cf2b94ae3",
+  "original_vectors_compared": 48,
+  "public_acquisition": {
+    "path": "public-acquisition.json",
+    "sha256": "5c134027e077dd9e6a2fe07ddcf635d4025a9f121e2555c6d3dd197fde1d5371",
+    "size": 2060
+  },
+  "public_acquisition_scope": "Unchanged historical public acquisition; this execution used five exact owned-cache archives. No current download is claimed.",
+  "public_archives": {
+    "GenSA": {
+      "path": "source-archives/GenSA_1.1.15.tar.gz",
+      "sha256": "68970dc3b463986b5b7130acbd42a5ae5a85835d004fb54f81b3ef5c2fccf925",
+      "size": 51065,
+      "version": "1.1.15"
+    },
+    "RcppArmadillo": {
+      "path": "source-archives/RcppArmadillo_15.4.2-1.tar.gz",
+      "sha256": "141c8da25f1e8ff1771b0a1b68d65fbdd821b6061cdd9504ff446ee65f70b801",
+      "size": 1093518,
+      "version": "15.4.2-1"
+    },
+    "RcppDE": {
+      "path": "source-archives/RcppDE_0.1.9.tar.gz",
+      "sha256": "f48aeea87e379beb1a408aef11d65c3f2b8ce09e97c2add6f42f9446ea92fe3b",
+      "size": 291113,
+      "version": "0.1.9"
+    },
+    "Rmalschains": {
+      "path": "source-archives/Rmalschains_0.2-11.tar.gz",
+      "sha256": "cc240727129edd1aa9a1d666dc3ddcc220d5f0e66498e982f72cfef8910ce3f3",
+      "size": 265014,
+      "version": "0.2-11"
+    },
+    "plyr": {
+      "path": "source-archives/plyr_1.8.9.tar.gz",
+      "sha256": "15b5e7f711d53bf41b8687923983b8ef424563aa2f74c5195feb5b1df1aee103",
+      "size": 401488,
+      "version": "1.8.9"
+    }
+  },
+  "r_version": "4.6.0",
+  "raw_members": {
+    "oracle/C0000.csv": {
+      "sha256": "435bf8ffc6d62bcf21c9f242364db72fb8cc5d0057bafa1343a9c930d47e92be",
+      "size": 111
+    },
+    "oracle/C0001.csv": {
+      "sha256": "10d713ff579ba379674fc97d3a4bb11461c47adc3caacca5b1297c8566ff7157",
+      "size": 47
+    },
+    "oracle/C0002.csv": {
+      "sha256": "d19f08c5de88257dd02901ca6480dc390df29840376b9454231219746c215013",
+      "size": 111
+    },
+    "oracle/C0003.csv": {
+      "sha256": "466c1344e9a7a703854af07bd9ca6d080d3ceadb6753e431d4c64873f35c5427",
+      "size": 47
+    },
+    "oracle/C0004.csv": {
+      "sha256": "ffd4d47d9ce668d64a27f9561e0206a6b8deb0669cb74838ca67175a831ca005",
+      "size": 111
+    },
+    "oracle/C0005.csv": {
+      "sha256": "de010f33fe90c1429c5d82b7afefefa02839f9714fc48cfaa389bf5d0956c84c",
+      "size": 47
+    },
+    "oracle/C0006.csv": {
+      "sha256": "138e4af1710e0b8dbebb30a02cfdc9bca0aed4881841b7998004d51c90a60cdb",
+      "size": 110
+    },
+    "oracle/C0007.csv": {
+      "sha256": "e1dd91a22c429191026f989374cabe470790116c29701444c8094eb3154b2b18",
+      "size": 46
+    },
+    "oracle/C0008.csv": {
+      "sha256": "a759f663935b8d6c34add45b7558ef07595cb6a072b7d0d7ebdd92e9122f6bf4",
+      "size": 117
+    },
+    "oracle/C0009.csv": {
+      "sha256": "60cc962f26b73389140898afc0a2bdd2176e528a89fab1ad595a18108e691816",
+      "size": 47
+    },
+    "oracle/C0010.csv": {
+      "sha256": "d4903ff00bdd177c8eff7dfe0d825bf69140ce891f50844be3ec60bc3df402e9",
+      "size": 47
+    },
+    "oracle/C0011.csv": {
+      "sha256": "d5b2a18a4a9bdd9b28c4723d8a56e27ccd0cc05baf6a388679da6d4eebec5a5e",
+      "size": 47
+    },
+    "oracle/C0012.csv": {
+      "sha256": "fa3f1907f19cd7362bc7f17c004695313471695e4420c02066b48c5f4e1aabdf",
+      "size": 47
+    },
+    "oracle/C0013.csv": {
+      "sha256": "6dc0860585a01f90ca2dad9efd5fbe853e990137b013851c6e2ba9a0a41383bb",
+      "size": 47
+    },
+    "oracle/C0014.csv": {
+      "sha256": "473b03f9c392250a2fecd8c5aa2b88d06e511e1475694269252eca661762b14b",
+      "size": 47
+    },
+    "oracle/C0015.csv": {
+      "sha256": "6c62a2ce1acf4ed75e3ad28dfa6e8ff5bf839cb2d940cfecd056af2eeb056bab",
+      "size": 1838
+    },
+    "oracle/C0016.csv": {
+      "sha256": "a64196e4fe3b6c65e096925b52069470807fa4e836a5e10764481062b2492cb6",
+      "size": 1808
+    },
+    "oracle/C0017.csv": {
+      "sha256": "32f2ad2d5921d6e448f7f9ea8ea5ec939376972ed4ce6bbb7e19ea4f577807ab",
+      "size": 737
+    },
+    "oracle/C0018.csv": {
+      "sha256": "1b7e339b891c531d9e56e0fa1698c10afabcd5ca5b791d2115c2d21dcd8cb9a5",
+      "size": 444
+    },
+    "oracle/C0019.csv": {
+      "sha256": "ceac89bc9b2f911e262aad918d6df3a049b7eda28d994eb03a9cd5ac1c97240e",
+      "size": 345
+    },
+    "oracle/C0020.csv": {
+      "sha256": "6cce7592675901ae18570ce5b4f630f1c0b17a20cd5126493a503dad050be8b2",
+      "size": 11925
+    },
+    "oracle/C0021.csv": {
+      "sha256": "01ee3926b5e21b29bae35d071cf6c9c2d73433f95739e98b0486fca5bd6b62f1",
+      "size": 47
+    },
+    "oracle/C0022.csv": {
+      "sha256": "78e07b0aed2c01ff623c6814e295d8a6ea5b1a4c60204f36dd61bd6cfe114f58",
+      "size": 46
+    },
+    "oracle/C0023.csv": {
+      "sha256": "902ba164a708c861b9ecea2d232b7d7542f3ed2c8253069b279b1c6685788eb5",
+      "size": 8130
+    },
+    "oracle/C0024.csv": {
+      "sha256": "65923ee01aee21b27e320f26197f035781c1158680ff8b60e949d3d62c34cf39",
+      "size": 12857
+    },
+    "oracle/C0025.csv": {
+      "sha256": "4bebedd370d5bf0c674bb333fba6b90bf15aed2b9c161cbf87cc2b52e593360f",
+      "size": 14158
+    },
+    "oracle/C0026.csv": {
+      "sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "size": 221
+    },
+    "oracle/C0027.csv": {
+      "sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "size": 753
+    },
+    "oracle/C0028.csv": {
+      "sha256": "446d54f7db7c63e2367154a306868779b29d58aa380c007611b70d2e95072f3f",
+      "size": 12367
+    },
+    "oracle/C0029.csv": {
+      "sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "size": 31
+    },
+    "oracle/C0030.csv": {
+      "sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "size": 68
+    },
+    "oracle/C0031.csv": {
+      "sha256": "46e7b3c00081818092d07b6ece7aeb6b7e888e9bb12c7a2e3e5602d03630b324",
+      "size": 15291
+    },
+    "oracle/C0032.csv": {
+      "sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "size": 221
+    },
+    "oracle/C0033.csv": {
+      "sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "size": 753
+    },
+    "oracle/C0034.csv": {
+      "sha256": "60eb4f42efe4ce232a64b13cb80f80857b9f1ec551cc470574367178e2f9cdc1",
+      "size": 13996
+    },
+    "oracle/C0035.csv": {
+      "sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "size": 31
+    },
+    "oracle/C0036.csv": {
+      "sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "size": 68
+    },
+    "oracle/C0037.csv": {
+      "sha256": "d14023aedeea3503339eaa63b95a0c6c8d05d45bef040f94f4f0f59d0135dde3",
+      "size": 16854
+    },
+    "oracle/C0038.csv": {
+      "sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "size": 221
+    },
+    "oracle/C0039.csv": {
+      "sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "size": 753
+    },
+    "oracle/C0040.csv": {
+      "sha256": "03468b82e906acd09aadcf6a00cfa6ff318a3f94236eae5103d20a752a8f995b",
+      "size": 20022
+    },
+    "oracle/C0041.csv": {
+      "sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "size": 31
+    },
+    "oracle/C0042.csv": {
+      "sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "size": 68
+    },
+    "oracle/R_case_status.csv": {
+      "sha256": "167b3ea2d2c5290256e846bc18d8f1ba82c1917d126adc0748fa9234cc4c5946",
+      "size": 1013
+    },
+    "oracle/R_session_info.txt": {
+      "sha256": "bf8c8e969038f6e9814c967e519355dbaa3304f4ac544b227801e3967a17579c",
+      "size": 1161
+    },
+    "oracle/R_stderr.log": {
+      "sha256": "7b7c9190fe1eb05d85bf38bfe85078465a90d161fc06f95c96639659fcd0a20b",
+      "size": 835
+    },
+    "oracle/R_stdout.log": {
+      "sha256": "ffc7ddee5bab18f8c56e2fce8385bf6233291959e5ce7d50eeb98a89493ed2cd",
+      "size": 65895
+    },
+    "oracle/case_manifest.json": {
+      "sha256": "3e73e9fddb37f2ede421a9db905bd205e1d252c03e27455da45a6aefd0b01001",
+      "size": 17910
+    },
+    "oracle/oracle.R": {
+      "sha256": "4aad7cb220cba816b78f22c4f23f373e603bfc573cdb7fc04ab4086abab631d0",
+      "size": 26572
+    },
+    "oracle/python_expected_not_R_goldens.npz": {
+      "sha256": "244f29c96c6ae2e477f49ec154e3c2ef991058bad1e058580345791ae637f1e0",
+      "size": 19408
+    },
+    "oracle/report.json": {
+      "sha256": "12cae8ecc7ec6210ee7bca2bbc53022dcc11076ea057ffedfcedd63413a9b0f6",
+      "size": 10340
+    },
+    "source-domains/F001-R.csv": {
+      "sha256": "dc66eac258b2536bad0d2ec3775753984e86a59c64dd6cb270bb36ef0a46ba7e",
+      "size": 333
+    },
+    "source-domains/F001-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/F002-R.csv": {
+      "sha256": "a5b0788270c89f5f86ba41269eab5a92126bda2d7658e06070ffdfb86498f5cb",
+      "size": 331
+    },
+    "source-domains/F002-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "size": 273
+    },
+    "source-domains/F003-R.csv": {
+      "sha256": "c0c3221e572d69d1069716801d5a347dbe9ce1e495bbe66e716e193b109f8cc2",
+      "size": 339
+    },
+    "source-domains/F003-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/F004-R.csv": {
+      "sha256": "613c1ad2c6271def0e99aef2d1de68eb496356e5a4d9b89af7ec88f059844313",
+      "size": 343
+    },
+    "source-domains/F004-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "size": 273
+    },
+    "source-domains/F005-R.csv": {
+      "sha256": "5ae76a007d4a6e221726bffffe3dba18eadbcea8d6185342dbc18e85b07bcdd5",
+      "size": 344
+    },
+    "source-domains/F005-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/F006-R.csv": {
+      "sha256": "c7a092d115fd8f9393983b7bdd418994f4c4d9fd701f87fdae1a4985e1859992",
+      "size": 348
+    },
+    "source-domains/F006-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "size": 273
+    },
+    "source-domains/F007-R.csv": {
+      "sha256": "fef6d206b1d1c188b7f753bef6bef07d131da2c6a6f86b0ad6b09bdf3fc308bd",
+      "size": 343
+    },
+    "source-domains/F007-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/F008-R.csv": {
+      "sha256": "785b9b573e64322b3649e7bceb00fd26e378cdc64b056fb7103f7d2572beb68b",
+      "size": 343
+    },
+    "source-domains/F008-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "size": 273
+    },
+    "source-domains/F009-R.csv": {
+      "sha256": "5700fabe786f218237d16acb1edf235f692e2a9e3d165792edb485bdc030b827",
+      "size": 365
+    },
+    "source-domains/F009-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/F010-R.csv": {
+      "sha256": "77fb10a08be2728095bb4cd07fe19494be577f7d5fafcb92d7c20435e118191b",
+      "size": 365
+    },
+    "source-domains/F010-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "size": 273
+    },
+    "source-domains/F011-R.csv": {
+      "sha256": "776b036a75e0f933dc53ddbd689bc8ee671b32df8afd491f123c575fea81c0a1",
+      "size": 333
+    },
+    "source-domains/F011-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/F012-R.csv": {
+      "sha256": "871068b35c15ab674fe55bf02d2aa8816b5f434e875c7f343997d3c04f6a4b7f",
+      "size": 333
+    },
+    "source-domains/F012-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/F013-R.csv": {
+      "sha256": "515fde89f16c16b2b92751444cdb47432c8330d96e1a9a32b9f5abd40a597043",
+      "size": 333
+    },
+    "source-domains/F013-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/R_case_status.csv": {
+      "sha256": "c1597120575fa44e08e1ab169741179b9224df4bff029262c8e4efae73955d3e",
+      "size": 530
+    },
+    "source-domains/R_session_info.txt": {
+      "sha256": "bf8c8e969038f6e9814c967e519355dbaa3304f4ac544b227801e3967a17579c",
+      "size": 1161
+    },
+    "source-domains/R_stderr.log": {
+      "sha256": "3b88208c9b392fdd66cf328c200e0d4fac786d909e710bea31c2f91f109b44d3",
+      "size": 6291
+    },
+    "source-domains/R_stdout.log": {
+      "sha256": "2368ed89fefd458ba0a7fc41b407efa3ab833d9e25dceb9f667665af8ac093f8",
+      "size": 2459
+    },
+    "source-domains/S001-R.csv": {
+      "sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "size": 10
+    },
+    "source-domains/S001-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/S001-source-error.txt": {
+      "sha256": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
+      "size": 35
+    },
+    "source-domains/S002-R.csv": {
+      "sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "size": 10
+    },
+    "source-domains/S002-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/S002-source-error.txt": {
+      "sha256": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
+      "size": 35
+    },
+    "source-domains/S003-R.csv": {
+      "sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "size": 10
+    },
+    "source-domains/S003-corrected-output.csv": {
+      "sha256": "cd8761b2cfc68b53880fb45cfeb0dcce73f2060f42c2a6732a13095f6fc3c9c2",
+      "size": 25
+    },
+    "source-domains/S003-legacy-output.csv": {
+      "sha256": "f7eec2c6da1a822fbaf5ce4ba033ed46769313b9d8e2c469178c9b9b8a22e51c",
+      "size": 40
+    },
+    "source-domains/S003-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/S004-R.csv": {
+      "sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "size": 10
+    },
+    "source-domains/S004-corrected-output.csv": {
+      "sha256": "744c67dd4b21671c0ccf1bef12675d711dac469dd4b490a8a79ac9613df8d80c",
+      "size": 24
+    },
+    "source-domains/S004-legacy-output.csv": {
+      "sha256": "4dcd25fc58a45be5389e08f7d763c8a41a66517de208d91c362340442e506488",
+      "size": 100
+    },
+    "source-domains/S004-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/S005-R.csv": {
+      "sha256": "65ee3d395c62195d5c123e5b953473a9c8319628ea4454b5e0c3e7b5f98cc3d8",
+      "size": 62
+    },
+    "source-domains/S005-rings.csv": {
+      "sha256": "a073788a051cf6f8e14bf211cff3cce5f209b04bd40e9f8b2d41736ce274babe",
+      "size": 249
+    },
+    "source-domains/S006-R.csv": {
+      "sha256": "2c20d5bc7294ff1dd7223e475058bb7fc848de38663029de946fe7b7248eb6ec",
+      "size": 90
+    },
+    "source-domains/S006-rings.csv": {
+      "sha256": "231a76f4c410135dfe2e7a552b25fc9beb8960b01a985c8802ec6013508393cb",
+      "size": 235
+    },
+    "source-domains/S007-R.csv": {
+      "sha256": "e1e3ef816852dcefeea95ecd6db154129b149effec1fb023471e8ca3270f6dd7",
+      "size": 14
+    },
+    "source-domains/S007-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/S008-R.csv": {
+      "sha256": "5ec784f337251038bf796ffa6a4892076931b5041e072ac0c4337269b919e037",
+      "size": 12
+    },
+    "source-domains/S008-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/S009-R.csv": {
+      "sha256": "54b0407af2ad72ba1b6090747189adc0e6034dcf37259cc51c970ccdb848570e",
+      "size": 20
+    },
+    "source-domains/S009-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/S010-R.csv": {
+      "sha256": "a1646dc7676af7f1bcffca4b3ad72d318aa72046e801befdab056e451ae53fb4",
+      "size": 24
+    },
+    "source-domains/S010-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "size": 264
+    },
+    "source-domains/case_manifest.csv": {
+      "sha256": "deb49360def58cbf3f8e3eec48536682dc5101923f4d1f4982ba2ec4d9e54890",
+      "size": 2413
+    },
+    "source-domains/case_manifest.json": {
+      "sha256": "5f52413cfc2e3c7246593e3dbc8e0062e5b31c0628936e468f3417a6326d926f",
+      "size": 7442
+    },
+    "source-domains/command.json": {
+      "sha256": "10e819c62b84be832ec9d89d488f1ac4dc9702d3e07f878d9cae0aa7350394c9",
+      "size": 559
+    },
+    "source-domains/parameters.csv": {
+      "sha256": "edb56970ca579a658c306a281cf4fbcf8eb9fb6f900ffa2986ba4841251a8520",
+      "size": 90
+    },
+    "source-domains/python_expected_not_R_goldens/F001.npy": {
+      "sha256": "7a8fb9b66cb92107937e66e74fc14f0b82c9631892c4b5c893733f873d189b60",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F002.npy": {
+      "sha256": "b34a340f44cd5b4018626411e2526dcae59d73db5d286dc2ab614b75ab589d53",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F003.npy": {
+      "sha256": "fe971084401c3af5875d0276379db2621c6ccd9cb0e795b4e579e16021434ff0",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F004.npy": {
+      "sha256": "a9cf407c81aaa11bd6ffeeaa8988b9f8a07f3206c9e8628c57fbd82c6605d56f",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F005.npy": {
+      "sha256": "1ca56ba453316d63a4d0d116faa3ac2512186f1ef75238de31cef7a320c6e557",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F006.npy": {
+      "sha256": "833184de496aff3485e2374abcf3765e51a2369815ee73bb867726636990ff89",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F007.npy": {
+      "sha256": "00ce61c62f106b2d1e02d34212b5c3668f1e34d0b3acdf22b70067ff05463a8a",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F008.npy": {
+      "sha256": "efc495a727fae3c7e4c4518e85122fc3fddbb696903ee939b90efb12d2aa05bb",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F009.npy": {
+      "sha256": "3dfa29750d2041091911c87f70d8b348ef34f74d8fd76695efb38cae2195db00",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F010.npy": {
+      "sha256": "f4a0c0f0c556651d5345a83c945ced395e8e79bec5b6ed6227b068edd7036ee9",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F011.npy": {
+      "sha256": "569a8f4e33b51153512ea8ad4c70f7fb38e90afadb6a9aa123bd805f12cd9ba9",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F012.npy": {
+      "sha256": "93a7d302f29b5725bf882ed642e0f3b2be9b96e10931530718dbf698af176d3e",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/F013.npy": {
+      "sha256": "cbf2f269bb6318f06f9915bd3e9e1bce2c8b6e4fabb9458b613ceebff03ed53e",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/S001.npy": {
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "size": 136
+    },
+    "source-domains/python_expected_not_R_goldens/S002.npy": {
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "size": 136
+    },
+    "source-domains/python_expected_not_R_goldens/S003.npy": {
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "size": 136
+    },
+    "source-domains/python_expected_not_R_goldens/S004.npy": {
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "size": 136
+    },
+    "source-domains/python_expected_not_R_goldens/S005.npy": {
+      "sha256": "098281fb85dc2d7bb49bae41b8722e6699192a5922a41050b504fc420782e25d",
+      "size": 224
+    },
+    "source-domains/python_expected_not_R_goldens/S006.npy": {
+      "sha256": "b36fd1a2c8c70ef61f06f1d0752795b1de59c74ae8f32ce88264dcc0b3fa2db1",
+      "size": 272
+    },
+    "source-domains/python_expected_not_R_goldens/S007.npy": {
+      "sha256": "f6e370ed2918607a4e9d6f78786b4333f238fb616b8864b8412bb78a7ff0e6ae",
+      "size": 144
+    },
+    "source-domains/python_expected_not_R_goldens/S008.npy": {
+      "sha256": "a5d6728702b6df85ff7574fa8efb377113f9f7ca52cd5424ad6f9c6fb399c5bb",
+      "size": 144
+    },
+    "source-domains/python_expected_not_R_goldens/S009.npy": {
+      "sha256": "2e08b2be06a5da15885351bdeca69201d36fcb57d963c559d819d4612dc603bb",
+      "size": 176
+    },
+    "source-domains/python_expected_not_R_goldens/S010.npy": {
+      "sha256": "699caed71f610c70f44320b242eaad7d5eac1889bd01f0ea090876a1d2c1c83b",
+      "size": 192
+    },
+    "source-domains/r_support.R": {
+      "sha256": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9",
+      "size": 5266
+    },
+    "source-domains/report.json": {
+      "sha256": "c50a3b4a0fc2990d85c6af8357d43215b3b0e469686c288bd1ec47ff9640c469",
+      "size": 3617
+    },
+    "source-domains/run_source_domains.py": {
+      "sha256": "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
+      "size": 11567
+    },
+    "source-domains/source_domains.R": {
+      "sha256": "60f0e8b750623415a7039eb489aaf4e3e8a49c6052f04a9fa87e01e671e10f29",
+      "size": 4243
+    }
+  },
+  "release_certificate": false,
+  "report_source_members": [
+    "oracle/C0000.csv",
+    "oracle/C0001.csv",
+    "oracle/C0002.csv",
+    "oracle/C0003.csv",
+    "oracle/C0004.csv",
+    "oracle/C0005.csv",
+    "oracle/C0006.csv",
+    "oracle/C0007.csv",
+    "oracle/C0008.csv",
+    "oracle/C0009.csv",
+    "oracle/C0010.csv",
+    "oracle/C0011.csv",
+    "oracle/C0012.csv",
+    "oracle/C0013.csv",
+    "oracle/C0014.csv",
+    "oracle/C0015.csv",
+    "oracle/C0016.csv",
+    "oracle/C0017.csv",
+    "oracle/C0018.csv",
+    "oracle/C0019.csv",
+    "oracle/C0020.csv",
+    "oracle/C0021.csv",
+    "oracle/C0022.csv",
+    "oracle/C0023.csv",
+    "oracle/C0024.csv",
+    "oracle/C0025.csv",
+    "oracle/C0026.csv",
+    "oracle/C0027.csv",
+    "oracle/C0028.csv",
+    "oracle/C0029.csv",
+    "oracle/C0030.csv",
+    "oracle/C0031.csv",
+    "oracle/C0032.csv",
+    "oracle/C0033.csv",
+    "oracle/C0034.csv",
+    "oracle/C0035.csv",
+    "oracle/C0036.csv",
+    "oracle/C0037.csv",
+    "oracle/C0038.csv",
+    "oracle/C0039.csv",
+    "oracle/C0040.csv",
+    "oracle/C0041.csv",
+    "oracle/C0042.csv",
+    "oracle/R_case_status.csv",
+    "oracle/R_session_info.txt",
+    "oracle/case_manifest.json",
+    "oracle/python_expected_not_R_goldens.npz",
+    "oracle/report.json",
+    "source-domains/F001-R.csv",
+    "source-domains/F001-rings.csv",
+    "source-domains/F002-R.csv",
+    "source-domains/F002-rings.csv",
+    "source-domains/F003-R.csv",
+    "source-domains/F003-rings.csv",
+    "source-domains/F004-R.csv",
+    "source-domains/F004-rings.csv",
+    "source-domains/F005-R.csv",
+    "source-domains/F005-rings.csv",
+    "source-domains/F006-R.csv",
+    "source-domains/F006-rings.csv",
+    "source-domains/F007-R.csv",
+    "source-domains/F007-rings.csv",
+    "source-domains/F008-R.csv",
+    "source-domains/F008-rings.csv",
+    "source-domains/F009-R.csv",
+    "source-domains/F009-rings.csv",
+    "source-domains/F010-R.csv",
+    "source-domains/F010-rings.csv",
+    "source-domains/F011-R.csv",
+    "source-domains/F011-rings.csv",
+    "source-domains/F012-R.csv",
+    "source-domains/F012-rings.csv",
+    "source-domains/F013-R.csv",
+    "source-domains/F013-rings.csv",
+    "source-domains/R_case_status.csv",
+    "source-domains/R_session_info.txt",
+    "source-domains/S001-R.csv",
+    "source-domains/S001-rings.csv",
+    "source-domains/S001-source-error.txt",
+    "source-domains/S002-R.csv",
+    "source-domains/S002-rings.csv",
+    "source-domains/S002-source-error.txt",
+    "source-domains/S003-R.csv",
+    "source-domains/S003-corrected-output.csv",
+    "source-domains/S003-legacy-output.csv",
+    "source-domains/S003-rings.csv",
+    "source-domains/S004-R.csv",
+    "source-domains/S004-corrected-output.csv",
+    "source-domains/S004-legacy-output.csv",
+    "source-domains/S004-rings.csv",
+    "source-domains/S005-R.csv",
+    "source-domains/S005-rings.csv",
+    "source-domains/S006-R.csv",
+    "source-domains/S006-rings.csv",
+    "source-domains/S007-R.csv",
+    "source-domains/S007-rings.csv",
+    "source-domains/S008-R.csv",
+    "source-domains/S008-rings.csv",
+    "source-domains/S009-R.csv",
+    "source-domains/S009-rings.csv",
+    "source-domains/S010-R.csv",
+    "source-domains/S010-rings.csv",
+    "source-domains/case_manifest.csv",
+    "source-domains/case_manifest.json",
+    "source-domains/parameters.csv",
+    "source-domains/python_expected_not_R_goldens/F001.npy",
+    "source-domains/python_expected_not_R_goldens/F002.npy",
+    "source-domains/python_expected_not_R_goldens/F003.npy",
+    "source-domains/python_expected_not_R_goldens/F004.npy",
+    "source-domains/python_expected_not_R_goldens/F005.npy",
+    "source-domains/python_expected_not_R_goldens/F006.npy",
+    "source-domains/python_expected_not_R_goldens/F007.npy",
+    "source-domains/python_expected_not_R_goldens/F008.npy",
+    "source-domains/python_expected_not_R_goldens/F009.npy",
+    "source-domains/python_expected_not_R_goldens/F010.npy",
+    "source-domains/python_expected_not_R_goldens/F011.npy",
+    "source-domains/python_expected_not_R_goldens/F012.npy",
+    "source-domains/python_expected_not_R_goldens/F013.npy",
+    "source-domains/python_expected_not_R_goldens/S001.npy",
+    "source-domains/python_expected_not_R_goldens/S002.npy",
+    "source-domains/python_expected_not_R_goldens/S003.npy",
+    "source-domains/python_expected_not_R_goldens/S004.npy",
+    "source-domains/python_expected_not_R_goldens/S005.npy",
+    "source-domains/python_expected_not_R_goldens/S006.npy",
+    "source-domains/python_expected_not_R_goldens/S007.npy",
+    "source-domains/python_expected_not_R_goldens/S008.npy",
+    "source-domains/python_expected_not_R_goldens/S009.npy",
+    "source-domains/python_expected_not_R_goldens/S010.npy",
+    "source-domains/report.json"
+  ],
+  "schema_version": "native-r-finite-covariance-capture.v1",
+  "scope": "Actual macOS R4.6 execution: 43 core and 23 source-domain cases, with 48 historical R-vector comparisons, on the committed current mathematical source closure. The finite covariance guard is a separately qualified Python extension; this is a protected-source custody witness, not R parity for that extension. No ecological accuracy, statistical coverage, Linux release certificate, external rights/reviewer consent or release-readiness assertion.",
+  "source_context": {
+    "base_revision": "92a0adc1f00245c1a51b4e096e1eaac4c23325e5",
+    "committed_export": true,
+    "evidence_members": {
+      "execution-evidence/candidate-custody.json": {
+        "sha256": "617c9a05d7ac520baa4184227d5fef7ebf2315289c936f83a0168a2eee6c8f9c",
+        "size": 217166
+      },
+      "execution-evidence/host-after.json": {
+        "sha256": "bcfdd74f3c8d8835f43896c653cc182af2920dd66ce533de863d0f7332df76f2",
+        "size": 254323
+      },
+      "execution-evidence/host-before.json": {
+        "sha256": "bcfdd74f3c8d8835f43896c653cc182af2920dd66ce533de863d0f7332df76f2",
+        "size": 254323
+      },
+      "execution-evidence/plan.json": {
+        "sha256": "abda4d3682420119c992fa0e04f06107ed8a874b28d2a28faf9ddf667027cf7a",
+        "size": 224284
+      },
+      "execution-evidence/runner.py": {
+        "sha256": "73274ab9528eacadfe1b9f5ba562c6df86ade56a657a4f191482dd682d8851bd",
+        "size": 4946
+      },
+      "execution-evidence/terminal.json": {
+        "sha256": "9614ee0d2dbb1725afd74fb7680ecbd37d968328c8d36e5d783308e3c4282a4e",
+        "size": 161916
+      }
+    },
+    "execution_overlays": {},
+    "generated_source_sha256": {
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py": "84040f998392398c91779befcbac6807d107b3d1c62a57e4b440dbf1fcc680c5"
+    },
+    "host_before_after_sha256": "bcfdd74f3c8d8835f43896c653cc182af2920dd66ce533de863d0f7332df76f2",
+    "protected_science_sha256": {
+      "configs/ci/lra-r-source-lock.v1.json": "924871eccfb5035bfc86c18fd863f00f6ec51b2e28042021c5fd663cd224b12f",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference.py": "03ecfa6c0fbafecf825d873656bbbb7cb5556f3848d2519fea98702a003a8b89",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py": "57393e2575b2df05fa716938ca9c22b0fc072b0477ff4d72bb9a4677e1abf3fa",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py": "84040f998392398c91779befcbac6807d107b3d1c62a57e4b440dbf1fcc680c5",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py": "b3eceb04eb2ba5dd4a63ab95d699b0fffb6e287dda682638dfcb08c225e98771",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py": "d9f9b56935570b5e5996a4a8a033ac052ec7597a1b9652dc48b7985045da7066",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py": "3c631b0c5877801b477c6bfec32773b7f60b5058946f5ff56aebf51de2a8ecf4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py": "9aeae845a11540abcddf77dd9f09a418aed8838e52ba516a7eb058efbeff5563",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py": "d4370f315599b5a87f8c87fbed1a89b0bac4f324dbd687a4d36e5d6cbe39e231",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py": "5c684fb536c58944bae01da0e9e6b668c961cf9c0114c325a5f77884b429d41a",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py": "8b99c3c9c13f37527a4841dfc318f896dbbd3d329511b34a4c8b7a289693c3d0",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py": "95977107f59fb7aa118dcbfcee57fd81655d2ae7f540d94e657ef19d1b69737e",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py": "ba15436199128f43ac32967db0cfa7bc9bd19a73d0539fb06906eeb2c02d3479",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py": "3793aee7e8dc6f837cc0337a3e218abc3f982ecc1afff1c67933ae4b707b0585",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/regional_draw_source.py": "5bf348137efc831390d7f049f985021ba48638c1aad31665e60cfb3cec4937e4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py": "5b4e709b2d1d4ce2ea1e98eec9d481716740fdc723b6d3606ae9a50b1245d2be",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py": "1c7584947d3248b522151045210f2c9056e41ac3732a5c25dd88eabb6c954414",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py": "6715afeb562c188f23d6357bf7c1dfee1d64bcbdf17c7d1313ad8f29543ad6c5",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py": "0b21d9ade1bfb83ca2e31577093059ef8c7dd0fcc86f5af00cbe65e544d02600",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py": "d08fdfb713ac5c837e1b91c7389ff40c5c579911a84a4904835162f0c3b87a52",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py": "95e100ecd0a9f112830aaa9346abed077b4e2e61ff840deafda7b102547aad01",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py": "74a15a49d4cddc9e526160274a6561b767a6d457641403dd12ca417756b63e8b",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py": "a6ba7a8628319ccf9e0d969942546eced8ddbfc16ef447a3e5923ab76095ef52",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py": "48c463deef270fbae3f89caa1c69f1278871134e7e9ca9848d467ef7b36e6fd4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py": "0947a99e3e98780ece802c2e018380059e9bf42867ff2d1c021cf2ae7514d9ff",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py": "304317faa6c89dfd43bbdb7b1f1dc82d9226cc1b2fb9ffba08bc7b03c2277ed6",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py": "ea9afa16257735c495eeb5468fe4ac5c43b93b331148b52ebc18e17de7e42caf",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py": "8c1fd09287191b9fdb30499c57f82fc2711ed34979ecec852b227cb1dfdf50eb",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py": "d2f6171d08a7ece80770f6f99c58b4b79bdbfecd91a405df1b50832242e7d27d",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py": "f6ce2915691850055f8d4192249bcc97737b2759747f58da32bbf6ad3f1219d4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py": "f33c781841c10f1776a7e6e41ef3a93f2e4ac6ca0282d93fe7620ad09cbd9567",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py": "e0fce6132380512fefa7254e52a8802a6c84ab92c247089b8990b890ec4887eb",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_fixed_site_covariance.py": "d6c00766235d71c7efc78be128519919455e132a022a6f49b30591f93ec50697",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py": "323b233b2b9593fe671a50fa9e46c4f8bdf6edb5c7c46b76a5902ea836801814",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/__init__.py": "052e01d49482a524a781f4c582a131cb39873eebcc2a659570023828ecf4f902",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/homogeneous_likelihood.py": "7fd29a03f7995f9a97070c740033c57391d19dd703533bea3bcfc3b7f55816ef",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py": "5e877038da521a461ce168f2b078a59e4dcc0143668aaf7403b1555b2e31f678",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py": "6a21e37c0a49b1ec944a45acb5fcbfaa08a6e72648e6352a32be285da28b7700",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py": "a2585b7eb9fcfa2587bbf60a0bdd7579fcb903626e2a5e9b2c91698ed99f0f27",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py": "b2bb0e68e4475111e555cae5727c984c04c252d29401966465d8c12e97576c03",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py": "7580a831eb025a0aba9bbc8b55d57c63bd47781130983ff0d1c73673060c98ed",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py": "f6fa13667a633dd13d01657038e619363de49409eb02c3c562093df826acadbe",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py": "fd04e18fde65c23e0c65e1c8301b32d7cde3a1662f1661dfc390b913cbb47f0f",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py": "c248ca31dbf060d45dba161e711faeaa232c1eca972a3c808f8536c219755369",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py": "c6ad1a1f6f861f7b1efc6d4ab7f39bf503cebcab8eb7e4d10b0ef03d9dacda8d",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py": "00eb0f15a9358eba47078dffc08589e4f00aa9e5c5ecad9dfdf5b5a334cbd5ab",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py": "ef05a86be898f4903a63edea9a2dddf35fba2d097bf24f430c72a123b368a4be",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py": "6a66342a06ff47cb1240349bab0303ab54053e3f82dd8213d9b56a25de6740b8",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py": "6fd244753ce97bcdb93ae9514392d1196b1dc39cd2fad2047953dcdde35c44a4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py": "9b6a6131ad99be28abdf4c9ecc7c2cbc0bb5de00da98c4115d9a3a41d9fdf122",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py": "7a1c9d287aa5d874a61e7fd0a5f915e1fe6bfb54123393ef0e6ad1c6a4510dc2",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py": "bd6e26ead910ba59f47d2f151e93ca323be24381ff9b0c39aa11baf1114c94e8",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py": "9b05be03acf62ff02d466993066108f8f9a00989138020c085227747cb1819df",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/README.md": "764ccc8809a17637de0a7e7195f326bae6cca9c3d80ce8408895676ea1a521c0",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/__init__.py": "b7b2c3a61cf3414c5c3a36be1595273a17e8cead5bf448b6b52dec3a15b3a2e8",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/cases.py": "0cd1970f842026a0bdbc20069511eb26f285ff9904fee4888c7ddc8c9bd59831",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/install_reference.py": "652042b4489e56467c2740eed90ca81cb6b39c83c8c48792af5f1779cf6f5201",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/optimized_prospective.json": "7bd61e0c7feefadf81428261443674612c6767e957fd25ea65591aeab9602ded",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/prospective.py": "582ddffdc503dbbeb7839eb95de881e72e2ddf143c971458f0cc856e15cb8643",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_live_r.py": "db0938b2b5652fccac545d308a324fe2cdd70eea3eef687e7142003a9544e849",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_source_domains.py": "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/scope.py": "ca160a062226c2dda182397fc2ec8eabb3cc60e8590e6732f7e2d7ba6b4646f4",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R": "60f0e8b750623415a7039eb489aaf4e3e8a49c6052f04a9fa87e01e671e10f29",
+      "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/stored.py": "bc86346078714173c74f10fd37e4e20d89ee922aaa280b413a09bf6f276050a6",
+      "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c"
+    },
+    "schema_version": "native-r-committed-source-context.v1",
+    "source_scope": "Selected committed scientific and producer bytes exported into independently owned files. Detached identity and complete tree objects are retained; unselected blobs and parent history are intentionally absent. Generated version bytes are separately identified. This is not a full clean checkout or full-history claim."
+  },
+  "source_lock_sha256": "924871eccfb5035bfc86c18fd863f00f6ec51b2e28042021c5fd663cd224b12f",
+  "source_revision": "92a0adc1f00245c1a51b4e096e1eaac4c23325e5"
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "slu-calibration-guide-retained-source-read.v1",
+  "source_only": true,
+  "guide": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "exact_retained_object": {
+    "path": "/Users/bijan/bijux/zz-bijux-pollenomics-backlogs-v8/retained-evidence/objects/79/793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "literal_text": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/slu-calibration-guide-source-review/guide-literal-source-text.txt",
+    "sha256": "c13f68fd685f0ca6a83875c2c809d1e6fb9f102b11e9389001743db4bd2a8d85",
+    "bytes": 3328
+  },
+  "read_tool": {
+    "path": "/opt/homebrew/Cellar/poppler/26.09.0/bin/pdftotext",
+    "sha256": "35b026441d599e8a002b557e3c0eb4aa0da56f96a217bb6a2d8ea1f8b138f7a3",
+    "bytes": 111000
+  },
+  "retained_official_page_metadata": {
+    "capture_manifest": {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/reference-sources/empd2-nfi/nfi/nordic-access.json",
+      "sha256": "b0ab87f8016b561d84cdff16e74500df1b2f1e4013f4600a3d7e0ec0942d6825",
+      "bytes": 2381
+    },
+    "source": {
+      "bytes": 920773,
+      "content_type": "text/html; charset=utf-8",
+      "final_url": "https://www.slu.se/en/about-slu/organisation/departments/forest-resource-management/miljoanalys/nfi/our-data/",
+      "http_status": 200,
+      "local_path": "raw/sweden_slu.html",
+      "requested_url": "https://www.slu.se/en/about-slu/organisation/departments/forest-resource-management/miljoanalys/nfi/our-data/",
+      "retrieved_utc": "2026-09-21T22:26:48.771539+00:00",
+      "sha256": "a0632bbff92e79c490a6bceb4fa21d69133d7fee7221c93e5b340de6c0b0b375"
+    }
+  },
+  "literal_source_use_statements": {
+    "license": "The exact retained PDF explicitly states Creative Commons CC0 1.0 Universal public-domain dedication.",
+    "intended_use": "Reference and validation data for remote-sensing applications; plot observations cannot derive totals or means for a geographic area of any size.",
+    "data_years": "Temporary forest-land plots collected2007\u20132025, boundary plots excluded.",
+    "publication_use_statement_present_in_exact_PDF": true
+  },
+  "original_provider_receipt_or_literal_href_qualified": false,
+  "original_provider_receipt_or_literal_href_limits": [
+    "Metadata names an official SLU page HTTP200 on2026-09-21, bodySHAa0632b.../920773bytes, relative raw/sweden_slu.html.",
+    "That exact page body is absent at the declared private relative path and exact retained content-addressed object checked. A captured page metadata record alone cannot authenticate its literal PDF href.",
+    "The public report cites the literal official info-data-for-calibration.pdf URL, but that first-party report citation is not a provider retrieval/copy receipt.",
+    "Exact PDF bytes exist in the tracked report and retained object store, but the retained object itself supplies no original HTTP/requested/finalURL/copy chronology."
+  ],
+  "exact_named_missing_page_paths": [
+    "/Users/bijan/bijux/-bijux-pollenomics-data/reference-sources/empd2-nfi/nfi/raw/sweden_slu.html",
+    "/Users/bijan/bijux/zz-bijux-pollenomics-backlogs-v8/retained-evidence/objects/a0/a0632bbff92e79c490a6bceb4fa21d69133d7fee7221c93e5b340de6c0b0b375"
+  ],
+  "official_PDF_URL_cited_in_current_repository": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",
+  "owner_status": "Remain unresolved pending provider retrieval/copy evidence bound to exact PDF. Source-use wording is now directly verified, without inventing guide authorship or historical acquisition.",
+  "no_outreach_download_network_or_source_acquisition": true,
+  "no_NFI_tree_outcome_cells_opened": true,
+  "next_local_source_action": "Root may inspect a specifically identified retained retrieval record or, if needed, authorize a bounded exact official provider retrieval/source-byte comparison under a newly declared current epoch. Do not relabel an older missing receipt."
+}

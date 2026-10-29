@@ -1,0 +1,71 @@
+{
+  "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "worker": 103,
+  "rows": [
+    {
+      "workload": "love-larger-fixed-candidate-batch",
+      "contract": {
+        "source": "128 logical computational repetitions of one published LOVEexample; no independent field sites/ages",
+        "logical_calls": 128,
+        "physical_fixture": 1,
+        "taxa": 10,
+        "rings": 36,
+        "repeats": 2,
+        "candidates": 32,
+        "config": {
+          "method": "optimized",
+          "regional_basin_type": "lake",
+          "regional_basin_diameter_m": 300,
+          "local_basin_diameter_m": 12.9,
+          "max_ring": 10,
+          "distance_weighting": "lsm unstable",
+          "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+          "repeats": 2,
+          "stochastic": false,
+          "seed": 7,
+          "retain_samples": false,
+          "ppe_error": true,
+          "optimizer_iterations": 200,
+          "optimizer_max_evaluations": 32,
+          "optimizer_tolerance": 0.01,
+          "optimized_profile": "disqover-0.9.14-source"
+        },
+        "optimizer_search_convergence": false
+      },
+      "input_identity": "2fcc2109bf66e65b4abb5497ef46e34d220387803c41e84703f2f4aa5ffdd9d0",
+      "construction_loading_conversion_seconds": 1.9300829169806093,
+      "first_public_call_seconds": 2.925959750020411,
+      "warm_public_call_seconds": [],
+      "output_projection_seconds": [
+        0.061652875039726496
+      ],
+      "scientific_output_sha256": "47e6a49fe5b768571542ab1c5058da498455797e9b4907bb6cf3f97debfd69d1",
+      "scientific_output_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-103/love-larger-fixed-candidate-batch.json",
+      "diagnostic_profile_total_seconds": null,
+      "diagnostic_top_self": [],
+      "diagnostic_top_cumulative": [],
+      "profile_is_unprofiled_hotspot_evidence": false,
+      "warnings": [
+        "Terrestrial area exceeds geometric ring area; the source ratio is retained rather than clipped"
+      ]
+    }
+  ],
+  "worker_body_seconds": 5.158601416042075,
+  "peak_RSS_native": 224296960,
+  "rss_units": "bytes",
+  "thread_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "native_thread_counters_observed": false,
+  "R_or_compiler_executed": false,
+  "source_origins": {
+    "bijux_pollenomics_lra": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+    "bijux_pollenomics_dev": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py"
+  },
+  "limits": "Fresh process first call is not guaranteed OS-cold. Seven warm observations include all repeats; profiles are diagnostic only. Full public calls exclude separately measured input construction/projection; no compiled adoption or sourceR parity claim."
+}
