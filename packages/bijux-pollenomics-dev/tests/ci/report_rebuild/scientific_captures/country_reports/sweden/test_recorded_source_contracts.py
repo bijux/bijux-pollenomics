@@ -61,6 +61,7 @@ def _contracts(
     resolver = SimpleNamespace(
         repository=root,
         descriptor=SimpleNamespace(members=members, groups=[{"resolved_paths": paths}]),
+        detached=frozenset(members),
         read_source=bodies.__getitem__,
         fresh=lambda: fresh_calls.append(True),
         fresh_calls=fresh_calls,
