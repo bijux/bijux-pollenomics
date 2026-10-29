@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "/Users/bijan/.cache/uv/archive-v0/2XF0xMG3jR4vPhZZ/ruff-0.15.8.data/scripts/ruff",
+    "check",
+    "--config",
+    "/Users/bijan/bijux/bijux-pollenomics/configs/ruff.toml",
+    "--cache-dir",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/preflight/ruff-cache",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/assemble.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/check_capture.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/contracts.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/entry.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/launch.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/observe.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/packet.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/prepare.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/retained.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/run.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/runtime_contracts.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/source_admission.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/source_inputs.py",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/source_runtime.py"
+  ],
+  "actual_exit": 0,
+  "stdout": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/preflight/source-ruff.stdout",
+    "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "bytes": 19
+  },
+  "stderr": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/preflight/source-ruff.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  }
+}

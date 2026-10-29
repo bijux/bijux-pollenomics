@@ -1,0 +1,170 @@
+"""Confine maintained country reads to frozen inputs and writes to its fresh products."""
+
+from __future__ import annotations
+
+import fcntl
+from importlib.util import cache_from_source, source_from_cache
+import os
+from pathlib import Path
+from typing import Any, NoReturn
+
+
+class CountryIO:
+    def __init__(self, plan: dict[str, Any]) -> None:
+        self.input_names = {row["path"] for row in plan["input_pins"]}
+        self.products = Path(plan["output"]) / "producer"
+        self.callable_metadata_path = (
+            Path(plan["output"]) / "country-callable-identity.json"
+        )
+        self.transient_roots = [
+            Path(plan["output"]) / "cache",
+            Path(plan["output"]) / "scratch",
+        ]
+        self.enabled = True
+        self.reads: set[str] = set()
+        self.denials: list[str] = []
+        self.absent_bytecode_attempts: set[str] = set()
+
+    def deny(self, reason: str) -> NoReturn:
+        self.denials.append(reason)
+        raise PermissionError(reason)
+
+    def descriptor_path(self, descriptor: int) -> Path:
+        if (
+            type(descriptor) is not int
+            or descriptor < 0
+            or not hasattr(fcntl, "F_GETPATH")
+        ):
+            self.deny("Unqualified mutation descriptor")
+        try:
+            raw = fcntl.fcntl(descriptor, fcntl.F_GETPATH, b"\0" * 1024)
+        except OSError as error:
+            self.deny("Physical descriptor path lookup failed: " + str(error))
+        if not isinstance(raw, bytes):
+            self.deny("Descriptor path authority absent")
+        assert isinstance(raw, bytes)
+        path = Path(os.fsdecode(raw.split(b"\0", 1)[0]))
+        if (
+            not path.is_absolute()
+            or ".." in path.parts
+            or any(p.is_symlink() for p in (path, *path.parents))
+        ):
+            self.deny("Descriptor target ancestry refused")
+        actual = os.fstat(descriptor)
+        named = path.stat()
+        if (actual.st_dev, actual.st_ino) != (named.st_dev, named.st_ino):
+            self.deny("Descriptor no longer names the exact physical path")
+        return path
+
+    def path(self, value: Any, descriptor: Any = None) -> Path:
+        if isinstance(value, int):
+            return self.descriptor_path(value)
+        if not isinstance(value, (str, bytes, os.PathLike)):
+            self.deny("Unsupported audited country path")
+        path = Path(os.fsdecode(value))
+        if descriptor not in (None, -1):
+            if path.is_absolute():
+                self.deny("Ambiguous absolute path plus descriptor")
+            parent = self.descriptor_path(descriptor)
+            if not parent.is_dir():
+                self.deny("Mutation dir_fd does not name a physical directory")
+            path = parent / path
+        path = path.absolute()
+        if ".." in path.parts or any(p.is_symlink() for p in (path, *path.parents)):
+            self.deny("Country read/write ancestry or spelling refused: " + str(path))
+        return path
+
+    def mutation(self, value: Any, descriptor: Any = None) -> None:
+        path = self.path(value, descriptor)
+        if not path.is_relative_to(self.products) and not any(
+            path.is_relative_to(root) for root in self.transient_roots
+        ):
+            self.deny(
+                "Country mutation left fresh products/cache/scratch: " + str(path)
+            )
+
+    def __call__(self, event: str, args: tuple[Any, ...]) -> None:
+        if not self.enabled:
+            return
+        if event.startswith(("subprocess.", "socket.")) or event in {
+            "os.system",
+            "os.exec",
+            "os.posix_spawn",
+        }:
+            self.deny("Tools/network outside current country metadata replay: " + event)
+        if event in {"os.link", "os.symlink", "os.chdir"}:
+            self.deny("Unqualified alias or working-directory mutation: " + event)
+        if event in {"os.mkdir", "os.chmod"}:
+            self.mutation(args[0], args[2] if len(args) > 2 else None)
+        elif event in {"os.remove", "os.rmdir", "shutil.rmtree"}:
+            self.mutation(args[0], args[1] if len(args) > 1 else None)
+        elif event == "os.rename":
+            self.mutation(args[0], args[2] if len(args) > 2 else None)
+            self.mutation(args[1], args[3] if len(args) > 3 else None)
+        elif event == "os.utime":
+            self.mutation(args[0], args[3] if len(args) > 3 else None)
+        elif event in {"os.truncate", "os.setxattr", "os.removexattr", "os.chflags"}:
+            self.mutation(args[0])
+        elif event == "os.chown":
+            self.mutation(args[0], args[3] if len(args) > 3 else None)
+        elif event == "shutil.move":
+            self.mutation(args[0])
+            self.mutation(args[1])
+        elif event in {"shutil.copyfile", "shutil.copytree", "shutil.copystat"}:
+            self.mutation(args[1])
+        if (
+            event != "open"
+            or not args
+            or not isinstance(args[0], (str, bytes, os.PathLike))
+        ):
+            return
+        path = self.path(args[0])
+        if path == Path(os.devnull):
+            return
+        mode = args[1]
+        flags = args[2] if len(args) > 2 else 0
+        writing = (
+            any(c in str(mode) for c in ("w", "a", "+", "x"))
+            or isinstance(flags, int)
+            and bool(
+                flags
+                & (os.O_WRONLY | os.O_RDWR | os.O_CREAT | os.O_TRUNC | os.O_APPEND)
+            )
+        )
+        if writing:
+            if path == self.callable_metadata_path:
+                if (
+                    type(flags) is not int
+                    or flags & (os.O_CREAT | os.O_EXCL) != (os.O_CREAT | os.O_EXCL)
+                    or path.exists()
+                ):
+                    self.deny("Callable diagnostic requires exclusive fresh creation")
+                return
+            if not path.is_relative_to(self.products) and not any(
+                path.is_relative_to(root) for root in self.transient_roots
+            ):
+                self.deny(
+                    "Maintained country write left fresh producer products: "
+                    + str(path)
+                )
+        elif (
+            str(path) in self.input_names
+            or path.is_relative_to(self.products)
+            or any(path.is_relative_to(root) for root in self.transient_roots)
+        ):
+            self.reads.add(str(path))
+        elif path.suffix == ".pyc" and not path.exists():
+            try:
+                source = source_from_cache(str(path))
+            except ValueError:
+                self.deny(
+                    "Legacy/noncanonical missing bytecode attempt refused: " + str(path)
+                )
+            if source not in self.input_names or cache_from_source(source) != str(path):
+                self.deny(
+                    "Missing bytecode attempt lacks exact cache-tag/source round trip: "
+                    + str(path)
+                )
+            self.absent_bytecode_attempts.add(str(path))
+        else:
+            self.deny("Undeclared maintained country input read: " + str(path))

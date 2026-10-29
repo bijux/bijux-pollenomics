@@ -1,0 +1,5671 @@
+{
+  "child_stage_qualification": {
+    "new_recorded_stage_products": {
+      "LOVE-analytical": 3,
+      "REVEALS": 3
+    },
+    "old_recorded_stage_products": {
+      "LOVE-analytical": 5,
+      "REVEALS": 5
+    },
+    "qualification": "Source-qualified completed cache products declare REVEALS then analytical LOVE. Original5/native1 and fresh3/native0 are distinct; no direct child stage call instrumentation.",
+    "recorded_manifests": [
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/run_manifest.json",
+        "sha256": "28c5f03b70f11679391526ec73b136e427057d8f1269f84e8108887d81161123"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/run_manifest.json",
+        "sha256": "3af54e809616e3948d8b6bc39ced7093b09da8fef9b920239d6bed773bf9be9a"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/run_manifest.json",
+        "sha256": "2e38523442eb99015ba82c669b2ed61e9f8bdd061e24ed59e86efeddfdd4304f"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/run_manifest.json",
+        "sha256": "64fc35d4bf50767c09564bb6c385bd4b27911d5fa2c7db4b1995874879cf4f09"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/run_manifest.json",
+        "sha256": "6e57bf256c69335a186899390d5fe1fef2d0463ecf89741684da21c5f4b9f195"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/run_manifest.json",
+        "sha256": "d61ff2741868f0ac7b42292a86f23ff345d3d7c288620cf002e9a590ba919647"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/run_manifest.json",
+        "sha256": "69151db0dd339c03f4b02aae66b478a3136cebb8cb8eaca4a58a82157da4fc89"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/run_manifest.json",
+        "sha256": "a85bda29b0b234ecc6888fbd1790b9b12db489cb4f13b881bb4698ff3bb33c3f"
+      }
+    ]
+  },
+  "identity_witness": {
+    "contaminated_derived_refusal": "contaminated_train_input",
+    "records": [
+      {
+        "alias_ids": [],
+        "core_id": "core-shared",
+        "country": "Sweden",
+        "dependency_ids": [],
+        "kind": "pollen",
+        "publication_id": "publication-shared",
+        "record_id": "a",
+        "site_id": "site-a",
+        "spatial_block_id": "block-target"
+      },
+      {
+        "alias_ids": [],
+        "core_id": "core-shared",
+        "country": "Sweden",
+        "dependency_ids": [],
+        "kind": "pollen",
+        "publication_id": null,
+        "record_id": "b",
+        "site_id": "site-b",
+        "spatial_block_id": "block-target"
+      },
+      {
+        "alias_ids": [],
+        "core_id": null,
+        "country": "Sweden",
+        "dependency_ids": [],
+        "kind": "pollen",
+        "publication_id": "publication-shared",
+        "record_id": "c",
+        "site_id": "site-c",
+        "spatial_block_id": "block-target"
+      },
+      {
+        "alias_ids": [
+          "a"
+        ],
+        "core_id": null,
+        "country": "Sweden",
+        "dependency_ids": [],
+        "kind": "pollen",
+        "publication_id": null,
+        "record_id": "d",
+        "site_id": "site-d",
+        "spatial_block_id": "block-target"
+      },
+      {
+        "alias_ids": [
+          "b"
+        ],
+        "core_id": null,
+        "country": "Sweden",
+        "dependency_ids": [],
+        "kind": "pollen",
+        "publication_id": null,
+        "record_id": "e",
+        "site_id": "site-e",
+        "spatial_block_id": "block-target"
+      },
+      {
+        "alias_ids": [],
+        "core_id": null,
+        "country": "Sweden",
+        "dependency_ids": [],
+        "kind": "pollen",
+        "publication_id": null,
+        "record_id": "f",
+        "site_id": "site-f",
+        "spatial_block_id": "block-f"
+      },
+      {
+        "alias_ids": [],
+        "core_id": null,
+        "country": "Sweden",
+        "dependency_ids": [],
+        "kind": "pollen",
+        "publication_id": null,
+        "record_id": "g",
+        "site_id": "site-g",
+        "spatial_block_id": "block-g"
+      },
+      {
+        "alias_ids": [],
+        "core_id": null,
+        "country": "Sweden",
+        "dependency_ids": [],
+        "kind": "pollen",
+        "publication_id": null,
+        "record_id": "h",
+        "site_id": "site-h",
+        "spatial_block_id": "block-h"
+      },
+      {
+        "alias_ids": [
+          "e"
+        ],
+        "core_id": null,
+        "country": "Sweden",
+        "dependency_ids": [
+          "e"
+        ],
+        "kind": "derived",
+        "publication_id": null,
+        "record_id": "i",
+        "site_id": "site-i",
+        "spatial_block_id": "block-target"
+      }
+    ],
+    "split": {
+      "allowed_local_pollen_record_id": null,
+      "groups": [
+        {
+          "group_id": "a",
+          "record_ids": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "i"
+          ],
+          "spatial_block_id": "block-target"
+        },
+        {
+          "group_id": "f",
+          "record_ids": [
+            "f"
+          ],
+          "spatial_block_id": "block-f"
+        },
+        {
+          "group_id": "g",
+          "record_ids": [
+            "g"
+          ],
+          "spatial_block_id": "block-g"
+        },
+        {
+          "group_id": "h",
+          "record_ids": [
+            "h"
+          ],
+          "spatial_block_id": "block-h"
+        }
+      ],
+      "holdout_spatial_block": false,
+      "input_sha256": "6ac1b4304bca88ebc3305c546a458c2fffadd7db6b004765a1828d985d6fa6a2",
+      "schema_version": "lra-candidate-split.v1",
+      "status": "candidate_unreviewed",
+      "target": "withheld_pollen_prediction",
+      "test_pollen_record_ids": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "test_record_id": "a",
+      "test_record_ids": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "i"
+      ],
+      "test_vegetation_record_ids": [],
+      "train_record_ids": [
+        "f",
+        "g",
+        "h"
+      ]
+    }
+  },
+  "prediction_failures": [
+    {
+      "failures": [],
+      "lane": "baselines",
+      "variant": "reference"
+    },
+    {
+      "failures": [
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p04"
+          ],
+          "status": "refused"
+        },
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p03"
+          ],
+          "status": "refused"
+        },
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p02"
+          ],
+          "status": "refused"
+        }
+      ],
+      "lane": "baselines",
+      "variant": "target-perturbed"
+    },
+    {
+      "failures": [],
+      "lane": "fitted",
+      "variant": "reference"
+    },
+    {
+      "failures": [
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+          "method": "clr-wgs84-rbf-ridge-v1",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p04"
+          ],
+          "status": "refused"
+        },
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+          "method": "training_mean",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p04"
+          ],
+          "status": "refused"
+        },
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+          "method": "clr-wgs84-rbf-ridge-v1",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p03"
+          ],
+          "status": "refused"
+        },
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+          "method": "training_mean",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p03"
+          ],
+          "status": "refused"
+        },
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+          "method": "clr-wgs84-rbf-ridge-v1",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p02"
+          ],
+          "status": "refused"
+        },
+        {
+          "detail": "Negative or out-of-range fractions cannot be scored",
+          "exception_type": "ValidationRefusal",
+          "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+          "method": "training_mean",
+          "reason_code": "invalid_composition",
+          "record_ids": [
+            "p02"
+          ],
+          "status": "refused"
+        }
+      ],
+      "lane": "fitted",
+      "variant": "target-perturbed"
+    }
+  ],
+  "saved_cache_seed": {
+    "new_model_calls_during_seed": 0,
+    "original_candidate": "23ea4670d12ee6f61e0fb086c20f6dfe455eb0e4",
+    "original_native_exit": 1,
+    "original_plan": {
+      "bytes": 900372,
+      "path": "artifacts/science/development-input-isolation-source-custody-execution/plan.json",
+      "sha256": "5370f37ec1b04775164e69c46357eb4a63263a28672a597b1ab72f3db5bd71c2"
+    },
+    "original_terminal": {
+      "bytes": 2539,
+      "path": "artifacts/science/development-input-isolation-source-custody-execution/native/terminal.json",
+      "sha256": "65aaf08de60fd624b341a46881c59ce68fc888dd3ba136659a57992480012e60"
+    },
+    "request_sha256s": [
+      "4542328087350eee8ecb928267c1b9d5582958df215131b6b93788c405007943",
+      "94f9bd44354b5e90b5602d73659eb7c23730f71e1565038f5b707aeb8bbc8c8e",
+      "c25d86f99a3f460c12792906045b07cb197028bf9d8a58b219a5467f41e3c96f",
+      "d1799b8db849a3f29d6bae77019aada9eba2df3de2dc988591a020554241bc46",
+      "db46fa8ebdcbb1698f7721d5d1e82fe4fde21cf5c6e3afc951b4d8cee93bc279"
+    ],
+    "seeded_bytes": 195665,
+    "seeded_files": 115,
+    "seeded_products": 5
+  },
+  "schema_version": "persisted-experiment-isolation-publication.v1",
+  "scientific_protocol": {
+    "bytes": 43732,
+    "path": "artifacts/science/development-input-isolation-saved-handoff/proposal/protocol.json",
+    "sha256": "125f0564b7e24756287b37a2a7b03883851d0dfb8e515589ff8e95c47622abb2"
+  },
+  "scope_limits": {
+    "constructed_exposed_development": true,
+    "historical_receipts_restored": false,
+    "historical_sidecars_replaced": false,
+    "measured_ecological_accuracy": false,
+    "old_ten_basin_products_reused": false,
+    "qualified_real_source_graph": false,
+    "release_acceptance": false,
+    "scientific_acceptance": "not_evaluated",
+    "untouched_confirmation": false
+  },
+  "score_dispositions": [
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.5335911927682414,
+        "Betula": 0.46640880723175876
+      },
+      "prediction_manifest_sha256": "027d2865185612ff0cb38133284632b003a10ab2398ae3e2c74e3371e353cad3",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 8.326672684688674e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2835911927682413,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2835911927682413,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2835911927682414
+          ],
+          [
+            "Betula",
+            -0.28359119276824124
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2835911927682413,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.6015125046588221,
+        "Betula": 0.3984874953411779
+      },
+      "prediction_manifest_sha256": "027d2865185612ff0cb38133284632b003a10ab2398ae3e2c74e3371e353cad3",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.009234959802280063,
+        "mae_fraction": 0.001487495341177869,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.001487495341177869,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.001487495341177869
+          ],
+          [
+            "Betula",
+            0.001487495341177869
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.001487495341177869,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.5350127410484737,
+        "Betula": 0.4649872589515267
+      },
+      "prediction_manifest_sha256": "0f7d60e6ad25b3f3732c2379c38e56fa640d37817a837927f37d3285bf6b4129",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 2.220446049250313e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2850127410484735,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2850127410484735,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.28501274104847374
+          ],
+          [
+            "Betula",
+            -0.2850127410484733
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2850127410484735,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.6020270063311149,
+        "Betula": 0.397972993668885
+      },
+      "prediction_manifest_sha256": "0f7d60e6ad25b3f3732c2379c38e56fa640d37817a837927f37d3285bf6b4129",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": -2.7755575615628914e-17,
+        "count_conditioned_deviance": 0.00395248959971739,
+        "mae_fraction": 0.0009729936688850083,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0009729936688850083,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.000972993668885036
+          ],
+          [
+            "Betula",
+            0.0009729936688849805
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0009729936688850083,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.5344442008540634,
+        "Betula": 0.4655557991459368
+      },
+      "prediction_manifest_sha256": "784f81b7cb7889c27135284c7c34476586a75436f2792ea32b43896ef51b1def",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 1.1102230246251565e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2844442008540633,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2844442008540633,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2844442008540634
+          ],
+          [
+            "Betula",
+            -0.2844442008540632
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2844442008540633,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.6018212529914314,
+        "Betula": 0.3981787470085686
+      },
+      "prediction_manifest_sha256": "784f81b7cb7889c27135284c7c34476586a75436f2792ea32b43896ef51b1def",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.005800174936974933,
+        "mae_fraction": 0.0011787470085685703,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0011787470085685703,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.0011787470085685703
+          ],
+          [
+            "Betula",
+            0.0011787470085685703
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0011787470085685703,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.5350614655136805,
+        "Betula": 0.46493853448631933
+      },
+      "prediction_manifest_sha256": "1d48104393083766798c24a203c91a15b1d2e5d36f18e994a3496527a96e6121",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": -8.326672684688674e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2850614655136806,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2850614655136806,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2850614655136805
+          ],
+          [
+            "Betula",
+            -0.28506146551368067
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2850614655136806,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.6020778838927242,
+        "Betula": 0.3979221161072759
+      },
+      "prediction_manifest_sha256": "1d48104393083766798c24a203c91a15b1d2e5d36f18e994a3496527a96e6121",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": 2.531832321839289e-05,
+        "mae_fraction": 7.788389272417318e-05,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 7.788389272417318e-05,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            7.788389272422869e-05
+          ],
+          [
+            "Betula",
+            -7.788389272411766e-05
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 7.788389272417318e-05,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.5379532865393519,
+        "Betula": 0.46204671346064785
+      },
+      "prediction_manifest_sha256": "39e24d9b8a2a00c9d9bfb0d06af1d8a79b46d5f2f8e1959d3de36bd1d4f44d44",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": -1.1102230246251565e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.28795328653935204,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28795328653935204,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2879532865393519
+          ],
+          [
+            "Betula",
+            -0.28795328653935215
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.28795328653935204,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.6031410109196089,
+        "Betula": 0.3968589890803911
+      },
+      "prediction_manifest_sha256": "39e24d9b8a2a00c9d9bfb0d06af1d8a79b46d5f2f8e1959d3de36bd1d4f44d44",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.005437291409559286,
+        "mae_fraction": 0.0011410109196089424,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0011410109196089424,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0011410109196089424
+          ],
+          [
+            "Betula",
+            -0.0011410109196089424
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0011410109196089424,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.5350619686549513,
+        "Betula": 0.46493803134504863
+      },
+      "prediction_manifest_sha256": "2e5327617bfba09842719126719acae3af805428257deb1b45c0b55b4c0d32d5",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": -5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2850619686549513,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2850619686549513,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.28506196865495126
+          ],
+          [
+            "Betula",
+            -0.28506196865495137
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2850619686549513,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.6020780689216245,
+        "Betula": 0.3979219310783754
+      },
+      "prediction_manifest_sha256": "2e5327617bfba09842719126719acae3af805428257deb1b45c0b55b4c0d32d5",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": -2.7755575615628914e-17,
+        "count_conditioned_deviance": 2.5438766661167733e-05,
+        "mae_fraction": 7.806892162456891e-05,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 7.806892162456891e-05,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            7.806892162454115e-05
+          ],
+          [
+            "Betula",
+            -7.806892162459667e-05
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 7.806892162456891e-05,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5346972559797962,
+        "Betula": 0.4653027440202039
+      },
+      "prediction_manifest_sha256": "c091849c4203728812775434d5c8de49beb879abd42bd3c114d0f100a07e1796",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.28469725597979617,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28469725597979617,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2846972559797962
+          ],
+          [
+            "Betula",
+            -0.2846972559797961
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.28469725597979617,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6026108650859363,
+        "Betula": 0.3973891349140637
+      },
+      "prediction_manifest_sha256": "c091849c4203728812775434d5c8de49beb879abd42bd3c114d0f100a07e1796",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.028444238223723772,
+        "mae_fraction": 0.0026108650859363314,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0026108650859363314,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0026108650859363314
+          ],
+          [
+            "Betula",
+            -0.0026108650859363314
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0026108650859363314,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5332501730218261,
+        "Betula": 0.46674982697817435
+      },
+      "prediction_manifest_sha256": "e733be86afa657a1083f6b0dd6f6d46b16d941093f09d36539afb4335cfd238d",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 2.220446049250313e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.28325017302182587,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28325017302182587,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2832501730218261
+          ],
+          [
+            "Betula",
+            -0.28325017302182565
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.28325017302182587,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6020621552140462,
+        "Betula": 0.3979378447859539
+      },
+      "prediction_manifest_sha256": "e733be86afa657a1083f6b0dd6f6d46b16d941093f09d36539afb4335cfd238d",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 2.7755575615628914e-17,
+        "count_conditioned_deviance": 0.017739166735175615,
+        "mae_fraction": 0.002062155214046152,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.002062155214046152,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0020621552140461796
+          ],
+          [
+            "Betula",
+            -0.002062155214046124
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.002062155214046152,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5341407929280264,
+        "Betula": 0.4658592070719738
+      },
+      "prediction_manifest_sha256": "5823bdaa83daf2e1c7ad0ae28663b4b70a729d71c3a9c996e5d94c1f8f993f29",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 1.1102230246251565e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2841407929280263,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2841407929280263,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2841407929280264
+          ],
+          [
+            "Betula",
+            -0.2841407929280262
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2841407929280263,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6023998844921803,
+        "Betula": 0.3976001155078196
+      },
+      "prediction_manifest_sha256": "5823bdaa83daf2e1c7ad0ae28663b4b70a729d71c3a9c996e5d94c1f8f993f29",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": -5.551115123125783e-17,
+        "count_conditioned_deviance": 0.024030022219889702,
+        "mae_fraction": 0.002399884492180371,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.002399884492180371,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0023998844921803153
+          ],
+          [
+            "Betula",
+            -0.0023998844921804263
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.002399884492180371,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.5364830137939128,
+        "Betula": 0.4635169862060873
+      },
+      "prediction_manifest_sha256": "ed09faffe7cee0cb0ef567b808ca748c5e57ca46ef8f316f0e2bd9d386bbccce",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2864830137939128,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2864830137939128,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.28648301379391283
+          ],
+          [
+            "Betula",
+            -0.2864830137939127
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2864830137939128,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.6026406223187882,
+        "Betula": 0.3973593776812118
+      },
+      "prediction_manifest_sha256": "ed09faffe7cee0cb0ef567b808ca748c5e57ca46ef8f316f0e2bd9d386bbccce",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": 2.7755575615628914e-17,
+        "count_conditioned_deviance": 0.011234989434013354,
+        "mae_fraction": 0.0016406223187882263,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0016406223187882263,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.001640622318788254
+          ],
+          [
+            "Betula",
+            -0.0016406223187881985
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0016406223187882263,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.5350127410484737,
+        "Betula": 0.4649872589515267
+      },
+      "prediction_manifest_sha256": "d01337b684403550d211a3019e9f6cbb7133cfda9f5e133093327f04aafcb83a",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": 2.220446049250313e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2850127410484735,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2850127410484735,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.28501274104847374
+          ],
+          [
+            "Betula",
+            -0.2850127410484733
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2850127410484735,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.6020916989560288,
+        "Betula": 0.39790830104397135
+      },
+      "prediction_manifest_sha256": "d01337b684403550d211a3019e9f6cbb7133cfda9f5e133093327f04aafcb83a",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": 0.004973084754909429,
+        "mae_fraction": 0.0010916989560287305,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0010916989560287305,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.001091698956028786
+          ],
+          [
+            "Betula",
+            -0.001091698956028675
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0010916989560287305,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.535600932035158,
+        "Betula": 0.4643990679648422
+      },
+      "prediction_manifest_sha256": "9d72525a37b22f4e1663c4082032c8ff2b22a7356acdb24c49f6881bfbb0f04d",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": 1.1102230246251565e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2856009320351579,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2856009320351579,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.285600932035158
+          ],
+          [
+            "Betula",
+            -0.2856009320351578
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2856009320351579,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.6023113201596109,
+        "Betula": 0.3976886798403891
+      },
+      "prediction_manifest_sha256": "9d72525a37b22f4e1663c4082032c8ff2b22a7356acdb24c49f6881bfbb0f04d",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": -2.7755575615628914e-17,
+        "count_conditioned_deviance": 0.007176152086576071,
+        "mae_fraction": 0.0013113201596109125,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0013113201596109125,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0013113201596108848
+          ],
+          [
+            "Betula",
+            -0.0013113201596109403
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0013113201596109125,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.5335918789719122,
+        "Betula": 0.4664081210280878
+      },
+      "prediction_manifest_sha256": "05d2c7572660aa44956325916f85fef9c26d8b7c5612ce21179d560c1474e9b0",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2835918789719122,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2835918789719122,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2835918789719122
+          ],
+          [
+            "Betula",
+            -0.2835918789719122
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2835918789719122,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.6015127530544431,
+        "Betula": 0.39848724694555704
+      },
+      "prediction_manifest_sha256": "05d2c7572660aa44956325916f85fef9c26d8b7c5612ce21179d560c1474e9b0",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": 0.009231877082703122,
+        "mae_fraction": 0.0014872469455569637,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0014872469455569637,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.0014872469455569082
+          ],
+          [
+            "Betula",
+            0.0014872469455570192
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0014872469455569637,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.5335911927682414,
+        "Betula": 0.46640880723175876
+      },
+      "prediction_manifest_sha256": "956b0f499db22ad5e6d9e0f3dfcd678ef01211d1a78a5cfbf71e6629a1aa8937",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 8.326672684688674e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2835911927682413,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2835911927682413,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2835911927682414
+          ],
+          [
+            "Betula",
+            -0.28359119276824124
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2835911927682413,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 603,
+          "Betula": 397
+        },
+        "pollen_unit": "count",
+        "record_id": "p04",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p04-outcome.json",
+        "sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc"
+      },
+      "observation_sha256": "4b5077df009af3899f30c9f21455e519785a4076c21fa821e907db064b711acc",
+      "prediction": {
+        "Alnus": 0.6015125046588221,
+        "Betula": 0.3984874953411779
+      },
+      "prediction_manifest_sha256": "956b0f499db22ad5e6d9e0f3dfcd678ef01211d1a78a5cfbf71e6629a1aa8937",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.009234959802280063,
+        "mae_fraction": 0.001487495341177869,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.001487495341177869,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.001487495341177869
+          ],
+          [
+            "Betula",
+            0.001487495341177869
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.001487495341177869,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.5350626445627049,
+        "Betula": 0.4649373554372951
+      },
+      "prediction_manifest_sha256": "b9569fe944b37392062e2d1c16f0a8dbbf3d662c9c24d7710139d6d24300fea7",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2850626445627049,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2850626445627049,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2850626445627049
+          ],
+          [
+            "Betula",
+            -0.2850626445627049
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2850626445627049,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.6020783174849204,
+        "Betula": 0.3979216825150797
+      },
+      "prediction_manifest_sha256": "b9569fe944b37392062e2d1c16f0a8dbbf3d662c9c24d7710139d6d24300fea7",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": 2.7755575615628914e-17,
+        "count_conditioned_deviance": 2.5601016654164255e-05,
+        "mae_fraction": 7.831748492034829e-05,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 7.831748492034829e-05,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            7.831748492037605e-05
+          ],
+          [
+            "Betula",
+            -7.831748492032053e-05
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 7.831748492034829e-05,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.5350614655136805,
+        "Betula": 0.46493853448631933
+      },
+      "prediction_manifest_sha256": "fb96b334bfe0fe3238a89388b1cd66768c8c500ef50ccd2100127cde8343388d",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": -8.326672684688674e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2850614655136806,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2850614655136806,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2850614655136805
+          ],
+          [
+            "Betula",
+            -0.28506146551368067
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2850614655136806,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 602,
+          "Betula": 398
+        },
+        "pollen_unit": "count",
+        "record_id": "p03",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p03-outcome.json",
+        "sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0"
+      },
+      "observation_sha256": "b503b6be1a001679c090cb50d139a5f3c9ef54ff3c54a161433eb74e87ea4fc0",
+      "prediction": {
+        "Alnus": 0.6020778838927242,
+        "Betula": 0.3979221161072759
+      },
+      "prediction_manifest_sha256": "fb96b334bfe0fe3238a89388b1cd66768c8c500ef50ccd2100127cde8343388d",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": 2.531832321839289e-05,
+        "mae_fraction": 7.788389272417318e-05,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 7.788389272417318e-05,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            7.788389272422869e-05
+          ],
+          [
+            "Betula",
+            -7.788389272411766e-05
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 7.788389272417318e-05,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5346968591429575,
+        "Betula": 0.46530314085704244
+      },
+      "prediction_manifest_sha256": "c0256f49d07902de95034b41b4ede048bb315d03064e53ef37d1c762368cf5c6",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": -2.7755575615628914e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2846968591429575,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28469685914295756,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2846968591429575
+          ],
+          [
+            "Betula",
+            -0.28469685914295756
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2846968591429575,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6026107146362771,
+        "Betula": 0.39738928536372287
+      },
+      "prediction_manifest_sha256": "c0256f49d07902de95034b41b4ede048bb315d03064e53ef37d1c762368cf5c6",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.028440957722875027,
+        "mae_fraction": 0.002610714636277156,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.002610714636277156,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.002610714636277156
+          ],
+          [
+            "Betula",
+            -0.002610714636277156
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.002610714636277156,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5346972559797962,
+        "Betula": 0.4653027440202039
+      },
+      "prediction_manifest_sha256": "ef7a38483964e38cec72a59e2c24c4e3c95e27947250fbbae34cdeaab3bc8ca5",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.28469725597979617,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28469725597979617,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2846972559797962
+          ],
+          [
+            "Betula",
+            -0.2846972559797961
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.28469725597979617,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6026108650859363,
+        "Betula": 0.3973891349140637
+      },
+      "prediction_manifest_sha256": "ef7a38483964e38cec72a59e2c24c4e3c95e27947250fbbae34cdeaab3bc8ca5",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.028444238223723772,
+        "mae_fraction": 0.0026108650859363314,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0026108650859363314,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0026108650859363314
+          ],
+          [
+            "Betula",
+            -0.0026108650859363314
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0026108650859363314,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.5364829035277745,
+        "Betula": 0.46351709647222544
+      },
+      "prediction_manifest_sha256": "f74d2622954bdf98a5ca7d62271269cd7370e96e5aa6bfc13aba90e2c349aef8",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": -2.7755575615628914e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2864829035277745,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2864829035277745,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2864829035277745
+          ],
+          [
+            "Betula",
+            -0.28648290352777456
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2864829035277745,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.602640581157798,
+        "Betula": 0.39735941884220194
+      },
+      "prediction_manifest_sha256": "f74d2622954bdf98a5ca7d62271269cd7370e96e5aa6bfc13aba90e2c349aef8",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": -5.551115123125783e-17,
+        "count_conditioned_deviance": 0.011234425436960738,
+        "mae_fraction": 0.0016405811577980267,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0016405811577980267,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0016405811577979712
+          ],
+          [
+            "Betula",
+            -0.0016405811577980822
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0016405811577980267,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.5364830137939128,
+        "Betula": 0.4635169862060873
+      },
+      "prediction_manifest_sha256": "12e57783af10c69bbba9d037fc4990ae7107807bd1b211e30a173193ea10d100",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2864830137939128,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2864830137939128,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.28648301379391283
+          ],
+          [
+            "Betula",
+            -0.2864830137939127
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2864830137939128,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 601,
+          "Betula": 399
+        },
+        "pollen_unit": "count",
+        "record_id": "p02",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p02-outcome.json",
+        "sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5"
+      },
+      "observation_sha256": "3828dfebea97cf483bde65fa9c9b07dcc2aa79daf1c9b3f7e59c120e0ba535b5",
+      "prediction": {
+        "Alnus": 0.6026406223187882,
+        "Betula": 0.3973593776812118
+      },
+      "prediction_manifest_sha256": "12e57783af10c69bbba9d037fc4990ae7107807bd1b211e30a173193ea10d100",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "bias_fraction": 2.7755575615628914e-17,
+        "count_conditioned_deviance": 0.011234989434013354,
+        "mae_fraction": 0.0016406223187882263,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0016406223187882263,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.001640622318788254
+          ],
+          [
+            "Betula",
+            -0.0016406223187881985
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0016406223187882263,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "training_mean",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "training_mean",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "training_mean",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "training_mean",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5346972559797962,
+        "Betula": 0.4653027440202039
+      },
+      "prediction_manifest_sha256": "c091849c4203728812775434d5c8de49beb879abd42bd3c114d0f100a07e1796",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.36530274402020385,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.36530274402020385,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.3653027440202038
+          ],
+          [
+            "Betula",
+            0.3653027440202039
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.36530274402020385,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6026108650859363,
+        "Betula": 0.3973891349140637
+      },
+      "prediction_manifest_sha256": "c091849c4203728812775434d5c8de49beb879abd42bd3c114d0f100a07e1796",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 1112.2414990362217,
+        "mae_fraction": 0.5026108650859363,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5026108650859363,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5026108650859363
+          ],
+          [
+            "Betula",
+            -0.5026108650859363
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5026108650859363,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5332501730218261,
+        "Betula": 0.46674982697817435
+      },
+      "prediction_manifest_sha256": "e733be86afa657a1083f6b0dd6f6d46b16d941093f09d36539afb4335cfd238d",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 2.220446049250313e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.36674982697817415,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.36674982697817415,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.36674982697817393
+          ],
+          [
+            "Betula",
+            0.3667498269781744
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.36674982697817415,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6020621552140462,
+        "Betula": 0.3979378447859539
+      },
+      "prediction_manifest_sha256": "e733be86afa657a1083f6b0dd6f6d46b16d941093f09d36539afb4335cfd238d",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": 1109.9399900360472,
+        "mae_fraction": 0.5020621552140461,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5020621552140462,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5020621552140462
+          ],
+          [
+            "Betula",
+            -0.5020621552140461
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5020621552140461,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5341407929280264,
+        "Betula": 0.4658592070719738
+      },
+      "prediction_manifest_sha256": "5823bdaa83daf2e1c7ad0ae28663b4b70a729d71c3a9c996e5d94c1f8f993f29",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 1.1102230246251565e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.3658592070719737,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.3658592070719737,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.3658592070719736
+          ],
+          [
+            "Betula",
+            0.36585920707197384
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.3658592070719737,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6023998844921803,
+        "Betula": 0.3976001155078196
+      },
+      "prediction_manifest_sha256": "5823bdaa83daf2e1c7ad0ae28663b4b70a729d71c3a9c996e5d94c1f8f993f29",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": -5.551115123125783e-17,
+        "count_conditioned_deviance": 1111.3561367024517,
+        "mae_fraction": 0.5023998844921804,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5023998844921803,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5023998844921803
+          ],
+          [
+            "Betula",
+            -0.5023998844921804
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5023998844921804,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "training_mean",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "training_mean",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "group_id": "site-group:061e33f38af2b4111018938ad0fd76578cd2b887f8888c62bc04ef91b1652835",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "record_id": "p04",
+      "record_ids": [
+        "p04"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "group_id": "site-group:41b783557270283880e2f18a775d20207064abb5e03db99d5f2f9bcd6a1a39c3",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "record_id": "p03",
+      "record_ids": [
+        "p03"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5346968591429575,
+        "Betula": 0.46530314085704244
+      },
+      "prediction_manifest_sha256": "c0256f49d07902de95034b41b4ede048bb315d03064e53ef37d1c762368cf5c6",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": -5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.36530314085704246,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.3653031408570424,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.3653031408570425
+          ],
+          [
+            "Betula",
+            0.3653031408570424
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.36530314085704246,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6026107146362771,
+        "Betula": 0.39738928536372287
+      },
+      "prediction_manifest_sha256": "c0256f49d07902de95034b41b4ede048bb315d03064e53ef37d1c762368cf5c6",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 1112.2408674974226,
+        "mae_fraction": 0.5026107146362772,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5026107146362772,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5026107146362772
+          ],
+          [
+            "Betula",
+            -0.5026107146362772
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5026107146362772,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5346972559797962,
+        "Betula": 0.4653027440202039
+      },
+      "prediction_manifest_sha256": "ef7a38483964e38cec72a59e2c24c4e3c95e27947250fbbae34cdeaab3bc8ca5",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.36530274402020385,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.36530274402020385,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.3653027440202038
+          ],
+          [
+            "Betula",
+            0.3653027440202039
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.36530274402020385,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6026108650859363,
+        "Betula": 0.3973891349140637
+      },
+      "prediction_manifest_sha256": "ef7a38483964e38cec72a59e2c24c4e3c95e27947250fbbae34cdeaab3bc8ca5",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 1112.2414990362217,
+        "mae_fraction": 0.5026108650859363,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5026108650859363,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5026108650859363
+          ],
+          [
+            "Betula",
+            -0.5026108650859363
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5026108650859363,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": null,
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "group_id": "site-group:832a29a1a5439514499231a8e036c8482393f635fd6b79dcef6d18321026b834",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "record_id": "p02",
+      "record_ids": [
+        "p02"
+      ],
+      "score": {
+        "mae_fraction": null,
+        "status": "prediction_failed"
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    }
+  ],
+  "score_status_counts": {
+    "baselines": {
+      "reference": {
+        "scored": 24
+      },
+      "target-perturbed": {
+        "prediction_failed": 18,
+        "scored": 6
+      }
+    },
+    "fitted": {
+      "reference": {
+        "scored": 16
+      },
+      "target-perturbed": {
+        "prediction_failed": 12,
+        "scored": 4
+      }
+    }
+  },
+  "source_epoch": "23ea4670d12ee6f61e0fb086c20f6dfe455eb0e4",
+  "source_manifest": {
+    "bytes": 2619,
+    "path": "artifacts/science/development-input-isolation-saved-handoff/proposal/source-proposal.json",
+    "sha256": "2100178127c317bbad6394433138a2be3508096034efcdcaf4c5cf55a51b367a"
+  },
+  "summary": {
+    "actual_batch_items": 32,
+    "actual_cache_hits": 29,
+    "actual_cache_misses": 3,
+    "actual_engine_calls": {},
+    "actual_new_basin_products": 3,
+    "actual_spatial_fit_operations": 5,
+    "actual_unique_requests": 8,
+    "authenticated_seeded_basin_products": 5,
+    "cumulative_unique_basin_products": 8,
+    "identity_groups": 4,
+    "identity_records": 9,
+    "observed_parent_engine_calls": {},
+    "predictions_published_before_scoring": true,
+    "prefit_ordering_verified": true,
+    "score_dispositions": 80,
+    "target_fingerprints": 4,
+    "target_metric_cells": 20
+  },
+  "target_fingerprints": [
+    {
+      "lane": "baselines",
+      "method_dispositions": [
+        {
+          "failure": null,
+          "method": "training_mean",
+          "prediction_sha256": "d670a6a4be274f45d25d9c49b0a3663f61c6de9b79d0527e0df94da052f92482",
+          "status": "predicted"
+        },
+        {
+          "failure": null,
+          "method": "nearest_site",
+          "prediction_sha256": "acdcfff7f3e2d6048b8cd9279b880c7ab79dc92f084d985209aa6f6b893d72be",
+          "status": "predicted"
+        },
+        {
+          "failure": null,
+          "method": "inverse_distance_squared",
+          "prediction_sha256": "56ade4855d732aa40bb01b90609e2ed4c24524d1d143a9cb1bc7072d22746429",
+          "status": "predicted"
+        }
+      ],
+      "methods": [
+        "training_mean",
+        "nearest_site",
+        "inverse_distance_squared"
+      ],
+      "prediction_count": 3,
+      "predictions_sha256": "6369f70c60cade48b505b38d995d7ea5dad5f18c30a763a0325ed28e79ffa302",
+      "record_id": "p01",
+      "target_fold": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "training_observed": true,
+      "training_sha256": "2d372905743ab0ca238b0b3ec8db527d99dbf0d0c30708870375e20f538b0c55",
+      "variant": "reference"
+    },
+    {
+      "lane": "baselines",
+      "method_dispositions": [
+        {
+          "failure": null,
+          "method": "training_mean",
+          "prediction_sha256": "d670a6a4be274f45d25d9c49b0a3663f61c6de9b79d0527e0df94da052f92482",
+          "status": "predicted"
+        },
+        {
+          "failure": null,
+          "method": "nearest_site",
+          "prediction_sha256": "acdcfff7f3e2d6048b8cd9279b880c7ab79dc92f084d985209aa6f6b893d72be",
+          "status": "predicted"
+        },
+        {
+          "failure": null,
+          "method": "inverse_distance_squared",
+          "prediction_sha256": "56ade4855d732aa40bb01b90609e2ed4c24524d1d143a9cb1bc7072d22746429",
+          "status": "predicted"
+        }
+      ],
+      "methods": [
+        "training_mean",
+        "nearest_site",
+        "inverse_distance_squared"
+      ],
+      "prediction_count": 3,
+      "predictions_sha256": "6369f70c60cade48b505b38d995d7ea5dad5f18c30a763a0325ed28e79ffa302",
+      "record_id": "p01",
+      "target_fold": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "training_observed": true,
+      "training_sha256": "2d372905743ab0ca238b0b3ec8db527d99dbf0d0c30708870375e20f538b0c55",
+      "variant": "target-perturbed"
+    },
+    {
+      "lane": "fitted",
+      "method_dispositions": [
+        {
+          "failure": null,
+          "method": "clr-wgs84-rbf-ridge-v1",
+          "prediction_sha256": "349cd6b7ebc462333c8437728d04e2c6e188dff1dcfbcf60cd404251fabff71d",
+          "status": "predicted"
+        },
+        {
+          "failure": null,
+          "method": "training_mean",
+          "prediction_sha256": "ddc5a501260c984150d7b5ee8eec9cb288d8f448e811d245bfb997adaaa95d2a",
+          "status": "predicted"
+        }
+      ],
+      "methods": [
+        "clr-wgs84-rbf-ridge-v1",
+        "training_mean"
+      ],
+      "prediction_count": 2,
+      "predictions_sha256": "b8306a5706ab37c6d2e2b8fb0029642c7bfe744eb8e60a87aee375ff9fcf23c8",
+      "record_id": "p01",
+      "target_fold": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "training_observed": true,
+      "training_sha256": "2d372905743ab0ca238b0b3ec8db527d99dbf0d0c30708870375e20f538b0c55",
+      "variant": "reference"
+    },
+    {
+      "lane": "fitted",
+      "method_dispositions": [
+        {
+          "failure": null,
+          "method": "clr-wgs84-rbf-ridge-v1",
+          "prediction_sha256": "349cd6b7ebc462333c8437728d04e2c6e188dff1dcfbcf60cd404251fabff71d",
+          "status": "predicted"
+        },
+        {
+          "failure": null,
+          "method": "training_mean",
+          "prediction_sha256": "ddc5a501260c984150d7b5ee8eec9cb288d8f448e811d245bfb997adaaa95d2a",
+          "status": "predicted"
+        }
+      ],
+      "methods": [
+        "clr-wgs84-rbf-ridge-v1",
+        "training_mean"
+      ],
+      "prediction_count": 2,
+      "predictions_sha256": "b8306a5706ab37c6d2e2b8fb0029642c7bfe744eb8e60a87aee375ff9fcf23c8",
+      "record_id": "p01",
+      "target_fold": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "training_observed": true,
+      "training_sha256": "2d372905743ab0ca238b0b3ec8db527d99dbf0d0c30708870375e20f538b0c55",
+      "variant": "target-perturbed"
+    }
+  ],
+  "target_metric_cells": [
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5346972559797962,
+        "Betula": 0.4653027440202039
+      },
+      "prediction_manifest_sha256": "c091849c4203728812775434d5c8de49beb879abd42bd3c114d0f100a07e1796",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.28469725597979617,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28469725597979617,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2846972559797962
+          ],
+          [
+            "Betula",
+            -0.2846972559797961
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.28469725597979617,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6026108650859363,
+        "Betula": 0.3973891349140637
+      },
+      "prediction_manifest_sha256": "c091849c4203728812775434d5c8de49beb879abd42bd3c114d0f100a07e1796",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.028444238223723772,
+        "mae_fraction": 0.0026108650859363314,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0026108650859363314,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0026108650859363314
+          ],
+          [
+            "Betula",
+            -0.0026108650859363314
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0026108650859363314,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5332501730218261,
+        "Betula": 0.46674982697817435
+      },
+      "prediction_manifest_sha256": "e733be86afa657a1083f6b0dd6f6d46b16d941093f09d36539afb4335cfd238d",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 2.220446049250313e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.28325017302182587,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28325017302182587,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2832501730218261
+          ],
+          [
+            "Betula",
+            -0.28325017302182565
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.28325017302182587,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6020621552140462,
+        "Betula": 0.3979378447859539
+      },
+      "prediction_manifest_sha256": "e733be86afa657a1083f6b0dd6f6d46b16d941093f09d36539afb4335cfd238d",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 2.7755575615628914e-17,
+        "count_conditioned_deviance": 0.017739166735175615,
+        "mae_fraction": 0.002062155214046152,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.002062155214046152,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0020621552140461796
+          ],
+          [
+            "Betula",
+            -0.002062155214046124
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.002062155214046152,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5341407929280264,
+        "Betula": 0.4658592070719738
+      },
+      "prediction_manifest_sha256": "5823bdaa83daf2e1c7ad0ae28663b4b70a729d71c3a9c996e5d94c1f8f993f29",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 1.1102230246251565e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2841407929280263,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.2841407929280263,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2841407929280264
+          ],
+          [
+            "Betula",
+            -0.2841407929280262
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2841407929280263,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6023998844921803,
+        "Betula": 0.3976001155078196
+      },
+      "prediction_manifest_sha256": "5823bdaa83daf2e1c7ad0ae28663b4b70a729d71c3a9c996e5d94c1f8f993f29",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": -5.551115123125783e-17,
+        "count_conditioned_deviance": 0.024030022219889702,
+        "mae_fraction": 0.002399884492180371,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.002399884492180371,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0023998844921803153
+          ],
+          [
+            "Betula",
+            -0.0023998844921804263
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.002399884492180371,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5346968591429575,
+        "Betula": 0.46530314085704244
+      },
+      "prediction_manifest_sha256": "c0256f49d07902de95034b41b4ede048bb315d03064e53ef37d1c762368cf5c6",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": -2.7755575615628914e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.2846968591429575,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28469685914295756,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2846968591429575
+          ],
+          [
+            "Betula",
+            -0.28469685914295756
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.2846968591429575,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6026107146362771,
+        "Betula": 0.39738928536372287
+      },
+      "prediction_manifest_sha256": "c0256f49d07902de95034b41b4ede048bb315d03064e53ef37d1c762368cf5c6",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.028440957722875027,
+        "mae_fraction": 0.002610714636277156,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.002610714636277156,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.002610714636277156
+          ],
+          [
+            "Betula",
+            -0.002610714636277156
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.002610714636277156,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.5346972559797962,
+        "Betula": 0.4653027440202039
+      },
+      "prediction_manifest_sha256": "ef7a38483964e38cec72a59e2c24c4e3c95e27947250fbbae34cdeaab3bc8ca5",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.28469725597979617,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.28469725597979617,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.2846972559797962
+          ],
+          [
+            "Betula",
+            -0.2846972559797961
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.28469725597979617,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 600,
+          "Betula": 400
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.25,
+          "Betula": 0.75
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc"
+      },
+      "observation_sha256": "a519c4fb4729f06f7da64aebfe9be97263166ac7fe0f9311f5b46d2331d5e2cc",
+      "prediction": {
+        "Alnus": 0.6026108650859363,
+        "Betula": 0.3973891349140637
+      },
+      "prediction_manifest_sha256": "ef7a38483964e38cec72a59e2c24c4e3c95e27947250fbbae34cdeaab3bc8ca5",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 0.028444238223723772,
+        "mae_fraction": 0.0026108650859363314,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.0026108650859363314,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.0026108650859363314
+          ],
+          [
+            "Betula",
+            -0.0026108650859363314
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.0026108650859363314,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "reference"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5346972559797962,
+        "Betula": 0.4653027440202039
+      },
+      "prediction_manifest_sha256": "c091849c4203728812775434d5c8de49beb879abd42bd3c114d0f100a07e1796",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.36530274402020385,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.36530274402020385,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.3653027440202038
+          ],
+          [
+            "Betula",
+            0.3653027440202039
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.36530274402020385,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6026108650859363,
+        "Betula": 0.3973891349140637
+      },
+      "prediction_manifest_sha256": "c091849c4203728812775434d5c8de49beb879abd42bd3c114d0f100a07e1796",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 1112.2414990362217,
+        "mae_fraction": 0.5026108650859363,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5026108650859363,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5026108650859363
+          ],
+          [
+            "Betula",
+            -0.5026108650859363
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5026108650859363,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5332501730218261,
+        "Betula": 0.46674982697817435
+      },
+      "prediction_manifest_sha256": "e733be86afa657a1083f6b0dd6f6d46b16d941093f09d36539afb4335cfd238d",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 2.220446049250313e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.36674982697817415,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.36674982697817415,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.36674982697817393
+          ],
+          [
+            "Betula",
+            0.3667498269781744
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.36674982697817415,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "nearest_site",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6020621552140462,
+        "Betula": 0.3979378447859539
+      },
+      "prediction_manifest_sha256": "e733be86afa657a1083f6b0dd6f6d46b16d941093f09d36539afb4335cfd238d",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": 1109.9399900360472,
+        "mae_fraction": 0.5020621552140461,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5020621552140462,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5020621552140462
+          ],
+          [
+            "Betula",
+            -0.5020621552140461
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5020621552140461,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5341407929280264,
+        "Betula": 0.4658592070719738
+      },
+      "prediction_manifest_sha256": "5823bdaa83daf2e1c7ad0ae28663b4b70a729d71c3a9c996e5d94c1f8f993f29",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 1.1102230246251565e-16,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.3658592070719737,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.3658592070719737,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.3658592070719736
+          ],
+          [
+            "Betula",
+            0.36585920707197384
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.3658592070719737,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "baselines",
+      "method": "inverse_distance_squared",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6023998844921803,
+        "Betula": 0.3976001155078196
+      },
+      "prediction_manifest_sha256": "5823bdaa83daf2e1c7ad0ae28663b4b70a729d71c3a9c996e5d94c1f8f993f29",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": -5.551115123125783e-17,
+        "count_conditioned_deviance": 1111.3561367024517,
+        "mae_fraction": 0.5023998844921804,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5023998844921803,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5023998844921803
+          ],
+          [
+            "Betula",
+            -0.5023998844921804
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5023998844921804,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5346968591429575,
+        "Betula": 0.46530314085704244
+      },
+      "prediction_manifest_sha256": "c0256f49d07902de95034b41b4ede048bb315d03064e53ef37d1c762368cf5c6",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": -5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.36530314085704246,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.3653031408570424,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.3653031408570425
+          ],
+          [
+            "Betula",
+            0.3653031408570424
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.36530314085704246,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "clr-wgs84-rbf-ridge-v1",
+      "method_kind": "fitted_spatial",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6026107146362771,
+        "Betula": 0.39738928536372287
+      },
+      "prediction_manifest_sha256": "c0256f49d07902de95034b41b4ede048bb315d03064e53ef37d1c762368cf5c6",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 1112.2408674974226,
+        "mae_fraction": 0.5026107146362772,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5026107146362772,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5026107146362772
+          ],
+          [
+            "Betula",
+            -0.5026107146362772
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5026107146362772,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.5346972559797962,
+        "Betula": 0.4653027440202039
+      },
+      "prediction_manifest_sha256": "ef7a38483964e38cec72a59e2c24c4e3c95e27947250fbbae34cdeaab3bc8ca5",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 5.551115123125783e-17,
+        "count_conditioned_deviance": null,
+        "mae_fraction": 0.36530274402020385,
+        "missing_observed_taxa": [],
+        "observed_total_count": null,
+        "rmse_fraction": 0.36530274402020385,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            -0.3653027440202038
+          ],
+          [
+            "Betula",
+            0.3653027440202039
+          ]
+        ],
+        "status": "scored",
+        "target": "vegetation_cover",
+        "taxon_count": 2,
+        "total_variation": 0.36530274402020385,
+        "zero_probability_positive_count": false
+      },
+      "target": "vegetation_cover",
+      "variant": "target-perturbed"
+    },
+    {
+      "bin_id": "test-bin",
+      "error_unit": "fraction",
+      "evaluation_role": "heldout_prediction",
+      "fold_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "group_id": "site-group:4a3f51e6176c110c7b6dcaf870d6a7a193701ad2b57fad77945ab0e7a13e87c1",
+      "lane": "fitted",
+      "method": "training_mean",
+      "method_kind": "admitted_reconstruction_training_mean",
+      "observation": {
+        "bin_id": "test-bin",
+        "data_kind": "synthetic",
+        "pollen_count": {
+          "Alnus": 100,
+          "Betula": 900
+        },
+        "pollen_unit": "count",
+        "record_id": "p01",
+        "schema_version": "lra-experiment-observation.v1",
+        "vegetation_fraction": {
+          "Alnus": 0.9,
+          "Betula": 0.1
+        },
+        "vegetation_unit": "fraction"
+      },
+      "observation_reference": {
+        "path": "p01-outcome.json",
+        "sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df"
+      },
+      "observation_sha256": "bf02643209e085e72d0d1112249509bc641c4e71e1ea93e223796106f9dba5df",
+      "prediction": {
+        "Alnus": 0.6026108650859363,
+        "Betula": 0.3973891349140637
+      },
+      "prediction_manifest_sha256": "ef7a38483964e38cec72a59e2c24c4e3c95e27947250fbbae34cdeaab3bc8ca5",
+      "record_id": "p01",
+      "record_ids": [
+        "p01"
+      ],
+      "score": {
+        "bias_fraction": 0.0,
+        "count_conditioned_deviance": 1112.2414990362217,
+        "mae_fraction": 0.5026108650859363,
+        "missing_observed_taxa": [],
+        "observed_total_count": 1000,
+        "rmse_fraction": 0.5026108650859363,
+        "scored_taxon_count": 2,
+        "signed_error_by_taxon": [
+          [
+            "Alnus",
+            0.5026108650859363
+          ],
+          [
+            "Betula",
+            -0.5026108650859363
+          ]
+        ],
+        "status": "scored",
+        "target": "pollen_composition",
+        "taxon_count": 2,
+        "total_variation": 0.5026108650859363,
+        "zero_probability_positive_count": false
+      },
+      "target": "pollen_composition",
+      "variant": "target-perturbed"
+    }
+  ]
+}

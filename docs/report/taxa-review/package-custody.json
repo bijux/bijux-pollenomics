@@ -1,0 +1,152 @@
+{
+  "accepted_samples": 0,
+  "actual_current_execution": {
+    "completed_child_peak_rss_bytes": 3468034048,
+    "elapsed_seconds": 357.491511209053,
+    "logical_owned_output_bytes": 110260713,
+    "native_exit": 0,
+    "native_stage_seconds": 355.52315612504026,
+    "resources": {
+      "declared_memory_bytes": 8589934592,
+      "declared_storage_bytes": 536870912,
+      "maximum_parallel_workers": 1,
+      "numerical_threads_per_worker": 1,
+      "overall_timeout_seconds": 600
+    },
+    "source_before_after_mismatches": [],
+    "whole_runner_exit": 0,
+    "whole_wall_os_memory_and_storage_quotas_claimed": false
+  },
+  "actual_exit": 0,
+  "all_review_states": {
+    "needs_discussion": 10908
+  },
+  "basin_rows": 163,
+  "bundle_sha256": "7da08f278777d2ec7014b2afa6238d656c1dbf9dca909801ed76abfdcf8aca02",
+  "candidate": "b30acdff340aa36c9ab28974232f73badd53393d",
+  "canonical_import_allowed": false,
+  "chronology_rows": 10637,
+  "complete_controlled_unresolved_return_routes": 3,
+  "execution_sha256": "0cee41fa541427c852baf00e9de424f74c0e7aacdcc706230dcc8c77209fd15f",
+  "fresh_source_requests": 0,
+  "historical_missing_bundle_restored": false,
+  "independent_saved_output_admission_sha256": "6cc619015ef58ab6eef6a307d0a5ee64652358fe836c706f1ca49c23f98a392c",
+  "native_datasets_with_citation_responses": 169,
+  "native_sha256": "8974ff060cf9f6a6b378e714df56a1ffbb7836cb5eb7884d472a252c61ec1838",
+  "observer_source_sha256": "150715ec1b7e9bf6de5aa12113bf3864c1e1cff5d1b0081fb2a28df649ad346e",
+  "original_artifact_custody": {
+    "original_bundle_sha256": "74df58ba0befcf51b3d78937dc9c8ec2f3b078552c8026c1477a0316e79a76f5",
+    "original_completion_sha256": "f7a6ccd9c32864998b2cd61a3aa0dbc509c5ac10636c9c158f926c73d87585b2",
+    "original_full_bundle_physical_sha256": "d4f56ef2128fa395d91d422e80dbf0d40533e487c392561b49fa6f356bdcff26",
+    "status": "Original missing full bundle/completion/execution evidence remains missing; current build has new physical and semantic identities."
+  },
+  "original_attribution_bytes_replayed": false,
+  "original_primary_papers_verified": false,
+  "parameter_authorities": 72,
+  "parameter_concepts": 1006,
+  "physical_review_json_sha256": "168b202b0bf616d6612e9fda1e5acd5d5557dca1659e94078f9b310085fe3c7b",
+  "plan_sha256": "c494db6e01f6d6f76bdcb6a9a13c33cc958e27cb44dcefdf7291a49fc05ab9d0",
+  "prerequisite_factory_rebuilt_by_observer": false,
+  "private_product_bytes": 110260059,
+  "private_product_files": 20,
+  "products": {
+    "complete-review/REVIEW-INSTRUCTIONS.md": {
+      "bytes": 2957,
+      "sha256": "6aa1c47f9bd9e98f1a7ebdb1da9a8d98a27eacc225a8c934c80678a9c8858668"
+    },
+    "complete-review/completion.json": {
+      "bytes": 546,
+      "sha256": "2b6bb7407434cc79b1d97671edbb7e20341fd298d14cab5b958df9a2af70855b"
+    },
+    "complete-review/taxa-review.csv": {
+      "bytes": 23476994,
+      "sha256": "1c578934b44e221b204a8a42e79c6135a3168556942e9cd97ccfc9a931ac6dec"
+    },
+    "complete-review/taxa-review.json": {
+      "bytes": 41911667,
+      "sha256": "168b202b0bf616d6612e9fda1e5acd5d5557dca1659e94078f9b310085fe3c7b"
+    },
+    "controlled-negative-results.json": {
+      "bytes": 316,
+      "sha256": "0a8e94ed58a2be50c0409b5cb7138eee0a92dd4e073d7a89a2c398167f5f169f"
+    },
+    "controlled-parameter-import.json": {
+      "bytes": 614520,
+      "sha256": "87794e45ecc9de3620eb4b65cd5cc9fa8920aac7bae705f0fd6e4b06255d7d25"
+    },
+    "controlled-parameter-return.json": {
+      "bytes": 613867,
+      "sha256": "755e93ac359e2ce5fc448ba3950a0ad840f0c174303ea9f3d5f3bc7de6a86c9c"
+    },
+    "controlled-prerequisite-import.json": {
+      "bytes": 560,
+      "sha256": "28b6bd52239d7ba7d52182df534bd9cbc4d4ee45d6ae3a5f617cf66948e1e735"
+    },
+    "controlled-prerequisite-return.json": {
+      "bytes": 4886862,
+      "sha256": "81eccc714724ceca4a742bbd350f176eea940901a92d03f7e65a79819bab5e7d"
+    },
+    "controlled-taxon-import.json": {
+      "bytes": 6152604,
+      "sha256": "1b222c76799875b82e73e036ef0b95c10985aec66bb954dcf3e0517471602c9c"
+    },
+    "controlled-taxon-return.json": {
+      "bytes": 3965231,
+      "sha256": "ff967329ab21713f9c70c8788a1d5578e4bc1e8a545da937d514454eb52e7fae"
+    },
+    "native-priority.json": {
+      "bytes": 505272,
+      "sha256": "e6bcf16ba7a776ae26cfdd52e1409d196e61c0b9f5e64ff267d6eabedd02e7f0"
+    },
+    "native-provenance.json": {
+      "bytes": 1360631,
+      "sha256": "523035972c1c1d901de4a166a521806c3e37a3a48c844e6f50f7f499da3610e0"
+    },
+    "parameter-bindings/completion.json": {
+      "bytes": 812,
+      "sha256": "6cacef30a81fcb960d16e11f51909d1c98b63f2b20302c3fb4376e086719ff71"
+    },
+    "parameter-bindings/priority.json": {
+      "bytes": 505375,
+      "sha256": "016a5e2536cbedcd1b076776892f685bb177141b78219eb96877162a392bd8c4"
+    },
+    "parameter-bindings/provenance.json": {
+      "bytes": 1360812,
+      "sha256": "c47f1d0f7c0c99646340674789a0446ced7f014fc367231d3fe4291461f164ac"
+    },
+    "parameter-review.json": {
+      "bytes": 1741965,
+      "sha256": "727e7a695349fda759218635e1922a29c3719fe62eefc1c7c54928d387ee6433"
+    },
+    "prerequisite-review.json": {
+      "bytes": 22907955,
+      "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+    },
+    "publication-citations.json": {
+      "bytes": 249455,
+      "sha256": "5a9282364a4a90a14c46cb9142f8b84f29c9039f1232ee9761cc922be6491497"
+    },
+    "report.json": {
+      "bytes": 1658,
+      "sha256": "25059c266a89e04d2e912189659016d607e850609dd7a0ff7636a66c4666cfcb"
+    }
+  },
+  "publication_allowed": false,
+  "publication_citation_qualification": "Exact169 retained provider response bodies and native dataset identities reclosed to a new attribution. Original old attribution bytes are absent; provider publication links are not verified original papers or rights decisions.",
+  "publication_records": 223,
+  "received_qualified_human_decisions": 0,
+  "review_rows": 10908,
+  "rights_admission": "not_evaluated",
+  "schema_version": "taxon-review-package-custody.v1",
+  "scientific_acceptance": "not_evaluated",
+  "scope": "Saved current source-bound structural review package and controlled unresolved-return routes only; no qualified human review, source rights, scientific mappings, PPE/basin/chronology acceptance or original missing bundle recovery.",
+  "source_row_counts": {
+    "aadr": 1,
+    "animal_adna": 10,
+    "landclim": 31,
+    "lra_reference_resources": 81,
+    "neotoma": 1351,
+    "rootsi_private_quarantine": 7459,
+    "sead": 1975
+  }
+}

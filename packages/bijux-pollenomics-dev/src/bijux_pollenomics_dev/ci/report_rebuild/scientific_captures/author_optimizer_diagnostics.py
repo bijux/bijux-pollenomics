@@ -12,6 +12,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
 from ..retained_source import SourceCapsule, validated_descriptor
+from .optimizer_inputs.baseline import validated_optimizer_input_reference
 from .presentation_source_roles import atlas_extension_matches
 from .source_correspondence import validated_current_scientific_source
 
@@ -40,7 +41,6 @@ OWNERS = {
     ),
 }
 UNRESOLVED = {
-    "pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline-reference": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json",
     "pollen-reconstruction/author-lra-optimized-feasibility/attempt-report": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json",
 }
 
@@ -352,7 +352,13 @@ def validated_author_optimizer_diagnostic_capture(
             raise ReportRebuildError(
                 "Optimizer reference/attempt ownership must remain unresolved"
             )
-    baseline_name = UNRESOLVED[next(iter(UNRESOLVED))]
+    try:
+        input_certificate = validated_optimizer_input_reference(repository, owners)
+    except ValueError as error:
+        raise ReportRebuildError(
+            "Optimizer baseline input certificate differs"
+        ) from error
+    baseline_name = "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json"
     baseline = _file(repository, baseline_name)
     if (
         hashlib.sha256(baseline.read_bytes()).hexdigest()
@@ -507,6 +513,17 @@ def validated_author_optimizer_diagnostic_capture(
                 "Author optimizer diagnostic retained ownership overlaps"
             )
     resolver.fresh()
+    if input_certificate:
+        entry = tracked_by_path.get(baseline_name)
+        if (
+            entry is None
+            or entry.kind != "file"
+            or entry.path != baseline_name.removeprefix("docs/report/")
+            or entry.sha256 != input_certificate["baseline"]["sha256"]
+            or entry.size != input_certificate["baseline"]["bytes"]
+        ):
+            raise ReportRebuildError("Certified optimizer input inventory differs")
+        accepted.append(entry)
     return tuple(accepted), {
         "owner_ids": sorted(OWNERS),
         "capture_sha256": CAPTURE_SHA256,
@@ -514,6 +531,7 @@ def validated_author_optimizer_diagnostic_capture(
             lane: values[0] for lane, values in EXECUTIONS.items()
         },
         "report_outputs": 2,
+        "retained_input_reference": input_certificate,
         **_optimizer_projection_accounting(
             current_metadata_correspondences, current_intake_guard_correspondences
         ),

@@ -1,0 +1,440 @@
+{
+  "candidate": "23ea4670d12ee6f61e0fb086c20f6dfe455eb0e4",
+  "counts": {
+    "actual_expected_domain_refusals": 450,
+    "contexts": 225,
+    "inner_dispositions": 420,
+    "logical_ancestry_rows": 2715,
+    "maintained_fit_API_attempts": 450,
+    "new_LOVE_runs": 0,
+    "new_REVEALS_runs": 0,
+    "new_forward_calls": 0,
+    "new_kernel_calls": 0,
+    "new_optimizer_attempts": 0,
+    "new_score_calls": 0,
+    "outer_candidate_dispositions": 30,
+    "saved_nominal_requests": 39,
+    "selected_outer_dispositions": 15,
+    "selected_outer_refusals": 15,
+    "successful_ridge_solves": 0
+  },
+  "downstream_zero_qualification": "Maintained positive-only CLR guard precedes ridge work. These zeros are source-control-flow-qualified with exact typed saved refusals, not direct runtime instrumentation of arbitrary numerical internals.",
+  "original_nominal": {
+    "native_exit": 1,
+    "native_qualification": "refused_post_scientific_body_origin",
+    "original_full_later_import_origins_and_final_return": "not established",
+    "separate_saved_product_recovery_native_exit": 0,
+    "source_candidate": "70dd58ce28071d3b4ef34af2c800370a52d42bf9"
+  },
+  "saved_domain": {
+    "geometry_records": 15,
+    "support": {
+      "local_support_radius_m": 1000,
+      "support_profile": "same-outer-radius-homogeneous-v1",
+      "taxa": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Carpinus.betulus",
+        "Carpinus.orientalis",
+        "Castanea",
+        "Cerealia.t",
+        "Corylus.avellana",
+        "Cyperaceae",
+        "Ericaceae",
+        "Fagus.sylvatica",
+        "Fraxinus",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.deciduous",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale",
+        "Tilia",
+        "Ulmus"
+      ],
+      "temporal_matching": {
+        "bins": [
+          {
+            "bin_id": "author-TW5",
+            "older_bp": 1750,
+            "younger_bp": 1250
+          }
+        ],
+        "decision_evidence_id": "decision",
+        "rule": "declared_bin_stationarity"
+      },
+      "versions": {
+        "binning": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+        "chronology": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+        "geometry": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+        "parameters": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+        "taxonomy": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb"
+      }
+    },
+    "zero_cells": 80,
+    "zero_containing_requests": 26
+  },
+  "scenarios": [
+    {
+      "id": "clr-ridge-20km",
+      "length_scale_km": 20.0,
+      "ridge_penalty": 1.0
+    },
+    {
+      "id": "clr-ridge-100km",
+      "length_scale_km": 100.0,
+      "ridge_penalty": 1.0
+    }
+  ],
+  "schema_version": "author-love-clr-domain-publication.v1",
+  "scientific_acceptance": "not_evaluated",
+  "scientific_protocol": {
+    "bytes": 12716,
+    "path": "artifacts/science/author-love-clr-spatial-scale-proposal/protocol.json",
+    "sha256": "5ff3a6cb2b49f0e506a2eb694b8104f46ed6159484474e5d3b7a7a13ea8e41c4"
+  },
+  "scope": "Dataset-specific incompatibility of these admitted selected zero-containing compositions with the unchanged positive-only CLR model.450 actual API calls are not450 successful fits. No imputation, alternative covariance, tuning winner, new forward/scoring, generic CLR invalidity, untouched/vegetation/rights/human or whole V3-24 acceptance.",
+  "selected_outer_dispositions": [
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:GOURTEMIRES",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:LONGBREACH",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:CUTHILL2",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:HARESDOWN",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:BROADOWN",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:NTWITCHEN",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:WINNEYS",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:WINDMILL",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:MOLECHAM",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:BECKHAM",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:COMERSLA",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:LOBBSBOG",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:LARKBARR",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:HANGINGS",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    },
+    {
+      "baseline": "clr-wgs84-rbf-ridge-v1",
+      "outer_outcome_decoded": false,
+      "outer_score": null,
+      "outer_target": "author:WHH05",
+      "ranking": [
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-20km"
+        },
+        {
+          "complete_inner_predictions": 0,
+          "mean_inner_total_variation": null,
+          "method": "clr-ridge-100km"
+        }
+      ],
+      "reason_code": "no_eligible_spatial_scale",
+      "selected_method": null,
+      "selection_scope": "Only fourteen inner targets from this outer training set; no outer target count/score or alternate-window label argument.",
+      "status": "refused"
+    }
+  ]
+}

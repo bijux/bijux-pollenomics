@@ -1,0 +1,56 @@
+[
+  {
+    "id": "maintained-current-source-audit",
+    "action": "producer",
+    "timeout_seconds": 360,
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+      "producer",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/plan.json"
+    ],
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 58.96159129199805,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/maintained-current-source-audit.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/maintained-current-source-audit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  {
+    "id": "independent-current-source-audit-observer",
+    "action": "observer",
+    "timeout_seconds": 240,
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+      "observer",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/plan.json"
+    ],
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 62.24454770801822,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/independent-current-source-audit-observer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/independent-current-source-audit-observer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+]

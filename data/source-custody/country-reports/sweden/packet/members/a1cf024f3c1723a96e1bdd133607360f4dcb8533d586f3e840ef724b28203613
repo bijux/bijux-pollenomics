@@ -1,0 +1,232 @@
+"""Independently reconstruct complete human locality exports from native source rows."""
+
+from __future__ import annotations
+
+from collections import defaultdict
+from copy import deepcopy
+import csv
+import json
+from pathlib import Path
+from typing import Any
+
+from human_source import reconstruct, same, typed_record
+from independent import require
+
+LOCALITY_FIELDS = (
+    "schema_version",
+    "species_latin_name",
+    "species_common_name",
+    "source_family",
+    "sample_namespace",
+    "locality",
+    "latitude",
+    "longitude",
+    "sample_count",
+    "time_start_bp",
+    "time_end_bp",
+    "time_mean_bp",
+    "time_label",
+    "dating_basis",
+    "coordinate_confidence",
+    "datasets",
+    "sample_ids",
+    "chronology_role",
+    "sample_chronologies",
+    "locality_identity",
+    "political_entity",
+)
+
+
+def expected_localities(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Retain individual supports separately from the source-owned display coverage hull."""
+    grouped: dict[tuple[Any, ...], list[dict[str, Any]]] = defaultdict(list)
+    for row in samples:
+        grouped[(row["locality"], row["latitude_text"], row["longitude_text"])].append(
+            row
+        )
+    result = []
+    for (name, latitude, longitude), records in grouped.items():
+        first = records[0]
+        supports = []
+        for record in sorted(
+            records, key=lambda value: value["identity"]["stable_token"]
+        ):
+            support = {
+                "schema_version": "adna-sample-chronology-support.v1",
+                "sample_id": record["identity"]["stable_token"],
+                "chronology": deepcopy(record["chronology"]),
+                "source_release": record["source_release"],
+            }
+            for destination, origin in (
+                ("provenance_path", "chronology_provenance_path"),
+                ("provenance_locator", "chronology_provenance_locator"),
+                ("provenance_excerpt", "chronology_provenance_text"),
+                ("provenance_kind", "chronology_provenance_kind"),
+                ("chronology_strength", "chronology_strength"),
+                ("normalization_status", "chronology_normalization_status"),
+                ("conflict_note", "chronology_conflict_note"),
+            ):
+                support[destination] = record[origin]
+            support.update(
+                dict.fromkeys(
+                    ("reference_epoch", "age_type", "calibration_status", "model"),
+                    "not_separately_declared",
+                )
+            )
+            supports.append(support)
+        bounds = [
+            (row["chronology"]["time_start_bp"], row["chronology"]["time_end_bp"])
+            for row in records
+            if row["chronology"]["time_start_bp"] is not None
+            and row["chronology"]["time_end_bp"] is not None
+        ]
+        start = min(row[0] for row in bounds) if bounds else None
+        end = max(row[1] for row in bounds) if bounds else None
+        mean = (
+            int(round((min(start, end) + max(start, end)) / 2))
+            if start is not None and end is not None
+            else None
+        )
+        label = (
+            ""
+            if start is None
+            else (
+                str(start) + " BP"
+                if start == end
+                else str(min(start, end)) + "-" + str(max(start, end)) + " BP"
+            )
+        )
+        result.append(
+            {
+                "identity": deepcopy(first["locality_identity"]),
+                **{
+                    key: first[key]
+                    for key in (
+                        "species_latin_name",
+                        "species_common_name",
+                        "source_family",
+                    )
+                },
+                "source_releases": sorted({row["source_release"] for row in records}),
+                "record_modalities": sorted(
+                    {row["record_modality"] for row in records}
+                ),
+                "review_strengths": sorted({row["review_strength"] for row in records}),
+                "provenance_qualities": sorted(
+                    {row["provenance_quality"] for row in records}
+                ),
+                "locality": name,
+                "coordinates": {
+                    "latitude": first["latitude"],
+                    "longitude": first["longitude"],
+                    "latitude_text": latitude,
+                    "longitude_text": longitude,
+                    "confidence": first["coordinate_confidence"],
+                },
+                "sample_count": len(records),
+                "sample_ids": [row["sample_id"] for row in supports],
+                "datasets": sorted(
+                    {dataset for row in records for dataset in row["datasets"]}
+                ),
+                "chronology": {
+                    "original_text": "Sample coverage hull (display only): " + label
+                    if bounds
+                    else "",
+                    "time_start_bp": start,
+                    "time_end_bp": end,
+                    "time_mean_bp": mean,
+                    "date_stddev_bp": "",
+                    "source_mean_bp_text": "",
+                    "dating_basis": "locality_sample_coverage",
+                    "evidence_class": "locality_sample_coverage_hull",
+                    "precision_posture": "display_coverage_only",
+                    "refusal_reason_code": "",
+                },
+                "chronology_role": "locality_sample_coverage_hull",
+                "sample_chronologies": supports,
+                "sample_namespace": first["identity"]["namespace"],
+                "project_accessions": [],
+                "original_location_text": "",
+                "nordic_inclusion": False,
+                "nordic_inclusion_reason": "",
+                "interpretation_note": "",
+            }
+        )
+    result.sort(
+        key=lambda row: (-row["sample_count"], (row["locality"] or "").casefold())
+    )
+    return result
+
+
+def locality_csv_record(row: dict[str, Any]) -> dict[str, str]:
+    chronology = row["chronology"]
+    value = {
+        "schema_version": "adna-locality-summary-export.v2",
+        **{
+            key: row[key]
+            for key in (
+                "species_latin_name",
+                "species_common_name",
+                "source_family",
+                "sample_namespace",
+                "locality",
+                "sample_count",
+                "sample_ids",
+                "datasets",
+                "chronology_role",
+                "sample_chronologies",
+            )
+        },
+        "locality_identity": row["identity"],
+        "political_entity": row["identity"]["political_entity"],
+        "latitude": row["coordinates"]["latitude_text"],
+        "longitude": row["coordinates"]["longitude_text"],
+        **{
+            key: chronology[key]
+            for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "dating_basis")
+        },
+        "time_label": chronology["original_text"],
+        "coordinate_confidence": row["coordinates"]["confidence"],
+    }
+    value["datasets"] = ",".join(row["datasets"])
+    value["sample_ids"] = ";".join(row["sample_ids"])
+    for name in ("sample_chronologies", "locality_identity"):
+        value[name] = json.dumps(
+            value[name], ensure_ascii=False, allow_nan=False, separators=(",", ":")
+        )
+    return {
+        name: "" if value[name] is None else str(value[name])
+        for name in LOCALITY_FIELDS
+    }
+
+
+def independent_human_report(
+    owned: Path, candidate: Path, generated_on: str
+) -> dict[str, Any]:
+    """This is an independent expected projection, never a recovered in-memory return."""
+    rows, counts, _, _ = reconstruct(
+        sorted((owned / "data/aadr/v66").glob("*/*.anno")), ["Sweden"]
+    )
+    samples = rows["Sweden"]
+    localities = expected_localities(samples)
+    with (candidate / "sweden_aadr_v66_localities.csv").open(
+        encoding="utf8", newline=""
+    ) as stream:
+        reader = csv.DictReader(stream)
+        require(
+            reader.fieldnames == list(LOCALITY_FIELDS),
+            "Complete locality export header differs",
+        )
+        actual = list(reader)
+    same(actual, [locality_csv_record(row) for row in localities])
+    return {
+        "country": "Sweden",
+        "version": "v66",
+        "generated_on": generated_on,
+        "samples": [typed_record(row) for row in samples],
+        "localities": localities,
+        "total_unique_samples": len(samples),
+        "total_unique_localities": len(localities),
+        "dataset_row_counts": counts["Sweden"],
+        "output_dir": str(candidate),
+    }

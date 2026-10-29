@@ -1,0 +1,29 @@
+[
+  {
+    "id": "maintained-full-Sweden-country-consumer",
+    "action": "producer",
+    "timeout_seconds": 600,
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/entry.py",
+      "producer",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/plan.json"
+    ],
+    "actual_exit": 1,
+    "timed_out": false,
+    "elapsed_seconds": 88.95617079199292,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/maintained-full-Sweden-country-consumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/maintained-full-Sweden-country-consumer.stderr",
+      "sha256": "916aa74668a480255509298a40b575ba0c619c1c4749ed60ee2b294317782c65",
+      "bytes": 766
+    }
+  }
+]

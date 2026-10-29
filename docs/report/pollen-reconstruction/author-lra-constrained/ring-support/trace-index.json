@@ -1,0 +1,13 @@
+{
+  "objects": [
+    {
+      "bytes": 1349728,
+      "retention_key": "sha256:fa83a2d16b86c9fa81b957ce5110cf7f17b381e542a75238b60d3612e00babbf",
+      "roles": [
+        "source-derived-ring-support-proof"
+      ],
+      "sha256": "fa83a2d16b86c9fa81b957ce5110cf7f17b381e542a75238b60d3612e00babbf"
+    }
+  ],
+  "schema_version": "author-love-ring-support-trace-index.v1"
+}

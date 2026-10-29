@@ -1,0 +1,15 @@
+from pathlib import Path
+import subprocess
+
+source = Path(__file__).absolute().parent.parent
+root = source.parents[2]
+ruff = '/Users/bijan/.cache/uv/archive-v0/2XF0xMG3jR4vPhZZ/ruff-0.15.8.data/scripts/ruff'
+files = sorted(str(p) for p in source.glob('*.py'))
+config = str(root / 'configs/ruff.toml')
+cache = str(source / 'preflight/ruff-cache')
+for label, args in [('source-format', ['format', '--config', config, '--cache-dir', cache, *files]), ('source-imports', ['check', '--fix', '--select', 'I,F401,UP035,C420', '--config', config, '--cache-dir', cache, *files]), ('configured-check', ['check', '--config', config, '--cache-dir', cache, *files]), ('configured-format', ['format', '--check', '--config', config, '--cache-dir', cache, *files])]:
+    with (source/'preflight'/f'admitted-source-{label}.stdout').open('x') as out, (source/'preflight'/f'admitted-source-{label}.stderr').open('x') as err:
+        result = subprocess.run([ruff, *args], stdout=out, stderr=err, check=False)
+    print(label, result.returncode, flush=True)
+    if result.returncode:
+        raise SystemExit(result.returncode)

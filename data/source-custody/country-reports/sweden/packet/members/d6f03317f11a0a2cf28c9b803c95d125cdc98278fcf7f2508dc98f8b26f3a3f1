@@ -1,0 +1,217 @@
+"""Reuse the sealed Sweden source/data after a pre-country callable-guard refusal."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
+
+from contracts import ROOT, registered_plan, require
+from runtime_contracts import namespace_snapshot, verify_base_namespaces
+from source_inputs import exact_union, pin, verify_rows
+
+ORIGINAL = ROOT / "artifacts/science/current-sweden-country-semantic-replay"
+ORIGINAL_PLAN_SHA = "e6d7ebf4d5318843bb072381bedb09d508349cd4e4d156e5c8341b3e41a62255"
+EXPECTED = {
+    "plan.json": ORIGINAL_PLAN_SHA,
+    "sweden-country-semantic-terminal.json": "8eda246e43e04d99b5367dd17b3228e604edcd4e6ba2563b009af884c0e8f08b",
+    "sweden-country-semantic-launch-terminal.json": "7e0b381c285c9ab4eb23d0c5c75435d02c5924c55b90acfc8f68a4ca819abd67",
+    "output-products.json": "a4fece58a3e5450ec4a0000646109dd9cbc50485343268a9c2be3356b4944786",
+    "stage-progress.json": "19c25b25a18d5177c7b89d58dba6df18c6f8681a23894ca8a31b24160f2073c8",
+    "original-source-ledger.json": "a8251aa62cf551dad46034206603c7cf6d50cd87f697864d41e690b74aafc636",
+}
+EXPECTED_BYTES = {
+    "plan.json": 18183282,
+    "sweden-country-semantic-terminal.json": 3482,
+    "sweden-country-semantic-launch-terminal.json": 2520,
+    "output-products.json": 788623,
+    "stage-progress.json": 1206,
+    "original-source-ledger.json": 6171253,
+}
+
+
+def closed_namespace(
+    original: Path, rows: list[dict[str, Any]], owned_snapshots: list[dict[str, Any]]
+) -> dict[str, Any]:
+    entries: dict[str, dict[str, str]] = {}
+    for row in rows:
+        path = Path(row["path"])
+        require(path.is_relative_to(original), "Retained native output escaped")
+        relative = path.relative_to(original)
+        require(bool(relative.parts), "Native file cannot be output root")
+        entries[relative.as_posix()] = {"kind": "file"}
+        for parent in relative.parents:
+            if parent != Path("."):
+                require(
+                    entries.get(parent.as_posix(), {"kind": "directory"})
+                    == {"kind": "directory"},
+                    "File/directory role conflict",
+                )
+                entries[parent.as_posix()] = {"kind": "directory"}
+    for name in ("cache", "cache/matplotlib", "scratch"):
+        require(
+            entries.get(name, {"kind": "directory"}) == {"kind": "directory"},
+            "Original empty directory role changed",
+        )
+        entries[name] = {"kind": "directory"}
+    for snapshot in owned_snapshots:
+        root = Path(snapshot["root"])
+        require(
+            root.is_relative_to(original / "owned-source"),
+            "Sealed source namespace escaped",
+        )
+        prefix = root.relative_to(original)
+        entries[prefix.as_posix()] = {"kind": "directory"}
+        for name, value in snapshot["entries"].items():
+            logical = (prefix / name).as_posix()
+            require(
+                value["kind"] in {"file", "directory"},
+                "Original source alias/special refused",
+            )
+            require(
+                entries.get(logical, value) == value, "Original member role conflict"
+            )
+            entries[logical] = value
+    return {
+        "root": str(original),
+        "excluded": [],
+        "entries": dict(sorted(entries.items())),
+    }
+
+
+def original_authority() -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
+    refs = []
+    docs: dict[str, Any] = {}
+    for name, sha in EXPECTED.items():
+        path = ORIGINAL / name
+        require(
+            not any(node.is_symlink() for node in (path, *path.parents)),
+            "Retained authority ancestor alias refused",
+        )
+        require(
+            path.is_file()
+            and path.stat().st_nlink == 1
+            and path.stat().st_size == EXPECTED_BYTES[name],
+            "Exact original metadata size/type required before hashing",
+        )
+        row = pin(path)
+        require(row["sha256"] == sha, "Original failed-native authority changed")
+        refs.append(row)
+        if name == "stage-progress.json":
+            raw = path.read_bytes()
+            require(
+                hashlib.sha256(raw).hexdigest() == sha,
+                "Original progress buffer differs",
+            )
+            docs[name] = json.loads(raw)
+            require(
+                type(docs[name]) is list,
+                "Original progress must be an actual stage list",
+            )
+        else:
+            docs[name] = registered_plan(path, sha)
+    plan = docs["plan.json"]
+    inner = docs["sweden-country-semantic-terminal.json"]
+    outer = docs["sweden-country-semantic-launch-terminal.json"]
+    require(
+        plan["output"] == str(ORIGINAL)
+        and plan["owned_repository"] == str(ORIGINAL / "owned-source")
+        and plan["candidate"] == inner["candidate"] == outer["candidate"]
+        and inner["plan_sha256"] == outer["plan_sha256"] == ORIGINAL_PLAN_SHA,
+        "Original failed-native epoch or topology changed",
+    )
+    require(
+        type(inner["actual_exit"]) is int
+        and inner["actual_exit"] == 1
+        and type(outer["actual_exit"]) is int
+        and outer["actual_exit"] == 1
+        and inner["exception"] is None
+        and inner["after_custody_error"] is None
+        and outer["registered_plan_unchanged"] is True
+        and outer["child_timed_out"] is False,
+        "Original whole refusal must stay literal",
+    )
+    require(
+        len(inner["stages"]) == 1 and docs["stage-progress.json"] == inner["stages"],
+        "Exactly one failed pre-country controller stage required",
+    )
+    stage = inner["stages"][0]
+    require(
+        {key: stage[key] for key in plan["stages"][0]} == plan["stages"][0]
+        and type(stage["actual_exit"]) is int
+        and stage["actual_exit"] == 1
+        and stage["timed_out"] is False,
+        "Original producer-controller refusal changed",
+    )
+    require(
+        inner["products_manifest"] == pin(ORIGINAL / "output-products.json"),
+        "Original complete product catalogue differs",
+    )
+    require(
+        outer["inner_terminal"]
+        == pin(ORIGINAL / "sweden-country-semantic-terminal.json"),
+        "Original outer/inner join differs",
+    )
+    for key in ("memory_bound_pass", "inclusive_storage_bound_pass"):
+        require(
+            inner[key] is True and outer[key] is True,
+            "Original resource limits changed",
+        )
+    require(
+        inner["completed_whole_wall_bound_pass"] is True
+        and outer["completed_outer_wall_bound_pass"] is True,
+        "Original wall outcome changed",
+    )
+    stream_rows = [stage[key] for key in ("stdout", "stderr")] + [
+        outer[key] for key in ("stdout", "stderr")
+    ]
+    for row in stream_rows:
+        require(
+            Path(row["path"]).parent == ORIGINAL and pin(Path(row["path"])) == row,
+            "Original complete native stream changed",
+        )
+    require(
+        stage["stderr"]["sha256"]
+        == "0f0341c57cc42353be2ab0dcd1fa2e1a8c98b2f95a9d7f76e967e929e1f525a7",
+        "Exact pre-country code guard traceback required",
+    )
+    require(
+        stage["stdout"]["bytes"] == 0,
+        "Original country stage unexpectedly emitted output",
+    )
+    for name in (
+        "producer",
+        "country-clock-observation.json",
+        "maintained-country-execution.json",
+        "independent-country-review.json",
+    ):
+        path = ORIGINAL / name
+        require(
+            not path.exists() and not path.is_symlink(),
+            "Original did not stop before the country call",
+        )
+    outputs = exact_union(docs["output-products.json"]["files"], refs, stream_rows)
+    # The complete original output authority includes late outer streams, not a
+    # freshly substituted baseline. Its full owned directory membership was sealed.
+    snapshot = closed_namespace(ORIGINAL, outputs, plan["owned_namespace_snapshots"])
+    actual = namespace_snapshot(ORIGINAL, [])
+    require(actual == snapshot, "Original complete output membership changed")
+    verify_rows(outputs)
+    verify_rows(plan["input_pins"])
+    verify_base_namespaces(plan["owned_namespace_snapshots"])
+    return (
+        plan,
+        exact_union(plan["input_pins"], outputs),
+        {
+            "original_plan_sha256": ORIGINAL_PLAN_SHA,
+            "original_candidate": plan["candidate"],
+            "original_whole_actual_exit": 1,
+            "original_controller_stage_actual_exits": [1],
+            "country_API_or_replay_called": False,
+            "original_outputs": outputs,
+            "original_complete_namespace": snapshot,
+            "retained_logical_output_bytes": sum(row["bytes"] for row in outputs),
+            "original_owned_source_data_reused_without_recopy": True,
+        },
+    )

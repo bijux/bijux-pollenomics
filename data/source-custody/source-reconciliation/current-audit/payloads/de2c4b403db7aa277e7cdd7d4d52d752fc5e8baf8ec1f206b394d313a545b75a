@@ -1,0 +1,231 @@
+"""Run the two bounded owned-source metadata consumers and retain every native failure."""
+
+from __future__ import annotations
+
+import argparse
+from contextlib import suppress
+import os
+from pathlib import Path
+import resource
+import signal
+import subprocess
+import time
+from typing import Any
+
+from contracts import (
+    PYTHON,
+    RESOURCES,
+    SOURCE,
+    checkpoint,
+    execution_scope,
+    registered_plan,
+    require,
+    strict_equal,
+    write,
+)
+from inputs.closure import verify_prepared_closure
+from source_inputs import pin
+from source_runtime import clean_child_environment
+
+
+def validate_stages(plan: dict[str, Any], path: Path) -> None:
+    require(
+        strict_equal(plan["resources"], RESOURCES),
+        "Exact declared resource bounds required",
+    )
+    stages = plan["stages"]
+    require(
+        len(stages) == 2,
+        "Exactly maintained producer and independent observer required",
+    )
+    for stage, action, name, timeout in zip(
+        stages,
+        ("producer", "observer"),
+        (
+            "maintained-current-source-audit",
+            "independent-current-source-audit-observer",
+        ),
+        (360, 240),
+        strict=True,
+    ):
+        require(
+            strict_equal(
+                stage,
+                {
+                    "id": name,
+                    "action": action,
+                    "timeout_seconds": timeout,
+                    "argv": [
+                        str(PYTHON),
+                        "-I",
+                        "-B",
+                        str(SOURCE / "entry.py"),
+                        action,
+                        "--plan",
+                        str(path),
+                    ],
+                },
+            ),
+            "Exact bounded source stage contract differs",
+        )
+    require(
+        sum(row["timeout_seconds"] for row in stages)
+        < plan["resources"]["overall_timeout_seconds"],
+        "Stage budget exceeds completed whole",
+    )
+
+
+def main() -> None:
+    started = time.monotonic()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    parser.add_argument("--registered-plan-sha256", required=True)
+    args = parser.parse_args()
+    require(
+        pin(args.plan)["sha256"] == args.registered_plan_sha256,
+        "Registered plan differs",
+    )
+    plan = registered_plan(args.plan, args.registered_plan_sha256)
+    validate_stages(plan, args.plan)
+    authority, scope = execution_scope(plan)
+    output = Path(plan["output"])
+    terminal = output / "source-audit-terminal.json"
+    require(
+        not terminal.exists()
+        and not terminal.is_symlink()
+        and not (output / "stage-progress.json").exists(),
+        "Native output replacement refused",
+    )
+    environment = clean_child_environment(dict(os.environ))
+    environment.update(plan["environment"])
+    environment["BIJUX_REGISTERED_PLAN_SHA256"] = args.registered_plan_sha256
+    results = []
+    error = None
+    try:
+        for stage in plan["stages"]:
+            require(
+                pin(args.plan)["sha256"] == args.registered_plan_sha256,
+                "Plan changed before child",
+            )
+            if (
+                time.monotonic() - started + stage["timeout_seconds"]
+                > plan["resources"]["overall_timeout_seconds"]
+            ):
+                error = "Declared child budget cannot fit remaining whole bound"
+                break
+            stdout = output / (stage["id"] + ".stdout")
+            stderr = output / (stage["id"] + ".stderr")
+            timed_out = False
+            began = time.monotonic()
+            with stdout.open("xb") as out, stderr.open("xb") as err:
+                child = subprocess.Popen(
+                    stage["argv"],
+                    cwd=plan["owned_repository"],
+                    env=environment,
+                    stdout=out,
+                    stderr=err,
+                    start_new_session=False,
+                )
+                try:
+                    code = child.wait(timeout=stage["timeout_seconds"])
+                except subprocess.TimeoutExpired:
+                    timed_out = True
+                    with suppress(ProcessLookupError):
+                        os.kill(child.pid, signal.SIGKILL)
+                    child.wait()
+                    code = 124
+            results.append(
+                {
+                    **stage,
+                    "actual_exit": code,
+                    "timed_out": timed_out,
+                    "elapsed_seconds": time.monotonic() - began,
+                    "stdout": pin(stdout),
+                    "stderr": pin(stderr),
+                }
+            )
+            progress = output / "stage-progress.json"
+            progress.write_text(__import__("json").dumps(results, indent=2) + "\n")
+            if code:
+                break
+    except Exception as failure:
+        error = str(failure)
+    after_error = None
+    try:
+        verify_prepared_closure(plan["current_input_closure"])
+        checkpoint(authority, scope, plan["owned_namespace_snapshots"])
+        verify_prepared_closure(plan["current_input_closure"])
+        require(
+            pin(args.plan)["sha256"] == args.registered_plan_sha256,
+            "Registered plan changed after child",
+        )
+    except Exception as failure:
+        after_error = str(failure)
+    products = []
+    for path in sorted(output.rglob("*")):
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Output alias/special refused",
+        )
+        if path.is_file():
+            products.append(pin(path))
+    write(
+        output / "output-products.json",
+        {
+            "files": products,
+            "scope": "Complete regular output member identities before this manifest and terminal; no native re-execution inferred.",
+        },
+    )
+    products_manifest = pin(output / "output-products.json")
+    elapsed = time.monotonic() - started
+    rss = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
+    bounds = plan["resources"]
+    memory = rss <= bounds["declared_memory_bytes"]
+    storage = (
+        sum(row["bytes"] for row in products) + products_manifest["bytes"] + 32768
+        <= bounds["declared_storage_bytes"]
+    )
+    wall = elapsed <= bounds["overall_timeout_seconds"]
+    passed = (
+        len(results) == 2
+        and all(row["actual_exit"] == 0 and not row["timed_out"] for row in results)
+        and error is None
+        and after_error is None
+        and memory
+        and storage
+        and wall
+    )
+    write(
+        terminal,
+        {
+            "schema_version": "current-source-audit-terminal.v1",
+            "candidate": plan["candidate"],
+            "plan_sha256": args.registered_plan_sha256,
+            "actual_exit": 0 if passed else 1,
+            "actual_launch_argv": __import__("sys").orig_argv,
+            "stages": results,
+            "exception": error,
+            "after_custody_error": after_error,
+            "completed_elapsed_seconds": elapsed,
+            "completed_child_peak_RSS_bytes_macos": rss,
+            "memory_bound_pass": memory,
+            "inclusive_storage_bound_pass": storage,
+            "completed_whole_wall_bound_pass": wall,
+            "products_manifest": products_manifest,
+            "products_count_before_manifest": len(products),
+            "own_receipt_reserve_bytes": 16384,
+            "outer_receipt_reserve_bytes": 16384,
+            "source_freeze_identity": plan["canonical_identity_at_source_freeze"],
+            "live_canonical_equality_claimed": False,
+            "OS_quota_or_full_descendant_RSS_claimed": False,
+            "resources": bounds,
+            "scope": plan["scope"],
+        },
+    )
+    require(terminal.stat().st_size <= 16384, "Own receipt exceeds16KiB reserve")
+    print(
+        __import__("json").dumps(
+            {"terminal": pin(terminal), "actual_exit": 0 if passed else 1}
+        )
+    )
+    raise SystemExit(0 if passed else 1)

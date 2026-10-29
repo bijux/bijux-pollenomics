@@ -1,0 +1,86 @@
+{
+  "schema_version": "sweden-country-callable-diagnostic-source-qualification.v1",
+  "source_only": true,
+  "actual_whole_SOURCE_profile_exit": 0,
+  "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "new_actual_audit_hook_synthetic_groups": 10,
+  "reused_source_groups": 113,
+  "strict_changed_or_new_files": 2,
+  "configured_Ruff_changed_or_new_files": 2,
+  "configured_format_changed_or_new_files": 2,
+  "unchanged_old_Python": 21,
+  "parsed_AST_files": 23,
+  "original_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-custody/source-qualification.json",
+    "sha256": "b816725dbb9c36474c2d2fa8fbfde1408c6b2ad2bc8c65bec271c84a1fa3612e",
+    "bytes": 9862
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/source-correspondence.json",
+    "sha256": "725e1046903e95329b5c5f676ffd939ff9649ec44a44bb1825b27a7de2182caa",
+    "bytes": 12584
+  },
+  "logs": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/strict.stdout",
+      "sha256": "f9b031e5c45aa702cd4fef028d465551cb20a2c4698e0913c7b00766b20ac4d8",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/strict.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/style.stdout",
+      "sha256": "5d1c3d73649011fa122e72d0122a348b6cfe8e21a2db5f807208dc205a8b0b55",
+      "bytes": 81
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/style.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/configured-check.stdout",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/configured-check.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/configured-format.stdout",
+      "sha256": "3bc53bf3e981a98a34a852e175bf9b77af841edea74fca595d9aedcbaf9a4938",
+      "bytes": 26
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/configured-format.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/diagnostic-IO.stdout",
+      "sha256": "aa85c6d3f29962045789f1197129690157d8ef4bcf40dd20ce26eb3295935fa9",
+      "bytes": 610
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/diagnostic-IO.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/diagnostic-IO-controls.json",
+      "sha256": "e50b252a0fcd04f657e23f988afcb1997089efb183ca56e3d8966350b24253a1",
+      "bytes": 670
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/preflight/finite-source-delta.diff",
+      "sha256": "1dfbc8cdf73a7d5c32e13dd44dd2a8f3bfb6c61941353f93d5305ee425da12e3",
+      "bytes": 1119
+    }
+  ],
+  "actual_country_API_data_runtime_preparer_native_Git_or_STATE_by_author": false
+}

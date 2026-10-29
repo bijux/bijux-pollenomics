@@ -1,0 +1,1790 @@
+{
+  "exposure": "retrospective prior-exposed English development; no new untouched cohort or measured vegetation accuracy",
+  "failures": [],
+  "fold": {
+    "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+    "test_group_ids": [
+      "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b"
+    ],
+    "test_record_ids": [
+      "author:BECKHAM"
+    ],
+    "train_group_ids": [
+      "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+      "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+      "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+      "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+      "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+      "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+      "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+      "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+      "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+      "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+      "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+      "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+      "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+      "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51"
+    ],
+    "train_record_ids": [
+      "author:BROADOWN",
+      "author:COMERSLA",
+      "author:CUTHILL2",
+      "author:GOURTEMIRES",
+      "author:HANGINGS",
+      "author:HARESDOWN",
+      "author:LARKBARR",
+      "author:LOBBSBOG",
+      "author:LONGBREACH",
+      "author:MOLECHAM",
+      "author:NTWITCHEN",
+      "author:WHH05",
+      "author:WINDMILL",
+      "author:WINNEYS"
+    ]
+  },
+  "new_attempts": 704,
+  "observed_total_count": 699,
+  "prediction_freeze": {
+    "bytes": 69040,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-development-fold-execution/native/products/prediction-freeze.json",
+    "sha256": "5d57b8bcd859d013ddcd554ab1bea2ef2207a6c42820cf1d69fab4777cb528e1"
+  },
+  "predictions": [
+    {
+      "baseline": "training_mean",
+      "bin_id": "author-TW5",
+      "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+      "pollen_fraction": {
+        "Abies.alba": 0.0003805869011980148,
+        "Alnus.glutinosa": 0.13189970619607783,
+        "Amanranthaceae.Chenopodiaceae": 0.0017782997482138963,
+        "Artemisia": 0.001930822787883459,
+        "Betula": 0.031687195976745075,
+        "Buxus.sempervirens": 0.0004657840402787518,
+        "Calluna.vulgaris": 0.093911773235641,
+        "Carpinus.betulus": 0.000992729765201225,
+        "Carpinus.orientalis": 0.0004332908235156947,
+        "Castanea": 0.0004886983045241167,
+        "Cerealia.t": 0.0010221299858808818,
+        "Corylus.avellana": 0.21958024973097465,
+        "Cyperaceae": 0.05482953649012967,
+        "Ericaceae": 0.0036904767688928,
+        "Fagus.sylvatica": 0.007175566799895121,
+        "Fraxinus": 0.005857954817163519,
+        "Juniperus": 0.0007649840819503517,
+        "Phillyrea": 0.00047552123772046995,
+        "Picea": 0.0004451824655952152,
+        "Pinus": 0.004671331827512287,
+        "Pistacia": 0.00046334822627538063,
+        "Plantago.lanceolata.type": 0.03957238727026446,
+        "Poaceae": 0.28099599659945,
+        "Quercus.deciduous": 0.10385678939398978,
+        "Quercus.evergreen": 0.00046565363130620535,
+        "Rumex.acetosa.t": 0.004436932483018988,
+        "Salix": 0.003409216430265102,
+        "Secale": 0.0006216383829255313,
+        "Tilia": 0.0006792785824319722,
+        "Ulmus": 0.0030169370150787784
+      },
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "author:BROADOWN",
+          "author:COMERSLA",
+          "author:CUTHILL2",
+          "author:GOURTEMIRES",
+          "author:HANGINGS",
+          "author:HARESDOWN",
+          "author:LARKBARR",
+          "author:LOBBSBOG",
+          "author:LONGBREACH",
+          "author:MOLECHAM",
+          "author:NTWITCHEN",
+          "author:WHH05",
+          "author:WINDMILL",
+          "author:WINNEYS",
+          "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c",
+          "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38",
+          "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b",
+          "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+          "test_group_ids": [
+            "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b"
+          ],
+          "test_record_ids": [
+            "author:BECKHAM"
+          ],
+          "train_group_ids": [
+            "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+            "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+            "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+            "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+            "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+            "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+            "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+            "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+            "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+            "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+            "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+            "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+            "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+            "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51"
+          ],
+          "train_record_ids": [
+            "author:BROADOWN",
+            "author:COMERSLA",
+            "author:CUTHILL2",
+            "author:GOURTEMIRES",
+            "author:HANGINGS",
+            "author:HARESDOWN",
+            "author:LARKBARR",
+            "author:LOBBSBOG",
+            "author:LONGBREACH",
+            "author:MOLECHAM",
+            "author:NTWITCHEN",
+            "author:WHH05",
+            "author:WINDMILL",
+            "author:WINNEYS"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "0f0738038de7440f8b222f7f01ccf865514bd64289252d1f69647fba047e37b0",
+          "geometry_input_ids": [
+            "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c"
+          ],
+          "local_k": [
+            [
+              0.00071833855126571,
+              0.02335590931237347,
+              0.023486136030360483,
+              0.022509272702364747,
+              0.022780910940959187,
+              0.01990738532722272,
+              0.017220407483423322,
+              0.015409234614652129,
+              0.015409234614652129,
+              0.01988568395907131,
+              0.008511149576558907,
+              0.022509272702364747,
+              0.018583530667281162,
+              0.017220407483423322,
+              0.009472945672445734,
+              0.02320921977873569,
+              0.023174040905447002,
+              0.022904200712082323,
+              0.009811229755937963,
+              0.020331126750721712,
+              0.020742300892205356,
+              0.021138297496757857,
+              0.018583530667281162,
+              0.018583530667281162,
+              0.018583530667281162,
+              0.023456938883511136,
+              0.02320921977873569,
+              0.008511149576558907,
+              0.01990738532722272,
+              0.01990738532722272
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38"
+          ],
+          "ppe": [
+            6.875,
+            13.562,
+            4.28,
+            3.93667,
+            5.10571,
+            1.89,
+            1.085,
+            4.52,
+            0.24,
+            3.258,
+            1.85,
+            1.71,
+            0.9625,
+            4.265,
+            5.86333,
+            1.044,
+            2.07,
+            0.512,
+            5.4375,
+            6.05833,
+            0.755,
+            2.33,
+            1.0,
+            4.53667,
+            11.043,
+            3.02,
+            1.182,
+            3.99,
+            1.21,
+            1.27
+          ],
+          "regional_deposition": [
+            0.0,
+            0.007199765639298276,
+            0.00012731113085303516,
+            0.00017186422949262852,
+            0.004262775150305051,
+            0.0,
+            0.011003551550738979,
+            4.430383086756644e-05,
+            0.0,
+            0.0,
+            3.189157311011435e-05,
+            0.030332597156738937,
+            0.0034553822734434986,
+            0.00032826913970102534,
+            0.0007421097125118513,
+            0.0007216025235840969,
+            0.0,
+            0.0,
+            0.0,
+            0.0005277170900075161,
+            0.0,
+            0.005421698042767241,
+            0.031543975046594584,
+            0.012884677727371577,
+            0.0,
+            0.00031752236770963134,
+            0.0001202670872640161,
+            0.0,
+            0.0,
+            0.00025857523557179903
+          ],
+          "regional_input_ids": [
+            "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b"
+          ],
+          "taxa": [
+            "Abies.alba",
+            "Alnus.glutinosa",
+            "Amanranthaceae.Chenopodiaceae",
+            "Artemisia",
+            "Betula",
+            "Buxus.sempervirens",
+            "Calluna.vulgaris",
+            "Carpinus.betulus",
+            "Carpinus.orientalis",
+            "Castanea",
+            "Cerealia.t",
+            "Corylus.avellana",
+            "Cyperaceae",
+            "Ericaceae",
+            "Fagus.sylvatica",
+            "Fraxinus",
+            "Juniperus",
+            "Phillyrea",
+            "Picea",
+            "Pinus",
+            "Pistacia",
+            "Plantago.lanceolata.type",
+            "Poaceae",
+            "Quercus.deciduous",
+            "Quercus.evergreen",
+            "Rumex.acetosa.t",
+            "Salix",
+            "Secale",
+            "Tilia",
+            "Ulmus"
+          ],
+          "temporal_support_id": "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143",
+          "terrestrial_fraction": [
+            1.0,
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "author:BROADOWN": [],
+          "author:COMERSLA": [],
+          "author:CUTHILL2": [],
+          "author:GOURTEMIRES": [],
+          "author:HANGINGS": [],
+          "author:HARESDOWN": [],
+          "author:LARKBARR": [],
+          "author:LOBBSBOG": [],
+          "author:LONGBREACH": [],
+          "author:MOLECHAM": [],
+          "author:NTWITCHEN": [],
+          "author:WHH05": [],
+          "author:WINDMILL": [],
+          "author:WINNEYS": [],
+          "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c": [],
+          "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38": [],
+          "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b": [
+            "author:BROADOWN",
+            "author:COMERSLA",
+            "author:CUTHILL2",
+            "author:GOURTEMIRES",
+            "author:HANGINGS",
+            "author:HARESDOWN",
+            "author:LARKBARR",
+            "author:LOBBSBOG",
+            "author:LONGBREACH",
+            "author:MOLECHAM",
+            "author:NTWITCHEN",
+            "author:WHH05",
+            "author:WINDMILL",
+            "author:WINNEYS"
+          ],
+          "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143": []
+        },
+        "nearest_training_distance_km": 1.348954418179427,
+        "pollen_fraction": {
+          "Abies.alba": 0.0003805869011980148,
+          "Alnus.glutinosa": 0.13189970619607783,
+          "Amanranthaceae.Chenopodiaceae": 0.0017782997482138963,
+          "Artemisia": 0.001930822787883459,
+          "Betula": 0.031687195976745075,
+          "Buxus.sempervirens": 0.0004657840402787518,
+          "Calluna.vulgaris": 0.093911773235641,
+          "Carpinus.betulus": 0.000992729765201225,
+          "Carpinus.orientalis": 0.0004332908235156947,
+          "Castanea": 0.0004886983045241167,
+          "Cerealia.t": 0.0010221299858808818,
+          "Corylus.avellana": 0.21958024973097465,
+          "Cyperaceae": 0.05482953649012967,
+          "Ericaceae": 0.0036904767688928,
+          "Fagus.sylvatica": 0.007175566799895121,
+          "Fraxinus": 0.005857954817163519,
+          "Juniperus": 0.0007649840819503517,
+          "Phillyrea": 0.00047552123772046995,
+          "Picea": 0.0004451824655952152,
+          "Pinus": 0.004671331827512287,
+          "Pistacia": 0.00046334822627538063,
+          "Plantago.lanceolata.type": 0.03957238727026446,
+          "Poaceae": 0.28099599659945,
+          "Quercus.deciduous": 0.10385678939398978,
+          "Quercus.evergreen": 0.00046565363130620535,
+          "Rumex.acetosa.t": 0.004436932483018988,
+          "Salix": 0.003409216430265102,
+          "Secale": 0.0006216383829255313,
+          "Tilia": 0.0006792785824319722,
+          "Ulmus": 0.0030169370150787784
+        },
+        "predictor_group_ids": [
+          "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+          "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+          "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+          "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+          "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+          "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+          "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+          "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+          "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+          "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+          "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+          "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+          "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51"
+        ],
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "5a3aa6811332defeef8f08aee1f3c8c597171a0bb95116c20710b211f8e2467d",
+        "spatial_method": "training_mean",
+        "target_group_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "Abies.alba": 0.010936953576770483,
+          "Alnus.glutinosa": 0.03636739401916621,
+          "Amanranthaceae.Chenopodiaceae": 0.001244178412531843,
+          "Artemisia": 0.0011528814960695374,
+          "Betula": 0.0020142254565503627,
+          "Buxus.sempervirens": 0.001756924040765019,
+          "Calluna.vulgaris": 0.12440667784235367,
+          "Carpinus.betulus": 0.0013867192946435461,
+          "Carpinus.orientalis": 0.016627677430811377,
+          "Castanea": 0.0010705171473034789,
+          "Cerealia.t": 0.007187353404171135,
+          "Corylus.avellana": 0.02157109028927564,
+          "Cyperaceae": 0.2418586157851439,
+          "Ericaceae": 0.002661640611811913,
+          "Fagus.sylvatica": 0.004973598575374313,
+          "Fraxinus": 0.004529840702580352,
+          "Juniperus": 0.0022632091608182515,
+          "Phillyrea": 0.005754786618936813,
+          "Picea": 0.00118429458411739,
+          "Pinus": 0.0010979671712899393,
+          "Pistacia": 0.004199020858772729,
+          "Plantago.lanceolata.type": 0.003947548610569258,
+          "Poaceae": 0.44851815152476837,
+          "Quercus.deciduous": 0.021999330693743182,
+          "Quercus.evergreen": 0.00032202686339236275,
+          "Rumex.acetosa.t": 0.00440666933476115,
+          "Salix": 0.013252865538362012,
+          "Secale": 0.002597892117090957,
+          "Tilia": 0.004002144243544838,
+          "Ulmus": 0.0067078045945099165
+        }
+      },
+      "prediction_manifest_sha256": "a4105c11dd38b9ee9fc50db692b0f9a2a6cc77720519d913e79ef6e466c9eb03",
+      "record_id": "author:BECKHAM",
+      "vegetation_fraction": {
+        "Abies.alba": 0.010936953576770483,
+        "Alnus.glutinosa": 0.03636739401916621,
+        "Amanranthaceae.Chenopodiaceae": 0.001244178412531843,
+        "Artemisia": 0.0011528814960695374,
+        "Betula": 0.0020142254565503627,
+        "Buxus.sempervirens": 0.001756924040765019,
+        "Calluna.vulgaris": 0.12440667784235367,
+        "Carpinus.betulus": 0.0013867192946435461,
+        "Carpinus.orientalis": 0.016627677430811377,
+        "Castanea": 0.0010705171473034789,
+        "Cerealia.t": 0.007187353404171135,
+        "Corylus.avellana": 0.02157109028927564,
+        "Cyperaceae": 0.2418586157851439,
+        "Ericaceae": 0.002661640611811913,
+        "Fagus.sylvatica": 0.004973598575374313,
+        "Fraxinus": 0.004529840702580352,
+        "Juniperus": 0.0022632091608182515,
+        "Phillyrea": 0.005754786618936813,
+        "Picea": 0.00118429458411739,
+        "Pinus": 0.0010979671712899393,
+        "Pistacia": 0.004199020858772729,
+        "Plantago.lanceolata.type": 0.003947548610569258,
+        "Poaceae": 0.44851815152476837,
+        "Quercus.deciduous": 0.021999330693743182,
+        "Quercus.evergreen": 0.00032202686339236275,
+        "Rumex.acetosa.t": 0.00440666933476115,
+        "Salix": 0.013252865538362012,
+        "Secale": 0.002597892117090957,
+        "Tilia": 0.004002144243544838,
+        "Ulmus": 0.0067078045945099165
+      }
+    },
+    {
+      "baseline": "nearest_site",
+      "bin_id": "author-TW5",
+      "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+      "pollen_fraction": {
+        "Abies.alba": 0.00030707387559090283,
+        "Alnus.glutinosa": 0.056112390912520946,
+        "Amanranthaceae.Chenopodiaceae": 0.0011376649203956998,
+        "Artemisia": 0.0013777055840622473,
+        "Betula": 0.033222540525922786,
+        "Buxus.sempervirens": 0.0003784787738918643,
+        "Calluna.vulgaris": 0.08575773393054284,
+        "Carpinus.betulus": 0.0006165507427508399,
+        "Carpinus.orientalis": 0.0003586726715474923,
+        "Castanea": 0.00039581076321043346,
+        "Cerealia.t": 0.0005257403234334973,
+        "Corylus.avellana": 0.23640138226069973,
+        "Cyperaceae": 0.053505314755100924,
+        "Ericaceae": 0.0025584119281438417,
+        "Fagus.sylvatica": 0.005783736912372904,
+        "Fraxinus": 0.006688825937670753,
+        "Juniperus": 0.00039092394703748836,
+        "Phillyrea": 0.00038793377108359625,
+        "Picea": 0.0003608337211690658,
+        "Pinus": 0.004112837724602378,
+        "Pistacia": 0.00037793599739627444,
+        "Plantago.lanceolata.type": 0.042254769844050334,
+        "Poaceae": 0.3550955459507646,
+        "Quercus.deciduous": 0.10041855660882207,
+        "Quercus.evergreen": 0.0003774022768722353,
+        "Rumex.acetosa.t": 0.0067452518449308795,
+        "Salix": 0.0010863471516715272,
+        "Secale": 0.00035731315362401525,
+        "Tilia": 0.00037765867904926767,
+        "Ulmus": 0.002528654511068686
+      },
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "author:BROADOWN",
+          "author:COMERSLA",
+          "author:CUTHILL2",
+          "author:GOURTEMIRES",
+          "author:HANGINGS",
+          "author:HARESDOWN",
+          "author:LARKBARR",
+          "author:LOBBSBOG",
+          "author:LONGBREACH",
+          "author:MOLECHAM",
+          "author:NTWITCHEN",
+          "author:WHH05",
+          "author:WINDMILL",
+          "author:WINNEYS",
+          "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c",
+          "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38",
+          "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b",
+          "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+          "test_group_ids": [
+            "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b"
+          ],
+          "test_record_ids": [
+            "author:BECKHAM"
+          ],
+          "train_group_ids": [
+            "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+            "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+            "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+            "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+            "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+            "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+            "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+            "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+            "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+            "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+            "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+            "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+            "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+            "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51"
+          ],
+          "train_record_ids": [
+            "author:BROADOWN",
+            "author:COMERSLA",
+            "author:CUTHILL2",
+            "author:GOURTEMIRES",
+            "author:HANGINGS",
+            "author:HARESDOWN",
+            "author:LARKBARR",
+            "author:LOBBSBOG",
+            "author:LONGBREACH",
+            "author:MOLECHAM",
+            "author:NTWITCHEN",
+            "author:WHH05",
+            "author:WINDMILL",
+            "author:WINNEYS"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "0f0738038de7440f8b222f7f01ccf865514bd64289252d1f69647fba047e37b0",
+          "geometry_input_ids": [
+            "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c"
+          ],
+          "local_k": [
+            [
+              0.00071833855126571,
+              0.02335590931237347,
+              0.023486136030360483,
+              0.022509272702364747,
+              0.022780910940959187,
+              0.01990738532722272,
+              0.017220407483423322,
+              0.015409234614652129,
+              0.015409234614652129,
+              0.01988568395907131,
+              0.008511149576558907,
+              0.022509272702364747,
+              0.018583530667281162,
+              0.017220407483423322,
+              0.009472945672445734,
+              0.02320921977873569,
+              0.023174040905447002,
+              0.022904200712082323,
+              0.009811229755937963,
+              0.020331126750721712,
+              0.020742300892205356,
+              0.021138297496757857,
+              0.018583530667281162,
+              0.018583530667281162,
+              0.018583530667281162,
+              0.023456938883511136,
+              0.02320921977873569,
+              0.008511149576558907,
+              0.01990738532722272,
+              0.01990738532722272
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38"
+          ],
+          "ppe": [
+            6.875,
+            13.562,
+            4.28,
+            3.93667,
+            5.10571,
+            1.89,
+            1.085,
+            4.52,
+            0.24,
+            3.258,
+            1.85,
+            1.71,
+            0.9625,
+            4.265,
+            5.86333,
+            1.044,
+            2.07,
+            0.512,
+            5.4375,
+            6.05833,
+            0.755,
+            2.33,
+            1.0,
+            4.53667,
+            11.043,
+            3.02,
+            1.182,
+            3.99,
+            1.21,
+            1.27
+          ],
+          "regional_deposition": [
+            0.0,
+            0.007199765639298276,
+            0.00012731113085303516,
+            0.00017186422949262852,
+            0.004262775150305051,
+            0.0,
+            0.011003551550738979,
+            4.430383086756644e-05,
+            0.0,
+            0.0,
+            3.189157311011435e-05,
+            0.030332597156738937,
+            0.0034553822734434986,
+            0.00032826913970102534,
+            0.0007421097125118513,
+            0.0007216025235840969,
+            0.0,
+            0.0,
+            0.0,
+            0.0005277170900075161,
+            0.0,
+            0.005421698042767241,
+            0.031543975046594584,
+            0.012884677727371577,
+            0.0,
+            0.00031752236770963134,
+            0.0001202670872640161,
+            0.0,
+            0.0,
+            0.00025857523557179903
+          ],
+          "regional_input_ids": [
+            "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b"
+          ],
+          "taxa": [
+            "Abies.alba",
+            "Alnus.glutinosa",
+            "Amanranthaceae.Chenopodiaceae",
+            "Artemisia",
+            "Betula",
+            "Buxus.sempervirens",
+            "Calluna.vulgaris",
+            "Carpinus.betulus",
+            "Carpinus.orientalis",
+            "Castanea",
+            "Cerealia.t",
+            "Corylus.avellana",
+            "Cyperaceae",
+            "Ericaceae",
+            "Fagus.sylvatica",
+            "Fraxinus",
+            "Juniperus",
+            "Phillyrea",
+            "Picea",
+            "Pinus",
+            "Pistacia",
+            "Plantago.lanceolata.type",
+            "Poaceae",
+            "Quercus.deciduous",
+            "Quercus.evergreen",
+            "Rumex.acetosa.t",
+            "Salix",
+            "Secale",
+            "Tilia",
+            "Ulmus"
+          ],
+          "temporal_support_id": "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143",
+          "terrestrial_fraction": [
+            1.0,
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "author:BROADOWN": [],
+          "author:COMERSLA": [],
+          "author:CUTHILL2": [],
+          "author:GOURTEMIRES": [],
+          "author:HANGINGS": [],
+          "author:HARESDOWN": [],
+          "author:LARKBARR": [],
+          "author:LOBBSBOG": [],
+          "author:LONGBREACH": [],
+          "author:MOLECHAM": [],
+          "author:NTWITCHEN": [],
+          "author:WHH05": [],
+          "author:WINDMILL": [],
+          "author:WINNEYS": [],
+          "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c": [],
+          "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38": [],
+          "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b": [
+            "author:BROADOWN",
+            "author:COMERSLA",
+            "author:CUTHILL2",
+            "author:GOURTEMIRES",
+            "author:HANGINGS",
+            "author:HARESDOWN",
+            "author:LARKBARR",
+            "author:LOBBSBOG",
+            "author:LONGBREACH",
+            "author:MOLECHAM",
+            "author:NTWITCHEN",
+            "author:WHH05",
+            "author:WINDMILL",
+            "author:WINNEYS"
+          ],
+          "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143": []
+        },
+        "nearest_training_distance_km": 1.348954418179427,
+        "pollen_fraction": {
+          "Abies.alba": 0.00030707387559090283,
+          "Alnus.glutinosa": 0.056112390912520946,
+          "Amanranthaceae.Chenopodiaceae": 0.0011376649203956998,
+          "Artemisia": 0.0013777055840622473,
+          "Betula": 0.033222540525922786,
+          "Buxus.sempervirens": 0.0003784787738918643,
+          "Calluna.vulgaris": 0.08575773393054284,
+          "Carpinus.betulus": 0.0006165507427508399,
+          "Carpinus.orientalis": 0.0003586726715474923,
+          "Castanea": 0.00039581076321043346,
+          "Cerealia.t": 0.0005257403234334973,
+          "Corylus.avellana": 0.23640138226069973,
+          "Cyperaceae": 0.053505314755100924,
+          "Ericaceae": 0.0025584119281438417,
+          "Fagus.sylvatica": 0.005783736912372904,
+          "Fraxinus": 0.006688825937670753,
+          "Juniperus": 0.00039092394703748836,
+          "Phillyrea": 0.00038793377108359625,
+          "Picea": 0.0003608337211690658,
+          "Pinus": 0.004112837724602378,
+          "Pistacia": 0.00037793599739627444,
+          "Plantago.lanceolata.type": 0.042254769844050334,
+          "Poaceae": 0.3550955459507646,
+          "Quercus.deciduous": 0.10041855660882207,
+          "Quercus.evergreen": 0.0003774022768722353,
+          "Rumex.acetosa.t": 0.0067452518449308795,
+          "Salix": 0.0010863471516715272,
+          "Secale": 0.00035731315362401525,
+          "Tilia": 0.00037765867904926767,
+          "Ulmus": 0.002528654511068686
+        },
+        "predictor_group_ids": [
+          "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+          "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+          "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+          "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+          "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+          "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+          "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+          "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+          "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+          "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+          "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+          "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+          "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51"
+        ],
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "15235e10ba5cb86cff9deaf64d27ae9c9326dda1c8fb721408988bb44b5c5fb5",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "Abies.alba": 0.007978120271461591,
+          "Alnus.glutinosa": 0.0,
+          "Amanranthaceae.Chenopodiaceae": 0.0001856568163401489,
+          "Artemisia": 5.539682204212263e-05,
+          "Betula": 1.8790233852516395e-11,
+          "Buxus.sempervirens": 0.0012906993370315673,
+          "Calluna.vulgaris": 1.532269633322707e-11,
+          "Carpinus.betulus": 0.0004997237213868459,
+          "Carpinus.orientalis": 0.012444159360396735,
+          "Castanea": 0.0007838908092508058,
+          "Cerealia.t": 0.00225878751300939,
+          "Corylus.avellana": 1.4930067524648904e-11,
+          "Cyperaceae": 0.1906377361013534,
+          "Ericaceae": 0.0,
+          "Fagus.sylvatica": 0.0,
+          "Fraxinus": 0.005639146380336349,
+          "Juniperus": 0.0010456341198040878,
+          "Phillyrea": 0.004244554088619714,
+          "Picea": 0.0008678486393952485,
+          "Pinus": 1.2136584812956989e-11,
+          "Pistacia": 0.003096520528168053,
+          "Plantago.lanceolata.type": 1.2391326477769302e-11,
+          "Poaceae": 0.7543366365886212,
+          "Quercus.deciduous": 0.0,
+          "Quercus.evergreen": 0.00023596565783110703,
+          "Rumex.acetosa.t": 0.007735169529168855,
+          "Salix": 0.0006970296060403973,
+          "Secale": 0.0013500425951745339,
+          "Tilia": 0.0020116826137216983,
+          "Ulmus": 0.0026055988272752624
+        }
+      },
+      "prediction_manifest_sha256": "ff69b36863b85b77568494e866e92179fb884cdc8a40fe3fbb7d622acf15faab",
+      "record_id": "author:BECKHAM",
+      "vegetation_fraction": {
+        "Abies.alba": 0.007978120271461591,
+        "Alnus.glutinosa": 0.0,
+        "Amanranthaceae.Chenopodiaceae": 0.0001856568163401489,
+        "Artemisia": 5.539682204212263e-05,
+        "Betula": 1.8790233852516395e-11,
+        "Buxus.sempervirens": 0.0012906993370315673,
+        "Calluna.vulgaris": 1.532269633322707e-11,
+        "Carpinus.betulus": 0.0004997237213868459,
+        "Carpinus.orientalis": 0.012444159360396735,
+        "Castanea": 0.0007838908092508058,
+        "Cerealia.t": 0.00225878751300939,
+        "Corylus.avellana": 1.4930067524648904e-11,
+        "Cyperaceae": 0.1906377361013534,
+        "Ericaceae": 0.0,
+        "Fagus.sylvatica": 0.0,
+        "Fraxinus": 0.005639146380336349,
+        "Juniperus": 0.0010456341198040878,
+        "Phillyrea": 0.004244554088619714,
+        "Picea": 0.0008678486393952485,
+        "Pinus": 1.2136584812956989e-11,
+        "Pistacia": 0.003096520528168053,
+        "Plantago.lanceolata.type": 1.2391326477769302e-11,
+        "Poaceae": 0.7543366365886212,
+        "Quercus.deciduous": 0.0,
+        "Quercus.evergreen": 0.00023596565783110703,
+        "Rumex.acetosa.t": 0.007735169529168855,
+        "Salix": 0.0006970296060403973,
+        "Secale": 0.0013500425951745339,
+        "Tilia": 0.0020116826137216983,
+        "Ulmus": 0.0026055988272752624
+      }
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bin_id": "author-TW5",
+      "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+      "pollen_fraction": {
+        "Abies.alba": 0.0002954865982581793,
+        "Alnus.glutinosa": 0.05663459338331109,
+        "Amanranthaceae.Chenopodiaceae": 0.0011840519162531087,
+        "Artemisia": 0.001395318784564744,
+        "Betula": 0.03314264537645344,
+        "Buxus.sempervirens": 0.00037068002532781013,
+        "Calluna.vulgaris": 0.08626848820067556,
+        "Carpinus.betulus": 0.000631839291564661,
+        "Carpinus.orientalis": 0.00035101035070318233,
+        "Castanea": 0.0003895350940187814,
+        "Cerealia.t": 0.0005542418551505048,
+        "Corylus.avellana": 0.2362201136379968,
+        "Cyperaceae": 0.05429635123640335,
+        "Ericaceae": 0.0025858566282379136,
+        "Fagus.sylvatica": 0.0058800737410084816,
+        "Fraxinus": 0.006644037300836241,
+        "Juniperus": 0.0003904803362169577,
+        "Phillyrea": 0.00038153312047483885,
+        "Picea": 0.0003515292944336049,
+        "Pinus": 0.004177363102929153,
+        "Pistacia": 0.0003703979376210756,
+        "Plantago.lanceolata.type": 0.04242730000647225,
+        "Poaceae": 0.3513320507286734,
+        "Quercus.deciduous": 0.10198210433187689,
+        "Quercus.evergreen": 0.00036933239006834914,
+        "Rumex.acetosa.t": 0.0065516727309018604,
+        "Salix": 0.0015309556612057465,
+        "Secale": 0.0003592741026778957,
+        "Tilia": 0.00037962107269963946,
+        "Ulmus": 0.002552061762984252
+      },
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "author:BROADOWN",
+          "author:COMERSLA",
+          "author:CUTHILL2",
+          "author:GOURTEMIRES",
+          "author:HANGINGS",
+          "author:HARESDOWN",
+          "author:LARKBARR",
+          "author:LOBBSBOG",
+          "author:LONGBREACH",
+          "author:MOLECHAM",
+          "author:NTWITCHEN",
+          "author:WHH05",
+          "author:WINDMILL",
+          "author:WINNEYS",
+          "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c",
+          "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38",
+          "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b",
+          "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+          "test_group_ids": [
+            "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b"
+          ],
+          "test_record_ids": [
+            "author:BECKHAM"
+          ],
+          "train_group_ids": [
+            "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+            "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+            "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+            "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+            "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+            "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+            "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+            "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+            "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+            "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+            "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+            "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+            "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+            "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51"
+          ],
+          "train_record_ids": [
+            "author:BROADOWN",
+            "author:COMERSLA",
+            "author:CUTHILL2",
+            "author:GOURTEMIRES",
+            "author:HANGINGS",
+            "author:HARESDOWN",
+            "author:LARKBARR",
+            "author:LOBBSBOG",
+            "author:LONGBREACH",
+            "author:MOLECHAM",
+            "author:NTWITCHEN",
+            "author:WHH05",
+            "author:WINDMILL",
+            "author:WINNEYS"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "0f0738038de7440f8b222f7f01ccf865514bd64289252d1f69647fba047e37b0",
+          "geometry_input_ids": [
+            "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c"
+          ],
+          "local_k": [
+            [
+              0.00071833855126571,
+              0.02335590931237347,
+              0.023486136030360483,
+              0.022509272702364747,
+              0.022780910940959187,
+              0.01990738532722272,
+              0.017220407483423322,
+              0.015409234614652129,
+              0.015409234614652129,
+              0.01988568395907131,
+              0.008511149576558907,
+              0.022509272702364747,
+              0.018583530667281162,
+              0.017220407483423322,
+              0.009472945672445734,
+              0.02320921977873569,
+              0.023174040905447002,
+              0.022904200712082323,
+              0.009811229755937963,
+              0.020331126750721712,
+              0.020742300892205356,
+              0.021138297496757857,
+              0.018583530667281162,
+              0.018583530667281162,
+              0.018583530667281162,
+              0.023456938883511136,
+              0.02320921977873569,
+              0.008511149576558907,
+              0.01990738532722272,
+              0.01990738532722272
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38"
+          ],
+          "ppe": [
+            6.875,
+            13.562,
+            4.28,
+            3.93667,
+            5.10571,
+            1.89,
+            1.085,
+            4.52,
+            0.24,
+            3.258,
+            1.85,
+            1.71,
+            0.9625,
+            4.265,
+            5.86333,
+            1.044,
+            2.07,
+            0.512,
+            5.4375,
+            6.05833,
+            0.755,
+            2.33,
+            1.0,
+            4.53667,
+            11.043,
+            3.02,
+            1.182,
+            3.99,
+            1.21,
+            1.27
+          ],
+          "regional_deposition": [
+            0.0,
+            0.007199765639298276,
+            0.00012731113085303516,
+            0.00017186422949262852,
+            0.004262775150305051,
+            0.0,
+            0.011003551550738979,
+            4.430383086756644e-05,
+            0.0,
+            0.0,
+            3.189157311011435e-05,
+            0.030332597156738937,
+            0.0034553822734434986,
+            0.00032826913970102534,
+            0.0007421097125118513,
+            0.0007216025235840969,
+            0.0,
+            0.0,
+            0.0,
+            0.0005277170900075161,
+            0.0,
+            0.005421698042767241,
+            0.031543975046594584,
+            0.012884677727371577,
+            0.0,
+            0.00031752236770963134,
+            0.0001202670872640161,
+            0.0,
+            0.0,
+            0.00025857523557179903
+          ],
+          "regional_input_ids": [
+            "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b"
+          ],
+          "taxa": [
+            "Abies.alba",
+            "Alnus.glutinosa",
+            "Amanranthaceae.Chenopodiaceae",
+            "Artemisia",
+            "Betula",
+            "Buxus.sempervirens",
+            "Calluna.vulgaris",
+            "Carpinus.betulus",
+            "Carpinus.orientalis",
+            "Castanea",
+            "Cerealia.t",
+            "Corylus.avellana",
+            "Cyperaceae",
+            "Ericaceae",
+            "Fagus.sylvatica",
+            "Fraxinus",
+            "Juniperus",
+            "Phillyrea",
+            "Picea",
+            "Pinus",
+            "Pistacia",
+            "Plantago.lanceolata.type",
+            "Poaceae",
+            "Quercus.deciduous",
+            "Quercus.evergreen",
+            "Rumex.acetosa.t",
+            "Salix",
+            "Secale",
+            "Tilia",
+            "Ulmus"
+          ],
+          "temporal_support_id": "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143",
+          "terrestrial_fraction": [
+            1.0,
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "author:BROADOWN": [],
+          "author:COMERSLA": [],
+          "author:CUTHILL2": [],
+          "author:GOURTEMIRES": [],
+          "author:HANGINGS": [],
+          "author:HARESDOWN": [],
+          "author:LARKBARR": [],
+          "author:LOBBSBOG": [],
+          "author:LONGBREACH": [],
+          "author:MOLECHAM": [],
+          "author:NTWITCHEN": [],
+          "author:WHH05": [],
+          "author:WINDMILL": [],
+          "author:WINNEYS": [],
+          "experiment-geometry:aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c": [],
+          "experiment-parameters:7a00cc8bd65d4aef468cac91624ee296f6c845105b5d9e356d9ff9137cec8c38": [],
+          "experiment-regional:696195d2cfff9281ba3d9e8f3ffe0e837dcee0ec313aabb958ad123aea340d5b": [
+            "author:BROADOWN",
+            "author:COMERSLA",
+            "author:CUTHILL2",
+            "author:GOURTEMIRES",
+            "author:HANGINGS",
+            "author:HARESDOWN",
+            "author:LARKBARR",
+            "author:LOBBSBOG",
+            "author:LONGBREACH",
+            "author:MOLECHAM",
+            "author:NTWITCHEN",
+            "author:WHH05",
+            "author:WINDMILL",
+            "author:WINNEYS"
+          ],
+          "experiment-time:8bd1bbea620334f3a6df7af42fb1e1bdce20b365e1bd084eb3ce000b880aa143": []
+        },
+        "nearest_training_distance_km": 1.348954418179427,
+        "pollen_fraction": {
+          "Abies.alba": 0.0002954865982581793,
+          "Alnus.glutinosa": 0.05663459338331109,
+          "Amanranthaceae.Chenopodiaceae": 0.0011840519162531087,
+          "Artemisia": 0.001395318784564744,
+          "Betula": 0.03314264537645344,
+          "Buxus.sempervirens": 0.00037068002532781013,
+          "Calluna.vulgaris": 0.08626848820067556,
+          "Carpinus.betulus": 0.000631839291564661,
+          "Carpinus.orientalis": 0.00035101035070318233,
+          "Castanea": 0.0003895350940187814,
+          "Cerealia.t": 0.0005542418551505048,
+          "Corylus.avellana": 0.2362201136379968,
+          "Cyperaceae": 0.05429635123640335,
+          "Ericaceae": 0.0025858566282379136,
+          "Fagus.sylvatica": 0.0058800737410084816,
+          "Fraxinus": 0.006644037300836241,
+          "Juniperus": 0.0003904803362169577,
+          "Phillyrea": 0.00038153312047483885,
+          "Picea": 0.0003515292944336049,
+          "Pinus": 0.004177363102929153,
+          "Pistacia": 0.0003703979376210756,
+          "Plantago.lanceolata.type": 0.04242730000647225,
+          "Poaceae": 0.3513320507286734,
+          "Quercus.deciduous": 0.10198210433187689,
+          "Quercus.evergreen": 0.00036933239006834914,
+          "Rumex.acetosa.t": 0.0065516727309018604,
+          "Salix": 0.0015309556612057465,
+          "Secale": 0.0003592741026778957,
+          "Tilia": 0.00037962107269963946,
+          "Ulmus": 0.002552061762984252
+        },
+        "predictor_group_ids": [
+          "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+          "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+          "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+          "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+          "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+          "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+          "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+          "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+          "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+          "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+          "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+          "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+          "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51"
+        ],
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "22a53f0ef95901060dff07151284d0a63cebd6769d3e04dd2f93a4dadefd693d",
+        "spatial_method": "inverse_distance_squared",
+        "target_group_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "Abies.alba": 0.007698366539770019,
+          "Alnus.glutinosa": 0.0002751737319489828,
+          "Amanranthaceae.Chenopodiaceae": 0.00024906021802284484,
+          "Artemisia": 8.650553276476142e-05,
+          "Betula": 1.3286633013102466e-05,
+          "Buxus.sempervirens": 0.0012676105087694829,
+          "Calluna.vulgaris": 0.005150944333522961,
+          "Carpinus.betulus": 0.0005311174516704965,
+          "Carpinus.orientalis": 0.01221209819640989,
+          "Castanea": 0.0007736021198688709,
+          "Cerealia.t": 0.0025035729132067757,
+          "Corylus.avellana": 0.0015801464492671753,
+          "Cyperaceae": 0.19739270827296782,
+          "Ericaceae": 6.047824064969357e-05,
+          "Fagus.sylvatica": 0.00026022887420606023,
+          "Fraxinus": 0.005499571760730151,
+          "Juniperus": 0.001047344913154607,
+          "Phillyrea": 0.004186102099219785,
+          "Picea": 0.0008478157501453581,
+          "Pinus": 7.928802036230065e-05,
+          "Pistacia": 0.0030431779753004296,
+          "Plantago.lanceolata.type": 0.000756083231687704,
+          "Poaceae": 0.7350808436302433,
+          "Quercus.deciduous": 0.0028101666345040853,
+          "Quercus.evergreen": 0.000231560655051551,
+          "Rumex.acetosa.t": 0.007417466136200246,
+          "Salix": 0.00279639523427335,
+          "Secale": 0.0013612173267526391,
+          "Tilia": 0.002027745250283217,
+          "Ulmus": 0.0027603213660323755
+        }
+      },
+      "prediction_manifest_sha256": "3317e9ea82d6a838f8e09deebaf82bcb77d7003d90a4986647d038b134350737",
+      "record_id": "author:BECKHAM",
+      "vegetation_fraction": {
+        "Abies.alba": 0.007698366539770019,
+        "Alnus.glutinosa": 0.0002751737319489828,
+        "Amanranthaceae.Chenopodiaceae": 0.00024906021802284484,
+        "Artemisia": 8.650553276476142e-05,
+        "Betula": 1.3286633013102466e-05,
+        "Buxus.sempervirens": 0.0012676105087694829,
+        "Calluna.vulgaris": 0.005150944333522961,
+        "Carpinus.betulus": 0.0005311174516704965,
+        "Carpinus.orientalis": 0.01221209819640989,
+        "Castanea": 0.0007736021198688709,
+        "Cerealia.t": 0.0025035729132067757,
+        "Corylus.avellana": 0.0015801464492671753,
+        "Cyperaceae": 0.19739270827296782,
+        "Ericaceae": 6.047824064969357e-05,
+        "Fagus.sylvatica": 0.00026022887420606023,
+        "Fraxinus": 0.005499571760730151,
+        "Juniperus": 0.001047344913154607,
+        "Phillyrea": 0.004186102099219785,
+        "Picea": 0.0008478157501453581,
+        "Pinus": 7.928802036230065e-05,
+        "Pistacia": 0.0030431779753004296,
+        "Plantago.lanceolata.type": 0.000756083231687704,
+        "Poaceae": 0.7350808436302433,
+        "Quercus.deciduous": 0.0028101666345040853,
+        "Quercus.evergreen": 0.000231560655051551,
+        "Rumex.acetosa.t": 0.007417466136200246,
+        "Salix": 0.00279639523427335,
+        "Secale": 0.0013612173267526391,
+        "Tilia": 0.002027745250283217,
+        "Ulmus": 0.0027603213660323755
+      }
+    }
+  ],
+  "profile": "retrospective-beckham-fixed-start-unrounded-composition",
+  "reused_attempts": 128,
+  "schema_version": "author-love-development-fold.v1",
+  "scientific_acceptance": "not_evaluated",
+  "scores": [
+    {
+      "baseline": "training_mean",
+      "bias_fraction": 7.820711670862106e-18,
+      "count_conditioned_deviance": 651.873281057717,
+      "mae_fraction": 0.027367952997044944,
+      "missing_observed_taxa": [],
+      "observed_total_count": 699,
+      "record_id": "author:BECKHAM",
+      "rmse_fraction": 0.06388129856868874,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0003805869011980148
+        ],
+        [
+          "Alnus.glutinosa",
+          0.10757924839922518
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0003476845836931524
+        ],
+        [
+          "Artemisia",
+          0.0005002076233627151
+        ],
+        [
+          "Betula",
+          0.0016442775218094528
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0004657840402787518
+        ],
+        [
+          "Calluna.vulgaris",
+          0.08389746708399579
+        ],
+        [
+          "Carpinus.betulus",
+          0.000992729765201225
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0004332908235156947
+        ],
+        [
+          "Castanea",
+          0.0004886983045241167
+        ],
+        [
+          "Cerealia.t",
+          0.0010221299858808818
+        ],
+        [
+          "Corylus.avellana",
+          0.1594944128211034
+        ],
+        [
+          "Cyperaceae",
+          -0.17406888983318936
+        ],
+        [
+          "Ericaceae",
+          0.0036904767688928
+        ],
+        [
+          "Fagus.sylvatica",
+          0.005744951635374377
+        ],
+        [
+          "Fraxinus",
+          -0.002725736169960944
+        ],
+        [
+          "Juniperus",
+          0.0007649840819503517
+        ],
+        [
+          "Phillyrea",
+          0.00047552123772046995
+        ],
+        [
+          "Picea",
+          0.0004451824655952152
+        ],
+        [
+          "Pinus",
+          0.00037948633395005517
+        ],
+        [
+          "Pistacia",
+          0.00046334822627538063
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.016682544637932555
+        ],
+        [
+          "Poaceae",
+          -0.21685808065376888
+        ],
+        [
+          "Quercus.deciduous",
+          0.022311725016307377
+        ],
+        [
+          "Quercus.evergreen",
+          0.00046565363130620535
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.014161064655750684
+        ],
+        [
+          "Salix",
+          0.000547986101223614
+        ],
+        [
+          "Secale",
+          0.0006216383829255313
+        ],
+        [
+          "Tilia",
+          0.0006792785824319722
+        ],
+        [
+          "Ulmus",
+          -0.0027055236430041972
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.4105192949556742,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 2.9345738801940986e-18,
+      "count_conditioned_deviance": 516.9511287490751,
+      "mae_fraction": 0.02249285400879284,
+      "missing_observed_taxa": [],
+      "observed_total_count": 699,
+      "record_id": "author:BECKHAM",
+      "rmse_fraction": 0.05474310894854353,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.00030707387559090283
+        ],
+        [
+          "Alnus.glutinosa",
+          0.0317919331156683
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0002929502441250441
+        ],
+        [
+          "Artemisia",
+          -5.290958045849666e-05
+        ],
+        [
+          "Betula",
+          0.003179622070987164
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0003784787738918643
+        ],
+        [
+          "Calluna.vulgaris",
+          0.07574342777889763
+        ],
+        [
+          "Carpinus.betulus",
+          0.0006165507427508399
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0003586726715474923
+        ],
+        [
+          "Castanea",
+          0.00039581076321043346
+        ],
+        [
+          "Cerealia.t",
+          0.0005257403234334973
+        ],
+        [
+          "Corylus.avellana",
+          0.1763155453508285
+        ],
+        [
+          "Cyperaceae",
+          -0.1753931115682181
+        ],
+        [
+          "Ericaceae",
+          0.0025584119281438417
+        ],
+        [
+          "Fagus.sylvatica",
+          0.00435312174785216
+        ],
+        [
+          "Fraxinus",
+          -0.0018948650494537101
+        ],
+        [
+          "Juniperus",
+          0.00039092394703748836
+        ],
+        [
+          "Phillyrea",
+          0.00038793377108359625
+        ],
+        [
+          "Picea",
+          0.0003608337211690658
+        ],
+        [
+          "Pinus",
+          -0.00017900776895985338
+        ],
+        [
+          "Pistacia",
+          0.00037793599739627444
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.01936492721171843
+        ],
+        [
+          "Poaceae",
+          -0.1427585313024543
+        ],
+        [
+          "Quercus.deciduous",
+          0.01887349223113967
+        ],
+        [
+          "Quercus.evergreen",
+          0.0003774022768722353
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.011852745293838791
+        ],
+        [
+          "Salix",
+          -0.0017748831773699606
+        ],
+        [
+          "Secale",
+          0.00035731315362401525
+        ],
+        [
+          "Tilia",
+          0.00037765867904926767
+        ],
+        [
+          "Ulmus",
+          -0.0031938061470142896
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.3373928101318926,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": -8.731441495749929e-18,
+      "count_conditioned_deviance": 516.7064195318193,
+      "mae_fraction": 0.022667139685827217,
+      "missing_observed_taxa": [],
+      "observed_total_count": 699,
+      "record_id": "author:BECKHAM",
+      "rmse_fraction": 0.05502581221911692,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0002954865982581793
+        ],
+        [
+          "Alnus.glutinosa",
+          0.032314135586458445
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0002465632482676352
+        ],
+        [
+          "Artemisia",
+          -3.529637995600002e-05
+        ],
+        [
+          "Betula",
+          0.003099726921517821
+        ],
+        [
+          "Buxus.sempervirens",
+          0.00037068002532781013
+        ],
+        [
+          "Calluna.vulgaris",
+          0.07625418204903035
+        ],
+        [
+          "Carpinus.betulus",
+          0.000631839291564661
+        ],
+        [
+          "Carpinus.orientalis",
+          0.00035101035070318233
+        ],
+        [
+          "Castanea",
+          0.0003895350940187814
+        ],
+        [
+          "Cerealia.t",
+          0.0005542418551505048
+        ],
+        [
+          "Corylus.avellana",
+          0.17613427672812557
+        ],
+        [
+          "Cyperaceae",
+          -0.17460207508691566
+        ],
+        [
+          "Ericaceae",
+          0.0025858566282379136
+        ],
+        [
+          "Fagus.sylvatica",
+          0.004449458576487738
+        ],
+        [
+          "Fraxinus",
+          -0.0019396536862882228
+        ],
+        [
+          "Juniperus",
+          0.0003904803362169577
+        ],
+        [
+          "Phillyrea",
+          0.00038153312047483885
+        ],
+        [
+          "Picea",
+          0.0003515292944336049
+        ],
+        [
+          "Pinus",
+          -0.00011448239063307879
+        ],
+        [
+          "Pistacia",
+          0.0003703979376210756
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.019537457374140345
+        ],
+        [
+          "Poaceae",
+          -0.1465220265245455
+        ],
+        [
+          "Quercus.deciduous",
+          0.02043703995419449
+        ],
+        [
+          "Quercus.evergreen",
+          0.00036933239006834914
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.01204632440786781
+        ],
+        [
+          "Salix",
+          -0.0013302746678357413
+        ],
+        [
+          "Secale",
+          0.0003592741026778957
+        ],
+        [
+          "Tilia",
+          0.00037962107269963946
+        ],
+        [
+          "Ulmus",
+          -0.0031703988950987235
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.34000709528740825,
+      "zero_probability_positive_count": false
+    }
+  ],
+  "target_opened_for_scoring": true,
+  "total_attempts": 832,
+  "training": {
+    "bytes": 1931526,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-development-fold-execution/native/products/training.json",
+    "sha256": "89d0ba05579676d2882ecb1edfbea88c695f9b07aca639dd2930ea2d95b4dae9"
+  },
+  "training_predictors": 13
+}

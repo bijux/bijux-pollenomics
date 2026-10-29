@@ -1,0 +1,283 @@
+"""Observe the saved current full country bundle without a second country producer."""
+
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+from typing import Any
+
+from clock_contract import certify
+from contracts import (
+    checkpoint,
+    execution_scope,
+    require,
+    stage_plan,
+    strict_equal,
+    write,
+)
+from data_roles import verify_selection
+from independent import (
+    audit_animal,
+    audit_human,
+    audit_receipt,
+    digest,
+    document,
+    synthesis_source_joins,
+)
+from source_inputs import pin
+
+
+def product_members(root: Path) -> list[dict[str, Any]]:
+    require(
+        root.is_dir() and not any(node.is_symlink() for node in (root, *root.parents)),
+        "Actual country product root absent or linked",
+    )
+    rows = []
+    for path in sorted(root.rglob("*")):
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Country product alias/special refused",
+        )
+        if path.is_file():
+            rows.append(pin(path))
+    return rows
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = stage_plan(args.plan)
+    authority, scope = execution_scope(plan)
+    output = Path(plan["output"])
+    owned = Path(plan["owned_repository"])
+    candidate = output / "producer/candidate"
+    declaration = plan["source_declaration"]
+    verify_selection(owned, declaration, plan["source_input_selection"])
+    import json
+
+    progress = json.loads((output / "stage-progress.json").read_bytes())
+    require(
+        len(progress) == 1
+        and type(progress[0].get("actual_exit")) is int
+        and progress[0]["actual_exit"] == 0
+        and progress[0]["timed_out"] is False,
+        "Exactly one successful actual maintained country stage required",
+    )
+    require(
+        strict_equal(
+            {
+                key: progress[0][key]
+                for key in ("id", "action", "timeout_seconds", "argv")
+            },
+            plan["stages"][0],
+        ),
+        "Producer actual stage identity differs",
+    )
+    for key in ("stdout", "stderr"):
+        require(
+            pin(Path(progress[0][key]["path"])) == progress[0][key],
+            "Producer stream changed",
+        )
+    execution_path = output / "maintained-country-execution.json"
+    witness = document(execution_path)
+    require(
+        type(witness.get("actual_exit")) is int
+        and witness["actual_exit"] == 0
+        and witness["candidate"] == plan["candidate"],
+        "Maintained execution witness not actual current success",
+    )
+    require(
+        witness["wrapper_created_report_or_clock_override"] is False
+        and witness["ecology_rights_history_human_or_LRA_admitted"] is False
+        and witness["IO_denials"] == [],
+        "Country scope was promoted",
+    )
+    presence = plan["source_input_selection"]["named_file_presence"]
+    raa = [
+        name for name in declaration["optional_data"] if name.startswith("data/raa/")
+    ]
+    unavailable = {
+        "full_SVAR_registry_absent": presence[
+            "data/svar/normalized/sweden_lake_registry.geojson"
+        ]
+        == "absent",
+        "RAA_required_authority_incomplete": any(
+            presence[name] == "absent" for name in raa
+        ),
+        "absent_source_is_unknown_or_refused_not_measured_zero": True,
+    }
+    returned = witness["actual_returned_country_report"]
+    require(
+        returned["country"] == "Sweden"
+        and returned["version"] == "v66"
+        and returned["output_dir"] == str(candidate),
+        "Actual returned CountryReport differs from genuine country call",
+    )
+    expected_call = {
+        "country": "Sweden",
+        "version_dir": str(owned / "data/aadr/v66"),
+        "output_dir": str(candidate),
+        "context_root": str(owned / "data"),
+        "map_reference": None,
+        "published_output_dir": None,
+    }
+    require(
+        witness["actual_country_calls"] == [expected_call],
+        "Genuine full country call/return denominator differs",
+    )
+    raw_clock = document(output / "country-clock-observation.json")
+    require(
+        raw_clock["maintained_exception"] is None
+        and raw_clock["clock_observation_error"] is None
+        and raw_clock["telemetry_errors"] == []
+        and raw_clock["IO_denials"] == []
+        and raw_clock["actual_return_events"]
+        == [{"object_present": True, "object_type": "CountryReport"}],
+        "Raw successful clock/return observations contain a refusal or partial result",
+    )
+    require(
+        raw_clock["actual_country_calls"] == [expected_call]
+        and raw_clock["source_returned_generated_on"] == returned["generated_on"],
+        "Raw source clock observation differs",
+    )
+    clock = certify(raw_clock["before"], raw_clock["after"], returned["generated_on"])
+    require(
+        strict_equal(witness["clock"], clock),
+        "Independent native clock qualification differs",
+    )
+    protected = {row["path"]: row for row in plan["input_pins"]}
+    require(bool(witness["first_party_origins"]), "Country source origins absent")
+    for row in witness["first_party_origins"]:
+        expected = {key: row[key] for key in ("path", "sha256", "bytes")}
+        require(
+            Path(row["path"]).is_relative_to(owned)
+            and protected.get(row["path"]) == expected
+            and pin(Path(row["path"])) == expected,
+            "Observed source origin not complete frozen owned source",
+        )
+    catalog = product_members(candidate)
+    allowed = {row["relative_path"] for row in declaration["published_roles"]}
+    actual = {Path(row["path"]).relative_to(candidate).as_posix() for row in catalog}
+    require(
+        allowed <= actual
+        and all(name in allowed or name.startswith("_map_assets/") for name in actual),
+        "Full declared country output namespace differs",
+    )
+    if any(name.startswith("_map_assets/") for name in actual):
+        source_assets = (
+            owned
+            / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map"
+        )
+        expected_assets = {
+            path.relative_to(source_assets).as_posix(): pin(path)
+            for path in source_assets.rglob("*")
+            if path.is_file()
+        }
+        actual_assets = {
+            name.removeprefix("_map_assets/"): pin(candidate / name)
+            for name in actual
+            if name.startswith("_map_assets/")
+        }
+        require(
+            set(actual_assets) == set(expected_assets),
+            "Full copied map-resource membership differs",
+        )
+        require(
+            all(
+                all(actual_assets[name][key] == row[key] for key in ("sha256", "bytes"))
+                for name, row in expected_assets.items()
+            ),
+            "Full copied map-resource bytes differ",
+        )
+    before_catalog = list(catalog)
+    summary = document(candidate / "sweden_aadr_v66_summary.json")
+    bundle = document(candidate / "sweden_aadr_v66_bundle.json")
+    animal = document(candidate / "sweden_animal_adna_v66_summary.json")
+    for row in (summary, bundle, animal):
+        require(
+            row["country"] == "Sweden"
+            and row["version"] == "v66"
+            and row["generated_on"] == returned["generated_on"],
+            "Full bundle clock/country joins differ",
+        )
+    for row in (summary, bundle):
+        for key in (
+            "total_unique_samples",
+            "total_unique_localities",
+            "dataset_row_counts",
+        ):
+            require(
+                strict_equal(row[key], returned[key]),
+                "Country report/manifest typed denominator differs",
+            )
+    human = audit_human(owned, returned, candidate)
+    animals = audit_animal(owned, animal, declaration)
+    require(
+        animals["global_source_lookup_membership_in_native_order"]
+        == plan["owned_native_glob_orders"]["global_animal_sample_lookup"],
+        "Independent global lookup did not consume exact owned native order",
+    )
+    synthesis = document(candidate / "sweden_land_use_synthesis_v66.json")
+    source_joins = synthesis_source_joins(
+        owned, synthesis, returned["localities"], animal["localities"]
+    )
+    receipt = document(output / "producer/receipt.json")
+    require(
+        strict_equal(witness["maintained_replay_receipt"], receipt),
+        "Actual replay returned receipt differs from saved receipt",
+    )
+    semantics = audit_receipt(owned, candidate, receipt)
+    for row in receipt["source_files"]:
+        require(
+            row["sha256"] == digest(owned / row["path"]),
+            "Replay original direct input identity differs",
+        )
+    policy_root = (
+        owned
+        / "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use"
+    )
+    policy = [
+        {"path": path.relative_to(owned).as_posix(), "sha256": digest(path)}
+        for path in sorted(policy_root.glob("*.py"))
+    ]
+    require(
+        strict_equal(receipt["policy_files"], policy),
+        "Full land-use source policy footprint differs",
+    )
+    require(
+        product_members(candidate) == before_catalog,
+        "Actual country products changed during independent observation",
+    )
+    checkpoint(authority, scope, plan["owned_namespace_snapshots"])
+    write(
+        output / "independent-country-review.json",
+        {
+            "schema_version": "sweden-country-source-semantic-clock-review.v1",
+            "actual_exit": 0,
+            "candidate": plan["candidate"],
+            "registered_plan_sha256": __import__("os").environ[
+                "BIJUX_REGISTERED_PLAN_SHA256"
+            ],
+            "maintained_execution": pin(execution_path),
+            "native_UTC_clock": clock,
+            "human_source_joins": human,
+            "animal_source_joins": animals,
+            "synthesis_source_joins": source_joins,
+            "source_authority_unavailability": unavailable,
+            "semantic_receipt": semantics,
+            "actual_products": catalog,
+            "actual_country_producer_calls": 1,
+            "independent_country_producer_calls": 0,
+            "full_source_resource_input_closure_bound": True,
+            "new_current_evidence_not_historical_receipt_recovery": True,
+            "original_owner_verification": declaration["original_owner"][
+                "verification"
+            ],
+            "historical_generated_ownership_or_vegetation_rights_human_LRA_admitted": False,
+        },
+    )
+
+
+if __name__ == "__main__":
+    main()

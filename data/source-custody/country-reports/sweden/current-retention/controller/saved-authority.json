@@ -1,0 +1,82 @@
+{
+  "candidate": "ee2bb2155f027695f526a576d7aabf075584d87a",
+  "actual_session": 68141,
+  "collected_whole_exit": 0,
+  "stage_exits": [
+    0
+  ],
+  "observer_seconds": 45.05080258299131,
+  "inner_seconds": 83.70306225004606,
+  "outer_seconds": 83.91583362501115,
+  "peak_completed_child_RSS_bytes": 430702592,
+  "logical_output_before_terminal_bytes": 19501325,
+  "retained_logical_input_output_bytes": 172813578,
+  "original_controller_actual_exit": 1,
+  "original_whole_actual_exit": 1,
+  "country_call_returned_normally": true,
+  "actual_country_call_return_events": 1,
+  "new_country_calls": 0,
+  "actual_products": 40,
+  "semantic_categories": [
+    "source_membership",
+    "normalized_identity_or_value",
+    "policy_or_weighting",
+    "admission_or_exclusion",
+    "scientific_result",
+    "presentation"
+  ],
+  "scientific_result_changes": 8,
+  "tracked_byte_checker_actual_exit": 2,
+  "full_original_owner_criterion": "The replay invokes the full country-report bundle producer, hashes published outputs and upstream products, and uses runtime generated date. Seven direct source files alone are not the complete producer input/template closure. Bind full country-producer source closure, published comparands and time control before generated ownership; this receipt is reproducibility evidence, not vegetation validation.",
+  "references": {
+    "plan.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/plan.json",
+      "sha256": "6d35aea58a250e0dc62690de47807f626d5c3ab1681c8b73e1830b266e014451",
+      "bytes": 18679070
+    },
+    "sweden-country-semantic-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/sweden-country-semantic-terminal.json",
+      "sha256": "d93b9d97df8d56e129ec68ef58bb4746f1233aaa4f29dbd61034648fb4aef0d4",
+      "bytes": 3649
+    },
+    "sweden-country-semantic-launch-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/sweden-country-semantic-launch-terminal.json",
+      "sha256": "ac84a927d73bcff07cdef3644155fdcc7e9ddfb26d4f3b50f3f1003a0174f48b",
+      "bytes": 2607
+    },
+    "independent-country-review.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/independent-country-review.json",
+      "sha256": "089f8e16600f5cdbb25c7a28b46be53d5818e5aa25f25093f6c8f94576f61b71",
+      "bytes": 791796
+    },
+    "retained-country-authority.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/retained-country-authority.json",
+      "sha256": "e001dc1d752883aa6cd0f59ca41bfc3a2320c067ce2f2a31390f8c5a8bf1383d",
+      "bytes": 23521
+    },
+    "output-products.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/output-products.json",
+      "sha256": "73b102a1a1140449f3dea0b11870a8fbf89b8c1dbceafcca6347cae7610ebf06",
+      "bytes": 1757
+    },
+    "stage-progress.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/stage-progress.json",
+      "sha256": "276942921934139f15876f40dbf9edefa9f201bf3347b26620822a19c2f2665f",
+      "bytes": 1257
+    },
+    "launch.stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/launch.stdout",
+      "sha256": "d7f51a8afb23d49486e5c7de853670194a2099548da9e1a0852efe4fdc8613da",
+      "bytes": 275
+    },
+    "launch.stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/launch.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "missing_full_return_and_origin_read_ledger_recovered": false,
+  "all_bounds_passed": true,
+  "final_custody_error": null,
+  "scope": "Independent qualification of existing actual country products/source closure/comparands/time, preserving original failed controller and normally returned country call. Public portable capture/composition still pending; no vegetation accuracy or LRA/human/rights acceptance."
+}

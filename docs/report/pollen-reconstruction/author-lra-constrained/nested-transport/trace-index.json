@@ -1,0 +1,141 @@
+{
+  "objects": [
+    {
+      "bytes": 12938565,
+      "retention_key": "sha256:0bb64d1f64f63f33b3ad105fef3f339c8d14340e10439ad2678f01d8d1eb3f68",
+      "roles": [
+        "fit:lsm unstable low:training"
+      ],
+      "sha256": "0bb64d1f64f63f33b3ad105fef3f339c8d14340e10439ad2678f01d8d1eb3f68"
+    },
+    {
+      "bytes": 1241940,
+      "retention_key": "sha256:0c2d20aff230455c360cb191f47cb6d3a5fdadb5598dd150c00ab81f95e12823",
+      "roles": [
+        "evaluation:inner-label-access.jsonl"
+      ],
+      "sha256": "0c2d20aff230455c360cb191f47cb6d3a5fdadb5598dd150c00ab81f95e12823"
+    },
+    {
+      "bytes": 147570,
+      "retention_key": "sha256:0da25c98e050946b1a8f6499199ad0147e94d909281499237cde057d8e8dbf4f",
+      "roles": [
+        "evaluation:outer-label-access.jsonl"
+      ],
+      "sha256": "0da25c98e050946b1a8f6499199ad0147e94d909281499237cde057d8e8dbf4f"
+    },
+    {
+      "bytes": 51461,
+      "retention_key": "sha256:20961e961d12e278ed58af3fa8f6ed81e9ccb184d9844de75a1ea1618ce56180",
+      "roles": [
+        "evaluation:transport-selection.json"
+      ],
+      "sha256": "20961e961d12e278ed58af3fa8f6ed81e9ccb184d9844de75a1ea1618ce56180"
+    },
+    {
+      "bytes": 7035553,
+      "retention_key": "sha256:23da0ddce33e70b31dc9e1a7081890927bbdfc9ee9d822c8a679662e2f4735a5",
+      "roles": [
+        "fit:lsm unstable low:trials"
+      ],
+      "sha256": "23da0ddce33e70b31dc9e1a7081890927bbdfc9ee9d822c8a679662e2f4735a5"
+    },
+    {
+      "bytes": 6995580,
+      "retention_key": "sha256:304238b7a50f241e40d80b3bc24547a3b751b45df6eadd8bd646742dbcc11c45",
+      "roles": [
+        "fit:gpm unstable:trials"
+      ],
+      "sha256": "304238b7a50f241e40d80b3bc24547a3b751b45df6eadd8bd646742dbcc11c45"
+    },
+    {
+      "bytes": 12922472,
+      "retention_key": "sha256:4a1e74a12012a9d8877b2eed64365262ce4ff088f150151150d223f2004745e7",
+      "roles": [
+        "fit:lsm unstable:training"
+      ],
+      "sha256": "4a1e74a12012a9d8877b2eed64365262ce4ff088f150151150d223f2004745e7"
+    },
+    {
+      "bytes": 12896089,
+      "retention_key": "sha256:4ddd5ab69855b6b2073471666700cb54628c3884a1fd58197d284f30a3014246",
+      "roles": [
+        "fit:gpm unstable:training"
+      ],
+      "sha256": "4ddd5ab69855b6b2073471666700cb54628c3884a1fd58197d284f30a3014246"
+    },
+    {
+      "bytes": 127260565,
+      "retention_key": "sha256:675ae5d4721f0c68cc7aa3c231d0b71ed1cb97f2d753ba825c08d4c5485948fb",
+      "roles": [
+        "evaluation:candidate-prediction-freeze.json"
+      ],
+      "sha256": "675ae5d4721f0c68cc7aa3c231d0b71ed1cb97f2d753ba825c08d4c5485948fb"
+    },
+    {
+      "bytes": 843443,
+      "retention_key": "sha256:7416e0a72b901ce3f4344c24ca44c76fb13da5abd734eb9d8fc9068461c6e5ab",
+      "roles": [
+        "evaluation:report.json"
+      ],
+      "sha256": "7416e0a72b901ce3f4344c24ca44c76fb13da5abd734eb9d8fc9068461c6e5ab"
+    },
+    {
+      "bytes": 12964857,
+      "retention_key": "sha256:79290f1658ee069d7a52fbdf8720e4eb4c680d94d982a9ddab6b86e6a72b8417",
+      "roles": [
+        "fit:1overd:training"
+      ],
+      "sha256": "79290f1658ee069d7a52fbdf8720e4eb4c680d94d982a9ddab6b86e6a72b8417"
+    },
+    {
+      "bytes": 2162037,
+      "retention_key": "sha256:8de7b143baa059496508040a9402563ea3eca87c3fc0313fb8a426dc81af76e1",
+      "roles": [
+        "fit:gpm neutral:trials"
+      ],
+      "sha256": "8de7b143baa059496508040a9402563ea3eca87c3fc0313fb8a426dc81af76e1"
+    },
+    {
+      "bytes": 1759866,
+      "retention_key": "sha256:981173937e5c0346fffc1a10902ca2f05d1236aecb0e4a184d0a54811ab3be95",
+      "roles": [
+        "evaluation:selected-prediction-freeze.json"
+      ],
+      "sha256": "981173937e5c0346fffc1a10902ca2f05d1236aecb0e4a184d0a54811ab3be95"
+    },
+    {
+      "bytes": 7020453,
+      "retention_key": "sha256:b1a01eb5424d6607d730110d426c7d52ebc6b4b5aed59ef469ab7ba688fb25fe",
+      "roles": [
+        "fit:lsm unstable:trials"
+      ],
+      "sha256": "b1a01eb5424d6607d730110d426c7d52ebc6b4b5aed59ef469ab7ba688fb25fe"
+    },
+    {
+      "bytes": 8414108,
+      "retention_key": "sha256:b2ca549a4ab331e712030167f82bc4a17006b4c7bdefc45c6be3752acc1fb99a",
+      "roles": [
+        "fit:gpm neutral:training"
+      ],
+      "sha256": "b2ca549a4ab331e712030167f82bc4a17006b4c7bdefc45c6be3752acc1fb99a"
+    },
+    {
+      "bytes": 14781498,
+      "retention_key": "sha256:bf706890860b5a4e890fd26f352ee7afda7e5293175055880ff32fb972b8ff6e",
+      "roles": [
+        "evaluation:inner-scores.json"
+      ],
+      "sha256": "bf706890860b5a4e890fd26f352ee7afda7e5293175055880ff32fb972b8ff6e"
+    },
+    {
+      "bytes": 7059579,
+      "retention_key": "sha256:dbdc65b7f2dfb8c6f581d788819529dad2f81ea59869672b121046928a93a743",
+      "roles": [
+        "fit:1overd:trials"
+      ],
+      "sha256": "dbdc65b7f2dfb8c6f581d788819529dad2f81ea59869672b121046928a93a743"
+    }
+  ],
+  "schema_version": "author-love-transport-trace-index.v1"
+}

@@ -52,11 +52,36 @@ answers product reproducibility and semantic-diff questions. It does not turn
 modeled LandClim cover, dated SEAD context or spatial overlap into independent
 vegetation truth or a multi-evidence causal trajectory.
 
+## Current source-bound observation
+
+A separate [current native receipt](../../../../../reports/science/country-reports/sweden-current-receipt.json) and [source witness](../../../../../reports/science/country-reports/sweden-current-semantic-replay.json) retain a later Sweden country-report observation. The original receipt and its unresolved acceptance remain unchanged.
+
+The country method returned normally once inside the original controller and whole, which each exited 1 after a before-read denial of the qualified absent default Python ZIP. A separate saved-product observer and its whole each exited 0. The portable metadata assembly, independent observer and whole each exited 0; they repeated no country API or model.
+
+The original country execution candidate is `bb932d72721f8c9620f29d179984b52ce755dc37`; its owned source candidate is `ed6f5dbeae2bbe8e50c1835cb0c39a40277a8485`. The unchanged date.today() call used TZ=UTC0 and generated `2026-10-15`. Git source transport references preserve original source bytes and do not claim execution on a rewritten commit.
+
+Semantic status is `changed`. All six categories and their observed changes remain literal:
+
+| Semantic category | Observed entries |
+| --- | ---: |
+| `source_membership` | 0 |
+| `normalized_identity_or_value` | 1 |
+| `policy_or_weighting` | 0 |
+| `admission_or_exclusion` | 0 |
+| `scientific_result` | 8 |
+| `presentation` | 0 |
+
+The separate native byte checker returned `2` (`2` denotes changed bytes). The eight scientific changes are retained human-aDNA counts. They are product observations, not vegetation validation.
+
+Full captured in-memory return, read and import-origin telemetry remains unavailable. Actual CSV, GeoJSON, all 21 locality CSV columns and summaries are checked separately from the expected independent typed reconstruction. Neither this observation nor matching source identities establish the full original receipt criterion, vegetation truth, biological validity, causal trajectories, source-use rights, human approval or LRA admission. Missing authorities stay unavailable or refused; absence is not an observed zero.
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 
 Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.
+
+The current source-bound replay is a distinct execution epoch; its source-owned date, complete source/resource/comparand closure and actual semantic differences are retained in the current witness. The original receipt and original reader qualification remain literal historical evidence.
 
 **Supported claim.** The retained native replay receipt reports byte-identical six-target 150-window country products and a field-classified comparison with the earlier two-target 50-window product.
 
@@ -81,6 +106,10 @@ Swedish observed pollen/modeled land use/archaeological context has separate pro
 - [Retained qualification evidence: docs/report/countries/sweden/land-use-replay/historical-comparison.json](historical-comparison.json) (SHA-256 `e1332c72d19be249be19099cfadade66817c1f59425677391f8b0564f42e6d41`).
 
 - [Retained qualification evidence: docs/report/countries/sweden/sweden_land_use_synthesis_v66.json](../sweden_land_use_synthesis_v66.json) (SHA-256 `c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380`).
+
+- [Retained qualification evidence: reports/science/country-reports/sweden-current-receipt.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-reports/sweden-current-receipt.json) (SHA-256 `3978e168721dc66ac8c36dc160203f2043c67d5433fdb8377d0808899345aa08`).
+
+- [Retained qualification evidence: reports/science/country-reports/sweden-current-semantic-replay.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-reports/sweden-current-semantic-replay.json) (SHA-256 `935a24e5ec96d45c6580b3add8574f0765a3b0c337c33ad5455cad4cae2f8653`).
 
 - [Canonical scientific account: reports/science/sweden-lake-trajectory.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md).
 

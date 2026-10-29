@@ -1,0 +1,93 @@
+{
+  "objects": [
+    {
+      "bytes": 37960,
+      "retention_key": "sha256:1e6cf6857d21fd0439b33f46b59df598f5228a32ebf33262a379011ecb913e6a",
+      "roles": [
+        "evaluation:transport-selection.json"
+      ],
+      "sha256": "1e6cf6857d21fd0439b33f46b59df598f5228a32ebf33262a379011ecb913e6a"
+    },
+    {
+      "bytes": 735714,
+      "retention_key": "sha256:3d12a2ea764b50ca1e8a0343e5c577b2cc861c686959cd56e013f741acb37c08",
+      "roles": [
+        "evaluation:inner-label-access.jsonl"
+      ],
+      "sha256": "3d12a2ea764b50ca1e8a0343e5c577b2cc861c686959cd56e013f741acb37c08"
+    },
+    {
+      "bytes": 562465,
+      "retention_key": "sha256:514c58e7a0f1f7666b356636b395624c35f43948ba99971521cf3780e75d2fef",
+      "roles": [
+        "evaluation:report.json"
+      ],
+      "sha256": "514c58e7a0f1f7666b356636b395624c35f43948ba99971521cf3780e75d2fef"
+    },
+    {
+      "bytes": 7012156,
+      "retention_key": "sha256:563bc830a408f3c30907d129a8e7b05047ea06e62f3d6e4d3f46924f02392552",
+      "roles": [
+        "fit:ppe-plus-source-sd:trials"
+      ],
+      "sha256": "563bc830a408f3c30907d129a8e7b05047ea06e62f3d6e4d3f46924f02392552"
+    },
+    {
+      "bytes": 12908274,
+      "retention_key": "sha256:5c218b79ce81cb667a8c3a5c51fe9b969f6ad11ddf3a5e74d6953f6aee63baca",
+      "roles": [
+        "fit:ppe-minus-source-sd:training"
+      ],
+      "sha256": "5c218b79ce81cb667a8c3a5c51fe9b969f6ad11ddf3a5e74d6953f6aee63baca"
+    },
+    {
+      "bytes": 12912337,
+      "retention_key": "sha256:6371c7f23915965acc2bcc489399d7de4320cfa7ac02adc67e0ecac6a294df18",
+      "roles": [
+        "fit:ppe-plus-source-sd:training"
+      ],
+      "sha256": "6371c7f23915965acc2bcc489399d7de4320cfa7ac02adc67e0ecac6a294df18"
+    },
+    {
+      "bytes": 7007573,
+      "retention_key": "sha256:63c844054b09c1a00d6e3738c9fadc7b396a39a35b6ab10f79db582517531e19",
+      "roles": [
+        "fit:ppe-minus-source-sd:trials"
+      ],
+      "sha256": "63c844054b09c1a00d6e3738c9fadc7b396a39a35b6ab10f79db582517531e19"
+    },
+    {
+      "bytes": 8874791,
+      "retention_key": "sha256:655c46ba5307e439fb2dbab23af8ae5db93e86145fb3be469444447e20a84199",
+      "roles": [
+        "evaluation:inner-scores.json"
+      ],
+      "sha256": "655c46ba5307e439fb2dbab23af8ae5db93e86145fb3be469444447e20a84199"
+    },
+    {
+      "bytes": 87948,
+      "retention_key": "sha256:9e7693f6a51a4ab7deb6a214890b7935cb69b79e23b6a7c490afa9270068f039",
+      "roles": [
+        "evaluation:outer-label-access.jsonl"
+      ],
+      "sha256": "9e7693f6a51a4ab7deb6a214890b7935cb69b79e23b6a7c490afa9270068f039"
+    },
+    {
+      "bytes": 1710885,
+      "retention_key": "sha256:d3a0c4f96a5fb6460f67f39c1d8a63fdeea3f107035a099463b650545a69ab70",
+      "roles": [
+        "evaluation:selected-prediction-freeze.json"
+      ],
+      "sha256": "d3a0c4f96a5fb6460f67f39c1d8a63fdeea3f107035a099463b650545a69ab70"
+    },
+    {
+      "bytes": 75177728,
+      "retention_key": "sha256:f60f2ca322316b5ee823ad5ac96302e960d921e920c0444f6e6a4bfd71845fb5",
+      "roles": [
+        "evaluation:candidate-prediction-freeze.json"
+      ],
+      "sha256": "f60f2ca322316b5ee823ad5ac96302e960d921e920c0444f6e6a4bfd71845fb5"
+    }
+  ],
+  "schema_version": "author-love-ppe-trace-index.v1"
+}

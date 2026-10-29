@@ -1,0 +1,76 @@
+{
+  "actual_exit": 0,
+  "approved": true,
+  "candidate": "992257309805272a22e53c7ebb2cf5004117185e",
+  "collected_execution": {
+    "bytes": 298,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-execution/collected-execution.json",
+    "sha256": "1b5f603a500b0ca7cabc97be4316fe9e5acf417297b200d4c1b7e1e446f022da"
+  },
+  "independent_plan_review": {
+    "bytes": 3053,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-support-independent-review/independent-ring-predictor-lineage-plan-review.json",
+    "sha256": "ccddbc494f8fd38b49c57ef733484e5d6787e20d4e0dd4b9808c949a2c4cd969"
+  },
+  "independent_source_review": {
+    "bytes": 3134,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ppe-support-independent-review/independent-ring-predictor-lineage-source-review.json",
+    "sha256": "a368c97aaf11fbfef1aa431a691a2d62a9b9f7e3d3b14b003ec754803381d4d8"
+  },
+  "native_terminal": {
+    "bytes": 3161,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-execution/native/terminal.json",
+    "sha256": "06d6a11cf28109bfd106721c5cf97dc04a033c0e861f963d1e1e88e04430ee14"
+  },
+  "observation": {
+    "bytes": 1349728,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-execution/native/ring-support.json",
+    "sha256": "fa83a2d16b86c9fa81b957ce5110cf7f17b381e542a75238b60d3612e00babbf"
+  },
+  "original_failed_ring_native_terminal": {
+    "bytes": 3152,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-admitted-ring-support-execution/native/terminal.json",
+    "sha256": "a83ef0c7cdc7336ac49a14774f7a0938dbbf198829d5fedf429ea31fdb558102"
+  },
+  "plan": {
+    "bytes": 912125,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-execution/plan.json",
+    "sha256": "f121a65d28bfdae75b6c109bcce2ac21d92207206199ec66d7c61905df2c390a"
+  },
+  "protocol": {
+    "bytes": 8938,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-proposal/protocol.json",
+    "sha256": "8e0cf5c97bac4ab5c04f29e88e06a0948e91c6be4e4db4df1b2637cde993d9f8"
+  },
+  "resources": {
+    "all2623_source_before_after_mismatches": 0,
+    "completed_child_peak_rss_bytes_macos": 758693888,
+    "elapsed_native_seconds": 18.244788540992886,
+    "logical_output_bytes": 1351527
+  },
+  "schema_version": "author-love-ring-support-independent-output-review.v1",
+  "scope": "Admit the genuine source-bound deterministic argument and saved-value congruence proof only. Actual current named GPM source zero-shell behavior plus homogeneous equal selected covers supports these675 conditional500m probability-value projections; no ecological insensitivity, biological validity, physical RSAP calibration, new prediction manifest execution or new optimization/forward/scoring result is inferred. Original39 nominal saved products remain under their original70dd/7953 native1 plus separate recovery0 admission. Preserve failed5d ordered-lineage run and original not_evaluated/native_reuse_admitted:false pure fields literally; this review does not rewrite them or close the whole scientific requirement. No numerical reader/objective/kernel/forward/score was rerun by peer.",
+  "source_derived_equivalence_admitted": true,
+  "source_manifest": {
+    "bytes": 2781,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-ring-predictor-lineage-proposal/source-proposal.json",
+    "sha256": "f3a2b5dc4a5d76f7b3cada64864c6c1f9d3f72c480caeeee06813db1426ee8c6"
+  },
+  "summary": {
+    "accepted_ring0_attempts": 1150,
+    "equal_selected_covers": 39,
+    "geometry_proofs": 15,
+    "inner_projections": 630,
+    "new_forward_calls": 0,
+    "new_kernel_calls": 0,
+    "new_optimizer_calls": 0,
+    "new_prediction_manifests_executed": false,
+    "new_score_calls": 0,
+    "nominal_probability_value_projections": 675,
+    "outer_projections": 45,
+    "refused_ring0_attempts": 98,
+    "saved_ring0_attempts": 1248,
+    "selected_support_compositions": 39,
+    "support_request_aliases": 39
+  }
+}

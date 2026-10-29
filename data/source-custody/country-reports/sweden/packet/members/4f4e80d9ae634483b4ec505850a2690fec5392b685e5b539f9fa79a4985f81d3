@@ -1,0 +1,93 @@
+{
+  "scope": "Named metadata and current lstat only; no runtime census, Python import, country replay or source data read. Existing audit denial occurs before actual file open, so refused path supplies no bytes. Current absence is a separate observation from original runtime namespace custody.",
+  "native_plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/plan.json",
+    "sha256": "b4458d45c74b43e96cea0b468ba0885b579253273e685185e37aa49ac2347cef",
+    "bytes": 18644986
+  },
+  "native_clock": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/country-clock-observation.json",
+    "sha256": "7eaf9a50199b6e112574efa8789386b604a449f60c17e5a38027329318698db2",
+    "bytes": 1655
+  },
+  "typed_callable": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/country-callable-identity.json",
+    "sha256": "a134c6cbda4de33494b04d247b5530d2de6edc3faa3c47d710b5a1eacdcc0b08",
+    "bytes": 859
+  },
+  "native_country_calls": 1,
+  "native_country_exception": null,
+  "native_return_events": [
+    {
+      "object_present": true,
+      "object_type": "CountryReport"
+    }
+  ],
+  "native_generated_on": "2026-10-15",
+  "exact_refused_path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python311.zip",
+  "denials": [
+    "Undeclared maintained country input read: /opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python311.zip"
+  ],
+  "qualified_runtime_metadata": [
+    {
+      "role": "plan",
+      "identity": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json",
+        "sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4",
+        "bytes": 32228643
+      },
+      "exact_ZIP_locations": [
+        "/absent_input_paths/0"
+      ],
+      "exact_absence_listed": true,
+      "containing_named_namespaces": [
+        {
+          "field": "base_namespaces",
+          "root": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11",
+          "relative_name": "lib/python311.zip",
+          "excluded": [
+            "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages"
+          ]
+        }
+      ]
+    },
+    {
+      "role": "common",
+      "identity": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/terminal.json",
+        "sha256": "300f9518c2b20ce3d79b39e8879f111d6febfb6dd48890f5e9cd02a8d71a431c",
+        "bytes": 5814
+      },
+      "exact_ZIP_locations": [],
+      "exact_absence_listed": false,
+      "containing_named_namespaces": []
+    },
+    {
+      "role": "outer",
+      "identity": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/runtime-observation-terminal.json",
+        "sha256": "1fcb3926925c5e186b3885e19f0325890f9bd8a536a243793e12e2ee178a7fec",
+        "bytes": 2885
+      },
+      "exact_ZIP_locations": [],
+      "exact_absence_listed": false,
+      "containing_named_namespaces": []
+    },
+    {
+      "role": "independent_review",
+      "identity": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-runtime-review.json",
+        "sha256": "9d71bfabd836242b5ec9dcf96e5d2a124200a77dea4975bdf8b19529d04ba059",
+        "bytes": 117592
+      },
+      "exact_ZIP_locations": [],
+      "exact_absence_listed": false,
+      "containing_named_namespaces": []
+    }
+  ],
+  "current_named_entry_lstat": {
+    "exists": false,
+    "lstat_exception": "FileNotFoundError"
+  },
+  "physical_ancestor_aliases": []
+}

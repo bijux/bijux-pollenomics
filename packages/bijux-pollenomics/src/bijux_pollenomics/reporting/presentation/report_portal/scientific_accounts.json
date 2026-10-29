@@ -1590,7 +1590,7 @@
           "report_path": "reports/science/source-cohorts.md"
         }
       ],
-      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.",
+      "scope_reason": "Swedish observed pollen/modeled land use/archaeological context has separate provenance and no causal or ecological validation.\n\nThe current source-bound replay is a distinct execution epoch; its source-owned date, complete source/resource/comparand closure and actual semantic differences are retained in the current witness. The original receipt and original reader qualification remain literal historical evidence.",
       "qualification": {
         "fields": {
           "supported_claim": "The retained native replay receipt reports byte-identical six-target 150-window country products and a field-classified comparison with the earlier two-target 50-window product.",
@@ -1615,6 +1615,14 @@
           {
             "path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
             "sha256": "c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380"
+          },
+          {
+            "path": "reports/science/country-reports/sweden-current-receipt.json",
+            "sha256": "3978e168721dc66ac8c36dc160203f2043c67d5433fdb8377d0808899345aa08"
+          },
+          {
+            "path": "reports/science/country-reports/sweden-current-semantic-replay.json",
+            "sha256": "935a24e5ec96d45c6580b3add8574f0765a3b0c337c33ad5455cad4cae2f8653"
           }
         ]
       }
@@ -2079,7 +2087,7 @@
         "fields": {
           "supported_claim": "For the retained six-site 225 BP author example and ten selected taxa, the same first 1,000 paired indices compare ratio-of-unclosed-means with arithmetic mean-of-closed-vectors; the largest retained mean difference is 0.0016233449666228639 fraction.",
           "unsupported_claim": "This compares two aggregation definitions on shared prepared inputs; it establishes neither independent field vegetation accuracy, an exact new ten-taxon historical R reproduction nor additive uncertainty components.",
-          "actual_verification_performed": "Executed the maintained author-site profile comparison on local main at 0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b, after the genuine source-bound uncertainty outputs were adopted, and an independent complete-product observer; both native stages exited zero. All typed scientific values matched the retained comparison, using the exact first 1,000 of 1,024 stored draw identities for six original sites and ten selected taxa. Seven changed metadata leaves bind the actual upstream report and current calculation source; no new R execution or ecological model fit was performed.",
+          "actual_verification_performed": "Executed the maintained author-site profile comparison on local main at 0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b, after the genuine source-bound uncertainty outputs were adopted, and an independent complete-product observer; both native stages exited zero. All typed scientific values matched the retained comparison, using the exact first 1,000 of 1,024 stored draw identities for six original sites and ten selected taxa. Seven changed metadata leaves bind the actual upstream report and current calculation source; no new R execution or ecological model fit was performed. The original author-profile owner remains unresolved because the required lawful custody of its six exact private site-count tables is not established by the named identity manifest or methods README. The original criterion is preserved; its producer list follows one disclosed byte-identical maintained-module relocation. The completed profile computation and all eight author evaluation products remain authentic scientific evidence, while only the seven uncertainty and holdout products retain their existing source-owner admission. No permission, unlawfulness, numerical result, ecological inference or human decision is added.",
           "remaining_input_or_review": "Current-source owner replay and its reader/report references are reconciled. Independent interpretation of the selected taxon population, justified chronology and geometry, source rights and any matched measured vegetation target remain separate scientific acceptance.",
           "cause_category": "Current-source conditional aggregation comparison on shared author-derived data, with authenticated upstream uncertainty and unchanged paired scientific values.",
           "consequence": "The current calculation and reader now bind the same source report and code epoch. The retained mean discrepancy still follows closure order even with shared draws and cannot identify which profile is ecologically more accurate.",
@@ -2091,6 +2099,10 @@
           {
             "path": "docs/report/method-certification/author-site-profile-comparison/report.json",
             "sha256": "73649b9d5e5c3b4699840148140b4b0edab8fd939e82b357852e2e162792dde4"
+          },
+          {
+            "path": "reports/science/method-certification/author-profile-source-acceptance.json",
+            "sha256": "f0d8e7b199f6de051cb3fef852d378bdb80d57a61da7a21ca36148f7f488bd7d"
           }
         ]
       }
@@ -3577,6 +3589,347 @@
       }
     },
     {
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "qualification": {
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/analytical-diagnostics/report.json",
+            "sha256": "6c174ccf083ce86557c6c9dd196f5e0b7d245ad419cef0b7dea5f0ac5d977315"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/analytical-diagnostics/trace-index.json",
+            "sha256": "d905dd1753420eb64b07456b8711771f77fe0803fc25e4fef9ac3b882d5d61a4"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-analytical-diagnostics.json",
+            "sha256": "5157bea6f7682f193ab9f4834c40f062f96d516a2880a1626256142fe89bd5d5"
+          },
+          {
+            "path": "reports/science/author-love-analytical-diagnostics/protocol.json",
+            "sha256": "17a56327cab995eb3f44b3c2fd03a68d0de31261c87d13d0a236bf3d5ba55b89"
+          }
+        ],
+        "fields": {
+          "actual_verification_performed": "Genuine native0 source23ea with39directLOVEcalls/0newREVEALS/optimizer/forward/score. Independent review5157 admits source/identity/rawvalues/78dispositions and2340saved-kernel equation6scalar comparisons, maximum absolute difference2.6645352591003757e-15; kernels not independently recomputed. New publication source15cases/strict4/style4/format4 passes without models or private trace access in callback.",
+          "cause_category": "algorithm/numerical | source profile | comparability | qualified scientific review",
+          "consequence": "Raw analytical estimates are diagnostic information; approximate sum-to-one does not admit negative/above-one fractions for the maintained prediction layer. Preserve all failed and successful source epochs separately.",
+          "matched_denominator": "39unique current analytical request pairs/15sites/30taxa/2rings=78rawringestimates and2340taxon-ring equation checks;2715logical ancestry references across225contexts, one source-declared1250\u20131750calendarBP TW5 bin, no independent observation multiplication.",
+          "negative_or_refused_result": "All78raw rings invalid:605negative taxon cells;29above-one cells across25rings;0closed/0nonfinite and0requestrefusals. Rawrange\u22126.244057847319786to7.033443702493641. Originalnominalnative1/separate recovery0 and earlier31taxon cases remain distinct.",
+          "precise_next_acceptance_route": "Review the exact analytical geometry/regional correction and physical input support; freeze any alternative scientific profile independently before new numerical comparisons. Do not clip this result or infer a tuning winner.",
+          "remaining_input_or_review": "Scientific interpretation of source-profile geometry and regional correction, independent matched-support evidence and broader method/domain comparisons remain separate from this diagnostic; no missing or rights decision is supplied here.",
+          "supported_claim": "The named current thirty-taxon source-compatible deterministic analytical profile returned39requests/78geometry-supported raw ring estimates on exposed English TW5 inputs. All78 contain negative values,25alsoexceedone,and0areclosedcompositions; retain this negative diagnostic.",
+          "unsupported_claim": "Generic analytical LOVE failure, a fullrun_lra_cached request replay, new predictions/scores/method choice, calibrated uncertainty, independent vegetation/untouched accuracy, physical adequacy, rights/human decisions or whole scientific/release acceptance."
+        }
+      },
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/analytical-diagnostics/README.md",
+      "scope_reason": "Expose the actual current analytical raw negative result as a separate source-bound diagnostic, not a prediction or method-selection success."
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/clr-spatial-domain/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Dataset-specific applicability limit of the maintained positive-only CLR source on admitted zero-containing development compositions; no scale eligible, no new forward accuracy claim.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "All450 maintained CLR API invocations at20km/100km refuse zero-containing training compositions before ridge work; all15 outer selections remain null.",
+          "unsupported_claim": "General CLR failure, physical model superiority, a tuned winner, empirical vegetation/untouched accuracy, physical source/RSAP truth, rights/human/release or whole model-development acceptance.",
+          "actual_verification_performed": "Actual registered native/stage/collector zero at23ea; independent saved-output review authenticates all225 contexts/2715 ancestry/39 nominal vectors,26 zero-containing vectors80zero cells,450typed refusals420inner30outer and15null choices. No model rerun.",
+          "remaining_input_or_review": "Any alternative zero treatment or compositional/spatial model needs an explicitly declared independent development protocol and applicability evidence; broader physical/empirical/source/qualified review remains separate.",
+          "cause_category": "algorithm/numerical | model assumption | applicability | qualified review",
+          "consequence": "Positive-only CLR cannot evaluate these source-bound zero-containing training sets. Both scales are ineligible; a null choice is not a tuning winner.",
+          "precise_next_acceptance_route": "Preserve zeros and review a justified model-domain alternative with train-only selection and complete refusal accounting before making comparative accuracy claims.",
+          "negative_or_refused_result": "All450 calls returned spatial_zero_composition_unsupported. No imputation/clamp/taxon removal; original nominal native1 remains separate from saved recovery0, and consumer scientificmainreturn is not captured. Source control-flow zeros are not direct arbitrary numerical instrumentation.",
+          "matched_denominator": "39 exact admitted nominal request vectors;26 contain80zeros.225nested contexts (15outer+210inner) \u00d72scales=450API refusals,420inner30outer candidates;15null outer selections and0eligible scales."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/clr-spatial-domain/report.json",
+            "sha256": "e77231ca38ac41d2ed45550e669b246d2f624fb56d93dee384df678f890eb49d"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/clr-spatial-domain/trace-index.json",
+            "sha256": "b3964206399b10c3a273fc588dfbd8d2d1cde36ef7eb668276e58b4133e9baa0"
+          },
+          {
+            "path": "reports/science/author-love-clr-spatial-domain/protocol.json",
+            "sha256": "5ff3a6cb2b49f0e506a2eb694b8104f46ed6159484474e5d3b7a7a13ea8e41c4"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-clr-spatial-domain.json",
+            "sha256": "5dd762f570160ab15d15c863e55c695c3246e6e97739bac0f8d9540ea3f203dd"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Homogeneous retrospective prior-exposed English fixed-start LOVE development cohort; unique attempts, logical reuse references, per-fold target exclusion, complete45-slot freeze, conditional chronology/geometry and refusals remain distinct.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "Source-bound homogeneous retrospective fixed-start LOVE and forward-pollen development comparison with explicit unique-fit/reuse and fold-refusal populations.",
+          "unsupported_claim": "Independent vegetation accuracy, untouched confirmation, calibrated uncertainty, optimizer global optimum, R parity, installed distribution qualification, source rights or release approval.",
+          "actual_verification_performed": "Actual native/common/outer exits zero on 5998a3c616e02c9e702fae8048ffbff6f40435d2; saved-output review authenticated1,728 unique attempts,896 new/832 reused,195 logical requests/27 unique numerical requests,12,480 references,45 frozen slots and independently recomputed retained pollen scores. Actual acceptance/refusal counts: 1588/140; predicted/refused folds: 15/0.",
+          "remaining_input_or_review": "Qualified ecological review, independent compatible measured vegetation/support and genuinely untouched outcomes remain required for broader accuracy; uncertainty calibration remains separate.",
+          "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
+          "consequence": "Preserve each numerical refusal, all three baselines, per-fold mismatch and shared-training dependence. Do not treat reuse references as new evidence or combine these scores with the separate uniform-start method.",
+          "precise_next_acceptance_route": "Review the homogeneous prior-exposed development evidence, then prospectively freeze an independently admitted cohort and physical-support protocol before untouched accuracy outcomes.",
+          "negative_or_refused_result": "Retain all 140 refused unique attempts, 0 refused folds and every measured pollen mismatch; unavailable fold scores remain absent rather than zero.",
+          "matched_denominator": "15 prior-exposed sites;195 fold-specific requests/27 numerical requests;896 new+832 reused=1,728 unique attempts;12,480 logical references;45 prediction/refusal slots across three baselines."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/outcome-access.jsonl",
+            "sha256": "08643e07835ca56f79835d4e3d0e563f6bcca1bc14158d15e4d1d6b936b5bd06"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/prediction-freeze.json",
+            "sha256": "1459879a51fe6263e587316a7eeaf80baffbe74b717618024618b7d5f944d81b"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/report.json",
+            "sha256": "e9b96bd8f2d8bb3c625d6e9fd847d3db27a16f0cc42f0623d40ccb0db94a0d9b"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/training.json",
+            "sha256": "ba24a3d9d7a41b8be459c61078ff975422483ce9b8c26eac8155ea02f4938e2f"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/trials.jsonl",
+            "sha256": "3db9d3c352e869ea09d44d0577c32d3ebe16f7944001bedd5e2ae6e81386fad9"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/protocol.json",
+            "sha256": "6a87258f9495c417efb45e5a973a566134c7f7f28cecbe741777577ed0066585"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-cohort-development.json",
+            "sha256": "41ba3a2d8765d9cd9feaf86a7d6c9232bfc1898e12ffb0da523d7a235b3e0c23"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound retrospective fixed-start English development-fold prediction and descriptive pollen scoring. Preserve its own 832-attempt denominator, raw rounded regional mass, conditional geometry/chronology, prior exposure, prediction freeze and all original-study outcomes.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "All 13 declared training predictors supplied accepted LOVE compositions at both rings under the frozen fixed-start rule. The unchanged forward consumer produced three separately frozen pollen predictions and retrospective scores for the BECKHAM development target.",
+          "unsupported_claim": "Independent ecological or measured-vegetation accuracy, untouched confirmation, calibrated uncertainty, global optimality, original R optimizer parity, installed distribution qualification, source-rights admission or release approval.",
+          "actual_verification_performed": "The actual registered consumer ran on clean base f0383c0bfcbbb7baac3f1cd974052550896f0867 with separately authenticated replay, training and scientific-protocol files absent from that Git tree. Native/common/outer exits were zero. Source/input/runtime custody passed. The new 704 attempts retain 632 acceptances and 72 refusals; the authenticated 128 earlier attempts retain 84 acceptances and 44 refusals. Independent saved-output arithmetic checked all 832 outcomes, 26 ring selections, 13 predictors, exact prediction freeze and three count-conditioned score rows on 699 target grains.",
+          "remaining_input_or_review": "A homogeneous evaluation across all declared development folds remains separate. Independent compatible physical support, measured vegetation, untouched outcomes and qualified ecological review are required for broader scientific accuracy. This single deterministic point comparison does not calibrate uncertainty.",
+          "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
+          "consequence": "Preserve every refusal and all three predeclared baselines. Successful convergence still leaves target total-variation distances of 0.410519295, 0.337392810 and 0.340007095; report that mismatch alongside numerical completion. Preserve the original uniform-start study and its BECKHAM refusal.",
+          "precise_next_acceptance_route": "Evaluate the frozen method consistently across the declared development folds with failure and spatial-dependence accounting. Any independent accuracy or confirmation claim then requires its own admitted cohort, protocol and qualified review.",
+          "negative_or_refused_result": "116 of 832 optimizer attempts remain refused for a positive directional derivative during line search. Accepted alternatives preserve those refusals. The substantial pollen mismatch at this development target and the earlier uniform-start BECKHAM refusal remain explicit.",
+          "matched_denominator": "Fourteen training records including one regional anchor; 13 local predictors times two rings times 32 starts gives 832 attempts, comprising 704 new and 128 reused. One previously exposed target, 699 integer counts on the original 30-taxon subcomposition, and three spatial baselines. No independent site or observation is added."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/report.json",
+            "sha256": "84843a2b419392e303cd3ecc8cf8b28461f1ad601c600d2fefa1d7eff8578e58"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.json",
+            "sha256": "89d0ba05579676d2882ecb1edfbea88c695f9b07aca639dd2930ea2d95b4dae9"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/trials.jsonl",
+            "sha256": "84fae7553048d2439ab744dedf30d016abf89a74184d6e4180149e39ace43655"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/prediction-freeze.json",
+            "sha256": "5d57b8bcd859d013ddcd554ab1bea2ef2207a6c42820cf1d69fab4777cb528e1"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/outcome-access.json",
+            "sha256": "c6182a5b334204fbed0fd9a846a1aad260f2247314054b8394c77614e518833a"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/protocol.json",
+            "sha256": "4e57812229aeb2d3aad448ac638712b675e299c90f535f163b238f7e72e8124d"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/replay.py"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.py"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-development-fold.json",
+            "sha256": "4d3a460c94fefaf19641c77fef465bb35abd0bd8e46b7251d1def9356d2bef37"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Retrospective saved-score comparison of combined fixed-start/unrounded and uniform-start/host-rounded LOVE methods on14 matched exposed English folds; preserve all15 dispositions and separate unpaired BECKHAM outcomes.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "Exact stored-result support joins and descriptive point-score differences for14 matched folds across three fixed spatial baselines; all15 method dispositions and three unpaired BECKHAM scores retained.",
+          "unsupported_claim": "A causal starting-point effect, method superiority, independent or untouched ecological accuracy, calibrated uncertainty, optimizer global optimum, original R parity, physical cohort acceptance or release approval.",
+          "actual_verification_performed": "Actual saved-result stage, scientific runner and root-collected process exits0 on b30acdff340aa36c9ab28974232f73badd53393d; independent output review joins all210 paired metric cells,42 pairs,15 dispositions,three unpaired scores,three summaries,31 pairs worsening at least one nonbias error metric and both CSV projections. No new fits or pollen rescoring.",
+          "remaining_input_or_review": "All outcomes are previously exposed development evidence. Independent compatible vegetation/support, prospectively untouched outcomes and qualified ecological review remain required for broader accuracy; method/uncertainty/release criteria remain open.",
+          "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
+          "consequence": "Treat the32-start grid and unrounded composition adapter as a combined method change; keep tiny positive and negative point differences, dependent equal-fold weighting, every refusal and unmatched outcome.",
+          "precise_next_acceptance_route": "Review descriptive paired evidence without selecting or claiming superiority from it; prespecify an independently admitted physical-support and untouched-outcome protocol before confirmatory accuracy claims.",
+          "negative_or_refused_result": "Original uniform method refused BECKHAM; no old score is invented.31 of42 paired rows worsen at least one nonbias metric; meanTV differences are positive for all three baselines. All210 actual paired metric comparisons are finite.",
+          "matched_denominator": "14 matched folds per baseline;42 paired rows and210 metric differences. All15 original/cohort dispositions and three separate unpaired cohort BECKHAM scores remain visible; no15-fold paired delta."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/fold-dispositions.csv",
+            "sha256": "9293ffd67fc6feae262f53f64f83db4091d14cbbbabed42dabb5c8c1a55c25d0"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/paired-scores.csv",
+            "sha256": "9ad9a7c730ec479a3a779726c93a466964cf88287e6893288c8ab1b77523a890"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/report.json",
+            "sha256": "27a3e26512acfee8142555c82425c8a3378ee50bae668585e2513e8c443ff4da"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/protocol.json",
+            "sha256": "a53b0c1f8691b204d3cd19326f2055033740105a22efe57abab36025a3df25fd"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/comparison.py"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/replay.py"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/sources.py"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-matched-method-comparison.json",
+            "sha256": "23a6d11f763c0e262a25b6f77dc2437bfaa9f7691ca8db7d2826e7566e2e22f1"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-ppe/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Prior-exposed nested deterministic source-mean plus/minus marginal-SD PPE comparison; preserve coherent REVEALS/LOVE/forward propagation, all candidate/selected dispositions, independent baseline refusals and original nominal admission identity.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "Source-bound deterministic synchronized marginal-SD PPE sensitivity across three candidates, fifteen outer and210 inner contexts,2,025 candidate and45 selected prediction/refusal slots under fixed nominal transport.",
+          "unsupported_claim": "Joint PPE probability or covariance draws, confidence intervals, calibrated coverage, untouched or unbiased ecological accuracy, independent vegetation truth, universal PPE superiority, empirical RSAP, other profile axes, qualified human/source rights or release acceptance.",
+          "actual_verification_performed": "Actual changed-PPE fits and evaluation have native zero on 992257309805272a22e53c7ebb2cf5004117185e; independent saved-output admission preserves 4,992 new and 2,496 nominal attempts,1,890 inner and135 outer candidate dispositions,45 selected scores and 0 selected refusals. This metadata publication reruns no fits, forward model or pollen scoring.",
+          "remaining_input_or_review": "These previously exposed sites do not provide untouched accuracy or independent vegetation support. Joint parameter uncertainty, other PPE/support/spatial/temporal/forward settings and qualified scientific/human/source-rights decisions remain separate.",
+          "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
+          "consequence": "Preserve changed regional numerical values with unchanged three-decimal rounding/raw-fraction handoff rules, equal-scored-fold point summaries, all refusals and separate old nominal failure/new fit successes.",
+          "precise_next_acceptance_route": "Review admitted deterministic PPE development evidence within its exact fixed-profile scope; independently admit additional physical-support and untouched-outcome designs before broader ecological or uncertainty acceptance.",
+          "negative_or_refused_result": "Original nominal fit native1 and unknown final return/full later origin inventory remain unchanged despite separate saved-product admission. Of 4,992 new PPE attempts,320 were refused;0 of45 selected outer dispositions were refused. No absent score or nominal refit is invented.",
+          "matched_denominator": "Fifteen outer whole-site folds, fourteen inner sites per outer fold, three PPE candidates and three spatial baselines:1,890 inner plus135 outer candidate slots,45 selected slots,4,992 new plus2,496 retained nominal attempts and7,488 unique attempts; repeated references are not independent fits or observations."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-ppe/report.json",
+            "sha256": "514c58e7a0f1f7666b356636b395624c35f43948ba99971521cf3780e75d2fef"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-ppe/trace-index.json",
+            "sha256": "d90d0b1552c20ba63674fe5d06a60017f6f9ac79d1ad626f7c1dd53d06eb0a5b"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-ppe/protocol.json",
+            "sha256": "d9f4fbae4c8aa373158abfba5a7062dc01a39ebd584cde7e5938f5c6141718b4"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+            "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-nested-ppe.json",
+            "sha256": "3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Retrospective nested transport comparison on fifteen previously exposed author sites; preserve all candidate and selected dispositions, inner selection boundaries, original fit refusals and separate successful saved-product recovery and evaluation.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "Source-bound saved-result evidence for five transport candidates, fifteen outer and210 inner contexts,3,375 candidate and45 selected prediction/refusal slots under one fixed author LOVE profile.",
+          "unsupported_claim": "Untouched or unbiased ecological accuracy, independent vegetation truth, universal transport superiority, other PPE/RSAP/spatial/temporal/forward settings, optimizer global optimality, source rights, human acceptance or release approval.",
+          "actual_verification_performed": "Actual corrected evaluation native/stage exit0 on70dd58ce28071d3b4ef34af2c800370a52d42bf9; separate no-fit observer and independent saved-output review approved118,125 numeric cells,3,375 candidate dispositions,3,150 inner scores and45 selected outer scores. No fits or forward scoring are rerun by this public reader.",
+          "remaining_input_or_review": "Other model-setting axes, independently compatible vegetation/support, untouched outcomes and qualified scientific/human review remain separate requirements. The previously exposed cohort cannot supply an untouched accuracy claim.",
+          "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
+          "consequence": "Preserve equal-fold point diagnostics and every scored/refused denominator; the descriptive transport selection does not grant independent sampling or empirical vegetation validation.",
+          "precise_next_acceptance_route": "Review the admitted transport-only development evidence with exact fixed-profile and source-convention limits; complete other declared model settings and independently admitted physical-support and outcome protocols before broader scientific claims.",
+          "negative_or_refused_result": "All five original fit native exits remain1 from the post-body origin guard; original final return and later full module-origin admission remain unqualified. Separate new recovery/evaluation statuses do not rewrite these failures. Of10,752 new starts,543 were refused; all45 selected outer slots were scored with no selected refusals.",
+          "matched_denominator": "Fifteen outer sites, fourteen inner sites per outer fold, five transport candidates and three spatial baselines:3,150 inner and225 outer candidate slots;45 selected outer scores.10,752 new plus1,728 reused attempts yield12,480 unique attempts, not independent observations."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/report.json",
+            "sha256": "7416e0a72b901ce3f4344c24ca44c76fb13da5abd734eb9d8fc9068461c6e5ab"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/trace-index.json",
+            "sha256": "e40e80ae32d7354d5735c3847e75ee21b519dca397d9e9fb5d8022b8a1f7e3c2"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/protocol.json",
+            "sha256": "97a38c0e30edcdc8667aa85db61c1b8dc2b02ebec0fbd7d6b609267117f8e047"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/training-source/protocol.json",
+            "sha256": "7953aec717a0bf440eca6d26e5c4d9bca03e3d783a005ab311f09d3d9b4db4dd"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/training-source/source-location.json",
+            "sha256": "967905c94613ce41a34c726ea1ffacca72d46b3bc5a765fa0845dffdb3dc712f"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+            "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+          }
+        ]
+      }
+    },
+    {
       "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md",
       "canonical_accounts": [
         {
@@ -3588,7 +3941,7 @@
         "fields": {
           "supported_claim": "An exact derivative of the same normalized log-Euclidean LOVE objective reduces SLSQP evaluation counts and recovers HANGINGS under fixed source inputs, objective, constraints, start and budgets; the BECKHAM outer fold remains incomplete.",
           "unsupported_claim": "A completed BECKHAM held-out prediction/score, permission to score nonconverged fits, measured vegetation accuracy or Nordic LRA source admission.",
-          "actual_verification_performed": "The reader, frozen original diagnostics and retained derivative report were inspected. The retained replay reproduces all six original ring-fit stop/iteration/evaluation/objective diagnostics and checks tangent/off-simplex finite differences before analytic-gradient fitting. This qualification executes none of those fits or numerical derivative checks.",
+          "actual_verification_performed": "The reader, frozen original diagnostics and retained derivative report were inspected. The retained replay reproduces all six original ring-fit stop/iteration/evaluation/objective diagnostics and checks tangent/off-simplex finite differences before analytic-gradient fitting. This qualification executes none of those fits or numerical derivative checks. An exact retained input certificate now binds the 2,090-byte optimizer baseline to the original protected plan and the completed three-stage diagnostic at source commit 19642380cc6051ed9d6cfc3fbddfdb56b4feeba7. All original input identities and the separate independent baseline/refusal checks remain bound. The baseline is a read reference; that execution did not produce it, and this certificate does not recover its earlier generation. No optimizer, derivative, R or held-out prediction was rerun for this metadata adoption. The two produced diagnostic reports and their convergence refusals are unchanged. The historical feasibility attempt remains unresolved. There is no new ecological, source-rights, human or LRA admission.",
           "remaining_input_or_review": "CUTHILL2 and LONGBREACH still refuse under the unchanged analytic-gradient request. Exact derivatives cannot supply source-compatible valid convergence, missing physical basin interpretation, independent vegetation truth or qualified ecological review.",
           "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
           "consequence": "Retain convergence as an acceptance requirement. Lower evaluation counts or a slightly lower refused objective do not turn the incomplete outer fold into a scored prediction.",
@@ -3604,6 +3957,57 @@
           {
             "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json",
             "sha256": "8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d"
+          },
+          {
+            "path": "reports/science/source-cohorts/optimizer-baseline-input.json",
+            "sha256": "5d0a70920cf88b936580477cbdf86db657e44a0344edf0a8dfc26ac3967e10cf"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Source-bound fixed-start convergence diagnostic on exposed English training objectives. Preserve the exact128attempts/84accepted/44refused denominator, raw rounded regional mass, original unchanged outer-fold outcome and every numerical, ecological, uncertainty and source-rights limit.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "The fixed initial-point comparison yields 84 accepted constrained LOVE fits across the four CUTHILL2/LONGBREACH ring objectives, while retaining 44 line-search refusals. Every ring has an accepted candidate under the original objective, source assumptions and per-attempt bounds.",
+          "unsupported_claim": "Global optimality, original R optimizer parity, a completed BECKHAM prediction or score, an untouched cohort, measured vegetation accuracy, Nordic source admission, rights admission or release approval.",
+          "actual_verification_performed": "The registered numerical comparison ran on clean source candidate `64685821de6216983c629df167abe0c16caa57ec` with the separately pinned diagnostic source. All 128 outcomes and 256 start/completion ledger events were retained. The original 13 prepared input files, three baseline witnesses, source references, package trees and qualified runtime passed before/after custody. Native and runtime-wrapper exits were zero; the declared resource postchecks passed. The earlier uniform and HANGINGS fits were not rerun.",
+          "remaining_input_or_review": "This diagnostic does not run the complete outer fold or resolve its physical geometry, transport interpretation, independent vegetation measurements or qualified ecological review.",
+          "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
+          "consequence": "Keep convergence and host objective certification mandatory. Report every refusal; retain the original fold outcome and all earlier reports.",
+          "precise_next_acceptance_route": "Use the admitted fixed-start comparison to decide whether another explicitly declared numerical evaluation is justified. Any complete-fold prediction or ecological claim needs its own source-qualified consumer and evidence.",
+          "negative_or_refused_result": "Forty-four of 128 attempts retain the original line-search refusal: nine per CUTHILL2 ring and thirteen per LONGBREACH ring. The four earlier uniform analytic fits remain refused. No complete-fold BECKHAM reconstruction or score was produced by this diagnostic.",
+          "matched_denominator": "Two existing English training sites \u00d7 two local rings \u00d7 32 predeclared positive starts = 128 attempts on four objectives, all on the same 30-taxon axis. No new site, sample, held-out observation or scored fold is added."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/report.json",
+            "sha256": "29386982ad042292b918d25ac5891760c045b83a7edeebaf08b256e571719ddd"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/trials.jsonl",
+            "sha256": "fe7b2734419a7c98cbfc6215ac83950887111acda629ef75586ae294c8050f75"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/protocol.json",
+            "sha256": "d257517c80ea407de3c186a8fa611d3a68ef95aae2ee706173849148fe6a37d8"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json",
+            "sha256": "8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-start-diagnostic.json",
+            "sha256": "e5d7966db299a0ab24eb9a035c2a159dbeb8afc2b6045de5b1430aa7d08b132e"
           }
         ]
       }
@@ -3640,6 +4044,50 @@
           {
             "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json",
             "sha256": "eed5d539635abaa7aa305d86845b644a922d52943655d412498b3fdb540c248c"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/pollen-reconstruction/author-lra-constrained/ring-support/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/english-lra-pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Exact saved-source GPM zero-shell and equal-cover support congruence; distinguish current source-derived equality from ecological support insensitivity and original native/pure-function qualifications.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "Pinned current GPM zero-shell operator and exact admitted homogeneous-cover inputs imply39 saved request aliases/selected-cover equalities and675 conditional probability-value projections; no new fit or prediction manifest.",
+          "unsupported_claim": "Ecological insensitivity, general500m adequacy, physical RSAP, other kernels or unequal covers, empirical vegetation/untouched accuracy, uncertainty coverage, qualified rights/human decisions or whole scientific/release acceptance.",
+          "actual_verification_performed": "Independent review admits the corrected source-bound no-fit consumer native0 on992257309805272a22e53c7ebb2cf5004117185e with39 requests,1248 original ring-zero attempts1150accepted98refused,15 geometry proofs and675 projections630inner/45outer. Publication executes no optimizer/kernel/forward/score call and reads no raw trace through the maintained guard.",
+          "remaining_input_or_review": "Physical source support/RSAP, other dispersal and cover cases, empirical accuracy and qualified scientific/human/source-rights decisions require independent evidence.",
+          "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
+          "consequence": "Equality is conditional on a named source zero-shell degeneracy and equal selected covers. Retain failed native outcomes and every saved refusal; repeated value projections are not additional observations or newly executed predictions.",
+          "precise_next_acceptance_route": "Review the exact source operator/geometry assumptions and provide independently admitted nondegenerate physical-support evidence before broader ecological interpretation.",
+          "negative_or_refused_result": "Original nominal native1 and separate saved-product recovery0 remain distinct; first ring consumer native1 remains immutable, corrected consumer0 admits only scoped source-derived equality. Original pure-function scientific_acceptance:not_evaluated/native_reuse_admitted:false and unadmitted-by-pure-function authority remain literal.98 of1248 original ring-zero attempts were refused.",
+          "matched_denominator": "39 exact requests with32 saved ring-zero starts each:1248 attempts1150accepted98refused;39 equal selected covers,15 site geometries,675 conditional nominal probability projections630inner/45outer and zero new fits/kernel/forward/score calls."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/ring-support/report.json",
+            "sha256": "73e872e39f961de805c875a2a40d194a44befac3ab0edffb5d94f7ba6a2e7d29"
+          },
+          {
+            "path": "docs/report/pollen-reconstruction/author-lra-constrained/ring-support/trace-index.json",
+            "sha256": "b71738da7cd3732c73a0f42387afdaa8176c2977f7b5e3c50b1701d9a82db8ab"
+          },
+          {
+            "path": "reports/science/author-love-ring-support/protocol.json",
+            "sha256": "8e0cf5c97bac4ab5c04f29e88e06a0948e91c6be4e4db4df1b2637cde993d9f8"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+            "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+          },
+          {
+            "path": "reports/science/source-cohorts/author-love-ring-support.json",
+            "sha256": "e3e7f1ace89f0fa956b9ac18372f2ebd165fadd15c2749467514d4745a73903c"
           }
         ]
       }
@@ -6744,7 +7192,7 @@
         "fields": {
           "supported_claim": "Six published ABBO AMS dates match their Neotoma control lab/depth/age/error fields under explicit unit comparisons.",
           "unsupported_claim": "Calibrated control bounds do not supply sample-age uncertainty or historical lake geometry, and the core top is not a seventh published 14C date.",
-          "actual_verification_performed": "Read all six control matches, core-top exception and sample-bound absence in the retained comparison; no calibration or source download.",
+          "actual_verification_performed": "Read all six control matches, core-top exception and sample-bound absence in the retained comparison; no calibration or source download. The original scientific ownership acceptance criteria have been restored verbatim. The SLU guide, HYDE country products, ABBO age-control report, Swedish cohort screen, OpenLand intake and Neotoma publication-attribution owners remain unresolved because their required original acquisition/copy custody or source-use authority has not been independently established. Genuine current executions, exact-byte checks and retained source captures remain scoped evidence; they do not discharge those original conditions. No numerical result, source chronology, permission, qualified human decision or LRA admission has changed.",
           "remaining_input_or_review": "Collection-date roles, 107 interpolated sample uncertainties, historical basin geometry and source analytical rights need resolution.",
           "cause_category": "Control correspondence does not define a sample-age posterior.",
           "consequence": "Zero ABBO LRA samples are admitted despite strong control-source lineage.",
@@ -6760,6 +7208,10 @@
           {
             "path": "docs/report/source-relations/neotoma/abbo-profile/report.json",
             "sha256": "c29738753e25a99767776cfecfbdaebe0c3a4394c38df91b72bb2c4c944c6263"
+          },
+          {
+            "path": "reports/science/source-cohorts/abbo-age-original-acceptance.json",
+            "sha256": "38b8edf5632f9104146dd3c2a0f505313ef836fbe1ee6d8c335040c14f6490e7"
           }
         ]
       }
@@ -6776,7 +7228,7 @@
         "fields": {
           "supported_claim": "The ABBO/ABB comparison preserves a same-name 107-sample/0.334 m point identity lead and selected sample count partition.",
           "unsupported_claim": "Close points and matched sample counts do not establish a shared physical core, basin radius, selected chronology or count denominator.",
-          "actual_verification_performed": "Read the source-bound report, manifest and independent selected count-mass receipt; no source consumer rerun.",
+          "actual_verification_performed": "Read the source-bound report, manifest and independent selected count-mass receipt; no source consumer rerun. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner\u2019s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.",
           "remaining_input_or_review": "ABBO versus ABB core identity, 13 m elevation discrepancy, age model, basin/count/PPE support and rights require qualification.",
           "cause_category": "Metadata similarity is insufficient identity authority.",
           "consequence": "The 98 m LandClim radius is not transferred to Neotoma.",
@@ -6796,6 +7248,10 @@
           {
             "path": "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json",
             "sha256": "fea274f27de4ea834eb38ac4ad8c3a07766aec27bc6a1633e1088f8e247f8e2f"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-selected-counts.json",
+            "sha256": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18"
           }
         ]
       }
@@ -6812,7 +7268,7 @@
         "fields": {
           "supported_claim": "The generated ABBO interpretation summarizes its bounded physical-core review lead and explicit radius/chronology refusals.",
           "unsupported_claim": "This interpretation adds no independent core identification or numerical check beyond the owning comparison report.",
-          "actual_verification_performed": "Read the generated prose against the same report and manifest, checking native count categories and differing end labels; no replay.",
+          "actual_verification_performed": "Read the generated prose against the same report and manifest, checking native count categories and differing end labels; no replay. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner\u2019s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.",
           "remaining_input_or_review": "Physical core, selected age support, denominator, parameter applicability and analytical rights remain unqualified.",
           "cause_category": "Generated interpretation inherits a bounded source comparison.",
           "consequence": "ABBO water depth cannot become radius and ABB source coverage cannot become sample chronology.",
@@ -6828,6 +7284,10 @@
           {
             "path": "docs/report/source-relations/neotoma/abbo-core-identity/manifest.json",
             "sha256": "c817748f52c5cda435d2f5bbfb746f442aa346ca4f4d2ca71b38ae360bf6739c"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-selected-counts.json",
+            "sha256": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18"
           }
         ]
       }
@@ -7626,7 +8086,7 @@
         "fields": {
           "supported_claim": "The two-lake comparison preserves full native count/age coverage and close LandClim metadata leads for BUS/BOKE.",
           "unsupported_claim": "Submetre points and nearly equal endpoint numbers do not establish common cores, historical radii, selected chronology or pollen denominator.",
-          "actual_verification_performed": "Read both source-bound lake records, manifest and two-sample mass receipt; no count/core consumer replay.",
+          "actual_verification_performed": "Read both source-bound lake records, manifest and two-sample mass receipt; no count/core consumer replay. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner\u2019s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.",
           "remaining_input_or_review": "Elevation/coordinate conflicts, original count support, source chronology/geometry and analytical-use decisions remain.",
           "cause_category": "Metadata and endpoint agreement are incomplete physical-core authority.",
           "consequence": "69 m/80 m radii are not transferred and candidate-filter counts do not replace native sample totals.",
@@ -7646,6 +8106,10 @@
           {
             "path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json",
             "sha256": "afff295e29fb5210ff94dbf599ba0b1530191b6e06abc3f96e35bb06f05812d9"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-selected-counts.json",
+            "sha256": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18"
           }
         ]
       }
@@ -7662,7 +8126,7 @@
         "fields": {
           "supported_claim": "The generated two-lake report preserves native/prerequisite sample denominators and source NISP partitions without merging their roles.",
           "unsupported_claim": "This prose is not a second independent source study or an accepted historical radius/chronology input.",
-          "actual_verification_performed": "Read generated tables against the owning two-lake JSON and manifest, including first-sample count categories; no new numerical run.",
+          "actual_verification_performed": "Read generated tables against the owning two-lake JSON and manifest, including first-sample count categories; no new numerical run. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner\u2019s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.",
           "remaining_input_or_review": "Core/elevation/chronology reconciliation, eligible mask/parameters and analytical rights remain.",
           "cause_category": "Generated interpretation inherits bounded metadata comparison.",
           "consequence": "Native counts, prerequisite candidates and time-end labels cannot substitute for one another.",
@@ -7678,6 +8142,10 @@
           {
             "path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/manifest.json",
             "sha256": "bf8f76d4513859615b84ec7d408a774c26591bd89a8d0d5a34b43d18d70b907a"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-selected-counts.json",
+            "sha256": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18"
           }
         ]
       }
@@ -8423,7 +8891,7 @@
         "fields": {
           "supported_claim": "The pinned source audit reconciles registered families, country/capability cells and historical intake custody without claiming full source confirmation.",
           "unsupported_claim": "Zero mechanical findings cannot certify provider completeness, historical input semantics, rights or scientific review.",
-          "actual_verification_performed": "Read retained summary, external intake dispositions and source-specific blockers; no private archives or whole-registry audit rerun.",
+          "actual_verification_performed": "Read retained summary, external intake dispositions and source-specific blockers; no private archives or whole-registry audit rerun. The earlier qualification read the historical retained summary without replaying private archives. A later source consumer from commit ad591c301bcadb6a3f963caa836a2e38a16d0de4 executed the maintained current audit, intake and summary APIs; its independent reconstruction checked the complete typed results and both serialized JSONs. The actual proof binds all 321 consumed paths, 592 repository and 7 private identities, both original Rootsi/OpenLand archives, the five governing registries and 204 manifest-verification rows. Both native stages and the complete execution exited zero. A separate metadata assembly and independent packet observer also exited zero. The governed report now contains the exact current summary, whose 15 scientific/intake/status fields equal the earlier summary; only its three provenance digests differ. The exact earlier summary remains in public history. The older 26116 full-audit object and old summary construction receipt have not been recovered. This later current-summary succession separately satisfies the unchanged original report-owner mechanical input conditions; it does not rewrite the capture-time unresolved owner state or establish source permissions, qualified review, provider completeness, every country partition, ecology or LRA admission. Unknown counts and native missing paths remain distinct from observed zero. Full source confirmation remains false.",
           "remaining_input_or_review": "53 supported dimensions need missing/partial materialization; qualified taxonomy, chronology, basin, rights and independent truth evidence remain.",
           "cause_category": "Mechanical accounting and scientific acceptance are separate states.",
           "consequence": "Rootsi/OpenLand are intake relationships, not new independent vegetation families.",
@@ -8434,7 +8902,11 @@
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/source-reconciliation/report.json",
-            "sha256": "16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2"
+            "sha256": "eaac246b596399e19f88a4730f84500d2aca654e5549ed7868255b8bf73bd85a"
+          },
+          {
+            "path": "reports/science/source-cohorts/current-source-accounting.json",
+            "sha256": "83664560ef60b587027d19dffcada0ae2e815c5a985de368cff0d33ed7940e3e"
           }
         ]
       }
@@ -8553,6 +9025,49 @@
           {
             "path": "docs/report/synthetic-validation/change-time/report.json",
             "sha256": "04a0150e0b4157a79cfdb36b7b4bc3681a3651fe3cad8023f96fd3420c17a4e1"
+          }
+        ]
+      }
+    },
+    {
+      "reader_path": "docs/report/synthetic-validation/persisted-experiment-isolation/README.md",
+      "canonical_accounts": [
+        {
+          "report_path": "reports/science/method-correspondence.md"
+        },
+        {
+          "report_path": "reports/science/pollen-prediction.md"
+        }
+      ],
+      "scope_reason": "Constructed software witness for persisted splits and input isolation, with five recovered products, three new products and every scored or refused disposition retained.",
+      "qualification": {
+        "fields": {
+          "supported_claim": "The constructed inputs preserve per-fold target exclusion and grouping through source aliases, chronology and derived ownership. Observed training and target predictions remain identical across a target-only label perturbation.",
+          "unsupported_claim": "Measured ecological or vegetation accuracy; a qualified real source graph; restored historical sidecars, receipts or ten earlier products; untouched confirmation; rights or human decisions; installed-wheel equivalence; release or whole LRA scientific acceptance.",
+          "actual_verification_performed": "Independent saved-output admission at source epoch 23ea4670d12e verifies 32 logical requests and eight distinct products: five authenticated products from the earlier native exit 1 and three new cache misses, with 29 cache hits. Parent engine observations remain {}. Completed child manifests separately declare five earlier and three new REVEALS and analytical LOVE products. The proof retains five completed spatial fits, 34 prefit split checks, four prediction freezes before ten outcome opens, 80 dispositions and 20 target metric cells. The publication guard reads no private payloads and runs no models or metrics.",
+          "remaining_input_or_review": "The historical 57-case guard and ten-product receipts remain missing. Real-source ownership, rights and chronology, independent empirical or vegetation evidence, and scientific, human and release acceptance require separate evidence.",
+          "cause_category": "software/input isolation | algorithm/numerical | source custody | qualified review",
+          "consequence": "These are exposed, constructed software inputs. The earlier native exit 1 and successful continuation remain distinct; the wrapper does not capture the scientific main return. Spawned workers do not inherit parent hooks, so child manifests cannot establish direct call counts.",
+          "precise_next_acceptance_route": "Preserve current literal software-isolation proof and exact source qualifications; separately admit any real biological source graph, physical inputs, rights and matched independent field or vegetation evidence before broader scientific claims.",
+          "negative_or_refused_result": "Thirty of 80 dispositions refuse predictions after the altered site legitimately enters other training folds. The earlier native exit remains 1, and historical sidecars or receipts have not been restored. The 57 current guard cases ran at source epoch cc4ad45cba2e; reuse at 23ea4670d12e is limited to seven unchanged watched sources. They were not rerun at the later epoch.",
+          "matched_denominator": "Four constructed sites; nine identity records in four groups; 32 logical requests using eight distinct analytical products, including five recovered and three new products with 29 cache hits; five spatial fits; 80 dispositions, of which 50 are scored and 30 refuse prediction; 20 valid target metric cells; four observed target training fingerprints and five method predictions unchanged across the perturbation. No ecological observation denominator is claimed."
+        },
+        "evidence_pins": [
+          {
+            "path": "docs/report/synthetic-validation/persisted-experiment-isolation/report.json",
+            "sha256": "d6dbfccfb40cacc7b99b601b880501b3b285e15c6a0511ef7d51c5b5e01935d9"
+          },
+          {
+            "path": "docs/report/synthetic-validation/persisted-experiment-isolation/trace-index.json",
+            "sha256": "131cd1958367b87acf267e5303ead71430511b5735db2738e7f6656a284a8e81"
+          },
+          {
+            "path": "reports/science/persisted-experiment-isolation/protocol.json",
+            "sha256": "125f0564b7e24756287b37a2a7b03883851d0dfb8e515589ff8e95c47622abb2"
+          },
+          {
+            "path": "reports/science/source-cohorts/persisted-experiment-isolation.json",
+            "sha256": "d35d10dbdcb96ee4494810963d1d97aa74c768ed4b06126cad5a85fe8426ef5b"
           }
         ]
       }

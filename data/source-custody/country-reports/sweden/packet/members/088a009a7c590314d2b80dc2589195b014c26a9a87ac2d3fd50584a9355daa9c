@@ -1,0 +1,99 @@
+"""Seal saved-country observer source and its explicit unchanged scientific correspondences."""
+import ast
+import copy
+import difflib
+import hashlib
+import json
+from pathlib import Path
+
+SOURCE=Path(__file__).absolute().parent.parent
+OLD=SOURCE.parent/'sweden-country-callable-evidence-custody'
+
+def pin(path):
+    raw=path.read_bytes()
+    return {'path':str(path),'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw)}
+
+def write(name,value):
+    (SOURCE/name).write_text(json.dumps(value,indent=2)+'\n')
+
+def tree(name,root=SOURCE):return ast.parse((root/name).read_bytes())
+def dump(value):return ast.dump(value,include_attributes=False)
+def function(name,member,root=SOURCE):return next(n for n in tree(member,root).body if isinstance(n,ast.FunctionDef) and n.name==name)
+
+assert pin(OLD/'prepared-source-manifest.json')['sha256']=='32700b3d6977d648f338a1fab3265af426b702224967d21ff753c9ba5c8eec98'
+unchanged=[]
+changed=[]
+for path in SOURCE.glob('*.py'):
+    ast.parse(path.read_bytes())
+    previous=OLD/path.name
+    if previous.exists() and previous.read_bytes()==path.read_bytes():unchanged.append({'original':pin(previous),'current':pin(path)})
+    else:changed.append(path.name)
+assert len(unchanged)==13,(len(unchanged),changed)
+assert len(list(SOURCE.glob('*.py')))==23
+science=['independent.py','human_source.py','clock_contract.py','semantic_contract.py','callable_identity.py']
+assert all((OLD/name).read_bytes()==(SOURCE/name).read_bytes() for name in science)
+assert dump(function('product_members','observe.py'))==dump(function('product_members','observe.py',OLD))
+oldmain=function('main','observe.py',OLD);newmain=function('main','observe.py')
+def science_nodes(main):
+    start=next(i for i,n in enumerate(main.body) if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='catalog' for t in n.targets))
+    end=next(i for i,n in enumerate(main.body[start:],start) if isinstance(n,ast.Expr) and isinstance(n.value,ast.Call) and isinstance(n.value.func,ast.Name) and n.value.func.id=='checkpoint')
+    return copy.deepcopy(main.body[start:end+1])
+a=science_nodes(oldmain);b=science_nodes(newmain)
+a=[n for n in a if 'maintained_replay_receipt' not in ast.unparse(n)]
+class RestoreReceipt(ast.NodeTransformer):
+    def visit_Name(self,node):
+        return ast.copy_location(ast.Name(id='output',ctx=node.ctx),node) if node.id=='ORIGINAL' else node
+b=[RestoreReceipt().visit(n) for n in b]
+assert [dump(n) for n in a]==[dump(n) for n in b]
+oldcontracts=tree('contracts.py',OLD);restored=tree('contracts.py')
+assignment=next(n for n in restored.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='RESOURCES' for t in n.targets))
+for key,value in zip(assignment.value.keys,assignment.value.values):
+    if key.value=='overall_timeout_seconds':value.value=1140
+    if key.value=='outer_timeout_seconds':value.value=1200
+assert dump(oldcontracts)==dump(restored)
+assert dump(function('entry_root','entry.py'))==dump(function('entry_root','entry.py',OLD))
+verify=copy.deepcopy(function('verify','entry.py'))
+for node in ast.walk(verify):
+    if isinstance(node,ast.Set):node.elts=[value for value in node.elts if not isinstance(value,ast.Constant) or value.value not in {'localities.py','saved_authority.py'}]
+assert dump(verify)==dump(function('verify','entry.py',OLD))
+class RemoveProducer(ast.NodeTransformer):
+    def visit_If(self,node):
+        node=self.generic_visit(node)
+        if isinstance(node.test,ast.Compare) and isinstance(node.test.left,ast.Name) and node.test.left.id=='action' and any(isinstance(n,ast.Constant) and n.value=='producer' for n in node.test.comparators):
+            assert len(node.orelse)==1
+            return node.orelse[0]
+        return node
+assert dump(RemoveProducer().visit(copy.deepcopy(function('main','entry.py',OLD))))==dump(function('main','entry.py'))
+oldlaunch=tree('launch.py',OLD);newlaunch=tree('launch.py')
+class RestoreOuter(ast.NodeTransformer):
+    def visit_Constant(self,node):return ast.copy_location(ast.Constant(value=1200),node) if type(node.value)is int and node.value==660 else node
+assert dump(oldlaunch)==dump(RestoreOuter().visit(newlaunch))
+for member in ('run.py','launch.py'):
+    def calls(root):return [dump(n) for n in ast.walk(tree(member,root)) if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute) and n.func.attr in {'Popen','kill','killpg'}]
+    assert calls(SOURCE)==calls(OLD)
+correspondence={'schema_version':'sweden-saved-country-source-correspondence.v1','source_only':True,'original_manifest':pin(OLD/'prepared-source-manifest.json'),'unchanged_old_Python':unchanged,'changed_or_new_Python':sorted(changed),'five_full_scientific_modules_byteexact':science,'observer_source_semantic_body_AST_exact_except_original_readonly_receipt_path_and_missing_returned_receipt_comparison':True,'product_members_AST_exact':True,'contracts_all_AST_exact_except_two_timeout_constants':True,'entry_prefix_AST_exact_except_two_required_saved_modules':True,'entry_dispatch_AST_exact_except_removal_of_producer_branch':True,'launch_all_AST_exact_except_660_second_outer_bound':True,'Popen_and_kill_calls_AST_exact':True,'new_locality_projection_compared_to_actual_source_and_writer_only_on_artificial_records':True,'real_products_or_private_data_decoded':False}
+write('source-correspondence.json',correspondence)
+deltas=[]
+for name in sorted(changed):
+    previous=OLD/name
+    deltas.extend(difflib.unified_diff(previous.read_text().splitlines(True) if previous.exists() else [],(SOURCE/name).read_text().splitlines(True),fromfile='reviewed/'+name,tofile='saved-observation/'+name))
+(SOURCE/'preflight/source-delta.diff').write_text(''.join(deltas))
+protocol={'schema_version':'sweden-saved-country-observation-protocol.v1','source_only':True,'original_owner':json.loads((SOURCE/'declared-inputs.json').read_bytes())['original_owner'],'original_plan_sha256':'b4458d45c74b43e96cea0b468ba0885b579253273e685185e37aa49ac2347cef','original_controller_actual_exit':1,'original_whole_actual_exit':1,'country_call_returned_normally':True,'actual_country_call_return_events':1,'no_separate_country_process_exit_zero_claimed':True,'original_owned_source_candidate':'ed6f5dbeae2bbe8e50c1835cb0c39a40277a8485','original_orchestration_candidate':'bb932d72721f8c9620f29d179984b52ce755dc37','current_orchestration_candidate_dynamic':True,'source_qualification_does_not_execute_saved_observer':True,'actual_consumer':'One registered independent saved-country semantic/clock observer. No country API, replay, normalization, model, R or HTTP stage.','authority':'Exact12 collected references from root b2d202, complete original ordered62332 inputs, unchanged owned source/data, complete original output catalogue plus inner/outer/late streams; strict byte/type/ancestor/alias and namespace checks at every checkpoint.','exact_default_ZIP':'Only the already-protected absent default Python311 ZIP was denied before opening. Original runtime absence and complete BASE namespace remain strict, all other denied paths refuse. No previously unread bytes are admitted.','missing_telemetry':['Full in-memory returned CountryReport','Original io.reads list','Original first-party import-origin list','Maintained-country-execution witness'],'independent_result':'Reconstruct human typed samples and full21-field locality CSV from source ANNO, preserve individual supports separately from display hulls, compare defaults/source joins and saved summary/bundle fields; reuse unchanged full animal/synthesis/receipt algorithms and separate bytechecker0or2. Reconstructed rows are expected projection, never captured return.','source_code':'Compile exact unchanged owned public service bytes without execution or import and join its full typed graph to the already observed callable proof.','before_first_output':'Freeze expected old role union before runtime census. Repeat source namespace/aliases/original bytes and full memberships before first mkdir; exact pretty plan/history forecasts before mutation.','resources':{'observer_seconds':360,'whole_seconds':600,'outer_seconds':660,'declared_memory_bytes':8*1024**3,'declared_storage_bytes':1024**3,'storage_includes_separate_original_owned_tree_collected_output_and_new_output':True,'timing_or_RSS_not_measured_by_author':True},'limits':'Source-bound saved-product reproducibility only; original wrapper1/whole1 and all historical/refusal/source unavailability remain. No ecology, rights, human, biological, causal or LRA acceptance. Full original owner criterion remains unchanged.','parent_watchdog':'Inherited owned-session watchdog covers delegated run child through input/runtime admission and final scans; no independent timeout on launcher admission/post-reap accounting, full detached-descendant guarantee, complete descendant RSS or OS quota claim.','actual_data_API_preparer_native_Git_or_STATE_by_author':False}
+write('protocol.json',protocol)
+runtime='/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python'
+output=SOURCE.parent/'current-sweden-saved-country-semantic-review'
+recipe={'schema_version':'sweden-saved-country-observation-recipe.v1','source_only':True,'prepare_argv':[runtime,'-I','-B',str(SOURCE/'entry.py'),'prepare','--candidate','<ACTUAL_CLEAN_CANDIDATE>','--review-sha256','<EXACT_INDEPENDENT_SOURCE_REVIEW_SHA>','--output',str(output)],'launch_argv':[runtime,'-I','-B',str(SOURCE/'entry.py'),'launch','--plan',str(output/'plan.json'),'--registered-plan-sha256','<ACTUAL_REGISTERED_PLAN_SHA>'],'root_separate_prepare_unique_registration_readback_launch_required':True,'country_production_repeated':False}
+write('recipe.json',recipe)
+controls=json.loads((SOURCE/'preflight/saved-source-controls.json').read_bytes())
+assert controls['groups']==31 and controls['actual_whole_SOURCE_exit']==0
+assert (SOURCE/'preflight/strict.stdout').read_text()=='Success: no issues found in 10 source files\n'
+assert (SOURCE/'preflight/strict.stderr').read_bytes()==b''
+assert (SOURCE/'preflight/saved-controls.stderr').read_bytes()==b''
+assert (SOURCE/'preflight/source-style.stdout').read_text()=='format 0\nimports 0\nformat-after-imports 0\nconfigured-check 0\nconfigured-format 0\n'
+logs=[SOURCE/'preflight'/name for name in ('strict.stdout','strict.stderr','source-style.stdout','source-style.stderr','configured-check.stdout','configured-check.stderr','configured-format.stdout','configured-format.stderr','saved-controls.stdout','saved-controls.stderr','saved-source-controls.json','source-delta.diff','initial-saved-controls.stdout','initial-saved-controls.stderr','initial-strict.stdout','initial-strict.stderr')]
+q={'schema_version':'sweden-saved-country-source-qualification.v1','source_only':True,'actual_whole_SOURCE_profile_exit':0,'source_profile_sha256':'3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b','new_artificial_groups':31,'strict_changed_or_new_Python':10,'configured_Ruff_Python':23,'configured_format_Python':23,'parsed_AST_Python':23,'unchanged_old_Python':13,'unchanged_scientific_predicates_reused_by_full_byte_identity':science,'source_correspondence':pin(SOURCE/'source-correspondence.json'),'logs':[pin(p) for p in logs],'real_products_or_private_bodies_decoded_by_author':False,'actual_API_native_preparer_or_runtime_census_by_author':False}
+write('source-qualification.json',q)
+members=sorted(set([*SOURCE.glob('*.py'),*SOURCE.glob('*.json'),*logs,*[SOURCE/'preflight'/name for name in ('seal_source.py','qualify_source.py','check_held_admission.py')]]))
+assert all(p.is_file() and not p.is_symlink() for p in members)
+write('prepared-source-manifest.json',{'schema_version':'sweden-saved-country-reviewed-source-manifest.v1','source_only':True,'files':[pin(p) for p in members]})
+print(json.dumps({'manifest':pin(SOURCE/'prepared-source-manifest.json'),'qualification':pin(SOURCE/'source-qualification.json'),'recipe':pin(SOURCE/'recipe.json'),'members':len(members),'root_Python':23,'source_only':True}))

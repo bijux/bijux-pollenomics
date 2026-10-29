@@ -1,0 +1,705 @@
+"""Read only the registered source authorities for three explicit native sample joins."""
+
+from __future__ import annotations
+
+from collections import Counter, defaultdict
+from collections.abc import Iterator
+import json
+from pathlib import Path
+from typing import Any
+
+from independent import (
+    COUNTRIES,
+    MISSING,
+    age_claim,
+    canonical,
+    clean,
+    count_value,
+    digest,
+    element_status,
+    locator,
+    mass_row,
+    native_id,
+    require,
+    same,
+)
+
+IDS = {
+    "sites": "site_id",
+    "collection_units": "collection_unit_id",
+    "datasets": "dataset_id",
+    "chronologies": "chronology_id",
+    "chronology_controls": "chronology_control_id",
+    "samples": "sample_id",
+    "age_claims": "chronology_claim_id",
+    "variables": "variable_id",
+    "conflicts": "conflict_id",
+    "orphans": "orphan_id",
+}
+UNIT_FAMILY = {
+    "NISP": "count",
+    "NISP digitized": "count",
+    "number": "count",
+    "NISP/tablet": "count_per_tablet",
+    "grains/tablet": "count_per_tablet",
+    "number/tablet": "count_per_tablet",
+    "cm3": "volume",
+    "cm^3": "volume",
+    "ml": "volume",
+    "g": "mass",
+    "mg": "mass",
+    "grains/cm3": "concentration_per_volume",
+    "grains/ml": "concentration_per_volume",
+    "grains/g": "concentration_per_mass",
+    "grains/g sample": "concentration_per_mass",
+    "grains/mg": "concentration_per_mass",
+    "grains/cm²/yr": "influx_per_area_time",
+    "particles/cm²/yr": "influx_per_area_time",
+    "yr/cm": "sedimentation_time_per_depth",
+}
+
+
+def read(path: Path) -> Any:
+    def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
+        require(len(rows) == len({key for key, _ in rows}), "Duplicate source JSON key")
+        return dict(rows)
+
+    def refuse(value: str) -> None:
+        raise ValueError("Nonfinite JSON literal: " + value)
+
+    return json.loads(path.read_bytes(), object_pairs_hook=pairs, parse_constant=refuse)
+
+
+def requests(rows: list[dict[str, Any]]) -> None:
+    same(
+        rows,
+        [
+            {
+                "sample_id": 173174,
+                "dataset_id": 19913,
+                "site_id": 13338,
+                "part": "part-004.json",
+                "normalized_sample_row_index": 190,
+            },
+            {
+                "sample_id": 552101,
+                "dataset_id": 53995,
+                "site_id": 28869,
+                "part": "part-008.json",
+                "normalized_sample_row_index": 10690,
+            },
+            {
+                "sample_id": 552389,
+                "dataset_id": 54001,
+                "site_id": 28872,
+                "part": "part-008.json",
+                "normalized_sample_row_index": 10911,
+            },
+        ],
+        "distinct sample/dataset/site/part request roles",
+    )
+
+
+def observation(
+    datum: dict[str, Any], occurrence: int, sample: dict[str, Any]
+) -> dict[str, Any]:
+    taxon = native_id(datum.get("taxonid"))
+    variable = (
+        "neotoma:variable:" + taxon
+        if taxon is not None
+        else "neotoma:variable:unidentified:"
+        + digest({"name": clean(datum.get("variablename"))})[:20]
+    )
+    return {
+        "observation_id": f"neotoma:observation:{sample['source_sample_id']}:{digest(datum)[:20]}:{occurrence}",
+        **{
+            key: sample[key]
+            for key in (
+                "sample_id",
+                "dataset_id",
+                "collection_unit_id",
+                "site_id",
+                "country_code",
+            )
+        },
+        "variable_id": variable,
+        **{
+            target: datum.get(source)
+            for target, source in {
+                "source_taxon_id": "taxonid",
+                "source_reported_name": "variablename",
+                "source_element": "element",
+                "source_element_type": "elementtype",
+                "source_ecological_group": "ecologicalgroup",
+                "source_taxon_group": "taxongroup",
+                "source_unit": "units",
+                "source_value": "value",
+                "source_context": "context",
+            }.items()
+        },
+        "unit_family": UNIT_FAMILY.get(clean(datum.get("units")), "unresolved"),
+        "aggregation_key": "neotoma:exact-unit:" + clean(datum.get("units"))
+        if clean(datum.get("units"))
+        else None,
+        "detection_status": "not_provided_by_source"
+        if "value" not in datum
+        else "source_null"
+        if datum["value"] is None
+        else "reported_value",
+        "source_denominator": None,
+        "denominator_status": "not_provided_by_source",
+        "source_payload": datum,
+        "source_snapshot_id": sample["source_snapshot_id"],
+        "build_id": sample["build_id"],
+    }
+
+
+def record(
+    row: dict[str, Any],
+    loc: dict[str, Any],
+    indexes: dict[str, dict[str, dict[str, Any]]],
+    conflicts: dict[str, list[str]],
+) -> dict[str, Any]:
+    reasons = []
+    for key, surface in {
+        "sample_id": "samples",
+        "dataset_id": "datasets",
+        "collection_unit_id": "collection_units",
+        "site_id": "sites",
+        "variable_id": "variables",
+    }.items():
+        parent_id = row.get(key)
+        parent = indexes[surface].get(parent_id) if isinstance(parent_id, str) else None
+        if parent is None:
+            reasons.append("missing_parent_" + key)
+            continue
+        for owner in ("dataset_id", "collection_unit_id", "site_id", "country_code"):
+            if owner in parent and row.get(owner) != parent[owner]:
+                reasons.append(surface + "_ownership_mismatch_" + owner)
+    value, reason, _ = count_value(row["source_payload"])
+    if reason is not None:
+        reasons.append(reason)
+    owned_conflicts = sorted(
+        {
+            c
+            for key in (
+                "sample_id",
+                "dataset_id",
+                "collection_unit_id",
+                "site_id",
+                "variable_id",
+                "observation_id",
+            )
+            for subject in (row.get(key),)
+            if type(subject) is str
+            for c in conflicts.get(subject, [])
+        }
+    )
+    if owned_conflicts:
+        reasons.append("source_identity_conflict")
+    status = element_status(row["source_element"], row["source_element_type"])
+    pollen = not reasons and status == "source_label_pollen"
+    return {
+        "source_locator": loc,
+        "source_observation": row,
+        "selected": True,
+        "count_status": "count_candidate" if not reasons else "refused",
+        "typed_count": value if not reasons else None,
+        "count_reason_codes": sorted(reasons),
+        "primary_count_reason": min(reasons) if reasons else None,
+        "source_conflict_ids": owned_conflicts,
+        "lra_admission_status": "refused",
+        "primary_lra_reason": MISSING[0],
+        "lra_reason_codes": list(MISSING),
+        "source_element_status": status,
+        "pollen_count_review_candidate": pollen,
+        "pollen_review_reason_codes": []
+        if pollen
+        else [*sorted(reasons), *([] if status == "source_label_pollen" else [status])],
+    }
+
+
+def reconstruct(
+    declared: dict[str, Any],
+) -> tuple[dict[str, Any], list[dict[str, Any]], list[dict[str, Any]]]:
+    requests(declared["selected_samples"])
+    root = Path(declared["source_root"])
+    raw_root, normalized = (
+        root / declared["raw_root"],
+        root / declared["normalized_root"],
+    )
+    manifest = read(normalized / "manifest.json")
+    require(
+        manifest["source_snapshot_id"] == declared["source_snapshot_id"]
+        and manifest["build_id"] == declared["normalized_build_id"],
+        "Exact raw source/normalized build epoch differs",
+    )
+    pins = {row["path"]: row for row in declared["inputs"]}
+
+    def rows(surface: str) -> Iterator[tuple[dict[str, Any], dict[str, Any]]]:
+        info = manifest["surfaces"][surface]
+        total = 0
+        for part in info["parts"]:
+            path = normalized / part["path"]
+            relative = path.relative_to(root).as_posix()
+            require(
+                relative in pins and pins[relative]["sha256"] == part["sha256"],
+                "Original normalized part identity differs",
+            )
+            document = read(path)
+            require(
+                type(document["rows"]) is list
+                and len(document["rows"]) == part["row_count"],
+                "Source part row membership differs",
+            )
+            for index, row in enumerate(document["rows"]):
+                total += 1
+                yield row, locator(surface, part["path"], index, row)
+        require(
+            total == info["row_count"], "Complete normalized surface row count differs"
+        )
+
+    indexes: dict[str, dict[str, dict[str, Any]]] = {}
+    locations: dict[str, dict[str, dict[str, Any]]] = {}
+    for surface, field in IDS.items():
+        indexes[surface], locations[surface] = {}, {}
+        for row, loc in rows(surface):
+            key = row[field]
+            require(
+                type(key) is str and key not in indexes[surface],
+                "Duplicate/missing normalized native identity",
+            )
+            indexes[surface][key], locations[surface][key] = row, loc
+    conflicts: dict[str, list[str]] = defaultdict(list)
+    for row in indexes["conflicts"].values():
+        conflicts[row["subject_id"]].append(row["conflict_id"])
+    raw_parts = {
+        name: read(raw_root / name)
+        for name in sorted({row["part"] for row in declared["selected_samples"]})
+    }
+    native = {}
+    age_sources: dict[str, dict[str, Any]] = {}
+    observation_sources: dict[str, dict[str, Any]] = {}
+    witnesses = []
+    for selection in declared["selected_samples"]:
+        candidates = [
+            r["site"]
+            for r in raw_parts[selection["part"]]["rows"]
+            if r["site"]["dataset"]["datasetid"] == selection["dataset_id"]
+        ]
+        require(
+            len(candidates) == 1,
+            "Declared dataset request has no unique native source row",
+        )
+        site = candidates[0]
+        require(
+            type(site["siteid"]) is int and site["siteid"] == selection["site_id"],
+            "Source site ID differs from dataset request",
+        )
+        unit = site["collectionunit"]
+        dataset = unit["dataset"]
+        require(
+            type(dataset["datasetid"]) is int
+            and dataset["datasetid"] == selection["dataset_id"],
+            "Nested native dataset differs",
+        )
+        selected = [
+            row
+            for row in dataset["samples"]
+            if type(row["sampleid"]) is int
+            and row["sampleid"] == selection["sample_id"]
+        ]
+        require(len(selected) == 1, "Exact native sample differs or repeats")
+        source = selected[0]
+        sample_id = "neotoma:sample:" + str(selection["sample_id"])
+        sample = indexes["samples"][sample_id]
+        unit_id = native_id(unit["collectionunitid"])
+        require(unit_id is not None, "Source collection unit ID missing")
+        assert unit_id is not None
+        parent_ids = {
+            "site_id": "neotoma:site:" + str(selection["site_id"]),
+            "collection_unit_id": "neotoma:collection-unit:" + unit_id,
+            "dataset_id": "neotoma:dataset:" + str(selection["dataset_id"]),
+        }
+        same(
+            {key: sample[key] for key in parent_ids},
+            parent_ids,
+            "sample parent hierarchy",
+        )
+        require(
+            sample["country_code"] == "SE",
+            "Retained selected source country differs; no new country selection",
+        )
+        expected_sample = {
+            "sample_id": sample_id,
+            "source_sample_id": source["sampleid"],
+            **{
+                target: source.get(key)
+                for target, key in {
+                    "source_analysis_unit_id": "analysisunitid",
+                    "source_analysis_unit_name": "analysisunitname",
+                    "source_sample_name": "samplename",
+                    "source_igsn": "igsn",
+                    "source_depth": "depth",
+                    "source_thickness": "thickness",
+                    "source_sample_analysts": "sampleanalyst",
+                }.items()
+            },
+            **parent_ids,
+            "country_code": "SE",
+            "source_payload": {
+                key: value
+                for key, value in source.items()
+                if key not in {"ages", "datum"}
+            },
+            "source_snapshot_id": declared["source_snapshot_id"],
+            "build_id": declared["normalized_build_id"],
+        }
+        same(sample, expected_sample, "complete normalized sample projection")
+        require(
+            locations["samples"][sample_id]["row_index"]
+            == selection["normalized_sample_row_index"],
+            "Selected normalized sample row index differs",
+        )
+        for surface, identifier, payload, omit in [
+            ("sites", parent_ids["site_id"], site, {"collectionunit", "dataset"}),
+            (
+                "collection_units",
+                parent_ids["collection_unit_id"],
+                unit,
+                {"dataset", "chronologies", "defaultchronology"},
+            ),
+            ("datasets", parent_ids["dataset_id"], dataset, {"samples"}),
+        ]:
+            parent = indexes[surface][identifier]
+            same(
+                parent["source_payload"],
+                {key: value for key, value in payload.items() if key not in omit},
+                "raw parent payload " + surface,
+            )
+            require(
+                parent["country_code"] == sample["country_code"],
+                "Parent source country differs",
+            )
+        for surface, key, raw_key, raw_payload in [
+            ("sites", "source_site_id", "siteid", site),
+            ("collection_units", "source_collection_unit_id", "collectionunitid", unit),
+            ("datasets", "source_dataset_id", "datasetid", dataset),
+        ]:
+            parent = indexes[surface][parent_ids[IDS[surface]]]
+            same(parent[key], raw_payload[raw_key], "typed native parent source ID")
+            same(
+                parent["source_snapshot_id"],
+                declared["source_snapshot_id"],
+                "parent source snapshot",
+            )
+            same(
+                parent["build_id"],
+                declared["normalized_build_id"],
+                "parent normalized build",
+            )
+            for field in ("site_id", "collection_unit_id"):
+                if field in parent:
+                    same(
+                        parent[field], parent_ids[field], "native parent chain " + field
+                    )
+        same(
+            indexes["sites"][parent_ids["site_id"]]["source_geopolitical"],
+            site.get("geopolitical"),
+            "raw site geopolitical metadata only",
+        )
+        same(
+            indexes["datasets"][parent_ids["dataset_id"]][
+                "source_site_dataset_payload"
+            ],
+            site.get("dataset") if type(site.get("dataset")) is dict else None,
+            "companion site.dataset native payload",
+        )
+        chronology_map = {}
+        for wrapper in unit.get("chronologies", []):
+            chronology = wrapper["chronology"]
+            key = native_id(chronology.get("chronologyid"))
+            if key is not None:
+                owned_id = "neotoma:chronology:" + unit_id + ":" + key
+                chronology_map[key] = owned_id
+                actual = indexes["chronologies"][owned_id]
+                same(
+                    actual["source_chronology_id"],
+                    chronology["chronologyid"],
+                    "raw chronology source ID",
+                )
+                same(
+                    actual["source_snapshot_id"],
+                    declared["source_snapshot_id"],
+                    "chronology source snapshot",
+                )
+                same(
+                    actual["build_id"],
+                    declared["normalized_build_id"],
+                    "chronology normalized build",
+                )
+                same(
+                    actual["country_code"],
+                    sample["country_code"],
+                    "chronology country consistency",
+                )
+                same(
+                    actual["selected_by_collection_unit_reference"],
+                    key == native_id(unit.get("defaultchronology")),
+                    "source default reference is not age admission",
+                )
+                same(
+                    actual["source_is_default_assertion"],
+                    type(chronology.get("chronology")) is dict
+                    and chronology["chronology"].get("isdefault") is True,
+                    "source default flag",
+                )
+                same(
+                    actual["source_payload"],
+                    {k: v for k, v in chronology.items() if k != "chroncontrols"},
+                    "raw chronology identity",
+                )
+                require(
+                    actual["collection_unit_id"] == parent_ids["collection_unit_id"]
+                    and actual["site_id"] == parent_ids["site_id"],
+                    "Chronology parent ownership differs",
+                )
+        age_occurrences: Counter[str] = Counter()
+        for age in source.get("ages", []):
+            age_occurrences[digest(age)] += 1
+            claim = age_claim(
+                age,
+                age_occurrences[digest(age)],
+                sample,
+                native_id(unit.get("defaultchronology")),
+                chronology_map,
+            )
+            require(
+                claim["chronology_claim_id"] not in age_sources,
+                "Duplicate selected raw age identity",
+            )
+            age_sources[claim["chronology_claim_id"]] = claim
+        occurrences: Counter[str] = Counter()
+        for datum in source.get("datum", []):
+            occurrences[digest(datum)] += 1
+            value = observation(datum, occurrences[digest(datum)], sample)
+            require(
+                value["observation_id"] not in observation_sources,
+                "Duplicate native observation ID",
+            )
+            observation_sources[value["observation_id"]] = value
+        native[sample_id] = sample
+        witnesses.append(
+            {
+                "sample_id": sample_id,
+                **parent_ids,
+                "native_collection_unit_id": unit["collectionunitid"],
+                "native_dataset_id": dataset["datasetid"],
+                "native_sample_id": source["sampleid"],
+                "normalized_locator": locations["samples"][sample_id],
+                "source_country_attribution_recomputed": False,
+                "physical_core_equivalence_claimed": False,
+            }
+        )
+    selected_observations: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    found = set()
+    for row, loc in rows("observations"):
+        if row["sample_id"] not in native:
+            continue
+        key = row["observation_id"]
+        require(
+            key in observation_sources and key not in found,
+            "Unexpected/duplicate selected normalized observation",
+        )
+        same(
+            row,
+            observation_sources[key],
+            "complete raw observation to normalized typed fields",
+        )
+        variable = indexes["variables"][row["variable_id"]]
+        same(
+            variable["source_taxon_id"],
+            row["source_taxon_id"],
+            "native variable taxon ID",
+        )
+        same(
+            variable["source_reported_name"],
+            row["source_reported_name"],
+            "native variable label",
+        )
+        found.add(key)
+        selected_observations[row["sample_id"]].append(
+            record(row, loc, indexes, conflicts)
+        )
+    require(
+        found == set(observation_sources),
+        "Selected raw observation multiplicity was not fully preserved",
+    )
+    selected_claims: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    found_ages = set()
+    for key, row in indexes["age_claims"].items():
+        if row["subject_id"] not in native:
+            continue
+        require(
+            key in age_sources and key not in found_ages,
+            "Unexpected/duplicate selected age alternative",
+        )
+        same(
+            row,
+            age_sources[key],
+            "complete age projection preserves native support and refusal",
+        )
+        found_ages.add(key)
+        selected_claims[row["subject_id"]].append(
+            {
+                "source_locator": locations["age_claims"][key],
+                "source_claim": row,
+                "ownership_mismatches": [],
+            }
+        )
+    require(
+        found_ages == set(age_sources), "Native age alternatives not fully preserved"
+    )
+    series = []
+    masses = []
+    country: dict[str, Counter[str]] = {code: Counter() for code in COUNTRIES}
+    for sample_id, sample in sorted(native.items()):
+        observations = sorted(
+            selected_observations[sample_id],
+            key=lambda row: row["source_observation"]["observation_id"],
+        )
+        components: Counter[tuple[str, bytes]] = Counter(
+            (
+                row["source_observation"]["variable_id"],
+                canonical(row["source_observation"]["source_unit"]),
+            )
+            for row in observations
+        )
+        duplicates = [
+            {
+                "variable_id": variable,
+                "source_unit": json.loads(unit),
+                "source_unit_json": unit.decode().rstrip("\n"),
+                "observation_count": count,
+            }
+            for (variable, unit), count in sorted(components.items())
+            if count > 1
+        ]
+        pollen = [row for row in observations if row["pollen_count_review_candidate"]]
+        units = sorted(
+            {canonical(row["source_observation"]["source_unit"]) for row in pollen}
+        )
+        claims = selected_claims[sample_id]
+        comparable = sum(
+            row["source_claim"]["comparability_status"] == "comparable"
+            for row in claims
+        )
+        reasons = list(MISSING)
+        if not pollen:
+            reasons.append("no_pollen_labelled_count_candidates")
+        if len(units) > 1:
+            reasons.append("pollen_candidate_source_units_differ")
+        if duplicates:
+            reasons.append("duplicate_source_variable_exact_unit")
+        if not comparable:
+            reasons.append("no_comparable_sample_age_claim")
+        if any(row["source_conflict_ids"] for row in observations):
+            reasons.append("source_identity_conflict")
+        series.append(
+            {
+                "sample_id": sample_id,
+                "source_sample": sample,
+                "source_locator": locations["samples"][sample_id],
+                "chronology": {
+                    "claims": claims,
+                    "claim_count": len(claims),
+                    "selected_claim_id": None,
+                    "lra_age_status": "not_admitted",
+                    "reason_codes": ["lra_chronology_decision_not_supplied"]
+                    + ([] if claims else ["sample_has_no_age_claims"]),
+                },
+                "observations": observations,
+                "observation_count": len(observations),
+                "pollen_labelled_count_candidates": len(pollen),
+                "candidate_exact_source_units": [json.loads(unit) for unit in units],
+                "duplicate_variable_unit_groups": duplicates,
+                "lra_admission_status": "refused",
+                "lra_reason_codes": reasons,
+            }
+        )
+        masses.append(mass_row(sample, observations, locations["samples"][sample_id]))
+        counts = country[sample["country_code"]]
+        counts.update(
+            samples=1,
+            lra_refused_samples=1,
+            observations=len(observations),
+            count_candidate_observations=sum(
+                row["count_status"] == "count_candidate" for row in observations
+            ),
+            refused_count_observations=sum(
+                row["count_status"] != "count_candidate" for row in observations
+            ),
+            pollen_labelled_count_candidates=len(pollen),
+            age_claims=len(claims),
+            comparable_age_claims=comparable,
+            samples_with_comparable_age_claims=int(bool(comparable)),
+        )
+    totals = {
+        field: sum(value[field] for value in country.values())
+        for field in (
+            "samples",
+            "lra_refused_samples",
+            "observations",
+            "count_candidate_observations",
+            "pollen_labelled_count_candidates",
+            "age_claims",
+        )
+    }
+    expected = {
+        "schema_version": "neotoma-candidate-sample-series.v1",
+        "source_family": "neotoma",
+        "source_snapshot_id": declared["source_snapshot_id"],
+        "normalized_build_id": declared["normalized_build_id"],
+        "raw_manifest_sha256": pins[declared["raw_root"] + "/manifest.json"]["sha256"],
+        "normalized_manifest_sha256": pins[
+            declared["normalized_root"] + "/manifest.json"
+        ]["sha256"],
+        "selection": {"mode": "explicit_sample_ids", "sample_ids": sorted(native)},
+        "source_denominators": {
+            "available_samples": len(indexes["samples"]),
+            "available_observations": manifest["surfaces"]["observations"]["row_count"],
+            "source_age_claims": len(indexes["age_claims"]),
+        },
+        "selected_denominators": totals,
+        "country_denominators": {
+            code: {
+                field: value[field]
+                for field in (
+                    "samples",
+                    "observations",
+                    "count_candidate_observations",
+                    "refused_count_observations",
+                    "pollen_labelled_count_candidates",
+                    "age_claims",
+                    "comparable_age_claims",
+                    "samples_with_comparable_age_claims",
+                    "lra_refused_samples",
+                )
+            }
+            for code, value in sorted(country.items())
+        },
+        "series": series,
+        "series_scope": "explicit_samples_not_asserted_shared_core",
+        "temporal_order_status": "not_established_without_chronology_selection",
+        "lra_accepted_samples": 0,
+        "executable_request": None,
+        "claims_not_made": [
+            "approved_taxon_or_ppe_mapping",
+            "selected_chronology",
+            "compatible_pollen_denominator",
+            "basin_geometry_admission",
+            "numerical_lra_execution",
+            "scientific_acceptance",
+        ],
+    }
+    return expected, masses, witnesses

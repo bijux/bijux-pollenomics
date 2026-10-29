@@ -1,0 +1,563 @@
+"""Artificial source-custody controls; no current source reader or private input access."""
+
+from __future__ import annotations
+
+from copy import deepcopy
+import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+import tempfile
+from typing import Any
+from unittest.mock import patch
+
+sys.path.insert(0, str(Path(__file__).absolute().parent))
+import contracts
+import launch
+import observe
+import packet
+import run
+
+COUNT = 0
+
+
+def refusal(call: Any) -> None:
+    global COUNT
+    try:
+        call()
+    except (ValueError, KeyError, TypeError, AssertionError):
+        COUNT += 1
+        return
+    raise AssertionError("Controlled mutation should refuse")
+
+
+def identity(path: str) -> dict[str, Any]:
+    return {
+        "path": path,
+        "sha256": hashlib.sha256(path.encode()).hexdigest(),
+        "bytes": len(path),
+    }
+
+
+def source_fixture() -> tuple[
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+]:
+    root = "/fixture/repository"
+    output = "/fixture/native"
+    owned = output + "/owned-source"
+    private = output + "/owned-private"
+    repo = [identity(root + "/data/source/" + str(i)) for i in range(592)]
+    raw = [identity("/fixture/private/" + str(i)) for i in range(7)]
+    sources = [
+        identity(root + "/packages/bijux-pollenomics/src/package/resource" + str(i))
+        for i in range(2193)
+    ]
+    caches = [
+        {
+            **identity(
+                root
+                + "/packages/bijux-pollenomics/src/package/__pycache__/module"
+                + str(i)
+                + ".cpython-311.pyc"
+            ),
+            "executed_or_copied": False,
+            "source_equivalence_claimed": False,
+        }
+        for i in range(4356)
+    ]
+    generated = [
+        {
+            **identity(
+                root + "/packages/bijux-pollenomics-lra/src/LRA_build_version.py"
+            ),
+            "executed_or_copied": False,
+            "source_equivalence_claimed": False,
+        }
+    ]
+    selected = sources + repo
+    copies = [{**row, "path": owned + row["path"][len(root) :]} for row in selected]
+    private_copies = [
+        {**row, "path": private + row["path"][len("/fixture/private") :]} for row in raw
+    ]
+    plan: dict[str, Any] = {
+        "repository": root,
+        "owned_repository": owned,
+        "owned_private_root": private,
+        "output": output,
+        "canonical_identity_at_source_freeze": {
+            "candidate": packet.CANDIDATE,
+            "status": "",
+        },
+        "current_input_closure": {
+            "repository": {"root": root, "files": repo},
+            "private": {"root": "/fixture/private", "files": raw},
+        },
+    }
+    ledger = {
+        "canonical_identity": plan["canonical_identity_at_source_freeze"],
+        "bytecode_payloads_copied_or_executed": False,
+        "bytecode_source_equivalence_claimed": False,
+        "original_sources": selected
+        + [packet.normalized(row) for row in caches + generated],
+        "selected_execution_sources": selected,
+        "copied_sources": copies,
+        "omitted_unselected_cache_bytecode": caches,
+        "omitted_configured_generated_metadata": generated,
+        "private_copies": private_copies,
+    }
+    source = {
+        "files": [
+            identity("/fixture/controller/file" + str(i) + ".py") for i in range(35)
+        ]
+    }
+    manifest = identity("/fixture/controller/prepared-source-manifest.json")
+    peer = identity("/fixture/controller/independent-source-review.json")
+    runtime: dict[str, Any] = {
+        "input_pins": [identity("/fixture/runtime/" + str(i)) for i in range(59882)]
+    }
+    authority = {
+        key: identity("/fixture/runtime-authority/" + key + ".json")
+        for key in ("plan", "outer", "common", "independent_review")
+    }
+    plan["qualified_source_runtime"] = authority
+    plan["source_ledger"] = identity(output + "/original-source-ledger.json")
+    plan["input_pins"] = (
+        repo
+        + raw
+        + [
+            row
+            for row in copies
+            if row["path"] not in {s["path"] for s in copies[:2193]}
+        ]
+        + private_copies
+        + copies[:2193]
+        + [plan["source_ledger"]]
+        + source["files"]
+        + [manifest, peer]
+        + list(authority.values())
+        + runtime["input_pins"]
+    )
+    assert len(plan["input_pins"]) == 63315
+    return plan, ledger, source, manifest, peer, runtime
+
+
+def native_fixture() -> tuple[
+    dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]
+]:
+    plan: dict[str, Any] = {
+        "schema_version": "current-source-audit-owned-plan.v1",
+        "candidate": packet.CANDIDATE,
+        "output": "/fixture/native",
+        "owned_repository": "/fixture/native/owned-source",
+        "owned_private_root": "/fixture/native/owned-private",
+        "runtime_entry_lexical_paths": ["/fixture/runtime/python"],
+        "input_pins": [],
+        "stages": [],
+    }
+    for name, action, seconds in [
+        ("maintained-current-source-audit", "producer", 360),
+        ("independent-current-source-audit-observer", "observer", 240),
+    ]:
+        plan["stages"].append(
+            {
+                "id": name,
+                "action": action,
+                "timeout_seconds": seconds,
+                "argv": [
+                    "/fixture/runtime/python",
+                    "-I",
+                    "-B",
+                    "/fixture/controller/entry.py",
+                    action,
+                    "--plan",
+                    "/fixture/native/plan.json",
+                ],
+            }
+        )
+    inner = {
+        "schema_version": "current-source-audit-terminal.v1",
+        "candidate": packet.CANDIDATE,
+        "plan_sha256": packet.PLAN_SHA,
+        "actual_exit": 0,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_whole_wall_bound_pass": True,
+        "exception": None,
+        "after_custody_error": None,
+        "live_canonical_equality_claimed": False,
+        "OS_quota_or_full_descendant_RSS_claimed": False,
+        "stages": [
+            {**row, "actual_exit": 0, "timed_out": False} for row in plan["stages"]
+        ],
+    }
+    outer = {
+        "schema_version": "current-source-audit-owned-child-watchdog-terminal.v1",
+        "candidate": packet.CANDIDATE,
+        "plan_sha256": packet.PLAN_SHA,
+        "actual_exit": 0,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_outer_wall_bound_pass": True,
+        "child_native_exit": 0,
+        "child_timed_out": False,
+        "registered_plan_unchanged": True,
+    }
+    modules = [
+        "bijux_pollenomics_dev.source_completion.audit",
+        "bijux_pollenomics_dev.source_completion.intake_custody",
+        "bijux_pollenomics_dev.source_completion.publication.json_outputs",
+    ]
+    origins = [
+        {
+            "module": name,
+            **identity(plan["owned_repository"] + "/" + name.replace(".", "/") + ".py"),
+        }
+        for name in modules
+    ]
+    plan["input_pins"] = [packet.normalized(row) for row in origins]
+    products = [
+        {"path": plan["output"] + "/" + name, **value}
+        for name, value in packet.PRODUCTS.items()
+    ]
+    producer = {
+        "schema_version": "current-source-audit-execution.v1",
+        "candidate": packet.CANDIDATE,
+        "actual_exit": 0,
+        "actual_argv": ["/fixture/framework/Python", *plan["stages"][0]["argv"][1:]],
+        "actual_executable": "/fixture/runtime/python",
+        "owned_package_search_roots": [
+            plan["owned_repository"] + "/packages/" + name + "/src"
+            for name in (
+                "bijux-pollenomics",
+                "bijux-pollenomics-lra",
+                "bijux-pollenomics-dev",
+                "pollenomics",
+            )
+        ],
+        "maintained_public_calls": [
+            {"call": "build_source_audit", "root": plan["owned_repository"]},
+            {
+                "call": "build_intake_custody_report",
+                "repository": plan["owned_repository"],
+                "private_source_root": plan["owned_private_root"],
+            },
+            {
+                "call": "summarize_source_audit",
+                "input": "complete_current_audit_with_intake_custody",
+            },
+            {
+                "call": "publish_json_outputs",
+                "outputs": [plan["output"] + "/" + name for name in packet.PRODUCTS],
+            },
+        ],
+        "first_party_origins": origins,
+        "products": products,
+        "accounting_checks_pass": True,
+        "accounting_finding_count": 0,
+        "historical_full_audit_recovered": False,
+        "old_summary_byte_equality_claimed": False,
+        "live_provider_completeness_or_scientific_admission": False,
+        "native_exit_means_API_execution_not_zero_accounting_findings": True,
+        "numerical_import_attempts": [],
+        "network_attempts": [],
+    }
+    review = {
+        "schema_version": "independent-current-source-audit-review.v1",
+        "candidate": packet.CANDIDATE,
+        "actual_exit": 0,
+        "products": products,
+        "source_execution_sha256": packet.PRODUCER_SHA,
+        "complete_typed_and_byte_reconstruction": True,
+        "source_count": 11,
+        "current_consumed_input_count": 321,
+        "accounting_checks_pass": True,
+        "accounting_findings": [],
+        "historical_full_audit_recovered": False,
+        "old_summary_reproduced": False,
+        "full_source_confirmation": False,
+    }
+    return plan, inner, outer, producer, review
+
+
+def main() -> None:
+    global COUNT
+    changed: Any
+    value: Any
+    plan, ledger, source, manifest, peer, runtime = source_fixture()
+    data = packet.data_identity_rows(plan)
+    assert len(data) == 1198
+    COUNT += 1
+    correspondence = packet.data_copy_correspondence(plan)
+    assert len(correspondence) == 599 and all(
+        row["payload_member"] is None
+        and row["original_and_sealed_copy_inputs_required"] is True
+        for row in correspondence
+    )
+    COUNT += 1
+    protected = packet.retention_input_rows(plan)
+    assert len(protected) == 63315 and {
+        row["original"]["path"] for row in correspondence
+    } <= {row["path"] for row in protected}
+    COUNT += 1
+    changed_plan = deepcopy(plan)
+    changed_plan["input_pins"][0]["sha256"] = "0" * 64
+    refusal(lambda: packet.retention_input_rows(changed_plan))
+    roles = packet.input_roles(plan, ledger, source, manifest, peer, runtime)
+    assert (
+        len(roles) == 63315
+        and sum(row["payload_member"] is None for row in roles) == 61080
+    )
+    COUNT += 1
+    assert all(
+        row["payload_member"] is None
+        for row in roles
+        if row["identity"]["path"] in data
+    )
+    COUNT += 1
+    joins = packet.source_join(plan, ledger)
+    assert (
+        len(joins) == 7142
+        and sum(row["role"] == "bytecode_identity_only" for row in joins) == 4356
+    )
+    COUNT += 1
+    catalogue = {
+        "files": ledger["copied_sources"]
+        + ledger["private_copies"]
+        + [identity("/fixture/native/public-" + str(i)) for i in range(11)]
+    }
+    selected = packet.selected_catalogue_rows(plan, catalogue)
+    assert len(selected) == 2204 and not {row["path"] for row in selected}.intersection(
+        data
+    )
+    COUNT += 1
+    for target, field, value in [
+        ("private_copies", 0, "bad"),
+        ("selected_execution_sources", 0, "bad"),
+    ]:
+        changed = deepcopy(ledger)
+        changed[target][field]["sha256"] = hashlib.sha256(value.encode()).hexdigest()
+        refusal(lambda changed=changed: packet.source_join(plan, changed))
+    changed = deepcopy(ledger)
+    changed["omitted_unselected_cache_bytecode"][0]["executed_or_copied"] = True
+    refusal(lambda changed=changed: packet.source_join(plan, changed))
+    changed = deepcopy(plan)
+    changed["input_pins"][0]["bytes"] = True
+    refusal(
+        lambda: packet.input_roles(changed, ledger, source, manifest, peer, runtime)
+    )
+    changed = deepcopy(catalogue)
+    changed["files"].pop()
+    changed["files"] = [
+        r for r in changed["files"] if r["path"] != ledger["private_copies"][0]["path"]
+    ]
+    refusal(lambda: packet.selected_catalogue_rows(plan, changed))
+    fixture = native_fixture()
+    result = packet.qualify_scope(*fixture)
+    assert (
+        result["full_source_confirmation"] is False
+        and result["original_owner_remains_unresolved"] is True
+    )
+    COUNT += 1
+    mutations: list[tuple[int, str, list[Any]]] = [
+        (1, "actual_exit", [True, 1]),
+        (2, "child_native_exit", [False, 1]),
+        (3, "accounting_finding_count", [False, 1]),
+        (4, "source_count", [11.0, True]),
+        (4, "current_consumed_input_count", [321.0]),
+        (4, "full_source_confirmation", [True]),
+        (4, "source_execution_sha256", ["0" * 64]),
+    ]
+    for index, key, values in mutations:
+        for value in values:
+            changed = deepcopy(fixture)
+            changed[index][key] = value
+            refusal(lambda changed=changed: packet.qualify_scope(*changed))
+    for value in [True, 359, 361]:
+        changed = deepcopy(fixture)
+        changed[1]["stages"][0]["timeout_seconds"] = value
+        refusal(lambda changed=changed: packet.qualify_scope(*changed))
+    for mutation in ("omit", "swap", "argv", "scope", "module", "product"):
+        changed = deepcopy(fixture)
+        if mutation == "omit":
+            changed[0]["stages"].pop()
+        elif mutation == "swap":
+            changed[1]["stages"].reverse()
+        elif mutation == "argv":
+            changed[1]["stages"][0]["argv"][4] = "observer"
+        elif mutation == "scope":
+            changed[3]["historical_full_audit_recovered"] = True
+        elif mutation == "module":
+            changed[3]["first_party_origins"][0]["path"] = "/foreign/module.py"
+        else:
+            changed[3]["products"][0]["bytes"] = 1
+        refusal(lambda changed=changed: packet.qualify_scope(*changed))
+    inner = identity("/fixture/native/source-audit-terminal.json")
+    line = (json.dumps({"terminal": inner, "actual_exit": 0}) + "\n").encode()
+    outer = {
+        "stdout": {
+            "path": "/fixture/native/launch.stdout",
+            "sha256": hashlib.sha256(line).hexdigest(),
+            "bytes": len(line),
+        },
+        "stderr": identity("/fixture/native/launch.stderr"),
+    }
+    packet.outer_stream_correspondence({"files": []}, outer, inner)
+    COUNT += 1
+    refusal(
+        lambda: packet.outer_stream_correspondence(
+            {"files": [outer["stdout"]]}, outer, inner
+        )
+    )
+    changed = deepcopy(outer)
+    changed["stdout"]["bytes"] += 1
+    refusal(lambda: packet.outer_stream_correspondence({"files": []}, changed, inner))
+    for name in (".", "../payload", "payloads/" + "g" * 64, "/payloads/" + "0" * 64):
+        refusal(lambda name=name: packet.member_name(name))
+    for raw in (b'{"x":1,"x":2}', b'{"x":NaN}'):
+        refusal(lambda raw=raw: packet.json_object(raw))
+    refusal(lambda: packet.same({"first": 1, "second": 2}, {"second": 2, "first": 1}))
+    with tempfile.TemporaryDirectory(
+        dir=Path(__file__).parent / "preflight"
+    ) as directory:
+        root = Path(directory)
+        directory_target = root / "target"
+        directory_target.mkdir()
+        alias = root / "alias"
+        alias.symlink_to(directory_target)
+        proof = {
+            "lexical_path": str(alias),
+            "physical_target": str(directory_target),
+            "target_type": "directory",
+            "target_contents_read_or_copied": False,
+            "full_subtree_or_historical_custody_claimed": False,
+            "raw_alias_chain": [
+                {
+                    "path": str(alias),
+                    "raw_link": str(directory_target),
+                    "physical_target": str(directory_target),
+                    "target_type": "directory",
+                }
+            ],
+        }
+        contracts.verify_directory_observation(proof)
+        COUNT += 1
+        (directory_target / "unconsumed").write_text(
+            "An unconsumed subtree is not a source body admission"
+        )
+        contracts.verify_directory_observation(proof)
+        COUNT += 1
+        alias.unlink()
+        alias.symlink_to(directory_target.name)
+        refusal(lambda: contracts.verify_directory_observation(proof))
+        alias.unlink()
+        alias.symlink_to(directory_target)
+        changed_proof = {**proof, "target_contents_read_or_copied": True}
+        refusal(lambda: contracts.verify_directory_observation(changed_proof))
+        contracts.verify_private_ancestry(root, ["target/unconsumed"])
+        COUNT += 1
+        refusal(lambda: contracts.verify_private_ancestry(root, ["alias/unconsumed"]))
+        raw = b'{"schema_version":"artificial-plan"}'
+        path = root / "plan.json"
+        path.write_bytes(raw)
+        sha = hashlib.sha256(raw).hexdigest()
+        assert contracts.registered_plan(path, sha) == {
+            "schema_version": "artificial-plan"
+        }
+        COUNT += 1
+        refusal(lambda: contracts.registered_plan(path, "0" * 64))
+        path.write_bytes(raw + b" ")
+        refusal(lambda: contracts.registered_plan(path, sha))
+        path.write_bytes(raw)
+        path_alias = root / "plan-alias.json"
+        path_alias.symlink_to(path)
+        refusal(lambda: contracts.registered_plan(path_alias, sha))
+        with (
+            patch.dict(os.environ, {"DYLD_LIBRARY_PATH": ""}, clear=True),
+            patch.object(
+                contracts,
+                "physical",
+                side_effect=AssertionError("Tool pin must not be reached"),
+            ),
+        ):
+            try:
+                contracts.identity()
+            except ValueError:
+                COUNT += 1
+            else:
+                raise AssertionError("Loader key was not refused before Git pin/tool")
+        logical: dict[str, Any] = {
+            "resources": deepcopy(contracts.RESOURCES),
+            "stages": [],
+        }
+        for name, action in [
+            ("retained-current-source-audit-assembly", "assemble"),
+            ("independent-current-source-audit-capture-observer", "observer"),
+        ]:
+            logical["stages"].append(
+                {
+                    "id": name,
+                    "action": action,
+                    "timeout_seconds": 180,
+                    "argv": [
+                        str(contracts.PYTHON),
+                        "-I",
+                        "-B",
+                        str(contracts.SOURCE / "entry.py"),
+                        action,
+                        "--plan",
+                        str(path),
+                    ],
+                }
+            )
+        run.validate_stages(logical, path)
+        COUNT += 1
+        stage_mutations: list[tuple[str, Any]] = [
+            ("timeout_seconds", True),
+            ("timeout_seconds", 181),
+            ("action", "producer"),
+            ("id", "foreign"),
+        ]
+        for slot, bad_value in stage_mutations:
+            changed_logical = deepcopy(logical)
+            changed_logical["stages"][0][slot] = bad_value
+            refusal(
+                lambda changed_logical=changed_logical: run.validate_stages(
+                    changed_logical, path
+                )
+            )
+        changed_logical = deepcopy(logical)
+        changed_logical["stages"].append(logical["stages"][0])
+        refusal(lambda: run.validate_stages(changed_logical, path))
+        assert launch.remaining_seconds(10.0, 11.0, 480) == 479.0
+        COUNT += 1
+        refusal(lambda: launch.remaining_seconds(10.0, 491.0, 480))
+        tree = root / "packet"
+        tree.mkdir()
+        (tree / "payloads").mkdir()
+        (tree / "capture.json").write_bytes(b"{}")
+        (tree / "payloads/public").write_bytes(b"public")
+        observe.exact_packet_tree(tree, {"payloads/public"})
+        COUNT += 1
+        fifo = tree / "special"
+        os.mkfifo(fifo)
+        refusal(lambda: observe.exact_packet_tree(tree, {"payloads/public"}))
+        fifo.unlink()
+    print(
+        json.dumps(
+            {
+                "actual_exit": 0,
+                "artificial_controls": COUNT,
+                "actual_data_reader_or_retainer": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

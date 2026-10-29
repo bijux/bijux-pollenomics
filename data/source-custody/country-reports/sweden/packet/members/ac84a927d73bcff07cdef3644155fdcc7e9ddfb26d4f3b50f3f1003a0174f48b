@@ -1,0 +1,51 @@
+{
+  "schema_version": "sweden-country-semantic-owned-child-watchdog-terminal.v1",
+  "candidate": "ee2bb2155f027695f526a576d7aabf075584d87a",
+  "plan_sha256": "6d35aea58a250e0dc62690de47807f626d5c3ab1681c8b73e1830b266e014451",
+  "actual_exit": 0,
+  "actual_child_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/plan.json",
+    "--registered-plan-sha256",
+    "6d35aea58a250e0dc62690de47807f626d5c3ab1681c8b73e1830b266e014451"
+  ],
+  "actual_child_pid_and_session_group": 3642,
+  "child_native_exit": 0,
+  "child_timed_out": false,
+  "registered_plan_unchanged": true,
+  "inner_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/sweden-country-semantic-terminal.json",
+    "sha256": "d93b9d97df8d56e129ec68ef58bb4746f1233aaa4f29dbd61034648fb4aef0d4",
+    "bytes": 3649
+  },
+  "stdout": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/launch.stdout",
+    "sha256": "d7f51a8afb23d49486e5c7de853670194a2099548da9e1a0852efe4fdc8613da",
+    "bytes": 275
+  },
+  "stderr": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/launch.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "completed_elapsed_from_entry_seconds": 83.91583362501115,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_outer_wall_bound_pass": true,
+  "completed_child_peak_RSS_bytes_macos": 430702592,
+  "logical_output_bytes_before_terminal": 19501325,
+  "own_receipt_reserve_bytes": 16384,
+  "resources": {
+    "overall_timeout_seconds": 600,
+    "outer_timeout_seconds": 660,
+    "declared_memory_bytes": 8589934592,
+    "declared_storage_bytes": 1073741824
+  },
+  "retained_input_output_logical_bytes_included": 172813578,
+  "watchdog_scope": "Entire delegated owned child, including child entry imports, source/runtime/private guards, both native stages and final scans. Minimal parent entry verification/startup and post-reap receipt accounting consume the measured outer budget but have no independent parent watchdog; no detached/aggregate-descendant cleanup or OS quota claim."
+}

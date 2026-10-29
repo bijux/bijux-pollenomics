@@ -1,0 +1,55 @@
+{
+  "schema_version": "sweden-saved-country-semantic-source-design.v1",
+  "source_only": true,
+  "actual_failed_controller": {
+    "plan_sha256": "b4458d45c74b43e96cea0b468ba0885b579253273e685185e37aa49ac2347cef",
+    "executed_source_manifest_sha256": "32700b3d6977d648f338a1fab3265af426b702224967d21ff753c9ba5c8eec98",
+    "inner_sha256": "4d9f6926b40ce71acc59e8b9f74703532bc88e997c1f6bba5d739ce731fb671a",
+    "outer_sha256": "1c8821853caa89fdd3f32f2f4a607e271ec78a2a91e3a967c51e8ebf64dbcdc9",
+    "wrapper_stage_actual_exit": 1,
+    "whole_actual_exit": 1,
+    "actual_country_call_and_return": "Reported complete by root; independently qualify exact captured raw metadata in the registered saved observer",
+    "original_full_return_object_recorded": false,
+    "actual_import_origin_or_read_list_recorded": false
+  },
+  "observed_failure_boundary": "The source audit hook refused before opening the exact default Python311 ZIP candidate. The maintained call returned successfully; wrapper failed before writing its maintained-country-execution witness. The saved observer must preserve the denial and wrapper/whole failure literally.",
+  "proposed_actual_consumer": "One independently registered saved-product semantic and native-clock observer; no country API, replay, normalization, R, HTTP or model stage",
+  "source_closure": "Freeze all 62332 original ordered input identities, raw aliases and complete old namespaces; bind the complete original product catalogue plus exact inner/outer/full late streams. Reuse original owned159 source/data and actual160 generated products unchanged. New orchestration candidate remains separate.",
+  "proofs_that_exist_in_source_protocol": [
+    "Exact expected compiled/imported generate_country_report typed code graph and owned source filename",
+    "Raw exact country call arguments, actual CountryReport return event/type and generated day",
+    "Raw source-owned UTC observations before and after the complete maintained replay",
+    "Captured complete country output bundle and native replay receipt",
+    "Active CountryIO rejects every undeclared input/body and out-of-scope mutation before access, retaining attempted denials"
+  ],
+  "proofs_not_to_invent": [
+    "No full returned CountryReport samples/localities snapshot was written",
+    "No complete first-party import-origin or io.reads ledger was written",
+    "No maintained-country-execution witness was written",
+    "No original stage or whole success"
+  ],
+  "independent_semantics": [
+    "Reconstruct human typed samples from unchanged raw ANNO using the existing independent parser; compare complete default sample CSV and GeoJSON",
+    "Independently derive locality grouping, sample-owned chronology/support/provenance and display-only hull from those source rows; compare every v2 locality CSV field including JSON identities/supports",
+    "Join saved summary/bundle counts, country/version/day to that independent reconstruction and the raw successful return event; label reconstructed rows as independent, not captured return rows",
+    "Reuse unchanged full animal context/global-conflict/source joins, synthesis/individual-support joins, six native semantic categories and separate exact byte checker",
+    "Qualify only the exact known absent default ZIP attempted open with pre-open denial and frozen original-runtime absence/namespace evidence; no arbitrary denied-path waiver"
+  ],
+  "resources": {
+    "observer_seconds": 360,
+    "whole_seconds": 600,
+    "outer_seconds": 660,
+    "declared_child_memory_bytes": 8589934592,
+    "inclusive_logical_storage_bytes": 1073741824,
+    "prospective_not_measured": true
+  },
+  "root_metadata_authority_still_required_before_freeze": [
+    "Exact original plan/inner/outer/product-catalogue identities and complete late stdout/stderr topology",
+    "Exact raw clock and callable proof identities plus producer receipt and full output catalogue",
+    "Original runtime-protected absence/namespace role for Python311 ZIP and exact current lstat absence observation"
+  ],
+  "full_original_owner_criterion_unchanged": true,
+  "current_receipt_admission_requires_actual_saved_observer_whole_zero_and_portable_metadata_whole_zero": true,
+  "private_data_or_real_products_decoded_by_author": false,
+  "actual_country_API_or_preparer_or_native_by_author": false
+}

@@ -1,0 +1,163 @@
+{
+  "existing_reference": {
+    "bytes": 16188,
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py",
+    "sha256": "6383372379623ced187c8b8b5dd43f813dd5ec384a467f872bb99b579e2d1e38"
+  },
+  "physical_inputs": [
+    {
+      "bytes": 10913,
+      "path": "experiment.json",
+      "sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4"
+    },
+    {
+      "bytes": 888,
+      "path": "source-report.json",
+      "sha256": "e89867dd2baebe347c18256c094281162ac9107f5d5a862fe090d0b28f86b7dc"
+    },
+    {
+      "bytes": 107,
+      "path": "chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506"
+    },
+    {
+      "bytes": 655,
+      "path": "taxa.json",
+      "sha256": "23ea956d3a64f6111c337e9e322cae32855e8604881483e9b12a2b27916c75e0"
+    },
+    {
+      "bytes": 174,
+      "path": "parameters.json",
+      "sha256": "33ab18119b606287f46989e92fe4c88c47560dd4964132f90591230894a373c6"
+    },
+    {
+      "bytes": 95,
+      "path": "dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb"
+    },
+    {
+      "bytes": 496,
+      "path": "decision.json",
+      "sha256": "774b314f43f07138ae5ec99cf7b4e12e5314b133f4046bf47ecb9e66eda2bdd8"
+    },
+    {
+      "bytes": 846,
+      "path": "BROADOWN-raw.json",
+      "sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748"
+    },
+    {
+      "bytes": 1274,
+      "path": "BROADOWN-geometry.json",
+      "sha256": "3945348d26462772b3d223c896b76aa5c8371b2580c0b0c9ab6a294fffd9af24"
+    },
+    {
+      "bytes": 841,
+      "path": "CUTHILL2-raw.json",
+      "sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30"
+    },
+    {
+      "bytes": 1274,
+      "path": "CUTHILL2-geometry.json",
+      "sha256": "afc2d3c3a803add89446edfaed388d822ce448f55fe428118349fec05df8e7b9"
+    },
+    {
+      "bytes": 843,
+      "path": "LONGBREACH-raw.json",
+      "sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f"
+    },
+    {
+      "bytes": 1271,
+      "path": "LONGBREACH-geometry.json",
+      "sha256": "2af6d37741816cc0d2a13618e8cfb4865e1af3e5dec3b039ddfdd3e99b576d0e"
+    }
+  ],
+  "previous_evidence": [
+    {
+      "bytes": 2090,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json",
+      "sha256": "68afb09419754130f482783397f58b12c7c06ee041430b24d264dc7f9c30e009"
+    },
+    {
+      "bytes": 8370,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json",
+      "sha256": "8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d"
+    },
+    {
+      "bytes": 1056,
+      "path": "reports/science/source-cohorts/optimizer-baseline-input.json",
+      "sha256": "5d0a70920cf88b936580477cbdf86db657e44a0344edf0a8dfc26ac3967e10cf"
+    }
+  ],
+  "protocol": {
+    "ftol": 1e-08,
+    "max_objective_evaluations_per_attempt": 16000,
+    "maxiter_per_attempt": 300,
+    "new_starts": [
+      "0.5 uniform +0.5 observed training pollen",
+      "0.5 uniform +0.5 normalized direction of the original three-decimal-percent rounded REVEALS regional cover; preserve original regional cover mass in the objective",
+      "0.5 uniform +0.5 e_j for each of the ordered30taxa"
+    ],
+    "numerical_threads": 1,
+    "objective": "Existing tf with exact existing _jacobian; same counts,taxa,PPE,fall-speeds,ring areas,regional draw and seed; only initial simplex location changes.",
+    "prohibitions": [
+      "No target pollen read or score",
+      "No original historical report overwrite",
+      "No original R optimizer parity claim",
+      "No physical-basin/vegetation/rights/human admission"
+    ],
+    "regional_start_direction": {
+      "derivation": "regional_cover/regional_cover.sum(), after finite nonnegative positive finite-total validation",
+      "objective_background": "Use the original source REVEALS sample percentages divided by100, without normalizing or changing any regional_deposition/tf background value",
+      "observed_training_start": "Already closed original training pollen remains unchanged",
+      "telemetry": "Two regional_handoffs retain ordered taxa, native percent vector/sum and three-decimal source precision, fractional vector/sum and normalized start direction",
+      "trial_accounting": "Exactly128 attempts and256 started/completed events; handoffs add no trial events"
+    },
+    "rings_per_item": 2,
+    "selection": "Report every attempted/refused start. Among original-host accepted, finite feasible successes choose minimum recomputed objective, ties by declared start ID; never accept a solver refusal or claim global optimum.",
+    "single_process": true,
+    "starts_per_ring": 32,
+    "total_new_attempts": 128,
+    "uniform_start_baseline": "Reuse the exact recorded analytic gradient diagnostic; do not rerun finite-difference controls, HANGINGS or unchanged uniform fits."
+  },
+  "schema_version": "author-love-fixed-start-selection.v1",
+  "selected_items": {
+    "author:CUTHILL2": {
+      "request_sha256": "5c8f9dc338ab88bc0284f53e8d5fead0467c87538f16539a9b35f0ea211e8ee2",
+      "rings": [
+        {
+          "fun": 0.8230886799982721,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 4898,
+          "nit": 147,
+          "success": false
+        },
+        {
+          "fun": 0.8230886799982721,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 4898,
+          "nit": 147,
+          "success": false
+        }
+      ]
+    },
+    "author:LONGBREACH": {
+      "request_sha256": "65b8920c442ff7afb3db5ad5d78faf00047825e4c4027044851b67e5d2762eb7",
+      "rings": [
+        {
+          "fun": 0.5874116458258167,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 5123,
+          "nit": 156,
+          "success": false
+        },
+        {
+          "fun": 0.5874116458258167,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 5123,
+          "nit": 156,
+          "success": false
+        }
+      ]
+    }
+  }
+}

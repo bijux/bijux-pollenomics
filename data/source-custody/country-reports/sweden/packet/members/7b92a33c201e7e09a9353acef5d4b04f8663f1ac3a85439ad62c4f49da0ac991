@@ -1,0 +1,58 @@
+{
+  "schema_version": "sweden-saved-country-observation-protocol.v1",
+  "source_only": true,
+  "original_owner": {
+    "owner_id": "countries/sweden/land-use-replay/semantic-receipt",
+    "role": "unresolved",
+    "paths": [
+      "docs/report/countries/sweden/land-use-replay/receipt.json"
+    ],
+    "producer_paths": [
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py"
+    ],
+    "producer_inputs": [
+      "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "data/aadr/v66/release_manifest.json",
+      "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "data/sead/normalized/nordic_temporal_evidence.geojson",
+      "data/svar/review/lake_candidate_registry_review.json",
+      "data/svar/review/sweden_lake_candidate_registry.geojson"
+    ],
+    "verification": "The replay invokes the full country-report bundle producer, hashes published outputs and upstream products, and uses runtime generated date. Seven direct source files alone are not the complete producer input/template closure. Bind full country-producer source closure, published comparands and time control before generated ownership; this receipt is reproducibility evidence, not vegetation validation."
+  },
+  "original_plan_sha256": "b4458d45c74b43e96cea0b468ba0885b579253273e685185e37aa49ac2347cef",
+  "original_controller_actual_exit": 1,
+  "original_whole_actual_exit": 1,
+  "country_call_returned_normally": true,
+  "actual_country_call_return_events": 1,
+  "no_separate_country_process_exit_zero_claimed": true,
+  "original_owned_source_candidate": "ed6f5dbeae2bbe8e50c1835cb0c39a40277a8485",
+  "original_orchestration_candidate": "bb932d72721f8c9620f29d179984b52ce755dc37",
+  "current_orchestration_candidate_dynamic": true,
+  "source_qualification_does_not_execute_saved_observer": true,
+  "actual_consumer": "One registered independent saved-country semantic/clock observer. No country API, replay, normalization, model, R or HTTP stage.",
+  "authority": "Exact12 collected references from root b2d202, complete original ordered62332 inputs, unchanged owned source/data, complete original output catalogue plus inner/outer/late streams; strict byte/type/ancestor/alias and namespace checks at every checkpoint.",
+  "exact_default_ZIP": "Only the already-protected absent default Python311 ZIP was denied before opening. Original runtime absence and complete BASE namespace remain strict, all other denied paths refuse. No previously unread bytes are admitted.",
+  "missing_telemetry": [
+    "Full in-memory returned CountryReport",
+    "Original io.reads list",
+    "Original first-party import-origin list",
+    "Maintained-country-execution witness"
+  ],
+  "independent_result": "Reconstruct human typed samples and full21-field locality CSV from source ANNO, preserve individual supports separately from display hulls, compare defaults/source joins and saved summary/bundle fields; reuse unchanged full animal/synthesis/receipt algorithms and separate bytechecker0or2. Reconstructed rows are expected projection, never captured return.",
+  "source_code": "Compile exact unchanged owned public service bytes without execution or import and join its full typed graph to the already observed callable proof.",
+  "before_first_output": "Freeze expected old role union before runtime census. Repeat source namespace/aliases/original bytes and full memberships before first mkdir; exact pretty plan/history forecasts before mutation.",
+  "resources": {
+    "observer_seconds": 360,
+    "whole_seconds": 600,
+    "outer_seconds": 660,
+    "declared_memory_bytes": 8589934592,
+    "declared_storage_bytes": 1073741824,
+    "storage_includes_separate_original_owned_tree_collected_output_and_new_output": true,
+    "timing_or_RSS_not_measured_by_author": true
+  },
+  "limits": "Source-bound saved-product reproducibility only; original wrapper1/whole1 and all historical/refusal/source unavailability remain. No ecology, rights, human, biological, causal or LRA acceptance. Full original owner criterion remains unchanged.",
+  "parent_watchdog": "Inherited owned-session watchdog covers delegated run child through input/runtime admission and final scans; no independent timeout on launcher admission/post-reap accounting, full detached-descendant guarantee, complete descendant RSS or OS quota claim.",
+  "actual_data_API_preparer_native_Git_or_STATE_by_author": false
+}

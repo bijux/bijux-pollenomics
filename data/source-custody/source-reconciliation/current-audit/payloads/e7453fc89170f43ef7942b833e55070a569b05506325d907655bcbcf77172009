@@ -1,0 +1,45 @@
+{
+  "schema_version": "current-source-directory-presence-preparation.v1",
+  "source_only": true,
+  "source_root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody",
+  "candidate": "ACTUAL_FUTURE_CLEAN_MAIN_SELECTED_AT_ROOT_PREPARATION",
+  "independent_source_review": "Required exact approved manifest-bound review before entry dispatch",
+  "prospective_output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit",
+  "prepare_argv": [
+    "QUALIFIED_PYTHON",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CLEAN_CANDIDATE",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit"
+  ],
+  "separate_launch_argv": [
+    "QUALIFIED_PYTHON",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "resources": {
+    "producer_seconds": 360,
+    "observer_seconds": 240,
+    "completed_inner_seconds": 720,
+    "outer_owned_child_seconds": 780,
+    "memory_bytes": 4294967296,
+    "inclusive_output_bytes": 3221225472,
+    "precopy_metadata_log_output_reserve_bytes": 134217728,
+    "max_plan_bytes": 67108864,
+    "min_free_bytes": 3489660928
+  },
+  "actual_future_outcome": null,
+  "scope": "Current source accounting and exact native directory-presence projection only; original receipt/audit/owner conditions remain unchanged."
+}

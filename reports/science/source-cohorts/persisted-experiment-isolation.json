@@ -1,0 +1,216 @@
+{
+  "actual_exit": 0,
+  "approved": true,
+  "candidate": "23ea4670d12ee6f61e0fb086c20f6dfe455eb0e4",
+  "child_stage_qualification": {
+    "new_recorded_stage_products": {
+      "LOVE-analytical": 3,
+      "REVEALS": 3
+    },
+    "old_recorded_stage_products": {
+      "LOVE-analytical": 5,
+      "REVEALS": 5
+    },
+    "qualification": "Source-qualified completed cache products declare REVEALS then analytical LOVE. Original5/native1 and fresh3/native0 are distinct; no direct child stage call instrumentation.",
+    "recorded_manifests": [
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/0b7b7d00729e69df65e792e685582f35558a26c207be021d4fb8877f7aa8146d/numerical/run_manifest.json",
+        "sha256": "28c5f03b70f11679391526ec73b136e427057d8f1269f84e8108887d81161123"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/0c60ba1e2064d314963ecc89f0cbc23594d113e2a183c2bd80fed09793f65fec/numerical/run_manifest.json",
+        "sha256": "3af54e809616e3948d8b6bc39ced7093b09da8fef9b920239d6bed773bf9be9a"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/a03fab549c1461481e8e0825172932ab300f9275df5a4b6c3249ab26a27c3ffd/numerical/run_manifest.json",
+        "sha256": "2e38523442eb99015ba82c669b2ed61e9f8bdd061e24ed59e86efeddfdd4304f"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/4b73051ab811056a9ef86cc38f058f76e072195bbc0b2fb938989de4bdb668c9/numerical/run_manifest.json",
+        "sha256": "64fc35d4bf50767c09564bb6c385bd4b27911d5fa2c7db4b1995874879cf4f09"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/c463351a35be47d9eb09d7838809a5c3715ae5ec073a37bcc9dfbf2e14698bfb/numerical/run_manifest.json",
+        "sha256": "6e57bf256c69335a186899390d5fe1fef2d0463ecf89741684da21c5f4b9f195"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/39e4aa0a3d0515dd5cfec8b23be9543a0cc83b8d94903c44097ef8ccd6fecca2/numerical/run_manifest.json",
+        "sha256": "d61ff2741868f0ac7b42292a86f23ff345d3d7c288620cf002e9a590ba919647"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/de060138a527a8e4c09d14eaeafd4e16687781f0abb6ee24d7d2d5d4727549a3/numerical/run_manifest.json",
+        "sha256": "69151db0dd339c03f4b02aae66b478a3136cebb8cb8eaca4a58a82157da4fc89"
+      },
+      {
+        "bytes": 2219,
+        "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/cache/90e45f96d3515edf563f02922460d7caf7ef25604065e24e806b589165227c31/numerical/run_manifest.json",
+        "sha256": "a85bda29b0b234ecc6888fbd1790b9b12db489cb4f13b881bb4698ff3bb33c3f"
+      }
+    ]
+  },
+  "collector": {
+    "bytes": 376,
+    "path": "artifacts/science/development-input-isolation-saved-cache-execution/collected-execution.json",
+    "sha256": "2c2e1752b758723d1e78e0146ce50b11750ea1fa2e902758c55a53185433e2a8"
+  },
+  "guard_reuse": {
+    "actual_source_epoch": "cc4ad45cba2e3a52c04843ca675e1f439343e553",
+    "current_watched_source_identity_equal": true,
+    "fresh_current_test_run_claimed": false,
+    "scope": "57 current guard cases originally run at cc4; all7 watched test sources read back equal at held23ea, and the3 executed modules are direct23ea plan pins. Historical missing57 receipt remains missing."
+  },
+  "guard_tests": {
+    "bytes": 2529,
+    "path": "artifacts/science/development-input-isolation-current-preparation/guard-checks/regional-execution.json",
+    "sha256": "a9bb2e91e0f4d152b90f99c5fd229ad0f9be7108cd2d2f119158c2f409c4fa1b"
+  },
+  "historical_receipts_restored": false,
+  "independent_arithmetic": {
+    "method": "Independent Decimal signed errors, MAE, RMSE, bias, total variation and count deviance from saved vectors/counts; no maintained metric/model calls.",
+    "scored_rows": 50,
+    "target_metric_cells": 20
+  },
+  "journal": {
+    "bytes": 215744,
+    "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/read-journal.jsonl",
+    "sha256": "4246b46dc2765953aa226479d47b830cd2d5e85e09f3ab1880850befe1ee655d"
+  },
+  "journal_counts": {
+    "batch_before": 16,
+    "batch_completed": 16,
+    "outcome_open": 10,
+    "predictions_published": 4,
+    "reconstruction_before": 16,
+    "reconstruction_completed": 10,
+    "spatial_fit_before": 5,
+    "spatial_fit_completed": 5,
+    "split_verified": 34
+  },
+  "metadata_preflight": {
+    "bytes": 1308,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/development-input-isolation-source-custody-preparation/metadata-preflight.json",
+    "sha256": "45ecbd07feed25a2148b567b1f5064d137b00855f41d16d79257c3f9d4264b96"
+  },
+  "native_status": {
+    "collector_exit": 0,
+    "native_exit": 0,
+    "scientific_main_return": "not_captured_by_borrowed_entry",
+    "stage_exit": 0
+  },
+  "native_terminal": {
+    "bytes": 2668,
+    "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/terminal.json",
+    "sha256": "311e97c7c82a1203c34eb7df10fec69d976ecf5b3495f57ee967d26f8d9333be"
+  },
+  "observer_qualifications": [
+    "Baseline predictions carry prediction_manifest; fitted rows carry a row identity plus fit_manifest or baseline_model_manifest. Each native schema independently checked without importing their readers.",
+    "All7 current guard test sources authenticated; only3 executed pytest modules are direct plan members. Initial6fc receipt remains retained with its less precise guard-membership wording."
+  ],
+  "original_failed_native_exit": 1,
+  "original_ten_products_reused": false,
+  "plan": {
+    "bytes": 961385,
+    "path": "artifacts/science/development-input-isolation-saved-cache-execution/plan.json",
+    "sha256": "b4ae5f0c43cf06816059a62f7e2460d4eb68c3010c6104563f7bd9feafa208b0"
+  },
+  "public_products": {
+    "docs/report/synthetic-validation/persisted-experiment-isolation/report.json": {
+      "bytes": 185480,
+      "sha256": "d6dbfccfb40cacc7b99b601b880501b3b285e15c6a0511ef7d51c5b5e01935d9"
+    },
+    "docs/report/synthetic-validation/persisted-experiment-isolation/trace-index.json": {
+      "bytes": 95962,
+      "sha256": "131cd1958367b87acf267e5303ead71430511b5735db2738e7f6656a284a8e81"
+    }
+  },
+  "public_sources": {
+    "reports/science/persisted-experiment-isolation/protocol.json": {
+      "bytes": 43732,
+      "sha256": "125f0564b7e24756287b37a2a7b03883851d0dfb8e515589ff8e95c47622abb2"
+    },
+    "reports/science/persisted-experiment-isolation/source-locations.json": {
+      "bytes": 1463,
+      "sha256": "e961b7bd836671942f321f5c45f88bf6bbb6e65fa325c71a7496b8cc4829d7c5"
+    },
+    "reports/science/persisted-experiment-isolation/source/evidence.py": {
+      "bytes": 12402,
+      "sha256": "f205de8d94530cca6626209b0041e5dd381639c5f78e87a15855e23f8b871bc1"
+    },
+    "reports/science/persisted-experiment-isolation/source/replay.py": {
+      "bytes": 14645,
+      "sha256": "dd0173b484ce218232ce5ba2910a707c34a3236a50477659b06d5927e561ef13"
+    }
+  },
+  "report": {
+    "bytes": 741513,
+    "path": "artifacts/science/development-input-isolation-saved-cache-execution/native/products/report.json",
+    "sha256": "129b5be130b1c7a718797f36ca47e1c930e911ac6a16e9725db03ea406e56911"
+  },
+  "review_source": {
+    "bytes": 19993,
+    "path": "artifacts/science/development-input-isolation-saved-output-independent-review/review_outputs.py",
+    "sha256": "5cc132560cfcb876f53da96b8a3bd90b6827ca62632757056b495fcec5146eb5"
+  },
+  "schema_version": "development-input-isolation-output-review.v1",
+  "scientific_protocol": {
+    "bytes": 43732,
+    "path": "artifacts/science/development-input-isolation-saved-handoff/proposal/protocol.json",
+    "sha256": "125f0564b7e24756287b37a2a7b03883851d0dfb8e515589ff8e95c47622abb2"
+  },
+  "scientific_saved_products_admitted": true,
+  "scope": "Full literal software splitting/input-isolation criterion: persisted prefit split verification, alternate-source/chronology/alias/derived group guards and actual target-only perturbation cannot alter fitted inputs/predictions. No ecological/vegetation accuracy, untouched confirmation, human/rights/release or whole LRA science acceptance.",
+  "score_status_counts": {
+    "baselines": {
+      "reference": {
+        "scored": 24
+      },
+      "target-perturbed": {
+        "prediction_failed": 18,
+        "scored": 6
+      }
+    },
+    "fitted": {
+      "reference": {
+        "scored": 16
+      },
+      "target-perturbed": {
+        "prediction_failed": 12,
+        "scored": 4
+      }
+    }
+  },
+  "source_epoch": "23ea4670d12ee6f61e0fb086c20f6dfe455eb0e4",
+  "source_manifest": {
+    "bytes": 2619,
+    "path": "artifacts/science/development-input-isolation-saved-handoff/proposal/source-proposal.json",
+    "sha256": "2100178127c317bbad6394433138a2be3508096034efcdcaf4c5cf55a51b367a"
+  },
+  "summary": {
+    "actual_batch_items": 32,
+    "actual_cache_hits": 29,
+    "actual_cache_misses": 3,
+    "actual_engine_calls": {},
+    "actual_new_basin_products": 3,
+    "actual_spatial_fit_operations": 5,
+    "actual_unique_requests": 8,
+    "authenticated_seeded_basin_products": 5,
+    "cumulative_unique_basin_products": 8,
+    "identity_groups": 4,
+    "identity_records": 9,
+    "observed_parent_engine_calls": {},
+    "predictions_published_before_scoring": true,
+    "prefit_ordering_verified": true,
+    "score_dispositions": 80,
+    "target_fingerprints": 4,
+    "target_metric_cells": 20
+  },
+  "whole_requirement_id": "V2-VAL-002",
+  "whole_requirement_satisfied": true
+}

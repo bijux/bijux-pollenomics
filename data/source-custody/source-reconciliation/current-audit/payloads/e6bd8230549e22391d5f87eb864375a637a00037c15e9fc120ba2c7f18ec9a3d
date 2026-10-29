@@ -1,0 +1,173 @@
+"""Independently join historical intake bytes, decisions and current report limits."""
+
+from __future__ import annotations
+
+import hashlib
+from pathlib import Path
+from typing import Any
+
+from review.reader import Reader, object_bytes, require
+
+IDS = {
+    "EXT-2026-09-04-OPENLAND-001",
+    "EXT-2026-09-04-OPENLAND-002",
+    "EXT-2026-09-04-ROOTSI-001",
+}
+REPORTS = {
+    "EXT-2026-09-04-OPENLAND-002": "docs/report/source-relations/openland-intake/report.json",
+    "EXT-2026-09-04-ROOTSI-001": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
+}
+
+
+def verified(reader: Reader, name: str, expected: dict[str, Any]) -> bytes:
+    raw = reader.raw(name)
+    require(raw is not None, "Required historical intake bytes absent: " + name)
+    assert raw is not None
+    require(
+        type(expected["bytes"]) is int
+        and len(raw) == expected["bytes"]
+        and hashlib.sha256(raw).hexdigest() == expected["sha256"],
+        "Original historical intake identity changed: " + name,
+    )
+    return raw
+
+
+def reconstruct(repository: Path, private_root: Path) -> dict[str, Any]:
+    from jsonschema import Draft202012Validator
+
+    public = Reader(repository)
+    private = Reader(private_root)
+    schema_raw = public.raw("data/source_intake_contract.schema.json")
+    require(schema_raw is not None, "Intake schema absent")
+    assert schema_raw is not None
+    schema = object_bytes(schema_raw)
+    Draft202012Validator.check_schema(schema)
+    validator = Draft202012Validator(schema)
+    custody_raw = private.raw("source-intakes/custody.json")
+    require(custody_raw is not None, "Original custody manifest absent")
+    assert custody_raw is not None
+    custody = object_bytes(custody_raw)
+    require(
+        custody["schema_version"] == "source-intake-custody.v1",
+        "Custody schema changed",
+    )
+    receipts, archives = custody["receipts"], custody["archives"]
+    require(
+        type(receipts) is list
+        and len(receipts) == 3
+        and {row["intake_id"] for row in receipts} == IDS,
+        "Exact three receipt roles required",
+    )
+    require(
+        type(archives) is list
+        and len(archives) == 2
+        and {row["intake_id"] for row in archives}
+        == IDS - {"EXT-2026-09-04-OPENLAND-001"},
+        "Exact two original archive roles required",
+    )
+    archive_by_id = {row["intake_id"]: row for row in archives}
+    rows = []
+    for spec in sorted(receipts, key=lambda row: row["intake_id"]):
+        ident = spec["intake_id"]
+        receipt = object_bytes(
+            verified(private, "source-intakes/receipts/" + spec["path"], spec)
+        )
+        require(
+            receipt["intake_id"] == ident and validator.is_valid(receipt),
+            "Receipt contract invalid",
+        )
+        coverage = receipt["country_coverage"]
+        require(
+            type(coverage) is list
+            and len(coverage) == 4
+            and {row["country_code"] for row in coverage} == {"DK", "FI", "NO", "SE"},
+            "Receipt country population changed",
+        )
+        require(
+            receipt["decision"]["public_release_allowed"] is False,
+            "Custody cannot promote original release decision",
+        )
+        delivery = receipt["delivery"]
+        archive = archive_by_id.get(ident)
+        observed = None
+        if archive is None:
+            require(
+                delivery["materialization_status"] == "unavailable"
+                and delivery.get("sha256") is None
+                and delivery.get("byte_size") is None,
+                "Unavailable original intake acquired archive claims",
+            )
+        else:
+            require(
+                delivery["materialization_status"] == "received"
+                and delivery["sha256"] == archive["sha256"]
+                and type(delivery["byte_size"]) is int
+                and delivery["byte_size"] == archive["bytes"],
+                "Original receipt/archive identity disagrees",
+            )
+            verified(private, archive["relative_path"], archive)
+            observed = {
+                "relative_private_path": archive["relative_path"],
+                "bytes": archive["bytes"],
+                "sha256": archive["sha256"],
+                "verification": "byte_and_sha256_match",
+            }
+        rows.append(
+            {
+                "intake_id": ident,
+                "receipt_sha256": spec["sha256"],
+                "historical_lifecycle_state": receipt["lifecycle_state"],
+                "historical_delivery_state": delivery["materialization_status"],
+                "historical_disposition": receipt["decision"]["disposition"],
+                "historical_rights_status": receipt["rights"]["status"],
+                "historical_public_release_allowed": False,
+                "historical_country_coverage": sorted(
+                    coverage, key=lambda row: row["country_code"]
+                ),
+                "verified_original_archive": observed,
+                "current_source_report": REPORTS.get(ident),
+                "scientific_admission_from_custody": False,
+            }
+        )
+    current = []
+    for ident, name in sorted(REPORTS.items()):
+        raw = public.raw(name)
+        require(raw is not None, "Current intake report absent")
+        assert raw is not None
+        report = object_bytes(raw)
+        if ident.endswith("OPENLAND-002"):
+            require(
+                report["source_archive"]["sha256"] == archive_by_id[ident]["sha256"]
+                and type(report["independent_vegetation_benchmarks"]) is int
+                and report["independent_vegetation_benchmarks"] == 0
+                and report["rights"]["public_map_or_export_authorized"] is False,
+                "OpenLand current report promoted source/rights posture",
+            )
+        else:
+            workbooks = private.obj("landclim/rootsi-workbooks/manifest.json")
+            require(workbooks is not None, "Current retained workbook manifest absent")
+            assert workbooks is not None
+            require(
+                workbooks["archive_sha256"] == archive_by_id[ident]["sha256"]
+                and not any(report["admission"].values()),
+                "Rootsi archive/admission posture changed",
+            )
+        current.append(
+            {
+                "intake_id": ident,
+                "path": name,
+                "sha256": hashlib.sha256(raw).hexdigest(),
+            }
+        )
+    return {
+        "schema_version": "source-intake-custody-review.v1",
+        "intake_contract_sha256": hashlib.sha256(schema_raw).hexdigest(),
+        "private_custody_manifest_sha256": hashlib.sha256(custody_raw).hexdigest(),
+        "receipt_count": 3,
+        "verified_original_archives": 2,
+        "country_claim_rows": 12,
+        "historical_receipts": rows,
+        "current_source_report_inputs": current,
+        "scientific_admission": "not_established_by_custody",
+        "scope": "Historical receipt and original archive verification; current source reports retain scientific authority.",
+    }

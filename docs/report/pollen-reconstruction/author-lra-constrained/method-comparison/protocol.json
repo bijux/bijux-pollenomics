@@ -1,0 +1,308 @@
+{
+  "schema_version": "author-love-matched-method-protocol.v1",
+  "source_candidate_at_design": "bfee143ff2fc07624d931300f81dabda1f1dceea",
+  "question": "On the fourteen previously exposed folds scored by both preserved methods, how do retained pollen point scores differ by fold and each of the three predeclared spatial baselines, while retaining all fifteen original/cohort dispositions?",
+  "method_difference": "Combined change: uniform-start SLSQP with original host composition rounding versus the fixed32 positive mixed-direction start grid plus the explicitly unrounded x/x.sum diagnostic composition adapter. This design cannot isolate a causal starting-point effect.",
+  "inputs": {
+    "original_capture": {
+      "path": "data/method-certification/constrained-author-source-capture/capture.json",
+      "sha256": "fa46f5757af2acfb647f82162314b11c5e9401fbd7ecdbff585b70a687b9080c",
+      "bytes": 24679834
+    },
+    "original_report": {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/report.json",
+      "sha256": "c77a3152fbd51deea71aae1ba52b506bb1596850d563afaacff9d3d67a737e11",
+      "bytes": 2877
+    },
+    "original_folds": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/predictions/folds.json",
+      "sha256": "6cbb66b5c43a829838bf890dd8c49c0fb5027b5f74375a06ece3799ccfe40bd9",
+      "bytes": 24182
+    },
+    "original_predictions": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/predictions/predictions.json",
+      "sha256": "1e35af74ce40755c92c2f384fcd619bebc01ec19ad7439a6e0648fdaedf7f489",
+      "bytes": 496323
+    },
+    "original_preparations": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/predictions/preparations.json",
+      "sha256": "372a45aa747cbbae4c65320b3757b547d73fe247d56cf6eb6e160a0e96e93bf7",
+      "bytes": 150502
+    },
+    "original_scores": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/scores/scores.json",
+      "sha256": "bc02dee1316bc974e6074c58805a4288f5f6dd1f46647eb505407ab0de15f32d",
+      "bytes": 176975
+    },
+    "original_common": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/terminal.json",
+      "sha256": "84b6954aa075aac6f2d838e8f7b3f3d6f5d3de6957ec2cb820185db04039a2e5",
+      "bytes": 309889
+    },
+    "original_outer": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/constrained-author-terminal.json",
+      "sha256": "c4ab7b6a50c989cd646454ae2b52020df2bbdc749a4806077a45917117fc1539",
+      "bytes": 923
+    },
+    "original_review": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/independent-constrained-author-review.json",
+      "sha256": "93f0c05d69b2bd9a59a9b05759e757f8815a48390c0208c72d86c85e0b04cb9f",
+      "bytes": 658287
+    },
+    "original_dispositions": {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/folds.csv",
+      "sha256": "ba5e706e0c704e0b101f85b95e2a8bea9523d126f36d4f0b1fe168a7420d0631",
+      "bytes": 1927
+    },
+    "cohort_report": {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/report.json",
+      "sha256": "e9b96bd8f2d8bb3c625d6e9fd847d3db27a16f0cc42f0623d40ccb0db94a0d9b",
+      "bytes": 138328
+    },
+    "cohort_freeze": {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/prediction-freeze.json",
+      "sha256": "1459879a51fe6263e587316a7eeaf80baffbe74b717618024618b7d5f944d81b",
+      "bytes": 1625224
+    },
+    "cohort_protocol": {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/protocol.json",
+      "sha256": "6a87258f9495c417efb45e5a973a566134c7f7f28cecbe741777577ed0066585",
+      "bytes": 110402
+    },
+    "cohort_authority": {
+      "path": "reports/science/source-cohorts/author-love-cohort-development.json",
+      "sha256": "41ba3a2d8765d9cd9feaf86a7d6c9232bfc1898e12ffb0da523d7a235b3e0c23",
+      "bytes": 27151
+    }
+  },
+  "prepared_inputs": {
+    "BECKHAM-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/BECKHAM-geometry.json",
+      "sha256": "aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c",
+      "bytes": 1274
+    },
+    "BECKHAM-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/BECKHAM-raw.json",
+      "sha256": "2d1103760390e12dcdca46bd42779021d99c5a17fb6c086701fc1bb979137abf",
+      "bytes": 837
+    },
+    "BROADOWN-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/BROADOWN-geometry.json",
+      "sha256": "3945348d26462772b3d223c896b76aa5c8371b2580c0b0c9ab6a294fffd9af24",
+      "bytes": 1274
+    },
+    "BROADOWN-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/BROADOWN-raw.json",
+      "sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+      "bytes": 846
+    },
+    "COMERSLA-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/COMERSLA-geometry.json",
+      "sha256": "ece6fc457e939a3bf85fa610a9c6615af3b16220a222b94eecdaf518724d0c5c",
+      "bytes": 1274
+    },
+    "COMERSLA-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/COMERSLA-raw.json",
+      "sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550",
+      "bytes": 835
+    },
+    "CUTHILL2-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/CUTHILL2-geometry.json",
+      "sha256": "afc2d3c3a803add89446edfaed388d822ce448f55fe428118349fec05df8e7b9",
+      "bytes": 1274
+    },
+    "CUTHILL2-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/CUTHILL2-raw.json",
+      "sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+      "bytes": 841
+    },
+    "GOURTEMIRES-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/GOURTEMIRES-geometry.json",
+      "sha256": "3fd8477e0ab7464151c9c35231b01f562c2d9095a64b79bbf8423f7b3c5e588d",
+      "bytes": 1273
+    },
+    "GOURTEMIRES-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/GOURTEMIRES-raw.json",
+      "sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9",
+      "bytes": 851
+    },
+    "HANGINGS-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/HANGINGS-geometry.json",
+      "sha256": "3869ab346920f563b99236265d5a6d42609f00c90a10c47f40078a5eba68c802",
+      "bytes": 1276
+    },
+    "HANGINGS-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/HANGINGS-raw.json",
+      "sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4",
+      "bytes": 840
+    },
+    "HARESDOWN-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/HARESDOWN-geometry.json",
+      "sha256": "efe0b68cc9baeecc147b3bf53fad56c2ceaeb83da68ec8d738028fa2ff21d3f0",
+      "bytes": 1269
+    },
+    "HARESDOWN-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/HARESDOWN-raw.json",
+      "sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67",
+      "bytes": 842
+    },
+    "LARKBARR-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/LARKBARR-geometry.json",
+      "sha256": "533992a1551d3b83c16092ed1475a0b4913a8516b5d6d7b75ad03be07bcf4dbd",
+      "bytes": 1274
+    },
+    "LARKBARR-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/LARKBARR-raw.json",
+      "sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+      "bytes": 834
+    },
+    "LOBBSBOG-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/LOBBSBOG-geometry.json",
+      "sha256": "ed93da1cd35d75c7809917a5c26f38bae312b7679b614c7cb275fba8bce4b0cb",
+      "bytes": 1266
+    },
+    "LOBBSBOG-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/LOBBSBOG-raw.json",
+      "sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2",
+      "bytes": 844
+    },
+    "LONGBREACH-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/LONGBREACH-geometry.json",
+      "sha256": "2af6d37741816cc0d2a13618e8cfb4865e1af3e5dec3b039ddfdd3e99b576d0e",
+      "bytes": 1271
+    },
+    "LONGBREACH-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/LONGBREACH-raw.json",
+      "sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+      "bytes": 843
+    },
+    "MOLECHAM-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/MOLECHAM-geometry.json",
+      "sha256": "668e7a631c1c217ef73df499f964c6de13fc5d37330e09604e3b433af80b3bdb",
+      "bytes": 1271
+    },
+    "MOLECHAM-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/MOLECHAM-raw.json",
+      "sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40",
+      "bytes": 844
+    },
+    "NTWITCHEN-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/NTWITCHEN-geometry.json",
+      "sha256": "571beefb9b6508f5d5d79ad603435c5d314f6c6ea09ff0bcfb208811fc98352c",
+      "bytes": 1268
+    },
+    "NTWITCHEN-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/NTWITCHEN-raw.json",
+      "sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed",
+      "bytes": 847
+    },
+    "WHH05-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/WHH05-geometry.json",
+      "sha256": "74831663b572a8ca7e0e4f9acb7891895dc11556e59499f1bd4785e0f7d36f63",
+      "bytes": 1275
+    },
+    "WHH05-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/WHH05-raw.json",
+      "sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e",
+      "bytes": 826
+    },
+    "WINDMILL-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/WINDMILL-geometry.json",
+      "sha256": "6ca174a372f1076889fa8b5cc6c948648fb481da1d2795a092befc44df69bee7",
+      "bytes": 1267
+    },
+    "WINDMILL-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/WINDMILL-raw.json",
+      "sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c",
+      "bytes": 838
+    },
+    "WINNEYS-geometry.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/WINNEYS-geometry.json",
+      "sha256": "c0858b436dc00de79d50c771d78f540e1a97ba817844d8d416717e31273a7020",
+      "bytes": 1271
+    },
+    "WINNEYS-raw.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/WINNEYS-raw.json",
+      "sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88",
+      "bytes": 840
+    },
+    "chronology.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506",
+      "bytes": 107
+    },
+    "decision.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/decision.json",
+      "sha256": "774b314f43f07138ae5ec99cf7b4e12e5314b133f4046bf47ecb9e66eda2bdd8",
+      "bytes": 496
+    },
+    "dependency-lock.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb",
+      "bytes": 95
+    },
+    "experiment.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/experiment.json",
+      "sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+      "bytes": 10913
+    },
+    "parameters.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/parameters.json",
+      "sha256": "33ab18119b606287f46989e92fe4c88c47560dd4964132f90591230894a373c6",
+      "bytes": 174
+    },
+    "source-report.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/source-report.json",
+      "sha256": "e89867dd2baebe347c18256c094281162ac9107f5d5a862fe090d0b28f86b7dc",
+      "bytes": 888
+    },
+    "taxa.json": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs/taxa.json",
+      "sha256": "23ea956d3a64f6111c337e9e322cae32855e8604881483e9b12a2b27916c75e0",
+      "bytes": 655
+    }
+  },
+  "original_capture_prefix": "data/method-certification/constrained-author-source-capture/",
+  "original_execution": {
+    "candidate": "22c6e480ba4690cc508202925a8773afe95ab36e",
+    "plan_sha256": "7a75256e79a577280d8bd828380ebb8438b80914e3aa8c5ddc390fa428e6428c",
+    "prediction_manifest_sha256": "e07c2f2a576dee9637a042ae2ae478ec4855fa7d4a67a828ce49429a948f4ec5",
+    "score_manifest_sha256": "873ded4ee55e65ede0a21c3751f98f55ed9d7862c7202c4147d34d8ab803fcd0"
+  },
+  "producer": {
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/method-comparison/replay.py",
+    "sha256": "402157e6c103451608ee508f34646894de9a4a4c036a8c13a429e49f4ac962cc",
+    "bytes": 7201
+  },
+  "outputs": [
+    "report.json",
+    "paired-scores.csv",
+    "fold-dispositions.csv"
+  ],
+  "bounds": {
+    "maximum_input_members": 51,
+    "maximum_input_bytes_per_member": 33554432,
+    "wall_seconds": 60,
+    "memory_bytes": 536870912,
+    "output_bytes": 8388608,
+    "network_required": false
+  },
+  "scope": "Descriptive paired development comparison, equal-fold weighting on14 common folds only. Preserve all15 dispositions, all baselines, null/infinite deviance categories and every metric-worsening transfer case. Shared training and reused inputs make comparisons dependent; no inferential intervals, significance, method selection or superiority claim. No refits or rescoring, target-label tuning, independent vegetation accuracy, untouched confirmation, uncertainty calibration, R parity, source-rights or whole scientific/release acceptance.",
+  "source_files": [
+    {
+      "name": "comparison.py",
+      "sha256": "bf9b257b72e8e5c49ca836d165b14105d55717a049d20635794d2b62065718bd",
+      "bytes": 10685
+    },
+    {
+      "name": "replay.py",
+      "sha256": "402157e6c103451608ee508f34646894de9a4a4c036a8c13a429e49f4ac962cc",
+      "bytes": 7201
+    },
+    {
+      "name": "sources.py",
+      "sha256": "d78a1f5a336350d05d6c8d164b065b06a611dd37570c9d861c1fc6157037ac4c",
+      "bytes": 14409
+    }
+  ]
+}

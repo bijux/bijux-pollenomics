@@ -1,6 +1,31 @@
 # Source-bound taxa review package
 
-The current private review projection contains **10,908 rows** from the source
+## Current physical custody
+
+A new source-bound private build on commit `b30acdff340aa36c9ab28974232f73badd53393d`
+completed with native exit zero. Its [current custody account](package-custody.json)
+authenticates all 20 private products and their 10,908 review rows, 1,006 parameter
+concepts, 72 parameter authorities, 10,637 chronology rows and 163 basin rows.
+All three complete controlled return routes remain unresolved; no human review,
+source right, accepted mapping or executable sample was admitted. The 169 retained
+provider responses supply 223 publication links, with no original-paper verification.
+
+The new bundle SHA-256 is
+`7da08f278777d2ec7014b2afa6238d656c1dbf9dca909801ed76abfdcf8aca02`;
+its physical JSON SHA-256 is
+`168b202b0bf616d6612e9fda1e5acd5d5557dca1659e94078f9b310085fe3c7b`.
+Its saved-output admission separately verifies completion/CSV correspondence,
+complete unresolved returns and source/citation identities. This observation
+rebuilds no prerequisite projection and repeats no model or historical test suite.
+
+The older bundle, completion and execution identities below describe a historical
+qualification. Their original missing artifacts have not been recovered by this
+build. In particular, the historical 94 tests and 104,617 checks are not fresh
+results from the current execution.
+
+## Historical package account
+
+The historical private review projection contained **10,908 rows** from the source
 authorities listed below. Its rows preserve source identities, native names and
 qualifiers, country observation counts, exact-unit values, source citations and
 separate proposed group, LRA taxon, PFT, PPE and fall-speed fields. Every row
@@ -11,7 +36,7 @@ The completed projection has bundle SHA-256
 the completion reader verified all three payload members and their byte counts.
 The physical JSON SHA-256 is
 `d4f56ef2128fa395d91d422e80dbf0d40533e487c392561b49fa6f356bdcff26`.
-This identifies the retained capture, including its inventory locator and
+This identifies the historical capture, including its inventory locator and
 working-source overlay; rebuilding with another locator can change its bundle
 identity. The [readiness account](readiness.json) and
 [source account](source-account.json) record the actual execution scope.
@@ -196,7 +221,7 @@ is not the current cohort.
 
 **Unsupported claim.** Accepted taxonomic or PFT mapping, executable LRA inputs, genuine received human review, scientific or rights admission, publication of restricted source rows, or equivalence to the older 3,538-sample screen.
 
-**Actual verification performed.** Actual source-bound qualification passes 94 focused tests and 104,617 independent structural checks with exact private bundle, priority/provenance and prerequisite hashes. These checks authenticate structure, not scientific decisions.
+**Actual verification performed.** Historical qualification recorded 94 focused tests and 104,617 structural checks; its original full bundle/completion/terminal remain unavailable. A new source-bound private build on b30acdff340aa36c9ab28974232f73badd53393d and a separate saved-output observer both exited zero. The new observation authenticates all 20 private products, 10,908 taxon rows, 1,006 parameter concepts/72 authorities, 10,637 chronology rows, 163 basin review rows, 169 native dataset citation response sets/223 publication records and three full controlled unresolved-return routes. These are structural custody checks, not received human decisions, primary-paper verification, source rights or scientific admission.
 
 **Remaining input or review.** All source mappings and controlled return decisions remain unresolved. Structural intake authenticates file and denominator identities but cannot grant biological authority, reviewer authentication, source rights, basin/chronology acceptance or canonical import. Resolver: Source custodians and independent palynology, productivity, fall-speed, chronology, basin and rights reviewers Reopen when: Qualified source-bound reviewer returns identify exact current bundle and native authorities, complete decision populations and supported evidence; rights and scientific authority are decided separately.
 
@@ -206,11 +231,11 @@ is not the current cohort.
 
 **Precise next acceptance route.** Receive and authenticate complete source-bound reviewer returns, assess evidence and independent qualifications, decide source-specific rights, and rerun only the exact affected admission consumer before canonical interpretation changes.
 
-**Negative or refused result.** Zero human decisions received; all controlled decisions unresolved. Stale bundles, duplicate taxon identities and incomplete parameter/chronology populations refuse. An earlier exact attribution binding remains unavailable and its strict replay refusal is preserved.
+**Negative or refused result.** Zero human decisions received; all controlled decisions unresolved. Stale bundles, duplicate taxon identities and incomplete parameter/chronology populations refuse. An earlier exact attribution binding remains unavailable and its strict replay refusal is preserved. The new build does not restore the missing original bundle, completion, terminal or original citation attribution; all 20 private products retain zero qualified human decisions and scientific admissions.
 
 **Matched denominator.** 10,908 review rows: 1,351 Neotoma, 1,975 SEAD, 7,459 workbook columns, 31 LandClim, 81 LRA, ten animal and one AADR. Parameter authority has 72 rows from 112 source rows; 1,006 concepts, 10,637 prerequisite samples and 163 sites remain separate populations.
 
-Retained evidence: [docs/report/taxa-review/readiness.json](readiness.json), [docs/report/taxa-review/source-account.json](source-account.json), [docs/report/source-relations/neotoma/lra-prerequisites/README.md](../source-relations/neotoma/lra-prerequisites/README.md).
+Retained evidence: [docs/report/taxa-review/readiness.json](readiness.json), [docs/report/taxa-review/source-account.json](source-account.json), [docs/report/source-relations/neotoma/lra-prerequisites/README.md](../source-relations/neotoma/lra-prerequisites/README.md), [docs/report/taxa-review/package-custody.json](package-custody.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

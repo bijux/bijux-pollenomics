@@ -1,0 +1,336 @@
+{
+  "borrowed_sources": {
+    "admission": {
+      "bytes": 20225,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/replay.py",
+      "sha256": "e60bc275372655b400e1ae0a92e97abb05cb36824ff64c935493a72f1b4f862a"
+    },
+    "common": {
+      "bytes": 5643,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/common.py",
+      "sha256": "f6938a40eb4e99b4cfdbcdcfc53f95f93857f3a694238a632a3be55ed5f44673"
+    },
+    "selector": {
+      "bytes": 17993,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/selection.py",
+      "sha256": "d7a64e566a61d8cc95cb89809b7e12bc6446d38cdcb5f4e079d79d053c1a9e78"
+    }
+  },
+  "context_map_sha256": "8b53786ecadc757d008c0910fcc3fddcdc9926e1ecab197531f61734cf17f370",
+  "execution_sources": [
+    {
+      "bytes": 13877,
+      "path": "inputs.py",
+      "sha256": "1cbe89824d6430cd5efa623522e4fd8427c6828a723be3b87d9a903d03642e2e"
+    },
+    {
+      "bytes": 14922,
+      "path": "replay.py",
+      "sha256": "f026e243274744df04e4ee4ed9eb7434166732fcdaf124793e3a8a9c21e2664c"
+    }
+  ],
+  "expected_new_scientific_calls": {
+    "maintained_fit_API_attempts": 450,
+    "new_LOVE_runs": 0,
+    "new_REVEALS_runs": 0,
+    "new_forward_calls": 0,
+    "new_kernel_calls": 0,
+    "new_optimizer_attempts": 0,
+    "new_score_calls": 0,
+    "successful_ridge_solves": 0
+  },
+  "expected_outputs": [
+    "candidate-refusals.json",
+    "selection-freeze.json",
+    "report.json"
+  ],
+  "inputs": [
+    {
+      "bytes": 1274,
+      "path": "BECKHAM-geometry.json",
+      "sha256": "aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c"
+    },
+    {
+      "bytes": 837,
+      "path": "BECKHAM-raw.json",
+      "sha256": "2d1103760390e12dcdca46bd42779021d99c5a17fb6c086701fc1bb979137abf"
+    },
+    {
+      "bytes": 1274,
+      "path": "BROADOWN-geometry.json",
+      "sha256": "3945348d26462772b3d223c896b76aa5c8371b2580c0b0c9ab6a294fffd9af24"
+    },
+    {
+      "bytes": 846,
+      "path": "BROADOWN-raw.json",
+      "sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748"
+    },
+    {
+      "bytes": 1274,
+      "path": "COMERSLA-geometry.json",
+      "sha256": "ece6fc457e939a3bf85fa610a9c6615af3b16220a222b94eecdaf518724d0c5c"
+    },
+    {
+      "bytes": 835,
+      "path": "COMERSLA-raw.json",
+      "sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550"
+    },
+    {
+      "bytes": 1274,
+      "path": "CUTHILL2-geometry.json",
+      "sha256": "afc2d3c3a803add89446edfaed388d822ce448f55fe428118349fec05df8e7b9"
+    },
+    {
+      "bytes": 841,
+      "path": "CUTHILL2-raw.json",
+      "sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30"
+    },
+    {
+      "bytes": 1273,
+      "path": "GOURTEMIRES-geometry.json",
+      "sha256": "3fd8477e0ab7464151c9c35231b01f562c2d9095a64b79bbf8423f7b3c5e588d"
+    },
+    {
+      "bytes": 851,
+      "path": "GOURTEMIRES-raw.json",
+      "sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9"
+    },
+    {
+      "bytes": 1276,
+      "path": "HANGINGS-geometry.json",
+      "sha256": "3869ab346920f563b99236265d5a6d42609f00c90a10c47f40078a5eba68c802"
+    },
+    {
+      "bytes": 840,
+      "path": "HANGINGS-raw.json",
+      "sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4"
+    },
+    {
+      "bytes": 1269,
+      "path": "HARESDOWN-geometry.json",
+      "sha256": "efe0b68cc9baeecc147b3bf53fad56c2ceaeb83da68ec8d738028fa2ff21d3f0"
+    },
+    {
+      "bytes": 842,
+      "path": "HARESDOWN-raw.json",
+      "sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67"
+    },
+    {
+      "bytes": 1274,
+      "path": "LARKBARR-geometry.json",
+      "sha256": "533992a1551d3b83c16092ed1475a0b4913a8516b5d6d7b75ad03be07bcf4dbd"
+    },
+    {
+      "bytes": 834,
+      "path": "LARKBARR-raw.json",
+      "sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c"
+    },
+    {
+      "bytes": 1266,
+      "path": "LOBBSBOG-geometry.json",
+      "sha256": "ed93da1cd35d75c7809917a5c26f38bae312b7679b614c7cb275fba8bce4b0cb"
+    },
+    {
+      "bytes": 844,
+      "path": "LOBBSBOG-raw.json",
+      "sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2"
+    },
+    {
+      "bytes": 1271,
+      "path": "LONGBREACH-geometry.json",
+      "sha256": "2af6d37741816cc0d2a13618e8cfb4865e1af3e5dec3b039ddfdd3e99b576d0e"
+    },
+    {
+      "bytes": 843,
+      "path": "LONGBREACH-raw.json",
+      "sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f"
+    },
+    {
+      "bytes": 1271,
+      "path": "MOLECHAM-geometry.json",
+      "sha256": "668e7a631c1c217ef73df499f964c6de13fc5d37330e09604e3b433af80b3bdb"
+    },
+    {
+      "bytes": 844,
+      "path": "MOLECHAM-raw.json",
+      "sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40"
+    },
+    {
+      "bytes": 1268,
+      "path": "NTWITCHEN-geometry.json",
+      "sha256": "571beefb9b6508f5d5d79ad603435c5d314f6c6ea09ff0bcfb208811fc98352c"
+    },
+    {
+      "bytes": 847,
+      "path": "NTWITCHEN-raw.json",
+      "sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed"
+    },
+    {
+      "bytes": 1275,
+      "path": "WHH05-geometry.json",
+      "sha256": "74831663b572a8ca7e0e4f9acb7891895dc11556e59499f1bd4785e0f7d36f63"
+    },
+    {
+      "bytes": 826,
+      "path": "WHH05-raw.json",
+      "sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e"
+    },
+    {
+      "bytes": 1267,
+      "path": "WINDMILL-geometry.json",
+      "sha256": "6ca174a372f1076889fa8b5cc6c948648fb481da1d2795a092befc44df69bee7"
+    },
+    {
+      "bytes": 838,
+      "path": "WINDMILL-raw.json",
+      "sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c"
+    },
+    {
+      "bytes": 1271,
+      "path": "WINNEYS-geometry.json",
+      "sha256": "c0858b436dc00de79d50c771d78f540e1a97ba817844d8d416717e31273a7020"
+    },
+    {
+      "bytes": 840,
+      "path": "WINNEYS-raw.json",
+      "sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88"
+    },
+    {
+      "bytes": 107,
+      "path": "chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506"
+    },
+    {
+      "bytes": 496,
+      "path": "decision.json",
+      "sha256": "774b314f43f07138ae5ec99cf7b4e12e5314b133f4046bf47ecb9e66eda2bdd8"
+    },
+    {
+      "bytes": 95,
+      "path": "dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb"
+    },
+    {
+      "bytes": 10913,
+      "path": "experiment.json",
+      "sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4"
+    },
+    {
+      "bytes": 174,
+      "path": "parameters.json",
+      "sha256": "33ab18119b606287f46989e92fe4c88c47560dd4964132f90591230894a373c6"
+    },
+    {
+      "bytes": 888,
+      "path": "source-report.json",
+      "sha256": "e89867dd2baebe347c18256c094281162ac9107f5d5a862fe090d0b28f86b7dc"
+    },
+    {
+      "bytes": 655,
+      "path": "taxa.json",
+      "sha256": "23ea956d3a64f6111c337e9e322cae32855e8604881483e9b12a2b27916c75e0"
+    }
+  ],
+  "logical_ancestry_sha256": "cef69f949510bcf89289e0a4fd8d8e35a1a35f3112b0ec12d7d1b51dc3289128",
+  "native_scope": "450 maintained API invocations are not450 successful fits. Existing nominal native1 plus separate recovery0 stays literal; original full later import inventory/final return remains unqualified. Dataset-specific positive-only CLR domain witness, not generic CLR failure, scientific/vegetation/untouched/rights/human/release or wholeV3-24 acceptance.",
+  "nominal_candidate": "70dd58ce28071d3b4ef34af2c800370a52d42bf9",
+  "nominal_training_protocol_sha256": "7953aec717a0bf440eca6d26e5c4d9bca03e3d783a005ab311f09d3d9b4db4dd",
+  "prior_evidence": {
+    "nominal_authority": {
+      "bytes": 12604,
+      "path": "reports/science/source-cohorts/author-love-nested-transport.json",
+      "sha256": "f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8"
+    },
+    "nominal_descriptor": {
+      "bytes": 6585,
+      "path": "artifacts/science/author-love-nested-transport-registered-plan-recovery-execution/recovered-shards.json",
+      "sha256": "f8abdbe5c8bad519599fc5c756605c9c8679ec345956df85adcca82c413a487b"
+    },
+    "nominal_training": {
+      "bytes": 8414108,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-nested-gpm-neutral-execution/native/products/training.json",
+      "sha256": "b2ca549a4ab331e712030167f82bc4a17006b4c7bdefc45c6be3752acc1fb99a"
+    }
+  },
+  "resources": {
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 8388608,
+    "maximum_parallel_workers": 1,
+    "numerical_threads_per_worker": 1,
+    "overall_timeout_seconds": 120
+  },
+  "scenarios": [
+    {
+      "id": "clr-ridge-20km",
+      "length_scale_km": 20.0,
+      "ridge_penalty": 1.0
+    },
+    {
+      "id": "clr-ridge-100km",
+      "length_scale_km": 100.0,
+      "ridge_penalty": 1.0
+    }
+  ],
+  "schema_version": "author-love-clr-spatial-scale-protocol.v1",
+  "selection": "All450 candidate dispositions frozen before420 refused inner slots are considered; fourteen complete scored inner targets would be required per scale, but current source domain has none. Fifteen selected_method:null/refused outer dispositions freeze with no target outcome or score reads. No rank/winner is invented.",
+  "source_base": "cc4ad45cba2e3a52c04843ca675e1f439343e553",
+  "source_base_and_execution_candidate": "Source-basecc4 and saved numerical source70dd remain distinct from actual future registered plan candidate. Generic a285/d239 boundary/namespace/shared functions and cachedSOURCE3331 only; never invoke PPE d239main/scientific_inputs.",
+  "source_pins": [
+    {
+      "bytes": 5643,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/common.py",
+      "sha256": "f6938a40eb4e99b4cfdbcdcfc53f95f93857f3a694238a632a3be55ed5f44673"
+    },
+    {
+      "bytes": 20225,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/replay.py",
+      "sha256": "e60bc275372655b400e1ae0a92e97abb05cb36824ff64c935493a72f1b4f862a"
+    },
+    {
+      "bytes": 4725,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/requests.py",
+      "sha256": "7c800249f454c8a0e93266f87605c65d9d4d926ab7d2149d53d4393466d0dbd6"
+    },
+    {
+      "bytes": 17993,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/nested-transport/source/selection.py",
+      "sha256": "d7a64e566a61d8cc95cb89809b7e12bc6446d38cdcb5f4e079d79d053c1a9e78"
+    },
+    {
+      "bytes": 10583,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+      "sha256": "c9241b3c427448491c72f488d4096ed86999f260c22533a51d92c441258cbbf6"
+    },
+    {
+      "bytes": 10442,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/fitted/model.py",
+      "sha256": "d24cc0650e7b0a8e972afbb5f39434f440fb29d9593b20e62a8f0ea1562a6f4a"
+    },
+    {
+      "bytes": 21064,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/prediction.py",
+      "sha256": "ae4c7db5596734fd6527edf0f18e8ab7dab304e3eb5c914cb15e35e671883230"
+    },
+    {
+      "bytes": 9355,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+      "sha256": "8c90297434e12dc5d5c14a2bed1857c9f19fbdbbdccd54d1454f3bb112ea5219"
+    },
+    {
+      "bytes": 2131,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+      "sha256": "5e288dba51d23f4bfb75d0f9e8a96ce3eb58eec6c26ab037fb0282de6ede438f"
+    },
+    {
+      "bytes": 14038,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+      "sha256": "6e4feab4fd60206455c70033194f7ed9e98c4c11a1bcf11e6b133874cd6f2fdd"
+    },
+    {
+      "bytes": 9991,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+      "sha256": "f2f6e893460250b4c3d46922a538df4fc70f5aa233855c2d63d76f0b2e168141"
+    }
+  ],
+  "source_scope": "Exact37 admitted source inputs,39 nominal selections/2715 logical references/225context folds and true coordinate identities. Selected ring1 compositions are unchanged dict30 with26 zero-containing vectors80zero cells; each context5\u201311 affected local predictors. No zero imputation, pseudocount, taxon/predictor dropping, or new LRA fitting."
+}

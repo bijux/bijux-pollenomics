@@ -1,0 +1,30 @@
+{
+  "schema_version": "optimizer-retained-baseline-input-certificate.v1",
+  "capture": {
+    "path": "data/method-certification/author-optimizer-diagnostic-source-capture/capture.json",
+    "sha256": "f865795aac7585e56c4cf44faac84496d339e1c176fc6ee111cba3cbc9b4ce93"
+  },
+  "baseline": {
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json",
+    "sha256": "68afb09419754130f482783397f58b12c7c06ee041430b24d264dc7f9c30e009",
+    "bytes": 2090
+  },
+  "source_candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "plan_sha256": "fb37c521a0e1e92bb5e9369f2a0da84b1474183fbca350ca0c957cde12bf22f5",
+  "native_stage_exits": [
+    0,
+    0,
+    0
+  ],
+  "common_and_outer_exits": [
+    0,
+    0
+  ],
+  "original_input_count": 33320,
+  "baseline_role": "read_input",
+  "baseline_produced_by_diagnostic": false,
+  "original_baseline_generation_recovered": false,
+  "new_optimizer_or_R_execution": false,
+  "historical_attempt_admitted": false,
+  "new_heldout_scientific_rights_human_or_LRA_admission": false
+}

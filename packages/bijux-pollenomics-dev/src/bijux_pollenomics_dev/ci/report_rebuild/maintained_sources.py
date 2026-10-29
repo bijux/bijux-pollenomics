@@ -30,16 +30,41 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.adna.current_domain import (
+    validated_current_domain_evidence,
+)
+from .scientific_captures.adna.current_export import (
+    validated_aadr_current_export_evidence,
+)
+from .scientific_captures.author_analytical_diagnostics import (
+    validated_author_analytical_capture,
+)
+from .scientific_captures.author_clr_domain import validated_author_clr_domain
+from .scientific_captures.author_cohort.admission import validated_author_cohort_capture
+from .scientific_captures.author_development.admission import (
+    validated_author_development_capture,
+)
 from .scientific_captures.author_grid.admission import (
     validated_author_grid_capture,
 )
+from .scientific_captures.author_love_starts import validated_author_love_start_capture
+from .scientific_captures.author_method_comparison import (
+    validated_author_method_comparison,
+)
 from .scientific_captures.author_native_reference import (
     validated_author_native_reference_capture,
+)
+from .scientific_captures.author_nested_ppe import validated_author_ppe_capture
+from .scientific_captures.author_nested_transport import (
+    validated_author_transport_capture,
 )
 from .scientific_captures.author_optimizer_diagnostics import (
     validated_author_optimizer_diagnostic_capture,
 )
 from .scientific_captures.author_radius import validated_author_radius_capture
+from .scientific_captures.author_ring_support import (
+    validated_author_ring_support_capture,
+)
 from .scientific_captures.author_site_evaluations import (
     validated_author_site_evaluation_captures,
 )
@@ -49,6 +74,9 @@ from .scientific_captures.controlled_numerical.love_objective import (
 )
 from .scientific_captures.controlled_numerical.lra_comparison import (
     validated_controlled_lra_comparison_capture,
+)
+from .scientific_captures.country_reports.sweden import (
+    validated_sweden_country_capture,
 )
 from .scientific_captures.lake_registry.neotoma_lake import (
     validated_neotoma_lake_capture,
@@ -74,8 +102,14 @@ from .scientific_captures.linux_r_reference import (
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
 )
+from .scientific_captures.persisted_experiment_isolation import (
+    validated_persisted_experiment_isolation,
+)
 from .scientific_captures.pollen_source.amsoldingersee import (
     validated_amsoldingersee_capture,
+)
+from .scientific_captures.pollen_source.neotoma_counts import (
+    validated_neotoma_selected_count_evidence,
 )
 from .scientific_captures.pollen_source.neotoma_publication import (
     validated_neotoma_publication_capture,
@@ -98,6 +132,9 @@ from .scientific_captures.pollen_source.swedish_direct_pollen import (
 from .scientific_captures.representative_performance import (
     validated_representative_performance_capture,
 )
+from .scientific_captures.source_accounting.current_audit import (
+    validated_current_source_accounting_capture,
+)
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
 )
@@ -107,6 +144,7 @@ from .scientific_captures.swedish_source_chronology import (
 from .scientific_captures.swedish_static_basin import (
     validated_swedish_static_basin_captures,
 )
+from .scientific_captures.taxa_package_custody import validated_taxa_package_custody
 from .scientific_captures.vegetation_reference.empd2_nfi_pairing import (
     validated_empd2_nfi_pairing_capture,
 )
@@ -395,6 +433,70 @@ def validated_maintained_report_sources(
     )
     if openland_entries or neotoma_publication_entries:
         raise ReportRebuildError("Original owner acceptance remains unresolved")
+    adna_current_export_evidence = validated_aadr_current_export_evidence(
+        repository, inventory["owners"]
+    )
+    adna_current_domain_evidence = validated_current_domain_evidence(
+        repository, inventory["owners"], adna_current_export_evidence
+    )
+    neotoma_count_evidence = validated_neotoma_selected_count_evidence(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    source_accounting_entries, source_accounting_evidence = (
+        validated_current_source_accounting_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    sweden_semantic_entries, sweden_semantic_evidence = (
+        validated_sweden_country_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    taxa_custody_entries, taxa_custody_evidence = validated_taxa_package_custody(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    comparison_entries, comparison_evidence = validated_author_method_comparison(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    ring_entries, ring_evidence = validated_author_ring_support_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    isolation_entries, isolation_evidence = validated_persisted_experiment_isolation(
+        repository,
+        tracked_by_path,
+        inventory["owners"],
+        authority_sha256="d35d10dbdcb96ee4494810963d1d97aa74c768ed4b06126cad5a85fe8426ef5b",
+    )
+    clr_entries, clr_evidence = validated_author_clr_domain(
+        repository,
+        tracked_by_path,
+        inventory["owners"],
+        authority_sha256="5dd762f570160ab15d15c863e55c695c3246e6e97739bac0f8d9540ea3f203dd",
+    )
+    analytical_entries, analytical_evidence = validated_author_analytical_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    ppe_entries, ppe_evidence = validated_author_ppe_capture(
+        repository,
+        tracked_by_path,
+        inventory["owners"],
+        authority_sha256="3da67605adad6e67aeffcc1043c9e14d842c60ae5dd047af53c0ce350e4fe81f",
+    )
+    transport_entries, transport_evidence = validated_author_transport_capture(
+        repository,
+        tracked_by_path,
+        inventory["owners"],
+        authority_sha256="f82f7c83447d52981bafdb63546b45840e26f60c1ade47627ea4c79e358306e8",
+    )
+    cohort_entries, cohort_evidence = validated_author_cohort_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    development_entries, development_evidence = validated_author_development_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    love_start_entries, love_start_evidence = validated_author_love_start_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         (
             (
@@ -429,6 +531,19 @@ def validated_maintained_report_sources(
         + amsoldingersee_entries
         + swedish_direct_entries
         + empd2_nfi_entries
+        + source_accounting_entries
+        + sweden_semantic_entries
+        + taxa_custody_entries
+        + comparison_entries
+        + ring_entries
+        + isolation_entries
+        + clr_entries
+        + analytical_entries
+        + ppe_entries
+        + transport_entries
+        + cohort_entries
+        + development_entries
+        + love_start_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -528,4 +643,38 @@ def validated_maintained_report_sources(
         evidence["retained_swedish_direct_source_capture"] = swedish_direct_evidence
     if empd2_nfi_evidence:
         evidence["retained_empd2_nfi_source_capture"] = empd2_nfi_evidence
+    if adna_current_export_evidence is not None:
+        evidence["retained_adna_current_export_evidence"] = adna_current_export_evidence
+    if adna_current_domain_evidence is not None:
+        evidence["retained_adna_current_domain_evidence"] = adna_current_domain_evidence
+    if neotoma_count_evidence:
+        evidence["current_neotoma_selected_count_partial_evidence"] = (
+            neotoma_count_evidence
+        )
+    if source_accounting_entries:
+        evidence["retained_current_source_accounting"] = source_accounting_evidence
+    if sweden_semantic_evidence is not None:
+        evidence["retained_sweden_current_semantic_replay"] = sweden_semantic_evidence
+    if taxa_custody_entries:
+        evidence["retained_taxa_package_custody"] = taxa_custody_evidence
+    if comparison_entries:
+        evidence["retained_author_love_matched_method_comparison"] = comparison_evidence
+    if transport_entries:
+        evidence["retained_author_nested_transport"] = transport_evidence
+    if ppe_entries:
+        evidence["retained_author_nested_ppe"] = ppe_evidence
+    if ring_entries:
+        evidence["retained_author_ring_support"] = ring_evidence
+    if isolation_entries:
+        evidence["retained_persisted_experiment_isolation"] = isolation_evidence
+    if clr_entries:
+        evidence["retained_author_clr_domain"] = clr_evidence
+    if analytical_entries:
+        evidence["retained_author_analytical_diagnostics"] = analytical_evidence
+    if cohort_entries:
+        evidence["retained_author_love_development_cohort"] = cohort_evidence
+    if development_entries:
+        evidence["retained_author_love_development_fold"] = development_evidence
+    if love_start_entries:
+        evidence["retained_author_love_start_diagnostic"] = love_start_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence
