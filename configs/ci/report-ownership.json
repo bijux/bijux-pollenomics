@@ -40069,13 +40069,20 @@
     },
     {
       "owner_id": "method-certification/author-site-profile-comparison/report-products",
-      "role": "retained_source",
+      "role": "unresolved",
       "paths": [
         "docs/report/method-certification/author-site-profile-comparison/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Exact maintained retained author-site evaluation source capture authenticates original completed Python uncertainty/profile/site-ID holdout execution epochs, complete first-party source/input custody, external193-member private authority and eight current native report products. Managed holdout footer is a separately verified authored-body-preserving publication projection. Transport executes no model/R/optimizer; no independent ecological, Nordic, rights, historical R or human release admission."
+      "producer_paths": [
+        "docs/report/method-certification/author-site-profile-comparison/replay.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py"
+      ],
+      "producer_inputs": [
+        "docs/report/method-certification/author-site-uncertainty/draws.json",
+        "docs/report/method-certification/author-site-uncertainty/report.json"
+      ],
+      "verification": "Run the documented replay with --repository ., --source-root bound to the authenticated author release and an absent artifacts output; compare report.json. Six private LRAready site-count tables listed in input_identities must close with exact lawful custody first. Retained author-site-uncertainty report/draw inputs do not replace those original table bytes or qualify empirical ecology."
     },
     {
       "owner_id": "method-certification/author-site-profile-comparison/source-code",

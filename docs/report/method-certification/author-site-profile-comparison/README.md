@@ -56,7 +56,7 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Unsupported claim.** This compares two aggregation definitions on shared prepared inputs; it establishes neither independent field vegetation accuracy, an exact new ten-taxon historical R reproduction nor additive uncertainty components.
 
-**Actual verification performed.** Executed the maintained author-site profile comparison on local main at 0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b, after the genuine source-bound uncertainty outputs were adopted, and an independent complete-product observer; both native stages exited zero. All typed scientific values matched the retained comparison, using the exact first 1,000 of 1,024 stored draw identities for six original sites and ten selected taxa. Seven changed metadata leaves bind the actual upstream report and current calculation source; no new R execution or ecological model fit was performed.
+**Actual verification performed.** Executed the maintained author-site profile comparison on local main at 0cca6d4e9cd4df7fa5c844e440c78aceaa162d1b, after the genuine source-bound uncertainty outputs were adopted, and an independent complete-product observer; both native stages exited zero. All typed scientific values matched the retained comparison, using the exact first 1,000 of 1,024 stored draw identities for six original sites and ten selected taxa. Seven changed metadata leaves bind the actual upstream report and current calculation source; no new R execution or ecological model fit was performed. The original author-profile owner remains unresolved because the required lawful custody of its six exact private site-count tables is not established by the named identity manifest or methods README. The original criterion is preserved; its producer list follows one disclosed byte-identical maintained-module relocation. The completed profile computation and all eight author evaluation products remain authentic scientific evidence, while only the seven uncertainty and holdout products retain their existing source-owner admission. No permission, unlawfulness, numerical result, ecological inference or human decision is added.
 
 **Remaining input or review.** Current-source owner replay and its reader/report references are reconciled. Independent interpretation of the selected taxon population, justified chronology and geometry, source rights and any matched measured vegetation target remain separate scientific acceptance.
 
@@ -73,6 +73,8 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 Qualified authored reader SHA-256: `2e2859463d995cf4a045c65bac46fc3e7dcbe29dadf3432c15ce79cc6bfca019`.
 
 - [Retained qualification evidence: docs/report/method-certification/author-site-profile-comparison/report.json](report.json) (SHA-256 `73649b9d5e5c3b4699840148140b4b0edab8fd939e82b357852e2e162792dde4`).
+
+- [Retained qualification evidence: reports/science/method-certification/author-profile-source-acceptance.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-certification/author-profile-source-acceptance.json) (SHA-256 `f0d8e7b199f6de051cb3fef852d378bdb80d57a61da7a21ca36148f7f488bd7d`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 

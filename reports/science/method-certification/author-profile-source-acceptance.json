@@ -1,0 +1,104 @@
+{
+  "schema_version": "author-profile-original-custody-acceptance.v1",
+  "original_governance_authority": {
+    "repository": "bijux/bijux-pollenomics",
+    "commit": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+    "repository_path": "configs/ci/report-ownership.json",
+    "git_blob": "4cf9713757b0d35c15f484bac13e9a4229ca36a5",
+    "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
+    "bytes": 4580598
+  },
+  "original_full_owner_row": {
+    "owner_id": "method-certification/author-site-profile-comparison/report-products",
+    "role": "unresolved",
+    "paths": [
+      "docs/report/method-certification/author-site-profile-comparison/report.json"
+    ],
+    "producer_paths": [
+      "docs/report/method-certification/author-site-profile-comparison/replay.py",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py"
+    ],
+    "producer_inputs": [
+      "docs/report/method-certification/author-site-uncertainty/draws.json",
+      "docs/report/method-certification/author-site-uncertainty/report.json"
+    ],
+    "verification": "Run the documented replay with --repository ., --source-root bound to the authenticated author release and an absent artifacts output; compare report.json. Six private LRAready site-count tables listed in input_identities must close with exact lawful custody first. Retained author-site-uncertainty report/draw inputs do not replace those original table bytes or qualify empirical ecology."
+  },
+  "current_unresolved_owner_row": {
+    "owner_id": "method-certification/author-site-profile-comparison/report-products",
+    "role": "unresolved",
+    "paths": [
+      "docs/report/method-certification/author-site-profile-comparison/report.json"
+    ],
+    "producer_paths": [
+      "docs/report/method-certification/author-site-profile-comparison/replay.py",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py"
+    ],
+    "producer_inputs": [
+      "docs/report/method-certification/author-site-uncertainty/draws.json",
+      "docs/report/method-certification/author-site-uncertainty/report.json"
+    ],
+    "verification": "Run the documented replay with --repository ., --source-root bound to the authenticated author release and an absent artifacts output; compare report.json. Six private LRAready site-count tables listed in input_identities must close with exact lawful custody first. Retained author-site-uncertainty report/draw inputs do not replace those original table bytes or qualify empirical ecology."
+  },
+  "producer_path_correspondence": {
+    "original": {
+      "commit": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+      "sha256": "323b233b2b9593fe671a50fa9e46c4f8bdf6edb5c7c46b76a5902ea836801814",
+      "bytes": 5871
+    },
+    "current": {
+      "commit": "1931cba9dcf60ff0297f8d438c4d2866a19f37b6",
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+      "bytes": 5871,
+      "sha256": "323b233b2b9593fe671a50fa9e46c4f8bdf6edb5c7c46b76a5902ea836801814"
+    },
+    "Git_and_physical_bytes_equal": true,
+    "current_report_identity_matches": true,
+    "producer_paths_sorted_after_one_relocation": true
+  },
+  "exact_six_input_table_identities": [
+    {
+      "path": "author/run.REVEALS.files/LRAready_BROADOWN.csv",
+      "bytes": 2476,
+      "sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HANGINGS.csv",
+      "bytes": 2474,
+      "sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HARESDOWN.csv",
+      "bytes": 2367,
+      "sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_LOBBSBOG.csv",
+      "bytes": 2370,
+      "sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINDMILL.csv",
+      "bytes": 2350,
+      "sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINNEYS.csv",
+      "bytes": 2507,
+      "sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+    }
+  ],
+  "lawful_custody_authority_established": false,
+  "unlawfulness_claimed": false,
+  "existing_source_identity_native_execution_and_all_eight_scientific_products_preserved": true,
+  "other_uncertainty_and_holdout_owners_changed": false,
+  "other_retained_entries": 7,
+  "profile_partial_scientific_entries": 1,
+  "new_model_R_source_or_acquisition_execution": false,
+  "original_criterion_rewritten": false,
+  "source_permission_or_human_decision_added": false,
+  "remaining_resolver": "Bind a provider provision/permitted-use or other competent lawful-custody authority to these six exact table identities, author release and numerical development use. A file SHA inventory or methods README is not that authority. This witness neither grants permission nor alleges unlawful possession."
+}

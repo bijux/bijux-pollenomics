@@ -54,6 +54,99 @@ OWNERS = {
 }
 
 
+PROFILE_OWNER = "method-certification/author-site-profile-comparison/report-products"
+ORIGINAL_PROFILE_OWNER: JsonObject = {
+    "owner_id": "method-certification/author-site-profile-comparison/report-products",
+    "role": "unresolved",
+    "paths": [
+        "docs/report/method-certification/author-site-profile-comparison/report.json"
+    ],
+    "producer_paths": [
+        "docs/report/method-certification/author-site-profile-comparison/replay.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+    ],
+    "producer_inputs": [
+        "docs/report/method-certification/author-site-uncertainty/draws.json",
+        "docs/report/method-certification/author-site-uncertainty/report.json",
+    ],
+    "verification": "Run the documented replay with --repository ., --source-root bound "
+    "to the authenticated author release and an absent artifacts output; "
+    "compare report.json. Six private LRAready site-count tables listed "
+    "in input_identities must close with exact lawful custody first. "
+    "Retained author-site-uncertainty report/draw inputs do not replace "
+    "those original table bytes or qualify empirical ecology.",
+}
+PROFILE_POLICY_OWNER: JsonObject = {
+    "owner_id": "method-certification/author-site-profile-comparison/report-products",
+    "role": "unresolved",
+    "paths": [
+        "docs/report/method-certification/author-site-profile-comparison/report.json"
+    ],
+    "producer_paths": [
+        "docs/report/method-certification/author-site-profile-comparison/replay.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+    ],
+    "producer_inputs": [
+        "docs/report/method-certification/author-site-uncertainty/draws.json",
+        "docs/report/method-certification/author-site-uncertainty/report.json",
+    ],
+    "verification": "Run the documented replay with --repository ., --source-root bound "
+    "to the authenticated author release and an absent artifacts output; "
+    "compare report.json. Six private LRAready site-count tables listed "
+    "in input_identities must close with exact lawful custody first. "
+    "Retained author-site-uncertainty report/draw inputs do not replace "
+    "those original table bytes or qualify empirical ecology.",
+}
+PROFILE_CORRECTION_WITNESS = (
+    "reports/science/method-certification/author-profile-source-acceptance.json"
+)
+PROFILE_CORRECTION_WITNESS_SHA256 = (
+    "f0d8e7b199f6de051cb3fef852d378bdb80d57a61da7a21ca36148f7f488bd7d"
+)
+
+
+def _validate_author_owner_partition(owners: list[JsonObject]) -> None:
+    """Keep one original unresolved criterion separate from the two retained owners."""
+    selected = [row for row in owners if row.get("owner_id") in OWNERS]
+    if len(selected) != len(OWNERS) or {row.get("owner_id") for row in selected} != set(
+        OWNERS
+    ):
+        raise ReportRebuildError("Author evaluation exact owner partition differs")
+    names: set[str] = set()
+    for row in selected:
+        if row["owner_id"] == PROFILE_OWNER:
+            if row != PROFILE_POLICY_OWNER:
+                raise ReportRebuildError(
+                    "Author profile original lawful-custody criterion differs"
+                )
+        elif (
+            row.get("role") != "retained_source"
+            or row.get("producer_paths") != []
+            or row.get("producer_inputs") != []
+        ):
+            raise ReportRebuildError("Other author evaluation retained owner differs")
+        paths = row.get("paths")
+        if not isinstance(paths, list) or any(
+            not isinstance(path, str) for path in paths
+        ):
+            raise ReportRebuildError("Author evaluation owner paths differ")
+        if names.intersection(paths):
+            raise ReportRebuildError("Author evaluation owners overlap")
+        names.update(paths)
+    for row in owners:
+        if row in selected:
+            continue
+        paths = row.get("paths", [])
+        if (
+            not isinstance(paths, list)
+            or any(not isinstance(path, str) for path in paths)
+            or names.intersection(paths)
+        ):
+            raise ReportRebuildError("Author evaluation owner partition overlaps")
+
+
 def _file(repository: Path, name: str) -> Path:
     try:
         return _regular_confined_file(repository, name, "retained author evaluation")
@@ -206,24 +299,28 @@ def validated_author_site_evaluation_captures(
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
-    """Admit the three completed Python evaluations with separate execution epochs."""
+    """Validate all eight scientific products, retaining seven with qualified owner criteria."""
     rows = [row for row in owners if row.get("owner_id") in OWNERS]
-    if (
-        not any(row.get("role") == "retained_source" for row in rows)
-        and not (repository / CAPTURE).exists()
-    ):
+    capture_path = repository / CAPTURE
+    witness = repository / PROFILE_CORRECTION_WITNESS
+    present = capture_path.exists() or capture_path.is_symlink()
+    witness_present = witness.exists() or witness.is_symlink()
+    if not rows and not present and not witness_present:
         return (), {}
-    if (
-        len(rows) != len(OWNERS)
-        or {r.get("owner_id") for r in rows} != set(OWNERS)
-        or any(
-            row.get("role") != "retained_source"
-            or row.get("producer_paths") != []
-            or row.get("producer_inputs") != []
-            for row in rows
-        )
-    ):
-        raise ReportRebuildError("Author evaluation owner declarations differ")
+    _validate_author_owner_partition(owners)
+    if any(node.is_symlink() for node in (witness, *witness.parents)):
+        raise ReportRebuildError("Author profile correction witness ancestry alias")
+    if witness_present:
+        witness_path = _file(repository, PROFILE_CORRECTION_WITNESS)
+        if (
+            hashlib.sha256(witness_path.read_bytes()).hexdigest()
+            != PROFILE_CORRECTION_WITNESS_SHA256
+        ):
+            raise ReportRebuildError("Author profile correction witness differs")
+        if not present:
+            raise ReportRebuildError(
+                "Published author profile evidence requires its existing capture"
+            )
     path = _file(repository, CAPTURE)
     if hashlib.sha256(path.read_bytes()).hexdigest() != CAPTURE_SHA256:
         raise ReportRebuildError("Author evaluation retained capture authority differs")
@@ -255,7 +352,7 @@ def validated_author_site_evaluation_captures(
         members[name] = row
     physical_names: set[str] = set()
     for physical in path.parent.rglob("*"):
-        if physical.is_symlink():
+        if physical.is_symlink() or not (physical.is_file() or physical.is_dir()):
             raise ReportRebuildError("Author evaluation packet contains a link")
         if physical.is_file():
             physical_names.add(physical.relative_to(path.parent).as_posix())
@@ -341,14 +438,32 @@ def validated_author_site_evaluation_captures(
             and names.intersection(other_paths)
         ):
             raise ReportRebuildError("Author evaluation retained ownership overlaps")
-    return tuple(accepted), {
-        "owner_ids": sorted(OWNERS),
+    profile_paths = PROFILE_POLICY_OWNER["paths"]
+    assert isinstance(profile_paths, list)
+    retained_entries = tuple(
+        entry for entry in accepted if "docs/report/" + entry.path not in profile_paths
+    )
+    if len(retained_entries) != 7:
+        raise ReportRebuildError(
+            "Exactly seven other qualified author report entries required"
+        )
+    return retained_entries, {
+        "owner_ids": sorted(set(OWNERS) - {PROFILE_OWNER}),
+        "observed_owner_ids": sorted(OWNERS),
+        "selected_retained_entries": 7,
+        "profile_owner_remains_unresolved": True,
+        "profile_original_acceptance_discharged": False,
+        "profile_original_acceptance_criterion": ORIGINAL_PROFILE_OWNER["verification"],
+        "profile_producer_path_only_relocation": True,
         "capture_sha256": CAPTURE_SHA256,
         "executed_source_candidates": {
             lane: values[0] for lane, values in EXECUTIONS.items()
         },
         "report_outputs": 8,
         "current_scientific_projection": 178,
-        "paths_sha256": canonical_json_sha256(sorted(names)),
+        "paths_sha256": canonical_json_sha256(
+            sorted("docs/report/" + entry.path for entry in retained_entries)
+        ),
+        "observed_eight_paths_sha256": canonical_json_sha256(sorted(names)),
         "scope": "Three actual prior-exposed English author Python evaluations with original private-source authority retained separately. This transports completed native products and current exact scientific implementation; it executes no R/model/optimizer and grants no ecological, Nordic, rights or human release acceptance.",
     }
