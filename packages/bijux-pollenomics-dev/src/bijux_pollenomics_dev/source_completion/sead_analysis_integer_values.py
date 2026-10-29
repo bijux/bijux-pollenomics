@@ -7,7 +7,7 @@ from collections import Counter
 from decimal import Decimal, InvalidOperation
 import json
 from pathlib import Path
-from typing import Any, cast
+from typing import Any, TextIO, cast
 
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256,
@@ -19,12 +19,16 @@ from bijux_pollenomics.evidence.sources.sead import (
     governed_sead_evidence_root,
 )
 
+from ..ci.report_rebuild.artifact_paths import require_absent_artifact_output
+from .sead.integer_staging import IntegerStagingWriter, project_row
 from .sead_analysis_numerical_values import _parts, _raw_table, _read_object
 
 
 def _value_states(
     integer: dict[str, Any], parent: dict[str, Any]
 ) -> tuple[str, str, str]:
+    if "value" not in integer or "analysis_value" not in parent:
+        raise ValueError("SEAD required integer or parent source value is missing")
     typed = integer["value"]
     source_text = parent["analysis_value"]
     if typed is not None and (isinstance(typed, bool) or not isinstance(typed, int)):
@@ -84,8 +88,13 @@ def _chronology_role(class_id: int) -> str:
     return "other_source_count"
 
 
-def build_report(data_root: Path) -> dict[str, Any]:
+def build_report(
+    data_root: Path, *, staging_stream: TextIO | None = None
+) -> dict[str, Any]:
     """Verify every admitted integer row and summarize its source-bound lineage."""
+    staging = (
+        IntegerStagingWriter(staging_stream) if staging_stream is not None else None
+    )
     normalized_root = governed_sead_evidence_root(data_root)
     manifest = _read_object(
         normalized_root / "evidence_materialization_manifest.json",
@@ -175,6 +184,21 @@ def build_report(data_root: Path) -> dict[str, Any]:
             entities[entity_id] = row
     if set(entities) != entity_ids:
         raise ValueError("SEAD integer entity relation is missing")
+    source_sites: dict[int, dict[str, Any]] = {}
+    source_units: dict[int, dict[str, Any]] = {}
+    extra_table_digests: dict[str, str] = {}
+    if staging is not None:
+        for table, key in (("tbl_sites", "site_id"), ("tbl_units", "unit_id")):
+            digest = native["source_table_sha256"][table]
+            if relations["source_table_sha256"][table] != digest:
+                raise ValueError(
+                    "SEAD integer staging source relation identity differs"
+                )
+            extra_table_digests[table] = digest
+            rows[table] = _raw_table(raw_root, admission, table, key, digest)
+            if len(rows[table]) != relations["source_table_counts"][table]:
+                raise ValueError("SEAD integer staging source population differs")
+        source_sites, source_units = rows["tbl_sites"], rows["tbl_units"]
     class_ids = {parents[parent_id]["value_class_id"] for parent_id in parent_ids}
     semantics: dict[int, dict[str, Any]] = {}
     for row in _parts(normalized_root, files, relations, "value_semantics"):
@@ -232,6 +256,33 @@ def build_report(data_root: Path) -> dict[str, Any]:
         ):
             raise ValueError(f"SEAD integer relation differs: {integer_id}")
         typed_state, parse_state, comparison = _value_states(integer, parent)
+        if staging is not None:
+            site_id = entity.get("site_id")
+            if type(site_id) is not int or site_id not in source_sites:
+                raise ValueError("SEAD integer staging missing site parent")
+            unit_id = value_type["unit_id"]
+            if unit_id is not None and (
+                type(unit_id) is not int or unit_id not in source_units
+            ):
+                raise ValueError("SEAD integer staging missing unit parent")
+            unit = source_units[unit_id] if unit_id is not None else None
+            if json.dumps(semantic["source_unit"], sort_keys=True) != json.dumps(
+                unit, sort_keys=True
+            ):
+                raise ValueError("SEAD integer staging native unit relation differs")
+            staging.write_row(
+                project_row(
+                    integer,
+                    parent,
+                    observation,
+                    entity,
+                    source_sites[site_id],
+                    value_class,
+                    value_type,
+                    (typed_state, parse_state, comparison),
+                    unit,
+                )
+            )
         class_counts[class_id] += 1
         role_counts[_chronology_role(class_id)] += 1
         comparisons[comparison] += 1
@@ -265,7 +316,7 @@ def build_report(data_root: Path) -> dict[str, Any]:
         samples.add(entity["physical_sample_id"])
         datasets.add(entity["dataset_id"])
         represented_types.add(type_id)
-    return {
+    report = {
         "schema_version": "sead-analysis-integer-value-lineage.v1",
         "source_run_id": SEAD_GOVERNED_EVIDENCE_RUN_ID,
         "build_id": SEAD_GOVERNED_BUILD_ID,
@@ -314,18 +365,43 @@ def build_report(data_root: Path) -> dict[str, Any]:
         "eligible_event_count": 0,
     }
 
+    if staging is not None:
+        report["typed_staging"] = staging.summary(len(integers), extra_table_digests)
+    return report
+
 
 def main() -> None:
     """Write a deterministic compact public summary of integer source lineage."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--rows-output", type=Path)
     args = parser.parse_args()
     output = cast(Path, args.output)
     if output.exists():
         raise ValueError(f"SEAD integer report output already exists: {output}")
-    report = build_report(cast(Path, args.data_root))
-    output.mkdir(parents=True)
+    data_root = cast(Path, args.data_root)
+    rows_output = cast(Path | None, args.rows_output)
+    if rows_output is None:
+        report = build_report(data_root)
+        output.mkdir(parents=True)
+    else:
+        repository = data_root.resolve(strict=True).parent
+        require_absent_artifact_output(repository, output)
+        if (
+            rows_output.resolve().parent != output.resolve()
+            or rows_output.name == "report.json"
+            or rows_output.suffix != ".csv"
+            or ".." in rows_output.parts
+        ):
+            raise ValueError(
+                "SEAD integer CSV must be an absent child of its artifact output"
+            )
+        output.mkdir()
+        rows_output = require_absent_artifact_output(repository, rows_output)
+        with rows_output.open("x", encoding="utf-8", newline="") as stream:
+            report = build_report(data_root, staging_stream=stream)
+        report["typed_staging"]["rows_file"] = rows_output.name
     (output / "report.json").write_text(
         json.dumps(report, indent=2, sort_keys=True, ensure_ascii=False) + "\n",
         encoding="utf-8",

@@ -22,6 +22,7 @@ from bijux_pollenomics.evidence.sources.sead import (
 
 from ..sead_analysis_numerical_values import _parts, _raw_table, _read_object
 from .boolean_values import _canonical
+from .categorical_staging import CSV_FIELDS, PARSER_RULE, project_row, render_rows
 
 
 def _item_relation(
@@ -138,7 +139,9 @@ def _reconcile_support(
     return unit_status, status
 
 
-def build_report(data_root: Path) -> dict[str, Any]:
+def build_report(
+    data_root: Path, *, staging_rows: list[dict[str, Any]] | None = None
+) -> dict[str, Any]:
     """Bind category, class and type relations to every staged parent."""
     normalized = governed_sead_evidence_root(data_root)
     manifest = _read_object(
@@ -204,6 +207,46 @@ def build_report(data_root: Path) -> dict[str, Any]:
             tables["tbl_value_types"],
         )
         by_parent[parent_id].append(component)
+    entities: dict[str, dict[str, Any]] = {}
+    sites: dict[int, dict[str, Any]] = {}
+    staging_readset: dict[str, str] = {}
+    if staging_rows is not None:
+        if staging_rows:
+            raise ValueError("SEAD categorical staging row collector must be empty")
+        relation_path = "observation_relation_index.json"
+        relations = _read_object(
+            normalized / relation_path, files[relation_path]["sha256"]
+        )
+        if any(
+            relations["source_table_sha256"][table] != digests[table]
+            for table in (*keys, "tbl_sites")
+        ):
+            raise ValueError(
+                "SEAD categorical staging source relation identities differ"
+            )
+        sites = _raw_table(raw, admission, "tbl_sites", "site_id", digests["tbl_sites"])
+        needed = {
+            f"sead-analysis-entity:{parents[key]['analysis_entity_id']}"
+            for key in by_parent
+        }
+        for entity in _parts(normalized, files, relations, "entity_relations"):
+            key = entity["entity_relation_id"]
+            if key in needed:
+                if key in entities:
+                    raise ValueError("SEAD categorical staging duplicate entity key")
+                entities[key] = entity
+        if set(entities) != needed:
+            raise ValueError("SEAD categorical staging missing entity parent")
+        staging_readset[
+            (normalized / relation_path).relative_to(data_root).as_posix()
+        ] = files[relation_path]["sha256"]
+        staging_readset[
+            (raw / "payloads/tbl_sites.json").relative_to(data_root).as_posix()
+        ] = digests["tbl_sites"]
+        for part in relations["partitioned_fields"]["entity_relations"]["parts"]:
+            staging_readset[
+                (normalized / part["path"]).relative_to(data_root).as_posix()
+            ] = part["sha256"]
     seen: set[int] = set()
     groups: Counter[tuple[int, int, str, str, str]] = Counter()
     chronology: Counter[str] = Counter()
@@ -248,6 +291,25 @@ def build_report(data_root: Path) -> dict[str, Any]:
                     _canonical(parent["analysis_value"]),
                 )
             ] += 1
+            if staging_rows is not None:
+                entity = entities[observation["entity_relation_id"]]
+                if (
+                    type(entity.get("site_id")) is not int
+                    or entity["site_id"] not in sites
+                ):
+                    raise ValueError("SEAD categorical staging missing site parent")
+                staging_rows.append(
+                    project_row(
+                        component,
+                        parent,
+                        observation,
+                        entity,
+                        sites[entity["site_id"]],
+                        item,
+                        value_class,
+                        value_type,
+                    )
+                )
     if seen != set(parents) or total != manifest["observation_count"]:
         raise ValueError("SEAD categorical observation population differs")
     if sum(groups.values()) != len(categories):
@@ -274,7 +336,7 @@ def build_report(data_root: Path) -> dict[str, Any]:
         readset[(normalized / part["path"]).relative_to(data_root).as_posix()] = part[
             "sha256"
         ]
-    return {
+    report = {
         "schema_version": "sead-analysis-categorical-value-lineage.v1",
         "source_run_id": SEAD_GOVERNED_EVIDENCE_RUN_ID,
         "build_id": SEAD_GOVERNED_BUILD_ID,
@@ -308,9 +370,45 @@ def build_report(data_root: Path) -> dict[str, Any]:
         "eligible_event_count": 0,
         "interpretation": "Source category item identities, nullable component fields and parent display text remain distinct. Source chronology context and unit relations do not admit ecological events or specimen/assay equivalence.",
     }
+    if staging_rows is not None:
+        if len(staging_rows) != len(categories):
+            raise ValueError("SEAD categorical staging row population differs")
+        readset.update(staging_readset)
+        report["source_readset_sha256"] = dict(sorted(readset.items()))
+        report["typed_staging"] = {
+            "parser_rule": PARSER_RULE,
+            "columns": CSV_FIELDS,
+            "row_count": len(staging_rows),
+            "distinct_component_primary_keys": len(
+                {row["analysis_categorical_value_id"] for row in staging_rows}
+            ),
+            "field_states": {
+                field: dict(sorted(Counter(row[field] for row in staging_rows).items()))
+                for field in (
+                    "typed_value_state",
+                    "typed_value_parse_state",
+                    "is_variant_state",
+                    "parent_value_state",
+                    "parent_parse_state",
+                )
+            },
+            "relationship_review_ledgers": {
+                "duplicate_component_keys": [],
+                "orphan_components": [],
+                "missing_entity_parents": [],
+                "missing_site_parents": [],
+                "fan_out_parents": [
+                    {"analysis_value_id": key, "component_count": len(values)}
+                    for key, values in sorted(by_parent.items())
+                    if len(values) > 1
+                ],
+            },
+            "interpretation": "Native item lookup is not an observed component value. Missing relations or inaccessible source files refuse publication; none become null or excluded staged values.",
+        }
+    return report
 
 
-def run(repository: Path, output: Path) -> None:
+def run(repository: Path, output: Path, *, rows_output: Path | None = None) -> None:
     """Publish a compact source account only to an absent artifact file."""
     if not repository.is_absolute() or repository.resolve(strict=True) != repository:
         raise ValueError("A real absolute repository root is required")
@@ -324,7 +422,27 @@ def run(repository: Path, output: Path) -> None:
         raise ValueError("A real repository artifact file is required")
     if output.exists():
         raise ValueError("SEAD categorical account output already exists")
-    report = build_report(repository / "data")
+    rows: list[dict[str, Any]] = []
+    if rows_output is not None:
+        if (
+            rows_output.parent != output.parent
+            or rows_output == output
+            or rows_output.resolve() != rows_output
+            or any(path.is_symlink() for path in (rows_output, *rows_output.parents))
+        ):
+            raise ValueError(
+                "SEAD categorical rows must be a distinct real sibling artifact"
+            )
+        if rows_output.exists():
+            raise ValueError("SEAD categorical rows output already exists")
+    report = (
+        build_report(repository / "data", staging_rows=rows)
+        if rows_output is not None
+        else build_report(repository / "data")
+    )
+    table = render_rows(rows) if rows_output is not None else ""
+    if len(table.encode()) > 8 * 1024**2:
+        raise ValueError("SEAD categorical staged table exceeds eight MiB")
     for relative, digest in report["source_readset_sha256"].items():
         source = repository / "data" / relative
         if source.resolve(strict=True) != source or not source.is_file():
@@ -333,6 +451,10 @@ def run(repository: Path, output: Path) -> None:
             if hashlib.file_digest(stream, "sha256").hexdigest() != digest:
                 raise ValueError("SEAD categorical source changed before publication")
     output.parent.mkdir(parents=True, exist_ok=True)
+    if rows_output is not None:
+        report["typed_staging"]["rows_file"] = rows_output.name
+        with rows_output.open("x", encoding="utf-8", newline="") as stream:
+            stream.write(table)
     with output.open("x", encoding="utf-8") as stream:
         stream.write(json.dumps(report, indent=2, sort_keys=True) + "\n")
 
@@ -342,8 +464,9 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--rows-output", type=Path)
     args = parser.parse_args(argv)
-    run(args.repository, args.output)
+    run(args.repository, args.output, rows_output=args.rows_output)
     return 0
 
 
