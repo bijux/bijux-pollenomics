@@ -1,0 +1,294 @@
+{
+  "source_only": true,
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/prepared-source-manifest.json",
+    "sha256": "bca2ebe695336a303969060bd201a47b77a97d785dd924b99668a9154af661e9",
+    "bytes": 8493
+  },
+  "modules": [
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/check_contracts.py",
+        "sha256": "e8fe5cf3819a96c2ccb9e2487ec169801a49d27e2c751b79eb19404505f2233a",
+        "bytes": 31900
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/check_contracts.py",
+        "sha256": "de34589581d5e75d397ebd174c3c48556650444020c738ad83b39d4cae130244",
+        "bytes": 26771
+      },
+      "byte_exact": false,
+      "unchanged_functions": [
+        "refuses"
+      ],
+      "changed_functions": [
+        "main"
+      ],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/common_runner.py",
+        "sha256": "45258238c6529de971416f85b8fe6ecfbdf14b089c7606dcb137754382267447",
+        "bytes": 10058
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/common_runner.py",
+        "sha256": "45258238c6529de971416f85b8fe6ecfbdf14b089c7606dcb137754382267447",
+        "bytes": 10058
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "changes",
+        "digest",
+        "identity",
+        "mismatches"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/contracts.py",
+        "sha256": "6e591a709802303cac45d6d6b40954bf465ab48a4739321e382ca501d290653e",
+        "bytes": 9270
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/contracts.py",
+        "sha256": "6e591a709802303cac45d6d6b40954bf465ab48a4739321e382ca501d290653e",
+        "bytes": 9270
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "confined_output",
+        "dump",
+        "exact",
+        "git_authority",
+        "identity",
+        "load",
+        "pin",
+        "refuse_constant",
+        "registered_plan",
+        "require",
+        "sha",
+        "source_namespace",
+        "source_snapshot",
+        "union",
+        "unique_pairs",
+        "verify_plan",
+        "verify_retained",
+        "verify_rows"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/entry.py",
+        "sha256": "6970c0731bc7a118ab1128bab95e0600a01a7d776bb5e04d578d2eb96d727b46",
+        "bytes": 3672
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/entry.py",
+        "sha256": "6970c0731bc7a118ab1128bab95e0600a01a7d776bb5e04d578d2eb96d727b46",
+        "bytes": 3672
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "main",
+        "verify_namespace",
+        "verify_reviewed"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/inventory.py",
+        "sha256": "2743dc07e289d822ba2433a572dba2bc7f87875f1756d1eed5e1a98347fda291",
+        "bytes": 3542
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/inventory.py",
+        "sha256": "2743dc07e289d822ba2433a572dba2bc7f87875f1756d1eed5e1a98347fda291",
+        "bytes": 3542
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "json_shape",
+        "main",
+        "measured"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/observe.py",
+        "sha256": "6c66551db36a8351e0a2cd1347103d1e35756a05d7e98e105d1839d0d2306d42",
+        "bytes": 4045
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/observe.py",
+        "sha256": "6c66551db36a8351e0a2cd1347103d1e35756a05d7e98e105d1839d0d2306d42",
+        "bytes": 4045
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "main"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/prepare.py",
+        "sha256": "f9f7725aa46bcd88911aa54dda404fa6c9459c5cf4d0f9a9940ffac2bfe31918",
+        "bytes": 6081
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/prepare.py",
+        "sha256": "f6028ae691449aec371afcb00305856c356da660d82c9faa721cf1d5e17aa6d0",
+        "bytes": 6077
+      },
+      "byte_exact": false,
+      "unchanged_functions": [],
+      "changed_functions": [
+        "main"
+      ],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/retained.py",
+        "sha256": "31a497ffa62cb26b106a30a612fa1b2335101442d4caa0955984af7f4981bc6c",
+        "bytes": 8203
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/retained.py",
+        "sha256": "31a497ffa62cb26b106a30a612fa1b2335101442d4caa0955984af7f4981bc6c",
+        "bytes": 8203
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "authenticate",
+        "read_expected",
+        "stream_authority",
+        "validate_history"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/run.py",
+        "sha256": "9e85b5c8f723ab2dfbec4f89a5aa07faecca74ba5e2d777b7f90a23005301d66",
+        "bytes": 8130
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/run.py",
+        "sha256": "9e85b5c8f723ab2dfbec4f89a5aa07faecca74ba5e2d777b7f90a23005301d66",
+        "bytes": 8130
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "deadline",
+        "main",
+        "receipt_bytes",
+        "stages_passed"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/runtime.py",
+        "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+        "bytes": 17435
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/runtime.py",
+        "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+        "bytes": 17435
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "absent_path",
+        "alias",
+        "check_aliases",
+        "dependency_load_names",
+        "expand_dependency",
+        "loader_commands",
+        "native_closure",
+        "profile_guard",
+        "qualify_process_snapshot",
+        "raw_process_snapshot",
+        "require_environment",
+        "runtime_inputs",
+        "sealed_system_image",
+        "system_unchanged",
+        "tree",
+        "tree_membership",
+        "validate_inspector",
+        "wall_within_bound"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/schemas.py",
+        "sha256": "67dc29a576b914fe20606e4b2f516eb83e31bfd0581952b5b95e5f401535096e",
+        "bytes": 3815
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/schemas.py",
+        "sha256": "67dc29a576b914fe20606e4b2f516eb83e31bfd0581952b5b95e5f401535096e",
+        "bytes": 3815
+      },
+      "byte_exact": true,
+      "unchanged_functions": [
+        "export_contracts",
+        "literal_fields"
+      ],
+      "changed_functions": [],
+      "added_functions": []
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/semantics.py",
+        "sha256": "c13db70341a103a763a1e08e53d18317d0e1404039dc159b1c6bf960f26a21a6",
+        "bytes": 26045
+      },
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/semantics.py",
+        "sha256": "6cb58d5e89a261ecde3e0b04e82c369f63ca92ca31809c5618572a132fd32370",
+        "bytes": 22645
+      },
+      "byte_exact": false,
+      "unchanged_functions": [
+        "animal_partition",
+        "bundle_join",
+        "cell",
+        "clean",
+        "country_projection",
+        "flags",
+        "human_partition",
+        "integer",
+        "normalized_projection",
+        "pointer_components",
+        "table",
+        "unique"
+      ],
+      "changed_functions": [
+        "audit"
+      ],
+      "added_functions": [
+        "animal_identity"
+      ]
+    }
+  ],
+  "original_selected_declared_inputs_byte_exact": true,
+  "one_observer_no_inventory_or_normalization_repeat": true,
+  "scientific_delta": "Four exact source-owned taxa preserve distinct row taxonomy and blocked publication; full container namespace/token/master/project/source/ordered-lineage joins become strict. All other semantic functions except audit wiring remain AST exact."
+}

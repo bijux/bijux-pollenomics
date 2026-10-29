@@ -1,0 +1,1458 @@
+{
+  "schema_version": "animal-current-public-API-export-review.v1",
+  "actual_exit": 0,
+  "candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "registered_plan_sha256": "9a9868b6dcdd6df31c94c0184a8623afbe4a360dd82144e44bbe0c162de0b8ef",
+  "producer_execution": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/maintained-producer-execution.json",
+    "sha256": "01bb9975bf9a0c80285918c837638db5b3a0040e87b1d45eb85881512858e8d6",
+    "bytes": 550680
+  },
+  "species": [
+    {
+      "species": {
+        "slug": "bos_taurus",
+        "latin_name": "Bos taurus"
+      },
+      "saved_normalized_records": 132,
+      "actual_API_source_admitted_records": 132,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 132,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/all.typed.json",
+              "sha256": "8249cd6c2679bc6f25d3d98c7b79ca542ba6e929637b600c18d6e5e8819b2de6",
+              "bytes": 583335
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/all.csv",
+              "sha256": "f88bbb7fa7cb006516a9fb2587148ffb27fb1274d9d1f6f096dc592b641dd5cb",
+              "bytes": 427008
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/all.geojson",
+              "sha256": "838f87adbc64fdd8810dbff64ddee2b4475a988c8088c1b405abc4a74035fc63",
+              "bytes": 636832
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 3,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/denmark.typed.json",
+              "sha256": "9a7e8867d05ae4c7544d7db9f27a073978f735d536c886b3ccf0f8255e103978",
+              "bytes": 16317
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/denmark.csv",
+              "sha256": "92cd6ee3bc2630aa55e26f6c30025933efc12e6f4e0f67c203b2399fc7cce9a1",
+              "bytes": 12823
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/denmark.geojson",
+              "sha256": "b3f7332258ca796bbea68f66cb99e5ceaa22dd029b10ad8f4491c698e41eed67",
+              "bytes": 17350
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/finland.typed.json",
+              "sha256": "963ac3cccdca276bc1450decf8f04f095cfc2d0fe5c1c5c26c8a333c9d7e60b6",
+              "bytes": 175
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/norway.typed.json",
+              "sha256": "a995af7f0ff3789b020e9351552abba16c9fce4749404d9a06f5664d1b2bfc33",
+              "bytes": 174
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 2,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/sweden.typed.json",
+              "sha256": "2b16e630861385b6efeae09960c34535a5ae03ff67166df86482dca54a8d142e",
+              "bytes": 10955
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/sweden.csv",
+              "sha256": "096bcbf4555ba9f7ac906cd50063f2242e66246581e6a023f93b5207b10ef1ab",
+              "bytes": 8686
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/bos_taurus/sweden.geojson",
+              "sha256": "5785da542d66c10a725a33137caa648bb3ea7e0ef4144c77fc78e80bb80ee5c1",
+              "bytes": 11591
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "sample_context_blocked": 33,
+        "site_curated": 99
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "project_species_match": 83,
+        "project_species_mismatch": 49
+      }
+    },
+    {
+      "species": {
+        "slug": "camelus_dromedarius",
+        "latin_name": "Camelus dromedarius"
+      },
+      "saved_normalized_records": 31,
+      "actual_API_source_admitted_records": 31,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 31,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/all.typed.json",
+              "sha256": "18107efa861801286750bc3f57747253a488b7c784b3dc5466124e64b7263dbe",
+              "bytes": 133868
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/all.csv",
+              "sha256": "aa7027d1d56cd47cb41bba9864145c90c2a1089bcfe13822d8798aee85eb0d18",
+              "bytes": 101308
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/all.geojson",
+              "sha256": "a1ae590a9765b6332560fb119c29d9e1e129f28b0e9e836da648f5187c0f666e",
+              "bytes": 150262
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/denmark.typed.json",
+              "sha256": "b76e699c7f634c7a3a926f1d0f5b8b74fda81baaea5f60f01e14467bde7f50d3",
+              "bytes": 193
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/denmark.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/denmark.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/finland.typed.json",
+              "sha256": "1a09956d2072e77848f4e332984b61e6307dde9c5a643f3198c5a9c077a81a85",
+              "bytes": 193
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/norway.typed.json",
+              "sha256": "8f925b87157c33c06dc3d11e685fcaf3b7bbf30ace80ed7d40b7a3a9e6364eb3",
+              "bytes": 192
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/sweden.typed.json",
+              "sha256": "87b9c00c64ddb1ad6e4ffc00707ea032350d2812ef4fb9bcd43a1c87eae06fcf",
+              "bytes": 192
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/sweden.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/camelus_dromedarius/sweden.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "site_curated": 31
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "not_reported": 13,
+        "project_species_match": 18
+      }
+    },
+    {
+      "species": {
+        "slug": "canis_lupus_familiaris",
+        "latin_name": "Canis lupus familiaris"
+      },
+      "saved_normalized_records": 4,
+      "actual_API_source_admitted_records": 4,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 4,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/all.typed.json",
+              "sha256": "8a20eba4deb0e83c935f637651bc55646415cad36ef36fa3353fa1f17e493efa",
+              "bytes": 16168
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/all.csv",
+              "sha256": "6ac28bf3a03a454819e8cf95350b6e76382e46e3396a5981fb9bff5bbe983bad",
+              "bytes": 11881
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/all.geojson",
+              "sha256": "96b8920daad252632f482a3a23517d362ed85bfe355f82fefd10bb1dac465f9c",
+              "bytes": 17954
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/denmark.typed.json",
+              "sha256": "0c2bc4d5dc55229b16ee5224a761e628f1ed40388dc73122892badff71546931",
+              "bytes": 199
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/denmark.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/denmark.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/finland.typed.json",
+              "sha256": "c1095fd2cb3ad410816bf6f8253f72aee685be00f57390e89de76688699d006d",
+              "bytes": 199
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/norway.typed.json",
+              "sha256": "b6f09400aad104feeef89650b300143151d39c3de858f2973718e2a402774392",
+              "bytes": 198
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/sweden.typed.json",
+              "sha256": "311471ea476e5938a5778ce5ca68b0d6bcac2f533dea751d5af5a7df29a00fa7",
+              "bytes": 198
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/sweden.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/canis_lupus_familiaris/sweden.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "sample_context_blocked": 1,
+        "site_curated": 3
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "not_reported": 4
+      }
+    },
+    {
+      "species": {
+        "slug": "capra_hircus",
+        "latin_name": "Capra hircus"
+      },
+      "saved_normalized_records": 82,
+      "actual_API_source_admitted_records": 82,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 82,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/all.typed.json",
+              "sha256": "1af3be46abe0b0b90b0fadab3f61f1c7f34581d3826f02d03fa26d3f3ed9465c",
+              "bytes": 362856
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/all.csv",
+              "sha256": "fa42a904b20f70eba6f89ade4278f0af34999ff4a8634237a7b35220d93aa832",
+              "bytes": 272381
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/all.geojson",
+              "sha256": "5cf100b87e7e9c64c50af737b90cb79cb990b354cca02db01edf5bb94794546a",
+              "bytes": 403975
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/denmark.typed.json",
+              "sha256": "819071de7ba1e22693de62c5a7e0fe052ffaa1c3781fdabf1e06650f6d47e201",
+              "bytes": 179
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/denmark.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/denmark.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/finland.typed.json",
+              "sha256": "14dff204ca70d365627e52c30b0f401bbd44ec0a0d16a488ba911e72d4e9508e",
+              "bytes": 179
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/norway.typed.json",
+              "sha256": "36d66a41bf0402f341ce5360727f58d50ecbcbaa659218aa55c4e4e52f4b8ae6",
+              "bytes": 178
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/sweden.typed.json",
+              "sha256": "f0c9fef03cd0a7304a104e1e3d2548374aecd097eacf8621353961562f94567a",
+              "bytes": 178
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/sweden.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/capra_hircus/sweden.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "site_curated": 82
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "not_reported": 82
+      }
+    },
+    {
+      "species": {
+        "slug": "equus_asinus",
+        "latin_name": "Equus asinus"
+      },
+      "saved_normalized_records": 0,
+      "actual_API_source_admitted_records": 0,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/all.typed.json",
+              "sha256": "93242c60d755636752077f4352b05ad3ab10f7874af38c6d1e88d77aa11f56d0",
+              "bytes": 174
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/all.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/all.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/denmark.typed.json",
+              "sha256": "612ecdb8f46f90a825a0893d649b17d08d45ec7558b346235baaca177bd00510",
+              "bytes": 179
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/denmark.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/denmark.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/finland.typed.json",
+              "sha256": "3b4785000f05f8a8a3fb2076e81220af8e3e15b9c5dd570e202cff55b32aaf18",
+              "bytes": 179
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/norway.typed.json",
+              "sha256": "b3cfa45f1748540162a9ce9b21a53be5b69213e63b25b5904cf24fb18959247a",
+              "bytes": 178
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/sweden.typed.json",
+              "sha256": "f5270335758eaa00f940adfab73eec5f2377fa1c7a6eb14aa651330c6b29bfdb",
+              "bytes": 178
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/sweden.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_asinus/sweden.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {},
+      "source_typed_taxon_alignment_statuses": {}
+    },
+    {
+      "species": {
+        "slug": "equus_caballus",
+        "latin_name": "Equus caballus"
+      },
+      "saved_normalized_records": 550,
+      "actual_API_source_admitted_records": 550,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 550,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/all.typed.json",
+              "sha256": "99c949a368f7ec67895de20535d146e306700356b7ea89ac61b5344772fa8bd0",
+              "bytes": 2364589
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/all.csv",
+              "sha256": "432ba0070ee2b2cc4eac3091b0544c5fe0f8cdfdbd0d551edaadc9833c9b027c",
+              "bytes": 1770284
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/all.geojson",
+              "sha256": "2dba9586c3080b1c792043f378f03462082e78e41c4a1282a6a548e20608461c",
+              "bytes": 2650426
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 2,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/denmark.typed.json",
+              "sha256": "58ba7a5237335fc15c3c308c40c398436db160f9c1eeb4b4ff7eebce9c9222ba",
+              "bytes": 8941
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/denmark.csv",
+              "sha256": "061514894ea9162addb19c67d5679b24907dbc6b3289831267eacd5beba92ade",
+              "bytes": 6967
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/denmark.geojson",
+              "sha256": "7a52307874558901be1f49f74f68a6f22cec177da431b2c8a4153ff6a6747017",
+              "bytes": 9866
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/finland.typed.json",
+              "sha256": "ebec8ca7b0bac8ab806856633c8dc1cb919ea7eb21f058246eb60161bf1d0857",
+              "bytes": 183
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/norway.typed.json",
+              "sha256": "6b48d0fa05d5f6c0a75779f567a145eb91edd824d19619a512c7b8d9c8d946ff",
+              "bytes": 182
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 1,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/sweden.typed.json",
+              "sha256": "5ab5c21ac1251ece5897fbd977de9f4ca4cdcafeb8722a99db7dde38266e3f7f",
+              "bytes": 4429
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/sweden.csv",
+              "sha256": "67016c2b3b008f223af2eafdcb61263b7829935ab153ade05dfc0122a88407fc",
+              "bytes": 3539
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/equus_caballus/sweden.geojson",
+              "sha256": "c1c2f4a88de59d8ba16c61fc274c91c906195d124c6e8e2831ccd67ae63dffda",
+              "bytes": 4851
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "sample_context_blocked": 2,
+        "site_curated": 548
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "not_reported": 550
+      }
+    },
+    {
+      "species": {
+        "slug": "felis_catus",
+        "latin_name": "Felis catus"
+      },
+      "saved_normalized_records": 106,
+      "actual_API_source_admitted_records": 106,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 106,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/all.typed.json",
+              "sha256": "518da2f8068e8bedcb9845105214233597e9b8ba29a6380194a85992ad32c2fe",
+              "bytes": 443386
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/all.csv",
+              "sha256": "6cd6e27e6f09ae3a9b9fe4803095167008a4b540d9d68ae46de40ba891b45346",
+              "bytes": 325251
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/all.geojson",
+              "sha256": "5729dcc7f90d7e6fef70ebb3f16b602667f082c0817ac48fbd7338d5fdbb3397",
+              "bytes": 493680
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/denmark.typed.json",
+              "sha256": "7a020b02c90046e4e62611d34ba23f08fa19ac4c3f6581b234c9dc2c30d75cba",
+              "bytes": 177
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/denmark.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/denmark.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/finland.typed.json",
+              "sha256": "6c96ff52a99359c7bc06b86c8a8fef13fa607d69328ecd47774a139c37f4add9",
+              "bytes": 177
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/norway.typed.json",
+              "sha256": "6e10064b2500fc094ca26123d6a3d3a06bb5729fa85025ebcad8755b080ef73f",
+              "bytes": 176
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/sweden.typed.json",
+              "sha256": "e13b40c1a1011207fd9c4576b8fc2f045b422d52758b04f5a43d488d3791623d",
+              "bytes": 176
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/sweden.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/felis_catus/sweden.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "site_curated": 106
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "project_species_match": 56,
+        "project_species_mismatch": 50
+      }
+    },
+    {
+      "species": {
+        "slug": "ovis_aries",
+        "latin_name": "Ovis aries"
+      },
+      "saved_normalized_records": 200,
+      "actual_API_source_admitted_records": 200,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 200,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/all.typed.json",
+              "sha256": "94173b0a6e34f778b5b76ab312c89e0a1f766b035b7debc29efc693f67d6b041",
+              "bytes": 825860
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/all.csv",
+              "sha256": "a2f9335f67e2fa7ea300c024da5bab9f4f7d6f26ea23d7cfe9592f9a9262eb6c",
+              "bytes": 573423
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/all.geojson",
+              "sha256": "9d3df2523c81aa1758bb7c826ae449734012710ee3cc8d7c744a4ba07bfade65",
+              "bytes": 890854
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/denmark.typed.json",
+              "sha256": "160868a3b98f5dbbff44f9361e9e1b3ef0e93bd21fac7d41d32a42ad05e771d8",
+              "bytes": 175
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/denmark.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/denmark.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 2,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/finland.typed.json",
+              "sha256": "54d6921231dd4f5843a3b95e5e62f6c7033794c9d1f75eb9a5ec2d25886216f2",
+              "bytes": 8651
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/finland.csv",
+              "sha256": "42cd8d6408b759d63db7d2ec4a8700cec82c69d21699f7e173a93bf2c307ccce",
+              "bytes": 6412
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/finland.geojson",
+              "sha256": "0ef130c18131b347adab4e0d70e988720af030981c1607f13d5393f617258401",
+              "bytes": 9299
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/norway.typed.json",
+              "sha256": "5fad3eb05f74a9b0f83e54a904686f7197fcaa83b86be0a2c0c7bb3cb2f08864",
+              "bytes": 174
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 3,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/sweden.typed.json",
+              "sha256": "d4eb3f5e1a8db40a582c980d811ae9f3051ee4e48e2054009a9c50a204a7e76c",
+              "bytes": 12746
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/sweden.csv",
+              "sha256": "6902859a1a98d06c7d9d108c8436aff5d5d31de82aea8785cc8a9a80909e7441",
+              "bytes": 9279
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/ovis_aries/sweden.geojson",
+              "sha256": "9498a92d522795285a735ef77fe5d718e9eb24fb472571ce28d008e35b56fffc",
+              "bytes": 13767
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "nordic_lead_site_curated": 5,
+        "sample_context_blocked": 1,
+        "site_curated": 194
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "not_reported": 190,
+        "project_species_match": 9,
+        "project_species_mismatch": 1
+      }
+    },
+    {
+      "species": {
+        "slug": "rangifer_tarandus",
+        "latin_name": "Rangifer tarandus"
+      },
+      "saved_normalized_records": 20,
+      "actual_API_source_admitted_records": 20,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 20,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/all.typed.json",
+              "sha256": "34bb59e68588a823d75bdbb867c36b1d8a1035c0c4d85d9f6ac5adadab1447d8",
+              "bytes": 96095
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/all.csv",
+              "sha256": "6a0326b1ae87e5104a0c84d39110bf07d6ebc0c58d884d8d8dbeb800070a7cc4",
+              "bytes": 73879
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/all.geojson",
+              "sha256": "1ec7249307c1ebb1032f12b594b8f21bc8b7eb4a1c37ae07b5b789682aa294e2",
+              "bytes": 105328
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/denmark.typed.json",
+              "sha256": "f70f45f0a894b9ee3d3ab0b2606579d68c30273905cb6f17edca749ea37bf8fb",
+              "bytes": 189
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/denmark.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/denmark.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/finland.typed.json",
+              "sha256": "239857b3d2a74085eb382c5694187d23fe137c610db2010d6d5d16fd87c92f0b",
+              "bytes": 189
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 18,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/norway.typed.json",
+              "sha256": "edd8284c784979328fdb7b0123f222ed6c67e627adb5558c7ee61b398949883f",
+              "bytes": 86562
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/norway.csv",
+              "sha256": "74ff7d4b0ef056b5c8b161721181fa8afa20f2955314a11122c3e06cb7f94618",
+              "bytes": 66573
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/norway.geojson",
+              "sha256": "13409146e26037cc3aa5beb0e2198304b4b7584aae44e397d9fb1fe9668fd74c",
+              "bytes": 94848
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/sweden.typed.json",
+              "sha256": "c48c93db57f17bcc56fc15dd2ee23ded55acddee49d93ba591102a892fa796ec",
+              "bytes": 188
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/sweden.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/rangifer_tarandus/sweden.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "comparator_site_curated": 20
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "project_species_match": 2,
+        "project_species_mismatch": 18
+      }
+    },
+    {
+      "species": {
+        "slug": "sus_scrofa_domesticus",
+        "latin_name": "Sus scrofa domesticus"
+      },
+      "saved_normalized_records": 343,
+      "actual_API_source_admitted_records": 343,
+      "API_excluded_source_rows": [],
+      "all_queries": [
+        {
+          "country_query": null,
+          "records": 343,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/all.typed.json",
+              "sha256": "f8fceaf90e817b0a36f59f2e95816a4f66edc5d7985a3100d6998361636b1087",
+              "bytes": 1543455
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/all.csv",
+              "sha256": "db7720f84bec6d1d06ae0d2ccba97a9f092cd63cfa2d7fd8dc125008ac39d510",
+              "bytes": 1132675
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/all.geojson",
+              "sha256": "b0e08c66063c3eaec8be2eab89796c11a978e1b8597b696eb75c7a8d40bedb1d",
+              "bytes": 1680916
+            }
+          }
+        },
+        {
+          "country_query": "Denmark",
+          "records": 5,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/denmark.typed.json",
+              "sha256": "b67c29a206ac54aedf39340b69c0857b0c800df77d63ae1d871b3b9d32e348fe",
+              "bytes": 24475
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/denmark.csv",
+              "sha256": "de5110fe420700155862eea139b939767986b99d6ef6b7001c976e1115703cba",
+              "bytes": 18857
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/denmark.geojson",
+              "sha256": "e8eb35ab81eea15d73f69749b093fd635def57bc3afaaeb029fe6ec8789467a3",
+              "bytes": 26564
+            }
+          }
+        },
+        {
+          "country_query": "Finland",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/finland.typed.json",
+              "sha256": "4fdacd61b63244c4d6899332548b6f2e5114201e13612a3294fe5fa358ea072c",
+              "bytes": 197
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/finland.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/finland.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Norway",
+          "records": 0,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/norway.typed.json",
+              "sha256": "30417ce5e699e36126898513af1a1bee373e39d59abbda338f6f8e2284a054bd",
+              "bytes": 196
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/norway.csv",
+              "sha256": "3e539e3983aedc42e7d8f19978a92a73c0b94d114705124e1af1e89b443b233b",
+              "bytes": 401
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/norway.geojson",
+              "sha256": "6871803851f74d21be8b7169c4b0634e7d8378d7c397d1b2075aa1ea849adeb1",
+              "bytes": 108
+            }
+          }
+        },
+        {
+          "country_query": "Sweden",
+          "records": 4,
+          "complete_typed_source_equal": true,
+          "both_default_writers_full_bytes_equal": true,
+          "products": {
+            "typed": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/sweden.typed.json",
+              "sha256": "68912725681fa7c33bbe017f899971430d3183a97f3d45567a7badeea308e5ab",
+              "bytes": 18199
+            },
+            "csv": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/sweden.csv",
+              "sha256": "379e98843bbdd862dbbdb5cc2d364f194d8e657295f0cc721dfa215d7f18762a",
+              "bytes": 13637
+            },
+            "geojson": {
+              "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/producer/sus_scrofa_domesticus/sweden.geojson",
+              "sha256": "a5d5e1ba35490567e2718622fd03de6f6f0cba269d9c4d5a1461daff0a114298",
+              "bytes": 19742
+            }
+          }
+        }
+      ],
+      "source_typed_inclusion_statuses": {
+        "sample_context_blocked": 341,
+        "site_curated": 2
+      },
+      "source_typed_taxon_alignment_statuses": {
+        "project_species_mismatch": 343
+      }
+    }
+  ],
+  "complete_saved_source_population": 1468,
+  "actual_API_source_admitted_population": 1468,
+  "source_owned_taxon_exceptions": [
+    {
+      "container_namespace": "bos_taurus:curated_sample",
+      "container_species": "Bos taurus",
+      "native_sample_id": "bos_taurus:sample:prjna705960:samn18106827",
+      "source_species": "Bos primigenius",
+      "source_native_tax_id": "9909",
+      "project_accession": "PRJNA705960",
+      "accession_lineage": [
+        "species:Bos primigenius",
+        "source:ENA",
+        "project:PRJNA705960",
+        "sample:prjna705960:samn18106827"
+      ],
+      "taxon_alignment_status": "project_species_mismatch",
+      "inclusion_status": "sample_context_blocked",
+      "cross_species_publication_admitted": false,
+      "wild_domestic_analytical_equivalence_claimed": false
+    },
+    {
+      "container_namespace": "bos_taurus:curated_sample",
+      "container_species": "Bos taurus",
+      "native_sample_id": "bos_taurus:sample:prjna705960:samn18106828",
+      "source_species": "Bos primigenius",
+      "source_native_tax_id": "9909",
+      "project_accession": "PRJNA705960",
+      "accession_lineage": [
+        "species:Bos primigenius",
+        "source:ENA",
+        "project:PRJNA705960",
+        "sample:prjna705960:samn18106828"
+      ],
+      "taxon_alignment_status": "project_species_mismatch",
+      "inclusion_status": "sample_context_blocked",
+      "cross_species_publication_admitted": false,
+      "wild_domestic_analytical_equivalence_claimed": false
+    },
+    {
+      "container_namespace": "bos_taurus:curated_sample",
+      "container_species": "Bos taurus",
+      "native_sample_id": "bos_taurus:sample:prjna705960:samn18106829",
+      "source_species": "Bos primigenius",
+      "source_native_tax_id": "9909",
+      "project_accession": "PRJNA705960",
+      "accession_lineage": [
+        "species:Bos primigenius",
+        "source:ENA",
+        "project:PRJNA705960",
+        "sample:prjna705960:samn18106829"
+      ],
+      "taxon_alignment_status": "project_species_mismatch",
+      "inclusion_status": "sample_context_blocked",
+      "cross_species_publication_admitted": false,
+      "wild_domestic_analytical_equivalence_claimed": false
+    },
+    {
+      "container_namespace": "ovis_aries:curated_sample",
+      "container_species": "Ovis aries",
+      "native_sample_id": "ovis_aries:sample:prjeb41594:samea8022722",
+      "source_species": "Capra hircus",
+      "source_native_tax_id": "9925",
+      "project_accession": "PRJEB41594",
+      "accession_lineage": [
+        "species:Capra hircus",
+        "source:ENA",
+        "project:PRJEB41594",
+        "sample:prjeb41594:samea8022722"
+      ],
+      "taxon_alignment_status": "project_species_mismatch",
+      "inclusion_status": "sample_context_blocked",
+      "cross_species_publication_admitted": false,
+      "wild_domestic_analytical_equivalence_claimed": false
+    }
+  ],
+  "actual_default_export_fields": [
+    "schema_version",
+    "species_latin_name",
+    "species_common_name",
+    "source_family",
+    "sample_namespace",
+    "genetic_id",
+    "master_id",
+    "group_id",
+    "locality",
+    "political_entity",
+    "latitude",
+    "longitude",
+    "publication",
+    "year_first_published",
+    "full_date",
+    "date_mean_bp",
+    "date_stddev_bp",
+    "time_start_bp",
+    "time_end_bp",
+    "time_mean_bp",
+    "time_label",
+    "dating_basis",
+    "coordinate_confidence",
+    "data_type",
+    "molecular_sex",
+    "datasets",
+    "accession_lineage",
+    "sample_chronology",
+    "sample_identity"
+  ],
+  "typed_flags_preserved_but_not_exported_by_current_contract": [
+    "inclusion_status",
+    "taxon_alignment_status"
+  ],
+  "full_typed_identity_chronology_native_taxon_and_context_checked": true,
+  "no_pollen_measurement_fields_in_typed_or_default_exports": true,
+  "API_country_query_is_direct_political_entity_not_legacy_country_bundle_interpolation": true,
+  "whole_ADNA_requirement_current_default_or_rights_biology_LRA_acceptance_predeclared": false,
+  "original_normalization_native_receipt_requalified": false,
+  "new_HTTP_raw_archive_acquisition_genotype_model_or_R_executed": false
+}

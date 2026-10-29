@@ -12,6 +12,7 @@ from typing import Any
 
 from ...contracts import JsonObject, ReportRebuildError
 from ...retained_source import validate_capsule, validated_descriptor
+from ..sample_chronology_capture import _documented_source_matches
 from .animal_export import (
     CAPTURE as ANIMAL_CAPTURE,
 )
@@ -789,6 +790,89 @@ def human_context(
     return packet, read, evidence
 
 
+_DOCUMENTED_CURRENT_SOURCE_IDENTITIES: dict[str, tuple[str, int]] = {
+    "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/locality.py": (
+        "bcf27ef1a10a80cf9cd7ae59fd01a9ad8ff621aa539dff1ddf5664514e701dcc",
+        11077,
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/localities.py": (
+        "7d48769c36ab6797b8d745cde6bddca0ed6230504ffa3cc1e6ef15a819baa271",
+        3729,
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/occurrence_support.py": (
+        "161102a44d91f100f42f55cf66c1bac2f5de6198b1e50515c0f3d0ef60ae925f",
+        5918,
+    ),
+}
+
+
+def _documented_current_source_correspondence(
+    repository: Path,
+    name: str,
+    expected: JsonObject,
+    captured: bytes,
+) -> JsonObject | None:
+    """Reconstruct only three named documentation insertions from original source bytes."""
+    require(
+        name in _DOCUMENTED_CURRENT_SOURCE_IDENTITIES, "Unknown documented ADNA source"
+    )
+    checksum, size = _DOCUMENTED_CURRENT_SOURCE_IDENTITIES[name]
+    require(
+        set(expected) == {"sha256", "bytes"}
+        and type(expected.get("bytes")) is int
+        and expected == {"sha256": checksum, "bytes": size}
+        and type(captured) is bytes
+        and len(captured) == size
+        and hashlib.sha256(captured).hexdigest() == checksum,
+        "Original documented ADNA source identity differs",
+    )
+    path = physical(repository, name)
+    before = path.stat()
+    require(
+        before.st_nlink == 1 and before.st_size <= 32768,
+        "Documented current ADNA source must be bounded single-link",
+    )
+    current = path.read_bytes()
+    require(
+        current == captured or _documented_source_matches(name, captured, current),
+        "ADNA source differs beyond exact named documentation insertions",
+    )
+    after = physical(repository, name).stat()
+    require(
+        (
+            before.st_dev,
+            before.st_ino,
+            before.st_mode,
+            before.st_nlink,
+            before.st_size,
+            before.st_mtime_ns,
+            before.st_ctime_ns,
+        )
+        == (
+            after.st_dev,
+            after.st_ino,
+            after.st_mode,
+            after.st_nlink,
+            after.st_size,
+            after.st_mtime_ns,
+            after.st_ctime_ns,
+        )
+        and path.read_bytes() == current,
+        "Documented current ADNA source changed during comparison",
+    )
+    if current == captured:
+        return None
+    return {
+        "path": name,
+        "classification": "exact_named_documentation_source_correspondence",
+        "original_sha256": checksum,
+        "original_bytes": size,
+        "whole_original_executable_ast_and_noninserted_bytes_preserved": True,
+        "current_source_byteequal": False,
+        "new_native_or_mathematical_qualification_claimed": False,
+    }
+
+
 def _validated_current_domain_evidence(
     repository: Path,
     owners: list[dict[str, Any]],
@@ -888,6 +972,7 @@ def _validated_current_domain_evidence(
         animal, documents["animal_plan"]["repository"]
     )
     current_source_namespace(repository, source_names, opaque_names)
+    source_documentation_correspondences: list[JsonObject] = []
     for row in watched["watched_source_files"]:
         name = row["repository_path"]
         p = PurePosixPath(name)
@@ -895,7 +980,34 @@ def _validated_current_domain_evidence(
             not p.is_absolute() and ".." not in p.parts and p.as_posix() == name,
             "Source role must be repository-relative",
         )
-        checked(repository, name, {"sha256": row["sha256"], "bytes": row["bytes"]})
+        expected = {"sha256": row["sha256"], "bytes": row["bytes"]}
+        if name in _DOCUMENTED_CURRENT_SOURCE_IDENTITIES:
+            original_bodies = []
+            for source_plan in (documents["raw_plan"], documents["animal_plan"]):
+                original_name = (
+                    PurePosixPath(source_plan["owned_repository"]) / name
+                ).as_posix()
+                selected_input = index(source_plan["input_pins"]).get(original_name)
+                require(
+                    selected_input is not None
+                    and exact(
+                        identity(selected_input), {"path": original_name, **expected}
+                    ),
+                    "Exact original documented ADNA source input absent or ambiguous",
+                )
+                assert selected_input is not None
+                original_bodies.append(payload(selected_input))
+            require(
+                len(original_bodies) == 2 and original_bodies[0] == original_bodies[1],
+                "Original human/animal documented ADNA sources disagree",
+            )
+            correspondence = _documented_current_source_correspondence(
+                repository, name, expected, original_bodies[0]
+            )
+            if correspondence is not None:
+                source_documentation_correspondences.append(correspondence)
+        else:
+            checked(repository, name, expected)
     observed, _ = scan_products(products(documents), SCHEMA, payload)
     current_source_namespace(repository, source_names, opaque_names)
     projected = evidence_projection(observed, watched, hb, ab)
@@ -920,6 +1032,10 @@ def _validated_current_domain_evidence(
         "human_native_capture_evidence": human_evidence,
         "current_queries": 54,
         "current_products": 162,
+        "original_source_members": len(watched["watched_source_files"]),
+        "current_source_byteequal_members": len(watched["watched_source_files"])
+        - len(source_documentation_correspondences),
+        "current_documentation_only_source_correspondences": source_documentation_correspondences,
         "source_candidates": [HUMAN_SOURCE, ANIMAL_SOURCE],
         "earlier_partial_joint_and_original_failed_native_preserved": True,
         "publisher_entries_selected": 0,

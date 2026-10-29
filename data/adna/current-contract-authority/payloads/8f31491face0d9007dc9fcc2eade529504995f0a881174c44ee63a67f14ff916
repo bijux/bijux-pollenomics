@@ -1,0 +1,142 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+  "plan_sha256": "f95c0ad9f5b2015f8d3f0a035cb3d7129f5e2603e77a5e570077e8632cf8077a",
+  "actual_exit": 1,
+  "status": "failed",
+  "elapsed_seconds": 6.826307750015985,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-registered-plan-custody/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/plan.json",
+    "--registered-plan-sha256",
+    "f95c0ad9f5b2015f8d3f0a035cb3d7129f5e2603e77a5e570077e8632cf8077a"
+  ],
+  "canonical_before": {
+    "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+    "status": "",
+    "tracked_inventory_sha256": "e8b342baaf623428b5037c4445c2affbf0d2b5c9f11f316771b8fe9c6e37ee1d"
+  },
+  "canonical_after": {
+    "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+    "status": "",
+    "tracked_inventory_sha256": "e8b342baaf623428b5037c4445c2affbf0d2b5c9f11f316771b8fe9c6e37ee1d"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "saved-adna-contract-inventory",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-registered-plan-custody/entry.py",
+        "inventory",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 3.9051486660027876,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/saved-adna-contract-inventory.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/saved-adna-contract-inventory.stderr",
+      "stdout_sha256": "e0b53c3bae5517968997f33a101f17c1abc462174bb502767210400a2b2ac6b3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 84197376
+    },
+    {
+      "id": "independent-adna-domain-joins",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-registered-plan-custody/entry.py",
+        "observe",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 1,
+      "timed_out": false,
+      "elapsed_seconds": 2.0610636670025997,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/independent-adna-domain-joins.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/independent-adna-domain-joins.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "d498e25c3e8c15b34d7f5d935bdd0f29e85367d1f44756c4273f7e5bbb861ae7",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 84197376
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/independent-adna-domain-joins.stderr",
+      "sha256": "d498e25c3e8c15b34d7f5d935bdd0f29e85367d1f44756c4273f7e5bbb861ae7",
+      "bytes": 929
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/independent-adna-domain-joins.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/launch.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/launch.stdout",
+      "sha256": "97b79920413736f1b00829d59f14e0e2c6b0dd3f178dbe9ce31dd26b90e56a1f",
+      "bytes": 312
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/plan.json",
+      "sha256": "f95c0ad9f5b2015f8d3f0a035cb3d7129f5e2603e77a5e570077e8632cf8077a",
+      "bytes": 4386073
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/preparation.json",
+      "sha256": "49cb7af92b42dea2ebad7bf64739764e7d60c23a2cf263a8b877afe555b7c1c9",
+      "bytes": 416
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/saved-adna-contract-inventory.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/saved-adna-contract-inventory.stdout",
+      "sha256": "e0b53c3bae5517968997f33a101f17c1abc462174bb502767210400a2b2ac6b3",
+      "bytes": 127
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/saved-contract-inventory.json",
+      "sha256": "217d84f1faba6c8ece169d8323471b93bfc50230e635ebd2b9fca8bd355a81eb",
+      "bytes": 186027
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/stage-progress.json",
+      "sha256": "41f24e0a7076d6330ba4dd058574123785af6fde6495dff52525811b13ef030b",
+      "bytes": 2327
+    }
+  ],
+  "output_bytes": 4576211,
+  "resources": {
+    "overall_timeout_seconds": 110,
+    "outer_timeout_seconds": 130,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "New saved-public-contract field inventory and independent full identity/population/chronology/provenance observer. Historical normalization/six-stage execution, missing literal receipt and current v2 exporter reproduction remain distinct. No source normalization, private payload recovery, model/R/HTTP, rights/human/biology/LRA admission.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": "adna-source-taxon-observer-source-qualification.v1",
+  "source_only": true,
+  "source_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "actual_source_validation_exits": {
+    "controlled_groups_47": 0,
+    "strict_12": 0,
+    "configured_Ruff_12": 0,
+    "configured_format_12": 0,
+    "AST_12": 0
+  },
+  "checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-controls.stdout",
+      "sha256": "0ff101326442a842f3a102beb99cc43c0ed435ab85b4616819bedc29c7f42896",
+      "bytes": 156
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-strict.stdout",
+      "sha256": "8b88f6d12bd312c1b024b66d07a7f7619a68482ac4d64e475759b1823199faa5",
+      "bytes": 44
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-strict.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-configured-check.stdout",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-configured-check.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-configured-format.stdout",
+      "sha256": "cfe5c6461b42a90595a492aed11f2c8e6eb98b7c4caf2cc9f47e3333185e3f33",
+      "bytes": 27
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-configured-format.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/style-wrapper.stdout",
+      "sha256": "53be364e15ffb9b9c3c0ae91dd53258fc3a96311c1868f0e7631c57d78106fce",
+      "bytes": 100
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/style-wrapper.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-ast.json",
+      "sha256": "8b83eb5851c30d24dc5061814d06694cf056cd7b39c5cab1d7724bdeada0825e",
+      "bytes": 2854
+    }
+  ],
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/check_contracts.py",
+      "sha256": "e8fe5cf3819a96c2ccb9e2487ec169801a49d27e2c751b79eb19404505f2233a",
+      "bytes": 31900
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/common_runner.py",
+      "sha256": "45258238c6529de971416f85b8fe6ecfbdf14b089c7606dcb137754382267447",
+      "bytes": 10058
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/contracts.py",
+      "sha256": "6e591a709802303cac45d6d6b40954bf465ab48a4739321e382ca501d290653e",
+      "bytes": 9270
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/entry.py",
+      "sha256": "6970c0731bc7a118ab1128bab95e0600a01a7d776bb5e04d578d2eb96d727b46",
+      "bytes": 3672
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/inventory.py",
+      "sha256": "2743dc07e289d822ba2433a572dba2bc7f87875f1756d1eed5e1a98347fda291",
+      "bytes": 3542
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/observe.py",
+      "sha256": "6c66551db36a8351e0a2cd1347103d1e35756a05d7e98e105d1839d0d2306d42",
+      "bytes": 4045
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/prepare.py",
+      "sha256": "f9f7725aa46bcd88911aa54dda404fa6c9459c5cf4d0f9a9940ffac2bfe31918",
+      "bytes": 6081
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/retained.py",
+      "sha256": "31a497ffa62cb26b106a30a612fa1b2335101442d4caa0955984af7f4981bc6c",
+      "bytes": 8203
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/run.py",
+      "sha256": "9e85b5c8f723ab2dfbec4f89a5aa07faecca74ba5e2d777b7f90a23005301d66",
+      "bytes": 8130
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/runtime.py",
+      "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+      "bytes": 17435
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/schemas.py",
+      "sha256": "67dc29a576b914fe20606e4b2f516eb83e31bfd0581952b5b95e5f401535096e",
+      "bytes": 3815
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/semantics.py",
+      "sha256": "c13db70341a103a763a1e08e53d18317d0e1404039dc159b1c6bf960f26a21a6",
+      "bytes": 26045
+    }
+  ],
+  "predecessor_source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/source-qualification.json",
+    "sha256": "09eecba1b06d486edfc5ec9a4b9d9fb03970e2059cd08ae7459ba838b10b8a23",
+    "bytes": 6963
+  },
+  "nine_custody_modules_byte_exact": true,
+  "original_declared_input_roles_and_expected_hashes_byte_exact": true,
+  "successful_inventory_or_normalizers_repeated": false,
+  "real_saved_payload_semantic_consumer_executed_by_author": false,
+  "separate_author_diagnostic_scope": "Root-authorized finite public identity/taxon/provenance metadata inspection only. No private source bodies or saved scientific observer executed.",
+  "initial_source_type_style_and_wrapper_scope_refusals_preserved": true
+}

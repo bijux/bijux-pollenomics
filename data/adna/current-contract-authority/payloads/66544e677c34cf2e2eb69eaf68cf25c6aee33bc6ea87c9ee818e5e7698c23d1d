@@ -1,0 +1,84 @@
+{
+  "schema_version": "adna-evidence-domain-source-feasibility.v1",
+  "source_only": true,
+  "literal_requirement_id": "ADNA-001",
+  "literal_clause": "Actual human and animal source-to-country metadata lifecycle has no pollen semantics leakage.",
+  "historical_source_candidate": "e643986a963f903f987b1e75753a617d9114e7eb",
+  "historical_literal_adjudication_candidate": "56989b5cf69a69d947886601fb99f762a3f267c7",
+  "missing_old_literal_receipt_recovered": false,
+  "existing_public_authority": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/adna-source-lifecycle/capture.json",
+      "sha256": "9e3c6b3b446f804afe249d91986dea39712d02c75305515da54b31923057abf4",
+      "bytes": 10837
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/adna-source-lifecycle/report.json",
+      "sha256": "fa3bafd89f876a8259c66f56b4dc16d199e98959bade7395d41d98fe3cc58224",
+      "bytes": 6439
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/adna-source-lifecycle/source-inputs.json",
+      "sha256": "e3655a9a18993f3e0f9843fca62696c0baf0886e07c9840ca18994a016ff542d",
+      "bytes": 41627
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/adna-source-lifecycle/source-backlinks.json",
+      "sha256": "0ab9a37617783142394e510fc0f04dd5dc33d8a5c9b052941d4564504473e10d",
+      "bytes": 25379
+    }
+  ],
+  "selected_saved_public_input_and_source_files": 59,
+  "historical_input_manifest_rows": 198,
+  "historical_transport_logical_inputs": 207,
+  "new_native_scope": "Saved public contract inventory and independent field/population/identity/chronology/provenance joins only. Every named population is a future actual measurement assertion, not a fresh worker result.",
+  "human_expected_partition": {
+    "all_source_ids": 1325,
+    "published_legacy_v1": 1231,
+    "coordinate_excluded": 94
+  },
+  "animal_expected_partition": {
+    "all_source_ids": 1468,
+    "mapped": 322,
+    "excluded": 1146,
+    "nordic": 12,
+    "normalized_species_contracts": 10
+  },
+  "current_default_export_schema": "adna-sample-record-export.v2",
+  "saved_human_export_schema": "adna-sample-record-export.v1",
+  "saved_human_fields": 27,
+  "current_owned_fields_not_present": [
+    "sample_chronology",
+    "sample_identity"
+  ],
+  "v1_inverse_source_inspection": {
+    "maintained_parser": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/records.py",
+      "sha256": "80ff1601b72fe894590e617a9975d66f9a1f125d29183542ecfe9d5cde4e7cc6",
+      "bytes": 6447
+    },
+    "maintained_published_chronology_adapter": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/source_rows.py",
+      "sha256": "e845dd4eddc2fcc1da0d019097845fdddcd3f0086fff498b362a242a1b08af04",
+      "bytes": 7747
+    },
+    "actual_supported_route": "normalized_chronology_from_published_row uses _parse_sample_row with identity field-name schema, published_source_export role and exact endpoint/mean/dating_basis/raw-time-label comparison. It does not assert raw AADR normalization was repeated.",
+    "no_lossless_common_export_inverse_found": true,
+    "limitations": "_parse_sample_row regenerates dataset/accession lineage, sets coordinate confidence unknown and defaults omitted native/provenance fields. The chronology adapter returns chronology only. A flat export omits original evidence class/precision/refusal and owned source provenance; current reconstruction must retain its explicitly published-source role and refuse disagreement, never claim omitted metadata recovered.",
+    "locally_runnable_next_consumer": "A separately qualified supported parser/default-v2 exporter and independent observer can read the same public v1 rows, validate reconstructed chronology via the maintained adapter, exercise current owned export validation, preserve original v1 records separately, and explicitly report fields omitted from the original export. Full raw-source owned-metadata proof instead requires the real maintained AADR loader with exact admitted source manifests; that is local source work, not an external acceptance decision.",
+    "future_supported_exporter_executed": false
+  },
+  "acceptance_assessment": "If genuine stages pass, they establish a new independently observed no-leakage result for the complete explicitly saved v1/current normalized animal product population. They do not by themselves reproduce the current default-v2 lifecycle or close the whole current acceptance clause. Final literal adjudication remains root-owned and contingent on stated scope.",
+  "excluded_claims": [
+    "missing old receipts recovered",
+    "normalization or original six native stages requalified",
+    "new source acquisition",
+    "rights or citation selection",
+    "human review",
+    "biological or ecological interpretation",
+    "accepted pollen events",
+    "LRA admission",
+    "full current-default v2 population reproduction"
+  ],
+  "worker_actual_payload_decode_producer_prepare_runtime_census_or_native_execution": false
+}

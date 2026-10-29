@@ -1,0 +1,51 @@
+{
+  "schema_version": "adna-joint-clause-metadata-protocol.v1",
+  "source_only": true,
+  "purpose": "Join genuine completed current human-v2 and saved human/animal observations by exact input identities; adjudicate observed software domain separation without closing the unexecuted current animal-producer residual.",
+  "root_only_callback_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+    "--profile",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "--profile-sha256",
+    "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "--mode",
+    "python",
+    "--",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/callback.py",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-joint-current-contract-adjudication/result.json"
+  ],
+  "invocation_requirements": [
+    "Root independently reviews exact held source and places its approved manifest-bound independent-source-review.json before invocation.",
+    "Choose a fresh disjoint artifact parent/output. The callback checks every path/ancestor and refuses overlap with original authorities or owned source.",
+    "SOURCE3331 remains source/metadata checking only; do not register a fake scientific/native producer job.",
+    "No current clean-main or source-tree equivalence is assumed; exact original epochs are read literally from authenticated metadata."
+  ],
+  "consumed_metadata": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/metadata-references.json",
+    "sha256": "8ca05d2040684744eca0f7a2ed6b9733cb67f9368845457a028dd73d59cf00da",
+    "bytes": 2778
+  },
+  "authentication": [
+    "Fixed10same-buffer raw SHA/byte/source metadata identities; duplicate/nonfinite JSON refuses.",
+    "Exact root-supplied raw and saved registered plan SHA, native stage role/argv/time/typed exit, whole/custody/resource receipts.",
+    "Exact four historical country CSV declarations and protected input identities agree by normalized path, SHA and bytes across both actual jobs, not merely count.",
+    "Actual source-controller manifest/peer identities belong to their original registered inputs; no captured source code is imported.",
+    "Original saved failed aggregate and native0/1 metadata remain independently authenticated.",
+    "All fixed and dynamically derived metadata identities are rechecked before output; no mutable file is repinned as authority."
+  ],
+  "scope": [
+    "Observed saved human/animal false pollen eligibility/leakage, exact native taxon refusals and literal source joins.",
+    "Separate genuinely executed human current29-field typed/CSV/GeoJSON transport and owned sample_chronology/sample_identity schema.",
+    "Individual saved current-v2=false remains false. Original failed whole remains1.",
+    "Whole ADNA-001 remains unasserted: these jobs do not establish a fresh maintained current animal source-to-four-country API/export producer.",
+    "Chronology review, genotype/biology/rights/ecology/PROP-004 and historical unavailable receipt/source recovery remain separate and false.",
+    "Raw duplicate-support outcomes, native refusals and historical-field comparisons are copied literally as metadata; no new date arithmetic or scientific chronology acceptance."
+  ],
+  "no_raw_sample_private_body_decode_API_engine_runtime_preparer_or_native": true,
+  "actual_callback_not_executed_by_author": true
+}

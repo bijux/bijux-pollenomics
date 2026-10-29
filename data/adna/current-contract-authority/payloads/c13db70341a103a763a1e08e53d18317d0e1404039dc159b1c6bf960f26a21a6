@@ -1,0 +1,675 @@
+"""Independently join saved DNA populations, country contracts and source pointers."""
+
+from __future__ import annotations
+
+from collections import Counter
+import csv
+from pathlib import Path
+from typing import Any
+
+from contracts import exact, load, require
+from schemas import COUNTRIES, FORBIDDEN
+
+
+def integer(value: Any, expected: int) -> None:
+    require(
+        type(value) is int and value == expected, "Typed population denominator differs"
+    )
+
+
+def clean(value: Any) -> None:
+    pending = [value]
+    while pending:
+        item = pending.pop()
+        if type(item) is dict:
+            require(
+                not FORBIDDEN.intersection(item),
+                "Pollen measurement semantics leaked into saved DNA record",
+            )
+            pending.extend(item.values())
+        elif type(item) is list:
+            pending.extend(item)
+
+
+def table(path: Path, fields: list[str] | None = None) -> list[dict[str, str]]:
+    with path.open(encoding="utf-8", newline="") as stream:
+        reader = csv.DictReader(stream)
+        header = reader.fieldnames
+        require(
+            header is not None
+            and len(header) == len(set(header))
+            and not FORBIDDEN.intersection(header),
+            "DNA-only unique CSV headers required, including empty exports",
+        )
+        if fields is not None:
+            require(header == fields, "Exact declared CSV contract/order differs")
+        rows = list(reader)
+    require(
+        all(
+            None not in row and all(v is not None for v in row.values()) for row in rows
+        ),
+        "Ragged or missing CSV cell",
+    )
+    return rows
+
+
+def unique(rows: list[dict[str, Any]], key: str) -> dict[str, dict[str, Any]]:
+    result = {}
+    for row in rows:
+        value = row[key]
+        require(
+            type(value) is str and bool(value) and value not in result,
+            "Missing/duplicate native identity",
+        )
+        result[value] = row
+    return result
+
+
+def flags(payload: dict[str, Any]) -> None:
+    require(
+        payload["evidence_domain"] == "animal_ancient_dna"
+        and payload["pollen_eligible"] is False
+        and payload["pollen_propagation_eligible"] is False,
+        "Animal evidence cannot enter pollen eligibility",
+    )
+    require(
+        payload["schema_version"] == "adna-sample-record-export.v1",
+        "Explicit normalized animal schema differs",
+    )
+    integer(payload["admitted_sample_count"], len(payload["samples"]))
+    integer(payload["refused_sample_count"], len(payload["sample_refusals"]))
+    clean(payload)
+
+
+def cell(value: Any) -> str:
+    return "" if value is None else str(value)
+
+
+def normalized_projection(sample: dict[str, Any], fields: list[str]) -> dict[str, str]:
+    projected: dict[str, Any] = {key: sample[key] for key in fields if key in sample}
+    projected.update(
+        stable_sample_id=sample["identity"]["stable_token"],
+        site_label=sample["locality_identity"]["locality_text"],
+        political_entity=sample["political_entity"],
+        chronology_text=sample["chronology"]["original_text"],
+        chronology_evidence_class=sample["chronology"]["evidence_class"],
+        chronology_precision_posture=sample["chronology"]["precision_posture"],
+        dating_basis=sample["chronology"]["dating_basis"],
+    )
+    for key in ("latitude", "longitude", "latitude_text", "longitude_text"):
+        projected[key] = sample["coordinates"][key]
+    projected["coordinate_confidence"] = sample["coordinates"]["confidence"]
+    for key in ("time_start_bp", "time_end_bp", "time_mean_bp"):
+        projected[key] = sample["chronology"][key]
+    require(set(projected) >= set(fields), "Source JSON lacks a normalized CSV field")
+    return {key: cell(projected[key]) for key in fields}
+
+
+def human_partition(
+    decisions: list[dict[str, str]], countries: dict[str, list[dict[str, str]]]
+) -> dict[str, Any]:
+    identities = unique(decisions, "genetic_id")
+    integer(len(identities), 1325)
+    published: set[str] = set()
+    excluded: set[str] = set()
+    counts: dict[str, dict[str, int]] = {}
+    for code, country in COUNTRIES.items():
+        rows = countries[country]
+        actual = unique(rows, "genetic_id")
+        require(
+            not published.intersection(actual), "Human ID published in two countries"
+        )
+        for native_id, row in actual.items():
+            require(
+                row["schema_version"] == "adna-sample-record-export.v1"
+                and row["source_family"] == "AADR"
+                and row["species_latin_name"] == "Homo sapiens"
+                and row["sample_namespace"] == "homo_sapiens:aadr_genetic_id"
+                and row["political_entity"] == country,
+                "Human source/domain/country identity differs",
+            )
+            source = identities[native_id]
+            require(
+                source["country"] == code
+                and source["decision"] == "published"
+                and source["reason"] == "country_sample_product"
+                and source["coordinate_status"] == "admitted",
+                "Published human ID differs from saved native decision",
+            )
+        selected = {
+            k
+            for k, v in identities.items()
+            if v["country"] == code and v["decision"] == "published"
+        }
+        missing = {
+            k
+            for k, v in identities.items()
+            if v["country"] == code and v["decision"] == "excluded"
+        }
+        require(
+            selected == set(actual), "Saved human country/decision identity set differs"
+        )
+        for native_id in missing:
+            require(
+                identities[native_id]["reason"] == "coordinate_missing"
+                and identities[native_id]["coordinate_status"] == "missing",
+                "Excluded human source reason changed",
+            )
+        published.update(actual)
+        excluded.update(missing)
+        counts[country] = {
+            "published": len(actual),
+            "excluded_missing_coordinates": len(missing),
+        }
+    require(
+        not published.intersection(excluded)
+        and published | excluded == set(identities),
+        "Human decisions fail disjoint complete source partition",
+    )
+    integer(len(published), 1231)
+    integer(len(excluded), 94)
+    require(
+        all(row["source_rows"] for row in decisions),
+        "Human native source-row lineage missing",
+    )
+    return {
+        "source_ids": len(identities),
+        "published": len(published),
+        "coordinate_excluded": len(excluded),
+        "countries": counts,
+        "chronology_statuses": dict(
+            sorted(Counter(row["chronology_status"] for row in decisions).items())
+        ),
+        "chronology_reasons": dict(
+            sorted(Counter(row["chronology_reason"] for row in decisions).items())
+        ),
+    }
+
+
+def animal_partition(
+    samples: dict[str, dict[str, Any]],
+    features: dict[str, Any],
+    exclusions: dict[str, Any],
+) -> tuple[dict[str, str], dict[str, str]]:
+    mapped: dict[str, str] = {}
+    nordic: dict[str, str] = {}
+    for feature in features["rows"]:
+        integer(feature["sample_count"], len(feature["sample_record_ids"]))
+        require(
+            type(feature["nordic_inclusion"]) is bool,
+            "Nordic inclusion must be typed Boolean",
+        )
+        for native_id in feature["sample_record_ids"]:
+            require(
+                native_id in samples and native_id not in mapped,
+                "Animal feature native ID missing/duplicated",
+            )
+            require(
+                feature["species_latin_name"]
+                == samples[native_id]["species_latin_name"],
+                "Animal feature/source species differs",
+            )
+            mapped[native_id] = feature["feature_id"]
+            if feature["nordic_inclusion"]:
+                require(
+                    feature["political_entity"] in COUNTRIES.values(),
+                    "Unexpected Nordic animal country",
+                )
+                nordic[native_id] = feature["political_entity"]
+    excluded = unique(exclusions["rows"], "sample_record_id")
+    require(
+        not set(mapped).intersection(excluded)
+        and set(mapped) | set(excluded) == set(samples),
+        "Animal mapped/excluded IDs must partition all normalized sources",
+    )
+    for key, row in excluded.items():
+        require(
+            row["species_latin_name"] == samples[key]["species_latin_name"]
+            and row["project_accession"] == samples[key]["project_accession"],
+            "Animal exclusion source identity differs",
+        )
+    integer(len(mapped), 322)
+    integer(len(excluded), 1146)
+    integer(len(nordic), 12)
+    integer(features["row_count"], len(features["rows"]))
+    integer(exclusions["row_count"], len(excluded))
+    return mapped, nordic
+
+
+def country_projection(
+    country: str, locality: dict[str, Any], sample: dict[str, Any], fields: list[str]
+) -> dict[str, str]:
+    # Source and locality responsibilities are checked separately; no producer is invoked.
+    source_fields = {
+        "source_native_tax_id",
+        "source_native_scientific_name",
+        "taxon_alignment_status",
+        "supplementary_source",
+        "sample_evidence_status",
+        "sample_lineage_path",
+        "sample_lineage_locator",
+        "sample_lineage_excerpt",
+        "chronology_normalization_status",
+        "chronology_provenance_path",
+        "chronology_provenance_kind",
+        "chronology_provenance_locator",
+        "chronology_provenance_text",
+        "inclusion_status",
+        "inclusion_note",
+        "sample_basis",
+    }
+    locality_fields = {
+        "species_latin_name",
+        "species_common_name",
+        "animal_scope",
+        "feature_id",
+        "evidence_row_id",
+        "site_record_id",
+        "project_accession",
+        "country_assignment_confidence",
+        "country_assignment_reason",
+        "coordinate_basis",
+        "coordinate_confidence",
+        "source_locator",
+        "source_support_status",
+    }
+    values: dict[str, Any] = {key: sample.get(key, "") for key in source_fields}
+    values.update({key: locality.get(key, "") for key in locality_fields})
+    values.update(
+        country=country,
+        sample_record_id=sample["identity"]["stable_token"],
+        sample_namespace=sample["identity"]["namespace"],
+        sample_group_id=sample.get("group_id")
+        or sample.get("master_id")
+        or locality.get("project_accession", ""),
+        paper_title=sample.get("publication") or locality.get("paper_title", ""),
+        paper_doi=sample.get("paper_doi") or locality.get("paper_doi", ""),
+        locality=sample.get("locality") or locality.get("locality", ""),
+    )
+    for target, origin in {
+        "site_evidence_path": "source_artifact_path",
+        "site_evidence_kind": "source_artifact_kind",
+        "site_evidence_locator": "source_locator",
+        "site_evidence_text": "exact_source_text",
+        "coordinate_provenance_path": "coordinate_source_artifact_path",
+        "coordinate_provenance_locator": "coordinate_source_locator",
+        "coordinate_provenance_note": "coordinate_support_gap_note",
+    }.items():
+        values[target] = locality.get(origin, "")
+    for target, origin in {
+        "time_label": "original_text",
+        "chronology_evidence_class": "evidence_class",
+        "chronology_precision_posture": "precision_posture",
+    }.items():
+        values[target] = sample["chronology"].get(origin) or locality.get(target, "")
+    for key in ("latitude_text", "longitude_text"):
+        values[key] = sample["coordinates"].get(key) or locality.get(key, "")
+    require(
+        set(values) == set(fields),
+        "Independent country projection has incomplete/extra fields",
+    )
+    return {key: str(values[key]) for key in fields}
+
+
+def bundle_join(
+    country: str,
+    bundle: dict[str, Any],
+    csv_rows: list[dict[str, str]],
+    samples: dict[str, dict[str, Any]],
+    nordic: dict[str, str],
+    fields: list[str],
+) -> None:
+    clean(bundle)
+    require(
+        bundle["schema_version"] == "country-animal-adna-summary.v1"
+        and bundle["country"] == country,
+        "Country animal bundle identity differs",
+    )
+    integer(bundle["total_sample_rows"], len(csv_rows))
+    integer(bundle["total_localities"], len(bundle["localities"]))
+    integer(
+        bundle["total_species"],
+        len(
+            {
+                str(row["species_latin_name"]).strip()
+                for row in bundle["species_rows"]
+                if str(row["species_latin_name"]).strip()
+            }
+        ),
+    )
+    integer(
+        bundle["total_projects"],
+        len(
+            {
+                str(row["project_accession"]).strip()
+                for row in bundle["localities"]
+                if str(row["project_accession"]).strip()
+            }
+        ),
+    )
+    require(
+        exact(
+            [{key: cell(row[key]) for key in fields} for row in bundle["sample_rows"]],
+            csv_rows,
+        ),
+        "Every country CSV field/order must equal full saved bundle rows",
+    )
+    expected_ids = {key for key, value in nordic.items() if value == country}
+    actual = unique(bundle["sample_rows"], "sample_record_id")
+    require(
+        set(actual) == expected_ids,
+        "Animal country IDs do not equal saved Nordic source subset",
+    )
+    reconstructed = []
+    seen: set[str] = set()
+    for locality in bundle["localities"]:
+        for native_id in locality["sample_record_ids"]:
+            require(
+                native_id in actual and native_id not in seen and native_id in samples,
+                "Country locality sample native join differs",
+            )
+            seen.add(native_id)
+            require(
+                locality["species_latin_name"]
+                == samples[native_id]["species_latin_name"],
+                "Country locality/source taxon differs",
+            )
+            reconstructed.append(
+                country_projection(country, locality, samples[native_id], fields)
+            )
+    reconstructed.sort(
+        key=lambda row: (
+            row["species_latin_name"],
+            row["project_accession"],
+            row["sample_record_id"],
+        )
+    )
+    require(
+        seen == expected_ids and exact(reconstructed, csv_rows),
+        "Independent complete source/locality to 48-field country correspondence differs",
+    )
+
+
+def pointer_components(value: str, catalog: set[str]) -> list[str]:
+    require(type(value) is str, "Provenance path must remain source text")
+    if value == "":
+        return []
+    parts = [part.strip() for part in value.split(" || ")]
+    require(all(parts), "Empty compound source pointer component")
+    require(
+        all(part in catalog for part in parts),
+        "Unknown exact source pointer component: "
+        + repr([part for part in parts if part not in catalog]),
+    )
+    return list(dict.fromkeys(parts))
+
+
+# The container owns the project namespace; these reviewed samples retain their
+# distinct source taxon and remain blocked from cross-species publication.
+SOURCE_TAXON_EXCEPTIONS: dict[tuple[str, str], tuple[str, str, str]] = {
+    ("bos_taurus", "prjna705960:samn18106827"): (
+        "Bos primigenius",
+        "9909",
+        "PRJNA705960",
+    ),
+    ("bos_taurus", "prjna705960:samn18106828"): (
+        "Bos primigenius",
+        "9909",
+        "PRJNA705960",
+    ),
+    ("bos_taurus", "prjna705960:samn18106829"): (
+        "Bos primigenius",
+        "9909",
+        "PRJNA705960",
+    ),
+    ("ovis_aries", "prjeb41594:samea8022722"): ("Capra hircus", "9925", "PRJEB41594"),
+}
+
+
+def animal_identity(
+    slug: str, container_taxon: str, row: dict[str, Any]
+) -> dict[str, Any] | None:
+    identity = row["identity"]
+    require(
+        type(row["master_id"]) is str
+        and bool(row["master_id"])
+        and type(row["species_latin_name"]) is str
+        and bool(row["species_latin_name"])
+        and type(row["source_family"]) is str
+        and type(row["project_accession"]) is str
+        and identity["namespace"] == slug + ":curated_sample"
+        and identity["stable_token"] == slug + ":sample:" + row["master_id"].casefold()
+        and row["group_id"] == row["project_accession"]
+        and exact(
+            identity["accession_lineage"],
+            [
+                "species:" + row["species_latin_name"],
+                "source:" + row["source_family"],
+                "project:" + row["project_accession"],
+                "sample:" + row["master_id"],
+            ],
+        ),
+        "Animal container namespace or source-owned identity lineage differs",
+    )
+    exception = SOURCE_TAXON_EXCEPTIONS.get((slug, row["master_id"]))
+    if exception is None:
+        require(
+            row["species_latin_name"] == container_taxon,
+            "Unreviewed sample taxon differs from container",
+        )
+        return None
+    taxon, native_tax_id, project = exception
+    require(
+        row["species_latin_name"] == taxon
+        and container_taxon
+        == {"bos_taurus": "Bos taurus", "ovis_aries": "Ovis aries"}[slug]
+        and row["source_native_scientific_name"] == taxon
+        and row["source_native_tax_id"] == native_tax_id
+        and row["project_accession"] == project
+        and row["source_family"] == "ENA"
+        and row["source_native_identity_kind"] == "biological_sample_accession"
+        and row["taxon_alignment_status"] == "project_species_mismatch"
+        and row["inclusion_status"] == "sample_context_blocked",
+        "Reviewed source taxon identity or blocked publication posture changed",
+    )
+    return {
+        "container_namespace": identity["namespace"],
+        "container_species": container_taxon,
+        "native_sample_id": identity["stable_token"],
+        "source_species": taxon,
+        "source_native_tax_id": native_tax_id,
+        "project_accession": project,
+        "accession_lineage": identity["accession_lineage"],
+        "taxon_alignment_status": row["taxon_alignment_status"],
+        "inclusion_status": row["inclusion_status"],
+        "cross_species_publication_admitted": False,
+        "wild_domestic_analytical_equivalence_claimed": False,
+    }
+
+
+def audit(
+    root: Path, declared: dict[str, Any], schema: dict[str, Any]
+) -> dict[str, Any]:
+    by_role: dict[str, list[Path]] = {}
+    for row in declared["files"]:
+        by_role.setdefault(row["role"], []).append(root / row["path"])
+
+    def one(role: str) -> Any:
+        require(len(by_role[role]) == 1, "Unique public role required: " + role)
+        return load(by_role[role][0])
+
+    animal_samples: dict[str, dict[str, Any]] = {}
+    families: Counter[str] = Counter()
+    modalities: Counter[str] = Counter()
+    pointer_usage: Counter[str] = Counter()
+    composite_joins: list[dict[str, Any]] = []
+    source_taxon_witnesses: list[dict[str, Any]] = []
+    backlinks = one("backlink_catalog")
+    pointers = {row["reference"] for row in backlinks["references"]}
+    integer(len(pointers), 60)
+    source_paths = {row["path"] for row in one("original_input_catalog")["inputs"]}
+    for row in backlinks["references"]:
+        require(
+            row["path"] in source_paths
+            and row["path"]
+            == (
+                row["reference"].split("#", 1)[0]
+                if row["reference"].startswith("data/")
+                else "data/" + row["reference"].split("#", 1)[0]
+            ),
+            "Backlink catalog source-role lineage differs",
+        )
+    normalized_tables = {path.parent: path for path in by_role["normalized_csv"]}
+    integer(len(normalized_tables), 10)
+    for path in by_role["normalized_json"]:
+        payload = load(path)
+        flags(payload)
+        local = unique(
+            [
+                {"stable_token": row["identity"]["stable_token"], "sample": row}
+                for row in payload["samples"]
+            ],
+            "stable_token",
+        )
+        require(
+            not set(local).intersection(animal_samples),
+            "Animal native ID crosses source species",
+        )
+        csv_rows = table(normalized_tables[path.parent], schema["animal_normalized"])
+        expected_csv = []
+        for key, wrapped in local.items():
+            row = wrapped["sample"]
+            source_taxon = animal_identity(
+                path.parent.parent.name, payload["species_latin_name"], row
+            )
+            if source_taxon is not None:
+                source_taxon_witnesses.append(source_taxon)
+            animal_samples[key] = row
+            families[row["source_family"]] += 1
+            modalities[row["record_modality"]] += 1
+            for name in ("sample_lineage_path", "chronology_provenance_path"):
+                reference = row[name]
+                if reference:
+                    components = pointer_components(reference, pointers)
+                    for component in components:
+                        pointer_usage[component] += 1
+                    if len(components) > 1:
+                        composite_joins.append(
+                            {
+                                "native_sample_id": key,
+                                "field": name,
+                                "raw_source_path": reference,
+                                "exact_catalog_components": components,
+                            }
+                        )
+            expected_csv.append(normalized_projection(row, schema["animal_normalized"]))
+        require(
+            exact(csv_rows, expected_csv),
+            "All normalized CSV source fields/order differ from nested typed JSON",
+        )
+    require(
+        {
+            (
+                row["container_namespace"].split(":", 1)[0],
+                row["native_sample_id"].split(":sample:", 1)[1],
+            )
+            for row in source_taxon_witnesses
+        }
+        == set(SOURCE_TAXON_EXCEPTIONS),
+        "Complete reviewed source-taxon exception population differs",
+    )
+    integer(len(animal_samples), 1468)
+    require(
+        families == Counter(ENA=1411, BioProject=22, SRA=20, GenBank=15)
+        and modalities == Counter(archive_reads=1442, mitogenome_only=26),
+        "Source family or read/mitogenome partition changed",
+    )
+    mapped, nordic = animal_partition(
+        animal_samples, one("animal_mapped"), one("animal_excluded")
+    )
+    country_rows = {
+        path.parent.name.title(): table(path, schema["human_legacy"])
+        for path in by_role["human_country_csv"]
+    }
+    decisions = table(by_role["human_decisions"][0])
+    humans = human_partition(decisions, country_rows)
+    for path in by_role["human_country_summary"]:
+        payload = load(path)
+        clean(payload)
+        country = path.parent.name.title()
+        require(payload["country"] == country, "Human summary country differs")
+        integer(payload["total_unique_samples"], len(country_rows[country]))
+    for path in by_role["animal_country_bundle"]:
+        country = path.parent.name.title()
+        csv_path = next(
+            p for p in by_role["animal_country_csv"] if p.parent == path.parent
+        )
+        bundle_join(
+            country,
+            load(path),
+            table(csv_path, schema["animal_country"]),
+            animal_samples,
+            nordic,
+            schema["animal_country"],
+        )
+    human = one("human_partition_report")
+    animal = one("animal_partition_report")
+    accountability = one("human_accountability")
+    for payload, names in (
+        (human, ("map_admitted", "scientifically_admitted")),
+        (animal, ("country_assignment_admitted", "scientifically_admitted")),
+        (
+            accountability,
+            ("map_admitted", "country_assignment_admitted", "scientifically_admitted"),
+        ),
+    ):
+        require(
+            all(payload[name] is False for name in names),
+            "Source-accountability promoted scientific/country/map admission",
+        )
+        clean(payload)
+    for key, count in {
+        "source_genetic_ids": 1325,
+        "published": 1231,
+        "excluded_missing_coordinates": 94,
+    }.items():
+        integer(human[key], count)
+    for key, count in {
+        "normalized_sample_ids": 1468,
+        "mapped_sample_ids": 322,
+        "excluded_sample_ids": 1146,
+        "nordic_mapped_sample_ids": 12,
+    }.items():
+        integer(animal[key], count)
+    foundation = one("animal_foundation")
+    integer(foundation["summary"]["sample_row_count"], len(animal_samples))
+    integer(foundation["summary"]["tracked_species_count"], 10)
+    return {
+        "human": humans,
+        "animal": {
+            "source_ids": len(animal_samples),
+            "mapped": len(mapped),
+            "excluded": len(animal_samples) - len(mapped),
+            "nordic": len(nordic),
+            "species_contracts": 10,
+            "blocked_source_taxon_witnesses": source_taxon_witnesses,
+            "source_families": dict(sorted(families.items())),
+            "modalities": dict(sorted(modalities.items())),
+        },
+        "country_csvs_checked": 8,
+        "full_saved_animal_bundles_checked": 4,
+        "declared_backlinks": len(pointers),
+        "actually_used_backlinks": len(pointer_usage),
+        "compound_source_pointer_joins": composite_joins,
+        "pointer_split_authority": "sample_master.identity._join_distinct literal separator and trim/distinct order; raw source fields remain unchanged",
+        "backlink_use_counts": dict(sorted(pointer_usage.items())),
+        "historical_missing_metadata_digest_count": sum(
+            row.get("historical_metadata_digest_present") is False
+            for row in backlinks["references"]
+        ),
+        "source_acquisition_reauthenticated": False,
+        "pollen_measurement_field_leakage": False,
+        "pollen_eligibility_promoted": False,
+        "current_v2_human_population_export_executed": False,
+        "rights_human_biology_LRA_or_pollen_event_admission": False,
+    }

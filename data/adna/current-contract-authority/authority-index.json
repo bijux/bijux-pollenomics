@@ -1,0 +1,834 @@
+{
+  "schema_version": "adna-current-contract-metadata-authority.v1",
+  "metadata_only_not_new_native_retention_exit": true,
+  "raw_normalized_runtime_payloads_included": false,
+  "joint_callback_source": {
+    "manifest": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/prepared-source-manifest.json",
+      "sha256": "a710cd0f6fc1778c53dd361b3ed55856af9c5f186d5d5d0e918b464bd4a7d7b3",
+      "bytes": 5704
+    },
+    "review": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/independent-source-review.json",
+      "sha256": "e30749373ef9876411a374930b8ed00da53363eaaeb95e58fc91303e0ff08b5c",
+      "bytes": 1925
+    }
+  },
+  "bindings": [
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/adjudication.py",
+        "sha256": "44c1b7def3202e3e14554d0d9de077f8dda2704bce999e4a16294fca6e6ebb8e",
+        "bytes": 27580
+      },
+      "member": "payloads/44c1b7def3202e3e14554d0d9de077f8dda2704bce999e4a16294fca6e6ebb8e"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/callback.py",
+        "sha256": "637fa5fddefb919b375f22a3048772dbe1535875523e8648d3be360946dc3fcd",
+        "bytes": 5830
+      },
+      "member": "payloads/637fa5fddefb919b375f22a3048772dbe1535875523e8648d3be360946dc3fcd"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/check_controls.py",
+        "sha256": "51f02e5e23b0286a07556534f07f2e4c6c8f409c36c71801e67fcb4cfb6d60a4",
+        "bytes": 17812
+      },
+      "member": "payloads/51f02e5e23b0286a07556534f07f2e4c6c8f409c36c71801e67fcb4cfb6d60a4"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/independent-source-review.json",
+        "sha256": "e30749373ef9876411a374930b8ed00da53363eaaeb95e58fc91303e0ff08b5c",
+        "bytes": 1925
+      },
+      "member": "payloads/e30749373ef9876411a374930b8ed00da53363eaaeb95e58fc91303e0ff08b5c"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/metadata-references.json",
+        "sha256": "8ca05d2040684744eca0f7a2ed6b9733cb67f9368845457a028dd73d59cf00da",
+        "bytes": 2778
+      },
+      "member": "payloads/8ca05d2040684744eca0f7a2ed6b9733cb67f9368845457a028dd73d59cf00da"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ast.json",
+        "sha256": "d2c1eb85f2e296b4f66484d457bf8112b494c7c161807fb15f51290fb78288e8",
+        "bytes": 784
+      },
+      "member": "payloads/d2c1eb85f2e296b4f66484d457bf8112b494c7c161807fb15f51290fb78288e8"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-format.json",
+        "sha256": "be7d660b267283efda89b423846de4c6baba4a293217376b39682a2926efc412",
+        "bytes": 1259
+      },
+      "member": "payloads/be7d660b267283efda89b423846de4c6baba4a293217376b39682a2926efc412"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-format.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-format.stdout",
+        "sha256": "eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd",
+        "bytes": 26
+      },
+      "member": "payloads/eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-guards.json",
+        "sha256": "9750f9559a1b62198d7e1e2ed47034d67cc6fdfb4888137af9ce3d154df8ab59",
+        "bytes": 1182
+      },
+      "member": "payloads/9750f9559a1b62198d7e1e2ed47034d67cc6fdfb4888137af9ce3d154df8ab59"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-guards.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-guards.stdout",
+        "sha256": "5a30b0d40362271fb39a81868fa5a1702d18db67788db77fd8f872c409688a8c",
+        "bytes": 114
+      },
+      "member": "payloads/5a30b0d40362271fb39a81868fa5a1702d18db67788db77fd8f872c409688a8c"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ruff.json",
+        "sha256": "6dfec7d70e7751e08a34637f4f0b8747356e7f9d746500c412ab09426fb10095",
+        "bytes": 1239
+      },
+      "member": "payloads/6dfec7d70e7751e08a34637f4f0b8747356e7f9d746500c412ab09426fb10095"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ruff.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-ruff.stdout",
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "bytes": 19
+      },
+      "member": "payloads/82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-strict.json",
+        "sha256": "7e33edb4bb0ad869985e3e1e7f694c15f3989b3cffd07624194e3d8e6f56fd72",
+        "bytes": 1691
+      },
+      "member": "payloads/7e33edb4bb0ad869985e3e1e7f694c15f3989b3cffd07624194e3d8e6f56fd72"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-strict.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/final-strict.stdout",
+        "sha256": "8228fcc5ce46d42d01caf3cd941f4e9c5f2bcc372bb5b147a2f0572d2dd675a8",
+        "bytes": 43
+      },
+      "member": "payloads/8228fcc5ce46d42d01caf3cd941f4e9c5f2bcc372bb5b147a2f0572d2dd675a8"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/qualify_source.py",
+        "sha256": "fa23b4b1013e21ef485d6e81ba59ea05d82d91acdc692fb82ba944a616576cc6",
+        "bytes": 2382
+      },
+      "member": "payloads/fa23b4b1013e21ef485d6e81ba59ea05d82d91acdc692fb82ba944a616576cc6"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/preflight/seal_source.py",
+        "sha256": "c3c01c048df9e9bf46789b42de403ee65cbe29a9a52f34ee041fc679f04a4f5c",
+        "bytes": 6167
+      },
+      "member": "payloads/c3c01c048df9e9bf46789b42de403ee65cbe29a9a52f34ee041fc679f04a4f5c"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/prepared-source-manifest.json",
+        "sha256": "a710cd0f6fc1778c53dd361b3ed55856af9c5f186d5d5d0e918b464bd4a7d7b3",
+        "bytes": 5704
+      },
+      "member": "payloads/a710cd0f6fc1778c53dd361b3ed55856af9c5f186d5d5d0e918b464bd4a7d7b3"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/protocol.json",
+        "sha256": "7e5846baf2ec7345576a951cbed943c129f62be10d38463a26bc1fae00dcc59f",
+        "bytes": 3725
+      },
+      "member": "payloads/7e5846baf2ec7345576a951cbed943c129f62be10d38463a26bc1fae00dcc59f"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/source-qualification.json",
+        "sha256": "43e960d74e5ad02bd47edbd3690028605a95d52bcc6b7aa3e48408b8edeac496",
+        "bytes": 3283
+      },
+      "member": "payloads/43e960d74e5ad02bd47edbd3690028605a95d52bcc6b7aa3e48408b8edeac496"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/check_contracts.py",
+        "sha256": "e8fe5cf3819a96c2ccb9e2487ec169801a49d27e2c751b79eb19404505f2233a",
+        "bytes": 31900
+      },
+      "member": "payloads/e8fe5cf3819a96c2ccb9e2487ec169801a49d27e2c751b79eb19404505f2233a"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/common_runner.py",
+        "sha256": "45258238c6529de971416f85b8fe6ecfbdf14b089c7606dcb137754382267447",
+        "bytes": 10058
+      },
+      "member": "payloads/45258238c6529de971416f85b8fe6ecfbdf14b089c7606dcb137754382267447"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/contracts.py",
+        "sha256": "6e591a709802303cac45d6d6b40954bf465ab48a4739321e382ca501d290653e",
+        "bytes": 9270
+      },
+      "member": "payloads/6e591a709802303cac45d6d6b40954bf465ab48a4739321e382ca501d290653e"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/declared-inputs.json",
+        "sha256": "8b40c958ee3c4ffe06e6c81f48664cb1a9cbc6ec356bd660eca1b3298a5d4a7d",
+        "bytes": 18423
+      },
+      "member": "payloads/8b40c958ee3c4ffe06e6c81f48664cb1a9cbc6ec356bd660eca1b3298a5d4a7d"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/entry.py",
+        "sha256": "6970c0731bc7a118ab1128bab95e0600a01a7d776bb5e04d578d2eb96d727b46",
+        "bytes": 3672
+      },
+      "member": "payloads/6970c0731bc7a118ab1128bab95e0600a01a7d776bb5e04d578d2eb96d727b46"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/independent-source-review.json",
+        "sha256": "ed796794f0c862b217c9bec4c16801cf399aab431327b81cb61cd1c4cbc5d460",
+        "bytes": 5524
+      },
+      "member": "payloads/ed796794f0c862b217c9bec4c16801cf399aab431327b81cb61cd1c4cbc5d460"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/inventory.py",
+        "sha256": "2743dc07e289d822ba2433a572dba2bc7f87875f1756d1eed5e1a98347fda291",
+        "bytes": 3542
+      },
+      "member": "payloads/2743dc07e289d822ba2433a572dba2bc7f87875f1756d1eed5e1a98347fda291"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/observe.py",
+        "sha256": "6c66551db36a8351e0a2cd1347103d1e35756a05d7e98e105d1839d0d2306d42",
+        "bytes": 4045
+      },
+      "member": "payloads/6c66551db36a8351e0a2cd1347103d1e35756a05d7e98e105d1839d0d2306d42"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/pointer-policy-source.json",
+        "sha256": "9cc3add0b31c8c22e2384848e12e6ce0a35aa75809a6ee022176fe2ee614917a",
+        "bytes": 601
+      },
+      "member": "payloads/9cc3add0b31c8c22e2384848e12e6ce0a35aa75809a6ee022176fe2ee614917a"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/final-configured-check.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/final-configured-check.stdout",
+        "sha256": "f1ca884621c4ec645a99a23e91f21d44b769b06bfc1b5e3fef8539d1243ee670",
+        "bytes": 2801
+      },
+      "member": "payloads/f1ca884621c4ec645a99a23e91f21d44b769b06bfc1b5e3fef8539d1243ee670"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/qualify_sealed_style.py",
+        "sha256": "2f760e5d40918dc8d9e543d9f9e1c4452c9232bdd95d8b55733822c9845ddc8c",
+        "bytes": 1126
+      },
+      "member": "payloads/2f760e5d40918dc8d9e543d9f9e1c4452c9232bdd95d8b55733822c9845ddc8c"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-ast.json",
+        "sha256": "8b83eb5851c30d24dc5061814d06694cf056cd7b39c5cab1d7724bdeada0825e",
+        "bytes": 2854
+      },
+      "member": "payloads/8b83eb5851c30d24dc5061814d06694cf056cd7b39c5cab1d7724bdeada0825e"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-configured-check.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-configured-check.stdout",
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+        "bytes": 19
+      },
+      "member": "payloads/82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-configured-format.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-configured-format.stdout",
+        "sha256": "cfe5c6461b42a90595a492aed11f2c8e6eb98b7c4caf2cc9f47e3333185e3f33",
+        "bytes": 27
+      },
+      "member": "payloads/cfe5c6461b42a90595a492aed11f2c8e6eb98b7c4caf2cc9f47e3333185e3f33"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-controls.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-controls.stdout",
+        "sha256": "0ff101326442a842f3a102beb99cc43c0ed435ab85b4616819bedc29c7f42896",
+        "bytes": 156
+      },
+      "member": "payloads/0ff101326442a842f3a102beb99cc43c0ed435ab85b4616819bedc29c7f42896"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-strict.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed-strict.stdout",
+        "sha256": "8b88f6d12bd312c1b024b66d07a7f7619a68482ac4d64e475759b1823199faa5",
+        "bytes": 44
+      },
+      "member": "payloads/8b88f6d12bd312c1b024b66d07a7f7619a68482ac4d64e475759b1823199faa5"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/sealed_entry_controls.py",
+        "sha256": "3696408e9a3cc4277bdc408dc9cf77658d82407e5d6bbe91c7447b802943c064",
+        "bytes": 2001
+      },
+      "member": "payloads/3696408e9a3cc4277bdc408dc9cf77658d82407e5d6bbe91c7447b802943c064"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/source-delta.diff",
+        "sha256": "c251a660be42218195f12d888c709cc79ffa3950156a2987db0f20748464c48f",
+        "bytes": 12606
+      },
+      "member": "payloads/c251a660be42218195f12d888c709cc79ffa3950156a2987db0f20748464c48f"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/strict.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/strict.stdout",
+        "sha256": "fa0c963353ac202e89a697d13f4be84169beaa80eda4fdd96b8bb2e124851499",
+        "bytes": 319
+      },
+      "member": "payloads/fa0c963353ac202e89a697d13f4be84169beaa80eda4fdd96b8bb2e124851499"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/style-wrapper.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "member": "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/style-wrapper.stdout",
+        "sha256": "53be364e15ffb9b9c3c0ae91dd53258fc3a96311c1868f0e7631c57d78106fce",
+        "bytes": 100
+      },
+      "member": "payloads/53be364e15ffb9b9c3c0ae91dd53258fc3a96311c1868f0e7631c57d78106fce"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/wrapper-scope-refusal.json",
+        "sha256": "fcfbc4c4ae9953155f0f72119803492b872d28178a4132c45dd9924bca8a9254",
+        "bytes": 365
+      },
+      "member": "payloads/fcfbc4c4ae9953155f0f72119803492b872d28178a4132c45dd9924bca8a9254"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/prepare.py",
+        "sha256": "f9f7725aa46bcd88911aa54dda404fa6c9459c5cf4d0f9a9940ffac2bfe31918",
+        "bytes": 6081
+      },
+      "member": "payloads/f9f7725aa46bcd88911aa54dda404fa6c9459c5cf4d0f9a9940ffac2bfe31918"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/prepared-source-manifest.json",
+        "sha256": "50e3e807b6f64a29ccfd8f9ff508536738553f5a96f029bcf3adac54785f2e06",
+        "bytes": 9952
+      },
+      "member": "payloads/50e3e807b6f64a29ccfd8f9ff508536738553f5a96f029bcf3adac54785f2e06"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/protocol.json",
+        "sha256": "003ec3c3360a01cad862fbe3751c5a88eb947cf68b12a3e78ee927b34348cf31",
+        "bytes": 5653
+      },
+      "member": "payloads/003ec3c3360a01cad862fbe3751c5a88eb947cf68b12a3e78ee927b34348cf31"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/public-taxon-diagnostic.json",
+        "sha256": "f958d9e7a65b97cb06f2b6850221a7ffb93363e3576e17cd236b6588d07f7f6b",
+        "bytes": 9286
+      },
+      "member": "payloads/f958d9e7a65b97cb06f2b6850221a7ffb93363e3576e17cd236b6588d07f7f6b"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/retained.py",
+        "sha256": "31a497ffa62cb26b106a30a612fa1b2335101442d4caa0955984af7f4981bc6c",
+        "bytes": 8203
+      },
+      "member": "payloads/31a497ffa62cb26b106a30a612fa1b2335101442d4caa0955984af7f4981bc6c"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/run.py",
+        "sha256": "9e85b5c8f723ab2dfbec4f89a5aa07faecca74ba5e2d777b7f90a23005301d66",
+        "bytes": 8130
+      },
+      "member": "payloads/9e85b5c8f723ab2dfbec4f89a5aa07faecca74ba5e2d777b7f90a23005301d66"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/runtime.py",
+        "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+        "bytes": 17435
+      },
+      "member": "payloads/d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/schemas.py",
+        "sha256": "67dc29a576b914fe20606e4b2f516eb83e31bfd0581952b5b95e5f401535096e",
+        "bytes": 3815
+      },
+      "member": "payloads/67dc29a576b914fe20606e4b2f516eb83e31bfd0581952b5b95e5f401535096e"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/semantics.py",
+        "sha256": "c13db70341a103a763a1e08e53d18317d0e1404039dc159b1c6bf960f26a21a6",
+        "bytes": 26045
+      },
+      "member": "payloads/c13db70341a103a763a1e08e53d18317d0e1404039dc159b1c6bf960f26a21a6"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/source-correspondence.json",
+        "sha256": "5906f80ea8dfeaaa1e42b871809374a008ff8969c45cb59d3eba4badc409cb39",
+        "bytes": 10182
+      },
+      "member": "payloads/5906f80ea8dfeaaa1e42b871809374a008ff8969c45cb59d3eba4badc409cb39"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/source-feasibility.json",
+        "sha256": "66544e677c34cf2e2eb69eaf68cf25c6aee33bc6ea87c9ee818e5e7698c23d1d",
+        "bytes": 5182
+      },
+      "member": "payloads/66544e677c34cf2e2eb69eaf68cf25c6aee33bc6ea87c9ee818e5e7698c23d1d"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/source-qualification.json",
+        "sha256": "971548a474a07c0203316024bf590fcb0ff23bfcd490bb5a86b517fda7bb7596",
+        "bytes": 6789
+      },
+      "member": "payloads/971548a474a07c0203316024bf590fcb0ff23bfcd490bb5a86b517fda7bb7596"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/source-taxon-policy.json",
+        "sha256": "d9f6338145371e3919a9989787f357b70c960d4959edb800e93b48e9789a55d2",
+        "bytes": 1871
+      },
+      "member": "payloads/d9f6338145371e3919a9989787f357b70c960d4959edb800e93b48e9789a55d2"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/adna-domain-terminal.json",
+        "sha256": "9bfd8859b090e2f9746b5d9eea95175b43b3828dd6843e28784e9400b3f787a2",
+        "bytes": 1818
+      },
+      "member": "payloads/9bfd8859b090e2f9746b5d9eea95175b43b3828dd6843e28784e9400b3f787a2"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/plan.json",
+        "sha256": "f95c0ad9f5b2015f8d3f0a035cb3d7129f5e2603e77a5e570077e8632cf8077a",
+        "bytes": 4386073
+      },
+      "member": "payloads/f95c0ad9f5b2015f8d3f0a035cb3d7129f5e2603e77a5e570077e8632cf8077a"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-saved-evidence-domain-review/terminal.json",
+        "sha256": "8f31491face0d9007dc9fcc2eade529504995f0a881174c44ee63a67f14ff916",
+        "bytes": 7410
+      },
+      "member": "payloads/8f31491face0d9007dc9fcc2eade529504995f0a881174c44ee63a67f14ff916"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/adna-domain-terminal.json",
+        "sha256": "ca96113bbe7bc92c3cdc40b464987c9d068a51ff74c5f27e9fc0d8e89def9b6f",
+        "bytes": 2129
+      },
+      "member": "payloads/ca96113bbe7bc92c3cdc40b464987c9d068a51ff74c5f27e9fc0d8e89def9b6f"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/independent-source-review.json",
+        "sha256": "7af5b2d87920e74b06fa38718fc230d8f1a0eb858e2cbb1713bc6909858d8f4b",
+        "bytes": 493312
+      },
+      "member": "payloads/7af5b2d87920e74b06fa38718fc230d8f1a0eb858e2cbb1713bc6909858d8f4b"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/plan.json",
+        "sha256": "5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206",
+        "bytes": 4400576
+      },
+      "member": "payloads/5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206"
+    },
+    {
+      "original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/terminal.json",
+        "sha256": "2495da8f5a6ebc80c4275101e134017584cc5e8bf40e7e33fa564cbdd06df634",
+        "bytes": 5698
+      },
+      "member": "payloads/2495da8f5a6ebc80c4275101e134017584cc5e8bf40e7e33fa564cbdd06df634"
+    }
+  ],
+  "members": {
+    "payloads/003ec3c3360a01cad862fbe3751c5a88eb947cf68b12a3e78ee927b34348cf31": {
+      "sha256": "003ec3c3360a01cad862fbe3751c5a88eb947cf68b12a3e78ee927b34348cf31",
+      "bytes": 5653
+    },
+    "payloads/0ff101326442a842f3a102beb99cc43c0ed435ab85b4616819bedc29c7f42896": {
+      "sha256": "0ff101326442a842f3a102beb99cc43c0ed435ab85b4616819bedc29c7f42896",
+      "bytes": 156
+    },
+    "payloads/2495da8f5a6ebc80c4275101e134017584cc5e8bf40e7e33fa564cbdd06df634": {
+      "sha256": "2495da8f5a6ebc80c4275101e134017584cc5e8bf40e7e33fa564cbdd06df634",
+      "bytes": 5698
+    },
+    "payloads/2743dc07e289d822ba2433a572dba2bc7f87875f1756d1eed5e1a98347fda291": {
+      "sha256": "2743dc07e289d822ba2433a572dba2bc7f87875f1756d1eed5e1a98347fda291",
+      "bytes": 3542
+    },
+    "payloads/2f760e5d40918dc8d9e543d9f9e1c4452c9232bdd95d8b55733822c9845ddc8c": {
+      "sha256": "2f760e5d40918dc8d9e543d9f9e1c4452c9232bdd95d8b55733822c9845ddc8c",
+      "bytes": 1126
+    },
+    "payloads/31a497ffa62cb26b106a30a612fa1b2335101442d4caa0955984af7f4981bc6c": {
+      "sha256": "31a497ffa62cb26b106a30a612fa1b2335101442d4caa0955984af7f4981bc6c",
+      "bytes": 8203
+    },
+    "payloads/3696408e9a3cc4277bdc408dc9cf77658d82407e5d6bbe91c7447b802943c064": {
+      "sha256": "3696408e9a3cc4277bdc408dc9cf77658d82407e5d6bbe91c7447b802943c064",
+      "bytes": 2001
+    },
+    "payloads/43e960d74e5ad02bd47edbd3690028605a95d52bcc6b7aa3e48408b8edeac496": {
+      "sha256": "43e960d74e5ad02bd47edbd3690028605a95d52bcc6b7aa3e48408b8edeac496",
+      "bytes": 3283
+    },
+    "payloads/44c1b7def3202e3e14554d0d9de077f8dda2704bce999e4a16294fca6e6ebb8e": {
+      "sha256": "44c1b7def3202e3e14554d0d9de077f8dda2704bce999e4a16294fca6e6ebb8e",
+      "bytes": 27580
+    },
+    "payloads/45258238c6529de971416f85b8fe6ecfbdf14b089c7606dcb137754382267447": {
+      "sha256": "45258238c6529de971416f85b8fe6ecfbdf14b089c7606dcb137754382267447",
+      "bytes": 10058
+    },
+    "payloads/50e3e807b6f64a29ccfd8f9ff508536738553f5a96f029bcf3adac54785f2e06": {
+      "sha256": "50e3e807b6f64a29ccfd8f9ff508536738553f5a96f029bcf3adac54785f2e06",
+      "bytes": 9952
+    },
+    "payloads/51f02e5e23b0286a07556534f07f2e4c6c8f409c36c71801e67fcb4cfb6d60a4": {
+      "sha256": "51f02e5e23b0286a07556534f07f2e4c6c8f409c36c71801e67fcb4cfb6d60a4",
+      "bytes": 17812
+    },
+    "payloads/53be364e15ffb9b9c3c0ae91dd53258fc3a96311c1868f0e7631c57d78106fce": {
+      "sha256": "53be364e15ffb9b9c3c0ae91dd53258fc3a96311c1868f0e7631c57d78106fce",
+      "bytes": 100
+    },
+    "payloads/5906f80ea8dfeaaa1e42b871809374a008ff8969c45cb59d3eba4badc409cb39": {
+      "sha256": "5906f80ea8dfeaaa1e42b871809374a008ff8969c45cb59d3eba4badc409cb39",
+      "bytes": 10182
+    },
+    "payloads/5a30b0d40362271fb39a81868fa5a1702d18db67788db77fd8f872c409688a8c": {
+      "sha256": "5a30b0d40362271fb39a81868fa5a1702d18db67788db77fd8f872c409688a8c",
+      "bytes": 114
+    },
+    "payloads/5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206": {
+      "sha256": "5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206",
+      "bytes": 4400576
+    },
+    "payloads/637fa5fddefb919b375f22a3048772dbe1535875523e8648d3be360946dc3fcd": {
+      "sha256": "637fa5fddefb919b375f22a3048772dbe1535875523e8648d3be360946dc3fcd",
+      "bytes": 5830
+    },
+    "payloads/66544e677c34cf2e2eb69eaf68cf25c6aee33bc6ea87c9ee818e5e7698c23d1d": {
+      "sha256": "66544e677c34cf2e2eb69eaf68cf25c6aee33bc6ea87c9ee818e5e7698c23d1d",
+      "bytes": 5182
+    },
+    "payloads/67dc29a576b914fe20606e4b2f516eb83e31bfd0581952b5b95e5f401535096e": {
+      "sha256": "67dc29a576b914fe20606e4b2f516eb83e31bfd0581952b5b95e5f401535096e",
+      "bytes": 3815
+    },
+    "payloads/6970c0731bc7a118ab1128bab95e0600a01a7d776bb5e04d578d2eb96d727b46": {
+      "sha256": "6970c0731bc7a118ab1128bab95e0600a01a7d776bb5e04d578d2eb96d727b46",
+      "bytes": 3672
+    },
+    "payloads/6c66551db36a8351e0a2cd1347103d1e35756a05d7e98e105d1839d0d2306d42": {
+      "sha256": "6c66551db36a8351e0a2cd1347103d1e35756a05d7e98e105d1839d0d2306d42",
+      "bytes": 4045
+    },
+    "payloads/6dfec7d70e7751e08a34637f4f0b8747356e7f9d746500c412ab09426fb10095": {
+      "sha256": "6dfec7d70e7751e08a34637f4f0b8747356e7f9d746500c412ab09426fb10095",
+      "bytes": 1239
+    },
+    "payloads/6e591a709802303cac45d6d6b40954bf465ab48a4739321e382ca501d290653e": {
+      "sha256": "6e591a709802303cac45d6d6b40954bf465ab48a4739321e382ca501d290653e",
+      "bytes": 9270
+    },
+    "payloads/7af5b2d87920e74b06fa38718fc230d8f1a0eb858e2cbb1713bc6909858d8f4b": {
+      "sha256": "7af5b2d87920e74b06fa38718fc230d8f1a0eb858e2cbb1713bc6909858d8f4b",
+      "bytes": 493312
+    },
+    "payloads/7e33edb4bb0ad869985e3e1e7f694c15f3989b3cffd07624194e3d8e6f56fd72": {
+      "sha256": "7e33edb4bb0ad869985e3e1e7f694c15f3989b3cffd07624194e3d8e6f56fd72",
+      "bytes": 1691
+    },
+    "payloads/7e5846baf2ec7345576a951cbed943c129f62be10d38463a26bc1fae00dcc59f": {
+      "sha256": "7e5846baf2ec7345576a951cbed943c129f62be10d38463a26bc1fae00dcc59f",
+      "bytes": 3725
+    },
+    "payloads/8228fcc5ce46d42d01caf3cd941f4e9c5f2bcc372bb5b147a2f0572d2dd675a8": {
+      "sha256": "8228fcc5ce46d42d01caf3cd941f4e9c5f2bcc372bb5b147a2f0572d2dd675a8",
+      "bytes": 43
+    },
+    "payloads/82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    "payloads/8b40c958ee3c4ffe06e6c81f48664cb1a9cbc6ec356bd660eca1b3298a5d4a7d": {
+      "sha256": "8b40c958ee3c4ffe06e6c81f48664cb1a9cbc6ec356bd660eca1b3298a5d4a7d",
+      "bytes": 18423
+    },
+    "payloads/8b83eb5851c30d24dc5061814d06694cf056cd7b39c5cab1d7724bdeada0825e": {
+      "sha256": "8b83eb5851c30d24dc5061814d06694cf056cd7b39c5cab1d7724bdeada0825e",
+      "bytes": 2854
+    },
+    "payloads/8b88f6d12bd312c1b024b66d07a7f7619a68482ac4d64e475759b1823199faa5": {
+      "sha256": "8b88f6d12bd312c1b024b66d07a7f7619a68482ac4d64e475759b1823199faa5",
+      "bytes": 44
+    },
+    "payloads/8ca05d2040684744eca0f7a2ed6b9733cb67f9368845457a028dd73d59cf00da": {
+      "sha256": "8ca05d2040684744eca0f7a2ed6b9733cb67f9368845457a028dd73d59cf00da",
+      "bytes": 2778
+    },
+    "payloads/8f31491face0d9007dc9fcc2eade529504995f0a881174c44ee63a67f14ff916": {
+      "sha256": "8f31491face0d9007dc9fcc2eade529504995f0a881174c44ee63a67f14ff916",
+      "bytes": 7410
+    },
+    "payloads/971548a474a07c0203316024bf590fcb0ff23bfcd490bb5a86b517fda7bb7596": {
+      "sha256": "971548a474a07c0203316024bf590fcb0ff23bfcd490bb5a86b517fda7bb7596",
+      "bytes": 6789
+    },
+    "payloads/9750f9559a1b62198d7e1e2ed47034d67cc6fdfb4888137af9ce3d154df8ab59": {
+      "sha256": "9750f9559a1b62198d7e1e2ed47034d67cc6fdfb4888137af9ce3d154df8ab59",
+      "bytes": 1182
+    },
+    "payloads/9bfd8859b090e2f9746b5d9eea95175b43b3828dd6843e28784e9400b3f787a2": {
+      "sha256": "9bfd8859b090e2f9746b5d9eea95175b43b3828dd6843e28784e9400b3f787a2",
+      "bytes": 1818
+    },
+    "payloads/9cc3add0b31c8c22e2384848e12e6ce0a35aa75809a6ee022176fe2ee614917a": {
+      "sha256": "9cc3add0b31c8c22e2384848e12e6ce0a35aa75809a6ee022176fe2ee614917a",
+      "bytes": 601
+    },
+    "payloads/9e85b5c8f723ab2dfbec4f89a5aa07faecca74ba5e2d777b7f90a23005301d66": {
+      "sha256": "9e85b5c8f723ab2dfbec4f89a5aa07faecca74ba5e2d777b7f90a23005301d66",
+      "bytes": 8130
+    },
+    "payloads/a710cd0f6fc1778c53dd361b3ed55856af9c5f186d5d5d0e918b464bd4a7d7b3": {
+      "sha256": "a710cd0f6fc1778c53dd361b3ed55856af9c5f186d5d5d0e918b464bd4a7d7b3",
+      "bytes": 5704
+    },
+    "payloads/be7d660b267283efda89b423846de4c6baba4a293217376b39682a2926efc412": {
+      "sha256": "be7d660b267283efda89b423846de4c6baba4a293217376b39682a2926efc412",
+      "bytes": 1259
+    },
+    "payloads/c13db70341a103a763a1e08e53d18317d0e1404039dc159b1c6bf960f26a21a6": {
+      "sha256": "c13db70341a103a763a1e08e53d18317d0e1404039dc159b1c6bf960f26a21a6",
+      "bytes": 26045
+    },
+    "payloads/c251a660be42218195f12d888c709cc79ffa3950156a2987db0f20748464c48f": {
+      "sha256": "c251a660be42218195f12d888c709cc79ffa3950156a2987db0f20748464c48f",
+      "bytes": 12606
+    },
+    "payloads/c3c01c048df9e9bf46789b42de403ee65cbe29a9a52f34ee041fc679f04a4f5c": {
+      "sha256": "c3c01c048df9e9bf46789b42de403ee65cbe29a9a52f34ee041fc679f04a4f5c",
+      "bytes": 6167
+    },
+    "payloads/ca96113bbe7bc92c3cdc40b464987c9d068a51ff74c5f27e9fc0d8e89def9b6f": {
+      "sha256": "ca96113bbe7bc92c3cdc40b464987c9d068a51ff74c5f27e9fc0d8e89def9b6f",
+      "bytes": 2129
+    },
+    "payloads/cfe5c6461b42a90595a492aed11f2c8e6eb98b7c4caf2cc9f47e3333185e3f33": {
+      "sha256": "cfe5c6461b42a90595a492aed11f2c8e6eb98b7c4caf2cc9f47e3333185e3f33",
+      "bytes": 27
+    },
+    "payloads/d2c1eb85f2e296b4f66484d457bf8112b494c7c161807fb15f51290fb78288e8": {
+      "sha256": "d2c1eb85f2e296b4f66484d457bf8112b494c7c161807fb15f51290fb78288e8",
+      "bytes": 784
+    },
+    "payloads/d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635": {
+      "sha256": "d8f234a4d0c7275f585f1167bbab3d5a1258dcf49a1de86f9523c7c4a6374635",
+      "bytes": 17435
+    },
+    "payloads/d9f6338145371e3919a9989787f357b70c960d4959edb800e93b48e9789a55d2": {
+      "sha256": "d9f6338145371e3919a9989787f357b70c960d4959edb800e93b48e9789a55d2",
+      "bytes": 1871
+    },
+    "payloads/e30749373ef9876411a374930b8ed00da53363eaaeb95e58fc91303e0ff08b5c": {
+      "sha256": "e30749373ef9876411a374930b8ed00da53363eaaeb95e58fc91303e0ff08b5c",
+      "bytes": 1925
+    },
+    "payloads/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "payloads/e8fe5cf3819a96c2ccb9e2487ec169801a49d27e2c751b79eb19404505f2233a": {
+      "sha256": "e8fe5cf3819a96c2ccb9e2487ec169801a49d27e2c751b79eb19404505f2233a",
+      "bytes": 31900
+    },
+    "payloads/ed796794f0c862b217c9bec4c16801cf399aab431327b81cb61cd1c4cbc5d460": {
+      "sha256": "ed796794f0c862b217c9bec4c16801cf399aab431327b81cb61cd1c4cbc5d460",
+      "bytes": 5524
+    },
+    "payloads/eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd": {
+      "sha256": "eee76f865de5a9f2456950f710ae5d5f9b5bd0ea02aa54f614c5eed6642a0bfd",
+      "bytes": 26
+    },
+    "payloads/f1ca884621c4ec645a99a23e91f21d44b769b06bfc1b5e3fef8539d1243ee670": {
+      "sha256": "f1ca884621c4ec645a99a23e91f21d44b769b06bfc1b5e3fef8539d1243ee670",
+      "bytes": 2801
+    },
+    "payloads/f958d9e7a65b97cb06f2b6850221a7ffb93363e3576e17cd236b6588d07f7f6b": {
+      "sha256": "f958d9e7a65b97cb06f2b6850221a7ffb93363e3576e17cd236b6588d07f7f6b",
+      "bytes": 9286
+    },
+    "payloads/f95c0ad9f5b2015f8d3f0a035cb3d7129f5e2603e77a5e570077e8632cf8077a": {
+      "sha256": "f95c0ad9f5b2015f8d3f0a035cb3d7129f5e2603e77a5e570077e8632cf8077a",
+      "bytes": 4386073
+    },
+    "payloads/f9f7725aa46bcd88911aa54dda404fa6c9459c5cf4d0f9a9940ffac2bfe31918": {
+      "sha256": "f9f7725aa46bcd88911aa54dda404fa6c9459c5cf4d0f9a9940ffac2bfe31918",
+      "bytes": 6081
+    },
+    "payloads/fa0c963353ac202e89a697d13f4be84169beaa80eda4fdd96b8bb2e124851499": {
+      "sha256": "fa0c963353ac202e89a697d13f4be84169beaa80eda4fdd96b8bb2e124851499",
+      "bytes": 319
+    },
+    "payloads/fa23b4b1013e21ef485d6e81ba59ea05d82d91acdc692fb82ba944a616576cc6": {
+      "sha256": "fa23b4b1013e21ef485d6e81ba59ea05d82d91acdc692fb82ba944a616576cc6",
+      "bytes": 2382
+    },
+    "payloads/fcfbc4c4ae9953155f0f72119803492b872d28178a4132c45dd9924bca8a9254": {
+      "sha256": "fcfbc4c4ae9953155f0f72119803492b872d28178a4132c45dd9924bca8a9254",
+      "bytes": 365
+    }
+  },
+  "workspace_requirement_source_identity_only": {
+    "path": "/Users/bijan/bijux/zz-bijux-pollenomics-backlogs-v8/meta-backlogs/pollenomics/backlog/requirements.json",
+    "sha256": "a3c9ad628b730c344f0cf164691f3ba3548862bea6f1167bae9e63b7c18750be",
+    "bytes": 832844
+  }
+}

@@ -1,0 +1,67 @@
+B023 Function definition does not bind loop variable `slug`
+   --> artifacts/science/adna-source-taxon-custody/check_contracts.py:810:45
+    |
+808 |             wrong = deepcopy(source_row)
+809 |             wrong[field] = value
+810 |             refuses(lambda: animal_identity(slug, container, wrong))
+    |                                             ^^^^
+811 |         for field, value in [
+812 |             ("namespace", "pollen:curated_sample"),
+    |
+
+B023 Function definition does not bind loop variable `container`
+   --> artifacts/science/adna-source-taxon-custody/check_contracts.py:810:51
+    |
+808 |             wrong = deepcopy(source_row)
+809 |             wrong[field] = value
+810 |             refuses(lambda: animal_identity(slug, container, wrong))
+    |                                                   ^^^^^^^^^
+811 |         for field, value in [
+812 |             ("namespace", "pollen:curated_sample"),
+    |
+
+B023 Function definition does not bind loop variable `wrong`
+   --> artifacts/science/adna-source-taxon-custody/check_contracts.py:810:62
+    |
+808 |             wrong = deepcopy(source_row)
+809 |             wrong[field] = value
+810 |             refuses(lambda: animal_identity(slug, container, wrong))
+    |                                                              ^^^^^
+811 |         for field, value in [
+812 |             ("namespace", "pollen:curated_sample"),
+    |
+
+B023 Function definition does not bind loop variable `slug`
+   --> artifacts/science/adna-source-taxon-custody/check_contracts.py:839:45
+    |
+837 |             wrong = deepcopy(source_row)
+838 |             wrong["identity"][field] = value
+839 |             refuses(lambda: animal_identity(slug, container, wrong))
+    |                                             ^^^^
+840 |         count += 1
+841 |     ordinary = deepcopy(source_row)
+    |
+
+B023 Function definition does not bind loop variable `container`
+   --> artifacts/science/adna-source-taxon-custody/check_contracts.py:839:51
+    |
+837 |             wrong = deepcopy(source_row)
+838 |             wrong["identity"][field] = value
+839 |             refuses(lambda: animal_identity(slug, container, wrong))
+    |                                                   ^^^^^^^^^
+840 |         count += 1
+841 |     ordinary = deepcopy(source_row)
+    |
+
+B023 Function definition does not bind loop variable `wrong`
+   --> artifacts/science/adna-source-taxon-custody/check_contracts.py:839:62
+    |
+837 |             wrong = deepcopy(source_row)
+838 |             wrong["identity"][field] = value
+839 |             refuses(lambda: animal_identity(slug, container, wrong))
+    |                                                              ^^^^^
+840 |         count += 1
+841 |     ordinary = deepcopy(source_row)
+    |
+
+Found 6 errors.

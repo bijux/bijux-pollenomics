@@ -1,0 +1,102 @@
+{
+  "schema_version": "animal-animal-export-terminal.v1",
+  "candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "plan_sha256": "9a9868b6dcdd6df31c94c0184a8623afbe4a360dd82144e44bbe0c162de0b8ef",
+  "actual_exit": 0,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/plan.json",
+    "--registered-plan-sha256",
+    "9a9868b6dcdd6df31c94c0184a8623afbe4a360dd82144e44bbe0c162de0b8ef"
+  ],
+  "stages": [
+    {
+      "id": "maintained-animal-source-export",
+      "action": "producer",
+      "timeout_seconds": 300,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/entry.py",
+        "producer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 54.847529708000366,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/maintained-animal-source-export.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/maintained-animal-source-export.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "id": "independent-animal-default-export-observer",
+      "action": "observer",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/entry.py",
+        "observer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 30.190562916977797,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/independent-animal-default-export-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/independent-animal-default-export-observer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "exception": null,
+  "after_custody_error": null,
+  "completed_elapsed_seconds": 116.24987891601631,
+  "completed_child_peak_RSS_bytes_macos": 354533376,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_whole_wall_bound_pass": true,
+  "products_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/output-products.json",
+    "sha256": "d6c9dd932fc0305de7bbddbcfbce6cdd624aa6cb33a737687c1249547f206ee9",
+    "bytes": 849120
+  },
+  "products_count_before_manifest": 2512,
+  "own_receipt_reserve_bytes": 16384,
+  "outer_receipt_reserve_bytes": 16384,
+  "source_freeze_identity": {
+    "candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+    "status": "",
+    "tracked_inventory_sha256": "8bccb65f61745d2ababd164521fe2c0c722b176b6ca5dc6d32576a77c5a9b483"
+  },
+  "live_canonical_equality_claimed": false,
+  "OS_quota_or_full_descendant_RSS_claimed": false,
+  "resources": {
+    "overall_timeout_seconds": 510,
+    "outer_timeout_seconds": 570,
+    "declared_memory_bytes": 4294967296,
+    "declared_storage_bytes": 268435456
+  },
+  "scope": "Genuine current ten-species animal public source-metadata assembly, all-record/four-country API queries, typed records and default-v2 CSV/GeoJSON; independent complete saved-normalized/source identity/chronology/native taxon/context-flag/export comparison. No historical receipt recovery, genotype/biology/rights/human/LRA or full-ADNA acceptance claim."
+}

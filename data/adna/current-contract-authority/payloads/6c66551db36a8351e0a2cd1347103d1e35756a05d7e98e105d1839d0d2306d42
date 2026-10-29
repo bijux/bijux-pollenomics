@@ -1,0 +1,99 @@
+"""Re-read the saved public populations for the literal no-pollen-leakage clause."""
+
+from __future__ import annotations
+
+import argparse
+import os
+from pathlib import Path
+from typing import Any
+
+from contracts import dump, exact, load, pin, registered_plan, require, verify_plan
+from retained import authenticate
+from runtime import profile_guard, qualify_process_snapshot, raw_process_snapshot
+from schemas import export_contracts
+from semantics import audit, clean, table
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    profile_guard()
+    plan = registered_plan(
+        args.plan, os.environ.get("BIJUX_REGISTERED_PLAN_SHA256", "")
+    )
+    verify_plan(plan)
+    root, output = Path(plan["repository"]), Path(plan["output"])
+    target = output / "independent-source-review.json"
+    require(not target.exists(), "Preserve actual independent observation")
+    before = raw_process_snapshot()
+    qualify_process_snapshot(before, plan["input_pins"], Path(__file__).parent)
+    declaration = plan["declared_inputs"]
+    schema = export_contracts(root, declaration["source_contracts"])
+    saved, _ = authenticate()
+    require(
+        exact(saved, plan["retained_observation_authority"]),
+        "Original saved inventory/history changed",
+    )
+    inventory_path = Path(saved["inventory"]["path"])
+    inventory = load(inventory_path)
+    require(
+        inventory["actual_exit"] == 0
+        and inventory["candidate"] == plan["candidate"]
+        and exact(inventory["source_contracts"], schema),
+        "Actual inventory source/candidate differs",
+    )
+    expected = [
+        row for row in declaration["files"] if row["role"] in plan["payload_roles"]
+    ]
+    require(
+        len(inventory["products"]) == len(expected),
+        "Complete saved inventory membership differs",
+    )
+    for row, recorded in zip(expected, inventory["products"], strict=True):
+        path = root / row["path"]
+        require(
+            recorded["role"] == row["role"] and exact(recorded["input"], pin(path)),
+            "Original saved public product changed",
+        )
+        if path.suffix == ".json":
+            clean(load(path))
+        else:
+            rows = table(path)
+            require(
+                recorded["structure"]["rows"] == len(rows),
+                "Independently measured CSV denominator differs",
+            )
+    evidence = audit(root, declaration, schema)
+    after = raw_process_snapshot()
+    qualify_process_snapshot(after, plan["input_pins"], Path(__file__).parent)
+    verify_plan(plan)
+    result: dict[str, Any] = {
+        "schema_version": "adna-saved-contract-adjudication.v1",
+        "candidate": plan["candidate"],
+        "requirement_id": "ADNA-001",
+        "literal_clause": plan["literal_clause"],
+        "actual_exit": 0,
+        "saved_product_no_pollen_semantics_leakage": True,
+        "source_contracts": schema,
+        "complete_saved_scientific_joins": evidence,
+        "before_process": before,
+        "after_process": after,
+        "inventory": pin(inventory_path),
+        "original_whole_actual_exit": 1,
+        "original_native_stage_exits": [0, 1],
+        "successful_inventory_repeated": False,
+        "original_lifecycle_execution_requalified": False,
+        "missing_old_literal_receipt_recovered": False,
+        "old_normalization_or_export_producers_repeated": False,
+        "current_default_v2_population_reproduced": False,
+        "exact_whole_requirement_adjudicated": False,
+        "remaining_current_behavioral_scope": "The explicit saved v1 human population is checked. Current serializer v2 owned chronology/identity is source-inspected only; a separate maintained supported reader/exporter replay is required before claiming actual full current-default behavior.",
+        "rights_human_biology_LRA_or_ecological_admission": False,
+    }
+    dump(target, result)
+    print(target)
+
+
+if __name__ == "__main__":
+    main()

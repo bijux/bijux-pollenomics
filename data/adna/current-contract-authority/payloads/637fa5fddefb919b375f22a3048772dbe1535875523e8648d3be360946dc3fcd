@@ -1,0 +1,157 @@
+"""Authenticate complete reviewed local source before dispatching any controller."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+import sys
+import time
+
+ENTRY_STARTED = time.monotonic()
+
+
+def entry_root(path: Path) -> Path:
+    if (
+        not path.is_absolute()
+        or ".." in path.parts
+        or path != path.resolve()
+        or any(node.is_symlink() for node in (path, *path.parents))
+    ):
+        raise ValueError("Raw entry spelling or ancestor alias refused")
+    return path.parent
+
+
+def verify(root: Path) -> None:
+    manifest = root / "prepared-source-manifest.json"
+    review = root / "independent-source-review.json"
+    for path in (manifest, review):
+        if not path.is_file() or any(
+            node.is_symlink() for node in (path, *path.parents)
+        ):
+            raise ValueError("Physical reviewed entry authority required")
+    raw = manifest.read_bytes()
+    document = json.loads(raw)
+    admission = json.loads(review.read_bytes())
+    if (
+        document["source_only"] is not True
+        or admission["approved"] is not True
+        or admission["source_manifest_sha256"] != hashlib.sha256(raw).hexdigest()
+    ):
+        raise ValueError(
+            "Exact independent source approval required before local imports"
+        )
+    names = [row["path"] for row in document["files"]]
+    if names != sorted(set(names)):
+        raise ValueError("Sorted unique reviewed source membership required")
+    declared: set[str] = set()
+    domains: set[str] = set()
+    for row in document["files"]:
+        path = Path(row["path"])
+        if (
+            not path.is_absolute()
+            or ".." in path.parts
+            or not path.is_relative_to(root)
+            or any(node.is_symlink() for node in (path, *path.parents))
+            or not path.is_file()
+            or type(row["bytes"]) is not int
+            or path.stat().st_size != row["bytes"]
+        ):
+            raise ValueError(
+                "Reviewed source member absent/escaped/linked/length changed"
+            )
+        with path.open("rb") as stream:
+            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+        if checksum != row["sha256"]:
+            raise ValueError("Originally reviewed source bytes changed")
+        relative = path.relative_to(root)
+        declared.add(relative.as_posix())
+        domains.update(
+            parent.as_posix()
+            for parent in relative.parents
+            if parent != Path(".") and parent.parts[0] != "preflight"
+        )
+    pending = [root]
+    while pending:
+        parent = pending.pop()
+        for path in parent.iterdir():
+            name = path.relative_to(root).as_posix()
+            if path.is_symlink() or not (path.is_file() or path.is_dir()):
+                raise ValueError("Controller import namespace contains alias/special")
+            if path.is_dir():
+                if parent == root and path.name == "preflight":
+                    continue
+                if name not in domains:
+                    raise ValueError("Unreviewed controller import directory")
+                pending.append(path)
+            elif parent != root and name not in declared:
+                raise ValueError("Unexpected grouped source member")
+            elif (
+                parent == root
+                and path.suffix in {".py", ".pyc", ".so", ".pyd", ".dylib"}
+                and name not in declared
+            ):
+                raise ValueError("Unexpected root executable source member")
+    if not {"callback.py", "adjudication.py", "check_controls.py"}.issubset(declared):
+        raise ValueError("Reviewed entry omitted metadata adjudication boundary")
+
+
+def main() -> None:
+    root = entry_root(Path(__file__).absolute())
+    verify(root)
+    sys.path.insert(0, str(root))
+    import argparse
+
+    from adjudication import load_adjudication, parse_object, require
+
+    parser = argparse.ArgumentParser(
+        description="Metadata-only joint ADNA literal-clause adjudication; no new native job."
+    )
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    output = args.output
+    artifacts = root.parents[1]
+    require(
+        output.is_absolute()
+        and output == output.resolve()
+        and ".." not in output.parts
+        and output.is_relative_to(artifacts)
+        and not output.is_relative_to(root)
+        and not root.is_relative_to(output.parent)
+        and not output.exists()
+        and not any(node.is_symlink() for node in (output, *output.parents)),
+        "New disjoint physical artifact output required",
+    )
+    declaration = parse_object((root / "metadata-references.json").read_bytes())
+    refs = declaration["references"]
+    for row in refs.values():
+        protected = Path(row["path"]).parent
+        require(
+            not output.is_relative_to(protected),
+            "Callback output overlaps original metadata authority",
+        )
+    result = load_adjudication(refs)
+    # Exact same-buffer metadata checks are repeated after pure evaluation;
+    # neither a native output nor a private source body is used as a new baseline.
+    from adjudication import read_bound
+
+    for row in [*refs.values(), *result["additional_authenticated_metadata"]]:
+        read_bound(row)
+    verify(root)
+    output.parent.mkdir(parents=True, exist_ok=False)
+    with output.open("x") as stream:
+        stream.write(json.dumps(result, indent=2, allow_nan=False) + "\n")
+    print(
+        json.dumps(
+            {
+                "metadata_only": True,
+                "result": str(output),
+                "sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
+                "actual_callback_exit": 0,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

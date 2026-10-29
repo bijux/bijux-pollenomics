@@ -1,0 +1,50 @@
+{
+  "source_only": true,
+  "actual_metadata_authentication_exit": 0,
+  "native_references": {
+    "plan.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/plan.json",
+      "sha256": "9a9868b6dcdd6df31c94c0184a8623afbe4a360dd82144e44bbe0c162de0b8ef",
+      "bytes": 17991538
+    },
+    "animal-export-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/animal-export-terminal.json",
+      "sha256": "10f9be9e75a77b22c589dc25170b40d2f5cfb38c60d6e0a0c1fba54a472e7509",
+      "bytes": 4801
+    },
+    "animal-export-launch-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/animal-export-launch-terminal.json",
+      "sha256": "f79e745a567e0d86fe6021f52eafdf5ca9df47d4706dc492c7c93441821df993",
+      "bytes": 2520
+    },
+    "original-source-ledger.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/original-source-ledger.json",
+      "sha256": "482d96d7e0194d1e2494176c1f8af3b911b72a2cc9ac95bcadaa6342a0fb95ad",
+      "bytes": 6270697
+    },
+    "maintained-producer-execution.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/maintained-producer-execution.json",
+      "sha256": "01bb9975bf9a0c80285918c837638db5b3a0040e87b1d45eb85881512858e8d6",
+      "bytes": 550680
+    },
+    "independent-animal-export-review.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/independent-animal-export-review.json",
+      "sha256": "af47fe009090ab841b711e389c9a24f4799b480d357a2a6aa414dd642051d31d",
+      "bytes": 68392
+    },
+    "output-products.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-place-source-export-review/output-products.json",
+      "sha256": "d6c9dd932fc0305de7bbddbcfbce6cdd624aa6cb33a737687c1249547f206ee9",
+      "bytes": 849120
+    }
+  },
+  "ordered_native_input_identities": 62435,
+  "source_epoch": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "original_authorities_identity_only": 162,
+  "owned_data_identity_only": 160,
+  "native_catalogue_rows": 2512,
+  "public_catalogue_rows": 2352,
+  "derived_product_pins": 150,
+  "unique_public_catalogue_declared_bytes": 59741702,
+  "actual_private_body_hash_decode_API_retainer_or_runtime_census": false
+}

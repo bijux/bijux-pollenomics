@@ -1,0 +1,243 @@
+"""Authenticate the successful saved inventory and preserve its failed original whole."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any
+
+from contracts import (
+    BASE,
+    ROOT,
+    exact,
+    pin,
+    refuse_constant,
+    require,
+    union,
+    unique_pairs,
+    verify_rows,
+)
+
+ORIGINAL = ROOT / "artifacts/science/current-adna-saved-evidence-domain-review"
+REFERENCES = {
+    "plan.json": (
+        "f95c0ad9f5b2015f8d3f0a035cb3d7129f5e2603e77a5e570077e8632cf8077a",
+        4386073,
+    ),
+    "terminal.json": (
+        "8f31491face0d9007dc9fcc2eade529504995f0a881174c44ee63a67f14ff916",
+        7410,
+    ),
+    "adna-domain-terminal.json": (
+        "9bfd8859b090e2f9746b5d9eea95175b43b3828dd6843e28784e9400b3f787a2",
+        1818,
+    ),
+}
+CANDIDATE = "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7"
+
+
+def read_expected(row: dict[str, Any]) -> Any:
+    path = Path(row["path"])
+    require(exact(pin(path), row), "Original saved authority changed")
+    raw = path.read_bytes()
+    require(
+        len(raw) == row["bytes"]
+        and __import__("hashlib").sha256(raw).hexdigest() == row["sha256"],
+        "Original saved buffer changed",
+    )
+    return json.loads(
+        raw, object_pairs_hook=unique_pairs, parse_constant=refuse_constant
+    )
+
+
+def validate_history(
+    plan: dict[str, Any], common: dict[str, Any], outer: dict[str, Any]
+) -> None:
+    require(
+        plan["candidate"] == common["candidate"] == outer["candidate"] == CANDIDATE
+        and plan["repository"] == str(ROOT)
+        and plan["output"] == str(ORIGINAL),
+        "Original ADNA epoch or roots differ",
+    )
+    for record in (common, outer):
+        require(
+            type(record["actual_exit"]) is int
+            and record["actual_exit"] == 1
+            and record["plan_sha256"] == REFERENCES["plan.json"][0],
+            "Original failed whole must remain failed",
+        )
+    require(
+        len(plan["input_pins"]) == 10104, "Original complete input population differs"
+    )
+    require(
+        common["before_pin_mismatches"] == common["after_pin_mismatches"] == []
+        and common["absent_input_paths_unchanged"] is True,
+        "Original source custody failed",
+    )
+    require(
+        outer["timed_out"] is False
+        and outer["error"] is None
+        and outer["after_input_error"] is None
+        and outer["completed_whole_wall_bound_pass"] is True
+        and outer["memory_bound_pass"] is True,
+        "Original resource/custody scope differs",
+    )
+    require(
+        exact(outer["actual_native_stage_exits"], [0, 1]),
+        "Original native statuses differ",
+    )
+    require(
+        len(plan["stages"]) == len(common["stages"]) == 2,
+        "Original two-stage history required",
+    )
+    for declared, result, role, action, code in zip(
+        plan["stages"],
+        common["stages"],
+        ("saved-adna-contract-inventory", "independent-adna-domain-joins"),
+        ("inventory", "observe"),
+        (0, 1),
+        strict=True,
+    ):
+        expected = {
+            "id": role,
+            "argv": [
+                str(BASE),
+                "-I",
+                "-S",
+                "-B",
+                str(ROOT / "artifacts/science/adna-registered-plan-custody/entry.py"),
+                action,
+                "--plan",
+                str(ORIGINAL / "plan.json"),
+            ],
+            "timeout_seconds": 45,
+            "must_succeed": True,
+        }
+        require(
+            exact(declared, expected)
+            and all(exact(result[key], value) for key, value in expected.items())
+            and type(result["actual_exit"]) is int
+            and result["actual_exit"] == code
+            and result["timed_out"] is False,
+            "Actual original stage argv/role/status differs",
+        )
+
+
+def stream_authority(
+    path: Path, expected: dict[str, Any], common: dict[str, Any], outer: dict[str, Any]
+) -> dict[str, Any]:
+    raw = path.read_bytes()
+    prefix = raw[: expected["bytes"]]
+    require(
+        __import__("hashlib").sha256(prefix).hexdigest() == expected["sha256"]
+        and len(prefix) == expected["bytes"],
+        "Original recorded stream prefix changed",
+    )
+    common_tail = (
+        json.dumps(
+            {
+                "terminal": str(ORIGINAL / "terminal.json"),
+                "sha256": REFERENCES["terminal.json"][0],
+                "status": "failed",
+            }
+        )
+        + "\n"
+    )
+    outer_row = {
+        "path": str(ORIGINAL / "adna-domain-terminal.json"),
+        "sha256": REFERENCES["adna-domain-terminal.json"][0],
+        "bytes": REFERENCES["adna-domain-terminal.json"][1],
+    }
+    outer_tail = (
+        json.dumps(
+            {"terminal": outer_row, "actual_exit": 1, "tracked_byte_checker_exit": None}
+        )
+        + "\n"
+    )
+    require(
+        raw[expected["bytes"] :] == (common_tail + outer_tail).encode(),
+        "Only exact source-derived final terminal tails permitted",
+    )
+    return {
+        "original_recorded_prefix": expected,
+        "full_final_stream": pin(path),
+        "terminal_tail_source": "Exact original common/outer print dictionaries, failed1 retained",
+    }
+
+
+def authenticate() -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    references = {
+        name: {"path": str(ORIGINAL / name), "sha256": value[0], "bytes": value[1]}
+        for name, value in REFERENCES.items()
+    }
+    records = {name: read_expected(row) for name, row in references.items()}
+    plan, common, outer = (records[name] for name in REFERENCES)
+    validate_history(plan, common, outer)
+    require(
+        exact(outer["common_terminal"], references["terminal.json"]),
+        "Outer no longer binds original common",
+    )
+    verify_rows(plan["input_pins"])
+    observed = []
+    stream = None
+    for row in common["products"]:
+        path = Path(row["path"])
+        require(
+            path.parent == ORIGINAL
+            and not any(p.is_symlink() for p in (path, *path.parents)),
+            "Original output escaped/aliased",
+        )
+        if path.name == "launch.stdout":
+            stream = stream_authority(path, row, common, outer)
+            observed.append(stream["full_final_stream"])
+        else:
+            require(exact(pin(path), row), "Original produced public bytes changed")
+            observed.append(row)
+    require(stream is not None, "Original bounded stream role missing")
+    allowed = (
+        {Path(row["path"]).name for row in common["products"]}
+        | set(REFERENCES)
+        | {"scratch", "cache"}
+    )
+    require(
+        {p.name for p in ORIGINAL.iterdir()} == allowed,
+        "Original output namespace changed",
+    )
+    for path in ORIGINAL.iterdir():
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Original output special/alias",
+        )
+        if path.is_dir():
+            require(
+                path.name in {"scratch", "cache"} and not any(path.iterdir()),
+                "Original empty output directory changed",
+            )
+    by_name = {Path(row["path"]).name: row for row in observed}
+    inventory = by_name["saved-contract-inventory.json"]
+    require(
+        inventory["sha256"]
+        == "217d84f1faba6c8ece169d8323471b93bfc50230e635ebd2b9fca8bd355a81eb"
+        and inventory["bytes"] == 186027,
+        "Genuine inventory identity differs",
+    )
+    inventory_record = read_expected(inventory)
+    require(
+        type(inventory_record["actual_exit"]) is int
+        and inventory_record["actual_exit"] == 0
+        and inventory_record["candidate"] == CANDIDATE
+        and inventory_record["normalization_or_export_producers_executed"] is False,
+        "Successful saved inventory scope differs",
+    )
+    rows = union(plan["input_pins"], list(references.values()), observed)
+    verify_rows(rows)
+    return {
+        "candidate": CANDIDATE,
+        "original_references": references,
+        "inventory": inventory,
+        "original_input_pins": 10104,
+        "original_whole_exit": 1,
+        "original_stage_exits": [0, 1],
+        "stream_authority": stream,
+        "successful_inventory_repeated": False,
+    }, rows

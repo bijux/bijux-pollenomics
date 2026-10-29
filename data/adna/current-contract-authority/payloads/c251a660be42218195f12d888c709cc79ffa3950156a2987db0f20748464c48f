@@ -1,0 +1,306 @@
+--- /Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/check_contracts.py
++++ /Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/check_contracts.py
+@@ -31,6 +31,8 @@
+ from run import receipt_bytes, stages_passed  # noqa: E402
+ from schemas import export_contracts  # noqa: E402
+ from semantics import (  # noqa: E402
++    SOURCE_TAXON_EXCEPTIONS,
++    animal_identity,
+     animal_partition,
+     bundle_join,
+     cell,
+@@ -758,6 +760,132 @@
+         )
+     )
+     count += 1
++    # Artificial records exercise the exact source-owned exceptions without
++    # opening a normalized population or invoking its producer.
++    for (slug, master), (taxon, tax_id, project) in SOURCE_TAXON_EXCEPTIONS.items():
++        container = {"bos_taurus": "Bos taurus", "ovis_aries": "Ovis aries"}[slug]
++        source_row: dict[str, Any] = {
++            "master_id": master,
++            "group_id": project,
++            "project_accession": project,
++            "species_latin_name": taxon,
++            "source_family": "ENA",
++            "identity": {
++                "namespace": slug + ":curated_sample",
++                "stable_token": slug + ":sample:" + master,
++                "accession_lineage": [
++                    "species:" + taxon,
++                    "source:ENA",
++                    "project:" + project,
++                    "sample:" + master,
++                ],
++            },
++            "source_native_scientific_name": taxon,
++            "source_native_tax_id": tax_id,
++            "source_native_identity_kind": "biological_sample_accession",
++            "taxon_alignment_status": "project_species_mismatch",
++            "inclusion_status": "sample_context_blocked",
++        }
++        witness = animal_identity(slug, container, source_row)
++        assert (
++            witness is not None
++            and witness["cross_species_publication_admitted"] is False
++        )
++        for field, value in [
++            ("source_native_scientific_name", container),
++            ("source_native_tax_id", 9909),
++            ("source_native_tax_id", True),
++            ("source_native_tax_id", "unreviewed"),
++            ("source_native_identity_kind", "sequencing_experiment"),
++            ("taxon_alignment_status", "project_species_match"),
++            ("inclusion_status", "site_curated"),
++            ("species_latin_name", container),
++            ("source_family", "SRA"),
++            ("group_id", "foreign"),
++            ("master_id", "foreign"),
++            ("project_accession", "foreign"),
++        ]:
++            wrong = deepcopy(source_row)
++            wrong[field] = value
++            refuses(partial(animal_identity, slug, container, wrong))
++        for field, value in [
++            ("namespace", "pollen:curated_sample"),
++            ("stable_token", "other:sample:" + master),
++            (
++                "accession_lineage",
++                [
++                    "species:" + container,
++                    "source:ENA",
++                    "project:" + project,
++                    "sample:" + master,
++                ],
++            ),
++            (
++                "accession_lineage",
++                ["species:" + taxon, "source:ENA", "project:" + project],
++            ),
++            (
++                "accession_lineage",
++                [
++                    "sample:" + master,
++                    "project:" + project,
++                    "source:ENA",
++                    "species:" + taxon,
++                ],
++            ),
++        ]:
++            wrong = deepcopy(source_row)
++            wrong["identity"][field] = value
++            refuses(partial(animal_identity, slug, container, wrong))
++        count += 1
++    ordinary = deepcopy(source_row)
++    ordinary["master_id"] = "controlled:ordinary"
++    ordinary["species_latin_name"] = container
++    ordinary["identity"]["stable_token"] = slug + ":sample:controlled:ordinary"
++    ordinary["identity"]["accession_lineage"] = [
++        "species:" + container,
++        "source:ENA",
++        "project:" + project,
++        "sample:controlled:ordinary",
++    ]
++    assert animal_identity(slug, container, ordinary) is None
++    wrong = deepcopy(ordinary)
++    wrong["species_latin_name"] = taxon
++    wrong["identity"]["accession_lineage"][0] = "species:" + taxon
++    refuses(partial(animal_identity, slug, container, wrong))
++    count += 1
++    policy = json.loads((SOURCE / "source-taxon-policy.json").read_bytes())
++    for row in policy["original_policy_pins"]:
++        assert exact(pin(Path(row["path"])), row)
++
++    def literal(path: str, target: str) -> Any:
++        module = ast.parse(Path(path).read_text())
++        node = next(
++            n
++            for n in module.body
++            if isinstance(n, (ast.Assign, ast.AnnAssign))
++            and any(
++                isinstance(v, ast.Name) and v.id == target
++                for v in (n.targets if isinstance(n, ast.Assign) else [n.target])
++            )
++        )
++        assert node.value is not None
++        return ast.literal_eval(node.value)
++
++    policy_paths = {
++        Path(row["path"]).name: row["path"] for row in policy["original_policy_pins"]
++    }
++    aliases = literal(policy_paths["obishir_sheep.py"], "_ALIASES")
++    assert aliases["SAMEA8022722"] == ("OB21-04", "Capra hircus")
++    assert literal(policy_paths["species.py"], "_EXPECTED_TAXA") == {
++        "Bos primigenius": 3,
++        "Bos taurus": 8,
++    }
++    assert literal(policy_paths["species.py"], "_NATIVE_TAXA")[
++        (("9909",), ("Bos primigenius",))
++    ] == ("Bos primigenius", "aurochs")
++    assert len(SOURCE_TAXON_EXCEPTIONS) == 4
++    count += 1
+     print(
+         json.dumps(
+             {
+--- /Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/prepare.py
++++ /Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/prepare.py
+@@ -93,8 +93,8 @@
+     verify_rows(initial)
+     plan_path = output / "plan.json"
+     plan: dict[str, Any] = {
+-        "schema_version": "adna-saved-provenance-observation-plan.v1",
+-        "id": "adna-provenance-observation-"
++        "schema_version": "adna-saved-source-taxon-observation-plan.v1",
++        "id": "adna-source-taxon-observation-"
+         + args.candidate[:12]
+         + "-"
+         + sha(manifest)[:12],
+--- /Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/semantics.py
++++ /Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/semantics.py
+@@ -404,6 +404,89 @@
+     return list(dict.fromkeys(parts))
+ 
+ 
++# The container owns the project namespace; these reviewed samples retain their
++# distinct source taxon and remain blocked from cross-species publication.
++SOURCE_TAXON_EXCEPTIONS: dict[tuple[str, str], tuple[str, str, str]] = {
++    ("bos_taurus", "prjna705960:samn18106827"): (
++        "Bos primigenius",
++        "9909",
++        "PRJNA705960",
++    ),
++    ("bos_taurus", "prjna705960:samn18106828"): (
++        "Bos primigenius",
++        "9909",
++        "PRJNA705960",
++    ),
++    ("bos_taurus", "prjna705960:samn18106829"): (
++        "Bos primigenius",
++        "9909",
++        "PRJNA705960",
++    ),
++    ("ovis_aries", "prjeb41594:samea8022722"): ("Capra hircus", "9925", "PRJEB41594"),
++}
++
++
++def animal_identity(
++    slug: str, container_taxon: str, row: dict[str, Any]
++) -> dict[str, Any] | None:
++    identity = row["identity"]
++    require(
++        type(row["master_id"]) is str
++        and bool(row["master_id"])
++        and type(row["species_latin_name"]) is str
++        and bool(row["species_latin_name"])
++        and type(row["source_family"]) is str
++        and type(row["project_accession"]) is str
++        and identity["namespace"] == slug + ":curated_sample"
++        and identity["stable_token"] == slug + ":sample:" + row["master_id"].casefold()
++        and row["group_id"] == row["project_accession"]
++        and exact(
++            identity["accession_lineage"],
++            [
++                "species:" + row["species_latin_name"],
++                "source:" + row["source_family"],
++                "project:" + row["project_accession"],
++                "sample:" + row["master_id"],
++            ],
++        ),
++        "Animal container namespace or source-owned identity lineage differs",
++    )
++    exception = SOURCE_TAXON_EXCEPTIONS.get((slug, row["master_id"]))
++    if exception is None:
++        require(
++            row["species_latin_name"] == container_taxon,
++            "Unreviewed sample taxon differs from container",
++        )
++        return None
++    taxon, native_tax_id, project = exception
++    require(
++        row["species_latin_name"] == taxon
++        and container_taxon
++        == {"bos_taurus": "Bos taurus", "ovis_aries": "Ovis aries"}[slug]
++        and row["source_native_scientific_name"] == taxon
++        and row["source_native_tax_id"] == native_tax_id
++        and row["project_accession"] == project
++        and row["source_family"] == "ENA"
++        and row["source_native_identity_kind"] == "biological_sample_accession"
++        and row["taxon_alignment_status"] == "project_species_mismatch"
++        and row["inclusion_status"] == "sample_context_blocked",
++        "Reviewed source taxon identity or blocked publication posture changed",
++    )
++    return {
++        "container_namespace": identity["namespace"],
++        "container_species": container_taxon,
++        "native_sample_id": identity["stable_token"],
++        "source_species": taxon,
++        "source_native_tax_id": native_tax_id,
++        "project_accession": project,
++        "accession_lineage": identity["accession_lineage"],
++        "taxon_alignment_status": row["taxon_alignment_status"],
++        "inclusion_status": row["inclusion_status"],
++        "cross_species_publication_admitted": False,
++        "wild_domestic_analytical_equivalence_claimed": False,
++    }
++
++
+ def audit(
+     root: Path, declared: dict[str, Any], schema: dict[str, Any]
+ ) -> dict[str, Any]:
+@@ -420,6 +503,7 @@
+     modalities: Counter[str] = Counter()
+     pointer_usage: Counter[str] = Counter()
+     composite_joins: list[dict[str, Any]] = []
++    source_taxon_witnesses: list[dict[str, Any]] = []
+     backlinks = one("backlink_catalog")
+     pointers = {row["reference"] for row in backlinks["references"]}
+     integer(len(pointers), 60)
+@@ -455,17 +539,11 @@
+         expected_csv = []
+         for key, wrapped in local.items():
+             row = wrapped["sample"]
+-            require(
+-                row["identity"]["namespace"]
+-                == path.parent.parent.name + ":curated_sample"
+-                and key.startswith(path.parent.parent.name + ":sample:")
+-                and type(row["identity"]["accession_lineage"]) is list
+-                and all(
+-                    type(value) is str for value in row["identity"]["accession_lineage"]
+-                )
+-                and row["species_latin_name"] == payload["species_latin_name"],
+-                "Animal native source namespace, lineage or taxon crossed",
+-            )
++            source_taxon = animal_identity(
++                path.parent.parent.name, payload["species_latin_name"], row
++            )
++            if source_taxon is not None:
++                source_taxon_witnesses.append(source_taxon)
+             animal_samples[key] = row
+             families[row["source_family"]] += 1
+             modalities[row["record_modality"]] += 1
+@@ -489,6 +567,17 @@
+             exact(csv_rows, expected_csv),
+             "All normalized CSV source fields/order differ from nested typed JSON",
+         )
++    require(
++        {
++            (
++                row["container_namespace"].split(":", 1)[0],
++                row["native_sample_id"].split(":sample:", 1)[1],
++            )
++            for row in source_taxon_witnesses
++        }
++        == set(SOURCE_TAXON_EXCEPTIONS),
++        "Complete reviewed source-taxon exception population differs",
++    )
+     integer(len(animal_samples), 1468)
+     require(
+         families == Counter(ENA=1411, BioProject=22, SRA=20, GenBank=15)
+@@ -563,6 +652,7 @@
+             "excluded": len(animal_samples) - len(mapped),
+             "nordic": len(nordic),
+             "species_contracts": 10,
++            "blocked_source_taxon_witnesses": source_taxon_witnesses,
+             "source_families": dict(sorted(families.items())),
+             "modalities": dict(sorted(modalities.items())),
+         },

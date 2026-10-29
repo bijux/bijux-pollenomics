@@ -1,0 +1,9 @@
+{
+  "species": {
+    "slug": "equus_asinus",
+    "latin_name": "Equus asinus"
+  },
+  "country_query": "Sweden",
+  "actual_typed_records": [],
+  "actual_dataset_row_counts": {}
+}

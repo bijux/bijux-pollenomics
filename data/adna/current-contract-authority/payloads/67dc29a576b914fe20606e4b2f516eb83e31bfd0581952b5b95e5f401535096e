@@ -1,0 +1,121 @@
+"""Read literal maintained export contracts without importing application code."""
+
+from __future__ import annotations
+
+import ast
+from pathlib import Path
+from typing import Any
+
+from contracts import require
+
+FORBIDDEN = frozenset(
+    {
+        "pollen_count",
+        "pollen_sum",
+        "relative_pollen_percentage",
+        "ppe",
+        "fall_speed_m_s",
+        "whole_pollen",
+    }
+)
+COUNTRIES = {"DK": "Denmark", "FI": "Finland", "NO": "Norway", "SE": "Sweden"}
+
+
+def literal_fields(path: Path, function: str | None, name: str) -> tuple[str, ...]:
+    module = ast.parse(path.read_text())
+    scope: Any = module
+    if function is not None:
+        scope = next(
+            n
+            for n in module.body
+            if isinstance(n, ast.FunctionDef) and n.name == function
+        )
+    assignments = [
+        n
+        for n in scope.body
+        if isinstance(n, ast.Assign)
+        and any(isinstance(t, ast.Name) and t.id == name for t in n.targets)
+    ]
+    require(len(assignments) == 1, "Unique literal export field authority required")
+    value = ast.literal_eval(assignments[0].value)
+    require(
+        type(value) is tuple
+        and all(type(x) is str for x in value)
+        and len(set(value)) == len(value),
+        "Exact unique literal fields required",
+    )
+    require(
+        not FORBIDDEN.intersection(value), "Pollen measurement field in source schema"
+    )
+    return tuple(str(item) for item in value)
+
+
+def export_contracts(root: Path, sources: dict[str, str]) -> dict[str, Any]:
+    human = literal_fields(
+        root / sources["record_exports"], None, "LEGACY_SAMPLE_EXPORT_FIELDS"
+    )
+    normalized = literal_fields(
+        root / sources["animal_normalized_csv"],
+        "_render_sample_records_csv",
+        "fieldnames",
+    )
+    animal = literal_fields(
+        root / sources["animal_country_csv"],
+        "write_country_animal_samples_csv",
+        "fieldnames",
+    )
+    require(
+        (len(human), len(normalized), len(animal)) == (27, 44, 48),
+        "Selected schema field counts differ",
+    )
+    tree = ast.parse((root / sources["record_exports"]).read_text())
+    constants = {
+        n.targets[0].id: ast.literal_eval(n.value)
+        for n in tree.body
+        if isinstance(n, ast.Assign)
+        and len(n.targets) == 1
+        and isinstance(n.targets[0], ast.Name)
+        and n.targets[0].id in {"SAMPLE_RECORD_SCHEMA", "LEGACY_SAMPLE_RECORD_SCHEMA"}
+    }
+    require(
+        constants
+        == {
+            "SAMPLE_RECORD_SCHEMA": "adna-sample-record-export.v2",
+            "LEGACY_SAMPLE_RECORD_SCHEMA": "adna-sample-record-export.v1",
+        },
+        "Explicit legacy/current schema roles changed",
+    )
+    serializer = next(
+        n
+        for n in tree.body
+        if isinstance(n, ast.FunctionDef) and n.name == "serialize_sample_record"
+    )
+    owned = {
+        n.slice.value
+        for n in ast.walk(serializer)
+        if isinstance(n, ast.Subscript)
+        and isinstance(n.value, ast.Name)
+        and n.value.id == "payload"
+        and isinstance(n.slice, ast.Constant)
+    }
+    require(
+        owned == {"sample_chronology", "sample_identity"},
+        "Owned v2 extension boundary changed",
+    )
+    require(
+        not any(
+            isinstance(n, ast.Constant)
+            and isinstance(n.value, str)
+            and n.value in FORBIDDEN
+            for n in ast.walk(serializer)
+        ),
+        "Pollen measurement literal in current serializer",
+    )
+    return {
+        "human_legacy": list(human),
+        "animal_normalized": list(normalized),
+        "animal_country": list(animal),
+        "current_default_schema": constants["SAMPLE_RECORD_SCHEMA"],
+        "owned_current_extensions": sorted(owned),
+        "current_v2_population_execution_claimed": False,
+    }

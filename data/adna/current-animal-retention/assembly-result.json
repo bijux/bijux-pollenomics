@@ -1,0 +1,14 @@
+{
+  "actual_exit": 0,
+  "metadata_retention_only": true,
+  "raw_decode_or_source_consumer_repeated": false,
+  "public_capture_path": "data/source-custody/adna/animal-current-exports/capture.json",
+  "capture": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/packet/capture.json",
+    "sha256": "1d03f47b264366da0acdc544e991bac38fdd7d1d403d3fd522f2c4e4ea37fd64",
+    "bytes": 32660595
+  },
+  "public_payload_count": 2351,
+  "exact_packet_bytes": 126159750,
+  "original_owner_acceptance_changed": false
+}

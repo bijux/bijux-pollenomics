@@ -1,0 +1,9 @@
+{
+  "species": {
+    "slug": "camelus_dromedarius",
+    "latin_name": "Camelus dromedarius"
+  },
+  "country_query": "Denmark",
+  "actual_typed_records": [],
+  "actual_dataset_row_counts": {}
+}

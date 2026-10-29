@@ -1,0 +1,9 @@
+{
+  "species": {
+    "slug": "rangifer_tarandus",
+    "latin_name": "Rangifer tarandus"
+  },
+  "country_query": "Finland",
+  "actual_typed_records": [],
+  "actual_dataset_row_counts": {}
+}
