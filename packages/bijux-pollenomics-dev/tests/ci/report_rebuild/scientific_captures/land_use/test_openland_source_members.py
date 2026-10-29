@@ -105,3 +105,20 @@ def test_existing_transport_failure_is_not_rescued(
     with pytest.raises(ReportRebuildError) as caught:
         subject._validate_source_transport(tmp_path, PREFIX, members)
     assert caught.value is refusal
+
+
+@pytest.mark.parametrize(
+    "foreign",
+    ["source-code/configs/ci/unknown.json", "source-code/docs/unreviewed.py"],
+)
+def test_declared_foreign_control_or_document_is_not_admitted(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path, foreign: str
+) -> None:
+    """Reject foreign roles even when both member and detached catalogues declare them."""
+    members: dict[str, Any] = {
+        name: {"sha256": "a" * 64, "bytes": 0} for name in ROLES | {foreign}
+    }
+    selected = frozenset(members)
+    monkeypatch.setattr(subject, "validate_capsule", lambda *args: selected)
+    with pytest.raises((ReportRebuildError, ValueError)):
+        subject._validate_source_transport(tmp_path, PREFIX, members)
