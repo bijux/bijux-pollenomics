@@ -1,0 +1,949 @@
+{
+  "schema_version": "nordic-wind-scalar-reference-public-account.v1",
+  "epochs": {
+    "baseline_source": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+    "saved_wind_execution": "1413f8fc7e73d3920d9abc6e4999f28ec722a935",
+    "actual_reference_execution": "cc29d8b492328f25b5b14c91e3e62b6c88abf62e",
+    "canonical_reference_source_adoption": "54febf2f0a0c56189582c6696093e471b5bd381b"
+  },
+  "provenance": {
+    "numerical_admission": {
+      "path": "artifacts/science/nordic-wind-reference-integration/numerical-admission.json",
+      "sha256": "00306a0c79b531ab7164d8aed06f6cddcaab857475fcfc1e842b9dad7110402e",
+      "bytes": 4138
+    },
+    "comparison": {
+      "path": "artifacts/science/nordic-wind-reference-execution/native/comparison.json",
+      "sha256": "6de6194bdc30724ac7944d9fe42504f75dcc3ebcc7a0a09c55535481baac1eda",
+      "bytes": 46348
+    },
+    "terminal": {
+      "path": "artifacts/science/nordic-wind-reference-execution/native/terminal.json",
+      "sha256": "7d5fc1689b10883afc6610762bf0224a36786167c983fdea228be7aaaf7c2537",
+      "bytes": 5391
+    },
+    "execution": {
+      "path": "artifacts/science/nordic-wind-reference-execution/execution.json",
+      "sha256": "4b7ef966d606d1de5e95fc817f93bbc1daa7d0ffd7a70521ffe91ee9e4e159e9",
+      "bytes": 1336
+    },
+    "plan": {
+      "path": "artifacts/science/nordic-wind-reference-execution/plan.json",
+      "sha256": "2ea1b76894edcc7c5b741f13d60a7a9470695e6e9eaed214637cfacc055a03c0",
+      "bytes": 2466103
+    },
+    "export_manifest": {
+      "path": "artifacts/science/nordic-wind-reference-execution/inputs/manifest.json",
+      "sha256": "29a20aa8b99a59a7f091b3bbc8600ec4ad55bace02a26d2f536aa3f23195ef80",
+      "bytes": 21223
+    },
+    "saved_wind_account": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/wind-sensitivity.json",
+      "sha256": "89001d4226bef5ce23c1bf7c5ad23e3da18891d353600f8f6fb17412db8fa639",
+      "bytes": 113460
+    },
+    "protocol": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/transport-sensitivity.json",
+      "sha256": "e83196a9af9953a2580fc956c1b79dc63760f0f27b6bc7c6a856a4ef0b8b78cc",
+      "bytes": 902
+    },
+    "source_review": {
+      "path": "artifacts/science/nordic-wind-reference-independent-review/independent-source-review.json",
+      "sha256": "bb53014a834f0c871fec83250f928afcfb20da7c69dd7ba07f66c829e41a1c0c",
+      "bytes": 3877
+    },
+    "R_output_1": {
+      "bytes": 9839,
+      "path": "artifacts/science/nordic-wind-reference-execution/native/r/tuple-outcomes.tsv",
+      "sha256": "ba0486a3111e4e912bda6ff11ea9a30704cb4114a4c9cbe1981ebc412dca48f8"
+    },
+    "R_output_2": {
+      "bytes": 239,
+      "path": "artifacts/science/nordic-wind-reference-execution/native/r/integration-refusals.tsv",
+      "sha256": "0d5182bfa31f2da79c534026e665bf353982bfe94e59c0ca0fc688b9824958d3"
+    },
+    "R_output_3": {
+      "bytes": 234,
+      "path": "artifacts/science/nordic-wind-reference-execution/native/r/summary.tsv",
+      "sha256": "1e711a90e64cc36d407c569c5e10d6bf11f82466ac9addc6347ea1bad86874e4"
+    },
+    "R_output_4": {
+      "bytes": 504,
+      "path": "artifacts/science/nordic-wind-reference-execution/native/r/scope.txt",
+      "sha256": "59647c2b1e7944601f7f2f010b827318050a547d357fadaa3277cfaf889353ff"
+    }
+  },
+  "population": {
+    "requests": 46,
+    "completed": 46,
+    "refused": 0,
+    "fatal": 0,
+    "not_run": 0
+  },
+  "passed": true,
+  "maximum_absolute_factor_difference": 1.1914080833008711e-12,
+  "absolute_factor_tolerance": 1e-08,
+  "independent_R_integration_settings": {
+    "absolute_tolerance": 1e-11,
+    "relative_tolerance": 1e-10,
+    "quadrature_limit": 1000
+  },
+  "rows": [
+    {
+      "tuple_id": "wind-tuple:1",
+      "saved_python_factor": 0.15861994339155427,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.343125693471393e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.15861994339131996",
+        "raw_factor": "0.15861994339131996",
+        "estimated_absolute_error": "4.5733342514806532e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:2",
+      "saved_python_factor": 0.10353006565616855,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.1914080833008711e-12,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.10353006565497715",
+        "raw_factor": "0.10353006565497715",
+        "estimated_absolute_error": "2.7122563005539746e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:3",
+      "saved_python_factor": 0.2737290133181408,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 4.30822044705792e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.27372901331857163",
+        "raw_factor": "0.27372901331857163",
+        "estimated_absolute_error": "9.5801164998273404e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:4",
+      "saved_python_factor": 0.24405100324120446,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.369249323981194e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.24405100324154139",
+        "raw_factor": "0.24405100324154139",
+        "estimated_absolute_error": "7.9908465213055687e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:5",
+      "saved_python_factor": 0.15863308088246053,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.3234192347842963e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.15863308088222819",
+        "raw_factor": "0.15863308088222819",
+        "estimated_absolute_error": "4.573277841519615e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:6",
+      "saved_python_factor": 0.10354036900524088,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.190894605151982e-12,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.10354036900404999",
+        "raw_factor": "0.10354036900404999",
+        "estimated_absolute_error": "2.7119943835494208e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:7",
+      "saved_python_factor": 0.2737445954463513,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 4.298783551348606e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.2737445954467812",
+        "raw_factor": "0.2737445954467812",
+        "estimated_absolute_error": "9.5784099159794328e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:8",
+      "saved_python_factor": 0.24406663127772477,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.389788449936759e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.24406663127806374",
+        "raw_factor": "0.24406663127806374",
+        "estimated_absolute_error": "7.98946836470495e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:9",
+      "saved_python_factor": 0.18116868062493,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.1460944960315373e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.18116868062461539",
+        "raw_factor": "0.18116868062461539",
+        "estimated_absolute_error": "4.7758781475422957e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:10",
+      "saved_python_factor": 0.12152196877411676,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 9.737072259596857e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.12152196877314306",
+        "raw_factor": "0.12152196877314306",
+        "estimated_absolute_error": "3.1115276557341584e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:11",
+      "saved_python_factor": 0.09555652548501188,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.4239998069598414e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.095556525485154281",
+        "raw_factor": "0.095556525485154281",
+        "estimated_absolute_error": "3.1490395278513911e-12",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "8",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:12",
+      "saved_python_factor": 0.2996835971197093,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 7.37188088351104e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.29968359711978304",
+        "raw_factor": "0.29968359711978304",
+        "estimated_absolute_error": "7.8111547357222913e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:13",
+      "saved_python_factor": 0.27031197803782386,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.892130979148533e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.27031197803785278",
+        "raw_factor": "0.27031197803785278",
+        "estimated_absolute_error": "7.1054517698100404e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:14",
+      "saved_python_factor": 0.2495272241919186,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.3647750424515834e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.24952722419189496",
+        "raw_factor": "0.24952722419189496",
+        "estimated_absolute_error": "6.581686805559414e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:15",
+      "saved_python_factor": 0.1833844189964432,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.107514245925813e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.18338441899613245",
+        "raw_factor": "0.18338441899613245",
+        "estimated_absolute_error": "4.8084158870174198e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:16",
+      "saved_python_factor": 0.12332218047033137,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 9.477418849712649e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.12332218046938363",
+        "raw_factor": "0.12332218046938363",
+        "estimated_absolute_error": "3.1525871042317352e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:17",
+      "saved_python_factor": 0.09711831395761374,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.1245171460672054e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.097118313957726188",
+        "raw_factor": "0.097118313957726188",
+        "estimated_absolute_error": "3.2031511438020992e-12",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "8",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:18",
+      "saved_python_factor": 0.30215399863932413,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 6.039613253960852e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.30215399863938452",
+        "raw_factor": "0.30215399863938452",
+        "estimated_absolute_error": "7.7437924570021193e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:19",
+      "saved_python_factor": 0.27283516711591355,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.7708057242771247e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.27283516711593125",
+        "raw_factor": "0.27283516711593125",
+        "estimated_absolute_error": "7.0815254561051239e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:20",
+      "saved_python_factor": 0.25201911307819386,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.758904216193514e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.25201911307816627",
+        "raw_factor": "0.25201911307816627",
+        "estimated_absolute_error": "6.5773837450536766e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:21",
+      "saved_python_factor": 0.1812745096940579,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.1460944960315373e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.18127450969374329",
+        "raw_factor": "0.18127450969374329",
+        "estimated_absolute_error": "4.7781005119965189e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:22",
+      "saved_python_factor": 0.12160782347538948,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 9.743317264110374e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.12160782347441515",
+        "raw_factor": "0.12160782347441515",
+        "estimated_absolute_error": "3.1130411903760006e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:23",
+      "saved_python_factor": 0.09563094696647408,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.4856171848265376e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.095630946966622637",
+        "raw_factor": "0.095630946966622637",
+        "estimated_absolute_error": "3.1515913153739222e-12",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "8",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:24",
+      "saved_python_factor": 0.2998018967589064,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 7.571721027943568e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.29980189675898211",
+        "raw_factor": "0.29980189675898211",
+        "estimated_absolute_error": "7.8081542047137576e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:25",
+      "saved_python_factor": 0.27043271315739614,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.6256774532384952e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.2704327131574224",
+        "raw_factor": "0.2704327131574224",
+        "estimated_absolute_error": "7.1042162215447854e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:26",
+      "saved_python_factor": 0.24964640976738312,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.2676305277968822e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.24964640976736044",
+        "raw_factor": "0.24964640976736044",
+        "estimated_absolute_error": "6.5816282062170364e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:27",
+      "saved_python_factor": 0.20509975479432024,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.8851920852446256e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.20509975479403172",
+        "raw_factor": "0.20509975479403172",
+        "estimated_absolute_error": "5.1502780245515417e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:28",
+      "saved_python_factor": 0.09503263249464133,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.1861345239339016e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.095032632494759947",
+        "raw_factor": "0.095032632494759947",
+        "estimated_absolute_error": "3.0793403404047613e-12",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "8",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:29",
+      "saved_python_factor": 0.32568906191948194,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.1030733538273125e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.32568906191945091",
+        "raw_factor": "0.32568906191945091",
+        "estimated_absolute_error": "7.4112330053900547e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:30",
+      "saved_python_factor": 0.2595095918122538,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.237343560944737e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.25950959181213007",
+        "raw_factor": "0.25950959181213007",
+        "estimated_absolute_error": "6.339903705875972e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:31",
+      "saved_python_factor": 0.20500350744886228,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.8724245204614363e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.20500350744857504",
+        "raw_factor": "0.20500350744857504",
+        "estimated_absolute_error": "5.1491158152547152e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:32",
+      "saved_python_factor": 0.0949683728363348,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.052075093710414e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.09496837283644001",
+        "raw_factor": "0.09496837283644001",
+        "estimated_absolute_error": "3.0770916874317293e-12",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "8",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:33",
+      "saved_python_factor": 0.32558731064448615,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.375077994860476e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.3255873106444524",
+        "raw_factor": "0.3255873106444524",
+        "estimated_absolute_error": "7.4121103669229451e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:34",
+      "saved_python_factor": 0.2594055931357594,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.2118084313783584e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.25940559313563821",
+        "raw_factor": "0.25940559313563821",
+        "estimated_absolute_error": "6.3387731521867154e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:35",
+      "saved_python_factor": 0.23727911603241125,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.745270594710746e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.23727911603223673",
+        "raw_factor": "0.23727911603223673",
+        "estimated_absolute_error": "5.8744170854762991e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:36",
+      "saved_python_factor": 0.19491645555230305,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.3592573167595674e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.19491645555196713",
+        "raw_factor": "0.19491645555196713",
+        "estimated_absolute_error": "4.9103899734268645e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:37",
+      "saved_python_factor": 0.13360984033502238,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 8.572031973130834e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.13360984033416518",
+        "raw_factor": "0.13360984033416518",
+        "estimated_absolute_error": "3.361308920268125e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:38",
+      "saved_python_factor": 0.3317485050226735,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 2.969846590872294e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.3317485050226438",
+        "raw_factor": "0.3317485050226438",
+        "estimated_absolute_error": "7.4008662972004363e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:39",
+      "saved_python_factor": 0.3226265647160761,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.4861002973229915e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.32262656471604123",
+        "raw_factor": "0.32262656471604123",
+        "estimated_absolute_error": "7.3875915528762119e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:40",
+      "saved_python_factor": 0.292007913782744,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 6.650235917504688e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.29200791378267749",
+        "raw_factor": "0.29200791378267749",
+        "estimated_absolute_error": "6.9510428904305281e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:41",
+      "saved_python_factor": 0.23717763491913835,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 1.7616463843239671e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.23717763491896218",
+        "raw_factor": "0.23717763491896218",
+        "estimated_absolute_error": "5.8734760292644499e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:42",
+      "saved_python_factor": 0.19482223001364357,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.335942633242439e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.19482223001330998",
+        "raw_factor": "0.19482223001330998",
+        "estimated_absolute_error": "4.9078260921929249e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:43",
+      "saved_python_factor": 0.13353160197664962,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 8.573419751911615e-13,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.13353160197579228",
+        "raw_factor": "0.13353160197579228",
+        "estimated_absolute_error": "3.3594404892224283e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:44",
+      "saved_python_factor": 0.3316506870434462,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.0253577421035516e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.33165068704341594",
+        "raw_factor": "0.33165068704341594",
+        "estimated_absolute_error": "7.402322993454804e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:45",
+      "saved_python_factor": 0.3225238445569806,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 3.680389326632394e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.32252384455694377",
+        "raw_factor": "0.32252384455694377",
+        "estimated_absolute_error": "7.3873329415360235e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    },
+    {
+      "tuple_id": "wind-tuple:46",
+      "saved_python_factor": 0.2919022985513981,
+      "r_status": "completed_compensated_reference",
+      "absolute_difference": 6.850076061937216e-14,
+      "passed": true,
+      "R_scalar_diagnostics": {
+        "factor": "0.2919022985513296",
+        "raw_factor": "0.2919022985513296",
+        "estimated_absolute_error": "6.9504769939463924e-13",
+        "tail_mass_bound": "0",
+        "subdivisions_used": "9",
+        "warnings": "",
+        "error_message": "",
+        "reason_code": "",
+        "error_class": ""
+      }
+    }
+  ],
+  "refusal_details": [],
+  "physical_parameter_reference": "Each tuple_id identifies the exact physical_dispositions row in the unchanged saved_wind_account. That public account also retains all18case/58tuple-use mappings and364window identities. No physical parameters or source counts are redefined here.",
+  "executed_source_overlays": [
+    {
+      "path": "artifacts/science/nordic-wind-reference-source/proposal/scalar_reference.py",
+      "sha256": "af2c288baefddd267e0a481a1fb6afbaba8dd94b5150a397ce1174ff0f902b56",
+      "bytes": 18897
+    },
+    {
+      "path": "artifacts/science/nordic-wind-reference-source/proposal/reference_factors.R",
+      "sha256": "b9c45822d1109d9922daa2d46c6bd3f63cce66822d55ae87d68c127b6f566e8e",
+      "bytes": 8209
+    }
+  ],
+  "canonical_reference_sources": [
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/nordic_wind.py",
+      "sha256": "af2c288baefddd267e0a481a1fb6afbaba8dd94b5150a397ce1174ff0f902b56",
+      "bytes": 18897
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/nordic_wind.R",
+      "sha256": "b9c45822d1109d9922daa2d46c6bd3f63cce66822d55ae87d68c127b6f566e8e",
+      "bytes": 8209
+    }
+  ],
+  "source_association": "The artifact adapter/R bodies used by the actual reference job are byte-identical to the later canonical reference sources. Canonical adoption does not claim those filenames were tracked at execution.",
+  "limits": "Independent scalar K agreement on46 actual conditionalwind tuples only. No new Rwindow/moment/covariance calculation or repeat of prior27,360Decimalcells. The wind2/4 alternatives remain exposed conditional assumptions, not measured winds or a probability law. No author/historical parity, ecological accuracy, calibrated coverage, rights/human/externalreview or wholeLCI030 acceptance."
+}

@@ -56,13 +56,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "1cf6aa7ef5b1c8bd1f75ed3284e251a8817cd5883d6abc5910ab35247aa7a306",
-      "bytes": 132083
+      "sha256": "c880c779d32eb2ccb75c289c32e353c15868280fc4522a5f197a1eebf668c6bb",
+      "bytes": 132593
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "f39b4b57c9eba15f974799470ab7507e60c69385b2260a56f75a665d8062bec4",
-      "bytes": 7365085
+      "sha256": "093f354880469352e055af695e7aab8a3cf394e746c12bc7786dc9ad93199ad1",
+      "bytes": 7377542
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -4803,6 +4803,51 @@
       "path": "docs/report/numerical-performance/native-memory/source-context.json",
       "sha256": "7388b3a4b5c5aa2666902a0f77545fd90b38f4eb49f2b327eea7c4a11a87fe93",
       "bytes": 2175
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/depth-order/report.json",
+      "sha256": "d081a52eeb130251aa5448dd1ebd28a91193e0564d332c9f8bb5a93dc64ce920",
+      "bytes": 55517
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/regional-extent-sensitivity.json",
+      "sha256": "0df05eaefe94e96b03ae29c85559fe0656016b6ced99461a7940c6504fae9dd6",
+      "bytes": 1325
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/transport-sensitivity.json",
+      "sha256": "e83196a9af9953a2580fc956c1b79dc63760f0f27b6bc7c6a856a4ef0b8b78cc",
+      "bytes": 902
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/regional-cutoff-scalar-reference.json",
+      "sha256": "ba9b1718770f630b8ac9136d45c0a4de66fccc0be3644737d3159f845f1a2167",
+      "bytes": 52268
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/regional-cutoff-sensitivity.json",
+      "sha256": "626efb4f6c13b8d7cc819ed7557a8f8ee65f7f6da156262522c5913185fc0f6d",
+      "bytes": 117361
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/wind-scalar-reference.json",
+      "sha256": "9d4321222932cec85c0e10dc03d9234d5e5fcbe0a2e8fddea7b4f0c1ad03ac24",
+      "bytes": 32502
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/wind-sensitivity.json",
+      "sha256": "89001d4226bef5ce23c1bf7c5ad23e3da18891d353600f8f6fb17412db8fa639",
+      "bytes": 113460
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-r-reference.json",
+      "sha256": "e598482f99f8c3ecebc5544da04df2b7196a94509224423515422e5cd96b6f98",
+      "bytes": 6218
+    },
+    {
+      "path": "reports/science/method-certification/author-evaluation-consumed-source-qualification.json",
+      "sha256": "26d5b8e0c26e3c103a38d00522344e722281dd905607d556368722d55bd5f01e",
+      "bytes": 101193
     }
   ],
   "maintained_paths": [
@@ -5039,6 +5084,11 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/author_evaluations.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/nordic_wind.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/regional_cutoff.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/scalar_reference.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
@@ -5190,6 +5240,10 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_joint_membership.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/domains.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/extrema.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/joint_membership.py",
@@ -5226,6 +5280,12 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/publications.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/sources.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/summary.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/__main__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/calculation.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/inputs.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/producer.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/regional_extent.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/validation.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/__main__.py",
@@ -5334,6 +5394,10 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
     "packages/bijux-pollenomics-dev/tests/atlas_browser/test_probe_source.py",
     "packages/bijux-pollenomics-dev/tests/ci/__init__.py",
+    "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/maintained_sources/test_reviewed_membership.py",
+    "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/scientific_captures/controlled_numerical/test_author_evaluations.py",
+    "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/scientific_captures/controlled_numerical/test_nordic_wind.py",
+    "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/scientific_captures/controlled_numerical/test_regional_cutoff.py",
     "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_lilla_preparation.py",
     "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_nordic_static_basin_capture_transport.py",
     "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_scheduling_custody.py",
@@ -5403,6 +5467,9 @@
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_nordic_chronology_admission.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_nordic_source_attribution.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen/test_swedish_native_chronology_contrast.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/depth_order/__init__.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/depth_order/test_abborrtjarne.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/depth_order/test_feasibility.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_abborrtjarne_cli.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_abborrtjarne_joint_membership.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_abborrtjarne_membership.py",
@@ -5412,6 +5479,9 @@
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_qualified_author_score.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_sambosjon.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_parameters/test_author_binding.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/nordic_static_basin/__init__.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/nordic_static_basin/test_regional_extent_sensitivity.py",
+    "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/nordic_static_basin/test_transport_sensitivity.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_buffered_author_pollen.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_buffered_author_source_roots.py",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_constrained_author_lra.py",
@@ -5547,6 +5617,20 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/README.md",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/nordic_wind.R",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/nordic_wind.py",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/receiver_reference.R",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/regional_cutoff.R",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/regional_cutoff.py",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/swedish_population.py",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/swedish_windows.R",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/swedish_windows.py",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/test_nordic_wind.py",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/test_receiver_overlap.R",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/test_regional_cutoff.py",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/test_swedish_windows.R",
+    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/test_swedish_windows.py",
     "packages/bijux-pollenomics-lra/tests/regression/workflows/test_adoption_contract.py",
     "packages/bijux-pollenomics-lra/tests/unit/dispersal/test_dispersal.py",
     "packages/bijux-pollenomics-lra/tests/unit/dispersal/test_receiver_annulus.py",
@@ -5682,6 +5766,7 @@
     "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/local_batch/test_terminals.py",
     "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/test_inputs.py",
     "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/test_workflow.py",
+    "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/test_metrics.py",
     "packages/bijux-pollenomics/tests/unit/analysis/propagation/candidates/test_publication_schema.py",
     "packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_coordinate_admission.py",
     "packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_feature_partitions.py",

@@ -2233,6 +2233,17 @@
       },
       "artifact_output_flag": "--retained-artifacts-root",
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.depth_order.abborrtjarne",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/depth-order/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/depth-order/report.json"
+      },
+      "timeout_seconds": 120
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

@@ -1,0 +1,22 @@
+{
+  "schema_version": "nordic-conditional-wind-sensitivity.v1",
+  "source_report_sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+  "baseline_wind_speed_m_s": 3,
+  "alternative_wind_speed_m_s": [
+    2,
+    4
+  ],
+  "regional_extent_m": 100000,
+  "diffusion_coefficient": 0.12,
+  "turbulence_parameter": 0.25,
+  "alternative_status": "declared_conditional_assumptions_not_measured_winds",
+  "justification": "Reuse the Swedish static-basin wind2/4 one-axis sensitivity around the same3m/s baseline; test numerical sensitivity, not physical likelihood or Nordic wind observations.",
+  "geometry_policy": "retain_all_nine_original_static_geometries_without_new_radius_or_shape",
+  "claims": {
+    "measured_wind": false,
+    "source_qualified_alternative_extent": false,
+    "historical_reproduction": false,
+    "vegetation_accuracy": false,
+    "whole_lci_030": false
+  }
+}

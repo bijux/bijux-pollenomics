@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2229,
-  "paths_sha256": "1a7dfa369dd1ab6c4246a1af839b537a5041b01b6a06654fa9316c17cf991004",
+  "path_count": 2237,
+  "paths_sha256": "38d11cb1fd8dd4ca447f62bfc718835ad05ae8c3fc97d8a9565b3df6a909a97d",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -24001,10 +24001,14 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_temporal_development.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/author_evaluations.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/love_objective.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/lra_comparison.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/nordic_wind.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/python_reference.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/regional_cutoff.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/scalar_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/country_reports/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/country_reports/sweden/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/country_reports/sweden/call_evidence.py",
@@ -24370,6 +24374,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_joint_membership.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_sensitivity.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/joint_membership.py",
@@ -24406,6 +24411,12 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/publications.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/sources.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/summary.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/__main__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/calculation.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/inputs.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/transport_sensitivity/regional_extent.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/validation.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/__main__.py",
@@ -68210,6 +68221,100 @@
       ],
       "role": "retained_source",
       "verification": "Retain the separately executed ba3a current-Python43core/23domain comparison under its actual source/input/runtime/native0/collector0 identities and unchanged genuine92a R vectors and original thresholds. Preserve66 complete case results,5,828entries/169labels/3,865finite/1,794NaN,2,148nonidentical positions, all masks/errors and current vector hashes. The maintained saved-product source guard authenticates exact two public bytes and original capture authority; it does not rerun Python expectations/R or require the historical whole source map to equal future publication HEAD. Reuse original author14,074 within its original profile without a new call. No installed-package execution, ecological accuracy, optimizer global optimum, new covarianceR, hosted same-revision or whole-release qualification."
+    },
+    {
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/depth-order/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/depth-order/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_joint_membership.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/domains.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/extrema.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/joint_membership.py"
+      ],
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/config.json",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json"
+      ],
+      "verification": "Run bijux_pollenomics_dev.source_completion.pollen_age_support.depth_order.abborrtjarne --repository . --output artifacts/jobs/abborrtjarne-conditional-depth-order into an absent confined artifact destination and compare report.json byte-for-byte. The maintained producer authenticates five retained inputs and seven scientific helper identities, preserves107samples/428memberships and all16original corner refusals, and records the declared nondecreasing-depth existence witness. Ownership declares a reproducible product; it does not claim a new two-lane replay, source-qualified chronology, revised marginal extrema, probabilities, accuracy, independent confirmation or LRA admission. Preserve the original conditional-membership/joint-membership owner criteria and unresolved authored configuration."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/transport-sensitivity-protocol",
+      "role": "maintained_configuration",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/transport-sensitivity.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain exact authored conditional wind2/4 assumptions around the existing3m/s Nordic baseline, reusing the declared Swedish sensitivity convention. These are not measured Nordic winds, source-qualified alternative extents, historical reproduction, vegetation accuracy or wholeLCI-030 acceptance. No alternative kernel or window result has been executed or published by this declaration. Maintained configuration transport checks exact reviewed Git bytes and a finite JSON object; scientific and source admission remain separate."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/native-r-reference-account",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-r-reference.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Retain the exact compact projection of actual native Swedish R numerical-reference evidence. Review every aggregate against the saved comparison/native terminal/collector/source-adoption pins it lists; the existing maintained scientific qualification authenticates this whole public JSON as an evidence pin. No R/model replay or source-rights/human/physical acceptance is inferred. Keep the original saved-report, retained input-export, numerical-execution and subsequent canonical source-adoption identities distinct, including the five declared execution source overlays, and preserve the original failed and refused requests. This distinct owner does not change the existing immutable eight-member scientific-capture or generated report-owner sets. All prior ownership criteria remain unchanged."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/conditional-wind-account",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/wind-sensitivity.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Retain the exact compact projection of actual conditional wind2/4 results and independent Decimal saved-product evidence:18 cases,364 occupied windows,46 physical requests/58 taxon uses from four cores at three sites. The pinned public baseline retains original counts, ages, PPE, axes and geometries; exact case/window hashes and raw native report references preserve alternative quantities and signed differences without copying their arrays. The existing maintained scientific reader qualification authenticates this whole public JSON as an evidence pin; original source/execution/observer identities and exposed development scope remain distinct. No model/R replay, independently recomputed K, measured wind range, source-rights, vegetation accuracy, human review or wholeLCI-030 acceptance follows. This separate owner leaves every original Nordic owner criterion and membership unchanged."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/regional-cutoff-protocol",
+      "role": "maintained_configuration",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/regional-extent-sensitivity.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the exact prospective 50 and 200 km numerical regional-cutoff stress protocol against the saved 100 km baseline, with wind and dispersal settings fixed. These analyst settings test cutoff dependence; they are not measured or source-qualified regional extents, historical reproduction, vegetation accuracy or full transport-sensitivity acceptance. No new cutoff result is executed or published by this declaration. Maintained configuration transport checks exact reviewed Git bytes and a finite JSON object; source rights and scientific admission remain separate."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/wind-scalar-reference-account",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/wind-scalar-reference.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Retain exact compact actual independent R scalar correspondence for all46 saved conditionalwind factors, with complete statuses/residuals/diagnostics and actual native/collector/source/export identities. Existing wind account retains unchanged physical parameter/case/window mappings; scalar residual threshold1e-8 and actual source epochs remain exact. The maintained reader qualification binds this entire public JSON as evidence. No new Rwindow/moment/covariance result, repeatedDecimal proof, author/historical parity, measuredwind, ecological accuracy, calibrated coverage, rights/human/externalreview or wholeLCI030 acceptance follows. Existing Nordic scientificcapture22members, windaccount and every previous owner criterion/membership/order remain unchanged."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/conditional-regional-cutoff-account",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/regional-cutoff-sensitivity.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Retain the exact compact projection of the actual 50 km and 200 km regional-cutoff stress calculation and independent Decimal saved-product observation: 18 cases, 364 occupied windows, 46 physical requests and 58 taxon uses from four cores at three sites. Exact baseline case/window hashes preserve original native counts, ages, parameter axes, panels and geometry; the pinned native report retains all alternative quantities and signed differences. The maintained scientific reader qualification authenticates this public JSON as an evidence pin. Preserve distinct baseline, numerical execution, observer registration and later reader-adoption epochs. These cutoffs are numerical stress settings, not measured or source-supported regional extents, probabilities or calibrated physical uncertainty. No model or R replay, independently recomputed cutoff K, source-use permission, field accuracy, human review or whole LCI-030 acceptance follows. This separate retained-source owner leaves every original Nordic owner criterion and membership unchanged."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/regional-cutoff-scalar-reference-account",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/regional-cutoff-scalar-reference.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Retain the exact compact actual independent R scalar correspondence for all 46 saved regional-cutoff factors, including every status, residual and diagnostic and the original native, collector, export and source identities. The unchanged cutoff account retains the 18 case/58 tuple-use mappings and 364 ordered window references; all original source counts, age bounds, panels and owners remain unchanged. The maintained scientific reader qualification binds this whole public JSON as evidence, and the dedicated maintained source-admission handler authenticates exact product and ownership bytes without numerical replay. The 1e-8 factor threshold and separate baseline, saved cutoff, reference execution and later source-adoption epochs remain literal. No new window or covariance calculation, repeated Decimal proof, measured or source-supported extent range, asymptotic convergence, author/historical parity, field accuracy, calibrated coverage, source-use permission, human review or whole scientific acceptance follows."
     }
   ]
 }

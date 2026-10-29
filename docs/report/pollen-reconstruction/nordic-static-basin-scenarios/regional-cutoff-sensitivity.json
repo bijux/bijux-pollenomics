@@ -1,0 +1,3190 @@
+{
+  "schema_version": "nordic-conditional-regional-cutoff-public-account.v1",
+  "epochs": {
+    "baseline_source": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+    "actual_regional_cutoff_execution": "430c59efb9b1a76e70cc3d038524b87a70922110",
+    "observer_registration": "4a0780654bf1e93ae7b43e7efafccc0b1f7f7457"
+  },
+  "provenance": {
+    "baseline": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+      "bytes": 604997
+    },
+    "protocol": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/regional-extent-sensitivity.json",
+      "sha256": "0df05eaefe94e96b03ae29c85559fe0656016b6ced99461a7940c6504fae9dd6",
+      "bytes": 1325
+    },
+    "report": {
+      "path": "artifacts/science/regional-cutoff-execution/native/analysis/report.json",
+      "sha256": "1db5924600a466c72f1f625b38b2cd8dc1f5f41c5214a28076c65472bda4cf58",
+      "bytes": 1958434
+    },
+    "plan": {
+      "path": "artifacts/science/regional-cutoff-execution/plan.json",
+      "sha256": "1a312817ff901beedd3eb9ae12b570e60af639fa18a6a27eca245a94e40f3aa5",
+      "bytes": 1895482
+    },
+    "terminal": {
+      "path": "artifacts/science/regional-cutoff-execution/native/terminal.json",
+      "sha256": "474b20e0730a031b01111255ec313c6b6b7e71014b7592644691777f7050f9af",
+      "bytes": 3010
+    },
+    "execution": {
+      "path": "artifacts/science/regional-cutoff-execution/execution.json",
+      "sha256": "a48b600e744ced52e17879a2de63ae8d6a297026d869aa86318da59f37a8a58c",
+      "bytes": 1504
+    },
+    "decimal_observation": {
+      "path": "artifacts/science/regional-cutoff-product-observer/configured-source/observation.json",
+      "sha256": "4ebda66347451d7655316ca4c312fef1bd4652fd0c079ed48b27b4231cb58ac5",
+      "bytes": 102594
+    },
+    "observer_execution": {
+      "path": "artifacts/science/regional-cutoff-product-observer/configured-source/execution.json",
+      "sha256": "f4ba88cca099dd3ebe374dc401e47ffff5b93063ba10191d6c07601deeb36e4b",
+      "bytes": 1450
+    },
+    "observer_input_contract": {
+      "path": "artifacts/science/regional-cutoff-product-observer/configured-source/actual-input-contract.json",
+      "sha256": "d0f474bbec86e09c90a35f23b7a944e1f329f71f66841370be200f85b300f677",
+      "bytes": 1405
+    }
+  },
+  "protocol": {
+    "schema_version": "nordic-conditional-regional-extent-sensitivity.v1",
+    "source_report_sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+    "source_epoch": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+    "baseline_regional_extent_m": 100000,
+    "alternative_regional_extent_m": [
+      50000,
+      200000
+    ],
+    "wind_speed_m_s": 3,
+    "diffusion_coefficient": 0.12,
+    "turbulence_parameter": 0.25,
+    "alternative_status": "declared_numerical_cutoff_stress_settings_not_empirical_extent_range",
+    "justification": "Prospectively test half and double the retained 100 km cutoff, equally spaced on a logarithmic scale, as a finite-boundary convergence/stress diagnostic. These analyst settings are not source-supported regional vegetation extents, field observations, probabilities or fitted choices. Retain negligible, adverse and refused outcomes.",
+    "geometry_policy": "retain_all_nine_original_static_geometries_without_new_radius_or_shape",
+    "support_policy": "preserve exact original case/window/taxon/count/PPE/age support; no new samples, cross-window uncertainty or independent-site pooling",
+    "claims": {
+      "measured_extent": false,
+      "source_qualified_alternative_extent": false,
+      "historical_reproduction": false,
+      "vegetation_accuracy": false,
+      "whole_lci_030": false
+    }
+  },
+  "source_population": [
+    {
+      "accepted_samples": 150,
+      "all_source_NISP": 85303,
+      "exclusions": {},
+      "included_age_bounds_missing": 150,
+      "included_all_reported_NISP": 85303,
+      "native_dataset_id": 52082,
+      "prior_signed_point_or_bounds_refusals": 0,
+      "source_samples": 150
+    },
+    {
+      "accepted_samples": 72,
+      "all_source_NISP": 47085,
+      "exclusions": {},
+      "included_age_bounds_missing": 72,
+      "included_all_reported_NISP": 47085,
+      "native_dataset_id": 20034,
+      "prior_signed_point_or_bounds_refusals": 0,
+      "source_samples": 72
+    },
+    {
+      "accepted_samples": 65,
+      "all_source_NISP": 101991,
+      "exclusions": {
+        "named_calibrated_point_outside_declared_domain": 1
+      },
+      "included_age_bounds_missing": 0,
+      "included_all_reported_NISP": 101470,
+      "native_dataset_id": 4445,
+      "prior_signed_point_or_bounds_refusals": 1,
+      "source_samples": 66
+    },
+    {
+      "accepted_samples": 26,
+      "all_source_NISP": 28950,
+      "exclusions": {},
+      "included_age_bounds_missing": 0,
+      "included_all_reported_NISP": 28950,
+      "native_dataset_id": 4446,
+      "prior_signed_point_or_bounds_refusals": 0,
+      "source_samples": 26
+    }
+  ],
+  "population": {
+    "requested_cases": 18,
+    "requested_windows": 364,
+    "computed_windows": 364,
+    "refused_windows": 0,
+    "physical_requests": 46,
+    "case_taxon_response_uses": 58,
+    "source_cores": 4,
+    "physical_sites": 3
+  },
+  "physical_dispositions": [
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 285.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 285.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.488854290461823e-09,
+        "factor": 0.22055201786584097
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:1"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 285.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 285.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.5997377033614904e-09,
+        "factor": 0.17917677938371487
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:2"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 285.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 285.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.2743615277493396e-09,
+        "factor": 0.25530445098238047
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:3"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 285.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 285.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.404974859877905e-09,
+        "factor": 0.20064544539444742
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:4"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 284.9017742606504,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 284.9017742606504,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.4885554276450024e-09,
+        "factor": 0.22056757860114248
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:5"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 284.9017742606504,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 284.9017742606504,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.5994521862961133e-09,
+        "factor": 0.1791911452147226
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:6"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 284.9017742606504,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 284.9017742606504,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.274249225312824e-09,
+        "factor": 0.25532001155405354
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:7"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 284.9017742606504,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 284.9017742606504,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.4048582018568453e-09,
+        "factor": 0.20065981111338582
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:8"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 160.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 160.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.1634356976190566e-09,
+        "factor": 0.24673260020556323
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:9"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 160.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 160.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.469671327947743e-09,
+        "factor": 0.20363040760812567
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:10"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 160.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 160.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.56629981916196e-09,
+        "factor": 0.17889020363933877
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:11"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 160.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 160.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.1127573908960126e-09,
+        "factor": 0.28148487072908573
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:12"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 160.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 160.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.4236459728259944e-09,
+        "factor": 0.225098962256874
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:13"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 160.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 160.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.5249553512275816e-09,
+        "factor": 0.19480228298327812
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:14"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.142220982223732e-09,
+        "factor": 0.24925142317082583
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:15"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.446764674081495e-09,
+        "factor": 0.2060124025699823
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:16"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.542950281376946e-09,
+        "factor": 0.18114201919857528
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:17"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.0980877210699146e-09,
+        "factor": 0.28400368585579344
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:18"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.406683132303092e-09,
+        "factor": 0.22748095185000566
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:19"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.5069441854530662e-09,
+        "factor": 0.19705409432824395
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:20"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.162387660600614e-09,
+        "factor": 0.2468531133058588
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:21"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.4685594350717696e-09,
+        "factor": 0.20374425902876978
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:22"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.5651507289787485e-09,
+        "factor": 0.17899777121814306
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:23"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.1120436472151786e-09,
+        "factor": 0.2816053834341684
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:24"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.422836526026508e-09,
+        "factor": 0.2252128134068289
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:25"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.524077444818827e-09,
+        "factor": 0.1949098503496003
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:26"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.404499390937946e-09,
+        "factor": 0.2734765670137344
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:27"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.038,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.556048831251057e-09,
+        "factor": 0.184474708885857
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:28"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.3927983769663524e-09,
+        "factor": 0.3082287858617633
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:29"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.038,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.547405056102549e-09,
+        "factor": 0.19707789614927046
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:30"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.4052758562753264e-09,
+        "factor": 0.273370951694681
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:31"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.038,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.5568542360868974e-09,
+        "factor": 0.18438118048844956
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:32"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.3935080878302336e-09,
+        "factor": 0.3081231706501189
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:33"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.038,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.5481601228816273e-09,
+        "factor": 0.19698436779958145
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:34"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.021,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.109483919963733e-09,
+        "factor": 0.28914708096215747
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:35"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.025,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.0562091911900517e-09,
+        "factor": 0.26759359733325216
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:36"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.032,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.333899664464266e-09,
+        "factor": 0.22261106585598506
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:37"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.021,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.0978708857974083e-09,
+        "factor": 0.330877814466182
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:38"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.025,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.044567549920804e-09,
+        "factor": 0.30017078862047925
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:39"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.032,
+        "inner_radius_m": 89.0,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.0,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.3235258824016093e-09,
+        "factor": 0.2425580324638153
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:40"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.021,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.1101748539359465e-09,
+        "factor": 0.2890423518154268
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:41"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.025,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.056861048384185e-09,
+        "factor": 0.2674880701344939
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:42"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.032,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 50000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.3346416561097887e-09,
+        "factor": 0.2225100904057691
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:43"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.021,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.0984968409685707e-09,
+        "factor": 0.33077308544271516
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:44"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.025,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.0451548689041008e-09,
+        "factor": 0.3000652615239299
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:45"
+    },
+    {
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.032,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 200000,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "reason": null,
+      "response": {
+        "estimated_absolute_error": 2.324206746167447e-09,
+        "factor": 0.24245705708294896
+      },
+      "status": "computed",
+      "tuple_id": "extent-tuple:46"
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "52082.metadata_static_radius.extent_50000m",
+      "native_dataset_id": 52082,
+      "native_site_id": 28072,
+      "regional_extent_m": 50000,
+      "computed_windows": 24,
+      "maximum_absolute_cover_change_percentage_points": "0.42393814596696789799203477641557818187557858974582033763491883046269104676759700",
+      "windows": [
+        {
+          "baseline_window_sha256": "dba2f7531565136045aff713eacdcc948572f0795aa7dc4693afa45ac0f85173",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "0e0ea37bf2f27ea628173baf3c88a275bc92e98566fb4b45ab09ee24c827ea56",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6be7866db1739239ff3fc715c74385d50ec8b7dc3f5cbecff1d93166ac9ebe07",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4cbe733c9efe527cd6b0d9229a960127c8c9cb1453b30afbef2a1f40357f72ee",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "fb8812ea4f7d99c2bd48de253d42ff4691a82d36b8dd2d1a0032a0cb27419ef1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "214bc04fae165708d030e4c16076d36bf07d727be1543a81ea6cc00f337b228d",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d8fe0d5f43a878d0ebe8898e9bcf155fd3a89e9fa7dcf28e532ea21dfb024826",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1828d159cb1b0370c09109c48cf114e0286bc442225bd41a60fb80fe3181c60b",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "0b422d839a68cdd3a38d7520933890af3810017906b1ac714ddd0e9b7e4dc9b3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6c235cb87fec43e675000b09891e686a7e8e4d474a10ed58e9f4f7aaae546efd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "20be5a67767bfc6a557335834d549c30b9b38ac17cb48a54f4d7dcaf641ec6d2",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "fbd0b6be2f7803536f84ef10966fc1e2e6a3c2e00e1c0a32303f31f6bd0366ba",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "fe0dec94f4ffafc83868faaf99a275160245883e224615be9dde6b3e489bfa85",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "db6ad17adba04da04d41759126ea5769a030cef5835ac14886ec50f82a9bcb35",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3b658bc7a409398cf378a800d0d5f8cfbc9a384b8da54f01106028b9ffff5110",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "9e5b2783eb8d3e32653cef017ef2f103a348be0ed1fa84d9f1d7ff2e887864f2",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "479d65c4e6926738cc16b7786d805ce60bda9ff2e8321aea093c62c4629b5f60",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b9c566f2b147dca19e33d3f5c67732d9cd373239cc9e353bc8074ca33207be0c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8ff9f4ffde235b81d1b3fe0cabd4b5dfd55a33e950212107af2e38ab98ad27e1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f3c49de239b4d16f8dbf4e0662faa8f267923c52290de83af26e0bedba174b3a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "27df7d4449ce0a2c92ccf083f532060b9fbc65d864250a532d3921a417007718",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4432226e1f560e5074bcea8b6b4e439cd6b030cf6a2db91d5a76cfe70fdd4212",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "76f51b04ff4a37166f38ada55f068fc701f15cb3764624ceeaed92a508514298",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "45b80452ca696d930d4235165acceebb327bef33288beb9adcbcdc36d1a414ad",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "52082.metadata_static_radius",
+      "baseline_case_sha256": "fe45c597045dea04e49f61612d5fc2c1b8583c8a7361360eb028a67b16354fbc",
+      "physical_tuple_ids": [
+        "extent-tuple:1",
+        "extent-tuple:2"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "52082.metadata_static_radius.extent_200000m",
+      "native_dataset_id": 52082,
+      "native_site_id": 28072,
+      "regional_extent_m": 200000,
+      "computed_windows": 24,
+      "maximum_absolute_cover_change_percentage_points": "0.40495936956783814547489119372966882909026129707957504517708764126316611465913600",
+      "windows": [
+        {
+          "baseline_window_sha256": "dba2f7531565136045aff713eacdcc948572f0795aa7dc4693afa45ac0f85173",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "0e0ea37bf2f27ea628173baf3c88a275bc92e98566fb4b45ab09ee24c827ea56",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6be7866db1739239ff3fc715c74385d50ec8b7dc3f5cbecff1d93166ac9ebe07",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4cbe733c9efe527cd6b0d9229a960127c8c9cb1453b30afbef2a1f40357f72ee",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "fb8812ea4f7d99c2bd48de253d42ff4691a82d36b8dd2d1a0032a0cb27419ef1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "214bc04fae165708d030e4c16076d36bf07d727be1543a81ea6cc00f337b228d",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d8fe0d5f43a878d0ebe8898e9bcf155fd3a89e9fa7dcf28e532ea21dfb024826",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1828d159cb1b0370c09109c48cf114e0286bc442225bd41a60fb80fe3181c60b",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "0b422d839a68cdd3a38d7520933890af3810017906b1ac714ddd0e9b7e4dc9b3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6c235cb87fec43e675000b09891e686a7e8e4d474a10ed58e9f4f7aaae546efd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "20be5a67767bfc6a557335834d549c30b9b38ac17cb48a54f4d7dcaf641ec6d2",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "fbd0b6be2f7803536f84ef10966fc1e2e6a3c2e00e1c0a32303f31f6bd0366ba",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "fe0dec94f4ffafc83868faaf99a275160245883e224615be9dde6b3e489bfa85",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "db6ad17adba04da04d41759126ea5769a030cef5835ac14886ec50f82a9bcb35",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3b658bc7a409398cf378a800d0d5f8cfbc9a384b8da54f01106028b9ffff5110",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "9e5b2783eb8d3e32653cef017ef2f103a348be0ed1fa84d9f1d7ff2e887864f2",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "479d65c4e6926738cc16b7786d805ce60bda9ff2e8321aea093c62c4629b5f60",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b9c566f2b147dca19e33d3f5c67732d9cd373239cc9e353bc8074ca33207be0c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8ff9f4ffde235b81d1b3fe0cabd4b5dfd55a33e950212107af2e38ab98ad27e1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f3c49de239b4d16f8dbf4e0662faa8f267923c52290de83af26e0bedba174b3a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "27df7d4449ce0a2c92ccf083f532060b9fbc65d864250a532d3921a417007718",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4432226e1f560e5074bcea8b6b4e439cd6b030cf6a2db91d5a76cfe70fdd4212",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "76f51b04ff4a37166f38ada55f068fc701f15cb3764624ceeaed92a508514298",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "45b80452ca696d930d4235165acceebb327bef33288beb9adcbcdc36d1a414ad",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "52082.metadata_static_radius",
+      "baseline_case_sha256": "fe45c597045dea04e49f61612d5fc2c1b8583c8a7361360eb028a67b16354fbc",
+      "physical_tuple_ids": [
+        "extent-tuple:3",
+        "extent-tuple:4"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle.extent_50000m",
+      "native_dataset_id": 52082,
+      "native_site_id": 28072,
+      "regional_extent_m": 50000,
+      "computed_windows": 24,
+      "maximum_absolute_cover_change_percentage_points": "0.42392515600868800876104306945621638483365419293466155791811600763479410801264900",
+      "windows": [
+        {
+          "baseline_window_sha256": "0c1db448786ddbc96146012d5d6f34952de8d4e5945c66086362abc9f0fbf9c7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7b4962511fdd33437e806f949f1ff8554e702a0a1b46cf5867163279a2eeab00",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "acacd6df8d19365f51c251532292cce9b7914120e1419dc804f36fea642c0f3d",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c21bbceee6f6b2c343c18fe9e7e16eb9a855f4a6c0d844af07f47d921a8a2540",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "095a5ac9a2013201aa46cb2ae0173afc6f7d2e5abd60f748280b850cac9af953",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b3738ebc89ce212932e38e39ae072f872fb54d43185e378203ad5ae821fee274",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "2b589b55684dc2244407890e2113ca42e3081bfa224368872a3b1821a1952340",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c741f95cddebd35bf499898800dfc454f17a119695777c8c90a9f8893bec5f1f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d86f93981130ff0ea87233c13cf11ca666a6404c63a704fead0a5362798c9939",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3a84d2d94dc7cc3c1bb675142138214c98442f8a9f31c544cd407ea3efe6428d",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8c85844b1d974dcab20c283f2677702a63ead2575d96d1276c84b998884ad7b2",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7c39deb4dac0a7cc03d026a566b6ea57f32b3f1392c11db6fa5d2ea742743d33",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "52e0d75101d0bcca9762a6b4f3eb5551a99392597244e5b04019a3ed37df4a14",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d1097133d663cef973aa526d1bf032950e46d72d92decf2301fb8c33e56d3773",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "12e5ca9c09d0fce291089d1314f597adce441a87d0d4992fed5f3b4da9ea8971",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1bbf7c41a2c1e3154b575eacceceee57817a2bec2f31d1b09f9b6c2f0daa9ca6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3f13d8713a63d09fd30852cae10fed57787ddb0b94fc6a63428630cef2d35c5b",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "10ef5c832d76e32574f5b23ce7ea9cefbb0809633099a5de10b04a1b21e1b782",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "98e4f44af167b8e5cd765c2ca606e52485fbde6b7d4b5dddcfc4d3d69cd1734b",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b1475948db7f2f177a9063e34f9af1612d742181c145ac75883e8c63ded9ceff",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "9ad9afd1d917d7a1c0b03c8eb6339f522dc6c43f267ceb79b8a1a1f043363d01",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "92072323a9a59071b0a33d2b86ca37014c0837c98315d1d5fed030986d51f0ca",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "129cc23310fbb4f71e6fe55e428f5c9ddcde1f402e35a2d7d0aaffbc818b7f41",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "89330721089ec753400e5c055b75b14da9df06f8044f0ae88b6a66b694cb1841",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "52082.reported_25_5_ha_static_circle",
+      "baseline_case_sha256": "877d5cf124fdb5f1f37bb98ede9b0d69ac032e2a00b78644af59ac8881c636c2",
+      "physical_tuple_ids": [
+        "extent-tuple:5",
+        "extent-tuple:6"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle.extent_200000m",
+      "native_dataset_id": 52082,
+      "native_site_id": 28072,
+      "regional_extent_m": 200000,
+      "computed_windows": 24,
+      "maximum_absolute_cover_change_percentage_points": "0.40494674035357213329754247573903157241408311371027763532530609172087235643991500",
+      "windows": [
+        {
+          "baseline_window_sha256": "0c1db448786ddbc96146012d5d6f34952de8d4e5945c66086362abc9f0fbf9c7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7b4962511fdd33437e806f949f1ff8554e702a0a1b46cf5867163279a2eeab00",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "acacd6df8d19365f51c251532292cce9b7914120e1419dc804f36fea642c0f3d",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c21bbceee6f6b2c343c18fe9e7e16eb9a855f4a6c0d844af07f47d921a8a2540",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "095a5ac9a2013201aa46cb2ae0173afc6f7d2e5abd60f748280b850cac9af953",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b3738ebc89ce212932e38e39ae072f872fb54d43185e378203ad5ae821fee274",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "2b589b55684dc2244407890e2113ca42e3081bfa224368872a3b1821a1952340",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c741f95cddebd35bf499898800dfc454f17a119695777c8c90a9f8893bec5f1f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d86f93981130ff0ea87233c13cf11ca666a6404c63a704fead0a5362798c9939",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3a84d2d94dc7cc3c1bb675142138214c98442f8a9f31c544cd407ea3efe6428d",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8c85844b1d974dcab20c283f2677702a63ead2575d96d1276c84b998884ad7b2",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7c39deb4dac0a7cc03d026a566b6ea57f32b3f1392c11db6fa5d2ea742743d33",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "52e0d75101d0bcca9762a6b4f3eb5551a99392597244e5b04019a3ed37df4a14",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d1097133d663cef973aa526d1bf032950e46d72d92decf2301fb8c33e56d3773",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "12e5ca9c09d0fce291089d1314f597adce441a87d0d4992fed5f3b4da9ea8971",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1bbf7c41a2c1e3154b575eacceceee57817a2bec2f31d1b09f9b6c2f0daa9ca6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3f13d8713a63d09fd30852cae10fed57787ddb0b94fc6a63428630cef2d35c5b",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "10ef5c832d76e32574f5b23ce7ea9cefbb0809633099a5de10b04a1b21e1b782",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "98e4f44af167b8e5cd765c2ca606e52485fbde6b7d4b5dddcfc4d3d69cd1734b",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b1475948db7f2f177a9063e34f9af1612d742181c145ac75883e8c63ded9ceff",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "9ad9afd1d917d7a1c0b03c8eb6339f522dc6c43f267ceb79b8a1a1f043363d01",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "92072323a9a59071b0a33d2b86ca37014c0837c98315d1d5fed030986d51f0ca",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "129cc23310fbb4f71e6fe55e428f5c9ddcde1f402e35a2d7d0aaffbc818b7f41",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "89330721089ec753400e5c055b75b14da9df06f8044f0ae88b6a66b694cb1841",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "52082.reported_25_5_ha_static_circle",
+      "baseline_case_sha256": "877d5cf124fdb5f1f37bb98ede9b0d69ac032e2a00b78644af59ac8881c636c2",
+      "physical_tuple_ids": [
+        "extent-tuple:7",
+        "extent-tuple:8"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "20034.metadata_static_radius.extent_50000m",
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "regional_extent_m": 50000,
+      "computed_windows": 22,
+      "maximum_absolute_cover_change_percentage_points": "0.57174267996895585940167769790536476649457375459067784351593396753781665875620900",
+      "windows": [
+        {
+          "baseline_window_sha256": "65ac2e4a3e2156b6d3c991bbdc33d8d034b5b2a6ccccdb533be6535f84d43a74",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "47eb2c30d47eb686d434b53944ce584c12efca27f562c85d882c732f5afe30d1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "5c0bbb822efd5a27134f729d2fe9b499fb7db5eaf2eccfb30b3e25e29d2ac153",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "645a8fca4687bba421c8cdc39a2bb4dc4d8b9c08654bf2a5058604573d055381",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "906e87d66e65b0ce88eb1e6b07020a0fe5bb3569fb1b77914484b9a4cf1956ad",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "15495b905fa889d88acddaf2fc6d96414db0d4f7f98ec79fe0f2a70e6fe0bd92",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "370153382a9b3c0ffe979aca5a2eee9b4d1f8a42f571b3df517c9595ee6f4e74",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "96744f516cd864676f06a437e0721afee918f70dfe3d42e07e2712ce1ed528ce",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "53e647fd74059e494cdbce76207639b7a53ba3849080108dd61a6269733b76e0",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "52b22d67ee7485f27d857d62d313e7bf44318a191f52b87dcd21aa85f342624f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "407adad952eb655d1ab8b624b462d64a20997c00c1c9042b70bfdd5dfb7a8cc5",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f41e824e3ff522d1e23c19db65c674eb6d8da6a2cb3b0c946e5ada105bf22618",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "a8505b00a70515d365ebde4d83edefecd7d09dc3a635225a714f71ecb8668bf8",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "26ba1f29e8149bc78e75616240e2ee8883c419ca931d61f85ddc1f2b37f08dbd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f98adfab0205c9ff3059b77446568e526146173679e434ce7dd2ab8025e9c1ae",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "54b35bd9e4c39940c70a536f6f37303a62180e85068343ae94d0f46a209a51c6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "78e4400dbbb80f6ec1d323482270d2ee78cd58ea7454c602e9487add510fd470",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "24233b586384db0501657e373c880cbd1f7410dd53035d33333337924a7d5be7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8bfa585c2a45626ece7217bbb33ef296e5a891016d961fca45bd7e60ebae91ad",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "459103f46b564b48dd5a57ddead00bd3bea5f4617dedd03371fd34a18c9e5057",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1b2b2a0dddc0ebf79fee6dbbdda66b5e141852913c147dcf41f683ed8af34d0c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8c090f671cbf01387743222d285f2bd23ca5897d79c3db0f352e3ee265c8c08b",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "20034.metadata_static_radius",
+      "baseline_case_sha256": "0911430749b7927854452c63edc42bbf34f11cc2cfce94ece1ae47bbadaa8e01",
+      "physical_tuple_ids": [
+        "extent-tuple:9",
+        "extent-tuple:10",
+        "extent-tuple:11"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "20034.metadata_static_radius.extent_200000m",
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "regional_extent_m": 200000,
+      "computed_windows": 22,
+      "maximum_absolute_cover_change_percentage_points": "0.54149901396054100921389425158156416719366515413538272578353487621217430510588800",
+      "windows": [
+        {
+          "baseline_window_sha256": "65ac2e4a3e2156b6d3c991bbdc33d8d034b5b2a6ccccdb533be6535f84d43a74",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "47eb2c30d47eb686d434b53944ce584c12efca27f562c85d882c732f5afe30d1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "5c0bbb822efd5a27134f729d2fe9b499fb7db5eaf2eccfb30b3e25e29d2ac153",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "645a8fca4687bba421c8cdc39a2bb4dc4d8b9c08654bf2a5058604573d055381",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "906e87d66e65b0ce88eb1e6b07020a0fe5bb3569fb1b77914484b9a4cf1956ad",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "15495b905fa889d88acddaf2fc6d96414db0d4f7f98ec79fe0f2a70e6fe0bd92",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "370153382a9b3c0ffe979aca5a2eee9b4d1f8a42f571b3df517c9595ee6f4e74",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "96744f516cd864676f06a437e0721afee918f70dfe3d42e07e2712ce1ed528ce",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "53e647fd74059e494cdbce76207639b7a53ba3849080108dd61a6269733b76e0",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "52b22d67ee7485f27d857d62d313e7bf44318a191f52b87dcd21aa85f342624f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "407adad952eb655d1ab8b624b462d64a20997c00c1c9042b70bfdd5dfb7a8cc5",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f41e824e3ff522d1e23c19db65c674eb6d8da6a2cb3b0c946e5ada105bf22618",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "a8505b00a70515d365ebde4d83edefecd7d09dc3a635225a714f71ecb8668bf8",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "26ba1f29e8149bc78e75616240e2ee8883c419ca931d61f85ddc1f2b37f08dbd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f98adfab0205c9ff3059b77446568e526146173679e434ce7dd2ab8025e9c1ae",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "54b35bd9e4c39940c70a536f6f37303a62180e85068343ae94d0f46a209a51c6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "78e4400dbbb80f6ec1d323482270d2ee78cd58ea7454c602e9487add510fd470",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "24233b586384db0501657e373c880cbd1f7410dd53035d33333337924a7d5be7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8bfa585c2a45626ece7217bbb33ef296e5a891016d961fca45bd7e60ebae91ad",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "459103f46b564b48dd5a57ddead00bd3bea5f4617dedd03371fd34a18c9e5057",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1b2b2a0dddc0ebf79fee6dbbdda66b5e141852913c147dcf41f683ed8af34d0c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8c090f671cbf01387743222d285f2bd23ca5897d79c3db0f352e3ee265c8c08b",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "20034.metadata_static_radius",
+      "baseline_case_sha256": "0911430749b7927854452c63edc42bbf34f11cc2cfce94ece1ae47bbadaa8e01",
+      "physical_tuple_ids": [
+        "extent-tuple:12",
+        "extent-tuple:13",
+        "extent-tuple:14"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle.extent_50000m",
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "regional_extent_m": 50000,
+      "computed_windows": 22,
+      "maximum_absolute_cover_change_percentage_points": "0.56866545527649184736869174113688348916617302377927180251042082502319697137973800",
+      "windows": [
+        {
+          "baseline_window_sha256": "2ba0b0556be527d546c76343834a2ff7873f2e8e239b5bda90f8d8e8d07452f2",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c1cb528d4d9f7ad3c866f2b86abbd1378cdfd75cb605dc3a3fd4e0810a34ddc7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "915b6bd5e832a86dba12dc2a48b3b7959f46c7be05d80e3a1a44eb3fd8840ef1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6550299f577a93a7284a917b40888d8a9c447845e854a93b268d53292d6b0942",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b1e166091b6b26fb022ba8b8083c4ceeef39c8b242cdf9bf2a447d795607da97",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "a61b83fa2c4dfc65393d80e9fa24a464d6903243b0b11ea6f05f79490cb3d790",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c7cb800ab1d78c38189f518540230a6325fffcaeccc2e86e73e1b58303cce4f9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8a1b497fbbf27a561ad986e9d820db6e5906d210b18efaf157a55bf1e9b27fb5",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d5cb476a47a37643ef25398148f94a8158a1456af1028fb1db912d864702bbd3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c2b95462f432122ad80d66e841b611bfc66576af1221b07d7afb11b57ffe3f85",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "48659b7231d58fdc6405e9f97f45e91e5a10d015008bd98148d4d92bcef1c4ed",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c23ab40df90ada54f8651cbf3aaa51b9dde12cf5d7608cb216bab77ca94af8e8",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "df2a5b74ec61fd1ef71296e7ecbb1c92f1691ee649a47a28b895b77dded0cddf",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1f352c2bc81e78cf3715a205473a380845438db8af3b8993e44391b0aedeae89",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1f03dc790debaf5850357237fadd38bfe844958b5bcdea5b2ef6b315538efb49",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c7a816fccd52ff8b1d6eabaf7bee88300439d1fd45bec5ffcd07bf5faa9f2219",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4f310bc937b5729b2ba6aa3323afd008b14491f7a298e39cbab34268e560fdc6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6d912283d89fe69849112635c36ad7a94f04518a54eeadbb7e7c81f0949ea203",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "366c9035948c991691c66331eeaefaa72e88752c45efc21c0dfb0eb3d494ec31",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "bdce1e83d83074bf2232fd12dc773a60d7ef7e8c4b1927482871fda1536a832c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f987dbfe23fb3a15cd64e17343cdf0fc43ab71a174c58a64455006de501273b7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "e8a105bda11d32675d1de41f94930529e9802fcc2985f32efe1b5391446c9128",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "20034.reported_7_2_ha_static_circle",
+      "baseline_case_sha256": "d9bcfd3a383ccc7bc3eec5ed5e5490329fdc756e7d85ad125c14eaf7d8c21c42",
+      "physical_tuple_ids": [
+        "extent-tuple:15",
+        "extent-tuple:16",
+        "extent-tuple:17"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle.extent_200000m",
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "regional_extent_m": 200000,
+      "computed_windows": 22,
+      "maximum_absolute_cover_change_percentage_points": "0.53851357252082492598974992535320867126902175324164267397062600538103115349287800",
+      "windows": [
+        {
+          "baseline_window_sha256": "2ba0b0556be527d546c76343834a2ff7873f2e8e239b5bda90f8d8e8d07452f2",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c1cb528d4d9f7ad3c866f2b86abbd1378cdfd75cb605dc3a3fd4e0810a34ddc7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "915b6bd5e832a86dba12dc2a48b3b7959f46c7be05d80e3a1a44eb3fd8840ef1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6550299f577a93a7284a917b40888d8a9c447845e854a93b268d53292d6b0942",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b1e166091b6b26fb022ba8b8083c4ceeef39c8b242cdf9bf2a447d795607da97",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "a61b83fa2c4dfc65393d80e9fa24a464d6903243b0b11ea6f05f79490cb3d790",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c7cb800ab1d78c38189f518540230a6325fffcaeccc2e86e73e1b58303cce4f9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8a1b497fbbf27a561ad986e9d820db6e5906d210b18efaf157a55bf1e9b27fb5",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d5cb476a47a37643ef25398148f94a8158a1456af1028fb1db912d864702bbd3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c2b95462f432122ad80d66e841b611bfc66576af1221b07d7afb11b57ffe3f85",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "48659b7231d58fdc6405e9f97f45e91e5a10d015008bd98148d4d92bcef1c4ed",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c23ab40df90ada54f8651cbf3aaa51b9dde12cf5d7608cb216bab77ca94af8e8",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "df2a5b74ec61fd1ef71296e7ecbb1c92f1691ee649a47a28b895b77dded0cddf",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1f352c2bc81e78cf3715a205473a380845438db8af3b8993e44391b0aedeae89",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1f03dc790debaf5850357237fadd38bfe844958b5bcdea5b2ef6b315538efb49",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c7a816fccd52ff8b1d6eabaf7bee88300439d1fd45bec5ffcd07bf5faa9f2219",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4f310bc937b5729b2ba6aa3323afd008b14491f7a298e39cbab34268e560fdc6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6d912283d89fe69849112635c36ad7a94f04518a54eeadbb7e7c81f0949ea203",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "366c9035948c991691c66331eeaefaa72e88752c45efc21c0dfb0eb3d494ec31",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "bdce1e83d83074bf2232fd12dc773a60d7ef7e8c4b1927482871fda1536a832c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f987dbfe23fb3a15cd64e17343cdf0fc43ab71a174c58a64455006de501273b7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "e8a105bda11d32675d1de41f94930529e9802fcc2985f32efe1b5391446c9128",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "20034.reported_7_2_ha_static_circle",
+      "baseline_case_sha256": "d9bcfd3a383ccc7bc3eec5ed5e5490329fdc756e7d85ad125c14eaf7d8c21c42",
+      "physical_tuple_ids": [
+        "extent-tuple:18",
+        "extent-tuple:19",
+        "extent-tuple:20"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle.extent_50000m",
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "regional_extent_m": 50000,
+      "computed_windows": 22,
+      "maximum_absolute_cover_change_percentage_points": "0.57159461174408989610063358243429904946467127123990633867906902295783632174149100",
+      "windows": [
+        {
+          "baseline_window_sha256": "6bc60313bc2434118548ed836734ca5de625bb4d9eaecd7f431fd966303f79df",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "120c56030294e3a23212c87db4529d40f79fc14fece3d2a56d72f0bc8c98df44",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3dc3cc8c5aeddc28f5966da6fbbcf3bdbb324d3e78b017cf757def114bf5893f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ca8c4e8587bcdc2c841d2882bee653738f66fdcbc94660f2e35a3109557fc2db",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6cc11c6b02e1b0a43fc6ae404563faf8065e010bf3816e3ac8d7c2234620d668",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "be7ddc18db41dd554a1d8b73309d422f56666a18ab3b75100761152994acd396",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "84d8b2a68c5c03d4ccf550814becc05d2bc84f41c4d3148d4cc499807c47fb11",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "36ff8fdec0b2880613e49077be7e8cbd29e949d3f563da419f77e4599e7b3427",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "0ef041be8208a04a8f938d40e10976035e181e4d8c9f5f42dacf13090d9bc066",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3b61f3fee54a4a1f468b3c4c1a65f9d2806229ac254fe4645fcf4f293be0dd61",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "159db3e0479956f9b0cef1109c55ad4c021723e4e93ee718cee3febf93ff9422",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "eb1a681a4dde3b7fef2454af79cc1a6405c455ccf1be5ca0b3b7c2e76d5f98b9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ecc51067b0529f8258bbecca3b0a8bcf1ca37400cbe55c31dfc945179102e9a3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f145f2fc5e29abaac006eb1362e212e46dfa344fda7e3809e19677f18dd6dc71",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c40965f9666fe8184441f03224e3280fea8a58efed46f84d2deaf18826b3cb78",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ff0587569e8c52633a36a98d208081bdc38dd672aaf6fb7cd4886ae53e99aba3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d67b93b341c865d79c8740dc7e5dc01450c9f3ddfa88a1371552363d4c2c3d05",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d31b4903d0135eebd91a982102dfb2f88db399fa4c578df04dad8e183ff329fa",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "eb5c743d55d71121482c90c2ba30da39036bd657b4dc2f542d71b8ddea4691d9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "9aafeaa071ea5627ed1aa0db0b62185213d5003e83cfa9ca3f88bc262e7b461e",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "a4059ccdbe91be9bb10bd1c4085baf3dd6e15b2c15449746811eab0ab2a96fd9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "e8fd1c5cfd078e94c657cc830559a3fbbcf3aa6bd8fd338ba203112d362b7c5a",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "20034.reported_8_0_ha_static_circle",
+      "baseline_case_sha256": "b4117e13b813666f5910b06f8c03acc3b95e84df3aa9a59b13a48204192e366a",
+      "physical_tuple_ids": [
+        "extent-tuple:21",
+        "extent-tuple:22",
+        "extent-tuple:23"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle.extent_200000m",
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "regional_extent_m": 200000,
+      "computed_windows": 22,
+      "maximum_absolute_cover_change_percentage_points": "0.54135537864311563046603018543729146830324914895933361574468733118821571314899700",
+      "windows": [
+        {
+          "baseline_window_sha256": "6bc60313bc2434118548ed836734ca5de625bb4d9eaecd7f431fd966303f79df",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "120c56030294e3a23212c87db4529d40f79fc14fece3d2a56d72f0bc8c98df44",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3dc3cc8c5aeddc28f5966da6fbbcf3bdbb324d3e78b017cf757def114bf5893f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ca8c4e8587bcdc2c841d2882bee653738f66fdcbc94660f2e35a3109557fc2db",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6cc11c6b02e1b0a43fc6ae404563faf8065e010bf3816e3ac8d7c2234620d668",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "be7ddc18db41dd554a1d8b73309d422f56666a18ab3b75100761152994acd396",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "84d8b2a68c5c03d4ccf550814becc05d2bc84f41c4d3148d4cc499807c47fb11",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "36ff8fdec0b2880613e49077be7e8cbd29e949d3f563da419f77e4599e7b3427",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "0ef041be8208a04a8f938d40e10976035e181e4d8c9f5f42dacf13090d9bc066",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3b61f3fee54a4a1f468b3c4c1a65f9d2806229ac254fe4645fcf4f293be0dd61",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "159db3e0479956f9b0cef1109c55ad4c021723e4e93ee718cee3febf93ff9422",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "eb1a681a4dde3b7fef2454af79cc1a6405c455ccf1be5ca0b3b7c2e76d5f98b9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ecc51067b0529f8258bbecca3b0a8bcf1ca37400cbe55c31dfc945179102e9a3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f145f2fc5e29abaac006eb1362e212e46dfa344fda7e3809e19677f18dd6dc71",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c40965f9666fe8184441f03224e3280fea8a58efed46f84d2deaf18826b3cb78",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ff0587569e8c52633a36a98d208081bdc38dd672aaf6fb7cd4886ae53e99aba3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d67b93b341c865d79c8740dc7e5dc01450c9f3ddfa88a1371552363d4c2c3d05",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d31b4903d0135eebd91a982102dfb2f88db399fa4c578df04dad8e183ff329fa",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "eb5c743d55d71121482c90c2ba30da39036bd657b4dc2f542d71b8ddea4691d9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "9aafeaa071ea5627ed1aa0db0b62185213d5003e83cfa9ca3f88bc262e7b461e",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "a4059ccdbe91be9bb10bd1c4085baf3dd6e15b2c15449746811eab0ab2a96fd9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "e8fd1c5cfd078e94c657cc830559a3fbbcf3aa6bd8fd338ba203112d362b7c5a",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "20034.reported_8_0_ha_static_circle",
+      "baseline_case_sha256": "b4117e13b813666f5910b06f8c03acc3b95e84df3aa9a59b13a48204192e366a",
+      "physical_tuple_ids": [
+        "extent-tuple:24",
+        "extent-tuple:25",
+        "extent-tuple:26"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "4445.metadata_static_radius.extent_50000m",
+      "native_dataset_id": 4445,
+      "native_site_id": 3432,
+      "regional_extent_m": 50000,
+      "computed_windows": 23,
+      "maximum_absolute_cover_change_percentage_points": "0.69242768769936398552765533708231008040765888666079123740199787066073264819562100",
+      "windows": [
+        {
+          "baseline_window_sha256": "aec7e8c1a2729fee74086549f980df4e0fe04fcd1e237955aa228627b4a1ca9a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "659890d0b0df077be64c1ad1a5ef843bcf0c5b8adda8314a7775b6d5c7288784",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "cf4127ba9191c10a52ae754a54f851d3f1b664afbd3fe22ef0b166066080915d",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "006e966bdf2f041a432ed5255b1d426ad32041ace864f4ae1d8810d43f05e902",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1c5a7f6c7b3bfdc97c6241e5c05c1cd2d6a60b80843e2b43ea1c1e11e61de0a7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "830df7c6c994ce84af415594f782e9660dd21cc14b186fb177c7686a1f54ee14",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "a73a39d79aac8e1e6ce7f586a210d74bef1477fe4d9c47f0806b19cb3e81bf3a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "63c15471e4565c116fe1c9d3d593d7ebe83739d1bbce41c3336439ec93f92c23",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6ddafdc7f6bc08efb512fbbb118079398d76c67a40a8c75bffe44798ba69ed90",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d565ab1db10a4e4bfec381b02e64477c197af929a111522f56025ba8a21e4841",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "0bdfbbcb96fe3848eb5786ef08d73a5a604a4ee70b306d4c5822d42f015a1317",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8b60fbadaa2fe7bf71cdda908c45dabf7b073b4cf8f5d35aff07ea216ec65fcb",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "65e8ba9e32a3aa002760363adc71002d8e3f45b19c0f1834920f2a7c9f436aab",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d2becfdfb9dae24b8a121209c12b9a3dacb06c14c690921c57b2f380707706b0",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c7ea70b532e4903bee4749f463711613b29c079746fd91704539448edfc9fe78",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8f76dd5afd4506f62755f71e0ab2c27abcf774c9446692a091455d4eb3c3b775",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7d86a47d03ce064520ddfaaf35981fbe375bfff3e63146bf5563fd4a0133c935",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b0b16119da598dc48a8591ac194b50e2972e84d3b68cc765abb48a58a5e6ee22",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "59aad071c9cdcda6a448e39d70b60a4088697d5bb198a2e3205e5ea29f43f14a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "cc3c14d8e4faab2f363ab7bc270e867b3c5396d1afeecbfcb0738bdd1b3e4c25",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "dc078a99a650488fd9a80b40237fd409dd340bdb321e3533e21408f5e42250fd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "914937d04424d496bb45f0131608dc5f5e14afa71b80d3e87b2b2264bf4dfe87",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "11cf05b3aca8734db6af1037120315f5042d103976f952cccb8fa55643734ef0",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "4445.metadata_static_radius",
+      "baseline_case_sha256": "ad1edb3ad9ff677c8a8792432455c1ade3723ca680a088776428b9cf6f3b822c",
+      "physical_tuple_ids": [
+        "extent-tuple:27",
+        "extent-tuple:28"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "4445.metadata_static_radius.extent_200000m",
+      "native_dataset_id": 4445,
+      "native_site_id": 3432,
+      "regional_extent_m": 200000,
+      "computed_windows": 23,
+      "maximum_absolute_cover_change_percentage_points": "0.64589708591450375810740159968425762437005519881969259417970777807195023346292500",
+      "windows": [
+        {
+          "baseline_window_sha256": "aec7e8c1a2729fee74086549f980df4e0fe04fcd1e237955aa228627b4a1ca9a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "659890d0b0df077be64c1ad1a5ef843bcf0c5b8adda8314a7775b6d5c7288784",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "cf4127ba9191c10a52ae754a54f851d3f1b664afbd3fe22ef0b166066080915d",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "006e966bdf2f041a432ed5255b1d426ad32041ace864f4ae1d8810d43f05e902",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1c5a7f6c7b3bfdc97c6241e5c05c1cd2d6a60b80843e2b43ea1c1e11e61de0a7",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "830df7c6c994ce84af415594f782e9660dd21cc14b186fb177c7686a1f54ee14",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "a73a39d79aac8e1e6ce7f586a210d74bef1477fe4d9c47f0806b19cb3e81bf3a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "63c15471e4565c116fe1c9d3d593d7ebe83739d1bbce41c3336439ec93f92c23",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6ddafdc7f6bc08efb512fbbb118079398d76c67a40a8c75bffe44798ba69ed90",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d565ab1db10a4e4bfec381b02e64477c197af929a111522f56025ba8a21e4841",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "0bdfbbcb96fe3848eb5786ef08d73a5a604a4ee70b306d4c5822d42f015a1317",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8b60fbadaa2fe7bf71cdda908c45dabf7b073b4cf8f5d35aff07ea216ec65fcb",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "65e8ba9e32a3aa002760363adc71002d8e3f45b19c0f1834920f2a7c9f436aab",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d2becfdfb9dae24b8a121209c12b9a3dacb06c14c690921c57b2f380707706b0",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c7ea70b532e4903bee4749f463711613b29c079746fd91704539448edfc9fe78",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "8f76dd5afd4506f62755f71e0ab2c27abcf774c9446692a091455d4eb3c3b775",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7d86a47d03ce064520ddfaaf35981fbe375bfff3e63146bf5563fd4a0133c935",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b0b16119da598dc48a8591ac194b50e2972e84d3b68cc765abb48a58a5e6ee22",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "59aad071c9cdcda6a448e39d70b60a4088697d5bb198a2e3205e5ea29f43f14a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "cc3c14d8e4faab2f363ab7bc270e867b3c5396d1afeecbfcb0738bdd1b3e4c25",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "dc078a99a650488fd9a80b40237fd409dd340bdb321e3533e21408f5e42250fd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "914937d04424d496bb45f0131608dc5f5e14afa71b80d3e87b2b2264bf4dfe87",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "11cf05b3aca8734db6af1037120315f5042d103976f952cccb8fa55643734ef0",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "4445.metadata_static_radius",
+      "baseline_case_sha256": "ad1edb3ad9ff677c8a8792432455c1ade3723ca680a088776428b9cf6f3b822c",
+      "physical_tuple_ids": [
+        "extent-tuple:29",
+        "extent-tuple:30"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle.extent_50000m",
+      "native_dataset_id": 4445,
+      "native_site_id": 3432,
+      "regional_extent_m": 50000,
+      "computed_windows": 23,
+      "maximum_absolute_cover_change_percentage_points": "0.69256925810785170106040951128890803773791495172251208102415103089421744473690200",
+      "windows": [
+        {
+          "baseline_window_sha256": "6b2a9874520481e683f3b98714d8d3540848aeca54d0b45e17511c5c301f0e4a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "5a19f027ff537e71f66d2252a1d17100f521659153ac4614be2118865b213d63",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "22c092df0f2592e5b2ed16fa96f027d2b52ec4da6799ed40453fd96e6e12c04f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6db304ab9a5c9fd821ba1ef186bc21c5788c336a2b309f15460748862a3a89a9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c2bdb21617001e0c6ca7bdc56be2d0a93b270dccad568c062ff37e81fdc85507",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b60118084c2cfa1b0a396720cd2a384fd7f881f7368fc5c0e6dfeb3c69740ef1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "91d14c1e2cc0eca5124c338c685f660272d65ad39852f29d79a01ba0740117e3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ba7e131ea23b0873b9294cdf27133d33dceae51bd833b57051fd35b9138a500c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ed8da4d615bfdbd489c930260d1c8a6d70b25e87d3e5d04b5c2c5fa6a6a1cd3a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "26083145414df97c0a3fd00082bc474ca758085897e1d29a28558b10000b18e6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1781b3eaa98d003425e9f91ebd12d289e20fc25c8f3908a64535d0427d8ccbff",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "9b402c920b1cf4c695cb8d931a3865514cf4f835a69720f6a79092195e8c4249",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ec51aca33eb6bc955f715d8708e83991288a0d9f096909d6e754ec8df6ccfa23",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f178664c09478171c8ac9b812799d8dbee05860338e032be27d6dfa72af0dd39",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "261a2ee4f4986f9ee514ba16197a7efe646333dc1aefde810cb39cf5de5f8abd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "2ad9f20f6461cfb81dfd256f440c54477f870b8ebe72756a71f46e42a1f9383c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "17a8eb439331e03e36588c86b6cb98caf80353c886c29f1ea3cf59783b58d587",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "93215b71cdaa512b045366913e4de5f7eb0746305e931c21f414cb0b5a878827",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7522e7e58821db134d14892f9f0fb463ef5b0390df19c3d6cb64bf2adca5cfcc",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "979d7aeee96afa60c5576b89e6f0410f5e3437550bd29161c7f147b4d0dd6b83",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b24b7b2bd6f08b037cc80f6fa187f227694c1a61c07f74e0dcb1c717bd9a40f3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7219c072e22a35c9607b6d5c0ff6f18bea7f88a06c19762f0c87e32e24343f89",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c06de8244dfbd141f22a5e7e7f01abd4f90847a195d01243b31be7f80ca1d9d4",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "4445.reported_2_5_ha_static_circle",
+      "baseline_case_sha256": "eb1e7c030282bcedc2e94037adfacca6a1cd0b2c45df03db0103357706f72b16",
+      "physical_tuple_ids": [
+        "extent-tuple:31",
+        "extent-tuple:32"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle.extent_200000m",
+      "native_dataset_id": 4445,
+      "native_site_id": 3432,
+      "regional_extent_m": 200000,
+      "computed_windows": 23,
+      "maximum_absolute_cover_change_percentage_points": "0.64603207703291100032487292794594335556165342277674737922380869088213932891666300",
+      "windows": [
+        {
+          "baseline_window_sha256": "6b2a9874520481e683f3b98714d8d3540848aeca54d0b45e17511c5c301f0e4a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "5a19f027ff537e71f66d2252a1d17100f521659153ac4614be2118865b213d63",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "22c092df0f2592e5b2ed16fa96f027d2b52ec4da6799ed40453fd96e6e12c04f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6db304ab9a5c9fd821ba1ef186bc21c5788c336a2b309f15460748862a3a89a9",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c2bdb21617001e0c6ca7bdc56be2d0a93b270dccad568c062ff37e81fdc85507",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b60118084c2cfa1b0a396720cd2a384fd7f881f7368fc5c0e6dfeb3c69740ef1",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "91d14c1e2cc0eca5124c338c685f660272d65ad39852f29d79a01ba0740117e3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ba7e131ea23b0873b9294cdf27133d33dceae51bd833b57051fd35b9138a500c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ed8da4d615bfdbd489c930260d1c8a6d70b25e87d3e5d04b5c2c5fa6a6a1cd3a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "26083145414df97c0a3fd00082bc474ca758085897e1d29a28558b10000b18e6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "1781b3eaa98d003425e9f91ebd12d289e20fc25c8f3908a64535d0427d8ccbff",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "9b402c920b1cf4c695cb8d931a3865514cf4f835a69720f6a79092195e8c4249",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "ec51aca33eb6bc955f715d8708e83991288a0d9f096909d6e754ec8df6ccfa23",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "f178664c09478171c8ac9b812799d8dbee05860338e032be27d6dfa72af0dd39",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "261a2ee4f4986f9ee514ba16197a7efe646333dc1aefde810cb39cf5de5f8abd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "2ad9f20f6461cfb81dfd256f440c54477f870b8ebe72756a71f46e42a1f9383c",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "17a8eb439331e03e36588c86b6cb98caf80353c886c29f1ea3cf59783b58d587",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "93215b71cdaa512b045366913e4de5f7eb0746305e931c21f414cb0b5a878827",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7522e7e58821db134d14892f9f0fb463ef5b0390df19c3d6cb64bf2adca5cfcc",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "979d7aeee96afa60c5576b89e6f0410f5e3437550bd29161c7f147b4d0dd6b83",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b24b7b2bd6f08b037cc80f6fa187f227694c1a61c07f74e0dcb1c717bd9a40f3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7219c072e22a35c9607b6d5c0ff6f18bea7f88a06c19762f0c87e32e24343f89",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "c06de8244dfbd141f22a5e7e7f01abd4f90847a195d01243b31be7f80ca1d9d4",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "4445.reported_2_5_ha_static_circle",
+      "baseline_case_sha256": "eb1e7c030282bcedc2e94037adfacca6a1cd0b2c45df03db0103357706f72b16",
+      "physical_tuple_ids": [
+        "extent-tuple:33",
+        "extent-tuple:34"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "4446.metadata_static_radius.extent_50000m",
+      "native_dataset_id": 4446,
+      "native_site_id": 3432,
+      "regional_extent_m": 50000,
+      "computed_windows": 11,
+      "maximum_absolute_cover_change_percentage_points": "0.61352460105971960287547856074395134456715547225751102291223041775676162306925500",
+      "windows": [
+        {
+          "baseline_window_sha256": "994b23e22d64c2891317d0952349c336929980ed8ff1c6ac5e864113b1571b2b",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d167961d624f23c9f531d65934d9ba7f891101a20268b67ada58f8f0695ac0e3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4e2328e3234027901a964cdd4eca64fd2f4bb762a900bae65491e9011c289f54",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "32b6d0bbf462178f99ea6935849b9cfd829fd406625c90d7edbe52d09d09232f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "54e2cd5777240cc72a6be619187c8a71bd683523e4bac9f2832a9f30e2bbabca",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "372fe56f7cd5d5ae4b2b6d7d5644bb7b132ec4800949de0e1d52cf642758a7cd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "93078f224def6856b749f3892bd179142e531b83540758bb5ad43858084a6ce6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6e1134f0185b7f7859883dc9a489a93c25c080e8d6a5c0abe248705e90bde41e",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "02842684be829979ca241e2fbdac3e0d5e3721f0626380226a8722884ab55982",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "54926219b3ab3b13674c5cb7cd85b9e78b3f2b6a653f869aab943e7396452e37",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "05cd3bbba7181aa34c3b1732981c75a2daeb5f386c040ee0efe6d02592725ae8",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "4446.metadata_static_radius",
+      "baseline_case_sha256": "9e02279167e671f69cdcc1f0bb2f50c7bccf2ffe8c7cb1be82166fd4d40af96c",
+      "physical_tuple_ids": [
+        "extent-tuple:35",
+        "extent-tuple:27",
+        "extent-tuple:28",
+        "extent-tuple:36",
+        "extent-tuple:37",
+        "extent-tuple:37"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "4446.metadata_static_radius.extent_200000m",
+      "native_dataset_id": 4446,
+      "native_site_id": 3432,
+      "regional_extent_m": 200000,
+      "computed_windows": 11,
+      "maximum_absolute_cover_change_percentage_points": "0.56889994574539653264641990857383113440719959048398748219119256242726935726963400",
+      "windows": [
+        {
+          "baseline_window_sha256": "994b23e22d64c2891317d0952349c336929980ed8ff1c6ac5e864113b1571b2b",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d167961d624f23c9f531d65934d9ba7f891101a20268b67ada58f8f0695ac0e3",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4e2328e3234027901a964cdd4eca64fd2f4bb762a900bae65491e9011c289f54",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "32b6d0bbf462178f99ea6935849b9cfd829fd406625c90d7edbe52d09d09232f",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "54e2cd5777240cc72a6be619187c8a71bd683523e4bac9f2832a9f30e2bbabca",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "372fe56f7cd5d5ae4b2b6d7d5644bb7b132ec4800949de0e1d52cf642758a7cd",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "93078f224def6856b749f3892bd179142e531b83540758bb5ad43858084a6ce6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6e1134f0185b7f7859883dc9a489a93c25c080e8d6a5c0abe248705e90bde41e",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "02842684be829979ca241e2fbdac3e0d5e3721f0626380226a8722884ab55982",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "54926219b3ab3b13674c5cb7cd85b9e78b3f2b6a653f869aab943e7396452e37",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "05cd3bbba7181aa34c3b1732981c75a2daeb5f386c040ee0efe6d02592725ae8",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "4446.metadata_static_radius",
+      "baseline_case_sha256": "9e02279167e671f69cdcc1f0bb2f50c7bccf2ffe8c7cb1be82166fd4d40af96c",
+      "physical_tuple_ids": [
+        "extent-tuple:38",
+        "extent-tuple:29",
+        "extent-tuple:30",
+        "extent-tuple:39",
+        "extent-tuple:40",
+        "extent-tuple:40"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle.extent_50000m",
+      "native_dataset_id": 4446,
+      "native_site_id": 3432,
+      "regional_extent_m": 50000,
+      "computed_windows": 11,
+      "maximum_absolute_cover_change_percentage_points": "0.61364302988421975221055850833057952221569900659582961044674438131759400699451700",
+      "windows": [
+        {
+          "baseline_window_sha256": "60b391409999198945c24cdf06e6e300b6e489bd6150577ff55fb7d09f00eba6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7ff8a3021c82ad5d7555fd7db15f5e250ebead96968674c42c95f72975c6d995",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6ac3b572279c9e354ce2b81f20f1820f0ec88a6bfe6abb1a18569981b30cd223",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b093feb2bd7246465f38ffb0638ec397166549dd0e6a692f4cf7d887bb2a8efe",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "e50a70bfbad9ddf27eec2eff9a58f0908b5b267be87bd3082fcdcd3479f1c216",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4c9881e14dc508c623887448c3d6c1e6fca35e3873e887d92a9818abc0951264",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3c996b3e1701b71741ae53568ad569480967e4b5d95e10ce93e48b52d5431467",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "bc5ec2eb62058cf2678719a89d4dc1ae090276414c9e5e7be5536ba86cd7e525",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7127fa48eac71e8e7760087f6ae358b0c8cfc3b3d6450ae78e2616442d9acbf4",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "2ef64003a35c7a773755dc5f2347d047d690144b80dca1156e86d2900a83cb5a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d64b53f2f2f4410e15c0a51153c9700a662838e5a628cc99333c9ebdf839023d",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "4446.reported_2_5_ha_static_circle",
+      "baseline_case_sha256": "dd8df1192ee3244ec065f788e4468386822f2d8083f766bacde05e00ba4074da",
+      "physical_tuple_ids": [
+        "extent-tuple:41",
+        "extent-tuple:31",
+        "extent-tuple:32",
+        "extent-tuple:42",
+        "extent-tuple:43",
+        "extent-tuple:43"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle.extent_200000m",
+      "native_dataset_id": 4446,
+      "native_site_id": 3432,
+      "regional_extent_m": 200000,
+      "computed_windows": 11,
+      "maximum_absolute_cover_change_percentage_points": "0.56901218119339442751772871864400924507217449898269804606867191866838027130312100",
+      "windows": [
+        {
+          "baseline_window_sha256": "60b391409999198945c24cdf06e6e300b6e489bd6150577ff55fb7d09f00eba6",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7ff8a3021c82ad5d7555fd7db15f5e250ebead96968674c42c95f72975c6d995",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "6ac3b572279c9e354ce2b81f20f1820f0ec88a6bfe6abb1a18569981b30cd223",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "b093feb2bd7246465f38ffb0638ec397166549dd0e6a692f4cf7d887bb2a8efe",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "e50a70bfbad9ddf27eec2eff9a58f0908b5b267be87bd3082fcdcd3479f1c216",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "4c9881e14dc508c623887448c3d6c1e6fca35e3873e887d92a9818abc0951264",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "3c996b3e1701b71741ae53568ad569480967e4b5d95e10ce93e48b52d5431467",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "bc5ec2eb62058cf2678719a89d4dc1ae090276414c9e5e7be5536ba86cd7e525",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "7127fa48eac71e8e7760087f6ae358b0c8cfc3b3d6450ae78e2616442d9acbf4",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "2ef64003a35c7a773755dc5f2347d047d690144b80dca1156e86d2900a83cb5a",
+          "status": "computed",
+          "reason": null
+        },
+        {
+          "baseline_window_sha256": "d64b53f2f2f4410e15c0a51153c9700a662838e5a628cc99333c9ebdf839023d",
+          "status": "computed",
+          "reason": null
+        }
+      ],
+      "baseline_case_id": "4446.reported_2_5_ha_static_circle",
+      "baseline_case_sha256": "dd8df1192ee3244ec065f788e4468386822f2d8083f766bacde05e00ba4074da",
+      "physical_tuple_ids": [
+        "extent-tuple:44",
+        "extent-tuple:33",
+        "extent-tuple:34",
+        "extent-tuple:45",
+        "extent-tuple:46",
+        "extent-tuple:46"
+      ],
+      "window_reference_rule": "windows[index] identifies baseline_report.cases[baseline_case_id].results[index]; the full original count, age, panel and support record is bound by its SHA256. The same ordered native-report case/windows entry retains alternative moments and signed differences."
+    }
+  ],
+  "core_extent_maximum_changes": [
+    {
+      "native_dataset_id": 4445,
+      "regional_extent_m": 50000,
+      "maximum_absolute_cover_change_percentage_points": "0.69256925810785170106040951128890803773791495172251208102415103089421744473690200",
+      "aggregation": "maximum over computed geometry alternatives; no independent-site pooling"
+    },
+    {
+      "native_dataset_id": 4445,
+      "regional_extent_m": 200000,
+      "maximum_absolute_cover_change_percentage_points": "0.64603207703291100032487292794594335556165342277674737922380869088213932891666300",
+      "aggregation": "maximum over computed geometry alternatives; no independent-site pooling"
+    },
+    {
+      "native_dataset_id": 4446,
+      "regional_extent_m": 50000,
+      "maximum_absolute_cover_change_percentage_points": "0.61364302988421975221055850833057952221569900659582961044674438131759400699451700",
+      "aggregation": "maximum over computed geometry alternatives; no independent-site pooling"
+    },
+    {
+      "native_dataset_id": 4446,
+      "regional_extent_m": 200000,
+      "maximum_absolute_cover_change_percentage_points": "0.56901218119339442751772871864400924507217449898269804606867191866838027130312100",
+      "aggregation": "maximum over computed geometry alternatives; no independent-site pooling"
+    },
+    {
+      "native_dataset_id": 20034,
+      "regional_extent_m": 50000,
+      "maximum_absolute_cover_change_percentage_points": "0.57174267996895585940167769790536476649457375459067784351593396753781665875620900",
+      "aggregation": "maximum over computed geometry alternatives; no independent-site pooling"
+    },
+    {
+      "native_dataset_id": 20034,
+      "regional_extent_m": 200000,
+      "maximum_absolute_cover_change_percentage_points": "0.54149901396054100921389425158156416719366515413538272578353487621217430510588800",
+      "aggregation": "maximum over computed geometry alternatives; no independent-site pooling"
+    },
+    {
+      "native_dataset_id": 52082,
+      "regional_extent_m": 50000,
+      "maximum_absolute_cover_change_percentage_points": "0.42393814596696789799203477641557818187557858974582033763491883046269104676759700",
+      "aggregation": "maximum over computed geometry alternatives; no independent-site pooling"
+    },
+    {
+      "native_dataset_id": 52082,
+      "regional_extent_m": 200000,
+      "maximum_absolute_cover_change_percentage_points": "0.40495936956783814547489119372966882909026129707957504517708764126316611465913600",
+      "aggregation": "maximum over computed geometry alternatives; no independent-site pooling"
+    }
+  ],
+  "conditional_arithmetic_review": {
+    "conditional_arithmetic_passed": true,
+    "decimal_precision": 80,
+    "absolute_and_relative_tolerance": "2E-12",
+    "compared_cells_including_differences": 27360,
+    "maximum_absolute_difference": "2.0917785845540556787858138582898918224754171173776763554344193964E-16",
+    "maximum_absolute_difference_by_quantity": {
+      "conditional_cover": "2.0917785845540556787858138582898918224754171173776763554344193964E-16",
+      "direct_pollen_panel_fraction": "9.756097560975609756097560975609756097560975609756097560975609756E-17",
+      "conditional_standard_error": "2.0060065872346739104606682306742883779928160693883910496666945077E-17",
+      "counting_covariance": "2.1696141991993793400354041241274040726719434272315221650666302022E-18",
+      "assumed_ppe_covariance": "2.1461940924129663089252403906304484489127589386904273167382488198E-19",
+      "total_conditional_covariance": "2.7598134973516750518654867663976181810929580321210507552861710407E-18"
+    },
+    "hand_two_taxon_law_passed": true,
+    "mismatches": []
+  },
+  "original_execution_exits": {
+    "collector": 0,
+    "native": 0,
+    "stage": 0
+  },
+  "refusals": [],
+  "reference_scope": "The unchanged public baseline retains native counts, ages, literal parameter panels, PPE/SD, geometry and baseline moments. Exact case hashes and ordered window hashes bind those records. The separately pinned native report retains every alternative moment and its signed alternative-minus-saved-100-km difference; this compact account does not copy those arrays.",
+  "limits": "Saved K is source-qualified, not independently recomputed for these 46 cutoff tuples. Conditional count and diagonal-PPE delta moments only. The 50 km and 200 km cutoffs are declared numerical stress settings around 100 km, not measured or source-supported regional extents, empirical likelihoods or a plausible-range distribution. There is no proof of asymptotic convergence to an infinite region, cross-window uncertainty, chronology or shoreline calibration, independent-site pooling, field accuracy, source-use permission, human review or whole LCI-030 acceptance.",
+  "independent_r_result_included": false,
+  "development_exposure": "The saved 100 km Nordic baseline, the existing Swedish assumptions and the prior Nordic wind results were exposed before this finite cutoff protocol; this is conditional development sensitivity, not untouched confirmation."
+}
