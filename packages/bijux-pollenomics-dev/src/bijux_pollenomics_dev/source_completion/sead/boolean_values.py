@@ -6,9 +6,10 @@ import argparse
 from collections import Counter, defaultdict
 from collections.abc import Mapping
 import hashlib
+import io
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, TextIO
 
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256,
@@ -21,6 +22,7 @@ from bijux_pollenomics.evidence.sources.sead import (
 )
 
 from ..sead_analysis_numerical_values import _parts, _raw_table, _read_object
+from .boolean_staging import BooleanStagingWriter, project_row
 
 
 def _canonical(value: object) -> str:
@@ -40,6 +42,8 @@ def _reconcile_component(
     parent: Mapping[str, Any],
     components: list[dict[str, Any]],
     parent_digest: str,
+    *,
+    allow_missing_value: bool = False,
 ) -> None:
     parent_id = parent["analysis_value_id"]
     entity_id = parent["analysis_entity_id"]
@@ -62,7 +66,8 @@ def _reconcile_component(
     if _canonical(actual) != _canonical(components):
         raise ValueError(f"SEAD boolean components differ: {parent_id}")
     for component in components:
-        _boolean_state(component["value"])
+        if "value" in component or not allow_missing_value:
+            _boolean_state(component["value"])
     if (
         observation["event_eligibility"] != "refused"
         or "source_classification_not_accepted"
@@ -71,7 +76,9 @@ def _reconcile_component(
         raise ValueError(f"SEAD boolean source refusal changed: {parent_id}")
 
 
-def build_report(data_root: Path) -> dict[str, Any]:
+def build_report(
+    data_root: Path, *, staging_stream: TextIO | None = None
+) -> dict[str, Any]:
     """Bind all boolean components to their exact staged parent observations."""
     normalized = governed_sead_evidence_root(data_root)
     manifest = _read_object(
@@ -126,8 +133,58 @@ def build_report(data_root: Path) -> dict[str, Any]:
         parent_id = component["analysis_value_id"]
         if type(parent_id) is not int or parent_id not in parents:
             raise ValueError("SEAD boolean component has no exact parent key")
-        _boolean_state(component["value"])
+        if "value" in component or staging_stream is None:
+            _boolean_state(component["value"])
         by_parent[parent_id].append(component)
+    writer = (
+        BooleanStagingWriter(staging_stream) if staging_stream is not None else None
+    )
+    tables: dict[str, dict[int, dict[str, Any]]] = {}
+    entities: dict[str, dict[str, Any]] = {}
+    extra_readset: dict[str, str] = {}
+    if writer is not None:
+        keys = {
+            "tbl_value_classes": "value_class_id",
+            "tbl_value_types": "value_type_id",
+            "tbl_units": "unit_id",
+            "tbl_sites": "site_id",
+        }
+        tables = {
+            table: _raw_table(raw, admission, table, key, digests[table])
+            for table, key in keys.items()
+        }
+        relation_path = "observation_relation_index.json"
+        relations = _read_object(
+            normalized / relation_path, files[relation_path]["sha256"]
+        )
+        if any(
+            relations["source_table_sha256"][table] != digests[table]
+            for table in (*keys, "tbl_analysis_values", "tbl_analysis_boolean_values")
+        ):
+            raise ValueError("SEAD Boolean staging source relation identities differ")
+        needed = {
+            f"sead-analysis-entity:{parents[key]['analysis_entity_id']}"
+            for key in by_parent
+        }
+        for entity in _parts(normalized, files, relations, "entity_relations"):
+            key = entity["entity_relation_id"]
+            if key in needed:
+                if key in entities:
+                    raise ValueError("SEAD Boolean staging duplicate entity key")
+                entities[key] = entity
+        if set(entities) != needed:
+            raise ValueError("SEAD Boolean staging missing entity parent")
+        for table in keys:
+            extra_readset[
+                (raw / f"payloads/{table}.json").relative_to(data_root).as_posix()
+            ] = digests[table]
+        extra_readset[
+            (normalized / relation_path).relative_to(data_root).as_posix()
+        ] = files[relation_path]["sha256"]
+        for part in relations["partitioned_fields"]["entity_relations"]["parts"]:
+            extra_readset[
+                (normalized / part["path"]).relative_to(data_root).as_posix()
+            ] = part["sha256"]
     seen: set[int] = set()
     counts: Counter[str] = Counter()
     displays: Counter[str] = Counter()
@@ -144,18 +201,54 @@ def build_report(data_root: Path) -> dict[str, Any]:
         seen.add(parent_id)
         parent = parents[parent_id]
         components = by_parent.get(parent_id, [])
-        _reconcile_component(observation, parent, components, parent_digest)
+        _reconcile_component(
+            observation,
+            parent,
+            components,
+            parent_digest,
+            allow_missing_value=writer is not None,
+        )
         for component in components:
-            counts[_boolean_state(component["value"])] += 1
+            state = (
+                _boolean_state(component["value"])
+                if "value" in component
+                else "missing"
+            )
+            counts[state] += 1
             displays[_canonical(parent["analysis_value"])] += 1
             class_counts[parent["value_class_id"]] += 1
             groups[
                 (
                     parent["value_class_id"],
-                    _boolean_state(component["value"]),
+                    state,
                     _canonical(parent["analysis_value"]),
                 )
             ] += 1
+            if writer is not None:
+                value_class = tables["tbl_value_classes"].get(parent["value_class_id"])
+                value_type = (
+                    None
+                    if value_class is None
+                    else tables["tbl_value_types"].get(value_class["value_type_id"])
+                )
+                entity = entities[observation["entity_relation_id"]]
+                site = tables["tbl_sites"].get(entity["site_id"])
+                if value_class is None or value_type is None or site is None:
+                    raise ValueError(
+                        "SEAD Boolean staging missing class, type or site parent"
+                    )
+                writer.append(
+                    project_row(
+                        component,
+                        parent,
+                        observation,
+                        entity,
+                        site,
+                        value_class,
+                        value_type,
+                        tables["tbl_units"],
+                    )
+                )
     if seen != set(parents) or total != manifest["observation_count"]:
         raise ValueError("SEAD boolean observation population differs")
     if sum(counts.values()) != len(booleans):
@@ -182,7 +275,7 @@ def build_report(data_root: Path) -> dict[str, Any]:
         readset[(normalized / part["path"]).relative_to(data_root).as_posix()] = part[
             "sha256"
         ]
-    return {
+    report = {
         "schema_version": "sead-analysis-boolean-value-lineage.v1",
         "source_run_id": SEAD_GOVERNED_EVIDENCE_RUN_ID,
         "build_id": SEAD_GOVERNED_BUILD_ID,
@@ -214,9 +307,16 @@ def build_report(data_root: Path) -> dict[str, Any]:
         "eligible_event_count": 0,
         "interpretation": "Typed source flags and parent display text remain distinct; no ecological, presence/absence, chronology or route interpretation is admitted.",
     }
+    if writer is not None:
+        if len(writer.identities) != len(booleans):
+            raise ValueError("SEAD Boolean staging component population differs")
+        readset.update(extra_readset)
+        report["source_readset_sha256"] = dict(sorted(readset.items()))
+        report["typed_staging"] = writer.account()
+    return report
 
 
-def run(repository: Path, output: Path) -> None:
+def run(repository: Path, output: Path, *, rows_output: Path | None = None) -> None:
     """Write one compact account to an absent repository artifact file."""
     if not repository.is_absolute() or repository.resolve(strict=True) != repository:
         raise ValueError("A real absolute repository root is required")
@@ -230,7 +330,25 @@ def run(repository: Path, output: Path) -> None:
         raise ValueError("A real repository artifact file is required")
     if output.exists():
         raise ValueError("SEAD boolean account output already exists")
-    report = build_report(repository / "data")
+    if rows_output is not None:
+        if (
+            rows_output.parent != output.parent
+            or rows_output == output
+            or rows_output.suffix != ".csv"
+            or rows_output.resolve() != rows_output
+            or any(path.is_symlink() for path in (rows_output, *rows_output.parents))
+        ):
+            raise ValueError(
+                "SEAD Boolean rows must be a distinct real sibling CSV artifact"
+            )
+        if rows_output.exists():
+            raise ValueError("SEAD Boolean rows output already exists")
+    staged_csv = io.StringIO(newline="")
+    report = (
+        build_report(repository / "data", staging_stream=staged_csv)
+        if rows_output is not None
+        else build_report(repository / "data")
+    )
     for relative, digest in report["source_readset_sha256"].items():
         source = repository / "data" / relative
         if source.resolve(strict=True) != source or not source.is_file():
@@ -239,6 +357,10 @@ def run(repository: Path, output: Path) -> None:
             if hashlib.file_digest(stream, "sha256").hexdigest() != digest:
                 raise ValueError("SEAD boolean source changed before publication")
     output.parent.mkdir(parents=True, exist_ok=True)
+    if rows_output is not None:
+        report["typed_staging"]["rows_file"] = rows_output.name
+        with rows_output.open("x", encoding="utf-8", newline="") as rows:
+            rows.write(staged_csv.getvalue())
     with output.open("x", encoding="utf-8") as stream:
         stream.write(json.dumps(report, indent=2, sort_keys=True) + "\n")
 
@@ -248,8 +370,9 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--rows-output", type=Path)
     args = parser.parse_args(argv)
-    run(args.repository, args.output)
+    run(args.repository, args.output, rows_output=args.rows_output)
     return 0
 
 

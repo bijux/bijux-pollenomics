@@ -44,6 +44,26 @@ No unit is exposed by the linked source type for these 4,800 components. The
 an ecological event. All 68,705 parent observations preserve refused event
 eligibility and `source_classification_not_accepted`.
 
+## Per-component typed table
+
+The [4,800-row typed table](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/sead-categorical-values.csv)
+adds exact source identities at 393 sites to this grouped account. Its
+[method, actual execution and independent checks](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md)
+distinguish nullable component fields, native item identity and parent display.
+This account's original grouped report is unchanged.
+
+To request the table, add the following option to the command below:
+
+```bash
+  --rows-output "$PWD/artifacts/sead-categorical-lineage/values.csv"
+```
+
+The optional account records the parser rule, field states and relationship
+review ledgers. In this capture those ledgers contain zero duplicate component
+keys, orphan or missing parents, or fan-out. Inaccessible inputs and invalid
+relations refuse publication; they are never disguised as source-null values or
+scientific exclusions. Category meaning and event admission remain refused.
+
 ## Reproduce
 
 From the repository root, with an absent artifact destination:
@@ -73,7 +93,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Unsupported claim.** Category components are not specimens, libraries, assays, people, presence/absence or eligible dated events.
 
-**Actual verification performed.** Read the 4,800-component report, 15 groups, display differences and context-only chronology links; no source component consumer rerun.
+**Actual verification performed.** The maintained consumer ran at e38230752 in 4.12 s, producing all 4,800 typed rows. An independent nine-raw-table join confirms native keys, exact site UUIDs, original component/item/display fields and nulls. All 55 focused tests and configured lint/types pass; the original grouped report is unchanged.
 
 **Remaining input or review.** Source class/entity interpretation, units, taxonomy and chronology/event admission require qualified review.
 
@@ -85,9 +105,11 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Negative or refused result.** 25 chronology links are context only; 4,775 lack entity chronology; all event eligibility refused.
 
-**Matched denominator.** 4,800 distinct component parents of 68,705 analysis values; 1,979 display matches/2,821 differences; 4,800 unexposed units; 0 events.
+**Matched denominator.** 4,800 distinct components and parents at 393 sites, within 68,705 analysis values and 177,763 scanned observations; 1,979 display matches/2,821 differences; 4,800 null values and variants, 0 events.
 
 - [Retained qualification evidence: docs/report/source-relations/sead/analysis-categorical-values/report.json](report.json) (SHA-256 `8ada887dccab478198935df6aa273f96d7422eb73f062be582bb5b121db7131e`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/sead-categorical-values.csv](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/sead-categorical-values.csv) (SHA-256 `e542145a14b4e241ecebf7711a8907e9f2c077d4af13e23296af04e09d960644`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

@@ -8739,18 +8739,22 @@
         "fields": {
           "supported_claim": "Typed boolean components and exact parent display/class identities are preserved as distinct source facts.",
           "unsupported_claim": "False is not source null, and native flags are not ecological presence/absence, selected dates or accepted events.",
-          "actual_verification_performed": "Read the 11,603-component lineage report and 17 display/class/state groups; no typed-source consumer rerun.",
+          "actual_verification_performed": "The maintained consumer ran at 64fd304cf, exit zero in 4.26 s, producing all 11,603 keyed rows. An independent nine-original-table join confirms native keys, exact UUIDs, values, qualifiers, parent flags and class/type declarations, including 738 Boolean components under Count/integer metadata. All 57 focused tests and configured lint/types pass; the original 17-group report remains unchanged.",
           "remaining_input_or_review": "Source class interpretation, scientific chronology/entity qualification and use review remain.",
           "cause_category": "Typed source continuity supplies no ecological classification.",
           "consequence": "Integer 0/1 cannot replace false/true, and Not dated cannot become an eligible date.",
           "precise_next_acceptance_route": "Qualify the exact value class/entity meaning and independent chronology/event requirements before interpreting flags scientifically.",
           "negative_or_refused_result": "All 68,705 parent event eligibilities remain refused; 0 typed nulls is not proof every parent is measured.",
-          "matched_denominator": "177,763 staged observations; 68,705 analysis parents; 11,603 boolean parents/components=1,708 true+9,895 false; 17 groups; 0 events."
+          "matched_denominator": "11,603 components/parents at 397 sites, 4,774 samples and 6,088 datasets; 1,708 true/9,895 false; 38 literal nära/11,565 null qualifiers; 738 Count/integer versus 10,865 Boolean declarations; zero events."
         },
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/sead/analysis-boolean-values/report.json",
             "sha256": "1cb2b0777fd98181d749cf9aa81b418062048108d96e80816b31f77e48a9bc30"
+          },
+          {
+            "path": "reports/science/source-cohorts/sead-boolean-values.csv",
+            "sha256": "c934c60bb71c513fa1b849f3c58ad42d9f521fb8bd850adeaad6fb3bded6b63d"
           }
         ]
       }
@@ -8767,18 +8771,22 @@
         "fields": {
           "supported_claim": "Categorical item identities, nullable component fields and parent displays survive as distinct source values and types.",
           "unsupported_claim": "Category components are not specimens, libraries, assays, people, presence/absence or eligible dated events.",
-          "actual_verification_performed": "Read the 4,800-component report, 15 groups, display differences and context-only chronology links; no source component consumer rerun.",
+          "actual_verification_performed": "The maintained consumer ran at e38230752 in 4.12 s, producing all 4,800 typed rows. An independent nine-raw-table join confirms native keys, exact site UUIDs, original component/item/display fields and nulls. All 55 focused tests and configured lint/types pass; the original grouped report is unchanged.",
           "remaining_input_or_review": "Source class/entity interpretation, units, taxonomy and chronology/event admission require qualified review.",
           "cause_category": "Categorical source semantics cannot be inferred from label resemblance.",
           "consequence": "The 2,821 display/item differences and null component fields must remain intact.",
           "precise_next_acceptance_route": "Review each source type/class/entity and obtain qualified chronology/ecological meaning before any event mapping.",
           "negative_or_refused_result": "25 chronology links are context only; 4,775 lack entity chronology; all event eligibility refused.",
-          "matched_denominator": "4,800 distinct component parents of 68,705 analysis values; 1,979 display matches/2,821 differences; 4,800 unexposed units; 0 events."
+          "matched_denominator": "4,800 distinct components and parents at 393 sites, within 68,705 analysis values and 177,763 scanned observations; 1,979 display matches/2,821 differences; 4,800 null values and variants, 0 events."
         },
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/sead/analysis-categorical-values/report.json",
             "sha256": "8ada887dccab478198935df6aa273f96d7422eb73f062be582bb5b121db7131e"
+          },
+          {
+            "path": "reports/science/source-cohorts/sead-categorical-values.csv",
+            "sha256": "e542145a14b4e241ecebf7711a8907e9f2c077d4af13e23296af04e09d960644"
           }
         ]
       }
@@ -8795,7 +8803,7 @@
         "fields": {
           "supported_claim": "All 24,701 typed integer components reconcile to exact parent observations and source class/entity/chronology links.",
           "unsupported_claim": "A typed count or nearby eligible chronology is not a measured ecological event; qualified text is not an exact integer measurement.",
-          "actual_verification_performed": "Read the integer report including all 5 precision differences, 1,763 nonnumeric displays and 16 class groups; no normalized-source replay.",
+          "actual_verification_performed": "The maintained consumer ran at ffbbd20c7, exit zero in 4.61 s, emitting all 24,701 typed rows. An independent nine-original-table join verifies native identities, exact UUIDs, units, nullable fields, all 1,763 parent parse failures and five precision differences. Sixty-six controlled cases and one original governed-source case pass with configured lint/types; the default report remains byte-identical.",
           "remaining_input_or_review": "Meaning/unit/entity classification and scientific event eligibility remain unaccepted.",
           "cause_category": "Typed values and parent display qualifiers carry distinct information.",
           "consequence": "Tree-age/growth-year bounds are not selected ages, and laboratory read counts are not pollen NISP.",
@@ -8807,6 +8815,10 @@
           {
             "path": "docs/report/source-relations/sead/analysis-integer-values/report.json",
             "sha256": "04ff5aac5ea51873b8483ebaebc9aa30a0628fab8ae913a02806f3d243a4b132"
+          },
+          {
+            "path": "reports/science/source-cohorts/sead-integer-values.csv",
+            "sha256": "ffc3dd23f5878c7d0c798bf6b177211f56112edbb7a7b6b3418ff3ed147ac91b"
           }
         ]
       }
