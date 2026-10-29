@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Propagate supplied joint uncertainty through withheld spatial fits while preserving refusal mass, source coupling, and training-only information boundaries ([#274](https://github.com/bijux/bijux-pollenomics/pull/274)).
+- **Pending review:** Bound relationship rendering, cancel obsolete map selections, and index substring searches and crossing edges while preserving dated native atlas evidence. ([#277](https://github.com/bijux/bijux-pollenomics/pull/277)).
+- **Verified merge (2026-10-29 00:07:25 UTC):** Propagate supplied joint uncertainty through withheld spatial fits while preserving refusal mass, source coupling, and training-only information boundaries ([#274](https://github.com/bijux/bijux-pollenomics/pull/274)).
 - **Verified merge (2026-10-28 23:48:19 UTC):** Preserve authenticated partial SLU guide retrieval evidence while retaining the original unresolved provider and publication criteria ([#272](https://github.com/bijux/bijux-pollenomics/pull/272)).
 - **Verified merge (2026-10-28 23:35:53 UTC):** Authenticate retained Linux R source and result custody with exact historical runtime provenance and strict current scientific source checks ([#270](https://github.com/bijux/bijux-pollenomics/pull/270)).
 - **Verified merge (2026-10-28 23:15:47 UTC):** Retain execution reference source ownership and corrections in Git while removing current programme copies and authenticating exact historical source inputs ([#271](https://github.com/bijux/bijux-pollenomics/pull/271)).
