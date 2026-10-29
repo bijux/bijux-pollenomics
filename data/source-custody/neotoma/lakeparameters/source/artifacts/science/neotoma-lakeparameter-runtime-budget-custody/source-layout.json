@@ -1,0 +1,20 @@
+{
+  "python_members": [
+    "check_controls.py",
+    "check_tools.py",
+    "common_runner.py",
+    "contracts.py",
+    "execute_projection.py",
+    "execute_reader.py",
+    "lake_review.py",
+    "observe.py",
+    "prepare.py",
+    "projection_review.py",
+    "run.py",
+    "runtime_contracts.py",
+    "source_admission.py",
+    "source_entry.py",
+    "source_inputs.py",
+    "source_runtime.py"
+  ]
+}

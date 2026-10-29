@@ -1,0 +1,198 @@
+{
+  "physical_custody": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-capture-custody/physical-capture-custody.json",
+    "sha256": "9c153661452533cc07cbd4eacd58c0abeb6f34b34136bc2305c096f177b1579b",
+    "bytes": 7419
+  },
+  "capture_root": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters",
+  "private_expected_pins": [
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-000.json",
+      "sha256": "0bb36dbb38ebd981302363b62209fce9c53140beab3280940efe3ba742ca69b8",
+      "bytes": 137169
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-001.json",
+      "sha256": "2116da218c8a16bdd948f8ae4d954d15c68d41b14d400eb20e275401cb7fa051",
+      "bytes": 138118
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-002.json",
+      "sha256": "84d6a1ee2c78b571aef7e06a455e8be77001347820483cec72bd617b75ef4329",
+      "bytes": 138399
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-003.json",
+      "sha256": "f90c81155ddca157212a577c3ab270da52f063ab8b97005a664409498b6abf89",
+      "bytes": 138869
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-004.json",
+      "sha256": "9ede5cad4a68e3708563fb9dc3a8a4b49f513a48a0851e6891077b170a4ec963",
+      "bytes": 140357
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-005.json",
+      "sha256": "9e5579a4d9a18d893798234b8b9126b39ed709523b23a961106fb74d790bec41",
+      "bytes": 140245
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-006.json",
+      "sha256": "87da81641c00ecec5877036153fc4e0f7e198d0b83872b583fd3f1402787cdfd",
+      "bytes": 140322
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-007.json",
+      "sha256": "01888304082eeb19acae7a16d236712973da773797adca52f3e4ece0caca7cc2",
+      "bytes": 140409
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-008.json",
+      "sha256": "49d7cc3c703b169b62a1b7efc7c8fb2c5833cb56fae11fbb225140ae5633af9f",
+      "bytes": 140411
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-009.json",
+      "sha256": "787490046d4c90b0fa24cc58d182ed5c01b6fa9a730674cdf26c3ad13b04b1ca",
+      "bytes": 140273
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-010.json",
+      "sha256": "24619d336df138e7f94178fa14efb3262b4d2c65574c95772348edcbb089b733",
+      "bytes": 140181
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-011.json",
+      "sha256": "7ca90c35bfd4749a2c1d4b7d4af76ef941923b62f77995276250a60457f19314",
+      "bytes": 139827
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-012.json",
+      "sha256": "d822e57c452e33fbbe4bd2ff3f171226e7beb2d760a112c113fdb9c69bbd24d2",
+      "bytes": 139466
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-013.json",
+      "sha256": "e24794c5f5702b29b223ee20ca469f4c69f92ddafd48ae98a8c158df9c9e5f1a",
+      "bytes": 139869
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-014.json",
+      "sha256": "3886708957a5511d2ef8720c1555ca45da62ba73ecd045800f2d8581be023a09",
+      "bytes": 140191
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-015.json",
+      "sha256": "8691b4f6a70e4b0d9b8e3007b4897b60c1a7e8ec37576dcabfbb724d5262fe3f",
+      "bytes": 140229
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-016.json",
+      "sha256": "f644e521a3fd70f7fd712444912fecbecacd7e4e0684473b7cb17d6460cb90bd",
+      "bytes": 140187
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-017.json",
+      "sha256": "ce3e78dc0f61dc6801ec563b081618d7ed58b104e37e1db55d660cb8438c7034",
+      "bytes": 139216
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-018.json",
+      "sha256": "dde270f7be77bfd8a5bc118664dfadaa75b4e43b50e25070f31593c0cfbb4f2e",
+      "bytes": 139512
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-019.json",
+      "sha256": "097a02767d48322e86754e52548f3c8d968a3bcb48e47b2951a0d21c88f2a78a",
+      "bytes": 139358
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-020.json",
+      "sha256": "3f77a0d6ec03d4ed7ca650b77552449fa0bda609eeb56cee1c43d0147ee24e97",
+      "bytes": 139471
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-021.json",
+      "sha256": "2cb2b135ae7cda83379b9eb3ba6d1ea72c810deb1bb4cb97e4d084871a6c05e8",
+      "bytes": 139095
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-022.json",
+      "sha256": "db713b38d0119f85cff7a3e929329423038a31e668647a234f010852aacc6f1d",
+      "bytes": 138370
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-023.json",
+      "sha256": "326bcec8a308df68279092fadb2f74ec657a4560ba88197125e621ae403c4a14",
+      "bytes": 138785
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparameters-024.json",
+      "sha256": "af51adf9d9428f7ec54c406539209ce9553e45bd0c756ab9e0e332efcce84ef0",
+      "bytes": 76942
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture-pages/lakeparametertypes.json",
+      "sha256": "c9266315b5d0c02bd35c49f7c241ea6f0052f26b05665804d059b16df3a1a6db",
+      "bytes": 5048
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/capture.json",
+      "sha256": "0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd",
+      "bytes": 17063
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/lakeparameters/site-evidence.json",
+      "sha256": "aaded8ed751a8f245a357c50bb2c2a96a8710168deab7223f0c48284180e96ce",
+      "bytes": 101875
+    }
+  ],
+  "capture_sha256": "0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd",
+  "site_evidence_sha256": "aaded8ed751a8f245a357c50bb2c2a96a8710168deab7223f0c48284180e96ce",
+  "private_namespace_count": 28,
+  "private_total_bytes": 3549257,
+  "lake_reader": "docs/report/source-relations/neotoma/lakeparameters/verify.py",
+  "lake_report": "docs/report/source-relations/neotoma/lakeparameters/report.json",
+  "optional_owner": "source-relations/neotoma/lra-prerequisites/report-products",
+  "optional_inputs": [
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+    "data/neotoma/relational/manifest.json",
+    "data/neotoma/relational/reconciliation.json",
+    "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+    "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+    "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+    "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+    "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+    "data/neotoma/relational/surfaces/datasets/part-00001.json",
+    "data/neotoma/relational/surfaces/observations/part-00001.json",
+    "data/neotoma/relational/surfaces/observations/part-00002.json",
+    "data/neotoma/relational/surfaces/observations/part-00003.json",
+    "data/neotoma/relational/surfaces/observations/part-00004.json",
+    "data/neotoma/relational/surfaces/observations/part-00005.json",
+    "data/neotoma/relational/surfaces/observations/part-00006.json",
+    "data/neotoma/relational/surfaces/observations/part-00007.json",
+    "data/neotoma/relational/surfaces/observations/part-00008.json",
+    "data/neotoma/relational/surfaces/orphans/part-00001.json",
+    "data/neotoma/relational/surfaces/samples/part-00001.json",
+    "data/neotoma/relational/surfaces/sites/part-00001.json",
+    "data/neotoma/relational/surfaces/variables/part-00001.json"
+  ],
+  "optional_code": [
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/__main__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/projection.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/lakeparameters.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py"
+  ],
+  "optional_report": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json",
+  "optional_all30present_at_source_review": true,
+  "optional_declared_bytes": 776424843
+}

@@ -47,6 +47,9 @@ from .scientific_captures.constrained_author import (
 from .scientific_captures.controlled_numerical.lra_comparison import (
     validated_controlled_lra_comparison_capture,
 )
+from .scientific_captures.lake_registry.neotoma_lake import (
+    validated_neotoma_lake_capture,
+)
 from .scientific_captures.lake_registry.svar import (
     validated_svar_capture,
 )
@@ -350,6 +353,9 @@ def validated_maintained_report_sources(
             repository, tracked_by_path, inventory["owners"]
         )
     )
+    neotoma_lake_entries, neotoma_lake_evidence = validated_neotoma_lake_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -369,6 +375,7 @@ def validated_maintained_report_sources(
         + solsoe_entries
         + solsoe_pollen_entries
         + svar_entries
+        + neotoma_lake_entries
         + openland_entries
         + swedish_preparation_entries
         + svar_census_entries
@@ -460,4 +467,6 @@ def validated_maintained_report_sources(
         evidence["retained_swedish_direct_pollen_preparation"] = (
             swedish_preparation_evidence
         )
+    if neotoma_lake_entries:
+        evidence["retained_neotoma_lake_sources"] = neotoma_lake_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

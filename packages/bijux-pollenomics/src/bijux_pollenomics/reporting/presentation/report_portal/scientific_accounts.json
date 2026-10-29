@@ -7639,7 +7639,7 @@
         "fields": {
           "supported_claim": "Five lake-parameter rows join five of 54 retained Nordic candidate sites in the captured API pages.",
           "unsupported_claim": "Maximum water depth is not lake radius; live offset pagination cannot certify absence for 49 unmatched sites.",
-          "actual_verification_performed": "Read the five exact source rows, parameter labels, country counts and retained-page consistency posture; no API recapture or basin fit.",
+          "actual_verification_performed": "Earlier verification: Read the five exact source rows, parameter labels, country counts and retained-page consistency posture; no API recapture or basin fit. Separately, the unchanged maintained reader returned native zero as a checker, and an independent complete source-page reader reconstructed every report byte and typed value on source commit `82c8fc4ed3d847909d14162f51b77dc59ccc0a70`. The 24,554 rows, 21 parameter types, 54 original sites and five exact parameter/locator joins remain distinct from the current prerequisite cohort. The checker is not a report producer. No new HTTP capture, basin fit, LRA or human decision is claimed.",
           "remaining_input_or_review": "Historical/time-specific basin meaning, unqualified native area fields, count/taxon/PPE support and use review remain.",
           "cause_category": "Live pagination and site-level geometry are not complete historical basin evidence.",
           "consequence": "Three source area leads do not admit any pollen sample to LRA.",
@@ -7651,6 +7651,10 @@
           {
             "path": "docs/report/source-relations/neotoma/lakeparameters/report.json",
             "sha256": "9c5c48936b10f62b2501a9d26ddad102d606929ee55fbe76614431e731a21fa7"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-lake-source-custody.json",
+            "sha256": "df23f600e89cfd4e285442b5f82480b95521216cad2363f25a91640623953024"
           }
         ]
       }
@@ -7813,7 +7817,7 @@
         "fields": {
           "supported_claim": "The prerequisite projection retains 10,637 sample chronology leads and 163 source-site basin review rows without selecting an executable LRA request.",
           "unsupported_claim": "A necessary count/typed-age candidate or native area value is not an accepted chronology, basin, taxon/PPE/count mask or source right.",
-          "actual_verification_performed": "Read projection denominators, country partitions, review states and lake-parameter join posture; no projection regeneration or model fit.",
+          "actual_verification_performed": "Earlier verification: Read projection denominators, country partitions, review states and lake-parameter join posture; no projection regeneration or model fit. Separately, the maintained current prerequisite producer, lake-source checker and independent source/projection observer each returned native zero on source commit `82c8fc4ed3d847909d14162f51b77dc59ccc0a70`. All 30 raw/normalized inputs were pinned, and the complete 22,907,955-byte projection matched its current governed bytes and typed values: 10,637 necessary source rows, 163 source-site reviews and 14 lake-parameter locator joins. Independent pollen eligibility was not recomputed, and no sample, basin, chronology, source right or model fit was admitted.",
           "remaining_input_or_review": "Qualified source-bound chronology, physical core, permitted use, count support, parameters and justified geometry decisions remain.",
           "cause_category": "Required scientific decisions are deliberately unselected.",
           "consequence": "Historical reproduction needs the authentic selected inputs; a new declared reconstruction needs its own justified profile.",
@@ -7825,6 +7829,10 @@
           {
             "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json",
             "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-lake-source-custody.json",
+            "sha256": "df23f600e89cfd4e285442b5f82480b95521216cad2363f25a91640623953024"
           }
         ]
       }

@@ -1,0 +1,21 @@
+{
+  "schema_version": "neotoma-lakeparameter-runtime-budget-source.v1",
+  "source_only": true,
+  "actual_exit": 0,
+  "receipt": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/preflight/receipt.json",
+    "sha256": "9a411665345e5efd0fb4e3091bc9cad37e6ff02e08ef61478bacd24122e297ff",
+    "bytes": 7841
+  },
+  "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+  "pure_cases": 32,
+  "strict_affected_files": 2,
+  "configured_Ruff_files": 14,
+  "format_files": 14,
+  "AST_files": 16,
+  "exact_unchanged_python": 14,
+  "preparer_five_integer_timeouts_only": true,
+  "source_API_runtime_private_or_native_calls": 0,
+  "original_source_and_actual_native_refusal_retained": true,
+  "earlier_source_style_refusal_preserved": "Initial formatter refused nestedif in new ASTbudget test; flattened predicate while mutable, then actual configured checks passed."
+}
