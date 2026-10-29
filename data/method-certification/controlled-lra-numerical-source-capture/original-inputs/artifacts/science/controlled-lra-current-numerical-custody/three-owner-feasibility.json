@@ -1,0 +1,62 @@
+{
+  "schema_version": "controlled-lra-three-owner-feasibility.v1",
+  "source_review_candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+  "exact_owners": [
+    {
+      "owner_id": "method-certification/optimizer-solution-quality/report-products",
+      "retained_report": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/report.json",
+        "sha256": "62da8c5e4af32da8feeb297c1fc63d1a02e1c19c5d765cd8fab5ccbd71584aba",
+        "bytes": 1590
+      },
+      "original_input_current_mismatches": [],
+      "all_original_output_hashes_match": true,
+      "original_same_run_execution_handle_unavailable_in_named_records": true,
+      "named_README_original_job_directory_exists": false,
+      "new_local_route": "New source-bound same-process actual R/Python numerical certification; do not relabel original execution as recovered."
+    },
+    {
+      "owner_id": "method-certification/paired-love-draws/report-products",
+      "retained_report": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/report.json",
+        "sha256": "bdb5984e4e37cfca64ba6ebc766db421c80c13570b67dabbd4d1239baf2650e0",
+        "bytes": 2224
+      },
+      "original_input_current_mismatches": [
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py"
+      ],
+      "all_original_output_hashes_match": true,
+      "original_same_run_execution_handle_unavailable_in_named_records": true,
+      "named_README_original_job_directory_exists": false,
+      "new_local_route": "New source-bound same-process actual R/Python numerical certification; do not relabel original execution as recovered."
+    },
+    {
+      "owner_id": "method-certification/lra-batch-execution/report-products",
+      "retained_report": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/lra-batch-execution/report.json",
+        "sha256": "9ca39ea4568c844ef9fb3454bde2d3438f168b89bf6a8009bb1095df2c8d5ac5",
+        "bytes": 8459
+      },
+      "fixture_source_current_exact": true,
+      "original_wheel_sha256": {
+        "host": "5beb2e7059bc9be24b0607ae8bd1e5046bf8fd5619ede4599362034d0d01b374",
+        "LRA": "260702b46ad92f79bfacae0b5fa1badb51ec50ab300160440ed85845045ec84d"
+      },
+      "named_README_original_job_directory_exists": false,
+      "original_batch_request_stdout_result_directories_unavailable_in_named_records": true,
+      "new_local_route": "Separate fresh registered installed-host batch certification, only after same-candidate83-stage installed artifact validates original/expected plan relation, engine-equipped environment and complete wheel/source/runtime payloads. Preserve historical timing/rawreport separately.",
+      "current_source_batch_is_not_an_installed_batch_certificate": true,
+      "scientific_acceptance": "not_evaluated"
+    }
+  ],
+  "only_named_source_paths_and_custody_records_inspected": true,
+  "historical_statuses_changed": false,
+  "no_native_model_R_preparer_or_installer_executed": true,
+  "fresh_Darwin_runtime_input_read": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-owner-certification/preflight/runtime-input-closed.json",
+    "sha256": "b116ee79d754d58f91ed358261b4a4033a6b863d95f60cfbee2943eaf023cc3f",
+    "bytes": 2732771
+  },
+  "remaining_external_scientific_acceptance": "No ecological, human, historical-paper, stochastic-trajectory, calibrated-coverage, platform-matrix or release acceptance is inferred."
+}

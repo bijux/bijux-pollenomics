@@ -37878,6 +37878,9 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_radius.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/lra_comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/representative_performance.py",
@@ -41560,16 +41563,10 @@
         "docs/report/method-certification/optimizer-solution-quality/report.json",
         "docs/report/method-certification/optimizer-solution-quality/summary.csv"
       ],
-      "producer_inputs": [
-        "docs/report/method-certification/optimizer-solution-quality/cases.json",
-        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
-      ],
-      "producer_paths": [
-        "docs/report/method-certification/optimizer-solution-quality/replay.py",
-        "docs/report/method-certification/optimizer-solution-quality/solver.R"
-      ],
-      "role": "unresolved",
-      "verification": "The solver comparison needs the external Rscript binary, isolated R library with exact DISQOVER marker and live optimizer execution. Retained report/case outputs and R session are execution evidence, not independently reproducible bytes from repository files alone."
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Retained genuine current-source numerical execution, admitted by the grouped controlled_numerical.lra_comparison transport. Exact two owners/eleven outputs join immutable native3stage receipts and complete first-party source/control custody in data/method-certification/controlled-lra-numerical-source-capture/capture.json. Nine published outputs match their earlier bytes; two report identities bind the actual executed input paths. Preserve prospective objective/cross-candidate tolerances,120 finite/280 missing cells, nonunique minimizing vectors and R400 iteration-cap limitation. No original missing proof recovery, equal-seed trajectory, ecological or human acceptance; runtime binaries are not redistributed and their present availability is not inferred."
     },
     {
       "owner_id": "method-certification/optimizer-solution-quality/source-code",
@@ -43010,7 +43007,7 @@
     },
     {
       "owner_id": "method-certification/paired-love-draws/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/method-certification/paired-love-draws/draws.json",
         "docs/report/method-certification/paired-love-draws/python-values.csv",
@@ -43019,20 +43016,9 @@
         "docs/report/method-certification/paired-love-draws/report.json",
         "docs/report/method-certification/paired-love-draws/setup.json"
       ],
-      "producer_paths": [
-        "docs/report/method-certification/paired-love-draws/replay.R",
-        "docs/report/method-certification/paired-love-draws/replay.py"
-      ],
-      "producer_inputs": [
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
-        "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
-        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
-      ],
-      "verification": "The real Python/R replay consumes the pinned disqover archive and example fixtures, requires a separately bound installed R library and exact Rscript binary (retained SHA d918ce5022d859e20c38094bb0b6199186cefd8bb96ffeb58618471c9a65a22d), and generates six declared outputs. Reuse the existing scoped R result; do not copy r-session.txt as newly generated. Bind runtime and installation/source custody, then compare all outputs under a governed metadata normalization decision if needed. No unchanged R rerun or broad release qualification follows from this declaration."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Retained genuine current-source numerical execution, admitted by the grouped controlled_numerical.lra_comparison transport. Exact two owners/eleven outputs join immutable native3stage receipts and complete first-party source/control custody in data/method-certification/controlled-lra-numerical-source-capture/capture.json. Nine published outputs match their earlier bytes; two report identities bind the actual executed input paths. Preserve prospective objective/cross-candidate tolerances,120 finite/280 missing cells, nonunique minimizing vectors and R400 iteration-cap limitation. No original missing proof recovery, equal-seed trajectory, ecological or human acceptance; runtime binaries are not redistributed and their present availability is not inferred."
     },
     {
       "owner_id": "method-certification/paired-love-draws/source-code",

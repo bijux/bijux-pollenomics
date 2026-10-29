@@ -1,0 +1,11 @@
+{
+  "schema_version": "controlled-lra-R-process.v1",
+  "original_script": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/solver.R",
+  "actual_trailing_arguments": ["/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/cases.json", "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality/python-fits.csv", "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality/r-fits.csv", "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality/r-session.txt"],
+  "numerical_exit": null,
+  "numerical_error": null,
+  "metadata_exit": 1,
+  "metadata_error": "path %in% native_files is not TRUE",
+  "before": null,
+  "after": null
+}

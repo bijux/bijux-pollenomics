@@ -43,6 +43,9 @@ from .scientific_captures.author_site_evaluations import (
 from .scientific_captures.constrained_author import (
     validated_constrained_author_capture,
 )
+from .scientific_captures.controlled_numerical.lra_comparison import (
+    validated_controlled_lra_comparison_capture,
+)
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
@@ -270,6 +273,11 @@ def validated_maintained_report_sources(
     nfi_entries, nfi_evidence = validated_nfi_measurement_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    controlled_numerical_entries, controlled_numerical_evidence = (
+        validated_controlled_lra_comparison_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
     all_capture_entries = (
         capture_entries
         + parameter_entries
@@ -283,6 +291,7 @@ def validated_maintained_report_sources(
         + constrained_entries
         + radius_entries
         + nfi_entries
+        + controlled_numerical_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -337,4 +346,8 @@ def validated_maintained_report_sources(
         evidence["retained_representative_performance_capture"] = performance_evidence
     if nfi_entries:
         evidence["retained_nfi_measurement_capture"] = nfi_evidence
+    if controlled_numerical_entries:
+        evidence["retained_controlled_lra_comparison_capture"] = (
+            controlled_numerical_evidence
+        )
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

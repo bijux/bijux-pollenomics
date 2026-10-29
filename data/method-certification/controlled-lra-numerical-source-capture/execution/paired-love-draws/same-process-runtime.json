@@ -1,0 +1,1062 @@
+{
+  "schema_version": "controlled-lra-R-process.v1",
+  "metadata_only": false,
+  "original_script": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/replay.R",
+  "actual_trailing_arguments": ["/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/draws.json", "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/setup.json", "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R", "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/r-values.csv", "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-owned-numerical-certification/paired-love-draws/r-session.txt"],
+  "numerical_exit": 0,
+  "numerical_error": null,
+  "metadata_exit": 0,
+  "metadata_error": null,
+  "before": {
+    "R_version": "R version 4.6.0 (2026-04-24)",
+    "version": "4.6.0",
+    "platform": "aarch64-apple-darwin23",
+    "R_arch": "",
+    "dynlib_ext": ".so",
+    "R_home": "/Library/Frameworks/R.framework/Versions/4.6/Resources",
+    "library_paths": ["/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library", "/Library/Frameworks/R.framework/Versions/4.6/Resources/library"],
+    "namespaces": [
+      {
+        "name": "DEoptim",
+        "version": "2.2-8",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim",
+        "path_error": null
+      },
+      {
+        "name": "GenSA",
+        "version": "1.1.15",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA",
+        "path_error": null
+      },
+      {
+        "name": "R6",
+        "version": "2.6.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/R6",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/R6",
+        "path_error": null
+      },
+      {
+        "name": "RColorBrewer",
+        "version": "1.1-3",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/RColorBrewer",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/RColorBrewer",
+        "path_error": null
+      },
+      {
+        "name": "Rcpp",
+        "version": "1.1.1-1.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp",
+        "path_error": null
+      },
+      {
+        "name": "RcppDE",
+        "version": "0.1.9",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE",
+        "path_error": null
+      },
+      {
+        "name": "Rmalschains",
+        "version": "0.2-11",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains",
+        "path_error": null
+      },
+      {
+        "name": "S7",
+        "version": "0.2.2",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7",
+        "path_error": null
+      },
+      {
+        "name": "base",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Resources/library/base",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/base",
+        "path_error": null
+      },
+      {
+        "name": "cli",
+        "version": "3.6.6",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli",
+        "path_error": null
+      },
+      {
+        "name": "compiler",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/compiler",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/compiler",
+        "path_error": null
+      },
+      {
+        "name": "datasets",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/datasets",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/datasets",
+        "path_error": null
+      },
+      {
+        "name": "disqover",
+        "version": "0.9.14",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover",
+        "path_error": null
+      },
+      {
+        "name": "dplyr",
+        "version": "1.2.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr",
+        "path_error": null
+      },
+      {
+        "name": "farver",
+        "version": "2.1.2",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver",
+        "path_error": null
+      },
+      {
+        "name": "generics",
+        "version": "0.1.4",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/generics",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/generics",
+        "path_error": null
+      },
+      {
+        "name": "ggplot2",
+        "version": "4.0.3",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/ggplot2",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/ggplot2",
+        "path_error": null
+      },
+      {
+        "name": "glue",
+        "version": "1.8.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue",
+        "path_error": null
+      },
+      {
+        "name": "grDevices",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices",
+        "path_error": null
+      },
+      {
+        "name": "graphics",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics",
+        "path_error": null
+      },
+      {
+        "name": "grid",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid",
+        "path_error": null
+      },
+      {
+        "name": "gtable",
+        "version": "0.3.6",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/gtable",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/gtable",
+        "path_error": null
+      },
+      {
+        "name": "jsonlite",
+        "version": "2.0.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite",
+        "path_error": null
+      },
+      {
+        "name": "lifecycle",
+        "version": "1.0.5",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/lifecycle",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/lifecycle",
+        "path_error": null
+      },
+      {
+        "name": "magrittr",
+        "version": "2.0.5",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr",
+        "path_error": null
+      },
+      {
+        "name": "methods",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods",
+        "path_error": null
+      },
+      {
+        "name": "parallel",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel",
+        "path_error": null
+      },
+      {
+        "name": "pillar",
+        "version": "1.11.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/pillar",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/pillar",
+        "path_error": null
+      },
+      {
+        "name": "pkgconfig",
+        "version": "2.0.3",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/pkgconfig",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/pkgconfig",
+        "path_error": null
+      },
+      {
+        "name": "plyr",
+        "version": "1.8.9",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr",
+        "path_error": null
+      },
+      {
+        "name": "purrr",
+        "version": "1.2.2",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr",
+        "path_error": null
+      },
+      {
+        "name": "rlang",
+        "version": "1.2.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang",
+        "path_error": null
+      },
+      {
+        "name": "scales",
+        "version": "1.4.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/scales",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/scales",
+        "path_error": null
+      },
+      {
+        "name": "stats",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats",
+        "path_error": null
+      },
+      {
+        "name": "tibble",
+        "version": "3.3.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble",
+        "path_error": null
+      },
+      {
+        "name": "tidyr",
+        "version": "1.3.2",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr",
+        "path_error": null
+      },
+      {
+        "name": "tidyselect",
+        "version": "1.2.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyselect",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyselect",
+        "path_error": null
+      },
+      {
+        "name": "tools",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools",
+        "path_error": null
+      },
+      {
+        "name": "utils",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils",
+        "path_error": null
+      },
+      {
+        "name": "vctrs",
+        "version": "0.7.3",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs",
+        "path_error": null
+      }
+    ],
+    "DLLs": [
+      {
+        "name": "base",
+        "raw_path": "base",
+        "path": "base",
+        "path_error": null,
+        "built_in": true,
+        "dynamicLookup": false
+      },
+      {
+        "name": "methods",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods/libs/methods.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods/libs/methods.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "utils",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils/libs/utils.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils/libs/utils.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "grDevices",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "graphics",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics/libs/graphics.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics/libs/graphics.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "stats",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "jsonlite",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite/libs/jsonlite.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite/libs/jsonlite.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "parallel",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel/libs/parallel.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel/libs/parallel.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "DEoptim",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim/libs/DEoptim.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim/libs/DEoptim.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "GenSA",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "Rcpp",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp/libs/Rcpp.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp/libs/Rcpp.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": true
+      },
+      {
+        "name": "tools",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools/libs/tools.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools/libs/tools.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "RcppDE",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "Rmalschains",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains/libs/Rmalschains.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains/libs/Rmalschains.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "grid",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid/libs/grid.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid/libs/grid.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "rlang",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang/libs/rlang.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang/libs/rlang.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "cli",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli/libs/cli.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli/libs/cli.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "glue",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue/libs/glue.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue/libs/glue.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "farver",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver/libs/farver.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver/libs/farver.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "vctrs",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs/libs/vctrs.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs/libs/vctrs.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "S7",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7/libs/S7.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7/libs/S7.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "magrittr",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr/libs/magrittr.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr/libs/magrittr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "tibble",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble/libs/tibble.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble/libs/tibble.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "dplyr",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr/libs/dplyr.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr/libs/dplyr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "plyr",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr/libs/plyr.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr/libs/plyr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "purrr",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr/libs/purrr.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr/libs/purrr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "tidyr",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr/libs/tidyr.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr/libs/tidyr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "disqover",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover/libs/disqover.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover/libs/disqover.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "lapack",
+        "raw_path": "/Library/Frameworks/R.framework/Resources/modules//lapack.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": true
+      }
+    ],
+    "session_info": ["R version 4.6.0 (2026-04-24)", "Platform: aarch64-apple-darwin23", "Running under: macOS Tahoe 26.6.2", "", "Matrix products: default", "BLAS:   /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib ", "LAPACK: /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1", "", "locale:", "[1] C", "", "time zone: UTC", "tzcode source: internal", "", "attached base packages:", "[1] stats     graphics  grDevices utils     datasets  methods   base     ", "", "loaded via a namespace (and not attached):", " [1] vctrs_0.7.3        cli_3.6.6          rlang_1.2.0        purrr_1.2.2       ", " [5] generics_0.1.4     S7_0.2.2           jsonlite_2.0.0     glue_1.8.1        ", " [9] plyr_1.8.9         disqover_0.9.14    scales_1.4.0       grid_4.6.0        ", "[13] tibble_3.3.1       lifecycle_1.0.5    compiler_4.6.0     RcppDE_0.1.9      ", "[17] dplyr_1.2.1        RColorBrewer_1.1-3 Rcpp_1.1.1-1.1     DEoptim_2.2-8     ", "[21] pkgconfig_2.0.3    tidyr_1.3.2        GenSA_1.1.15       farver_2.1.2      ", "[25] R6_2.6.1           Rmalschains_0.2-11 tidyselect_1.2.1   pillar_1.11.1     ", "[29] parallel_4.6.0     magrittr_2.0.5     tools_4.6.0        gtable_0.3.6      ", "[33] ggplot2_4.0.3     "]
+  },
+  "after": {
+    "R_version": "R version 4.6.0 (2026-04-24)",
+    "version": "4.6.0",
+    "platform": "aarch64-apple-darwin23",
+    "R_arch": "",
+    "dynlib_ext": ".so",
+    "R_home": "/Library/Frameworks/R.framework/Versions/4.6/Resources",
+    "library_paths": ["/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library", "/Library/Frameworks/R.framework/Versions/4.6/Resources/library"],
+    "namespaces": [
+      {
+        "name": "DEoptim",
+        "version": "2.2-8",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim",
+        "path_error": null
+      },
+      {
+        "name": "GenSA",
+        "version": "1.1.15",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA",
+        "path_error": null
+      },
+      {
+        "name": "R6",
+        "version": "2.6.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/R6",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/R6",
+        "path_error": null
+      },
+      {
+        "name": "RColorBrewer",
+        "version": "1.1-3",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/RColorBrewer",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/RColorBrewer",
+        "path_error": null
+      },
+      {
+        "name": "Rcpp",
+        "version": "1.1.1-1.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp",
+        "path_error": null
+      },
+      {
+        "name": "RcppDE",
+        "version": "0.1.9",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE",
+        "path_error": null
+      },
+      {
+        "name": "Rmalschains",
+        "version": "0.2-11",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains",
+        "path_error": null
+      },
+      {
+        "name": "S7",
+        "version": "0.2.2",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7",
+        "path_error": null
+      },
+      {
+        "name": "base",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Resources/library/base",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/base",
+        "path_error": null
+      },
+      {
+        "name": "cli",
+        "version": "3.6.6",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli",
+        "path_error": null
+      },
+      {
+        "name": "compiler",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/compiler",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/compiler",
+        "path_error": null
+      },
+      {
+        "name": "datasets",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/datasets",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/datasets",
+        "path_error": null
+      },
+      {
+        "name": "disqover",
+        "version": "0.9.14",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover",
+        "path_error": null
+      },
+      {
+        "name": "dplyr",
+        "version": "1.2.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr",
+        "path_error": null
+      },
+      {
+        "name": "farver",
+        "version": "2.1.2",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver",
+        "path_error": null
+      },
+      {
+        "name": "generics",
+        "version": "0.1.4",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/generics",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/generics",
+        "path_error": null
+      },
+      {
+        "name": "ggplot2",
+        "version": "4.0.3",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/ggplot2",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/ggplot2",
+        "path_error": null
+      },
+      {
+        "name": "glue",
+        "version": "1.8.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue",
+        "path_error": null
+      },
+      {
+        "name": "grDevices",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices",
+        "path_error": null
+      },
+      {
+        "name": "graphics",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics",
+        "path_error": null
+      },
+      {
+        "name": "grid",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid",
+        "path_error": null
+      },
+      {
+        "name": "gtable",
+        "version": "0.3.6",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/gtable",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/gtable",
+        "path_error": null
+      },
+      {
+        "name": "jsonlite",
+        "version": "2.0.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite",
+        "path_error": null
+      },
+      {
+        "name": "lifecycle",
+        "version": "1.0.5",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/lifecycle",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/lifecycle",
+        "path_error": null
+      },
+      {
+        "name": "magrittr",
+        "version": "2.0.5",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr",
+        "path_error": null
+      },
+      {
+        "name": "methods",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods",
+        "path_error": null
+      },
+      {
+        "name": "parallel",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel",
+        "path_error": null
+      },
+      {
+        "name": "pillar",
+        "version": "1.11.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/pillar",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/pillar",
+        "path_error": null
+      },
+      {
+        "name": "pkgconfig",
+        "version": "2.0.3",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/pkgconfig",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/pkgconfig",
+        "path_error": null
+      },
+      {
+        "name": "plyr",
+        "version": "1.8.9",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr",
+        "path_error": null
+      },
+      {
+        "name": "purrr",
+        "version": "1.2.2",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr",
+        "path_error": null
+      },
+      {
+        "name": "rlang",
+        "version": "1.2.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang",
+        "path_error": null
+      },
+      {
+        "name": "scales",
+        "version": "1.4.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/scales",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/scales",
+        "path_error": null
+      },
+      {
+        "name": "stats",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats",
+        "path_error": null
+      },
+      {
+        "name": "tibble",
+        "version": "3.3.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble",
+        "path_error": null
+      },
+      {
+        "name": "tidyr",
+        "version": "1.3.2",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr",
+        "path_error": null
+      },
+      {
+        "name": "tidyselect",
+        "version": "1.2.1",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyselect",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyselect",
+        "path_error": null
+      },
+      {
+        "name": "tools",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools",
+        "path_error": null
+      },
+      {
+        "name": "utils",
+        "version": "4.6.0",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils",
+        "path_error": null
+      },
+      {
+        "name": "vctrs",
+        "version": "0.7.3",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs",
+        "path_error": null
+      }
+    ],
+    "DLLs": [
+      {
+        "name": "base",
+        "raw_path": "base",
+        "path": "base",
+        "path_error": null,
+        "built_in": true,
+        "dynamicLookup": false
+      },
+      {
+        "name": "methods",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods/libs/methods.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods/libs/methods.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "utils",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils/libs/utils.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils/libs/utils.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "grDevices",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "graphics",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics/libs/graphics.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics/libs/graphics.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "stats",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "jsonlite",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite/libs/jsonlite.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite/libs/jsonlite.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "parallel",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel/libs/parallel.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel/libs/parallel.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "DEoptim",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim/libs/DEoptim.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim/libs/DEoptim.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "GenSA",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "Rcpp",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp/libs/Rcpp.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp/libs/Rcpp.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": true
+      },
+      {
+        "name": "tools",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools/libs/tools.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools/libs/tools.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "RcppDE",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "Rmalschains",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains/libs/Rmalschains.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains/libs/Rmalschains.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "grid",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid/libs/grid.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid/libs/grid.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "rlang",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang/libs/rlang.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang/libs/rlang.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "cli",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli/libs/cli.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli/libs/cli.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "glue",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue/libs/glue.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue/libs/glue.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "farver",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver/libs/farver.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver/libs/farver.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "vctrs",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs/libs/vctrs.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs/libs/vctrs.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "S7",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7/libs/S7.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7/libs/S7.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "magrittr",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr/libs/magrittr.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr/libs/magrittr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "tibble",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble/libs/tibble.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble/libs/tibble.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "dplyr",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr/libs/dplyr.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr/libs/dplyr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "plyr",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr/libs/plyr.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr/libs/plyr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "purrr",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr/libs/purrr.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr/libs/purrr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "tidyr",
+        "raw_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr/libs/tidyr.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr/libs/tidyr.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "disqover",
+        "raw_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover/libs/disqover.so",
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover/libs/disqover.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": false
+      },
+      {
+        "name": "lapack",
+        "raw_path": "/Library/Frameworks/R.framework/Resources/modules//lapack.so",
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+        "path_error": null,
+        "built_in": false,
+        "dynamicLookup": true
+      }
+    ],
+    "session_info": ["R version 4.6.0 (2026-04-24)", "Platform: aarch64-apple-darwin23", "Running under: macOS Tahoe 26.6.2", "", "Matrix products: default", "BLAS:   /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib ", "LAPACK: /Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1", "", "locale:", "[1] C", "", "time zone: UTC", "tzcode source: internal", "", "attached base packages:", "[1] stats     graphics  grDevices utils     datasets  methods   base     ", "", "loaded via a namespace (and not attached):", " [1] vctrs_0.7.3        cli_3.6.6          rlang_1.2.0        purrr_1.2.2       ", " [5] generics_0.1.4     S7_0.2.2           jsonlite_2.0.0     glue_1.8.1        ", " [9] plyr_1.8.9         disqover_0.9.14    scales_1.4.0       grid_4.6.0        ", "[13] tibble_3.3.1       lifecycle_1.0.5    compiler_4.6.0     RcppDE_0.1.9      ", "[17] dplyr_1.2.1        RColorBrewer_1.1-3 Rcpp_1.1.1-1.1     DEoptim_2.2-8     ", "[21] pkgconfig_2.0.3    tidyr_1.3.2        GenSA_1.1.15       farver_2.1.2      ", "[25] R6_2.6.1           Rmalschains_0.2-11 tidyselect_1.2.1   pillar_1.11.1     ", "[29] parallel_4.6.0     magrittr_2.0.5     tools_4.6.0        gtable_0.3.6      ", "[33] ggplot2_4.0.3     "]
+  }
+}

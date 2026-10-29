@@ -1,0 +1,69 @@
+{
+  "schema_version": "controlled-lra-qualified-numerical-source-qualification.v1",
+  "source_only_native_exit": 0,
+  "pure_control_groups": 18,
+  "strict_python_files": 8,
+  "ruff_python_files": 8,
+  "format_python_files": 8,
+  "AST_python_files": 8,
+  "help_entrypoints": 3,
+  "new_R_model_optimizer_installer_preparer_calls": 0,
+  "source_checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/guards.log",
+      "sha256": "b4ca27384c77f53804562e13abe0c12a064efff7d0b14967a790267f22e46226",
+      "bytes": 117
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/strict.log",
+      "sha256": "157a09cfcdfdfb5977479c5a1c08345149263a3e990a2ec976ef28aaeec9cae6",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/lint.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/format.log",
+      "sha256": "8e93d18ae56550d4eef2feac77e6630617c7e169246e56e39c75d58b46167985",
+      "bytes": 26
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/prepare-help.log",
+      "sha256": "09897a2c60dff6cc647aa41ac3453c9911182a8950a274180850cc55a5198a1f",
+      "bytes": 257
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/observer-help.log",
+      "sha256": "5bfd4166892a914bca1ca8cb1263a03dbb67c6c22361a41f685a36971fd618df",
+      "bytes": 116
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/runner-help.log",
+      "sha256": "47232bb088aef0db6dbad4101aea5b2c35e9709313cfac8222a539d033770ff1",
+      "bytes": 209
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/qualified-prerequisite-and-numerical-source.json",
+      "sha256": "c55592abc6d49b344f31ef1e76a24c3e0bed26f1d1a170d173f78590e9cfc609",
+      "bytes": 3947
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/preflight/prerequisite.log",
+      "sha256": "9beda0c3cd490176178eb5e18d0b4d461b95933f36eda22fca014479794ecd15",
+      "bytes": 217
+    }
+  ],
+  "correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/source-correspondence.json",
+    "sha256": "799893a16a711e424de0757c385298dc2ffb5b6c744296ad8c1983085da5c90f",
+    "bytes": 3707
+  },
+  "prior_qualified_runtime_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-introspection/source-qualification.json",
+    "sha256": "7050d0b5bed5b4cc135be562a71ef4a6e2c83865c424e82a58d7a663125fab37",
+    "bytes": 2788
+  },
+  "scope": "Source controls, actual native proof read-only validation, all44701original input/product byte checks and static44file MachO closure only. No fresh numerical/preparer invocation."
+}

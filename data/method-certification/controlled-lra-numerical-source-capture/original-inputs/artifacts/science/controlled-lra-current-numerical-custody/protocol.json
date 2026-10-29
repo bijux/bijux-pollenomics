@@ -1,0 +1,61 @@
+{
+  "schema_version": "controlled-lra-qualified-runtime-numerical-protocol.v1",
+  "owners": [
+    "method-certification/optimizer-solution-quality/report-products",
+    "method-certification/paired-love-draws/report-products"
+  ],
+  "actual_execution_stages": [
+    "optimizer-solution-quality-current-native-replay",
+    "paired-love-draws-current-native-replay",
+    "independent-ordered-values-objectives-and-runtime"
+  ],
+  "source_plan": "prepare_numerical.py --candidate CLEAN_MAIN_SHA --output ABSOLUTE_FRESH_ARTIFACT_ROOT",
+  "required_runtime": "Exact retained913native library files/six package DESCRIPTION+NAMESPACE roots; exact qualified44physical native files/fullLC_RPATH closure; named4.6 corelapack module; complete currentR_HOME10724/jsonlite39/Python4src resources; rawframework/std/executable aliases authenticated before/after. All original qualified probe source/runtime/input/product pins must remain exact; drift refuses before preparation output.",
+  "wrapper_contract": "Exact ecd0-qualified R snapshot helper: sessionInfo BEFORE namespace/DLL enumeration, raw snapshots retained beforechecks, metadata_only=false for these fresh numerical calls. Real original Rsource source() unchanged; no monkeypatch/decoder replacement/installation/HOME override.",
+  "resources": {
+    "overall_timeout_seconds": 210,
+    "per_native_producer_seconds": 75,
+    "independent_observer_seconds": 30,
+    "completed_child_RSS_postcheck_bytes": 1073741824,
+    "all_output_with_own_terminal_reserve_postcheck_bytes": 134217728,
+    "own_terminal_reserve_bytes": 16384,
+    "no_OS_memory_or_storage_quota_claim": true,
+    "no_complete_descendant_RSS_census_claim": true,
+    "network_kernel_denial": false,
+    "declared_source_network_calls": 0,
+    "requested_thread_env_only": true
+  },
+  "scientific_acceptance": "not_evaluated",
+  "unchanged_prospective_thresholds": {
+    "paired_absolute": 3e-10,
+    "paired_finite": 120,
+    "paired_missing": 280,
+    "optimizer_known_optimum_gap": 0.0001,
+    "optimizer_cross_evaluation_gap": 1e-10,
+    "R_iterations": 400,
+    "optimizer_case_count": 3
+  },
+  "original_history": "Old11public products and source epochs remain separate and complete all-field/wire deltas are reported; no old native process proof recovered.",
+  "installed_batch_dependency": "Separate artifact-only protocol follows; not included in these two numerical replays.",
+  "qualified_runtime_prerequisite": {
+    "plan_sha256": "195696988e1ed51109895514fa04c729b74cf64da00414fc4893a017efb3edf9",
+    "common_terminal_sha256": "65b3b3dd699559e5d7e663fbabab59364b59d3a19a88863ac9180a6779ea98bb",
+    "outer_terminal_sha256": "a66268f607f6a38be8a3745184bfe9b14072f41233c560936fd5a6071a903e19",
+    "observer_sha256": "6a3d32fe1ace7c9b6d687bc32679cb0826425efea7c4e888ba012cba761f8696",
+    "actual_candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+    "actual_stages": [
+      0,
+      0
+    ],
+    "before_after_namespaces": 40,
+    "before_after_DLLs": 29,
+    "original_all_registered_inputs_and_products_rehashed": 44701,
+    "R_math_ran": false
+  },
+  "runtime_source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/source-correspondence.json",
+    "sha256": "799893a16a711e424de0757c385298dc2ffb5b6c744296ad8c1983085da5c90f",
+    "bytes": 3707
+  },
+  "old_failures": "First native numerical job1 had Python fit output but noRmath and erased firstDLL identity; later metadata-only lapack refusal1 retained rawbefore/after; only newmetadata probe0 qualifies runtime. All source/plan/products remain separate."
+}

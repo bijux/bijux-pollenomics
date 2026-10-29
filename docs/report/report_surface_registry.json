@@ -7140,7 +7140,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/optimizer-solution-quality/README.md",
-      "content_sha256": "f94e9ea1439ab9b6459008a10336387d2c43e7c94bb83ca9a9cd632de48c127b",
+      "content_sha256": "cc2cefa0e9c8b32f4b5b411d1ba0db3406ca74daceec991af30e7e0954b3bf52",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -8774,7 +8774,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/paired-love-draws/README.md",
-      "content_sha256": "069649f011f734bf675e82e572414948d4f5fdfebf239ca9ae2e29fc348330c1",
+      "content_sha256": "8307d3ac899aa06cfdc3f30ee8b06cf006f0c152db28dbd3db60f6289833cd26",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

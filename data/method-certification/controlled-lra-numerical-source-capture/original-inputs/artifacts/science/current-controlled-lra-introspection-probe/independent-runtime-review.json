@@ -1,0 +1,47 @@
+{
+  "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+  "plan_sha256": "195696988e1ed51109895514fa04c729b74cf64da00414fc4893a017efb3edf9",
+  "actual_native_R_stage_exit": 0,
+  "counts": {
+    "before_namespaces": 40,
+    "before_DLLs": 29,
+    "after_namespaces": 40,
+    "after_DLLs": 29
+  },
+  "metadata": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-introspection-probe/runtime-observation.json",
+    "sha256": "8b317216e18d2cf233493c158b71470917bfdc9ccfeee0b0b8354a3a620bd6da",
+    "bytes": 46947
+  },
+  "native_dependency_files": 44,
+  "input_pin_count": 44691,
+  "original_native_library_files": 913,
+  "failed_original_replay": {
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/plan.json",
+      "sha256": "69dc4d4cd1487349ac9f578175f5d156bbceb193c4f6adcca283bbc8688dfb7f",
+      "bytes": 11981197
+    },
+    "terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/terminal.json",
+      "sha256": "3e61e228806047291b388b3ffa52bae0eb6f8585944e2491bff775b11cf89543",
+      "bytes": 7777
+    },
+    "outer_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/controlled-numerical-terminal.json",
+      "sha256": "042d74520771c4a6d6241d3496da05d53efda93423b0fec3dd3cd6d9956136ba",
+      "bytes": 927
+    },
+    "metadata": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/optimizer-solution-quality/same-process-runtime.json",
+      "sha256": "7ef8466ff167a6a84696c9505a9aa5ea4563c6edfa980bde16a6da972066af2d",
+      "bytes": 979
+    },
+    "first_offending_DLL_identity": "Unknown: original raw snapshot was not retained",
+    "Python_fixture_ran": true,
+    "R_numerical_source_ran": false
+  },
+  "R_numerical_source_ran": false,
+  "Python_optimizer_ran": false,
+  "actual_exit": 0
+}

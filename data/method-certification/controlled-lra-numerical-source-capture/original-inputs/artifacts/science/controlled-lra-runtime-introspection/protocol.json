@@ -1,0 +1,87 @@
+{
+  "schema_version": "controlled-lra-runtime-introspection-probe.v1",
+  "purpose": "Metadata-only successor for actual sessionInfo-induced R core lapack module: source-qualified exact4.6/layout/config/module, sessionInfo invoked before capturing namespace/DLL lists. No new mathematical replay.",
+  "native_stages": [
+    "metadata-only-R-namespace-and-DLL-custody",
+    "independent-R-runtime-and-input-observer"
+  ],
+  "source_plan": "prepare_runtime_probe.py --candidate CLEAN_MAIN_SHA --output ABSOLUTE_FRESH_ARTIFACT_ROOT",
+  "required_runtime": "Exact original retained913 native library files and installation receipt, current complete R4.6/jsonlite2.0, complete Python/std/source trees, exact useDynLib file and LC_RPATH dependency metadata. No installation/source decoding replacement.",
+  "six_owned_namespace_names": [
+    "GenSA",
+    "RcppArmadillo",
+    "RcppDE",
+    "Rmalschains",
+    "disqover",
+    "plyr"
+  ],
+  "static_source_read": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-introspection/preflight/qualified-introspection-module-census.json",
+    "sha256": "3241f4156f9952ca62ebbf5906281bb3942747f056f7ea97c6655ca7a722bec8",
+    "bytes": 73264
+  },
+  "raw_snapshot_contract": "Complete raw and normalized namespace/DLL records assigned before runtime/version/path/DLL checks. Contextual metadata errors retained. metadata_only=true, original_script=null, numerical_exit=null; no maintained numerical source is called.",
+  "resources": {
+    "overall_timeout_seconds": 65,
+    "R_metadata_seconds": 30,
+    "observer_seconds": 20,
+    "completed_child_RSS_postcheck_bytes": 1073741824,
+    "inclusive_logical_output_postcheck_bytes": 134217728,
+    "own_terminal_reserve_bytes": 16384,
+    "memory_storage_OSquota": false,
+    "full_descendant_RSS": false,
+    "requested_thread_env_only": true,
+    "kernel_network_denial": false
+  },
+  "scientific_or_numerical_acceptance": false,
+  "failed_original_execution": {
+    "common_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/terminal.json",
+      "sha256": "3e61e228806047291b388b3ffa52bae0eb6f8585944e2491bff775b11cf89543",
+      "bytes": 7777
+    },
+    "outer_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/controlled-numerical-terminal.json",
+      "sha256": "042d74520771c4a6d6241d3496da05d53efda93423b0fec3dd3cd6d9956136ba",
+      "bytes": 927
+    },
+    "R_numerical_source_ran": false,
+    "Python_fixture_fits_ran": true,
+    "whole_native_exit": 1,
+    "first_offending_DLL": "Unknown because original before snapshot was not retained"
+  },
+  "next_numerical_source_freeze": "Only after genuine registered metadata-only probe and observer native0; this source manifest is not new numerical certification.",
+  "introspection_failure": {
+    "common_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/terminal.json",
+      "sha256": "e948e8f8c8b7ad0801172a96f326e3e042a0224f362f96fd89e8997307f6d083",
+      "bytes": 4999
+    },
+    "outer_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/controlled-runtime-terminal.json",
+      "sha256": "1e5adf2a790174cc51c46ad37010baa5ed6b146657bccddab8c4cc3f22dfa551",
+      "bytes": 917
+    },
+    "raw_metadata": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/runtime-observation.json",
+      "sha256": "5eee84b91f4877a8017ee37daf6a268cc881d985d95b7eb88ab896c8b315e025",
+      "bytes": 46840
+    },
+    "whole_exit": 1,
+    "R_math_ran": false,
+    "only_new_after_DLL": "R_HOME/modules/lapack.so"
+  },
+  "lexical_framework_aliases": [
+    {
+      "path": "/Library/Frameworks/R.framework/Resources",
+      "readlink": "Versions/Current/Resources",
+      "target": "/Library/Frameworks/R.framework/Versions/4.6/Resources"
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/Current",
+      "readlink": "4.6",
+      "target": "/Library/Frameworks/R.framework/Versions/4.6"
+    }
+  ],
+  "scope": "Only named core lapack module is added to static namespace seeds; arbitrary module names and unknown DLL paths still refuse. Full MachO dependency closure/read-only original R_HOME authority. All original unknown-DLL failure and subsequent raw lapack refusal preserved."
+}

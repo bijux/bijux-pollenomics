@@ -1,0 +1,28 @@
+{
+  "schema_version": "paired-love-draws-result.1",
+  "status": "passed",
+  "source_package": "disqover 0.9.14",
+  "rscript_sha256": "d918ce5022d859e20c38094bb0b6199186cefd8bb96ffeb58618471c9a65a22d",
+  "input_sha256": {
+    "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+    "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py": "ebf5a2b6a20ccee96b06851f2ea85db9b36c05da123d21b59197b92d25f30269",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py": "c4c368a02c9757e9f899a079b4d2b93a893c8493350aeaa910f8e5fa5d5049a1",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
+    "docs/report/method-certification/paired-love-draws/replay.R": "960fb50e63a3ce9a53464f5ef239fa7655f527477e3d993e4ce0d04a196dd171",
+    "docs/report/method-certification/paired-love-draws/replay.py": "2d2ba1a42c2fd3e71129d20b857db2c9d60be21c3337fd31f5e7ddb925d21e35"
+  },
+  "paired_finite_values": 120,
+  "paired_missing_values": 280,
+  "maximum_absolute_difference": 6.927791673660977e-14,
+  "tolerance_absolute": 3e-10,
+  "output_sha256": {
+    "draws.json": "904a7833ab0396e4a44f6bb8501a7b1180c48cdadb4714189aa2b41abd3d0351",
+    "setup.json": "9ac28398214f733ea6b193a78a4da570b654806945703be7c2238a4021c8029b",
+    "python-values.csv": "390fe61025bbdbdaf3e648ca329773b1c2f6f26ae950c3b9bf78c65f8380b0c5",
+    "r-values.csv": "3422da89a5e9ab9dee7b0ced0dc2f02196b712071d8a66d445a7e55b42ec2422",
+    "r-session.txt": "f0773178bf5c1c530365d350d05771e93b4d2085cd2118124929ec62f0e2e3b2"
+  }
+}
