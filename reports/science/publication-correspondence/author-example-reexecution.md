@@ -109,7 +109,7 @@ We have not authenticated the full historical input revisions, resolved
 the paper/archive PFT disagreement, cleared private-input redistribution
 rights or compared our output with independent measured vegetation. Those
 questions remain in our [publication account](../publication-correspondence.md)
-and [research-needs register](../../needed/README.md).
+and research-needs register.
 
 
 <!-- scientific-verification-and-limits:begin -->
