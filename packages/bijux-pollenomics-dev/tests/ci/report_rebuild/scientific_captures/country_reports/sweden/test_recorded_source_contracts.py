@@ -25,7 +25,7 @@ def _contracts(
     root: Path, monkeypatch: pytest.MonkeyPatch
 ) -> tuple[list[dict[str, Any]], Any, dict[str, bytes]]:
     """Construct only tiny source strings, with a controlled descriptor identity."""
-    rows = []
+    rows: list[dict[str, Any]] = []
     members = {}
     paths = []
     bodies = {}
