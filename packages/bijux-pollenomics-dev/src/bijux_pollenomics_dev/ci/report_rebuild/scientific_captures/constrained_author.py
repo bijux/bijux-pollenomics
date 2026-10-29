@@ -303,10 +303,10 @@ def validated_constrained_author_capture(
         raise ReportRebuildError(
             "Constrained author experiment current scientific source projection differs"
         )
-    current_metadata_correspondences = []
-    current_presentation_correspondences = []
-    current_author_profile_correspondences = []
-    current_intake_guard_correspondences = []
+    current_metadata_correspondences: list[JsonObject] = []
+    current_presentation_correspondences: list[JsonObject] = []
+    current_author_profile_correspondences: list[JsonObject] = []
+    current_intake_guard_correspondences: list[JsonObject] = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
