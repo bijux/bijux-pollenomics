@@ -1,0 +1,545 @@
+"""Artificial retention boundary controls; no real raw/sample data or runtime census."""
+
+from __future__ import annotations
+
+from copy import deepcopy
+from functools import partial
+import hashlib
+import importlib.util
+import json
+import os
+from pathlib import Path
+import shutil
+import sys
+from typing import Any
+
+SOURCE = Path(__file__).resolve().parent
+sys.path.insert(0, str(SOURCE))
+from contracts import RESOURCES, registered_plan, verify_private_ancestry  # noqa: E402
+from observe import exact_packet_tree  # noqa: E402
+from packet import (  # noqa: E402
+    PLAN_SHA,
+    SAMPLE_IDS,
+    SCOPE,
+    blob,
+    exact_public_rows,
+    indexed,
+    input_roles,
+    json_object,
+    member_name,
+    normalized,
+    outer_stream_correspondence,
+    qualify_scope,
+    require,
+    same,
+)
+from run import validate_stages  # noqa: E402
+
+
+def refuses(call: Any) -> None:
+    try:
+        call()
+    except (ValueError, KeyError, TypeError, ImportError):
+        return
+    raise AssertionError("Expected refusal")
+
+
+def receipts() -> tuple[
+    dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]
+]:
+    candidate = "a" * 40
+    stages = [
+        {
+            "id": name,
+            "action": action,
+            "timeout_seconds": seconds,
+            "argv": ["exact", action],
+        }
+        for name, action, seconds in [
+            ("maintained-selected-source-series", "producer", 180),
+            ("independent-native-count-locator-observer", "observer", 120),
+        ]
+    ]
+    selected = [{"sample_id": int(name.rsplit(":", 1)[1])} for name in SAMPLE_IDS]
+    plan = {
+        "schema_version": "neotoma-owned-selected-count-plan.v1",
+        "candidate": candidate,
+        "canonical_identity_at_source_freeze": {"candidate": candidate, "status": ""},
+        "input_pins": [{}] * 62148,
+        "stages": stages,
+        "selected_samples": selected,
+        "raw_root": "/artificial/raw",
+        "normalized_root": "/artificial/normalized",
+    }
+    inner = {
+        "candidate": candidate,
+        "plan_sha256": PLAN_SHA,
+        "actual_exit": 0,
+        "exception": None,
+        "after_custody_error": None,
+        "live_canonical_equality_claimed": False,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_whole_wall_bound_pass": True,
+        "stages": [{**v, "actual_exit": 0, "timed_out": False} for v in stages],
+    }
+    outer = {
+        "candidate": candidate,
+        "plan_sha256": PLAN_SHA,
+        "actual_exit": 0,
+        "child_native_exit": 0,
+        "child_timed_out": False,
+        "registered_plan_unchanged": True,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_outer_wall_bound_pass": True,
+    }
+    product = {
+        "path": "/artificial/selected-series.json",
+        "sha256": "a" * 64,
+        "bytes": 5,
+    }
+    producer = {
+        "candidate": candidate,
+        "actual_exit": 0,
+        "selected_sample_ids": list(SAMPLE_IDS),
+        "distinct_native_request_roles": selected,
+        "maintained_public_calls": [
+            "read_neotoma_evidence(raw_root, normalized_root)",
+            "build_neotoma_candidate_series(evidence, selected_sample_ids)",
+        ],
+        "raw_root": plan["raw_root"],
+        "normalized_root": plan["normalized_root"],
+        "numerical_import_attempts": [],
+        "normalization_HTTP_model_or_R_executed": False,
+        "original_mass_or_manifest_constructor_recovered": False,
+        "physical_core_chronology_denominator_rights_human_or_LRA_admitted": False,
+        "product": product,
+    }
+    review = {
+        "candidate": candidate,
+        "actual_exit": 0,
+        "full_typed_and_canonical_series_equal": True,
+        "all_native_age_alternatives_and_raw_bounds_preserved": True,
+        "source_unit_zero_missing_fraction_and_noncount_refusals_preserved": True,
+        "chronology_selection_or_support_hull_performed": False,
+        "original_mass_or_manifest_construction_approval_recovered": False,
+        "original_HTTP_capture_or_physical_core_identity_recovered": False,
+        "country_attribution_independently_recomputed": False,
+        "pollen_denominator_taxon_PPE_rights_human_model_or_LRA_admitted": False,
+        "actual_maintained_series": product,
+        "current_source_count_mass_rows": [
+            {
+                "sample_id": name,
+                "known_compatible_pollen_denominator_status": "not_evaluated",
+                "lra_admission_status": "refused",
+            }
+            for name in SAMPLE_IDS
+        ],
+        "selected_sample_identities": [{"sample_id": name} for name in SAMPLE_IDS],
+        "retained_receipt_row_comparisons": [
+            {
+                "domain": domain,
+                "native_scientific_row_reconstruction_equal": True,
+                "original_mass_object_recovered": False,
+                "original_mass_or_manifest_construction_approval_recovered": False,
+            }
+            for domain in ("abbo-core-identity", "swedish-lake-core-identity")
+        ],
+        "selected_denominators": {"samples": 3, "lra_refused_samples": 3},
+    }
+    return plan, inner, outer, producer, review
+
+
+def entry_cases(target: Path) -> int:
+    root = target / "entry-source"
+    root.mkdir()
+    files = []
+    for path in sorted(SOURCE.glob("*.py")):
+        dest = root / path.name
+        dest.write_bytes(path.read_bytes())
+        raw = dest.read_bytes()
+        files.append(
+            {
+                "path": str(dest),
+                "sha256": hashlib.sha256(raw).hexdigest(),
+                "bytes": len(raw),
+            }
+        )
+    manifest = root / "prepared-source-manifest.json"
+    manifest.write_text(json.dumps({"source_only": True, "files": files}))
+    (root / "independent-source-review.json").write_text(
+        json.dumps(
+            {
+                "approved": True,
+                "source_manifest_sha256": hashlib.sha256(
+                    manifest.read_bytes()
+                ).hexdigest(),
+            }
+        )
+    )
+    spec = importlib.util.spec_from_file_location("artificial_entry", root / "entry.py")
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    module.verify(root)
+    first = root / "packet.py"
+    old = first.read_bytes()
+    first.write_bytes(old + b"\n")
+    refuses(partial(module.verify, root))
+    first.write_bytes(old)
+    unknown = root / "shadow.so"
+    unknown.write_bytes(b"")
+    refuses(partial(module.verify, root))
+    unknown.unlink()
+    fifo = root / "special"
+    os.mkfifo(fifo)
+    refuses(partial(module.verify, root))
+    fifo.unlink()
+    alias = target / "entry-link"
+    alias.symlink_to(root, target_is_directory=True)
+    refuses(partial(module.entry_root, alias / "entry.py"))
+    return 5
+
+
+def main() -> None:
+    target = SOURCE / "preflight/artificial-retention-controls"
+    require(not target.exists(), "Fresh artificial root required")
+    target.mkdir()
+    count = 0
+    try:
+        docs = receipts()
+        result = qualify_scope(*docs)
+        assert result["historical_manifest_ownership_changed"] is False
+        count += 1
+        for index, key, value in [
+            (1, "actual_exit", True),
+            (2, "actual_exit", 1),
+            (1, "after_custody_error", "changed"),
+            (2, "child_timed_out", True),
+            (3, "numerical_import_attempts", ["LRA"]),
+            (
+                4,
+                "pollen_denominator_taxon_PPE_rights_human_model_or_LRA_admitted",
+                True,
+            ),
+        ]:
+            changed = deepcopy(docs)
+            changed[index][key] = value
+            refuses(partial(qualify_scope, *changed))
+            count += 1
+        changed = deepcopy(docs)
+        changed[1]["stages"][1]["argv"] = ["wrong"]
+        refuses(partial(qualify_scope, *changed))
+        count += 1
+        changed = deepcopy(docs)
+        changed[1]["stages"][1]["actual_exit"] = False
+        refuses(partial(qualify_scope, *changed))
+        count += 1
+        changed = deepcopy(docs)
+        changed[4]["retained_receipt_row_comparisons"][0][
+            "original_mass_object_recovered"
+        ] = True
+        refuses(partial(qualify_scope, *changed))
+        count += 1
+        for key in (
+            "chronology_selection_or_support_hull_performed",
+            "original_mass_or_manifest_construction_approval_recovered",
+            "country_attribution_independently_recomputed",
+        ):
+            changed = deepcopy(docs)
+            changed[4][key] = True
+            refuses(partial(qualify_scope, *changed))
+            count += 1
+        changed = deepcopy(docs)
+        changed[0]["selected_samples"][0]["sample_id"] = 19913
+        refuses(partial(qualify_scope, *changed))
+        count += 1
+        for value in [
+            ".",
+            "../escape",
+            "/absolute",
+            "payloads/" + "g" * 64,
+            "payloads/" + "a" * 64 + "/nested",
+        ]:
+            refuses(partial(member_name, value))
+            count += 1
+        row = {"path": "/artificial/public", "sha256": "a" * 64, "bytes": 0}
+        assert blob(row) == "payloads/" + "a" * 64
+        count += 1
+        for value in [True, -1]:
+            refuses(partial(normalized, {**row, "bytes": value}))
+            count += 1
+        refuses(partial(indexed, [row, row]))
+        count += 1
+        refuses(partial(same, 0, False))
+        refuses(partial(json_object, b'{"x":1,"x":2}'))
+        refuses(partial(json_object, b'{"x":NaN}'))
+        count += 3
+        plan_path = target / "plan.json"
+        plan_path.write_bytes(b'{"strict":true}')
+        checksum = hashlib.sha256(plan_path.read_bytes()).hexdigest()
+        assert registered_plan(plan_path, checksum) == {"strict": True}
+        count += 1
+        plan_path.write_bytes(b'{"strict":false}')
+        refuses(partial(registered_plan, plan_path, checksum))
+        count += 1
+        parent = target / "private"
+        parent.mkdir()
+        (parent / "input").write_bytes(b"x")
+        verify_private_ancestry(parent, ["input"])
+        count += 1
+        alias = target / "private-link"
+        alias.symlink_to(parent, target_is_directory=True)
+        refuses(partial(verify_private_ancestry, alias, ["input"]))
+        count += 1
+        packet = target / "packet"
+        (packet / "payloads").mkdir(parents=True)
+        (packet / "capture.json").write_bytes(b"{}")
+        (packet / "payloads/a").write_bytes(b"x")
+        exact_packet_tree(packet, {"payloads/a"})
+        count += 1
+        (packet / "extra").mkdir()
+        refuses(partial(exact_packet_tree, packet, {"payloads/a"}))
+        (packet / "extra").rmdir()
+        count += 1
+        fifo = packet / "payloads/fifo"
+        os.mkfifo(fifo)
+        refuses(partial(exact_packet_tree, packet, {"payloads/a"}))
+        fifo.unlink()
+        count += 1
+        from contracts import PYTHON
+
+        execution: dict[str, Any] = {
+            "resources": dict(RESOURCES),
+            "stages": [
+                {
+                    "id": name,
+                    "action": action,
+                    "timeout_seconds": 180,
+                    "argv": [
+                        str(PYTHON),
+                        "-I",
+                        "-B",
+                        str(SOURCE / "entry.py"),
+                        action,
+                        "--plan",
+                        str(plan_path),
+                    ],
+                }
+                for name, action in [
+                    ("retained-selected-count-capsule-assembly", "assemble"),
+                    ("independent-selected-count-capsule-observer", "observer"),
+                ]
+            ],
+        }
+        validate_stages(execution, plan_path)
+        count += 1
+        execution["stages"][0]["timeout_seconds"] = True
+        refuses(partial(validate_stages, execution, plan_path))
+        count += 1
+
+        def identity(path: str, raw: bytes) -> dict[str, Any]:
+            return {
+                "path": path,
+                "sha256": hashlib.sha256(raw).hexdigest(),
+                "bytes": len(raw),
+            }
+
+        native_inner = identity("/artificial/inner.json", b"receipt")
+        tail = (
+            json.dumps({"terminal": native_inner, "actual_exit": 0}) + "\n"
+        ).encode()
+        stream_outer = {
+            "stdout": identity("/artificial/stream", tail),
+            "stderr": identity("/artificial/stderr", b""),
+        }
+        stream_catalogue = {"files": [identity("/artificial/product", b"product")]}
+        assert outer_stream_correspondence(
+            stream_catalogue, stream_outer, native_inner
+        )["stdout_is_exact_inner_receipt_print"]
+        count += 1
+        for bad in [tail + b"extra", b"arbitrary", b"prefix" + tail]:
+            wrong = deepcopy(stream_outer)
+            wrong["stdout"] = identity("/artificial/stream", bad)
+            refuses(
+                partial(
+                    outer_stream_correspondence, stream_catalogue, wrong, native_inner
+                )
+            )
+            count += 1
+        for role in ["stdout", "stderr"]:
+            wrong_catalogue = {
+                "files": stream_catalogue["files"] + [stream_outer[role]]
+            }
+            refuses(
+                partial(
+                    outer_stream_correspondence,
+                    wrong_catalogue,
+                    stream_outer,
+                    native_inner,
+                )
+            )
+            count += 1
+        fixture = json.loads((SOURCE / "native-stream-role-fixture.json").read_bytes())
+        fixed_catalogue = {
+            "files": [
+                {"path": name, "sha256": "a" * 64, "bytes": 0}
+                for name in fixture["inner_catalogue_role_paths"]
+            ]
+        }
+        assert outer_stream_correspondence(
+            fixed_catalogue,
+            fixture["outer_stream_identities"],
+            fixture["inner_terminal_identity"],
+        )["outer_streams_absent_from_inner_catalogue"]
+        assert fixture["catalogue_file_count"] == len(fixed_catalogue["files"])
+        count += 1
+        public = identity("/artificial/source.py", b"public")
+        assert exact_public_rows([public, public]) == {public["path"]: public}
+        count += 1
+        refuses(partial(exact_public_rows, [public, {**public, "bytes": 1}]))
+        count += 1
+        private = [
+            identity("/artificial/raw/" + str(i), str(i).encode()) for i in range(30)
+        ]
+        originals = [
+            identity("/artificial/" + str(i), str(i).encode()) for i in range(6)
+        ]
+        prior = [
+            identity("/artificial/authority/capture.json", b"capture"),
+            identity("/artificial/authority/catalogue.json", b"catalogue"),
+        ]
+        ledger = {"copied_sources": [public]}
+        fake_source = identity("/artificial/source-manifest", b"manifest")
+        fake_peer = identity("/artificial/peer", b"peer")
+        source = {"files": [public]}
+        ledger_pin = identity("/artificial/ledger", b"ledger")
+        runtime = identity("/artificial/runtime", b"runtime")
+        runtime_refs = {
+            k: identity("/artificial/runtime-" + k, k.encode())
+            for k in ("plan", "outer", "common", "independent_review")
+        }
+        role_plan: dict[str, Any] = {
+            "source_ledger": ledger_pin,
+            "private_source_root": "/artificial",
+            "declared_inputs": [
+                {**r, "path": "raw/" + str(i)} for i, r in enumerate(private)
+            ],
+            "source_declaration": {
+                "public_retained_inputs": [
+                    {**r, "path": str(i)} for i, r in enumerate(originals)
+                ],
+                "input_identity_authority": {
+                    "capture_path": "authority/capture.json",
+                    "catalog_member": "catalogue.json",
+                },
+            },
+            "qualified_source_runtime": runtime_refs,
+            "input_pins": [
+                public,
+                ledger_pin,
+                *private,
+                *originals,
+                *prior,
+                fake_source,
+                fake_peer,
+                runtime,
+                *runtime_refs.values(),
+            ],
+        }
+        roles = input_roles(
+            role_plan, ledger, source, fake_source, fake_peer, {"input_pins": [runtime]}
+        )
+        assert len(roles) == len(role_plan["input_pins"])
+        assert roles[0]["payload_member"] == blob(public)
+        assert all(v["payload_member"] is None for v in roles[2:32])
+        count += 1
+        role_changed = deepcopy(role_plan)
+        role_changed["input_pins"].append(identity("/artificial/unknown", b"unknown"))
+        refuses(
+            partial(
+                input_roles,
+                role_changed,
+                ledger,
+                source,
+                fake_source,
+                fake_peer,
+                {"input_pins": [runtime]},
+            )
+        )
+        count += 1
+        role_changed = deepcopy(role_plan)
+        role_changed["input_pins"][0]["bytes"] += 1
+        refuses(
+            partial(
+                input_roles,
+                role_changed,
+                ledger,
+                source,
+                fake_source,
+                fake_peer,
+                {"input_pins": [runtime]},
+            )
+        )
+        count += 1
+        import contracts
+
+        original_pin = contracts.__dict__["pin"]
+        calls = []
+
+        def never_pin(path: Path) -> dict[str, Any]:
+            calls.append(str(path))
+            raise AssertionError("No tool or pin before loader refusal")
+
+        contracts.__dict__["pin"] = never_pin
+        previous = os.environ.get("DYLD_LIBRARY_PATH")
+        os.environ["DYLD_LIBRARY_PATH"] = ""
+        try:
+            refuses(contracts.identity)
+        finally:
+            contracts.__dict__["pin"] = original_pin
+            if previous is None:
+                os.environ.pop("DYLD_LIBRARY_PATH", None)
+            else:
+                os.environ["DYLD_LIBRARY_PATH"] = previous
+        assert calls == []
+        count += 1
+        from retained import expected
+
+        sealed = target / "sealed.json"
+        sealed.write_bytes(b"{}")
+        assert expected(sealed, hashlib.sha256(b"{}").hexdigest())[1] == {}
+        count += 1
+        sealed_fifo = target / "sealed-fifo"
+        os.mkfifo(sealed_fifo)
+        refuses(partial(expected, sealed_fifo, "a" * 64))
+        refuses(partial(registered_plan, sealed_fifo, "a" * 64))
+        sealed_fifo.unlink()
+        count += 2
+        count += entry_cases(target)
+        assert all(
+            value is False
+            for key, value in SCOPE.items()
+            if key
+            not in {
+                "metadata_retention_only",
+                "selected_derived_native_observation_and_age_excerpts_included",
+            }
+        )
+        count += 1
+    finally:
+        shutil.rmtree(target)
+    print(
+        json.dumps(
+            {
+                "actual_exit": 0,
+                "artificial_groups": count,
+                "actual_private_hash_decode_runtime_prepare_or_native": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

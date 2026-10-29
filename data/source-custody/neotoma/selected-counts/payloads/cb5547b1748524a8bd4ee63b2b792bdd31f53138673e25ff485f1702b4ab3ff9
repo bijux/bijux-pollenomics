@@ -1,0 +1,102 @@
+{
+  "schema_version": "neotoma-selected-count-scientific-row-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "29629e775666b27549570fd3351a4a5a2082dfe4876c6903a85bf2298e5fbc2a",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-row-custody/prepared-source-manifest.json",
+    "sha256": "29629e775666b27549570fd3351a4a5a2082dfe4876c6903a85bf2298e5fbc2a",
+    "bytes": 8226
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-row-custody/source-qualification.json",
+    "sha256": "02573e1c1d9404d1096e549f7c44759f5448a3e6869c03071b7a127f7d464e3a",
+    "bytes": 9445
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-row-custody/protocol.json",
+    "sha256": "f3444eec0cb355ca11a016c504a200691b6a106ee32a7811749a661f7bcc9091",
+    "bytes": 5300
+  },
+  "correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-row-custody/source-correspondence.json",
+    "sha256": "82431958b75012b424e8f4462a4e6dc460f9f06f7bec0aaebf7649a8fc33a959",
+    "bytes": 2263
+  },
+  "preserved_substantive_source_peer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/independent-source-review.json",
+    "sha256": "0252331bb0a5eda9890c0a409ef6a0fbf9deb0a96ebcc1891228cd737c4bc5d9",
+    "bytes": 6376
+  },
+  "public_schema_failure_audit": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/count-object-schema-review.json",
+    "sha256": "a385f8385b7463a6b00defea7c12c49a4cf021d7de8f15886506470afa21a82c",
+    "bytes": 1244
+  },
+  "production_delta_review": [
+    "Only packet.py adds same_count_row() and changes exactly one final saved-count-row comparison to invoke it. Removing that new function and restoring the single call reproduces the entire predecessor packet AST; other thirteen root Python modules are byte identical.",
+    "Global same() and all native source, role, pin, namespace, complete wire/schema and ordered receipt joins remain exactly unchanged.",
+    "The scientific-row comparator accepts mapping insertion-order differences only: exact string-key sets, recursively exact types and values, list order and multiplicity. Floating values must be finite and have identical hex representation, preserving signed zero. No tolerance or integer/boolean coercion.",
+    "Original duplicate-key/nonfinite JSON parser and all raw receipt/current native hashes remain unchanged. Saved count object serialization is not rewritten or promoted to a different historical epoch."
+  ],
+  "independent_controls": {
+    "actual_exit": 0,
+    "final_schema": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/count-row-final-schema-results.json",
+      "sha256": "1f92623aee8b306593c892f750a591d3c9e6899a2b4e5a465852334ba9f52f75",
+      "bytes": 840
+    },
+    "value_controls": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/count-row-successor-value-controls.json",
+      "sha256": "275e913b5373e7ae331cc3db3a1afe27c031b1075d9dc82cbc69d2d853a1a611",
+      "bytes": 3169
+    },
+    "checkers": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/check_count_row_admission.py",
+        "sha256": "b5180a737728f15967f283403046f00b3ca57c2e4ecf7605df6271bce879ee77",
+        "bytes": 5992
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/check_count_row_values.py",
+        "sha256": "420ef2b945fb7627ef787357e972f9b340e29fb46d30141650a1332b1d1be982",
+        "bytes": 6217
+      }
+    ],
+    "logs": [
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/count-row-final-schema.stdout",
+        "sha256": "a3ff5373cd69d3f114b0184d4f7bafd94404efeb606094c1c8c71ca56a1e4cdb",
+        "bytes": 33
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/count-row-final-schema.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/count-row-values.stdout",
+        "sha256": "0467e64c656be3ff20f199d61a08bbab8822e4577198bf7956a7229e6575269e",
+        "bytes": 54
+      },
+      {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-retention-independent-review/count-row-values.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    ],
+    "source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "independent_collected_controls": 41,
+    "scope": "Eighteen complete final32 both-admission schema/exact-delta controls plus23 actual comparator/public-schema/artificial-row controls. Author37/strict1/style1/AST14 receipt authenticated, unchanged earlier57+18 reused; no repeated private or genuine comparison."
+  },
+  "findings": [],
+  "preserved_failures": [
+    "Original586 copied terminal schema domain refusal and f64 actual preparation30617 scientific mapping-key-order refusal remain immutable. No retainer/native plan or scientific outcome was fabricated from those failures."
+  ],
+  "scientific_scope": [
+    "The completed native source150/maintained selected-series producer0 and independent reconstruction0 remain distinct from this prospective metadata retention job.",
+    "Full thirty private raw/normalized payloads, runtime/cache/generated payloads remain identity-only; selected derived observations/ages and six public count/manifest/report plus two prior identity metadata roles remain explicit.",
+    "Original fe589 mass object and manifest construction, physical core, chronology, denominator, rights, human or LRA acceptance and historical manifest ownership remain unqualified."
+  ],
+  "actual_private_data_hash_decode_runtime_census_API_preparer_retainer_native_Git_STATE_or_canonical_action": false
+}

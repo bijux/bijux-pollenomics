@@ -1,0 +1,59 @@
+{
+  "schema_version": "swedish-abborrtjarne-core-correspondence.v1",
+  "neotoma_site_id": "neotoma:site:13338",
+  "neotoma_dataset_id": "neotoma:dataset:19913",
+  "neotoma_sample_id": "neotoma:sample:173174",
+  "neotoma_dataset_doi": [
+    "10.21233/2vzb-bg61"
+  ],
+  "neotoma_core_handle": "ABBO",
+  "neotoma_core_location": "centre of lake (water depth = 6.5m)",
+  "neotoma_site_description": "Lake. Physiography: bedrock basin. Surrounding vegetation: Pinus sylvestris, Picea abies, Betula sp.",
+  "neotoma_downloaded_sample_count": 107,
+  "neotoma_dataset_age_range": {
+    "units": "Calibrated radiocarbon years BP",
+    "ageold": 9815,
+    "ageyoung": -52
+  },
+  "sample_candidate_age": {
+    "value_bp": 19,
+    "younger_bp": null,
+    "older_bp": null,
+    "chronology_name": "EPD 1",
+    "disposition": "not_evaluated"
+  },
+  "sample_counts": {
+    "pollen_observations": 23,
+    "pollen_count_sum": 1206,
+    "pollen_observed_zeros": 0,
+    "nonpollen_observations": 6,
+    "nonpollen_count_sum": 57,
+    "nonpollen_observed_zeros": 0,
+    "indeterminable_pollen_count": 4
+  },
+  "landclim_metadata_row": 968,
+  "landclim_sequence": "ABB",
+  "landclim_site_type": "lake",
+  "landclim_site_radius_m": 98,
+  "landclim_sample_count": 107,
+  "landclim_top_bp_label": "3",
+  "landclim_bottom_bp_label": "9799",
+  "landclim_chronology_source": "Authors chronology",
+  "landclim_restriction_label": "NR",
+  "landclim_elevation_m": 387,
+  "neotoma_elevation_m": 374,
+  "point_distance_m": 0.33358524060494776,
+  "cross_source_core_identity": "not_established",
+  "radius_transfer": "refused",
+  "pollen_denominator_status": "not_evaluated",
+  "rights_status": "not_evaluated",
+  "lra_admitted_samples": 0,
+  "input_sha256": {
+    "raw_part": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "raw_manifest": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d",
+    "workbook": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb",
+    "workbook_receipt": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677",
+    "count_mass": "fea274f27de4ea834eb38ac4ad8c3a07766aec27bc6a1633e1088f8e247f8e2f",
+    "projection": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+  }
+}

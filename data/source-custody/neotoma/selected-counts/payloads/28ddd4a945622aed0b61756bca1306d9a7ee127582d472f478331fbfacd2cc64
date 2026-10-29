@@ -1,0 +1,127 @@
+{
+  "source_only": true,
+  "actual_exit": 0,
+  "files": [
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/check_controls.py",
+        "sha256": "3f68d37649df76d79deaf9b316eb6e7eb4883c4e10a440dd5fd1c34d8964614e",
+        "bytes": 31288
+      },
+      "AST_sha256": "084f80282072e6935bb59cdd45204b356111e2cbbd210cb659a41b75a10a8dae"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/contracts.py",
+        "sha256": "219308f6bda1e5aa9746dd564bc1f162f9eb4f367051c054e27fb603bf8e1ecc",
+        "bytes": 12990
+      },
+      "AST_sha256": "b35cdc2e9037723c70a0d7d351d9a57f28d16ba907e88f009bcf1f0758787a1a"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/entry.py",
+        "sha256": "06d00dcbfd2c5b3db83f601acfb9a5cb3722503ac68e050cbd8613365cf7de5c",
+        "bytes": 4859
+      },
+      "AST_sha256": "12d22bbc0fbf72e272ed826dc2db340b57e4e6d55bb59623d28cebc9f2c0ab94"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/execute.py",
+        "sha256": "844317097561e7a55c52902c5cdf0eee36adec338c083d1cb073811c56f707f2",
+        "bytes": 4934
+      },
+      "AST_sha256": "557648b4824f28d9386c78dd4adbe2313d6837c7c011b157541f7901404c95d8"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/independent.py",
+        "sha256": "e99ee5193c431fde5caac79957fc7df92a3f4706097adc097503abc74b23ae71",
+        "bytes": 10469
+      },
+      "AST_sha256": "351c1501fffdc9c9b3d980fadb43931712259d0085135c33a6aeb5949374ae24"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/launch.py",
+        "sha256": "22695c2afb589a5f4ae4f7a2bc0998ac489fbb7e19e39e3ae116bd23181790a4",
+        "bytes": 6168
+      },
+      "AST_sha256": "cbe343369314dae4272bf00e4a7bc331b69ad626416643d9cda0abe4c8562104"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/observe.py",
+        "sha256": "7a986ad244bb32f7f228af6907fda97f5ac251815371f67f4265975333b67193",
+        "bytes": 9269
+      },
+      "AST_sha256": "925891ee9f5bb3dac24c95691c803a487a928ece9e2333b46bfc4322771264b8"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/prepare.py",
+        "sha256": "b5807a87b70f48bf03321d24eb7c854c024cfa01208fbc2240e060fb68473e61",
+        "bytes": 11725
+      },
+      "AST_sha256": "9257efee518fe67bf7b9c7ef03e8d65b879c1e3d4486927d83d7d0231d4e3b41"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/run.py",
+        "sha256": "7c61f7b5b1e0c296c75b85d69784820864df1666172526212530157911fb4086",
+        "bytes": 7882
+      },
+      "AST_sha256": "a5c170b2496731b552afb4f2f83ae15f60685cb5bc5d448bd4aa3abd91b385d0"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576
+      },
+      "AST_sha256": "acc375ca456e29e83d433973065dfed6726ebb40c699276e4e971854286494d0"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_admission.py",
+        "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+        "bytes": 2788
+      },
+      "AST_sha256": "8804bce926a145cdf93aed2ae79c7d955fe86f165abb118528be395af08395f9"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_inputs.py",
+        "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+        "bytes": 6994
+      },
+      "AST_sha256": "08bdea6e745858ec7c3044ece4b64f19cfd2d3b653775e21fb31c33215cedf92"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_projection.py",
+        "sha256": "fc94f84dd02447d2590738a7e2eca8e6f36db917dae99b20054e317b060e4edf",
+        "bytes": 6937
+      },
+      "AST_sha256": "1f91e1a224d956b2c7d2d06a69c85c5a647e5a261d065529b0e9d41373d21c5c"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_reader.py",
+        "sha256": "9cbbcb5b9a8376a0316fe38bae9f87e67603272d6bf07991294148a2f5a17490",
+        "bytes": 26878
+      },
+      "AST_sha256": "01504c815437ce76292fbfe5b5e81e3d82f745c8c2d78ece5133463a9c191a1a"
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_runtime.py",
+        "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+        "bytes": 8062
+      },
+      "AST_sha256": "49334f177a028f94b9cd9649dce300b02075dcc14713164924b23f91a92400bb"
+    }
+  ],
+  "source_compilation_without_module_execution": true
+}

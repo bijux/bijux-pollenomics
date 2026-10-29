@@ -1,0 +1,110 @@
+{
+  "schema_version": "neotoma-selected-count-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "1b6021cd87c5d370635dbd7343bdafd964fa86d8d1bfa7c9990d81fa054700b2",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/prepared-source-manifest.json",
+    "sha256": "1b6021cd87c5d370635dbd7343bdafd964fa86d8d1bfa7c9990d81fa054700b2",
+    "bytes": 9928
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source-qualification.json",
+    "sha256": "8dda28514c47b6faa9391c59a94964b8fd91009d37a605ef74986ff81b20237d",
+    "bytes": 6857
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/protocol.json",
+    "sha256": "898d91f7b8adc83ed065256b3f1f08fb383fdece657868b51f72371891874861",
+    "bytes": 9655
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source-correspondence.json",
+    "sha256": "fd9a8cf91cac3ebd66c9faf968f0830c4f174d2bf7b8dba18f0e1d06405c6b1b",
+    "bytes": 13486
+  },
+  "independent_evidence": {
+    "script": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-independent-review/check_source.py",
+      "sha256": "07970a592263b3704aaedde5950f88cb7d77780bf4a83e82036296ae0b853cff",
+      "bytes": 11953
+    },
+    "controls": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-independent-review/source-controls.json",
+      "sha256": "3db00a3d8e305960d35469cea496ace0179276439635174df45692d43b89e5e9",
+      "bytes": 2769
+    },
+    "collected_source_profile_log": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-independent-review/source-controls.log",
+      "sha256": "ceafef406f540097b3ea59de20de00a6d14b2438d27ac7394e18881030021925",
+      "bytes": 342
+    },
+    "admitted_source_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "actual_collected_exit": 0,
+    "independent_artificial_cases": 65
+  },
+  "authentication": {
+    "all37_manifest_postimages_exact_before_after": true,
+    "root_production_Python_ASTs": 15,
+    "source_check_and_correspondence_receipts_authenticated": true,
+    "four_qualified_runtime_custody_helpers_byte_exact": true,
+    "all_declared_unchanged_predecessor_function_class_ASTs_independently_matched": true,
+    "all15_maintained_source_contract_code_pins_exact": true,
+    "actual_private_or_runtime_inventory_hashed_by_reviewer": false
+  },
+  "reviewed_scientific_contract": {
+    "actual_maintained_APIs": [
+      "read_neotoma_evidence(raw_root, normalized_root)",
+      "build_neotoma_candidate_series(evidence, explicit_sample_ids)"
+    ],
+    "explicit_sample_ids": [
+      "neotoma:sample:173174",
+      "neotoma:sample:552101",
+      "neotoma:sample:552389"
+    ],
+    "sample_dataset_site_and_part_are_distinct_join_roles": true,
+    "input_roles": {
+      "original_raw_normalized_files": 30,
+      "declared_bytes": 776424843,
+      "public_count_manifest_report_files": 6,
+      "raw_and_normalized_closed_namespaces": true,
+      "expected_all30_identity_verification_before_decode_required": true
+    },
+    "independent_reconstruction": "Separate stdlib implementation verifies raw parent/source IDs and selected samples, ordered row locators/canonical hashes, complete selected observation and age-alternative populations, typed values including signed binary zero, count/refusal/unit/label partitions, source default assertions and full canonical maintained-series bytes. Native identity conflicts refuse counts. No age choice or uncertainty hull is inferred.",
+    "count_mass": "All three complete independently reconstructed current sample rows must equal existing public count rows, with exact per-unit integer sums, zero/label/refusal partitions and historical SHA fields preserved as assertions only.",
+    "maintained_API_code_semantics": "Reviewed series/projection, accounting, counts, candidate_mass, reading, raw sample/observation/site hierarchy and chronology source. Independent scalar/count/age/order/canonical field rules agree; a genuine future scientific mismatch remains a refusal."
+  },
+  "custody_and_execution": {
+    "before_import": "Complete reviewed entry namespace and both real admission gates; synthetic final37 positive and tamper/native/FIFO/alias/group/order/duplicate/relative refusals passed.",
+    "before_Git": "Physical noalias exact SHA/size tool and loader-environment refusal precede any actual Git call.",
+    "plan": "Run/launch and both children authenticate registered SHA against the same raw buffer before JSON decode. Parent injects child expected SHA after declared environment.",
+    "owned_source": "Complete tracked four-package sources/resources are copied and independently pinned. Every original source/cache/generated identity remains in original ledger; only exact reviewed cache/version omissions are nonexecuted. No whole-tree equality or bytecode/source equivalence is claimed.",
+    "detached_candidate": "Clean candidate is bound at actual preparation. Native consumers use owned source, not later canonical first-party equality, while original private inputs and runtime remain fully guarded.",
+    "imports": "Actual maintained first-party origins must join owned source pins and full four source roots; LRA engine/facade imports refuse.",
+    "bounds": {
+      "stages_seconds": [
+        180,
+        120
+      ],
+      "completed_inner_seconds": 330,
+      "parent_owned_child_watchdog_seconds": 390,
+      "completed_child_peak_RSS_bytes": 4294967296,
+      "inclusive_owned_output_bytes": 134217728,
+      "scope": "Parent wait covers entire delegated child and its imports/custody/stages/final scans; minimal own startup/post-reap accounting is measured but not independently watched. Completed-child RSS/logical bytes only; no OS quota/full descendant/detached cleanup claim."
+    }
+  },
+  "preserved_open_scope": [
+    "Original fe589 mass object and original mass/manifest construction approval are not recovered.",
+    "Current source equality does not establish physical shared-core identity or coordinate-based equivalence.",
+    "No new HTTP/source rights, country-boundary attribution, selected chronology, pollen denominator, taxon/PPE/basin admission, ecological/human approval or LRA model execution.",
+    "Four existing historical owner clauses remain unchanged until a separately reviewed genuine current result/publication justifies a precise owner decision."
+  ],
+  "not_performed": [
+    "Actual preparer or owned-source copying",
+    "Private raw/normalized payload hashing or decoding",
+    "Runtime/target/import census or native application API",
+    "Model/R/HTTP/Git/STATE/canonical actions"
+  ],
+  "remaining_source_blockers": [],
+  "root_next_action": "Root may copy this exact peer to the still-absent independent-source-review.json, prepare against its actual clean main, inspect/freeze the resulting physical plan, uniquely register/read back, and separately launch. This approval is source-only, not a prospective native pass."
+}

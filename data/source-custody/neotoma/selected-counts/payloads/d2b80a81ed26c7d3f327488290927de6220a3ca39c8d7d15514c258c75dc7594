@@ -1,0 +1,235 @@
+{
+  "schema_version": "swedish-lake-core-correspondence.v1",
+  "source": "pinned_neotoma_and_landclim_ii_metadata",
+  "lakes": [
+    {
+      "neotoma_site_id": "neotoma:site:28869",
+      "neotoma_dataset_id": "neotoma:dataset:53995",
+      "neotoma_sample_id": "neotoma:sample:552101",
+      "site_name": "Bussj\u00f6sj\u00f6n",
+      "shared_core_handle": "BUS",
+      "point_distance_m": 0.38345754082045225,
+      "neotoma_elevation_m": 49,
+      "landclim_elevation_m": 260,
+      "neotoma_downloaded_sample_count": 69,
+      "landclim_metadata_sample_count": 69,
+      "prerequisite_candidate_sample_count": 66,
+      "neotoma_dataset_age_range": {
+        "units": "Calibrated radiocarbon years BP",
+        "ageold": 9261.6,
+        "ageyoung": -52.5
+      },
+      "first_sample_age_claim": {
+        "age": 487,
+        "ageolder": null,
+        "agetype": "Calibrated radiocarbon years BP",
+        "ageyounger": null,
+        "chronologyid": 38418,
+        "chronologyname": "LANDCLIM"
+      },
+      "first_sample_counts": {
+        "pollen_observations": 46,
+        "pollen_count": 1963,
+        "other_nisp_observations": 7,
+        "other_nisp_count": 142,
+        "non_nisp_observations": 0,
+        "original_nisp_element_labels": {
+          "10-25 \u00b5m/None": {
+            "observations": 1,
+            "count_sum": 11
+          },
+          ">25 \u00b5m/>25 \u00b5m": {
+            "observations": 1,
+            "count_sum": 52
+          },
+          "pollen/pollen": {
+            "observations": 46,
+            "count_sum": 1963
+          },
+          "pollen/spore/pollen/spore": {
+            "observations": 2,
+            "count_sum": 2
+          },
+          "spore/spore": {
+            "observations": 3,
+            "count_sum": 77
+          }
+        },
+        "non_nisp_unit_counts": {}
+      },
+      "native_series_summary": {
+        "native_samples": 69,
+        "samples_with_pollen_nisp": 69,
+        "pure_pollen_nisp": 68668,
+        "other_nisp": 15561,
+        "non_nisp_observations": 0,
+        "samples_without_age_claim": 0,
+        "samples_with_multiple_age_claims": 0,
+        "samples_with_single_age_claim": 69,
+        "single_age_claim_range": [
+          -52.5,
+          9261.6
+        ],
+        "single_age_chronology_names": {
+          "LANDCLIM": 69
+        },
+        "single_age_units": {
+          "Calibrated radiocarbon years BP": 69
+        },
+        "chronology_selection": "not_evaluated",
+        "pollen_denominator_selection": "not_evaluated"
+      },
+      "native_minus_published_age_end_labels_bp": [
+        0.5,
+        -0.3999999999996362
+      ],
+      "retained_first_sample_nisp_partition": {
+        "nonpollen_count_observations": 6,
+        "nonpollen_exact_count_sum": 131,
+        "nonpollen_observed_zero_observations": 0,
+        "pollen_count_observations": 46,
+        "pollen_exact_count_sum": 1963,
+        "pollen_observed_zero_observations": 0,
+        "source_unit": "NISP",
+        "unresolved_label_count_observations": 1,
+        "unresolved_label_exact_count_sum": 11,
+        "unresolved_label_observed_zero_observations": 0
+      },
+      "landclim_metadata_row": 978,
+      "landclim_site_radius_m": 69,
+      "landclim_top_bp_label": "-53",
+      "landclim_bottom_bp_label": "9262",
+      "landclim_chronology_source": "LANDCLIMI",
+      "landclim_restriction_label": "NR",
+      "cross_source_core_identity": "not_established",
+      "radius_transfer": "refused",
+      "pollen_denominator_status": "not_evaluated",
+      "rights_status": "not_evaluated",
+      "lra_admitted_samples": 0
+    },
+    {
+      "neotoma_site_id": "neotoma:site:28872",
+      "neotoma_dataset_id": "neotoma:dataset:54001",
+      "neotoma_sample_id": "neotoma:sample:552389",
+      "site_name": "B\u00f6kesj\u00f6n",
+      "shared_core_handle": "BOKE",
+      "point_distance_m": 0.4447803212781464,
+      "neotoma_elevation_m": 57,
+      "landclim_elevation_m": 24,
+      "neotoma_downloaded_sample_count": 52,
+      "landclim_metadata_sample_count": 52,
+      "prerequisite_candidate_sample_count": 50,
+      "neotoma_dataset_age_range": {
+        "units": "Calibrated radiocarbon years BP",
+        "ageold": 5605.2,
+        "ageyoung": -39.6
+      },
+      "first_sample_age_claim": {
+        "age": 146.3,
+        "ageolder": null,
+        "agetype": "Calibrated radiocarbon years BP",
+        "ageyounger": null,
+        "chronologyid": 38422,
+        "chronologyname": "LANDCLIM"
+      },
+      "first_sample_counts": {
+        "pollen_observations": 43,
+        "pollen_count": 540,
+        "other_nisp_observations": 10,
+        "other_nisp_count": 279,
+        "non_nisp_observations": 1,
+        "original_nisp_element_labels": {
+          "counted/counted": {
+            "observations": 1,
+            "count_sum": 172
+          },
+          "leaf hair/leaf hair": {
+            "observations": 1,
+            "count_sum": 16
+          },
+          "number/number": {
+            "observations": 1,
+            "count_sum": 70
+          },
+          "pollen/pollen": {
+            "observations": 43,
+            "count_sum": 540
+          },
+          "pollen/spore/pollen/spore": {
+            "observations": 2,
+            "count_sum": 2
+          },
+          "quantity added/quantity added": {
+            "observations": 1,
+            "count_sum": 8
+          },
+          "spore/spore": {
+            "observations": 4,
+            "count_sum": 11
+          }
+        },
+        "non_nisp_unit_counts": {
+          "cm3": 1
+        }
+      },
+      "native_series_summary": {
+        "native_samples": 52,
+        "samples_with_pollen_nisp": 52,
+        "pure_pollen_nisp": 42548,
+        "other_nisp": 10280,
+        "non_nisp_observations": 52,
+        "samples_without_age_claim": 0,
+        "samples_with_multiple_age_claims": 0,
+        "samples_with_single_age_claim": 52,
+        "single_age_claim_range": [
+          -39.6,
+          5605.2
+        ],
+        "single_age_chronology_names": {
+          "LANDCLIM": 52
+        },
+        "single_age_units": {
+          "Calibrated radiocarbon years BP": 52
+        },
+        "chronology_selection": "not_evaluated",
+        "pollen_denominator_selection": "not_evaluated"
+      },
+      "native_minus_published_age_end_labels_bp": [
+        0.3999999999999986,
+        0.1999999999998181
+      ],
+      "retained_first_sample_nisp_partition": {
+        "nonpollen_count_observations": 10,
+        "nonpollen_exact_count_sum": 279,
+        "nonpollen_observed_zero_observations": 0,
+        "pollen_count_observations": 43,
+        "pollen_exact_count_sum": 540,
+        "pollen_observed_zero_observations": 0,
+        "source_unit": "NISP",
+        "unresolved_label_count_observations": 0,
+        "unresolved_label_exact_count_sum": 0,
+        "unresolved_label_observed_zero_observations": 0
+      },
+      "landclim_metadata_row": 977,
+      "landclim_site_radius_m": 80,
+      "landclim_top_bp_label": "-40",
+      "landclim_bottom_bp_label": "5605",
+      "landclim_chronology_source": "LANDCLIMI",
+      "landclim_restriction_label": "NR",
+      "cross_source_core_identity": "not_established",
+      "radius_transfer": "refused",
+      "pollen_denominator_status": "not_evaluated",
+      "rights_status": "not_evaluated",
+      "lra_admitted_samples": 0
+    }
+  ],
+  "lra_admitted_samples": 0,
+  "input_sha256": {
+    "raw_part": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134",
+    "raw_manifest": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d",
+    "workbook": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb",
+    "workbook_receipt": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677",
+    "count_mass": "afff295e29fb5210ff94dbf599ba0b1530191b6e06abc3f96e35bb06f05812d9",
+    "projection": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+  }
+}

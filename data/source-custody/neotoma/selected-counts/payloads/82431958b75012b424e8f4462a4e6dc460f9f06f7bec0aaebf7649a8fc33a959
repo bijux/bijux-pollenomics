@@ -1,0 +1,37 @@
+{
+  "schema_version": "neotoma-scientific-row-order-correspondence.v1",
+  "source_only": true,
+  "lineage": {
+    "preserved_source_manifest": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-capture-custody/prepared-source-manifest.json",
+      "sha256": "f64fc5066966d02095af8ecf6e8a5ae9a23d411ddf1845f4bef4b7cb79996d53",
+      "bytes": 8365
+    },
+    "preserved_source_qualification": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-capture-custody/source-qualification.json",
+      "sha256": "cff0d73dd7e3a4f72bc0c0711de04f126020d11e4ac6b48d4b26191798082c62",
+      "bytes": 10025
+    },
+    "source_qualifications_before_namespace_correction": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-selected-count-retention-custody/source-qualification.json",
+      "sha256": "7f359ec3e7bc0fad2de973ae2492253e0ca07502798314c98545d615ea7a522f",
+      "bytes": 14557
+    },
+    "actual_preparation_refusal_before_plan_or_capture": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-capture-root-admission/actual-preparation.stderr",
+      "sha256": "ee3f9f9c3df19671cef6463a9e6078e69387c00ddc80bb27cf92fa3a2d4eb176",
+      "bytes": 1259
+    }
+  },
+  "changed_core_files": [
+    "packet.py"
+  ],
+  "other13_Python_files_byte_exact": true,
+  "new_function": "same_count_row",
+  "changed_existing_call": "Only validate_packet final saved count receipt row versus genuine current independently reconstructed row calls same_count_row; all other calls stay same.",
+  "global_same_function_AST_and_all_other_protected_wire_joins_unchanged": true,
+  "complete_packet_AST_reproduces_predecessor_after_removing_new_function_and_restoring_single_call": true,
+  "scientific_semantics": "Object key insertion order is not scientific data. Key sets, scalar types and values remain exact; list order and multiplicity remain exact, finite floating values use binary64 hex identity; duplicate JSON keys, nonfinite values, missing/extra fields and bool/int coercions remain refused.",
+  "data_parser_or_numerical_predicate_engine_tolerance_or_original_receipt_changed": false,
+  "actual_native_or_saved_product_comparison_by_author": false
+}

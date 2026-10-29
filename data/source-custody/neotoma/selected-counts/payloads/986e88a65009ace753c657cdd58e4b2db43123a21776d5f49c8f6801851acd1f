@@ -1,0 +1,103 @@
+"""Independently reconstruct packet metadata; hash public outputs without parsing rows."""
+
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+
+from contracts import (
+    PACKET_LIMIT,
+    checkpoint,
+    execution_scope,
+    load,
+    registered_plan,
+    require,
+    strict_equal,
+    write,
+)
+from packet import json_object, member_name, validate_packet
+from source_inputs import pin
+
+
+def exact_packet_tree(root: Path, names: set[str]) -> None:
+    require(
+        root.is_dir() and not any(p.is_symlink() for p in (root, *root.parents)),
+        "Physical packet required",
+    )
+    files = set()
+    directories = set()
+    for path in root.rglob("*"):
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Packet alias/special refused",
+        )
+        name = path.relative_to(root).as_posix()
+        if path.is_file():
+            files.add(name)
+        else:
+            directories.add(name)
+    require(
+        files == names | {"capture.json"} and directories == {"payloads"},
+        "Exact packet namespace differs",
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = registered_plan(args.plan)
+    authority, scope = execution_scope(plan)
+    output = Path(plan["output"])
+    root = output / "packet"
+    capture = pin(root / "capture.json")
+    packet = json_object((root / "capture.json").read_bytes())
+    require(strict_equal(packet, plan["transport"]["packet"]), "Frozen packet differs")
+    exact_packet_tree(root, set(packet["members"]))
+
+    def read(name: str) -> bytes:
+        member_name(name)
+        path = root / name
+        require(
+            path.is_file() and not any(p.is_symlink() for p in (path, *path.parents)),
+            "Public packet member alias/special",
+        )
+        return path.read_bytes()
+
+    result = validate_packet(packet, read)
+    total = capture["bytes"] + sum(row["bytes"] for row in packet["members"].values())
+    require(
+        total == plan["transport"]["total_packet_bytes"] <= PACKET_LIMIT,
+        "Exact completed forecast differs",
+    )
+    assembly = load(output / "assembly-result.json")
+    require(
+        type(assembly["actual_exit"]) is int
+        and assembly["actual_exit"] == 0
+        and assembly["metadata_retention_only"] is True
+        and assembly["raw_decode_or_source_consumer_repeated"] is False
+        and assembly["historical_manifest_ownership_changed"] is False
+        and strict_equal(assembly["capture"], capture),
+        "Actual metadata assembly proof differs",
+    )
+    checkpoint(authority, scope, plan["historical_namespaces"])
+    exact_packet_tree(root, set(packet["members"]))
+    write(
+        output / "independent-capture-review.json",
+        {
+            "actual_exit": 0,
+            "metadata_only": True,
+            "capture": capture,
+            "original_ordered_inputs": len(packet["original_input_roles"]),
+            "original_source_join_count": len(packet["original_source_join"]),
+            "retained_payloads": len(packet["members"]),
+            "actual_packet_bytes": total,
+            "receipt_scope": result,
+            "raw_or_selected_rows_decoded_or_consumer_repeated": False,
+            "historical_manifest_ownership_changed": False,
+        },
+    )
+
+
+if __name__ == "__main__":
+    main()
