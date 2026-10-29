@@ -52,15 +52,13 @@ Published-product versus released-author-example correspondence, not authenticat
 
 **Matched denominator.** 17 sites in2 grids:9+8,25bins,31taxa;184/425 supported site-bins,241 missing;43/50 supported regional bins;14,074 supported mean/SE pairs,77 original R CSVs,1000 exact shared bootstrap draws.
 
-Qualified authored reader SHA-256: `c2f1c0cb0f9fdea6031e8c8d4ca1a53a5825992f00db81e9abe586a3b07111fb`.
-
 - [Retained qualification evidence: docs/report/publication-replay/landclim-author-example-correspondence/report.json](report.json) (SHA-256 `efcfce2e75ea4c98367e22bd8f0d4d28e123776b52436bef2e966f615f4b16bc`).
 
 - [Retained qualification evidence: docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv](paper-correspondence.csv) (SHA-256 `1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029`).
 
 - [Retained qualification evidence: docs/report/publication-replay/landclim-author-example-correspondence/manifest.json](manifest.json) (SHA-256 `ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef`).
 
-- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

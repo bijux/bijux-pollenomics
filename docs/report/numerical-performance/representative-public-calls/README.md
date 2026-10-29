@@ -85,15 +85,13 @@ Actual representative Python public-call measurements and retained negative nati
 
 **Matched denominator.** Six actual author sites, ten taxa, 1,024 conditional draws; 128 repetitions of one ten-taxon, 36-ring LOVE fixture with 32 fixed candidates, not 128 sites. Three first-plus-seven-warm workers per workload; 14 workers including equal-total two-call sequential/two-process scaling. Six vendor thread limits were requested only; maximum completed worker RSS was 252493824 bytes.
 
-Qualified authored reader SHA-256: `7fe749f6c9cd572d0ee00da2cffbf33ec4491ced0735e14740b8957c039673e5`.
-
 - [Retained qualification evidence: docs/report/numerical-performance/representative-public-calls/report.json](report.json) (SHA-256 `5249ce851a8c720fd5c2b62e10bb7b0aac9cb0a8926520c677bdc87134e427c3`).
 
 - [Retained qualification evidence: docs/report/numerical-performance/native-forward/report.json](../native-forward/report.json) (SHA-256 `4d16a1400d6878f2abf21f796fb190dd72a365f0dd40295639b8635bd807d1d5`).
 
 - [Retained qualification evidence: docs/report/numerical-performance/native-memory/report.json](../native-memory/report.json) (SHA-256 `6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06`).
 
-- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
+- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

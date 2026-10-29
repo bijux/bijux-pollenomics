@@ -11,21 +11,10 @@ preserved in the external private source store. The [result](report.json)
 records the exact input hashes checked by its producer. The dossier and screen
 contain exact NFI row locations and are not tracked in Git. The tracked [SLU
 calibration guide](inputs/slu-calibration-guide.pdf) retains its pinned local
-bytes. Its original retained2026-09-21/a063 provider retrieval/copy chain
-remains unqualified. A separate official SLU page-to-PDF acquisition on source
-commit `d027effd6c0ac91512cd586c3a51db987ea46d54` and its independent observer
-both returned native zero. Their [retained current-source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/slu-current-guide-source.json)
-binds the HTTP200/TLS-verified page, literal download href and exact same
-136,339-byte guide. This guide source owner is independent of the workbook
-metadata owner; the older metadata capsule's guide-admitted-false claim remains
-literal. The current acquisition does not recover the missing historical copy.
-
-The public source capsule omits raw HTML and runtime binaries and removes
-cookie headers from its declared HTTP metadata projections while preserving
-the original raw-response hashes. The earlier documentary licence/use review
-receipt is not currently authenticated; this admission performs no fresh PDF
-text extraction or licence/use revalidation. It grants no additional workbook
-or observation rights and does not turn plot measurements into regional totals.
+bytes. Its original retained acquisition provider retrieval/copy chain remains
+unqualified. A separate current official-page retrieval is not admitted by this
+measurement metadata owner and does not recover that historical receipt; the
+guide retains its separate source-admission route.
 The producer checks the private inputs' exact hashes and reads only the NFI
 workbook's first six identity/coordinate fields to bind every selected plot-year
 to an original row and recompute each geodesic distance. The source-native NFI

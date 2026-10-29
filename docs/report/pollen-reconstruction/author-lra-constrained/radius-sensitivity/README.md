@@ -132,15 +132,13 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Matched denominator.** 14 scored sites,3 fixed vegetation methods and 3 radius factors yield 126 frozen/scored/paired method-radius-site rows. The factor 1 baseline has 42 rows. Scores use the existing 30-taxon count axis and exact observed raw-row SHA per target; the source study attempted 15 outer folds.
 
-Qualified authored reader SHA-256: `44e969a8db481c0f92d568b579040ab60864f0ed75c2ae645c4abbf34816def4`.
-
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json](frozen/predictions.json) (SHA-256 `a50a8cb0790b9eef63643a5d305e1f021dbe52e098fec24c3ea595480bd62202`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json](scored/report.json) (SHA-256 `ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json](paired/report.json) (SHA-256 `eed5d539635abaa7aa305d86845b644a922d52943655d412498b3fdb540c248c`).
 
-- [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (source SHA-256 `1645884c253eec4ee079a5cfc7703a52f12516e20cfea2e5956ca646c16256ec`).
+- [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

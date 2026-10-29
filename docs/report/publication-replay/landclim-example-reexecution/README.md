@@ -30,11 +30,9 @@ Published-product versus released-author-example correspondence, not authenticat
 
 **Matched denominator.** 17 sites in2 grids:9+8,25bins,31taxa;184/425 supported site-bins,241 missing;43/50 supported regional bins;14,074 supported mean/SE pairs,77 original R CSVs,1000 exact shared bootstrap draws.
 
-Qualified authored reader SHA-256: `913c053ec049d93eff6fb4b54bcfe5ed256d9593b2f05b0ec40b2467f2d5d134`.
-
 - [Retained qualification evidence: docs/report/publication-replay/landclim-example-reexecution/report.json](report.json) (SHA-256 `4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f`).
 
-- [Canonical scientific account: reports/science/publication-correspondence/author-example-reexecution.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/author-example-reexecution.md) (source SHA-256 `99a3ac6ac331d47b7d47486a1967bddf4fedd7b6a0658ea30449b9cf6fb938b8`).
+- [Canonical scientific account: reports/science/publication-correspondence/author-example-reexecution.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/author-example-reexecution.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->
