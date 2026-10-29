@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/preflight/qualify_source.py", line 16, in <module>
-    call('source-configured-style',PREFIX+['--mode','python','--',str(A/'preflight/source_style.py')])
-  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/preflight/qualify_source.py", line 15, in call
-    assert result.returncode==0,(label,result.returncode)
-           ^^^^^^^^^^^^^^^^^^^^
-AssertionError: ('qualified-source-configured-style', 1)

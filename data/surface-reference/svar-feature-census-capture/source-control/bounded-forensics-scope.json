@@ -1,7 +1,0 @@
-{
-  "source_role": "Exact privately retained normalized SVAR GeoJSON, d9a1943d... / 261041034 bytes",
-  "permitted_worker_inspection": "Authenticate full source SHA/size before and after; JSON-decode at most first feature plus wrapper metadata from at most2097152 prefix bytes.",
-  "forbidden_worker_execution": "No full parse, feature census, actual source producer/preparer/native job, geometry model, ranking, acquisition, GIS transform, R or network.",
-  "output": "first-feature-forensics.json records schema/property keys, one feature's scalar metadata, type/coordinate-array shape and exact raw feature hash. No full raw feature/coordinate export.",
-  "future_census": "A separate root-registered bounded stream consumer and independent observer must measure full features/IDs/duplicates/geometry/missingness/date/area/unit fields and exact99-subset joins.40565/40523/42 remain claims until actual census; no WFS/rights/review/ranking admission follows."
-}

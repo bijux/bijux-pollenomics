@@ -6,7 +6,7 @@
   "provider_policy": {
     "url": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
     "captured_policy_sha256": "ba75c8f22491f5b5e83a835f964aedea53b62e526cf6ea36bb10b376e774b3a4",
-    "governed_review_sha256": "1b0e9ca73263132c62ab521957a4fb14120f7d1a3fa0a8583df3552ca0c7411d",
+    "governed_review_sha256": "ce5d0a81584e5f0a93015b1045dc8ce4a2c828065368e9a0760dcfa92dbef720",
     "version": "2025",
     "posture": "CC BY 4.0 with three-level attribution; source-specific review remains separate"
   },

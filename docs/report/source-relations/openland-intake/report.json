@@ -4,7 +4,7 @@
   "inputs": {
     "data/landclim/raw/landclim_sources.json": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/openland_intake.py": "850cd2d4401ad5d5cc5988e7ee85f37db816d6155a323c40bb2fc029c9e2d41e",
-    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py": "6134dc7b9a1a9dafe4c1b87c39d330914e06530cf9d189214e9462951b98ce7b"
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py": "3d7c3ef41e2ff3ce1bf91f2f61dd176d6be6a22acd36b8efb9e832990dc86a65"
   },
   "limitations": [
     "The source CSVs are spatially modeled land cover based on pollen-derived REVEALS inputs and KK10 covariates, not raw counts or independent vegetation observations.",

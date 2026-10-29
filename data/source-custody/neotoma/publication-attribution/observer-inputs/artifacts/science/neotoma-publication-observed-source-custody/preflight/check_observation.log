@@ -1,8 +1,0 @@
-test_actual_source_roles_without_native_execution (__main__.ObservationControls.test_actual_source_roles_without_native_execution) ... ok
-test_exact_nested_metadata_bridge_and_other_typed_values (__main__.ObservationControls.test_exact_nested_metadata_bridge_and_other_typed_values) ... ok
-test_saved_completed_history_preserves_failed_observer (__main__.ObservationControls.test_saved_completed_history_preserves_failed_observer) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 0.101s
-
-OK

@@ -1,8 +1,0 @@
-usage: observe.py [-h] --plan PLAN
-
-Re-read the full normalized source independently and qualify only descriptive
-census facts.
-
-options:
-  -h, --help   show this help message and exit
-  --plan PLAN

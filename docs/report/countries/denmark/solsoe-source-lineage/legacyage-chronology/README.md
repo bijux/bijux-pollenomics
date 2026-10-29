@@ -86,15 +86,13 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Matched denominator.** Two cores:66/492 S5 depths and 26/185;92 exact joins,0 unmatched;91 comparable+1 refused. Point intervals:57/66 inside in 1981,26/26 in 1983. LRA-admitted 0.
 
-Qualified authored reader SHA-256: `afe3741f14051de330dac1279ef0288aad78badda484e992dbf5c2424301d7b1`.
-
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/report.json](report.json) (SHA-256 `dc06e30d7a290bb81ad6c8f0da1ec3b8a804f883af388692855698e9ee555be2`).
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/sample-depth-join.csv](sample-depth-join.csv) (SHA-256 `0a5a6c4fea4b547021e236ffdb4e5ec16178876b161f6d0556e6dd9ebcd80925`).
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/refused-samples.csv](refused-samples.csv) (SHA-256 `052d97c8a2f01743cdbf425a41c7c5c37c5ac1e8f8b4a5ba5ea9db7e874d07e8`).
 
-- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f`).
+- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

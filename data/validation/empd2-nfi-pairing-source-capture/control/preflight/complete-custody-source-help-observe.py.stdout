@@ -1,8 +1,0 @@
-usage: observe.py [-h] --plan PLAN
-
-Observe source provenance, sixteen metadata joins and complete outcome-blind
-refusals.
-
-options:
-  -h, --help   show this help message and exit
-  --plan PLAN

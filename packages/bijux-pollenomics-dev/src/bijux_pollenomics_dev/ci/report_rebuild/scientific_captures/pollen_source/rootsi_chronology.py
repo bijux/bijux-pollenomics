@@ -11,6 +11,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import ReportOwnershipError, _regular_confined_file
+from ...retained_source import validate_capsule
 
 CAPTURE: Any = "data/surface-reference/rootsi-chronology-source-capture/capture.json"
 CAPTURE_SHA256: Any = "0339b575f5fd22a1a60ce04f616bb4635d8c923306f49d535962c9f21045d31f"
@@ -513,6 +514,32 @@ def validate_native_records(
     )
 
 
+DETACHED_SOURCE_MEMBERS = frozenset(
+    [
+        "source-code/artifacts/science/rootsi-controller-import-custody/cache_contract.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/check_contracts.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/common_runner.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/contracts.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/execute_source.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/independent.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/observe.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/prepare.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/run.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/runtime.py",
+        "source-code/artifacts/science/rootsi-controller-import-custody/source-prefix.diff",
+        "source-code/configs/ci/report-ownership.json",
+        "source-code/docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py",
+        "source-code/docs/report/source-relations/landclim/workbook-chronology/replay.py",
+    ]
+)
+
+
+def _validate_source_members(repository: Path, prefix: str) -> None:
+    """Validate original identities once and detach only exact maintained source."""
+    detached = validate_capsule(repository, prefix, EXPECTED_MEMBERS)
+    _exact(sorted(detached), sorted(DETACHED_SOURCE_MEMBERS))
+
+
 def validated_rootsi_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -565,25 +592,8 @@ def validated_rootsi_capture(
         ("scope", EXPECTED_SCOPE),
     ):
         _exact(packet[key], value)
-    physical = set()
-    for member in path.parent.rglob("*"):
-        _require(
-            not member.is_symlink() and (member.is_file() or member.is_dir()),
-            "Capture alias/special member",
-        )
-        if member.is_file():
-            physical.add(member.relative_to(path.parent).as_posix())
-    _exact(physical, set(EXPECTED_MEMBERS) | {"capture.json"})
     prefix = path.parent.relative_to(repository).as_posix()
-    for name, wanted in EXPECTED_MEMBERS.items():
-        member = _file(repository, prefix + "/" + name)
-        _exact(
-            {
-                "sha256": hashlib.sha256(member.read_bytes()).hexdigest(),
-                "bytes": member.stat().st_size,
-            },
-            wanted,
-        )
+    _validate_source_members(repository, prefix)
 
     def record(name: str) -> dict[str, Any]:
         return _json(_file(repository, prefix + "/execution/" + name))

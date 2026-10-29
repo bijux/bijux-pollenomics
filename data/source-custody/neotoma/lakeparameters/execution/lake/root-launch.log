@@ -1,4 +1,0 @@
-{"stage": "maintained-lakeparameter-reader-checker", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 32.449820665991865}
-{"stage": "independent-lake-source-and-optional-projection-observer", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 28.764465834014118}
-{"terminal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/terminal.json", "sha256": "2353bdfb342735fbebf73b9ed422632269ef94b251cb69a27ac4cc16a237759f", "status": "passed"}
-{"terminal": {"path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/lakeparameter-terminal.json", "sha256": "73a4360807c705273e7c07a06686ee13288d1cf351eae22d01875a040f10ed1d", "bytes": 2038}, "actual_exit": 0}

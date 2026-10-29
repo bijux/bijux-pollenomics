@@ -1,9 +1,0 @@
-usage: execute_source.py [-h] --plan PLAN --kind {publication,doi}
-
-Execute an unchanged maintained publication CLI and retain truthful
-exits/origins.
-
-options:
-  -h, --help            show this help message and exit
-  --plan PLAN
-  --kind {publication,doi}

@@ -1,8 +1,0 @@
-usage: prepare.py [-h] --candidate CANDIDATE --output OUTPUT --review-sha256
-                  REVIEW_SHA256
-
-options:
-  -h, --help            show this help message and exit
-  --candidate CANDIDATE
-  --output OUTPUT
-  --review-sha256 REVIEW_SHA256

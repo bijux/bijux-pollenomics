@@ -1,6 +1,6 @@
 {
   "schema_version": "nordic-neotoma-distinct-doi-review.v1",
-  "attribution_ledger_sha256": "983286a711b37be4db3dccac200fe24f814ff2b350a906e1a0fd99717104142d",
+  "attribution_ledger_sha256": "db84557f4b19ba47f44b122e482b157ca91a3dc327c0b0435809599a41b769b3",
   "registry_capture_manifest_sha256": "207b791bed9d3d004fc55f407fb7a840efd81bd9180fed17f24b187ac0e69edb",
   "registry_relation_guidance": "https://support.datacite.org/docs/when-should-i-use-isidenticalto",
   "reviewed_dataset_count": 13,

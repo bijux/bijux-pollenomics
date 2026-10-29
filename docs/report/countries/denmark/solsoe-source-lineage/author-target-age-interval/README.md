@@ -94,8 +94,6 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Matched denominator.** 92 source samples=91 comparable+1 refused;91=15 contained+76 crossing;15=14 SOLSOE81 + 1 SOLSOE83; 8 of 24 bins supported,24 reused predictions=3 methods×8 bins;closed 31 author taxonomy targets, not vegetation cover.
 
-Qualified authored reader SHA-256: `d02da3e5be4aaf7289e95ba7e48e97893d95eb6d69a8dffc11574d07502695d8`.
-
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/report.json](report.json) (SHA-256 `c78342a1490638d7aa31614d12015d5353405c0ad35b503b55d974adeed5111b`).
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/protocol.json](protocol.json) (SHA-256 `45dd6fc90b8550f1e4758007030d4987044fda49bba5eea2ecdd9862302ed7ed`).
@@ -106,7 +104,7 @@ Qualified authored reader SHA-256: `d02da3e5be4aaf7289e95ba7e48e97893d95eb6d69a8
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/predictions.json](predictions.json) (SHA-256 `0747fd1661a08c9e77035dbc4d50d242fb005a78be9ad4ea2593000bc34070c9`).
 
-- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f`).
+- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

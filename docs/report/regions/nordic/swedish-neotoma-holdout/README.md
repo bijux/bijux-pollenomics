@@ -86,7 +86,7 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Unsupported claim.** Two duplicate datasets are not two independent cores; this exposed-design bog result does not establish confirmatory method superiority, country-wide performance, LRA or vegetation accuracy.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. A separate replay at commit 65d4752111915e1157315004d59603469af2d644 completed six maintained prepare, predict and score commands and two independent observers, all with exit 0. Common, inner and outer run results were 0. All ten native products per study family matched the retained bytes exactly. Only four preparation files per family receive retained source admission. Nine protocol, historical freeze, reference-text and verification files remain unresolved under their original study owners; no historical production or freeze certificate is inferred. Both protocols used the exact training-SE input. The original owner recipes incorrectly declared training-DK; those recipes and this correction remain explicit in the capsule and witness. The authored capsule preserves the original public source and controls and all 66,481 input identities. Runtime, private taxonomy lookup, relational inputs and 4,356 bytecode payloads remain omitted. The original generic outer receipt mentions EMPD2; its text is preserved, and the actual Swedish plan and eight command receipts establish the execution scope. These previously exposed direct-pollen development results do not establish untouched confirmation, ecological or field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Authoring the capsule is not a new native retention execution.
+**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
 
 **Remaining input or review.** A genuinely independent target and qualified source/physical/ecological evidence are required for stronger claims; the historical predictor/review bytes remain explicit custody.
 
@@ -100,15 +100,11 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Matched denominator.** One core with two77sample datasets matching77/77depths;one target contributes35,767native NISP=35,505assigned+253excluded+9unmapped,22bins/66method rows/31taxa.
 
-Qualified authored reader SHA-256: `9986695a9a4d784d36a043528ef076414d508447553b3f4d31b485764a04d3ed`.
-
 - [Retained qualification evidence: docs/report/regions/nordic/swedish-neotoma-holdout/report.json](report.json) (SHA-256 `4e208e1016cbc14544ebb45be11f5feffa2c5497b8c50c326d37643419638aab`).
 
-- [Retained qualification evidence: reports/science/source-lineage/swedish-direct-pollen-preparation.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/swedish-direct-pollen-preparation.json) (SHA-256 `a64dfad19cfc41eae4d4e6c810b2078076a2b3d3c2088fbe11dff6a024d095aa`).
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 
-- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
-
-- [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md) (source SHA-256 `59626da8437e802b57d1d5bd397bbed003860dd870c114f2b4be7eaed43323f4`).
+- [Canonical scientific account: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

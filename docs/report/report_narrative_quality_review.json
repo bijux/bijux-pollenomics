@@ -1,15 +1,14 @@
 {
-  "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 324,
+  "schema_version": "report-narrative-quality-review.v2",
+  "page_count": 323,
   "quality_posture_counts": {
-    "reader_ready": 307,
+    "reader_ready": 306,
     "structured_reference": 8,
     "thin_structure": 9
   },
   "rows": [
     {
       "repository_path": "docs/report/animal_atlas_exclusion_report.md",
-      "content_sha256": "1aefde322d94cce957990583a3b78813d23b959a28fa0b3a0e4c6f3bf7302d2f",
       "prose_paragraph_count": 11,
       "link_bullet_count": 4,
       "bullet_sentence_count": 1,
@@ -20,7 +19,6 @@
     },
     {
       "repository_path": "docs/report/animal_atlas_readiness.md",
-      "content_sha256": "52fbb2b1d911c12f34af23d5edf08347a82c31bc9d26032b8243d0a6639d1957",
       "prose_paragraph_count": 10,
       "link_bullet_count": 3,
       "bullet_sentence_count": 1,
@@ -31,7 +29,6 @@
     },
     {
       "repository_path": "docs/report/animal_country_species_coverage.md",
-      "content_sha256": "98cc3dfec66d67de0170bc8d2b3ba110033cb5332e91e502a53a0568b455d3e3",
       "prose_paragraph_count": 11,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -42,7 +39,6 @@
     },
     {
       "repository_path": "docs/report/animal_cross_surface_drift.md",
-      "content_sha256": "81b45091e7f4a9931665b0c0e843bddb4b7ecf53035247c5f9f037a6a85cfdc8",
       "prose_paragraph_count": 11,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -53,7 +49,6 @@
     },
     {
       "repository_path": "docs/report/animal_first_appearance_by_country.md",
-      "content_sha256": "ce4dd3e814e2f80f3e4b504742322158d34841fd0d15b3f8ac0edfd679f0df21",
       "prose_paragraph_count": 11,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -64,7 +59,6 @@
     },
     {
       "repository_path": "docs/report/animal_foundation_review.md",
-      "content_sha256": "b25035d7699adb41c27b8682f0d3491015efeb948380fb7a2b2759789bc200fd",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 11,
@@ -75,7 +69,6 @@
     },
     {
       "repository_path": "docs/report/animal_foundation_validation.md",
-      "content_sha256": "e10ce24259dec63130286f82f52e7e8e9e3acfec17a4c4a6df1df84f1c99e6ac",
       "prose_paragraph_count": 11,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -86,7 +79,6 @@
     },
     {
       "repository_path": "docs/report/animal_human_chronology_overlap.md",
-      "content_sha256": "88d467213a60a1249371c3f20590899ae3a505e1d43280714bc73a17b1a8ace8",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 1,
@@ -97,7 +89,6 @@
     },
     {
       "repository_path": "docs/report/animal_intake_recovery_review.md",
-      "content_sha256": "2216d6a66a86206b694022121a767616c552624e72a0006f1a6f8eb489d424e4",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 13,
@@ -108,7 +99,6 @@
     },
     {
       "repository_path": "docs/report/animal_output_audit.md",
-      "content_sha256": "f6d61851b12744e2e83eca77405cbf9f70f0066d9dacd9a82faca2dd95a7bea2",
       "prose_paragraph_count": 13,
       "link_bullet_count": 4,
       "bullet_sentence_count": 2,
@@ -119,7 +109,6 @@
     },
     {
       "repository_path": "docs/report/animal_output_honesty.md",
-      "content_sha256": "42164d02da8f09e72447716f9072961879fbdd725c6754e7e7cf0659d099deb8",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 1,
@@ -130,7 +119,6 @@
     },
     {
       "repository_path": "docs/report/animal_point_evidence_review.md",
-      "content_sha256": "51194250a4e54157e8cc13849b7167e11baefc87357286fbbce52b4d163009ab",
       "prose_paragraph_count": 176,
       "link_bullet_count": 4,
       "bullet_sentence_count": 332,
@@ -141,7 +129,6 @@
     },
     {
       "repository_path": "docs/report/animal_pollen_chronology_overlap.md",
-      "content_sha256": "81664d90610adc47af25a1c7aaa8d7f3c5f40699a2471442dc0c7960c489cc78",
       "prose_paragraph_count": 11,
       "link_bullet_count": 3,
       "bullet_sentence_count": 1,
@@ -152,7 +139,6 @@
     },
     {
       "repository_path": "docs/report/animal_project_publication_gap_review.md",
-      "content_sha256": "ed9b899aa12ec815899dae6c16544f292ee92e1fe4c71e9ecbbaba289fddae41",
       "prose_paragraph_count": 10,
       "link_bullet_count": 3,
       "bullet_sentence_count": 1,
@@ -163,7 +149,6 @@
     },
     {
       "repository_path": "docs/report/animal_publication_release_gate.md",
-      "content_sha256": "ef1d00f2784c89164fe94bbc131ed99dfd80ecf24dc2b4ac78a5ba2423b719bb",
       "prose_paragraph_count": 13,
       "link_bullet_count": 3,
       "bullet_sentence_count": 4,
@@ -174,7 +159,6 @@
     },
     {
       "repository_path": "docs/report/animal_sample_chronology_review.md",
-      "content_sha256": "2d4ee8a1c24c04db78fc07ce63f6b610d4b5b4c027ae245df70f33f7bd89badd",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 3,
@@ -185,7 +169,6 @@
     },
     {
       "repository_path": "docs/report/animal_sample_database_review.md",
-      "content_sha256": "c7e1566cc617037c561f3b8ecbea7c2e7e1ddb2b6763c18ef0628ae7321101c5",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 49,
@@ -196,7 +179,6 @@
     },
     {
       "repository_path": "docs/report/animal_scientific_caveat_ledger.md",
-      "content_sha256": "fedc497dcd95e6b2f62c09e40e07df3f15783b5a20cca0dc8de40c2b83bf83da",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 2,
@@ -207,7 +189,6 @@
     },
     {
       "repository_path": "docs/report/animal_temporal_comparison_review.md",
-      "content_sha256": "b24ac6b5065977da5045fd8e879311413c461f41957f5d175866f99f04577c6a",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 5,
@@ -218,7 +199,6 @@
     },
     {
       "repository_path": "docs/report/atlas/boundary-orientation/README.md",
-      "content_sha256": "7bccdf1d032d3a5211b60f855bbccf47ddaf881ee60b15b320bafa7200fcf427",
       "prose_paragraph_count": 5,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -229,7 +209,6 @@
     },
     {
       "repository_path": "docs/report/atlas/cross-border-neighbor/README.md",
-      "content_sha256": "e22a72489b40071e474f54077c222e6c38a7996b5dc66f7ad0f251d29d543094",
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -240,7 +219,6 @@
     },
     {
       "repository_path": "docs/report/atlas/desktop-zoom-controls/README.md",
-      "content_sha256": "6b36f740674ab0546d6f2d77b462b866c3bea52504bf5a7662cadcdb8642f5d2",
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -251,7 +229,6 @@
     },
     {
       "repository_path": "docs/report/atlas/detail-focus/README.md",
-      "content_sha256": "6feb8b21a3590528fc1da0b7ee6e1a8232d9395d1799eb00931b306f39a1fe6f",
       "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -262,7 +239,6 @@
     },
     {
       "repository_path": "docs/report/atlas/frame-url-replay/README.md",
-      "content_sha256": "e0536a1338cadb3cf11cbd1248f06f6ede81d8549b3fe6e850f8b43d79b48c2c",
       "prose_paragraph_count": 13,
       "link_bullet_count": 0,
       "bullet_sentence_count": 4,
@@ -273,7 +249,6 @@
     },
     {
       "repository_path": "docs/report/atlas/keyless-cache-matrix/README.md",
-      "content_sha256": "235749c6f98fc851a4a58daa98474bba4423f6fa54506231a4f75f5e8b5c9e22",
       "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -284,7 +259,6 @@
     },
     {
       "repository_path": "docs/report/atlas/map-keyboard-navigation/README.md",
-      "content_sha256": "ba6305b4513da0072cdf4214cdadf5dfff0164e814b0be46668b7b2e491caa39",
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -295,7 +269,6 @@
     },
     {
       "repository_path": "docs/report/atlas/mobile-attribution/README.md",
-      "content_sha256": "af3cb1811155c1aa5153211d087792d6f9aa4bcce3bfc113a0ee4fa1c7f2d64d",
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -306,7 +279,6 @@
     },
     {
       "repository_path": "docs/report/atlas/modeled-panel-browser/README.md",
-      "content_sha256": "82956c77997d8d899234f05db879eee48915be96835abd5bb1149dbe62a8f922",
       "prose_paragraph_count": 8,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -317,7 +289,6 @@
     },
     {
       "repository_path": "docs/report/atlas/narrow-viewport-controls/README.md",
-      "content_sha256": "1eda259e246ea30b6b090d98121111c703fe3233d989f2d4158baa2c473c0f85",
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -328,7 +299,6 @@
     },
     {
       "repository_path": "docs/report/atlas/nordic-source/README.md",
-      "content_sha256": "ebe6f2c3956b50c80e33527a23cde1a68ed10b4bd38356d7af53092670e01ed3",
       "prose_paragraph_count": 11,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -339,7 +309,6 @@
     },
     {
       "repository_path": "docs/report/atlas/playback-keyboard/README.md",
-      "content_sha256": "67dbf5e857dce873f085dc580c6490120503d144e79e64dda9db5e20b6e66b16",
       "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -350,7 +319,6 @@
     },
     {
       "repository_path": "docs/report/atlas/provider-accessibility/README.md",
-      "content_sha256": "3dd0b984fb7e1eeb775559f56200a449a7276b7a0822f15346260a00a27d4016",
       "prose_paragraph_count": 10,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -361,7 +329,6 @@
     },
     {
       "repository_path": "docs/report/atlas/source-detail/README.md",
-      "content_sha256": "d99cdaee4a83a19577bd82b9b353f93b5ff8a481a83755d8426b40a86660941c",
       "prose_paragraph_count": 11,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -372,7 +339,6 @@
     },
     {
       "repository_path": "docs/report/atlas/source-export/README.md",
-      "content_sha256": "cd1ce4ada02299ce89a3a2451003970e2eb0c6367e6ae57dae721616669440f1",
       "prose_paragraph_count": 13,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -383,7 +349,6 @@
     },
     {
       "repository_path": "docs/report/atlas/source-url-replay/README.md",
-      "content_sha256": "b8f2d1f15a621e766d3fdfa66375281d20281f5c8ed7dc62211f38fa211bfa07",
       "prose_paragraph_count": 13,
       "link_bullet_count": 0,
       "bullet_sentence_count": 5,
@@ -394,7 +359,6 @@
     },
     {
       "repository_path": "docs/report/atlas/tile-free-orientation-controls/README.md",
-      "content_sha256": "eb16fcfc7e63ba2140cfdab249b28656ee5da8ca6f257065fcbd2cb1a5079386",
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -404,30 +368,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/caveats/index.md",
-      "content_sha256": "3272bc7c9645520581e1f84aac5adebea58f800e6dbbfac11f36871a453fcd37",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 5,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/classification/source-custody/README.md",
-      "content_sha256": "e7b59b1a720decdc073b65e588f99b5ae93fdf9b0b1ab720798052c544299406",
-      "prose_paragraph_count": 5,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 1,
-      "table_line_count": 5,
-      "quality_posture": "thin_structure",
-      "note": "Page explains itself but still needs stronger internal wayfinding."
-    },
-    {
       "repository_path": "docs/report/countries/denmark/README.md",
-      "content_sha256": "1f9db62380f4c6201e25f7b76167b12bd3fefa7a39800b283c010470ff9b3d1f",
       "prose_paragraph_count": 18,
       "link_bullet_count": 5,
       "bullet_sentence_count": 21,
@@ -438,7 +379,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_aadr_v66_samples.md",
-      "content_sha256": "66cfb2ded2bc97567f167f3370348af2f4e8983499d3afef8cf3b88abb8c4eb5",
       "prose_paragraph_count": 11,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -449,7 +389,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_animal_adna_v66_citations.md",
-      "content_sha256": "ed0cdc83fc6096ea10dd4beef61d5a29c5e63fb61d4f584ea9ec3d576fbf387f",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -460,7 +399,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_animal_adna_v66_samples.md",
-      "content_sha256": "a6dc75e334b790f72d711f4091a4a24995ef3816a9664f79d957773bbf281d1a",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -471,7 +409,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/denmark_animal_adna_v66_warnings.md",
-      "content_sha256": "7d8b639c669bf4f877ae91fa598e0fe4a257131dcc5b8d9ce9616988365f1e92",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -482,7 +419,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
-      "content_sha256": "8f19e9203fefec7019ede77ee193993b2664f264a3961a4625342e403690def3",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -493,7 +429,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
-      "content_sha256": "aa89fe0e88eaef01c2b7da425f7987ca59f89e33dc2fc76b0fb9bc29c19ce422",
       "prose_paragraph_count": 13,
       "link_bullet_count": 12,
       "bullet_sentence_count": 0,
@@ -504,7 +439,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md",
-      "content_sha256": "bdf0fa216f89cda91a14f62b3ec31061dc4dc4410de60145a81288edabaf89cb",
       "prose_paragraph_count": 17,
       "link_bullet_count": 6,
       "bullet_sentence_count": 0,
@@ -515,7 +449,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md",
-      "content_sha256": "4d49d7fbb35ccb26d37212b38e92adc227fe781a8ddd130566ff6d5aaa3269b5",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -526,7 +459,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md",
-      "content_sha256": "ebd7defcddfb3ed85a5b533247556af85644dc021a5c84efdee174269b4dcfc1",
       "prose_paragraph_count": 17,
       "link_bullet_count": 6,
       "bullet_sentence_count": 0,
@@ -537,7 +469,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md",
-      "content_sha256": "9be29888a30a7e580c2a06dfcc383b84b03a084b1eb81373743cd356b5d432f3",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -548,7 +479,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md",
-      "content_sha256": "dbf7deac35fc7dd671fda813fb5815422cbfe9cfdd8535b0c624a416ef265121",
       "prose_paragraph_count": 18,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -559,7 +489,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md",
-      "content_sha256": "d06221c5dd479d48a8ea6120ce8f2a1d5499e83a194dcbea4ba34c8e45425e71",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -570,7 +499,6 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md",
-      "content_sha256": "6f704ab90ec7a4c128ca3869f4e15fd4c5699ed2688cf2646e5428f8ad4b0d08",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -581,7 +509,6 @@
     },
     {
       "repository_path": "docs/report/countries/finland/README.md",
-      "content_sha256": "ad147fc6924437dbabe21fafbcdc34f351024daedfefe3d2542b08432cc66837",
       "prose_paragraph_count": 18,
       "link_bullet_count": 5,
       "bullet_sentence_count": 21,
@@ -592,7 +519,6 @@
     },
     {
       "repository_path": "docs/report/countries/finland/finland_aadr_v66_samples.md",
-      "content_sha256": "d2bc042cc95a15a53d9d33e7fbbcabf5d535bac2028ebc4fd9dc81793be3fd0c",
       "prose_paragraph_count": 11,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -603,7 +529,6 @@
     },
     {
       "repository_path": "docs/report/countries/finland/finland_animal_adna_v66_citations.md",
-      "content_sha256": "5f294d039073fb860e1be1b21264c4606728f94a73e67b3422b9671b12d1069b",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -614,7 +539,6 @@
     },
     {
       "repository_path": "docs/report/countries/finland/finland_animal_adna_v66_samples.md",
-      "content_sha256": "8a8996298a5890708c13f91cb733697bc5e673b867c8bf85ed1873203ed920a5",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -625,7 +549,6 @@
     },
     {
       "repository_path": "docs/report/countries/finland/finland_animal_adna_v66_warnings.md",
-      "content_sha256": "3be3dc3c37dba85d26eaf31deaf63717ac10882f0ffa627a5e952d107c2bb315",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -636,7 +559,6 @@
     },
     {
       "repository_path": "docs/report/countries/norway/README.md",
-      "content_sha256": "ca2cb87a5a50ccc5a4a9f8ba76810c3d9806a1472a430f1253b566a5765afc52",
       "prose_paragraph_count": 17,
       "link_bullet_count": 5,
       "bullet_sentence_count": 7,
@@ -647,7 +569,6 @@
     },
     {
       "repository_path": "docs/report/countries/norway/norway_aadr_v66_samples.md",
-      "content_sha256": "05d9a3fa96a5b7a5ea1e2e2f1e9557d5985b24cd28af4206d39d5311c75a782a",
       "prose_paragraph_count": 11,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -658,7 +579,6 @@
     },
     {
       "repository_path": "docs/report/countries/norway/norway_animal_adna_v66_citations.md",
-      "content_sha256": "972ba684a206ee2e30f6babb687e2c9d7c5bfec603699f70d73a1128238e020f",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -669,7 +589,6 @@
     },
     {
       "repository_path": "docs/report/countries/norway/norway_animal_adna_v66_samples.md",
-      "content_sha256": "03eac54fdc68d4735e4ec55c1760a6cd02cbbac037d23e1a7e718e4d7deb2622",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -680,7 +599,6 @@
     },
     {
       "repository_path": "docs/report/countries/norway/norway_animal_adna_v66_warnings.md",
-      "content_sha256": "bf91c669498c0ae73949ba57f242b959ea52e8b515b80d9cacaaeea6d9dc4da9",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -691,7 +609,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/README.md",
-      "content_sha256": "386f0e66a1ad05319a42b4515cc3cdd2090af0fdb18cd5d790b0a7d78d84631a",
       "prose_paragraph_count": 22,
       "link_bullet_count": 5,
       "bullet_sentence_count": 38,
@@ -702,7 +619,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/bjaresjo-context-screen/README.md",
-      "content_sha256": "9856eb685175be9d9e0eec59851d4c6ad9f794d85313c94922dced12b521d58b",
       "prose_paragraph_count": 12,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -713,7 +629,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/land-use-replay/README.md",
-      "content_sha256": "6a9ea90fdd724a7ddb7496ba7df4f862d6a53ab8911faae33b62ad1ea77cc57d",
       "prose_paragraph_count": 17,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -724,7 +639,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
-      "content_sha256": "ad427f6ccbbd0e7fb2cde3627b2dcbbd6ad7f2f2d12cfd1f6a1a5455a3d3b4e2",
       "prose_paragraph_count": 19,
       "link_bullet_count": 9,
       "bullet_sentence_count": 0,
@@ -734,19 +648,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
-      "content_sha256": "e1c68d113f4162a32d6a3cf658781fe7d4c5a6b8148b1601157399aae52d168e",
-      "prose_paragraph_count": 18,
-      "link_bullet_count": 4,
-      "bullet_sentence_count": 0,
-      "heading_count": 2,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/countries/sweden/pollen-model-lineage/README.md",
-      "content_sha256": "ab7448466c19b4689fd6160838c075e1f7b59318f9861ca1840a71f92e4ce3f3",
       "prose_paragraph_count": 11,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -757,7 +659,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_aadr_v66_samples.md",
-      "content_sha256": "a183ab073fb3224d963eb610cf2d6d58ffe1d3532b71cd0778d4c29a7c642d6e",
       "prose_paragraph_count": 11,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -768,7 +669,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_animal_adna_v66_citations.md",
-      "content_sha256": "028d704a993714bbc4c40d579baf445da85f52363c44da3e1113ac5f8535aaef",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -779,7 +679,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_animal_adna_v66_samples.md",
-      "content_sha256": "53118f40a4541fdecf34a163ef0cd50e9849c84e19d5fb4e9ed0c0dc57878711",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -790,7 +689,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md",
-      "content_sha256": "855f0474be2104f2e7069367d324e7f8fb8e38d54e6352ab171eced331aba1c5",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -801,7 +699,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md",
-      "content_sha256": "6c9338ab9a9693f55f8b06c63874873632cea08aeb943fd35f4036126a9770d5",
       "prose_paragraph_count": 18,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -812,7 +709,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md",
-      "content_sha256": "e7a1d3b0ea05c65364667131798ae0e97d917b1db79538c858171ff4b7d46d29",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 4,
@@ -823,7 +719,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md",
-      "content_sha256": "780c8080518644e4d4a2093067d84bc531bef7fae1c4b026e8ae9010bddf569b",
       "prose_paragraph_count": 18,
       "link_bullet_count": 6,
       "bullet_sentence_count": 9,
@@ -834,7 +729,6 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.md",
-      "content_sha256": "2652060d0f15684ae7d172b7c254a2928504fc6248d8a254b6e7afa7c6ce0e37",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 5,
@@ -844,52 +738,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/how-to-read.md",
-      "content_sha256": "c7dccdf552422d86d50658ae3b15eb1ec7365705ed21b4981eaf749038a9e257",
-      "prose_paragraph_count": 6,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 5,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/index.md",
-      "content_sha256": "69a4ee80543170f610e66c4076db67676edbb46c400f3825dfe0f85a7a36a250",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 11,
-      "bullet_sentence_count": 0,
-      "heading_count": 6,
-      "table_line_count": 7,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "5f947c49945ce8e53f5d9ee836a9215bee468cceeec3d55421e6bfc471a03e35",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 10,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/maps/index.md",
-      "content_sha256": "bb2aee2a9c5e903aa811b52533d90ea625d9297cf05b07baf9e3de3b37fad4c1",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 3,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/method-certification/analytical-love-ring-sensitivity/README.md",
-      "content_sha256": "2c1a4be437877acba8989eb7b6e36ff4cb1c73882a48fe20f902299ba5f3b996",
       "prose_paragraph_count": 12,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -900,7 +749,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/author-site-profile-comparison/README.md",
-      "content_sha256": "73805263fd66b55ec25ed9bbc2ea9ac4f94b47c9ca356beb451b39515a4544e2",
       "prose_paragraph_count": 15,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -911,7 +759,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/author-site-uncertainty/README.md",
-      "content_sha256": "795c9f72bd5932d3925e57542be15563cb2eb3ce335377ec9a5db7eaa25dbbb1",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -922,8 +769,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/README.md",
-      "content_sha256": "3a42ceadf4cabb65fb6529ebfbceede18b35e060662e5f6f4d203c05730826d3",
-      "prose_paragraph_count": 41,
+      "prose_paragraph_count": 43,
       "link_bullet_count": 7,
       "bullet_sentence_count": 0,
       "heading_count": 11,
@@ -933,7 +779,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/disqover-source-identity/README.md",
-      "content_sha256": "4c40558cfaaae6bcb8422ba85fa7f2c76ce56ee89e5b53a3a83a02bbc03039ed",
       "prose_paragraph_count": 14,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -944,7 +789,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/fixed-site-covariance/README.md",
-      "content_sha256": "7cf141c73cd3e535d26c7274b1e9ffff5213e0b8f1c109da0aa80195c1dc9690",
       "prose_paragraph_count": 24,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -955,7 +799,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/joint-site-draws/README.md",
-      "content_sha256": "e468790d754fdfc65f87d36dba1e9d1dc53764e9787e080a083f46ef1d32aaae",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -966,7 +809,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/linux-r-oracle/README.md",
-      "content_sha256": "7fd7310667ac5053394a1b4adf979231302b04daffe90c39ae295d9456b402a8",
       "prose_paragraph_count": 20,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -976,19 +818,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/method-certification/love-objective-parity/README.md",
-      "content_sha256": "0d721e88bef6b0e0fe792c946d85f3c187ec17116fdc1ba9630df49c3e7fc85c",
-      "prose_paragraph_count": 17,
-      "link_bullet_count": 3,
-      "bullet_sentence_count": 0,
-      "heading_count": 2,
-      "table_line_count": 6,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/method-certification/love-paper-correspondence/README.md",
-      "content_sha256": "153f0f5f660e8915e7943c1a5cc11b32896cf4286ee4cc87c6deb9e5889a434c",
       "prose_paragraph_count": 18,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -999,7 +829,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/lra-batch-execution/README.md",
-      "content_sha256": "7373179151568480a7794e33248d5bf057529bd906e9ffd2cf1c5da0a5fbe7ac",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1010,7 +839,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/optimizer-solution-quality/README.md",
-      "content_sha256": "cc2cefa0e9c8b32f4b5b411d1ba0db3406ca74daceec991af30e7e0954b3bf52",
       "prose_paragraph_count": 18,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1021,7 +849,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/original-r-reference/README.md",
-      "content_sha256": "1d901359ca6fe432e5df1de97578de51844ed9796395872870da8133ba22f390",
       "prose_paragraph_count": 18,
       "link_bullet_count": 3,
       "bullet_sentence_count": 5,
@@ -1032,7 +859,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/paired-love-draws/README.md",
-      "content_sha256": "8307d3ac899aa06cfdc3f30ee8b06cf006f0c152db28dbd3db60f6289833cd26",
       "prose_paragraph_count": 18,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1043,7 +869,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/petrkunes-r-comparison/README.md",
-      "content_sha256": "fc9a6888b20bd245e61e7f9f09a83a77cd714fcfe7b6d5df1b7a94b1494e1fa1",
       "prose_paragraph_count": 17,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1054,7 +879,6 @@
     },
     {
       "repository_path": "docs/report/method-certification/reference-release-gate/README.md",
-      "content_sha256": "d0e9cf3be9941065c7f8eb7ee4b44ca7c14778b63804d6b060d4e1cf4476dea9",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1064,19 +888,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/model-development/english-retained-score-audit/README.md",
-      "content_sha256": "08e09ac6ab4e565126403de6b0dc76b350bb97c11333cc168e5ced603a85eb6a",
-      "prose_paragraph_count": 19,
-      "link_bullet_count": 2,
-      "bullet_sentence_count": 0,
-      "heading_count": 2,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/nordic_farming_history_scenario.md",
-      "content_sha256": "5f1291c7e55c57a17d9c40d4715db6b2f5a7b663f2c33139b63a8fb488561560",
       "prose_paragraph_count": 14,
       "link_bullet_count": 4,
       "bullet_sentence_count": 8,
@@ -1087,9 +899,8 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/love-source-comparison/README.md",
-      "content_sha256": "77d0267eff571745ec21f96c78418ac7a6a0b764d51d214c8b8f1996b085fa71",
       "prose_paragraph_count": 17,
-      "link_bullet_count": 3,
+      "link_bullet_count": 2,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 6,
@@ -1098,7 +909,6 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/love-source-profile/README.md",
-      "content_sha256": "ccde0afb912e7ac92487bbbda87061eb78ab62008f3752446f3cca661ef315a6",
       "prose_paragraph_count": 19,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1109,7 +919,6 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/native-adoption/README.md",
-      "content_sha256": "23995b33e265b4abeee47c89b87b2776838a4f5518e66c0355e6c66e8b9b4ac4",
       "prose_paragraph_count": 15,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1120,7 +929,6 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/native-forward/README.md",
-      "content_sha256": "fa5345c0f3db3818bcd5383d61d843158c4ead672414820c18f5cfe42c4dd557",
       "prose_paragraph_count": 21,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1131,7 +939,6 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/native-memory/README.md",
-      "content_sha256": "4443b97383367a95ae3383ca24f10f705924892811da8fb9c07c711add56847e",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1142,7 +949,6 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/python-baseline/README.md",
-      "content_sha256": "9bbb64acf3777e133640ce674bc46323f00b13c887eb255a1ef731ae936dc623",
       "prose_paragraph_count": 19,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1153,7 +959,6 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/python-isolated/README.md",
-      "content_sha256": "03ab623474ebb300fea0481b1d1adaf9ddce4c11bf413744b28c7ac98b37023c",
       "prose_paragraph_count": 15,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1163,19 +968,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/numerical-performance/representative-public-calls/README.md",
-      "content_sha256": "5f9cc90496aa6b83c2b7ba1b65816cca62558fddd30eb2646391ee8c0aa92c19",
-      "prose_paragraph_count": 19,
-      "link_bullet_count": 4,
-      "bullet_sentence_count": 0,
-      "heading_count": 2,
-      "table_line_count": 8,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/numerical-performance/runtime-metadata/README.md",
-      "content_sha256": "b9ba0dd79b6821b1efe0c281a795e5551926bd5b6ab4f49090744cf987b101f6",
       "prose_paragraph_count": 18,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1186,7 +979,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/README.md",
-      "content_sha256": "d919b3e6102773672789703100ff30ce0b7027d7e1efcaaa630dcdaa470e6eea",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1197,7 +989,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/README.md",
-      "content_sha256": "2a154fa80fe78a6c6ae9e786360a7100d59ad410e06857e6624f35f65b9de033",
       "prose_paragraph_count": 16,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1208,7 +999,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md",
-      "content_sha256": "45cfa03468930b085d131896664a6579fb40c5daea0167ea42877c82c8958bb3",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1219,7 +1009,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
-      "content_sha256": "4a06bdee0850eb85eb06eb341213d4d0f3ea97dd00835f8fda450faa8590387e",
       "prose_paragraph_count": 18,
       "link_bullet_count": 7,
       "bullet_sentence_count": 0,
@@ -1230,7 +1019,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
-      "content_sha256": "a9fb127bb9e0ec04f0b2f335a19ed1ebcba11fad9aa9c60e7c148126207ff42d",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1241,7 +1029,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md",
-      "content_sha256": "f807e6f23c50030e497e6a39e09f0053f09cce273c3ccd9acd80974714f63365",
       "prose_paragraph_count": 13,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1252,7 +1039,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/REPORT.md",
-      "content_sha256": "120195d9b0f5b21c8b5b69bffb23e1f3be9ac43e039bdd52f0c93e43caf0ba2a",
       "prose_paragraph_count": 13,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1263,7 +1049,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/REPORT.md",
-      "content_sha256": "56b945f99ee601a3bb3e8052e5e1f7ea3766bcd554bf785120ca5a6c2cabf800",
       "prose_paragraph_count": 13,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1274,7 +1059,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/REPORT.md",
-      "content_sha256": "15ea293db57d94acb0fa9dba57667c5cccfc21283627860b1b529d089f7412b2",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1285,7 +1069,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/REPORT.md",
-      "content_sha256": "0888cfc5ad17cf47e13829f36214a4678a5916f2cd57e911eea0bf583c7750fe",
       "prose_paragraph_count": 15,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1296,7 +1079,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/REPORT.md",
-      "content_sha256": "b83e04c14519a6ae8d6aecbe5ccf9d62f44af6ad83e67c8e8d417c6092a7652b",
       "prose_paragraph_count": 14,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1307,7 +1089,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/REPORT.md",
-      "content_sha256": "b1a69aa95bb4ed2c30eb6f05b64366b0b0f8b2a0f0b54dc1d8506d8760f70908",
       "prose_paragraph_count": 14,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1318,7 +1099,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/REPORT.md",
-      "content_sha256": "c85ccda4485554fc54cfc94707151a2f04038dc80aac6dff3d07b9d997b68eb3",
       "prose_paragraph_count": 14,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1329,7 +1109,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-development-interpretation.md",
-      "content_sha256": "c3ae48b78d352f3bd90483c2ae5a344b3638a9d71760d04f5ac4a49002d4fd4b",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1340,7 +1119,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md",
-      "content_sha256": "f193425d61fc5c9a3fb488e0f92693795cf974a597cb016c5493926b4f5c9ae9",
       "prose_paragraph_count": 15,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1351,7 +1129,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
-      "content_sha256": "ff8e70a1ce646e4a230451bab76af7dd2f0adc9be3eac509598d947bbb2d2c9e",
       "prose_paragraph_count": 14,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1362,7 +1139,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-lra-constrained/README.md",
-      "content_sha256": "f157111ceb18637c6688d9432bff60332021c6e7134f76d1b5b4636ef30066b0",
       "prose_paragraph_count": 13,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1373,7 +1149,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md",
-      "content_sha256": "6d592300c4298fdf2f9e6b38c1a48df8edd16fac591d64371bcf185394007d2f",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1384,7 +1159,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md",
-      "content_sha256": "beb08809da97435d23a9f0be397e62718e1f470dd52bff66159e5dc3be636f0e",
       "prose_paragraph_count": 19,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1395,7 +1169,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
-      "content_sha256": "ebeab103d38e63224b70aad83ac170757bd251e9668d4a79be48230bb8bfa986",
       "prose_paragraph_count": 12,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1406,7 +1179,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
-      "content_sha256": "aca1a19e1c7690dec423d5319b915afce1d252f208be16b4394fb077ae0c3a39",
       "prose_paragraph_count": 19,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1417,7 +1189,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md",
-      "content_sha256": "7cab49fb7075b0c14a41755aaf74bc00b18c5795ef01989df4d89a78744a9ce1",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1428,7 +1199,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
-      "content_sha256": "36f0ea5cdfd370b81094113667c2eba4dccc3edc92b7c8f141a7b0b7ce71bf26",
       "prose_paragraph_count": 51,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1439,7 +1209,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/README.md",
-      "content_sha256": "315afe12c367d30bf8855e123e22250d17a8043c30f9c69be2003515de3c03a5",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1450,7 +1219,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
-      "content_sha256": "f3c32cf71b756fa341586dc03b114207a8227c8f600c57cccd05ec0ddd0f7724",
       "prose_paragraph_count": 27,
       "link_bullet_count": 3,
       "bullet_sentence_count": 1,
@@ -1460,19 +1228,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
-      "content_sha256": "7bbd9a14fd3660b534e24430f2370c01beeee03854ea0cc5008b4f4a4b167bcc",
-      "prose_paragraph_count": 36,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 5,
-      "table_line_count": 4,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
-      "content_sha256": "869dba87158c14f183dc54ef7835d32f941e2054f648f2dc29537fe0b684da70",
       "prose_paragraph_count": 37,
       "link_bullet_count": 6,
       "bullet_sentence_count": 0,
@@ -1483,7 +1239,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-uncertainty-method.md",
-      "content_sha256": "33a9335d71267ccca0dba4df8c6f29d49610edd6738a34ac630de9d0647583e8",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1494,7 +1249,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/norwegian-one-family-forward/README.md",
-      "content_sha256": "fea2cb65b45a568ee9e010eaa5fb66351aee0a376d415f622f6a5bee21c0c48e",
       "prose_paragraph_count": 20,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1505,7 +1259,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/paper-correspondence.md",
-      "content_sha256": "a5ac59c3bc114e887e36743f4d7fcfd177832d8f62c20e4690731679e08fa007",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1516,7 +1269,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
-      "content_sha256": "cf38acd9b8f62e6fec33115260eaf303af281e5ecd5233ac59bfbb358ae97cdd",
       "prose_paragraph_count": 36,
       "link_bullet_count": 7,
       "bullet_sentence_count": 0,
@@ -1527,7 +1279,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
-      "content_sha256": "f26c3983588c388be84accc7e04aaf57c002a552b01dd527925e7aa88d9be0d0",
       "prose_paragraph_count": 19,
       "link_bullet_count": 6,
       "bullet_sentence_count": 0,
@@ -1538,7 +1289,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/README.md",
-      "content_sha256": "876a294c4d2d0c684bc0bfe7beee58d3b3fa8f859735d45f2b14cecb849bad1b",
       "prose_paragraph_count": 22,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1548,19 +1298,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
-      "content_sha256": "1634904bea2e3478d541f63313730f34749a33184cf7fc72765f0f76869241bf",
-      "prose_paragraph_count": 26,
-      "link_bullet_count": 5,
-      "bullet_sentence_count": 0,
-      "heading_count": 7,
-      "table_line_count": 14,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md",
-      "content_sha256": "71427423caf076ceb159446c76a65d8f4505cc02459f5d4efd49de11bf41bdd8",
       "prose_paragraph_count": 17,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1571,7 +1309,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
-      "content_sha256": "8f844ddbc8606e9b31a79960c9e327975149eb67fe16c0d78423e6b3fab4cf22",
       "prose_paragraph_count": 28,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1582,7 +1319,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/README.md",
-      "content_sha256": "64521ee60efc50fb625d9977429fb624651eee612dec4b4abd246e4f7b921b29",
       "prose_paragraph_count": 22,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1593,7 +1329,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/README.md",
-      "content_sha256": "94de302b1d8d7b9701ac5668e482bedf283844fd676cc3d7a4b1742804e9153e",
       "prose_paragraph_count": 24,
       "link_bullet_count": 6,
       "bullet_sentence_count": 0,
@@ -1604,7 +1339,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/README.md",
-      "content_sha256": "3cb99f03c5a3dcd831b5b713f9d719903841166bb7095f51043dde404ae7c5f8",
       "prose_paragraph_count": 30,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1615,7 +1349,6 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/README.md",
-      "content_sha256": "3c2cb2b5a5fa8aa4f9cbdf792cb9713dee6ad9782d8d552f6c7a6af076f7b608",
       "prose_paragraph_count": 21,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1626,7 +1359,6 @@
     },
     {
       "repository_path": "docs/report/propagation/governed-edge-ledger/README.md",
-      "content_sha256": "859bf99b2de8231cc7a4876458591a819f65057d9f09a327172a5c71a1d3097f",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1637,7 +1369,6 @@
     },
     {
       "repository_path": "docs/report/propagation/source-first-observed/README.md",
-      "content_sha256": "cae019647376dbea1e43f691cd0d098c46bdc8a7d4447d39ab031c6e2235167b",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1648,7 +1379,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
-      "content_sha256": "adce24a6f12c311838de2108cca6203efa8a20ed86f39641209624531e61d121",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1659,7 +1389,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
-      "content_sha256": "aa4b28179653360d8271f87017bc4711a478f2425ada25c78eb596a2b463a265",
       "prose_paragraph_count": 14,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1670,7 +1399,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
-      "content_sha256": "5a603dd84896f3177ef896f6c6486b7efbd7e7febbe266d799621cd073c0d95d",
       "prose_paragraph_count": 13,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1681,7 +1409,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-example-reexecution/README.md",
-      "content_sha256": "a24cd6efa9e7980935902ccbdcb0a1b445932d5c234982ec5a62bc31362fe55f",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1692,7 +1419,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-method-profile/README.md",
-      "content_sha256": "89c5767f858e6dc199d73e9a369c65f3531d5c087edeb7e77319c2a8b5bc26bf",
       "prose_paragraph_count": 12,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1703,7 +1429,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
-      "content_sha256": "24f88c850e58ec90dd1c6b90178cadcce3062287c3dcea9c4e4e43ec8feb8c7f",
       "prose_paragraph_count": 12,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1714,7 +1439,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-correspondence/README.md",
-      "content_sha256": "828b97860d184c3b74561548f74e604d7ca702b3ce882e4121cc9c522ac11ae4",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1725,7 +1449,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md",
-      "content_sha256": "fddd7443f318bdcdde20f8bbc86ccffcb5f3746618b6ec1311e60469523ef049",
       "prose_paragraph_count": 13,
       "link_bullet_count": 3,
       "bullet_sentence_count": 2,
@@ -1736,7 +1459,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-provenance/README.md",
-      "content_sha256": "9c3d490128f028151ff9743fcf4e0cfcbfc0b0d8e130a8b8e5900e02b4e57e26",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1747,7 +1469,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
-      "content_sha256": "6f258bcf2a149ece13487f574f1fe8e0843982ccdcae787c911d5edceacac25b",
       "prose_paragraph_count": 13,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1758,7 +1479,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
-      "content_sha256": "028daf7e5439d6904de5109e07b2531b13063989f2efe31bf672c77c68267402",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1769,7 +1489,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
-      "content_sha256": "114ccac72be2bffe09f8ac22318a1142962dd10152f56c0e51cc7f1c729adc78",
       "prose_paragraph_count": 12,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1780,7 +1499,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-study-inputs/README.md",
-      "content_sha256": "55aadb320f65dba46297eb86f78cfa9a4e7b8fb0ef5808e74aff760b34fc67eb",
       "prose_paragraph_count": 15,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1791,7 +1509,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-window-alignment/README.md",
-      "content_sha256": "1c30e908b7a750fd23f0814a2512a61bf52df20cdc5c07921959eb70b39a2006",
       "prose_paragraph_count": 13,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1802,7 +1519,6 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-window-alignment/REPORT.md",
-      "content_sha256": "a24bd68c5e56c0cde48f836979c5b49fd0593d580dfd7e3f18e65b034d455844",
       "prose_paragraph_count": 13,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1813,7 +1529,6 @@
     },
     {
       "repository_path": "docs/report/publication_country_onboarding_contract.md",
-      "content_sha256": "935d58260fa2995212425a634e86172b5c82b00836c27edc04f4c257a53f58da",
       "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 16,
@@ -1824,7 +1539,6 @@
     },
     {
       "repository_path": "docs/report/publication_geography_registry.md",
-      "content_sha256": "eeae3f97a79116032ed0261d1755e5d24cd5228fb87982feb02d5a06c669ec19",
       "prose_paragraph_count": 2,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -1835,7 +1549,6 @@
     },
     {
       "repository_path": "docs/report/publication_geography_subset_validation.md",
-      "content_sha256": "1e82ae59aea7520c93a1a164e18a93b10a4abb160a771fa351dd98b9b644b54e",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -1846,7 +1559,6 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/README.md",
-      "content_sha256": "aa6449dcb2c2c1d6f4b27541ff819cab044e6880f5c2edb238b228cb7e1ac66b",
       "prose_paragraph_count": 20,
       "link_bullet_count": 4,
       "bullet_sentence_count": 71,
@@ -1857,7 +1569,6 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_candidate_site_sensitivity.md",
-      "content_sha256": "f5053f795828b888f16164887261c0d7393073e6dbf60a9a6cbe0f8b1ec1ea8f",
       "prose_paragraph_count": 11,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1868,7 +1579,6 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_candidate_sites.md",
-      "content_sha256": "2b2a229b31e59d36e84058e65167a9835b0982d7da846be927c13d24cfe4236b",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1879,7 +1589,6 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_evidence_surface.md",
-      "content_sha256": "feb16b25f10b4a7fb00de4405c7cb5367814a8330d0711f3a801d14dcb0283cc",
       "prose_paragraph_count": 11,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1890,7 +1599,6 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_map_publication_contract.md",
-      "content_sha256": "4c62d960e70a1382c5765b5df4c43628440d570fbd5458c94c6539298610bec6",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 6,
@@ -1901,7 +1609,6 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_point_traceability.md",
-      "content_sha256": "1fc0e32c0f7dd40e85ff38296d71a26e8d17e1109221ecdc36a6a9a215052ebf",
       "prose_paragraph_count": 12,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -1912,7 +1619,6 @@
     },
     {
       "repository_path": "docs/report/regions/europe-plus/europe-plus_scientific_review.md",
-      "content_sha256": "172a0db6aebc6ef7fc1b4d070e202a90432807c5d5f45646ba0265cd1f7262d5",
       "prose_paragraph_count": 14,
       "link_bullet_count": 4,
       "bullet_sentence_count": 8,
@@ -1923,7 +1629,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/README.md",
-      "content_sha256": "29de3507cdbbeee52524c35bf36df3f797e7684bb55d951dd3fa226909403f3e",
       "prose_paragraph_count": 21,
       "link_bullet_count": 4,
       "bullet_sentence_count": 308,
@@ -1934,7 +1639,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/author-target-pollen/README.md",
-      "content_sha256": "d28143631ac07505dd7fe72062c50af1c6b202f51285be39d3e8c759fe2b1494",
       "prose_paragraph_count": 14,
       "link_bullet_count": 7,
       "bullet_sentence_count": 0,
@@ -1945,7 +1649,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/author-taxonomy-mass/README.md",
-      "content_sha256": "d740cde5811fbcf667c6558e6efc796924eca54b81d725fdd7a5b8e3e2cf56c3",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -1956,7 +1659,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md",
-      "content_sha256": "2366a671bec149a46825a39f23a806508e1945db325aaa717c1fd5f07f1799ce",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1967,7 +1669,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/README.md",
-      "content_sha256": "97719a8d7fbc2373ead8e896b93e1a0f7f9c9c2b6dbcad2680fcaae69935885a",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -1978,7 +1679,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
-      "content_sha256": "3ef52cc5ddf38553842bcacda732e57469d5e5829a25610c38c4986e15d7db94",
       "prose_paragraph_count": 20,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1989,7 +1689,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/direct-pollen/source-measures/README.md",
-      "content_sha256": "1210a15b53d34d6beb091c7fc1e1fbea595b331c9ab8b63709ed0c35aa97a95d",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2000,9 +1699,8 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/hyde-country-cropland/README.md",
-      "content_sha256": "aed900bf6958e228840d7d34058b72a0551b6beba52e93c1b3b23749c0513ac2",
       "prose_paragraph_count": 11,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -2011,7 +1709,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md",
-      "content_sha256": "2f840ee8505df401e3fa86a410ad42b9ed63ee1a9e3af9b878e64589ce3532ca",
       "prose_paragraph_count": 15,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2022,7 +1719,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/landclim-modeled-panels/README.md",
-      "content_sha256": "551c5f92bc680bf68d4e46f83dcc2c5abe18236d5e08b063a09fa2be5ddb630a",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2033,7 +1729,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md",
-      "content_sha256": "9e4608130a6c92eb2a1ffa6fac2a409dc67e70e077c2c30afbadceb9c2ee7a0d",
       "prose_paragraph_count": 23,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2044,7 +1739,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/README.md",
-      "content_sha256": "3e499e3e4df302c5752fbcbfdb3c421cddb992c02e4331b0a900d5d6b733f66d",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2055,7 +1749,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_candidate_site_sensitivity.md",
-      "content_sha256": "c918aaf3a52f37f2ee63f0a18bd09e4a07bce4043f2f2f6248bc91a7138f57b9",
       "prose_paragraph_count": 11,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2066,7 +1759,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_candidate_sites.md",
-      "content_sha256": "eea9ca162c7fe0b93b58315dbe6c51990c7caea99d5c93164a0af49c2b349c71",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2077,7 +1769,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_evidence_surface.md",
-      "content_sha256": "9456466ea8baf4f5c4cf77762d731f9ad9987f75d966cbbd9498474e9c706178",
       "prose_paragraph_count": 11,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2088,7 +1779,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_map_publication_contract.md",
-      "content_sha256": "538a7c796bb4c56f648f8dcc88a3541bacaa096d0c24b3c84a28c24b648cab64",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 19,
@@ -2099,7 +1789,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_point_traceability.md",
-      "content_sha256": "dcfd8ea35b6a8f91aed819d3f04819cb49c556b25ad07e82dc65c1eda6fe025f",
       "prose_paragraph_count": 12,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2110,7 +1799,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_scientific_review.md",
-      "content_sha256": "e96d25242a10985bb5d8c41322cc5e2e2b7f1d9f2b041c6ea998725a558da187",
       "prose_paragraph_count": 14,
       "link_bullet_count": 4,
       "bullet_sentence_count": 8,
@@ -2121,7 +1809,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/pollen-development/README.md",
-      "content_sha256": "fc1af7fc1ef61512b114d4be9d5cabc0cc670f49c72e7fb414570bdc9a9726c9",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2132,7 +1819,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/sambosjon-direct-pollen/README.md",
-      "content_sha256": "07d545c6acfe0ea9cd4b0e110d6e1773fd524a40832a3e35539dbf31f81b7dff",
       "prose_paragraph_count": 18,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2143,7 +1829,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/README.md",
-      "content_sha256": "713077197a47c6b85d6913c4f0f1a4258bd73c0a37909da73ac5973b6da63453",
       "prose_paragraph_count": 15,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2154,7 +1839,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md",
-      "content_sha256": "40cfc454f6bdfd43e7c73f7e8ba2f2eb8a4f858c97de1bc8178ce61b52b7037f",
       "prose_paragraph_count": 19,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2165,7 +1849,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/selected-pollen-transfer/README.md",
-      "content_sha256": "943be6dc78fbaed494724476cf00a804affac9aedde88ae4f86fa0ba735830a0",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2176,7 +1859,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/source-capability/README.md",
-      "content_sha256": "e2c7c7476d9345e5a2d92b34d3bac7f18b61fa9d642932b7afc0968d101a28f9",
       "prose_paragraph_count": 22,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -2187,9 +1869,8 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md",
-      "content_sha256": "10f4aa8559c75f769154e920c466813093968f4df350a2b9afc740a140f4daf1",
       "prose_paragraph_count": 24,
-      "link_bullet_count": 5,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 6,
       "table_line_count": 28,
@@ -2198,7 +1879,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/source-capability/neotoma-entities/README.md",
-      "content_sha256": "cf33442a2d1ab87929d7ffae8121254ba8b7ee8b1291ec70e2ee1d050919a753",
       "prose_paragraph_count": 15,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2209,7 +1889,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/sweden_archaeology_site_discovery.md",
-      "content_sha256": "4e460864177322ac8d2a58d2eaddb589cad174a53746d59c9f9f2dd167cb6e55",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 4,
@@ -2220,7 +1899,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/swedish-author-target-pollen/README.md",
-      "content_sha256": "bd484dfd8974a1ff91507e2f7fa7c3e51045de536583c80688c2876dd0c511ea",
       "prose_paragraph_count": 12,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2231,7 +1909,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/swedish-chronology-block/README.md",
-      "content_sha256": "f87feba88ec656261ccc0c7a8f460393a74a894373e7b5edb2a57d0406e9c1d5",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2242,9 +1919,8 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
-      "content_sha256": "e0cbdd333c8e4cf60983ff9f7fc4fdac3c0d7698cb18525ed39e35c9f8472905",
       "prose_paragraph_count": 19,
-      "link_bullet_count": 4,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 11,
@@ -2253,9 +1929,8 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/swedish-neotoma-holdout/README.md",
-      "content_sha256": "6c1cdf7a370417b3c1a0c8c69521926d971c3084fc0bb5db1cd4a91e1ae02db9",
       "prose_paragraph_count": 17,
-      "link_bullet_count": 4,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 5,
@@ -2264,7 +1939,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/swedish-support-sensitivity/README.md",
-      "content_sha256": "3e8d7f1a69c632fd3f35acbbc1d921b004b70f8143261cf97e16dfdfa873bc6b",
       "prose_paragraph_count": 12,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2275,7 +1949,6 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/swedish-training-scope/README.md",
-      "content_sha256": "58b5d150471e2618ba7803639692e5b137e87374ac880a541ab20c1b1b336c33",
       "prose_paragraph_count": 12,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2286,7 +1959,6 @@
     },
     {
       "repository_path": "docs/report/repository_atlas_input_audit.md",
-      "content_sha256": "8d99a0778df926905ea05f77c361202728218f4ed91107978b4efa086f017f9e",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -2297,7 +1969,6 @@
     },
     {
       "repository_path": "docs/report/repository_brutal_honesty_review.md",
-      "content_sha256": "016cb23e3c48ce07640a4cd36e7ec586da5f1f4e91d73fd674cf8bc1c8cdc285",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 2,
@@ -2308,7 +1979,6 @@
     },
     {
       "repository_path": "docs/report/repository_claim_audit.md",
-      "content_sha256": "dad4e2ea938bca3c15210b1669d5a0c514e5f623c14dd9370e92bd72940d6764",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 2,
@@ -2319,7 +1989,6 @@
     },
     {
       "repository_path": "docs/report/repository_credibility_dashboard.md",
-      "content_sha256": "5287f422406e83db3cac7229615af264382403eb2b2c944c9a958d4651c8b573",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2330,7 +1999,6 @@
     },
     {
       "repository_path": "docs/report/repository_cross_domain_evidence_matrix.md",
-      "content_sha256": "a5d7ad455d7616eb9d58a878e7adb06b8871f2a4c2467bf61e8a0c3182c4cde3",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -2341,7 +2009,6 @@
     },
     {
       "repository_path": "docs/report/repository_docs_recovery_review.md",
-      "content_sha256": "2a57cb5ea85918a9c5fbb149dce1c3b52699e209b63ee39e0bb896321404bea5",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2352,7 +2019,6 @@
     },
     {
       "repository_path": "docs/report/repository_docs_restoration_ledger.md",
-      "content_sha256": "b60c7b0e8d97c462f9e6a56e519a4842a869a04de6505b40bb320a196499822a",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2363,7 +2029,6 @@
     },
     {
       "repository_path": "docs/report/repository_docs_scope_validation.md",
-      "content_sha256": "d790e0a1416eacf20e7db7e4d936e018455d5dc10f303d376837fc462f2cd945",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2374,7 +2039,6 @@
     },
     {
       "repository_path": "docs/report/repository_extension_review.md",
-      "content_sha256": "e1ff74514f63a9c22253ec652d117e0de8be54fcfc77fc130262b410e7d1d5f2",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2385,7 +2049,6 @@
     },
     {
       "repository_path": "docs/report/repository_final_release_refusal.md",
-      "content_sha256": "8bc6f8ed81fba9135006defc2138e3f97b14090a840ecf68efdb30878742efbb",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 2,
@@ -2396,7 +2059,6 @@
     },
     {
       "repository_path": "docs/report/repository_generated_output_policy.md",
-      "content_sha256": "b917d7a0f5d7675ec85132c6e9521f93a80702fc605f63e50f2338563b8e73fa",
       "prose_paragraph_count": 2,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2407,7 +2069,6 @@
     },
     {
       "repository_path": "docs/report/repository_governance_artifact_review.md",
-      "content_sha256": "fa29f0427911a368cc51fa17c2d2815465eb3681d661bb8f1efed620ffe8200c",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -2418,7 +2079,6 @@
     },
     {
       "repository_path": "docs/report/repository_output_sustainability_review.md",
-      "content_sha256": "faa38b682d2b3c687f97dc2469790f8574857e157e24cc77ffa226aabbb88533",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2429,7 +2089,6 @@
     },
     {
       "repository_path": "docs/report/repository_product_model.md",
-      "content_sha256": "951cd197e53070fc8183da9283ac5a8ffcaf985bcc6b917f26cf89325e97213f",
       "prose_paragraph_count": 3,
       "link_bullet_count": 0,
       "bullet_sentence_count": 10,
@@ -2440,7 +2099,6 @@
     },
     {
       "repository_path": "docs/report/repository_recovery_review.md",
-      "content_sha256": "e9b9c0cdfbb1e9b84ac09ab8bf6ac9211300165ea4a80ce071a7e5f44ea7332b",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2451,7 +2109,6 @@
     },
     {
       "repository_path": "docs/report/repository_scientific_progress_audit.md",
-      "content_sha256": "af4080d3cafb7f91343833f7e9ebcd2ddf4284da178b217468dc4805ee23e166",
       "prose_paragraph_count": 3,
       "link_bullet_count": 0,
       "bullet_sentence_count": 11,
@@ -2462,7 +2119,6 @@
     },
     {
       "repository_path": "docs/report/repository_sead_legibility_review.md",
-      "content_sha256": "30a17c109769f310773f67b2fff2d3b58707fa7198ef548e0d49649e5216e797",
       "prose_paragraph_count": 5,
       "link_bullet_count": 0,
       "bullet_sentence_count": 12,
@@ -2473,7 +2129,6 @@
     },
     {
       "repository_path": "docs/report/repository_source_acquisition_queue.md",
-      "content_sha256": "4c5495d85f9df516f3d560e080e639463aaa1a1da009d8ae7b8cdb5ff1d8243d",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -2484,7 +2139,6 @@
     },
     {
       "repository_path": "docs/report/repository_source_ecosystem_review.md",
-      "content_sha256": "06dfe1d1a1885c0a030185fa80fd606d1a5c3334b34c12587db3262cba62d763",
       "prose_paragraph_count": 3,
       "link_bullet_count": 0,
       "bullet_sentence_count": 6,
@@ -2495,7 +2149,6 @@
     },
     {
       "repository_path": "docs/report/repository_source_explainer_audit.md",
-      "content_sha256": "3ccfbfa8c1d1906521f14e12e84d8a288fad4155a44522f95e2424108b21acff",
       "prose_paragraph_count": 1,
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
@@ -2506,7 +2159,6 @@
     },
     {
       "repository_path": "docs/report/repository_source_family_matrix.md",
-      "content_sha256": "aeb239ef900a9266583fb183b858680b8f354d7ca939c0ec73c744fd779e3c60",
       "prose_paragraph_count": 0,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -2517,7 +2169,6 @@
     },
     {
       "repository_path": "docs/report/repository_truth_posture.md",
-      "content_sha256": "0aa05d1658ae4d15332208b02d23d1dfef617bf914813c49c9a4c0497f262ced",
       "prose_paragraph_count": 5,
       "link_bullet_count": 0,
       "bullet_sentence_count": 21,
@@ -2527,30 +2178,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/reviews/index.md",
-      "content_sha256": "358617c0ccdd6921d037c832a5ba66064df2b677f25ef00f334eee5c5125ffc1",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 6,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/scopes/index.md",
-      "content_sha256": "cf6172332a69751c4029a1e326958f21555ebe303ce031639facfa8184a85679",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 4,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/source-relations/dna-scope/README.md",
-      "content_sha256": "e7a2c9154ef1f76a7e882b460244ca336fe2e0a91401402012e337ba438616b6",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2561,7 +2189,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/galician-cattle-paper.md",
-      "content_sha256": "78bc537775be830346837eadf0b56ece9dc0567aac1bdc2ed26dcde6e05af27f",
       "prose_paragraph_count": 15,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2572,7 +2199,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/galician-cattle-samples/README.md",
-      "content_sha256": "8b4a298fee30f249404ae8139ded10d2f0c96418f06eca2b35e0d1c4c3a423bf",
       "prose_paragraph_count": 14,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2583,7 +2209,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/obishir-v-chronology.md",
-      "content_sha256": "b88f37742e641430b8a60dea4e065ad0290b18065b6f9bbfb17bc91aa7cb9dba",
       "prose_paragraph_count": 13,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2594,7 +2219,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md",
-      "content_sha256": "32372480e1049ceb3366c660b5bf299835e4075a5a3a9fde3b13f0259d63b70c",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2605,7 +2229,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/reindeer-published-appendix.md",
-      "content_sha256": "25f7576a6520c36701bec137e277e85ecea0234adb14ccb89a8b48a3d54080df",
       "prose_paragraph_count": 12,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2616,7 +2239,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/hyde/provider-record/README.md",
-      "content_sha256": "6d731b4668c726f8a906a49068ee23c0651299fce86973c2079f3690df9e117b",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2627,7 +2249,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/author-example-taxon-support/README.md",
-      "content_sha256": "64e441d99b2e3784b6ed13a959465373408989ceb3309615ab9e2de5eb850eaa",
       "prose_paragraph_count": 19,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -2638,7 +2259,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/author-preparation-audit/README.md",
-      "content_sha256": "de4436e78174525cf2a844f14aa29ad88737bbcf5c368c9ccf6cbcad3c92b544",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2649,7 +2269,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/browser-export/README.md",
-      "content_sha256": "808190ca6d47505c6f662ff2844aafeb42c4d6008527a255118f8d99298581f0",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2660,8 +2279,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/map-export-lineage/README.md",
-      "content_sha256": "731a7eec5daee309e218a41569d2dc80fe4b3b464a26af9c9b1738052088fa89",
-      "prose_paragraph_count": 17,
+      "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
@@ -2671,7 +2289,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
-      "content_sha256": "9d95f3afb464bf38e581021b04b2ab3afdb3360aeb02e836040872abef11eacc",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2682,7 +2299,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/landclim/workbook-chronology/README.md",
-      "content_sha256": "e1a08d6f91c49cd01e5d986c55ed34ed7d8de1089bc7e170d0f2e4e0761456e7",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2692,19 +2308,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
-      "content_sha256": "1dbc5e8f860a96f074a96abdac1ec4fcc6ebb05ec533c4fae1c04296eccef6a3",
-      "prose_paragraph_count": 39,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 9,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/source-relations/neotoma/README.md",
-      "content_sha256": "88da9632a080263b1ab8b0f9d7d8e86062decf22bd0c9ba5f45d8e333ccac325",
       "prose_paragraph_count": 24,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2715,7 +2319,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/abbo-age-controls/README.md",
-      "content_sha256": "032084ef997a3d26a95d6d154c646df955447953a5ea926e670d1ff5ac981b6f",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2726,7 +2329,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/abbo-core-identity/README.md",
-      "content_sha256": "0788550d0bfcb5dfc7f8485e67de7d84f4fcf6837a9acfd8a537dc6f782d7d15",
       "prose_paragraph_count": 14,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2737,7 +2339,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md",
-      "content_sha256": "b065f3debee4cd156dfed43dc4a81330732f02d188518868d629c33c76db68dd",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2748,7 +2349,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/abbo-native-correspondence/README.md",
-      "content_sha256": "a40dc781f37d31aa0dae5b1e041d376f2b8487303d240fec67a02c4103bfd719",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2759,7 +2359,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/abbo-profile/README.md",
-      "content_sha256": "917eb3acea1780fc6055d4b9b74cc2065dc56e800c14253de6e4c8d14db78514",
       "prose_paragraph_count": 18,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2770,7 +2369,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/abbo-published-method/README.md",
-      "content_sha256": "acc6edb51ecf6f3a0ebc64fdd77e459be53896c375217282799fe5d61d7da84a",
       "prose_paragraph_count": 12,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2781,7 +2379,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/acquisition-scope/README.md",
-      "content_sha256": "64d0cce3bb4b6a9cb0bb39251173c03ee90f178030895f74b0f55daf928c6f55",
       "prose_paragraph_count": 15,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2792,7 +2389,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/author-parameter-binding/README.md",
-      "content_sha256": "78132eb12cea8b527d7cd44dce4dce932b14c1525acb02a7142b7bc6a3895e09",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2803,7 +2399,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md",
-      "content_sha256": "7851e1e77fdd7eaf4bc4308e188d15497f4fe4c800f9ac562aa9b110c0b2a26c",
       "prose_paragraph_count": 22,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2814,7 +2409,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/author-taxonomy-mass/README.md",
-      "content_sha256": "a3cf459208456d89c7ebaeced1003796b5e7e2b62812b2c3362f857f98b14dc9",
       "prose_paragraph_count": 17,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2825,7 +2419,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/boke-basin/README.md",
-      "content_sha256": "6ebe66967e1c9cbc3f46c904697d1ea772646aae73fa012aa02241c2a1b6bf55",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2836,7 +2429,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/boke-native-correspondence/README.md",
-      "content_sha256": "0c6bde4ab60747c8c4f9dcf36aea720b8f15b66f122c576f8a64935b3162b629",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2847,7 +2439,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/bus-native-correspondence/README.md",
-      "content_sha256": "d47cd4ce5eb7f4dba066c7fa13020ccfada75ff22f166987953870348bb101fd",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2858,7 +2449,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/bussjosjon-basin/README.md",
-      "content_sha256": "c6f49f5ebfb625c6cc175318d55a2a58847039de86120b47e80c0b4e8784ebbe",
       "prose_paragraph_count": 17,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2869,7 +2459,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/compact-summary/README.md",
-      "content_sha256": "72c8d8fef58a1259df11eaeacf922a0e3d7ab257527fc7cfcd6272f44bc16de1",
       "prose_paragraph_count": 13,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2880,9 +2469,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/lakeparameters/README.md",
-      "content_sha256": "9d5ed9121edac4d743c077017db76b728035ea9785fa3e73dfbf093e347b0c5f",
       "prose_paragraph_count": 14,
-      "link_bullet_count": 3,
+      "link_bullet_count": 2,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 7,
@@ -2891,7 +2479,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/landclim-site-identity/README.md",
-      "content_sha256": "71fa11fac0978c04e5e0c015adf9699ae23f47ab53c0e99b2243a6e7049042e7",
       "prose_paragraph_count": 13,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2902,7 +2489,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md",
-      "content_sha256": "dd3e87215b8d3e5b754abcd788ec1ea6ee6fa9f4477d7c5edee47ff0aaa663de",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2913,7 +2499,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/legacyage-chronology/README.md",
-      "content_sha256": "bcc56745e85f1af0c47eb850150881f01ab24ea5b25acde4a16184d662e711d4",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -2924,7 +2509,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md",
-      "content_sha256": "1621bf6dbcf1ffdc1ba2d3007e36731640e9d1b5b3be8a16df75f4bc7e639829",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2935,9 +2519,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/lra-prerequisites/README.md",
-      "content_sha256": "08d55d1ec0cdd3a34bf5485ca01a6c67075ab177aef9774ffef3c633b043152d",
       "prose_paragraph_count": 16,
-      "link_bullet_count": 3,
+      "link_bullet_count": 2,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 0,
@@ -2946,7 +2529,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/native-roundtrip/README.md",
-      "content_sha256": "3dfd24ecdc932ca0e9aba672e18a86f7416a820a97339b459df1b2087018a313",
       "prose_paragraph_count": 14,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2957,7 +2539,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/observation-attributes/README.md",
-      "content_sha256": "2b2e44f465220caeb2d55c11e5dd235bb352ce8fe8dc785e4c49b03a43d9c6bd",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2968,7 +2549,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/parameter-candidates/README.md",
-      "content_sha256": "65b95b82748b3806c82d34c5a2e960278f4e528f853523e03e6b47634ba09eb9",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -2979,7 +2559,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/parameter-correspondence/README.md",
-      "content_sha256": "584fba10e4dc3f4f246a1ae518678d20ae72fb3c4444e437acc9aa08fbc80f2b",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -2990,7 +2569,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/parameter-coverage/README.md",
-      "content_sha256": "039ff56517f2098d782ee1290bc2bff4c58da0760e45718cac77e79de19932b0",
       "prose_paragraph_count": 15,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3001,7 +2579,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/pollen-screen/README.md",
-      "content_sha256": "76f3b719c4956807dd40fa95b2606c7afda046ed0ef1aea85873d7882e24491a",
       "prose_paragraph_count": 19,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3012,9 +2589,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/swedish-cohort-availability/README.md",
-      "content_sha256": "e44825a0bf2c8413dfdfbed5ae2c2a56e5819794530a91bc2918e412d7ba5218",
       "prose_paragraph_count": 18,
-      "link_bullet_count": 4,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 8,
@@ -3023,7 +2599,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/README.md",
-      "content_sha256": "bbbc5eefba603f4fa84d0499b73aea72e4a72e216cad883e5f736484cac88fa2",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3034,7 +2609,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md",
-      "content_sha256": "30b4223f229379c7bd50f528d83fbecab0405a98343d9056550c8794b13896bc",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3045,7 +2619,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/taxon-priority/README.md",
-      "content_sha256": "f0912e7e90a34e8c8f2504520160a7958576ace8d85bc588d7e4e8d2b4d0acb9",
       "prose_paragraph_count": 17,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3056,7 +2629,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/variable-surface/README.md",
-      "content_sha256": "8725909e84f94a3814decad848f0a9662698199b75d1b37c20540b95f8f222e0",
       "prose_paragraph_count": 15,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3067,9 +2639,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/openland-intake/README.md",
-      "content_sha256": "0754a8a649e3162fed24e198dd29c423a95ea285fa627a551bbcb1cd7c265dcb",
       "prose_paragraph_count": 16,
-      "link_bullet_count": 6,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -3078,9 +2649,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/openland-intake/doi-lineage.md",
-      "content_sha256": "d5a5d1889cd0dfefea9bb2df86a42c07fd1f32b316a3beb25f20b261183792a0",
       "prose_paragraph_count": 13,
-      "link_bullet_count": 5,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 4,
@@ -3089,7 +2659,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/rootsi-landclim-overlap/README.md",
-      "content_sha256": "7993447aeccb7c9ace5a7bcf7f128070a72e86aec7e9c1e2aa4f8ee886fac75f",
       "prose_paragraph_count": 23,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3100,7 +2669,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead-country-retrieval/README.md",
-      "content_sha256": "2c29ba198628415a3e7bdfa66bf629012223bc3ce50b3a23842ba0bd5663ce48",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3111,7 +2679,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/README.md",
-      "content_sha256": "ee31851fc293420a1814f0e3fc1c3b5997238f2a04eced4437681bc01811aa67",
       "prose_paragraph_count": 32,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3122,7 +2689,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/analysis-boolean-values/README.md",
-      "content_sha256": "353a934e5e4232ba2637e4bbc9927d3b16731f960f1c26d42386195d2a6e5b49",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3133,7 +2699,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/analysis-categorical-values/README.md",
-      "content_sha256": "5eeeb3b725124ae9ffc406f1eefb006d978403b1581c5a7be050b37b1e01a470",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3144,7 +2709,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/analysis-integer-values/README.md",
-      "content_sha256": "a9984c0cae2eb4af0ec3ec83104971b80e622ac1d0efbf3b067501c76c94d2ff",
       "prose_paragraph_count": 17,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3155,7 +2719,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/analysis-numerical-values/README.md",
-      "content_sha256": "a8a9277eb0b55e311d19586abe08b841eebf426a941f0dd1a553388db20c6c3d",
       "prose_paragraph_count": 15,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3166,7 +2729,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/analysis-value-components/README.md",
-      "content_sha256": "4fd4190cb7df2b9e3863527e64b3c54f0a496cfe7d52a247d2b3d19b94b77bf4",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3177,7 +2739,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/analysis-value-methods/README.md",
-      "content_sha256": "0ffdc77b28a262f32f2401749ded9e40c714b2db7045fa6db407c0dec1f3ccfb",
       "prose_paragraph_count": 16,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3188,7 +2749,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
-      "content_sha256": "c7746bf128307610283951982e4cb399d2c5c175833c30602a7f4ef1fc4c6b03",
       "prose_paragraph_count": 21,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -3199,7 +2759,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/chronology-country-accounting/README.md",
-      "content_sha256": "fcaff886eb9dd904eb9c0eef1685552a96dba89cc7c7a07fec5ecfea6f6113e4",
       "prose_paragraph_count": 18,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3210,7 +2769,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/country-coverage/README.md",
-      "content_sha256": "cb0866b382e4c4514b0ec2089ed4caa01a747ccd2988588eaacb073fd968a372",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3221,7 +2779,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/interval-sets/README.md",
-      "content_sha256": "3cd694a9398fe2195cf27799913ea198ef728f2dbb6050bf44218e9c4973accb",
       "prose_paragraph_count": 17,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3232,7 +2789,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/map-candidate/README.md",
-      "content_sha256": "526573c0962ebd9249aa54262dc4949e7ce1afdb876146d276b7c8aa9b0c0989",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3243,7 +2799,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/pollen-named-dataset-screen/README.md",
-      "content_sha256": "63b586b3a90a77147fd9ee0a65811510e0c606ded98cac3995e6c083401e3beb",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3254,7 +2809,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/public-custody/README.md",
-      "content_sha256": "e84f8bd6482b64e5a1486958850eef6e49740bd24763595d14cf778df965da4b",
       "prose_paragraph_count": 14,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3265,7 +2819,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/source-unit-accounting/README.md",
-      "content_sha256": "b23ff78618da9d0ce4619bf29869562ba596fe18f287970a0c3e25c783d53925",
       "prose_paragraph_count": 17,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3276,7 +2829,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/source-capability-evidence/README.md",
-      "content_sha256": "8413b925d82fbf593780df850f2552294301a16ae55e031f2e95d2eb5005646f",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3287,7 +2839,6 @@
     },
     {
       "repository_path": "docs/report/source-relations/source-reconciliation/README.md",
-      "content_sha256": "c602768db457def43082fab6dcd48027be1dd7a786e1d728ce265adbaec012c9",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3298,18 +2849,16 @@
     },
     {
       "repository_path": "docs/report/source-relations/svar/normalized-export/README.md",
-      "content_sha256": "81ad60cf3b8a332062e511cc2353f356b9bde8a81c33dd71da5341f2922ec414",
-      "prose_paragraph_count": 22,
-      "link_bullet_count": 5,
+      "prose_paragraph_count": 19,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
-      "heading_count": 4,
+      "heading_count": 3,
       "table_line_count": 5,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/synthetic-validation/README.md",
-      "content_sha256": "8e682efbd7e0c89281b761f5e8e9613ac2a624a4e17d4ab4029c28cc7ce9305d",
       "prose_paragraph_count": 12,
       "link_bullet_count": 7,
       "bullet_sentence_count": 0,
@@ -3320,7 +2869,6 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/change-time/README.md",
-      "content_sha256": "807a10d50ee0aae1e3988e4a031a2bc28c3a91577b055217af3ec6c577aff8b3",
       "prose_paragraph_count": 21,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3331,7 +2879,6 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/propagation/README.md",
-      "content_sha256": "3be46f4996c1f64a01757bbbb2ebd07e3422b968f54a6005a1980e8506ea294d",
       "prose_paragraph_count": 19,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3342,7 +2889,6 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/reconstruction/README.md",
-      "content_sha256": "c1f562f3aeb71ec226fbbd0e1260ae738bd18d01cc7a941f709a75f19246ebc1",
       "prose_paragraph_count": 19,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3352,19 +2898,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/synthetic-validation/recovery-evidence/README.md",
-      "content_sha256": "51d31d90278b4a805d4c2455f7cc42e05472ade8b3df40ea9f6278bfdf3d08d7",
-      "prose_paragraph_count": 29,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 4,
-      "table_line_count": 5,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/synthetic-validation/site-leakage/README.md",
-      "content_sha256": "a6459a24bcc4635234b4238fb91fa07324712a1eba68bd2506c91839cc54db00",
       "prose_paragraph_count": 24,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -3375,7 +2909,6 @@
     },
     {
       "repository_path": "docs/report/synthetic-validation/spatial-eligibility/README.md",
-      "content_sha256": "bcc986103a4f02d7a90f02de6ececa9c62f3b7d1503cfc644cf8be4a9017f08d",
       "prose_paragraph_count": 18,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3386,7 +2919,6 @@
     },
     {
       "repository_path": "docs/report/taxa-review/README.md",
-      "content_sha256": "667009d5751fe26370677bd77c47e45472f1fac254bd5a645d8eb2a86bded685",
       "prose_paragraph_count": 28,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -3397,18 +2929,16 @@
     },
     {
       "repository_path": "docs/report/validation/empd2-nfi-pairing/README.md",
-      "content_sha256": "86539ebc9b8e7334617ef4419ed515853ff2464e77a7198d77faa1fd87fe7859",
-      "prose_paragraph_count": 24,
+      "prose_paragraph_count": 21,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 5,
+      "heading_count": 4,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/vegetation-reference/farskesjon/README.md",
-      "content_sha256": "366868fa7616e0e2cbeefc8bef6196a44b11196eeb6e7d4d40aa4dc82e6dc240",
       "prose_paragraph_count": 13,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3419,7 +2949,6 @@
     },
     {
       "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md",
-      "content_sha256": "6c1fdcd3cc55203d5ae504399408c6b21a87da458744f65d1d8f6a342728d62e",
       "prose_paragraph_count": 22,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3430,7 +2959,6 @@
     },
     {
       "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/all-radius-means.md",
-      "content_sha256": "73b519a9164ddeaf37a55241c386cf4ca061e6051047d4c1526906465fdb3a28",
       "prose_paragraph_count": 11,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3441,7 +2969,6 @@
     },
     {
       "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md",
-      "content_sha256": "b3568a8d00b1d70276ebe6a5343c6952a8f09b2086b721757e32268b3cea286a",
       "prose_paragraph_count": 21,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3452,7 +2979,6 @@
     },
     {
       "repository_path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
-      "content_sha256": "4646a8bd5e0b97cefa39979aee34764424155f8e9664367daa435a9bb7ffdeee",
       "prose_paragraph_count": 19,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3462,19 +2988,7 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md",
-      "content_sha256": "c7c6551cba6b4223e44e0b38fb6ab35ea69a392927f1b5a514b5a937bfe85078",
-      "prose_paragraph_count": 23,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 7,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
       "repository_path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
-      "content_sha256": "e51c56f5c0d3733726e4ed1078d13c6c88477352c6f979074f63d780343e3fb4",
       "prose_paragraph_count": 13,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3485,7 +2999,6 @@
     },
     {
       "repository_path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
-      "content_sha256": "67915442b0c9e5db560044718ef431db48412c6ed79166516ef92c413a157908",
       "prose_paragraph_count": 13,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -3496,7 +3009,6 @@
     },
     {
       "repository_path": "docs/report/world/README.md",
-      "content_sha256": "01c7d2a77ba5ffc9400601b9a0986803ec6615c7171ae3609989034973826106",
       "prose_paragraph_count": 20,
       "link_bullet_count": 6,
       "bullet_sentence_count": 169,
@@ -3507,7 +3019,6 @@
     },
     {
       "repository_path": "docs/report/world/world_candidate_site_sensitivity.md",
-      "content_sha256": "1eee5d5a6418974cdaa5ac319ebcfcfa1cc30bd76ab2c4bc7da5812d4edef2a7",
       "prose_paragraph_count": 12,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3518,7 +3029,6 @@
     },
     {
       "repository_path": "docs/report/world/world_candidate_sites.md",
-      "content_sha256": "2d40d62259ad2e80c4d155b01ee4605d8f7b327fc659aae918f6cc46349b67b1",
       "prose_paragraph_count": 15,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3529,7 +3039,6 @@
     },
     {
       "repository_path": "docs/report/world/world_evidence_surface.md",
-      "content_sha256": "c126dda70f4f17f4b4b587018ca5a0d6d813a0bf9359ff296c6a3ea7b095e1a9",
       "prose_paragraph_count": 12,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -3540,7 +3049,6 @@
     },
     {
       "repository_path": "docs/report/world/world_map_publication_contract.md",
-      "content_sha256": "822222111f6d8aed9f69d6b821fdc0fa52f2d1a62eb97594e7f080ee26a1b77c",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 6,
@@ -3551,7 +3059,6 @@
     },
     {
       "repository_path": "docs/report/world/world_point_traceability.md",
-      "content_sha256": "fa47a4b047b3937544f5847867576001f2abdc0bee041b1e58394697bcbaab99",
       "prose_paragraph_count": 12,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -3562,7 +3069,6 @@
     },
     {
       "repository_path": "docs/report/world/world_scientific_review.md",
-      "content_sha256": "f44b224c84cb9b0610ce9c5c2b06d9a2093aed7ac861ceedfe16f386608b8ff0",
       "prose_paragraph_count": 14,
       "link_bullet_count": 4,
       "bullet_sentence_count": 8,
@@ -3570,6 +3076,167 @@
       "table_line_count": 301,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/caveats/index.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 5,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/how-to-read.md",
+      "prose_paragraph_count": 6,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 5,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/index.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 11,
+      "bullet_sentence_count": 0,
+      "heading_count": 6,
+      "table_line_count": 7,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/maintenance/index.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 10,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/maps/index.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 3,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/reviews/index.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 6,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/scopes/index.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 4,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/pyrenees-botanical-projection/README.md",
+      "prose_paragraph_count": 23,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 7,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-native-chronology-contrast/README.md",
+      "prose_paragraph_count": 26,
+      "link_bullet_count": 5,
+      "bullet_sentence_count": 0,
+      "heading_count": 7,
+      "table_line_count": 14,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/synthetic-validation/recovery-evidence/README.md",
+      "prose_paragraph_count": 29,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 4,
+      "table_line_count": 5,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
+      "prose_paragraph_count": 36,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 5,
+      "table_line_count": 4,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/model-development/english-retained-score-audit/README.md",
+      "prose_paragraph_count": 19,
+      "link_bullet_count": 2,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/worksheet-layout/README.md",
+      "prose_paragraph_count": 39,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 9,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/classification/source-custody/README.md",
+      "prose_paragraph_count": 5,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 5,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/pair-counting-method.md",
+      "prose_paragraph_count": 18,
+      "link_bullet_count": 4,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/numerical-performance/representative-public-calls/README.md",
+      "prose_paragraph_count": 19,
+      "link_bullet_count": 4,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 8,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     }
-  ]
+  ],
+  "review_scope": "automated layout signals; no human or scientific review"
 }
