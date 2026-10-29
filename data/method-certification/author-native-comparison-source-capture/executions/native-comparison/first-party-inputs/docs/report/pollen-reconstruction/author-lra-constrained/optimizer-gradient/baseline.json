@@ -1,0 +1,67 @@
+{
+  "experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+  "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+  "items": {
+    "author:CUTHILL2": {
+      "request_sha256": "5c8f9dc338ab88bc0284f53e8d5fead0467c87538f16539a9b35f0ea211e8ee2",
+      "rings": [
+        {
+          "fun": 0.8230886799982721,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 4898,
+          "nit": 147,
+          "success": false
+        },
+        {
+          "fun": 0.8230886799982721,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 4898,
+          "nit": 147,
+          "success": false
+        }
+      ]
+    },
+    "author:HANGINGS": {
+      "request_sha256": "26f508a84f564826fadbddf4b4cc8b802fd68c86e63bb120620303a830da5370",
+      "rings": [
+        {
+          "fun": 1.1161822067632334,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 4210,
+          "nit": 129,
+          "success": false
+        },
+        {
+          "fun": 1.1161822067632334,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 4210,
+          "nit": 129,
+          "success": false
+        }
+      ]
+    },
+    "author:LONGBREACH": {
+      "request_sha256": "65b8920c442ff7afb3db5ad5d78faf00047825e4c4027044851b67e5d2762eb7",
+      "rings": [
+        {
+          "fun": 0.5874116458258167,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 5123,
+          "nit": 156,
+          "success": false
+        },
+        {
+          "fun": 0.5874116458258167,
+          "message": "Positive directional derivative for linesearch",
+          "nfev": 5123,
+          "nit": 156,
+          "success": false
+        }
+      ]
+    }
+  },
+  "regional_anchor": "author:BROADOWN",
+  "schema_version": "author-love-gradient-baseline.v1",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "withheld_site": "author:BECKHAM"
+}

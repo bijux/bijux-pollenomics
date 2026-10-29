@@ -1,0 +1,54 @@
+{
+  "scope": "Bounded next source-owned development: original historical Python/R-reference comparison plus deterministic exact original constrained/feasibility request preparation. No actual optimizer fit, newR, model/predictions, scoring or new freeze outcomes.",
+  "candidate_at_source_review": "960f1fe995573b48dce4793b5c28212f027e47d1",
+  "original_author_snapshot": {
+    "path": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+    "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+    "qualified_inputs": 195,
+    "private_files": 193
+  },
+  "original_comparison": {
+    "path": "docs/report/method-certification/petrkunes-r-comparison/native-report.json",
+    "sha256": "273c1b129551e6392ca926988bf594a66c7de9f435b299832e24b771731d8995",
+    "private_inputs": 14,
+    "reference_inputs": 2,
+    "code_inputs": 5,
+    "all_current_physical_hashes_exact": true
+  },
+  "original_constrained_experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+  "request_sha256": [
+    "7d2b1da93b5490823c906d7c977a0d9a41dba2e21cafcd58c90c358313716dfa",
+    "bf99b6d8add47095749b1770a0e62a575c1f90217af2c477f36525ddd0a5d69c"
+  ],
+  "counts": {
+    "prepared_sites": 15,
+    "zero_count_unavailable_sites": 2,
+    "original_count": 20732,
+    "original_taxa": 31,
+    "constrained_taxa": 30,
+    "excluded_taxon": "Filipendula",
+    "excluded_counts": 159,
+    "retained_counts": 20573,
+    "window": 5,
+    "age_support_bp": [
+      1250,
+      1750
+    ]
+  },
+  "resource_bounds": {
+    "sequential_stages": 5,
+    "stage_timeout_seconds": [
+      120,
+      60,
+      60,
+      60,
+      60
+    ],
+    "overall_seconds": 420,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_output_bytes_with_16KiB_reserve": 67108864,
+    "numerical_threads": 1
+  },
+  "network": "No network operations/installation/source acquisition; no OS firewall claim.",
+  "scientific_limits": "Prior-exposed English author development with declared circular basin/homogeneous ring assumptions, source-specific age/PPE/taxon limits and explicit optimizer refusals retained. No Nordic physical slice, independent vegetation accuracy, source-rights clearance, human or release admission. Fresh source preparation may refuse exact historical experiment/request identities; do not waive or rehash those."
+}

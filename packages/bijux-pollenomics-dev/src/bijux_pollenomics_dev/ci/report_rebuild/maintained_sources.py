@@ -30,6 +30,12 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.author_native_reference import (
+    validated_author_native_reference_capture,
+)
+from .scientific_captures.author_site_evaluations import (
+    validated_author_site_evaluation_captures,
+)
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
@@ -232,12 +238,22 @@ def validated_maintained_report_sources(
     )
     if slu_guide_entries:
         raise ReportRebuildError("Original owner acceptance remains unresolved")
+    author_entries, author_evidence = validated_author_site_evaluation_captures(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    author_native_entries, author_native_evidence = (
+        validated_author_native_reference_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
     all_capture_entries = (
         capture_entries
         + parameter_entries
         + chronology_entries
         + nordic_entries
         + linux_entries
+        + author_entries
+        + author_native_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -280,4 +296,8 @@ def validated_maintained_report_sources(
         evidence["retained_linux_r_reference_capture"] = linux_evidence
     if slu_guide_evidence:
         evidence["current_slu_guide_partial_evidence"] = slu_guide_evidence
+    if author_entries:
+        evidence["retained_author_site_evaluation_captures"] = author_evidence
+    if author_native_entries:
+        evidence["retained_author_native_reference_capture"] = author_native_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

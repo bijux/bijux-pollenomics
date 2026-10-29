@@ -23936,13 +23936,9 @@
         "docs/report/method-certification/author-site-uncertainty/report.json"
       ],
       "producer_inputs": [],
-      "producer_paths": [
-        "docs/report/method-certification/author-site-uncertainty/replay.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py"
-      ],
-      "role": "unresolved",
-      "verification": "The replay reads pinned external LandClim author-example prepared files, PPE/covariance, crosswalk, site list and lineage receipt. Their private source-root closure is not a repository-owned input. Reproduce into an absent artifacts directory and compare exact outputs only after that custody is restored; no independent vegetation accuracy follows."
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Authenticate exact saved native execution/source/publication identities through the registered author-site-evaluation-source-capture SourceCapsule. Original source bodies and controller versions are historical Git inputs, not current executions. All eight saved products are checked; only seven qualified outputs from the other two owners are admitted. The author-profile owner and its exact six-private-table lawful-custody criterion remain unresolved.177 declared current members comprise176 ordinary byte-exact members and one old497 spatial export boundary permitting only the named import/export extension, plus one historical539 version identity across three declared aliases. The named Markdown report keeps exact authored content with the current independently qualified managed route; old saved whole bytes stay exact in the packet. No new model, R, optimizer, browser, source acquisition, ecological accuracy, rights or human/field acceptance."
     },
     {
       "owner_id": "method-certification/author-site-uncertainty/source-code",
@@ -26630,17 +26626,10 @@
       "paths": [
         "docs/report/method-certification/petrkunes-r-comparison/native-report.json"
       ],
-      "producer_inputs": [
-        "docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv",
-        "docs/report/method-certification/petrkunes-r-comparison/taxa.csv",
-        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
-      ],
-      "producer_paths": [
-        "docs/report/method-certification/petrkunes-r-comparison/native_comparison.py",
-        "docs/report/method-certification/petrkunes-r-comparison/replay.R"
-      ],
-      "role": "unresolved",
-      "verification": "The original R grid bootstrap and native comparison use the private LandClim author files and reference taxon crosswalk, with exact SHA identities in native-report.json. The published reference CSVs cannot be regenerated from repository bytes alone; do not infer independent model validation."
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Authenticate exact saved native execution/source/publication identities through the registered author-native-comparison-source-capture SourceCapsule. Original source bodies and controller versions are historical Git inputs, not current executions. Admit only the completed Python native-reference report; the separate tagged-R owner remains unresolved.68 ordinary scientific bodies remain current-byte-exact plus one explicitly declared historical539 version identity. No new model, R, optimizer, browser, source acquisition, ecological accuracy, rights or human/field acceptance."
     },
     {
       "owner_id": "method-certification/petrkunes-r-comparison/source-code",
@@ -30293,24 +30282,16 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-example-site-mean-holdout/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/scores.csv"
       ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_qualifications.py"
-      ],
-      "producer_inputs": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json"
-      ],
-      "verification": "The replay requires the private author/reference source capsule and executed baseline. Existing byte comparisons do not make those inputs repository-contained. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Authenticate exact saved native execution/source/publication identities through the registered author-site-evaluation-source-capture SourceCapsule. Original source bodies and controller versions are historical Git inputs, not current executions. All eight saved products are checked; only seven qualified outputs from the other two owners are admitted. The author-profile owner and its exact six-private-table lawful-custody criterion remain unresolved.177 declared current members comprise176 ordinary byte-exact members and one old497 spatial export boundary permitting only the named import/export extension, plus one historical539 version identity across three declared aliases. The named Markdown report keeps exact authored content with the current independently qualified managed route; old saved whole bytes stay exact in the packet. No new model, R, optimizer, browser, source acquisition, ecological accuracy, rights or human/field acceptance."
     },
     {
       "owner_id": "pollen-reconstruction/author-example-site-mean-holdout/source-code",
@@ -67443,8 +67424,11 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_native_reference.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/spatial_source_exports.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_static_basin.py",

@@ -25,6 +25,16 @@
       "descriptor": "source-transport.json",
       "sha256": "a0c3bd883bde0aa55b82bde5d5551ea4ced47b5bdc8576727273690451b7e8d3",
       "bytes": 2778
+    },
+    "data/method-certification/author-site-evaluation-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "be8e8e4513ff438a06d99d65246a260d76502550d63e3fece52ad780e34bac33",
+      "bytes": 674821
+    },
+    "data/method-certification/author-native-comparison-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "136651236a0f689c95e80d40e8eb97673e485cf9d9dd5bfe215e0432854c353d",
+      "bytes": 653606
     }
   },
   "source_revisions": {
