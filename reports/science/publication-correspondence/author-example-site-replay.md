@@ -1,7 +1,7 @@
 # Our LandClim II author-example site decision
 
 We connected one released raw pollen sample to its prepared time window and
-the independently executed author-R and installed-LRA estimate for the same
+the independently executed author-R and current source-Python estimate for the same
 site. We also checked every site in the two released example grids. This gives
 us a reproducible calculation result on the author's example inputs. The
 historical input revisions behind the published Nordic archive are still
@@ -41,18 +41,18 @@ units. These are the five largest author-R means:
 
 | Taxon | Author-R mean | Author-R standard error |
 | --- | ---: | ---: |
-| Calluna vulgaris | 0.9248830793 | 0.0468069771 |
-| Poaceae | 0.0574176519 | 0.0154854693 |
-| Cyperaceae | 0.0070182004 | 0.0053428636 |
-| Corylus avellana | 0.0057102699 | 0.0033637021 |
-| Ericaceae | 0.0017690736 | 0.0016103483 |
+| Calluna vulgaris | 0.9248830793 | 0.04680697708 |
+| Poaceae | 0.05741765193 | 0.01548546932 |
+| Cyperaceae | 0.007018200388 | 0.005342863595 |
+| Corylus avellana | 0.005710269879 | 0.003363702138 |
+| Ericaceae | 0.001769073577 | 0.00161034831 |
 
 The 31 means sum to one to numerical precision. The largest absolute
-R/native difference at this window is `4.77e-15` for a mean and `8.90e-16`
-for a standard error. Across WHH05's eight supported windows, the maxima
-are `1.39e-14` and `1.66e-15`. We therefore accept this example as a
-bounded numerical correspondence of the declared R and native calculations.
-These fractions are modeled local cover, not measured vegetation.
+R/Python difference in this window is `3.77476e-15` for a mean and
+`9.90527e-16` for a standard error. Across WHH05's eight supported
+windows, the maxima are `1.37668e-14` and
+`1.6584e-15`. These are modeled local cover
+fractions, without independent measured vegetation acceptance.
 
 ## Every released example site
 
@@ -65,33 +65,35 @@ and the maximum absolute R/native residual in fractional-cover units.
 
 | Grid | Site | Supported windows | Mean residual | SE residual |
 | --- | --- | ---: | ---: | ---: |
-| 512 | BROADOWN | 17 | 2.13e-14 | 3.74e-15 |
-| 512 | CUTHILL2 | 13 | 4.00e-14 | 4.09e-15 |
-| 512 | HANGINGS | 17 | 4.32e-14 | 5.36e-15 |
-| 512 | HARESDOWN | 7 | 1.14e-13 | 1.59e-14 |
-| 512 | LOBBSBOG | 7 | 1.04e-13 | 1.28e-14 |
-| 512 | WHH05 | 8 | 1.39e-14 | 1.66e-15 |
-| 512 | WHH11 | 4 | 1.31e-14 | 1.04e-15 |
-| 512 | WINDMILL | 7 | 1.25e-13 | 1.50e-14 |
-| 512 | WINNEYS | 17 | 2.69e-14 | 3.03e-15 |
-| 562 | BECKHAM | 11 | 1.80e-14 | 4.82e-15 |
-| 562 | COMERSLA | 16 | 3.42e-14 | 5.72e-15 |
-| 562 | EXEBRID | 10 | 7.18e-14 | 7.00e-15 |
-| 562 | GOURTEMIRES | 9 | 5.53e-14 | 6.22e-15 |
-| 562 | LARKBARR | 9 | 4.90e-14 | 6.59e-15 |
-| 562 | LONGBREACH | 15 | 9.73e-14 | 2.35e-14 |
-| 562 | MOLECHAM | 7 | 1.84e-13 | 5.38e-14 |
-| 562 | NTWITCHEN | 10 | 1.66e-13 | 1.35e-14 |
+| 512 | BROADOWN | 17 | 2.13163e-14 | 3.74353e-15 |
+| 512 | CUTHILL2 | 13 | 3.9968e-14 | 4.09395e-15 |
+| 512 | HANGINGS | 17 | 4.41869e-14 | 5.35683e-15 |
+| 512 | HARESDOWN | 7 | 1.14131e-13 | 1.59031e-14 |
+| 512 | LOBBSBOG | 7 | 1.03584e-13 | 1.28127e-14 |
+| 512 | WHH05 | 8 | 1.37668e-14 | 1.6584e-15 |
+| 512 | WHH11 | 4 | 1.31006e-14 | 1.04083e-15 |
+| 512 | WINDMILL | 7 | 1.25455e-13 | 1.49811e-14 |
+| 512 | WINNEYS | 17 | 2.69229e-14 | 3.0323e-15 |
+| 562 | BECKHAM | 11 | 1.80411e-14 | 4.73753e-15 |
+| 562 | COMERSLA | 16 | 3.41949e-14 | 5.71765e-15 |
+| 562 | EXEBRID | 10 | 7.18314e-14 | 7.00134e-15 |
+| 562 | GOURTEMIRES | 9 | 5.53169e-14 | 6.22419e-15 |
+| 562 | LARKBARR | 9 | 4.89886e-14 | 6.59195e-15 |
+| 562 | LONGBREACH | 15 | 9.7311e-14 | 2.35827e-14 |
+| 562 | MOLECHAM | 7 | 1.83881e-13 | 5.38146e-14 |
+| 562 | NTWITCHEN | 10 | 1.66089e-13 | 1.34875e-14 |
 
 We therefore have 97 supported site-windows in grid 512 and 87 in grid 562:
 184 of 425 possible site-windows, with 241 source-unavailable windows. The
 184 supported windows contribute 11,408 matched site-level mean and SE
-values. All pass the declared numerical tolerances. The separate regional
+values. All pass the original declared numerical tolerances. Original R off-support
+zero placeholders and Python missing values are both excluded by source
+pollen support; they are not observations. The separate regional
 rows bring the two-grid correspondence to 14,074 values.
 
 We have no authenticated archived site-level pair for these example rows, so
-the residuals above compare the released author R function with the installed
-native calculation only. They do not compare either one with a published
+the residuals above compare the released author R function with the current source
+Python calculation only. They do not compare either one with a published
 site-level estimate.
 
 ## Recheck the source-to-estimate link
@@ -142,7 +144,7 @@ source evidence is available.
 
 **Unsupported claim.** That site’s exact historical archive membership or measured vegetation fraction.
 
-**Actual verification performed.** Retained one-site source-to-estimate ledger and 17-site replay are reported; index did not rerun.
+**Actual verification performed.** The original author R and current source Python stages genuinely completed on commit e282e08d796528488b438edd3ea661fb94b97b5d. Their original third-observer refusal and whole-job exit1 remain unchanged. The complete saved-source observer on 2784d4eae839e4a4e43f80ec77fd26bd0172aff0 passed; the separate maintained correspondence writer on e1ca9def55e7cd3e68ac6f20270059e743373251 returned0, while its original observer and aggregate returned1. The corrected saved-ledger observer genuinely passed with terminal 71d5f761f80e074d30fb1b13c4c0d53a3d34c86f9d5fa3dfa9e045bfb1ffbf45, rejoining every one of 14,074 ordered mean/SE cells to original R/current Python and the complete source support. Published reexecution report SHA256 4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f; ledger SHA256 1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029. All184 available and241 unavailable site-bins remain source-bound. Original R off-support zero placeholders remain excluded; Python off-support values remain missing. Original mean/SE tolerances,1000 exact shared bootstrap draws and all17 source sites remain retained. Historical9dd1 raw proof is unavailable and is not used. No new math is executed for publication and no full1128study, independent vegetation, Nordic, source-rights, human or official release acceptance is asserted.
 
 **Remaining input or review.** WHH05 and 17 example sites have count-to-estimate traces; historical sequence membership, selected chronology/basin, full source rights and ecological parameter approval are still unbound. Resolver: LandClim source producer and qualified chronology/basin/taxon reviewer Reopen when: Versioned production row with sample ages, basin, parameter profile and rights binds the same published cell.
 
@@ -160,4 +162,6 @@ Retained evidence: [docs/report/publication-replay/landclim-example-reexecution/
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
+<!-- scientific-claim-semantic-sha256: 982e13272f80a381b616ce2674c9faa19982691d1939d537ff0f3031b7f24ac6 -->
+<!-- scientific-authored-source-sha256: 96399eb2744394a8d67cc74f29754bce1c11f0d1c1350c98d81ad1d5a5caee6b -->
 <!-- scientific-verification-and-limits:end -->

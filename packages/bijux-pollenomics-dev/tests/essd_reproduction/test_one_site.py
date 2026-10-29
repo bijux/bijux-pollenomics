@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import shutil
@@ -12,6 +13,7 @@ from typing import cast
 
 import pytest
 
+from bijux_pollenomics_dev.essd_reproduction.example_reexecution import TOLERANCES
 from bijux_pollenomics_dev.essd_reproduction.one_site import (
     AUTHOR_COMMIT,
     OneSiteExampleError,
@@ -230,6 +232,129 @@ def test_product_is_deterministic_and_payload_is_defensively_copied() -> None:
     assert first.payload()["scope"] == "single_site_author_example_input_reconstruction"
 
 
+def _assert_supported_window(
+    rows: list[dict[str, str]], taxa: list[str], execution: JsonObject
+) -> None:
+    """Require all source-owned keys and original prospective cell tolerances."""
+    assert len(taxa) == len(set(taxa)) == 31
+    assert len(rows) == 62
+    assert execution["tolerances"] == TOLERANCES
+    assert len({(r["metric"], r["taxon"]) for r in rows}) == 62
+    for metric, tolerance_kind in [("mean", "cover"), ("standard_error", "se")]:
+        selected = [r for r in rows if r["metric"] == metric]
+        assert [r["taxon"] for r in selected] == taxa
+        bounds = TOLERANCES[tolerance_kind]
+        for row in selected:
+            assert (
+                row["source"],
+                row["grid_id"],
+                row["scope"],
+                row["site_id"],
+                row["bin_id_bp"],
+                row["unit"],
+            ) == (
+                "ESSD_LandClim_author_R_example",
+                "512",
+                "site",
+                "WHH05",
+                "1500",
+                "fraction",
+            )
+            assert row["within_declared_tolerance"] == "True"
+            reference, candidate, residual = [
+                float(row[k])
+                for k in ["author_reference", "installed_lra", "signed_residual"]
+            ]
+            assert all(
+                math.isfinite(value) for value in [reference, candidate, residual]
+            )
+            assert residual == candidate - reference
+            assert math.isclose(
+                candidate, reference, abs_tol=bounds["atol"], rel_tol=bounds["rtol"]
+            )
+
+
+def _controlled_supported_window() -> tuple[
+    list[dict[str, str]], list[str], JsonObject
+]:
+    taxa = [f"source-taxon-{i}" for i in range(31)]
+    rows = []
+    for metric in ["mean", "standard_error"]:
+        for taxon in taxa:
+            reference = 1 / 31 if metric == "mean" else 0.01
+            candidate = reference + (1e-15 if metric == "standard_error" else 0)
+            rows.append(
+                {
+                    "source": "ESSD_LandClim_author_R_example",
+                    "grid_id": "512",
+                    "scope": "site",
+                    "site_id": "WHH05",
+                    "bin_id_bp": "1500",
+                    "taxon": taxon,
+                    "metric": metric,
+                    "unit": "fraction",
+                    "author_reference": repr(reference),
+                    "installed_lra": repr(candidate),
+                    "signed_residual": repr(candidate - reference),
+                    "within_declared_tolerance": "True",
+                }
+            )
+    return rows, taxa, {"tolerances": TOLERANCES}
+
+
+def test_source_window_uses_original_prospective_cell_bounds() -> None:
+    rows, taxa, execution = _controlled_supported_window()
+    assert max(float(r["signed_residual"]) for r in rows) > 9e-16
+    _assert_supported_window(rows, taxa, execution)
+
+
+@pytest.mark.parametrize(
+    "violation",
+    [
+        "missing",
+        "duplicate",
+        "source_taxon",
+        "order",
+        "numeric",
+        "reported_residual",
+        "flag",
+        "tolerances",
+        "nonfinite",
+        "source_window",
+    ],
+)
+def test_source_window_contract_refuses_unbound_or_changed_cells(
+    violation: str,
+) -> None:
+    rows, taxa, execution = _controlled_supported_window()
+    if violation == "missing":
+        rows.pop()
+    elif violation == "duplicate":
+        rows[1] = dict(rows[0])
+    elif violation == "source_taxon":
+        taxa[0] = "other-source-taxon"
+    elif violation == "order":
+        rows[0], rows[1] = rows[1], rows[0]
+    elif violation == "numeric":
+        rows[31]["installed_lra"] = "0.02"
+        rows[31]["signed_residual"] = repr(0.02 - float(rows[31]["author_reference"]))
+    elif violation == "reported_residual":
+        rows[31]["signed_residual"] = "0"
+    elif violation == "flag":
+        rows[0]["within_declared_tolerance"] = "False"
+    elif violation == "tolerances":
+        execution["tolerances"] = {
+            "cover": {"atol": 1.0, "rtol": 1.0},
+            "se": {"atol": 1.0, "rtol": 1.0},
+        }
+    elif violation == "nonfinite":
+        rows[0]["installed_lra"] = "nan"
+    else:
+        rows[0]["bin_id_bp"] = "1501"
+    with pytest.raises(AssertionError):
+        _assert_supported_window(rows, taxa, execution)
+
+
 def test_whh05_source_window_links_to_executed_site_estimate(
     payload: JsonObject,
 ) -> None:
@@ -250,7 +375,7 @@ def test_whh05_source_window_links_to_executed_site_estimate(
         / "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv"
     )
     assert hashlib.sha256(ledger.read_bytes()).hexdigest() == (
-        "9c574919c250b9fe386154b72266869b290365ee9afe5d8a270250ed01c211d8"
+        "1380633da596cfa0a51ec94ef885a7e94eecc617e37d78d0ed7c4f22121f5029"
     )
     with ledger.open(newline="", encoding="utf-8") as stream:
         rows = [
@@ -261,40 +386,55 @@ def test_whh05_source_window_links_to_executed_site_estimate(
             and row["site_id"] == site["site_id"]
             and row["bin_id_bp"] == str(window["repository_window_label_bp"])
         ]
-    means = [row for row in rows if row["metric"] == "mean"]
-    errors = [row for row in rows if row["metric"] == "standard_error"]
-    assert len(rows) == 62
-    assert len(means) == len(errors) == prepared["taxon_count"] == 31
-    assert {row["taxon"] for row in means} == {row["taxon"] for row in errors}
-    assert all(
-        row["unit"] == "fraction" and row["within_declared_tolerance"] == "True"
-        for row in rows
+    execution = _object(
+        json.loads(
+            (
+                REPOSITORY
+                / "docs/report/publication-replay/landclim-example-reexecution/report.json"
+            ).read_text(encoding="utf-8")
+        )
     )
+    with (SOURCE_ROOT / "run.REVEALS.files/av-RPP.all.landclimII.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        parameters = list(csv.reader(stream))
+    assert parameters[0] == ["A.series", "alpha", "vg"]
+    taxa = [row[0] for row in parameters[1:]]
+    assert prepared["taxon_count"] == len(taxa) == 31
+    _assert_supported_window(rows, taxa, execution)
+    means = [row for row in rows if row["metric"] == "mean"]
     assert sum(float(row["author_reference"]) for row in means) == pytest.approx(
         1.0, abs=1e-12
     )
-    assert max(abs(float(row["signed_residual"])) for row in means) < 5e-15
-    assert max(abs(float(row["signed_residual"])) for row in errors) < 9e-16
-
-    execution = json.loads(
-        (
-            REPOSITORY
-            / "docs/report/publication-replay/landclim-example-reexecution/report.json"
-        ).read_text(encoding="utf-8")
+    assert execution["repository_head_at_execution"] == (
+        "e282e08d796528488b438edd3ea661fb94b97b5d"
     )
+    assert execution["admission"] == {
+        "two_grid_numerical_parity": True,
+        "full_study_reproduction": False,
+        "independent_vegetation_accuracy": False,
+        "private_input_redistribution_rights_cleared": False,
+    }
+    # The receipt establishes source-Python parity, never installed identity.
+    assert "installed_distribution_qualified" not in execution["admission"]
+
     grid = next(
         grid
-        for grid in execution["native_comparison"]["grids"]
+        for grid in cast(
+            list[JsonObject], _object(execution["native_comparison"])["grids"]
+        )
         if grid["grid_id"] == site["landclim_grid_id_raw"]
     )
     estimate = next(
-        row for row in grid["checks"]["sites"] if row["site_id"] == site["site_id"]
+        row
+        for row in cast(list[JsonObject], _object(grid["checks"])["sites"])
+        if row["site_id"] == site["site_id"]
     )
     assert grid["sites"] == 9
-    assert estimate["cover"]["finite_pairs"] == 8 * 31
-    assert estimate["se"]["finite_pairs"] == 8 * 31
-    assert estimate["cover"]["passed"] is True
-    assert estimate["se"]["passed"] is True
+    assert _object(estimate["cover"])["finite_pairs"] == 8 * 31
+    assert _object(estimate["se"])["finite_pairs"] == 8 * 31
+    assert _object(estimate["cover"])["passed"] is True
+    assert _object(estimate["se"])["passed"] is True
 
 
 def test_any_input_drift_fails_closed(tmp_path: Path) -> None:
