@@ -1,0 +1,25 @@
+{
+  "approved": true,
+  "source_manifest_sha256": "b991de9d6c60745b5c8299b7319ac43b17ee24f82f17e95652e70e5b03bba4e1",
+  "all9physical_members_rehashed": true,
+  "predecessor_source_import_order_only": [
+    "observe.py",
+    "check_contracts.py"
+  ],
+  "independent_source_free_controls": {
+    "actual_exit": 0,
+    "cases": 12,
+    "stdout": "",
+    "stderr": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.000s\n\nOK\n"
+  },
+  "actual_maintained_api": "constrained_author_lra --repository ROOT --source-root PRIVATE_PARENT --source-descriptor qualified snapshot --output NEW/producer-output/source-products; exactly ten unchanged sequential internal subprocesses, workers=1 in author_lra_run. Preparer creates required parent; retained-work remains absent.",
+  "scope_review": [
+    "Full195 original qualified source authority, retained historical baseline11 and exact current diagnostic source/math prefix hashes; fresh complete four-package source+runtime/private pins on clean dynamic candidate. No old whole-source equivalence assertion.",
+    "Independent native chain opens195 request/item receipts,192 current-code/source/resource products,3 retained refusals and42 target-excluded prediction identities; observed scientific_acceptance remains not_evaluated.",
+    "Per-product finite explicit identity leaves are allowed only when equal to authenticated current prediction/score/native chain; all other types,keysets,ordered rows,numeric/scientific/source scalars and CSV lexical cells must match original. No genericSHA or text exemption.",
+    "Exactly11 maintained products, original20732 denominator/159excluded taxon,15folds/14scored/BECKHAMrefused/192complete3refused and42methodrows retained. Raw physical hashes and all allowed provenance changes are reported.",
+    "Original historical3d6 complete terminal unavailable remains unavailable. Genuine fresh current ten-stage computation is required; no fake retained success or claimed fullbyte identity.",
+    "Inherited common failure/timeouts/Git/pin custody; qualified wrapper completed2GiB RSS/inclusive1GiB outputs+16KiB receiptreserve. 1500s producer/120observer/1800overall; no new solver/budget/R/model specification or ecological/Nordic/rights/human approval."
+  ],
+  "scope": "Read-only source and12pure controls only; no preparation, fit, optimizer/native producer, R or canonical edits. Root alone prepares/registers/readbacks and launches after current source convergence."
+}

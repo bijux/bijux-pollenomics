@@ -44393,7 +44393,7 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/manifest.json",
@@ -44407,15 +44407,9 @@
         "docs/report/pollen-reconstruction/author-lra-constrained/report.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/scores.csv"
       ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py",
-        "docs/report/pollen-reconstruction/author-lra-constrained/prepare.py",
-        "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
-        "docs/report/pollen-reconstruction/author-lra-constrained/report.py",
-        "docs/report/pollen-reconstruction/author-lra-constrained/score.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Constrained LOVE prediction, score and direct-pollen comparisons depend on private author source preparation, numerical runs and frozen held-out evidence. No ownership declaration waives a refused fold or authenticates private inputs."
+      "verification": "Retain eleven exact products of the complete source-bound constrained author experiment. The strict maintained capsule guard validates 195 native attempts (192 completed, 3 refused), 900 work files, current source/resources and actual prediction-to-score custody. All fourteen scored folds and the BECKHAM refusal remain exact. Evidence transport supplies no untouched ecological evaluation, Nordic transfer, source rights or qualified human/release decision."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/source-code",
@@ -81657,6 +81651,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_native_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",

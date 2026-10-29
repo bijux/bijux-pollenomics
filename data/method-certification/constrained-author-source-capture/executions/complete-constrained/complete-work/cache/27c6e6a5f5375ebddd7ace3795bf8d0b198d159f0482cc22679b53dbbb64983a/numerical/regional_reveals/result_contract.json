@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "result_type": "reveals",
+  "primary_artifact": "reconstruction.csv",
+  "units": {
+    "cover": "percent",
+    "distance": "metre"
+  },
+  "taxon_statistic_column_pattern": "<taxon>.<mean|median|q90|q10|sd>"
+}

@@ -1,0 +1,57 @@
+{
+  "folds.csv": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/folds.csv",
+    "sha256": "ba5e706e0c704e0b101f85b95e2a8bea9523d126f36d4f0b1fe168a7420d0631",
+    "bytes": 1927
+  },
+  "predictions.csv": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/predictions.csv",
+    "sha256": "2c6bc4fa02d9ec37747f5b53f9c2c17a5910130c83ec454bb6cc0cfc16ca2d4b",
+    "bytes": 289167
+  },
+  "scores.csv": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/scores.csv",
+    "sha256": "7f7b7ad6f83129b60c25266f71b6c245bc23b0ab4ef9bf9deec38487569180c2",
+    "bytes": 14422
+  },
+  "report.json": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/report.json",
+    "sha256": "99bc052531b052ee218f91d36645cdeaaf2b1641ca8bd20140afa1b4e87f8150",
+    "bytes": 2877
+  },
+  "direct-pollen/manifest.json": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/manifest.json",
+    "sha256": "61d6e846597a4250bdbd855e17e77fe1aa1ae21d2a0aae21cf44c0e55a5a2630",
+    "bytes": 479
+  },
+  "direct-pollen/predictions.json": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/predictions.json",
+    "sha256": "c0973b714110f0735bbd8a18af8af9ae94faa751b66df0c39495137d99b35364",
+    "bytes": 210098
+  },
+  "direct-pollen/comparison.json": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json",
+    "sha256": "db9be74067336118a16dec6b7111a861bead644529dac3f26fb29cf248cbb514",
+    "bytes": 1219
+  },
+  "direct-pollen/matched-scores.csv": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv",
+    "sha256": "623b0eb20e46e86fccbd48e840fa20e1882b89bf17ef3ef81c89e63c3a2c6f50",
+    "bytes": 12440
+  },
+  "direct-pollen/site-sensitivity.json": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/site-sensitivity.json",
+    "sha256": "66d4a15ecb9fdc26b508e6e85192d4846b81b6a2ff31d2b9df6176d086a0b1c9",
+    "bytes": 1782
+  },
+  "direct-pollen/paired-hellinger.json": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json",
+    "sha256": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+    "bytes": 26709
+  },
+  "direct-pollen/paired-hellinger-sensitivity.json": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json",
+    "sha256": "180381b5a81e4838be7a11c2d9e02ef504ef5d296aaad213d9fafbdf148af4c9",
+    "bytes": 1972
+  }
+}

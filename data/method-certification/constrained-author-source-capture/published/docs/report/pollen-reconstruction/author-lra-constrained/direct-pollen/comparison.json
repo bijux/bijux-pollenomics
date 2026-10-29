@@ -1,0 +1,31 @@
+{
+  "schema_version": "author-lra-direct-pollen-comparison.v1",
+  "source_experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+  "direct_prediction_manifest_sha256": "61d6e846597a4250bdbd855e17e77fe1aa1ae21d2a0aae21cf44c0e55a5a2630",
+  "lra_score_csv_sha256": "d0fc6350f8ad46b4571cf2573b9e2267a8ac676cd54b7391911f111604c65cd0",
+  "matched_sites": 14,
+  "matched_method_rows": 42,
+  "excluded_site": "author:BECKHAM",
+  "taxon_count": 30,
+  "method_summaries": [
+    {
+      "method": "training_mean",
+      "matched_sites": 14,
+      "direct_pollen_mae_fraction": 0.020495781482161916,
+      "lra_forward_pollen_mae_fraction": 0.026273465887856663
+    },
+    {
+      "method": "nearest_site",
+      "matched_sites": 14,
+      "direct_pollen_mae_fraction": 0.019551998104306644,
+      "lra_forward_pollen_mae_fraction": 0.021132408720899925
+    },
+    {
+      "method": "inverse_distance_squared",
+      "matched_sites": 14,
+      "direct_pollen_mae_fraction": 0.0185787587707566,
+      "lra_forward_pollen_mae_fraction": 0.02108766351731813
+    }
+  ],
+  "interpretation": "prior-exposed English development, matched 30-taxon pollen prediction only; no measured vegetation accuracy"
+}
