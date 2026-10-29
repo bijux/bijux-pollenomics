@@ -50,6 +50,9 @@ from .scientific_captures.controlled_numerical.lra_comparison import (
 from .scientific_captures.lake_registry.svar import (
     validated_svar_capture,
 )
+from .scientific_captures.lake_registry.svar_census import (
+    validated_svar_feature_census_capture,
+)
 from .scientific_captures.land_use.hyde_country import (
     validated_hyde_country_capture,
 )
@@ -330,6 +333,9 @@ def validated_maintained_report_sources(
     empd2_nfi_entries, empd2_nfi_evidence = validated_empd2_nfi_pairing_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    svar_census_entries, svar_census_evidence = validated_svar_feature_census_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -349,6 +355,7 @@ def validated_maintained_report_sources(
         + solsoe_entries
         + solsoe_pollen_entries
         + svar_entries
+        + svar_census_entries
         + hyde_entries
         + swedish_entries
         + rootsi_entries
@@ -429,4 +436,6 @@ def validated_maintained_report_sources(
         evidence["retained_hyde_modeled_country_totals"] = hyde_evidence
     if empd2_nfi_entries:
         evidence["retained_empd2_nfi_pairing_source"] = empd2_nfi_evidence
+    if svar_census_entries:
+        evidence["retained_svar_feature_census"] = svar_census_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

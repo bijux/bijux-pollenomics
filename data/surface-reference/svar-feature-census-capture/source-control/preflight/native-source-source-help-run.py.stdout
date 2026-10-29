@@ -1,0 +1,8 @@
+usage: run.py [-h] --plan PLAN --registered-plan-sha256 REGISTERED_PLAN_SHA256
+
+Preserve native stages, tracked-byte status and completed resource accounting.
+
+options:
+  -h, --help            show this help message and exit
+  --plan PLAN
+  --registered-plan-sha256 REGISTERED_PLAN_SHA256

@@ -19,6 +19,30 @@ The source populations differ by 42; the receipt does not identify why. Neither
 the recovered export nor the 99-feature subset is promoted to the governed
 registry. Qualified source, identity and publication review remains outstanding.
 
+## Measured normalized-file census
+
+The separately [retained aggregate census](feature-census.json) records the
+completed maintained streaming consumer and independent reader on source commit
+`5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87`. Both returned native zero.
+They measured 40,565 Feature objects: 37,516 Polygon and 3,049 MultiPolygon,
+with no missing or null geometry. `record_id` and `sjoid` each have 40,565
+distinct nonempty strings and no duplicates; `sj_uuid` and `sj_vatten_id`
+each have 40,564 distinct nonempty strings and one unusable value.
+
+All 99 candidate-subset rows have exactly one full-file match and typed
+agreement for the seven declared identity/area/country/layer fields. This
+does not equate subset Point geometries with source polygons or repeat the
+nearest-pollen selection. The measured total agrees with the export claim
+and differs by 42 from the historical 40,523 review; the identities and cause
+of that difference remain unproven without its complete historical ID set.
+
+The public witness contains aggregate counts and redacted join checks. Raw
+properties, coordinates, native ID values and the private feature ledger are
+not published. Geometry topology, effective basin area, provider units/CRS,
+source dates as lake chronology, WFS parity, rights, qualified human review
+and ranking remain unqualified. The current ranked-candidate count stays zero.
+This authored evidence retention adds no new native execution claim.
+
 ## Provider identity and rights
 
 On 1 October 2026, the still reachable [SMHI SVAR WFS endpoint](https://vattenwebb.smhi.se/svarwebb/svar.map?SERVICE=WFS&REQUEST=GetCapabilities)
@@ -90,31 +114,33 @@ must show the current zero-candidate refusal rather than old rank values.
 
 Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.
 
-**Supported claim.** The recovered SVAR export retains exact normalized bytes and a two-feature provider identity lead while preserving current zero-candidate refusal.
+**Supported claim.** The recovered SVAR export retains exact normalized bytes and a two-feature provider identity lead while preserving current zero-candidate refusal. A separate maintained streaming census and independent reader measure the retained normalized file's 40,565 features and exact seven-field matches for all 99 subset rows, without ranking admission.
 
 **Unsupported claim.** Live endpoint availability or matching count does not prove raw capture parity, supported acquisition rights, full identity equivalence or admitted lake ranking.
 
-**Actual verification performed.** Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing. The maintained source-built isolated-standard-library verifier and independent native source observer both returned zero on ada0128d4b96a0c0655e7b8c24ba81329f34a2cb. Complete source/refusal receipt is byte-identical to publication; all3507 original inputs remain explicit. Exact261041034BGeoJSON and two private metadata files were hashed, not geometrically parsed;40565 remains source metadata claim against40523review/99subset/zero ranks. The42difference and WFS/export linkage, rights and qualified source review remain unresolved. No new provider capture, ranking or native-retention outcome.
+**Actual verification performed.** Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing. The maintained source-built isolated-standard-library verifier and independent native source observer both returned zero on ada0128d4b96a0c0655e7b8c24ba81329f34a2cb. Complete source/refusal receipt is byte-identical to publication; all3507 original inputs remain explicit. Exact261041034BGeoJSON and two private metadata files were hashed, not geometrically parsed;40565 remains source metadata claim against40523review/99subset/zero ranks. The42difference and WFS/export linkage, rights and qualified source review remain unresolved. No new provider capture, ranking or native-retention outcome. Separately, the maintained streaming consumer and independent source reader on source commit `5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87` both returned native zero. They measured 40,565 Feature objects (37,516 Polygon and 3,049 MultiPolygon), no missing geometry, 40,565 distinct nonempty record_id and sjoid values, and 40,564 distinct nonempty sj_uuid and sj_vatten_id values with one unusable value each. All 99 subset rows have exactly one full match and typed agreement for all seven declared fields. The earlier hash-only operation remains distinct; no new WFS, model, ranking or metadata-retention native outcome is claimed.
 
-**Remaining input or review.** Both full identity sets, versioned official source route, approved access/rights and qualified registry review remain required.
+**Remaining input or review.** The historical 40,523 review's complete identity set, a versioned official source route, approved access/rights, provider units/CRS and qualified registry review remain required. The current full normalized-file census and 99 typed subset joins do not supply those authorities.
 
 **Cause category.** Missing original capture and unresolved geometry rights/version identity.
 
 **Consequence.** The 42 net count difference cannot be presented as an omitted lake list, and 99 derived features cannot restore old ranks.
 
-**Precise next acceptance route.** Obtain an approved provider route and versioned layer identity comparison, reconcile the candidate subset, then conduct qualified review before ranking.
+**Precise next acceptance route.** Obtain an approved versioned provider route and the historical review's full identity inventory; compare populations and provider geometry/units/CRS, then obtain qualified source/rights review before registry or ranking admission.
 
 **Negative or refused result.** raw_wfs_capture_bound_to_export=false, source_population_reconciled=false, qualified_review_accepted=false; 0 ranked candidates.
 
-**Matched denominator.** 40,565 normalized export lake claims versus 40,523 review source lakes; 99 derived features; 2 live feature identity checks; 0 admitted candidates; 42 is net count difference.
+**Matched denominator.** 40,565 normalized export lake claims versus 40,523 review source lakes; 99 derived features; 2 live feature identity checks; 0 admitted candidates; 42 is net count difference. Separately measured 40,565 normalized Feature objects: 37,516 Polygon plus 3,049 MultiPolygon; all 99 subset rows match one full feature across seven typed fields. Two native ID fields have 40,565 distinct nonempty values; two have 40,564 plus one unusable value each. These are descriptive source counts, not admitted lakes.
 
-Qualified authored reader SHA-256: `db5f18e581407bcf154d670c5b8aabff58008d08514910c149f8674a8b99283b`.
+Qualified authored reader SHA-256: `a15fd855d97974051458aa9634e0747317aa160876abbc60fdde98fb763c6178`.
 
 - [Retained qualification evidence: docs/report/source-relations/svar/normalized-export/report.json](report.json) (SHA-256 `ab082b7899ce947b7bef8c0f8c58fc030aed79b54ee14edf50c81bf5e18f9baf`).
 
 - [Retained qualification evidence: docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json](../../../countries/sweden/sweden_lake_evidence_richness_v66.json) (SHA-256 `52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596`).
 
 - [Retained qualification evidence: reports/science/source-lineage/svar-normalized-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/svar-normalized-source.json) (SHA-256 `dd03a001e5d03e442b0805d7f09adf3e81fc3424e65d5bada651bd996522cbf9`).
+
+- [Retained qualification evidence: docs/report/source-relations/svar/normalized-export/feature-census.json](feature-census.json) (SHA-256 `5ce50017af55e496ca391d34997ce5f182296f8e9db82ea20c118016d30ff0db`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

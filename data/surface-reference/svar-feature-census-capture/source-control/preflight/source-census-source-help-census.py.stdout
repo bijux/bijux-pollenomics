@@ -1,0 +1,8 @@
+usage: census.py [-h] --plan PLAN
+
+Describe normalized source features without admitting registry authority or
+ranking.
+
+options:
+  -h, --help   show this help message and exit
+  --plan PLAN

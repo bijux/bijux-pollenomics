@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2135,
+  "surface_count": 2136,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1231,
+    "maintenance": 1232,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 768
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1233,
+    "maintainer_diagnostic": 1234,
     "public_reading_surface": 777,
     "scientific_review_surface": 125
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1282,
+    "report_root": 1283,
     "sweden": 55,
     "world": 160
   },
@@ -23385,7 +23385,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/svar/normalized-export/README.md",
-      "content_sha256": "ef251c0048566e31ed0ff0073ed4a6f4caf215898340d19f239ed52d4e7bcce8",
+      "content_sha256": "81ad60cf3b8a332062e511cc2353f356b9bde8a81c33dd71da5341f2922ec414",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -23395,6 +23395,18 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/svar/normalized-export/feature-census.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Measured normalized-file feature census and redacted seven-field subset agreement; provider, rights, historical difference and ranking limits remain explicit.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/source-relations/svar/normalized-export/report.json",

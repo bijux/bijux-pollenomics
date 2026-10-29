@@ -3210,11 +3210,11 @@
     },
     {
       "repository_path": "docs/report/source-relations/svar/normalized-export/README.md",
-      "content_sha256": "ef251c0048566e31ed0ff0073ed4a6f4caf215898340d19f239ed52d4e7bcce8",
-      "prose_paragraph_count": 19,
-      "link_bullet_count": 4,
+      "content_sha256": "81ad60cf3b8a332062e511cc2353f356b9bde8a81c33dd71da5341f2922ec414",
+      "prose_paragraph_count": 22,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 3,
+      "heading_count": 4,
       "table_line_count": 5,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
