@@ -1,0 +1,90 @@
+{
+  "schema_version": "solsoe-primary-pollen-lineage-custody.v1",
+  "candidate_context": "d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b",
+  "candidate_parameter": "Exact future clean local main; no preparation or execution occurred during source qualification.",
+  "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report-products",
+  "prospective_outputs": [
+    "report.json",
+    "samples.csv"
+  ],
+  "source_input_catalog": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/declared-inputs.json",
+    "sha256": "2ec374b8b5481cfb561388784a7ceaba5f03e71e7b4b074c1fb26fac80e0257c",
+    "bytes": 3227
+  },
+  "source_readset_files": 12,
+  "source_readset_bytes": 542545790,
+  "private_source_bytes": 41614,
+  "private_primary_sha256": "da790080493ccfe7e37ab16d154e438cfbeb7b0046bc41d7f24499572a0353d0",
+  "native_runtime": "Original physical CPython3.11.13 BASE -I -S -B, isolated standard library and exact recursive native closure; no editable/installed first-party package or dependency-equipped runtime claim.",
+  "runtime_source_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/prepared-source-manifest.json",
+    "sha256": "9d192b9130eecd11da43e274dff3f483fefa91ed54617817d95eaf897b537419",
+    "bytes": 3051
+  },
+  "runtime_independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/independent-source-review.json",
+    "sha256": "2438b899f8a8e4fd1b9992bba4270acf92f0c92726ffbf4e80a3c4ff4fc4d75e",
+    "bytes": 5021
+  },
+  "byte_exact_reused_controllers": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/run.py",
+      "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+      "bytes": 7251
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/execute_source.py",
+      "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+      "bytes": 3027
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    }
+  ],
+  "source_algorithm_changed": false,
+  "source_cli": "Maintained source_completion/solsoe_pollen_lineage.py --repository REPOSITORY --source-root PRIVATE_DATA --output OWNED/producer, executed unchanged through byte-exact runpy native/source exit observer.",
+  "independent_observer": "Decode primary table with ordered parameter/depth axes and integer nonnegative cells; independently derive selected native sample/depth sets, sparse-positive count maps and unique full-depth source-name vector index; compare every cell, all18 numerical rename records, all66 ordered CSV rows and complete current report typed/physical bytes. No producer helper is imported by observer.",
+  "historical_expectations_not_new_results": {
+    "samples": 66,
+    "parameters": 147,
+    "count_cells": 9702,
+    "positive_cells": 2881,
+    "explicit_zero_cells": 6821,
+    "total_counts": 128653,
+    "literal_name_parameters": 129,
+    "numerical_source_name_candidates": 18
+  },
+  "source_scope": "Current primary source-count lineage only. Name-vector equality is not ecological taxonomy, author79 selection, chronology, basin, LRA or human/rights/release acceptance. Primary PANGAEA CCBYNC raw text remains external and is not redistributed. No separate private acquisition/copy manifest or independent prior native receipt is inferred from current report.inputs.",
+  "bounds": {
+    "stage_timeout_seconds": [
+      45,
+      45
+    ],
+    "overall_timeout_seconds": 110,
+    "outer_fail_safe_seconds": 130,
+    "completed_child_peak_rss_bytes": 1073741824,
+    "inclusive_logical_output_bytes": 134217728,
+    "own_terminal_reserve_bytes": 16384,
+    "OS_quota_or_complete_descendant_RSS_claimed": false
+  },
+  "future_prepare_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/prepare.py",
+    "--candidate",
+    "ACTUAL_CLEAN_CANDIDATE",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage"
+  ],
+  "future_registration": "Only root may prepare, verify/register physical plan and separately launch native stages. Independent approved:true/source_manifest_sha256 review is mandatory before preparation. No actual producer/preparer/math/R/browser/acquisition/install/Git/STATE mutation in this source work."
+}

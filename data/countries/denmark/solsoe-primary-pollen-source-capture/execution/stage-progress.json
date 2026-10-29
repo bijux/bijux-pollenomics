@@ -1,0 +1,46 @@
+[
+  {
+    "id": "maintained-solsoe-primary-pollen-lineage",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 3.2361950410413556,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/maintained-solsoe-primary-pollen-lineage.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/maintained-solsoe-primary-pollen-lineage.stderr",
+    "stdout_sha256": "053af9b0a210b5dccfe980688dbb8be5907d16f0ebae6de4361dac3483bb315f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 736067584
+  },
+  {
+    "id": "independent-solsoe-pollen-source-count-and-name-vectors",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 4.336170082970057,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/independent-solsoe-pollen-source-count-and-name-vectors.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/independent-solsoe-pollen-source-count-and-name-vectors.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 736067584
+  }
+]

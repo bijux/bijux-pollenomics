@@ -1,0 +1,64 @@
+{
+  "schema_version": "solsoe-primary-pollen-lineage-prepared-source.v1",
+  "files": [
+    {
+      "path": "contracts.py",
+      "sha256": "07fec76f6cdde01a2176d5cd5b554c76f94b42034f60ed8af0bf48faa6c04e34",
+      "bytes": 13958
+    },
+    {
+      "path": "runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "be74a6cc24cf68bac1efda0338ac0df452b28d1424eb540c7481682c0fa10ecc",
+      "bytes": 7671
+    },
+    {
+      "path": "run.py",
+      "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+      "bytes": 7251
+    },
+    {
+      "path": "observe.py",
+      "sha256": "14c9d8414666e53571970b77fb0598352fbf6d82ecde895c97b0233530675c20",
+      "bytes": 6253
+    },
+    {
+      "path": "execute_source.py",
+      "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+      "bytes": 3027
+    },
+    {
+      "path": "check_contract.py",
+      "sha256": "88deb241c275de4bede06ac11febb4ef8c908c2814c2ada02984d98ada9b5ebc",
+      "bytes": 14788
+    },
+    {
+      "path": "common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "declared-inputs.json",
+      "sha256": "2ec374b8b5481cfb561388784a7ceaba5f03e71e7b4b074c1fb26fac80e0257c",
+      "bytes": 3227
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "1cd5b560f518c647fc43228d7873099eaad2cb869c1f201ccecff597bc06b758",
+      "bytes": 5072
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "12c65fc74908e1234aa533e9be0659d9fdaa8dc951c6762387dc640351350baf",
+      "bytes": 10725
+    }
+  ],
+  "independent_source_review_required": true,
+  "source_only_qualified": true,
+  "actual_native_prepared": false,
+  "actual_native_executed": false
+}
