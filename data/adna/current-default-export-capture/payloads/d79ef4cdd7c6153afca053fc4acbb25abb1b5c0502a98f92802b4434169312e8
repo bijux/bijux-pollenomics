@@ -1,0 +1,99 @@
+{
+  "schema_version": "aadr-current-export-retention-protocol.v1",
+  "source_only": true,
+  "purpose": "Metadata retention of the genuine original-ANNO to default-v2 export and its independent reconstruction. No raw/source consumer or exporter is repeated.",
+  "native_source_epoch": {
+    "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+    "plan_sha256": "86618be564ff435074e2518a383e0bd1066e9e479bf397296edf6bd8d944d7bc",
+    "original_inputs": 62114,
+    "source_ledger_sha256": "f843170a28d30104b7416b9a0b0b2c7c940ce87349315eb864d2320a14d1ec70",
+    "source_manifest_sha256": "3fc43e79c612e350faae43042a5f9139fac1e9121732e513b235a87394f92626",
+    "source_partition": {
+      "original": 6541,
+      "selected_and_independently_copied": 2184,
+      "omitted_cache_identity_only": 4356,
+      "omitted_configured_generated_metadata_identity_only": 1
+    }
+  },
+  "required_actual_native_refs": {
+    "root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export",
+    "inner": {
+      "name": "sample-export-terminal.json",
+      "sha256": "f192be987b25853d5bb1b01f3e1e5d64c17fc5b125731cc0fa268ab8ae28addb"
+    },
+    "outer": {
+      "name": "sample-launch-terminal.json",
+      "sha256": "1969869cb35352b29c4fee0ec4f59e4b4e5978eb1e4a92cf0363afda11a4cf34"
+    },
+    "stage_status": "Actual producer and original independent observer, inner and outer must all have typed zero exits and completed custody/resource success. The root supplied these genuine results; this protocol does not execute their verification."
+  },
+  "root_only_preparation_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CURRENT_CLEAN_MAIN_SHA",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256",
+    "--native-inner-sha256",
+    "f192be987b25853d5bb1b01f3e1e5d64c17fc5b125731cc0fa268ab8ae28addb",
+    "--native-outer-sha256",
+    "1969869cb35352b29c4fee0ec4f59e4b4e5978eb1e4a92cf0363afda11a4cf34",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-export-capture"
+  ],
+  "registration": "Root registers a unique job from the actual prepared plan SHA, confirms exact readback and invokes the launcher separately. Preparation does not copy packet payloads or execute a native stage.",
+  "root_only_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-export-capture/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "metadata_stages": [
+    {
+      "id": "retained-sample-capsule-assembly",
+      "action": "assemble",
+      "timeout_seconds": 180
+    },
+    {
+      "id": "independent-sample-capsule-observer",
+      "action": "observer",
+      "timeout_seconds": 180
+    }
+  ],
+  "resources": {
+    "completed_whole_seconds": 420,
+    "outer_seconds": 480,
+    "declared_child_peak_RSS_bytes": 2147483648,
+    "inclusive_owned_storage_bytes": 536870912,
+    "packet_cap_bytes": 402653184,
+    "physical_reserve_bytes": 1073741824
+  },
+  "forecast_before_writes": "Root preparer reconstructs exact content-addressed unique public members and serialized capture size from the sealed native plan/catalogue. It refuses a packet above384MiB, requires packet+64MiB reserve below512MiB, then also checks exact serialized metadata plan+packet+1MiB before creating output. It requires physical packet+1GiB reserve. No actual byte forecast is invented by source author.",
+  "resource_limits": "Owned outer process group bounds the complete delegated run including its runtime/private/input scans and final checks; stdlib stages inherit that group. Completed checks account for elapsed wall, child peak RSS and logical inclusive output. No OS quota, aggregate simultaneous descendant RSS or detached-descendant cleanup claim.",
+  "packet_roles": {
+    "public": [
+      "Exact original raw native plan and source ledger, all2184 owned source/resource copies, original controllers/manifest/peer, twelve full typed/CSV/GeoJSON products, native witnesses, exact catalogue and complete streams/terminals.",
+      "Exact runtime authority receipt/plan metadata and reviewed metadata-retainer source authorities.",
+      "Content-addressed duplicate payloads are copied once with independent regular-file copies, never hardlinks."
+    ],
+    "identity_only": [
+      "All62114 original ordered input pins retain explicit finite per-path roles.",
+      "All seven raw/historical input payloads are omitted from this new packet; their original exact identities remain.",
+      "Runtime/stdlib/native binaries, original bytecode and configured generated-version metadata payloads are omitted; original source/namespace and omission authority remain literal."
+    ],
+    "no_remaining_path_catchall": true
+  },
+  "outer_stream_contract": "The native launcher uses PIPE buffers and writes launch.stdout/launch.stderr after the inner catalogue and terminal are complete. Both streams must be absent from the original catalogue. Complete stdout must equal the exact255-byte JSON line printing the actual inner terminal identity and typed exit0; complete stderr is bound by its exact outer receipt. There is no prefix/suffix normalization or virtual original stream entry.",
+  "observer_contract": "A separate registered metadata observer hashes every retained public member, rejects every missing/extra/alias/special or unexpected directory, independently reconstructs roles/source joins/receipt scope/outer stream timing from raw retained metadata, verifies the frozen packet and exact forecast and records an actual independent-capture-review.json. It does not parse ANNO, CSV or typed sample bodies or call any source loader/writer/model.",
+  "scientific_scope": "The original full source observer owns the actual typed export/duplicate-support findings. Metadata retention preserves those literal witnesses without repeating their arithmetic or granting scientific chronology validity. Any hull gaps remain refused; no genotype, biology, rights, ecology, pollen or LRA admission.",
+  "ownership_and_publication": "Publisher ownership and every historical v1 product/lifecycle report remain unchanged. No maintained admission helper is generated here. A later separately reviewed publication binds the genuine retained packet and witness into existing accounts after actual metadata assembly/observer success.",
+  "no_worker_actual_prepare_copy_private_hash_raw_decode_runtime_census_or_native": true
+}

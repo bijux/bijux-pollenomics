@@ -1,0 +1,435 @@
+{
+  "schema_version": "adna-saved-contract-inputs.v1",
+  "files": [
+    {
+      "path": "data/adna/species/bos_taurus/normalized/sample_records.json",
+      "sha256": "d5060a5f657a2db322a99b23a12f5467959dd95f8fbb1a9fc9d6a45a5b5dcbc6",
+      "bytes": 583597,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/bos_taurus/normalized/sample_records.csv",
+      "sha256": "3bf9b510d7af34fb199bd8f58bfa4c07ca8b98c30a29f29b62cc34ef1109fc2c",
+      "bytes": 165617,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/sample_records.json",
+      "sha256": "36d05818a7674783683e1198d3d114f7b1a9b3f5f96d2d1c2be71b06c6ece629",
+      "bytes": 134940,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/camelus_dromedarius/normalized/sample_records.csv",
+      "sha256": "e9dcdf1a24b70a9944637b3bec1c28102b005325f36bd0efe2e9f16fcddd7cc7",
+      "bytes": 39095,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/sample_records.json",
+      "sha256": "24f55ac6ace7c8ebe69b016ca86013d44e33d916723479469c61c7121670c3d3",
+      "bytes": 16125,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/canis_lupus_familiaris/normalized/sample_records.csv",
+      "sha256": "14fb5cb2ef134cf5f6c3453a8e86c0fd3b7c733a9a25dd33b69fb612ea5eb4b2",
+      "bytes": 4664,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/sample_records.json",
+      "sha256": "8dbb479f68b409832ef790940544f8480a61f5d2495674d06696229a5a04e153",
+      "bytes": 362636,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/capra_hircus/normalized/sample_records.csv",
+      "sha256": "cc20dbac3546f4ccd783bdbe43cfa9a4a74e7931796ae7d359bc12cacc27b7e9",
+      "bytes": 86483,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/sample_records.json",
+      "sha256": "c7a49dd79e4bde1c27e92a8e66200694c7d24c41af72c892c21ffa381f8df526",
+      "bytes": 2934,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/equus_asinus/normalized/sample_records.csv",
+      "sha256": "967b14740e7ce3247d617363ecdd0f1614c7148e05a49b040c28a6e87fa2f821",
+      "bytes": 841,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/sample_records.json",
+      "sha256": "9b0af17de81f8be2753433b9a65fb9768296b848f88ac1bc7587f1dbc6f86587",
+      "bytes": 2365153,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/equus_caballus/normalized/sample_records.csv",
+      "sha256": "6d09f96168d449e69f728e6270a248f686b7a3152af4c42f4dffae85553ecb38",
+      "bytes": 560906,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/sample_records.json",
+      "sha256": "07670ff7e5cb629c8c3951c3e7242a2170a2d411bc13e93c401c37ca6d43277f",
+      "bytes": 444485,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/felis_catus/normalized/sample_records.csv",
+      "sha256": "a946e366696079e5e6549370a5ca2f6a79e2b9fb7e6388169a972750a4853134",
+      "bytes": 116135,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/sample_records.json",
+      "sha256": "479fe9fe9e149829987f228d7e49b45f2b1307b5b9078e4950e97a5a7890a917",
+      "bytes": 818123,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/ovis_aries/normalized/sample_records.csv",
+      "sha256": "d327b862b86cbed1b0334e503292f940417940ce8104c33a0fc3044dece73941",
+      "bytes": 230865,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/sample_records.json",
+      "sha256": "ce12e3391bd5a3456a3d78bb6586c44a70dccd721aafe2c4b597c361491a49db",
+      "bytes": 97601,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/rangifer_tarandus/normalized/sample_records.csv",
+      "sha256": "0696675c852a48b4d138551916b3b181119ff2d23da229e23fb395f6c0938213",
+      "bytes": 27434,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/sample_records.json",
+      "sha256": "907bb2e89b53f4233baa6a55eac504e5b6bc4d219e100deaf7456cf29dd91093",
+      "bytes": 1542156,
+      "role": "normalized_json",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/sus_scrofa_domesticus/normalized/sample_records.csv",
+      "sha256": "693021d7f9a9931c9e913bd2e2433c473f3d4912b228e9092c01d2063c50bb61",
+      "bytes": 340530,
+      "role": "normalized_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_aadr_v66_samples.csv",
+      "sha256": "1628b09c7cc3116b3b95b2e1390107beb5052079e67c00cfabb996f3608269b5",
+      "bytes": 284233,
+      "role": "human_country_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_aadr_v66_summary.json",
+      "sha256": "fe6da56c5f4d4032f78e2021e348fdfcd62b5327450dc11a9aa771563dbdd809",
+      "bytes": 1263,
+      "role": "human_country_summary",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_animal_adna_v66_samples.csv",
+      "sha256": "c7f19fdccaec73ff61caa1c91dd1c30dec7400e1c0de0bcb97942757226acea0",
+      "bytes": 20827,
+      "role": "animal_country_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_animal_adna_v66_summary.json",
+      "sha256": "b5e7d9208f8717c6758a317da82a9e8142d98ba16fe3f609c4c0350d7998333b",
+      "bytes": 64654,
+      "role": "animal_country_bundle",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_aadr_v66_samples.csv",
+      "sha256": "1b1ab06d05f28fcfa42c26fc12dc33e1588a23c3eab0a917f4892d156d578edb",
+      "bytes": 11789,
+      "role": "human_country_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_aadr_v66_summary.json",
+      "sha256": "d84243c21847ea16a75bab9ae1bf157f589335fa6ee0c37e18f8721ba8ce4332",
+      "bytes": 1258,
+      "role": "human_country_summary",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_animal_adna_v66_samples.csv",
+      "sha256": "fc525193febcb01b6f796f9d01ae5b78570ac84e39143cfcbf3d96509c24ba47",
+      "bytes": 5128,
+      "role": "animal_country_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_animal_adna_v66_summary.json",
+      "sha256": "fb822baee3de235d9a3ec75ed360db69fe78b66e7841d6852be65a25ff8e933d",
+      "bytes": 16507,
+      "role": "animal_country_bundle",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_aadr_v66_samples.csv",
+      "sha256": "021fbef6979f47d19e6b9df915b0ca73742243401239b8d60ba022b0e3e22396",
+      "bytes": 56620,
+      "role": "human_country_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_aadr_v66_summary.json",
+      "sha256": "0ca91dd558b9fc1a868720100eef530aa71dbe5f8b189f0c7025efd81e8f57ee",
+      "bytes": 1247,
+      "role": "human_country_summary",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_animal_adna_v66_samples.csv",
+      "sha256": "53908372b493330ae91d166a64c2ee533fd73df20c558fd2785af80dec40dbee",
+      "bytes": 963,
+      "role": "animal_country_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_animal_adna_v66_summary.json",
+      "sha256": "a7144d675ccc451d6446413de3e21b6a70df4c079c91238e25f0e0a78f1ef270",
+      "bytes": 1161,
+      "role": "animal_country_bundle",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_aadr_v66_samples.csv",
+      "sha256": "e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b",
+      "bytes": 180827,
+      "role": "human_country_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_aadr_v66_summary.json",
+      "sha256": "2bb540d46edcb2080604b33c8acdc45157e5d5bc508ba5c7c191049785c0cf50",
+      "bytes": 2331,
+      "role": "human_country_summary",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_animal_adna_v66_samples.csv",
+      "sha256": "50551831fb67dba31f85e23e17b931f592596188e794cf10a16cad76cea81764",
+      "bytes": 14305,
+      "role": "animal_country_csv",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_animal_adna_v66_summary.json",
+      "sha256": "3037bcd0946008af5f8b9d651319a1a80995f2325099527ec6982c1aea201315",
+      "bytes": 46185,
+      "role": "animal_country_bundle",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/report.json",
+      "sha256": "73d0ba6d098d7314c9cb3e348f3d76806e3b1e2f2a3d4dacbc0df123728b4196",
+      "bytes": 2483,
+      "role": "human_partition_report",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/decisions.csv",
+      "sha256": "d55e36f9739a26dfff91d98f47f5b66baae6593060a9c11a8812723407a4dcdd",
+      "bytes": 165929,
+      "role": "human_decisions",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "reports/science/animal-entity-capability/report.json",
+      "sha256": "fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780",
+      "bytes": 3542,
+      "role": "animal_partition_report",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+      "sha256": "5ac86192cba15b5a9ac494a74140b2ddf3b3e473b08920254e3a582f9d1bcbc6",
+      "bytes": 681283,
+      "role": "animal_mapped",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "docs/report/animal_atlas_exclusion_report.json",
+      "sha256": "7c7a5883a61d8ca1707262777f70f76e2cb5209b5a295975aa85c6009a1baceb",
+      "bytes": 1401887,
+      "role": "animal_excluded",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/governance/animal_sample_foundation_truth.json",
+      "sha256": "85ddf19e37d3fc8f17293bafb6a1c34f3c00623526d67c1d6ba537741aca9099",
+      "bytes": 18127,
+      "role": "animal_foundation",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json",
+      "sha256": "45a39c46957309287026b5df6d65b5079d7d41012d5e9dc5df4a84a9fade9049",
+      "bytes": 58974,
+      "role": "human_accountability",
+      "authority": "original198_input_manifest"
+    },
+    {
+      "path": "reports/science/adna-source-lifecycle/source-backlinks.json",
+      "sha256": "0ab9a37617783142394e510fc0f04dd5dc33d8a5c9b052941d4564504473e10d",
+      "bytes": 25379,
+      "role": "backlink_catalog",
+      "authority": "named_public_saved_custody"
+    },
+    {
+      "path": "reports/science/adna-source-lifecycle/source-inputs.json",
+      "sha256": "e3655a9a18993f3e0f9843fca62696c0baf0886e07c9840ca18994a016ff542d",
+      "bytes": 41627,
+      "role": "original_input_catalog",
+      "authority": "named_public_saved_custody"
+    },
+    {
+      "path": "reports/science/adna-source-lifecycle/report.json",
+      "sha256": "fa3bafd89f876a8259c66f56b4dc16d199e98959bade7395d41d98fe3cc58224",
+      "bytes": 6439,
+      "role": "historical_report",
+      "authority": "named_public_saved_custody"
+    },
+    {
+      "path": "reports/science/adna-source-lifecycle/capture.json",
+      "sha256": "9e3c6b3b446f804afe249d91986dea39712d02c75305515da54b31923057abf4",
+      "bytes": 10837,
+      "role": "historical_capture",
+      "authority": "named_public_saved_custody"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py",
+      "sha256": "b45f3ba91b2c80507ba2f96efed4f61cd617127f371529198c34a5a6a493f8cf",
+      "bytes": 11335,
+      "role": "source_ast_record_exports",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/tracked_data/payloads.py",
+      "sha256": "002a9010c2d239679792d678a40847e3cb1232432222c2285c12f65ad945491a",
+      "bytes": 4725,
+      "role": "source_ast_animal_payloads",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/tracked_data/csv_exports/normalized.py",
+      "sha256": "cdf730261e7e9d44ba9e243c0b0d34eb45a371e67137431ac57ddb77720bd584",
+      "bytes": 17883,
+      "role": "source_ast_animal_normalized_csv",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/publication/csv_exports.py",
+      "sha256": "f97e0aa8ff65aff23b3d67789da03b7d01c5f818045e866149f2e3149a40c4b2",
+      "bytes": 3658,
+      "role": "source_ast_animal_country_csv",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/samples.py",
+      "sha256": "c8f27377ac86ae21cb8a36f5c9c3b4f527c191b829c0d46e2a4eb0f6d45f7a67",
+      "bytes": 7981,
+      "role": "source_ast_animal_country_projection",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/samples.py",
+      "sha256": "35db235289c297c2154215af88c790cff68ff15703f19b96a256da0f8610c0fd",
+      "bytes": 6826,
+      "role": "source_ast_sample_models",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/localities.py",
+      "sha256": "7d48769c36ab6797b8d745cde6bddca0ed6230504ffa3cc1e6ef15a819baa271",
+      "bytes": 3729,
+      "role": "source_ast_locality_models",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "reports/science/adna-source-lifecycle/produce.py",
+      "sha256": "68708c54136726bf9364fb0f3e900c6f13d9c757b68cb7f2d10708eb7e2f2811",
+      "bytes": 2537,
+      "role": "source_ast_historical_produce",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "reports/science/adna-source-lifecycle/verify.py",
+      "sha256": "109f7f2b99ef93517c47b029dbaa50aa620ab7a8491e70e97660d1e72f37024d",
+      "bytes": 9561,
+      "role": "source_ast_historical_verify",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/replay.py",
+      "sha256": "c81ae1210332517c004ec9c725598f04fb53542433a25ad6f680058b6999b712",
+      "bytes": 8067,
+      "role": "source_ast_human_partition_replay",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "reports/science/animal-entity-capability/replay.py",
+      "sha256": "e7e057067f384a793fd96bcef8aaf3bb9bb56912be438e94fbf54e6229a094e6",
+      "bytes": 6131,
+      "role": "source_ast_animal_partition_replay",
+      "authority": "reviewed_current_source_only"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/normalization/samples.py",
+      "sha256": "3fa0bf8ca929bdfde2eea4d15bf910f613eef83fc000a12eadc78cdb61f4a2c7",
+      "bytes": 14597,
+      "role": "source_ast_animal_normalization_samples",
+      "authority": "reviewed_current_source_only"
+    }
+  ],
+  "source_contracts": {
+    "record_exports": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py",
+    "animal_payloads": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/tracked_data/payloads.py",
+    "animal_normalized_csv": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/tracked_data/csv_exports/normalized.py",
+    "animal_country_csv": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/publication/csv_exports.py",
+    "animal_country_projection": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/samples.py",
+    "sample_models": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/samples.py",
+    "locality_models": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/localities.py",
+    "historical_produce": "reports/science/adna-source-lifecycle/produce.py",
+    "historical_verify": "reports/science/adna-source-lifecycle/verify.py",
+    "human_partition_replay": "reports/science/aadr-nordic-entities/replay.py",
+    "animal_partition_replay": "reports/science/animal-entity-capability/replay.py",
+    "animal_normalization_samples": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/normalization/samples.py"
+  },
+  "original_input_count": 198,
+  "historical_transport_logical_count": 207,
+  "missing_old_literal_receipt_recovered": false
+}

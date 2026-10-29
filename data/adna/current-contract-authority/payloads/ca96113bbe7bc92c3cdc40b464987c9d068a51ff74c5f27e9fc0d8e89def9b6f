@@ -1,0 +1,32 @@
+{
+  "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+  "plan_sha256": "5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206",
+  "actual_exit": 0,
+  "common_actual_exit": 0,
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/terminal.json",
+    "sha256": "2495da8f5a6ebc80c4275101e134017584cc5e8bf40e7e33fa564cbdd06df634",
+    "bytes": 5698
+  },
+  "actual_native_stage_exits": [
+    0
+  ],
+  "timed_out": false,
+  "error": null,
+  "after_input_error": null,
+  "tracked_byte_checker_exit": null,
+  "tracked_output_admission_passed": false,
+  "independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/independent-source-review.json",
+    "sha256": "7af5b2d87920e74b06fa38718fc230d8f1a0eb858e2cbb1713bc6909858d8f4b",
+    "bytes": 493312
+  },
+  "completed_elapsed_seconds": 25.90792358398903,
+  "completed_child_peak_RSS_bytes_macos": 110264320,
+  "completed_whole_wall_bound_pass": true,
+  "memory_bound_pass": true,
+  "scope": "Saved successful inventory reuse and one corrected independent full identity/population/chronology/provenance observer. Original failed whole and native0/1 remain unchanged; no inventory repeat. Historical normalization/six-stage execution, missing literal receipt and current v2 exporter reproduction remain distinct. No source normalization, private payload recovery, model/R/HTTP, rights/human/biology/LRA admission.",
+  "resource_limits": "Completed-child RSS/logical storage/wall postchecks; no OS quota or aggregate descendant census. The 110-second completed wall check starts at run.main, excludes entry verification/imports, and is measured before final output scan/write. The 130-second alarm starts after profile/plan checks, ends before final receipt processing, and does not bound all entry/postprocessing work. Timeout kills and waits the owned common launcher group; its separate-session descendants remain unconfirmed on timeout.",
+  "scientific_or_publication_admission": false,
+  "inclusive_output_bytes": 4903778
+}

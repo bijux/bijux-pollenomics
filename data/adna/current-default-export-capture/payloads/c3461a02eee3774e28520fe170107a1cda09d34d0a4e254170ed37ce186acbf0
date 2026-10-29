@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+    "--profile",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "--profile-sha256",
+    "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "--mode",
+    "python",
+    "--",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/check_controls.py"
+  ],
+  "actual_exit": 0,
+  "stdout": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/final-guards.stdout",
+    "sha256": "753d729bd6bf5e88652cd5ccbc2490f82ff693e108b093a05a6f1010689ad380",
+    "bytes": 123
+  },
+  "stderr": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/preflight/final-guards.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  }
+}

@@ -1,0 +1,493 @@
+"""Synthetic metadata joins and refusal controls, never actual joint adjudication."""
+
+from __future__ import annotations
+
+from copy import deepcopy
+from functools import partial
+import hashlib
+import importlib.util
+import json
+import os
+from pathlib import Path
+import shutil
+import sys
+from typing import Any
+
+SOURCE = Path(__file__).resolve().parent
+sys.path.insert(0, str(SOURCE))
+from adjudication import (  # noqa: E402
+    ACCEPTANCE,
+    COUNTRIES,
+    LEGACY_FIELDS,
+    LIFECYCLE_CLAUSE,
+    evaluate,
+    exact,
+    identity,
+    joined_legacy_inputs,
+    parse_object,
+    qualify_raw,
+    qualify_saved,
+    read_bound,
+    require,
+)
+
+
+def refuses(call: Any) -> None:
+    try:
+        call()
+    except (ValueError, KeyError, TypeError):
+        return
+    raise AssertionError("Expected metadata refusal")
+
+
+def fixture() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    candidate = "a" * 40
+    refs = {
+        k: {
+            "path": "/artificial/" + k + ".json",
+            "sha256": str(i % 10) * 64,
+            "bytes": i + 1,
+        }
+        for i, k in enumerate(
+            [
+                "raw_plan",
+                "raw_inner",
+                "raw_outer",
+                "raw_producer",
+                "raw_review",
+                "saved_plan",
+                "saved_common",
+                "saved_outer",
+                "saved_review",
+                "requirement_source",
+            ]
+        )
+    }
+    private: list[dict[str, Any]] = []
+    for country in COUNTRIES:
+        stem = country.casefold()
+        private.append(
+            {
+                "path": f"docs/report/countries/{stem}/{stem}_aadr_v66_samples.csv",
+                "sha256": "a" * 64,
+                "bytes": 1,
+            }
+        )
+    pins = [{**r, "path": "/artificial/" + r["path"]} for r in private]
+    stages = [
+        {
+            "id": name,
+            "action": action,
+            "timeout_seconds": 180,
+            "argv": ["exact", action],
+        }
+        for name, action in [
+            ("maintained-sample-producer", "producer"),
+            ("independent-source-sample-observer", "observer"),
+        ]
+    ]
+    raw_plan = {
+        "schema_version": "adna-owned-sample-export-plan.v1",
+        "candidate": candidate,
+        "canonical_identity_at_source_freeze": {"candidate": candidate, "status": ""},
+        "countries": list(COUNTRIES),
+        "private_source_root": "/artificial",
+        "declared_inputs": private,
+        "input_pins": pins,
+        "stages": stages,
+    }
+    inner = {
+        "candidate": candidate,
+        "plan_sha256": refs["raw_plan"]["sha256"],
+        "actual_exit": 0,
+        "exception": None,
+        "after_custody_error": None,
+        "live_canonical_equality_claimed": False,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_whole_wall_bound_pass": True,
+        "stages": [{**r, "actual_exit": 0, "timed_out": False} for r in stages],
+    }
+    outer = {
+        "candidate": candidate,
+        "plan_sha256": refs["raw_plan"]["sha256"],
+        "actual_exit": 0,
+        "inner_terminal": refs["raw_inner"],
+        "child_native_exit": 0,
+        "child_timed_out": False,
+        "registered_plan_unchanged": True,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_outer_wall_bound_pass": True,
+    }
+    producer = {
+        "candidate": candidate,
+        "actual_exit": 0,
+        "runtime_manifest": {
+            "schema_version": "adna-runtime-manifest.v1",
+            "species_manifest": {
+                "species": {
+                    "latin_name": "Homo sapiens",
+                    "modalities": ["metadata_only"],
+                    "source_families": ["AADR"],
+                }
+            },
+            "source_bundles": [
+                {
+                    "source_family": "AADR",
+                    "source_release": "v66",
+                    "dataset_names": ["1240k", "ho"],
+                    "record_modality": "metadata_only",
+                }
+            ],
+        },
+        "maintained_public_calls": [
+            "build_homo_sapiens_runtime_manifest_for_version_dir",
+            "load_species_samples(AdnaSampleQuery(political_entity=country))",
+            "write_samples_csv(default_v2)",
+            "write_samples_geojson(default_v2)",
+        ],
+        "numerical_import_attempts": [],
+        "new_current_source_contract": True,
+        "legacy_v1_inverse_or_historical_reproduction_claimed": False,
+        "rich_native_provenance_recovered_or_genotype_rights_ecology_human_LRA_admitted": False,
+        "countries": [
+            {
+                "country_query": c,
+                "sample_count": 1,
+                "dataset_row_counts": {"artificial": 1},
+                "products": {k: {} for k in ("csv", "geojson", "typed")},
+            }
+            for c in COUNTRIES
+        ],
+    }
+    raw_review = {
+        "candidate": candidate,
+        "actual_exit": 0,
+        "historical_byte_equality_required_or_assumed": False,
+        "old_v1_inverse_or_original_missing_receipt_recovery": False,
+        "genotype_biology_ecology_rights_calibration_or_LRA_acceptance": False,
+        "independent_observer_calls_public_loader_or_exporter": False,
+        "full_typed_metadata_and_both_default_v2_transports_verified": True,
+        "software_interval_hull_does_not_validate_disjoint_scientific_support": True,
+        "disjoint_support_gaps_remain_scientifically_refused": True,
+        "countries": [
+            {
+                "country_query": c,
+                "current_unique_samples": 1,
+                "full_typed_and_v2_CSV_GeoJSON_equal": True,
+                "current_dataset_row_counts": {"artificial": 1},
+                "chronology_refusals": {"not_refused": 1},
+                "legacy_v1_comparison": {"exact_other_fields": True},
+                "duplicate_native_chronology_support_audit": {
+                    "original_supports_preserved": True,
+                    "calibration_or_chronology_scientifically_validated": False,
+                    "counts": {"ids_with_hull_gaps": 1},
+                    "duplicates": [
+                        {
+                            "software_merge_match_is_scientific_chronology_validation": False,
+                            "scientific_support_refusal": "disjoint_native_support_hull",
+                            "open_gaps_introduced_by_hull": [[1, 3]],
+                        }
+                    ],
+                },
+            }
+            for c in COUNTRIES
+        ],
+    }
+    saved_stages = [
+        {
+            "id": "independent-adna-domain-joins",
+            "argv": ["exact", "saved"],
+            "timeout_seconds": 45,
+            "must_succeed": True,
+        }
+    ]
+    saved_plan = {
+        "candidate": candidate,
+        "repository": "/artificial",
+        "requirement_id": "ADNA-001",
+        "literal_clause": LIFECYCLE_CLAUSE,
+        "declared_inputs": {"files": private},
+        "input_pins": pins,
+        "stages": saved_stages,
+    }
+    common = {
+        "candidate": candidate,
+        "plan_sha256": refs["saved_plan"]["sha256"],
+        "actual_exit": 0,
+        "before_pin_mismatches": [],
+        "after_pin_mismatches": [],
+        "absent_input_paths_unchanged": True,
+        "canonical_before": {"candidate": candidate},
+        "canonical_after": {"candidate": candidate},
+        "stages": [{**saved_stages[0], "actual_exit": 0, "timed_out": False}],
+    }
+    saved_outer = {
+        "candidate": candidate,
+        "plan_sha256": refs["saved_plan"]["sha256"],
+        "actual_exit": 0,
+        "common_terminal": refs["saved_common"],
+        "independent_review": refs["saved_review"],
+        "common_actual_exit": 0,
+        "actual_native_stage_exits": [0],
+        "timed_out": False,
+        "error": None,
+        "after_input_error": None,
+        "completed_whole_wall_bound_pass": True,
+        "memory_bound_pass": True,
+        "scientific_or_publication_admission": False,
+    }
+    evidence = {
+        "source_acquisition_reauthenticated": False,
+        "pollen_measurement_field_leakage": False,
+        "pollen_eligibility_promoted": False,
+        "current_v2_human_population_export_executed": False,
+        "rights_human_biology_LRA_or_pollen_event_admission": False,
+        "human": {
+            "source_ids": 5,
+            "published": 4,
+            "coordinate_excluded": 1,
+            "chronology_statuses": {"review_required": 5},
+            "countries": {c: {"published": 1} for c in COUNTRIES},
+        },
+        "animal": {
+            "source_ids": 3,
+            "mapped": 1,
+            "excluded": 2,
+            "nordic": 1,
+            "species_contracts": 1,
+            "blocked_source_taxon_witnesses": [
+                {
+                    "native_sample_id": str(i),
+                    "cross_species_publication_admitted": False,
+                    "wild_domestic_analytical_equivalence_claimed": False,
+                    "taxon_alignment_status": "project_species_mismatch",
+                    "inclusion_status": "sample_context_blocked",
+                }
+                for i in range(4)
+            ],
+        },
+        "compound_source_pointer_joins": [{"exact_catalog_components": ["literal"]}],
+        "country_csvs_checked": 8,
+        "full_saved_animal_bundles_checked": 4,
+        "declared_backlinks": 1,
+        "actually_used_backlinks": 1,
+        "historical_missing_metadata_digest_count": 3,
+    }
+    saved_review = {
+        "candidate": candidate,
+        "actual_exit": 0,
+        "requirement_id": "ADNA-001",
+        "literal_clause": LIFECYCLE_CLAUSE,
+        "saved_product_no_pollen_semantics_leakage": True,
+        "original_whole_actual_exit": 1,
+        "original_native_stage_exits": [0, 1],
+        "source_contracts": {
+            "human_legacy": list(LEGACY_FIELDS),
+            "current_default_schema": "adna-sample-record-export.v2",
+            "owned_current_extensions": ["sample_chronology", "sample_identity"],
+            "current_v2_population_execution_claimed": False,
+        },
+        "complete_saved_scientific_joins": evidence,
+    }
+    for key in (
+        "successful_inventory_repeated",
+        "original_lifecycle_execution_requalified",
+        "missing_old_literal_receipt_recovered",
+        "old_normalization_or_export_producers_repeated",
+        "current_default_v2_population_reproduced",
+        "exact_whole_requirement_adjudicated",
+        "rights_human_biology_LRA_or_ecological_admission",
+    ):
+        saved_review[key] = False
+    docs = {
+        "raw_plan": raw_plan,
+        "raw_inner": inner,
+        "raw_outer": outer,
+        "raw_producer": producer,
+        "raw_review": raw_review,
+        "saved_plan": saved_plan,
+        "saved_common": common,
+        "saved_outer": saved_outer,
+        "saved_review": saved_review,
+    }
+    return docs, refs, {"requirements": [{"id": "ADNA-001", "acceptance": ACCEPTANCE}]}
+
+
+def main() -> None:
+    target = SOURCE / "preflight/artificial-metadata-controls"
+    require(not target.exists(), "Fresh controlled output required")
+    target.mkdir()
+    count = 0
+    try:
+        docs, refs, requirement = fixture()
+        result = evaluate(docs, refs, requirement)
+        assert (
+            result["observed_population_software_no_pollen_semantics_leakage_supported"]
+            is True
+        )
+        assert (
+            result["whole_ADNA_001_closed"] is False
+            and result["saved_population_observation"][
+                "individual_current_v2_population_reproduced"
+            ]
+            is False
+        )
+        assert (
+            result["current_human_execution"]["country_summaries"][0][
+                "duplicate_support_counts"
+            ]["ids_with_hull_gaps"]
+            == 1
+        )
+        count += 1
+        for name, key, value in [
+            ("raw_inner", "actual_exit", True),
+            ("raw_outer", "child_native_exit", 1),
+            ("raw_producer", "numerical_import_attempts", ["engine"]),
+            ("saved_common", "actual_exit", False),
+            ("saved_review", "original_whole_actual_exit", 0),
+            ("saved_review", "current_default_v2_population_reproduced", True),
+            ("saved_review", "exact_whole_requirement_adjudicated", True),
+        ]:
+            changed = deepcopy(docs)
+            changed[name][key] = value
+            refuses(partial(evaluate, changed, refs, requirement))
+            count += 1
+        for field in ("sha256", "bytes"):
+            changed = deepcopy(docs)
+            changed["saved_plan"]["declared_inputs"]["files"][0][field] = (
+                "b" * 64 if field == "sha256" else 2
+            )
+            refuses(
+                partial(
+                    joined_legacy_inputs, changed["raw_plan"], changed["saved_plan"]
+                )
+            )
+            count += 1
+        changed = deepcopy(docs)
+        changed["saved_plan"]["input_pins"][0]["sha256"] = "b" * 64
+        refuses(partial(evaluate, changed, refs, requirement))
+        count += 1
+        changed = deepcopy(docs)
+        changed["raw_plan"]["declared_inputs"].append(
+            deepcopy(changed["raw_plan"]["declared_inputs"][0])
+        )
+        refuses(partial(evaluate, changed, refs, requirement))
+        count += 1
+        changed = deepcopy(docs)
+        changed["raw_inner"]["stages"][0]["argv"] = ["wrong"]
+        refuses(partial(qualify_raw, changed, refs))
+        count += 1
+        changed = deepcopy(docs)
+        changed["saved_common"]["stages"][0]["must_succeed"] = 1
+        refuses(partial(qualify_saved, changed, refs))
+        count += 1
+        for key in ("pollen_measurement_field_leakage", "pollen_eligibility_promoted"):
+            changed = deepcopy(docs)
+            changed["saved_review"]["complete_saved_scientific_joins"][key] = True
+            refuses(partial(evaluate, changed, refs, requirement))
+            count += 1
+        changed = deepcopy(docs)
+        changed["saved_review"]["source_contracts"]["owned_current_extensions"] = [
+            "pollen_count"
+        ]
+        refuses(partial(evaluate, changed, refs, requirement))
+        count += 1
+        changed = deepcopy(docs)
+        changed["saved_review"]["complete_saved_scientific_joins"]["animal"][
+            "blocked_source_taxon_witnesses"
+        ][0]["cross_species_publication_admitted"] = True
+        refuses(partial(evaluate, changed, refs, requirement))
+        count += 1
+        changed = deepcopy(docs)
+        changed["raw_review"]["countries"][0][
+            "duplicate_native_chronology_support_audit"
+        ]["duplicates"][0]["scientific_support_refusal"] = ""
+        refuses(partial(evaluate, changed, refs, requirement))
+        count += 1
+        changed = deepcopy(requirement)
+        changed["requirements"][0]["acceptance"] = "different"
+        refuses(partial(evaluate, docs, refs, changed))
+        count += 1
+        for value in [b'{"a":1,"a":2}', b'{"a":NaN}']:
+            refuses(partial(parse_object, value))
+            count += 1
+        path = target / "metadata.json"
+        path.write_bytes(b'{"strict":true}')
+        row = {
+            "path": str(path),
+            "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "bytes": path.stat().st_size,
+        }
+        assert read_bound(row) == {"strict": True}
+        count += 1
+        path.write_bytes(b'{"strict":false}')
+        refuses(partial(read_bound, row))
+        count += 1
+        alias = target / "alias"
+        alias.symlink_to(path)
+        refuses(partial(read_bound, {**row, "path": str(alias)}))
+        count += 1
+        fifo = target / "fifo"
+        os.mkfifo(fifo)
+        refuses(partial(read_bound, {**row, "path": str(fifo)}))
+        fifo.unlink()
+        count += 1
+        for size in [True, -1]:
+            refuses(partial(identity, {**row, "bytes": size}))
+            count += 1
+        assert exact(0, False) is False
+        count += 1
+        copied = target / "source"
+        copied.mkdir()
+        files = []
+        for source in sorted(SOURCE.glob("*.py")):
+            p = copied / source.name
+            p.write_bytes(source.read_bytes())
+            files.append(
+                {
+                    "path": str(p),
+                    "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
+                    "bytes": p.stat().st_size,
+                }
+            )
+        manifest = copied / "prepared-source-manifest.json"
+        manifest.write_text(json.dumps({"source_only": True, "files": files}))
+        (copied / "independent-source-review.json").write_text(
+            json.dumps(
+                {
+                    "approved": True,
+                    "source_manifest_sha256": hashlib.sha256(
+                        manifest.read_bytes()
+                    ).hexdigest(),
+                }
+            )
+        )
+        spec = importlib.util.spec_from_file_location(
+            "synthetic_callback", copied / "callback.py"
+        )
+        assert spec and spec.loader
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        module.verify(copied)
+        count += 1
+        source = copied / "adjudication.py"
+        source.write_bytes(source.read_bytes() + b"\n")
+        refuses(partial(module.verify, copied))
+        count += 1
+    finally:
+        shutil.rmtree(target)
+    print(
+        json.dumps(
+            {
+                "actual_exit": 0,
+                "synthetic_groups": count,
+                "actual_metadata_callback_native_data_API_or_runtime_executed": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

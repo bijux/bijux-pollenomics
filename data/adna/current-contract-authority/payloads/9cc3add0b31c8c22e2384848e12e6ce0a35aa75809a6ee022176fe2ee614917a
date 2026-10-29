@@ -1,0 +1,14 @@
+{
+  "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/identity.py",
+  "sha256": "072a81c8483b30db6680de3a4f952a5a55c08123a9aa801f8f0d2531845bee8a",
+  "bytes": 11621,
+  "function": "_join_distinct",
+  "source_declared_separator": " || ",
+  "members_trimmed_distinct_in_source_order": true,
+  "public_pointer_metadata_diagnostic": {
+    "compound_path_strings": 31,
+    "missing_catalog_components_after_declared_split": 0
+  },
+  "actual_saved_observer_not_executed_by_author": true,
+  "original_actual_failure_preserved": true
+}

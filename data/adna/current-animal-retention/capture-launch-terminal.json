@@ -1,0 +1,50 @@
+{
+  "schema_version": "animal-current-export-metadata-capture-watchdog.v1",
+  "candidate": "1931cba9dcf60ff0297f8d438c4d2866a19f37b6",
+  "plan_sha256": "02208621bd6c8f71f04adeeb55a04bca96887b81eeb2ffd1acf32eec63ba84bf",
+  "actual_exit": 0,
+  "actual_child_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-current-export-capture-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/plan.json",
+    "--registered-plan-sha256",
+    "02208621bd6c8f71f04adeeb55a04bca96887b81eeb2ffd1acf32eec63ba84bf"
+  ],
+  "actual_child_pid_and_session_group": 89282,
+  "child_native_exit": 0,
+  "child_timed_out": false,
+  "registered_plan_unchanged": true,
+  "inner_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/capture-terminal.json",
+    "sha256": "e8e3ed117da21f07c75a518be1f6a91cd2efc54508291487dd899fa5de9880f4",
+    "bytes": 4846
+  },
+  "stdout": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/launch.stdout",
+    "sha256": "82f3666b820044236f3b75ac85551e5f21e679d21a42a5121519660b794c522b",
+    "bytes": 244
+  },
+  "stderr": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/launch.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "completed_elapsed_from_entry_seconds": 104.38672141602729,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_outer_wall_bound_pass": true,
+  "completed_child_peak_RSS_bytes_macos": 577110016,
+  "logical_output_bytes_before_terminal": 182706304,
+  "own_receipt_reserve_bytes": 16384,
+  "resources": {
+    "overall_timeout_seconds": 420,
+    "outer_timeout_seconds": 480,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 536870912
+  },
+  "watchdog_scope": "Entire delegated owned child, including child entry imports, historical-input/runtime guards, both metadata stages and final scans. Minimal parent entry verification/startup and post-reap receipt accounting consume the measured outer budget but have no independent parent watchdog; no detached/aggregate-descendant cleanup or OS quota claim."
+}

@@ -1,0 +1,9 @@
+{
+  "species": {
+    "slug": "felis_catus",
+    "latin_name": "Felis catus"
+  },
+  "country_query": "Norway",
+  "actual_typed_records": [],
+  "actual_dataset_row_counts": {}
+}

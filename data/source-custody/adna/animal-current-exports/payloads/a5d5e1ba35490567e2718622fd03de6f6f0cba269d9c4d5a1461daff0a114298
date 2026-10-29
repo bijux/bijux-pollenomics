@@ -1,0 +1,414 @@
+{
+  "schema_version": "adna-sample-geojson-collection.v2",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "schema_version": "adna-sample-geojson.v2",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          null,
+          null
+        ]
+      },
+      "properties": {
+        "schema_version": "adna-sample-record-export.v2",
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "source_family": "ENA",
+        "sample_namespace": "sus_scrofa_domesticus:curated_sample",
+        "genetic_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160978",
+        "master_id": "prjeb30282:samea5160978",
+        "group_id": "PRJEB30282",
+        "locality": "Ajvide",
+        "political_entity": "Sweden",
+        "latitude": "",
+        "longitude": "",
+        "publication": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "year_first_published": "2019",
+        "full_date": "",
+        "date_mean_bp": "",
+        "date_stddev_bp": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "coordinate_confidence": "unknown",
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "sus_scrofa_domesticus:project:PRJEB30282"
+        ],
+        "accession_lineage": [
+          "species:Sus scrofa domesticus",
+          "source:ENA",
+          "project:PRJEB30282",
+          "sample:prjeb30282:samea5160978"
+        ],
+        "sample_chronology": {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160978",
+          "chronology": {
+            "original_text": "",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "unresolved",
+            "precision_posture": "unresolved",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB30282",
+          "provenance_path": "",
+          "provenance_locator": "",
+          "provenance_excerpt": "",
+          "provenance_kind": "",
+          "chronology_strength": "unresolved",
+          "normalization_status": "unresolved",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        "sample_identity": {
+          "namespace": "sus_scrofa_domesticus:curated_sample",
+          "stable_token": "sus_scrofa_domesticus:sample:prjeb30282:samea5160978",
+          "accession_lineage": [
+            "species:Sus scrofa domesticus",
+            "source:ENA",
+            "project:PRJEB30282",
+            "sample:prjeb30282:samea5160978"
+          ],
+          "master_id": "prjeb30282:samea5160978",
+          "group_id": "PRJEB30282",
+          "archive_native_sample_id": "SAMEA5160978",
+          "archive_native_experiment_id": "",
+          "paper_native_sample_label": "AA290",
+          "supplementary_table_sample_label": "AA290",
+          "source_native_identity_kind": "biological_sample_accession",
+          "source_native_tax_id": "9823",
+          "source_native_scientific_name": "Sus scrofa",
+          "project_accession": "PRJEB30282",
+          "sample_basis": "archive_project_sample_accession_anchor",
+          "sample_evidence_status": "archive_native",
+          "sample_identity_resolution": "final",
+          "sample_ambiguity_note": "",
+          "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+          "sample_lineage_locator": "sample_accession:SAMEA5160978 || Sheet1!row968",
+          "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA5160978 as Sus scrofa (tax_id 9823). || AA290 | previous_extraction_code=GL453 | mtdna_accession=KR075788 | source=Göran Burenhul/Inger Österholm | museum_or_sample_code=2 | additional_sample_information=- | location=Ajvide | country=Sweden | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2500 cal. BC | source_mean_years_bp=4650 | period=Middle Neolithic | group=EUU-A | zooarch_status=Unknown | combined_status=Unknown | secondary_zooarch_status=Unknown | published=Y | chronology_disposition=refused_context_only_unresolved_age_semantics | domestication_disposition=excluded_domestication_unknown"
+        }
+      }
+    },
+    {
+      "schema_version": "adna-sample-geojson.v2",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          null,
+          null
+        ]
+      },
+      "properties": {
+        "schema_version": "adna-sample-record-export.v2",
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "source_family": "ENA",
+        "sample_namespace": "sus_scrofa_domesticus:curated_sample",
+        "genetic_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160979",
+        "master_id": "prjeb30282:samea5160979",
+        "group_id": "PRJEB30282",
+        "locality": "Ajvide",
+        "political_entity": "Sweden",
+        "latitude": "",
+        "longitude": "",
+        "publication": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "year_first_published": "2019",
+        "full_date": "",
+        "date_mean_bp": "",
+        "date_stddev_bp": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "coordinate_confidence": "unknown",
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "sus_scrofa_domesticus:project:PRJEB30282"
+        ],
+        "accession_lineage": [
+          "species:Sus scrofa domesticus",
+          "source:ENA",
+          "project:PRJEB30282",
+          "sample:prjeb30282:samea5160979"
+        ],
+        "sample_chronology": {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160979",
+          "chronology": {
+            "original_text": "",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "unresolved",
+            "precision_posture": "unresolved",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB30282",
+          "provenance_path": "",
+          "provenance_locator": "",
+          "provenance_excerpt": "",
+          "provenance_kind": "",
+          "chronology_strength": "unresolved",
+          "normalization_status": "unresolved",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        "sample_identity": {
+          "namespace": "sus_scrofa_domesticus:curated_sample",
+          "stable_token": "sus_scrofa_domesticus:sample:prjeb30282:samea5160979",
+          "accession_lineage": [
+            "species:Sus scrofa domesticus",
+            "source:ENA",
+            "project:PRJEB30282",
+            "sample:prjeb30282:samea5160979"
+          ],
+          "master_id": "prjeb30282:samea5160979",
+          "group_id": "PRJEB30282",
+          "archive_native_sample_id": "SAMEA5160979",
+          "archive_native_experiment_id": "",
+          "paper_native_sample_label": "AA291",
+          "supplementary_table_sample_label": "AA291",
+          "source_native_identity_kind": "biological_sample_accession",
+          "source_native_tax_id": "9823",
+          "source_native_scientific_name": "Sus scrofa",
+          "project_accession": "PRJEB30282",
+          "sample_basis": "archive_project_sample_accession_anchor",
+          "sample_evidence_status": "archive_native",
+          "sample_identity_resolution": "final",
+          "sample_ambiguity_note": "",
+          "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+          "sample_lineage_locator": "sample_accession:SAMEA5160979 || Sheet1!row969",
+          "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA5160979 as Sus scrofa (tax_id 9823). || AA291 | previous_extraction_code=GL459 | mtdna_accession=KR075788 | source=Göran Burenhul/Inger Österholm | museum_or_sample_code=6 | additional_sample_information=- | location=Ajvide | country=Sweden | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2500 cal. BC | source_mean_years_bp=4650 | period=Middle Neolithic | group=EUU-A | zooarch_status=Unknown | combined_status=Unknown | secondary_zooarch_status=Unknown | published=Y | chronology_disposition=refused_context_only_unresolved_age_semantics | domestication_disposition=excluded_domestication_unknown"
+        }
+      }
+    },
+    {
+      "schema_version": "adna-sample-geojson.v2",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          null,
+          null
+        ]
+      },
+      "properties": {
+        "schema_version": "adna-sample-record-export.v2",
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "source_family": "ENA",
+        "sample_namespace": "sus_scrofa_domesticus:curated_sample",
+        "genetic_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160980",
+        "master_id": "prjeb30282:samea5160980",
+        "group_id": "PRJEB30282",
+        "locality": "Ajvide",
+        "political_entity": "Sweden",
+        "latitude": "",
+        "longitude": "",
+        "publication": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "year_first_published": "2019",
+        "full_date": "",
+        "date_mean_bp": "",
+        "date_stddev_bp": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "coordinate_confidence": "unknown",
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "sus_scrofa_domesticus:project:PRJEB30282"
+        ],
+        "accession_lineage": [
+          "species:Sus scrofa domesticus",
+          "source:ENA",
+          "project:PRJEB30282",
+          "sample:prjeb30282:samea5160980"
+        ],
+        "sample_chronology": {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160980",
+          "chronology": {
+            "original_text": "",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "unresolved",
+            "precision_posture": "unresolved",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB30282",
+          "provenance_path": "",
+          "provenance_locator": "",
+          "provenance_excerpt": "",
+          "provenance_kind": "",
+          "chronology_strength": "unresolved",
+          "normalization_status": "unresolved",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        "sample_identity": {
+          "namespace": "sus_scrofa_domesticus:curated_sample",
+          "stable_token": "sus_scrofa_domesticus:sample:prjeb30282:samea5160980",
+          "accession_lineage": [
+            "species:Sus scrofa domesticus",
+            "source:ENA",
+            "project:PRJEB30282",
+            "sample:prjeb30282:samea5160980"
+          ],
+          "master_id": "prjeb30282:samea5160980",
+          "group_id": "PRJEB30282",
+          "archive_native_sample_id": "SAMEA5160980",
+          "archive_native_experiment_id": "",
+          "paper_native_sample_label": "AA292",
+          "supplementary_table_sample_label": "AA292",
+          "source_native_identity_kind": "biological_sample_accession",
+          "source_native_tax_id": "9823",
+          "source_native_scientific_name": "Sus scrofa",
+          "project_accession": "PRJEB30282",
+          "sample_basis": "archive_project_sample_accession_anchor",
+          "sample_evidence_status": "archive_native",
+          "sample_identity_resolution": "final",
+          "sample_ambiguity_note": "",
+          "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+          "sample_lineage_locator": "sample_accession:SAMEA5160980 || Sheet1!row970",
+          "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA5160980 as Sus scrofa (tax_id 9823). || AA292 | previous_extraction_code=GL474 | mtdna_accession=KR075788 | source=Göran Burenhul/Inger Österholm | museum_or_sample_code=5 | additional_sample_information=- | location=Ajvide | country=Sweden | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2500 cal. BC | source_mean_years_bp=4650 | period=Middle Neolithic | group=EUU-A | zooarch_status=Unknown | combined_status=Unknown | secondary_zooarch_status=Unknown | published=Y | chronology_disposition=refused_context_only_unresolved_age_semantics | domestication_disposition=excluded_domestication_unknown"
+        }
+      }
+    },
+    {
+      "schema_version": "adna-sample-geojson.v2",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          null,
+          null
+        ]
+      },
+      "properties": {
+        "schema_version": "adna-sample-record-export.v2",
+        "species_latin_name": "Sus scrofa domesticus",
+        "species_common_name": "pig",
+        "source_family": "ENA",
+        "sample_namespace": "sus_scrofa_domesticus:curated_sample",
+        "genetic_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160981",
+        "master_id": "prjeb30282:samea5160981",
+        "group_id": "PRJEB30282",
+        "locality": "Ajvide",
+        "political_entity": "Sweden",
+        "latitude": "",
+        "longitude": "",
+        "publication": "Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe",
+        "year_first_published": "2019",
+        "full_date": "",
+        "date_mean_bp": "",
+        "date_stddev_bp": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_label": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "coordinate_confidence": "unknown",
+        "data_type": "archive_project_context",
+        "molecular_sex": "",
+        "datasets": [
+          "sus_scrofa_domesticus:project:PRJEB30282"
+        ],
+        "accession_lineage": [
+          "species:Sus scrofa domesticus",
+          "source:ENA",
+          "project:PRJEB30282",
+          "sample:prjeb30282:samea5160981"
+        ],
+        "sample_chronology": {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160981",
+          "chronology": {
+            "original_text": "",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "unresolved",
+            "precision_posture": "unresolved",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB30282",
+          "provenance_path": "",
+          "provenance_locator": "",
+          "provenance_excerpt": "",
+          "provenance_kind": "",
+          "chronology_strength": "unresolved",
+          "normalization_status": "unresolved",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        "sample_identity": {
+          "namespace": "sus_scrofa_domesticus:curated_sample",
+          "stable_token": "sus_scrofa_domesticus:sample:prjeb30282:samea5160981",
+          "accession_lineage": [
+            "species:Sus scrofa domesticus",
+            "source:ENA",
+            "project:PRJEB30282",
+            "sample:prjeb30282:samea5160981"
+          ],
+          "master_id": "prjeb30282:samea5160981",
+          "group_id": "PRJEB30282",
+          "archive_native_sample_id": "SAMEA5160981",
+          "archive_native_experiment_id": "",
+          "paper_native_sample_label": "AA293",
+          "supplementary_table_sample_label": "AA293",
+          "source_native_identity_kind": "biological_sample_accession",
+          "source_native_tax_id": "9823",
+          "source_native_scientific_name": "Sus scrofa",
+          "project_accession": "PRJEB30282",
+          "sample_basis": "archive_project_sample_accession_anchor",
+          "sample_evidence_status": "archive_native",
+          "sample_identity_resolution": "final",
+          "sample_ambiguity_note": "",
+          "sample_lineage_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+          "sample_lineage_locator": "sample_accession:SAMEA5160981 || Sheet1!row971",
+          "sample_lineage_excerpt": "ENA archive metadata identifies sample SAMEA5160981 as Sus scrofa (tax_id 9823). || AA293 | previous_extraction_code=GL488 | mtdna_accession=KR075788 | source=Göran Burenhul/Inger Österholm | museum_or_sample_code=4 | additional_sample_information=- | location=Ajvide | country=Sweden | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2500 cal. BC | source_mean_years_bp=4650 | period=Middle Neolithic | group=EUU-A | zooarch_status=Unknown | combined_status=Unknown | secondary_zooarch_status=Unknown | published=Y | chronology_disposition=refused_context_only_unresolved_age_semantics | domestication_disposition=excluded_domestication_unknown"
+        }
+      }
+    }
+  ]
+}

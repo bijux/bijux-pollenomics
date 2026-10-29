@@ -1,0 +1,167 @@
+{
+  "schema_version": "animal-place-source-evidence-prepared-source.v1",
+  "source_only": true,
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/check_controls.py",
+      "sha256": "cc200bf428b6c6f2ecc61d54539196c6802017e5296525508a5372e9fa1c4454",
+      "bytes": 25170
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/check_official_inputs.py",
+      "sha256": "6125157929a21cc518b1a8ff386b130edc844298e24c19564ed2a1a73ef11371",
+      "bytes": 6149
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/check_place_inputs.py",
+      "sha256": "b2f831e2b01c467074a2a1e1143fa69e424748218b7c444f3848a73bc74501d1",
+      "bytes": 5880
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/check_reader_inputs.py",
+      "sha256": "cf39136e659770a749730cd8ea4d21caeb6b09267cef98bc94c560929a5479f6",
+      "bytes": 6741
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/contracts.py",
+      "sha256": "6338bb30d49b4ac4ff482968ce4a28076e1014c3fd01105a39efad3d00546ef1",
+      "bytes": 9003
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/data_inputs.py",
+      "sha256": "3cc3befb9d4bcba34cc6b7bcee5845d1f0e415dfcf8d3e1f01cb2d6c4f075e04",
+      "bytes": 9834
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/declared-inputs.json",
+      "sha256": "724f42f85383e9f35e58a6cdc7d76e59c398eb4cc2927a8ced91dec00f941856",
+      "bytes": 95689
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/entry.py",
+      "sha256": "ab99e4a360981533a12d4ec6e61882f4acb4cca1611e47fcb263a35e0986de92",
+      "bytes": 4989
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/execute.py",
+      "sha256": "e5a0e6dca026f99fbb76e98f34d577ea89362d6dc7c05ca31b5b6bcdcc1377e7",
+      "bytes": 9440
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/generated-source-omission.json",
+      "sha256": "09055e3ce3b1ee6c6475c15d6d45c421cb64cd5360c0d8d00392b22a87787624",
+      "bytes": 1163
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/independent.py",
+      "sha256": "c24b5112a08d92fafbfbe2c6c71fb28e008561ae17b119a10ea01ebede9aef6c",
+      "bytes": 20795
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/inputs/__init__.py",
+      "sha256": "0c80f4083b43866950b122aedf7f444d084d2829d2ecd7068ea15b62f5346e34",
+      "bytes": 49
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/inputs/archive_roles.py",
+      "sha256": "d300b64c95fb30ce43b6c55c180b4b016f8de6668b051c6be04af674a951de81",
+      "bytes": 10090
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/inputs/official_roles.py",
+      "sha256": "ec5ff499df8ad00b16fe5295763bdf61f0e907b6c9ff5227cdf9be8df2ecece3",
+      "bytes": 9263
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/inputs/place_roles.py",
+      "sha256": "0befb3d7d76e7545b69b93a4d22a1a69a3a39446805df768c68e840c217f14f2",
+      "bytes": 6502
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/launch.py",
+      "sha256": "4d6551ea46fcc4ef42de3631d072d45a5ab94db095ba9ec33134e04917a75182",
+      "bytes": 6164
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/observe.py",
+      "sha256": "f62c24c58f212fe1514bf52add92e231e034c6d91a936868fc7127480ca5d6fc",
+      "bytes": 13390
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/official-source-feasibility.json",
+      "sha256": "864fe27a0ef72be2f52ff63aa966449502979d18fdf2c3cfc762da0ed287bf5e",
+      "bytes": 5501
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/predecessor-protocol.json",
+      "sha256": "0b5cdb9b330dd845209a555174aa4c49cbd2c38eb6e9dd63223fb5f331c108ad",
+      "bytes": 16790
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/predecessor-source-manifest.json",
+      "sha256": "115702ed2c779f62b9cc1d4c796b2dccbc3669f92ce719b25bd014c38e86e42d",
+      "bytes": 12177
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/predecessor-source-qualification.json",
+      "sha256": "828805d8e0432fec7a1b6497a695fc5f11fc10b6b79f668a4a7be1a293279b39",
+      "bytes": 3901
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/prepare.py",
+      "sha256": "89b491975b8b89d06db44af4deb5548428d9e9e806e04f05bc42ac9482f8c653",
+      "bytes": 13251
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/protocol.json",
+      "sha256": "337202903755660a1f51ce2bff72c1d23ba893ce7fbbd2624018ee521e168765",
+      "bytes": 19303
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/run.py",
+      "sha256": "0b9e1410348304c360c2e42a700179e4438c0ef9c40e398478abba88329a1b84",
+      "bytes": 7878
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/source-correspondence.json",
+      "sha256": "e30f0cd3229effdf91b133c1169dc6f848871d04e52fb3e8615005ea83668e0b",
+      "bytes": 8004
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/source-qualification.json",
+      "sha256": "fc7b85941ff6c8a7173e664f54ec5432f0c188ec10ad382700eba3543e5a8a4d",
+      "bytes": 12956
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/source_admission.py",
+      "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+      "bytes": 2788
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/source_inputs.py",
+      "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+      "bytes": 6994
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/source_projection.py",
+      "sha256": "8af3dbf5488016af220b2c79c0d39000fd787e062d6cd272877350905a559ef8",
+      "bytes": 6936
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/source_runtime.py",
+      "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+      "bytes": 8062
+    }
+  ],
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-place-source-evidence-custody/source-qualification.json",
+    "sha256": "fc7b85941ff6c8a7173e664f54ec5432f0c188ec10ad382700eba3543e5a8a4d",
+    "bytes": 12956
+  },
+  "actual_preparation_performed": false
+}

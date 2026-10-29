@@ -1,0 +1,79 @@
+{
+  "schema_version": "saved-adna-source-taxon-independent-review.v1",
+  "source_only": true,
+  "approved": true,
+  "source_manifest_sha256": "50e3e807b6f64a29ccfd8f9ff508536738553f5a96f029bcf3adac54785f2e06",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/prepared-source-manifest.json",
+    "sha256": "50e3e807b6f64a29ccfd8f9ff508536738553f5a96f029bcf3adac54785f2e06",
+    "bytes": 9952
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/source-qualification.json",
+    "sha256": "971548a474a07c0203316024bf590fcb0ff23bfcd490bb5a86b517fda7bb7596",
+    "bytes": 6789
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/protocol.json",
+    "sha256": "003ec3c3360a01cad862fbe3751c5a88eb947cf68b12a3e78ee927b34348cf31",
+    "bytes": 5653
+  },
+  "correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/source-correspondence.json",
+    "sha256": "5906f80ea8dfeaaa1e42b871809374a008ff8969c45cb59d3eba4badc409cb39",
+    "bytes": 10182
+  },
+  "source_taxon_policy": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/source-taxon-policy.json",
+    "sha256": "d9f6338145371e3919a9989787f357b70c960d4959edb800e93b48e9789a55d2",
+    "bytes": 1871
+  },
+  "public_metadata_diagnostic": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/public-taxon-diagnostic.json",
+    "sha256": "f958d9e7a65b97cb06f2b6850221a7ffb93363e3576e17cd236b6588d07f7f6b",
+    "bytes": 9286
+  },
+  "predecessor_root_approval": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-provenance-component-custody/independent-source-review.json",
+    "sha256": "61dc8e81a1d05782014a474649f6a1adcd596eddfe29ba7852e61ab4c3b034a9",
+    "bytes": 2016
+  },
+  "authenticated_held_rows": 39,
+  "Python_core_AST_count": 12,
+  "unchanged_custody_modules": 9,
+  "original_selected_declared_inputs_byte_exact": true,
+  "independent_artificial_checks": 76,
+  "independent_checker": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-independent-review/check_taxon_delta.py",
+    "sha256": "a66cd0ee12a5389f96e5a76836b0f5a3ed562b8bb6f62d983e590501499d8b91",
+    "bytes": 7415
+  },
+  "independent_stdout": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-independent-review/controls.stdout",
+    "sha256": "660828833b5ce9a34450b7a76542f34cb074f754b73ec4be5da091c92b96926b",
+    "bytes": 254
+  },
+  "independent_stderr": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-independent-review/controls.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  "complete_final39schema_entry_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/preflight/final-manifest-entry-review.json",
+    "sha256": "8f49deeb1e74e8903b0ddccfe247f538143e0e002b013cf657a15310222667d0",
+    "bytes": 1130
+  },
+  "source_delta_review": "All12 source/correspondence rows authenticated; nine custody/retention/entry/runtime modules byte-identical bca2; prepare differs solely schema/id literals. Every stated unchanged semantic/helper function body independently AST-compared. Full animal_identity and audit wiring read; exact ordered native identity/project/group/source lineage retained, complete four-exception witness population required.",
+  "source_authority_review": "Four original maintained policy code pins rehashed and source normalizer master/group/namespace/token/ordered-lineage contract inspected; registry project_species_mismatch preserves sample_context_blocked. Obishir literal alias identifies SAMEA8022722 Capra hircus; Galician original pinned code species/taxon policy joins governed public crosswalk SHA34f389 with exactly SAMN18106827/28/29 Bos primigenius. The diagnostic metadata input identities match original declared pins; no actual normalized population/private body was read by reviewer.",
+  "precise_taxon_scope": "Only three exact PRJNA705960 Bos primigenius/9909 identities under bos_taurus and one exact PRJEB41594 SAMEA8022722 Capra hircus/9925 under ovis_aries. Native scientific name, string taxon ID, biological_sample_accession, mismatch and blocked status all strict. Unknown identity/taxon/namespace/token/project/ordered-lineage, boolean/numeric taxon IDs and unblocking refuse. Witness explicitly denies cross-species publication and wild/domestic analytical equivalence.",
+  "preserved_history": "Original successful inventory217d84 is reused without rerun. Original native[0,1]/whole1 and subsequent bca2/65864 observer1/whole1 remain literal and are not replacement scientific authority. New one-observer outcome remains future; whole ADNA/current-v2 population/rights/human/biology/ecology/pollen/LRA acceptance is not inferred.",
+  "checks_observed": {
+    "controlled_groups_47": 0,
+    "strict_12": 0,
+    "configured_Ruff_12": 0,
+    "configured_format_12": 0,
+    "AST_12": 0
+  },
+  "resource_scope": "Unchanged one45second observer/110completed/130alarm/1GiB128MiB with inherited and explicitly disclosed entry/profile/final-write and detached-descendant limits.",
+  "actual_observer_private_data_runtime_census_preparer_native_Git_STATE_calls": false
+}

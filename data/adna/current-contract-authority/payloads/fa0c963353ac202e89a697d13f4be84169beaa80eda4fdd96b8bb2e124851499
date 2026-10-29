@@ -1,0 +1,6 @@
+artifacts/science/adna-source-taxon-custody/check_contracts.py:872: error:
+Argument 1 to "literal_eval" has incompatible type "expr | None"; expected
+"str | AST"  [arg-type]
+            return ast.literal_eval(node.value)
+                                    ^~~~~~~~~~
+Found 1 error in 1 file (checked 12 source files)

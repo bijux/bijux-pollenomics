@@ -1,0 +1,189 @@
+"""Freeze a clean candidate and reviewed saved-contract observer without launching it."""
+
+from __future__ import annotations
+
+import argparse
+from copy import deepcopy
+from pathlib import Path
+import shutil
+from typing import Any
+
+from contracts import (
+    BASE,
+    GIT,
+    ROOT,
+    SOURCE,
+    confined_output,
+    dump,
+    exact,
+    identity,
+    load,
+    pin,
+    require,
+    sha,
+    union,
+    verify_plan,
+    verify_rows,
+)
+from retained import ORIGINAL, authenticate
+from runtime import profile_guard
+
+PAYLOAD_ROLES = [
+    "normalized_json",
+    "normalized_csv",
+    "human_country_csv",
+    "human_country_summary",
+    "animal_country_csv",
+    "animal_country_bundle",
+    "human_partition_report",
+    "human_decisions",
+    "animal_partition_report",
+    "animal_mapped",
+    "animal_excluded",
+    "animal_foundation",
+    "human_accountability",
+]
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--review-sha256", required=True)
+    args = parser.parse_args()
+    profile_guard()
+    before = identity()
+    require(
+        before["candidate"] == args.candidate and before["status"] == "",
+        "Exact clean current main required",
+    )
+    output = confined_output(args.output, absent=True)
+    manifest, peer = (
+        SOURCE / "prepared-source-manifest.json",
+        SOURCE / "independent-source-review.json",
+    )
+    require(sha(peer) == args.review_sha256, "Independent peer digest differs")
+    require(
+        load(peer)["approved"] is True
+        and load(peer)["source_manifest_sha256"] == sha(manifest),
+        "Held independent source peer required",
+    )
+    held = load(manifest)["files"]
+    verify_rows(held)
+    declared = load(SOURCE / "declared-inputs.json")
+    expected = [
+        {
+            "path": str(ROOT / row["path"]),
+            "sha256": row["sha256"],
+            "bytes": row["bytes"],
+        }
+        for row in declared["files"]
+    ]
+    verify_rows(expected)
+    initial = union(held, expected, [pin(manifest), pin(peer), pin(GIT)])
+    retained, original_rows = authenticate()
+    require(
+        retained["candidate"] == args.candidate,
+        "Exact original candidate must remain unchanged for saved observation",
+    )
+    original_plan = load(ORIGINAL / "plan.json")
+    namespaces = deepcopy(original_plan["first_party_namespaces"])
+    runtime = deepcopy(original_plan["runtime_profile"])
+    frozen = union(initial, original_rows)
+    verify_rows(initial)
+    plan_path = output / "plan.json"
+    plan: dict[str, Any] = {
+        "schema_version": "adna-saved-source-taxon-observation-plan.v1",
+        "id": "adna-source-taxon-observation-"
+        + args.candidate[:12]
+        + "-"
+        + sha(manifest)[:12],
+        "candidate": args.candidate,
+        "repository": str(ROOT),
+        "canonical_identity": before,
+        "output": str(output),
+        "requirement_id": "ADNA-001",
+        "retained_observation_authority": retained,
+        "literal_clause": "Actual human and animal source-to-country metadata lifecycle has no pollen semantics leakage.",
+        "declared_inputs": declared,
+        "payload_roles": PAYLOAD_ROLES,
+        "input_pins": frozen,
+        "absent_input_paths": [runtime["absent_stdlib_zip"]],
+        "runtime_profile": runtime,
+        "first_party_namespaces": namespaces,
+        "common_runner": str(SOURCE / "common_runner.py"),
+        "resources": {
+            "overall_timeout_seconds": 110,
+            "outer_timeout_seconds": 130,
+            "declared_memory_bytes": 1024**3,
+            "declared_storage_bytes": 128 * 1024**2,
+        },
+        "environment": {
+            "PATH": str(GIT.parent) + ":/usr/bin:/bin",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "TMPDIR": str(output / "scratch"),
+            "XDG_CACHE_HOME": str(output / "cache"),
+        },
+        "scope": "Saved successful inventory reuse and one corrected independent full identity/population/chronology/provenance observer. Original failed whole and native0/1 remain unchanged; no inventory repeat. Historical normalization/six-stage execution, missing literal receipt and current v2 exporter reproduction remain distinct. No source normalization, private payload recovery, model/R/HTTP, rights/human/biology/LRA admission.",
+    }
+    plan["stages"] = [
+        {
+            "id": role,
+            "argv": [
+                str(BASE),
+                "-I",
+                "-S",
+                "-B",
+                str(SOURCE / "entry.py"),
+                action,
+                "--plan",
+                str(plan_path),
+            ],
+            "timeout_seconds": 45,
+            "must_succeed": True,
+        }
+        for role, action in (("independent-adna-domain-joins", "observe"),)
+    ]
+    plan["actual_launch_argv"] = [
+        str(BASE),
+        "-I",
+        "-S",
+        "-B",
+        str(SOURCE / "entry.py"),
+        "run",
+        "--plan",
+        str(plan_path),
+        "--registered-plan-sha256",
+        "PLAN_SHA256",
+    ]
+    verify_plan(plan)
+    parent = output.parent
+    while not parent.exists():
+        parent = parent.parent
+    require(
+        shutil.disk_usage(parent).free >= 1024**3,
+        "Physical free-space reserve required",
+    )
+    verify_rows(frozen)
+    require(exact(identity(), before), "Clean candidate changed before writes")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    confined_output(output, absent=True).mkdir()
+    for name in ("scratch", "cache"):
+        (output / name).mkdir()
+    dump(plan_path, plan)
+    dump(
+        output / "preparation.json",
+        {
+            "actual_exit": 0,
+            "plan": pin(plan_path),
+            "candidate": args.candidate,
+            "protected_inputs": len(frozen),
+            "saved_public_inputs": len(expected),
+            "target_consumers_launched": 0,
+        },
+    )
+    print(plan_path)
+
+
+if __name__ == "__main__":
+    main()

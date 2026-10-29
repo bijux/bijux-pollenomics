@@ -1,0 +1,1 @@
+{"actual_exit":1,"source_checks_completed_groups":47,"full_source_profile_pass":false,"reason":"The controlled driver was under preflight while sibling source imports are permitted only under the executed driver directory. Direct check_contracts.py invocation is the correct source-profile scope; no profile change was made.","target_data_consumer_executed":false}

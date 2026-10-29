@@ -1,0 +1,109 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+  "plan_sha256": "5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 14.092119249980897,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/plan.json",
+    "--registered-plan-sha256",
+    "5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206"
+  ],
+  "canonical_before": {
+    "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+    "status": "",
+    "tracked_inventory_sha256": "e8b342baaf623428b5037c4445c2affbf0d2b5c9f11f316771b8fe9c6e37ee1d"
+  },
+  "canonical_after": {
+    "candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+    "status": "",
+    "tracked_inventory_sha256": "e8b342baaf623428b5037c4445c2affbf0d2b5c9f11f316771b8fe9c6e37ee1d"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "independent-adna-domain-joins",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-source-taxon-custody/entry.py",
+        "observe",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 13.083198708016425,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/independent-adna-domain-joins.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/independent-adna-domain-joins.stderr",
+      "stdout_sha256": "93eac77f3d3753de3508f2b2fa7ad027b5774c7dce8d0225e737702552a1303b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 110264320
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/independent-adna-domain-joins.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/independent-adna-domain-joins.stdout",
+      "sha256": "93eac77f3d3753de3508f2b2fa7ad027b5774c7dce8d0225e737702552a1303b",
+      "bytes": 124
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/independent-source-review.json",
+      "sha256": "7af5b2d87920e74b06fa38718fc230d8f1a0eb858e2cbb1713bc6909858d8f4b",
+      "bytes": 493312
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/launch.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/launch.stdout",
+      "sha256": "9a1491e0cabac2ddbff44785f7d42ab38c714364aae199fd28d10f98d4843a5f",
+      "bytes": 156
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/plan.json",
+      "sha256": "5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206",
+      "bytes": 4400576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/preparation.json",
+      "sha256": "3a9121d3b1a87a9ed9bf82c0cf54185dc99e50a639581924c9beaf1e6c0c4b3c",
+      "bytes": 412
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/stage-progress.json",
+      "sha256": "de2d391a51e3849ca69c2686c3af351a0dd8b1b316f322be12ae981c994e581e",
+      "bytes": 1150
+    }
+  ],
+  "output_bytes": 4895730,
+  "resources": {
+    "overall_timeout_seconds": 110,
+    "outer_timeout_seconds": 130,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "Saved successful inventory reuse and one corrected independent full identity/population/chronology/provenance observer. Original failed whole and native0/1 remain unchanged; no inventory repeat. Historical normalization/six-stage execution, missing literal receipt and current v2 exporter reproduction remain distinct. No source normalization, private payload recovery, model/R/HTTP, rights/human/biology/LRA admission.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

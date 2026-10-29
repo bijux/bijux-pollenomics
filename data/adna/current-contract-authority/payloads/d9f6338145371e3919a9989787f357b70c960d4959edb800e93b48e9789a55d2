@@ -1,0 +1,49 @@
+{
+  "schema_version": "adna-source-taxon-policy.v1",
+  "source_only": true,
+  "authority": "Exact maintained source already in original successful inventory input pins; no private raw taxonomy reparsed",
+  "original_policy_pins": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/normalization/samples.py",
+      "sha256": "3fa0bf8ca929bdfde2eea4d15bf910f613eef83fc000a12eadc78cdb61f4a2c7",
+      "bytes": 14597
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/registry/samples.py",
+      "sha256": "8c3d6d3575cbd627c5974b254a834fca35aeb774dfc1dd82ed4d145b5d33d380",
+      "bytes": 22265
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/obishir_sheep.py",
+      "sha256": "9bfc9369d2f9bcfbf52c3a3600caf1e1a758e4721362ece489474491706a762c",
+      "bytes": 7199
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/galician_cattle/species.py",
+      "sha256": "9e951ba34d1ec8a34318a2ba1361e08e6b9b015bb0bc3a1b50528fb84863b0e6",
+      "bytes": 13777
+    }
+  ],
+  "exceptions": {
+    "bos_taurus": {
+      "project": "PRJNA705960",
+      "sample_accessions": [
+        "SAMN18106827",
+        "SAMN18106828",
+        "SAMN18106829"
+      ],
+      "source_taxon": "Bos primigenius",
+      "source_native_tax_id": "9909"
+    },
+    "ovis_aries": {
+      "project": "PRJEB41594",
+      "sample_accessions": [
+        "SAMEA8022722"
+      ],
+      "source_taxon": "Capra hircus",
+      "source_native_tax_id": "9925"
+    }
+  },
+  "blocked_publication_preserved": true,
+  "actual_full_saved_consumer_not_executed_by_author": true
+}

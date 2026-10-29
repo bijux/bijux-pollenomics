@@ -1,0 +1,32 @@
+{
+  "schema_version": "adna-joint-metadata-independent-source-review.v1",
+  "source_only": true,
+  "approved": true,
+  "source_manifest_sha256": "a710cd0f6fc1778c53dd361b3ed55856af9c5f186d5d5d0e918b464bd4a7d7b3",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/prepared-source-manifest.json",
+    "sha256": "a710cd0f6fc1778c53dd361b3ed55856af9c5f186d5d5d0e918b464bd4a7d7b3",
+    "bytes": 5704
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/source-qualification.json",
+    "sha256": "43e960d74e5ad02bd47edbd3690028605a95d52bcc6b7aa3e48408b8edeac496",
+    "bytes": 3283
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-current-contract-adjudication-custody/protocol.json",
+    "sha256": "7e5846baf2ec7345576a951cbed943c129f62be10d38463a26bc1fae00dcc59f",
+    "bytes": 3725
+  },
+  "authenticated_members": 21,
+  "all_member_Python_AST": 5,
+  "complete_final_manifest_source_admission": true,
+  "source_namespace_negative_controls": [
+    "unknown.py",
+    "unknown.so",
+    "changed declared helper"
+  ],
+  "review": "Reviewed callback admission and full metadata adjudication predicates. Closed ten fixed references and source/history/catalogue references use same-buffer hash/size authentication; native producer, independent observer and whole receipts remain separate. Exact four CSV identities and native source approval joins required; original failed whole1 preserved. Current animal production, scientific chronology, rights and whole ADNA-001 remain explicitly unasserted. No captured source code imports, private bodies, data API, runtime census or native producer performed.",
+  "actual_metadata_callback_executed": false,
+  "source_profile_qualification_claimed_for_this_manual_review": false
+}

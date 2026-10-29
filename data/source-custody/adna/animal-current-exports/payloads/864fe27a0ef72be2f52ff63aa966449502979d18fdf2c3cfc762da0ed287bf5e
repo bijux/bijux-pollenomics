@@ -1,0 +1,112 @@
+{
+  "source_only": true,
+  "private_XML_payloads_read_hashed_or_decoded": false,
+  "receipt_metadata_and_public_source_read": true,
+  "current_only_roles": [
+    {
+      "sample_accession": "SAMEA112960292",
+      "source_role": "current_adapter_required_official_XML",
+      "original_catalog_protection_claimed": false,
+      "payload": {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml",
+        "sha256": "3cd07af2619bc3b9d3138df9b4dd5b9ec0fa8b17af40ffd08d233ed7d352f75e",
+        "bytes": 2691
+      },
+      "receipt": {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml.metadata.json",
+        "sha256": "90545959e08cb822ed101c484733a23a0f64a9658b321efb00505843b202a1a1",
+        "bytes": 1325
+      },
+      "receipt_identity": {
+        "schema_version": "adna-source-library.v1",
+        "source_url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960292",
+        "artifact_kind": "ena_sample_xml",
+        "content_type": "application/xml",
+        "byte_size": 2691,
+        "project_accession": "PRJEB59481",
+        "sample_accession": "SAMEA112960292",
+        "content_sha256": "3cd07af2619bc3b9d3138df9b4dd5b9ec0fa8b17af40ffd08d233ed7d352f75e",
+        "storage_byte_size": 2691,
+        "storage_sha256": "3cd07af2619bc3b9d3138df9b4dd5b9ec0fa8b17af40ffd08d233ed7d352f75e",
+        "storage_path": "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml",
+        "content_encoding": null,
+        "license_name": "EMBL-EBI Terms of Use",
+        "license_url": "https://www.ebi.ac.uk/about/terms-of-use/"
+      }
+    },
+    {
+      "sample_accession": "SAMEA112960294",
+      "source_role": "current_adapter_required_official_XML",
+      "original_catalog_protection_claimed": false,
+      "payload": {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml",
+        "sha256": "836c361cd08ed15a93aa230b9317150547f34abc0da72821f49bad83a0e76b30",
+        "bytes": 2694
+      },
+      "receipt": {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml.metadata.json",
+        "sha256": "d1f3a97618676c25af815ed5a7308cea441fc8c0b28ab619c0dac98086c6a5ea",
+        "bytes": 1325
+      },
+      "receipt_identity": {
+        "schema_version": "adna-source-library.v1",
+        "source_url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960294",
+        "artifact_kind": "ena_sample_xml",
+        "content_type": "application/xml",
+        "byte_size": 2694,
+        "project_accession": "PRJEB59481",
+        "sample_accession": "SAMEA112960294",
+        "content_sha256": "836c361cd08ed15a93aa230b9317150547f34abc0da72821f49bad83a0e76b30",
+        "storage_byte_size": 2694,
+        "storage_sha256": "836c361cd08ed15a93aa230b9317150547f34abc0da72821f49bad83a0e76b30",
+        "storage_path": "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml",
+        "content_encoding": null,
+        "license_name": "EMBL-EBI Terms of Use",
+        "license_url": "https://www.ebi.ac.uk/about/terms-of-use/"
+      }
+    },
+    {
+      "sample_accession": "SAMEA112960295",
+      "source_role": "current_adapter_required_official_XML",
+      "original_catalog_protection_claimed": false,
+      "payload": {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml",
+        "sha256": "f9c399aa80f11cafe9db80c8949a4fd2a0ff898afb55e1824a11a06af0362686",
+        "bytes": 2694
+      },
+      "receipt": {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml.metadata.json",
+        "sha256": "d6aab6528e8cf8900ca26ed10abbcac93041f5da441f92e5e9609354dfdd59bc",
+        "bytes": 1325
+      },
+      "receipt_identity": {
+        "schema_version": "adna-source-library.v1",
+        "source_url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960295",
+        "artifact_kind": "ena_sample_xml",
+        "content_type": "application/xml",
+        "byte_size": 2694,
+        "project_accession": "PRJEB59481",
+        "sample_accession": "SAMEA112960295",
+        "content_sha256": "f9c399aa80f11cafe9db80c8949a4fd2a0ff898afb55e1824a11a06af0362686",
+        "storage_byte_size": 2694,
+        "storage_sha256": "f9c399aa80f11cafe9db80c8949a4fd2a0ff898afb55e1824a11a06af0362686",
+        "storage_path": "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml",
+        "content_encoding": null,
+        "license_name": "EMBL-EBI Terms of Use",
+        "license_url": "https://www.ebi.ac.uk/about/terms-of-use/"
+      }
+    }
+  ],
+  "dependency_source_contract": {
+    "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/baltic_sheep/source_parsing.py",
+    "sha256": "61a440fe166db5438bec5fa4964a629c746ec2ebb5e4786e7eab36e48a1d2967",
+    "bytes": 17913
+  },
+  "original2_XML_preserved": [
+    "SAMEA112960291",
+    "SAMEA112960293"
+  ],
+  "all5_XML_dependency_derived_by_AST_before_freeze": true,
+  "article_and_all_adjacent_receipt_paths_required": true,
+  "fresh_full_consumer_required": "Global projected source-index dependency changed; prior producer0/observer1 and150 derived products stay literal. New preparation+separate root native execution must reconstruct all10 species/all50 queries/default150products with unchanged independent predicates."
+}

@@ -1,0 +1,210 @@
+{
+  "schema_version": "adna-sample-geojson-collection.v2",
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "schema_version": "adna-sample-geojson.v2",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.74481,
+          56.41134
+        ]
+      },
+      "properties": {
+        "schema_version": "adna-sample-record-export.v2",
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "source_family": "ENA",
+        "sample_namespace": "equus_caballus:curated_sample",
+        "genetic_id": "equus_caballus:sample:prjeb44430:samea9533224",
+        "master_id": "prjeb44430:samea9533224",
+        "group_id": "PRJEB44430",
+        "locality": "Ginnerup",
+        "political_entity": "Denmark",
+        "latitude": "56.41134",
+        "longitude": "10.74481",
+        "publication": "The origins and spread of domestic horses from the Western Eurasian steppes",
+        "year_first_published": "2021",
+        "full_date": "4961 BP",
+        "date_mean_bp": "4961",
+        "date_stddev_bp": "",
+        "time_start_bp": 4961,
+        "time_end_bp": 4961,
+        "time_mean_bp": 4961,
+        "time_label": "4961 BP",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "coordinate_confidence": "exact",
+        "data_type": "supplementary_table_sample_context",
+        "molecular_sex": "",
+        "datasets": [
+          "equus_caballus:project:PRJEB44430"
+        ],
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB44430",
+          "sample:prjeb44430:samea9533224"
+        ],
+        "sample_chronology": {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "equus_caballus:sample:prjeb44430:samea9533224",
+          "chronology": {
+            "original_text": "4961 BP",
+            "time_start_bp": 4961,
+            "time_end_bp": 4961,
+            "time_mean_bp": 4961,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "direct_radiocarbon_date",
+            "precision_posture": "sample_precise_point",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB44430",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row252",
+          "provenance_excerpt": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858",
+          "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_interval",
+          "normalization_status": "normalized_point",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        "sample_identity": {
+          "namespace": "equus_caballus:curated_sample",
+          "stable_token": "equus_caballus:sample:prjeb44430:samea9533224",
+          "accession_lineage": [
+            "species:Equus caballus",
+            "source:ENA",
+            "project:PRJEB44430",
+            "sample:prjeb44430:samea9533224"
+          ],
+          "master_id": "prjeb44430:samea9533224",
+          "group_id": "PRJEB44430",
+          "archive_native_sample_id": "SAMEA9533224",
+          "archive_native_experiment_id": "",
+          "paper_native_sample_label": "DJM130x6_Dan_m3011",
+          "supplementary_table_sample_label": "DJM130x6_Dan_m3011",
+          "source_native_identity_kind": "biological_sample",
+          "source_native_tax_id": "",
+          "source_native_scientific_name": "",
+          "project_accession": "PRJEB44430",
+          "sample_basis": "supplementary_table_sample_label_anchor",
+          "sample_evidence_status": "direct_table_extracted",
+          "sample_identity_resolution": "final",
+          "sample_ambiguity_note": "",
+          "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "sample_lineage_locator": "SI Table 1!row252",
+          "sample_lineage_excerpt": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858"
+        }
+      }
+    },
+    {
+      "schema_version": "adna-sample-geojson.v2",
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.74481,
+          56.41134
+        ]
+      },
+      "properties": {
+        "schema_version": "adna-sample-record-export.v2",
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "source_family": "ENA",
+        "sample_namespace": "equus_caballus:curated_sample",
+        "genetic_id": "equus_caballus:sample:prjeb44430:samea9533225",
+        "master_id": "prjeb44430:samea9533225",
+        "group_id": "PRJEB44430",
+        "locality": "Ginnerup",
+        "political_entity": "Denmark",
+        "latitude": "56.41134",
+        "longitude": "10.74481",
+        "publication": "The origins and spread of domestic horses from the Western Eurasian steppes",
+        "year_first_published": "2021",
+        "full_date": "4944 BP",
+        "date_mean_bp": "4944",
+        "date_stddev_bp": "",
+        "time_start_bp": 4944,
+        "time_end_bp": 4944,
+        "time_mean_bp": 4944,
+        "time_label": "4944 BP",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "coordinate_confidence": "exact",
+        "data_type": "supplementary_table_sample_context",
+        "molecular_sex": "",
+        "datasets": [
+          "equus_caballus:project:PRJEB44430"
+        ],
+        "accession_lineage": [
+          "species:Equus caballus",
+          "source:ENA",
+          "project:PRJEB44430",
+          "sample:prjeb44430:samea9533225"
+        ],
+        "sample_chronology": {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "equus_caballus:sample:prjeb44430:samea9533225",
+          "chronology": {
+            "original_text": "4944 BP",
+            "time_start_bp": 4944,
+            "time_end_bp": 4944,
+            "time_mean_bp": 4944,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "direct_radiocarbon_date",
+            "precision_posture": "sample_precise_point",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB44430",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row253",
+          "provenance_excerpt": "DJM613x1_Dan_m2994 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224903 | 4370 | 20 | -3076 | -2912 | 2994 | 4944 | F | this study | 1 | 3 | 3 | 168066670 | 34531226 | 202597896 | - | - | - | 49.5824445776",
+          "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_interval",
+          "normalization_status": "normalized_point",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        "sample_identity": {
+          "namespace": "equus_caballus:curated_sample",
+          "stable_token": "equus_caballus:sample:prjeb44430:samea9533225",
+          "accession_lineage": [
+            "species:Equus caballus",
+            "source:ENA",
+            "project:PRJEB44430",
+            "sample:prjeb44430:samea9533225"
+          ],
+          "master_id": "prjeb44430:samea9533225",
+          "group_id": "PRJEB44430",
+          "archive_native_sample_id": "SAMEA9533225",
+          "archive_native_experiment_id": "",
+          "paper_native_sample_label": "DJM613x1_Dan_m2994",
+          "supplementary_table_sample_label": "DJM613x1_Dan_m2994",
+          "source_native_identity_kind": "biological_sample",
+          "source_native_tax_id": "",
+          "source_native_scientific_name": "",
+          "project_accession": "PRJEB44430",
+          "sample_basis": "supplementary_table_sample_label_anchor",
+          "sample_evidence_status": "direct_table_extracted",
+          "sample_identity_resolution": "final",
+          "sample_ambiguity_note": "",
+          "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "sample_lineage_locator": "SI Table 1!row253",
+          "sample_lineage_excerpt": "DJM613x1_Dan_m2994 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224903 | 4370 | 20 | -3076 | -2912 | 2994 | 4944 | F | this study | 1 | 3 | 3 | 168066670 | 34531226 | 202597896 | - | - | - | 49.5824445776"
+        }
+      }
+    }
+  ]
+}

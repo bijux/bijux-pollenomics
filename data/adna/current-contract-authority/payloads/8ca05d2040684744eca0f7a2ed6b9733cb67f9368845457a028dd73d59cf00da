@@ -1,0 +1,57 @@
+{
+  "source_only": true,
+  "requirement_id": "ADNA-001",
+  "references": {
+    "raw_plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/plan.json",
+      "sha256": "86618be564ff435074e2518a383e0bd1066e9e479bf397296edf6bd8d944d7bc",
+      "bytes": 17565491
+    },
+    "raw_inner": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/sample-export-terminal.json",
+      "sha256": "f192be987b25853d5bb1b01f3e1e5d64c17fc5b125731cc0fa268ab8ae28addb",
+      "bytes": 4633
+    },
+    "raw_outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/sample-launch-terminal.json",
+      "sha256": "1969869cb35352b29c4fee0ec4f59e4b4e5978eb1e4a92cf0363afda11a4cf34",
+      "bytes": 2488
+    },
+    "raw_producer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/maintained-producer-execution.json",
+      "sha256": "65294a69569d915f85faf2636c94c60ba9b9dbebff95abc1d24b09e7c36a7264",
+      "bytes": 407672
+    },
+    "raw_review": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-aadr-default-sample-export/independent-current-export-review.json",
+      "sha256": "6684c2d52139badb99a1c792d1a04b22cd6c0c41eaabc70d7ec9d96451433d65",
+      "bytes": 2375755
+    },
+    "saved_plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/plan.json",
+      "sha256": "5a5ec33b00b76889a2e088dc1fae68a90c07c67f8b5f3fb67193d04a84179206",
+      "bytes": 4400576
+    },
+    "saved_common": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/terminal.json",
+      "sha256": "2495da8f5a6ebc80c4275101e134017584cc5e8bf40e7e33fa564cbdd06df634",
+      "bytes": 5698
+    },
+    "saved_outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/adna-domain-terminal.json",
+      "sha256": "ca96113bbe7bc92c3cdc40b464987c9d068a51ff74c5f27e9fc0d8e89def9b6f",
+      "bytes": 2129
+    },
+    "saved_review": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-adna-source-taxon-observation/independent-source-review.json",
+      "sha256": "7af5b2d87920e74b06fa38718fc230d8f1a0eb858e2cbb1713bc6909858d8f4b",
+      "bytes": 493312
+    },
+    "requirement_source": {
+      "path": "/Users/bijan/bijux/zz-bijux-pollenomics-backlogs-v8/meta-backlogs/pollenomics/backlog/requirements.json",
+      "sha256": "a3c9ad628b730c344f0cf164691f3ba3548862bea6f1167bae9e63b7c18750be",
+      "bytes": 832844
+    }
+  },
+  "payloads_or_private_bodies_read": false
+}
