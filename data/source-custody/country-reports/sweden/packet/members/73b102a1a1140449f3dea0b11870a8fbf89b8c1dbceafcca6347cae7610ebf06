@@ -1,0 +1,35 @@
+{
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/independent-country-review.json",
+      "sha256": "089f8e16600f5cdbb25c7a28b46be53d5818e5aa25f25093f6c8f94576f61b71",
+      "bytes": 791796
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/independent-saved-country-semantic-clock-observer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/independent-saved-country-semantic-clock-observer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/plan.json",
+      "sha256": "6d35aea58a250e0dc62690de47807f626d5c3ab1681c8b73e1830b266e014451",
+      "bytes": 18679070
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/retained-country-authority.json",
+      "sha256": "e001dc1d752883aa6cd0f59ca41bfc3a2320c067ce2f2a31390f8c5a8bf1383d",
+      "bytes": 23521
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/stage-progress.json",
+      "sha256": "276942921934139f15876f40dbf9edefa9f201bf3347b26620822a19c2f2665f",
+      "bytes": 1257
+    }
+  ],
+  "scope": "Complete regular output member identities before this manifest and terminal; no native re-execution inferred."
+}

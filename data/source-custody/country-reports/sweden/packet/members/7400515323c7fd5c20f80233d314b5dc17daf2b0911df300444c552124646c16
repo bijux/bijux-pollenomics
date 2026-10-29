@@ -1,0 +1,241 @@
+"""Prepare a corrected callable guard over the exact previously sealed country inputs."""
+
+from __future__ import annotations
+
+import argparse
+from copy import deepcopy
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
+
+from contracts import (
+    PYTHON,
+    RESOURCES,
+    ROOT,
+    SOURCE,
+    checkpoint,
+    fresh_output,
+    identity,
+    load,
+    registered_plan,
+    require,
+    write,
+)
+from data_roles import verify_selection
+from retained import original_authority
+from runtime_contracts import verify_base_namespaces
+from source_admission import reviewed_controls
+from source_inputs import (
+    InputScope,
+    exact_union,
+    pin,
+    verify_entry_aliases,
+    verify_rows,
+)
+from source_runtime import authenticate_runtime
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate", required=True)
+    parser.add_argument("--review-sha256", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    _, peer, controlled = reviewed_controls(SOURCE)
+    require(pin(peer)["sha256"] == args.review_sha256, "Exact source approval differs")
+    before = identity()
+    require(
+        before["candidate"] == args.candidate and before["status"] == "",
+        "Clean actual preparation candidate required",
+    )
+    output = fresh_output(args.output)
+    require(
+        output.parent == ROOT / "artifacts/science",
+        "Fresh replay output must be a separate science root",
+    )
+    original, original_rows, history = original_authority()
+    owned = Path(original["owned_repository"])
+    declared = load(SOURCE / "declared-inputs.json")
+    require(
+        declared == original["source_declaration"],
+        "Original complete data/source declaration changed",
+    )
+    verify_entry_aliases(
+        original["runtime_entry_raw_aliases"], original["runtime_entry_lexical_paths"]
+    )
+    verify_selection(owned, declared, original["source_input_selection"])
+    # This source correspondence is a preparation observation only. Actual
+    # execution continues to use the old exact owned bodies and their full pins.
+    current_sources = []
+    for expected in declared["maintained_source_contracts"]:
+        row = pin(ROOT / expected["path"])
+        require(
+            row["sha256"] == expected["sha256"] and row["bytes"] == expected["bytes"],
+            "Maintained country source contract changed",
+        )
+        current_sources.append(row)
+    ownership_path = ROOT / "configs/ci/report-ownership.json"
+    ownership_pin = pin(ownership_path)
+    ownership = registered_plan(ownership_path, ownership_pin["sha256"])
+    selected = [
+        row
+        for row in ownership["owners"]
+        if row["owner_id"] == declared["original_owner"]["owner_id"]
+    ]
+    require(
+        selected == [declared["original_owner"]],
+        "Full original owner criterion changed",
+    )
+    scope = InputScope(controlled, [PYTHON])
+    scope.extend(original_rows)
+    authority, runtime_rows = authenticate_runtime()
+    require(
+        authority == original["qualified_source_runtime"],
+        "Original complete source runtime changed",
+    )
+    scope.extend(runtime_rows)
+    snapshots = [
+        *deepcopy(original["owned_namespace_snapshots"]),
+        history["original_complete_namespace"],
+    ]
+    require(
+        len({row["root"] for row in snapshots}) == len(snapshots),
+        "Duplicate retained namespace",
+    )
+    scope.verify()
+    verify_base_namespaces(snapshots)
+    verify_rows(current_sources + [ownership_pin])
+    require(identity() == before, "Current candidate changed before owned output")
+    history_path = output / "retained-country-authority.json"
+    history_raw = (json.dumps(history, indent=2, allow_nan=False) + "\n").encode()
+    require(
+        len(history_raw) <= declared["maximum_plan_bytes"],
+        "Retained history exceeds metadata ceiling",
+    )
+    history_identity = {
+        "path": str(history_path),
+        "sha256": hashlib.sha256(history_raw).hexdigest(),
+        "bytes": len(history_raw),
+    }
+    plan: dict[str, Any] = deepcopy(original)
+    plan.update(
+        id="sweden-country-callable-"
+        + args.candidate[:12]
+        + "-"
+        + str(pin(SOURCE / "prepared-source-manifest.json")["sha256"])[:12],
+        candidate=args.candidate,
+        output=str(output),
+        canonical_identity_at_source_freeze=before,
+        original_owned_source_candidate=original["candidate"],
+        original_registered_plan_sha256=history["original_plan_sha256"],
+        retained_failed_controller_history=history_identity,
+        retained_logical_output_bytes=history["retained_logical_output_bytes"],
+        current_source_correspondence_at_preparation_only=current_sources,
+        current_owner_correspondence_at_preparation_only=ownership_pin,
+        qualified_source_runtime=authority,
+        owned_namespace_snapshots=snapshots,
+        resources=deepcopy(RESOURCES),
+        scope="One genuine full Sweden country call using the unchanged sealed source/data from the original pre-country callable-guard refusal. The old controller/whole1 is preserved; no original country call occurred. Current orchestration identity and original owned source epoch remain separate. Full source/comparand/native UTC/independent scientific limits remain unchanged.",
+    )
+    plan.pop("input_pins", None)
+    plan.pop("qualified_input_namespaces", None)
+    plan.pop("runtime_entry_raw_aliases", None)
+    plan.pop("runtime_entry_lexical_paths", None)
+    plan["environment"] = {
+        **original["environment"],
+        "TMPDIR": str(output / "scratch"),
+        "XDG_CACHE_HOME": str(output / "cache"),
+        "MPLCONFIGDIR": str(output / "cache/matplotlib"),
+    }
+    plan_path = output / "plan.json"
+    plan["stages"] = [
+        {
+            "id": name,
+            "action": action,
+            "timeout_seconds": timeout,
+            "argv": [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(SOURCE / "entry.py"),
+                action,
+                "--plan",
+                str(plan_path),
+            ],
+        }
+        for name, action, timeout in (
+            ("maintained-full-Sweden-country-consumer", "producer", 600),
+            ("independent-source-semantic-clock-observer", "observer", 360),
+        )
+    ]
+    plan["argv"] = [
+        str(PYTHON),
+        "-I",
+        "-B",
+        str(SOURCE / "entry.py"),
+        "launch",
+        "--plan",
+        str(plan_path),
+        "--registered-plan-sha256",
+        "ACTUAL_REGISTERED_PLAN_SHA256",
+    ]
+    plan["working_directory"] = str(owned)
+    plan["input_pins"] = exact_union(scope.rows, [history_identity])
+    plan["qualified_input_namespaces"] = deepcopy(scope.source_namespaces)
+    plan["runtime_entry_raw_aliases"] = deepcopy(scope.aliases)
+    plan["runtime_entry_lexical_paths"] = list(scope.entries)
+    forecast = (json.dumps(plan, indent=2, allow_nan=False) + "\n").encode()
+    require(
+        len(forecast) <= declared["maximum_plan_bytes"],
+        "Exact pretty-encoded plan exceeds metadata ceiling",
+    )
+    require(
+        len(forecast)
+        + len(history_raw)
+        + history["retained_logical_output_bytes"]
+        + 384 * 1024**2
+        <= RESOURCES["declared_storage_bytes"],
+        "Inclusive retained/output forecast exceeds declared bound",
+    )
+    checkpoint(authority, scope, snapshots)
+    verify_entry_aliases(
+        original["runtime_entry_raw_aliases"], original["runtime_entry_lexical_paths"]
+    )
+    verify_selection(owned, declared, original["source_input_selection"])
+    verify_rows(current_sources + [ownership_pin])
+    require(
+        identity() == before, "Current candidate changed before first output mutation"
+    )
+    # Exact expected sources, runtime, aliases, original inputs, namespace and
+    # actual pretty-encoded metadata limits have all passed before this mkdir.
+    output.mkdir()
+    for name in ("scratch", "cache", "cache/matplotlib"):
+        (output / name).mkdir()
+    write(history_path, history)
+    require(
+        pin(history_path) == history_identity,
+        "Written retained history differs from pre-write authority",
+    )
+    scope.capture([history_path])
+    scope.bind(plan)
+    checkpoint(authority, scope, snapshots)
+    verify_selection(owned, declared, original["source_input_selection"])
+    verify_rows(current_sources + [ownership_pin])
+    require(identity() == before, "Current candidate changed before plan publication")
+    require(
+        (json.dumps(plan, indent=2, allow_nan=False) + "\n").encode() == forecast,
+        "Plan changed after exact pre-write forecast",
+    )
+    write(plan_path, plan)
+    print(
+        __import__("json").dumps(
+            {
+                "plan": pin(plan_path),
+                "original_failed_whole_exit": 1,
+                "original_country_calls": 0,
+                "copied_owned_data_or_source": False,
+                "actual_native_producer_launched": False,
+            }
+        )
+    )

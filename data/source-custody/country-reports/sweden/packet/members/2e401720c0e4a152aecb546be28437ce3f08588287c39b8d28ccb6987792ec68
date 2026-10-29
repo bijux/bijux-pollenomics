@@ -1,0 +1,673 @@
+{
+  "schema_version": "sweden-country-controller-source-correspondence.v1",
+  "source_only": true,
+  "inherited_byte_exact": {
+    "byte_exact_helpers": [
+      {
+        "name": "source_runtime.py",
+        "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+        "bytes": 8062,
+        "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_runtime.py"
+      },
+      {
+        "name": "runtime_contracts.py",
+        "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+        "bytes": 16576,
+        "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/runtime_contracts.py"
+      },
+      {
+        "name": "source_inputs.py",
+        "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+        "bytes": 6994,
+        "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_inputs.py"
+      },
+      {
+        "name": "source_projection.py",
+        "sha256": "fc94f84dd02447d2590738a7e2eca8e6f36db917dae99b20054e317b060e4edf",
+        "bytes": 6937,
+        "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_projection.py"
+      },
+      {
+        "name": "source_admission.py",
+        "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+        "bytes": 2788,
+        "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/source_admission.py"
+      },
+      {
+        "name": "generated-source-omission.json",
+        "sha256": "09055e3ce3b1ee6c6475c15d6d45c421cb64cd5360c0d8d00392b22a87787624",
+        "bytes": 1163,
+        "source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-core-count-source-custody/generated-source-omission.json"
+      }
+    ],
+    "human_independent_source": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/independent.py"
+  },
+  "human_reader_byte_exact": {
+    "current": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/human_source.py",
+      "sha256": "079627288ab0a640a3477663897113af1c2e233804ffa9a46e4841034a5f8eb0",
+      "bytes": 23688
+    },
+    "original": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/adna-native-export-source-custody/independent.py",
+      "sha256": "079627288ab0a640a3477663897113af1c2e233804ffa9a46e4841034a5f8eb0",
+      "bytes": 23688
+    }
+  },
+  "original_reviewed_source_prefix": [
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py",
+      "sha256": "7f44338f73d6efd918f9d82d3e8ba9d686db4cfa92251e3d2446794945a6b6e4",
+      "bytes": 12435
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py",
+      "sha256": "987e9868ffabe17abdbb13ff42a876ef27ee30babaf384e8f8ff44ecf02c56ec",
+      "bytes": 13422
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/definitions.py",
+      "sha256": "87440ca21acf3a101f14f74031ad552840d007fb77936dacc9446a5a392183de",
+      "bytes": 10204
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py",
+      "sha256": "dcb156e836844d5f3f1ce42776945dd5d7943b66994581312c23b967b5dde864",
+      "bytes": 10192
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/country_bundle.py",
+      "sha256": "c1671b10e374ee611436888668779b9e51cd25891eaed5d116d57ce414f30819",
+      "bytes": 12164
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/staging.py",
+      "sha256": "a643949bed865627971cb88950ae6daa9989f3e5eefbbafdc5da6067fa18db50",
+      "bytes": 2476
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/summary_builders/country.py",
+      "sha256": "96eca1f0b3468a3e4256989986724937958df300bf1bd7fe7ecd888ed5fd5129",
+      "bytes": 7723
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/owned_tree.py",
+      "sha256": "a6683a273b255d3ba9e659a15fd435b46a13d926b4730669e909aebd3c9dfa2f",
+      "bytes": 4136
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/service.py",
+      "sha256": "5cd052c238e5b2fb2123d33aeb9ca9d58ca8212150cc098328ceb951a8cf036d",
+      "bytes": 7548
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/samples.py",
+      "sha256": "c8f27377ac86ae21cb8a36f5c9c3b4f527c191b829c0d46e2a4eb0f6d45f7a67",
+      "bytes": 7981
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/service.py",
+      "sha256": "363ed11562315091abe4c49a182d81ce1f8a3b86be51353e61b7d65cd70dcac7",
+      "bytes": 354
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/source_records.py",
+      "sha256": "c81efb9b1b3221983759f009871a6e58e52ee6d626fb48bef7a1348a8ef27007",
+      "bytes": 1208
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/service.py",
+      "sha256": "9f1f0803798876187b4ea090b8fbfb3bf41b90ce5bfbd17fc1bd736264452f09",
+      "bytes": 6318
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/source_records.py",
+      "sha256": "8acb65bb853fa771e1ec6c0b36c70d0ece4e3f7718c8e7961a5d9af01f4ad4a0",
+      "bytes": 6673
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/validation.py",
+      "sha256": "e12027f6a6fbf879fc6c8ced06faa39a3867d29b79d6a8c640684d5498f6d481",
+      "bytes": 6982
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/sample_support.py",
+      "sha256": "7e42ca6fa5bb6151c17fc5f93f68857f052c4983b05c35ea78f83042d4784a42",
+      "bytes": 4080
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/paths.py",
+      "sha256": "085b1a5144c7af71bae305fa785b6a691340f007c41ad0e81b790ef918652146",
+      "bytes": 1803
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/inputs.py",
+      "sha256": "dd1c6a9df751e9343b22c611add7b10c5b4c642821676bfae7dc6cfdc9ef7845",
+      "bytes": 10232
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/runtime.py",
+      "sha256": "e5c65b3224d234b97928d50c2fbf977532cc12402e7a3398f669b3ec63a18251",
+      "bytes": 10017
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/manifest.py",
+      "sha256": "e33899ec55f4b8c0749d4204f47d177d9497811ddf1785bbf6369723314f764e",
+      "bytes": 3106
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/release.py",
+      "sha256": "cb1fb48b8c196411b2ef149b6a27a6ac88881217eb12bc8dfa87b006bba32e9c",
+      "bytes": 2325
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/release_manifest.py",
+      "sha256": "c72b729d2496b72e126bf8de273d047034bfe69271dfd5084cbca7dcfbad44cf",
+      "bytes": 4325
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/methodology.py",
+      "sha256": "91908afa0ba6d96237398dd81a486571bb297da386211afe92518b9ac4b623f6",
+      "bytes": 17889
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/orchestration.py",
+      "sha256": "315bcb5eb058aaebca81df2fdaf1ff201d0198465aad351d0c15cf7dc95a5436",
+      "bytes": 2432
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/context.py",
+      "sha256": "c49c1db38e9ef3d5a421777ea5ccc9b3fc17c48afb5e55f3a814e200d5cf2146",
+      "bytes": 2871
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/svar_report.py",
+      "sha256": "4590b945b84cbbb09c095b08d21050f57c48134cc20279d9f4a69f3ea8dc0057",
+      "bytes": 3101
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/pollen_report.py",
+      "sha256": "9eecde02be19a3024f08f641bdee65a509240cd5e5c4fac84c1242fdb999bf86",
+      "bytes": 2475
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/__init__.py",
+      "sha256": "137c5b3a06f69df51d0bfd5d58b3e266b56a4ab6104b94755c49bd384eb64484",
+      "bytes": 6231
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/synthesis.py",
+      "sha256": "ab6aec1eed12738004f005af5832aabe53adc52076c7e7b719974f83d8c99178",
+      "bytes": 9396
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/targets.py",
+      "sha256": "6c0f382ef0d1d7087b8e9751360d492ba38e5a1ad20be535ad61e90651e4748b",
+      "bytes": 6098
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/context.py",
+      "sha256": "2208ee7b6558ceae79254a4ff814f9d19a51e2c56272f45d33688a37b4ee815f",
+      "bytes": 3371
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/authority.py",
+      "sha256": "27f8e9282f555e2063362ee41f9f9718a4e5139465f8453e4e4d5d8a710e9440",
+      "bytes": 6845
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/svar/normalized_registry.py",
+      "sha256": "b93e0f0c0978c97437393e03d70538756be096afba6fdcadf23a0e73717cf41b",
+      "bytes": 880
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/artifacts.py",
+      "sha256": "69a32459b80a89f2f7d5b07786c9419fc0b14a2012f858ac71a47cfdcdc4adff",
+      "bytes": 1988
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py",
+      "sha256": "b45f3ba91b2c80507ba2f96efed4f61cd617127f371529198c34a5a6a493f8cf",
+      "bytes": 11335
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/markdown.py",
+      "sha256": "24585adb336513085b2c17973c9d33534d2cb933e139e04034137685d7f66d07",
+      "bytes": 13102
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/template.py",
+      "sha256": "29a3d6a20fcdd24a726369e61ae4bfabb83466020424ed3221bdd8eaaefc69bb",
+      "bytes": 1144
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py",
+      "sha256": "5d4e6e72c8794e40d6a741d40a74d7c0e3dbe6de9791e0c555f3043da5bf0def",
+      "bytes": 2007
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py",
+      "sha256": "e131724adacd5471cdc1b236079b5d091b33ed618ed5e1e1c8afab49363a0e57",
+      "bytes": 8502
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/publication.py",
+      "sha256": "fc268f730b50e2832efec8581554e2fb409944b5225a0927977fa72d9a5b6dd9",
+      "bytes": 13198
+    }
+  ],
+  "additional_named_public_source_pins": [
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/locality.py",
+      "sha256": "bcf27ef1a10a80cf9cd7ae59fd01a9ad8ff621aa539dff1ddf5664514e701dcc",
+      "bytes": 11077
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/localities.py",
+      "sha256": "7d48769c36ab6797b8d745cde6bddca0ed6230504ffa3cc1e6ef15a819baa271",
+      "bytes": 3729
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/occurrence_support.py",
+      "sha256": "161102a44d91f100f42f55cf66c1bac2f5de6198b1e50515c0f3d0ef60ae925f",
+      "bytes": 5918
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/chronology.py",
+      "sha256": "9ce6e90bbeedb362160832b66dbcf683dc1a47053dfdbf38e792cc9d4315cc5c",
+      "bytes": 5857
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/samples.py",
+      "sha256": "35db235289c297c2154215af88c790cff68ff15703f19b96a256da0f8610c0fd",
+      "bytes": 6826
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/repository.py",
+      "sha256": "f39cdf4f011f26146b261ae514182b57bfa059c4604938ff0ea0c6389b1118fb",
+      "bytes": 3668
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
+      "sha256": "2eea7f3882ed49e3e6be1995fe78b21b2bbedef3f3ee614b368657a3c74692eb",
+      "bytes": 3397
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
+      "sha256": "932bb349c6e0b400df6ef5ca2d842461e282bca4fcb18b3ecfb264c0f36e9aba",
+      "bytes": 19747
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/__init__.py",
+      "sha256": "505be9e333c7c653319c2b9f4975e90935bc07e3b4de575103c520f6fb701b04",
+      "bytes": 1000
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/models.py",
+      "sha256": "3a6695adfe39d5a13dc27aef9e0adea757e2208adf751816008311167a567b09",
+      "bytes": 1879
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/models.py",
+      "sha256": "919a57442e748a083bb8d501fe371e5f99ab27f77ea45b058ab81e02ddd72210",
+      "bytes": 3639
+    }
+  ],
+  "all_reviewed_source_rows": [
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py",
+      "sha256": "7f44338f73d6efd918f9d82d3e8ba9d686db4cfa92251e3d2446794945a6b6e4",
+      "bytes": 12435
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py",
+      "sha256": "987e9868ffabe17abdbb13ff42a876ef27ee30babaf384e8f8ff44ecf02c56ec",
+      "bytes": 13422
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/definitions.py",
+      "sha256": "87440ca21acf3a101f14f74031ad552840d007fb77936dacc9446a5a392183de",
+      "bytes": 10204
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py",
+      "sha256": "dcb156e836844d5f3f1ce42776945dd5d7943b66994581312c23b967b5dde864",
+      "bytes": 10192
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/country_bundle.py",
+      "sha256": "c1671b10e374ee611436888668779b9e51cd25891eaed5d116d57ce414f30819",
+      "bytes": 12164
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/staging.py",
+      "sha256": "a643949bed865627971cb88950ae6daa9989f3e5eefbbafdc5da6067fa18db50",
+      "bytes": 2476
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/summary_builders/country.py",
+      "sha256": "96eca1f0b3468a3e4256989986724937958df300bf1bd7fe7ecd888ed5fd5129",
+      "bytes": 7723
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/owned_tree.py",
+      "sha256": "a6683a273b255d3ba9e659a15fd435b46a13d926b4730669e909aebd3c9dfa2f",
+      "bytes": 4136
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/service.py",
+      "sha256": "5cd052c238e5b2fb2123d33aeb9ca9d58ca8212150cc098328ceb951a8cf036d",
+      "bytes": 7548
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/samples.py",
+      "sha256": "c8f27377ac86ae21cb8a36f5c9c3b4f527c191b829c0d46e2a4eb0f6d45f7a67",
+      "bytes": 7981
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/service.py",
+      "sha256": "363ed11562315091abe4c49a182d81ce1f8a3b86be51353e61b7d65cd70dcac7",
+      "bytes": 354
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/source_records.py",
+      "sha256": "c81efb9b1b3221983759f009871a6e58e52ee6d626fb48bef7a1348a8ef27007",
+      "bytes": 1208
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/service.py",
+      "sha256": "9f1f0803798876187b4ea090b8fbfb3bf41b90ce5bfbd17fc1bd736264452f09",
+      "bytes": 6318
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/source_records.py",
+      "sha256": "8acb65bb853fa771e1ec6c0b36c70d0ece4e3f7718c8e7961a5d9af01f4ad4a0",
+      "bytes": 6673
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/validation.py",
+      "sha256": "e12027f6a6fbf879fc6c8ced06faa39a3867d29b79d6a8c640684d5498f6d481",
+      "bytes": 6982
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/sample_support.py",
+      "sha256": "7e42ca6fa5bb6151c17fc5f93f68857f052c4983b05c35ea78f83042d4784a42",
+      "bytes": 4080
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/paths.py",
+      "sha256": "085b1a5144c7af71bae305fa785b6a691340f007c41ad0e81b790ef918652146",
+      "bytes": 1803
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/inputs.py",
+      "sha256": "dd1c6a9df751e9343b22c611add7b10c5b4c642821676bfae7dc6cfdc9ef7845",
+      "bytes": 10232
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/runtime.py",
+      "sha256": "e5c65b3224d234b97928d50c2fbf977532cc12402e7a3398f669b3ec63a18251",
+      "bytes": 10017
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/manifest.py",
+      "sha256": "e33899ec55f4b8c0749d4204f47d177d9497811ddf1785bbf6369723314f764e",
+      "bytes": 3106
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/release.py",
+      "sha256": "cb1fb48b8c196411b2ef149b6a27a6ac88881217eb12bc8dfa87b006bba32e9c",
+      "bytes": 2325
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/release_manifest.py",
+      "sha256": "c72b729d2496b72e126bf8de273d047034bfe69271dfd5084cbca7dcfbad44cf",
+      "bytes": 4325
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/methodology.py",
+      "sha256": "91908afa0ba6d96237398dd81a486571bb297da386211afe92518b9ac4b623f6",
+      "bytes": 17889
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/orchestration.py",
+      "sha256": "315bcb5eb058aaebca81df2fdaf1ff201d0198465aad351d0c15cf7dc95a5436",
+      "bytes": 2432
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/context.py",
+      "sha256": "c49c1db38e9ef3d5a421777ea5ccc9b3fc17c48afb5e55f3a814e200d5cf2146",
+      "bytes": 2871
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/svar_report.py",
+      "sha256": "4590b945b84cbbb09c095b08d21050f57c48134cc20279d9f4a69f3ea8dc0057",
+      "bytes": 3101
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/pollen_report.py",
+      "sha256": "9eecde02be19a3024f08f641bdee65a509240cd5e5c4fac84c1242fdb999bf86",
+      "bytes": 2475
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/__init__.py",
+      "sha256": "137c5b3a06f69df51d0bfd5d58b3e266b56a4ab6104b94755c49bd384eb64484",
+      "bytes": 6231
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/synthesis.py",
+      "sha256": "ab6aec1eed12738004f005af5832aabe53adc52076c7e7b719974f83d8c99178",
+      "bytes": 9396
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/targets.py",
+      "sha256": "6c0f382ef0d1d7087b8e9751360d492ba38e5a1ad20be535ad61e90651e4748b",
+      "bytes": 6098
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/context.py",
+      "sha256": "2208ee7b6558ceae79254a4ff814f9d19a51e2c56272f45d33688a37b4ee815f",
+      "bytes": 3371
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/authority.py",
+      "sha256": "27f8e9282f555e2063362ee41f9f9718a4e5139465f8453e4e4d5d8a710e9440",
+      "bytes": 6845
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/svar/normalized_registry.py",
+      "sha256": "b93e0f0c0978c97437393e03d70538756be096afba6fdcadf23a0e73717cf41b",
+      "bytes": 880
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/artifacts.py",
+      "sha256": "69a32459b80a89f2f7d5b07786c9419fc0b14a2012f858ac71a47cfdcdc4adff",
+      "bytes": 1988
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py",
+      "sha256": "b45f3ba91b2c80507ba2f96efed4f61cd617127f371529198c34a5a6a493f8cf",
+      "bytes": 11335
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/markdown.py",
+      "sha256": "24585adb336513085b2c17973c9d33534d2cb933e139e04034137685d7f66d07",
+      "bytes": 13102
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/template.py",
+      "sha256": "29a3d6a20fcdd24a726369e61ae4bfabb83466020424ed3221bdd8eaaefc69bb",
+      "bytes": 1144
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py",
+      "sha256": "5d4e6e72c8794e40d6a741d40a74d7c0e3dbe6de9791e0c555f3043da5bf0def",
+      "bytes": 2007
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py",
+      "sha256": "e131724adacd5471cdc1b236079b5d091b33ed618ed5e1e1c8afab49363a0e57",
+      "bytes": 8502
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/publication.py",
+      "sha256": "fc268f730b50e2832efec8581554e2fb409944b5225a0927977fa72d9a5b6dd9",
+      "bytes": 13198
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/locality.py",
+      "sha256": "bcf27ef1a10a80cf9cd7ae59fd01a9ad8ff621aa539dff1ddf5664514e701dcc",
+      "bytes": 11077
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/localities.py",
+      "sha256": "7d48769c36ab6797b8d745cde6bddca0ed6230504ffa3cc1e6ef15a819baa271",
+      "bytes": 3729
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/occurrence_support.py",
+      "sha256": "161102a44d91f100f42f55cf66c1bac2f5de6198b1e50515c0f3d0ef60ae925f",
+      "bytes": 5918
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/chronology.py",
+      "sha256": "9ce6e90bbeedb362160832b66dbcf683dc1a47053dfdbf38e792cc9d4315cc5c",
+      "bytes": 5857
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/samples.py",
+      "sha256": "35db235289c297c2154215af88c790cff68ff15703f19b96a256da0f8610c0fd",
+      "bytes": 6826
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/repository.py",
+      "sha256": "f39cdf4f011f26146b261ae514182b57bfa059c4604938ff0ea0c6389b1118fb",
+      "bytes": 3668
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
+      "sha256": "2eea7f3882ed49e3e6be1995fe78b21b2bbedef3f3ee614b368657a3c74692eb",
+      "bytes": 3397
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
+      "sha256": "932bb349c6e0b400df6ef5ca2d842461e282bca4fcb18b3ecfb264c0f36e9aba",
+      "bytes": 19747
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/__init__.py",
+      "sha256": "505be9e333c7c653319c2b9f4975e90935bc07e3b4de575103c520f6fb701b04",
+      "bytes": 1000
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/models.py",
+      "sha256": "3a6695adfe39d5a13dc27aef9e0adea757e2208adf751816008311167a567b09",
+      "bytes": 1879
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/models.py",
+      "sha256": "919a57442e748a083bb8d501fe371e5f99ab27f77ea45b058ab81e02ddd72210",
+      "bytes": 3639
+    }
+  ],
+  "source_relative_literal_metadata_and_entry_roles": [
+    {
+      "source": "check_controls.py",
+      "member": "preflight/controlled-country-fixtures",
+      "generated_admission_control": false,
+      "synthetic_output_role": true
+    },
+    {
+      "source": "check_controls.py",
+      "member": "preflight/source-controls-result.json",
+      "generated_admission_control": false,
+      "synthetic_output_role": true
+    },
+    {
+      "source": "check_controls.py",
+      "member": "declared-inputs.json",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "check_controls.py",
+      "member": "prepare.py",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "check_controls.py",
+      "member": "prepare.py",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "check_controls.py",
+      "member": "source-design.json",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "contracts.py",
+      "member": "declared-inputs.json",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "launch.py",
+      "member": "entry.py",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "prepare.py",
+      "member": "declared-inputs.json",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "prepare.py",
+      "member": "generated-source-omission.json",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "prepare.py",
+      "member": "entry.py",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "prepare.py",
+      "member": "entry.py",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "prepare.py",
+      "member": "prepared-source-manifest.json",
+      "generated_admission_control": true,
+      "synthetic_output_role": false
+    },
+    {
+      "source": "run.py",
+      "member": "entry.py",
+      "generated_admission_control": false,
+      "synthetic_output_role": false
+    }
+  ],
+  "metadata_roles_required_in_final_manifest": [
+    "declared-inputs.json",
+    "generated-source-omission.json",
+    "source-design.json"
+  ],
+  "owned_repository_root_markers": [
+    "pyproject.toml",
+    "packages/bijux-pollenomics/pyproject.toml",
+    "packages/bijux-pollenomics-lra/pyproject.toml",
+    "packages/bijux-pollenomics-lra/.gitignore",
+    "configs/ci/report-ownership.json"
+  ],
+  "actual_source_or_data_API_execution": false,
+  "private_payload_opened_or_hashed": false
+}

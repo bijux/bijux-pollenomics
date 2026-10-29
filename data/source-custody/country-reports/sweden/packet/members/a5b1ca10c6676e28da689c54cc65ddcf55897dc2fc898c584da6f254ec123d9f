@@ -1,0 +1,884 @@
+"""Exercise country closure, native clock, source joins and entry contracts on artificial data."""
+
+from __future__ import annotations
+
+import ast
+from copy import deepcopy
+import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+import time
+from types import FunctionType
+from typing import Any
+
+SOURCE = Path(__file__).absolute().parent
+
+OUT = SOURCE / "preflight/controlled-country-fixtures" / str(time.monotonic_ns())
+OUT.mkdir(parents=True, exist_ok=True)
+checks: list[str] = []
+
+
+def require(value: object, reason: str) -> None:
+    if not value:
+        raise AssertionError(reason)
+
+
+def refuses(name: str, call: Any) -> None:
+    try:
+        call()
+    except (ValueError, TypeError, KeyError, OSError):
+        checks.append(name)
+        return
+    raise AssertionError("Unexpected artificial acceptance: " + name)
+
+
+def clock(day: str = "2026-10-15") -> dict[str, Any]:
+    return {
+        "TZ": "UTC0",
+        "utc": day + "T12:00:00+00:00",
+        "local_date_today": day,
+        "time_ns": 1000000000000,
+        "monotonic_ns": 1000000000000,
+        "tzname": ["UTC", "UTC"],
+        "timezone": 0,
+        "daylight": 0,
+    }
+
+
+def product(fields: dict[str, Any]) -> dict[str, Any]:
+    top: dict[str, Any] = {key: "" for values in fields.values() for key in values}
+    for key in (
+        "target_count",
+        "time_row_count",
+        "landclim_covered_target_count",
+        "landclim_uncovered_target_count",
+    ):
+        top[key] = 0
+    top.update(rows=[], target_decisions=[])
+    return top
+
+
+def main() -> None:
+    sys.path.insert(0, str(SOURCE))
+    from clock_contract import certify
+    from contracts import PYTHON, RESOURCES, registered_plan
+    from contracts import SOURCE as ACTUAL_SOURCE
+    from data_roles import discover, freeze, verify_selection
+    from execute import observe_replay
+    from execution_guard import CountryIO
+    from independent import (
+        overlaps,
+        semantic_changes,
+        source_supports,
+        synthesis_source_joins,
+        within,
+    )
+    from run import validate_stages
+    from semantic_contract import DECISION_FIELDS, ROW_FIELDS, TOP_FIELDS
+
+    before = clock()
+    after = deepcopy(before)
+    after["time_ns"] += 1000000000
+    after["monotonic_ns"] += 1000000000
+    require(
+        certify(before, after, "2026-10-15")["native_UTC_day"] == "2026-10-15",
+        "Native same-day clock positive",
+    )
+    checks.append("native_same_UTC_day_positive")
+    for key, value in (
+        ("TZ", "Europe/Stockholm"),
+        ("TZ", None),
+        ("timezone", 3600),
+        ("timezone", False),
+        ("daylight", 1),
+        ("daylight", False),
+        ("tzname", None),
+        ("tzname", [False, "UTC"]),
+        ("tzname", ["UTC"]),
+        ("utc", None),
+        ("time_ns", True),
+        ("monotonic_ns", 1.0),
+        ("local_date_today", "2026-10-16"),
+        ("utc", "2026-10-15T12:00:00+02:00"),
+    ):
+        changed = deepcopy(after)
+        changed[key] = value
+        refuses(
+            "native_clock_" + key,
+            lambda changed=changed: certify(before, changed, "2026-10-15"),
+        )
+    refuses(
+        "cross_midnight", lambda: certify(before, clock("2026-10-16"), "2026-10-15")
+    )
+    refuses(
+        "historical_or_fabricated_return_day",
+        lambda: certify(before, after, "2026-09-21"),
+    )
+    changed = deepcopy(after)
+    changed["monotonic_ns"] = before["monotonic_ns"] + 601 * 10**9
+    refuses(
+        "clock_whole_producer_bound", lambda: certify(before, changed, "2026-10-15")
+    )
+    a = product(TOP_FIELDS)
+    b = deepcopy(a)
+    require(
+        not any(semantic_changes(a, b, True).values()),
+        "Complete equal source schema positive",
+    )
+    checks.append("complete_semantic_equal_positive")
+    for category, names in TOP_FIELDS.items():
+        if not names:
+            continue
+        key = sorted(names)[0]
+        changed = deepcopy(b)
+        changed[key] = 1 if type(changed[key]) is int else "changed"
+        if key in {"target_count", "time_row_count"}:
+            continue
+        result = semantic_changes(a, changed, True)
+        require(
+            len(result[category]) == 1 and sum(map(len, result.values())) == 1,
+            "Exact source category differs: " + category,
+        )
+        checks.append("semantic_category_" + category)
+    changed = deepcopy(a)
+    changed["unknown_science"] = 0
+    refuses("unclassified_semantic_field", lambda: semantic_changes(a, changed, True))
+    for kind, keys, groups in (
+        ("rows", {"target_name", "landclim_record_id"}, ROW_FIELDS),
+        ("target_decisions", {"requested_name"}, DECISION_FIELDS),
+    ):
+        row: dict[str, Any] = {key: "" for group in groups.values() for key in group}
+        row.update(dict.fromkeys(keys, "ID"), latitude=55.0, longitude=13.0)
+        for key in row:
+            if key.endswith(("_count", "_count_20km")):
+                row[key] = 0
+        changed = deepcopy(a)
+        changed[kind] = [row, row]
+        changed["time_row_count" if kind == "rows" else "target_count"] = 2
+        refuses(
+            "duplicate_" + kind,
+            lambda changed=changed: semantic_changes(changed, changed, True),
+        )
+    require(
+        overlaps(0, 1, 1, 2)
+        and not overlaps(0, 1, 2, 3)
+        and not overlaps(-1, 1, 0, 1)
+        and not overlaps(False, 1, 0, 1)
+        and not overlaps(2, 1, 0, 3),
+        "Closed interval/nonboolean/direction contract",
+    )
+    checks.append("closed_individual_intervals_without_hull_or_negative_coercion")
+    supports = {
+        "sample_ids": ["a", "b"],
+        "sample_count": 2,
+        "chronology": {"time_start_bp": 0, "time_end_bp": 20},
+        "sample_chronologies": [
+            {
+                "sample_id": "a",
+                "chronology": {
+                    "time_start_bp": 0,
+                    "time_end_bp": 2,
+                    "precision_posture": "sample_precise_interval",
+                },
+            },
+            {
+                "sample_id": "b",
+                "chronology": {
+                    "time_start_bp": 18,
+                    "time_end_bp": 20,
+                    "precision_posture": "sample_precise_interval",
+                },
+            },
+        ],
+    }
+    selected = source_supports(supports, True)
+    require(
+        not any(overlaps(8, 12, a, b) for _, a, b in selected),
+        "Coverage hull cannot fabricate sample occurrence",
+    )
+    checks.append("two_disjoint_samples_leave_unobserved_hull_gap")
+    changed = deepcopy(supports)
+    changed["sample_chronologies"][0]["chronology"]["refusal_reason_code"] = (
+        "negative_bp"
+    )
+    require(
+        [token for token, _, _ in source_supports(changed, True)] == ["b"],
+        "Refused native support retained as refused",
+    )
+    checks.append("native_refused_support_not_admitted")
+    changed = deepcopy(supports)
+    changed["sample_chronologies"][1]["sample_id"] = "a"
+    require(
+        source_supports(changed, True) == [],
+        "Repeated chronology identity refuses entire relation",
+    )
+    checks.append("duplicate_support_identity_refusal")
+    require(
+        source_supports(
+            {
+                "sample_record_ids": ["x"],
+                "sample_count": 1,
+                "time_start_bp": 0,
+                "time_end_bp": 10,
+            },
+            False,
+        )
+        == [],
+        "Animal mapping lacks sample-owned chronology; no scalar-hull fallback",
+    )
+    checks.append("animal_scalar_coverage_not_occurrence")
+    require(
+        within(55, 13, 55, 13) and not within(55, 13, 60, 20),
+        "Source 20km finite spatial rule",
+    )
+    checks.append("native_spatial_context_rule")
+    declaration = json.loads((SOURCE / "declared-inputs.json").read_bytes())
+    fixture = OUT / "data-closure"
+    fixture.mkdir()
+    for name in [*declaration["required_data"], *declaration["optional_data"]]:
+        path = fixture / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("{}")
+    for name in declaration["species_roots"]:
+        (fixture / name).mkdir(parents=True, exist_ok=True)
+    for role in declaration["published_roles"]:
+        path = fixture / declaration["published_root"] / role["relative_path"]
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("{}")
+    history = fixture / declaration["published_root"] / "land-use-replay/receipt.json"
+    history.parent.mkdir()
+    history.write_text("{}")
+    extra = (
+        fixture / "data/adna/species/additional_context/normalized/sample_records.json"
+    )
+    extra.parent.mkdir(parents=True)
+    extra.write_text("{}")
+    selection, rows = freeze(fixture, declaration)
+    require(
+        len(declaration["optional_data"]) == 118
+        and len(declaration["species_roots"]) == 15,
+        "All105 animal+13 context roles",
+    )
+    require(
+        "data/adna/species/additional_context/normalized/sample_records.json"
+        in selection["glob_membership"]["global_animal_sample_lookup"],
+        "Global lookup not limited to fifteen selected species",
+    )
+    verify_selection(fixture, declaration, selection)
+    checks.append(
+        "full105_species_13context_global_lookup_annotations_and30comparands_positive"
+    )
+    unknown = fixture / "data/aadr/v66/undeclared/extra.anno"
+    unknown.parent.mkdir()
+    unknown.write_text("artificial")
+    refuses(
+        "new_annotation_membership",
+        lambda: verify_selection(fixture, declaration, selection),
+    )
+    unknown.unlink()
+    unknown.parent.rmdir()
+    path = fixture / declaration["required_data"][0]
+    saved = path.read_bytes()
+    path.unlink()
+    refuses("missing_original_direct_input", lambda: discover(fixture, declaration))
+    path.write_bytes(saved)
+    path = fixture / declaration["optional_data"][0]
+    saved = path.read_bytes()
+    path.unlink()
+    path.symlink_to(extra)
+    refuses("data_role_alias", lambda: discover(fixture, declaration))
+    path.unlink()
+    path.write_bytes(saved)
+    boundary = OUT / "io"
+    boundary.mkdir()
+    source = boundary / "module.py"
+    source.write_text("")
+    output = boundary / "output"
+    output.mkdir()
+    guard = CountryIO({"input_pins": [{"path": str(source)}], "output": str(output)})
+    guard("open", (str(source), "r", 0))
+    cache = source.parent / "__pycache__/module.cpython-311.pyc"
+    guard("open", (str(cache), "r", 0))
+    checks.append("owned_source_and_absent_source_associated_pyc_attempt_positive")
+    cache.parent.mkdir()
+    cache.write_bytes(b"artificial-native-cache")
+    refuses(
+        "existing_unprotected_bytecode", lambda: guard("open", (str(cache), "r", 0))
+    )
+    refuses(
+        "foreign_read", lambda: guard("open", (str(boundary / "foreign.json"), "r", 0))
+    )
+    refuses(
+        "write_into_owned_source", lambda: guard("open", (str(source), "w", os.O_CREAT))
+    )
+    refuses("country_subprocess", lambda: guard("subprocess.Popen", ()))
+    refuses("country_socket", lambda: guard("socket.__new__", ()))
+    plan_path = OUT / "same-buffer-plan.json"
+    raw = b'{"science":1}'
+    plan_path.write_bytes(raw)
+    checksum = hashlib.sha256(raw).hexdigest()
+    require(
+        registered_plan(plan_path, checksum) == {"science": 1},
+        "Registered same-buffer positive",
+    )
+    checks.append("registered_same_buffer_positive")
+    refuses("missing_registered_SHA", lambda: registered_plan(plan_path, ""))
+    refuses("wrong_registered_SHA", lambda: registered_plan(plan_path, "0" * 64))
+    for raw_bad in (b'{"science":1,"science":2}', b'{"science":NaN}', b"[]"):
+        plan_path.write_bytes(raw_bad)
+        refuses(
+            "registered_invalid_" + str(raw_bad),
+            lambda raw_bad=raw_bad: registered_plan(
+                plan_path, hashlib.sha256(raw_bad).hexdigest()
+            ),
+        )
+    stages = []
+    for action, name, seconds in (
+        ("producer", "maintained-full-Sweden-country-consumer", 600),
+        ("observer", "independent-source-semantic-clock-observer", 360),
+    ):
+        stages.append(
+            {
+                "id": name,
+                "action": action,
+                "timeout_seconds": seconds,
+                "argv": [
+                    str(PYTHON),
+                    "-I",
+                    "-B",
+                    str(ACTUAL_SOURCE / "entry.py"),
+                    action,
+                    "--plan",
+                    str(plan_path),
+                ],
+            }
+        )
+    plan = {"resources": deepcopy(RESOURCES), "stages": stages}
+    validate_stages(plan, plan_path)
+    checks.append("actual_two_stage_600_360_schedule_positive")
+    for key, value in (
+        ("id", "wrong"),
+        ("timeout_seconds", True),
+        ("action", "producer"),
+        ("argv", []),
+    ):
+        changed = deepcopy(plan)
+        changed["stages"][1][key] = value
+        refuses(
+            "stage_contract_" + key,
+            lambda changed=changed: validate_stages(changed, plan_path),
+        )
+    changed = deepcopy(plan)
+    changed["stages"].reverse()
+    refuses("reordered_stage_contract", lambda: validate_stages(changed, plan_path))
+    service = Path(declaration["maintained_source_contracts"][0]["path"])
+    text = (SOURCE.parents[2] / service).read_bytes()
+    function = next(
+        node
+        for node in ast.parse(text).body
+        if isinstance(node, ast.FunctionDef) and node.name == "generate_country_report"
+    )
+    require(
+        not any(arg.arg == "generated_on" for arg in function.args.args),
+        "Public API has no fake clock parameter",
+    )
+    require(
+        sum(
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Attribute)
+            and isinstance(node.func.value, ast.Name)
+            and node.func.value.id == "date"
+            and node.func.attr == "today"
+            for node in ast.walk(function)
+        )
+        == 1,
+        "Exactly one unchanged source date.today",
+    )
+    checks.append("actual_public_API_has_native_date_today_without_override")
+    require(
+        declaration["original_owner"]
+        == json.loads((SOURCE / "source-design.json").read_bytes())[
+            "original_owner_row"
+        ],
+        "Full original criterion remains exact",
+    )
+    checks.append("full_original_owner_criterion_preserved")
+    preparer = ast.parse((SOURCE / "prepare.py").read_bytes())
+    prepare_main = next(
+        node
+        for node in preparer.body
+        if isinstance(node, ast.FunctionDef) and node.name == "main"
+    )
+    projection_loop = next(
+        node
+        for node in prepare_main.body
+        if isinstance(node, ast.For)
+        and isinstance(node.iter, ast.Name)
+        and node.iter.id == "PACKAGES"
+    )
+    require(
+        not any(
+            isinstance(node, ast.Name)
+            and node.id == "selection"
+            and isinstance(node.ctx, ast.Store)
+            for node in ast.walk(projection_loop)
+        ),
+        "Package source projection must not overwrite native data selection",
+    )
+    projection_calls = []
+    sentinel = {"native_data_roles": "preserved"}
+
+    def synthetic_projection(path: Path, *args: Any) -> dict[str, Any]:
+        projection_calls.append(str(path))
+        return {
+            "projected_namespace": {"root": str(path), "entries": {}},
+            "selected_rows": [],
+            "omitted_bytecode_rows": [],
+            "omitted_generated_metadata_rows": [],
+            "omitted_cache_directories": [],
+        }
+
+    environment: dict[str, Any] = {
+        "PACKAGES": ["public", "engine", "development", "facade"],
+        "ROOT": OUT,
+        "Path": Path,
+        "regular_tree": lambda *args, **kwargs: ({}, []),
+        "project": synthetic_projection,
+        "tracked_paths": set(),
+        "metadata_omissions": {},
+        "source_namespaces": [],
+        "projected_namespaces": [],
+        "original_source_rows": [],
+        "source_rows": [],
+        "omitted_bytecode": [],
+        "omitted_metadata": [],
+        "omitted_directories": [],
+        "selection": sentinel,
+    }
+    exec(
+        compile(
+            ast.fix_missing_locations(
+                ast.Module(body=[projection_loop], type_ignores=[])
+            ),
+            str(SOURCE / "prepare.py"),
+            "exec",
+        ),
+        environment,
+    )
+    require(
+        len(projection_calls) == 4 and environment["selection"] is sentinel,
+        "Actual four-package projection loop preserves complete original data selection",
+    )
+    checks.append("actual_four_package_projection_loop_preserves_data_selection")
+    oversized = deepcopy(declaration)
+    oversized["maximum_input_bytes"] = 0
+    hash_attempts = []
+
+    def forbidden_pin(path: Path) -> Any:
+        hash_attempts.append(str(path))
+        raise AssertionError("Body hash occurred before ceiling refusal")
+
+    synthetic_freeze = FunctionType(
+        freeze.__code__, {**freeze.__globals__, "pin": forbidden_pin}
+    )
+    refuses(
+        "input_size_ceiling_before_any_body_hash",
+        lambda: synthetic_freeze(fixture, oversized),
+    )
+    require(hash_attempts == [], "No body hash before input-size ceiling")
+    for bad in (
+        boundary / "__pycache__/module.cpython-314.pyc",
+        boundary / "module.pyc",
+        boundary / "__pycache__/module.pypy-311.pyc",
+    ):
+        refuses(
+            "noncanonical_missing_bytecode_" + bad.name,
+            lambda bad=bad: guard("open", (str(bad), "r", 0)),
+        )
+    require(
+        len(guard.absent_bytecode_attempts) == 1,
+        "Only exact missing current-cache-tag read attempt recorded",
+    )
+    for event, arguments in (
+        ("os.mkdir", (str(boundary / "foreign-dir"), 511, -1)),
+        ("os.rename", (str(output / "producer/a"), str(source), -1, -1)),
+        ("os.rename", (str(source), str(output / "producer/b"), -1, -1)),
+        ("os.remove", (str(source), -1)),
+        ("os.rmdir", (str(boundary), -1)),
+        ("shutil.rmtree", (str(boundary), None)),
+        ("os.utime", (str(source), None, None, -1)),
+        ("os.symlink", ("x", "y", -1)),
+    ):
+        count = len(guard.denials)
+        refuses(
+            "mutation_" + event,
+            lambda event=event, arguments=arguments: guard(event, arguments),
+        )
+        require(
+            len(guard.denials) == count + 1,
+            "Every attempted mutation denial is recorded",
+        )
+    guard("os.mkdir", (str(output / "producer/fresh"), 511, -1))
+    guard(
+        "os.rename",
+        (str(output / "producer/fresh"), str(output / "producer/candidate"), -1, -1),
+    )
+    checks.append("fresh_country_directory_and_both_rename_endpoints_positive")
+    descriptor_root = output / "producer"
+    descriptor_root.mkdir()
+    descriptor = os.open(descriptor_root, os.O_RDONLY)
+    try:
+        guard("os.mkdir", ("artificial-child", 511, descriptor))
+        require(
+            guard.descriptor_path(descriptor) == descriptor_root,
+            "Actual owned artificial directory descriptor has exact physical identity",
+        )
+    finally:
+        os.close(descriptor)
+    checks.append("actual_owned_artificial_directory_F_GETPATH1024_fstat_positive")
+    outside_descriptor = os.open(boundary, os.O_RDONLY)
+    try:
+        refuses(
+            "descriptor_outside_owned_mutation_roots",
+            lambda: guard("os.mkdir", ("foreign-child", 511, outside_descriptor)),
+        )
+    finally:
+        os.close(outside_descriptor)
+    refuses("closed_descriptor", lambda: guard.descriptor_path(descriptor))
+    alias_path = boundary / "alias.py"
+    alias_path.symlink_to(source)
+    previous_denials = len(guard.denials)
+    refuses(
+        "raw_input_alias_attempt_recorded",
+        lambda: guard("open", (str(alias_path), "r", 0)),
+    )
+    require(
+        len(guard.denials) == previous_denials + 1,
+        "Alias denial retained even if caller catches it",
+    )
+
+    class CountryReport:
+        country = "Sweden"
+        version = "v66"
+        generated_on = "synthetic-day"
+        total_unique_samples = 0
+        total_unique_localities = 0
+        dataset_row_counts: dict[str, int] = {}
+        output_dir = OUT / "synthetic-country"
+        samples: tuple[Any, ...] = ()
+        localities: tuple[Any, ...] = ()
+
+    def synthetic_country(
+        version_dir: Path,
+        country: str,
+        output_dir: Path,
+        map_reference: Any = None,
+        published_output_dir: Any = None,
+        context_root: Any = None,
+    ) -> CountryReport:
+        return CountryReport()
+
+    def synthetic_replay(repository: Path, output: Path) -> dict[str, Any]:
+        synthetic_country(
+            repository / "data/aadr/v66",
+            "Sweden",
+            output / "candidate",
+            context_root=repository / "data",
+        )
+        return {"synthetic_receipt": True}
+
+    telemetry = FunctionType(
+        observe_replay.__code__, {**observe_replay.__globals__, "observe_clock": clock}
+    )
+    telemetry_output = OUT / "synthetic-return"
+    telemetry_output.mkdir()
+    telemetry_io = CountryIO({"input_pins": [], "output": str(telemetry_output)})
+    native_result = telemetry(
+        synthetic_replay,
+        synthetic_country,
+        OUT,
+        telemetry_output,
+        telemetry_io,
+        CountryReport,
+    )
+    require(
+        native_result[2][0]["generated_on"] == "synthetic-day"
+        and telemetry_io.enabled is False,
+        "Actual telemetry function captures exact artificial return without replacing it",
+    )
+    checks.append("actual_telemetry_function_exact_artificial_return_positive")
+    failure = RuntimeError("original synthetic country failure")
+
+    def failed_country(
+        version_dir: Path,
+        country: str,
+        output_dir: Path,
+        map_reference: Any = None,
+        published_output_dir: Any = None,
+        context_root: Any = None,
+    ) -> None:
+        raise failure
+
+    def failed_replay(repository: Path, output: Path) -> dict[str, Any]:
+        failed_country(
+            repository / "data/aadr/v66",
+            "Sweden",
+            output / "candidate",
+            context_root=repository / "data",
+        )
+        raise AssertionError("unreachable")
+
+    failed_output = OUT / "synthetic-failure"
+    failed_output.mkdir()
+    failed_io = CountryIO({"input_pins": [], "output": str(failed_output)})
+    try:
+        telemetry(
+            failed_replay, failed_country, OUT, failed_output, failed_io, CountryReport
+        )
+    except RuntimeError as error:
+        require(error is failure, "Original country failure object must remain exact")
+    else:
+        raise AssertionError("Original synthetic failure disappeared")
+    raw_failure = json.loads(
+        (failed_output / "country-clock-observation.json").read_bytes()
+    )
+    require(
+        raw_failure["maintained_exception"]
+        == {"type": "RuntimeError", "message": "original synthetic country failure"}
+        and raw_failure["actual_return_events"]
+        == [{"object_present": False, "object_type": "NoneType"}]
+        and raw_failure["before"]
+        and raw_failure["after"]
+        and failed_io.enabled is False
+        and sys.getprofile() is None,
+        "Raw clocks/partial events and original failure preserved without callback exception",
+    )
+    checks.append(
+        "actual_telemetry_None_return_preserves_original_exception_and_raw_clock_receipt"
+    )
+    scientific = OUT / "artificial-source-window"
+    land_path = (
+        scientific
+        / "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson"
+    )
+    sead_path = scientific / "data/sead/normalized/nordic_temporal_evidence.geojson"
+    land_path.parent.mkdir(parents=True)
+    sead_path.parent.mkdir(parents=True)
+    source_window: dict[str, Any] = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [[12.9, 54.9], [13.1, 54.9], [13.1, 55.1], [12.9, 55.1], [12.9, 54.9]]
+            ],
+        },
+        "properties": {
+            "record_id": "native-window",
+            "parent_grid_record_id": "native-grid",
+            "dataset_id": "937075",
+            "time_start_bp": 8,
+            "time_end_bp": 12,
+            "time_mean_bp": 10,
+            "time_label": "native interval",
+            "quality_class": "no_pollen_data",
+        },
+    }
+    land_path.write_text(json.dumps({"features": [source_window]}))
+    sead_path.write_text(json.dumps({"features": []}))
+    scientific_product = product(TOP_FIELDS)
+    decision_row: dict[str, Any] = {
+        key: "" for group in DECISION_FIELDS.values() for key in group
+    }
+    decision_row.update(
+        requested_name="target",
+        latitude=55.0,
+        longitude=13.0,
+        target_class="registered_lake",
+        lake_decision="include_lake_review",
+        landclim_window_count=1,
+        landclim_coverage_posture="covered_by_governed_grid",
+    )
+    science_row: dict[str, Any] = {
+        key: "" for group in ROW_FIELDS.values() for key in group
+    }
+    science_row.update(
+        target_name="target",
+        landclim_record_id="native-window",
+        landclim_grid_record_id="native-grid",
+        latitude=55.0,
+        longitude=13.0,
+        target_class="registered_lake",
+        lake_decision="include_lake_review",
+        time_start_bp=8,
+        time_end_bp=12,
+        time_mean_bp=10,
+        time_label="native interval",
+        quality_class="no_pollen_data",
+        forest_cover=None,
+        cross_proxy_posture="no_cross_proxy_context",
+        cereal_interpretation_posture="The source quality class reports no pollen data for this cell and window; modeled pollen-cover values are unavailable.",
+    )
+    for name in science_row:
+        if name.endswith("_count_20km"):
+            science_row[name] = 0
+        elif name.endswith("_cover"):
+            science_row[name] = None
+    scientific_product.update(
+        rows=[science_row],
+        target_decisions=[decision_row],
+        target_count=1,
+        time_row_count=1,
+        landclim_covered_target_count=1,
+        landclim_uncovered_target_count=0,
+    )
+    human_supports = deepcopy(supports)
+    human_supports["coordinates"] = {"latitude": 55.0, "longitude": 13.0}
+    animal_scalar = {
+        "sample_record_ids": ["native-animal"],
+        "sample_count": 1,
+        "latitude": 55.0,
+        "longitude": 13.0,
+        "time_start_bp": 8,
+        "time_end_bp": 12,
+    }
+    synthesis_source_joins(
+        scientific, scientific_product, [human_supports], [animal_scalar]
+    )
+    checks.append(
+        "full_source_window_no_pollen_null_and_disjoint_human_supports_positive"
+    )
+    changed_product = deepcopy(scientific_product)
+    changed_product["rows"][0]["forest_cover"] = 0.0
+    refuses(
+        "no_pollen_null_cannot_be_zero",
+        lambda: synthesis_source_joins(
+            scientific, changed_product, [human_supports], [animal_scalar]
+        ),
+    )
+    changed_product = deepcopy(scientific_product)
+    changed_product["rows"][0]["human_adna_sample_count_20km"] = 2
+    refuses(
+        "hull_gap_cannot_inflate_context_count",
+        lambda: synthesis_source_joins(
+            scientific, changed_product, [human_supports], [animal_scalar]
+        ),
+    )
+    changed_product = deepcopy(scientific_product)
+    changed_product["rows"][0]["animal_adna_sample_count_20km"] = 1
+    refuses(
+        "animal_scalar_hull_cannot_inflate_context_count",
+        lambda: synthesis_source_joins(
+            scientific, changed_product, [human_supports], [animal_scalar]
+        ),
+    )
+    changed_product = deepcopy(scientific_product)
+    changed_product["rows"][0]["landclim_grid_record_id"] = "foreign"
+    refuses(
+        "native_parent_grid_identity_cross",
+        lambda: synthesis_source_joins(
+            scientific, changed_product, [human_supports], [animal_scalar]
+        ),
+    )
+    changed_product = deepcopy(scientific_product)
+    changed_product["target_decisions"][0]["landclim_window_count"] = 0
+    refuses(
+        "native_target_window_denominator_cross",
+        lambda: synthesis_source_joins(
+            scientific, changed_product, [human_supports], [animal_scalar]
+        ),
+    )
+    changed_product = deepcopy(scientific_product)
+    changed_product["rows"][0]["quality_class"] = "high"
+    refuses(
+        "native_quality_class_cross",
+        lambda: synthesis_source_joins(
+            scientific, changed_product, [human_supports], [animal_scalar]
+        ),
+    )
+    human_overlap: dict[str, Any] = deepcopy(human_supports)
+    human_overlap["sample_chronologies"][0]["chronology"].update(
+        time_start_bp=8, time_end_bp=12
+    )
+    qualified = deepcopy(scientific_product)
+    qualified["rows"][0].update(
+        human_adna_locality_count_20km=1,
+        human_adna_sample_count_20km=1,
+        cross_proxy_posture="human_context",
+    )
+    synthesis_source_joins(scientific, qualified, [human_overlap], [animal_scalar])
+    checks.append("one_owned_native_sample_support_overlaps_positive")
+    human_overlap["sample_chronologies"][0]["chronology"]["refusal_reason_code"] = (
+        "negative_bp"
+    )
+    synthesis_source_joins(
+        scientific, scientific_product, [human_overlap], [animal_scalar]
+    )
+    checks.append("source_refusal_does_not_become_owned_numeric_occurrence")
+    sead_path.write_text(
+        json.dumps(
+            {
+                "features": [
+                    {
+                        "geometry": {"type": "Point", "coordinates": [13.0, 55.0]},
+                        "properties": {
+                            "source_url": "source-native-site",
+                            "time_start_bp": 9.5,
+                            "time_end_bp": 10.5,
+                        },
+                    }
+                ]
+            }
+        )
+    )
+    fractional = deepcopy(scientific_product)
+    fractional["rows"][0].update(
+        sead_temporal_record_count_20km=1,
+        sead_site_count_20km=1,
+        cross_proxy_posture="archaeology_context",
+    )
+    synthesis_source_joins(scientific, fractional, [], [])
+    checks.append("native_fractional_SEAD_bounds_retained_without_integer_rounding")
+    sead_path.write_text(json.dumps({"features": []}))
+    source_window["properties"].update(
+        quality_class="high",
+        reconstruction_values=dict.fromkeys(
+            ("ET", "ST", "OL", "AL", "GL", "Cerealia.t", "Secale"), 10.1234567
+        ),
+    )
+    land_path.write_text(json.dumps({"features": [source_window]}))
+    modeled = deepcopy(scientific_product)
+    modeled["rows"][0].update(
+        quality_class="high",
+        forest_cover=20.246914,
+        cross_proxy_posture="pollen_model_only",
+        cereal_interpretation_posture="Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
+    )
+    for key in (
+        "evergreen_tree_cover",
+        "summergreen_tree_cover",
+        "open_land_cover",
+        "agricultural_land_cover",
+        "grassland_cover",
+        "cereal_type_pollen_cover",
+        "rye_pollen_cover",
+    ):
+        modeled["rows"][0][key] = 10.123457
+    synthesis_source_joins(scientific, modeled, [], [])
+    checks.append("native_modeled_values_and_declared_six_decimal_forest_sum_positive")
+    summary = {
+        "source_only": True,
+        "actual_exit": 0,
+        "artificial_groups": len(checks),
+        "checks": checks,
+        "actual_data_API_runtime_preparer_or_native_executed": False,
+    }
+    (SOURCE / "preflight/source-controls-result.json").write_text(
+        json.dumps(summary, indent=2) + "\n"
+    )
+    print(json.dumps(summary))
+
+
+if __name__ == "__main__":
+    main()

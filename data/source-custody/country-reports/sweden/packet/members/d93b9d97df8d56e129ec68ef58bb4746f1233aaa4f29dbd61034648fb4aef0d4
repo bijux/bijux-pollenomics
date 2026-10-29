@@ -1,0 +1,76 @@
+{
+  "schema_version": "sweden-country-semantic-terminal.v1",
+  "candidate": "ee2bb2155f027695f526a576d7aabf075584d87a",
+  "plan_sha256": "6d35aea58a250e0dc62690de47807f626d5c3ab1681c8b73e1830b266e014451",
+  "actual_exit": 0,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/plan.json",
+    "--registered-plan-sha256",
+    "6d35aea58a250e0dc62690de47807f626d5c3ab1681c8b73e1830b266e014451"
+  ],
+  "stages": [
+    {
+      "id": "independent-saved-country-semantic-clock-observer",
+      "action": "observer",
+      "timeout_seconds": 360,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/entry.py",
+        "observer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 45.05080258299131,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/independent-saved-country-semantic-clock-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/independent-saved-country-semantic-clock-observer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "exception": null,
+  "after_custody_error": null,
+  "completed_elapsed_seconds": 83.70306225004606,
+  "completed_child_peak_RSS_bytes_macos": 430702592,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_whole_wall_bound_pass": true,
+  "products_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-saved-country-semantic-review/output-products.json",
+    "sha256": "73b102a1a1140449f3dea0b11870a8fbf89b8c1dbceafcca6347cae7610ebf06",
+    "bytes": 1757
+  },
+  "products_count_before_manifest": 6,
+  "own_receipt_reserve_bytes": 16384,
+  "outer_receipt_reserve_bytes": 16384,
+  "source_freeze_identity": {
+    "candidate": "ee2bb2155f027695f526a576d7aabf075584d87a",
+    "status": "",
+    "tracked_inventory_sha256": "353e71f4121062034e3fb5ed16d517412d888cbd04bffa3c63d7a42d92a25d48"
+  },
+  "live_canonical_equality_claimed": false,
+  "OS_quota_or_full_descendant_RSS_claimed": false,
+  "resources": {
+    "overall_timeout_seconds": 600,
+    "outer_timeout_seconds": 660,
+    "declared_memory_bytes": 8589934592,
+    "declared_storage_bytes": 1073741824
+  },
+  "retained_input_output_logical_bytes_included": 172813578,
+  "scope": "One independent saved-product semantic and native-clock observer; no country API, replay, normalization or model call. Original country call returned normally inside actual controller1/whole1. Missing full return/read/origin telemetry stays unavailable. The original native execution and owned source epoch remain distinct from current orchestration."
+}

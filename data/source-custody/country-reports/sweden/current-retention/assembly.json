@@ -1,0 +1,21 @@
+{
+  "schema_version": "sweden-portable-returned-country-source-assembly.v1",
+  "actual_exit": 0,
+  "candidate": "61d24c1ebcd705ef5805d15d5a9863292c5089c9",
+  "registered_plan_sha256": "eb6ea543166a950038caebbef12836ea1be84367c799620a01f932ee406dd2dc",
+  "capture": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-retained-source-publication/packet/capture.json",
+    "sha256": "db9b8c79c3be74c567344bfb5002430dd408067ec2ccdfe6bd68b8d44afcd05d",
+    "bytes": 56673768
+  },
+  "public_members": 2381,
+  "public_payload_bytes": 128227054,
+  "country_receipt_sha256": "3978e168721dc66ac8c36dc160203f2043c67d5433fdb8377d0808899345aa08",
+  "original_controller_actual_exit": 1,
+  "original_whole_actual_exit": 1,
+  "country_call_returned_normally": true,
+  "saved_observer_actual_exit": 0,
+  "saved_whole_actual_exit": 0,
+  "country_API_normalizer_model_R_or_HTTP_repeated": false,
+  "private_runtime_bytecode_bodies_published": false
+}

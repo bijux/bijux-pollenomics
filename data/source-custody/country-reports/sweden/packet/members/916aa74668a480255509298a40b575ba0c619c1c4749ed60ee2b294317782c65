@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/entry.py", line 154, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/entry.py", line 144, in main
+    producer()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/execute.py", line 232, in main
+    require(not io.denials, "Undeclared data/tool/network read attempted")
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-callable-evidence-custody/contracts.py", line 42, in require
+    raise ValueError(message)
+ValueError: Undeclared data/tool/network read attempted

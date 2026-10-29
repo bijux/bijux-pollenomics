@@ -1,0 +1,30 @@
+{
+  "schema_version": "sweden-country-semantic-root-recipe.v1",
+  "source_only": true,
+  "prepare_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "<ACTUAL_CLEAN_CANDIDATE>",
+    "--review-sha256",
+    "<EXACT_INDEPENDENT_SOURCE_REVIEW_SHA>",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-country-semantic-replay"
+  ],
+  "launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-country-semantic-replay/plan.json",
+    "--registered-plan-sha256",
+    "<ACTUAL_REGISTERED_PLAN_SHA>"
+  ],
+  "root_only_separate_prepare_register_readback_launch": true,
+  "actual_execution_performed_by_author": false
+}

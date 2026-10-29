@@ -1,0 +1,117 @@
+"""Exercise the real diagnostic writer through the real country audit hook."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+import sys
+import time
+from typing import Any
+
+SOURCE = Path(__file__).absolute().parent
+
+
+def main() -> None:
+    sys.path.insert(0, str(SOURCE))
+    from contracts import write
+    from execution_guard import CountryIO
+
+    output = SOURCE / "preflight/diagnostic-IO-fixtures" / str(time.monotonic_ns())
+    output.mkdir(parents=True)
+    outside = output.parent / (output.name + "-outside")
+    outside.mkdir()
+    alias = output / "alias"
+    alias.symlink_to(outside, target_is_directory=True)
+    io = CountryIO({"input_pins": [], "output": str(output)})
+    sys.addaudithook(io)
+    cases = []
+    payload: dict[str, Any] = {
+        "complete_typed_graphs_equal": True,
+        "expected_code_graph_sha256": "0" * 64,
+    }
+    try:
+        write(output / "country-callable-identity.json", payload)
+        cases.append(
+            "actual_contracts_write_passes_real_CountryIO_hook_for_exact_diagnostic"
+        )
+        for name, action in (
+            (
+                "undeclared_sibling_refused",
+                lambda: write(output / "undeclared.json", payload),
+            ),
+            (
+                "diagnostic_child_directory_refused",
+                lambda: (output / "country-callable-identity.json/child").open("x"),
+            ),
+            (
+                "diagnostic_append_refused",
+                lambda: (output / "country-callable-identity.json").open("a"),
+            ),
+            (
+                "diagnostic_truncate_refused",
+                lambda: (output / "country-callable-identity.json").open("w"),
+            ),
+            (
+                "diagnostic_read_refused_while_country_IO_enabled",
+                lambda: (output / "country-callable-identity.json").read_bytes(),
+            ),
+            (
+                "diagnostic_alias_refused",
+                lambda: write(alias / "country-callable-identity.json", payload),
+            ),
+            (
+                "diagnostic_replacement_refused",
+                lambda: write(output / "country-callable-identity.json", payload),
+            ),
+        ):
+            try:
+                action()
+            except (ValueError, PermissionError):
+                cases.append(name)
+            else:
+                raise AssertionError(name)
+        # Removing or renaming the wrapper diagnostic is not part of the new
+        # exception. Its content remains immutable through the maintained call.
+        for event, arguments in (
+            ("os.remove", (str(output / "country-callable-identity.json"), -1)),
+            (
+                "os.rename",
+                (
+                    str(output / "country-callable-identity.json"),
+                    str(output / "producer/changed"),
+                    -1,
+                    -1,
+                ),
+            ),
+        ):
+            try:
+                io(event, arguments)
+            except PermissionError:
+                cases.append(event + "_diagnostic_mutation_refused")
+            else:
+                raise AssertionError(event)
+    finally:
+        io.enabled = False
+    assert (
+        json.loads((output / "country-callable-identity.json").read_bytes()) == payload
+    )
+    assert not (output / "undeclared.json").exists()
+    assert not (outside / "country-callable-identity.json").exists()
+    assert io.denials
+    result = {
+        "source_only": True,
+        "actual_whole_SOURCE_exit": 0,
+        "groups": len(cases),
+        "checks": cases,
+        "actual_writer_and_audit_hook": True,
+        "only_artificial_output_opened": True,
+        "country_or_API_or_private_or_runtime_executed": False,
+    }
+    (SOURCE / "preflight/diagnostic-IO-controls.json").write_text(
+        json.dumps(result, indent=2) + "\n"
+    )
+    print(json.dumps(result))
+
+
+if __name__ == "__main__":
+    main()

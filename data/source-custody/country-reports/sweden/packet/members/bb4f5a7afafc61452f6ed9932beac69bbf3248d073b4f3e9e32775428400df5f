@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py", line 40, in <module>
+    source=pathlib.Path(args[0]).absolute();assert source.resolve()==source and source.is_relative_to(pathlib.Path(profile['repository'])) and source.is_file() and not any(p.is_symlink() for p in (source,*source.parents));sys.argv=[str(source),*args[1:]];runpy.run_path(str(source),run_name='__main__')
+                                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/check_saved.py", line 359, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/check_saved.py", line 327, in main
+    value = ns["serialize_locality_summary"](actual_object)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py", line 171, in serialize_locality_summary
+    "political_entity": locality.identity.political_entity,
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Identity' object has no attribute 'political_entity'

@@ -1,0 +1,62 @@
+{
+  "schema_version": "scientific-owner-original-acceptance-correction.v1",
+  "base_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "original_acceptance_authority": {
+    "repository": "bijux/bijux-pollenomics",
+    "commit": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+    "repository_path": "configs/ci/report-ownership.json",
+    "git_blob": "4cf9713757b0d35c15f484bac13e9a4229ca36a5",
+    "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
+    "bytes": 4580598
+  },
+  "owners": [
+    {
+      "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
+      "original_owner": {
+        "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
+        "paths": [
+          "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
+        ],
+        "producer_inputs": [
+          "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+          "docs/report/source-relations/neotoma/abbo-profile/report.json"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_age_controls.py"
+        ],
+        "role": "unresolved",
+        "verification": "The maintained producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_age_controls.py` reads repository inputs declared here and the PANGAEA ABBO age-determination TSV identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "exact_external_table_identity",
+          "status": "supported_by_maintained_guard",
+          "evidence": "Specialized source contract requires DOI10.1594/PANGAEA.740080,CC-BY-NC-3.0,2977B,SHA9717f1600c62659a33a4901da16c6b5fc3dac7cc47f8c005e54909568929704d. This audit does not hash the external table."
+        },
+        {
+          "condition": "independently_bound_external_acquisition_custody",
+          "status": "not_established",
+          "evidence": "Descriptor and specialized validator explicitly require capture_custody=not_established. The dispatcher routes this schema to that validator, not the generic receipt-authenticated source-bundle validator."
+        },
+        {
+          "condition": "use_authority",
+          "status": "not_established",
+          "evidence": "DOI/license literal and exact bytes are checked; no provider receipt/use-authorization decision is authenticated. Reader retains source analytical rights as remaining input."
+        },
+        {
+          "condition": "fresh_whole_output_byte_comparison",
+          "status": "current_policy_claim_not_independently_authenticated_here",
+          "evidence": "Current owner claims two atomic source writes0/exactreport on651debe15aaa0ea01518597e02e14c22e8297176. No named physical native terminal was supplied in bounded authority/reader/descriptor; no receipt search or replay was performed."
+        }
+      ],
+      "exact_remaining_resolver": "Authenticate a named provider retrieval/copy receipt tied to the2977B PANGAEA table and a scoped use-authority decision; supply exact actual native two-write terminal/catalogue refs if fresh native proof must be independently audited. Keep source chronology/LRA limits."
+    }
+  ],
+  "all_current_physical_execution_source_and_product_evidence_preserved": true,
+  "new_native_execution_or_data_acquisition": false,
+  "new_retained_source_entries": 0,
+  "scientific_or_human_decision_changed": false,
+  "permission_or_source_use_decision_added": false,
+  "scope": "Restore unmet original owner acceptance criteria verbatim. Current exact-byte, arithmetic, source-metadata and official-download evidence remains partial and separate from original provider/copy custody and use authority. No historical native result, public source product, raw capsule, authored scientific body, claim register or human decision is rewritten."
+}

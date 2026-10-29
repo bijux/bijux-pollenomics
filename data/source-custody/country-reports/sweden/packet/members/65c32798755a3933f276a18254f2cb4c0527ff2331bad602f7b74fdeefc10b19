@@ -1,0 +1,1588 @@
+--- reviewed/check_saved.py
++++ saved-observation/check_saved.py
+@@ -0,0 +1,460 @@
++"""Exercise saved return/source/clock and locality contracts on artificial records."""
++
++from __future__ import annotations
++
++import ast
++from collections import defaultdict
++from copy import deepcopy
++import json
++from pathlib import Path
++import sys
++from types import SimpleNamespace
++from typing import Any
++
++SOURCE = Path(__file__).absolute().parent
++ROOT = SOURCE.parents[2]
++
++
++def main() -> None:
++    sys.path.insert(0, str(SOURCE))
++    from callable_identity import CODE_FIELDS
++    from human_source import PREFIXES, record, same
++    from localities import expected_localities, locality_csv_record
++    from saved_authority import (
++        DENIAL,
++        ORIGINAL_PLAN_SHA,
++        ORIGINAL_SOURCE_SHA,
++        ZIP,
++        qualify_original,
++    )
++
++    cases = []
++    refs = json.loads((SOURCE / "retained-authority.json").read_bytes())["references"]
++    output = Path(refs["plan.json"]["path"]).parent
++    owned = SOURCE / "preflight/ARTIFICIAL-owned-source"
++    stage = {
++        "id": "maintained-full-Sweden-country-consumer",
++        "action": "producer",
++        "timeout_seconds": 600,
++        "argv": [
++            "ARTIFICIAL-runtime",
++            "-I",
++            "-B",
++            "ARTIFICIAL-entry",
++            "producer",
++            "--plan",
++            refs["plan.json"]["path"],
++        ],
++    }
++    plan = {
++        "candidate": "1" * 40,
++        "owned_repository": str(owned),
++        "output": str(output),
++        "stages": [stage],
++        "input_pins": [
++            {
++                "path": str(
++                    SOURCE.parent
++                    / "sweden-country-callable-evidence-custody/prepared-source-manifest.json"
++                ),
++                "sha256": ORIGINAL_SOURCE_SHA,
++                "bytes": 1,
++            }
++        ],
++    }
++    progress = [
++        {
++            **stage,
++            "actual_exit": 1,
++            "timed_out": False,
++            "stdout": refs["maintained-full-Sweden-country-consumer.stdout"],
++            "stderr": refs["maintained-full-Sweden-country-consumer.stderr"],
++        }
++    ]
++    inner = {
++        "actual_exit": 1,
++        "candidate": plan["candidate"],
++        "plan_sha256": ORIGINAL_PLAN_SHA,
++        "stages": progress,
++        "exception": None,
++        "after_custody_error": None,
++        "memory_bound_pass": True,
++        "inclusive_storage_bound_pass": True,
++        "completed_whole_wall_bound_pass": True,
++        "products_manifest": refs["output-products.json"],
++    }
++    outer = {
++        "actual_exit": 1,
++        "candidate": plan["candidate"],
++        "plan_sha256": ORIGINAL_PLAN_SHA,
++        "memory_bound_pass": True,
++        "inclusive_storage_bound_pass": True,
++        "completed_outer_wall_bound_pass": True,
++        "registered_plan_unchanged": True,
++        "child_timed_out": False,
++        "child_native_exit": 1,
++        "inner_terminal": refs["sweden-country-semantic-terminal.json"],
++        "stdout": refs["launch.stdout"],
++        "stderr": refs["launch.stderr"],
++    }
++    before = {
++        "TZ": "UTC0",
++        "utc": "2026-10-15T12:00:00+00:00",
++        "local_date_today": "2026-10-15",
++        "time_ns": 10**18,
++        "monotonic_ns": 10**15,
++        "tzname": ["UTC", "UTC"],
++        "timezone": 0,
++        "daylight": 0,
++    }
++    after = {
++        **before,
++        "utc": "2026-10-15T12:00:10+00:00",
++        "time_ns": 10**18 + 10**10,
++        "monotonic_ns": 10**15 + 10**10,
++    }
++    clock = {
++        "schema_version": "sweden-native-country-clock-observation.v1",
++        "before": before,
++        "after": after,
++        "source_returned_generated_on": "2026-10-15",
++        "actual_country_calls": [
++            {
++                "country": "Sweden",
++                "version_dir": str(owned / "data/aadr/v66"),
++                "output_dir": str(output / "producer/candidate"),
++                "context_root": str(owned / "data"),
++                "map_reference": None,
++                "published_output_dir": None,
++            }
++        ],
++        "actual_return_events": [
++            {"object_present": True, "object_type": "CountryReport"}
++        ],
++        "telemetry_errors": [],
++        "clock_observation_error": None,
++        "maintained_exception": None,
++        "IO_denials": [DENIAL],
++        "clock_qualification_not_yet_applied": True,
++    }
++    proof = {
++        "schema_version": "cpython-complete-typed-code-correspondence.v1",
++        "all_code_fields": list(CODE_FIELDS),
++        "complete_typed_graphs_equal": True,
++        "differing_code_fields": [],
++        "expected_code_graph_sha256": "2" * 64,
++        "actual_code_graph_sha256": "2" * 64,
++        "marshal_reference_or_intern_identity_compared": False,
++        "bytecode_filename_lines_flags_exception_tables_or_constant_types_ignored": False,
++    }
++    runtime = {
++        "absent_input_paths": [ZIP],
++        "base_namespaces": [
++            {
++                "root": str(Path(ZIP).parents[1]),
++                "excluded": [
++                    str(Path(ZIP).parents[1] / "lib/python3.11/site-packages")
++                ],
++                "entries": {},
++            }
++        ],
++    }
++    original = [plan, inner, outer, clock, proof, progress, refs, runtime]
++    success = qualify_original(*original)
++    assert success["country_call_returned_normally"] is True
++    assert (
++        success["original_whole_actual_exit"]
++        == success["original_controller_actual_exit"]
++        == 1
++    )
++    assert success["full_returned_object_witness_recovered"] is False
++    cases.append(
++        "one_normal_country_return_preserves_controller1_whole1_and_missing_telemetry"
++    )
++
++    def refusal(label: str, values: list[Any]) -> None:
++        try:
++            qualify_original(*values)
++        except (ValueError, KeyError, TypeError):
++            cases.append(label)
++        else:
++            raise AssertionError(label)
++
++    for status in (0, False, True, None):
++        values = deepcopy(original)
++        values[1]["actual_exit"] = status
++        refusal("original_controller_status_" + repr(status), values)
++    for label, index, key, value in (
++        ("original_whole_relabeled", 2, "actual_exit", 0),
++        ("old_plan_rebound", 1, "plan_sha256", "0" * 64),
++        ("absent_return_event", 3, "actual_return_events", []),
++        (
++            "invented_return_type",
++            3,
++            "actual_return_events",
++            [{"object_present": True, "object_type": "dict"}],
++        ),
++        (
++            "country_exception",
++            3,
++            "maintained_exception",
++            {"type": "ValueError", "message": "failed"},
++        ),
++        ("other_denial", 3, "IO_denials", [DENIAL, "foreign"]),
++        ("removed_denial", 3, "IO_denials", []),
++        ("code_graph_mutation", 4, "actual_code_graph_sha256", "0" * 64),
++        ("code_field_omitted", 4, "all_code_fields", list(CODE_FIELDS[:-1])),
++    ):
++        values = deepcopy(original)
++        values[index][key] = value
++        refusal(label, values)
++    for key, clock_value in (("timezone", False), ("daylight", False), ("TZ", None)):
++        values = deepcopy(original)
++        values[3]["before"][key] = clock_value
++        refusal("clock_" + key, values)
++    values = deepcopy(original)
++    values[3]["actual_country_calls"] *= 2
++    refusal("two_country_calls", values)
++    values = deepcopy(original)
++    values[7]["absent_input_paths"] = []
++    refusal("ZIP_not_originally_absent", values)
++    values = deepcopy(original)
++    values[7]["base_namespaces"][0]["entries"]["lib/python311.zip"] = {"kind": "file"}
++    refusal("ZIP_present_in_original_namespace", values)
++    values = deepcopy(original)
++    values[7]["base_namespaces"][0]["excluded"] = [str(Path(ZIP).parent)]
++    refusal("ZIP_outside_frozen_namespace", values)
++
++    # Run the exact maintained locality aggregation on artificial records only.
++    # Its dataclasses and pure scalar helpers are extracted from reviewed public source.
++    ns: dict[str, Any] = {"defaultdict": defaultdict}
++
++    def extract(path: Path, names: set[str]) -> None:
++        tree = ast.parse(path.read_bytes())
++        nodes = [
++            n
++            for n in tree.body
++            if isinstance(n, (ast.FunctionDef, ast.ClassDef)) and n.name in names
++        ]
++        assert len(nodes) == len(names)
++        module = ast.Module(
++            body=[
++                ast.ImportFrom(
++                    module="__future__", names=[ast.alias(name="annotations")], level=0
++                ),
++                *nodes,
++            ],
++            type_ignores=[],
++        )
++        exec(compile(ast.fix_missing_locations(module), str(path), "exec"), ns)
++
++    from dataclasses import dataclass
++
++    ns["dataclass"] = dataclass
++    model = ROOT / "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models"
++    extract(model / "chronology.py", {"AdnaCoordinate", "AdnaChronology"})
++    extract(model / "occurrence_support.py", {"AdnaSampleChronologySupport"})
++    extract(model / "localities.py", {"AdnaLocalitySummary"})
++    extract(
++        ROOT / "packages/bijux-pollenomics/src/bijux_pollenomics/core/bp_time.py",
++        {
++            "normalize_bp_interval",
++            "merge_bp_intervals",
++            "build_bp_interval_label",
++            "midpoint_bp_year",
++        },
++    )
++    extract(
++        ROOT
++        / "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/locality.py",
++        {"summarize_sample_localities", "_mean_bp_from_interval"},
++    )
++
++    class Identity:
++        def __init__(self, value: dict[str, Any]) -> None:
++            self.value = value
++            self.political_entity = value["political_entity"]
++
++        def as_dict(self) -> dict[str, Any]:
++            return deepcopy(self.value)
++
++    rows = []
++    schema: dict[str, str | None] = {key: key for key in PREFIXES}
++    for token, mean, deviation, place in [
++        ("b", "1000", "10", "A"),
++        ("a", "2000", "0", "A"),
++        ("c", "", "", "B"),
++    ]:
++        item = record(
++            {
++                "genetic_id": token,
++                "latitude": "58.5",
++                "longitude": "15.25",
++                "locality": place,
++                "political_entity": "Sweden",
++                "date_mean_bp": mean,
++                "date_stddev_bp": deviation,
++            },
++            schema,
++            "1240k",
++        )
++        assert item is not None
++        rows.append(item)
++    fake = []
++    for item in rows:
++        sample_values = deepcopy(item)
++        sample_values["locality_identity"] = Identity(item["locality_identity"])
++        sample_values["chronology"] = ns["AdnaChronology"](**item["chronology"])
++        sample_values["genetic_id"] = item["identity"]["stable_token"]
++        sample_values["sample_namespace"] = item["identity"]["namespace"]
++        sample_values.update(
++            {key: item["chronology"][key] for key in ("time_start_bp", "time_end_bp")}
++        )
++        fake.append(SimpleNamespace(**sample_values))
++    actual = [value.as_dict() for value in ns["summarize_sample_localities"](fake)]
++    expected = expected_localities(rows)
++    same(actual, expected)
++    cases.append(
++        "full_independent_locality_typed_projection_matches_actual_source_on_artificial_rows"
++    )
++    artifacts = (
++        ROOT
++        / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py"
++    )
++    extract(artifacts, {"serialize_locality_summary"})
++    for actual_object, expected_row in zip(
++        ns["summarize_sample_localities"](fake), expected, strict=True
++    ):
++        value = ns["serialize_locality_summary"](actual_object)
++        value["datasets"] = ",".join(actual_object.datasets)
++        value["sample_ids"] = ";".join(actual_object.sample_ids)
++        for name in ("sample_chronologies", "locality_identity"):
++            value[name] = json.dumps(
++                value[name], ensure_ascii=False, allow_nan=False, separators=(",", ":")
++            )
++        cells = {key: "" if item is None else str(item) for key, item in value.items()}
++        same(cells, locality_csv_record(expected_row))
++    cases.append("all21_locality_CSV_columns_match_exact_maintained_writer_projection")
++    assert expected[0]["sample_ids"] == ["a", "b"]
++    assert (
++        expected[0]["chronology"]["evidence_class"] == "locality_sample_coverage_hull"
++    )
++    assert (
++        expected[0]["sample_chronologies"][0]["chronology"] != expected[0]["chronology"]
++    )
++    cases.append("source_owned_sample_supports_not_replaced_by_display_hull")
++    from contracts import PYTHON, RESOURCES, require, strict_equal
++
++    prepare_tree = ast.parse((SOURCE / "prepare.py").read_bytes())
++    assignments = [
++        node
++        for node in ast.walk(prepare_tree)
++        if isinstance(node, ast.Assign)
++        and any(
++            isinstance(target, ast.Subscript)
++            and isinstance(target.value, ast.Name)
++            and target.value.id == "plan"
++            and isinstance(target.slice, ast.Constant)
++            and target.slice.value == "stages"
++            for target in node.targets
++        )
++    ]
++    assert len(assignments) == 1
++    plan_path = SOURCE / "preflight/ARTIFICIAL-plan.json"
++    expression = ast.Expression(body=assignments[0].value)
++    stages = eval(
++        compile(
++            ast.fix_missing_locations(expression), "<controlled-prepare-stage>", "eval"
++        ),
++        {
++            "__builtins__": {"str": str},
++            "PYTHON": PYTHON,
++            "SOURCE": SOURCE,
++            "plan_path": plan_path,
++        },
++    )
++    run_tree = ast.parse((SOURCE / "run.py").read_bytes())
++    validator = next(
++        node
++        for node in run_tree.body
++        if isinstance(node, ast.FunctionDef) and node.name == "validate_stages"
++    )
++    validator_ns: dict[str, Any] = {
++        "RESOURCES": RESOURCES,
++        "SOURCE": SOURCE,
++        "PYTHON": PYTHON,
++        "require": require,
++        "strict_equal": strict_equal,
++    }
++    module = ast.Module(
++        body=[
++            ast.ImportFrom(
++                module="__future__", names=[ast.alias(name="annotations")], level=0
++            ),
++            validator,
++        ],
++        type_ignores=[],
++    )
++    exec(
++        compile(ast.fix_missing_locations(module), "<actual-stage-validator>", "exec"),
++        validator_ns,
++    )
++    actual_plan = {"stages": stages, "resources": deepcopy(RESOURCES)}
++    validator_ns["validate_stages"](actual_plan, plan_path)
++    assert stages[0]["action"] == "observer" and len(stages) == 1
++    cases.append("actual_prepare_stage_expression_passes_actual_one_observer_validator")
++    for name in ("empty", "two", "producer", "wrong_argv", "Boolean_timeout"):
++        changed = deepcopy(actual_plan)
++        if name == "empty":
++            changed["stages"] = []
++        elif name == "two":
++            changed["stages"] *= 2
++        elif name == "producer":
++            changed["stages"][0]["action"] = "producer"
++        elif name == "wrong_argv":
++            changed["stages"][0]["argv"].append("foreign")
++        else:
++            changed["stages"][0]["timeout_seconds"] = True
++        try:
++            validator_ns["validate_stages"](changed, plan_path)
++        except ValueError:
++            cases.append("actual_stage_refuses_" + name)
++        else:
++            raise AssertionError(name)
++    entry_tree = ast.parse((SOURCE / "entry.py").read_bytes())
++    assert not any(
++        isinstance(node, ast.Compare)
++        and any(
++            isinstance(item, ast.Constant) and item.value == "producer"
++            for item in node.comparators
++        )
++        for node in ast.walk(entry_tree)
++    )
++    observe_tree = ast.parse((SOURCE / "observe.py").read_bytes())
++    assert not any(
++        isinstance(node, ast.ImportFrom) and (node.module or "").startswith("bijux_")
++        for node in ast.walk(observe_tree)
++    )
++    assert not any(
++        isinstance(node, ast.Call)
++        and isinstance(node.func, ast.Name)
++        and node.func.id
++        in {"replay", "generate_country_report", "load_species_samples"}
++        for node in ast.walk(observe_tree)
++    )
++    cases.append("no_producer_dispatch_or_maintained_API_call_in_saved_observer")
++    result = {
++        "source_only": True,
++        "actual_whole_SOURCE_exit": 0,
++        "groups": len(cases),
++        "cases": cases,
++        "real_country_data_runtime_API_preparer_or_native_executed": False,
++    }
++    (SOURCE / "preflight/saved-source-controls.json").write_text(
++        json.dumps(result, indent=2) + "\n"
++    )
++    print(json.dumps(result))
++
++
++if __name__ == "__main__":
++    main()
+--- reviewed/contracts.py
++++ saved-observation/contracts.py
+@@ -30,8 +30,8 @@
+     "pollenomics",
+ )
+ RESOURCES = {
+-    "overall_timeout_seconds": 1140,
+-    "outer_timeout_seconds": 1200,
++    "overall_timeout_seconds": 600,
++    "outer_timeout_seconds": 660,
+     "declared_memory_bytes": 8 * 1024**3,
+     "declared_storage_bytes": 1024**3,
+ }
+--- reviewed/entry.py
++++ saved-observation/entry.py
+@@ -107,6 +107,8 @@
+         "execution_guard.py",
+         "semantic_contract.py",
+         "callable_identity.py",
++        "saved_authority.py",
++        "localities.py",
+         "retained.py",
+         "source_projection.py",
+         "source_inputs.py",
+@@ -138,10 +140,6 @@
+         from run import main as run
+ 
+         run()
+-    elif action == "producer":
+-        from execute import main as producer
+-
+-        producer()
+     elif action == "observer":
+         from observe import main as observer
+ 
+--- reviewed/launch.py
++++ saved-observation/launch.py
+@@ -28,7 +28,7 @@
+ 
+ 
+ def remaining_seconds(started: float, now: float, bound: int) -> float:
+-    require(now >= started and bound == 1200, "Invalid outer watchdog clock/bound")
++    require(now >= started and bound == 660, "Invalid outer watchdog clock/bound")
+     remaining = bound - (now - started)
+     require(remaining > 0, "Outer startup consumed watchdog budget")
+     return remaining
+--- reviewed/localities.py
++++ saved-observation/localities.py
+@@ -0,0 +1,232 @@
++"""Independently reconstruct complete human locality exports from native source rows."""
++
++from __future__ import annotations
++
++from collections import defaultdict
++from copy import deepcopy
++import csv
++import json
++from pathlib import Path
++from typing import Any
++
++from human_source import reconstruct, same, typed_record
++from independent import require
++
++LOCALITY_FIELDS = (
++    "schema_version",
++    "species_latin_name",
++    "species_common_name",
++    "source_family",
++    "sample_namespace",
++    "locality",
++    "latitude",
++    "longitude",
++    "sample_count",
++    "time_start_bp",
++    "time_end_bp",
++    "time_mean_bp",
++    "time_label",
++    "dating_basis",
++    "coordinate_confidence",
++    "datasets",
++    "sample_ids",
++    "chronology_role",
++    "sample_chronologies",
++    "locality_identity",
++    "political_entity",
++)
++
++
++def expected_localities(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
++    """Retain individual supports separately from the source-owned display coverage hull."""
++    grouped: dict[tuple[Any, ...], list[dict[str, Any]]] = defaultdict(list)
++    for row in samples:
++        grouped[(row["locality"], row["latitude_text"], row["longitude_text"])].append(
++            row
++        )
++    result = []
++    for (name, latitude, longitude), records in grouped.items():
++        first = records[0]
++        supports = []
++        for record in sorted(
++            records, key=lambda value: value["identity"]["stable_token"]
++        ):
++            support = {
++                "schema_version": "adna-sample-chronology-support.v1",
++                "sample_id": record["identity"]["stable_token"],
++                "chronology": deepcopy(record["chronology"]),
++                "source_release": record["source_release"],
++            }
++            for destination, origin in (
++                ("provenance_path", "chronology_provenance_path"),
++                ("provenance_locator", "chronology_provenance_locator"),
++                ("provenance_excerpt", "chronology_provenance_text"),
++                ("provenance_kind", "chronology_provenance_kind"),
++                ("chronology_strength", "chronology_strength"),
++                ("normalization_status", "chronology_normalization_status"),
++                ("conflict_note", "chronology_conflict_note"),
++            ):
++                support[destination] = record[origin]
++            support.update(
++                dict.fromkeys(
++                    ("reference_epoch", "age_type", "calibration_status", "model"),
++                    "not_separately_declared",
++                )
++            )
++            supports.append(support)
++        bounds = [
++            (row["chronology"]["time_start_bp"], row["chronology"]["time_end_bp"])
++            for row in records
++            if row["chronology"]["time_start_bp"] is not None
++            and row["chronology"]["time_end_bp"] is not None
++        ]
++        start = min(row[0] for row in bounds) if bounds else None
++        end = max(row[1] for row in bounds) if bounds else None
++        mean = (
++            int(round((min(start, end) + max(start, end)) / 2))
++            if start is not None and end is not None
++            else None
++        )
++        label = (
++            ""
++            if start is None
++            else (
++                str(start) + " BP"
++                if start == end
++                else str(min(start, end)) + "-" + str(max(start, end)) + " BP"
++            )
++        )
++        result.append(
++            {
++                "identity": deepcopy(first["locality_identity"]),
++                **{
++                    key: first[key]
++                    for key in (
++                        "species_latin_name",
++                        "species_common_name",
++                        "source_family",
++                    )
++                },
++                "source_releases": sorted({row["source_release"] for row in records}),
++                "record_modalities": sorted(
++                    {row["record_modality"] for row in records}
++                ),
++                "review_strengths": sorted({row["review_strength"] for row in records}),
++                "provenance_qualities": sorted(
++                    {row["provenance_quality"] for row in records}
++                ),
++                "locality": name,
++                "coordinates": {
++                    "latitude": first["latitude"],
++                    "longitude": first["longitude"],
++                    "latitude_text": latitude,
++                    "longitude_text": longitude,
++                    "confidence": first["coordinate_confidence"],
++                },
++                "sample_count": len(records),
++                "sample_ids": [row["sample_id"] for row in supports],
++                "datasets": sorted(
++                    {dataset for row in records for dataset in row["datasets"]}
++                ),
++                "chronology": {
++                    "original_text": "Sample coverage hull (display only): " + label
++                    if bounds
++                    else "",
++                    "time_start_bp": start,
++                    "time_end_bp": end,
++                    "time_mean_bp": mean,
++                    "date_stddev_bp": "",
++                    "source_mean_bp_text": "",
++                    "dating_basis": "locality_sample_coverage",
++                    "evidence_class": "locality_sample_coverage_hull",
++                    "precision_posture": "display_coverage_only",
++                    "refusal_reason_code": "",
++                },
++                "chronology_role": "locality_sample_coverage_hull",
++                "sample_chronologies": supports,
++                "sample_namespace": first["identity"]["namespace"],
++                "project_accessions": [],
++                "original_location_text": "",
++                "nordic_inclusion": False,
++                "nordic_inclusion_reason": "",
++                "interpretation_note": "",
++            }
++        )
++    result.sort(
++        key=lambda row: (-row["sample_count"], (row["locality"] or "").casefold())
++    )
++    return result
++
++
++def locality_csv_record(row: dict[str, Any]) -> dict[str, str]:
++    chronology = row["chronology"]
++    value = {
++        "schema_version": "adna-locality-summary-export.v2",
++        **{
++            key: row[key]
++            for key in (
++                "species_latin_name",
++                "species_common_name",
++                "source_family",
++                "sample_namespace",
++                "locality",
++                "sample_count",
++                "sample_ids",
++                "datasets",
++                "chronology_role",
++                "sample_chronologies",
++            )
++        },
++        "locality_identity": row["identity"],
++        "political_entity": row["identity"]["political_entity"],
++        "latitude": row["coordinates"]["latitude_text"],
++        "longitude": row["coordinates"]["longitude_text"],
++        **{
++            key: chronology[key]
++            for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "dating_basis")
++        },
++        "time_label": chronology["original_text"],
++        "coordinate_confidence": row["coordinates"]["confidence"],
++    }
++    value["datasets"] = ",".join(row["datasets"])
++    value["sample_ids"] = ";".join(row["sample_ids"])
++    for name in ("sample_chronologies", "locality_identity"):
++        value[name] = json.dumps(
++            value[name], ensure_ascii=False, allow_nan=False, separators=(",", ":")
++        )
++    return {
++        name: "" if value[name] is None else str(value[name])
++        for name in LOCALITY_FIELDS
++    }
++
++
++def independent_human_report(
++    owned: Path, candidate: Path, generated_on: str
++) -> dict[str, Any]:
++    """This is an independent expected projection, never a recovered in-memory return."""
++    rows, counts, _, _ = reconstruct(
++        sorted((owned / "data/aadr/v66").glob("*/*.anno")), ["Sweden"]
++    )
++    samples = rows["Sweden"]
++    localities = expected_localities(samples)
++    with (candidate / "sweden_aadr_v66_localities.csv").open(
++        encoding="utf8", newline=""
++    ) as stream:
++        reader = csv.DictReader(stream)
++        require(
++            reader.fieldnames == list(LOCALITY_FIELDS),
++            "Complete locality export header differs",
++        )
++        actual = list(reader)
++    same(actual, [locality_csv_record(row) for row in localities])
++    return {
++        "country": "Sweden",
++        "version": "v66",
++        "generated_on": generated_on,
++        "samples": [typed_record(row) for row in samples],
++        "localities": localities,
++        "total_unique_samples": len(samples),
++        "total_unique_localities": len(localities),
++        "dataset_row_counts": counts["Sweden"],
++        "output_dir": str(candidate),
++    }
+--- reviewed/observe.py
++++ saved-observation/observe.py
+@@ -1,15 +1,17 @@
+-"""Observe the saved current full country bundle without a second country producer."""
++"""Independently qualify saved country products while preserving the original wrapper failure."""
+ 
+ from __future__ import annotations
+ 
+ import argparse
+ from pathlib import Path
++from types import CodeType
+ from typing import Any
+ 
+-from clock_contract import certify
++from callable_identity import code_graph, graph_sha256
+ from contracts import (
+     checkpoint,
+     execution_scope,
++    registered_plan,
+     require,
+     stage_plan,
+     strict_equal,
+@@ -24,6 +26,8 @@
+     document,
+     synthesis_source_joins,
+ )
++from localities import independent_human_report
++from retained import ORIGINAL, original_authority
+ from source_inputs import pin
+ 
+ 
+@@ -49,68 +53,57 @@
+     args = parser.parse_args()
+     plan = stage_plan(args.plan)
+     authority, scope = execution_scope(plan)
++    original, original_rows, observed = original_authority()
++    frozen = {row["path"]: row for row in plan["input_pins"]}
++    require(
++        all(frozen.get(row["path"]) == row for row in original_rows),
++        "Original frozen rows absent from saved observer plan",
++    )
++    history_pin = plan["retained_failed_controller_history"]
++    require(
++        strict_equal(
++            observed, registered_plan(Path(history_pin["path"]), history_pin["sha256"])
++        ),
++        "Prepared original call authority differs",
++    )
++    require(
++        plan["original_saved_country_output"] == str(ORIGINAL),
++        "Original output role rebound",
++    )
+     output = Path(plan["output"])
+     owned = Path(plan["owned_repository"])
+-    candidate = output / "producer/candidate"
++    candidate = ORIGINAL / "producer/candidate"
+     declaration = plan["source_declaration"]
+     verify_selection(owned, declaration, plan["source_input_selection"])
+-    import json
+-
+-    progress = json.loads((output / "stage-progress.json").read_bytes())
+-    require(
+-        len(progress) == 1
+-        and type(progress[0].get("actual_exit")) is int
+-        and progress[0]["actual_exit"] == 0
+-        and progress[0]["timed_out"] is False,
+-        "Exactly one successful actual maintained country stage required",
+-    )
+-    require(
+-        strict_equal(
+-            {
+-                key: progress[0][key]
+-                for key in ("id", "action", "timeout_seconds", "argv")
+-            },
+-            plan["stages"][0],
+-        ),
+-        "Producer actual stage identity differs",
+-    )
+-    for key in ("stdout", "stderr"):
+-        require(
+-            pin(Path(progress[0][key]["path"])) == progress[0][key],
+-            "Producer stream changed",
+-        )
+-    execution_path = output / "maintained-country-execution.json"
+-    witness = document(execution_path)
+-    require(
+-        type(witness.get("actual_exit")) is int
+-        and witness["actual_exit"] == 0
+-        and witness["candidate"] == plan["candidate"],
+-        "Maintained execution witness not actual current success",
+-    )
+-    require(
+-        witness["wrapper_created_report_or_clock_override"] is False
+-        and witness["ecology_rights_history_human_or_LRA_admitted"] is False
+-        and witness["IO_denials"] == [],
+-        "Country scope was promoted",
+-    )
+-    callable_path = output / "country-callable-identity.json"
+-    callable_proof = document(callable_path)
+-    require(
+-        witness["country_callable_identity"] == pin(callable_path)
+-        and callable_proof["schema_version"]
+-        == "cpython-complete-typed-code-correspondence.v1"
+-        and callable_proof["complete_typed_graphs_equal"] is True
+-        and callable_proof["differing_code_fields"] == []
+-        and callable_proof["expected_code_graph_sha256"]
+-        == callable_proof["actual_code_graph_sha256"]
+-        == witness["country_source_code_graph_sha256"]
+-        and callable_proof["marshal_reference_or_intern_identity_compared"] is False
+-        and callable_proof[
+-            "bytecode_filename_lines_flags_exception_tables_or_constant_types_ignored"
+-        ]
+-        is False,
+-        "Exact complete typed callable proof differs",
+-    )
++    raw_clock = document(ORIGINAL / "country-clock-observation.json")
++    callable_proof = document(ORIGINAL / "country-callable-identity.json")
++    source = (
++        owned / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py"
++    )
++    require(
++        __import__("sys").flags.optimize == 0,
++        "Exact native code compiler optimization required",
++    )
++    code = compile(
++        source.read_bytes(), str(source), "exec", dont_inherit=True, optimize=0
++    )
++    selected = [
++        value
++        for value in code.co_consts
++        if type(value) is CodeType and value.co_name == "generate_country_report"
++    ]
++    require(
++        len(selected) == 1
++        and graph_sha256(code_graph(selected[0]))
++        == callable_proof["expected_code_graph_sha256"],
++        "Saved callable proof does not bind unchanged exact owned source",
++    )
++    clock = observed["qualified_saved_call_metadata"]["native_UTC_clock"]
++    require(
++        raw_clock["source_returned_generated_on"] == clock["native_UTC_day"],
++        "Saved source-owned day differs",
++    )
++    returned = independent_human_report(owned, candidate, clock["native_UTC_day"])
+     presence = plan["source_input_selection"]["named_file_presence"]
+     raa = [
+         name for name in declaration["optional_data"] if name.startswith("data/raa/")
+@@ -125,55 +118,6 @@
+         ),
+         "absent_source_is_unknown_or_refused_not_measured_zero": True,
+     }
+-    returned = witness["actual_returned_country_report"]
+-    require(
+-        returned["country"] == "Sweden"
+-        and returned["version"] == "v66"
+-        and returned["output_dir"] == str(candidate),
+-        "Actual returned CountryReport differs from genuine country call",
+-    )
+-    expected_call = {
+-        "country": "Sweden",
+-        "version_dir": str(owned / "data/aadr/v66"),
+-        "output_dir": str(candidate),
+-        "context_root": str(owned / "data"),
+-        "map_reference": None,
+-        "published_output_dir": None,
+-    }
+-    require(
+-        witness["actual_country_calls"] == [expected_call],
+-        "Genuine full country call/return denominator differs",
+-    )
+-    raw_clock = document(output / "country-clock-observation.json")
+-    require(
+-        raw_clock["maintained_exception"] is None
+-        and raw_clock["clock_observation_error"] is None
+-        and raw_clock["telemetry_errors"] == []
+-        and raw_clock["IO_denials"] == []
+-        and raw_clock["actual_return_events"]
+-        == [{"object_present": True, "object_type": "CountryReport"}],
+-        "Raw successful clock/return observations contain a refusal or partial result",
+-    )
+-    require(
+-        raw_clock["actual_country_calls"] == [expected_call]
+-        and raw_clock["source_returned_generated_on"] == returned["generated_on"],
+-        "Raw source clock observation differs",
+-    )
+-    clock = certify(raw_clock["before"], raw_clock["after"], returned["generated_on"])
+-    require(
+-        strict_equal(witness["clock"], clock),
+-        "Independent native clock qualification differs",
+-    )
+-    protected = {row["path"]: row for row in plan["input_pins"]}
+-    require(bool(witness["first_party_origins"]), "Country source origins absent")
+-    for row in witness["first_party_origins"]:
+-        expected = {key: row[key] for key in ("path", "sha256", "bytes")}
+-        require(
+-            Path(row["path"]).is_relative_to(owned)
+-            and protected.get(row["path"]) == expected
+-            and pin(Path(row["path"])) == expected,
+-            "Observed source origin not complete frozen owned source",
+-        )
+     catalog = product_members(candidate)
+     allowed = {row["relative_path"] for row in declaration["published_roles"]}
+     actual = {Path(row["path"]).relative_to(candidate).as_posix() for row in catalog}
+@@ -240,11 +184,7 @@
+     source_joins = synthesis_source_joins(
+         owned, synthesis, returned["localities"], animal["localities"]
+     )
+-    receipt = document(output / "producer/receipt.json")
+-    require(
+-        strict_equal(witness["maintained_replay_receipt"], receipt),
+-        "Actual replay returned receipt differs from saved receipt",
+-    )
++    receipt = document(ORIGINAL / "producer/receipt.json")
+     semantics = audit_receipt(owned, candidate, receipt)
+     for row in receipt["source_files"]:
+         require(
+@@ -271,21 +211,41 @@
+     write(
+         output / "independent-country-review.json",
+         {
+-            "schema_version": "sweden-country-source-semantic-clock-review.v1",
++            "schema_version": "sweden-saved-country-source-semantic-clock-review.v1",
+             "actual_exit": 0,
+             "candidate": plan["candidate"],
+             "registered_plan_sha256": __import__("os").environ[
+                 "BIJUX_REGISTERED_PLAN_SHA256"
+             ],
+-            "maintained_execution": pin(execution_path),
++            "original_country_execution_candidate": original["candidate"],
++            "original_owned_source_candidate": original[
++                "original_owned_source_candidate"
++            ],
++            "original_registered_plan_sha256": observed["original_plan_sha256"],
++            "original_controller_actual_exit": 1,
++            "original_whole_actual_exit": 1,
++            "country_call_returned_normally": True,
++            "actual_country_call_return_events": 1,
++            "full_captured_return_object_recovered": False,
++            "original_read_or_import_origin_ledger_recovered": False,
++            "independent_expected_projection_is_not_captured_return": True,
++            "retained_call_authority": history_pin,
++            "country_callable_identity": pin(
++                ORIGINAL / "country-callable-identity.json"
++            ),
++            "country_clock_observation": pin(
++                ORIGINAL / "country-clock-observation.json"
++            ),
+             "native_UTC_clock": clock,
++            "exact_absent_default_import_attempt": observed[
++                "qualified_saved_call_metadata"
++            ]["exact_absent_default_import_attempt"],
+             "human_source_joins": human,
+             "animal_source_joins": animals,
+             "synthesis_source_joins": source_joins,
+             "source_authority_unavailability": unavailable,
+             "semantic_receipt": semantics,
+             "actual_products": catalog,
+-            "actual_country_producer_calls": 1,
+             "independent_country_producer_calls": 0,
+             "full_source_resource_input_closure_bound": True,
+             "new_current_evidence_not_historical_receipt_recovery": True,
+--- reviewed/prepare.py
++++ saved-observation/prepare.py
+@@ -1,4 +1,4 @@
+-"""Prepare a corrected callable guard over the exact previously sealed country inputs."""
++"""Prepare one independent saved-country observer without another maintained country call."""
+ 
+ from __future__ import annotations
+ 
+@@ -120,14 +120,16 @@
+     }
+     plan: dict[str, Any] = deepcopy(original)
+     plan.update(
+-        id="sweden-country-callable-"
++        id="sweden-country-saved-observation-"
+         + args.candidate[:12]
+         + "-"
+         + str(pin(SOURCE / "prepared-source-manifest.json")["sha256"])[:12],
+         candidate=args.candidate,
+         output=str(output),
+         canonical_identity_at_source_freeze=before,
+-        original_owned_source_candidate=original["candidate"],
++        original_owned_source_candidate=original["original_owned_source_candidate"],
++        original_country_execution_candidate=original["candidate"],
++        original_saved_country_output=original["output"],
+         original_registered_plan_sha256=history["original_plan_sha256"],
+         retained_failed_controller_history=history_identity,
+         retained_logical_output_bytes=history["retained_logical_output_bytes"],
+@@ -136,7 +138,7 @@
+         qualified_source_runtime=authority,
+         owned_namespace_snapshots=snapshots,
+         resources=deepcopy(RESOURCES),
+-        scope="One genuine full Sweden country call using the unchanged sealed source/data from the original pre-country callable-guard refusal. The old controller/whole1 is preserved; no original country call occurred. Current orchestration identity and original owned source epoch remain separate. Full source/comparand/native UTC/independent scientific limits remain unchanged.",
++        scope="One independent saved-product semantic and native-clock observer; no country API, replay, normalization or model call. Original country call returned normally inside actual controller1/whole1. Missing full return/read/origin telemetry stays unavailable. The original native execution and owned source epoch remain distinct from current orchestration.",
+     )
+     plan.pop("input_pins", None)
+     plan.pop("qualified_input_namespaces", None)
+@@ -165,8 +167,7 @@
+             ],
+         }
+         for name, action, timeout in (
+-            ("maintained-full-Sweden-country-consumer", "producer", 600),
+-            ("independent-source-semantic-clock-observer", "observer", 360),
++            ("independent-saved-country-semantic-clock-observer", "observer", 360),
+         )
+     ]
+     plan["argv"] = [
+@@ -233,7 +234,8 @@
+             {
+                 "plan": pin(plan_path),
+                 "original_failed_whole_exit": 1,
+-                "original_country_calls": 0,
++                "original_country_call_returned_normally": True,
++                "original_country_call_return_events": 1,
+                 "copied_owned_data_or_source": False,
+                 "actual_native_producer_launched": False,
+             }
+--- reviewed/retained.py
++++ saved-observation/retained.py
+@@ -1,4 +1,4 @@
+-"""Reuse the sealed Sweden source/data after a pre-country callable-guard refusal."""
++"""Protect the complete collected country return and failed-controller history unchanged."""
+ 
+ from __future__ import annotations
+ 
+@@ -7,196 +7,139 @@
+ from pathlib import Path
+ from typing import Any
+ 
+-from contracts import ROOT, registered_plan, require
++from contracts import ROOT, SOURCE, registered_plan, require
+ from runtime_contracts import namespace_snapshot, verify_base_namespaces
++from saved_authority import ORIGINAL_PLAN_SHA, qualify_original
+ from source_inputs import exact_union, pin, verify_rows
+ 
+-ORIGINAL = ROOT / "artifacts/science/current-sweden-country-semantic-replay"
+-ORIGINAL_PLAN_SHA = "e6d7ebf4d5318843bb072381bedb09d508349cd4e4d156e5c8341b3e41a62255"
+-EXPECTED = {
+-    "plan.json": ORIGINAL_PLAN_SHA,
+-    "sweden-country-semantic-terminal.json": "8eda246e43e04d99b5367dd17b3228e604edcd4e6ba2563b009af884c0e8f08b",
+-    "sweden-country-semantic-launch-terminal.json": "7e0b381c285c9ab4eb23d0c5c75435d02c5924c55b90acfc8f68a4ca819abd67",
+-    "output-products.json": "a4fece58a3e5450ec4a0000646109dd9cbc50485343268a9c2be3356b4944786",
+-    "stage-progress.json": "19c25b25a18d5177c7b89d58dba6df18c6f8681a23894ca8a31b24160f2073c8",
+-    "original-source-ledger.json": "a8251aa62cf551dad46034206603c7cf6d50cd87f697864d41e690b74aafc636",
+-}
+-EXPECTED_BYTES = {
+-    "plan.json": 18183282,
+-    "sweden-country-semantic-terminal.json": 3482,
+-    "sweden-country-semantic-launch-terminal.json": 2520,
+-    "output-products.json": 788623,
+-    "stage-progress.json": 1206,
+-    "original-source-ledger.json": 6171253,
+-}
++ORIGINAL = ROOT / "artifacts/science/current-sweden-callable-evidence-replay"
++AUTHORITY_SHA = "b2d202e0cb62088cc9e754effcb8a10db9f2436aae8b1e25ad4429ff7fe8f1c5"
+ 
+ 
+-def closed_namespace(
+-    original: Path, rows: list[dict[str, Any]], owned_snapshots: list[dict[str, Any]]
+-) -> dict[str, Any]:
++def closed_namespace(rows: list[dict[str, Any]]) -> dict[str, Any]:
+     entries: dict[str, dict[str, str]] = {}
+     for row in rows:
+         path = Path(row["path"])
+-        require(path.is_relative_to(original), "Retained native output escaped")
+-        relative = path.relative_to(original)
+-        require(bool(relative.parts), "Native file cannot be output root")
++        require(path.is_relative_to(ORIGINAL), "Original output escaped")
++        relative = path.relative_to(ORIGINAL)
++        require(bool(relative.parts), "Output identity names root")
++        require(
++            entries.get(relative.as_posix(), {"kind": "file"}) == {"kind": "file"},
++            "Output type conflict",
++        )
+         entries[relative.as_posix()] = {"kind": "file"}
+         for parent in relative.parents:
+             if parent != Path("."):
+                 require(
+                     entries.get(parent.as_posix(), {"kind": "directory"})
+                     == {"kind": "directory"},
+-                    "File/directory role conflict",
++                    "Output ancestor type conflict",
+                 )
+                 entries[parent.as_posix()] = {"kind": "directory"}
+     for name in ("cache", "cache/matplotlib", "scratch"):
+         require(
+             entries.get(name, {"kind": "directory"}) == {"kind": "directory"},
+-            "Original empty directory role changed",
++            "Original startup directory changed",
+         )
+         entries[name] = {"kind": "directory"}
+-    for snapshot in owned_snapshots:
+-        root = Path(snapshot["root"])
+-        require(
+-            root.is_relative_to(original / "owned-source"),
+-            "Sealed source namespace escaped",
+-        )
+-        prefix = root.relative_to(original)
+-        entries[prefix.as_posix()] = {"kind": "directory"}
+-        for name, value in snapshot["entries"].items():
+-            logical = (prefix / name).as_posix()
+-            require(
+-                value["kind"] in {"file", "directory"},
+-                "Original source alias/special refused",
+-            )
+-            require(
+-                entries.get(logical, value) == value, "Original member role conflict"
+-            )
+-            entries[logical] = value
+     return {
+-        "root": str(original),
++        "root": str(ORIGINAL),
+         "excluded": [],
+         "entries": dict(sorted(entries.items())),
+     }
+ 
+ 
+ def original_authority() -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
+-    refs = []
++    authority = registered_plan(SOURCE / "retained-authority.json", AUTHORITY_SHA)
++    require(
++        authority["original_controller_actual_exit"] == 1
++        and authority["original_whole_actual_exit"] == 1,
++        "Root authority cannot relabel original failure",
++    )
++    references = authority["references"]
+     docs: dict[str, Any] = {}
+-    for name, sha in EXPECTED.items():
+-        path = ORIGINAL / name
++    streams = set()
++    for name, expected in references.items():
++        path = Path(expected["path"])
+         require(
+-            not any(node.is_symlink() for node in (path, *path.parents)),
+-            "Retained authority ancestor alias refused",
++            path == ORIGINAL / name
++            and path.is_file()
++            and path.stat().st_nlink == 1
++            and not any(node.is_symlink() for node in (path, *path.parents))
++            and type(expected["bytes"]) is int
++            and 0 <= expected["bytes"] <= 128 * 1024**2
++            and path.stat().st_size == expected["bytes"],
++            "Original named metadata type/size/ancestry differs",
+         )
+-        require(
+-            path.is_file()
+-            and path.stat().st_nlink == 1
+-            and path.stat().st_size == EXPECTED_BYTES[name],
+-            "Exact original metadata size/type required before hashing",
+-        )
+-        row = pin(path)
+-        require(row["sha256"] == sha, "Original failed-native authority changed")
+-        refs.append(row)
+-        if name == "stage-progress.json":
++        actual = pin(path)
++        require(actual == expected, "Original collected reference changed")
++        if name.endswith((".stdout", ".stderr")):
++            streams.add(name)
++        elif name != "producer/receipt.json":
+             raw = path.read_bytes()
+             require(
+-                hashlib.sha256(raw).hexdigest() == sha,
+-                "Original progress buffer differs",
++                hashlib.sha256(raw).hexdigest() == expected["sha256"],
++                "Original metadata buffer changed",
+             )
+-            docs[name] = json.loads(raw)
+-            require(
+-                type(docs[name]) is list,
+-                "Original progress must be an actual stage list",
+-            )
+-        else:
+-            docs[name] = registered_plan(path, sha)
++            if name == "stage-progress.json":
++                value = json.loads(raw)
++                require(type(value) is list, "Original progress must be a list")
++                docs[name] = value
++            else:
++                docs[name] = registered_plan(path, expected["sha256"])
++    require(
++        len(references) == 12
++        and streams
++        == {
++            "launch.stdout",
++            "launch.stderr",
++            "maintained-full-Sweden-country-consumer.stdout",
++            "maintained-full-Sweden-country-consumer.stderr",
++        },
++        "Complete root reference roles differ",
++    )
+     plan = docs["plan.json"]
+-    inner = docs["sweden-country-semantic-terminal.json"]
+-    outer = docs["sweden-country-semantic-launch-terminal.json"]
+     require(
+-        plan["output"] == str(ORIGINAL)
+-        and plan["owned_repository"] == str(ORIGINAL / "owned-source")
+-        and plan["candidate"] == inner["candidate"] == outer["candidate"]
+-        and inner["plan_sha256"] == outer["plan_sha256"] == ORIGINAL_PLAN_SHA,
+-        "Original failed-native epoch or topology changed",
++        references["plan.json"]["sha256"] == ORIGINAL_PLAN_SHA,
++        "Original source plan changed",
++    )
++    runtime_ref = plan["qualified_source_runtime"]["plan"]
++    require(
++        runtime_ref["sha256"]
++        == "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4"
++        and runtime_ref in plan["input_pins"],
++        "Original qualified runtime role differs",
++    )
++    runtime_plan = registered_plan(Path(runtime_ref["path"]), runtime_ref["sha256"])
++    qualified = qualify_original(
++        plan,
++        docs["sweden-country-semantic-terminal.json"],
++        docs["sweden-country-semantic-launch-terminal.json"],
++        docs["country-clock-observation.json"],
++        docs["country-callable-identity.json"],
++        docs["stage-progress.json"],
++        references,
++        runtime_plan,
+     )
+     require(
+-        type(inner["actual_exit"]) is int
+-        and inner["actual_exit"] == 1
+-        and type(outer["actual_exit"]) is int
+-        and outer["actual_exit"] == 1
+-        and inner["exception"] is None
+-        and inner["after_custody_error"] is None
+-        and outer["registered_plan_unchanged"] is True
+-        and outer["child_timed_out"] is False,
+-        "Original whole refusal must stay literal",
++        not (ORIGINAL / "maintained-country-execution.json").exists()
++        and not (ORIGINAL / "maintained-country-execution.json").is_symlink()
++        and not (ORIGINAL / "independent-country-review.json").exists()
++        and not (ORIGINAL / "independent-country-review.json").is_symlink(),
++        "Missing original telemetry or unrun observer was fabricated",
++    )
++    outputs = exact_union(
++        docs["output-products.json"]["files"], list(references.values())
+     )
+     require(
+-        len(inner["stages"]) == 1 and docs["stage-progress.json"] == inner["stages"],
+-        "Exactly one failed pre-country controller stage required",
++        all(references[name] in outputs for name in references),
++        "Original full reference union differs",
+     )
+-    stage = inner["stages"][0]
++    snapshot = closed_namespace(outputs)
+     require(
+-        {key: stage[key] for key in plan["stages"][0]} == plan["stages"][0]
+-        and type(stage["actual_exit"]) is int
+-        and stage["actual_exit"] == 1
+-        and stage["timed_out"] is False,
+-        "Original producer-controller refusal changed",
++        namespace_snapshot(ORIGINAL, []) == snapshot,
++        "Complete collected output membership changed",
+     )
+-    require(
+-        inner["products_manifest"] == pin(ORIGINAL / "output-products.json"),
+-        "Original complete product catalogue differs",
+-    )
+-    require(
+-        outer["inner_terminal"]
+-        == pin(ORIGINAL / "sweden-country-semantic-terminal.json"),
+-        "Original outer/inner join differs",
+-    )
+-    for key in ("memory_bound_pass", "inclusive_storage_bound_pass"):
+-        require(
+-            inner[key] is True and outer[key] is True,
+-            "Original resource limits changed",
+-        )
+-    require(
+-        inner["completed_whole_wall_bound_pass"] is True
+-        and outer["completed_outer_wall_bound_pass"] is True,
+-        "Original wall outcome changed",
+-    )
+-    stream_rows = [stage[key] for key in ("stdout", "stderr")] + [
+-        outer[key] for key in ("stdout", "stderr")
+-    ]
+-    for row in stream_rows:
+-        require(
+-            Path(row["path"]).parent == ORIGINAL and pin(Path(row["path"])) == row,
+-            "Original complete native stream changed",
+-        )
+-    require(
+-        stage["stderr"]["sha256"]
+-        == "0f0341c57cc42353be2ab0dcd1fa2e1a8c98b2f95a9d7f76e967e929e1f525a7",
+-        "Exact pre-country code guard traceback required",
+-    )
+-    require(
+-        stage["stdout"]["bytes"] == 0,
+-        "Original country stage unexpectedly emitted output",
+-    )
+-    for name in (
+-        "producer",
+-        "country-clock-observation.json",
+-        "maintained-country-execution.json",
+-        "independent-country-review.json",
+-    ):
+-        path = ORIGINAL / name
+-        require(
+-            not path.exists() and not path.is_symlink(),
+-            "Original did not stop before the country call",
+-        )
+-    outputs = exact_union(docs["output-products.json"]["files"], refs, stream_rows)
+-    # The complete original output authority includes late outer streams, not a
+-    # freshly substituted baseline. Its full owned directory membership was sealed.
+-    snapshot = closed_namespace(ORIGINAL, outputs, plan["owned_namespace_snapshots"])
+-    actual = namespace_snapshot(ORIGINAL, [])
+-    require(actual == snapshot, "Original complete output membership changed")
+     verify_rows(outputs)
+     verify_rows(plan["input_pins"])
+     verify_base_namespaces(plan["owned_namespace_snapshots"])
+@@ -206,12 +149,23 @@
+         {
+             "original_plan_sha256": ORIGINAL_PLAN_SHA,
+             "original_candidate": plan["candidate"],
++            "original_owned_source_candidate": plan["original_owned_source_candidate"],
+             "original_whole_actual_exit": 1,
+             "original_controller_stage_actual_exits": [1],
+-            "country_API_or_replay_called": False,
++            "country_call_returned_normally": True,
++            "actual_country_call_return_events": 1,
+             "original_outputs": outputs,
+             "original_complete_namespace": snapshot,
+-            "retained_logical_output_bytes": sum(row["bytes"] for row in outputs),
++            "retained_logical_output_bytes": sum(row["bytes"] for row in outputs)
++            + plan["retained_logical_output_bytes"],
++            "collected_current_output_logical_bytes": sum(
++                row["bytes"] for row in outputs
++            ),
++            "separate_original_owned_tree_logical_bytes": plan[
++                "retained_logical_output_bytes"
++            ],
+             "original_owned_source_data_reused_without_recopy": True,
++            "qualified_saved_call_metadata": qualified,
++            "original_full_return_read_or_origin_telemetry_recovered": False,
+         },
+     )
+--- reviewed/run.py
++++ saved-observation/run.py
+@@ -1,4 +1,4 @@
+-"""Run the two bounded owned-source metadata consumers and retain every native failure."""
++"""Run one bounded saved-product observer and preserve the original country-wrapper failure."""
+ 
+ from __future__ import annotations
+ 
+@@ -34,17 +34,14 @@
+     )
+     stages = plan["stages"]
+     require(
+-        len(stages) == 2,
+-        "Exactly maintained producer and independent observer required",
++        len(stages) == 1,
++        "Exactly one independent saved-product observer required",
+     )
+     for stage, action, name, timeout in zip(
+         stages,
+-        ("producer", "observer"),
+-        (
+-            "maintained-full-Sweden-country-consumer",
+-            "independent-source-semantic-clock-observer",
+-        ),
+-        (600, 360),
++        ("observer",),
++        ("independent-saved-country-semantic-clock-observer",),
++        (360,),
+         strict=True,
+     ):
+         require(
+@@ -187,7 +184,7 @@
+     )
+     wall = elapsed <= bounds["overall_timeout_seconds"]
+     passed = (
+-        len(results) == 2
++        len(results) == 1
+         and all(row["actual_exit"] == 0 and not row["timed_out"] for row in results)
+         and error is None
+         and after_error is None
+--- reviewed/saved_authority.py
++++ saved-observation/saved_authority.py
+@@ -0,0 +1,163 @@
++"""Qualify one preserved successful country return inside its failed native wrapper."""
++
++from __future__ import annotations
++
++from pathlib import Path
++from typing import Any
++
++from callable_identity import CODE_FIELDS
++from clock_contract import certify
++from contracts import require, strict_equal
++
++ORIGINAL_PLAN_SHA = "b4458d45c74b43e96cea0b468ba0885b579253273e685185e37aa49ac2347cef"
++ORIGINAL_SOURCE_SHA = "32700b3d6977d648f338a1fab3265af426b702224967d21ff753c9ba5c8eec98"
++ZIP = "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python311.zip"
++DENIAL = "Undeclared maintained country input read: " + ZIP
++
++
++def qualify_original(
++    plan: dict[str, Any],
++    inner: dict[str, Any],
++    outer: dict[str, Any],
++    clock: dict[str, Any],
++    proof: dict[str, Any],
++    progress: list[dict[str, Any]],
++    references: dict[str, dict[str, Any]],
++    runtime_plan: dict[str, Any],
++) -> dict[str, Any]:
++    """No original failure becomes zero and no missing in-memory telemetry is invented."""
++    require(
++        references["plan.json"]["sha256"] == ORIGINAL_PLAN_SHA
++        and inner["plan_sha256"] == outer["plan_sha256"] == ORIGINAL_PLAN_SHA,
++        "Original registered plan authority differs",
++    )
++    for receipt in (inner, outer):
++        require(
++            type(receipt["actual_exit"]) is int
++            and receipt["actual_exit"] == 1
++            and receipt["candidate"] == plan["candidate"]
++            and receipt["memory_bound_pass"] is True
++            and receipt["inclusive_storage_bound_pass"] is True,
++            "Actual original failure or resource scope was relabeled",
++        )
++    require(
++        inner["exception"] is None
++        and inner["after_custody_error"] is None
++        and inner["completed_whole_wall_bound_pass"] is True
++        and outer["completed_outer_wall_bound_pass"] is True
++        and outer["registered_plan_unchanged"] is True
++        and outer["child_timed_out"] is False
++        and type(outer["child_native_exit"]) is int
++        and outer["child_native_exit"] == 1
++        and outer["inner_terminal"]
++        == references["sweden-country-semantic-terminal.json"]
++        and inner["products_manifest"] == references["output-products.json"],
++        "Original completed custody or native receipt join differs",
++    )
++    require(
++        strict_equal(progress, inner["stages"]) and len(progress) == 1,
++        "One preserved failed producer controller required",
++    )
++    stage = progress[0]
++    require(
++        strict_equal({key: stage[key] for key in plan["stages"][0]}, plan["stages"][0])
++        and stage["id"] == "maintained-full-Sweden-country-consumer"
++        and stage["action"] == "producer"
++        and type(stage["actual_exit"]) is int
++        and stage["actual_exit"] == 1
++        and stage["timed_out"] is False,
++        "Original controller identity differs",
++    )
++    for key in ("stdout", "stderr"):
++        require(
++            stage[key] == references["maintained-full-Sweden-country-consumer." + key]
++            and outer[key] == references["launch." + key],
++            "Complete original streams differ",
++        )
++    owned = Path(plan["owned_repository"])
++    output = Path(plan["output"])
++    expected_call = {
++        "country": "Sweden",
++        "version_dir": str(owned / "data/aadr/v66"),
++        "output_dir": str(output / "producer/candidate"),
++        "context_root": str(owned / "data"),
++        "map_reference": None,
++        "published_output_dir": None,
++    }
++    require(
++        clock["schema_version"] == "sweden-native-country-clock-observation.v1"
++        and strict_equal(clock["actual_country_calls"], [expected_call])
++        and strict_equal(
++            clock["actual_return_events"],
++            [{"object_present": True, "object_type": "CountryReport"}],
++        )
++        and clock["telemetry_errors"] == []
++        and clock["clock_observation_error"] is None
++        and clock["maintained_exception"] is None
++        and clock["IO_denials"] == [DENIAL]
++        and clock["clock_qualification_not_yet_applied"] is True,
++        "Actual call/return/clock or exact refused attempt differs",
++    )
++    qualified_clock = certify(
++        clock["before"], clock["after"], clock["source_returned_generated_on"]
++    )
++    require(
++        proof["schema_version"] == "cpython-complete-typed-code-correspondence.v1"
++        and proof["all_code_fields"] == list(CODE_FIELDS)
++        and proof["complete_typed_graphs_equal"] is True
++        and proof["differing_code_fields"] == []
++        and proof["expected_code_graph_sha256"] == proof["actual_code_graph_sha256"]
++        and proof["marshal_reference_or_intern_identity_compared"] is False
++        and proof[
++            "bytecode_filename_lines_flags_exception_tables_or_constant_types_ignored"
++        ]
++        is False,
++        "Complete native typed callable correspondence differs",
++    )
++    absent = runtime_plan["absent_input_paths"]
++    require(
++        type(absent) is list and absent.count(ZIP) == 1,
++        "Exact original qualified ZIP absence missing",
++    )
++    covering = [
++        row
++        for row in runtime_plan["base_namespaces"]
++        if Path(ZIP).is_relative_to(Path(row["root"]))
++        and not any(Path(ZIP).is_relative_to(Path(name)) for name in row["excluded"])
++    ]
++    require(
++        len(covering) == 1
++        and covering[0]["root"] == str(Path(ZIP).parents[1])
++        and covering[0]["excluded"]
++        == [str(Path(ZIP).parents[1] / "lib/python3.11/site-packages")]
++        and "lib/python311.zip" not in covering[0]["entries"],
++        "ZIP absence not protected by complete original base namespace",
++    )
++    watched = [
++        row
++        for row in plan["input_pins"]
++        if row["path"].endswith(
++            "/sweden-country-callable-evidence-custody/prepared-source-manifest.json"
++        )
++    ]
++    require(
++        len(watched) == 1 and watched[0]["sha256"] == ORIGINAL_SOURCE_SHA,
++        "Actual original executed source epoch differs",
++    )
++    return {
++        "country_call_returned_normally": True,
++        "native_UTC_clock": qualified_clock,
++        "actual_country_call_arguments": expected_call,
++        "actual_country_call_and_return_events": 1,
++        "original_controller_actual_exit": 1,
++        "original_whole_actual_exit": 1,
++        "original_stage_actual_exits": [1],
++        "exact_absent_default_import_attempt": {
++            "path": ZIP,
++            "denied_before_bytes_read": True,
++            "original_qualified_runtime_absence_protected": True,
++        },
++        "full_returned_object_witness_recovered": False,
++        "original_read_or_import_origin_ledger_recovered": False,
++        "source_code_graph_sha256": proof["expected_code_graph_sha256"],
++    }

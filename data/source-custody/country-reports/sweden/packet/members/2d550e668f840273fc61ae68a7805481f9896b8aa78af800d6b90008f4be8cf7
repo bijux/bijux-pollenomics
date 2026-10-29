@@ -1,0 +1,271 @@
+"""Check actual public callable compilation and adversarial unexecuted code graphs."""
+
+from __future__ import annotations
+
+import ast
+import hashlib
+import importlib
+import json
+import os
+from pathlib import Path
+import struct
+import sys
+from types import CodeType
+from typing import Any
+
+SOURCE = Path(__file__).absolute().parent
+ROOT = SOURCE.parents[2]
+OUT = SOURCE / "preflight/callable-import-controls"
+CASES: list[str] = []
+
+
+def main() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+    os.environ.update(
+        MPLCONFIGDIR=str(OUT / "matplotlib"),
+        XDG_CACHE_HOME=str(OUT / "cache"),
+        TMPDIR=str(OUT),
+    )
+    sys.path.insert(0, str(SOURCE))
+    from callable_identity import CODE_FIELDS, code_correspondence, code_graph
+    from retained import closed_namespace
+
+    def audit(event: str, arguments: tuple[Any, ...]) -> None:
+        if (
+            event == "subprocess.Popen"
+            or event == "os.system"
+            or event.startswith("socket.")
+        ):
+            raise PermissionError("Source import cannot launch tools or network")
+        if event == "open" and arguments and isinstance(arguments[0], str):
+            path = Path(arguments[0]).absolute()
+            if path.is_relative_to(ROOT / "data"):
+                raise PermissionError("Source import cannot open repository data")
+            mode = arguments[1]
+            flags = arguments[2]
+            writing = (isinstance(mode, str) and any(c in mode for c in "wax+")) or (
+                type(flags) is int
+                and bool(
+                    flags
+                    & (os.O_WRONLY | os.O_RDWR | os.O_CREAT | os.O_TRUNC | os.O_APPEND)
+                )
+            )
+            if writing and not path.is_relative_to(OUT):
+                raise PermissionError("Source import write outside owned fixture")
+
+    sys.addaudithook(audit)
+    # Only import definitions/resources. Never invoke the country/report APIs.
+    service = importlib.import_module("bijux_pollenomics.reporting.service")
+    actual = service.generate_country_report.__code__
+    path = (
+        ROOT / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py"
+    )
+    expected_module = compile(
+        path.read_bytes(), str(path), "exec", dont_inherit=True, optimize=0
+    )
+    expected = next(
+        code
+        for code in expected_module.co_consts
+        if type(code) is CodeType and code.co_name == "generate_country_report"
+    )
+    assert actual.co_filename == str(path) and sys.flags.optimize == 0
+    proof = code_correspondence(expected, actual)
+    assert proof["complete_typed_graphs_equal"] is True, proof
+    CASES.append("actual_public_service_import_matches_pinned_source_compilation")
+
+    def different(name: str, changed: CodeType) -> None:
+        result = code_correspondence(expected, changed)
+        assert result["complete_typed_graphs_equal"] is False, name
+        assert result["differing_code_fields"], name
+        CASES.append(name)
+
+    different(
+        "exact_filename", actual.replace(co_filename=actual.co_filename + ".foreign")
+    )
+    different(
+        "exact_first_line", actual.replace(co_firstlineno=actual.co_firstlineno + 1)
+    )
+    different("exact_flags", actual.replace(co_flags=actual.co_flags ^ 0x1000000))
+    different("exact_bytecode", actual.replace(co_code=actual.co_code + b"\x09\x00"))
+    different(
+        "exact_exception_table",
+        actual.replace(co_exceptiontable=actual.co_exceptiontable + b"\x00"),
+    )
+    different(
+        "exact_line_table", actual.replace(co_linetable=actual.co_linetable + b"\x00")
+    )
+    different("exact_function_name", actual.replace(co_name="foreign"))
+    different("exact_qualified_name", actual.replace(co_qualname="foreign"))
+    different(
+        "exact_constant_tuple", actual.replace(co_consts=(*actual.co_consts, "foreign"))
+    )
+    different(
+        "exact_native_names", actual.replace(co_names=(*actual.co_names, "foreign"))
+    )
+    assert len(CODE_FIELDS) == 18
+    leaf = compile(
+        "x = (0, False, 0.0, -0.0, 1j, 'Å')",
+        "/ARTIFICIAL/leaf.py",
+        "exec",
+        dont_inherit=True,
+        optimize=0,
+    )
+    assert code_graph(leaf.replace(co_consts=(False,))) != code_graph(
+        leaf.replace(co_consts=(0,))
+    )
+    assert code_graph(leaf.replace(co_consts=(0,))) != code_graph(
+        leaf.replace(co_consts=(0.0,))
+    )
+    assert code_graph(leaf.replace(co_consts=(0.0,))) != code_graph(
+        leaf.replace(co_consts=(-0.0,))
+    )
+    CASES.extend(
+        [
+            "Boolean_integer_constant_types_preserved",
+            "integer_float_constant_types_preserved",
+            "signed_zero_bits_preserved",
+        ]
+    )
+    nan_a = struct.unpack("!d", bytes.fromhex("7ff8000000000001"))[0]
+    nan_b = struct.unpack("!d", bytes.fromhex("7ff8000000000002"))[0]
+    assert code_graph(leaf.replace(co_consts=(nan_a,))) != code_graph(
+        leaf.replace(co_consts=(nan_b,))
+    )
+    assert code_graph(leaf.replace(co_consts=(complex(0.0, -0.0),))) != code_graph(
+        leaf.replace(co_consts=(complex(0.0, 0.0),))
+    )
+    CASES.extend(["NaN_payload_bits_preserved", "complex_signed_zero_bits_preserved"])
+    text_a = "same constant value"
+    text_b = ("x" + text_a)[1:]
+    assert text_a == text_b and text_a is not text_b
+    left = leaf.replace(co_consts=(text_a, text_a))
+    right = leaf.replace(co_consts=(text_a, text_b))
+    assert code_correspondence(left, right)["complete_typed_graphs_equal"] is True
+    CASES.append("object_intern_or_reference_sharing_is_not_a_code_difference")
+    assert code_graph(
+        leaf.replace(co_consts=(frozenset({"one", "two"}),))
+    ) == code_graph(leaf.replace(co_consts=(frozenset({"two", "one"}),)))
+    CASES.append("frozenset_membership_has_canonical_typed_order")
+    outer = leaf.replace(co_consts=(leaf,))
+    changed_outer = leaf.replace(co_consts=(leaf.replace(co_name="foreign"),))
+    assert code_graph(outer) != code_graph(changed_outer)
+    CASES.append("nested_code_fields_are_not_ignored")
+    try:
+        code_graph(leaf.replace(co_consts=(["mutable"],)))
+    except ValueError:
+        CASES.append("unqualified_mutable_constant_refused")
+    else:
+        raise AssertionError("Unknown code constant accepted")
+    original = OUT / "ARTIFICIAL-original"
+    source_namespace = {
+        "root": str(original / "owned-source"),
+        "excluded": [],
+        "entries": {
+            "src": {"kind": "directory"},
+            "src/service.py": {"kind": "file"},
+            "empty": {"kind": "directory"},
+        },
+    }
+    originals = [
+        {"path": str(original / name), "sha256": "0" * 64, "bytes": 1}
+        for name in ("plan.json", "launch.stdout", "owned-source/src/service.py")
+    ]
+    namespace = closed_namespace(original, originals, [source_namespace])
+    assert namespace["excluded"] == []
+    assert namespace["entries"]["owned-source/empty"] == {"kind": "directory"}
+    assert namespace["entries"]["launch.stdout"] == {"kind": "file"}
+    CASES.append("original_file_authority_and_sealed_empty_owned_directories_joined")
+    for name, rows, snapshots in (
+        (
+            "retained_output_escape_refused",
+            [{"path": str(OUT / "foreign"), "sha256": "0" * 64, "bytes": 1}],
+            [source_namespace],
+        ),
+        (
+            "owned_source_namespace_escape_refused",
+            originals,
+            [{**source_namespace, "root": str(OUT / "foreign")}],
+        ),
+        (
+            "owned_source_alias_role_refused",
+            originals,
+            [{**source_namespace, "entries": {"link": {"kind": "symlink"}}}],
+        ),
+        (
+            "original_file_directory_conflict_refused",
+            originals,
+            [
+                {
+                    **source_namespace,
+                    "entries": {"src/service.py": {"kind": "directory"}},
+                }
+            ],
+        ),
+    ):
+        try:
+            closed_namespace(original, rows, snapshots)
+        except ValueError:
+            CASES.append(name)
+        else:
+            raise AssertionError(name)
+    preparer = ast.parse((SOURCE / "prepare.py").read_bytes())
+    main_node = next(
+        node
+        for node in preparer.body
+        if isinstance(node, ast.FunctionDef) and node.name == "main"
+    )
+    first_mkdir = min(
+        node.lineno
+        for node in ast.walk(main_node)
+        if isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Attribute)
+        and node.func.attr == "mkdir"
+    )
+    for function in (
+        "original_authority",
+        "checkpoint",
+        "verify_entry_aliases",
+        "verify_selection",
+        "verify_rows",
+    ):
+        assert any(
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Name)
+            and node.func.id == function
+            and node.lineno < first_mkdir
+            for node in ast.walk(main_node)
+        ), function
+    assert not any(
+        isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id in {"freeze", "project", "copy_rows"}
+        for node in ast.walk(main_node)
+    )
+    assert not any(
+        isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Attribute)
+        and node.func.attr in {"copy", "copy2", "copyfile", "copytree"}
+        for node in ast.walk(main_node)
+    )
+    CASES.extend(
+        [
+            "exact_source_namespace_runtime_input_guards_before_first_mkdir",
+            "no_source_data_reprojection_or_copy_in_reuse_preparer",
+        ]
+    )
+    result = {
+        "source_only": True,
+        "actual_whole_SOURCE_exit": 0,
+        "public_service_source_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "actual_public_service_code_comparison": proof,
+        "groups": len(CASES),
+        "checks": CASES,
+        "country_or_replay_API_called": False,
+        "private_data_opened_or_hashed": False,
+    }
+    (OUT / "result.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps(result))
+
+
+if __name__ == "__main__":
+    main()

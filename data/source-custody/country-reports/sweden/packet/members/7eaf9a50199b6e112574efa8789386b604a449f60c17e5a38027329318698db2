@@ -1,0 +1,53 @@
+{
+  "schema_version": "sweden-native-country-clock-observation.v1",
+  "before": {
+    "TZ": "UTC0",
+    "utc": "2026-10-15T17:11:32.596541+00:00",
+    "local_date_today": "2026-10-15",
+    "time_ns": 1792084292597105000,
+    "monotonic_ns": 460417799673125,
+    "tzname": [
+      "UTC",
+      "UTC"
+    ],
+    "timezone": 0,
+    "daylight": 0
+  },
+  "after": {
+    "TZ": "UTC0",
+    "utc": "2026-10-15T17:12:42.616459+00:00",
+    "local_date_today": "2026-10-15",
+    "time_ns": 1792084362616491000,
+    "monotonic_ns": 460487819595958,
+    "tzname": [
+      "UTC",
+      "UTC"
+    ],
+    "timezone": 0,
+    "daylight": 0
+  },
+  "source_returned_generated_on": "2026-10-15",
+  "actual_country_calls": [
+    {
+      "country": "Sweden",
+      "version_dir": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-country-semantic-replay/owned-source/data/aadr/v66",
+      "output_dir": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate",
+      "context_root": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-country-semantic-replay/owned-source/data",
+      "map_reference": null,
+      "published_output_dir": null
+    }
+  ],
+  "actual_return_events": [
+    {
+      "object_present": true,
+      "object_type": "CountryReport"
+    }
+  ],
+  "telemetry_errors": [],
+  "clock_observation_error": null,
+  "maintained_exception": null,
+  "IO_denials": [
+    "Undeclared maintained country input read: /opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python311.zip"
+  ],
+  "clock_qualification_not_yet_applied": true
+}

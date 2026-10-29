@@ -1,0 +1,63 @@
+artifacts/science/sweden-country-saved-semantic-custody/localities.py:13: error:
+Module "independent" does not explicitly export attribute "same"  [attr-defined]
+    from independent import require, same
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:211: error:
+Incompatible types in assignment (expression has type "None", variable has type
+"int | str | list[dict[str, object]] | dict[str, str] | list[str]") 
+[assignment]
+        for key, value in (("timezone", False), ("daylight", False), ("TZ"...
+        ^
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:297: error:
+Argument 2 to "record" has incompatible type "dict[str, str]"; expected
+"dict[str, str | None]"  [arg-type]
+                schema,
+                ^~~~~~
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:297: note: "dict" is invariant -- see https://mypy.readthedocs.io/en/stable/common_issues.html#variance
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:297: note: Consider using "Mapping" instead, which is covariant in the value type
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:304: error:
+Argument 1 to "deepcopy" has incompatible type "dict[str, Any]"; expected
+"list[Any]"  [arg-type]
+            values = deepcopy(item)
+                              ^~~~
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:305: error:
+No overload variant of "__setitem__" of "list" matches argument types "str",
+"Identity"  [call-overload]
+            values["locality_identity"] = Identity(item["locality_identity...
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:305: note: Possible overload variants:
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:305: note:     def __setitem__(self, SupportsIndex, Any, /) -> None
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:305: note:     def __setitem__(self, slice[SupportsIndex | None, SupportsIndex | None, SupportsIndex | None], Iterable[Any], /) -> None
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:306: error:
+No overload variant of "__setitem__" of "list" matches argument types "str",
+"Any"  [call-overload]
+            values["chronology"] = ns["AdnaChronology"](**item["chronology...
+            ^~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:306: note: Possible overload variants:
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:306: note:     def __setitem__(self, SupportsIndex, Any, /) -> None
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:306: note:     def __setitem__(self, slice[SupportsIndex | None, SupportsIndex | None, SupportsIndex | None], Iterable[Any], /) -> None
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:307: error:
+No overload variant of "__setitem__" of "list" matches argument types "str",
+"Any"  [call-overload]
+            values["genetic_id"] = item["identity"]["stable_token"]
+            ^~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:307: note: Possible overload variants:
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:307: note:     def __setitem__(self, SupportsIndex, Any, /) -> None
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:307: note:     def __setitem__(self, slice[SupportsIndex | None, SupportsIndex | None, SupportsIndex | None], Iterable[Any], /) -> None
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:308: error:
+No overload variant of "__setitem__" of "list" matches argument types "str",
+"Any"  [call-overload]
+            values["sample_namespace"] = item["identity"]["namespace"]
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:308: note: Possible overload variants:
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:308: note:     def __setitem__(self, SupportsIndex, Any, /) -> None
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:308: note:     def __setitem__(self, slice[SupportsIndex | None, SupportsIndex | None, SupportsIndex | None], Iterable[Any], /) -> None
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:309: error:
+"list[Any]" has no attribute "update"  [attr-defined]
+            values.update(
+            ^~~~~~~~~~~~~
+artifacts/science/sweden-country-saved-semantic-custody/check_saved.py:312: error:
+Argument after ** must be a mapping, not "list[Any]"  [arg-type]
+            fake.append(SimpleNamespace(**values))
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~
+Found 10 errors in 2 files (checked 10 source files)

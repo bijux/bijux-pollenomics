@@ -1,0 +1,20 @@
+{
+  "source_only": true,
+  "actual_whole_SOURCE_exit": 0,
+  "groups": 10,
+  "checks": [
+    "actual_contracts_write_passes_real_CountryIO_hook_for_exact_diagnostic",
+    "undeclared_sibling_refused",
+    "diagnostic_child_directory_refused",
+    "diagnostic_append_refused",
+    "diagnostic_truncate_refused",
+    "diagnostic_read_refused_while_country_IO_enabled",
+    "diagnostic_alias_refused",
+    "diagnostic_replacement_refused",
+    "os.remove_diagnostic_mutation_refused",
+    "os.rename_diagnostic_mutation_refused"
+  ],
+  "actual_writer_and_audit_hook": true,
+  "only_artificial_output_opened": true,
+  "country_or_API_or_private_or_runtime_executed": false
+}

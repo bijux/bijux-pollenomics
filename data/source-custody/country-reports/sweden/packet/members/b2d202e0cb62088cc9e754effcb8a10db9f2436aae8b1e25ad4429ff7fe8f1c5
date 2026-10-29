@@ -1,0 +1,75 @@
+{
+  "actual_native_session": 10867,
+  "original_controller_actual_exit": 1,
+  "original_whole_actual_exit": 1,
+  "observed_country_calls": 1,
+  "native_return_event_only_not_full_returned_object": [
+    {
+      "object_present": true,
+      "object_type": "CountryReport"
+    }
+  ],
+  "references": {
+    "plan.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/plan.json",
+      "sha256": "b4458d45c74b43e96cea0b468ba0885b579253273e685185e37aa49ac2347cef",
+      "bytes": 18644986
+    },
+    "sweden-country-semantic-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/sweden-country-semantic-terminal.json",
+      "sha256": "4d9f6926b40ce71acc59e8b9f74703532bc88e997c1f6bba5d739ce731fb671a",
+      "bytes": 3621
+    },
+    "sweden-country-semantic-launch-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/sweden-country-semantic-launch-terminal.json",
+      "sha256": "1c8821853caa89fdd3f32f2f4a607e271ec78a2a91e3a967c51e8ebf64dbcdc9",
+      "bytes": 2594
+    },
+    "stage-progress.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/stage-progress.json",
+      "sha256": "04f76bce1c04920ca0c2c5cba20bc7f1e56bebe906af69c12007102db40eb1a1",
+      "bytes": 1217
+    },
+    "output-products.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/output-products.json",
+      "sha256": "9038c86ab98da3456f5641c3ce63ef9bd398ec17cc67b00e3f49532b07242137",
+      "bytes": 13664
+    },
+    "country-callable-identity.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/country-callable-identity.json",
+      "sha256": "a134c6cbda4de33494b04d247b5530d2de6edc3faa3c47d710b5a1eacdcc0b08",
+      "bytes": 859
+    },
+    "country-clock-observation.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/country-clock-observation.json",
+      "sha256": "7eaf9a50199b6e112574efa8789386b604a449f60c17e5a38027329318698db2",
+      "bytes": 1655
+    },
+    "producer/receipt.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/receipt.json",
+      "sha256": "3978e168721dc66ac8c36dc160203f2043c67d5433fdb8377d0808899345aa08",
+      "bytes": 7000
+    },
+    "launch.stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/launch.stdout",
+      "sha256": "87400577591fcd3fc3038898d60301dec2299fc47cb28a131ec224499e434810",
+      "bytes": 270
+    },
+    "launch.stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/launch.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "maintained-full-Sweden-country-consumer.stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/maintained-full-Sweden-country-consumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "maintained-full-Sweden-country-consumer.stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/maintained-full-Sweden-country-consumer.stderr",
+      "sha256": "916aa74668a480255509298a40b575ba0c619c1c4749ed60ee2b294317782c65",
+      "bytes": 766
+    }
+  },
+  "scope": "Exact newly collected native execution metadata, receipt and output-catalogue identities; no new qualification or output reconstruction."
+}

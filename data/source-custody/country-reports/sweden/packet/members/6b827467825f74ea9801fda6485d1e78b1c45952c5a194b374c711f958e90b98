@@ -1,0 +1,1310 @@
+{
+  "schema_version": "sweden-country-report-source-plan.v1",
+  "source_only": true,
+  "executable_controller_frozen": false,
+  "owner_id": "countries/sweden/land-use-replay/semantic-receipt",
+  "original_owner_row": {
+    "owner_id": "countries/sweden/land-use-replay/semantic-receipt",
+    "role": "unresolved",
+    "paths": [
+      "docs/report/countries/sweden/land-use-replay/receipt.json"
+    ],
+    "producer_paths": [
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py"
+    ],
+    "producer_inputs": [
+      "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "data/aadr/v66/release_manifest.json",
+      "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "data/sead/normalized/nordic_temporal_evidence.geojson",
+      "data/svar/review/lake_candidate_registry_review.json",
+      "data/svar/review/sweden_lake_candidate_registry.geojson"
+    ],
+    "verification": "The replay invokes the full country-report bundle producer, hashes published outputs and upstream products, and uses runtime generated date. Seven direct source files alone are not the complete producer input/template closure. Bind full country-producer source closure, published comparands and time control before generated ownership; this receipt is reproducibility evidence, not vegetation validation."
+  },
+  "owner_transition_proposed": false,
+  "intent": "One genuine current full Sweden country publisher and independent source/semantic observer; retain current result separately from historical semantic receipt.",
+  "actual_future_candidate": "Root selects then-current clean repository identity; no source author Git execution or guessed revision.",
+  "maintained_consumer": {
+    "entry": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py",
+    "call": "replay(repository=owned_repository, output=fresh_output/producer)",
+    "country_call_signature": [
+      "version_dir",
+      "country",
+      "output_dir",
+      "map_reference",
+      "published_output_dir",
+      "context_root"
+    ],
+    "country_call": "generate_country_report(version_dir=owned_repository/data/aadr/v66,country=Sweden,output_dir=fresh_output/producer/candidate,context_root=owned_repository/data)",
+    "supported_clock_override": false,
+    "producer_repetition": "One full country publication only. Human ANNO metadata is genuinely read by the supported API; animal raw archives are not normalized or acquired by this path."
+  },
+  "clock_contract": {
+    "source_call": "reporting.service.generate_country_report: generated_on=str(date.today())",
+    "process_environment": {
+      "TZ": "UTC0"
+    },
+    "no_monkeypatch_fake_date_or_source_rewrite": true,
+    "before_and_after_observation": [
+      "datetime.now(timezone.utc)",
+      "date.today()",
+      "time.time_ns()",
+      "time.monotonic_ns()",
+      "time.tzname/time.timezone/time.daylight",
+      "exact TZ environment"
+    ],
+    "required_predicate": "Native date.today before and after and actual returned CountryReport.generated_on equal the same observed UTC calendar day; elapsed monotonic bounds pass. Crossing midnight or a clock discrepancy refuses the clock certificate and preserves all actual producer outcomes. Preparation does not invent a future execution date.",
+    "returned_value_authority": "Observe the exact pinned generate_country_report return value through source-bound call/return telemetry, and independently join generated country/animal summaries and bundle manifest. Do not substitute a wrapper-created CountryReport.",
+    "historical_comparison": "Never strip dates from products or force historic bytes. Record current and published generated_on separately; exact declared date field/render changes are presentation, while every other schema/value difference is independently classified."
+  },
+  "closure": {
+    "seven_original_direct_inputs": [
+      "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "data/aadr/v66/release_manifest.json",
+      "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "data/sead/normalized/nordic_temporal_evidence.geojson",
+      "data/svar/review/lake_candidate_registry_review.json",
+      "data/svar/review/sweden_lake_candidate_registry.geojson"
+    ],
+    "original_seven_physical_metadata_authority": [
+      {
+        "path": "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+        "leaf_kind": "regular",
+        "bytes": 13518214,
+        "physical_parent_aliases": [],
+        "source_bytes_hashed_or_decoded": false
+      },
+      {
+        "path": "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+        "leaf_kind": "regular",
+        "bytes": 15540394,
+        "physical_parent_aliases": [],
+        "source_bytes_hashed_or_decoded": false
+      },
+      {
+        "path": "data/aadr/v66/release_manifest.json",
+        "leaf_kind": "regular",
+        "bytes": 754,
+        "physical_parent_aliases": [],
+        "source_bytes_hashed_or_decoded": false
+      },
+      {
+        "path": "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+        "leaf_kind": "regular",
+        "bytes": 17075784,
+        "physical_parent_aliases": [],
+        "source_bytes_hashed_or_decoded": false
+      },
+      {
+        "path": "data/sead/normalized/nordic_temporal_evidence.geojson",
+        "leaf_kind": "regular",
+        "bytes": 27134667,
+        "physical_parent_aliases": [],
+        "source_bytes_hashed_or_decoded": false
+      },
+      {
+        "path": "data/svar/review/lake_candidate_registry_review.json",
+        "leaf_kind": "regular",
+        "bytes": 1509,
+        "physical_parent_aliases": [],
+        "source_bytes_hashed_or_decoded": false
+      },
+      {
+        "path": "data/svar/review/sweden_lake_candidate_registry.geojson",
+        "leaf_kind": "regular",
+        "bytes": 200287,
+        "physical_parent_aliases": [],
+        "source_bytes_hashed_or_decoded": false
+      }
+    ],
+    "additional_context_roles": [
+      {
+        "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
+        "role": "optional_pollen_points",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+        "role": "optional_landclim_points",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/sead/normalized/nordic_environmental_sites.geojson",
+        "role": "optional_sead_spatial_points",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_sites.json",
+        "role": "optional_native_position_notes",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/source_spatiotemporal_posture_registry.json",
+        "role": "optional_source_posture",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/neotoma/review/temporal_review.json",
+        "role": "optional_neotoma_review",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/sead/review/temporal_review.json",
+        "role": "optional_sead_review",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/svar/normalized/sweden_lake_registry.geojson",
+        "role": "governing_full_registry_and_typed_readability",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/raa/raw/publicerade_lamningar_centrumpunkt.geojson",
+        "role": "RAA_raw_authority",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/raa/raw/publicerade_lamningar_centrumpunkt_summary.json",
+        "role": "RAA_raw_summary",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/raa/normalized/sweden_archaeology_layer.json",
+        "role": "RAA_normalized_metadata",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/raa/normalized/sweden_archaeology_density.geojson",
+        "role": "RAA_density_surface",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      },
+      {
+        "path": "data/raa/review/spatiotemporal_review.json",
+        "role": "RAA_human_review_authority",
+        "physical_status": "not inspected by author; root preparation must freeze exact presence/type/size/SHA or source-supported absence before census"
+      }
+    ],
+    "animal_species_matrix": [
+      {
+        "latin_name": "Equus caballus",
+        "slug": "equus_caballus"
+      },
+      {
+        "latin_name": "Sus scrofa domesticus",
+        "slug": "sus_scrofa_domesticus"
+      },
+      {
+        "latin_name": "Ovis aries",
+        "slug": "ovis_aries"
+      },
+      {
+        "latin_name": "Bos taurus",
+        "slug": "bos_taurus"
+      },
+      {
+        "latin_name": "Bos indicus",
+        "slug": "bos_indicus"
+      },
+      {
+        "latin_name": "Capra hircus",
+        "slug": "capra_hircus"
+      },
+      {
+        "latin_name": "Canis lupus familiaris",
+        "slug": "canis_lupus_familiaris"
+      },
+      {
+        "latin_name": "Felis catus",
+        "slug": "felis_catus"
+      },
+      {
+        "latin_name": "Camelus dromedarius",
+        "slug": "camelus_dromedarius"
+      },
+      {
+        "latin_name": "Rangifer tarandus",
+        "slug": "rangifer_tarandus"
+      },
+      {
+        "latin_name": "Equus asinus",
+        "slug": "equus_asinus"
+      },
+      {
+        "latin_name": "Gallus gallus domesticus",
+        "slug": "gallus_gallus_domesticus"
+      },
+      {
+        "latin_name": "Meleagris gallopavo",
+        "slug": "meleagris_gallopavo"
+      },
+      {
+        "latin_name": "Oryctolagus cuniculus",
+        "slug": "oryctolagus_cuniculus"
+      },
+      {
+        "latin_name": "Anas platyrhynchos domesticus",
+        "slug": "anas_platyrhynchos_domesticus"
+      }
+    ],
+    "animal_source_roles": [
+      {
+        "path": "data/adna/species/equus_caballus/normalized/locality_summaries.json",
+        "species": "Equus caballus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_caballus/normalized/sample_records.json",
+        "species": "Equus caballus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_caballus/normalized/coordinate_provenance.json",
+        "species": "Equus caballus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_caballus/normalized/site_evidence.json",
+        "species": "Equus caballus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_caballus/normalized/project_summaries.json",
+        "species": "Equus caballus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_caballus/manifests/citation_manifest.csv",
+        "species": "Equus caballus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_caballus/review/species_review.json",
+        "species": "Equus caballus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/sus_scrofa_domesticus/normalized/locality_summaries.json",
+        "species": "Sus scrofa domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/sus_scrofa_domesticus/normalized/sample_records.json",
+        "species": "Sus scrofa domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/sus_scrofa_domesticus/normalized/coordinate_provenance.json",
+        "species": "Sus scrofa domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/sus_scrofa_domesticus/normalized/site_evidence.json",
+        "species": "Sus scrofa domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/sus_scrofa_domesticus/normalized/project_summaries.json",
+        "species": "Sus scrofa domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/sus_scrofa_domesticus/manifests/citation_manifest.csv",
+        "species": "Sus scrofa domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/sus_scrofa_domesticus/review/species_review.json",
+        "species": "Sus scrofa domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/ovis_aries/normalized/locality_summaries.json",
+        "species": "Ovis aries",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/ovis_aries/normalized/sample_records.json",
+        "species": "Ovis aries",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/ovis_aries/normalized/coordinate_provenance.json",
+        "species": "Ovis aries",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/ovis_aries/normalized/site_evidence.json",
+        "species": "Ovis aries",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/ovis_aries/normalized/project_summaries.json",
+        "species": "Ovis aries",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/ovis_aries/manifests/citation_manifest.csv",
+        "species": "Ovis aries",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/ovis_aries/review/species_review.json",
+        "species": "Ovis aries",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_taurus/normalized/locality_summaries.json",
+        "species": "Bos taurus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_taurus/normalized/sample_records.json",
+        "species": "Bos taurus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_taurus/normalized/coordinate_provenance.json",
+        "species": "Bos taurus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_taurus/normalized/site_evidence.json",
+        "species": "Bos taurus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_taurus/normalized/project_summaries.json",
+        "species": "Bos taurus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_taurus/manifests/citation_manifest.csv",
+        "species": "Bos taurus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_taurus/review/species_review.json",
+        "species": "Bos taurus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_indicus/normalized/locality_summaries.json",
+        "species": "Bos indicus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_indicus/normalized/sample_records.json",
+        "species": "Bos indicus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_indicus/normalized/coordinate_provenance.json",
+        "species": "Bos indicus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_indicus/normalized/site_evidence.json",
+        "species": "Bos indicus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_indicus/normalized/project_summaries.json",
+        "species": "Bos indicus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_indicus/manifests/citation_manifest.csv",
+        "species": "Bos indicus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/bos_indicus/review/species_review.json",
+        "species": "Bos indicus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/capra_hircus/normalized/locality_summaries.json",
+        "species": "Capra hircus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/capra_hircus/normalized/sample_records.json",
+        "species": "Capra hircus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/capra_hircus/normalized/coordinate_provenance.json",
+        "species": "Capra hircus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/capra_hircus/normalized/site_evidence.json",
+        "species": "Capra hircus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/capra_hircus/normalized/project_summaries.json",
+        "species": "Capra hircus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/capra_hircus/manifests/citation_manifest.csv",
+        "species": "Capra hircus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/capra_hircus/review/species_review.json",
+        "species": "Capra hircus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/canis_lupus_familiaris/normalized/locality_summaries.json",
+        "species": "Canis lupus familiaris",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/canis_lupus_familiaris/normalized/sample_records.json",
+        "species": "Canis lupus familiaris",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/canis_lupus_familiaris/normalized/coordinate_provenance.json",
+        "species": "Canis lupus familiaris",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/canis_lupus_familiaris/normalized/site_evidence.json",
+        "species": "Canis lupus familiaris",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/canis_lupus_familiaris/normalized/project_summaries.json",
+        "species": "Canis lupus familiaris",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/canis_lupus_familiaris/manifests/citation_manifest.csv",
+        "species": "Canis lupus familiaris",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/canis_lupus_familiaris/review/species_review.json",
+        "species": "Canis lupus familiaris",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/felis_catus/normalized/locality_summaries.json",
+        "species": "Felis catus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/felis_catus/normalized/sample_records.json",
+        "species": "Felis catus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/felis_catus/normalized/coordinate_provenance.json",
+        "species": "Felis catus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/felis_catus/normalized/site_evidence.json",
+        "species": "Felis catus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/felis_catus/normalized/project_summaries.json",
+        "species": "Felis catus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/felis_catus/manifests/citation_manifest.csv",
+        "species": "Felis catus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/felis_catus/review/species_review.json",
+        "species": "Felis catus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/camelus_dromedarius/normalized/locality_summaries.json",
+        "species": "Camelus dromedarius",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/camelus_dromedarius/normalized/sample_records.json",
+        "species": "Camelus dromedarius",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/camelus_dromedarius/normalized/coordinate_provenance.json",
+        "species": "Camelus dromedarius",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/camelus_dromedarius/normalized/site_evidence.json",
+        "species": "Camelus dromedarius",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/camelus_dromedarius/normalized/project_summaries.json",
+        "species": "Camelus dromedarius",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/camelus_dromedarius/manifests/citation_manifest.csv",
+        "species": "Camelus dromedarius",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/camelus_dromedarius/review/species_review.json",
+        "species": "Camelus dromedarius",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/rangifer_tarandus/normalized/locality_summaries.json",
+        "species": "Rangifer tarandus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/rangifer_tarandus/normalized/sample_records.json",
+        "species": "Rangifer tarandus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/rangifer_tarandus/normalized/coordinate_provenance.json",
+        "species": "Rangifer tarandus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/rangifer_tarandus/normalized/site_evidence.json",
+        "species": "Rangifer tarandus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/rangifer_tarandus/normalized/project_summaries.json",
+        "species": "Rangifer tarandus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/rangifer_tarandus/manifests/citation_manifest.csv",
+        "species": "Rangifer tarandus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/rangifer_tarandus/review/species_review.json",
+        "species": "Rangifer tarandus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_asinus/normalized/locality_summaries.json",
+        "species": "Equus asinus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_asinus/normalized/sample_records.json",
+        "species": "Equus asinus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_asinus/normalized/coordinate_provenance.json",
+        "species": "Equus asinus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_asinus/normalized/site_evidence.json",
+        "species": "Equus asinus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_asinus/normalized/project_summaries.json",
+        "species": "Equus asinus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_asinus/manifests/citation_manifest.csv",
+        "species": "Equus asinus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/equus_asinus/review/species_review.json",
+        "species": "Equus asinus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/gallus_gallus_domesticus/normalized/locality_summaries.json",
+        "species": "Gallus gallus domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/gallus_gallus_domesticus/normalized/sample_records.json",
+        "species": "Gallus gallus domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/gallus_gallus_domesticus/normalized/coordinate_provenance.json",
+        "species": "Gallus gallus domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/gallus_gallus_domesticus/normalized/site_evidence.json",
+        "species": "Gallus gallus domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/gallus_gallus_domesticus/normalized/project_summaries.json",
+        "species": "Gallus gallus domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/gallus_gallus_domesticus/manifests/citation_manifest.csv",
+        "species": "Gallus gallus domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/gallus_gallus_domesticus/review/species_review.json",
+        "species": "Gallus gallus domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/meleagris_gallopavo/normalized/locality_summaries.json",
+        "species": "Meleagris gallopavo",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/meleagris_gallopavo/normalized/sample_records.json",
+        "species": "Meleagris gallopavo",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/meleagris_gallopavo/normalized/coordinate_provenance.json",
+        "species": "Meleagris gallopavo",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/meleagris_gallopavo/normalized/site_evidence.json",
+        "species": "Meleagris gallopavo",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/meleagris_gallopavo/normalized/project_summaries.json",
+        "species": "Meleagris gallopavo",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/meleagris_gallopavo/manifests/citation_manifest.csv",
+        "species": "Meleagris gallopavo",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/meleagris_gallopavo/review/species_review.json",
+        "species": "Meleagris gallopavo",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/oryctolagus_cuniculus/normalized/locality_summaries.json",
+        "species": "Oryctolagus cuniculus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/oryctolagus_cuniculus/normalized/sample_records.json",
+        "species": "Oryctolagus cuniculus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/oryctolagus_cuniculus/normalized/coordinate_provenance.json",
+        "species": "Oryctolagus cuniculus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/oryctolagus_cuniculus/normalized/site_evidence.json",
+        "species": "Oryctolagus cuniculus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/oryctolagus_cuniculus/normalized/project_summaries.json",
+        "species": "Oryctolagus cuniculus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/oryctolagus_cuniculus/manifests/citation_manifest.csv",
+        "species": "Oryctolagus cuniculus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/oryctolagus_cuniculus/review/species_review.json",
+        "species": "Oryctolagus cuniculus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/anas_platyrhynchos_domesticus/normalized/locality_summaries.json",
+        "species": "Anas platyrhynchos domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/anas_platyrhynchos_domesticus/normalized/sample_records.json",
+        "species": "Anas platyrhynchos domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/anas_platyrhynchos_domesticus/normalized/coordinate_provenance.json",
+        "species": "Anas platyrhynchos domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/anas_platyrhynchos_domesticus/normalized/site_evidence.json",
+        "species": "Anas platyrhynchos domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/anas_platyrhynchos_domesticus/normalized/project_summaries.json",
+        "species": "Anas platyrhynchos domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/anas_platyrhynchos_domesticus/manifests/citation_manifest.csv",
+        "species": "Anas platyrhynchos domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      },
+      {
+        "path": "data/adna/species/anas_platyrhynchos_domesticus/review/species_review.json",
+        "species": "Anas platyrhynchos domesticus",
+        "role": "saved_animal_atlas_source",
+        "presence_contract": "Freeze exact native is_dir/is_file branch; supported absence remains empty/refused, never synthesize tables."
+      }
+    ],
+    "species_directory_predicates": "Freeze native directory presence for all15 nonhuman support-matrix species, including currently unsupported/missing species, rather than assuming ten current API populations.",
+    "global_sample_lookup": "Freeze the complete actual data/adna/species/*/normalized/sample_records.json member list, raw iteration/read order, names/types/aliases and each expected SHA before native execution. It may include human or other species outside the atlas loop. Independently detect duplicate stable-token conflicts; do not silently claim cross-species lookup equivalence.",
+    "source_projection": "Root authenticates/copies complete four first-party package source/resource/config namespaces into owned repository, retaining original bytecode identities only and any qualified generated version leaf explicitly. No partial Python-only projection or __file__ fallback to live data. Exact before/after native import origins and resource reads are checked against this closed projection.",
+    "resource_authorities": [
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
+        "sha256": "9ae82cb1affdd08256d6181d922601433c9aa8441ca9b1444785f5d923131bf2",
+        "bytes": 463747
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js",
+        "sha256": "33bd7c0644279d96c37d07960279be04f986c4d91ae42cbaa460536aa659818e",
+        "bytes": 18936
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js",
+        "sha256": "7f112ee6e727d3e51058724f2c80af9b610890ce793110f6404562800d2be682",
+        "bytes": 762
+      },
+      {
+        "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js",
+        "sha256": "733d6c172381f2d9555cb7bf4290f48e97d8bc8dceb57b3697676d97e78ce43b",
+        "bytes": 4255
+      }
+    ],
+    "map_vendor_resource_tree": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map",
+    "map_vendor_contract": "Full directory/file membership and byte identities, required Leaflet/markercluster leaves, and no aliases/specials; copy_map_assets copies the entire tree. Source map_document imports all four listed resources even if the lake map is empty.",
+    "dependency_reads": "Qualified147 runtime/stdlib/installed-package/native/config/alias namespace remains separately authenticated; root-only actual physical hash/census. No third-party source/archive imports in source validation.",
+    "full_read_policy": "Freeze every named input role and closed glob before long runtime census, conflict-check unions, repeat final checks before mkdir and after stages. Audit real read attempts against admitted owned data/source/resource/runtime members; any unlisted read refuses.",
+    "supported_absence_semantics": [
+      "Absent optional context stays absent with explicit native branch evidence.",
+      "SVAR governing registry missing or invalid remains a blocked/empty ranking; the review subset is never promoted.",
+      "RAA missing/invalid/unaccepted authority remains unavailable/null, never a measured zero or new human acceptance.",
+      "Missing animal scope/chronology/site evidence stays excluded; known taxonomy blocks and source-native identity persist."
+    ],
+    "private_data_handling": "Original ANNO/animal normalized/governance/context/raw authority bodies remain private identity-only in later portable retention; do not publish the owned input tree.",
+    "human_release_directory_contract": "Freeze complete owned data/aadr/v66/*/*.anno membership and release-manifest-declared panel membership, literal dataset names, file size/mtime and expected SHA/MD5 roles before execution. Actual supported release validator compares all discovered ANNO members with the manifest; no undeclared panel, alias or silent fallback to live Homo sapiens/raw/aadr may enter. Original two ANNO inputs are metadata-known, not presumed the whole directory without this check."
+  },
+  "published_comparands": {
+    "root": "docs/report/countries/sweden",
+    "existing_receipt": "docs/report/countries/sweden/land-use-replay/receipt.json",
+    "original_upstream": [
+      "sweden_aadr_v66_localities.csv",
+      "sweden_animal_adna_v66_localities.geojson",
+      "sweden_lake_evidence_richness_v66.json"
+    ],
+    "original_science_outputs": [
+      "sweden_land_use_synthesis_v66.json",
+      "sweden_land_use_synthesis_v66.csv",
+      "sweden_land_use_synthesis_v66.md"
+    ],
+    "full_country_output_roles": [
+      {
+        "role": "readme_path",
+        "relative_path": "README.md"
+      },
+      {
+        "role": "bundle_manifest_path",
+        "relative_path": "sweden_aadr_v66_bundle.json"
+      },
+      {
+        "role": "samples_csv_path",
+        "relative_path": "sweden_aadr_v66_samples.csv"
+      },
+      {
+        "role": "localities_csv_path",
+        "relative_path": "sweden_aadr_v66_localities.csv"
+      },
+      {
+        "role": "samples_geojson_path",
+        "relative_path": "sweden_aadr_v66_samples.geojson"
+      },
+      {
+        "role": "samples_markdown_path",
+        "relative_path": "sweden_aadr_v66_samples.md"
+      },
+      {
+        "role": "summary_json_path",
+        "relative_path": "sweden_aadr_v66_summary.json"
+      },
+      {
+        "role": "animal_summary_json_path",
+        "relative_path": "sweden_animal_adna_v66_summary.json"
+      },
+      {
+        "role": "animal_samples_csv_path",
+        "relative_path": "sweden_animal_adna_v66_samples.csv"
+      },
+      {
+        "role": "animal_samples_markdown_path",
+        "relative_path": "sweden_animal_adna_v66_samples.md"
+      },
+      {
+        "role": "animal_species_csv_path",
+        "relative_path": "sweden_animal_adna_v66_species.csv"
+      },
+      {
+        "role": "animal_localities_geojson_path",
+        "relative_path": "sweden_animal_adna_v66_localities.geojson"
+      },
+      {
+        "role": "animal_citations_markdown_path",
+        "relative_path": "sweden_animal_adna_v66_citations.md"
+      },
+      {
+        "role": "animal_warnings_markdown_path",
+        "relative_path": "sweden_animal_adna_v66_warnings.md"
+      },
+      {
+        "role": "lake_evidence_richness_json_path",
+        "relative_path": "sweden_lake_evidence_richness_v66.json"
+      },
+      {
+        "role": "lake_evidence_richness_registry_csv_path",
+        "relative_path": "sweden_lake_evidence_richness_v66_registry.csv"
+      },
+      {
+        "role": "lake_evidence_richness_scenarios_csv_path",
+        "relative_path": "sweden_lake_evidence_richness_v66_scenarios.csv"
+      },
+      {
+        "role": "lake_evidence_richness_bands_csv_path",
+        "relative_path": "sweden_lake_evidence_richness_v66_bands.csv"
+      },
+      {
+        "role": "lake_evidence_richness_geojson_path",
+        "relative_path": "sweden_lake_evidence_richness_v66.geojson"
+      },
+      {
+        "role": "lake_evidence_richness_map_html_path",
+        "relative_path": "sweden_lake_evidence_richness_v66_map.html"
+      },
+      {
+        "role": "lake_evidence_richness_markdown_path",
+        "relative_path": "sweden_lake_evidence_richness_v66.md"
+      },
+      {
+        "role": "lake_fieldwork_preparation_json_path",
+        "relative_path": "sweden_lake_fieldwork_preparation_v66.json"
+      },
+      {
+        "role": "lake_fieldwork_preparation_csv_path",
+        "relative_path": "sweden_lake_fieldwork_preparation_v66.csv"
+      },
+      {
+        "role": "lake_fieldwork_preparation_markdown_path",
+        "relative_path": "sweden_lake_fieldwork_preparation_v66.md"
+      },
+      {
+        "role": "lake_archaeology_sensitivity_json_path",
+        "relative_path": "sweden_lake_archaeology_sensitivity_v66.json"
+      },
+      {
+        "role": "lake_archaeology_sensitivity_csv_path",
+        "relative_path": "sweden_lake_archaeology_sensitivity_v66.csv"
+      },
+      {
+        "role": "lake_archaeology_sensitivity_markdown_path",
+        "relative_path": "sweden_lake_archaeology_sensitivity_v66.md"
+      },
+      {
+        "role": "land_use_synthesis_json_path",
+        "relative_path": "sweden_land_use_synthesis_v66.json"
+      },
+      {
+        "role": "land_use_synthesis_csv_path",
+        "relative_path": "sweden_land_use_synthesis_v66.csv"
+      },
+      {
+        "role": "land_use_synthesis_markdown_path",
+        "relative_path": "sweden_land_use_synthesis_v66.md"
+      }
+    ],
+    "map_assets": "Complete copied _map_assets namespace",
+    "contract": "Root freezes every named published full-bundle comparand and supported absence before execution. Historical receipt remains immutable; no historical native0 or construction recovered from current equality."
+  },
+  "independent_observer": {
+    "no_second_country_producer": true,
+    "checks": [
+      "Complete actual country bundle namespace, every 30 declared filename role plus assets and source/clock/runtime identities.",
+      "Independently reconstruct human source IDs/dedup/country and locality aggregation from exact admitted ANNO fields; no genotype/model.",
+      "Independently join animal locality/sample/site/project/coordinate/citation/review rows and exclusion/scope/chronology/taxon flags for the complete source-selected populations.",
+      "Reconstruct governing SVAR branch and context source availability, temporal supports and refusal/null/zero distinction; do not make physical-core, chronology-calibration, scientific ranking or rights claims.",
+      "Reconstruct source-owned lake target/interval/spatial/value accounting; preserve individual supports rather than hull them into analytical admission.",
+      "Independent full typed JSON/schema/CSV/GeoJSON and source locator identities, plus complete raw output size/SHA catalogue.",
+      "Use six original semantic categories with unknown-field refusal; independently compare ordered target/record IDs and every scientific value, scope/admission/weighting/source-membership field. Report actual differences, never require zero by assumption.",
+      "Run separate exact tracked-byte checker against original comparands; its nonzero result is not overwritten by a semantic certificate.",
+      "Preserve actual stdout/receipts and current execution scope; no original acquisition/process/use/rights or prior receipt recovery claim."
+    ]
+  },
+  "runner_contract": {
+    "pattern": "Reuse qualified original-module-aware owned-source bootstrap, exact physical Git authority, pre-import closed namespaces and same-buffer registered-plan child readers.",
+    "stages": [
+      {
+        "role": "maintained-full-Sweden-country-consumer",
+        "timeout_seconds": 600
+      },
+      {
+        "role": "independent-complete-source-and-semantic-observer",
+        "timeout_seconds": 360
+      }
+    ],
+    "completed_whole_seconds": 1140,
+    "outer_owned_child_seconds": 1200,
+    "declared_memory_bytes": 8589934592,
+    "declared_fresh_output_bytes": 1073741824,
+    "maximum_cumulative_input_body_bytes_before_refreeze": 536870912,
+    "maximum_single_JSON_input_bytes_before_refreeze": 268435456,
+    "forecast_status": "Prospective source budget, not measured timing or allocation. Root must first obtain named-input physical size metadata and independent closure review; if either input ceiling is exceeded, stop and source-qualify a revised bounded design instead of omitting data or raising limits after a run.",
+    "reserve": "Encode complete plan/input namespace and source-copy forecast before mkdir; reserve full package resources, owned input copies, staging sibling, every full output/assets/log/receipt. Reject if measured pre-run forecast exceeds1GiB.",
+    "limitations": "Completed-child RSS/logical bytes are not an OS quota or complete descendant census. Real parent watchdog must cover delegated entry, both stages and final scans; record parent startup/post-reap scope honestly.",
+    "registration": "Root-only actual preparation, unique STATE prepared/readback, then separate launch. No actual consumer in preparation."
+  },
+  "source_inspection": [
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py",
+      "sha256": "7f44338f73d6efd918f9d82d3e8ba9d686db4cfa92251e3d2446794945a6b6e4",
+      "bytes": 12435
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py",
+      "sha256": "987e9868ffabe17abdbb13ff42a876ef27ee30babaf384e8f8ff44ecf02c56ec",
+      "bytes": 13422
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/definitions.py",
+      "sha256": "87440ca21acf3a101f14f74031ad552840d007fb77936dacc9446a5a392183de",
+      "bytes": 10204
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py",
+      "sha256": "dcb156e836844d5f3f1ce42776945dd5d7943b66994581312c23b967b5dde864",
+      "bytes": 10192
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/country_bundle.py",
+      "sha256": "c1671b10e374ee611436888668779b9e51cd25891eaed5d116d57ce414f30819",
+      "bytes": 12164
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/staging.py",
+      "sha256": "a643949bed865627971cb88950ae6daa9989f3e5eefbbafdc5da6067fa18db50",
+      "bytes": 2476
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/summary_builders/country.py",
+      "sha256": "96eca1f0b3468a3e4256989986724937958df300bf1bd7fe7ecd888ed5fd5129",
+      "bytes": 7723
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/owned_tree.py",
+      "sha256": "a6683a273b255d3ba9e659a15fd435b46a13d926b4730669e909aebd3c9dfa2f",
+      "bytes": 4136
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/service.py",
+      "sha256": "5cd052c238e5b2fb2123d33aeb9ca9d58ca8212150cc098328ceb951a8cf036d",
+      "bytes": 7548
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/samples.py",
+      "sha256": "c8f27377ac86ae21cb8a36f5c9c3b4f527c191b829c0d46e2a4eb0f6d45f7a67",
+      "bytes": 7981
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/service.py",
+      "sha256": "363ed11562315091abe4c49a182d81ce1f8a3b86be51353e61b7d65cd70dcac7",
+      "bytes": 354
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/source_records.py",
+      "sha256": "c81efb9b1b3221983759f009871a6e58e52ee6d626fb48bef7a1348a8ef27007",
+      "bytes": 1208
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/service.py",
+      "sha256": "9f1f0803798876187b4ea090b8fbfb3bf41b90ce5bfbd17fc1bd736264452f09",
+      "bytes": 6318
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/source_records.py",
+      "sha256": "8acb65bb853fa771e1ec6c0b36c70d0ece4e3f7718c8e7961a5d9af01f4ad4a0",
+      "bytes": 6673
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/validation.py",
+      "sha256": "e12027f6a6fbf879fc6c8ced06faa39a3867d29b79d6a8c640684d5498f6d481",
+      "bytes": 6982
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/atlas_candidates/sample_support.py",
+      "sha256": "7e42ca6fa5bb6151c17fc5f93f68857f052c4983b05c35ea78f83042d4784a42",
+      "bytes": 4080
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/paths.py",
+      "sha256": "085b1a5144c7af71bae305fa785b6a691340f007c41ad0e81b790ef918652146",
+      "bytes": 1803
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/inputs.py",
+      "sha256": "dd1c6a9df751e9343b22c611add7b10c5b4c642821676bfae7dc6cfdc9ef7845",
+      "bytes": 10232
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/runtime.py",
+      "sha256": "e5c65b3224d234b97928d50c2fbf977532cc12402e7a3398f669b3ec63a18251",
+      "bytes": 10017
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/manifest.py",
+      "sha256": "e33899ec55f4b8c0749d4204f47d177d9497811ddf1785bbf6369723314f764e",
+      "bytes": 3106
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/release.py",
+      "sha256": "cb1fb48b8c196411b2ef149b6a27a6ac88881217eb12bc8dfa87b006bba32e9c",
+      "bytes": 2325
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/release_manifest.py",
+      "sha256": "c72b729d2496b72e126bf8de273d047034bfe69271dfd5084cbca7dcfbad44cf",
+      "bytes": 4325
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/methodology.py",
+      "sha256": "91908afa0ba6d96237398dd81a486571bb297da386211afe92518b9ac4b623f6",
+      "bytes": 17889
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/orchestration.py",
+      "sha256": "315bcb5eb058aaebca81df2fdaf1ff201d0198465aad351d0c15cf7dc95a5436",
+      "bytes": 2432
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/context.py",
+      "sha256": "c49c1db38e9ef3d5a421777ea5ccc9b3fc17c48afb5e55f3a814e200d5cf2146",
+      "bytes": 2871
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/svar_report.py",
+      "sha256": "4590b945b84cbbb09c095b08d21050f57c48134cc20279d9f4a69f3ea8dc0057",
+      "bytes": 3101
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/evidence_richness/service/pollen_report.py",
+      "sha256": "9eecde02be19a3024f08f641bdee65a509240cd5e5c4fac84c1242fdb999bf86",
+      "bytes": 2475
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/__init__.py",
+      "sha256": "137c5b3a06f69df51d0bfd5d58b3e266b56a4ab6104b94755c49bd384eb64484",
+      "bytes": 6231
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/synthesis.py",
+      "sha256": "ab6aec1eed12738004f005af5832aabe53adc52076c7e7b719974f83d8c99178",
+      "bytes": 9396
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/targets.py",
+      "sha256": "6c0f382ef0d1d7087b8e9751360d492ba38e5a1ad20be535ad61e90651e4748b",
+      "bytes": 6098
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/context.py",
+      "sha256": "2208ee7b6558ceae79254a4ff814f9d19a51e2c56272f45d33688a37b4ee815f",
+      "bytes": 3371
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/raa/authority.py",
+      "sha256": "27f8e9282f555e2063362ee41f9f9718a4e5139465f8453e4e4d5d8a710e9440",
+      "bytes": 6845
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/svar/normalized_registry.py",
+      "sha256": "b93e0f0c0978c97437393e03d70538756be096afba6fdcadf23a0e73717cf41b",
+      "bytes": 880
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/artifacts.py",
+      "sha256": "69a32459b80a89f2f7d5b07786c9419fc0b14a2012f858ac71a47cfdcdc4adff",
+      "bytes": 1988
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py",
+      "sha256": "b45f3ba91b2c80507ba2f96efed4f61cd617127f371529198c34a5a6a493f8cf",
+      "bytes": 11335
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/markdown.py",
+      "sha256": "24585adb336513085b2c17973c9d33534d2cb933e139e04034137685d7f66d07",
+      "bytes": 13102
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/template.py",
+      "sha256": "29a3d6a20fcdd24a726369e61ae4bfabb83466020424ed3221bdd8eaaefc69bb",
+      "bytes": 1144
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py",
+      "sha256": "5d4e6e72c8794e40d6a741d40a74d7c0e3dbe6de9791e0c555f3043da5bf0def",
+      "bytes": 2007
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py",
+      "sha256": "e131724adacd5471cdc1b236079b5d091b33ed618ed5e1e1c8afab49363a0e57",
+      "bytes": 8502
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/review/fieldwork/lake_evidence_richness_packets/publication.py",
+      "sha256": "fc268f730b50e2832efec8581554e2fb409944b5225a0927977fa72d9a5b6dd9",
+      "bytes": 13198
+    }
+  ],
+  "not_yet_qualified": [
+    "Actual additional named input/absence/glob physical identities and sizes",
+    "Final executable preparer/consumer/independent observer controllers and source-only adversarial gates",
+    "Independent source peer and real registered run/native outcomes",
+    "Any generated ownership under the unchanged original criterion"
+  ],
+  "author_actions": {
+    "source_and_public_policy_metadata_read": true,
+    "private_or_normalized_data_body_decode_or_hash": false,
+    "actual_API_producer_preparer_native_runtime_or_input_census_Git_STATE_canonical": false
+  }
+}

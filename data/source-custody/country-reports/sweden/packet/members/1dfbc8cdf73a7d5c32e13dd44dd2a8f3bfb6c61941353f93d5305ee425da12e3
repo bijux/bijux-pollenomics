@@ -1,0 +1,27 @@
+--- reviewed/execution_guard.py
++++ diagnostic/execution_guard.py
+@@ -13,6 +13,9 @@
+     def __init__(self, plan: dict[str, Any]) -> None:
+         self.input_names = {row["path"] for row in plan["input_pins"]}
+         self.products = Path(plan["output"]) / "producer"
++        self.callable_metadata_path = (
++            Path(plan["output"]) / "country-callable-identity.json"
++        )
+         self.transient_roots = [
+             Path(plan["output"]) / "cache",
+             Path(plan["output"]) / "scratch",
+@@ -129,6 +132,14 @@
+             )
+         )
+         if writing:
++            if path == self.callable_metadata_path:
++                if (
++                    type(flags) is not int
++                    or flags & (os.O_CREAT | os.O_EXCL) != (os.O_CREAT | os.O_EXCL)
++                    or path.exists()
++                ):
++                    self.deny("Callable diagnostic requires exclusive fresh creation")
++                return
+             if not path.is_relative_to(self.products) and not any(
+                 path.is_relative_to(root) for root in self.transient_roots
+             ):

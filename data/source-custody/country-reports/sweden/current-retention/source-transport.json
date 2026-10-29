@@ -1,0 +1,125 @@
+{
+  "schema_version": "git-retained-source.v1",
+  "capture": {
+    "name": "source-members.json",
+    "sha256": "ffdfc5c864590c96f61f39250e6abc7fa11abb0c902f94f9ace7fb9ff189d263",
+    "bytes": 7913
+  },
+  "historical_native_epochs": [
+    "61d24c1ebcd705ef5805d15d5a9863292c5089c9"
+  ],
+  "source_revision_correspondence": [
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "8ded3ec583cf54883c9dc59bda659837a2e61433"
+    }
+  ],
+  "git_groups": [
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "8ded3ec583cf54883c9dc59bda659837a2e61433",
+      "member_count": 24,
+      "git_entries_sha256": "28df5213eeb59b518d11160da7c192a8149e496774f96ab801f7514bbf1ec397",
+      "paths": [
+        [
+          "controller/assemble.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/preparation/assemble.py"
+        ],
+        [
+          "controller/call_evidence.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/observation/call_evidence.py"
+        ],
+        [
+          "controller/callable_identity.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/custody/callable_identity.py"
+        ],
+        [
+          "controller/check_admission.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/contracts/check_admission.py"
+        ],
+        [
+          "controller/check_controls.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/contracts/check_controls.py"
+        ],
+        [
+          "controller/check_style.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/contracts/check_style.py"
+        ],
+        [
+          "controller/clock_contract.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/measurement/clock_contract.py"
+        ],
+        [
+          "controller/contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/contracts/contracts.py"
+        ],
+        [
+          "controller/data_roles.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/inputs/data_roles.py"
+        ],
+        [
+          "controller/entry.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/execution/entry.py"
+        ],
+        [
+          "controller/launch.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/execution/launch.py"
+        ],
+        [
+          "controller/members.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/publication/members.py"
+        ],
+        [
+          "controller/observe.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/observation/observe.py"
+        ],
+        [
+          "controller/packet.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/publication/packet.py"
+        ],
+        [
+          "controller/prepare.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/preparation/prepare.py"
+        ],
+        [
+          "controller/publication.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/publication/publication.py"
+        ],
+        [
+          "controller/retained.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/publication/retained.py"
+        ],
+        [
+          "controller/run.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/execution/run.py"
+        ],
+        [
+          "controller/runtime_contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/openland_members/contracts/runtime_contracts.py"
+        ],
+        [
+          "controller/runtime_evidence.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/runtime/runtime_evidence.py"
+        ],
+        [
+          "controller/source_admission.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/custody/source_admission.py"
+        ],
+        [
+          "controller/source_inputs.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/lake_parameters/inputs/source_inputs.py"
+        ],
+        [
+          "controller/source_projection.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/inputs/source_projection.py"
+        ],
+        [
+          "controller/source_runtime.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/lake_parameters/runtime/source_runtime.py"
+        ]
+      ]
+    }
+  ],
+  "generated_members": [],
+  "rewritten_source_epoch_executed": false
+}

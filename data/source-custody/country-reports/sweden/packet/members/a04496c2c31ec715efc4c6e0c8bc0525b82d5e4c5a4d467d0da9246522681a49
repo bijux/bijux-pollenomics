@@ -1,0 +1,14 @@
+PIE810 Call `endswith` once with a `tuple`
+   --> artifacts/science/sweden-country-semantic-custody/check_controls.py:147:16
+    |
+145 |         row.update(dict.fromkeys(keys, "ID"), latitude=55.0, longitude=13.0)
+146 |         for key in row:
+147 |             if key.endswith("_count") or key.endswith("_count_20km"):
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+148 |                 row[key] = 0
+149 |         changed = deepcopy(a)
+    |
+help: Merge into a single `endswith` call
+
+Found 1 error.
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).

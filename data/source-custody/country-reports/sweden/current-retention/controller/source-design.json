@@ -1,0 +1,36 @@
+{
+  "schema_version": "sweden-portable-source-design.v1",
+  "source_only": true,
+  "genuine_saved_observer_result_collected": true,
+  "prepare_must_refuse_until_exact_collected_refs_are_frozen": true,
+  "scope": "Metadata-only portable capture assembly and independent observer over original normally returned country products and a separately qualified saved-product semantic observer. No country or normalization producer.",
+  "original_country_call_returned_normally": true,
+  "original_controller_actual_exit": 1,
+  "original_whole_actual_exit": 1,
+  "missing_full_return_read_or_origin_telemetry_recovered": false,
+  "private_runtime_bytecode_payloads_copied": false,
+  "required_before_publication": [
+    "Exact collected saved-observer actual0 and whole0",
+    "Peer-approved portable controller",
+    "Root unique preparation/registration/readback/separate launch",
+    "Actual portable assembly0/observer0/whole0",
+    "Actual generated maintained helper source callback0"
+  ],
+  "prospective_resources": {
+    "assembly_seconds": 180,
+    "observer_seconds": 180,
+    "whole_seconds": 480,
+    "outer_seconds": 540,
+    "child_peak_RSS_bytes": 4294967296,
+    "inclusive_logical_output_bytes": 1073741824,
+    "capture_metadata_bytes": 134217728,
+    "public_payload_bytes": 536870912
+  },
+  "actual_data_API_runtime_preparer_native_or_packet_assembly_by_author": false,
+  "saved_observer_actual_exit": 0,
+  "saved_whole_actual_exit": 0,
+  "saved_authority_sha256": "2e30ecdd2e64581afb30f8ad1c9990511c553db14c8a8626ca853ccdaed0bced",
+  "actual_products": 40,
+  "scientific_result_changes": 8,
+  "tracked_byte_checker_actual_exit": 2
+}

@@ -1,0 +1,245 @@
+{
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/country-callable-identity.json",
+      "sha256": "a134c6cbda4de33494b04d247b5530d2de6edc3faa3c47d710b5a1eacdcc0b08",
+      "bytes": 859
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/country-clock-observation.json",
+      "sha256": "7eaf9a50199b6e112574efa8789386b604a449f60c17e5a38027329318698db2",
+      "bytes": 1655
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/maintained-full-Sweden-country-consumer.stderr",
+      "sha256": "916aa74668a480255509298a40b575ba0c619c1c4749ed60ee2b294317782c65",
+      "bytes": 766
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/maintained-full-Sweden-country-consumer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/plan.json",
+      "sha256": "b4458d45c74b43e96cea0b468ba0885b579253273e685185e37aa49ac2347cef",
+      "bytes": 18644986
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/README.md",
+      "sha256": "407186a91d94c483a3dff47dd30b7f30ecc5735628ef7fc33d167a1c56b9965c",
+      "bytes": 7623
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/leaflet/images/layers-2x.png",
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "bytes": 1259
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/leaflet/images/layers.png",
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "bytes": 696
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/leaflet/images/marker-icon-2x.png",
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "bytes": 2464
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/leaflet/images/marker-icon.png",
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "bytes": 1466
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/leaflet/images/marker-shadow.png",
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "bytes": 618
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/leaflet/leaflet.css",
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "bytes": 14806
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/leaflet/leaflet.js",
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "bytes": 147552
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/markercluster/MarkerCluster.Default.css",
+      "sha256": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "bytes": 1287
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/markercluster/MarkerCluster.css",
+      "sha256": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "bytes": 872
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/_map_assets/markercluster/leaflet.markercluster.js",
+      "sha256": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "bytes": 34136
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_aadr_v66_bundle.json",
+      "sha256": "1a3a5a9846a603f9e72dc4edb95eb6f92297a0e6b080898782a0da398c18ffe1",
+      "bytes": 2188
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_aadr_v66_localities.csv",
+      "sha256": "aa795b170122b95da1ecb046a97a0cc4b22a0ddf17c932dfaf3e75155f6306e5",
+      "bytes": 399275
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_aadr_v66_samples.csv",
+      "sha256": "9dc8d61369b63bf57f2c6286910ffd4ed86d4b62877d7119954e681a839a375a",
+      "bytes": 860972
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_aadr_v66_samples.geojson",
+      "sha256": "620424f8579cb5e63afc22dc1126544ec5003c2d4cdcc194d7beb76e5c108744",
+      "bytes": 1546171
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_aadr_v66_samples.md",
+      "sha256": "fa3c4eb0c99dfe33a9c51d6aa7e09234a9ee10ad9889439672981831269ddf03",
+      "bytes": 80637
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_aadr_v66_summary.json",
+      "sha256": "c8af323e1368ec856846c0908feeb64c03335777aa0d580718ac4895b7ebee20",
+      "bytes": 2312
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_animal_adna_v66_citations.md",
+      "sha256": "2bb1045e527c0129a53baeefb645c8e370773185b3c8b1d03c7ae12dd6ab52a4",
+      "bytes": 814
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_animal_adna_v66_localities.geojson",
+      "sha256": "725903c1a792f73048b9880a7e2e9c4bb0bee7b4aea9c78fffdd8167f6cbd314",
+      "bytes": 15225
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_animal_adna_v66_samples.csv",
+      "sha256": "50551831fb67dba31f85e23e17b931f592596188e794cf10a16cad76cea81764",
+      "bytes": 14305
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_animal_adna_v66_samples.md",
+      "sha256": "1a4d53a9070fd236fa15dc79ca8f2bd0d3af763e648bc359cbe988dc7d27e92c",
+      "bytes": 5607
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_animal_adna_v66_species.csv",
+      "sha256": "a2b7d5e54f7b8c66cbee0638182df0df87c6315fe5010a773a6ab0945791a89b",
+      "bytes": 957
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_animal_adna_v66_summary.json",
+      "sha256": "20afe648e4759ab556f187e4b7a1430ed5389a4a9f44888c32dac67323ed85fd",
+      "bytes": 46185
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_animal_adna_v66_warnings.md",
+      "sha256": "0fcf775da2fa870e38e36b488c6bfc1ceb61047208b8343d2f2d39b8d2aa2500",
+      "bytes": 753
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_archaeology_sensitivity_v66.csv",
+      "sha256": "6689bac05048137ed0a351380f63af11bb434464425ea8805293566d938f76ab",
+      "bytes": 307
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_archaeology_sensitivity_v66.json",
+      "sha256": "fcdd4494b054d3a97289026a15ffca7e0a981c79b5042a05b71a93315dd2639f",
+      "bytes": 2476
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_archaeology_sensitivity_v66.md",
+      "sha256": "b96e5a7221b61ef6a42703d7f2b45cb613b03f8428267b30c272cad7eb9a4ea8",
+      "bytes": 1753
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_evidence_richness_v66.geojson",
+      "sha256": "9ecdafe2ce4c617b6be7420a06e6918223f34a6f429bfe957ee733c49d03be4d",
+      "bytes": 51
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_evidence_richness_v66.json",
+      "sha256": "2c44f74f85eb394d3f2e75ee4b210d9c8403926e52c0ed16f1401f6519b19a6c",
+      "bytes": 5812
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_evidence_richness_v66.md",
+      "sha256": "c237aaee9d14fe26e101d7eebc9b56a0bc1f2046cb70ff9cf8a2648dbd017644",
+      "bytes": 519
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_evidence_richness_v66_bands.csv",
+      "sha256": "de11ac2a60248ab68c8a14984ab8e4cfa500491d975cf117c4327b43fe89441f",
+      "bytes": 1329
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_evidence_richness_v66_map.html",
+      "sha256": "283519bce2502ca260a78990c2977b3cebe75e33a9800c3360151a25d90b47c8",
+      "bytes": 1080
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_evidence_richness_v66_registry.csv",
+      "sha256": "c82c837b23b19381b789dfd035c4d28c87aa4a55813dda73669f6d75047b5ef6",
+      "bytes": 897
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_evidence_richness_v66_scenarios.csv",
+      "sha256": "436b72424f07528721bd4093df3b5aa7dd28447f01b017898ba677d22ae8072b",
+      "bytes": 499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_fieldwork_preparation_v66.csv",
+      "sha256": "9bd2f9847d853b8e80fdc80562d01f0b512818986fc2eae0f105c09167536009",
+      "bytes": 810
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_fieldwork_preparation_v66.json",
+      "sha256": "e23b4dd917706398030a476bb2ad5e85342d009e0eab3b2ce28a7c5050d6fdd4",
+      "bytes": 1618
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_lake_fieldwork_preparation_v66.md",
+      "sha256": "e0c8a3ded551018f53d28ce17d9256beae3f61ff7f720499be4094eee9825e30",
+      "bytes": 2369
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_land_use_synthesis_v66.csv",
+      "sha256": "d61ecae03d6b82c602049f84257ecb964c49093c756545e5a9c91465e03d3bdf",
+      "bytes": 56508
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_land_use_synthesis_v66.json",
+      "sha256": "e46e5ab87935cc5a73258f28f8d2541e927f5501156491b9f411c144eed39b75",
+      "bytes": 191624
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/candidate/sweden_land_use_synthesis_v66.md",
+      "sha256": "828273af8dd07f9fe612f2936fecbfd5bcb99c40a5cb32677843c8a415fd6fd7",
+      "bytes": 4404
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/producer/receipt.json",
+      "sha256": "3978e168721dc66ac8c36dc160203f2043c67d5433fdb8377d0808899345aa08",
+      "bytes": 7000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/retained-country-authority.json",
+      "sha256": "2455824eca517a2e74fddf80881ee46027627b23b7362e800253fe74122e6893",
+      "bytes": 1206413
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-sweden-callable-evidence-replay/stage-progress.json",
+      "sha256": "04f76bce1c04920ca0c2c5cba20bc7f1e56bebe906af69c12007102db40eb1a1",
+      "bytes": 1217
+    }
+  ],
+  "scope": "Complete regular output member identities before this manifest and terminal; no native re-execution inferred."
+}

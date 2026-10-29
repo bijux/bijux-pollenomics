@@ -1,0 +1,126 @@
+{
+  "schema_version": "current-source-accounting-succession-witness.v1",
+  "capture": {
+    "path": "data/source-custody/source-reconciliation/current-audit/capture.json",
+    "sha256": "c7f755751a4da3e2e3eefbe83bb6d0e72be73461f4dc8faba659367c1bb60c68"
+  },
+  "current_report": {
+    "path": "docs/report/source-relations/source-reconciliation/report.json",
+    "sha256": "eaac246b596399e19f88a4730f84500d2aca654e5549ed7868255b8bf73bd85a"
+  },
+  "original_governed_summary": {
+    "path": "data/source-custody/source-reconciliation/summary-history/16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2.json",
+    "sha256": "16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2"
+  },
+  "actual_native_source_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "actual_native_references": {
+    "plan": {
+      "capture": "data/source-custody/source-reconciliation/current-audit/capture.json",
+      "member": "payloads/1263d63a7e28abf920bb795f05e4fd1e2a6f53c35c7850470763447b15d576cc",
+      "sha256": "1263d63a7e28abf920bb795f05e4fd1e2a6f53c35c7850470763447b15d576cc",
+      "bytes": 18468714
+    },
+    "source_ledger": {
+      "capture": "data/source-custody/source-reconciliation/current-audit/capture.json",
+      "member": "payloads/803156fdc589a489ac70d02e6e76ddb9c6b091abb55a2791d9e5ada158a4c30f",
+      "sha256": "803156fdc589a489ac70d02e6e76ddb9c6b091abb55a2791d9e5ada158a4c30f",
+      "bytes": 6894016
+    },
+    "inner": {
+      "capture": "data/source-custody/source-reconciliation/current-audit/capture.json",
+      "member": "payloads/343dabeebb2fe1bca86461b4207ab664b11cb5e54512e4c59852ea06344e783d",
+      "sha256": "343dabeebb2fe1bca86461b4207ab664b11cb5e54512e4c59852ea06344e783d",
+      "bytes": 4805
+    },
+    "outer": {
+      "capture": "data/source-custody/source-reconciliation/current-audit/capture.json",
+      "member": "payloads/700432409b3b881b42225fafb237e9d704744247ceb1c2ae155501c009b54008",
+      "sha256": "700432409b3b881b42225fafb237e9d704744247ceb1c2ae155501c009b54008",
+      "bytes": 2519
+    },
+    "catalogue": {
+      "capture": "data/source-custody/source-reconciliation/current-audit/capture.json",
+      "member": "payloads/77fdcf87dfd3081b43297c6960340fa4a7406349c5d31447d70a2e55bea8cda2",
+      "sha256": "77fdcf87dfd3081b43297c6960340fa4a7406349c5d31447d70a2e55bea8cda2",
+      "bytes": 945022
+    },
+    "producer": {
+      "capture": "data/source-custody/source-reconciliation/current-audit/capture.json",
+      "member": "payloads/ec616ea82b560c0c34652e2825c481b197b1ae4e522e0962e3f750eed437bd96",
+      "sha256": "ec616ea82b560c0c34652e2825c481b197b1ae4e522e0962e3f750eed437bd96",
+      "bytes": 6813
+    },
+    "review": {
+      "capture": "data/source-custody/source-reconciliation/current-audit/capture.json",
+      "member": "payloads/639e7330af441072503920417b07c4b82ae8f6a95c73d6b7d9c882c44a3bbefc",
+      "sha256": "639e7330af441072503920417b07c4b82ae8f6a95c73d6b7d9c882c44a3bbefc",
+      "bytes": 1247
+    }
+  },
+  "actual_metadata_candidate": "1931cba9dcf60ff0297f8d438c4d2866a19f37b6",
+  "actual_metadata_receipts": {
+    "plan.json": {
+      "path": "data/source-custody/source-reconciliation/current-retention/plan.json",
+      "sha256": "8a44b18a87dfe1aaa00325d7c86fe833e109026979b8b81b2667e4e85456b370",
+      "bytes": 57077104
+    },
+    "capture-terminal.json": {
+      "path": "data/source-custody/source-reconciliation/current-retention/capture-terminal.json",
+      "sha256": "6834815e2b743f497408cd9a1c7db76427f9fe828145e27705be14a71a9eacfa",
+      "bytes": 4782
+    },
+    "capture-launch-terminal.json": {
+      "path": "data/source-custody/source-reconciliation/current-retention/capture-launch-terminal.json",
+      "sha256": "c72958ac1f59408ba9de09c0c1c979be9cc738060e9ef8d10402fc85859b61b2",
+      "bytes": 2472
+    },
+    "assembly-result.json": {
+      "path": "data/source-custody/source-reconciliation/current-retention/assembly-result.json",
+      "sha256": "1061f6c01aea2a0072ad717a7cffe7822a23fecbd561d9a198fb88a44cad8057",
+      "bytes": 562
+    },
+    "independent-capture-review.json": {
+      "path": "data/source-custody/source-reconciliation/current-retention/independent-capture-review.json",
+      "sha256": "7f687eeab1f4da801223f6e222d332838ca260dddfde53d5ebee956d835faafb",
+      "bytes": 1090
+    }
+  },
+  "captured_receipt_scope_unchanged": {
+    "native_source_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+    "native_stage_exits": [
+      0,
+      0
+    ],
+    "native_inner_and_outer_exits": [
+      0,
+      0
+    ],
+    "source_families": 11,
+    "country_cells": 198,
+    "capability_cells": 187,
+    "input_records": 321,
+    "present": 284,
+    "native_missing": 37,
+    "native_missing_absent": 35,
+    "native_directory_as_file": 2,
+    "mechanical_findings": 0,
+    "full_source_confirmation": false,
+    "original_owner_remains_unresolved": true
+  },
+  "capture_time_owner_remained_unresolved": true,
+  "current_governed_summary_succession_is_later_separate_adjudication": true,
+  "unchanged_original_mechanical_conditions_currently_bound": true,
+  "original26116_full_audit_or_old_summary_receipt_recovered": false,
+  "old_summary_byte_reproduction_claimed": false,
+  "full_source_confirmation": false,
+  "literal_whole_requirement_closure_claimed": false,
+  "country_unknown_counts_are_not_zero": true,
+  "source_permissions_human_ecology_or_LRA_admitted": false,
+  "dependent_R_policy_metadata": {
+    "affected_input": "configs/ci/report-ownership.json",
+    "R_metadata_refresh_pending": true,
+    "whole_policy_refresh_pending_final_policy_convergence": true,
+    "old_R_receipt_current_policy_equivalence_claimed": false,
+    "new_R_execution_or_acceptance_claimed": false
+  }
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py", line 40, in <module>
+    source=pathlib.Path(args[0]).absolute();assert source.resolve()==source and source.is_relative_to(pathlib.Path(profile['repository'])) and source.is_file() and not any(p.is_symlink() for p in (source,*source.parents));sys.argv=[str(source),*args[1:]];runpy.run_path(str(source),run_name='__main__')
+                                                                                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 291, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/preflight/source-authoring/finalize_metadata.py", line 56, in <module>
+    assert generated or (SOURCE/name).is_file(), (path,name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (PosixPath('/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/check_controls.py'), 'preflight/controlled-country-fixtures')

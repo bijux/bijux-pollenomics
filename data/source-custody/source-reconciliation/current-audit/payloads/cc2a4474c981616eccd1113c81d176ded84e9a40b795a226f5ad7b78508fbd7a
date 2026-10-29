@@ -1,0 +1,61 @@
+{
+  "source_only": true,
+  "actual_metadata_authentication_exit": 0,
+  "native_plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/plan.json",
+    "sha256": "1263d63a7e28abf920bb795f05e4fd1e2a6f53c35c7850470763447b15d576cc",
+    "bytes": 18468714
+  },
+  "ledger": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/original-source-ledger.json",
+    "sha256": "803156fdc589a489ac70d02e6e76ddb9c6b091abb55a2791d9e5ada158a4c30f",
+    "bytes": 6894016
+  },
+  "inner": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/source-audit-terminal.json",
+    "sha256": "343dabeebb2fe1bca86461b4207ab664b11cb5e54512e4c59852ea06344e783d",
+    "bytes": 4805
+  },
+  "outer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/source-audit-launch-terminal.json",
+    "sha256": "700432409b3b881b42225fafb237e9d704744247ceb1c2ae155501c009b54008",
+    "bytes": 2519
+  },
+  "catalogue": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/output-products.json",
+    "sha256": "77fdcf87dfd3081b43297c6960340fa4a7406349c5d31447d70a2e55bea8cda2",
+    "bytes": 945022
+  },
+  "derived_summary": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/summary-current.json",
+    "sha256": "eaac246b596399e19f88a4730f84500d2aca654e5549ed7868255b8bf73bd85a",
+    "bytes": 15490
+  },
+  "derived_full": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-directory-presence-audit/full-current-audit.json",
+    "sha256": "df746ca44d87016688d105b2448696b83d8e8267ceab4ac59b71af53fcc03d64",
+    "bytes": 1770525
+  },
+  "ordered_input_count": 63315,
+  "declared_source_input_count": 599,
+  "declared_repo_inputs": 592,
+  "declared_private_inputs": 7,
+  "all_declared_inputs_and_owned_copies_identity_only": true,
+  "excluded_raw_input_catalogue_count": 599,
+  "original_catalogue_count": 2803,
+  "selected_public_catalogue_count": 2204,
+  "complete_public_execution_source_resource_copies": 2193,
+  "unique_public_payload_bytes_before_own_controller_and_packet_JSON": 76938056,
+  "full_audit_native_missing": 37,
+  "missing_kind_counts": {
+    "missing": 35,
+    "directory": 2
+  },
+  "source_count": 11,
+  "country_cell_count": 198,
+  "capability_cell_count": 187,
+  "accounting_checks_pass": true,
+  "full_source_confirmation": false,
+  "original26116f_recovered": false,
+  "body_census_or_data_API_or_actual_retention": false
+}

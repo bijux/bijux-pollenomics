@@ -1,0 +1,37 @@
+{
+  "schema_version": "current-source-audit-retention-recipe.v1",
+  "source_only": true,
+  "source_entry": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/entry.py",
+  "requires_independent_source_approval": true,
+  "root_only_preparation_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CLEAN_MAIN_SHA",
+    "--review-sha256",
+    "ACTUAL_APPROVED_SOURCE_REVIEW_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture",
+    "--native-inner-sha256",
+    "343dabeebb2fe1bca86461b4207ab664b11cb5e54512e4c59852ea06344e783d",
+    "--native-outer-sha256",
+    "700432409b3b881b42225fafb237e9d704744247ceb1c2ae155501c009b54008"
+  ],
+  "registration_then_separate_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-input-integrity-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA"
+  ],
+  "expected_capture": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/packet/capture.json",
+  "actual_future_capture_or_exit_assumed": false,
+  "canonical_or_owner_mutation": false
+}

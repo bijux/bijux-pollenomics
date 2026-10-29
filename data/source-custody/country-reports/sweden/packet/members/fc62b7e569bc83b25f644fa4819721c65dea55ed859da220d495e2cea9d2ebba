@@ -1,0 +1,81 @@
+{
+  "schema_version": "sweden-country-semantic-source-protocol.v1",
+  "source_only": true,
+  "original_owner": {
+    "owner_id": "countries/sweden/land-use-replay/semantic-receipt",
+    "role": "unresolved",
+    "paths": [
+      "docs/report/countries/sweden/land-use-replay/receipt.json"
+    ],
+    "producer_paths": [
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py"
+    ],
+    "producer_inputs": [
+      "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "data/aadr/v66/release_manifest.json",
+      "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "data/sead/normalized/nordic_temporal_evidence.geojson",
+      "data/svar/review/lake_candidate_registry_review.json",
+      "data/svar/review/sweden_lake_candidate_registry.geojson"
+    ],
+    "verification": "The replay invokes the full country-report bundle producer, hashes published outputs and upstream products, and uses runtime generated date. Seven direct source files alone are not the complete producer input/template closure. Bind full country-producer source closure, published comparands and time control before generated ownership; this receipt is reproducibility evidence, not vegetation validation."
+  },
+  "actual_candidate": "Root selects the then-current clean main revision. No source-author Git command or guessed current revision.",
+  "source_runtime": "Qualified lexical147 Python3.11.13; exact complete runtime/native/namespace/alias authorities revalidated at preparation and before/after both stages.",
+  "source_validation_profile": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b; source-only synthetic controls and strict/configured style, separate from the future native interpreter.",
+  "purpose": "One genuine maintained replay() invoking the full public generate_country_report() once, followed by an independent source/typed/semantic/clock observer. Reproducibility evidence only.",
+  "stages": [
+    {
+      "id": "maintained-full-Sweden-country-consumer",
+      "seconds": 600
+    },
+    {
+      "id": "independent-source-semantic-clock-observer",
+      "seconds": 360
+    }
+  ],
+  "resources": {
+    "completed_whole_seconds": 1140,
+    "outer_measured_seconds": 1200,
+    "child_peak_RSS_bytes_macos": 8589934592,
+    "inclusive_owned_storage_bytes": 1073741824,
+    "plan_bytes": 134217728,
+    "selected_data_bytes": 536870912,
+    "single_JSON_bytes": 268435456,
+    "selected_input_files": 2048,
+    "glob_members_each": 512
+  },
+  "forecast": "Prospective bounds, not measured performance. The full four-package source/resource copy, runtime/input namespace checks, data projection, both consumers, logs and receipts count toward logical owned storage. Preparation refuses the caps before decoding or dispatch and requires refreeze to widen.",
+  "named_context_metadata_forecast_only": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-root-input-metadata/named-context-metadata.json",
+    "sha256": "1eca5db01c3f0daf97ff701647a6ba4e35656f6813955531e7ed23cf77d2f62a",
+    "bytes": 3623
+  },
+  "clock_contract": "Native date.today() remains unchanged. The child receives TZ=UTC; exact typed UTC timezone/daylight/tzname and native wall/monotonic observations must bracket one real CountryReport on the same UTC calendar day. Crossing midnight or a different returned generated_on refuses; historical dates are never forced.",
+  "watchdog_limits": "The1200-second parent watchdog bounds its delegated child including admission/imports, both stage processes and final scans. Parent entry/startup and post-reap accounting consume measured elapsed but have no independent parent watchdog; no detached/full-descendant or OS quota guarantee.",
+  "data_closure": "Original seven required inputs;105 per-species roles for15 species;13 context roles; complete source-supported unsorted species sample-record glob and sorted release ANNO glob;30 published filenames plus complete optional map assets; four complete owned first-party source/resource trees and root metadata. Exact source-supported absences stay unavailable/refused, never measured zero.",
+  "source_and_cache_roles": "Only tracked source/resource projection is executable. Original bytecode and the exact configured generated LRA version omission remain full ordered identity records. No bytecode/source equivalence or live canonical data fallback.",
+  "observer": "Reconstruct the complete six-category native semantic receipt and hash roles, report ordered type-sensitive historical synthesis differences separately, compare all actual typed human records/current default exports, individual chronology supports, source-joined animal context records, full LandClim/SEAD source joins, actual output membership and full clock/custody. Native semantic differences are observations, not forced to zero.",
+  "original_receipt": "Retained and checked separately. A tracked checker may return2 for genuine changed output and is never relabeled as native failure or zero. No recovery of original receipt constructor, historical native timing or old acquisition.",
+  "scope_limits": {
+    "vegetation_validation": false,
+    "ecological_truth": false,
+    "rights_acceptance": false,
+    "human_or_biology_acceptance": false,
+    "LRA_admission": false,
+    "independent_lake_ranking_recomputed": false,
+    "ten_species_API_population_reproduced": false,
+    "owner_transition_preapproved": false
+  },
+  "source_author_actions": {
+    "named_public_source_and_public_metadata_read": true,
+    "synthetic_source_controls": true,
+    "private_body_decode_or_hash": false,
+    "country_API_or_replay": false,
+    "actual_runtime_or_input_census": false,
+    "preparer_or_registered_native": false,
+    "canonical_or_Git_or_STATE_mutation": false
+  },
+  "registration": "After independent exact source approval, root alone prepares once, persists unique registration and reads it back, then launches separately with the frozen plan SHA. Actual producer/observer/whole results remain unknown until collected."
+}

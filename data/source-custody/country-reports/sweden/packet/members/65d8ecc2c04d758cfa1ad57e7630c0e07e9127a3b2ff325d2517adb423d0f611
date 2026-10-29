@@ -1,0 +1,92 @@
+{
+  "schema_version": "sweden-country-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "465ce7d57ddf551c482726bbefb211dc41883787939e5674eec31cc1c5820734",
+  "manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/prepared-source-manifest.json",
+    "sha256": "465ce7d57ddf551c482726bbefb211dc41883787939e5674eec31cc1c5820734",
+    "bytes": 14174
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/source-qualification.json",
+    "sha256": "8c052b035232dafe884d40034a4a4b570f26abec92c0e2e507e57c6ca85bd7ac",
+    "bytes": 14902
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/protocol.json",
+    "sha256": "fc62b7e569bc83b25f644fa4819721c65dea55ed859da220d495e2cea9d2ebba",
+    "bytes": 6142
+  },
+  "recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/recipe.json",
+    "sha256": "5d5b47fba5edb4ba583c1f7fd6560c58800bdc650296f5cc756c2b32a0e7fb0c",
+    "bytes": 1221
+  },
+  "author_complete56_dual_gate_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/preflight/held-entry-proof.json",
+    "sha256": "3cf49010080894c4ca052d54d61b5a7c33732e1304b523f2517ae1336ebb3f8e",
+    "bytes": 1169
+  },
+  "authenticated_held_members": 56,
+  "independent_AST_files": 19,
+  "author_controls_reused": {
+    "synthetic_groups": 86,
+    "strict_files": 19,
+    "configured_Ruff_files": 19,
+    "configured_format_files": 19,
+    "whole_SOURCE_exit": 0,
+    "source_logs_authenticated": 25
+  },
+  "independent_execution": {
+    "SOURCE_profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "session": 32339,
+    "whole_actual_exit": 0,
+    "artificial_cases": 61,
+    "source": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-independent-source-review/check_source.py",
+      "sha256": "446388108845d42fb733868086f5fa0f463912011a79cb7174f4c20c0cf8794a",
+      "bytes": 14776
+    },
+    "result": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-independent-source-review/independent-controls.json",
+      "sha256": "4232bd8fa39ce0a8c478d765407361cea7f9aeb588f323f7e4fbc261d600f0a6",
+      "bytes": 2373
+    }
+  },
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-semantic-custody/source-correspondence.json",
+    "sha256": "2e401720c0e4a152aecb546be28437ce3f08588287c39b8d28ccb6987792ec68",
+    "bytes": 28338
+  },
+  "unchanged_qualified_helpers_and_original_human_reader_authenticated": true,
+  "resolved_source_findings": [
+    "Package source projection uses separate package_projection and preserves native data selection through all four package loops, copy and plan roles.",
+    "Actual profile callback retains original exception identity and None/partial return events; before/after clock receipt is written even when the maintained replay fails.",
+    "Absent bytecode accepts only current exact cache_from_source/source_from_cache round trip to pinned source; attempts are separate from protected reads; existing unknown caches/write/alias/legacy/wrong-tag refuse.",
+    "Actual mutation audit covers owned producer/cache/scratch, both rename endpoints and exact descriptor F_GETPATH/fstat ancestry;1024B buffer obeys CPython interface and typed descriptors refuse.",
+    "Original and owned unsorted glob orders are distinct; owned order is guarded at execution and matched by independent reader; conflicting duplicate stable-token payloads refuse."
+  ],
+  "reviewed_scientific_scope": [
+    "Exactly one unchanged maintained full-country replay and one independent observer; no second country producer.",
+    "Complete original criterion retained verbatim and owner remains unresolved; no generated ownership preapproved.",
+    "Fifty-one maintained public source authorities include original40 prefix and11 explicit dependencies; full four owned source/resource roots plus repository/package markers are projected before execution.",
+    "All15 nonhuman support-matrix species,105 roles,13 context roles, full global normalized sample lookup, complete ANNO glob,30 comparands and map resources; source-supported absence is not zero.",
+    "Independent complete human typed/default CSV+GeoJSON and sample-owned chronology joins; no locality hull occurrence substitution.",
+    "Animal context joins native IDs/flags/provenance; atlas selection/ranking and ten-species API population are not claimed independently reproduced.",
+    "LandClim no-pollen/null/rounding and SEAD spatial/temporal joins preserve maintained rules; native semantic categories use unchanged scalar equality while complete typed historical differences remain separately reported.",
+    "Native current-day clock is observed, not patched. Exact POSIX plan/certification value is TZ=UTC0; protocol wording TZ=UTC denotes the zone. Midnight or returned-day mismatch refuses and evidence remains.",
+    "Selected-input prehash size/count caps and prospective source/output reserve precede body hashing and dispatch; per-stage600/360, completed1140, outer1200,8GiB child RSS and1GiB logical storage remain actual future measurements."
+  ],
+  "distinct_actual_gates": "Complete final56 controlled schema through entry.verify and source_admission.reviewed_controls independently, with shadow/import-directory/FIFO/tamper/alias/relative/Boolean length refusals and restored positives; actual raw entry_root alias refusal also passed.",
+  "findings": [],
+  "all_held_members_and_source_logs_unchanged": true,
+  "actual_private_body_hash_decode_country_API_clock_consumer_runtime_census_preparer_native_Git_or_canonical_action_by_reviewer": false,
+  "scope_limits": [
+    "No actual country result, date, source population or tracked byte equality is inferred from synthetic controls.",
+    "Historical receipt construction, original runtime/generated day, acquisition, vegetation/ecology, rights, human biology and LRA remain unqualified.",
+    "The owned copy supports later canonical advancement; original/owned source epochs and declared input roles remain separate.",
+    "Parent entry/startup and post-reap accounting consume measured outer time without an independent parent watchdog; no OS quota, detached/full-descendant or aggregate RSS claim."
+  ],
+  "root_next_action": "Copy this exact peer into held source independent-source-review.json, then root-only actual clean-candidate preparation, unique registration/readback and separate bounded launch."
+}

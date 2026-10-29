@@ -1,0 +1,21 @@
+{
+  "schema_version": "lra-uncertainty-preimage-source-identity.v1",
+  "identity_derivation": {
+    "proof": "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json",
+    "proof_sha256": "8f6d5e31f612b140b8bebec47419fb529f2aebc7bacddbe034845fd9cd0a54ef",
+    "logical_preimage": "data/source-custody/lra-uncertainty-layout/api-before-relocation.py",
+    "historical_canonical_source": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+    "historical_source_commit": "e643986a963f903f987b1e75753a617d9114e7eb",
+    "Git_blob": "476bdee064d6f38f6920f338af721529254bf501"
+  },
+  "members": {
+    "api-before-relocation.py": {
+      "sha256": "6c3359cba2d080f0e5f97dd231f5732389cca1adbfec3cc303b38e90cbec0e3b",
+      "bytes": 6049
+    }
+  },
+  "historical_native_capture_claimed": false,
+  "native_R_executed": false,
+  "browser_executed": false,
+  "scientific_admission": false
+}

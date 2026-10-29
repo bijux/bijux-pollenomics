@@ -1,0 +1,79 @@
+{
+  "schema_version": "sweden-country-callable-diagnostic-protocol.v1",
+  "source_only": true,
+  "original_owner": {
+    "owner_id": "countries/sweden/land-use-replay/semantic-receipt",
+    "role": "unresolved",
+    "paths": [
+      "docs/report/countries/sweden/land-use-replay/receipt.json"
+    ],
+    "producer_paths": [
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py"
+    ],
+    "producer_inputs": [
+      "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "data/aadr/v66/release_manifest.json",
+      "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "data/sead/normalized/nordic_temporal_evidence.geojson",
+      "data/svar/review/lake_candidate_registry_review.json",
+      "data/svar/review/sweden_lake_candidate_registry.geojson"
+    ],
+    "verification": "The replay invokes the full country-report bundle producer, hashes published outputs and upstream products, and uses runtime generated date. Seven direct source files alone are not the complete producer input/template closure. Bind full country-producer source closure, published comparands and time control before generated ownership; this receipt is reproducibility evidence, not vegetation validation."
+  },
+  "purpose": "One genuine full country call over the unchanged sealed source/data, followed by the same independent source/typed/semantic/UTC-clock observer. No country API ran in the original failed controller.",
+  "original_history": {
+    "plan_sha256": "e6d7ebf4d5318843bb072381bedb09d508349cd4e4d156e5c8341b3e41a62255",
+    "source_candidate": "ed6f5dbeae2bbe8e50c1835cb0c39a40277a8485",
+    "whole_actual_exit": 1,
+    "controller_stage_actual_exits": [
+      1
+    ],
+    "country_or_replay_calls": 0,
+    "source_manifest_sha256": "465ce7d57ddf551c482726bbefb211dc41883787939e5674eec31cc1c5820734",
+    "failure": "Exact compiled/imported public callable marshal bytes differed before observe_replay; do not relabel as country output or source-data failure."
+  },
+  "callable_guard": "Require actual owned source origin and optimize0; compile exact frozen bytes with dont_inherit=True,optimize0. Compare all18 code fields recursively, exact typed constant graph/IEEEbits/nested code and canonical frozensets. Ignore only marshal object-reference/intern representation; no bytecode/flags/filename/line/exception/constant field ignored.",
+  "positive_source_qualification": "Actual public service definition imported under SOURCE3331 and compared to exact pinned source compilation; no country/replay call, source import audit blocks repository data/tools/network and confines import writes. Unexecuted code mutations refuse.",
+  "reuse": "Authenticate all original ordered input identities and complete original output catalogue, late outer full streams, exact original metadata SHA/sizes and sealed owned source/data namespace. No original owned data/source body copied or transformed. All old receipts remain originalwhole1. Current orchestration identity is separate from original sourceepoch.",
+  "before_first_output": "Exact expected original roles, unchanged complete source/runtime/input/namespace/aliases/selection; current scientific51/owner correspondence; exact pretty encoded history/plan and storage reserve all checked before first mkdir. No refreshed original input baseline.",
+  "resources": {
+    "producer_seconds": 600,
+    "observer_seconds": 360,
+    "completed_whole_seconds": 1140,
+    "outer_measured_seconds": 1200,
+    "child_peak_RSS_bytes_macos": 8589934592,
+    "inclusive_new_plus_reused_logical_output_bytes": 1073741824,
+    "plan_and_history_each_bytes": 134217728
+  },
+  "prospective_only": "No new actual timing/memory outcome yet. Inclusive storage counts the entire retained original output tree as well as new output. Parent watchdog covers delegated child through checks and stages; parent admission/post-reap accounting has measured limits but no independent parent watchdog, detached-descendant or OS quota guarantee.",
+  "native_clock": "Unchanged date.today with exact POSIX TZ=UTC0; typed UTC/daylight/tzname/actual wall+monotonic and same native day. No historical date coercion or monkeypatch.",
+  "independent_semantics": "Original86 source checks and scientific algorithms unchanged. Full current source/comparands, actual human typed/default transport, animal context/source joins, individual chronology supports, all30country products+assets, source-owned LandClim/SEAD joins, all six semantic categories/ordered typed differences and separate tracked byte checker0or2. Missing authorities stay unknown/refused, not zero.",
+  "scope_limits": {
+    "historical_constructor_recovered": false,
+    "vegetation_validation": false,
+    "rights_acceptance": false,
+    "human_or_biology_acceptance": false,
+    "LRA_admission": false,
+    "country_API_or_data_decode_by_author": false,
+    "runtime_or_input_census_by_author": false,
+    "private_payload_hash_by_author": false,
+    "new_actual_native_job_by_author": false
+  },
+  "registration": "Root alone prepares on a selected clean candidate, unique registers/readsback the exact plan, and separately launches. No producer outcome or owner promotion assumed by this source qualification.",
+  "diagnostic_writer_scope": "Only output/country-callable-identity.json may be exclusively created once through the wrapper contracts.write. Reads while CountryIO enabled, sibling writes, append/truncate/overwrite, alias ancestry and mutation remain refused.",
+  "callable_controller_history": {
+    "source_manifest_sha256": "935ee0e123e1b4dd7b941b9cd3f0fc1525b6ac35ef314bb190b8781519cba476",
+    "plan_sha256": "7ffea2d3c960a086ed8b668e9d30996e557e0a3c1fc4b353a2cbddc52f862572",
+    "whole_actual_exit": 1,
+    "controller_stage_actual_exits": [
+      1
+    ],
+    "country_or_replay_calls": 0,
+    "inner_sha256": "189d5fb23d766aba584a2603e22283ea0bd79cbc14920e5cdcd93a9dca1cabb8",
+    "outer_sha256": "d02732b6235fec36018cf4a52ea074f367912ecd7072a7dc311459fd620c0bda",
+    "failure": "Audit hook refused the newly declared wrapper diagnostic write before callable proof was persisted or observe_replay invoked. Typed-callable evaluation result is not claimed from this failed actual attempt.",
+    "new_dependency_on_failed_output_namespace": false
+  },
+  "source_qualification_delta": "113 original source groups retained by exact21-file and restored full CountryIO AST correspondence; 10 new actual-writer/actual-audit-hook artificial controls. No country, API or data-body consumer by author."
+}

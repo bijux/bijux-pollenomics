@@ -1,0 +1,21 @@
+"""Configured source-only validation of metadata custody controllers."""
+import ast
+from concurrent.futures import ThreadPoolExecutor
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+R=Path('/Users/bijan/bijux/bijux-pollenomics');D=R/'artifacts/science/current-source-audit-input-integrity-custody'
+B='/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11';P=R/'artifacts/science/cached-source-validation-custody';RUFF='/Users/bijan/.cache/uv/archive-v0/2XF0xMG3jR4vPhZZ/ruff-0.15.8.data/scripts/ruff'
+prefix=[B,'-I','-S','-B',str(P/'execute.py'),'--profile',str(P/'profile.json'),'--profile-sha256','3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b'];style=['--config',str(R/'configs/ruff.toml'),'--cache-dir',str(D/'preflight/ruff-cache')];files=sorted(D.glob('*.py'))
+commands={'source-guards':prefix+['--mode','python','--',str(D/'check_capture.py')],'source-strict':prefix+['--mode','mypy','--','--strict','--follow-imports=silent','--config-file',str(R/'configs/mypy.ini'),'--cache-dir',str(D/'preflight/mypy-cache'),*map(str,files)],'source-ruff':[RUFF,'check',*style,*map(str,files)],'source-format':[RUFF,'format','--check',*style,*map(str,files)]}
+def run(item):
+ name,argv=item;r=subprocess.run(argv,cwd=R,capture_output=True,timeout=180);logs={}
+ for kind,raw in [('stdout',r.stdout),('stderr',r.stderr)]:
+  p=D/'preflight'/(name+'.'+kind);p.write_bytes(raw);logs[kind]={'path':str(p),'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw)}
+ (D/'preflight'/(name+'.json')).write_text(json.dumps({'argv':argv,'actual_exit':r.returncode,**logs},indent=2)+'\n');return name,r.returncode
+with ThreadPoolExecutor(max_workers=4) as pool:results=list(pool.map(run,commands.items()))
+rows=[]
+for p in files:
+ raw=p.read_bytes();ast.parse(raw);rows.append({'path':str(p),'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw)})
+(D/'preflight/source-AST.json').write_text(json.dumps({'actual_exit':0,'files':rows},indent=2)+'\n');print(json.dumps({'checks':results,'AST_files':len(rows)}));raise SystemExit(int(any(code for _,code in results)))

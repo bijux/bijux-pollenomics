@@ -1,0 +1,151 @@
+{
+  "schema_version": "sweden-saved-country-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "c182abf3987c140b7a4e5ae006f63f8c62c69b3a4d81e6898b43717f26788c79",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/prepared-source-manifest.json",
+    "sha256": "c182abf3987c140b7a4e5ae006f63f8c62c69b3a4d81e6898b43717f26788c79",
+    "bytes": 13098
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/source-qualification.json",
+    "sha256": "daa7b6afb0fd5a6d8a484e7ff346f7a2af7cc6c311681efde247bbd509a18fe7",
+    "bytes": 5157
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/protocol.json",
+    "sha256": "7b92a33c201e7e09a9353acef5d4b04f8663f1ac3a85439ad62c4f49da0ac991",
+    "bytes": 4480
+  },
+  "recipe": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/recipe.json",
+    "sha256": "62944fb275f18b2398678013d8f4dc7d2286d54a5e71eb6eccf6c632601d502e",
+    "bytes": 1255
+  },
+  "authenticated_source_members": 52,
+  "authenticated_python_ASTs": 26,
+  "qualified_production_root_Python": 23,
+  "authenticated_qualification_logs": 16,
+  "byte_exact_original_Python": 13,
+  "byte_exact_scientific_modules": [
+    "independent.py",
+    "human_source.py",
+    "clock_contract.py",
+    "semantic_contract.py",
+    "callable_identity.py"
+  ],
+  "independent_science_AST_proof": "Entire prior observer science block from full product namespace through human/animal/synthesis/receipt/source/policy comparisons is exact after only original read-only receipt path substitution and removal of unavailable returned-receipt comparison. product_members is AST exact.",
+  "source_correspondence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/source-correspondence.json",
+    "sha256": "420dd3c64c1af9a957849b353754040e75fa9a0320b7eb1a2cb24c0100488e47",
+    "bytes": 8548
+  },
+  "author_complete_schema_both_gate_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-country-saved-semantic-custody/preflight/held-entry-proof.json",
+    "sha256": "1233acad6930a226cee2dbb7c62de4d0430c8fb6527b513fcb3a05ee68965ad9",
+    "bytes": 1268
+  },
+  "independent_controls": {
+    "actual_exit": 0,
+    "session": 68579,
+    "profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "groups": 42,
+    "proof": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-saved-country-independent-review/independent-controls.json",
+      "sha256": "de01ae629ab4f041800e9926d17e6e90813eb30f40956f5be71cdd10e98b99b7",
+      "bytes": 1781
+    },
+    "driver": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-saved-country-independent-review/check_source.py",
+      "sha256": "a660d39c747a4df4fc35beb363dffa295b16bb3dd71721b53cd040155fc4f499",
+      "bytes": 11561
+    },
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-saved-country-independent-review/controls.stdout",
+      "sha256": "6aca1a0bb9718f5e766222801b0fa9234556f0525a161d12516b236b50fc7568",
+      "bytes": 33
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-saved-country-independent-review/controls.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "cases": [
+      "normal call-return event with original controller1/whole1 and unavailable telemetry",
+      "controller relabeled0",
+      "Boolean controller exit",
+      "whole relabeled0",
+      "stage timeout hidden",
+      "stage argv differs",
+      "returned dict substituted",
+      "two calls",
+      "original exception hidden",
+      "telemetry error",
+      "extra denied read",
+      "denial absent",
+      "ZIP not protected absent",
+      "ZIP duplicate absence",
+      "ZIP present in namespace",
+      "ZIP excluded namespace",
+      "original source epoch rebound",
+      "code fields omitted",
+      "code correspondence unequal",
+      "clock Boolean timezone",
+      "clock Boolean daylight",
+      "wrong POSIX zone spelling",
+      "generated day mismatch",
+      "actual prepare expression passes actual one-observer validator",
+      "second observer",
+      "producer action",
+      "foreign argv",
+      "Boolean timeout",
+      "changed bound",
+      "saved entry has no producer dispatch and observer makes no country API call",
+      "verify complete52 held schema",
+      "reviewed_controls complete52 held schema",
+      "verify authority helper tamper",
+      "reviewed_controls authority helper tamper",
+      "verify native shadow",
+      "reviewed_controls native shadow",
+      "verify FIFO",
+      "reviewed_controls FIFO",
+      "verify extra import directory",
+      "reviewed_controls extra import directory",
+      "verify required retained helper omitted from disk and manifest",
+      "reviewed_controls required retained helper omitted from disk and manifest"
+    ]
+  },
+  "findings": [],
+  "preserved_history": {
+    "normal_country_call_return_event_count": 1,
+    "original_controller_actual_exit": 1,
+    "original_whole_actual_exit": 1,
+    "separate_country_process_exit0_observed": false,
+    "full_returned_object_witness_recovered": false,
+    "read_or_import_origin_ledger_recovered": false,
+    "new_saved_observer_outcome": null
+  },
+  "review_conclusion": "One saved-product independent observer; no country API or producer dispatch. The exact sole denied ZIP was protected absent by the original complete runtime namespace. Its pre-open denial is preserved, not reclassified as bytes read. Clock/callable/receipt/product evidence is checked separately from the unavailable full returned-object and read-origin telemetry. Independent locality reconstruction is explicitly expected projection compared with saved export, not captured return recovery.",
+  "reviewer_fixture_correction": {
+    "initial_session": 88250,
+    "actual_exit": 1,
+    "reason": "Artificial plan/progress argv shared a list; append mutated both and did not model drift. Changed the negative to replace only the progress argv list. No source or production predicate changed.",
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-saved-country-independent-review/initial-controls.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/sweden-saved-country-independent-review/initial-controls.stderr",
+      "sha256": "9718adebf3ba9b2172722beb82fb2f4450ce08c80d53138b4a0b04adf8295f03",
+      "bytes": 1495
+    }
+  },
+  "limitations": [
+    "No original data/product body, country API, runtime/SDK census, preparer, native consumer, Git, canonical or STATE operation by reviewer.",
+    "Independent controls reuse only artificial construction assignments from the held author fixture, then apply separate actual-predicate mutations; source authority metadata is held source, not historical product decoding.",
+    "This source approval is not an actual successful saved observer or owner admission.",
+    "Historical receipt construction, missing full return and read-origin telemetry, vegetation accuracy, rights, human review and LRA remain unqualified."
+  ]
+}

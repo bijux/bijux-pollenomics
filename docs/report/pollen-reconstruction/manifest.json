@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "365ef807f39ccc1a700dcb0fff78724d3dbb82f75d478e56efacd9d62aab05e0",
-      "bytes": 7376862
+      "sha256": "68f221efda62ab2fa2638436273b39169dd96313058c209a9a5370d491c369af",
+      "bytes": 7265132
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -3266,7 +3266,7 @@
     },
     {
       "path": "docs/report/source-relations/source-reconciliation/report.json",
-      "sha256": "16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2",
+      "sha256": "eaac246b596399e19f88a4730f84500d2aca654e5549ed7868255b8bf73bd85a",
       "bytes": 15490
     },
     {

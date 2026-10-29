@@ -48,7 +48,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** Submetre points and nearly equal endpoint numbers do not establish common cores, historical radii, selected chronology or pollen denominator.
 
-**Actual verification performed.** Read both source-bound lake records, manifest and two-sample mass receipt; no count/core consumer replay.
+**Actual verification performed.** Read both source-bound lake records, manifest and two-sample mass receipt; no count/core consumer replay. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner’s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.
 
 **Remaining input or review.** Elevation/coordinate conflicts, original count support, source chronology/geometry and analytical-use decisions remain.
 
@@ -67,6 +67,8 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 - [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/manifest.json](manifest.json) (SHA-256 `bf8f76d4513859615b84ec7d408a774c26591bd89a8d0d5a34b43d18d70b907a`).
 
 - [Retained qualification evidence: docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json](count-mass-crosscheck.json) (SHA-256 `afff295e29fb5210ff94dbf599ba0b1530191b6e06abc3f96e35bb06f05812d9`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/neotoma-selected-counts.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/neotoma-selected-counts.json) (SHA-256 `5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

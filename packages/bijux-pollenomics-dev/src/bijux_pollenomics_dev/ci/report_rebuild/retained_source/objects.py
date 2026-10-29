@@ -32,6 +32,7 @@ DOC_SOURCES = frozenset(
 )
 PUBLICATION_INPUT_SOURCES = frozenset(
     {
+        "docs/report/countries/sweden/land-use-replay/README.md",
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv",
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json",
     }

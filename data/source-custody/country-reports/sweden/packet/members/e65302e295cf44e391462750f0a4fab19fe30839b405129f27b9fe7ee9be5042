@@ -1,0 +1,99 @@
+artifacts/science/sweden-country-semantic-custody/independent.py:49: error:
+Returning Any from function declared to return "dict[str, Any]"  [no-any-return]
+        return value
+        ^~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/independent.py:112: error:
+Need type annotation for "result"  [var-annotated]
+        result = {name: [] for name in CATEGORIES}
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/independent.py:344: error:
+Need type annotation for "lookup" (hint: "lookup: dict[<type>, <type>] = ...") 
+[var-annotated]
+        lookup = {}
+        ^~~~~~
+artifacts/science/sweden-country-semantic-custody/independent.py:586: error:
+Need type annotation for "expected_pairs" (hint:
+"expected_pairs: list[<type>] = ...")  [var-annotated]
+        expected_pairs = []
+        ^~~~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/independent.py:658: error:
+Argument 1 to "isfinite" has incompatible type "Any | None"; expected
+"SupportsFloat | SupportsIndex"  [arg-type]
+                    and math.isfinite(value),
+                                      ^~~~~
+artifacts/science/sweden-country-semantic-custody/independent.py:668: error:
+Unsupported left operand type for + ("None")  [operator]
+                    values["evergreen_tree_cover"] + values["summergreen_t...
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~...
+artifacts/science/sweden-country-semantic-custody/independent.py:668: error:
+Unsupported operand types for + ("None" and "float")  [operator]
+                    values["evergreen_tree_cover"] + values["summergreen_t...
+                    ^
+artifacts/science/sweden-country-semantic-custody/independent.py:668: error:
+Unsupported operand types for + ("float" and "None")  [operator]
+                    values["evergreen_tree_cover"] + values["summergreen_t...
+                    ^
+artifacts/science/sweden-country-semantic-custody/independent.py:668: note: Both left and right operands are unions
+artifacts/science/sweden-country-semantic-custody/execute.py:32: error:
+Argument 1 to "Path" has incompatible type "Any | None"; expected
+"str | PathLike[str]"  [arg-type]
+            path = Path(filename)
+                        ^~~~~~~~
+artifacts/science/sweden-country-semantic-custody/check_controls.py:57: error:
+Incompatible types in assignment (expression has type "int", target has type
+"str")  [assignment]
+            top[key] = 0
+                       ^
+artifacts/science/sweden-country-semantic-custody/check_controls.py:58: error:
+No overload variant of "update" of "MutableMapping" matches argument types
+"list[Never]", "list[Never]"  [call-overload]
+        top.update(rows=[], target_decisions=[])
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/check_controls.py:58: note: Possible overload variants:
+artifacts/science/sweden-country-semantic-custody/check_controls.py:58: note:     def update(self, SupportsKeysAndGetItem[Any, str], /) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:58: note:     def update(self, SupportsKeysAndGetItem[str, str], /, **kwargs: str) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:58: note:     def update(self, Iterable[tuple[Any, str]], /) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:58: note:     def update(self, Iterable[tuple[str, str]], /, **kwargs: str) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:58: note:     def update(self, **kwargs: str) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:145: error:
+No overload variant of "update" of "MutableMapping" matches argument types
+"dict[str, str]", "float", "float"  [call-overload]
+            row.update(dict.fromkeys(keys, "ID"), latitude=55.0, longitude...
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~...
+artifacts/science/sweden-country-semantic-custody/check_controls.py:145: note: Possible overload variants:
+artifacts/science/sweden-country-semantic-custody/check_controls.py:145: note:     def update(self, SupportsKeysAndGetItem[str, str], /) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:145: note:     def update(self, SupportsKeysAndGetItem[str, str], /, **kwargs: str) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:145: note:     def update(self, Iterable[tuple[str, str]], /) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:145: note:     def update(self, Iterable[tuple[str, str]], /, **kwargs: str) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:145: note:     def update(self, **kwargs: str) -> None
+artifacts/science/sweden-country-semantic-custody/check_controls.py:148: error:
+Incompatible types in assignment (expression has type "int", target has type
+"str")  [assignment]
+                    row[key] = 0
+                               ^
+artifacts/science/sweden-country-semantic-custody/check_controls.py:401: error:
+Dict entry 0 has incompatible type "str": "bool"; expected "str":
+"list[dict[str, Any]]"  [dict-item]
+            "source_only": True,
+            ^~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/check_controls.py:402: error:
+Dict entry 1 has incompatible type "str": "int"; expected "str":
+"list[dict[str, Any]]"  [dict-item]
+            "actual_exit": 0,
+            ^~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/check_controls.py:403: error:
+Dict entry 2 has incompatible type "str": "int"; expected "str":
+"list[dict[str, Any]]"  [dict-item]
+            "artificial_groups": len(checks),
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/check_controls.py:404: error:
+Dict entry 3 has incompatible type "str": "list[str]"; expected "str":
+"list[dict[str, Any]]"  [dict-item]
+            "checks": checks,
+            ^~~~~~~~~~~~~~~~
+artifacts/science/sweden-country-semantic-custody/check_controls.py:405: error:
+Dict entry 4 has incompatible type "str": "bool"; expected "str":
+"list[dict[str, Any]]"  [dict-item]
+            "actual_data_API_runtime_preparer_or_native_executed": False,
+            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Found 18 errors in 3 files (checked 19 source files)

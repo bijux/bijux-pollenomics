@@ -1,0 +1,209 @@
+E402 Module level import not at top of file
+  --> artifacts/science/sweden-country-semantic-custody/check_controls.py:17:1
+   |
+15 | SOURCE = Path(__file__).absolute().parent
+16 | sys.path.insert(0, str(SOURCE))
+17 | from clock_contract import certify
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+18 | from contracts import PYTHON, RESOURCES, registered_plan
+19 | from contracts import SOURCE as ACTUAL_SOURCE
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/sweden-country-semantic-custody/check_controls.py:18:1
+   |
+16 | sys.path.insert(0, str(SOURCE))
+17 | from clock_contract import certify
+18 | from contracts import PYTHON, RESOURCES, registered_plan
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+19 | from contracts import SOURCE as ACTUAL_SOURCE
+20 | from data_roles import discover, freeze, verify_selection
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/sweden-country-semantic-custody/check_controls.py:19:1
+   |
+17 | from clock_contract import certify
+18 | from contracts import PYTHON, RESOURCES, registered_plan
+19 | from contracts import SOURCE as ACTUAL_SOURCE
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+20 | from data_roles import discover, freeze, verify_selection
+21 | from execution_guard import CountryIO
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/sweden-country-semantic-custody/check_controls.py:20:1
+   |
+18 | from contracts import PYTHON, RESOURCES, registered_plan
+19 | from contracts import SOURCE as ACTUAL_SOURCE
+20 | from data_roles import discover, freeze, verify_selection
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+21 | from execution_guard import CountryIO
+22 | from independent import overlaps, semantic_changes, source_supports, within
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/sweden-country-semantic-custody/check_controls.py:21:1
+   |
+19 | from contracts import SOURCE as ACTUAL_SOURCE
+20 | from data_roles import discover, freeze, verify_selection
+21 | from execution_guard import CountryIO
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+22 | from independent import overlaps, semantic_changes, source_supports, within
+23 | from run import validate_stages
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/sweden-country-semantic-custody/check_controls.py:22:1
+   |
+20 | from data_roles import discover, freeze, verify_selection
+21 | from execution_guard import CountryIO
+22 | from independent import overlaps, semantic_changes, source_supports, within
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+23 | from run import validate_stages
+24 | from semantic_contract import DECISION_FIELDS, ROW_FIELDS, TOP_FIELDS
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/sweden-country-semantic-custody/check_controls.py:23:1
+   |
+21 | from execution_guard import CountryIO
+22 | from independent import overlaps, semantic_changes, source_supports, within
+23 | from run import validate_stages
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+24 | from semantic_contract import DECISION_FIELDS, ROW_FIELDS, TOP_FIELDS
+   |
+
+E402 Module level import not at top of file
+  --> artifacts/science/sweden-country-semantic-custody/check_controls.py:24:1
+   |
+22 | from independent import overlaps, semantic_changes, source_supports, within
+23 | from run import validate_stages
+24 | from semantic_contract import DECISION_FIELDS, ROW_FIELDS, TOP_FIELDS
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+25 |
+26 | OUT = SOURCE / "preflight/controlled-country-fixtures" / str(time.monotonic_ns())
+   |
+
+B023 Function definition does not bind loop variable `changed`
+   --> artifacts/science/sweden-country-semantic-custody/check_controls.py:99:64
+    |
+ 97 |         changed = deepcopy(after)
+ 98 |         changed[key] = value
+ 99 |         refuses("native_clock_" + key, lambda: certify(before, changed, "2026-10-15"))
+    |                                                                ^^^^^^^
+100 |     refuses(
+101 |         "cross_midnight", lambda: certify(before, clock("2026-10-16"), "2026-10-15")
+    |
+
+PIE810 Call `endswith` once with a `tuple`
+   --> artifacts/science/sweden-country-semantic-custody/check_controls.py:143:16
+    |
+141 |         row.update(dict.fromkeys(keys, "ID"), latitude=55.0, longitude=13.0)
+142 |         for key in row:
+143 |             if key.endswith("_count") or key.endswith("_count_20km"):
+    |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+144 |                 row[key] = 0
+145 |         changed = deepcopy(a)
+    |
+help: Merge into a single `endswith` call
+
+B023 Function definition does not bind loop variable `changed`
+   --> artifacts/science/sweden-country-semantic-custody/check_controls.py:148:63
+    |
+146 |         changed[kind] = [row, row]
+147 |         changed["time_row_count" if kind == "rows" else "target_count"] = 2
+148 |         refuses("duplicate_" + kind, lambda: semantic_changes(changed, changed, True))
+    |                                                               ^^^^^^^
+149 |     require(
+150 |         overlaps(0, 1, 1, 2)
+    |
+
+B023 Function definition does not bind loop variable `changed`
+   --> artifacts/science/sweden-country-semantic-custody/check_controls.py:148:72
+    |
+146 |         changed[kind] = [row, row]
+147 |         changed["time_row_count" if kind == "rows" else "target_count"] = 2
+148 |         refuses("duplicate_" + kind, lambda: semantic_changes(changed, changed, True))
+    |                                                                        ^^^^^^^
+149 |     require(
+150 |         overlaps(0, 1, 1, 2)
+    |
+
+B023 Function definition does not bind loop variable `raw_bad`
+   --> artifacts/science/sweden-country-semantic-custody/check_controls.py:318:63
+    |
+316 |         refuses(
+317 |             "registered_invalid_" + str(raw_bad),
+318 |             lambda: registered_plan(plan_path, hashlib.sha256(raw_bad).hexdigest()),
+    |                                                               ^^^^^^^
+319 |         )
+320 |     stages = []
+    |
+
+B023 Function definition does not bind loop variable `changed`
+   --> artifacts/science/sweden-country-semantic-custody/check_controls.py:352:66
+    |
+350 |         changed = deepcopy(plan)
+351 |         changed["stages"][1][key] = value
+352 |         refuses("stage_contract_" + key, lambda: validate_stages(changed, plan_path))
+    |                                                                  ^^^^^^^
+353 |     changed = deepcopy(plan)
+354 |     changed["stages"].reverse()
+    |
+
+UP017 [*] Use `datetime.UTC` alias
+  --> artifacts/science/sweden-country-semantic-custody/clock_contract.py:14:29
+   |
+12 |     return {
+13 |         "TZ": os.environ.get("TZ"),
+14 |         "utc": datetime.now(timezone.utc).isoformat(),
+   |                             ^^^^^^^^^^^^
+15 |         "local_date_today": str(date.today()),
+16 |         "time_ns": time.time_ns(),
+   |
+help: Convert to `datetime.UTC` alias
+
+UP017 [*] Use `datetime.UTC` alias
+  --> artifacts/science/sweden-country-semantic-custody/clock_contract.py:49:32
+   |
+47 |         utc = datetime.fromisoformat(row["utc"])
+48 |         if (
+49 |             utc.utcoffset() != timezone.utc.utcoffset(utc)
+   |                                ^^^^^^^^^^^^
+50 |             or str(utc.date()) != row["local_date_today"]
+51 |         ):
+   |
+help: Convert to `datetime.UTC` alias
+
+SIM114 [*] Combine `if` branches using logical `or` operator
+  --> artifacts/science/sweden-country-semantic-custody/execution_guard.py:64:9
+   |
+62 |                       "Maintained country write left fresh producer products"
+63 |                   )
+64 | /         elif path.is_relative_to(self.products) or any(
+65 | |             path.is_relative_to(root) for root in self.transient_roots
+66 | |         ):
+67 | |             self.reads.add(str(path))
+68 | |         elif str(path) in self.input_names:
+69 | |             self.reads.add(str(path))
+   | |_____________________________________^
+70 |           elif path.suffix == ".pyc" and not path.exists():
+71 |               try:
+   |
+help: Combine `if` branches
+
+PIE810 Call `endswith` once with a `tuple`
+  --> artifacts/science/sweden-country-semantic-custody/independent.py:89:20
+   |
+87 |                 )
+88 |             for key, value in row.items():
+89 |                 if key.endswith("_count") or key.endswith("_count_20km"):
+   |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+90 |                     require(
+91 |                         type(value) is int and value >= 0,
+   |
+help: Merge into a single `endswith` call
+
+Found 18 errors.
+[*] 3 fixable with the `--fix` option (2 hidden fixes can be enabled with the `--unsafe-fixes` option).
