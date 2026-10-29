@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v2",
-  "surface_count": 2134,
+  "surface_count": 2137,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "excluded_metadata_paths": [
     "docs/report/report_narrative_quality_review.json",
@@ -10,14 +10,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1230,
+    "maintenance": 1233,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 768
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1232,
+    "maintainer_diagnostic": 1235,
     "public_reading_surface": 777,
     "scientific_review_surface": 125
   },
@@ -27,7 +27,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1281,
+    "report_root": 1284,
     "sweden": 55,
     "world": 160
   },
@@ -6987,6 +6987,30 @@
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "R",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/method-certification/love-objective-parity/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/method-certification/love-objective-parity/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
       "geography": "report_root",
       "caution_level": "high",
       "explanation": "Maintainer-facing truth or governance surface.",
@@ -22999,6 +23023,18 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/svar/normalized-export/feature-census.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/source-relations/svar/normalized-export/report.json",
