@@ -9,6 +9,7 @@ from typing import Any
 
 from ....ownership import _regular_confined_file
 from ....retained_source import SourceCapsule, validated_descriptor
+from ....retained_source.objects import GitSourceMember, read_blob
 from ...presentation_source_roles import HISTORICAL_RENDERING_SOURCES
 from ...source_roles.documentation import _documented_source_matches
 from .contracts import require, strict_equal
@@ -729,3 +730,29 @@ def validate_recorded_source_contracts(
         "historical_renderer_sources": rendered,
         "current_browser_or_native_equivalence_claimed": False,
     }
+
+
+HISTORICAL_READER_PATH = "docs/report/countries/sweden/land-use-replay/README.md"
+HISTORICAL_READER_REVISION = "d029760ddf2f6853d07e9ac14091df8f041ecbb4"
+HISTORICAL_READER_BLOB = "508a1d3e260e1da95483f664485909a14f2533b4"
+HISTORICAL_READER_BYTES = 6879
+
+
+def validate_historical_reader(repository: Path, expected_sha256: str) -> None:
+    """Bind the old publication body without restoring a first-party snapshot."""
+    body = read_blob(
+        repository,
+        GitSourceMember(
+            HISTORICAL_READER_PATH,
+            HISTORICAL_READER_PATH,
+            HISTORICAL_READER_REVISION,
+            HISTORICAL_READER_BLOB,
+            expected_sha256,
+            HISTORICAL_READER_BYTES,
+        ),
+    )
+    require(
+        len(body) == HISTORICAL_READER_BYTES
+        and hashlib.sha256(body).hexdigest() == expected_sha256,
+        "Historical Sweden reader body differs",
+    )
