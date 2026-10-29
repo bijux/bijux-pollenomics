@@ -37882,6 +37882,10 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/lra_comparison.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/neotoma_lake/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/neotoma_lake/execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/neotoma_lake/members.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/neotoma_lake/transport.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar_census/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar_census/projection.py",
@@ -76251,15 +76255,13 @@
     },
     {
       "owner_id": "source-relations/neotoma/lakeparameters/source-review",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/neotoma/lakeparameters/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/neotoma/lakeparameters/verify.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "verify.py reads retained report.json to obtain expected capture digest and compares bytes after assessing private site-evidence.json and capture.json plus all private capture-pages. This self-referential verification and outside-repository source custody do not independently regenerate a report from repository-bound inputs. Bind exact private capture/site source and independent expected digest, then compare bytes; no basin or LRA admission."
+      "verification": "verify.py reads retained report.json to obtain expected capture digest and compares bytes after assessing private site-evidence.json and capture.json plus all private capture-pages. This self-referential verification and outside-repository source custody do not independently regenerate a report from repository-bound inputs. Bind exact private capture/site source and independent expected digest, then compare bytes; no basin or LRA admission. The grouped lake_registry.neotoma_lake transport now binds completed source commit 82c8fc4ed3d847909d14162f51b77dc59ccc0a70 through its 2,276-member public source/execution capsule. The unchanged maintained verify.py is a checker, not a report producer; a separate independent complete-page reader reconstructed the exact retained lake report. All 66,482 and 66,513 original ordered input identities are retained. The original 54-site source review and current 163-site/10,637-row prerequisite cohort remain distinct. Private lake pages, 30 raw/relational payloads, runtime files and first-party bytecode are omitted; no current whole-source or fresh-compilation equivalence is inferred. Live offset pagination does not certify absence; basin, chronology, ecology, rights, human and LRA acceptance remain unqualified, with zero accepted samples. Authored custody assembly is not a new native execution."
     },
     {
       "owner_id": "source-relations/neotoma/landclim-site-identity/custody-manifest",
@@ -76439,46 +76441,10 @@
       "paths": [
         "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
       ],
-      "producer_inputs": [
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/reconciliation.json",
-        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
-        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
-        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
-        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
-        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
-        "data/neotoma/relational/surfaces/datasets/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00002.json",
-        "data/neotoma/relational/surfaces/observations/part-00003.json",
-        "data/neotoma/relational/surfaces/observations/part-00004.json",
-        "data/neotoma/relational/surfaces/observations/part-00005.json",
-        "data/neotoma/relational/surfaces/observations/part-00006.json",
-        "data/neotoma/relational/surfaces/observations/part-00007.json",
-        "data/neotoma/relational/surfaces/observations/part-00008.json",
-        "data/neotoma/relational/surfaces/orphans/part-00001.json",
-        "data/neotoma/relational/surfaces/samples/part-00001.json",
-        "data/neotoma/relational/surfaces/sites/part-00001.json",
-        "data/neotoma/relational/surfaces/variables/part-00001.json"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/__main__.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/projection.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/lakeparameters.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py"
-      ],
-      "role": "unresolved",
-      "verification": "Known producer: `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.taxa_review.lra_prerequisites --raw-root data/neotoma/raw/neotoma_pollen_dataset_downloads --normalized-root data/neotoma/relational --lakeparameter-capture-root <governed-external-capture> --lakeparameter-capture-sha256 0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd --output artifacts/jobs/neotoma-core-owner-reproduction/lra-prerequisites/projection.json`. The external live paginated capture, original site-evidence and all pages must be bound before comparing output bytes. The projection has zero accepted samples and no executable LRA request. Repository input scope is every regular file under both declared raw and normalized roots; these 30 file identities are bound below but do not substitute for the external capture."
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Known producer: `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.taxa_review.lra_prerequisites --raw-root data/neotoma/raw/neotoma_pollen_dataset_downloads --normalized-root data/neotoma/relational --lakeparameter-capture-root <governed-external-capture> --lakeparameter-capture-sha256 0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd --output artifacts/jobs/neotoma-core-owner-reproduction/lra-prerequisites/projection.json`. The external live paginated capture, original site-evidence and all pages must be bound before comparing output bytes. The projection has zero accepted samples and no executable LRA request. Repository input scope is every regular file under both declared raw and normalized roots; these 30 file identities are bound below but do not substitute for the external capture. The grouped lake_registry.neotoma_lake transport now binds completed source commit 82c8fc4ed3d847909d14162f51b77dc59ccc0a70 through its 2,276-member public source/execution capsule. The genuine maintained current prerequisite producer and independent source/projection observer reproduced the exact current projection; independent pollen eligibility was not recomputed. All 66,482 and 66,513 original ordered input identities are retained. The original 54-site source review and current 163-site/10,637-row prerequisite cohort remain distinct. Private lake pages, 30 raw/relational payloads, runtime files and first-party bytecode are omitted; no current whole-source or fresh-compilation equivalence is inferred. Live offset pagination does not certify absence; basin, chronology, ecology, rights, human and LRA acceptance remain unqualified, with zero accepted samples. Authored custody assembly is not a new native execution."
     },
     {
       "owner_id": "source-relations/neotoma/native-roundtrip/derived-report",

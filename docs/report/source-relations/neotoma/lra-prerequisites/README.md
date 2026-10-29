@@ -72,7 +72,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** A necessary count/typed-age candidate or native area value is not an accepted chronology, basin, taxon/PPE/count mask or source right.
 
-**Actual verification performed.** Read projection denominators, country partitions, review states and lake-parameter join posture; no projection regeneration or model fit.
+**Actual verification performed.** Earlier verification: Read projection denominators, country partitions, review states and lake-parameter join posture; no projection regeneration or model fit. Separately, the maintained current prerequisite producer, lake-source checker and independent source/projection observer each returned native zero on source commit `82c8fc4ed3d847909d14162f51b77dc59ccc0a70`. All 30 raw/normalized inputs were pinned, and the complete 22,907,955-byte projection matched its current governed bytes and typed values: 10,637 necessary source rows, 163 source-site reviews and 14 lake-parameter locator joins. Independent pollen eligibility was not recomputed, and no sample, basin, chronology, source right or model fit was admitted.
 
 **Remaining input or review.** Qualified source-bound chronology, physical core, permitted use, count support, parameters and justified geometry decisions remain.
 
@@ -86,9 +86,13 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Matched denominator.** 10,637 sample rows/163 sites:SE 5,011/77, DK 91/1, NO 3,544/52, FI 1,797/28, unassigned 194/5; 0 accepted.
 
+Qualified authored reader SHA-256: `53cb52c36de696d3090cea07251311248a8df58bdfab5a7bacd9f99837a8a45c`.
+
 - [Retained qualification evidence: docs/report/source-relations/neotoma/lra-prerequisites/projection.json](projection.json) (SHA-256 `26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809`).
 
-- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+- [Retained qualification evidence: reports/science/source-cohorts/neotoma-lake-source-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/neotoma-lake-source-custody.json) (SHA-256 `df23f600e89cfd4e285442b5f82480b95521216cad2363f25a91640623953024`).
+
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

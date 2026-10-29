@@ -1,0 +1,44 @@
+[
+  {
+    "id": "maintained-lakeparameter-reader-checker",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/execute_reader.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/plan.json"
+    ],
+    "timeout_seconds": 120,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 32.449820665991865,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/maintained-lakeparameter-reader-checker.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/maintained-lakeparameter-reader-checker.stderr",
+    "stdout_sha256": "1d31b7f56124331639f047e9fff5508426903112d2f7a87b5c51b36e09336ff7",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 442236928
+  },
+  {
+    "id": "independent-lake-source-and-optional-projection-observer",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/plan.json"
+    ],
+    "timeout_seconds": 120,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 28.764465834014118,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/independent-lake-source-and-optional-projection-observer.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-lakeparameter-custody-review/independent-lake-source-and-optional-projection-observer.stderr",
+    "stdout_sha256": "b113ed37b35c7170ea45871247187e645e8b657c0730ed7bc79ea8c26a5a6085",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 442236928
+  }
+]
