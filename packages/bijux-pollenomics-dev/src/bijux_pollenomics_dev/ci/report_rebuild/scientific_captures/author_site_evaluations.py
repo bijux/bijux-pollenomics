@@ -370,7 +370,9 @@ def _current_managed_reader(
     if name != MANAGED_READER:
         return False
     try:
-        routes = parse_routes(_file(repository, ROUTE_RESOURCE).read_text(encoding="utf-8"))
+        routes = parse_routes(
+            _file(repository, ROUTE_RESOURCE).read_text(encoding="utf-8")
+        )
         route = routes.get(name)
         if route is None or route.qualification is None:
             return False
