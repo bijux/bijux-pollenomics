@@ -11,6 +11,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
+from .source_correspondence import validated_metadata_source_correspondence
 
 CAPTURE = (
     "data/method-certification/author-optimizer-diagnostic-source-capture/capture.json"
@@ -283,23 +284,30 @@ def validated_author_optimizer_diagnostic_capture(
         raise ReportRebuildError(
             "Author optimizer diagnostic current scientific source projection differs"
         )
+    current_metadata_correspondences = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
         current = _file(repository, name)
-        if (
-            current.stat().st_size != row.get("bytes")
-            or hashlib.sha256(current.read_bytes()).hexdigest() != row.get("sha256")
-            or not any(
-                members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
-                    "sha256"
-                )
-                == row.get("sha256")
-                for lane in EXECUTIONS
+        retained_candidates = [
+            path.parent / f"executions/{lane}/first-party-inputs/{name}"
+            for lane in EXECUTIONS
+            if members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
+                "sha256"
             )
-        ):
+            == row.get("sha256")
+        ]
+        if not retained_candidates:
             raise ReportRebuildError(
-                "Author optimizer diagnostic scientific implementation changed"
+                "Author optimizer diagnostic retained scientific source is unbound"
+            )
+        if current.stat().st_size != row.get("bytes") or hashlib.sha256(
+            current.read_bytes()
+        ).hexdigest() != row.get("sha256"):
+            current_metadata_correspondences.append(
+                validated_metadata_source_correspondence(
+                    repository, row, retained_candidates[0]
+                )
             )
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 2:
@@ -394,6 +402,10 @@ def validated_author_optimizer_diagnostic_capture(
         },
         "report_outputs": 2,
         "current_scientific_projection": 2072,
+        "current_projection_byteequal_members": 2072
+        - len(current_metadata_correspondences),
+        "current_metadata_source_correspondences": current_metadata_correspondences,
+        "original_projection_members_retained_unchanged": 2072,
         "paths_sha256": canonical_json_sha256(sorted(names)),
         "scope": "Two actual bounded prior-exposed English optimizer diagnostic JSON reports. Exact original source, reference baseline and negative convergence are retained. The baseline is read input and historical feasibility attempt report remains unresolved. No full experiment fit, held-out prediction, R, ecology, Nordic, rights, human or official release acceptance is admitted.",
     }

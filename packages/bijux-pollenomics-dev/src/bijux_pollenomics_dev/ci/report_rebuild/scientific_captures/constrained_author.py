@@ -11,6 +11,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
+from .source_correspondence import validated_metadata_source_correspondence
 
 CAPTURE = "data/method-certification/constrained-author-source-capture/capture.json"
 CAPTURE_SHA256 = "fa46f5757af2acfb647f82162314b11c5e9401fbd7ecdbff585b70a687b9080c"
@@ -321,23 +322,30 @@ def validated_constrained_author_capture(
         raise ReportRebuildError(
             "Constrained author experiment current scientific source projection differs"
         )
+    current_metadata_correspondences = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
         current = _file(repository, name)
-        if (
-            current.stat().st_size != row.get("bytes")
-            or hashlib.sha256(current.read_bytes()).hexdigest() != row.get("sha256")
-            or not any(
-                members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
-                    "sha256"
-                )
-                == row.get("sha256")
-                for lane in EXECUTIONS
+        retained_candidates = [
+            path.parent / f"executions/{lane}/first-party-inputs/{name}"
+            for lane in EXECUTIONS
+            if members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
+                "sha256"
             )
-        ):
+            == row.get("sha256")
+        ]
+        if not retained_candidates:
             raise ReportRebuildError(
-                "Constrained author experiment scientific implementation changed"
+                "Constrained author experiment retained scientific source is unbound"
+            )
+        if current.stat().st_size != row.get("bytes") or hashlib.sha256(
+            current.read_bytes()
+        ).hexdigest() != row.get("sha256"):
+            current_metadata_correspondences.append(
+                validated_metadata_source_correspondence(
+                    repository, row, retained_candidates[0]
+                )
             )
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 11:
@@ -409,6 +417,10 @@ def validated_constrained_author_capture(
         },
         "report_outputs": 11,
         "current_scientific_projection": 2136,
+        "current_projection_byteequal_members": 2136
+        - len(current_metadata_correspondences),
+        "current_metadata_source_correspondences": current_metadata_correspondences,
+        "original_projection_members_retained_unchanged": 2136,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Eleven genuine constrained author products retain the complete 195-attempt source experiment,192 completed/3 refused training items and14 scored/BECKHAM refused folds. Exact current source/resources and original 900-file work are retained. This transports actual numerical evidence without refitting/scoring/R and supplies no ecological validation, new untouched cohort, Nordic transfer, rights or qualified human/release decision.",
+        "scope": "Eleven genuine constrained author products retain the complete 195-attempt source experiment,192 completed/3 refused training items and14 scored/BECKHAM refused folds. Original source/resources and original900-file work are retained byteexact. Current source matches except any explicitly returned closed metadata-owner correspondence; no whole-current-tree equality is claimed. This transports actual numerical evidence without refitting/scoring/R and supplies no ecological validation, new untouched cohort, Nordic transfer, rights or qualified human/release decision.",
     }
