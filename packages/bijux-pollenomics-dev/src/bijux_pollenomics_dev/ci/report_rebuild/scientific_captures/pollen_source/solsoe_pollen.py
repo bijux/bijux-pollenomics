@@ -310,6 +310,22 @@ EXPECTED_COUNTS: dict[str, Any] = {
 }
 
 
+_DETACHED_SOURCE_MEMBERS = frozenset(
+    [
+        "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/check_contract.py",
+        "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/common_runner.py",
+        "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/contracts.py",
+        "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/execute_source.py",
+        "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/observe.py",
+        "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/prepare.py",
+        "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/run.py",
+        "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/runtime.py",
+        "source-code/configs/ci/report-ownership.json",
+        "source-code/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py",
+    ]
+)
+
+
 def _validate_source_transport(
     repository: Path, prefix: str, members: dict[str, Any]
 ) -> None:
@@ -321,12 +337,7 @@ def _validate_source_transport(
     )
     _exact(
         sorted(detached),
-        sorted(
-            name
-            for name in members
-            if name.startswith("source-code/packages/")
-            or name == "source-code/configs/ci/report-ownership.json"
-        ),
+        sorted(_DETACHED_SOURCE_MEMBERS),
     )
 
 

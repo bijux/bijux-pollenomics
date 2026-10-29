@@ -31,7 +31,8 @@ ROLES = frozenset(
 def test_exact_declared_roles_delegate_to_existing_capsule_transport(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:
-    assert solsoe_pollen.DETACHED_SOURCE_MEMBERS == ROLES
+    assert solsoe_pollen.EXPECTED_MEMBERS.keys() >= ROLES
+    assert len(ROLES) == 10
     seen: list[tuple[Path, str, object]] = []
 
     def validated(repository: Path, prefix: str, expected: object) -> frozenset[str]:
@@ -39,7 +40,9 @@ def test_exact_declared_roles_delegate_to_existing_capsule_transport(
         return ROLES
 
     monkeypatch.setattr(solsoe_pollen, "validate_capsule", validated)
-    solsoe_pollen._validate_source_members(tmp_path, PREFIX)
+    solsoe_pollen._validate_source_transport(
+        tmp_path, PREFIX, solsoe_pollen.EXPECTED_MEMBERS
+    )
     assert len(seen) == 1
     assert seen[0][:2] == (tmp_path, PREFIX)
     assert seen[0][2] is solsoe_pollen.EXPECTED_MEMBERS
@@ -53,7 +56,9 @@ def test_each_missing_detached_role_refuses(
         solsoe_pollen, "validate_capsule", lambda *args: ROLES - {missing}
     )
     with pytest.raises(ReportRebuildError):
-        solsoe_pollen._validate_source_members(tmp_path, PREFIX)
+        solsoe_pollen._validate_source_transport(
+            tmp_path, PREFIX, solsoe_pollen.EXPECTED_MEMBERS
+        )
 
 
 @pytest.mark.parametrize("extra", ["source-code/undeclared.py", "execution/plan.json"])
@@ -64,7 +69,9 @@ def test_extra_source_or_non_source_role_refuses(
         solsoe_pollen, "validate_capsule", lambda *args: ROLES | {extra}
     )
     with pytest.raises(ReportRebuildError):
-        solsoe_pollen._validate_source_members(tmp_path, PREFIX)
+        solsoe_pollen._validate_source_transport(
+            tmp_path, PREFIX, solsoe_pollen.EXPECTED_MEMBERS
+        )
 
 
 def test_same_count_wrong_role_refuses(
@@ -74,7 +81,9 @@ def test_same_count_wrong_role_refuses(
     assert len(wrong) == 10
     monkeypatch.setattr(solsoe_pollen, "validate_capsule", lambda *args: wrong)
     with pytest.raises(ReportRebuildError):
-        solsoe_pollen._validate_source_members(tmp_path, PREFIX)
+        solsoe_pollen._validate_source_transport(
+            tmp_path, PREFIX, solsoe_pollen.EXPECTED_MEMBERS
+        )
 
 
 def test_transport_identity_or_ancestry_failure_is_not_rescued(
@@ -87,5 +96,7 @@ def test_transport_identity_or_ancestry_failure_is_not_rescued(
 
     monkeypatch.setattr(solsoe_pollen, "validate_capsule", refused)
     with pytest.raises(ReportRebuildError) as caught:
-        solsoe_pollen._validate_source_members(tmp_path, PREFIX)
+        solsoe_pollen._validate_source_transport(
+            tmp_path, PREFIX, solsoe_pollen.EXPECTED_MEMBERS
+        )
     assert caught.value is refusal

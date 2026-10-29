@@ -8,7 +8,10 @@ from typing import Any
 
 import pytest
 
-from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import (
+    JsonObject,
+    ReportRebuildError,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.author_grid import (
     admission,
     transport,
@@ -64,7 +67,7 @@ def test_original_unqualified_or_overlapping_owner_refusals(change: str) -> None
 
 
 def test_disjoint_reader_is_not_a_numerical_report_role() -> None:
-    reader = {
+    reader: JsonObject = {
         "owner_id": "reader",
         "role": "maintained_editorial",
         "paths": [admission.FAMILY + "README.md"],
