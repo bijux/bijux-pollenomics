@@ -973,8 +973,6 @@
     "docs/report/source-relations/source-reconciliation/report.json": "eaac246b596399e19f88a4730f84500d2aca654e5549ed7868255b8bf73bd85a",
     "reports/science/country-reports/sweden-current-receipt.json": "3978e168721dc66ac8c36dc160203f2043c67d5433fdb8377d0808899345aa08",
     "reports/science/country-reports/sweden-current-semantic-replay.json": "935a24e5ec96d45c6580b3add8574f0765a3b0c337c33ad5455cad4cae2f8653",
-    "reports/science/source-cohorts/adna-current-contract-adjudication.json": "7c1abf2b936ad95182ea3137c8e7a1df1f5553b2ceac2df7a9fe32a993e744a9",
-    "reports/science/source-cohorts/adna-current-domain-evidence.json": "cdef4f083b1ab0c674a83e7d2c961b968b2e3539a38a527b99a04bb91681380e",
     "reports/science/source-cohorts/current-source-accounting.json": "83664560ef60b587027d19dffcada0ae2e815c5a985de368cff0d33ed7940e3e",
     "reports/science/source-cohorts/neotoma-selected-counts.json": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18",
     "reports/science/source-cohorts/optimizer-baseline-input.json": "5d0a70920cf88b936580477cbdf86db657e44a0344edf0a8dfc26ac3967e10cf",

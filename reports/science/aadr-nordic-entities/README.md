@@ -80,7 +80,7 @@ The original capture binds the executed source candidate and runtime. A later re
 
 **Matched denominator.** 1,325 source IDs = 1,231 country-product rows + 94 coordinate exclusions across DK/FI/NO/SE.
 
-Retained evidence: [reports/science/aadr-nordic-entities/report.json](report.json), [data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json](../../../data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json), [reports/science/adna-source-lifecycle/report.json](../adna-source-lifecycle/report.json), [reports/science/adna-source-lifecycle/capture.json](../adna-source-lifecycle/capture.json), [reports/science/source-cohorts/adna-current-contract-adjudication.json](../source-cohorts/adna-current-contract-adjudication.json).
+Retained evidence: [reports/science/aadr-nordic-entities/report.json](report.json), [data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json](../../../data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json), [reports/science/adna-source-lifecycle/report.json](../adna-source-lifecycle/report.json), [reports/science/adna-source-lifecycle/capture.json](../adna-source-lifecycle/capture.json), [historical aDNA contract adjudication (withheld from current qualification)](https://github.com/bijux/bijux-pollenomics/blob/0fbedcb60d7771b5b3ef849a214e45fb5b665095/reports/science/source-cohorts/adna-current-contract-adjudication.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
