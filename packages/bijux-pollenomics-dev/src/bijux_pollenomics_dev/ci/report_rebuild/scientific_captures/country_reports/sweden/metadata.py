@@ -7,7 +7,10 @@ import json
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+from ....ownership import _regular_confined_file
 from ....retained_source import SourceCapsule, validated_descriptor
+from ...presentation_source_roles import HISTORICAL_RENDERING_SOURCES
+from ...source_roles.documentation import _documented_source_matches
 from .contracts import require, strict_equal
 
 PROOF_IDENTITIES: dict[str, dict[str, Any]] = {
@@ -638,4 +641,91 @@ def qualify_retention(
         "whole_actual_exit": 0,
         "all_original_saved_input_identities_bound": len(saved_plan["input_pins"]),
         "source_manifest_sha256": source_identity["sha256"],
+    }
+
+
+def validate_recorded_source_contracts(
+    repository: Path, rows: list[dict[str, Any]], resolver: SourceCapsule
+) -> dict[str, Any]:
+    """Authenticate old producer bytes and keep current scientific defaults strict."""
+    require(
+        repository.is_absolute()
+        and repository == repository.resolve()
+        and resolver.repository == repository
+        and type(rows) is list
+        and len(rows) == 51
+        and all(type(row) is dict for row in rows),
+        "Complete canonical Sweden source contract population required",
+    )
+    require(
+        all(set(row) == {"path", "sha256", "bytes"} for row in rows)
+        and all(type(row["path"]) is str for row in rows)
+        and len({row["path"] for row in rows}) == 51,
+        "Recorded Sweden source contract roles differ",
+    )
+    exact = 0
+    documented: list[str] = []
+    rendered: list[str] = []
+    resolver.fresh()
+    for row in rows:
+        name = row["path"]
+        relative = PurePosixPath(name)
+        require(
+            relative.as_posix() == name
+            and not relative.is_absolute()
+            and ".." not in relative.parts
+            and "\\" not in name
+            and bool(relative.parts)
+            and type(row["bytes"]) is int
+            and 0 <= row["bytes"] <= 128 * 1024**2
+            and type(row["sha256"]) is str
+            and len(row["sha256"]) == 64
+            and all(value in "0123456789abcdef" for value in row["sha256"]),
+            "Confined typed Sweden source contract required",
+        )
+        logical = "members/" + row["sha256"]
+        identity = {key: row[key] for key in ("sha256", "bytes")}
+        require(
+            strict_equal(resolver.descriptor.members.get(logical), identity)
+            and [
+                path
+                for group in resolver.descriptor.groups
+                for member, path in group["resolved_paths"]
+                if member == logical
+            ]
+            == [name],
+            "Recorded Sweden source member/path binding differs",
+        )
+        captured = resolver.read_source(logical)
+        require(
+            len(captured) == row["bytes"]
+            and hashlib.sha256(captured).hexdigest() == row["sha256"],
+            "Original Sweden producer source bytes differ",
+        )
+        current = _regular_confined_file(repository, name, "current Sweden source")
+        require(
+            current.stat().st_nlink == 1 and current.stat().st_size <= 128 * 1024**2,
+            "Current Sweden source must be bounded and single-link",
+        )
+        value = current.read_bytes()
+        if (
+            len(value) == row["bytes"]
+            and hashlib.sha256(value).hexdigest() == row["sha256"]
+        ):
+            exact += 1
+        elif name in HISTORICAL_RENDERING_SOURCES:
+            rendered.append(name)
+        elif _documented_source_matches(name, captured, value):
+            documented.append(name)
+        else:
+            require(
+                False, "Current Sweden scientific contract differs without a named role"
+            )
+    resolver.fresh()
+    return {
+        "original_source_contracts_authenticated": 51,
+        "current_default_exact_sources": exact,
+        "exact_named_documentation_sources": documented,
+        "historical_renderer_sources": rendered,
+        "current_browser_or_native_equivalence_claimed": False,
     }

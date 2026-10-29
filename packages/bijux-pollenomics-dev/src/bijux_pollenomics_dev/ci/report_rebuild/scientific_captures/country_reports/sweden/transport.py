@@ -15,7 +15,13 @@ from .contracts import require, strict_equal
 from .execution import OLD_REPORT_SHA, OWNER
 from .execution import REPORT as REPORT
 from .members import MAX_CAPTURE, load_reference, validate_capture
-from .metadata import PROOF_IDENTITIES, exact_file, object_buffer, validate_metadata
+from .metadata import (
+    PROOF_IDENTITIES,
+    exact_file,
+    object_buffer,
+    validate_metadata,
+    validate_recorded_source_contracts,
+)
 
 CAPTURE = "data/source-custody/country-reports/sweden/packet/capture.json"
 CURRENT_RECEIPT = "reports/science/country-reports/sweden-current-receipt.json"
@@ -135,8 +141,9 @@ def validated_sweden_country_capture(
             == 51,
             "Complete current maintained science source correspondence required",
         )
-        for source in declaration["maintained_source_contracts"]:
-            exact_file(repository, source["path"], source)
+        source_contracts = validate_recorded_source_contracts(
+            repository, declaration["maintained_source_contracts"], resolver
+        )
         saved = load_reference(capture_path.parent, "saved-plan", capture, resolver)
         metadata_plan = PROOF_IDENTITIES.get("plan")
         require(metadata_plan is not None, "Actual portable metadata plan absent")
@@ -233,6 +240,7 @@ def validated_sweden_country_capture(
             "metadata_observer_actual_exit": 0,
             "metadata_whole_actual_exit": 0,
             "source_owned_native_UTC_day": native["native_UTC_clock"]["native_UTC_day"],
+            "recorded_producer_source_contracts": source_contracts,
             "tracked_byte_checker_actual_exit": native[
                 "tracked_byte_checker_actual_exit"
             ],
