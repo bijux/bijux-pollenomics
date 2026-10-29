@@ -769,11 +769,11 @@
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/README.md",
-      "prose_paragraph_count": 43,
-      "link_bullet_count": 7,
+      "prose_paragraph_count": 47,
+      "link_bullet_count": 9,
       "bullet_sentence_count": 0,
-      "heading_count": 11,
-      "table_line_count": 6,
+      "heading_count": 12,
+      "table_line_count": 10,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },

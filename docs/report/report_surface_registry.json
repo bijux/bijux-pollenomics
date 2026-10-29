@@ -1,7 +1,8 @@
 {
   "schema_version": "report-surface-registry.v2",
-  "surface_count": 2223,
+  "surface_count": 2225,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
+  "validation_scope": "path inventory and Markdown structure; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
     "docs/report/report_narrative_quality_review.json",
     "docs/report/report_narrative_quality_review.md",
@@ -10,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1318,
+    "maintenance": 1320,
     "maps": 88,
     "portal": 2,
     "reviews": 37,
     "scopes": 768
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1320,
+    "maintainer_diagnostic": 1322,
     "public_reading_surface": 777,
     "scientific_review_surface": 126
   },
@@ -27,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1370,
+    "report_root": 1372,
     "sweden": 55,
     "world": 160
   },
@@ -3499,6 +3500,30 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/method-certification/current-r-oracle/current-python-comparison.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/method-certification/current-r-oracle/current-python-trace-index.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/oracle/C0000.csv",
@@ -26708,6 +26733,5 @@
       "explanation": "Reader-facing portal page for navigating the report tree.",
       "reader_route": "start_here"
     }
-  ],
-  "validation_scope": "path inventory and Markdown structure; machine outputs retain their domain manifests"
+  ]
 }
