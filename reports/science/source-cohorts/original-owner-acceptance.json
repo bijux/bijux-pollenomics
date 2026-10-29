@@ -1,0 +1,52 @@
+{
+  "schema_version": "scientific-owner-original-acceptance-correction.v1",
+  "base_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "original_acceptance_authority": {
+    "repository": "bijux/bijux-pollenomics",
+    "commit": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+    "repository_path": "configs/ci/report-ownership.json",
+    "git_blob": "4cf9713757b0d35c15f484bac13e9a4229ca36a5",
+    "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
+    "bytes": 4580598
+  },
+  "owners": [
+    {
+      "owner_id": "validation/empd2-nfi-pairing/calibration-guide",
+      "original_owner": {
+        "owner_id": "validation/empd2-nfi-pairing/calibration-guide",
+        "paths": [
+          "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf"
+        ],
+        "producer_inputs": [],
+        "producer_paths": [],
+        "role": "unresolved",
+        "verification": "The tracked SLU calibration guide is pinned as SHA-256 793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8 in the EMPD2\u2013NFI report. Bind its original provider retrieval/copy receipt and publication/use statement to these exact bytes before retained-source ownership; the pairing producer consumes the guide but does not produce it."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "exact_guide_bytes",
+          "status": "supported",
+          "evidence": "Current official HTTPS page/literal link/PDF chain and independent review bind SHA793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8,136339B; native stages0/0 and whole0."
+        },
+        {
+          "condition": "original_provider_retrieval_copy_receipt",
+          "status": "not_established",
+          "evidence": "Current acquisition explicitly does not recover original2026-09-21/a063; a new genuine same-byte acquisition is preserved separately."
+        },
+        {
+          "condition": "publication_use_statement_bound_to_exact_bytes",
+          "status": "not_established",
+          "evidence": "Capsule requires prior_8be8_documentary_use_review_available=false and new_documentary_license_revalidation=false. Availability over HTTPS is not the original use-statement predicate."
+        }
+      ],
+      "exact_remaining_resolver": "Bind the exact original provider retrieval/copy receipt (or explicitly reviewed replacement criterion through a separate authorized policy decision), and the provider publication/use statement or qualified documentary-use review to the same793d90 PDF. Do not infer permission from a current public download."
+    }
+  ],
+  "all_current_physical_execution_source_and_product_evidence_preserved": true,
+  "new_native_execution_or_data_acquisition": false,
+  "new_retained_source_entries": 0,
+  "scientific_or_human_decision_changed": false,
+  "permission_or_source_use_decision_added": false,
+  "scope": "Restore unmet original owner acceptance criteria verbatim. Current exact-byte, arithmetic, source-metadata and official-download evidence remains partial and separate from original provider/copy custody and use authority. No historical native result, public source product, raw capsule, authored scientific body, claim register or human decision is rewritten."
+}

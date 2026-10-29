@@ -1,0 +1,41 @@
+{
+  "schema_version": "current-official-slu-guide-retrieval.v1",
+  "candidate": "d027effd6c0ac91512cd586c3a51db987ea46d54",
+  "plan_sha256": "036f80b72208fbf561c9246836a3fe764a754853f1a611b814f22431076eb84d",
+  "actual_exit": 0,
+  "page": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-official-slu-guide-retrieval/official-page.html",
+    "sha256": "f2a2730afa7616d255fe5b2ab79fe752fff6ffc31dadd780233603b2d799d124",
+    "bytes": 921362
+  },
+  "literal_href": {
+    "page_url": "https://www.slu.se/en/about-slu/organisation/departments/forest-resource-management/miljoanalys/nfi/our-data/",
+    "matches": [
+      {
+        "literal_href": "/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",
+        "raw_start_tag": "<a href=\"/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf\">",
+        "line": 503,
+        "column": 3,
+        "label": "Information about the dataset",
+        "resolved_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf"
+      }
+    ],
+    "resolved_pdf_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf"
+  },
+  "official_PDF": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-official-slu-guide-retrieval/current-official-guide.pdf",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "retained_guide": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "same_raw_PDF_bytes": true,
+  "current_retrieval_only": true,
+  "original_2026_09_21_acquisition_recovered": false,
+  "historical_a063_receipt_recovered": false,
+  "workbook_or_outcome_requests": 0,
+  "source_scope": "Current official public page/PDF acquisition only. No reconstruction of missing original retrieval/copy/literalhref receipt; no NFI measured-pair/outcome/human/rights/official-release acceptance."
+}

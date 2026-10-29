@@ -1,0 +1,86 @@
+{
+  "requested_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",
+  "final_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",
+  "status": 200,
+  "redirects": [],
+  "bytes": 136339,
+  "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+  "started_UTC": "2026-10-14T21:59:37.943689+00:00",
+  "completed_UTC": "2026-10-14T21:59:38.048784+00:00",
+  "TLS": {
+    "certificate_verification_required": true,
+    "hostname_verification": true,
+    "CA": {
+      "path": "/opt/homebrew/etc/ca-certificates/cert.pem",
+      "sha256": "ea7dd6b1af098dedb253a88c2ab29ded2752145f3c41b8e67abbad75c2d63cee",
+      "bytes": 287837
+    },
+    "OpenSSL": "OpenSSL 3.6.3 9 Jun 2026"
+  },
+  "proxy_handler": {},
+  "request_headers": {
+    "Host": "www.slu.se",
+    "User-agent": "bijux-source-custody/1",
+    "Accept": "application/pdf",
+    "Accept-encoding": "identity"
+  },
+  "headers": [
+    [
+      "Cache-Control",
+      "public"
+    ],
+    [
+      "Content-Length",
+      "136339"
+    ],
+    [
+      "Content-Type",
+      "application/pdf"
+    ],
+    [
+      "Expires",
+      "Thu, 15 Oct 2026 09:40:01 GMT"
+    ],
+    [
+      "Last-Modified",
+      "Tue, 09 Jun 2026 08:08:59 GMT"
+    ],
+    [
+      "Accept-Ranges",
+      "bytes"
+    ],
+    [
+      "Age",
+      "1176"
+    ],
+    [
+      "ETag",
+      "\"1dcf7e739954b13\""
+    ],
+    [
+      "Server",
+      "Microsoft-IIS/10.0"
+    ],
+    [
+      "Strict-Transport-Security",
+      "max-age=31536000; includeSubDomains"
+    ],
+    [
+      "X-Powered-By",
+      "ASP.NET"
+    ],
+    [
+      "Date",
+      "Wed, 14 Oct 2026 21:59:37 GMT"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "projection_schema": "slu-public-http-response.v1",
+  "original_response_sha256": "66d5a986d4fc97d78abea453cc399b76e6498fd8f043933a697ae9f9f939b905",
+  "omitted_header_names": [
+    "Set-Cookie"
+  ]
+}

@@ -8486,7 +8486,7 @@
         "fields": {
           "supported_claim": "The source-bound outcome-free review retains sixteen geographic leads and refuses every lead as a currently admissible observed vegetation pair.",
           "unsupported_claim": "Proximity, plot area and dictionary units do not provide paired vegetation measurements, a regional target, authenticated pollen collection dates or a frozen performance benchmark.",
-          "actual_verification_performed": "Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification.",
+          "actual_verification_performed": "Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated. The original SLU guide ownership criterion remains verbatim and unresolved: exact current guide bytes and a genuine current download do not establish the original provider retrieval/copy receipt or the publication/use statement bound to those bytes. Native results remain partial source evidence; no numerical result, permission, human decision or LRA admission changes.",
           "remaining_input_or_review": "Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication.",
           "cause_category": "Independent-measurement admission refusal despite geographic proximity.",
           "consequence": "The sixteen rows are missing benchmark support, not sixteen negative measured observations; benchmark policy and evaluation remain false.",
@@ -8502,6 +8502,14 @@
           {
             "path": "docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json",
             "sha256": "5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505"
+          },
+          {
+            "path": "reports/science/vegetation-reference/slu-current-guide-source.json",
+            "sha256": "b28238feadb2cee4ed5da5ec7a2eb9241f67b583d3156d32c60a7e8947bdc07c"
+          },
+          {
+            "path": "reports/science/source-cohorts/original-owner-acceptance.json",
+            "sha256": "e03c2de940f5a127ebd9886ae038b278b7c6e6b8ef8d35cb4755d633a532ab05"
           }
         ]
       }

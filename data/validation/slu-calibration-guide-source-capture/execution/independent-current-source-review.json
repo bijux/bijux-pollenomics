@@ -1,0 +1,38 @@
+{
+  "schema_version": "independent-current-slu-guide-source-review.v1",
+  "candidate": "d027effd6c0ac91512cd586c3a51db987ea46d54",
+  "plan_sha256": "036f80b72208fbf561c9246836a3fe764a754853f1a611b814f22431076eb84d",
+  "actual_exit": 0,
+  "current_raw_page": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-official-slu-guide-retrieval/official-page.html",
+    "sha256": "f2a2730afa7616d255fe5b2ab79fe752fff6ffc31dadd780233603b2d799d124",
+    "bytes": 921362
+  },
+  "literal_link": {
+    "page_url": "https://www.slu.se/en/about-slu/organisation/departments/forest-resource-management/miljoanalys/nfi/our-data/",
+    "matches": [
+      {
+        "literal_href": "/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",
+        "raw_start_tag": "<a href=\"/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf\">",
+        "line": 503,
+        "column": 3,
+        "label": "Information about the dataset",
+        "resolved_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf"
+      }
+    ],
+    "resolved_pdf_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf"
+  },
+  "current_guide": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-official-slu-guide-retrieval/current-official-guide.pdf",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "guide_sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+  "guide_bytes": 136339,
+  "retained_raw_PDF_exact": true,
+  "official_current_page_response_link_asset_chain": true,
+  "original_2026_09_21_or_a063_recovered": false,
+  "workbook_measurement_outcomes_or_guide_history_closed": false,
+  "additional_network_requests": 0,
+  "scope": "Current source acquisition and exact public PDF copy only, distinct from absent original acquisition and current NFI benchmark/human/release acceptance."
+}
