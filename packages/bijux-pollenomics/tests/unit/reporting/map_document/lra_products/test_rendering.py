@@ -86,6 +86,8 @@ def test_native_view_is_script_safe_and_all_inline_scripts_parse(
     view["uncertainty_omissions"] = ['</script><script>alert("x")</script>', "\u2028🌿"]
     html = _render(view)
     assert 'id="lra-controls"' in html
+    assert "function createNativeLraController" in html
+    assert 'src="assets/native-lra.js"' not in html
     assert '</script><script>alert("x")</script>' not in html
     assert "__NATIVE_LRA_" not in html
     for index, (attributes, script) in enumerate(

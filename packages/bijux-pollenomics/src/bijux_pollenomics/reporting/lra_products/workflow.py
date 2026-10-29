@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 from html import escape
+from importlib.resources import files
 import os
 from pathlib import Path
 import tempfile
@@ -164,7 +165,12 @@ def _map(
         eyebrow_label="Exploratory synthetic model anchors",
         summary="Declared synthetic display anchors; no actual site geometry, land-cover truth or propagation is established.",
     )
-    copy_map_assets(stage)
+    asset_directory = copy_map_assets(stage)
+    (asset_directory / "native-lra.js").write_bytes(
+        files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/native-lra.js")
+        .read_bytes()
+    )
     render_layers: list[JsonObject] = [dict(layer) for layer in layers]
     document = render_multi_country_map_html(
         title="Exploratory synthetic LRA anchors",
