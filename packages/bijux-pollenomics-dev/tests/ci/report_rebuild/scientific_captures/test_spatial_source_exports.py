@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.spatial_source_exports import (
     spatial_export_extension_matches,
 )

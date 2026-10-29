@@ -3,14 +3,15 @@
 from __future__ import annotations
 
 import copy
+from dataclasses import replace
 import hashlib
 import json
-from dataclasses import replace
 from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
     load_routes,
     render_route,

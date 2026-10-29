@@ -15,7 +15,6 @@ from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts 
 from bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications import (
     validate_evidence,
 )
-
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
