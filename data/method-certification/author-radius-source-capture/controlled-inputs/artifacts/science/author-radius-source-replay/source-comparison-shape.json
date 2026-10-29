@@ -1,0 +1,22 @@
+{
+  "source_predecessor_manifest_sha256": "01f0994e0d09b9ad402e29206615732a6cb2656bd2835385bf22302f8fe5bdb5",
+  "unchanged_byte_files": [
+    "custody.py",
+    "run.py"
+  ],
+  "unchanged_complete_scientific_function_AST": [
+    "typed_equal",
+    "qualify_outputs"
+  ],
+  "only_custody_functions_added": [
+    "canonical_pins",
+    "validate_pin_population"
+  ],
+  "changed_calls": [
+    "prepare stores canonical_pins(original current pins)",
+    "observer validates duplicate-rejecting keyed records independent of order"
+  ],
+  "independent_actual_lexicographic_versus_Path_parts_order_positive": true,
+  "source_only": true,
+  "native_execution_or_plan": false
+}

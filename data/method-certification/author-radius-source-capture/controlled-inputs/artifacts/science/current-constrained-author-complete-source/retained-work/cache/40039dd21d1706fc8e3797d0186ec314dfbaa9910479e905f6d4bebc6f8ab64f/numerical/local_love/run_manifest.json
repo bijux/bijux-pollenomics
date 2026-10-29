@@ -1,0 +1,54 @@
+{
+  "algorithm": "LOVE-optimized-ring-taxon-preserving",
+  "parameters": {
+    "candidate_count": null,
+    "distance_weighting": "gpm neutral",
+    "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+    "local_basin_diameter_m": 300.0,
+    "max_ring": 2,
+    "method": "optimized",
+    "optimized_profile": "ring-taxon-preserving",
+    "optimizer_backend": "scipy.slsqp-simplex-uniform",
+    "optimizer_iterations": 300,
+    "optimizer_max_evaluations": 16000,
+    "optimizer_tolerance": 1e-08,
+    "paired_local_count_draws": false,
+    "paired_regional_cover_draws": true,
+    "ppe_error": true,
+    "regional_basin_diameter_m": 300,
+    "regional_basin_type": "lake",
+    "repeats": 1,
+    "retain_samples": false,
+    "seed": 3618983171,
+    "source_quirks": [
+      "calK_forces_peatland",
+      "sampled_PPE_vector_is_not_used_by_reference_objective"
+    ],
+    "stochastic": false
+  },
+  "inputs": {
+    "local_pollen": "240eecefc1dcc305ec614df4109eae00307e9c581fd00977d9e3a5420031451f",
+    "params": "95b1ec2124ddfcff1c2bdda562d8ad2ab650ed4c431f6d8a3bf8b87b1aab52d6",
+    "regional_cover_draws": "0f37e0f0b29fae7bad3e15372b98f68c46b84c6867b79382c86091b6c6b2ed5f",
+    "regional_pollen": "b1108ed898619f0453e22df4fa15de8b3b24f3da95d39bf67fdb68669a246538",
+    "rings": "59b2275810734384851745db2fb46c1d9ed6ea73f7b1b7be0ea9a639cc3c7ff2"
+  },
+  "stochastic": false,
+  "seed": 3618983171,
+  "compatibility_mode": "ring-taxon-preserving",
+  "package": "bijux-pollenomics-lra",
+  "package_version": "0.1.9.dev1462",
+  "reference_package": "disqover",
+  "reference_version": "0.9.14",
+  "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-10-14T19:12:37.092565+00:00",
+  "runtime": {
+    "numerical_backend": "python-numpy-scipy",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.11.13",
+    "scipy": "1.17.1"
+  }
+}

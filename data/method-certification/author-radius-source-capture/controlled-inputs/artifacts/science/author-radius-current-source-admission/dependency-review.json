@@ -1,0 +1,58 @@
+{
+  "schema_version": "radius-paired-source-dependency-review.v1",
+  "scope": "Only paired producer three source hash literals and existing source-lock leaf change. Public radius3 outputs remain unmodified until genuine paired native0 and complete guarded publication. No current packet or numerical report rewritten.",
+  "immutable_git_base": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+  "source_guard": {
+    "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py": {
+      "native_capture_1226": false,
+      "capture_verifier9": false,
+      "PDF121_current_source": false,
+      "R_code100": false,
+      "R_data291": false,
+      "release_embedded_source_union": false
+    },
+    "reports/source-lock.json": {
+      "native_capture_1226": false,
+      "capture_verifier9": false,
+      "PDF121_current_source": false,
+      "R_code100": false,
+      "R_data291": false,
+      "release_embedded_source_union": false
+    }
+  },
+  "exact_owner_input_dependencies": [
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired-comparison",
+      "role": "generated_owner",
+      "field": "producer_paths",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
+      ]
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/report-products",
+      "role": "unresolved",
+      "field": "producer_paths",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
+      ]
+    }
+  ],
+  "reader_followthrough": {
+    "reader": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md",
+    "current_authored_SHA_preserved_until_actual_paired_native_zero": true,
+    "nine_field_source_verification_requires_truthful_current_native_receipts": true,
+    "unchanged_scientific_limits": "14 prior-exposed sites,30taxa,3methods,3assumedradiusfactors; BECKHAM remains refused; direct/LRA have different training information; no Nordic, physical-radius, ecological, age-specific basin or vegetation-accuracy admission."
+  },
+  "PDF_context_followthrough": "After genuine paired0, inspect every current PDF121 source_sha256 correspondence referencing radius3 or paired2 before publishing changed report hashes. Original PDF/source epochs stay immutable; only exact current correspondences may change with independent review. No PDF regeneration from a provenance-only delta unless maintained source contract requires it.",
+  "pending_overlays": [
+    "representative-performance-lock-membership/guarded-source-proposal.json:aec7b22e",
+    "future R2 ledger/reexecution publication, not yet authored"
+  ],
+  "root_remaining": [
+    "Peer source-guard and controller",
+    "Actual source preparation/register/readback then paired+observer two-stage execution",
+    "Metadata source-capsule assembly with honest original120/newpaired epochs",
+    "Guarded five-product+reader/registry/quality/account/owner/lock composition against actual later clean Git; do not use base122 lock wholefile over later metadata"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "constrained-author-complete-source-consumer.v1",
+  "source_only": true,
+  "maintained_consumer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/constrained_author_lra.py",
+    "sha256": "39b23ebe1ade220293dc0f9d9675bfb768924250bfa35787862fab8df8171779",
+    "bytes": 10520
+  },
+  "original_internal_subprocess_count": 10,
+  "outer_stages": [
+    "maintained complete constrained-source producer",
+    "independent full11products and native/source identity-chain observer"
+  ],
+  "internal_stage_order": [
+    "original15site author preparation",
+    "constrained31to30taxon input projection",
+    "complete195training15whole-sitefold reconstruction",
+    "withheldtarget pollen score",
+    "report publication",
+    "direct-pollen prediction",
+    "matched direct-vsLRA comparison",
+    "site influence",
+    "paired Hellinger",
+    "paired Hellinger influence"
+  ],
+  "full_original_source_inputs": 195,
+  "private_members": 193,
+  "source_count_denominator": 20732,
+  "excluded_filipendula_NISP": 159,
+  "unmodified_negative_baseline": {
+    "scored_folds": 14,
+    "refused_folds": 1,
+    "refused_site": "author:BECKHAM",
+    "training_completed": 192,
+    "training_refused": 3,
+    "failed_items": [
+      "author:CUTHILL2",
+      "author:HANGINGS",
+      "author:LONGBREACH"
+    ],
+    "heldout_method_rows": 42,
+    "source_taxa": 31,
+    "closed_model_taxa": 30
+  },
+  "retained_full_pipeline_output": "NEW/retained-work; NEW/producer-output/source-products (exact11maintainedSTAGE_PRODUCTS)",
+  "baseline_products": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-source-custody/baseline-products.json",
+    "sha256": "03e3ec20d58708b7cadb800eda2c3f30fa9eb8cf17caea65e8145a3c837a9bb4",
+    "bytes": 3022
+  },
+  "historical_3d6_full_terminal": "Unavailable; authored prior3byte/8identity observation preserved as historical prose, never manufactured into an execution receipt.",
+  "current_numerical_source_scope": "All LRA source/resources and hostanalysis/lra +lra_validation physical inputs rehashed against successful current-source diagnostic plan before preparation. Full four-package source/runtime/private source separately pinned; no wholehistoricalsource equivalence claim.",
+  "timing_authority": {
+    "narrow_current_diagnostic_common_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/terminal.json",
+      "sha256": "629bf03b2c1eb8b77388be4de39e04d3cdb2fc38a9a73678aed7affb5d133401",
+      "bytes": 9609
+    },
+    "gradient_diagnostic_actual_seconds": 4.661607000045478,
+    "finite_pair_diagnostic_actual_seconds": 4.794902749999892,
+    "scope": "Narrow6ring/selectedpair diagnostics, not measured complete195cost. Completehistoricalnative duration unavailable;1500s producer/1800s total are conservative admission limits, not a timing forecast."
+  },
+  "resource_bounds": {
+    "overall_seconds": 1800,
+    "producer_seconds": 1500,
+    "observer_seconds": 120,
+    "completed_child_peak_RSS_bytes": 2147483648,
+    "logical_output_bytes_including_own16384receipt_reserve": 1073741824,
+    "max_worker_processes": 1,
+    "vendor_thread_limits_requested": 1,
+    "native_thread_counter_claim": false,
+    "OS_quota_or_full_descendant_census_claim": false
+  },
+  "namespace": "Qualified lexicalPython3.11. All four maintainedpackage source roots/resources pinned. Parent/observer usefour-root PYTHONPATH; original maintained internal _run intentionally selects host/LRA/dev3roots, recorded accurately and left unchanged.",
+  "scientific_comparison": "Complete11products; exactJSONtypes/keysets/orderedlists/allnumericalscalarvalues and CSVcolumn/order/lexicalcells. Only finite per-product predictionidentity/manifest/derivedhash leaves may differ; each mustequal an actual currently authenticated upstream prediction/score/native chain. No blanketSHA/textfield exemption. Allchanges enumerated withrawphysicalhashes.",
+  "native_chain": "All195itemreceipts/requesthashes authenticated;192completeLRAproducts reopened and currentcode/resource/runtimeinventory authenticated;3refusedproducts never promoted. Actual42heldoutpredictionmanifest identities checked and forbiddentargetclosure asserted before scores.",
+  "not_admitted": [
+    "newsolverorbudget",
+    "newR",
+    "newsourcecohort",
+    "independentvegetationtruth",
+    "Nordicspatialtransfer",
+    "uncertaintycalibration",
+    "humanorrightsapproval",
+    "officialreleaseacceptance",
+    "complete11byteidentityunlessactualsamebytes"
+  ],
+  "actual_preparation_or_model_or_plan_execution": false,
+  "prepare_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-provenance-custody/prepare.py",
+    "--candidate",
+    "FINAL_CLEAN_MAIN_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-constrained-author-complete-source"
+  ],
+  "current_diagnostic_reference": {
+    "plan.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/plan.json",
+      "sha256": "fb37c521a0e1e92bb5e9369f2a0da84b1474183fbca350ca0c957cde12bf22f5",
+      "bytes": 9304844
+    },
+    "diagnostic-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/diagnostic-terminal.json",
+      "sha256": "5aec38e2319d4615a4a6210dd5776e547a1686cec334a90684eab9fbf54b9906",
+      "bytes": 916
+    },
+    "terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/terminal.json",
+      "sha256": "629bf03b2c1eb8b77388be4de39e04d3cdb2fc38a9a73678aed7affb5d133401",
+      "bytes": 9609
+    },
+    "independent-diagnostic-review.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics/independent-diagnostic-review.json",
+      "sha256": "d36511f2a2c26c223294a79fe5307548b02cf8e3ab1bb78bb496290ee1ccf798",
+      "bytes": 1800
+    }
+  },
+  "predecessor_source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-source-custody/prepared-source-manifest.json",
+    "sha256": "1f0dfc6fd1b54368b12618140214414cda649c90c4d84949b84b9ecd6a467d20",
+    "bytes": 2106
+  },
+  "source_successor_scope": "Only observe.py/check_contracts.py import order; remaining three Python files and all scientific/native admission behavior unchanged."
+}

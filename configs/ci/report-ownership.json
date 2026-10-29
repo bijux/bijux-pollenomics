@@ -37875,6 +37875,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_native_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_optimizer_diagnostics.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_radius.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
@@ -47141,17 +47142,15 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/scores.csv"
       ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Frozen radius predictions and scored outputs require the original source-bound forward run and target-score custody; only the later four-ledger paired join has a repository-contained producer route."
+      "verification": "Authenticate the complete retained radius source capsule: genuine fixed-vegetation forward/scored outputs on2784d4eae839e4a4e43f80ec77fd26bd0172aff0 and separately generated paired join onaed78f8befdf0449789249e780ad80f13f44e086. Preserve every original34271+34313input/source/resource identity, complete900work and195/192/3training custody,14scored sites/BECKHAM refusal,126rows/three declared radius factors and exact historical CSV/scientific values. This owner covers only the three genuine radius products; separate paired2 keeps its maintained generated producer. Private193author files are qualified external authorities and not redistributed. Retained-source transport repeats no fit/forward/R and does not admit Nordic transfer, physicalradius, age-specific basin, independent/equal-information ranking, vegetation accuracy, ecology, rights or human review."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/source-code",

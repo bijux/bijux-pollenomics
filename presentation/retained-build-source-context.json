@@ -46,8 +46,8 @@
     "docs/report/numerical-performance/native-memory/report.json": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06",
     "docs/report/pollen-reconstruction/age-interval-sensitivity/comparison.json": "29ebcf5719161541c4241436e56feb02e282559780d5225c1e2a2b450f7eeab1",
     "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
-    "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json": "c1bf2d0ef2b4eecde08cc4ff372e0d99a18dbad30d05d20a2ccbdc73504eba67",
-    "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129",
+    "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json": "eed5d539635abaa7aa305d86845b644a922d52943655d412498b3fdb540c248c",
+    "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json": "ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a",
     "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json": "2d2202914ec86f70aad49d63782066c10a198997ef628f65d4e9134f2aefb869",
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md": "7bbd9a14fd3660b534e24430f2370c01beeee03854ea0cc5008b4f4a4b167bcc",
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance-source.json": "4e8b2b46af7a5b1dd1e41fbf7bf0d23ab3f6ad171f395adbd791e720550f2d68",
@@ -271,6 +271,18 @@
       "retained_sha256": "888d5b1ffb002eb403633d4791061e9c7b9109054601dcfcff5ad14bc3dcd9a8",
       "current_sha256": "49787df262595377f2e1bef24760313fc9613a9ea86762f2357b335c380d579a",
       "review": "Adds exact native-memory historical-helper security-comment correspondence validator; 31negative controls/all five native stages passed, zero timing workers, original measured report and five source pins unchanged."
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
+      "retained_sha256": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129",
+      "current_sha256": "ad730572b453eff95328f83cd0848d05b8a9b3601f4b06027ba82962af248c6a",
+      "review": "Complete ordered typed scientific values and all126 row/observation joins unchanged; only declared source/freeze/producer identities reflect genuine radius-forward and paired native runs. Actual independent262e/7581 and complete e7d813 source capture bind separate epochs. Original PDF121 source map/PDF bytes stay immutable; no new slide/native numerical/ecological/human acceptance."
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json",
+      "retained_sha256": "c1bf2d0ef2b4eecde08cc4ff372e0d99a18dbad30d05d20a2ccbdc73504eba67",
+      "current_sha256": "eed5d539635abaa7aa305d86845b644a922d52943655d412498b3fdb540c248c",
+      "review": "Complete ordered typed scientific values and all126 row/observation joins unchanged; only declared source/freeze/producer identities reflect genuine radius-forward and paired native runs. Actual independent262e/7581 and complete e7d813 source capture bind separate epochs. Original PDF121 source map/PDF bytes stay immutable; no new slide/native numerical/ecological/human acceptance."
     }
   ],
   "qualification": "Exact historical/current source correspondence only. The retained source map is not refreshed. Individually reviewed current reader, count-index, producer-metadata and validator changes do not become historical deck input, current numerical execution, ecological/source admission, hosted availability or human/accessibility acceptance."

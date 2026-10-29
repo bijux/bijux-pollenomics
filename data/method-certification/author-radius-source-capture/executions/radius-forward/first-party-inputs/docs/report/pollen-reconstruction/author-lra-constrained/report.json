@@ -1,0 +1,81 @@
+{
+  "schema_version": "author-lra-constrained-development.v1",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "source_experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+  "prediction_manifest_sha256": "e07c2f2a576dee9637a042ae2ae478ec4855fa7d4a67a828ce49429a948f4ec5",
+  "score_manifest_sha256": "873ded4ee55e65ede0a21c3751f98f55ed9d7862c7202c4147d34d8ab803fcd0",
+  "author_target_count": 31,
+  "model_target_count": 30,
+  "excluded_taxon": "Filipendula",
+  "excluded_taxon_nisp": 159,
+  "original_count_denominator": 20732,
+  "optimizer_backend": "scipy.slsqp-simplex-uniform",
+  "requested_folds": 15,
+  "predicted_folds": 14,
+  "refused_folds": 1,
+  "training_items_completed": 192,
+  "training_items_refused": 3,
+  "predicted_method_rows": 42,
+  "scored_method_rows": 42,
+  "refused_method_rows": 3,
+  "target_exclusion_verified": true,
+  "refused_site": "author:BECKHAM",
+  "refused_reason": "training_reconstruction_incomplete",
+  "failed_training_sites": [
+    "author:CUTHILL2",
+    "author:HANGINGS",
+    "author:LONGBREACH"
+  ],
+  "method_summaries": [
+    {
+      "baseline": "training_mean",
+      "by_status": {
+        "prediction_failed": 1,
+        "scored": 14
+      },
+      "independence": "overlapping_training_cv_not_independent_fixed_model",
+      "interval_coverage": null,
+      "mean_mae_fraction": 0.026273465887856663,
+      "requested": 15,
+      "scored": 14,
+      "scoring_unit": "outer_site_group",
+      "target": "pollen_composition",
+      "uncertainty_status": "intervals_not_implemented",
+      "zero_probability_positive_count": 0
+    },
+    {
+      "baseline": "nearest_site",
+      "by_status": {
+        "prediction_failed": 1,
+        "scored": 14
+      },
+      "independence": "overlapping_training_cv_not_independent_fixed_model",
+      "interval_coverage": null,
+      "mean_mae_fraction": 0.021132408720899925,
+      "requested": 15,
+      "scored": 14,
+      "scoring_unit": "outer_site_group",
+      "target": "pollen_composition",
+      "uncertainty_status": "intervals_not_implemented",
+      "zero_probability_positive_count": 0
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "by_status": {
+        "prediction_failed": 1,
+        "scored": 14
+      },
+      "independence": "overlapping_training_cv_not_independent_fixed_model",
+      "interval_coverage": null,
+      "mean_mae_fraction": 0.02108766351731813,
+      "requested": 15,
+      "scored": 14,
+      "scoring_unit": "outer_site_group",
+      "target": "pollen_composition",
+      "uncertainty_status": "intervals_not_implemented",
+      "zero_probability_positive_count": 0
+    }
+  ],
+  "measured_vegetation_accuracy": null,
+  "interpretation": "prior-exposed English author development, 30-taxon closed subcomposition; not Swedish or Nordic LRA admission"
+}

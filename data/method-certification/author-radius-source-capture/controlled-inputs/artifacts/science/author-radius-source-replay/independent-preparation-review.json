@@ -1,0 +1,77 @@
+{
+  "schema_version": "independent-source-bound-author-radius-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "b3b72788934d6f94a1f98c9b8d4fe57f61fab729656e3ca79c6b739389a4b20a",
+  "source_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-comparison-custody/prepared-source-manifest.json",
+    "sha256": "01f0994e0d09b9ad402e29206615732a6cb2656bd2835385bf22302f8fe5bdb5",
+    "physical_members_verified": 8
+  },
+  "successor_physical_members_verified": 9,
+  "complete_source_read": [
+    "custody.py",
+    "contracts.py",
+    "prepare.py",
+    "observe.py",
+    "run.py",
+    "check_contracts.py",
+    "protocol.json"
+  ],
+  "delta_review": {
+    "custody_and_resource_runner_byte_identical": true,
+    "all_prior_contract_function_ASTs_identical": true,
+    "only_added_contract_functions": [
+      "canonical_pins",
+      "validate_pin_population"
+    ],
+    "prepare_difference": "Store duplicate-rejecting current custody pins ordered by path.",
+    "observer_difference": "Compare current and prepared custody keyed by exact path/hash/byte records independent of enumeration order.",
+    "scientific_JSON_scalar_types_and_array_order_preserved": true,
+    "scores_CSV_byte_equality_preserved": true,
+    "source_SHA_and_prediction_metadata_deltas_remain_exactly_named": true
+  },
+  "independent_controls": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/independent-checks/receipt.json",
+    "sha256": "599496966fecd90981562b29b38c2d7de7389c482ded60313aeacbb2218e1606",
+    "passed": 15,
+    "actual_exit": 0
+  },
+  "author_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-radius-source-replay/preflight/receipt.json",
+    "sha256": "083edbdfe3e6673b85dbb11310d3a84de356a315ab9b2fb92e182cc259c479c4",
+    "scope": "15controls, strict2, Ruff6, format6, AST/help source checks; retained receipt inspected."
+  },
+  "future_native_contract": {
+    "maintained_producer": "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
+    "producer_sha256": "6fab1e6e225b2d9308bc75a3ff167ea6a5be621357f66ac1f0b3bf8109a1a469",
+    "stages": [
+      "freeze",
+      "score",
+      "independent full radius science/source/refusal comparison"
+    ],
+    "stage_timeout_seconds": [
+      60,
+      60,
+      90
+    ],
+    "overall_timeout_seconds": 240,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_logical_output_bytes": 134217728,
+    "own_terminal_reserve_bytes": 16384,
+    "workers": 1,
+    "scientific_scope": "42 saved predictions across14scored sites \u00d73factors=126 forward/scored rows; original15site denominator and BECKHAM refusal preserved. No fit, optimizer or R rerun; paired-comparison owner separate."
+  },
+  "prior_preparation_observation": {
+    "plan": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-radius-comparison/plan.json",
+    "sha256": "384dc3d329d00082577fa1cb7a97c45294dd0c9738e4ff045e323db42a0126dc",
+    "input_pin_count": 34270,
+    "actual_source_preparation_zero_reported_by_root": true,
+    "registered_or_producer_launched": false,
+    "note": "The protocol was authored before root source preparation73127; its predecessor-at-authoring statement does not relabel that later preparation. Original01f files and prepared plan remain untouched."
+  },
+  "findings": [],
+  "limits": [
+    "Source-only approval permits root to prepare/register the successor; no native numerical run is claimed.",
+    "No authenticate/preparer/forward/scoring/actual observer/Git consumer executed by this reviewer."
+  ]
+}

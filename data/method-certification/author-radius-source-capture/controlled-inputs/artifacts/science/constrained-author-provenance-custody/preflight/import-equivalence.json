@@ -1,0 +1,85 @@
+{
+  "source_only": true,
+  "python_rows": [
+    {
+      "path": "prepare.py",
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-source-custody/prepare.py",
+        "sha256": "d0909db9e198ea60240665f5791a20be536f796c95ab2a7d01c3399625184787",
+        "bytes": 15239
+      },
+      "successor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-provenance-custody/prepare.py",
+        "sha256": "d0909db9e198ea60240665f5791a20be536f796c95ab2a7d01c3399625184787",
+        "bytes": 15239
+      },
+      "import_multiset_and_ordered_nonimport_AST_exact": true,
+      "byte_equal": true
+    },
+    {
+      "path": "observe.py",
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-source-custody/observe.py",
+        "sha256": "51fe971008fc07b1ddc11465c7a62ea33df70d1deea4dac2d498be531d680a74",
+        "bytes": 10736
+      },
+      "successor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-provenance-custody/observe.py",
+        "sha256": "045bf21b5921fed4e7d48b86199f31dff2a8114ee560ab27fad484b4339836da",
+        "bytes": 10737
+      },
+      "import_multiset_and_ordered_nonimport_AST_exact": true,
+      "byte_equal": false
+    },
+    {
+      "path": "contracts.py",
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-source-custody/contracts.py",
+        "sha256": "1a552242b27aff87890521c2dbee7aec68035d481a4bb3dd121ed291304775f5",
+        "bytes": 2974
+      },
+      "successor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-provenance-custody/contracts.py",
+        "sha256": "1a552242b27aff87890521c2dbee7aec68035d481a4bb3dd121ed291304775f5",
+        "bytes": 2974
+      },
+      "import_multiset_and_ordered_nonimport_AST_exact": true,
+      "byte_equal": true
+    },
+    {
+      "path": "check_contracts.py",
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-source-custody/check_contracts.py",
+        "sha256": "4779e74ebb1f1b2ab73c9eed0a64084b234156155e303c7f6ad7cdcab65040e5",
+        "bytes": 5067
+      },
+      "successor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-provenance-custody/check_contracts.py",
+        "sha256": "7cffba4ed08899deacfc5b8c7eccf2595a1da8741a5df88b424ae124aa8ba8d1",
+        "bytes": 5069
+      },
+      "import_multiset_and_ordered_nonimport_AST_exact": true,
+      "byte_equal": false
+    },
+    {
+      "path": "run.py",
+      "predecessor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-source-custody/run.py",
+        "sha256": "7c335048c975b74b54d3b41bda3e29f772c651b788239f31dbec819cbc50ee68",
+        "bytes": 3697
+      },
+      "successor": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/constrained-author-provenance-custody/run.py",
+        "sha256": "7c335048c975b74b54d3b41bda3e29f772c651b788239f31dbec819cbc50ee68",
+        "bytes": 3697
+      },
+      "import_multiset_and_ordered_nonimport_AST_exact": true,
+      "byte_equal": true
+    }
+  ],
+  "only_changed_source_paths": [
+    "observe.py",
+    "check_contracts.py"
+  ],
+  "model_execution": false
+}
