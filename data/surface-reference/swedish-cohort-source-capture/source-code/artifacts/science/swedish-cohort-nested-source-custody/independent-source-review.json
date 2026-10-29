@@ -1,0 +1,28 @@
+{
+  "schema_version": "swedish-nested-observer-independent-source-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "ee6c018f2667a41e79978abed7b08e30bf49cf8232ca0c222043a973bc46045b",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/prepared-source-manifest.json",
+    "sha256": "ee6c018f2667a41e79978abed7b08e30bf49cf8232ca0c222043a973bc46045b",
+    "bytes": 6746
+  },
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/source-qualification.json",
+    "sha256": "5f02811aa9398c02ac21ff1a4b5fed1217dfaae605df658cb6962d425091b44b",
+    "bytes": 6919
+  },
+  "held_members_authenticated": 30,
+  "independent_pure_guard_actual_exit": 0,
+  "independent_pure_guard_groups": 23,
+  "guard_tool_session": 44212,
+  "guard_tool_chunk": "ec5f44",
+  "guard_log": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/preflight/root-independent-guards.log",
+    "sha256": "60f19e9f223116a50b3dd7f05a848f4405c9ff12610e1ebfc9cee7f585f540ba",
+    "bytes": 62
+  },
+  "review": "Full correctedmetadata adapter and originalother8functions read/ASTcompared; onlydataset_sites changes to actualnestedsite.datasets singleton integerID schema with102unique datasetIDs/99sites andtype/missing/multiple/duplicateguards. Fullnewcustody/prepare/observe read; run delta read. All30members rehashed; runtime/common906/declarations byteexact8b7. Original686eplan/common324e/outer9baf/0producer1observer protected,3537inputpins andcomplete12output2directorymembership authenticated withexactoriginalstdoutprefix+source-definedfinaltail, no newlychosenmutablebaseline. One45s observer only, whole110s1GiBcompletedRSS128MiBlogicalpostchecks; no OSquotas/descendantcensus. Candidate must exact137c292; no sourcebridge.",
+  "scientific_scope": "Only savedgenuineproducer report and independentcomplete26private metadata joins; no producer rerun, pollen/count outcomes, untouchedcohort, sampleages/normalization/calendar, rights/qualifiedhumans/LRA/ecological acceptance. Originalwholefailure cannot be relabelled aspass.",
+  "actual_new_preparer_private_join_inspector_R_or_native_producer_calls": 0
+}

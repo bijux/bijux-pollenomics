@@ -1,0 +1,73 @@
+{
+  "schema_version": "rootsi-workbook-declared-source-inputs.v1",
+  "private_root": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks",
+  "inputs": [
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/manifest.json",
+      "sha256": "dde88290dbdeca7a1047db74d5fb55a85c03a68daaef53795c5da9c1aebbd510",
+      "bytes": 13099
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/original/rootsi.7z",
+      "sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+      "bytes": 509919
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/FLINK.xls",
+      "sha256": "6e57c67c843ee5a6d023e0060460675409c370c15dee3aaa99d4015dd7ed9195",
+      "bytes": 135680
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/HOLK.xls",
+      "sha256": "d0f781973de3ec66e59bc16ca856b637309ae131424cae4bb55693ded5e34060",
+      "bytes": 39936
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/RANV.xls",
+      "sha256": "bfb39ce0ed795275c1db3e6554093ea54c2137dd05936e89d9e71db2751164ed",
+      "bytes": 60416
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/STAV.xls",
+      "sha256": "2a2f0212ffe0e52945603fb7ee9c717ab5157fe62450d4dc9e7ee1ce6d5c818e",
+      "bytes": 49152
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/source-intakes/receipts/EXT-2026-09-04-ROOTSI-001.json",
+      "sha256": "0e7bfb185c34b1c370a65a915de889a26c538cc5022d1ee910634555692cc8e3",
+      "bytes": 19116
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+      "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134",
+      "bytes": 24477671
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py",
+      "sha256": "ada77946596b45af2d08c56f0c9b6569e44c764dccf599e1a8d977b8de063f60",
+      "bytes": 11268
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/landclim/neotoma-chronology-witness/report.json",
+      "sha256": "9f9ae65c538a1aac79966324abf081d4ea0028fbced6b1a343633acbd6372058",
+      "bytes": 3232
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/landclim/workbook-chronology/replay.py",
+      "sha256": "49d9592d355418feb6d91142302bf7d65f2ce55caaca7acd4bc95e4f9827c23e",
+      "bytes": 6442
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/landclim/workbook-chronology/report.json",
+      "sha256": "b2c732c11669837c9aa75b8b0a5bfb7568dbf86071014ccfb4b30d3dcfc2eb13",
+      "bytes": 4671
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
+      "sha256": "34bb9b19d1a3ba3a479ce77174ea85e87c52f1bae51e42a44b57eaf5739165c6",
+      "bytes": 35349
+    }
+  ],
+  "private_archive_manifest_intake_are_identity_only": true,
+  "original_source_acquisition_or_rights_claimed": false
+}

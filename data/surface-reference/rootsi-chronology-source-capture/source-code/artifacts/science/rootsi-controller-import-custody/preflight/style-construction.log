@@ -1,0 +1,15 @@
+9 files reformatted
+B007 Loop control variable `sequence` not used within loop body
+   --> artifacts/science/rootsi-source-chronology-custody/check_contracts.py:108:9
+    |
+106 |     }
+107 |     sites = []
+108 |     for sequence, dataset, site, chronology in [
+    |         ^^^^^^^^
+109 |         ("FLINK", 54024, 28889, 38438),
+110 |         ("STAV", 54003, 28873, 38423),
+    |
+help: Rename unused `sequence` to `_sequence`
+
+Found 10 errors (9 fixed, 1 remaining).
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).

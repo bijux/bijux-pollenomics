@@ -1,0 +1,4 @@
+{"stage": "maintained-hyde-country-source", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 0.1307049589813687}
+{"stage": "independent-hyde-country-metadata-observer", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 0.4877207500394434}
+{"terminal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/terminal.json", "sha256": "80d7bc83910576803c597b89186d0fa645984a977db767fefbb587b5a24e72d9", "status": "passed"}
+{"terminal": {"path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/hyde-country-terminal.json", "sha256": "ffbbe83e6a8517f225ba4ee8f7331718b47cd5ca20b4923ba23a3cec7c2214b4", "bytes": 1605}, "actual_exit": 0}

@@ -1,0 +1,161 @@
+{
+  "schema_version": "git-retained-source.v1",
+  "capture": {
+    "name": "capture.json",
+    "sha256": "a777339c3eb30ea62669b1054aea12a9363cf82d8cef57da907bb8a29727379e",
+    "bytes": 2589685
+  },
+  "historical_native_epochs": [
+    "c292dafa60f9d992f162c92dd327207d9aefd76b"
+  ],
+  "source_revision_correspondence": [
+    {
+      "historical_source_commit": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "source_revision": "484fd110a3a0785c264a26a4d84bcccf12a8439e"
+    },
+    {
+      "historical_source_commit": "f5a5e3afaf98d01551cf8383a4ab85bb18815597",
+      "source_revision": "593d2f6b2fbed18eb1befc33d652e0c173e3e7f5"
+    },
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "95f9889b79652cc06086ddfd22128d195ff10479"
+    },
+    {
+      "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
+      "source_revision": "3bece1dc8f7a5e230e6cdc7cf17032d4a755679f"
+    }
+  ],
+  "git_groups": [
+    {
+      "historical_source_commit": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "source_revision": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "git_entries_sha256": "9c703a5c63515fa8b15a3ee3f4a491d09d1c798b51a278e802d693fb1fe45e27",
+      "member_count": 1,
+      "paths": [
+        [
+          "source-code/docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py",
+          "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "f5a5e3afaf98d01551cf8383a4ab85bb18815597",
+      "source_revision": "593d2f6b2fbed18eb1befc33d652e0c173e3e7f5",
+      "git_entries_sha256": "43b5996427e13aef404c26a265b745fa44ec56097426352bc60fe83d90f720f3",
+      "member_count": 1,
+      "paths": [
+        [
+          "source-code/configs/ci/report-ownership.json",
+          "configs/ci/report-ownership.json"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "95f9889b79652cc06086ddfd22128d195ff10479",
+      "member_count": 13,
+      "git_entries_sha256": "d6a568c8cbae19a12b59a6a5ed3f6d8754f7cf533ace8e5d5440def162bacca1",
+      "paths": [
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/custody.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/custody/namespace.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/preflight/formatted-common-construction.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/execution/report_consumer.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/runtime.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/runtime/isolated_profile.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/source-observer.diff",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/observation/source_observer.patch"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/check_contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/contracts/checks.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/contracts/inputs.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/execute_source.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/execution/entry.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/metadata.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/metadata/context.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/observe.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/observation/metadata.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/preflight/check_tools.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/contracts/tools.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/prepare.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/preparation/prepare.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/run.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/execution/run.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/runtime.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/runtime/isolated_profile.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
+      "source_revision": "3bece1dc8f7a5e230e6cdc7cf17032d4a755679f",
+      "member_count": 9,
+      "git_entries_sha256": "df9d1a256582ce5ee8c62d6f85a88e2abac4b9775350d4ccfcf5284157efbb9d",
+      "paths": [
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/check_contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/contracts/checks.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/common_runner.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/execution/report_consumer.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/contracts/inputs.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/execute_source.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/execution/entry.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/metadata.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/metadata/context.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/observe.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/observation/metadata.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/prepare.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/preparation/prepare.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-nested-source-custody/run.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_cohort/execution/run.py"
+        ],
+        [
+          "source-code/artifacts/science/swedish-cohort-source-custody/common_runner.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/execution/report_consumer.py"
+        ]
+      ]
+    }
+  ],
+  "generated_members": [],
+  "rewritten_source_epoch_executed": false
+}

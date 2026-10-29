@@ -69,7 +69,7 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 **Unsupported claim.** Sequence coverage and 1950-minus-age arithmetic do not authorize sample-age conversion, row omission, calibration or historical input identity.
 
-**Actual verification performed.** Read all four retained workbook findings and metadata comparisons; no original workbook, cached grid or model was rerun.
+**Actual verification performed.** Read all four retained workbook findings and metadata comparisons; no original workbook, cached grid or model was rerun. Two unchanged canonical Rootsi source producers and their independent raw-workbook/Neotoma observers returned four native zeros on c292dafa60f9d992f162c92dd327207d9aefd76b; both full typed reports and complete publication bytes match. The source-bound isolated base/pure-xlrd cache is distinct from observed147/SOURCE3331. All3548 original identities remain explicit in an authored58member source capsule; private workbooks/archive/intake and runtime/xlrd payloads remain omitted. FLINK sign discrepancy,HOLK reversals,RANV/STAV absent ages, negativeBP and no source age bounds remain literal. Declared1950-minus-age/0.0500001 are arithmetic diagnostics, not calendar/no-year-zero conversion or age correction. No dated basin, historical-input, independent chronology/ecology, rights/human or LRA admission, and no new retention-native outcome.
 
 **Remaining input or review.** FLINK/HOLK source-model/order explanations and RANV/STAV sample ages with model/unit/uncertainty authority remain needed.
 
@@ -84,6 +84,8 @@ Author/source lineage, transformations and distinct modeled products; chronology
 **Matched denominator.** 4 workbooks:FLINK 109, HOLK 40, RANV 141, STAV 77 sample rows; age comparisons apply only to the 149 FLINK/HOLK age labels.
 
 - [Retained qualification evidence: docs/report/source-relations/landclim/workbook-chronology/report.json](report.json) (SHA-256 `b2c732c11669837c9aa75b8b0a5bfb7568dbf86071014ccfb4b30d3dcfc2eb13`).
+
+- [Retained qualification evidence: reports/science/source-lineage/rootsi-workbook-chronology.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/rootsi-workbook-chronology.json) (SHA-256 `f903bb2c7671d04b67410b7ba73ed2aebe1d5ca9f86a54354aaa10746d65e47b`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

@@ -1,0 +1,1314 @@
+{
+  "candidate": "d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b",
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/plan.json",
+    "sha256": "5cb4bce88d84bbd3c9ff734e800d1c9dd4a47a9e40ff1900fc1fb75870b2c6f6",
+    "bytes": 1444493
+  },
+  "producer_stage": {
+    "id": "maintained-solsoe-primary-pollen-lineage",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 3.2361950410413556,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/maintained-solsoe-primary-pollen-lineage.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/maintained-solsoe-primary-pollen-lineage.stderr",
+    "stdout_sha256": "053af9b0a210b5dccfe980688dbb8be5907d16f0ebae6de4361dac3483bb315f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 736067584
+  },
+  "generated": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/producer/report.json",
+      "sha256": "e71e6ef7fb52afd2abf5540d1a003d4008e9520e58a39980296cba88d1003c2b",
+      "bytes": 9302
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/producer/samples.csv",
+      "sha256": "a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010",
+      "bytes": 2657
+    }
+  ],
+  "canonical": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json",
+      "sha256": "e71e6ef7fb52afd2abf5540d1a003d4008e9520e58a39980296cba88d1003c2b",
+      "bytes": 9302
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv",
+      "sha256": "a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010",
+      "bytes": 2657
+    }
+  ],
+  "actual_exit": 0,
+  "tracked_byte_checker_exit": 0,
+  "complete_typed_report_and_ordered_CSV_exact": true,
+  "independently_derived_source_counts": {
+    "primary_profile_rows": 66,
+    "primary_parameter_count": 147,
+    "primary_count_cells": 9702,
+    "primary_positive_count_cells": 2881,
+    "primary_zero_count_cells": 6821,
+    "primary_total_count": 128653,
+    "neotoma_1981_sample_count": 66,
+    "neotoma_positive_observation_count": 2881,
+    "exact_same_name_parameter_count": 129,
+    "numeric_rename_candidate_count": 18,
+    "numeric_rename_candidates": [
+      {
+        "pangaea_parameter_name": "Caryophyllaceae undifferentiated",
+        "neotoma_source_reported_name": "Caryophyllaceae undiff.",
+        "positive_sample_count": 1,
+        "source_count_sum": 1,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Chenopodiaceae",
+        "neotoma_source_reported_name": "Amaranthaceae",
+        "positive_sample_count": 44,
+        "source_count_sum": 105,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Cruciferae",
+        "neotoma_source_reported_name": "Brassicaceae",
+        "positive_sample_count": 24,
+        "source_count_sum": 59,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Diphasium complanatum-type",
+        "neotoma_source_reported_name": "Diphasiastrum complanatum-type",
+        "positive_sample_count": 1,
+        "source_count_sum": 1,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Gramineae undifferentiated",
+        "neotoma_source_reported_name": "Poaceae undiff.",
+        "positive_sample_count": 66,
+        "source_count_sum": 10598,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Hippophae rhamnoides",
+        "neotoma_source_reported_name": "Hippophaë rhamnoides",
+        "positive_sample_count": 2,
+        "source_count_sum": 2,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Isoetes lacustris",
+        "neotoma_source_reported_name": "Isoëtes lacustris",
+        "positive_sample_count": 62,
+        "source_count_sum": 12787,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Isoetes setacea",
+        "neotoma_source_reported_name": "Isoëtes setacea",
+        "positive_sample_count": 53,
+        "source_count_sum": 8663,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Leguminosae undifferentiated",
+        "neotoma_source_reported_name": "Fabaceae undiff.",
+        "positive_sample_count": 3,
+        "source_count_sum": 4,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Littorella uniflora",
+        "neotoma_source_reported_name": "Plantago uniflora",
+        "positive_sample_count": 52,
+        "source_count_sum": 604,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Lychnis-type",
+        "neotoma_source_reported_name": "Silene-type undiff.",
+        "positive_sample_count": 9,
+        "source_count_sum": 9,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Polygonum amphibium",
+        "neotoma_source_reported_name": "Persicaria amphibia",
+        "positive_sample_count": 3,
+        "source_count_sum": 9,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Polygonum persicaria-type",
+        "neotoma_source_reported_name": "Persicaria maculosa-type",
+        "positive_sample_count": 5,
+        "source_count_sum": 7,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Ranunculaceae undifferentiated",
+        "neotoma_source_reported_name": "Ranunculaceae undiff.",
+        "positive_sample_count": 3,
+        "source_count_sum": 3,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Rhamnus catharticus",
+        "neotoma_source_reported_name": "Rhamnus cathartica",
+        "positive_sample_count": 1,
+        "source_count_sum": 1,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Sanguisorba minor",
+        "neotoma_source_reported_name": "Poterium sanguisorba",
+        "positive_sample_count": 1,
+        "source_count_sum": 1,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Scirpus lacustris-type",
+        "neotoma_source_reported_name": "Schoenoplectus lacustris-type",
+        "positive_sample_count": 14,
+        "source_count_sum": 35,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      },
+      {
+        "pangaea_parameter_name": "Umbelliferae undifferentiated",
+        "neotoma_source_reported_name": "Apiaceae undiff.",
+        "positive_sample_count": 1,
+        "source_count_sum": 1,
+        "vector_equal_at_all_66_depths": true,
+        "status": "numeric_source_name_candidate_not_ecological_approval"
+      }
+    ]
+  },
+  "independent_sample_rows": [
+    {
+      "depth_cm": 98,
+      "neotoma_sample_id": "neotoma:sample:352996",
+      "positive_source_taxa": 52,
+      "source_count_sum": 1332,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 114,
+      "neotoma_sample_id": "neotoma:sample:352997",
+      "positive_source_taxa": 50,
+      "source_count_sum": 1452,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 130,
+      "neotoma_sample_id": "neotoma:sample:352998",
+      "positive_source_taxa": 58,
+      "source_count_sum": 1306,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 146,
+      "neotoma_sample_id": "neotoma:sample:352999",
+      "positive_source_taxa": 56,
+      "source_count_sum": 1411,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 162,
+      "neotoma_sample_id": "neotoma:sample:353000",
+      "positive_source_taxa": 54,
+      "source_count_sum": 1412,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 178,
+      "neotoma_sample_id": "neotoma:sample:353001",
+      "positive_source_taxa": 46,
+      "source_count_sum": 1578,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 188,
+      "neotoma_sample_id": "neotoma:sample:353002",
+      "positive_source_taxa": 48,
+      "source_count_sum": 1473,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 196,
+      "neotoma_sample_id": "neotoma:sample:353003",
+      "positive_source_taxa": 64,
+      "source_count_sum": 3042,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 204,
+      "neotoma_sample_id": "neotoma:sample:353004",
+      "positive_source_taxa": 44,
+      "source_count_sum": 1326,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 212,
+      "neotoma_sample_id": "neotoma:sample:353005",
+      "positive_source_taxa": 46,
+      "source_count_sum": 1325,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 220,
+      "neotoma_sample_id": "neotoma:sample:353006",
+      "positive_source_taxa": 46,
+      "source_count_sum": 1372,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 228,
+      "neotoma_sample_id": "neotoma:sample:353007",
+      "positive_source_taxa": 45,
+      "source_count_sum": 1167,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 236,
+      "neotoma_sample_id": "neotoma:sample:353008",
+      "positive_source_taxa": 51,
+      "source_count_sum": 1242,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 244,
+      "neotoma_sample_id": "neotoma:sample:353009",
+      "positive_source_taxa": 44,
+      "source_count_sum": 1554,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 252,
+      "neotoma_sample_id": "neotoma:sample:353010",
+      "positive_source_taxa": 56,
+      "source_count_sum": 2414,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 260,
+      "neotoma_sample_id": "neotoma:sample:353011",
+      "positive_source_taxa": 45,
+      "source_count_sum": 1203,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 268,
+      "neotoma_sample_id": "neotoma:sample:353012",
+      "positive_source_taxa": 49,
+      "source_count_sum": 1156,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 280,
+      "neotoma_sample_id": "neotoma:sample:353013",
+      "positive_source_taxa": 50,
+      "source_count_sum": 1281,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 308,
+      "neotoma_sample_id": "neotoma:sample:353014",
+      "positive_source_taxa": 68,
+      "source_count_sum": 2361,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 324,
+      "neotoma_sample_id": "neotoma:sample:353015",
+      "positive_source_taxa": 44,
+      "source_count_sum": 1172,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 332,
+      "neotoma_sample_id": "neotoma:sample:353016",
+      "positive_source_taxa": 49,
+      "source_count_sum": 1477,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 340,
+      "neotoma_sample_id": "neotoma:sample:353017",
+      "positive_source_taxa": 41,
+      "source_count_sum": 1304,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 348,
+      "neotoma_sample_id": "neotoma:sample:353018",
+      "positive_source_taxa": 41,
+      "source_count_sum": 1129,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 356,
+      "neotoma_sample_id": "neotoma:sample:353019",
+      "positive_source_taxa": 55,
+      "source_count_sum": 2497,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 372,
+      "neotoma_sample_id": "neotoma:sample:353020",
+      "positive_source_taxa": 41,
+      "source_count_sum": 925,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 382,
+      "neotoma_sample_id": "neotoma:sample:353021",
+      "positive_source_taxa": 46,
+      "source_count_sum": 1246,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 384,
+      "neotoma_sample_id": "neotoma:sample:353022",
+      "positive_source_taxa": 44,
+      "source_count_sum": 1622,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 392,
+      "neotoma_sample_id": "neotoma:sample:353023",
+      "positive_source_taxa": 58,
+      "source_count_sum": 2693,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 400,
+      "neotoma_sample_id": "neotoma:sample:353024",
+      "positive_source_taxa": 38,
+      "source_count_sum": 1098,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 408,
+      "neotoma_sample_id": "neotoma:sample:353025",
+      "positive_source_taxa": 43,
+      "source_count_sum": 1239,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 416,
+      "neotoma_sample_id": "neotoma:sample:353026",
+      "positive_source_taxa": 59,
+      "source_count_sum": 2324,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 432,
+      "neotoma_sample_id": "neotoma:sample:353027",
+      "positive_source_taxa": 46,
+      "source_count_sum": 1149,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 448,
+      "neotoma_sample_id": "neotoma:sample:353028",
+      "positive_source_taxa": 46,
+      "source_count_sum": 2284,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 456,
+      "neotoma_sample_id": "neotoma:sample:353029",
+      "positive_source_taxa": 59,
+      "source_count_sum": 2624,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 464,
+      "neotoma_sample_id": "neotoma:sample:353030",
+      "positive_source_taxa": 60,
+      "source_count_sum": 2331,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 468,
+      "neotoma_sample_id": "neotoma:sample:353031",
+      "positive_source_taxa": 55,
+      "source_count_sum": 2318,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 470,
+      "neotoma_sample_id": "neotoma:sample:353032",
+      "positive_source_taxa": 55,
+      "source_count_sum": 2300,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 472,
+      "neotoma_sample_id": "neotoma:sample:353033",
+      "positive_source_taxa": 45,
+      "source_count_sum": 2558,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 476,
+      "neotoma_sample_id": "neotoma:sample:353034",
+      "positive_source_taxa": 44,
+      "source_count_sum": 2633,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 478,
+      "neotoma_sample_id": "neotoma:sample:353035",
+      "positive_source_taxa": 45,
+      "source_count_sum": 2865,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 480,
+      "neotoma_sample_id": "neotoma:sample:353036",
+      "positive_source_taxa": 42,
+      "source_count_sum": 2244,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 484,
+      "neotoma_sample_id": "neotoma:sample:353037",
+      "positive_source_taxa": 30,
+      "source_count_sum": 1387,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 488,
+      "neotoma_sample_id": "neotoma:sample:353038",
+      "positive_source_taxa": 42,
+      "source_count_sum": 2822,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 492,
+      "neotoma_sample_id": "neotoma:sample:353039",
+      "positive_source_taxa": 33,
+      "source_count_sum": 1277,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 496,
+      "neotoma_sample_id": "neotoma:sample:353040",
+      "positive_source_taxa": 40,
+      "source_count_sum": 2485,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 500,
+      "neotoma_sample_id": "neotoma:sample:353041",
+      "positive_source_taxa": 36,
+      "source_count_sum": 1397,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 504,
+      "neotoma_sample_id": "neotoma:sample:353042",
+      "positive_source_taxa": 42,
+      "source_count_sum": 3086,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 508,
+      "neotoma_sample_id": "neotoma:sample:353043",
+      "positive_source_taxa": 32,
+      "source_count_sum": 1601,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 512,
+      "neotoma_sample_id": "neotoma:sample:353044",
+      "positive_source_taxa": 39,
+      "source_count_sum": 2724,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 516,
+      "neotoma_sample_id": "neotoma:sample:353045",
+      "positive_source_taxa": 31,
+      "source_count_sum": 1449,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 520,
+      "neotoma_sample_id": "neotoma:sample:353046",
+      "positive_source_taxa": 40,
+      "source_count_sum": 2628,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 524,
+      "neotoma_sample_id": "neotoma:sample:353047",
+      "positive_source_taxa": 29,
+      "source_count_sum": 1317,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 528,
+      "neotoma_sample_id": "neotoma:sample:353048",
+      "positive_source_taxa": 38,
+      "source_count_sum": 3420,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 532,
+      "neotoma_sample_id": "neotoma:sample:353049",
+      "positive_source_taxa": 34,
+      "source_count_sum": 1543,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 536,
+      "neotoma_sample_id": "neotoma:sample:353050",
+      "positive_source_taxa": 37,
+      "source_count_sum": 2801,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 540,
+      "neotoma_sample_id": "neotoma:sample:353051",
+      "positive_source_taxa": 34,
+      "source_count_sum": 1977,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 544,
+      "neotoma_sample_id": "neotoma:sample:353052",
+      "positive_source_taxa": 39,
+      "source_count_sum": 3693,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 548,
+      "neotoma_sample_id": "neotoma:sample:353053",
+      "positive_source_taxa": 28,
+      "source_count_sum": 1826,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 552,
+      "neotoma_sample_id": "neotoma:sample:353054",
+      "positive_source_taxa": 32,
+      "source_count_sum": 3250,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 556,
+      "neotoma_sample_id": "neotoma:sample:353055",
+      "positive_source_taxa": 26,
+      "source_count_sum": 2233,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 560,
+      "neotoma_sample_id": "neotoma:sample:353056",
+      "positive_source_taxa": 35,
+      "source_count_sum": 3172,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 564,
+      "neotoma_sample_id": "neotoma:sample:353057",
+      "positive_source_taxa": 25,
+      "source_count_sum": 1437,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 568,
+      "neotoma_sample_id": "neotoma:sample:353058",
+      "positive_source_taxa": 41,
+      "source_count_sum": 4548,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 572,
+      "neotoma_sample_id": "neotoma:sample:353059",
+      "positive_source_taxa": 32,
+      "source_count_sum": 3999,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 578,
+      "neotoma_sample_id": "neotoma:sample:353060",
+      "positive_source_taxa": 29,
+      "source_count_sum": 605,
+      "positive_counts_equal": true
+    },
+    {
+      "depth_cm": 586,
+      "neotoma_sample_id": "neotoma:sample:353061",
+      "positive_source_taxa": 29,
+      "source_count_sum": 537,
+      "positive_counts_equal": true
+    }
+  ],
+  "actual_source_runtime": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/source-runtime-observation.json",
+    "sha256": "b2867c71e1618aeb47b9d55fa7d30e84f5af7939c1469d156a4903a89852df90",
+    "bytes": 96588
+  },
+  "observer_import_origins": [
+    {
+      "module": "__future__",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/__future__.py",
+        "sha256": "981d4c398849f9ebcab72300d9c1fe288fd6d7f28957b3b3fa3a493a5836d95c",
+        "bytes": 5218
+      }
+    },
+    {
+      "module": "__main__",
+      "file": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/observe.py",
+        "sha256": "14c9d8414666e53571970b77fb0598352fbf6d82ecde895c97b0233530675c20",
+        "bytes": 6253
+      }
+    },
+    {
+      "module": "_blake2",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_blake2.cpython-311-darwin.so",
+        "sha256": "1301001e5c3f951046d19656ba61686e6c8c21fbaadfab898d600b3f24bfc1e2",
+        "bytes": 71680
+      }
+    },
+    {
+      "module": "_bz2",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_bz2.cpython-311-darwin.so",
+        "sha256": "b7c2c4193f4e143045fcbae22a2337db6c0edaae018d7382057e2a0a208e8908",
+        "bytes": 55064
+      }
+    },
+    {
+      "module": "_collections_abc",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/_collections_abc.py",
+        "sha256": "ec646ef7e27aae261adef3c57b9d18822c6526b3e9562dabb9f3cb4e6803066c",
+        "bytes": 30193
+      }
+    },
+    {
+      "module": "_compression",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/_compression.py",
+        "sha256": "3ad5d60627477a60939ee44fc1bb3a05dbe8fb52f0f75039b8f5d8f1a278b981",
+        "bytes": 5681
+      }
+    },
+    {
+      "module": "_csv",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_csv.cpython-311-darwin.so",
+        "sha256": "3d296e32f75d3a426256f2bb8feb0af6162cbe1edbdcf02544cd2ce8bde2e266",
+        "bytes": 73720
+      }
+    },
+    {
+      "module": "_decimal",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_decimal.cpython-311-darwin.so",
+        "sha256": "73bf01de48295ace7de8929c0b45f91fdc85728fd283a5d78669dbe7d46b6bbe",
+        "bytes": 196400
+      }
+    },
+    {
+      "module": "_frozen_importlib_external",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/importlib/_bootstrap_external.py",
+        "sha256": "7c9a59da1b351a226a092b1e1671cf9935255f2c22d593a138c8938dec7e399e",
+        "bytes": 68962
+      }
+    },
+    {
+      "module": "_hashlib",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_hashlib.cpython-311-darwin.so",
+        "sha256": "2e9621fb3b177d52c73d394dabbcf536867575d8abec5bd321f9a8b8b5d55b23",
+        "bytes": 98512
+      }
+    },
+    {
+      "module": "_json",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_json.cpython-311-darwin.so",
+        "sha256": "0337e1527349c97dc9429c3ad03b47aa647c0c18d6cfa729f0f4dd5b4e5bf899",
+        "bytes": 73400
+      }
+    },
+    {
+      "module": "_lzma",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_lzma.cpython-311-darwin.so",
+        "sha256": "48108d42bb6a168c418bb9f9b496764e9998ac216ccdc59df6ab96c8e1207b2e",
+        "bytes": 93040
+      }
+    },
+    {
+      "module": "_posixsubprocess",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-darwin.so",
+        "sha256": "3eaa048acc588615ca7b2e56dc625c0f00474ef097f009958a1fcd65e5f3ac94",
+        "bytes": 54328
+      }
+    },
+    {
+      "module": "_struct",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_struct.cpython-311-darwin.so",
+        "sha256": "40fc0da488d3430b9757af0664cb80a065877be8407c576f005425e71a06eb73",
+        "bytes": 77008
+      }
+    },
+    {
+      "module": "_typing",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/_typing.cpython-311-darwin.so",
+        "sha256": "578ad75f2020829a7d26cd1a4538bb3bd6cc1d6aae3b64fce8b40fb5a725175d",
+        "bytes": 50176
+      }
+    },
+    {
+      "module": "_weakrefset",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/_weakrefset.py",
+        "sha256": "91895a451d06e9f521a1171b31b9b19bc9740f35af00d4fa106338ab7167c9ac",
+        "bytes": 5893
+      }
+    },
+    {
+      "module": "abc",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/abc.py",
+        "sha256": "e558702a95cdce3febd289da021715d2b92bc43995b8a1bc58dfa1c3d8010287",
+        "bytes": 6538
+      }
+    },
+    {
+      "module": "argparse",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/argparse.py",
+        "sha256": "e878677e158d0bc0fb5119e0df74d94236f3653777bc9f2ea3fee49c167fe001",
+        "bytes": 100283
+      }
+    },
+    {
+      "module": "bz2",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/bz2.py",
+        "sha256": "76ab3252924e71e859d7d90e8d3db13b6554975cfcac0fdadced4de7f8779330",
+        "bytes": 11847
+      }
+    },
+    {
+      "module": "codecs",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/codecs.py",
+        "sha256": "f16a81d14e7f73931ecf9f9f2e17c10bc0ca29bbe38b0243f6919b70882fcfea",
+        "bytes": 37150
+      }
+    },
+    {
+      "module": "collections",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/collections/__init__.py",
+        "sha256": "64b09e7062bb7f41e080900d414988c289624aea0ee6ca4037f1e317a11374ee",
+        "bytes": 52018
+      }
+    },
+    {
+      "module": "collections.abc",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/collections/abc.py",
+        "sha256": "9cb4208f99128a0489b6c8e6c61637617dd7d4250c59e065491957eda084dd10",
+        "bytes": 119
+      }
+    },
+    {
+      "module": "contextlib",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py",
+        "sha256": "d732c045bc7450997f97b2f79cfdb1546b68d2655e89ab3170f3b19b3930d83c",
+        "bytes": 27414
+      }
+    },
+    {
+      "module": "contracts",
+      "file": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/contracts.py",
+        "sha256": "07fec76f6cdde01a2176d5cd5b554c76f94b42034f60ed8af0bf48faa6c04e34",
+        "bytes": 13958
+      }
+    },
+    {
+      "module": "copyreg",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/copyreg.py",
+        "sha256": "5499e1be7ba52d4715a911ae65ef2d703db9379d21fff2a07fad8877c318e070",
+        "bytes": 7677
+      }
+    },
+    {
+      "module": "csv",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/csv.py",
+        "sha256": "6c68a5186e3b85e6e267a7ef96479327a45ae2b40bf5e9f2017e4b2282b3f5b1",
+        "bytes": 16030
+      }
+    },
+    {
+      "module": "decimal",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/decimal.py",
+        "sha256": "000c00bad31d126b054c6ec7f3e02b27c0f9a4d579f987d3c4f879cee1bacb81",
+        "bytes": 320
+      }
+    },
+    {
+      "module": "encodings",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/encodings/__init__.py",
+        "sha256": "78c4744d407690f321565488710b5aaf6486b5afa8d185637aa1e7633ab59cd8",
+        "bytes": 5884
+      }
+    },
+    {
+      "module": "encodings.aliases",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/encodings/aliases.py",
+        "sha256": "6fdcc49ba23a0203ae6cf28e608f8e6297d7c4d77d52e651db3cb49b9564c6d2",
+        "bytes": 15677
+      }
+    },
+    {
+      "module": "encodings.utf_8",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/encodings/utf_8.py",
+        "sha256": "ba0cac060269583523ca9506473a755203037c57d466a11aa89a30a5f6756f3d",
+        "bytes": 1005
+      }
+    },
+    {
+      "module": "enum",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/enum.py",
+        "sha256": "01addb65722daecee235caf6b345e4a910b1882aacc29e4fb846e0e0904043e6",
+        "bytes": 79583
+      }
+    },
+    {
+      "module": "fcntl",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/fcntl.cpython-311-darwin.so",
+        "sha256": "6d0a3767e2c8bc37ff8e42f31996dbfe5048263f2dc9a779f4f88d409af607a1",
+        "bytes": 52472
+      }
+    },
+    {
+      "module": "fnmatch",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/fnmatch.py",
+        "sha256": "6683da36e47af523f3f41e18ad244d837783e19e98911cc0b7415dea81494ebc",
+        "bytes": 5999
+      }
+    },
+    {
+      "module": "functools",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/functools.py",
+        "sha256": "6d80018a3fa9fed44c5b78f881987ee3ab3fb1238b077b4e6dcb4b76da7db73b",
+        "bytes": 38413
+      }
+    },
+    {
+      "module": "genericpath",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/genericpath.py",
+        "sha256": "34497be8d2eb70df61e94cb2ee1938433145c977a56b36be37cc41a3a71d32c2",
+        "bytes": 5246
+      }
+    },
+    {
+      "module": "gettext",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/gettext.py",
+        "sha256": "a5c249a522b6b8e3aa6f1b12a8bcc09508b99ad612b58d2fc973db27ea3b7cc3",
+        "bytes": 21320
+      }
+    },
+    {
+      "module": "hashlib",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/hashlib.py",
+        "sha256": "e2bffb462e4d43e6637b9450e259e8ba2a56626ba3037d68aa1cee68b3f61d4a",
+        "bytes": 11765
+      }
+    },
+    {
+      "module": "io",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/io.py",
+        "sha256": "12636601d4f488b583cff41668c3a386c3b2d93499df09de0df9d9a2a4b95194",
+        "bytes": 4320
+      }
+    },
+    {
+      "module": "ipaddress",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ipaddress.py",
+        "sha256": "ba8d3389ff084fcb232b48204ec04f2b3ea4bd0eadf7b18c814947d185de2c64",
+        "bytes": 81414
+      }
+    },
+    {
+      "module": "json",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py",
+        "sha256": "d5d41e2c29049515d295d81a6d40b4890fbec8d8482cfb401630f8ef2f77e4d5",
+        "bytes": 14020
+      }
+    },
+    {
+      "module": "json.decoder",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/decoder.py",
+        "sha256": "9f02654649816145bc76f8c210a5fe3ba1de142d4d97a1c93105732e747c285b",
+        "bytes": 12473
+      }
+    },
+    {
+      "module": "json.encoder",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py",
+        "sha256": "af7bd40a0d0d0a3e726a9b4b3a2a543019f6ab97a340d0162a9c29ca9da97869",
+        "bytes": 16070
+      }
+    },
+    {
+      "module": "json.scanner",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/scanner.py",
+        "sha256": "8604d9d03786d0d509abb49e9f069337278ea988c244069ae8ca2c89acc2cb08",
+        "bytes": 2425
+      }
+    },
+    {
+      "module": "keyword",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/keyword.py",
+        "sha256": "afbe73afb68d32fa998e5ff3d081090deec457152470f5331cc2bd430a0e9d2a",
+        "bytes": 1061
+      }
+    },
+    {
+      "module": "locale",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/locale.py",
+        "sha256": "ac828df41b2fac93ba3e66a2735216c98c0e1853b8dfb9b859e301fe64153feb",
+        "bytes": 79095
+      }
+    },
+    {
+      "module": "lzma",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lzma.py",
+        "sha256": "58fb9d2fdc8a8af7b25e218f17ea3b51bdfa53bdf40f440ab33c605974ca5c2e",
+        "bytes": 13277
+      }
+    },
+    {
+      "module": "math",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/math.cpython-311-darwin.so",
+        "sha256": "ee22506c35c6962f42d9b26bb02bcaa84770f4a11b8b9b455f5c4c2c64d4de59",
+        "bytes": 93704
+      }
+    },
+    {
+      "module": "ntpath",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/ntpath.py",
+        "sha256": "86aaf350391a484721f4578c34a5f383f75eb876632dfe4240ec0242ed42a82a",
+        "bytes": 30686
+      }
+    },
+    {
+      "module": "numbers",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/numbers.py",
+        "sha256": "6d70991643a109e9c99e94d6ea2734a995fa8e89114a70ea09737413fa9ae292",
+        "bytes": 10348
+      }
+    },
+    {
+      "module": "operator",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/operator.py",
+        "sha256": "b2af20f67667203c1730e686cc5d0427becc94db4c97f1d3efe3ed2158473f6a",
+        "bytes": 10965
+      }
+    },
+    {
+      "module": "os",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/os.py",
+        "sha256": "8a5d4ac7b87c6c5b31fcb5081f7f7c06f8403a2fdb3eb23692c48933baeb899e",
+        "bytes": 39530
+      }
+    },
+    {
+      "module": "os.path",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/posixpath.py",
+        "sha256": "e5e816d8bd79b722461d71d8385d61086e999cbf4fbcdcaca56713343e890d99",
+        "bytes": 17199
+      }
+    },
+    {
+      "module": "pathlib",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/pathlib.py",
+        "sha256": "3b21ac188fd9ac20bacc8ccd976fabd5d8ccf5000f8e157d3dfff005b228fb3d",
+        "bytes": 48566
+      }
+    },
+    {
+      "module": "posixpath",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/posixpath.py",
+        "sha256": "e5e816d8bd79b722461d71d8385d61086e999cbf4fbcdcaca56713343e890d99",
+        "bytes": 17199
+      }
+    },
+    {
+      "module": "re",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/re/__init__.py",
+        "sha256": "029ead61f362489e9bb034f4c2503abee95462056541e9ad07715de3c353b0da",
+        "bytes": 15889
+      }
+    },
+    {
+      "module": "re._casefix",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/re/_casefix.py",
+        "sha256": "41572ac50cf96b04496e676d8a6708898bb8e752e06dad34ed4c50c5d8f1fe40",
+        "bytes": 5446
+      }
+    },
+    {
+      "module": "re._compiler",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/re/_compiler.py",
+        "sha256": "c05067f8bfa4c13cbbf1eedc4d5cafc9b621bcb6ebc5771ba0518a18095af15a",
+        "bytes": 26089
+      }
+    },
+    {
+      "module": "re._constants",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/re/_constants.py",
+        "sha256": "3e4463dc8ba87c4a3563be46d2d593e82ca9a0fb91768cfe5a07554ed3de82c5",
+        "bytes": 5930
+      }
+    },
+    {
+      "module": "re._parser",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/re/_parser.py",
+        "sha256": "4748e39c77d6dc14f81af80e68a62ad99031a8182d5e0b219a6666d0cfb1626f",
+        "bytes": 42420
+      }
+    },
+    {
+      "module": "reprlib",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/reprlib.py",
+        "sha256": "264433cc232332db871666b3bb6e4c2cb97b092cb8d5056a45ec2e53daea2b1c",
+        "bytes": 5437
+      }
+    },
+    {
+      "module": "runtime",
+      "file": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/runtime.py",
+        "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+        "bytes": 17236
+      }
+    },
+    {
+      "module": "select",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/select.cpython-311-darwin.so",
+        "sha256": "8155c79e68ddd3a2c1a7f49f0a3dc98604c419729ea5ac8e83de6fcc36af0154",
+        "bytes": 74144
+      }
+    },
+    {
+      "module": "selectors",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/selectors.py",
+        "sha256": "1eeb102373e18c96311203f30c516e785bd8642275aa0bd66e43a284c9692385",
+        "bytes": 19671
+      }
+    },
+    {
+      "module": "shutil",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/shutil.py",
+        "sha256": "aa2c11b95294111edddfeb02f9082ec7c4c21060d87f6857364b5bb95fb94e09",
+        "bytes": 56517
+      }
+    },
+    {
+      "module": "signal",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/signal.py",
+        "sha256": "0363c964c90ac0b3e515de5749205e6e6454051a1211058375d84d91eab6071a",
+        "bytes": 2495
+      }
+    },
+    {
+      "module": "stat",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/stat.py",
+        "sha256": "052af0327eae6941b69b05c088b3e748f79995635f80ac4cc7125eb333eb4c77",
+        "bytes": 5485
+      }
+    },
+    {
+      "module": "struct",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/struct.py",
+        "sha256": "9c231f9497caf513a22dee8f790b07f969b0e45854a0bdd6dd84b492e08c2856",
+        "bytes": 257
+      }
+    },
+    {
+      "module": "subprocess",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/subprocess.py",
+        "sha256": "baa9f9138d8d20df6284f67e7d2e790f847f65e2c5370de322d54cccd737f2d9",
+        "bytes": 88725
+      }
+    },
+    {
+      "module": "threading",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/threading.py",
+        "sha256": "f8b8d9ebd040e1373d76e73c23c683f7c7c204add96bf9d8d9c21ac751cf5252",
+        "bytes": 58231
+      }
+    },
+    {
+      "module": "types",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/types.py",
+        "sha256": "0c08fbb650c37535a7d8361fc12029e3f4c72a418cf564e8779dae14b979e5ba",
+        "bytes": 10067
+      }
+    },
+    {
+      "module": "typing",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/typing.py",
+        "sha256": "eff3df4f1d65e13d690b8f427cada4dd3b88431dd1e7f319fda1bd0062113203",
+        "bytes": 120951
+      }
+    },
+    {
+      "module": "urllib",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "module": "urllib.parse",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/urllib/parse.py",
+        "sha256": "16d609efe91f08901df42c3176a6046e34e97fd39813954871d5a16e89e6b454",
+        "bytes": 44836
+      }
+    },
+    {
+      "module": "warnings",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/warnings.py",
+        "sha256": "47328418f0365f0897a2d3789f684dbaba1d5b9c492871f1b72a35b8e2e92021",
+        "bytes": 21110
+      }
+    },
+    {
+      "module": "zipimport",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/zipimport.py",
+        "sha256": "e84b98dd13d3a8ae3ff2094ef2889dcead41d754f0531686f0b70b8d225676cc",
+        "bytes": 30897
+      }
+    },
+    {
+      "module": "zlib",
+      "file": {
+        "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload/zlib.cpython-311-darwin.so",
+        "sha256": "8c91f3ed9545d5ed811ba979602c0d460d8a765d9682baed2aa686e7a80f5816",
+        "bytes": 74440
+      }
+    }
+  ],
+  "runtime_profile": {
+    "profile": "isolated-base-standard-library",
+    "python": {
+      "path": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "sha256": "92019a8331209d7247702193bbdfbe359807d7ee1df92566fcf31935f6b273d4",
+      "bytes": 52640
+    },
+    "version": "3.11.13 (main, Jun  3 2025, 18:38:25) [Clang 17.0.0 (clang-1700.0.13.3)]",
+    "prefix": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11",
+    "sys_path": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python311.zip",
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11",
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload"
+    ],
+    "absent_stdlib_zip": "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/lib/python311.zip",
+    "site_initialization_disabled": true,
+    "scientific_installed_runtime": false
+  },
+  "raw_primary_redistributed": false,
+  "scope": "New current source-count lineage only. All66 native depth/sample IDs,147 count axes, explicit zero/sparse absence and18 unique count-vector candidates are independently joined. Numeric names are not ecological-taxonomy approvals. Primary CCBYNC source stays external; no prior acquisition/copy proof, author79 selection, chronology, basin, LRA, rights, human or release acceptance is inferred."
+}

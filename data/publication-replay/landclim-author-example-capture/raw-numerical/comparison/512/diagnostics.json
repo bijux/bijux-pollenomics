@@ -1,0 +1,30 @@
+[
+  {
+    "bin_id": "8500",
+    "reason_code": "no_site_support"
+  },
+  {
+    "bin_id": "9000",
+    "reason_code": "no_site_support"
+  },
+  {
+    "bin_id": "9500",
+    "reason_code": "no_site_support"
+  },
+  {
+    "bin_id": "10000",
+    "reason_code": "no_site_support"
+  },
+  {
+    "bin_id": "10500",
+    "reason_code": "no_site_support"
+  },
+  {
+    "bin_id": "11000",
+    "reason_code": "no_site_support"
+  },
+  {
+    "bin_id": "11500",
+    "reason_code": "no_site_support"
+  }
+]

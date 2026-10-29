@@ -41,7 +41,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/results.csv](results.csv) (SHA-256 `0c65a7517d444cb9901905165096b7a73f182ffb308d1c5f069e36c5acb239c9`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/scope.json](scope.json) (SHA-256 `7c3190d229472e8459043298c5518d7856fb32cca50fc569a5f3a1350d6cdf03`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/scope.json](scope.json) (SHA-256 `ebb39ba89a1ccc31f702c4220ed1332f991cdab685e4fee29c2507e59221d7ed`).
 
 - [Retained qualification evidence: reports/science/nordic-pollen-study.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md).
 

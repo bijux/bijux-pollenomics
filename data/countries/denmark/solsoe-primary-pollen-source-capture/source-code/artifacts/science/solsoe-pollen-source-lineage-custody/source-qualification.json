@@ -1,0 +1,220 @@
+{
+  "schema_version": "solsoe-primary-pollen-lineage-source-qualification.v1",
+  "candidate_context": "d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b",
+  "actual_exit": 0,
+  "synthetic_guard_groups": 16,
+  "strict_source_files": 7,
+  "configured_Ruff_source_files": 7,
+  "configured_format_source_files": 7,
+  "AST_files": 8,
+  "CLI_help_interfaces": 3,
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/contracts.py",
+      "sha256": "07fec76f6cdde01a2176d5cd5b554c76f94b42034f60ed8af0bf48faa6c04e34",
+      "bytes": 13958
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/prepare.py",
+      "sha256": "be74a6cc24cf68bac1efda0338ac0df452b28d1424eb540c7481682c0fa10ecc",
+      "bytes": 7671
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/run.py",
+      "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+      "bytes": 7251
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/observe.py",
+      "sha256": "14c9d8414666e53571970b77fb0598352fbf6d82ecde895c97b0233530675c20",
+      "bytes": 6253
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/execute_source.py",
+      "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+      "bytes": 3027
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/check_contract.py",
+      "sha256": "88deb241c275de4bede06ac11febb4ef8c908c2814c2ada02984d98ada9b5ebc",
+      "bytes": 14788
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    }
+  ],
+  "unchanged_runtime_mechanics": [
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/runtime.py",
+        "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+        "bytes": 17236
+      },
+      "copied": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/runtime.py",
+        "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+        "bytes": 17236
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/run.py",
+        "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+        "bytes": 7251
+      },
+      "copied": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/run.py",
+        "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+        "bytes": 7251
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/execute_source.py",
+        "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+        "bytes": 3027
+      },
+      "copied": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/execute_source.py",
+        "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+        "bytes": 3027
+      }
+    },
+    {
+      "source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      },
+      "copied": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/common_runner.py",
+        "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+        "bytes": 6924
+      }
+    }
+  ],
+  "runtime_predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/prepared-source-manifest.json",
+    "sha256": "9d192b9130eecd11da43e274dff3f483fefa91ed54617817d95eaf897b537419",
+    "bytes": 3051
+  },
+  "runtime_independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/independent-source-review.json",
+    "sha256": "2438b899f8a8e4fd1b9992bba4270acf92f0c92726ffbf4e80a3c4ff4fc4d75e",
+    "bytes": 5021
+  },
+  "cached_source_validation_profile": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "bytes": 8826542
+  },
+  "qualified_logs": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/qualified-guards.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/qualified-guards.stderr",
+      "sha256": "f901fbabb56c390d7ec0076b3e0fd921737c4ab64cd9dae784da066e2bb10567",
+      "bytes": 115
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/qualified-strict.stdout",
+      "sha256": "050c52a2b0c61e8b681ef5c485e0bc03340b8d55148e0acef27d744c8be42033",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/qualified-strict.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/qualified-static.stdout",
+      "sha256": "0be7adce665690956090205e08186f7efd9939d7fe606e4a0d117c570ab71599",
+      "bytes": 45
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/qualified-static.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/help-prepare.stdout",
+      "sha256": "741d991d19ccb247d0e0fc8704f7b45fa52a597bba223d7e9e825102067d62da",
+      "bytes": 250
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/help-prepare.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/help-run.stdout",
+      "sha256": "f24b9f9cd01ffaccb59298d9e137ba29ad261eb2c9f5017970d7a7ecb54fd2b1",
+      "bytes": 289
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/help-run.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/help-observe.stdout",
+      "sha256": "f1655e6bc49e5bb2984a9673337976ec04dc509b1311b99d9335b98c3ec7dafc",
+      "bytes": 182
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/help-observe.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "source_only_check_tools": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/check_tools.py",
+    "sha256": "802ff523f072445628afa6271c381aa3bf7bf4ac5cd6f7c5ae50e030191e3eb8",
+    "bytes": 941
+  },
+  "initial_refusals_preserved": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/initial-typing-refusal/check_contract.py",
+      "sha256": "21ccc9d4df3a22c2bf7f1cba3e7154c01c553dd195e200c564c655851db6a8d7",
+      "bytes": 13864
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/initial-typing-refusal/strict.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/initial-typing-refusal/strict.stdout",
+      "sha256": "d9d46a7acb171d5b055486c00e8342d72703498b97da80a1bf6237889cdf0358",
+      "bytes": 647
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/style-format.stdout",
+      "sha256": "86950dde7c295c05def72da2009214f6c3a63665ad33358918f5ce60c31dff30",
+      "bytes": 873
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/preflight/style-format.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "actual_input_selection": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-pollen-source-lineage-custody/declared-inputs.json",
+    "sha256": "2ec374b8b5481cfb561388784a7ceaba5f03e71e7b4b074c1fb26fac80e0257c",
+    "bytes": 3227
+  },
+  "source_checks_scope": "Synthetic small count/depth/vector/CSV/owner/path/refusal cases and actual maintained source SHA/import/CLI AST; no actual private table/Neotoma semantic reconciliation, runtime_inputs/preparer, native dependency tools, scientific producer or acquisition. Current physical twelve-input SHA census is metadata source custody only, not a prior independent native or acquisition receipt.",
+  "historical_common_type_style_claimed": false,
+  "actual_preparation_or_producer_or_model_or_Git_or_STATE_mutation": false
+}

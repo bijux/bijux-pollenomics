@@ -1,0 +1,51 @@
+{
+  "schema_version": "rootsi-workbook-chronology-source-review.v1",
+  "public_capture": {
+    "path": "data/surface-reference/rootsi-chronology-source-capture/capture.json",
+    "sha256": "0339b575f5fd22a1a60ce04f616bb4635d8c923306f49d535962c9f21045d31f",
+    "bytes": 1293958
+  },
+  "original_execution_candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+  "original_native_stages": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "original_tracked_byte_checker_exit": 0,
+  "publication_paths": [
+    "docs/report/source-relations/landclim/neotoma-chronology-witness/report.json",
+    "docs/report/source-relations/landclim/workbook-chronology/report.json"
+  ],
+  "original_input_count": 3548,
+  "input_scope_counts": {
+    "runtime_identity_only": 3498,
+    "private_source_identity_only": 7,
+    "retained_execution_source": 39,
+    "existing_public_relation_reference": 2,
+    "retained_produced_product": 2
+  },
+  "source_receipts": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/plan.json",
+      "sha256": "7d4324376456c356c2a2efff38f1d2e70ebd1a1edcffa86ccc3394c5d5f06322",
+      "bytes": 1496559
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-rootsi-source-chronology-replay/rootsi-replay-terminal.json",
+      "sha256": "5add207e7084e99cbdbb0b7e07f411bb7439dc57cc0c74f413426565ac251d70",
+      "bytes": 2084
+    }
+  ],
+  "scope": {
+    "new_native_retention_execution_claimed": false,
+    "raw_private_sources_redistributed": false,
+    "runtime_or_xlrd_payloads_redistributed": false,
+    "original_author_acquisition_or_historical_input_recovered": false,
+    "calendar_or_no_year_zero_conversion_admitted": false,
+    "source_age_correction_or_interpolation_admitted": false,
+    "independent_chronology_or_ecological_taxonomy_admitted": false,
+    "rights_human_basin_uncertainty_or_LRA_admitted": false
+  },
+  "custody": "Authored58member source/execution custody of genuine completed source/independent observers, not a new retention-native exit. Raw7private inputs and3498runtime/xlrd payloads are omitted identities;39execution sources/2publicreferences/2reports remain explicit. FLINK sign discrepancy,HOLK reversals,RANV/STAV missing ages and no dated/LRA admission stay literal;1950-minus-age and0.0500001 remain declared arithmetic diagnostics, not calendar conversion, source correction or independent dating/ecology/rights/human acceptance."
+}

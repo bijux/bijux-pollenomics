@@ -1,0 +1,1 @@
+{"scope":"Source composition assertion detected two existing xlrd-absence checks; inserted new controls before the final check using exact suffix. No source guard/native/preparer was executed during the refused composition.","actual_native_calls":0}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "rootsi-source-independent-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "e1057ba6290003d44b3bd5d06f13a761b187cc92c23ab0f01e8905d01ebb82a5",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/prepared-source-manifest.json",
+    "sha256": "e1057ba6290003d44b3bd5d06f13a761b187cc92c23ab0f01e8905d01ebb82a5",
+    "bytes": 6959
+  },
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/source-qualification.json",
+    "sha256": "c793cde6acdc4e33f89532ee74446d99d3ce53a93020f48cfc92c7819cd613ed",
+    "bytes": 6723
+  },
+  "independent_pure_guard_actual_exit": 0,
+  "independent_pure_guard_groups": 81,
+  "guard_tool_session": 29570,
+  "guard_tool_chunk": "e1db09",
+  "guard_log": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/rootsi-controller-import-custody/preflight/root-independent-guards.log",
+    "sha256": "a7f09dcbfb22a75b24d6baae21397af799f792d9db187d8b4c86732427c2b546",
+    "bytes": 146
+  },
+  "held_members_authenticated": 34,
+  "predecessor_manifest_sha256": "43410c50057074abc867fc677ca51a17372e3553efd0862d9f07dc3be7981050",
+  "review": "Complete original canonical CLIs, contracts/prepare/execute/run/observer, independent workbook/raw Neotoma count/age arithmetic, full cache admission and runtime deltas read. Successor four entrypoint physical preimport prefixes plus32regressions read; all4function bodies ASTexact,8runtime/cache/numeric/source declarations byteexact predecessor.16pure-xlrd cache files/20entries/15RECORD payloads separateprofile, never147/3331authority. Expectedinput union/finalcensus/source-path native launch/data/age/refusal/resource boundaries checked. Four45s stages/220swhole1GiBcompletedchildRSS128MiBlogicalpostchecks, noOSquota/full descendant census.",
+  "scientific_limits": "FLINK sign/HOLK reversals/RANV-STAV missing agefields and declared1950minus arithmeticonly; no no-year-zero/calendar/calibration correction, sample uncertainty/basin/rights/human/LRA or originalhistoricalinput acceptance.",
+  "actual_new_preparer_private_parser_xlrd_import_inspector_R_or_native_producer_calls": 0
+}

@@ -41,10 +41,15 @@ The corrected standalone source uses inclusive 1981 [-31,3490] and [7210,11650]
 and 1983 [3700,7180] BP under the explicitly declared `BC + 1950` convention.
 The 9700 BC paper endpoint is extrapolated; the convention does not resolve
 no-year-zero calendar conversion or make the paper chronology equivalent to
-Neotoma calibration. Its complete central-point selection total remains
-pending a genuine registered replay. The revised producer is configured to emit a 92-row raw source
-ledger, including uncertainty support, source comparability/refusal and native
-locators, alongside descriptive proxy flags.
+Neotoma calibration. The maintained registered replay on source commit
+`c397f95cc2cbe8f451df17b4f7fa6a856ad71a75` and independent source observer
+both returned native zero. Its separately [retained closed central-point result](../closed-central-point-selection/report.json)
+selects 75 raw point proxies (55+20), or 74 (54+20) within the LandClim II age
+span, and retains all 92 raw source records, uncertainty values, source
+comparability/refusals and native locators. This current result has its own
+source owner; it does not authenticate the historical v1 production process.
+PDF byte identity and the existing seven declared controls were checked;
+no fresh PDF table extraction or original provider-history recovery occurred.
 
 Point membership is not full-support containment or overlap. Native 353061
 has a 12417 BP center outside despite overlapping 11495–13410 BP support;
@@ -62,6 +67,8 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/replay.py \
   --repository . --paper /path/to/landclim/solsoe/odgaard-1994.pdf \
   --output artifacts/jobs/solsoe-original-study/replay
+cmp docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json \
+  artifacts/jobs/solsoe-original-study/replay/report.json
 ```
 
 
@@ -74,7 +81,7 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Unsupported claim.** An ungeoreferenced 9000BC reconstruction and conditional calendar conversion cannot identify the 79 author input samples or provide one radius valid for every sample age.
 
-**Actual verification performed.** Read the retained historical v1 account and source-bound closed central-point predicate controls. The older 76/74 comparison omitted two stated outer endpoints; no corrected source replay or fresh PDF table extraction was performed in this reading qualification.
+**Actual verification performed.** The maintained closed central-point source replay and independent native source observer returned zero on c397f95cc2cbe8f451df17b4f7fa6a856ad71a75. Retained native observations bind92 raw source/refusal records, 14 chronology-view control rows/seven underlying radiocarbon controls and descriptive75/74 proxies. PDF byte identity only; no fresh table extraction, original provider history or historical-v1 execution recovery.
 
 **Remaining input or review.** The original author sample IDs, historical chronology and georeferenced time-specific basin outline remain missing for LRA.
 
@@ -82,13 +89,17 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Consequence.** Seven declared date matches support the documented 1983 core lineage. Historical half-unbounded 76/74 proxies remain distinct from complete closed central-point membership, uncertainty support, source eligibility and the published 79 author rows.
 
-**Precise next acceptance route.** Run the corrected maintained source under a registered isolated stdlib profile, preserve all 92 raw source rows/refusals and independently verify native central-point inclusion/exclusion before reporting its total. Original 79 membership, chronology and dated basin/rights review remain separate.
+**Precise next acceptance route.** Use the separate retained current result for its declared closed central-point comparison. Independently recover the original historical-v1 production custody if needed; obtain the original 79 same-core sample IDs, author chronology, dated basin and rights/qualified scientific review before LRA admission.
 
-**Negative or refused result.** Historical 76/74 proxies are not the complete paper intervals and do not recover79 author samples. Native352996 remains refused/negative_bp even if its central point is inside. LRA-admitted 0.
+**Negative or refused result.** Historical 76/74 proxies are not the complete paper intervals and do not recover79 author samples. Native352996 remains refused/negative_bp even if its central point is inside. LRA-admitted 0. Current 75/74 descriptive counts also fail to recover79; no uncertainty-support or analytical admission is inferred.
 
-**Matched denominator.** Seven declared radiocarbon controls occur in 14 chronology-view relation rows; 92 raw central-age source records. Historical half-unbounded selection 76 (56+20), bounded 74; corrected complete-interval total is pending registered replay. One 9000 BC basin figure from 51 corings is not age-specific sample support.
+**Matched denominator.** Seven declared radiocarbon controls occur in 14 chronology-view relation rows; 92 raw central-age source records. Current closed selection 75 (55+20), bounded 74 (54+20); historical half-unbounded76 (56+20)/74 remains unchanged. The75 include raw native 352996 with refused/negative_bp, so these are not analytically admitted counts. One 9000 BC basin from 51 corings is not sample-age support.
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json](report.json) (SHA-256 `8456bf919423c4b57ed202704cc43d04b891ba98069b9ad9e0765192abf533a6`).
+
+- [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json](../closed-central-point-selection/report.json) (SHA-256 `999534b826902f14c0fbd08ff36a5760f191070a13179d9d1bede9ca2cfa4436`).
+
+- [Retained qualification evidence: reports/science/source-lineage/solsoe-closed-point-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/solsoe-closed-point-source.json) (SHA-256 `987d12fddc24e1c7ab0ae3a1f8e8e50dcdcc6b92fe2928191afcf9734dcf2665`).
 
 - [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
 

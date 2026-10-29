@@ -1,0 +1,142 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+  "plan_sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+  "actual_exit": 1,
+  "status": "failed",
+  "elapsed_seconds": 1.0083630840526894,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json",
+    "--registered-plan-sha256",
+    "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652"
+  ],
+  "canonical_before": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "status": "",
+    "tracked_inventory_sha256": "cfb3a85deaff6975d1094cc4f10b6944fe07fc24e8377d832882498cbec05c0d"
+  },
+  "canonical_after": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "status": "",
+    "tracked_inventory_sha256": "cfb3a85deaff6975d1094cc4f10b6944fe07fc24e8377d832882498cbec05c0d"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "maintained-swedish-cohort-source",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.18491799995535985,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/maintained-swedish-cohort-source.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/maintained-swedish-cohort-source.stderr",
+      "stdout_sha256": "0f5a2ab4dea5d15883a2725880fb6cd8e856705b9ea8c5c76b62c33ed7f470fb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 50397184
+    },
+    {
+      "id": "independent-swedish-cohort-metadata-observer",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 1,
+      "timed_out": false,
+      "elapsed_seconds": 0.2981003330205567,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/independent-swedish-cohort-metadata-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/independent-swedish-cohort-metadata-observer.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "58562cba88db2fb86820b029417db7d483714f25461da44ccb1f2efee183e60e",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 50397184
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/independent-swedish-cohort-metadata-observer.stderr",
+      "sha256": "58562cba88db2fb86820b029417db7d483714f25461da44ccb1f2efee183e60e",
+      "bytes": 1159
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/independent-swedish-cohort-metadata-observer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/maintained-swedish-cohort-source.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/maintained-swedish-cohort-source.stdout",
+      "sha256": "0f5a2ab4dea5d15883a2725880fb6cd8e856705b9ea8c5c76b62c33ed7f470fb",
+      "bytes": 531
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json",
+      "sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+      "bytes": 1451833
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/preparation.json",
+      "sha256": "00bf3198ee503f60f621613d6dbfe4c0718331f49a6f342212ff290fb096731f",
+      "bytes": 388
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/producer/report.json",
+      "sha256": "dc915089ee968411dafb97c269693613b89dbcbfecbd3e92a580405ea50cad89",
+      "bytes": 7767
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/root-launch.log",
+      "sha256": "146ab0515b847b8e93b9948222be8c2d10f29802d0642291e82c731d9c7a9b38",
+      "bytes": 331
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/source-runtime-observation.json",
+      "sha256": "d44dae393306840c26d655033afa4b73b617e7521a218c8ec87afcf610531311",
+      "bytes": 96247
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/stage-progress.json",
+      "sha256": "cb75cc7d7a44ea9af5afaa0795f132523711d27437e0e1865c83fbc62a05647f",
+      "bytes": 2341
+    }
+  ],
+  "output_bytes": 1560597,
+  "resources": {
+    "overall_timeout_seconds": 110,
+    "resident_memory_limit_bytes": 1073741824,
+    "output_byte_limit": 134217728,
+    "outer_timeout_seconds": 100,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "Metadata-only current maintained Swedish cohort/source collision replay. No new acquisition, pollen/count table, selected sample age/chronology, distinct untouched cohort, LRA, rights/human or ecological acceptance.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

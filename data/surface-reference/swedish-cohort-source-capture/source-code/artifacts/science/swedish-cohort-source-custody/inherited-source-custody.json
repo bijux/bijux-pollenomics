@@ -1,0 +1,50 @@
+{
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/prepared-source-manifest.json",
+    "sha256": "c3fb17c77a15c3d2b082f2d75a79897f35e4be86b67f3a406c621a08465d1402"
+  },
+  "copied": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/contracts.py",
+      "sha256": "d1993f6910c8dbbb19f9581998ed1658b6272f05ce389d1254e7abbd75425b82",
+      "bytes": 5135,
+      "copied_to": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/contracts.py"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236,
+      "copied_to": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/runtime.py"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924,
+      "copied_to": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/common_runner.py"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/execute_source.py",
+      "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+      "bytes": 3027,
+      "copied_to": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/execute_source.py"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/prepare.py",
+      "sha256": "435bfb5e8be5784e3319d4c51abd8815bab9368814f7341fa401127814134c14",
+      "bytes": 6867,
+      "copied_to": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/prepare.py"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/run.py",
+      "sha256": "b87356b8abcb1d2d88ae32f8a3d58fea072e5963d895949fc3a172a02d45e9c5",
+      "bytes": 7115,
+      "copied_to": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/run.py"
+    }
+  ],
+  "runtime_common_launcher_exact_reuse": [
+    "runtime.py",
+    "common_runner.py"
+  ],
+  "new_science_scope": "Metadata-only Swedish availability/core-handle collision, not SVAR source or ranking.",
+  "execute_source_delta": "Only a closed pre-import namespace guard. All pre-existing source-execution/runtime-observation function bodies and calls unchanged."
+}

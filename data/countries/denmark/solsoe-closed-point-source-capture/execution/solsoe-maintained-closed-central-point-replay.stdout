@@ -1,0 +1,2 @@
+Original Solsø core comparison complete
+{"source_runtime": {"path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/source-runtime-observation.json", "sha256": "f70c91a9665cbf1170aab4d4a765bec4efff447ac6d55514b84a9fbd311eebec", "bytes": 93942}, "generated_report": {"path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/producer/report.json", "sha256": "999534b826902f14c0fbd08ff36a5760f191070a13179d9d1bede9ca2cfa4436", "bytes": 203045}, "source_exit": 0, "metadata_exit": 0}

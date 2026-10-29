@@ -1,0 +1,46 @@
+{
+  "schema_version": "swedish-nested-metadata-observer-only.v1",
+  "purpose": "One independent metadata-source observer over the completed original maintained producer; no producer rerun.",
+  "original_production": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json",
+      "sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+      "bytes": 1451833
+    },
+    "common": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/terminal.json",
+      "sha256": "324e7e084d6a111608b84f2863f6536ee6d03ae69cb53adcc9936390107ac02a",
+      "bytes": 7398
+    },
+    "outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/swedish-cohort-terminal.json",
+      "sha256": "9baf18964647c6a0d2a66d9d6d546362f3da7daff2adb62aed6a982925b2113f",
+      "bytes": 1330
+    },
+    "native_stage_exits": [
+      0,
+      1
+    ],
+    "whole_actual_exit": 1,
+    "original_pin_count": 3537,
+    "no_relabelled_original_passing_aggregate": true
+  },
+  "correction": "Only dataset_sites reads each native integer datasetid through the declared site.datasets singleton.102 unique native datasets/99site cardinality and no ID coercion remain required. All other independent metadata functions are AST exact.",
+  "retained_custody": "Original plan/common/outer fixed hashes, source0/observer1 exact stage argv/status/no-timeout and clean input outcomes are required. All3537 original inputs, complete12produced/receipt files and exactly producer/scratch directories are protected. Only the original331B stdout prefix plus the two exact source-defined finalized JSON lines is accepted for the appended root log. No arbitrary mutable output baseline.",
+  "runtime": "Original isolated BASE-I-S-B runtime/stdlib source reused byteexact. Full original framework membership, rawaliases, absences,OS authority and original/new frozen pins before/after; no native inspector during source authoring or fresh preparation census.",
+  "future_candidate": "Exactly original clean c292dafa60f9d992f162c92dd327207d9aefd76b; no unreviewed canonical delta or historical source rewrite.",
+  "resources": {
+    "native_stages": 1,
+    "observer_seconds": 45,
+    "outer_common_seconds": 100,
+    "completed_whole_seconds": 110,
+    "completed_child_peak_RSS_postcheck": 1073741824,
+    "logical_output_postcheck": 134217728,
+    "own_receipt_reserve": 16384,
+    "OS_quota": false,
+    "full_descendant_cleanup_confirmed": false
+  },
+  "scope": "Full original26-private-metadata join is reserved for separately root-prepared/registered/launched observer.102datasets/99sites;206 all-country handles incl UNASSIGNED;66titles62retained3unmatched1generic and37events remain literal metadata evidence. No pollen/count observations, acquisition, distinct untouched site proof, selected calibrated sample ages, chronology/calendar correction, rights, human/ecological or LRA acceptance.",
+  "actual_preparer_source_consumer_private_metadata_join_native_R_model_calls_by_author": 0
+}

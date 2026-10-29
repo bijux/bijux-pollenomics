@@ -56,13 +56,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "c83e56d189934895d78112d266a5bc7aef0352c8dd7134c5e0dc641244fd5ad2",
-      "bytes": 133574
+      "sha256": "3f891d3fbaf1fb50b783d12667ca451035372fcde2e96b96826b01d7eac5d864",
+      "bytes": 132699
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "05bd2613b2a9c77bbee0233c7d38d7a54dc68e7cec3f349f536a91ba9c5c5eb7",
-      "bytes": 7474335
+      "sha256": "0e9ce09350fabf55997d5551491d9b4edade18c63efd90443c15b601e2a3624d",
+      "bytes": 7367750
     },
     {
       "path": "configs/release_evidence_policy.json",

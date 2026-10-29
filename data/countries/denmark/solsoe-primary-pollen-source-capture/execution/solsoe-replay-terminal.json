@@ -1,0 +1,33 @@
+{
+  "candidate": "d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b",
+  "plan_sha256": "5cb4bce88d84bbd3c9ff734e800d1c9dd4a47a9e40ff1900fc1fb75870b2c6f6",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/terminal.json",
+    "sha256": "9deb99e676bf685ab92e6999004d4329f957584b54c65356f7b7d307fd156557",
+    "bytes": 7777
+  },
+  "common_actual_exit": 0,
+  "outer_timed_out": false,
+  "observed_elapsed_seconds": 10.016866291000042,
+  "completed_whole_wall_bound_pass": true,
+  "framework_membership_unchanged": true,
+  "absent_paths_unchanged": true,
+  "actual_native_stage_exits": [
+    0,
+    0
+  ],
+  "tracked_byte_checker_exit": 0,
+  "independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-primary-pollen-lineage/independent-source-review.json",
+    "sha256": "86bfd205474a1fd30ef0e1c5029c4ad9f5b189b8ac78c818bce9b6c348c977fb",
+    "bytes": 46945
+  },
+  "completed_child_peak_rss_bytes_macos": 736067584,
+  "output_bytes_before_receipt": 1610758,
+  "own_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 0,
+  "scope": "Current maintained primary739834 source-count lineage only; exact66depths/147parameters/9702cells/2881positive/6821zero/128653counts and129literal+18unique numerical rename candidates must be independently derived. Complete JSON/66rowCSV bytes must match canonical authority. Primary raw CCBYNC remains external, no redistribution or recovered acquisition/copy chain. Numeric name-vector equality is not ecological taxonomy, original79 selection, chronology, basin, LRA, rights, human or official release acceptance. No numerical models, R, fitting or network.",
+  "resource_limit": "Completed-child peak RSS and logical regular output accounting; no enforced memory/disk quota or complete descendant census."
+}

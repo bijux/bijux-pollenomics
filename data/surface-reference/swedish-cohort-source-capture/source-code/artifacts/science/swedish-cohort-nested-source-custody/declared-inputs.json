@@ -1,0 +1,178 @@
+{
+  "owner": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+  "maintained_source": "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py",
+  "report": "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json",
+  "private_root": "/Users/bijan/bijux/-bijux-pollenomics-data",
+  "inputs": [
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/pangaea/epd-age-cut-pangaea-804596.tsv",
+      "sha256": "d332d5c7921b914e84da689c918607befdb162f5c68bbcce9cd3534d1f5e58e0",
+      "bytes": 3613957
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/pangaea/legacyage-site-chronology-metadata-pangaea-933132.tsv",
+      "sha256": "315fdc3c02d8bd0f6620dc47d52039186349deb3e88162e416f005cad80438d4",
+      "bytes": 1351998
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-adran-pollen-metadata.jsonld",
+      "sha256": "9a8ca523e1f8d44dfb9dc336f0710f322b6005c4698639ae77394b681214cb5a",
+      "bytes": 24305
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-adran-related-metadata.json",
+      "sha256": "564bbed90eeb55fdfa34966e4bcf46a04ac81acb8157868b5f38186e3e5790ed",
+      "bytes": 7447
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-core-chronologies-853943.tsv",
+      "sha256": "202fe5d42769f45642a2da9224ebde986603f8b55f5c56d44bd889236b5a2130",
+      "bytes": 362886
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-garasel-pollen-metadata.jsonld",
+      "sha256": "10f60de38afeb574b63d8c776989f5f597e3fdc365321d29421b50953a14b346",
+      "bytes": 29393
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-garasel-related-metadata.json",
+      "sha256": "fbbb6aefae79dd3eb45c4af60c8cde4498bdea5777fd4b9d913c2a0d77cae3e2",
+      "bytes": 5641
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-hakulla5-pollen-metadata.jsonld",
+      "sha256": "58e24b7bd5a65bf4ebaa4643a79ceb82b9f04cd6fb8795c4e3bead7daaa1880e",
+      "bytes": 31702
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-hakulla5-related-metadata.json",
+      "sha256": "42e2279e5f0fd19dfac4bc59c00982d8650eed74b788baeb701d9a37e6a0f220",
+      "bytes": 46269
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-leveanie-pollen-metadata.jsonld",
+      "sha256": "6d9336f17b8e6c11cc1939027ecedde78b8ccbe43bc2549db18d9d1c0e72a97a",
+      "bytes": 16083
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-leveanie-related-metadata.json",
+      "sha256": "c97b7a08e490e47d1721f2c5696838c2f032e723f4c48efea09c9235740c6838",
+      "bytes": 3807
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-ndraket-pollen-metadata.jsonld",
+      "sha256": "a2c9f5961d82f310f20e4040a00ad37a6ef674d68fa81d703b293ea60654654a",
+      "bytes": 26412
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-ndraket-related-metadata.json",
+      "sha256": "71c59ba7c2eef0f822a043de245c8a72ba5d16f0f65b78481a0806ffad2b6c57",
+      "bytes": 3787
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-schonen-pollen-metadata.jsonld",
+      "sha256": "747a4a15ce609fa260f5d81a689d02d20079f36483cca5579dcb8f46c8ed0745",
+      "bytes": 5273
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-sweden-pollen-profiles.json",
+      "sha256": "1700828808414189deb9c01aecd5e097f8887081964bf654ecc25217e71ca990",
+      "bytes": 120478
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-vuolepal-pollen-metadata.jsonld",
+      "sha256": "9a6f0aa848e939adb72ca37b9728ca3fab4b07e5c124f34e8a08c473f06d4937",
+      "bytes": 36400
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/pangaea-vuolepal-related-metadata.json",
+      "sha256": "2db0237ef2b072eadff3411a08072e688fbe77e31eb69286912362f1c65a1caa",
+      "bytes": 5700
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/epd/swedish-cohort-metadata/source-manifest.json",
+      "sha256": "4ab9abd1ed3edb9af0df7370563035adc02617fe6361a842f73840d36c56bc6c",
+      "bytes": 5604
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/neotoma-klot-site-metadata.json",
+      "sha256": "72be09e4575400b2baee270fc482aad165053a2166cdd3dcdc881752ea8637a8",
+      "bytes": 2405
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/neotoma-sambosjon-dataset-metadata.json",
+      "sha256": "bb8cfb8db5ab5d6380f6fae6a291e948701a8da92c50fb75aa0ef220c47c6ad3",
+      "bytes": 1053
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/neotoma-sambosjon-site-metadata.json",
+      "sha256": "77b0abff82a931b1348ad59c4918ba640f3e018023f736daf88ea45ec6698d51",
+      "bytes": 746
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/neotoma-sweden-datasets-current.json",
+      "sha256": "f792b798c9c0eeca1954abbb6adc5e49571b6f0b686e3f439f288376294774b8",
+      "bytes": 99956
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/pangaea-klot-pollen-metadata.jsonld",
+      "sha256": "0dcb8f901f8854ebfefe529a01246845658aa53a513558f6dc752054c02d9f28",
+      "bytes": 51713
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/pangaea-sambotot-age-controls-metadata.jsonld",
+      "sha256": "f96ae90bf6e9f2613b39a92f9b0220a6c19d6d3be345b35cdffaad1a76d1f252",
+      "bytes": 5954
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/pangaea-sambotot-pollen-metadata.jsonld",
+      "sha256": "4b979048a64efb2854e60bc63a7850585a4cc90115d57b4c83b7d818e4d5b881",
+      "bytes": 42708
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/neotoma/swedish-cohort-metadata/source-manifest.json",
+      "sha256": "83e2a3ca13a2b8cbcd397b5f96da0be86be3c52fa8647d146dc0de0fe774d58f",
+      "bytes": 2180
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/relational/manifest.json",
+      "sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+      "bytes": 9223
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/relational/surfaces/collection_units/part-00001.json",
+      "sha256": "dea88b9cadd08256b94f537a5d6a48c8b6b6c5820e5f340ae4786c3e28066780",
+      "bytes": 196711
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/relational/surfaces/datasets/part-00001.json",
+      "sha256": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+      "bytes": 440360
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/relational/surfaces/sites/part-00001.json",
+      "sha256": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9",
+      "bytes": 307210
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py",
+      "sha256": "115dc864fe0688d839148ae0aed17dbca839dc29b88318466a4e628dfde33d63",
+      "bytes": 20461
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/neotoma/swedish-cohort-availability/report.json",
+      "sha256": "dc915089ee968411dafb97c269693613b89dbcbfecbd3e92a580405ea50cad89",
+      "bytes": 7767
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json",
+      "sha256": "c7e2c67488faec670c585fdb3d03c067cb58449bf0e4a49032698c5a1c9aad81",
+      "bytes": 2725
+    }
+  ],
+  "private_metadata_members": 26,
+  "private_metadata_bytes": 5903857,
+  "selected_input_count": 33,
+  "selected_input_bytes": 6888314,
+  "input_discovery_scope": "Only sources.json, exact primary/EPD source-manifests, their declared26 metadata members, and exact relational manifest/sites/collection_units/datasets. No producer, metadata joins, pollen/count table, whole private tree, acquisition or rights inference."
+}

@@ -44,8 +44,16 @@ The complete source-calendar central-point proxy uses inclusive 1981 intervals
 [-31,3490] and [7210,11650] BP and the 1983 interval[3700,7180] BP under the
 existing declared `BC + 1950` arithmetic convention. That convention is not a
 resolved no-year-zero calendar conversion. The paper's 9700 BC older endpoint
-is extrapolated. A fresh registered replay is required before reporting the
-corrected proxy total; the retained 76/74 result remains historical.
+is extrapolated. The maintained registered replay and independent source
+observer on source commit `c397f95cc2cbe8f451df17b4f7fa6a856ad71a75` both
+returned native zero. The separately [retained current result](../../docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json)
+selects **75 raw central-point proxies** (55+20), or **74** (54+20) within the
+LandClim II age span. The original half-unbounded 76/74 report remains unchanged
+and its original execution custody is unresolved. The current replay retains
+all 92 native raw records and refusals, 14 chronology-view control rows and
+seven underlying radiocarbon controls. It authenticates the retained PDF's
+identity and checks the existing source control declarations, without fresh
+PDF table extraction or recovery of original provider history.
 
 This is a descriptive central-value proxy, not uncertainty containment,
 support overlap or analytical eligibility. Native sample 353061 has a 12417 BP
@@ -149,7 +157,7 @@ the released LandClim and Neotoma input hashes.
 
 **Unsupported claim.** Historical LandClim 79-row LRA input or age-specific shoreline.
 
-**Actual verification performed.** Retained PANGAEA count/control, final-age and LegacyAge lineage checks are cited; index did not rerun.
+**Actual verification performed.** Retained PANGAEA count/control, final-age and LegacyAge lineage checks are cited; index did not rerun. Separately retained maintained closed central-point replay and independent source observer both returned native zero on source c397f95cc2cbe8f451df17b4f7fa6a856ad71a75. Exact 92 raw/refusal records, 14 chronology-view rows and seven declared radiocarbon controls are retained; closed 75 and bounded 74 are descriptive proxy counts. PDF identity was authenticated without fresh table extraction or original-provider recovery.
 
 **Remaining input or review.** LandClim names 79 Solsø rows but Neotoma has 92; age-span filtering retains 90. Selected rows/chronology, age-specific shoreline, eligible denominator, parameter mapping and R-marked rights remain open. Resolver: Solsø/LandClim source custodians and qualified Danish chronology/basin reviewer Reopen when: Actual 79-row same-core source packet with selected ages, geometry, counts, PPE and terms passes admission.
 
@@ -159,14 +167,12 @@ the released LandClim and Neotoma input hashes.
 
 **Precise next acceptance route.** Authenticate the historical SOLSOE81/SOLSOE83 selection and exact 79-row same-core age, basin, count, PPE and rights packet; rerun the LRA prerequisite screen before revising this account or admitting historical inputs.
 
-**Negative or refused result.** Zero Solsø LRA samples admitted; age-span filter yields 90, not 79 historical rows.
+**Negative or refused result.** Zero Solsø LRA samples admitted; age-span filter yields 90, not 79 historical rows. Current closed 75 and bounded 74 proxies still differ from79. Native352996 remains refused/negative_bp despite descriptive central-point membership; original historical-v1 production is not recovered.
 
-**Matched denominator.** 66 SOLSOE81 +26 SOLSOE83 =92 Neotoma samples; 91 selected observed-pollen samples; LandClim names 79.
+**Matched denominator.** 66 SOLSOE81 +26 SOLSOE83 =92 Neotoma samples; 91 selected observed-pollen samples; LandClim names 79. Current descriptive closed 75=55+20 and bounded 74=54+20 from 92 raw central-age records;14 control-view rows represent seven underlying declared radiocarbon controls, not 14 independent controls.
 
-Retained evidence: [docs/report/countries/denmark/solsoe-source-lineage/report.json](../../docs/report/countries/denmark/solsoe-source-lineage/report.json), [docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md](../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md).
+Retained evidence: [docs/report/countries/denmark/solsoe-source-lineage/report.json](../../docs/report/countries/denmark/solsoe-source-lineage/report.json), [docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md](../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md), [docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json](../../docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json), [reports/science/source-lineage/solsoe-closed-point-source.json](source-lineage/solsoe-closed-point-source.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
-<!-- scientific-claim-semantic-sha256: 4cc43e778057c4f6f976b5b326fa78ebb89e728d9a0f10c32c6c18693b438db5 -->
-<!-- scientific-authored-source-sha256: 94ca670ae9beb0aa3b3d11189222436aaa16a15738992044d55aee09f9157a9c -->
 <!-- scientific-verification-and-limits:end -->

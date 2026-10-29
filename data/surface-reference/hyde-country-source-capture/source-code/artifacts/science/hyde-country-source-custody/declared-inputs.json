@@ -1,0 +1,74 @@
+{
+  "schema_version": "hyde-country-source-inputs.v1",
+  "owner": "regions/nordic/hyde-country-cropland/report-products",
+  "maintained_source": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
+  "report": "docs/report/regions/nordic/hyde-country-cropland/report.json",
+  "reports": [
+    "docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
+    "docs/report/regions/nordic/hyde-country-cropland/report.json"
+  ],
+  "private_root": "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5",
+  "inputs": [
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/original/general_files.zip",
+      "sha256": "6c85ebaaa4e18b569be4833454ee0139588acb9001a7c57ca678265c1816f923",
+      "bytes": 3539246
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/original/gbc2025_7apr_base/txt/cropland_c.txt",
+      "sha256": "d3ddee4c611af206f5324243c6676c2c9648306970e8c7e108d3cf5d418099bb",
+      "bytes": 404938
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/original/gbc2025_7apr_lower/txt/cropland_c.txt",
+      "sha256": "b4aa002fe3d0217b4cbdb81513c2d3e2184a2620cb52b39822a42bd9723b8268",
+      "bytes": 409517
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/original/gbc2025_7apr_upper/txt/cropland_c.txt",
+      "sha256": "e8f186147691e99d7406e21d17f421b5f8893f45941ef3884c0c45b77df48f1e",
+      "bytes": 410868
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/License.txt",
+      "sha256": "3711f963c05d0be80d53e5923308a6dee31b203da23435c9cfb7c7b6e4dd5e19",
+      "bytes": 19346
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/yoda-metadata[1749214948].json",
+      "sha256": "44dacada9b1b9ade1886bf0f2a26277a2b964afbff46f9ee64c17069f7b57b3a",
+      "bytes": 3843
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
+      "sha256": "06302225bd7d6e49c8a5fde444813cc47f5792c6ed7298cce039179b37c1d8fa",
+      "bytes": 7258
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/hyde-country-cropland/report.json",
+      "sha256": "55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb",
+      "bytes": 1829
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
+      "sha256": "35f58799ee1a77e252f00d26543d5b04e710c51bdb595181bf02daa00dfbcd68",
+      "bytes": 4176
+    }
+  ],
+  "consumed_private_source_paths": [
+    "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/original/general_files.zip",
+    "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/original/gbc2025_7apr_base/txt/cropland_c.txt",
+    "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/original/gbc2025_7apr_lower/txt/cropland_c.txt",
+    "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/original/gbc2025_7apr_upper/txt/cropland_c.txt"
+  ],
+  "rights_context_identity_only_paths": [
+    "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/License.txt",
+    "/Users/bijan/bijux/-bijux-pollenomics-data/HYDE-3.5/yoda-metadata[1749214948].json"
+  ],
+  "archive_member_read_allowlist": [
+    "HYDE_country_codes.xlsx",
+    "xl/sharedStrings.xml",
+    "xl/worksheets/sheet1.xml"
+  ],
+  "scientific_scope": "84 source-reported modeled country/scenario/year rows and exact arithmetic only; all rights/version/calendar/grid/uncertainty/pollen-covariate/independent-observation limits unchanged."
+}

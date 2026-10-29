@@ -1,0 +1,31 @@
+{
+  "source_only_actual_exit": 0,
+  "meaningful_guard_groups": 23,
+  "cases": [
+    "complete-current-metadata102-99-206-66-62-37-refusal-scope",
+    "dataset-site-count-type-and-outside-site-refusals",
+    "complete102-unique-native-datasets99sites-duplicate-and-boolean-refusals",
+    "actual-declared-nested-schema-missing-multiple-flattened-and-ID-type-refusals",
+    "whole-country-unassigned-and-title-age-population-refusals",
+    "fresh-cohort-selected-age-country-filter-and-complete-lead-refusals",
+    "metadata-title-handle-vocabulary-and-generic-unbound",
+    "source-namespace-title-parser-and-missing-title-refusal",
+    "complete-synthetic66-metadata-62-retained3-unmatched1-generic",
+    "truncated-timedout-typed-total-duplicate-DOI-refusals",
+    "all-country-retained-handle-cannot-be-filtered-out",
+    "site-core-dataset-all-country-join-and-duplicate-typed-ID-refusals",
+    "event-header-only-and-chronology-reference-table-no-pollen-count-parsing",
+    "frozen-union-identical-overlap-conflicting-role-and-pre-mkdir-drift-refusals",
+    "duplicate-nonfinite-JSON-and-complete-typed-numeric-equality",
+    "closed-helper-namespace-shadow-directory-alias-special-refusals",
+    "artifact-confinement-and-inclusive-output-alias-special-refusals",
+    "inherited-native-loader-prefix-and-malformed-header-refusals",
+    "all-four-native-entrypoints-refuse-compiled-helper-shadow-before-import",
+    "original-stdout-stdout_prefix-and-only-source-defined-failed-terminal-tails",
+    "genuine-original-plan3537-source0-observer1-whole1-declared-contract",
+    "original-native-exit-command-timeout-membership-and-custody-refusals",
+    "no-relabelling-original-whole-failure-or-duplicate-original-pin"
+  ],
+  "actual_source_metadata_producer_parser_join_preparer_native_or_inspector_calls": 0,
+  "fixture_scope": "Synthetic metadata plus current public report scope only; no actual26 private metadata joins."
+}

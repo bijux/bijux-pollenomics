@@ -1,0 +1,67 @@
+{
+  "schema_version": "independent-author-grid-capture-review.v1",
+  "candidate": "d027effd6c0ac91512cd586c3a51db987ea46d54",
+  "capture": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-retained-capture/proposal/data/publication-replay/landclim-author-example-capture/capture.json",
+    "sha256": "9d6c4821ea1ba2a1216272d9691017e88ad96a66cf5820271b76442e617e3eec",
+    "bytes": 7871526
+  },
+  "members": 4237,
+  "history": {
+    "numerical-execution": {
+      "candidate": "e282e08d796528488b438edd3ea661fb94b97b5d",
+      "pins": 54092,
+      "whole_actual_exit": 1,
+      "stage_exits": [
+        0,
+        0,
+        1
+      ],
+      "recovered_original_Git_inputs": 49
+    },
+    "numerical-source-review": {
+      "candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+      "pins": 54542,
+      "whole_actual_exit": 0,
+      "stage_exits": [
+        0
+      ],
+      "recovered_original_Git_inputs": 34
+    },
+    "correspondence-writer": {
+      "candidate": "e1ca9def55e7cd3e68ac6f20270059e743373251",
+      "pins": 54759,
+      "whole_actual_exit": 1,
+      "stage_exits": [
+        0,
+        1
+      ],
+      "recovered_original_Git_inputs": 36
+    },
+    "saved-ledger-review": {
+      "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+      "pins": 57025,
+      "whole_actual_exit": 0,
+      "stage_exits": [
+        0
+      ],
+      "recovered_original_Git_inputs": 31
+    }
+  },
+  "produced_owned_paths": 5,
+  "current_numerical_sources_exact": 59,
+  "supported_ledger_cells": 14074,
+  "excluded_original_R_zero_placeholder_cells": 15376,
+  "maintained_verify_report": {
+    "passed": true,
+    "grids": [
+      "512",
+      "562"
+    ],
+    "raw_bytes_verified": true
+  },
+  "private_raw_files_redistributed": 0,
+  "original_failures_preserved": true,
+  "R_Python_model_writer_replays": 0,
+  "scope": "Metadata-only preservation of five genuine source-Python/original-R two-grid products. Original source execution, numerical review, pure correspondence writer and saved-ledger review remain four distinct epochs. Original numerical and writer aggregate failures remain literal; successful stages are not promoted to whole-job success. Full original input hashes, exact historical source and current-context Git recoveries are separate; no whole-current-tree equivalence. Private193 source bytes/runtime libraries are not redistributed. Legacy installed_lra/raw REPORT vocabulary is preserved and does not establish installed-distribution execution. Full1128 study, independent vegetation/Nordic accuracy, rights, human and official release acceptance remain open."
+}

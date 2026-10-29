@@ -1,0 +1,105 @@
+{
+  "schema_version": "git-retained-source.v1",
+  "capture": {
+    "name": "capture.json",
+    "sha256": "18201ca5a0670298415bf5b9efab574b4b60733f84f7a1149cb64dee83fccf65",
+    "bytes": 1272987
+  },
+  "historical_native_epochs": [
+    "d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b"
+  ],
+  "source_revision_correspondence": [
+    {
+      "historical_source_commit": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "source_revision": "484fd110a3a0785c264a26a4d84bcccf12a8439e"
+    },
+    {
+      "historical_source_commit": "dc47887a06c62ca744a34688a88caeef83276eb7",
+      "source_revision": "27134ec78ba584715022625914725572f00405a4"
+    },
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "95f9889b79652cc06086ddfd22128d195ff10479"
+    },
+    {
+      "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
+      "source_revision": "3bece1dc8f7a5e230e6cdc7cf17032d4a755679f"
+    }
+  ],
+  "git_groups": [
+    {
+      "historical_source_commit": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "source_revision": "484fd110a3a0785c264a26a4d84bcccf12a8439e",
+      "member_count": 1,
+      "git_entries_sha256": "cbcf47fca16381a18c6b70dc132065f40e11d6df170db6ab2cff2b7dc1cb1240",
+      "paths": [
+        [
+          "source-code/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py",
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "dc47887a06c62ca744a34688a88caeef83276eb7",
+      "source_revision": "27134ec78ba584715022625914725572f00405a4",
+      "git_entries_sha256": "2370bec12abfdeb1e512669db4087d1a825aff979bdfa5acd9bfeec0ec29d3cd",
+      "member_count": 1,
+      "paths": [
+        [
+          "source-code/configs/ci/report-ownership.json",
+          "configs/ci/report-ownership.json"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
+      "source_revision": "95f9889b79652cc06086ddfd22128d195ff10479",
+      "member_count": 7,
+      "git_entries_sha256": "27184f893c4a050ef58a7d05efedf62c225716103b2315af0d15f792aaec4dc4",
+      "paths": [
+        [
+          "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/check_contract.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/solsoe_primary_lineage/contracts/check_contract.py"
+        ],
+        [
+          "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/contracts.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/solsoe_primary_lineage/contracts/contracts.py"
+        ],
+        [
+          "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/execute_source.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/context_source/svar_normalized/execution/execute_source.py"
+        ],
+        [
+          "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/observe.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/solsoe_primary_lineage/observation/observe.py"
+        ],
+        [
+          "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/prepare.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/solsoe_primary_lineage/preparation/prepare.py"
+        ],
+        [
+          "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/run.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/solsoe_closed_point/execution/run.py"
+        ],
+        [
+          "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/runtime.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/runtime/isolated_profile.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
+      "source_revision": "3bece1dc8f7a5e230e6cdc7cf17032d4a755679f",
+      "member_count": 1,
+      "git_entries_sha256": "d91df2252ee35730e46c630958e8f4c0f57b72fb7597943d250ebbe448f25b87",
+      "paths": [
+        [
+          "source-code/artifacts/science/solsoe-pollen-source-lineage-custody/common_runner.py",
+          "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/execution/report_consumer.py"
+        ]
+      ]
+    }
+  ],
+  "generated_members": [],
+  "rewritten_source_epoch_executed": false
+}

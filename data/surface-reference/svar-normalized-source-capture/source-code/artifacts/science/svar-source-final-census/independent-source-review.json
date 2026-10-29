@@ -1,0 +1,33 @@
+{
+  "schema_version": "svar-final-census-independent-source-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "c3fb17c77a15c3d2b082f2d75a79897f35e4be86b67f3a406c621a08465d1402",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/prepared-source-manifest.json",
+    "sha256": "c3fb17c77a15c3d2b082f2d75a79897f35e4be86b67f3a406c621a08465d1402",
+    "bytes": 4020
+  },
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/source-qualification.json",
+    "sha256": "c1f5ef63dd0ebfe1948d24136c39bd8da369b266cfa479f799514a07bd5b4ba7",
+    "bytes": 5446
+  },
+  "independent_guard_execution": {
+    "profile_sha256": "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "tool_session_id": 82811,
+    "tool_chunk": "effff4",
+    "actual_exit": 0,
+    "meaningful_guard_groups": 28
+  },
+  "source_review": "Root authored originalsource; independent archaeology peer a4136373 refused final-pin baseline/output special-member gaps. Archaeology authored this disjoint correction; root read every source delta, full maintained verifier/observer/launch/runtime source and authenticated all15heldsuccessor/all15immutablepredecessor/checkrefs. Original expected held/declaration/policy identities frozen before census; full final unchanged-pin/namespace/alias/absence check precedes mkdir. Plan source/report identities from same frozenunion. Alloutputspecial/aliases refuse. Four unchanged runtime/common/execute/observer sources byteexact; scienceargv uses output directory. No weakened native/import/refusal contract.",
+  "resources": {
+    "native_stages": 2,
+    "native_stage_seconds": 45,
+    "outer_seconds": 100,
+    "completed_whole_seconds": 110,
+    "completed_child_RSS_postcheck_bytes": 1073741824,
+    "logical_output_postcheck_bytes": 134217728,
+    "OS_quota_or_complete_descendant_claim": false
+  },
+  "scope": "Source/preparation authority only; native maintained source and independent observer not yet run.40565 remains source metadata claim,40523review/99subset/zero ranking unchanged. FullGeoJSON identity is not feature census or originalWFS/export/rights/qualified review evidence."
+}

@@ -30,6 +30,9 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.author_grid.admission import (
+    validated_author_grid_capture,
+)
 from .scientific_captures.author_native_reference import (
     validated_author_native_reference_capture,
 )
@@ -44,11 +47,29 @@ from .scientific_captures.constrained_author import validated_constrained_author
 from .scientific_captures.controlled_numerical.lra_comparison import (
     validated_controlled_lra_comparison_capture,
 )
+from .scientific_captures.lake_registry.svar import (
+    validated_svar_capture,
+)
+from .scientific_captures.land_use.hyde_country import (
+    validated_hyde_country_capture,
+)
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
+)
+from .scientific_captures.pollen_source.rootsi_chronology import (
+    validated_rootsi_capture,
+)
+from .scientific_captures.pollen_source.solsoe_pollen import (
+    validated_solsoe_pollen_capture,
+)
+from .scientific_captures.pollen_source.solsoe_selection import (
+    validated_solsoe_selection_capture,
+)
+from .scientific_captures.pollen_source.swedish_cohort import (
+    validated_swedish_cohort_capture,
 )
 from .scientific_captures.representative_performance import (
     validated_representative_performance_capture,
@@ -284,24 +305,63 @@ def validated_maintained_report_sources(
     radius_entries, radius_evidence = validated_author_radius_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    grid_entries, grid_evidence = validated_author_grid_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+
+    svar_entries, svar_evidence = validated_svar_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+
+    solsoe_selection_entries, solsoe_selection_evidence = (
+        validated_solsoe_selection_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+
+    solsoe_pollen_entries, solsoe_pollen_evidence = validated_solsoe_pollen_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+
+    rootsi_entries, rootsi_evidence = validated_rootsi_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+
+    swedish_entries, swedish_evidence = validated_swedish_cohort_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+
+    hyde_entries, hyde_evidence = validated_hyde_country_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
+
     all_capture_entries = (
         (
             (
-                capture_entries
-                + parameter_entries
-                + chronology_entries
-                + nordic_entries
-                + linux_entries
-                + author_entries
-                + author_native_entries
+                (
+                    capture_entries
+                    + parameter_entries
+                    + chronology_entries
+                    + nordic_entries
+                    + linux_entries
+                    + author_entries
+                    + author_native_entries
+                )
+                + constrained_entries
+                + optimizer_entries
             )
-            + constrained_entries
-            + optimizer_entries
+            + performance_entries
+            + nfi_entries
+            + controlled_entries
+            + radius_entries
         )
-        + performance_entries
-        + nfi_entries
-        + controlled_entries
-        + radius_entries
+        + grid_entries
+        + svar_entries
+        + solsoe_selection_entries
+        + solsoe_pollen_entries
+        + rootsi_entries
+        + swedish_entries
+        + hyde_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -360,4 +420,25 @@ def validated_maintained_report_sources(
         evidence["retained_controlled_lra_comparison_capture"] = controlled_evidence
     if radius_entries:
         evidence["retained_author_radius_capture"] = radius_evidence
+    if grid_evidence:
+        evidence["retained_grid_source_capture"] = grid_evidence
+
+    if svar_evidence:
+        evidence["retained_svar_source_capture"] = svar_evidence
+
+    if solsoe_selection_evidence:
+        evidence["retained_solsoe_selection_source_capture"] = solsoe_selection_evidence
+
+    if solsoe_pollen_evidence:
+        evidence["retained_solsoe_pollen_source_capture"] = solsoe_pollen_evidence
+
+    if rootsi_evidence:
+        evidence["retained_rootsi_source_capture"] = rootsi_evidence
+
+    if swedish_evidence:
+        evidence["current_swedish_cohort_partial_evidence"] = swedish_evidence
+
+    if hyde_evidence:
+        evidence["current_hyde_country_partial_evidence"] = hyde_evidence
+
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

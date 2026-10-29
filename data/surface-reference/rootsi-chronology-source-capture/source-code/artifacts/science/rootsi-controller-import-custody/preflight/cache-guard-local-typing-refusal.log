@@ -1,0 +1,51 @@
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:233: error:
+Incompatible types in assignment (expression has type "Path", variable has type
+"str")  [assignment]
+                path = cache / member
+                       ^~~~~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:234: error:
+"str" has no attribute "read_bytes"  [attr-defined]
+                original = path.read_bytes()
+                           ^~~~~~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:236: error:
+"str" has no attribute "write_text"  [attr-defined]
+                path.write_text(original.decode().replace(old_value, new_v...
+                ^~~~~~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:242: error:
+"str" has no attribute "write_bytes"  [attr-defined]
+                    path.write_bytes(original)
+                    ^~~~~~~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:251: error:
+Incompatible types in assignment (expression has type "Path", variable has type
+"str")  [assignment]
+                    path = controller / (
+                           ^~~~~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:255: error:
+"str" has no attribute "write_text"  [attr-defined]
+                        path.write_text("")
+                        ^~~~~~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:257: error:
+"str" has no attribute "mkdir"  [attr-defined]
+                        path.mkdir()
+                        ^~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:261: error:
+"str" has no attribute "symlink_to"  [attr-defined]
+                        path.symlink_to(cache / "xlrd/info.py")
+                        ^~~~~~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:265: error:
+"str" has no attribute "is_dir"  [attr-defined]
+                        if path.is_dir() and not path.is_symlink():
+                           ^~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:265: error:
+"str" has no attribute "is_symlink"  [attr-defined]
+                        if path.is_dir() and not path.is_symlink():
+                                                 ^~~~~~~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:266: error:
+"str" has no attribute "rmdir"  [attr-defined]
+                            path.rmdir()
+                            ^~~~~~~~~~
+artifacts/science/rootsi-source-chronology-custody/check_contracts.py:268: error:
+"str" has no attribute "unlink"  [attr-defined]
+                            path.unlink()
+                            ^~~~~~~~~~~
+Found 12 errors in 1 file (checked 9 source files)

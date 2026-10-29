@@ -1,0 +1,34 @@
+[
+  {
+    "site_id": "BECKHAM",
+    "path": "site-0"
+  },
+  {
+    "site_id": "COMERSLA",
+    "path": "site-1"
+  },
+  {
+    "site_id": "EXEBRID",
+    "path": "site-2"
+  },
+  {
+    "site_id": "GOURTEMIRES",
+    "path": "site-3"
+  },
+  {
+    "site_id": "LARKBARR",
+    "path": "site-4"
+  },
+  {
+    "site_id": "LONGBREACH",
+    "path": "site-5"
+  },
+  {
+    "site_id": "MOLECHAM",
+    "path": "site-6"
+  },
+  {
+    "site_id": "NTWITCHEN",
+    "path": "site-7"
+  }
+]

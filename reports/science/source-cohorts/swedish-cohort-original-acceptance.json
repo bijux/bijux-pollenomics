@@ -1,0 +1,65 @@
+{
+  "schema_version": "scientific-owner-original-acceptance-correction.v1",
+  "base_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "original_acceptance_authority": {
+    "repository": "bijux/bijux-pollenomics",
+    "commit": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+    "repository_path": "configs/ci/report-ownership.json",
+    "git_blob": "4cf9713757b0d35c15f484bac13e9a4229ca36a5",
+    "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
+    "bytes": 4580598
+  },
+  "owners": [
+    {
+      "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+      "original_owner": {
+        "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+        "role": "unresolved",
+        "paths": [
+          "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
+        ],
+        "producer_paths": [
+          "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
+        ],
+        "producer_inputs": [
+          "data/neotoma/relational/manifest.json",
+          "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+          "data/neotoma/relational/surfaces/datasets/part-00001.json",
+          "data/neotoma/relational/surfaces/sites/part-00001.json",
+          "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json"
+        ],
+        "verification": "Replay requires --private-root: private source-manifest.json plus seven source records, EPD source-manifest.json and 17 metadata/age-table files. Those are not repository-confined; keep unresolved until exact private capture custody, permission and byte comparison are independently bound. Metadata-only refusal is not fresh-cohort acceptance."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "exact_private_source_member_identities",
+          "status": "supported_with_scope",
+          "evidence": "Original3537/corrected3581 ledgers bind26 private metadata members (8Neotoma including manifest,18EPD including manifest); payloads remain identity-only."
+        },
+        {
+          "condition": "independently_bound_private_capture_custody",
+          "status": "not_established_by_current_certificate",
+          "evidence": "Source-manifest identity and metadata reconstruction are proved, but current retained capsule does not independently establish original provider/acquisition chain for all26 inputs."
+        },
+        {
+          "condition": "permission",
+          "status": "not_established",
+          "evidence": "Current original and corrected native scopes exclude rights acceptance; independent corrected review acquisition_rights_human_ecological_or_LRA_admitted=false. No separate permission predicate is evaluated."
+        },
+        {
+          "condition": "independent_byte_comparison",
+          "status": "supported_across_distinct_jobs",
+          "evidence": "Originalproducer0/observer1/whole1 preserved; correctedobserver0/whole0/trackedchecker0 reuses unchanged report. Original failure is not relabelled success."
+        }
+      ],
+      "exact_remaining_resolver": "Bind original private Neotoma8/EPD18 capture provenance/receipts and permission decisions to all26 exact identities. Retain current metadata replay as partial evidence; no fresh physical cohort or selected chronology is inferred."
+    }
+  ],
+  "all_current_physical_execution_source_and_product_evidence_preserved": true,
+  "new_native_execution_or_data_acquisition": false,
+  "new_retained_source_entries": 0,
+  "scientific_or_human_decision_changed": false,
+  "permission_or_source_use_decision_added": false,
+  "scope": "Restore unmet original owner acceptance criteria verbatim. Current exact-byte, arithmetic, source-metadata and official-download evidence remains partial and separate from original provider/copy custody and use authority. No historical native result, public source product, raw capsule, authored scientific body, claim register or human decision is rewritten."
+}

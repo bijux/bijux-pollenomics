@@ -1,0 +1,20 @@
+[
+  {
+    "alias": "/opt/homebrew/opt/openssl@3",
+    "link": "../Cellar/openssl@3/3.6.3",
+    "target": "/opt/homebrew/Cellar/openssl@3/3.6.3",
+    "lexical_file": "/opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib",
+    "resolved_file": "/opt/homebrew/Cellar/openssl@3/3.6.3/lib/libcrypto.3.dylib",
+    "sha256": "34bc039f5c725691e757ef42d26f1709830b18046c3ad6d93985153c83d0bbbc",
+    "bytes": 4846032
+  },
+  {
+    "alias": "/opt/homebrew/opt/xz",
+    "link": "../Cellar/xz/5.8.4",
+    "target": "/opt/homebrew/Cellar/xz/5.8.4",
+    "lexical_file": "/opt/homebrew/opt/xz/lib/liblzma.5.dylib",
+    "resolved_file": "/opt/homebrew/Cellar/xz/5.8.4/lib/liblzma.5.dylib",
+    "sha256": "41cdf225f3e10fb54f952c8eca11c8a847d095470540dc42736ae7bd761beaa4",
+    "bytes": 167520
+  }
+]

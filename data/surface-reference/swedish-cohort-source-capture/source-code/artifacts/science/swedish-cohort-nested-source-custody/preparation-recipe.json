@@ -1,0 +1,19 @@
+{
+  "schema_version": "swedish-nested-source-observer-recipe.v1",
+  "preparation_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/prepare.py",
+    "--candidate",
+    "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review",
+    "--review-sha256",
+    "ACTUAL_APPROVED_REVIEW_SHA"
+  ],
+  "authority": "Root sourceprepare0, unique registration/readback0 and separate launch of emitted plan; no author preparation/native action.",
+  "required_review": "Future approved:true/source_manifest_sha256 physical independent-source-review.json in this held source root.",
+  "original_producer_rerun": false
+}

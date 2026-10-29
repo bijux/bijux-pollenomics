@@ -1,0 +1,55 @@
+{
+  "schema_version": "solsoe-isolated-standard-library-custody.v1",
+  "candidate_context": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+  "candidate_parameter": "exact clean local main at future preparation",
+  "owner_id": "countries/denmark/solsoe-source-lineage/original-core-selection/report-products",
+  "qualified_runtime_profile": "original pinned Python 3.11.13 -I -S -B, isolated standard library; not a dependency-equipped scientific runtime",
+  "maintained_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/replay.py",
+    "sha256": "9604574d34c2555164d75f2cfdd30475f3f1f74d1a50ff600ea7d812a33bf746",
+    "bytes": 11546
+  },
+  "source_algorithm_modified_by_controller": false,
+  "native_stages": [
+    "solsoe-maintained-closed-central-point-replay",
+    "independent-solsoe-controls-and-native-sample-joins"
+  ],
+  "bounds": {
+    "stage_timeout_seconds": [
+      45,
+      45
+    ],
+    "overall_timeout_seconds": 110,
+    "completed_child_peak_rss_bytes": 1073741824,
+    "inclusive_logical_output_bytes": 134217728,
+    "own_terminal_reserved_bytes": 16384,
+    "outer_fail_safe_timeout_seconds": 130
+  },
+  "future_output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay",
+  "future_prepare_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/prepare.py",
+    "--candidate",
+    "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay"
+  ],
+  "launch_contract": "Future physical plan and its exact registered SHA are supplied to run.py; actual launch remains unexecuted.",
+  "actual_native_prepared": false,
+  "actual_native_executed": false,
+  "selection": "Declared BC+1950 central-value arithmetic proxy: closed 1981 [-31,3490] union [7210,11650], 1983 [3700,7180]. No resolved no-year-zero calendar conversion or uncertainty-support containment/overlap claim.",
+  "source_scope": "Actual retained PDF identity only. Seven producer inline published controls, 14 native relation rows/two chronology views, seven geochron IDs, 92 raw sample records independently joined. Literal source status/refusal and source record are preserved; analytical eligibility not evaluated and LRA admission false. No corrected count is asserted before the registered actual producer.",
+  "historical_scope": "Original 8456 v1 half-unbounded 76/74 report remains immutable. Original retrieval/copy/process, paper79 membership, dated georeferenced basin, rights, ecological and human acceptance remain unqualified.",
+  "custody": "Full physical framework regular files, exact lexical aliases, isolated imports and actual required non-system native closure pinned before preparation. Native process and namespace records before/after canonical source run preserve raw observations before guard refusal. Apple sealed images retain OS authority. Exact unused site-packages alias omitted only under -S and empty site paths.",
+  "native_and_checker": "Genuine maintained source and metadata exits are distinct. Historical tracked-byte checker expected difference is separate from two required native stages. Completed resource checks are observations, not kernel memory/disk quotas.",
+  "source_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/prepared-source-manifest.json",
+    "sha256": "4819ff1e4eb84f95a863e633b95b6ca991a567183fb66ef88f66140db3b6d8a5",
+    "bytes": 2909
+  },
+  "runtime_delta": "Exact pinned thin-arm64 otool-classic ef0b parses explicit arm64 dependency headers and LC_ID self identities; complete framework directory/file/alias membership and physical original files remain guarded before/after. Loader/platform environment key presence and dangling absent ZIP refuse. Native common source/stage contract remains unchanged. Completed outer wall duration must pass110s; 130s outer timeout records native PID/session termination and explicitly unconfirmed detached descendants. No complete cleanup or kernel resource quota is inferred.",
+  "native_loader_scope": "Native loader tokens are recognized only at the beginning of declared values. Exact @loader_path/ and @executable_path/ expand in their pinned image/executable context; @rpath/ is resolved through declared LC_RPATH entries. Unknown leading @ tokens and relative paths refuse. Literal @ characters within absolute physical/lexical paths are preserved, including the authenticated Homebrew openssl@3 alias. Required missing/ambiguous dependencies and every native alias guard remain unchanged."
+}

@@ -842,7 +842,7 @@
         "fields": {
           "supported_claim": "This stable research pointer links the governed Sols\u00f8 source decision and its machine account; it adds zero observations, fits or independent scientific checks.",
           "unsupported_claim": "The link does not identify the 79 published LandClim II source samples, authenticate author chronology or convert static site area/radius into sample-age basin geometry.",
-          "actual_verification_performed": "Read this pointer and retained machine lineage account and pinned their current bytes; no LandClim/Neotoma source join or numerical producer was rerun.",
+          "actual_verification_performed": "Read this pointer and retained machine lineage account and pinned their current bytes; no LandClim/Neotoma source join or numerical producer was rerun. A separate retained current closed central-point source replay and independent observer returned native zero; this pointer does not rerun that source operation.",
           "remaining_input_or_review": "The linked account still needs exact author sample/core selection, source-owned chronology, dated basin geometry and qualified taxonomy/count/rights decisions.",
           "cause_category": "Citation routing to incomplete historical input lineage.",
           "consequence": "The 91 selected Neotoma samples support observed-pollen development only; the website citation is not a second experiment or LRA admission.",
@@ -854,6 +854,14 @@
           {
             "path": "docs/report/countries/denmark/solsoe-source-lineage/report.json",
             "sha256": "508c3808131dddc4f4c455a42c4f16af37fe0e01793ff7e3da9562bfda9238e6"
+          },
+          {
+            "path": "docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json",
+            "sha256": "999534b826902f14c0fbd08ff36a5760f191070a13179d9d1bede9ca2cfa4436"
+          },
+          {
+            "path": "reports/science/source-lineage/solsoe-closed-point-source.json",
+            "sha256": "987d12fddc24e1c7ab0ae3a1f8e8e50dcdcc6b92fe2928191afcf9734dcf2665"
           }
         ]
       }
@@ -994,18 +1002,26 @@
         "fields": {
           "supported_claim": "The retained original-paper comparison matches all seven distinct 1983 radiocarbon controls and describes explicit 1981/1983 core intervals and a 9000BC basin figure.",
           "unsupported_claim": "An ungeoreferenced 9000BC reconstruction and conditional calendar conversion cannot identify the 79 author input samples or provide one radius valid for every sample age.",
-          "actual_verification_performed": "Read the retained historical v1 account and source-bound closed central-point predicate controls. The older 76/74 comparison omitted two stated outer endpoints; no corrected source replay or fresh PDF table extraction was performed in this reading qualification.",
+          "actual_verification_performed": "The maintained closed central-point source replay and independent native source observer returned zero on c397f95cc2cbe8f451df17b4f7fa6a856ad71a75. Retained native observations bind92 raw source/refusal records, 14 chronology-view control rows/seven underlying radiocarbon controls and descriptive75/74 proxies. PDF byte identity only; no fresh table extraction, original provider history or historical-v1 execution recovery.",
           "remaining_input_or_review": "The original author sample IDs, historical chronology and georeferenced time-specific basin outline remain missing for LRA.",
           "cause_category": "Historical core lineage established in part; author selection and physical basin support unresolved.",
           "consequence": "Seven declared date matches support the documented 1983 core lineage. Historical half-unbounded 76/74 proxies remain distinct from complete closed central-point membership, uncertainty support, source eligibility and the published 79 author rows.",
-          "precise_next_acceptance_route": "Run the corrected maintained source under a registered isolated stdlib profile, preserve all 92 raw source rows/refusals and independently verify native central-point inclusion/exclusion before reporting its total. Original 79 membership, chronology and dated basin/rights review remain separate.",
-          "negative_or_refused_result": "Historical 76/74 proxies are not the complete paper intervals and do not recover79 author samples. Native352996 remains refused/negative_bp even if its central point is inside. LRA-admitted 0.",
-          "matched_denominator": "Seven declared radiocarbon controls occur in 14 chronology-view relation rows; 92 raw central-age source records. Historical half-unbounded selection 76 (56+20), bounded 74; corrected complete-interval total is pending registered replay. One 9000 BC basin figure from 51 corings is not age-specific sample support."
+          "precise_next_acceptance_route": "Use the separate retained current result for its declared closed central-point comparison. Independently recover the original historical-v1 production custody if needed; obtain the original 79 same-core sample IDs, author chronology, dated basin and rights/qualified scientific review before LRA admission.",
+          "negative_or_refused_result": "Historical 76/74 proxies are not the complete paper intervals and do not recover79 author samples. Native352996 remains refused/negative_bp even if its central point is inside. LRA-admitted 0. Current 75/74 descriptive counts also fail to recover79; no uncertainty-support or analytical admission is inferred.",
+          "matched_denominator": "Seven declared radiocarbon controls occur in 14 chronology-view relation rows; 92 raw central-age source records. Current closed selection 75 (55+20), bounded 74 (54+20); historical half-unbounded76 (56+20)/74 remains unchanged. The75 include raw native 352996 with refused/negative_bp, so these are not analytically admitted counts. One 9000 BC basin from 51 corings is not sample-age support."
         },
         "evidence_pins": [
           {
             "path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json",
             "sha256": "8456bf919423c4b57ed202704cc43d04b891ba98069b9ad9e0765192abf533a6"
+          },
+          {
+            "path": "docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json",
+            "sha256": "999534b826902f14c0fbd08ff36a5760f191070a13179d9d1bede9ca2cfa4436"
+          },
+          {
+            "path": "reports/science/source-lineage/solsoe-closed-point-source.json",
+            "sha256": "987d12fddc24e1c7ab0ae3a1f8e8e50dcdcc6b92fe2928191afcf9734dcf2665"
           }
         ]
       }
@@ -1078,11 +1094,11 @@
         "fields": {
           "supported_claim": "The retained primary 1981 profile comparison matches all 66 depths and 2881 positive count cells exactly to Neotoma sparseNISP observations.",
           "unsupported_claim": "Identical 66-depth count vectors do not qualify ecological synonymy, terrestrial-only pollen totals,31PPE-target denominators, author 79 sample selection or LRA basins.",
-          "actual_verification_performed": "Read the report and sample ledger; reconciled 9702 cells=2881 positive+6821 zero,128653 total counts and 129 literal-name+18 numerical candidate names. No private profile replay or taxonomic approval was performed.",
+          "actual_verification_performed": "The maintained source-built isolated-standard-library replay and independent native source observer both returned zero on d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b. Complete report and ordered66-row sample ledger match publication byte-for-byte; independent full9702-cell reconciliation found2881 positive and6821 zero cells,128653 total counts,129 literal names and18 unique numerical name-vector candidates. All3510 original input identities and same-process source/runtime observations are retained. No ecological taxonomy approval or original provider acquisition is inferred.",
           "remaining_input_or_review": "The 18 numeric rename candidates require qualified taxonomy; historical sample/chronology selection, dated basins and noncommercial source reuse remain separate requirements.",
           "cause_category": "Primary count/depth correspondence with sparse-zero and taxonomic interpretation limits.",
           "consequence": "Sparse absent Neotoma rows correspond to source zeros here; the all 147 parameter total cannot silently become a terrestrial pollen or author-target denominator.",
-          "precise_next_acceptance_route": "Replay the exact private PANGAEA739834 text and pinned sample/eight observation parts, review all 18 name candidates explicitly, then resolve historical input/basin requirements before LRA.",
+          "precise_next_acceptance_route": "Use the separately retained two-product execution/source-custody capsule for this count-lineage result. Review all18 numerical name candidates under qualified ecological taxonomy, then resolve original79 sample/chronology selection, dated basin and noncommercial reuse requirements before any LRA admission.",
           "negative_or_refused_result": "The 18 names remain numeric_source_name_candidate_not_ecological_approval; author 79 selection and chronology are unidentified; LRA-admitted 0.",
           "matched_denominator": "66 depths\u00d7147 parameters=9702 cells;2881 positive observations+6821 zeros;totalNISP128653;129 same-name parameters+18 numeric rename candidates; zero admitted LRA samples."
         },
@@ -1094,6 +1110,10 @@
           {
             "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv",
             "sha256": "a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010"
+          },
+          {
+            "path": "reports/science/source-lineage/solsoe-primary-pollen-source.json",
+            "sha256": "144bcba6b8afe53a63dc7b571ca197047c2d57bbf0cc4535e9d3c0333bf9765c"
           }
         ]
       }
@@ -2835,7 +2855,7 @@
           },
           {
             "path": "docs/report/pollen-reconstruction/scope.json",
-            "sha256": "7c3190d229472e8459043298c5518d7856fb32cca50fc569a5f3a1350d6cdf03"
+            "sha256": "ebb39ba89a1ccc31f702c4220ed1332f991cdab685e4fee29c2507e59221d7ed"
           },
           {
             "path": "reports/science/nordic-pollen-study.md"
@@ -4353,6 +4373,10 @@
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/manifest.json",
             "sha256": "ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef"
+          },
+          {
+            "path": "reports/science/publication-correspondence/author-grid-retained-source.json",
+            "sha256": "550701277e3e1b6a5146751cab32a731b98f31d54cd6666a762c83310f592919"
           }
         ]
       }
@@ -4389,6 +4413,10 @@
           {
             "path": "docs/report/publication-replay/landclim-author-example-correspondence/manifest.json",
             "sha256": "ac3b206e20bbf8a2eda6382a5efc0f78b6a7d87c7851233adb4a28504550fcef"
+          },
+          {
+            "path": "reports/science/publication-correspondence/author-grid-retained-source.json",
+            "sha256": "550701277e3e1b6a5146751cab32a731b98f31d54cd6666a762c83310f592919"
           }
         ]
       }
@@ -4417,6 +4445,10 @@
           {
             "path": "docs/report/publication-replay/landclim-example-reexecution/report.json",
             "sha256": "4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f"
+          },
+          {
+            "path": "reports/science/publication-correspondence/author-grid-retained-source.json",
+            "sha256": "550701277e3e1b6a5146751cab32a731b98f31d54cd6666a762c83310f592919"
           }
         ]
       }
@@ -5280,7 +5312,7 @@
         "fields": {
           "supported_claim": "This citation pointer identifies the retained country cropland account and governed result; it reports zero new observations, fits or independent scientific checks.",
           "unsupported_claim": "It neither reproduces native grids nor establishes formal CRS/BP timing, redistribution rights or independent vegetation truth.",
-          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.",
+          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. Separately completed source execution on97be88f37a117a518c8c4639ccca98927e13cb24 ran the unchanged HYDE country-table producer and an independent original-XML/Decimal arithmetic observer:two native exits0, with both full public products byteexact. The authored30member capsule preserves3506original identities; four private country-source files, two private licence/version context files and3482runtime payloads remain omitted. Source84 modeled rows/28country-years/seven literalCElabels/three scenario names retain their original scope. No source-grid reread/overlay, confidence intervals, independent vegetation, pollen covariates, CE/BP/calendar conversion, release/rights resolution, matched HYDE ablation, human/ecological or LRA acceptance, and no new retention-native outcome. The original HYDE country ownership criterion remains verbatim and unresolved: exact arithmetic and current byte comparisons do not establish the governed release/provider custody and effective permitted-use statement required by that owner. Retained results remain partial source evidence; no numerical result, permission, human decision or LRA admission changes.",
           "remaining_input_or_review": "The linked HYDE account retains conflicting release licence/version/coverage declarations and requires their source-owner resolution before stronger use.",
           "cause_category": "Citation-only pointer to modeled source totals.",
           "consequence": "Source-modeled cropland remains contextual model output; lower/upper source alternatives are not confidence intervals.",
@@ -5292,6 +5324,14 @@
           {
             "path": "docs/report/regions/nordic/hyde-country-cropland/report.json",
             "sha256": "55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb"
+          },
+          {
+            "path": "reports/science/source-lineage/hyde-country-totals.json",
+            "sha256": "4cca6c30896d42db5c0578394a880ce6c0e1c3806a21c1c3083bdcc9e3184a76"
+          },
+          {
+            "path": "reports/science/source-cohorts/hyde-country-original-acceptance.json",
+            "sha256": "5fc1b56bb41ed9e2892baaaff4dfec6484fa7cae4e57e3069eb900f8c134377f"
           }
         ]
       }
@@ -6474,7 +6514,7 @@
         "fields": {
           "supported_claim": "Depth and selected count correspondences witness shared EPD lineage for FLINK and STAV while preserving source age differences.",
           "unsupported_claim": "Shared lineage is not independent chronology validation or authority to correct FLINK, select STAV ages, or admit historical inputs.",
-          "actual_verification_performed": "Read the two-sequence witness JSON, selected explicit/missing-source count states and age sign anomaly; no workbook or count-table rescan.",
+          "actual_verification_performed": "Read the two-sequence witness JSON, selected explicit/missing-source count states and age sign anomaly; no workbook or count-table rescan. Two unchanged canonical Rootsi source producers and their independent raw-workbook/Neotoma observers returned four native zeros on c292dafa60f9d992f162c92dd327207d9aefd76b; both full typed reports and complete publication bytes match. The source-bound isolated base/pure-xlrd cache is distinct from observed147/SOURCE3331. All3548 original identities remain explicit in an authored58member source capsule; private workbooks/archive/intake and runtime/xlrd payloads remain omitted. FLINK sign discrepancy,HOLK reversals,RANV/STAV absent ages, negativeBP and no source age bounds remain literal. Declared1950-minus-age/0.0500001 are arithmetic diagnostics, not calendar/no-year-zero conversion or age correction. No dated basin, historical-input, independent chronology/ecology, rights/human or LRA admission, and no new retention-native outcome.",
           "remaining_input_or_review": "Source-holder chronology selection/age corrections, uncertainty, basin/count support and workbook analytical rights remain unresolved.",
           "cause_category": "Shared source lineage with absent or inconsistent workbook age evidence.",
           "consequence": "Neither sequence becomes an executable LRA input from numeric similarity.",
@@ -6486,6 +6526,10 @@
           {
             "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/report.json",
             "sha256": "9f9ae65c538a1aac79966324abf081d4ea0028fbced6b1a343633acbd6372058"
+          },
+          {
+            "path": "reports/science/source-lineage/rootsi-workbook-chronology.json",
+            "sha256": "f903bb2c7671d04b67410b7ba73ed2aebe1d5ca9f86a54354aaa10746d65e47b"
           }
         ]
       }
@@ -6505,7 +6549,7 @@
         "fields": {
           "supported_claim": "The four-workbook age audit preserves actual age-column presence, reversals and numeric metadata diagnostics.",
           "unsupported_claim": "Sequence coverage and 1950-minus-age arithmetic do not authorize sample-age conversion, row omission, calibration or historical input identity.",
-          "actual_verification_performed": "Read all four retained workbook findings and metadata comparisons; no original workbook, cached grid or model was rerun.",
+          "actual_verification_performed": "Read all four retained workbook findings and metadata comparisons; no original workbook, cached grid or model was rerun. Two unchanged canonical Rootsi source producers and their independent raw-workbook/Neotoma observers returned four native zeros on c292dafa60f9d992f162c92dd327207d9aefd76b; both full typed reports and complete publication bytes match. The source-bound isolated base/pure-xlrd cache is distinct from observed147/SOURCE3331. All3548 original identities remain explicit in an authored58member source capsule; private workbooks/archive/intake and runtime/xlrd payloads remain omitted. FLINK sign discrepancy,HOLK reversals,RANV/STAV absent ages, negativeBP and no source age bounds remain literal. Declared1950-minus-age/0.0500001 are arithmetic diagnostics, not calendar/no-year-zero conversion or age correction. No dated basin, historical-input, independent chronology/ecology, rights/human or LRA admission, and no new retention-native outcome.",
           "remaining_input_or_review": "FLINK/HOLK source-model/order explanations and RANV/STAV sample ages with model/unit/uncertainty authority remain needed.",
           "cause_category": "Missing age columns and source-native age-order contradictions.",
           "consequence": "No dated event or LRA sample is admitted by this audit.",
@@ -6517,6 +6561,10 @@
           {
             "path": "docs/report/source-relations/landclim/workbook-chronology/report.json",
             "sha256": "b2c732c11669837c9aa75b8b0a5bfb7568dbf86071014ccfb4b30d3dcfc2eb13"
+          },
+          {
+            "path": "reports/science/source-lineage/rootsi-workbook-chronology.json",
+            "sha256": "f903bb2c7671d04b67410b7ba73ed2aebe1d5ca9f86a54354aaa10746d65e47b"
           }
         ]
       }
@@ -7399,7 +7447,7 @@
         "fields": {
           "supported_claim": "The metadata-only search identifies no qualified new physical core in its bounded Swedish Neotoma/PANGAEA surfaces.",
           "unsupported_claim": "A missing literal handle is not proof of a distinct core, and metadata discovery does not validate an untouched independent holdout.",
-          "actual_verification_performed": "Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request.",
+          "actual_verification_performed": "Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request. Canonical Swedish source production returned0 on c292dafa60f9d992f162c92dd327207d9aefd76b; its original observer1 and whole1 remain literal. A separately registered corrected nested-source independent observer and complete tracked-byte check returned0, without producer repetition; the full typed report and publication bytes are unchanged. The authored78member capsule preserves3537 original and3581 corrected input identities, with26private metadata and3481runtime payloads omitted.102records/99sites,206all-country handles,66titles (62retained/3unmatched/1generic),37events and original cross-archive/UNASSIGNED collisions are retained metadata scope. No new acquisition, count observations, fresh physical cohort, calibrated selected sample ages, country normalization, rights/human/ecology/LRA admission or new retention-native outcome. The original Swedish cohort ownership criterion remains verbatim and unresolved: the retained metadata reconstruction and corrected byte comparison do not establish original private capture/provider custody and permission for all26source members. Original producer0/observer1/whole1 and corrected observer0/whole0 remain distinct. Results remain partial source evidence, not fresh-cohort acceptance; no numerical result, source chronology, permission, human decision or LRA admission changes.",
           "remaining_input_or_review": "A truly distinct physical core, selected calibrated sample ages, permitted use and frozen pre-exposure prediction protocol remain needed.",
           "cause_category": "Cross-archive identity collisions and absent age/use authority.",
           "consequence": "Three retained UNASSIGNED cores cannot be marketed as fresh Swedish observations.",
@@ -7415,6 +7463,14 @@
           {
             "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json",
             "sha256": "c7e2c67488faec670c585fdb3d03c067cb58449bf0e4a49032698c5a1c9aad81"
+          },
+          {
+            "path": "reports/science/source-lineage/swedish-cohort-metadata.json",
+            "sha256": "b4e9e507cfd56ccc9dbda8d78c23a7d652baaf08032c85f5771feee16ec927fd"
+          },
+          {
+            "path": "reports/science/source-cohorts/swedish-cohort-original-acceptance.json",
+            "sha256": "8a9e26bcc8aa17431e4cb3547c702537920b464c027d2880b25930b12cbdb3d3"
           }
         ]
       }
@@ -8244,7 +8300,7 @@
         "fields": {
           "supported_claim": "The recovered SVAR export retains exact normalized bytes and a two-feature provider identity lead while preserving current zero-candidate refusal.",
           "unsupported_claim": "Live endpoint availability or matching count does not prove raw capture parity, supported acquisition rights, full identity equivalence or admitted lake ranking.",
-          "actual_verification_performed": "Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing.",
+          "actual_verification_performed": "Read custody receipt, source population disagreement and provider/rights review; no WFS recapture or 261 MB geometry parsing. The maintained source-built isolated-standard-library verifier and independent native source observer both returned zero on ada0128d4b96a0c0655e7b8c24ba81329f34a2cb. Complete source/refusal receipt is byte-identical to publication; all3507 original inputs remain explicit. Exact261041034BGeoJSON and two private metadata files were hashed, not geometrically parsed;40565 remains source metadata claim against40523review/99subset/zero ranks. The42difference and WFS/export linkage, rights and qualified source review remain unresolved. No new provider capture, ranking or native-retention outcome.",
           "remaining_input_or_review": "Both full identity sets, versioned official source route, approved access/rights and qualified registry review remain required.",
           "cause_category": "Missing original capture and unresolved geometry rights/version identity.",
           "consequence": "The 42 net count difference cannot be presented as an omitted lake list, and 99 derived features cannot restore old ranks.",
@@ -8260,6 +8316,10 @@
           {
             "path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json",
             "sha256": "52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596"
+          },
+          {
+            "path": "reports/science/source-lineage/svar-normalized-source.json",
+            "sha256": "dd03a001e5d03e442b0805d7f09adf3e81fc3424e65d5bada651bd996522cbf9"
           }
         ]
       }

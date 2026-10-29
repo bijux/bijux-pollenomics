@@ -1,0 +1,11 @@
+{
+  "actual_exit": 0,
+  "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json",
+    "sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+    "bytes": 1451833
+  },
+  "protected_input_count": 3537,
+  "native_consumers_launched": 0
+}

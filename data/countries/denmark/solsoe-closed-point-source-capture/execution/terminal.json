@@ -1,0 +1,135 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+  "plan_sha256": "2265fea7c867e9de1fcd6f01900376770202ce06ccfb5be5e1cb579f09b3e173",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 1.30408916703891,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/plan.json",
+    "--registered-plan-sha256",
+    "2265fea7c867e9de1fcd6f01900376770202ce06ccfb5be5e1cb579f09b3e173"
+  ],
+  "canonical_before": {
+    "candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+    "status": "",
+    "tracked_inventory_sha256": "27f94e5a3ef5ccbc5277776fbe63634c517cec34f1db1427297b4b713dc906a3"
+  },
+  "canonical_after": {
+    "candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+    "status": "",
+    "tracked_inventory_sha256": "27f94e5a3ef5ccbc5277776fbe63634c517cec34f1db1427297b4b713dc906a3"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "solsoe-maintained-closed-central-point-replay",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.29513216600753367,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/solsoe-maintained-closed-central-point-replay.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/solsoe-maintained-closed-central-point-replay.stderr",
+      "stdout_sha256": "73e6afe6c1b83546db8abf40d42a2a892a891632adf5ea3e37bd7c5314fdf12a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 203358208
+    },
+    {
+      "id": "independent-solsoe-controls-and-native-sample-joins",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.5301645419676788,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/independent-solsoe-controls-and-native-sample-joins.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/independent-solsoe-controls-and-native-sample-joins.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 208666624
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/independent-solsoe-controls-and-native-sample-joins.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/independent-solsoe-controls-and-native-sample-joins.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/independent-source-review.json",
+      "sha256": "7e91f2a55508ff18544cfaf6ecd490667b07507d1c3cf539b7e7a44708f81d68",
+      "bytes": 35540
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/plan.json",
+      "sha256": "2265fea7c867e9de1fcd6f01900376770202ce06ccfb5be5e1cb579f09b3e173",
+      "bytes": 1436433
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/producer/report.json",
+      "sha256": "999534b826902f14c0fbd08ff36a5760f191070a13179d9d1bede9ca2cfa4436",
+      "bytes": 203045
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/solsoe-maintained-closed-central-point-replay.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/solsoe-maintained-closed-central-point-replay.stdout",
+      "sha256": "73e6afe6c1b83546db8abf40d42a2a892a891632adf5ea3e37bd7c5314fdf12a",
+      "bytes": 566
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/source-runtime-observation.json",
+      "sha256": "f70c91a9665cbf1170aab4d4a765bec4efff447ac6d55514b84a9fbd311eebec",
+      "bytes": 93942
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/stage-progress.json",
+      "sha256": "31872bb262f76cc2b923a0bbe85625436cfbdb282203f944958a6a7afa5b3b96",
+      "bytes": 2373
+    }
+  ],
+  "output_bytes": 1771899,
+  "resources": {
+    "overall_timeout_seconds": 110,
+    "outer_timeout_seconds": 130,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "Genuine current standalone stdlib closed central-point replay against exact retained Neotoma relations. Complete92-row raw ledger/refusals and14 native relation IDs/seven underlying controls; no corrected total asserted before execution. Canonical source executes under truthful runpy launcher with actual namespace/native before-after records and separate source/metadata exits. Original8456 v1 half-unbounded report remains historical. PDF identity only, no fresh table extraction, original provider/process recovery,79 membership, uncertainty-support/analytical admission, basin chronology, ecological or human acceptance. Distinct isolated base profile; no dependency-equipped scientific runtime substitution.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}
