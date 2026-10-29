@@ -1,0 +1,75 @@
+{
+  "actual_exit": 0,
+  "files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/assemble.py",
+      "sha256": "9450c0283ef22090a52fc1e78319e15481b2157b149daa3d85d3eba357a7ca22",
+      "bytes": 2738
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/check_capture.py",
+      "sha256": "4d78eb9ae2b8acc955f0081b9ae6933bfb4ce4514971f7f8d8f8d5b4131bb4cd",
+      "bytes": 17362
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/contracts.py",
+      "sha256": "b37cea8dcc4ec65f891c5ae7b807643487a062777553f3e4bcf3db259d66beeb",
+      "bytes": 8476
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/entry.py",
+      "sha256": "8cf4a79dca5a40e72f9f43316bd3e86763740e052e063ace9dfe197f48df29a5",
+      "bytes": 4837
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/launch.py",
+      "sha256": "83aa731859894c90051a99e2a6c9d9992bfc60d4d08bf9ec978b00e148fb80c6",
+      "bytes": 6144
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/observe.py",
+      "sha256": "5927c1877b93caede9c50168578312063135f87db686753ba6b2bf687e87397c",
+      "bytes": 3432
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/packet.py",
+      "sha256": "d6a54d44dc2406c6dd089672b42ab173f5de9f6b9b441d7319f9ad2300714914",
+      "bytes": 23538
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/prepare.py",
+      "sha256": "9087eef8f38f1b2bf5001f1579a3a5a50b1f1d45af36a216195c2b3eb986dc7f",
+      "bytes": 5153
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/retained.py",
+      "sha256": "8f84d745e29041be6347f9fc880c33125668c9331d6b2e084bd06f2fbbf251b3",
+      "bytes": 6771
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/run.py",
+      "sha256": "edd8fd899c013f63bd4ef8ad708a80de11681f5fad21a73434cb9ce4302198ad",
+      "bytes": 7796
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/source_admission.py",
+      "sha256": "8097ce28768fdcbc9edf4cfc1276be444f1a946ced9483f715de170ae52fa049",
+      "bytes": 2788
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/source_inputs.py",
+      "sha256": "6e899c7a1323dbb4d0d6e7080aab22a68d66e2563cc86280e0214fbe86f4732f",
+      "bytes": 6994
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/aadr-current-export-retention-custody/source_runtime.py",
+      "sha256": "e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
+      "bytes": 8062
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+"""Run maintained public human loading and default v2 writers on original ANNO inputs."""
+
+from __future__ import annotations
+
+import argparse
+import importlib.abc
+from pathlib import Path
+import sys
+from typing import Any
+
+from contracts import (
+    COUNTRIES,
+    bootstrap,
+    checkpoint,
+    execution_scope,
+    require,
+    stage_plan,
+    write,
+)
+from source_inputs import pin
+
+
+class DenyNumerical(importlib.abc.MetaPathFinder):
+    def __init__(self) -> None:
+        self.attempts: list[str] = []
+
+    def find_spec(self, fullname: str, path: Any = None, target: Any = None) -> Any:
+        if fullname.split(".")[0] in {"bijux_pollenomics_lra", "pollenomics"}:
+            self.attempts.append(fullname)
+            raise ImportError("Numerical engine/facade outside AADR metadata export")
+        return None
+
+
+def origins(plan: dict[str, Any]) -> list[dict[str, Any]]:
+    owned = Path(plan["owned_repository"])
+    protected = {row["path"]: row for row in plan["input_pins"]}
+    rows = []
+    for name, module in sorted(sys.modules.items()):
+        if name.split(".")[0] not in {
+            "bijux_pollenomics",
+            "bijux_pollenomics_dev",
+            "bijux_pollenomics_lra",
+            "pollenomics",
+        }:
+            continue
+        filename = getattr(module, "__file__", None)
+        require(isinstance(filename, str), "First-party source origin missing")
+        assert isinstance(filename, str)
+        path = Path(filename)
+        row = pin(path)
+        require(
+            path.is_relative_to(owned) and protected.get(str(path)) == row,
+            "First-party namespace left owned pinned source",
+        )
+        if hasattr(module, "__path__"):
+            require(
+                list(module.__path__) == [str(path.parent)],
+                "Mixed first-party namespace refused",
+            )
+        rows.append({"module": name, **row})
+    return rows
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = stage_plan(args.plan)
+    authority, scope = execution_scope(plan)
+    roots = bootstrap(plan)
+    require(plan["countries"] == list(COUNTRIES), "Exact four source queries required")
+    denial = DenyNumerical()
+    require(
+        not any(
+            name.split(".")[0] in {"bijux_pollenomics_lra", "pollenomics"}
+            for name in sys.modules
+        ),
+        "Numerical namespace already loaded",
+    )
+    sys.meta_path.insert(0, denial)
+    from bijux_pollenomics.adna import (
+        AdnaSampleQuery,
+        build_homo_sapiens_runtime_manifest_for_version_dir,
+        load_species_samples,
+    )
+    from bijux_pollenomics.reporting.rendering import (
+        write_samples_csv,
+        write_samples_geojson,
+    )
+
+    manifest = build_homo_sapiens_runtime_manifest_for_version_dir(
+        Path(plan["release_directory"])
+    )
+    bundles = manifest.source_bundles
+    require(len(bundles) == 1, "One source release required")
+    bundle = bundles[0]
+    require(
+        bundle.source_release == "v66"
+        and bundle.source_family == "AADR"
+        and bundle.record_modality == "metadata_only"
+        and bundle.review_strength == "curated_release_metadata"
+        and bundle.provenance_quality == "release_manifest_pinned"
+        and bundle.dataset_names == ("1240k", "ho"),
+        "Actual maintained release arguments differ",
+    )
+    output = Path(plan["output"]) / "producer"
+    require(
+        not output.exists() and not output.is_symlink(),
+        "Fresh native products required",
+    )
+    output.mkdir()
+    results = []
+    for country in COUNTRIES:
+        samples, counts = load_species_samples(
+            manifest, query=AdnaSampleQuery(political_entity=country)
+        )
+        stem = country.casefold()
+        paths = {
+            "csv": output / (stem + ".csv"),
+            "geojson": output / (stem + ".geojson"),
+            "typed": output / (stem + ".typed.json"),
+        }
+        for path in paths.values():
+            require(
+                not path.exists()
+                and not any(p.is_symlink() for p in (path, *path.parents)),
+                "Owned fresh product path required",
+            )
+        write_samples_csv(paths["csv"], samples)
+        write_samples_geojson(paths["geojson"], samples)
+        write(
+            paths["typed"],
+            {
+                "country_query": country,
+                "actual_typed_records": [sample.as_dict() for sample in samples],
+                "actual_dataset_row_counts": dict(sorted(counts.items())),
+            },
+        )
+        results.append(
+            {
+                "country_query": country,
+                "sample_count": len(samples),
+                "dataset_row_counts": dict(sorted(counts.items())),
+                "products": {key: pin(path) for key, path in paths.items()},
+            }
+        )
+    actual_origins = origins(plan)
+    require(not denial.attempts, "Numerical import was attempted")
+    require(
+        not any(
+            name.split(".")[0] in {"bijux_pollenomics_lra", "pollenomics"}
+            for name in sys.modules
+        ),
+        "Numerical namespace loaded",
+    )
+    checkpoint(authority, scope, plan["owned_namespace_snapshots"])
+    write(
+        Path(plan["output"]) / "maintained-producer-execution.json",
+        {
+            "actual_exit": 0,
+            "candidate": plan["candidate"],
+            "maintained_public_calls": [
+                "build_homo_sapiens_runtime_manifest_for_version_dir",
+                "load_species_samples(AdnaSampleQuery(political_entity=country))",
+                "write_samples_csv(default_v2)",
+                "write_samples_geojson(default_v2)",
+            ],
+            "runtime_manifest": manifest.as_dict(),
+            "owned_package_search_roots": roots,
+            "actual_first_party_origins": actual_origins,
+            "numerical_import_attempts": denial.attempts,
+            "countries": results,
+            "new_current_source_contract": True,
+            "legacy_v1_inverse_or_historical_reproduction_claimed": False,
+            "rich_native_provenance_recovered_or_genotype_rights_ecology_human_LRA_admitted": False,
+        },
+    )

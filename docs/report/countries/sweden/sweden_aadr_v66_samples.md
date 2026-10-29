@@ -431,7 +431,7 @@ AADR source Political Entity and country-product row disposition; scientific chr
 
 **Unsupported claim.** Neither source country labels nor metadata dates establish historical nationality, qualified geography/chronology, ancestry, migration or farming. Five animal samples at three localities, blocked lake rankings and modeled land-use windows have separate units and admission.
 
-**Actual verification performed.** Read this samples reader and current summary; reconciled 416 CSV rows/distinct genetic IDs and 77 locality rows with the source-account disposition. No genotypes, source download, model or scientific-admission review was rerun.
+**Actual verification performed.** Read this samples reader and current summary; reconciled 416 CSV rows/distinct genetic IDs and 77 locality rows with the source-account disposition. No genotypes, source download, model or scientific-admission review was rerun. The earlier six-stage native-zero wording is retained historical prose. These current checks do not recover or validate its missing original receipts. The currently authenticated earlier saved-evidence job had inventory exit zero, observer exit one and aggregate exit one; a later saved observer and the separate current human export passed in their own recorded epochs. A separate maintained source replay from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 produced the current default 29-field human CSVs, GeoJSON and complete typed records for all four countries. An independent original-ANNO reconstruction checked every value and retained 1231 unique published IDs; the saved source account still has 1325 IDs and 94 coordinate exclusions. The original row-support audit found 1211 duplicate IDs, 0 disjoint support pairs and 0 merged-hull gaps. Those are literal observed counts, not chronology calibration; all 1325 source chronology decisions still require review. A separate saved human/animal observer preserves false pollen eligibility and measurement-leakage flags, all four blocked native taxon witnesses and the original failed aggregate. The joint metadata check supports software-domain separation for these observed populations, but whole ADNA-001 remains open because no fresh current animal source-to-country producer is established. The public source packet and bounded metadata authority preserve exact inputs, source epochs and receipts. Historical v1 products and the original lifecycle account are unchanged. Genotype, biology, rights, ecology, PROP-004, pollen and LRA admission remain unestablished.
 
 **Remaining input or review.** Authenticate each Sweden source row, chronology, coordinate interpretation, rights and intended reuse before scientific comparison; keep duplicate source-panel membership distinct from genetic IDs.
 
@@ -445,6 +445,8 @@ AADR source Political Entity and country-product row disposition; scientific chr
 
 **Matched denominator.** Sweden: source-labelled genetic IDs 416; published unique genetic IDs 416; coordinate exclusions 0; locality rows 77. Dataset counts {"1240k": 416, "ho": 416} count panel membership, not additional people. Five animal samples at three localities, blocked lake rankings and modeled land-use windows have separate units and admission.
 
+Qualified authored reader SHA-256: `1994d928a9531eb6b35c25d228a28d436913a345337f91ab5528e42740e93b32`.
+
 - [Retained qualification evidence: docs/report/countries/sweden/sweden_aadr_v66_summary.json](sweden_aadr_v66_summary.json) (SHA-256 `2bb540d46edcb2080604b33c8acdc45157e5d5bc508ba5c7c191049785c0cf50`).
 
 - [Retained qualification evidence: docs/report/countries/sweden/sweden_aadr_v66_samples.csv](sweden_aadr_v66_samples.csv) (SHA-256 `e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b`).
@@ -453,7 +455,9 @@ AADR source Political Entity and country-product row disposition; scientific chr
 
 - [Retained qualification evidence: reports/science/aadr-nordic-entities/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/report.json) (SHA-256 `73d0ba6d098d7314c9cb3e348f3d76806e3b1e2f2a3d4dacbc0df123728b4196`).
 
-- [Canonical scientific account: reports/science/aadr-nordic-entities/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md).
+- [Retained qualification evidence: reports/science/source-cohorts/adna-current-contract-adjudication.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/adna-current-contract-adjudication.json) (SHA-256 `7c1abf2b936ad95182ea3137c8e7a1df1f5553b2ceac2df7a9fe32a993e744a9`).
+
+- [Canonical scientific account: reports/science/aadr-nordic-entities/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md) (source SHA-256 `4739814c5a1b2b690beb0d57de5432df785ae31914d64e5c881170b885b5c841`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

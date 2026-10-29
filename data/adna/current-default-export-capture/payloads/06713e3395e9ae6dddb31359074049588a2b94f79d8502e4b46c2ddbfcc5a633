@@ -1,0 +1,176 @@
+{
+  "schema_version": "aadr-current-native-export-inputs.v1",
+  "source_root": "/Users/bijan/bijux/bijux-pollenomics",
+  "release_directory": "data/aadr/v66",
+  "inputs": [
+    {
+      "path": "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "bytes": 13518214,
+      "sha256": "a2b204a4d1bedb9d2e2930c1402f8414c1176afb2a1634ad3d6c7b38aaf288b3"
+    },
+    {
+      "path": "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "bytes": 15540394,
+      "sha256": "3f571288de0578478d91126d46c30e80bd06193769ffa3e7cf50bd2885e8fdbe"
+    },
+    {
+      "path": "data/aadr/v66/release_manifest.json",
+      "bytes": 754,
+      "sha256": "317d71cbf82354be73e83bdd01bd382cdd8c7b1c1d536a04b0f642544e0ddde3"
+    },
+    {
+      "path": "docs/report/countries/denmark/denmark_aadr_v66_samples.csv",
+      "bytes": 284233,
+      "sha256": "1628b09c7cc3116b3b95b2e1390107beb5052079e67c00cfabb996f3608269b5"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_aadr_v66_samples.csv",
+      "bytes": 11789,
+      "sha256": "1b1ab06d05f28fcfa42c26fc12dc33e1588a23c3eab0a917f4892d156d578edb"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_aadr_v66_samples.csv",
+      "bytes": 56620,
+      "sha256": "021fbef6979f47d19e6b9df915b0ca73742243401239b8d60ba022b0e3e22396"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_aadr_v66_samples.csv",
+      "bytes": 180827,
+      "sha256": "e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b"
+    }
+  ],
+  "countries": [
+    "Denmark",
+    "Finland",
+    "Norway",
+    "Sweden"
+  ],
+  "raw_inputs": [
+    "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+    "data/aadr/v66/ho/v66.HO.aadr.PUB.anno"
+  ],
+  "legacy_compare": "Exact retained v1 field values by genetic identity are compared and every difference is retained; historical byte equality is not a prerequisite for the new v2 source contract. No discrepancy can become historical recovery or scientific promotion.",
+  "scope": "Current metadata-only AADR typed country records exported by maintained default v2 writers; no genotype, rich-provenance recovery, human/ecology/rights/LRA or original publication reproduction.",
+  "maintained_source_contracts": [
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/locality.py",
+      "sha256": "bcf27ef1a10a80cf9cd7ae59fd01a9ad8ff621aa539dff1ddf5664514e701dcc",
+      "bytes": 11077
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/chronology.py",
+      "sha256": "9ce6e90bbeedb362160832b66dbcf683dc1a47053dfdbf38e792cc9d4315cc5c",
+      "bytes": 5857
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/identity.py",
+      "sha256": "671ac96d7c785449e5510b063034cb9414bb15f9d60f7a0a520026ec12b5f185",
+      "bytes": 953
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/occurrence_support.py",
+      "sha256": "161102a44d91f100f42f55cf66c1bac2f5de6198b1e50515c0f3d0ef60ae925f",
+      "bytes": 5918
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/domain/models/samples.py",
+      "sha256": "35db235289c297c2154215af88c790cff68ff15703f19b96a256da0f8610c0fd",
+      "bytes": 6826
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/definitions.py",
+      "sha256": "87440ca21acf3a101f14f74031ad552840d007fb77936dacc9446a5a392183de",
+      "bytes": 10204
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/__init__.py",
+      "sha256": "8949825031bff60e155a108343743c776fb33818c7d1952b25b792861ac9399d",
+      "bytes": 5953
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/chronology.py",
+      "sha256": "1f0d886cc4c4636e2f9b8153a9a9b19cb8cd61d9b677aea4c686734fcc39cfae",
+      "bytes": 5734
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/constants.py",
+      "sha256": "7db8367e5645089612ac516f2d627e251d53fff60f8d3817a7714abaf470444e",
+      "bytes": 231
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/loading.py",
+      "sha256": "20414c94b92e979b208d7ea00402e6cb84e2766fb803f9b3db9528e62ec4fd77",
+      "bytes": 3834
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/manifest.py",
+      "sha256": "e33899ec55f4b8c0749d4204f47d177d9497811ddf1785bbf6369723314f764e",
+      "bytes": 3106
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/records.py",
+      "sha256": "80ff1601b72fe894590e617a9975d66f9a1f125d29183542ecfe9d5cde4e7cc6",
+      "bytes": 6447
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/release.py",
+      "sha256": "cb1fb48b8c196411b2ef149b6a27a6ac88881217eb12bc8dfa87b006bba32e9c",
+      "bytes": 2325
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/release_manifest.py",
+      "sha256": "c72b729d2496b72e126bf8de273d047034bfe69271dfd5084cbca7dcfbad44cf",
+      "bytes": 4325
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens/text.py",
+      "sha256": "1196b51fb6497141d0155c5877610242750898708fc4b6d3b76e8de7e6717e32",
+      "bytes": 271
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/species/homo_sapiens_schema.py",
+      "sha256": "be9fd7e5463e7536b2a5657afd6baf07ab8c376bd9e767490eb8ae85aeb3b0cd",
+      "bytes": 3963
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/layout.py",
+      "sha256": "63eec58fca2e74ce90e07d333461f912dae74b988c37da340b7d0cba49a4bbb8",
+      "bytes": 1622
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/manifests.py",
+      "sha256": "28fc74eaad034dea03a85ea43fc63762f303ed5d4235fe58c45225ace56c416d",
+      "bytes": 3379
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/workflow/runtime.py",
+      "sha256": "e5c65b3224d234b97928d50c2fbf977532cc12402e7a3398f669b3ec63a18251",
+      "bytes": 10017
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/bp_time.py",
+      "sha256": "3da4c9030d78268b5650d2e80beb125cfb70266404507f98f8229d174cbd748c",
+      "bytes": 3883
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
+      "sha256": "932bb349c6e0b400df6ef5ca2d842461e282bca4fcb18b3ecfb264c0f36e9aba",
+      "bytes": 19747
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/__init__.py",
+      "sha256": "505be9e333c7c653319c2b9f4975e90935bc07e3b4de575103c520f6fb701b04",
+      "bytes": 1000
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/artifacts.py",
+      "sha256": "69a32459b80a89f2f7d5b07786c9419fc0b14a2012f858ac71a47cfdcdc4adff",
+      "bytes": 1988
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py",
+      "sha256": "b45f3ba91b2c80507ba2f96efed4f61cd617127f371529198c34a5a6a493f8cf",
+      "bytes": 11335
+    }
+  ]
+}
