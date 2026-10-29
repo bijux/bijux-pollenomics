@@ -14,6 +14,15 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    # The retained author reader verifies authored bytes and the current managed footer.
+    "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py": {
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
+            {"authored_reader", "parse_routes", "render_route"}
+        ),
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications": frozenset(
+            {"validate_evidence"}
+        ),
+    },
     # Structural portal verification uses these exact host-owned rendering helpers.
     "bijux_pollenomics_dev/docs/report_portal_check.py": {
         "bijux_pollenomics.reporting.presentation.report_portal.narrative_quality": frozenset(
@@ -1344,3 +1353,35 @@ def test_author_grid_reader_bindings_remain_file_module_and_symbol_specific() ->
         assert host_import_violations(f"from {qualified} import *", path)
         assert host_import_violations(f"import {qualified}", path)
         assert host_import_violations(f"__import__({qualified!r})", path)
+
+
+def test_author_retained_reader_bindings_remain_file_module_and_symbol_specific() -> (
+    None
+):
+    """Managed-footer verification grants only its four declared host bindings."""
+    path = "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py"
+    accounts = (
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts"
+    )
+    qualifications = "bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications"
+    bindings = (
+        (accounts, "authored_reader"),
+        (accounts, "parse_routes"),
+        (accounts, "render_route"),
+        (qualifications, "validate_evidence"),
+    )
+    for module, symbol in bindings:
+        statement = f"from {module} import {symbol}"
+        assert not host_import_violations(statement, path)
+        for source, owner in (
+            (statement, path + ".other"),
+            (f"from {module}.other import {symbol}", path),
+            (f"from {module} import {symbol}_other", path),
+            (f"from {module} import {symbol}, unreviewed", path),
+            (f"from {module} import *", path),
+            (f"import {module}", path),
+            (f"__import__({module!r})", path),
+        ):
+            assert host_import_violations(source, owner)
+    assert host_import_violations(f"from {accounts} import validate_evidence", path)
+    assert host_import_violations(f"from {qualifications} import parse_routes", path)
