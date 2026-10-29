@@ -13067,7 +13067,7 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
-      "content_sha256": "bd050119966de2a98f0c0d7c20246198bac821a035bddfe625b87d0b74679cec",
+      "content_sha256": "ffa47fdfeeb1b8a28732f2b419c1b07c75678caf396387824da2411eb3386c72",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -13080,7 +13080,7 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
-      "content_sha256": "4b911c26c53f44e6aa47a9d6749cc30c258b63dc34b570b9f840dcf95259c52a",
+      "content_sha256": "4bc73d7ffed4f3bbaf18ceaf31e8ab41df53fc96c3624f59ad93d03839416b16",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -13129,7 +13129,7 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-example-reexecution/README.md",
-      "content_sha256": "188a21a8bca4462bf33a012e042939be6b5470bfb61033ab60cf6f8da0a95876",
+      "content_sha256": "ff2a0ca95fa17b98a6b7d460341b5ef4c810a1876949aaf13c9bceb257062d5d",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
