@@ -30,9 +30,9 @@ internal functions that emitted each file.
 | --- | ---: | --- |
 | Map surfaces | `87` | interactive surfaces, traceability, contracts, and atlas-facing evidence rows |
 | Scope-filtered outputs | `767` | world, regional, and country bundles that answer geography-first reading questions |
-| Evidence reviews | `35` | animal evidence, chronology, recovery, and cross-family review surfaces |
+| Evidence reviews | `36` | animal evidence, chronology, recovery, and cross-family review surfaces |
 | Scientific caveats | `9` | blocked, thin, overclaim-sensitive, and honesty-oriented publication surfaces |
-| Maintainer truth surfaces | `1232` | repository truth, docs integrity, source audits, and geography governance surfaces |
+| Maintainer truth surfaces | `1296` | repository truth, docs integrity, source audits, and geography governance surfaces |
 
 ## Geographic Scopes
 
@@ -47,6 +47,6 @@ Use the tree in this order: reader portal first, scope bundle second, evidence r
 
 ## Audience Mix
 
-- Maintainer diagnostic: `1235`
+- Maintainer diagnostic: `1299`
 - Public reading surface: `770`
-- Scientific review surface: `125`
+- Scientific review surface: `126`
