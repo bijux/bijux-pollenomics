@@ -41,3 +41,10 @@ decision; LaTeX availability does not establish PowerPoint editability.
 Actual audience reading checks remain open. The PDFs are untagged, so font
 embedding and model visual review do not establish assistive-technology
 accessibility.
+
+
+## Retained scientific deck publication
+
+The [16 October 2026 publication packet](https://github.com/bijux/bijux-pollenomics/tree/891664fe4579c6ef0d9481fe1b0ae7df307ce438/presentation) preserves the original [big-picture PDF](https://github.com/bijux/bijux-pollenomics/blob/891664fe4579c6ef0d9481fe1b0ae7df307ce438/presentation/big-picture.pdf), [developer PDF](https://github.com/bijux/bijux-pollenomics/blob/891664fe4579c6ef0d9481fe1b0ae7df307ce438/presentation/developer.pdf) and [scientific-evidence PDF](https://github.com/bijux/bijux-pollenomics/blob/891664fe4579c6ef0d9481fe1b0ae7df307ce438/presentation/scientific-evidence.pdf), with their five project build-source inputs and recorded publication context. Its retention commit is separate from the original producer identifier `0caba19fdca39e183dce2b1a3929d1b94495cc21`; two reviewed TeX overlays are declared in the retained context.
+
+The historical 121-entry watchlist contains cited evidence as well as project inputs. The retained source context owns 119 exact watchlisted source bodies; two noncompiler citation bodies retain their identities without a portable public-source counterpart. The publication packet retains all five project build-source files. Its machine checks and bounded model review remain scoped historical observations; unfamiliar-human review, tagged accessibility and the PPTX decision remain open. Current PDFs and their five-input build authority remain unchanged.
