@@ -47,3 +47,19 @@ python -m bijux_pollenomics_dev.source_completion.atlas_browser.capture_projecti
   --receipt configs/ci/report-capture-projections/atlas-source-views/provider-accessibility-browser-evidence.json \
   --output artifacts/atlas-source-views/provider-accessibility
 ```
+
+## Local deterministic provider matrix and native controller
+
+The maintained [matrix runner](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/runner.py), invoked with `--plan <scope-plan.json> --provider-failure-matrix-only`, passed the following direct local map cases. Each scope covered HTTP 401, 403, 404, 429 with and without `Retry-After`, timeout, aborted connection, offline mode, corrupt tile decode and both providers unavailable. Provider replies were intercepted locally; this did not contact or qualify a live tile service.
+
+| Direct map | Checked source commit | Passing cases |
+| --- | --- | --- |
+| Nordic | `b25d0fbf9f667819e1a08da64634240644a6580d` | 10/10 |
+| World | `d39810f76c78ea575c830b05fad5df6e9c6e986b` | 10/10 |
+| Europe | `d39810f76c78ea575c830b05fad5df6e9c6e986b` | 10/10 |
+
+The Nordic result is reused only for its unchanged movable time-control branch. World and Europe exercised a finite preset before moving time, then restored the original full preset, country selection, time and counts. The [failure scenarios and interception policy](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-failures.mjs) checked bounded provider failover, usable map controls and unchanged scientific payload identities. All provider transactions were observed through teardown without allowing live requests; request URLs and headers and visible DOM were checked for credentials. Static scientific assets were unchanged before and after both later runs. Earlier failed runs remain failures in the local execution record.
+
+At the same `d39810f76` source, a controlled synthetic signed-native bundle passed actual HTTP and `file:` browser use with the existing [signed-calendar oracle](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/signed-native-lra.mjs) and [selection/export oracle](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/native-lra.mjs). Its synchronous local controller loaded before use: the 18,936-byte external script matched the packaged source, with executed file-mode bytes independently read through the browser debugger. The 516,475-byte HTML remained below the unchanged 524,288-byte limit. All 41 bundle manifest members remained unchanged. Both modes preserved 18 native rows and three missing values, fractional bounds across zero, the zero instant, invalid-bound refusal and restoration, selected-role filtering and the bytes of an actual downloaded selection. Neither mode produced runtime errors or remote requests.
+
+The first combined run recorded an overall failure because file-mode Resource Timing did not expose the controller, after the HTTP functional checks passed. That observation failure was retained. A file-only repeat passed with positive debugger script identity instead; it did not relax the signed-control or export assertions. These results qualify these local consumers only. Wrapper behavior, hosted execution, broader browser/release gates, scientific acceptance and publication authorization remain open; the synthetic bundle supplies no new ecological result or uncertainty claim.

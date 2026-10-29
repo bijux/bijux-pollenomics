@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "af610bceba51dd07eab30788ff03325d7dd2e317147a8d7a15876ffab8e788a1",
-      "bytes": 7327846
+      "sha256": "66854a9b75c62d543041328ac619d6a45e40927a87a746af998cd42774c06446",
+      "bytes": 7328272
     },
     {
       "path": "configs/release_evidence_policy.json",

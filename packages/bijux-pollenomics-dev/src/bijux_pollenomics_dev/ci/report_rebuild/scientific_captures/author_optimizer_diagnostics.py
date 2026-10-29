@@ -11,8 +11,9 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
-from ..retained_source import validated_descriptor
+from ..retained_source import SourceCapsule, validated_descriptor
 from .optimizer_inputs.baseline import validated_optimizer_input_reference
+from .presentation_source_roles import atlas_extension_matches
 from .source_correspondence import validated_current_scientific_source
 
 CAPTURE = (
@@ -190,6 +191,132 @@ def _native_references(packet: Path, capture: JsonObject) -> None:
             raise ReportRebuildError("Optimizer diagnostic native scope differs")
 
 
+_OPTIMIZER_ATLAS_SOURCES: dict[str, tuple[str, int, str]] = {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/runner.py": (
+        "c219c68e9ccfddd7497356658a0178bc08170bfe349cb9c3769b63555810fbc7",
+        8998,
+        "historical_browser_orchestration",
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/verdict.py": (
+        "6afa6519743f85ffecfe7a9ea916b6a9e0f6c53d6d51f70e7191e8bb59266059",
+        8048,
+        "finite_atlas_extension",
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py": (
+        "024fe24976b3590c8c8a40e76f774ac60cb3effdb5ba1ade88dc40379f6565fe",
+        20205,
+        "historical_capture_admission",
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py": (
+        "b271061a3b04f4a41baf53e98076747e8e5620ab64cd7e146fac26c691e34fe5",
+        22265,
+        "historical_capture_admission",
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/workflow.py": (
+        "b9e8af47a6369d89604bb78e61daf388bd02964862fd19055fbb93662bd92a9e",
+        17181,
+        "finite_atlas_extension",
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py": (
+        "e131724adacd5471cdc1b236079b5d091b33ed618ed5e1e1c8afab49363a0e57",
+        8502,
+        "finite_atlas_extension",
+    ),
+}
+
+
+def _optimizer_atlas_source_correspondence(
+    repository: Path,
+    row: JsonObject,
+    logical: str,
+    resolver: SourceCapsule,
+) -> JsonObject | None:
+    """Keep six original optimizer presentation inputs separate from current math."""
+    name = _member_name(row.get("path"))
+    if name not in _OPTIMIZER_ATLAS_SOURCES:
+        raise ReportRebuildError("Unknown optimizer Atlas source role")
+    checksum, size, role = _OPTIMIZER_ATLAS_SOURCES[name]
+    expected = {"sha256": checksum, "bytes": size}
+    if (
+        repository != repository.resolve()
+        or resolver.repository != repository
+        or resolver.prefix != Path(CAPTURE).parent.as_posix()
+        or resolver.descriptor.capture.get("sha256") != CAPTURE_SHA256
+        or set(row) != {"path", "sha256", "bytes"}
+        or type(row.get("bytes")) is not int
+        or row != {"path": name, **expected}
+        or logical != "executions/optimizer-diagnostics/first-party-inputs/" + name
+        or logical not in resolver.detached
+        or resolver.descriptor.members.get(logical) != expected
+        or [
+            path
+            for group in resolver.descriptor.groups
+            for member, path in group["resolved_paths"]
+            if member == logical
+        ]
+        != [name]
+    ):
+        raise ReportRebuildError("Original optimizer Atlas member binding differs")
+    resolver.fresh()
+    captured = resolver.read_source(logical)
+    if len(captured) != size or hashlib.sha256(captured).hexdigest() != checksum:
+        raise ReportRebuildError("Original optimizer Atlas source bytes differ")
+    current = _file(repository, name)
+    if current.stat().st_nlink != 1 or current.stat().st_size > 128 * 1024**2:
+        raise ReportRebuildError(
+            "Current optimizer Atlas source must be bounded single-link"
+        )
+    body = current.read_bytes()
+    resolver.fresh()
+    if body == captured:
+        return None
+    if role == "finite_atlas_extension" and not atlas_extension_matches(
+        name, captured, body
+    ):
+        raise ReportRebuildError(
+            "Optimizer Atlas source differs beyond named asset or provider additions"
+        )
+    return {
+        "path": name,
+        "classification": "optimizer_atlas_source_custody",
+        "role": role,
+        "original_member": logical,
+        "original_sha256": checksum,
+        "original_bytes": size,
+        "current_regular_single_link": True,
+        "finite_old_byte_law_required": role == "finite_atlas_extension",
+        "current_browser_native_or_mathematical_equivalence_claimed": False,
+    }
+
+
+def _optimizer_projection_accounting(
+    correspondences: list[JsonObject], intake_guards: list[JsonObject]
+) -> JsonObject:
+    """Report current and historical source partitions without claiming equivalence."""
+    historical = [
+        item
+        for item in correspondences
+        if item.get("classification")
+        in {
+            "historical_private_control_current_absence",
+            "historical_generated_version_metadata",
+        }
+        or (
+            item.get("classification") == "optimizer_atlas_source_custody"
+            and item.get("role")
+            in {"historical_browser_orchestration", "historical_capture_admission"}
+        )
+    ]
+    return {
+        "logical_scientific_projection": 2072,
+        "current_scientific_projection": 2072 - len(historical),
+        "historical_only_projection_roles": historical,
+        "current_projection_byteequal_members": 2072
+        - len(correspondences)
+        - len(intake_guards),
+    }
+
+
 def validated_author_optimizer_diagnostic_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -290,9 +417,14 @@ def validated_author_optimizer_diagnostic_capture(
         ]
         if type(row.get("bytes")) is not int or not retained_candidates:
             raise ReportRebuildError("Retained scientific source is unbound")
-        correspondence = validated_current_scientific_source(
-            repository, row, retained_candidates[0], resolver
-        )
+        if name in _OPTIMIZER_ATLAS_SOURCES:
+            correspondence = _optimizer_atlas_source_correspondence(
+                repository, row, retained_candidates[0], resolver
+            )
+        else:
+            correspondence = validated_current_scientific_source(
+                repository, row, retained_candidates[0], resolver
+            )
         if correspondence is not None:
             current_metadata_correspondences.append(correspondence)
     products = capture.get("report_outputs")
@@ -400,31 +532,17 @@ def validated_author_optimizer_diagnostic_capture(
         },
         "report_outputs": 2,
         "retained_input_reference": input_certificate,
-        "logical_scientific_projection": 2072,
-        "current_scientific_projection": 2072
-        - sum(
-            item.get("classification")
-            in {
-                "historical_private_control_current_absence",
-                "historical_generated_version_metadata",
-            }
-            for item in current_metadata_correspondences
+        **_optimizer_projection_accounting(
+            current_metadata_correspondences, current_intake_guard_correspondences
         ),
-        "historical_only_projection_roles": [
+        "current_metadata_source_correspondences": current_metadata_correspondences,
+        "optimizer_atlas_source_correspondences": [
             item
             for item in current_metadata_correspondences
-            if item.get("classification")
-            in {
-                "historical_private_control_current_absence",
-                "historical_generated_version_metadata",
-            }
+            if item.get("classification") == "optimizer_atlas_source_custody"
         ],
-        "current_projection_byteequal_members": 2072
-        - len(current_metadata_correspondences)
-        - len(current_intake_guard_correspondences),
-        "current_metadata_source_correspondences": current_metadata_correspondences,
         "current_intake_guard_source_correspondences": current_intake_guard_correspondences,
         "original_projection_members_retained_unchanged": 2072,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Two actual bounded prior-exposed English optimizer diagnostic JSON reports. Exact original source, reference baseline and negative convergence are retained. The baseline remains read input; its exact certificate is separate from produced diagnostics. Exact returned Nordic metadata and archive-intake guard correspondences remain separate from byte-equal members; no whole-current-tree equality or extraction/model replay is claimed. The historical feasibility attempt report remains unresolved. No full experiment fit, held-out prediction, R, ecology, Nordic, rights, human or official release acceptance is admitted.",
+        "scope": "Two actual bounded prior-exposed English optimizer diagnostic JSON reports. Exact original source, reference baseline and negative convergence are retained. The baseline remains read input; its exact certificate is separate from produced diagnostics. Exact returned Nordic metadata, archive-intake guards and six optimizer-only Atlas source roles remain separate from byte-equal members. Three named asset/provider changes require full old-byte reconstruction; original browser orchestration and two admission readers retain historical source custody only. Current software, browser, mathematical and native equivalence are unqualified; no whole-current-tree equality or extraction/model replay is claimed. The historical feasibility attempt report remains unresolved. No full experiment fit, held-out prediction, R, ecology, Nordic, rights, human or official release acceptance is admitted.",
     }

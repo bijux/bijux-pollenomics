@@ -1,5 +1,6 @@
 import { execFileSync, spawn } from 'node:child_process';
 import { createServer } from 'node:http';
+import { createHash } from 'node:crypto';
 import { createWriteStream } from 'node:fs';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { extname, join, normalize, relative, resolve } from 'node:path';
@@ -8,7 +9,10 @@ import { assertArtifactCandidate, readArtifactMember } from './artifact-candidat
 import { assertGeneratedReportCandidate, readGeneratedReportMember } from './generated-report-candidate.mjs';
 import { NATIVE_LRA_REQUIRED_ASSERTIONS, SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS, verifyNativeLraScope } from './native-lra.mjs';
 import { RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS, verifyRaaRetainedContextScope } from './raa-retained-context.mjs';
+import { providerInterception, verifyProviderFailureMatrix, PROVIDER_MATRIX_ASSERTIONS } from './provider-failures.mjs';
 
+const providerMatrixOnly = process.argv[3] === '--provider-failure-matrix-only';
+if (process.argv.length > 4 || (process.argv[3] && !providerMatrixOnly)) throw Error('unsupported browser probe mode');
 const plan = JSON.parse(await readFile(resolve(process.argv[2]), 'utf8'));
 if (!['atlas-browser-verification-plan.v2', 'atlas-browser-verification-plan.v3', 'atlas-browser-verification-plan.v4'].includes(plan.schema_version)) throw new Error('unsupported plan schema');
 const repositoryRoot = resolve(plan.repository_root);
@@ -58,6 +62,7 @@ function parseSliderBounds(slider) {
 
 const requests = [];
 const servedArtifactBytes = [];
+const canonicalServedFiles = new Map();
 const refusedArtifactReads = [];
 const nativeArtifactMode = plan.schema_version === 'atlas-browser-verification-plan.v3';
 const reportArtifactMode = plan.schema_version === 'atlas-browser-verification-plan.v4';
@@ -93,6 +98,14 @@ const server = createServer(async (request, response) => {
     }
     const payload = artifactMode ? served.payload : await readFile(requestedPath);
     if (served !== null) servedArtifactBytes.push(served.receipt);
+    if (providerMatrixOnly && !artifactMode) {
+      const path = relative(repositoryRoot, requestedPath);
+      const expectedBlob = git('rev-parse', `${candidate.repository_head}:${path}`);
+      const actualBlob = createHash(expectedBlob.length === 40 ? 'sha1' : 'sha256')
+        .update(`blob ${payload.length}\0`).update(payload).digest('hex');
+      if (actualBlob !== expectedBlob) throw Error(`served file differs from Git candidate: ${path}`);
+      canonicalServedFiles.set(path, {repository_path: path, git_blob: expectedBlob, byte_count: payload.length});
+    }
     receipt.status = 200;
     receipt.byte_count = payload.length;
     response.writeHead(200, {
@@ -159,7 +172,12 @@ try {
   debuggerOrigin.search = '';
   debuggerOrigin.hash = '';
   for (const scope of scopes) {
-    const scopeResult = verificationProfile === 'nordic-source-chronology-v1'
+    const scopeResult = providerMatrixOnly
+      ? await verifyProviderFailureMatrix(scope, debuggerOrigin.origin, {
+        openAtlas, closeAtlas, captureReady, evaluate, screenshot, writeScenario,
+        evidenceIdentity, candidate, timeoutMs,
+      })
+      : verificationProfile === 'nordic-source-chronology-v1'
       ? await verifyNordicSourceChronologyScope(scope, debuggerOrigin.origin)
       : verificationProfile === 'raa-retained-context-v1'
         ? await verifyRaaRetainedContextScope(scope, debuggerOrigin.origin, {
@@ -213,16 +231,18 @@ try {
       'runtime_console_clean', 'receipt_inventory_complete',
     ],
   };
-  const required = requiredAssertionsByProfile[verificationProfile];
+  const required = providerMatrixOnly ? PROVIDER_MATRIX_ASSERTIONS : requiredAssertionsByProfile[verificationProfile];
   if (!required) throw new Error('unsupported verification profile');
   for (const name of required) if (!(name in assertions)) assertions[name] = false;
   const report = {
     schema_version: 'atlas-browser-runtime-report.v2',
     verification_profile: verificationProfile,
+    verification_mode: providerMatrixOnly ? 'provider-failure-matrix' : 'complete-profile',
     candidate,
     browser: browserVersion,
     assertions: Object.fromEntries(required.map((name) => [name, assertions[name] === true])),
     scenarios,
+    ...(providerMatrixOnly ? {served_canonical_files: [...canonicalServedFiles.values()]} : {}),
     receipts: [...new Set(receipts)].sort(),
     ...(artifactMode ? {served_artifact_bytes: servedArtifactBytes, refused_artifact_reads: refusedArtifactReads} : {}),
   };
@@ -1060,51 +1080,6 @@ async function basemapDiscoverabilityFacts(cdp, width) {
   })()`);
 }
 
-function providerInterception(cdp, providerRequests, runtimeFailures, enabled) {
-  const pending = new Set();
-  const canceled = new Set();
-  const rejected = [];
-  return {
-    handle(event) {
-      if (event.method === 'Network.loadingFailed' && event.params.canceled === true) {
-        canceled.add(event.params.requestId);
-      }
-      if (event.method !== 'Fetch.requestPaused') return;
-      const row = {
-        url: event.params.request.url,
-        request_id: event.params.requestId,
-        network_id: event.params.networkId ?? null,
-        intercepted: true,
-      };
-      providerRequests.push(row);
-      const operation = cdp.send('Fetch.failRequest', {
-        requestId: row.request_id,
-        errorReason: 'Failed',
-      }).catch((error) => rejected.push({ row, error }))
-        .finally(() => pending.delete(operation));
-      pending.add(operation);
-    },
-    async settle() {
-      // Stop new interceptions and drain command replies before the verdict.
-      if (enabled) await cdp.send('Fetch.disable');
-      while (pending.size) await Promise.all([...pending]);
-      for (const { row, error } of rejected.splice(0)) {
-        let protocolError;
-        try { protocolError = JSON.parse(error.message); } catch { protocolError = null; }
-        const staleCanceledRequest = protocolError?.code === -32602
-          && ['Invalid InterceptionId', 'Invalid InterceptionId.'].includes(protocolError.message)
-          && typeof row.network_id === 'string' && canceled.has(row.network_id);
-        row.interception_status = staleCanceledRequest ? 'canceled_before_failure_reply' : 'failed';
-        row.interception_error = String(error);
-        if (!staleCanceledRequest) runtimeFailures.push({
-          kind: 'provider-interception', detail: String(error),
-          request_id: row.request_id, network_id: row.network_id,
-        });
-      }
-    },
-  };
-}
-
 async function openAtlas(scope, debuggerOrigin, options) {
   activeScenario = `${scope.name}:${options.name}`;
   const response = await fetch(`${debuggerOrigin}/json/new?about:blank`, { method: 'PUT' });
@@ -1113,7 +1088,7 @@ async function openAtlas(scope, debuggerOrigin, options) {
   const cdp = await connectCdp(target.webSocketDebuggerUrl);
   const runtimeFailures = [];
   const providerRequests = [];
-  const interception = providerInterception(cdp, providerRequests, runtimeFailures, options.blockProviders === true);
+  const interception = providerInterception(cdp, providerRequests, runtimeFailures, options.blockProviders === true, options.providerFailure ?? null);
   cdp.onEvent((event) => {
     interception.handle(event);
     if (event.method === 'Runtime.exceptionThrown') runtimeFailures.push({ kind: 'exception', detail: event.params.exceptionDetails?.text || '' });
@@ -1121,7 +1096,8 @@ async function openAtlas(scope, debuggerOrigin, options) {
       kind: 'console-error', detail: (event.params.args || []).map((arg) => arg.description || arg.value || '').join(' '),
     });
     if (event.method === 'Network.requestWillBeSent' && providerHosts.some((host) => event.params.request.url.includes(host))) {
-      providerRequests.push({ url: event.params.request.url, request_id: event.params.requestId });
+      providerRequests.push({ url: event.params.request.url, request_id: event.params.requestId,
+        ...(interception.requestsBlocked ? {blocked_during_teardown: true} : {}) });
     }
   });
   await cdp.send('Page.enable');
@@ -1141,9 +1117,15 @@ async function openAtlas(scope, debuggerOrigin, options) {
 }
 
 async function closeAtlas(atlas, debuggerOrigin) {
-  await atlas.interception.settle();
-  atlas.cdp.close();
-  await fetch(`${debuggerOrigin}/json/close/${atlas.target.id}`);
+  try {
+    await atlas.interception.settle(async () => {
+      const response = await fetch(`${debuggerOrigin}/json/close/${atlas.target.id}`);
+      if (!response.ok) throw Error(`cannot close owned browser target: ${response.status}`);
+      await response.text();
+    });
+  } finally {
+    atlas.cdp.close();
+  }
 }
 
 async function captureReady(cdp) {
@@ -2630,6 +2612,7 @@ async function writeScenario(scope, scenario, receiptsList) {
 }
 
 function assertCandidate() {
+  if (providerMatrixOnly && (git('diff', '--name-only') || git('diff', '--cached', '--name-only'))) throw Error('provider matrix requires a clean committed candidate');
   const head = git('rev-parse', 'HEAD');
   const tree = git('rev-parse', 'HEAD^{tree}');
   const atlasCommit = git('log', '-1', '--format=%H', '--', ...scopes.map((scope) => scope.document));

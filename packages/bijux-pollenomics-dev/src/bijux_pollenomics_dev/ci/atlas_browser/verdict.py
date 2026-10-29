@@ -166,6 +166,10 @@ def evaluate_browser_report(
 ) -> JsonObject:
     """Return PASS only when the report has every exact, true assertion."""
     document = _mapping(report, label="browser report")
+    if document.get("verification_mode", "complete-profile") != "complete-profile":
+        raise AtlasBrowserContractError(
+            "scoped provider matrix is not a complete browser profile"
+        )
     if document.get("schema_version") != "atlas-browser-runtime-report.v2":
         raise AtlasBrowserContractError("browser report schema_version is unsupported")
     if document.get("verification_profile") != verification_profile:
@@ -212,4 +216,101 @@ def evaluate_browser_report(
         "assertions": assertions,
         "scenario_count": len(scenarios),
         "receipt_count": len(receipts),
+    }
+
+
+def evaluate_provider_failure_matrix(
+    report: object, *, candidate: BrowserCandidate, scopes: frozenset[str]
+) -> JsonObject:
+    """Accept only a complete scoped matrix; never confer full browser qualification."""
+    document = _mapping(report, label="provider matrix")
+    if (
+        document.get("schema_version") != "atlas-browser-runtime-report.v2"
+        or document.get("verification_mode") != "provider-failure-matrix"
+    ):
+        raise AtlasBrowserContractError("provider matrix report mode/schema differs")
+    if document.get("candidate") != candidate.as_json():
+        raise AtlasBrowserContractError("provider matrix candidate differs")
+    browser = _mapping(document.get("browser"), label="provider matrix browser")
+    if frozenset(browser) != _BROWSER_IDENTITY_FIELDS or any(
+        not isinstance(v, str) or not v for v in browser.values()
+    ):
+        raise AtlasBrowserContractError(
+            "provider matrix browser identity is incomplete"
+        )
+    cases = frozenset(
+        {
+            "http-401",
+            "http-403",
+            "http-404",
+            "http-429",
+            "http-429-retry-after",
+            "timeout",
+            "aborted",
+            "offline",
+            "corrupt-image",
+            "dual-provider",
+        }
+    )
+    required = frozenset(
+        {
+            "provider_matrix_case_complete",
+            "provider_matrix_candidate_identity",
+            "provider_matrix_configured_fallback",
+            "provider_matrix_evidence_unchanged",
+            "provider_matrix_bounded_attempts",
+            "provider_matrix_no_live_requests",
+            "provider_matrix_credential_free",
+            "provider_matrix_ui_usable",
+            "provider_matrix_runtime_clean",
+            "provider_matrix_payload_unchanged",
+        }
+    )
+    rows = document.get("scenarios")
+    if not isinstance(rows, list):
+        raise AtlasBrowserContractError("provider matrix scenarios are missing")
+    expected = {(scope, f"provider-{case}") for scope in scopes for case in cases}
+    seen: set[tuple[str, str]] = set()
+    failures: list[str] = []
+    for value in rows:
+        row = _mapping(value, label="provider matrix scenario")
+        scope, name = row.get("scope"), row.get("name")
+        if (
+            not isinstance(scope, str)
+            or not isinstance(name, str)
+            or (scope, name) not in expected
+            or (scope, name) in seen
+        ):
+            raise AtlasBrowserContractError(
+                "provider matrix scenario identity is duplicate or unexpected"
+            )
+        seen.add((scope, name))
+        assertions = _mapping(row.get("assertions"), label="provider matrix assertions")
+        if frozenset(assertions) != required:
+            raise AtlasBrowserContractError(
+                "provider matrix assertion set is incomplete"
+            )
+        failures.extend(
+            f"{scope}/{name}:{key}"
+            for key, value in assertions.items()
+            if value is not True
+        )
+    if seen != expected:
+        raise AtlasBrowserContractError(
+            "provider matrix case/scope coverage is incomplete"
+        )
+    if (
+        not isinstance(document.get("served_canonical_files"), list)
+        or not document["served_canonical_files"]
+    ):
+        raise AtlasBrowserContractError(
+            "provider matrix lacks served Git file identities"
+        )
+    return {
+        "status": "FAIL" if failures else "PASS",
+        "verification_mode": "provider-failure-matrix",
+        "full_profile_qualified": False,
+        "deployment_qualified": False,
+        "scenario_count": len(rows),
+        "failed_assertions": failures,
     }

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from importlib.resources import files
 import json
 from pathlib import Path
 import zipfile
@@ -13,6 +14,9 @@ from bijux_pollenomics.reporting.lra_products.api import (
     LRAPresentationRefusal,
     TemporalProfile,
     render_lra_report,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.budgets import (
+    ATLAS_DOCUMENT_MAX_BYTES,
 )
 
 from .support import encoded, geometry_fixture, product_fixture, rebind, sha
@@ -309,6 +313,18 @@ def test_signed_report_uses_complete_static_transport_and_bound_support(
     assert report.mapped_site_count == 2
     assert manifest["map_build_id"]
     html = (report.directory / "map.html").read_text()
+    controller = (report.directory / "_map_assets/native-lra.js").read_bytes()
+    assert controller == (
+        files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/native-lra.js")
+        .read_bytes()
+    )
+    assert manifest["files"]["_map_assets/native-lra.js"] == sha(controller)
+    assert len(html.encode()) <= ATLAS_DOCUMENT_MAX_BYTES
+    script = '<script src="_map_assets/native-lra.js"></script>'
+    assert html.count(script) == 1
+    assert html.index(script) < html.index("(async () => {")
+    assert "function createNativeLraController" not in html
     bootstrap = json.loads(
         html.split('<script id="atlas-static-bootstrap" type="application/json">', 1)[
             1

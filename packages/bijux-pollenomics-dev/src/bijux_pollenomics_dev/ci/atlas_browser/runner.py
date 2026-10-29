@@ -28,7 +28,7 @@ from .generated_report_candidate import (
     verify_generated_report_served_bytes,
 )
 from .static_integrity import audit_static_atlas
-from .verdict import evaluate_browser_report
+from .verdict import evaluate_browser_report, evaluate_provider_failure_matrix
 
 _GIT_TIMEOUT_SECONDS = 30
 _BROWSER_PROCESS_TIMEOUT_MULTIPLIER = 32
@@ -121,8 +121,16 @@ def _write_json(path: Path, value: object) -> None:
     )
 
 
-def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
+def run_browser_verification(
+    plan: BrowserVerificationPlan, *, provider_failure_matrix_only: bool = False
+) -> JsonObject:
     """Run the independent browser verifier and return its fail-closed summary."""
+    if provider_failure_matrix_only and isinstance(
+        plan.candidate, (AtlasArtifactCandidate, AtlasGeneratedReportCandidate)
+    ):
+        raise AtlasBrowserContractError(
+            "provider matrix requires canonical Git outputs"
+        )
     artifact_root = plan.artifact_root.resolve()
     if artifact_root.exists() and any(artifact_root.iterdir()):
         raise AtlasBrowserContractError("artifact_root must be absent or empty")
@@ -146,7 +154,16 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
     probe = Path(__file__).with_name("probe.mjs")
     try:
         completed = run_bounded_argv(
-            ("node", str(probe), str(artifact_root / "plan.json")),
+            (
+                "node",
+                str(probe),
+                str(artifact_root / "plan.json"),
+                *(
+                    ("--provider-failure-matrix-only",)
+                    if provider_failure_matrix_only
+                    else ()
+                ),
+            ),
             cwd=plan.repository_root,
             timeout_seconds=max(
                 300,
@@ -173,10 +190,18 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
         report = json.loads(report_path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as error:
         raise AtlasBrowserContractError("browser report is unreadable") from error
-    summary = evaluate_browser_report(
-        report,
-        candidate=plan.candidate,
-        verification_profile=plan.verification_profile,
+    summary = (
+        evaluate_provider_failure_matrix(
+            report,
+            candidate=plan.candidate,
+            scopes=frozenset(scope.name for scope in plan.scopes),
+        )
+        if provider_failure_matrix_only
+        else evaluate_browser_report(
+            report,
+            candidate=plan.candidate,
+            verification_profile=plan.verification_profile,
+        )
     )
     artifact_after = _require_candidate(plan)
     if artifact_before is not None:
@@ -222,14 +247,22 @@ def _parser() -> argparse.ArgumentParser:
         description="Verify a content-bound published atlas in a Chromium browser via CDP."
     )
     parser.add_argument("--plan", required=True, type=Path)
+    parser.add_argument(
+        "--provider-failure-matrix-only",
+        action="store_true",
+        help="check only deterministic provider failures; no full-profile or deployment qualification",
+    )
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     """Execute the repository-owned browser verifier CLI."""
     try:
-        plan = load_plan(_parser().parse_args(argv).plan)
-        result = run_browser_verification(plan)
+        args = _parser().parse_args(argv)
+        plan = load_plan(args.plan)
+        result = run_browser_verification(
+            plan, provider_failure_matrix_only=args.provider_failure_matrix_only
+        )
     except AtlasBrowserContractError as error:
         print(f"atlas browser verification refused: {error}", file=sys.stderr)
         return 2

@@ -21,7 +21,10 @@ from .atlas_source_views import (
     _sha,
     read_object,
 )
-from .presentation_source_roles import HISTORICAL_RENDERING_SOURCES
+from .presentation_source_roles import (
+    HISTORICAL_RENDERING_SOURCES,
+    atlas_extension_matches,
+)
 
 CURRENT_CAPTURE_PATH = "data/atlas/sample-chronology-source-view-capture/capture.json"
 CURRENT_CAPTURE_SHA256 = (
@@ -250,11 +253,16 @@ def _validate_current_source(
     current = source.read_bytes()
     if hashlib.sha256(current).hexdigest() != expected:
         _require(
-            name in DOCUMENTED_CAPTURE_DEFINITIONS
-            and logical == "source/" + name
+            logical == "source/" + name
             and logical in detached
             and source.stat().st_nlink == 1
-            and _documented_source_matches(name, captured, current),
+            and (
+                (
+                    name in DOCUMENTED_CAPTURE_DEFINITIONS
+                    and _documented_source_matches(name, captured, current)
+                )
+                or atlas_extension_matches(name, captured, current)
+            ),
             "current source footprint differs: " + name,
         )
 

@@ -1,3 +1,5 @@
+"""Prepare map document bindings and the declared native-controller asset route."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -100,8 +102,13 @@ def build_map_document_payload(
         "__NATIVE_LRA_BINDING__": serialize_json_for_script(
             bind_native_view(native_lra) if native_lra is not None else None
         ),
+        "__NATIVE_LRA_SCRIPT_TAG__": (
+            f'<script src="{escape_html_fn(asset_base_path)}/native-lra.js"></script>'
+            if native_lra is not None and static_assets is not None
+            else ""
+        ),
         "__NATIVE_LRA_CONTROLLER__": NATIVE_LRA_CONTROLLER
-        if native_lra is not None
+        if native_lra is not None and static_assets is None
         else "",
         "__NATIVE_LRA_CONTROLS__": (
             '<details id="lra-controls" class="control-group" hidden open '

@@ -13,7 +13,10 @@ from typing import Any
 from ..contracts import ReportRebuildError
 from ..ownership import _regular_confined_file
 from ..retained_source.index import validated_descriptor
-from .presentation_source_roles import HISTORICAL_RENDERING_SOURCES
+from .presentation_source_roles import (
+    HISTORICAL_RENDERING_SOURCES,
+    atlas_extension_matches,
+)
 
 CAPTURE_PATH = "data/atlas/source-view-capture/capture.json"
 CAPTURE_SHA256 = "bf5a62652a8b22734f15ac60584e2ab0f8ab8870d96a632307cfd40211daeddd"
@@ -398,6 +401,13 @@ def validated_atlas_source_views(repository: Path) -> ValidatedAtlasCapture:
             )
             continue
         if _sha(source) != expected:
+            if (
+                logical_member == "source/" + name
+                and logical_member in source_buffer.detached
+                and source.stat().st_nlink == 1
+                and atlas_extension_matches(name, captured, source.read_bytes())
+            ):
+                continue
             if name == API_PATH:
                 _validate_api_adoption(repository, captured, source)
             elif name == ROOT_API_PATH:

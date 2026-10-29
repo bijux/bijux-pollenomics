@@ -21,19 +21,48 @@ public release.
 
 ## What we verified
 
-On 1 October 2026, we installed the host with its `lra` extra from locally
-built `0.1.9.dev847` host and engine wheels at commit `14d999d43` into a fresh
-CPython 3.11 environment. The installed host discovered the `0.1.9.dev847`
-engine entry point from `site-packages`, then ran deterministic bundled REVEALS
-and analytical LOVE examples with R absent from `PATH` and `R_HOME` empty. The
-REVEALS sample shape was 2 × 3 × 21; the LOVE mean cover shape was 10 × 10.
+On 23 October 2026, we built the host, compatibility facade and engine at
+commit `b25d0fbf9f667819e1a08da64634240644a6580d`, each version
+`0.1.9.dev1760`. Standard isolated PEP 517 builds produced three wheels and
+three source distributions. We rebuilt each source distribution into a wheel
+without access to the enclosing Git repository. All nine archives passed the
+maintained distribution checks, including metadata, confined paths and wheel
+RECORD integrity.
 
-In a second fresh environment we installed the base host wheel alone. NumPy,
-SciPy, pandas and the engine were absent; loading LRA returned the declared
-extra-install instruction. Both installed CLIs exposed `run-lra --help`. This
-establishes one local install path on this platform. Public index availability,
-release rights, other operating systems and final release versions remain
-separate gates.
+We used two fresh, noneditable CPython 3.11.13 environments: one for direct
+wheels and one for wheels rebuilt from source distributions. In each environment,
+we first installed the base host and facade. NumPy, SciPy, pandas and the engine
+were absent; loading LRA returned the declared extra-install instruction.
+Both CLIs exposed their version, help and `run-lra --help`.
+
+We then installed the host's `lra` extra and the local engine wheel together
+in each environment. Dependency checks passed. Isolated Python probes verified
+the installed distribution origins in `site-packages`, engine version, entry
+point and descriptor before running bundled REVEALS and analytical LOVE with
+R absent from `PATH` and `R_HOME` empty. REVEALS produced samples of shape
+2 × 3 × 21, retaining the supplied three-decimal percentage rounding allowance.
+LOVE produced a 10 × 10 mean table: seven unsupported rings remained NaN and
+three supported rings retained 16 negative values without clipping.
+
+All 32 build, install, dependency and consumer commands passed. This establishes
+two local distribution paths on this platform, including an independent source
+archive rebuild. It does not establish public index availability, release rights,
+other operating systems, ecological accuracy or final release versions. The
+separate native R comparison uses the shared editable environment; this wheel
+check does not establish an R comparison of the newly installed wheels.
+
+We subsequently qualified the changed host report asset at commit
+`2f9e86a826ae5cde8eb501f4cab4dcb7783a7d8a`, host version `0.1.9.dev1774`.
+We built its wheel and source archive, independently rebuilt the source
+archive without enclosing Git discovery, and passed all three archive checks.
+We reused the two private installation environments, removed the engine from
+each, installed the corresponding host wheel and ran the saved signed-report
+consumer in isolated Python. Both paths retained 18 model rows and three
+missing values, authenticated all 41 report files, and loaded the exact
+18,936-byte packaged controller. The 516,475-byte HTML remained below the
+524,288-byte budget. All ten commands passed in 9.991 seconds. This affected
+host check did not repeat numerical-engine parity or establish browser or
+scientific acceptance; the synthetic report retains `not_evaluated`.
 
 ## Public index check on 30 September 2026
 

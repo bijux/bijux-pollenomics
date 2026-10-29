@@ -23892,6 +23892,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/playback_keyboard_candidate.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/probe.mjs",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-accessibility.mjs",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-failures.mjs",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/raa-retained-context.mjs",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/runner.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/signed-native-lra.mjs",
@@ -24053,6 +24054,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_selection.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/swedish_cohort.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/swedish_direct_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/representative_performance.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_accounting/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_accounting/current_audit.py",
@@ -33694,7 +33696,7 @@
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Authenticate exact original source/native/publication custody through the sealed data/method-certification/author-radius-source-capture SourceCapsule and unchanged original numerical/refusal/denominator predicates. Historical metadata/IO/rendering/version roles remain separate from default current mathematical source checks. This retained-output reader adds no fresh R, model, timing, browser, source acquisition, ecological/rights or human/field admission."
+      "verification": "Authenticate exact original source/native/publication custody through the sealed data/method-certification/author-radius-source-capture SourceCapsule and unchanged original numerical/refusal/denominator predicates. Original scientific source identities are authenticated at the sealed execution epochs; current numerical execution and current scientific-source equivalence are unqualified. Separate generated paired products retain their strict current producer contract. This retained-output reader adds no fresh R, model, timing, browser, source acquisition, ecological/rights or human/field admission."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/source-code",
@@ -33741,7 +33743,7 @@
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Authenticate exact saved original source/native/product custody through the registered constrained-author-source-capture SourceCapsule. Numerical implementations remain current-strict; explicit historical metadata, named documentation, finite mixed-function IO and package-export roles remain separate. Original execution epochs, all refusals and scientific limits stay literal; no model/R/optimizer/source acquisition or new biological/field/rights admission. Retain all195attempts/192completed/3refused and14scored folds with BECKHAM refused; this is retained-output readback, not a fresh experiment."
+      "verification": "Authenticate exact saved original source/native/product custody through the registered constrained-author-source-capture SourceCapsule. Original scientific source identities are authenticated through retained Git custody at their sealed execution epochs; current numerical execution and current scientific-source equivalence are unqualified. Original execution epochs, all refusals and scientific limits stay literal; no model/R/optimizer/source acquisition or new biological/field/rights admission. Retain all195attempts/192completed/3refused and14scored folds with BECKHAM refused; this is retained-output readback, not a fresh experiment."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/ring-support/reader-account",

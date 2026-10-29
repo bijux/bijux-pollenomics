@@ -10,7 +10,10 @@ from typing import Any
 from ....ownership import _regular_confined_file
 from ....retained_source import SourceCapsule, validated_descriptor
 from ....retained_source.objects import GitSourceMember, read_blob
-from ...presentation_source_roles import HISTORICAL_RENDERING_SOURCES
+from ...presentation_source_roles import (
+    HISTORICAL_RENDERING_SOURCES,
+    atlas_extension_matches,
+)
 from ...source_roles.documentation import _documented_source_matches
 from .contracts import require, strict_equal
 
@@ -667,6 +670,7 @@ def validate_recorded_source_contracts(
     exact = 0
     documented: list[str] = []
     rendered: list[str] = []
+    extended: list[str] = []
     resolver.fresh()
     for row in rows:
         name = row["path"]
@@ -718,6 +722,10 @@ def validate_recorded_source_contracts(
             rendered.append(name)
         elif _documented_source_matches(name, captured, value):
             documented.append(name)
+        elif logical in resolver.detached and atlas_extension_matches(
+            name, captured, value
+        ):
+            extended.append(name)
         else:
             require(
                 False, "Current Sweden scientific contract differs without a named role"
@@ -728,6 +736,7 @@ def validate_recorded_source_contracts(
         "current_default_exact_sources": exact,
         "exact_named_documentation_sources": documented,
         "historical_renderer_sources": rendered,
+        "finite_atlas_asset_extension_sources": extended,
         "current_browser_or_native_equivalence_claimed": False,
     }
 
