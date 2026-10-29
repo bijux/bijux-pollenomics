@@ -1,0 +1,4 @@
+{"stage": "maintained-publication-readiness", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 7.2781956670223735}
+{"stage": "maintained-distinct-doi-review", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 6.526679708040319}
+{"stage": "independent-provider-registry-source-observer", "actual_exit": 1, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 3.4323244160041213}
+{"terminal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/terminal.json", "sha256": "83f3a9d9e735c8aac17935a78033a5537d613f5fe707b0c97585cb21fbedd19e", "status": "failed"}

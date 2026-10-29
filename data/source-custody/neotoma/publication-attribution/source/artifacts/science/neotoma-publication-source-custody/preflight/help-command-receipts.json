@@ -1,0 +1,176 @@
+[
+  {
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "--profile",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "--profile-sha256",
+      "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "--mode",
+      "python",
+      "--",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/prepare.py",
+      "--help"
+    ],
+    "actual_exit": 0,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/prepare-help.stdout",
+      "sha256": "e906cba5ce6d0e5253dc3a5ee18dcccf538e9254f41c4227c228bb71977cc1b9",
+      "bytes": 367
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/prepare-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  {
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "--profile",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "--profile-sha256",
+      "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "--mode",
+      "python",
+      "--",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/execute_source.py",
+      "--help"
+    ],
+    "actual_exit": 0,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/execute_source-help.stdout",
+      "sha256": "290809c837d5f94e04db9c866fa8714a9dae0d34f2569cbd20d3fdf3deb1673d",
+      "bytes": 258
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/execute_source-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  {
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "--profile",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "--profile-sha256",
+      "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "--mode",
+      "python",
+      "--",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/observe.py",
+      "--help"
+    ],
+    "actual_exit": 0,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/observe-help.stdout",
+      "sha256": "19c1f037f3444260076bef2c238e0e7542110e5f99152c93f8892a768ea8d6b1",
+      "bytes": 186
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/observe-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  {
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "--profile",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "--profile-sha256",
+      "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "--mode",
+      "python",
+      "--",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/run.py",
+      "--help"
+    ],
+    "actual_exit": 0,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/run-help.stdout",
+      "sha256": "bfbc637433f9fa1e24ebc3c4e9bc19ee846e3f50e34ba90fe3a3700436aaba0d",
+      "bytes": 298
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/run-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  {
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "--profile",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "--profile-sha256",
+      "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "--mode",
+      "python",
+      "--",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/runtime_guarded_runner.py",
+      "--help"
+    ],
+    "actual_exit": 0,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/runtime_guarded_runner-help.stdout",
+      "sha256": "ad98ff456766f47cc40ac9da431df6139aa279ff3279bf7d3d0a7cb02f878faf",
+      "bytes": 343
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/runtime_guarded_runner-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  {
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "--profile",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "--profile-sha256",
+      "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "--mode",
+      "python",
+      "--",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/common_runner.py",
+      "--help"
+    ],
+    "actual_exit": 0,
+    "stdout": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/common_runner-help.stdout",
+      "sha256": "3bf1dbffafae74c677114cf5a507c36ef3e0a426cee9de2b574a3b23724eac94",
+      "bytes": 243
+    },
+    "stderr": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/preflight/common_runner-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+]

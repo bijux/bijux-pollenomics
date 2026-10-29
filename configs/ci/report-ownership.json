@@ -37896,6 +37896,10 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/neotoma_publication/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/neotoma_publication/execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/neotoma_publication/members.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/neotoma_publication/transport.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/rootsi_chronology.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_selection.py",
@@ -64383,22 +64387,14 @@
     },
     {
       "owner_id": "regions/nordic/source-capability/neotoma-attribution/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
         "docs/report/regions/nordic/source-capability/neotoma-attribution/report.json"
       ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_publication_readiness.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/publication_intake.py"
-      ],
-      "producer_inputs": [
-        "data/neotoma/relational/surfaces/datasets/part-00001.json",
-        "docs/public/pollenomics-data/sources/neotoma.md",
-        "docs/report/regions/nordic/source-capability/neotoma-entities/report.json"
-      ],
-      "verification": "Provider publication and distinct-DOI replay modules require original private HTTP captures plus manifests and response headers at the documented capture-root. Known repository inputs here do not close those responses. Bind exact original capture custody and compare both products separately without reacquiring mutable API responses.79primary links and six review gaps describe citation posture, not sample source rights, basin or LRA admission."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Provider publication and distinct-DOI replay modules require original private HTTP captures plus manifests and response headers at the documented capture-root. Known repository inputs here do not close those responses. Bind exact original capture custody and compare both products separately without reacquiring mutable API responses.79primary links and six review gaps describe citation posture, not sample source rights, basin or LRA admission. The grouped pollen_source.neotoma_publication transport independently binds the current two report products to completed source commit 82c8fc4ed3d847909d14162f51b77dc59ccc0a70. Original producer exits zero/zero, original observer and whole exit one, raw byte-checker exits two/two and separate observer-only exit zero are retained as distinct histories. Every scientific/source typed value and order matches after only the two explicitly authenticated policy/ledger hash leaves. The public capsule preserves all ordered original and observer identities, exact original first-party source/resources, controls, logs and public products while omitting private provider/DataCite, runtime and bytecode payloads. Neither original HTTP acquisition nor source-specific rights, citation selection, human review, ecological truth or LRA use is admitted. Authored source retention is not a new native execution."
     },
     {
       "owner_id": "regions/nordic/source-capability/neotoma-entities/derived-products",

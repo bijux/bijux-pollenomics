@@ -167,7 +167,7 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Unsupported claim.** Provider metadata readiness and DOI landing-page similarity do not establish source-specific rights, complete numerical sample identity, LRA inputs or vegetation truth.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+**Actual verification performed.** Earlier verification: Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer. Separately, both maintained provider-publication and distinct-DOI producers returned native zero on source commit `82c8fc4ed3d847909d14162f51b77dc59ccc0a70`. Their original observer and whole job failed, and both raw tracked byte checkers returned two; these results remain literal. A separate observer-only native execution returned zero after authenticating every saved provider/DataCite projection, title, landing URL, exact import role and country denominator. The only two report differences are the named governed-policy SHA and its dependent attribution-ledger SHA; the complete remaining ordered typed values agree. The 85 datasets, six primary-link cases and 13 distinct DOI pairs retain their original interpretation, with three registry-declared identities and ten same-target pairs without declared equivalence. Historical and current policy epochs remain separate; original HTTP acquisition, citation selection, source rights, human review and LRA admission are unqualified.
 
 **Remaining input or review.** Six provider primary-link cases and ten distinct DOI pairs still need their exact source-owner decisions; Kuivajärvi and VasikkasuoIleads are not authenticated complete original-work matches.
 
@@ -183,9 +183,11 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 Qualified authored reader SHA-256: `2092fbfed719904e751c95c55fa9c1f5fd08de575e8af2fdc865ffe53b1d0c9a`.
 
-- [Retained qualification evidence: docs/report/regions/nordic/source-capability/neotoma-attribution/report.json](report.json) (SHA-256 `db84557f4b19ba47f44b122e482b157ca91a3dc327c0b0435809599a41b769b3`).
+- [Retained qualification evidence: docs/report/regions/nordic/source-capability/neotoma-attribution/report.json](report.json) (SHA-256 `983286a711b37be4db3dccac200fe24f814ff2b350a906e1a0fd99717104142d`).
 
-- [Retained qualification evidence: docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json](doi-review.json) (SHA-256 `e9f87385212b52e96e8cf9a0d03ae805715ab337bc2c0646dd1da72c6e64a0f8`).
+- [Retained qualification evidence: docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json](doi-review.json) (SHA-256 `61dde7cc0e8943bb8464d907c7927bd795ecb8ec377ba910a2dba9d9c3356823`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/neotoma-publication-source-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/neotoma-publication-source-custody.json) (SHA-256 `759cb90a7dea3a5b202ea3d979474292aba6db19482ac34a22577e2ac2182250`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 

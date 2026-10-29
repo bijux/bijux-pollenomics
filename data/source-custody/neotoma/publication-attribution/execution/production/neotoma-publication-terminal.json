@@ -1,0 +1,125 @@
+{
+  "schema_version": "neotoma-publication-source-replay-terminal.v1",
+  "actual_exit": 1,
+  "candidate": "82c8fc4ed3d847909d14162f51b77dc59ccc0a70",
+  "plan_sha256": "ca4003d9c94379843d7803d8cc213c7fe89be4789615dce58fcc4a0c779fb11f",
+  "common_actual_exit": 1,
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/terminal.json",
+    "sha256": "83f3a9d9e735c8aac17935a78033a5537d613f5fe707b0c97585cb21fbedd19e",
+    "bytes": 10628
+  },
+  "native_stages": [
+    {
+      "id": "maintained-publication-readiness",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/plan.json",
+        "--kind",
+        "publication"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 7.2781956670223735,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/maintained-publication-readiness.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/maintained-publication-readiness.stderr",
+      "stdout_sha256": "b2ba1f9b88217ae05448922c31331ca3f4af8af1f5e109d9de3594707c78d664",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 150290432
+    },
+    {
+      "id": "maintained-distinct-doi-review",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/plan.json",
+        "--kind",
+        "doi"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 6.526679708040319,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/maintained-distinct-doi-review.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/maintained-distinct-doi-review.stderr",
+      "stdout_sha256": "81449f7ea1549f419bf362880c8c91f70055a90e5ec53a1d8c64ce511b3ab35d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 150290432
+    },
+    {
+      "id": "independent-provider-registry-source-observer",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-source-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/plan.json"
+      ],
+      "timeout_seconds": 75,
+      "must_succeed": true,
+      "actual_exit": 1,
+      "timed_out": false,
+      "elapsed_seconds": 3.4323244160041213,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/independent-provider-registry-source-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/independent-provider-registry-source-observer.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "1283593333920a069daecb7e17841fc1649a6845291a2743c33e68f09c2672ff",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 150290432
+    }
+  ],
+  "tracked_byte_comparisons": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/producer/docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+        "sha256": "61dde7cc0e8943bb8464d907c7927bd795ecb8ec377ba910a2dba9d9c3356823",
+        "bytes": 30891
+      },
+      "tracked": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+        "sha256": "e9f87385212b52e96e8cf9a0d03ae805715ab337bc2c0646dd1da72c6e64a0f8",
+        "bytes": 30891
+      },
+      "checker_actual_exit": 2
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-replay/producer/docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
+        "sha256": "983286a711b37be4db3dccac200fe24f814ff2b350a906e1a0fd99717104142d",
+        "bytes": 188753
+      },
+      "tracked": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
+        "sha256": "db84557f4b19ba47f44b122e482b157ca91a3dc327c0b0435809599a41b769b3",
+        "bytes": 188753
+      },
+      "checker_actual_exit": 2
+    }
+  ],
+  "tracked_checker_changes_are_native_failure": false,
+  "timed_out": false,
+  "source_custody_error": null,
+  "completed_elapsed_seconds": 32.504570625023916,
+  "completed_child_peak_RSS_bytes_macos": 150290432,
+  "resources": {
+    "overall_timeout_seconds": 240,
+    "resident_memory_limit_bytes": 2147483648,
+    "output_byte_limit": 134217728
+  },
+  "scope": "Current maintained publication-readiness and DOI consumers over exact retained169provider/26DataCite captures, with58older provider responses independently inspected as a distinct epoch. Stage2 consumes actual stage1 output. Whole-byte and complete ordered typed values are compared separately. Original acquisition predecessor06f08e remains unauthenticated; no freshHTTP, rights, citation-selection, human, model, untouched or LRA admission.",
+  "timeout_cleanup_scope": "Own launcher group killed/waited; independent child sessions mean detached descendants are not certified absent on outer timeout. Timeout never passes.",
+  "scientific_acceptance_claimed": false,
+  "completed_output_bytes_including_receipt": 20144955
+}

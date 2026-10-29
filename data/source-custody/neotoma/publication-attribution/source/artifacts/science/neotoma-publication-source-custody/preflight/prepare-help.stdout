@@ -1,0 +1,12 @@
+usage: prepare.py [-h] --candidate CANDIDATE --output OUTPUT --review REVIEW
+                  --review-sha256 REVIEW_SHA256
+
+Prepare current publication source custody; native consumers require
+registration.
+
+options:
+  -h, --help            show this help message and exit
+  --candidate CANDIDATE
+  --output OUTPUT
+  --review REVIEW
+  --review-sha256 REVIEW_SHA256

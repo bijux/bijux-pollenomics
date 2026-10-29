@@ -1,0 +1,23 @@
+[
+  {
+    "id": "independent-saved-publication-source-observer",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-observation/plan.json"
+    ],
+    "timeout_seconds": 90,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 11.194781208003405,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-observation/independent-saved-publication-source-observer.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-publication-source-observation/independent-saved-publication-source-observer.stderr",
+    "stdout_sha256": "79c11215a3750489e0567d2d104cfa31d1fe521c15512cb349c80142e58fde83",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 339673088
+  }
+]

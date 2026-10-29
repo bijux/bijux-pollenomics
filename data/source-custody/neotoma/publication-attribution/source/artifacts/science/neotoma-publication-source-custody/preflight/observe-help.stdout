@@ -1,0 +1,7 @@
+usage: observe.py [-h] --plan PLAN
+
+Independently join exact raw metadata to both genuine maintained publications.
+
+options:
+  -h, --help   show this help message and exit
+  --plan PLAN

@@ -1,0 +1,30 @@
+{
+  "schema_version": "neotoma-publication-independent-source-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "d27b5c561d038382799b5008c12429899eabc9c027681f8276f8a4e4792cfd07",
+  "physical_source_members": 48,
+  "python_source_members": 11,
+  "root_controls": {
+    "native_session": 92353,
+    "collected_exit": 0,
+    "groups": 11,
+    "actual_prefix_maps": 5,
+    "actual_cases_per_prefix": 7,
+    "log_sha256": "a9f00636bb1c65685d22ae5095e82bf2f286a4baeada21f8af9514ad0e4329e3"
+  },
+  "exact_reused_modules": [
+    "source_runtime.py",
+    "runtime_contracts.py",
+    "common_runner.py"
+  ],
+  "reviewed_complete_sources": [
+    "metadata.py",
+    "contracts.py",
+    "prepare.py",
+    "execute_source.py",
+    "observe.py",
+    "run.py"
+  ],
+  "reviewed_runtime_wrapper_diff": "Namespace strengthened with rawentry alias/special/full11membership, source-scopetext Neotoma corrected; remaining wrapper body exact trustedOpenLand.",
+  "scope": "Future genuine3stage maintained publication\u2192DOI actualstage1view\u2192independent169current58older26DataCite source observer; all85usednative209datasetrows/13DOIpairs/typedsourceprimarynullableflags/fulltitles/landingURLs/explicitrelations independently checked. Orderedtyped andwhole2productbytes separate; source/history06f08e originalacquisition/rights/citationselection/untouched/human/LRA acceptance false. Full256privatepins640035B/rootauthority beforecensus+originalunionconflict+full4source/resource/runtime namespaces beforemkdir. Actualcommon906identity/absence schema and5copiedprefixes35cases tested.60/60/75sstages240sinner300souter2GiB128MiBpostchecks, noOS/full descendant resources. No actualprivateparse/preparation/runtimecensus/native/HTTP bysourcechecks."
+}

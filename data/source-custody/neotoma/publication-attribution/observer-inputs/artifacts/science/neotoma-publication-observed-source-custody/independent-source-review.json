@@ -1,0 +1,37 @@
+{
+  "schema_version": "neotoma-publication-observer-independent-source-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "72a62b66a269c01f8d5b3f461bfdc7a42d7d4505f6a31cb264894e542bb95c5f",
+  "physical_source_members": 28,
+  "python_source_members": 13,
+  "original_source_peer_sha256": "c890372d38df8b6c6012b6ec20ea6f1d69947940553acd34fbd457b79e837120",
+  "reviewed_complete_new_sources": [
+    "observation_custody.py",
+    "prepare.py",
+    "check_observation.py"
+  ],
+  "reviewed_full_original_vs_successor_diffs": [
+    "observe.py",
+    "run.py",
+    "contracts.py",
+    "check_contracts.py"
+  ],
+  "exact_original_metadata_algorithm_and_runtime_contracts_reused": true,
+  "checks": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/root-check_contracts.log",
+      "sha256": "27c936f3561d6d23f9630fc3ac4c74747de4d9b9acfaafae6c39d952e7cbc014",
+      "native_session": 87280,
+      "collected_exit": 0,
+      "groups": 11
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-publication-observed-source-custody/preflight/root-check_observation.log",
+      "sha256": "ab83bcbbb243f2b9918fdae84775a37688b0b5a8f01ccab683828d29dc4e34da",
+      "native_session": 68808,
+      "collected_exit": 0,
+      "groups": 3
+    }
+  ],
+  "scope": "Onegenuineobserveronly90s/120sinner180souter/2GiB64MiBpostchecks. Original143native2zero/observer1/whole1/rawcheckers2/2 preserved and all66723orderedidentities/b0d4retention/16commonproducts withoneoriginalstdoutprefix+literalterminaltail physicallybound. Publicationfull1002actualmoduleoriginsvsDOIexacthash/stdlib-onlyimportASTzeroorigins aredifferentvalidatedroles. Sameindependent85/13reconstructionunchanged; onlyexplicitoldce5d/current1b0policyhashanddependentledgerhashdifferences allowed, everyotherJSONtype/value/arrayorder exact. Oldpolicybytes37b5968Gitcustody retained, no rights/human/sourceacquisitionequivalence. Fullcurrent4source/runtime/private/capturedsource namespaces/checkpoints preserved. Noproducerrepeat/privateparse/runtimecensus/preparation/newnativebyrootpeer. Actualprepare0/registerreadback/separatelaunch stillrequired."
+}
