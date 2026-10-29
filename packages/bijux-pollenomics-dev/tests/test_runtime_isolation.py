@@ -14,6 +14,12 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    # Saved-score checks share the canonical sample identity schema.
+    "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/optimizer_inputs/cohort_predictions.py": {
+        "bijux_pollenomics.analysis.lra_validation.experiments.inputs": frozenset(
+            {"SAMPLE_FIELDS"}
+        ),
+    },
     # The retained author reader verifies authored bytes and the current managed footer.
     "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py": {
         "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
@@ -1385,3 +1391,23 @@ def test_author_retained_reader_bindings_remain_file_module_and_symbol_specific(
             assert host_import_violations(source, owner)
     assert host_import_violations(f"from {accounts} import validate_evidence", path)
     assert host_import_violations(f"from {qualifications} import parse_routes", path)
+
+
+def test_cohort_prediction_schema_binding_remains_file_module_and_symbol_specific() -> (
+    None
+):
+    """Limit the saved-score reader to its canonical sample identity schema."""
+    reader = "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/optimizer_inputs/cohort_predictions.py"
+    module = "bijux_pollenomics.analysis.lra_validation.experiments.inputs"
+    statement = f"from {module} import SAMPLE_FIELDS"
+    assert not host_import_violations(statement, reader)
+    for source, path in (
+        (statement, reader.replace("cohort_predictions.py", "other.py")),
+        (f"from {module} import SAMPLE_FIELDS_other", reader),
+        (f"from {module}.other import SAMPLE_FIELDS", reader),
+        (f"from {module} import *", reader),
+        (f"import {module}", reader),
+        (f"__import__({module!r})", reader),
+        (f"importlib.import_module({module!r})", reader),
+    ):
+        assert host_import_violations(source, path)
