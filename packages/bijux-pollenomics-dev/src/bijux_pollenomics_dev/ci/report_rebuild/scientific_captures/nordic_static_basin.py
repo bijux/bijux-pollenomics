@@ -9,7 +9,6 @@ from pathlib import Path
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.nordic_static_basin.authority import (
     CAPTURE_PINS,
-    FAMILY,
     PUBLICATION_AUTHORITY,
 )
 
@@ -41,7 +40,7 @@ def validated_nordic_static_basin_captures(
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
     """Admit exact retained Nordic captures without repeating numerical execution."""
     rows = [row for row in owners if row.get("owner_id") == OWNER]
-    if not rows and not any(name.startswith(FAMILY + "/") for name in tracked_by_path):
+    if not rows and not set(CAPTURE_PINS).intersection(tracked_by_path):
         return (), {}
     retained_rows = []
     for owner in owners:
@@ -52,9 +51,10 @@ def validated_nordic_static_basin_captures(
             raise ReportRebuildError(
                 "scientific capture owner paths must be a string list"
             )
-        if owner.get("role") == "retained_source" and any(
-            name.startswith(FAMILY + "/") for name in paths
-        ):
+        # This transport owns its sealed capture paths, not every report in the family.
+        if set(CAPTURE_PINS).intersection(paths):
+            if owner.get("role") != "retained_source":
+                raise ReportRebuildError("Nordic static-basin capture owner differs")
             retained_rows.append(owner)
     if len(rows) != 1 or retained_rows != rows:
         raise ReportRebuildError("Nordic static-basin capture owner differs")

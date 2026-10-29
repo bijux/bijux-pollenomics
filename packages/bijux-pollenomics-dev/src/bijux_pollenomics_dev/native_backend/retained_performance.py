@@ -9,6 +9,8 @@ from pathlib import Path, PurePosixPath
 from statistics import median
 from typing import Any
 
+from ..ci.report_rebuild.retained_source import SourceCapsule, validated_descriptor
+
 EXECUTION_CANDIDATE = "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7"
 PLAN_SHA256 = "654d6c451994c277768d5aa82a5e559817df7801d93dbee33ef0b931bf8bfac9"
 OUTER_SHA256 = "010d63133dd64afdb93949b4802fa307f1b084eeebbfe06cebe92e49f5948d1b"
@@ -89,6 +91,83 @@ def scientific_digest(value: Any) -> str:
             value, sort_keys=True, separators=(",", ":"), allow_nan=False
         ).encode()
     ).hexdigest()
+
+
+def _execution_namespace(root: Path, expected: set[str], stage_files: set[str]) -> None:
+    """Retain complete original execution files and reject undeclared/aliased entries."""
+    require(
+        stage_files <= expected,
+        "native stage files absent from original output catalog",
+    )
+    require(
+        root.is_absolute()
+        and root.is_dir()
+        and not any(p.is_symlink() for p in (root, *root.parents)),
+        "original execution root is absent or aliased",
+    )
+    directories = {
+        parent.as_posix()
+        for name in expected
+        for parent in PurePosixPath(relative_name(name)).parents
+        if parent.as_posix() != "."
+    }
+    files: set[str] = set()
+    actual_directories: set[str] = set()
+    for path in root.rglob("*"):
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "original execution namespace contains alias/special entry",
+        )
+        name = path.relative_to(root).as_posix()
+        if path.is_dir():
+            actual_directories.add(name)
+        else:
+            files.add(name)
+    require(
+        files == expected and actual_directories == directories,
+        "complete actual output namespace differs",
+    )
+
+
+def _validate_source_transport(
+    repository: Path, packet: Path, members: list[dict[str, Any]]
+) -> SourceCapsule:
+    """Bind exact original source and named controls without restoring any copies."""
+    source_buffer = validated_descriptor(
+        repository, packet.relative_to(repository).as_posix(), members
+    )
+    controls = {
+        "controls/boundary.py",
+        "controls/check_contracts.py",
+        "controls/measure.py",
+        "controls/observe.py",
+        "controls/prepare.py",
+        "controls/run.py",
+        "controls/scaling.py",
+        "controls/storage.py",
+        "controls/workloads.py",
+        "controls/shared/run_account_qualification.py",
+        "publication-controls/assemble.py",
+        "publication-controls/contracts.py",
+        "publication-controls/check_contracts.py",
+        "publication-controls/observe.py",
+        "publication-controls/prepare.py",
+        "publication-controls/run.py",
+        "publication-controls/proposal/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/retained_performance.py",
+    }
+    expected = {
+        row["path"]
+        for row in members
+        if row["path"].startswith("source-code/packages/")
+    }
+    expected |= controls | {
+        "reference-inputs/docs/report/method-certification/author-site-uncertainty/replay.py"
+    }
+    require(
+        source_buffer.detached == expected,
+        "performance detached source-role membership differs",
+    )
+    return source_buffer
 
 
 def qualified_execution(root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -186,9 +265,14 @@ def qualified_execution(root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     expected = {
         str(Path(row["path"]).relative_to(original_root)) for row in common["products"]
     } | {"terminal.json", "performance-terminal.json"}
-    require(
-        {str(p.relative_to(root)) for p in root.rglob("*") if p.is_file()} == expected,
-        "complete actual output membership differs",
+    _execution_namespace(
+        root,
+        expected,
+        {
+            Path(stage[field]).name
+            for stage in common["stages"]
+            for field in ("stdout", "stderr")
+        },
     )
     require(
         review["scientific_sources_outputs_and_all_repeated_identities_pass"] is True
@@ -370,18 +454,8 @@ def validated_capture(repository: Path, *, capture_sha256: str) -> dict[str, Any
     members = capture["members"]
     names = [relative_name(row["path"]) for row in members]
     require(names == sorted(set(names)), "capture members must be unique and sorted")
-    require(
-        {p.relative_to(packet).as_posix() for p in packet.rglob("*") if p.is_file()}
-        == {*names, "capture.json"},
-        "capture file membership differs",
-    )
+    source_buffer = _validate_source_transport(repository, packet, members)
     member_map = {row["path"]: row for row in members}
-    for name, row in zip(names, members, strict=True):
-        actual = pin(packet / name)
-        require(
-            actual["sha256"] == row["sha256"] and actual["bytes"] == row["bytes"],
-            "capture member bytes differ",
-        )
     plan, review = qualified_execution(packet / "execution")
     custody = capture["original_input_custody"]
     require(
@@ -480,6 +554,7 @@ def validated_capture(repository: Path, *, capture_sha256: str) -> dict[str, Any
         exact(report, json_value(packet / "publication/report.json")),
         "retained performance publication differs",
     )
+    source_buffer.fresh()
     return report
 
 
