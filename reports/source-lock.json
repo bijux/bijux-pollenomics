@@ -979,7 +979,9 @@
     "reports/science/source-cohorts/neotoma-selected-counts.json": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18",
     "reports/science/source-cohorts/optimizer-baseline-input.json": "5d0a70920cf88b936580477cbdf86db657e44a0344edf0a8dfc26ac3967e10cf",
     "reports/science/method-certification/author-profile-source-acceptance.json": "f0d8e7b199f6de051cb3fef852d378bdb80d57a61da7a21ca36148f7f488bd7d",
-    "reports/science/source-cohorts/abbo-age-original-acceptance.json": "38b8edf5632f9104146dd3c2a0f505313ef836fbe1ee6d8c335040c14f6490e7"
+    "reports/science/source-cohorts/abbo-age-original-acceptance.json": "38b8edf5632f9104146dd3c2a0f505313ef836fbe1ee6d8c335040c14f6490e7",
+    "docs/report/synthetic-validation/persisted-experiment-isolation/report.json": "d6dbfccfb40cacc7b99b601b880501b3b285e15c6a0511ef7d51c5b5e01935d9",
+    "docs/report/synthetic-validation/persisted-experiment-isolation/trace-index.json": "131cd1958367b87acf267e5303ead71430511b5735db2738e7f6656a284a8e81"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",
@@ -1281,6 +1283,7 @@
     "docs/report/source-relations/svar/normalized-export/README.md",
     "docs/report/synthetic-validation/README.md",
     "docs/report/synthetic-validation/change-time/README.md",
+    "docs/report/synthetic-validation/persisted-experiment-isolation/README.md",
     "docs/report/synthetic-validation/propagation/README.md",
     "docs/report/synthetic-validation/reconstruction/README.md",
     "docs/report/synthetic-validation/recovery-evidence/README.md",
