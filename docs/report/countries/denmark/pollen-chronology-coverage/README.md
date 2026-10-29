@@ -52,11 +52,13 @@ Danish pollen source/age support and distinct source cohort populations.
 
 **Matched denominator.** Five sites/279 sample IDs: Solsø92=91 comparable+1 refused; Vejlby 44,Trelde Klint 39,Hollerup 66,Harreskov 38 all refused. Non-Holocene subset 104; LRA-admitted 0.
 
+Qualified authored reader SHA-256: `6c54b62bb3de57e9e63d073459e37508855626212ab88c2e6ee338036a3364fc`.
+
 - [Retained qualification evidence: docs/report/countries/denmark/pollen-chronology-coverage/report.json](report.json) (SHA-256 `07eae7ce6398e98e4d59cb600096a341ae49248195f4f5d670ec324f3966c124`).
 
-- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
+- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f`).
 
-- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
+- [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md) (source SHA-256 `f171557d0f98cd312aca71fdce6ffcd9d82ef4ef4e1ca328e5fa0dc4762210e5`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

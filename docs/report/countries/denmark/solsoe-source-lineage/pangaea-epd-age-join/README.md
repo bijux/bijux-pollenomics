@@ -53,9 +53,11 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Matched denominator.** 92 published Solsø rows=66 SOLSOE81 + 26 SOLSOE83,92 distinct depth matches; age/younger/older residual≤0.5 BP; one negative-bound sample; zero LRA samples.
 
+Qualified authored reader SHA-256: `5eeeef9a4f021a75d8c5b4825961d0b7b76a86ee4be3d6f8c46eb3a8b2f1bf88`.
+
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report.json](report.json) (SHA-256 `5039c9ff04263799f5b1e95c2027cdba710203c561220d9bfbea884bf6d52f49`).
 
-- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
+- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

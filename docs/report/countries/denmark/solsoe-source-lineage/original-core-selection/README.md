@@ -67,8 +67,6 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/replay.py \
   --repository . --paper /path/to/landclim/solsoe/odgaard-1994.pdf \
   --output artifacts/jobs/solsoe-original-study/replay
-cmp docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json \
-  artifacts/jobs/solsoe-original-study/replay/report.json
 ```
 
 
@@ -95,13 +93,15 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Matched denominator.** Seven declared radiocarbon controls occur in 14 chronology-view relation rows; 92 raw central-age source records. Current closed selection 75 (55+20), bounded 74 (54+20); historical half-unbounded76 (56+20)/74 remains unchanged. The75 include raw native 352996 with refused/negative_bp, so these are not analytically admitted counts. One 9000 BC basin from 51 corings is not sample-age support.
 
+Qualified authored reader SHA-256: `5d941c2162dfe1218b78fe8958ccb084c8790c88ec1eb908f1c638f9654364b0`.
+
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json](report.json) (SHA-256 `8456bf919423c4b57ed202704cc43d04b891ba98069b9ad9e0765192abf533a6`).
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json](../closed-central-point-selection/report.json) (SHA-256 `999534b826902f14c0fbd08ff36a5760f191070a13179d9d1bede9ca2cfa4436`).
 
 - [Retained qualification evidence: reports/science/source-lineage/solsoe-closed-point-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/solsoe-closed-point-source.json) (SHA-256 `987d12fddc24e1c7ab0ae3a1f8e8e50dcdcc6b92fe2928191afcf9734dcf2665`).
 
-- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
+- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

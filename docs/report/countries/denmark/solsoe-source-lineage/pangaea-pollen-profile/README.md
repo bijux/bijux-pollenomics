@@ -61,7 +61,7 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Unsupported claim.** Identical 66-depth count vectors do not qualify ecological synonymy, terrestrial-only pollen totals,31PPE-target denominators, author 79 sample selection or LRA basins.
 
-**Actual verification performed.** The maintained source-built isolated-standard-library replay and independent native source observer both returned zero on d87e7ff50c7c21c9a3dab5125db2e2cfdd6c4a9b. Complete report and ordered66-row sample ledger match publication byte-for-byte; independent full9702-cell reconciliation found2881 positive and6821 zero cells,128653 total counts,129 literal names and18 unique numerical name-vector candidates. All3510 original input identities and same-process source/runtime observations are retained. No ecological taxonomy approval or original provider acquisition is inferred.
+**Actual verification performed.** Read the report and sample ledger; reconciled 9702 cells=2881 positive+6821 zero,128653 total counts and 129 literal-name+18 numerical candidate names. No private profile replay or taxonomic approval was performed.
 
 **Remaining input or review.** The 18 numeric rename candidates require qualified taxonomy; historical sample/chronology selection, dated basins and noncommercial source reuse remain separate requirements.
 
@@ -69,19 +69,19 @@ Solsø two-core native counts/ages, source lineage and unresolved historical79 v
 
 **Consequence.** Sparse absent Neotoma rows correspond to source zeros here; the all 147 parameter total cannot silently become a terrestrial pollen or author-target denominator.
 
-**Precise next acceptance route.** Use the separately retained two-product execution/source-custody capsule for this count-lineage result. Review all18 numerical name candidates under qualified ecological taxonomy, then resolve original79 sample/chronology selection, dated basin and noncommercial reuse requirements before any LRA admission.
+**Precise next acceptance route.** Replay the exact private PANGAEA739834 text and pinned sample/eight observation parts, review all 18 name candidates explicitly, then resolve historical input/basin requirements before LRA.
 
 **Negative or refused result.** The 18 names remain numeric_source_name_candidate_not_ecological_approval; author 79 selection and chronology are unidentified; LRA-admitted 0.
 
 **Matched denominator.** 66 depths×147 parameters=9702 cells;2881 positive observations+6821 zeros;totalNISP128653;129 same-name parameters+18 numeric rename candidates; zero admitted LRA samples.
 
+Qualified authored reader SHA-256: `83dd13d12cc79fd05b4ecba17cdc27f0db38eb92b77f6c8cc8a12088835fab2b`.
+
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json](report.json) (SHA-256 `e71e6ef7fb52afd2abf5540d1a003d4008e9520e58a39980296cba88d1003c2b`).
 
 - [Retained qualification evidence: docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/samples.csv](samples.csv) (SHA-256 `a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010`).
 
-- [Retained qualification evidence: reports/science/source-lineage/solsoe-primary-pollen-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-lineage/solsoe-primary-pollen-source.json) (SHA-256 `144bcba6b8afe53a63dc7b571ca197047c2d57bbf0cc4535e9d3c0333bf9765c`).
-
-- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md).
+- [Canonical scientific account: reports/science/solsoe-lra-input.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/solsoe-lra-input.md) (source SHA-256 `99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

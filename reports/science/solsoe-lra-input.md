@@ -133,7 +133,7 @@ historical basin outlines or justified age-specific radii. We also need the
 eligible terrestrial count denominator, reviewed taxon/PPE/fall-speed
 mapping and permitted analytical use for the `R` marked record. Those fields
 must refer to the same samples and windows. The
-open Nordic LRA need records the resolver and reopening
+[open Nordic LRA need](../needed/README.md) records the resolver and reopening
 rule. Once the packet is qualified, rerun admission, the real LRA consumer and
 held-out pollen prediction before scoring the target pollen.
 
@@ -175,4 +175,6 @@ Retained evidence: [docs/report/countries/denmark/solsoe-source-lineage/report.j
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
+<!-- scientific-claim-semantic-sha256: 484b50aae85588807d48766df14c3592f2735ac11ee15c479e09cdcdd331ddfb -->
+<!-- scientific-authored-source-sha256: 4645533db3784a7a63711e98b6fd01e6ef6a91a6b6cc0040ec4d305597592c36 -->
 <!-- scientific-verification-and-limits:end -->

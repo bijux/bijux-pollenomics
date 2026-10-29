@@ -11,7 +11,6 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import ReportOwnershipError, _regular_confined_file
-from ...retained_source import validate_capsule
 
 CAPTURE: Any = "data/countries/denmark/solsoe-closed-point-source-capture/capture.json"
 CAPTURE_SHA256: Any = "ab6f051d348892129cc3bf91ef23e818b5c8d9611e6ec9c94cfc0d930141433e"
@@ -451,29 +450,6 @@ def validate_native_records(
             )
 
 
-DETACHED_SOURCE_MEMBERS = frozenset(
-    [
-        "source-code/artifacts/science/solsoe-native-loader-paths/check_contract.py",
-        "source-code/artifacts/science/solsoe-native-loader-paths/common_runner.py",
-        "source-code/artifacts/science/solsoe-native-loader-paths/contracts.py",
-        "source-code/artifacts/science/solsoe-native-loader-paths/execute_source.py",
-        "source-code/artifacts/science/solsoe-native-loader-paths/observe.py",
-        "source-code/artifacts/science/solsoe-native-loader-paths/prepare.py",
-        "source-code/artifacts/science/solsoe-native-loader-paths/run.py",
-        "source-code/artifacts/science/solsoe-native-loader-paths/runtime.py",
-        "source-code/artifacts/science/solsoe-native-loader-paths/source_style.py",
-        "source-code/configs/ci/report-ownership.json",
-        "source-code/docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/replay.py",
-    ]
-)
-
-
-def _validate_source_members(repository: Path, prefix: str) -> None:
-    """Validate original identities once and detach only exact maintained source."""
-    detached = validate_capsule(repository, prefix, EXPECTED_MEMBERS)
-    _exact(sorted(detached), sorted(DETACHED_SOURCE_MEMBERS))
-
-
 def validated_solsoe_selection_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -507,8 +483,27 @@ def validated_solsoe_selection_capture(
         ("input_scope_counts", INPUT_SCOPE_COUNTS),
     ):
         _exact(packet[key], value)
+    for path in packet_path.parent.rglob("*"):
+        _require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "capsule alias or special member",
+        )
+    physical = {
+        p.relative_to(packet_path.parent).as_posix()
+        for p in packet_path.parent.rglob("*")
+        if p.is_file() or p.is_symlink()
+    }
+    _exact(physical, set(EXPECTED_MEMBERS) | {"capture.json"})
     prefix = packet_path.parent.relative_to(repository).as_posix()
-    _validate_source_members(repository, prefix)
+    for name, wanted in EXPECTED_MEMBERS.items():
+        member = _file(repository, prefix + "/" + name)
+        _exact(
+            {
+                "sha256": hashlib.sha256(member.read_bytes()).hexdigest(),
+                "bytes": member.stat().st_size,
+            },
+            wanted,
+        )
 
     def record(name: str) -> dict[str, Any]:
         return _json(_file(repository, prefix + "/execution/" + name))
