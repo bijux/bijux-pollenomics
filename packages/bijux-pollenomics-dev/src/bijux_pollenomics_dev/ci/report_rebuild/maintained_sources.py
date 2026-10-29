@@ -83,6 +83,9 @@ from .scientific_captures.swedish_source_chronology import (
 from .scientific_captures.swedish_static_basin import (
     validated_swedish_static_basin_captures,
 )
+from .scientific_captures.vegetation_reference.empd2_nfi_pairing import (
+    validated_empd2_nfi_pairing_capture,
+)
 from .scientific_captures.vegetation_reference.nfi_measurement import (
     validated_nfi_measurement_capture,
 )
@@ -324,6 +327,9 @@ def validated_maintained_report_sources(
     hyde_entries, hyde_evidence = validated_hyde_country_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    empd2_nfi_entries, empd2_nfi_evidence = validated_empd2_nfi_pairing_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -338,6 +344,7 @@ def validated_maintained_report_sources(
         + constrained_entries
         + radius_entries
         + nfi_entries
+        + empd2_nfi_entries
         + slu_guide_entries
         + solsoe_entries
         + solsoe_pollen_entries
@@ -420,4 +427,6 @@ def validated_maintained_report_sources(
         evidence["retained_swedish_cohort_metadata"] = swedish_evidence
     if hyde_entries:
         evidence["retained_hyde_modeled_country_totals"] = hyde_evidence
+    if empd2_nfi_entries:
+        evidence["retained_empd2_nfi_pairing_source"] = empd2_nfi_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

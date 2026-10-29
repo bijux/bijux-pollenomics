@@ -146,6 +146,8 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Matched denominator.** Fixed model: 5,765 samples ×242 taxa ×9 classes; 103,770 distance/score cells. Training: 4,204 eligible locations, 970 downsampled, 678 training IDs, 4,356 mean/SD cells in each of four scenarios. Original EMB matrices use 917 entities (570 dominant/679 composite trace); source metric uses 915. Northern screen has 878 eligible entity groups, or 239 after masking. Raw proof starts with 430 eligible rows, 860 ID hypotheses, 214 coordinate-equal, 112 shared-label matches and two complete reported axes.
 
+Qualified authored reader SHA-256: `7cfab1ae30764cb550026c622130ac30f6a09f343f7a78d5f17c1b342f29834a`.
+
 - [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/report.json](report.json) (SHA-256 `97140533eb8f3d4ae22441d00331284bf504d45c0aaf6047771bd4047b547e27`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json](training-reconstruction.json) (SHA-256 `fe10e9b2e6197c3d9d9f787ed3a775e038613a30b74db779f6675d360ea4ec6a`).
@@ -154,7 +156,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/historical-comparison.json](historical-comparison.json) (SHA-256 `989f50becb4efcb4c10c55ee4dd7651ab0686e08d9d83502b166b666acd665fa`).
 
-- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md).
+- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

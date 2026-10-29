@@ -1,0 +1,44 @@
+[
+  {
+    "id": "maintained-outcome-blind-pairing",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-source-telemetry-custody/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-empd2-nfi-observed-refusal-replay/plan.json"
+    ],
+    "timeout_seconds": 120,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 18.84922875004122,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-empd2-nfi-observed-refusal-replay/maintained-outcome-blind-pairing.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-empd2-nfi-observed-refusal-replay/maintained-outcome-blind-pairing.stderr",
+    "stdout_sha256": "d2b88b7672464221ed7308cffd0a8cfe552ae8e710a0be4c3ad0ba594bb5ac02",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 194330624
+  },
+  {
+    "id": "independent-source-pairing-observer",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-source-telemetry-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-empd2-nfi-observed-refusal-replay/plan.json"
+    ],
+    "timeout_seconds": 90,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 9.907773624989204,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-empd2-nfi-observed-refusal-replay/independent-source-pairing-observer.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-empd2-nfi-observed-refusal-replay/independent-source-pairing-observer.stderr",
+    "stdout_sha256": "c7f192f75431df5db389fc895ff9bbe5134d0f21f4ba84d5e396430b7116762f",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 194330624
+  }
+]

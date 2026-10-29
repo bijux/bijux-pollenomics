@@ -34,9 +34,11 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 
 **Matched denominator.** Own population: zero new observations, fits or checks. Linked support: one lake pollen point and one 153.94 m² plot with five tree-volume groups; zero admitted vegetation pairs.
 
+Qualified authored reader SHA-256: `d1601d84f868973b98de600d2704f946d5fb3ba7aa49bd7597e7d13fbacddea9`.
+
 - [Retained qualification evidence: reports/science/vegetation-reference/farskesjon/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/farskesjon/report.json) (SHA-256 `c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855`).
 
-- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md).
+- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

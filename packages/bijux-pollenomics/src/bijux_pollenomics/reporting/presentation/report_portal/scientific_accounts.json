@@ -3916,7 +3916,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/vegetation-reference.md",
-          "source_sha256": "5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e"
+          "source_sha256": "05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a"
         }
       ],
       "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.",
@@ -3958,7 +3958,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/vegetation-reference.md",
-          "source_sha256": "5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e"
+          "source_sha256": "05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a"
         }
       ],
       "scope_reason": "Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.",
@@ -9192,16 +9192,16 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/vegetation-reference.md",
-          "source_sha256": "5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e"
+          "source_sha256": "05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a"
         }
       ],
       "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.",
       "qualification": {
-        "authored_reader_sha256": "7a53845b8b441ec27761552096aa94d83e3b04cd65d74b11fe638ded070e5e31",
+        "authored_reader_sha256": "8a710910966b69b78b494d2189a21e6e22046b2a4d44fbf880824875884263de",
         "fields": {
           "supported_claim": "The source-bound outcome-free review retains sixteen geographic leads and refuses every lead as a currently admissible observed vegetation pair.",
           "unsupported_claim": "Proximity, plot area and dictionary units do not provide paired vegetation measurements, a regional target, authenticated pollen collection dates or a frozen performance benchmark.",
-          "actual_verification_performed": "Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated.",
+          "actual_verification_performed": "Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated. The separately retained maintained outcome-blind source replay and independent observer returned native zero and both public products byte-match;16 native joins, 26 source fields, 19 public fields, six metadata columns, 43,892 rows and 6,018 tract/plot keys are checked. No outcome decoder/LRA calls, private payload publication or fresh-compilation equivalence is claimed.",
           "remaining_input_or_review": "Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication. Current official guide-source custody is separate from the missing original2026-09-21/a063 acquisition and unavailable prior documentary-review receipt; it supplies no additional observation rights or measured support.",
           "cause_category": "Independent-measurement admission refusal despite geographic proximity.",
           "consequence": "The sixteen rows are missing benchmark support, not sixteen negative measured observations; benchmark policy and evaluation remain false.",
@@ -9221,6 +9221,10 @@
           {
             "path": "reports/science/vegetation-reference/slu-current-guide-source.json",
             "sha256": "b28238feadb2cee4ed5da5ec7a2eb9241f67b583d3156d32c60a7e8947bdc07c"
+          },
+          {
+            "path": "reports/science/vegetation-reference/empd2-nfi-pairing-source.json",
+            "sha256": "c1e4d8623b7d695b2c705cf5c3d69f474d107c3458d1aaa8b3e1ddeda82b6050"
           }
         ]
       }
@@ -9230,7 +9234,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/vegetation-reference.md",
-          "source_sha256": "5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e"
+          "source_sha256": "05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a"
         }
       ],
       "scope_reason": "Named measured/mapped/published reference scope and unmatched temporal/taxon/observation/independence limits.",

@@ -1,0 +1,174 @@
+{
+  "schema_version": "outcome-blind-empd2-nfi-source-replay-protocol.v1",
+  "owner_id": "validation/empd2-nfi-pairing/report-products",
+  "future_actual_output": "artifacts/science/current-empd2-nfi-observed-refusal-replay",
+  "candidate": "Dynamic exact clean Git candidate supplied at root preparation; no source clone/model/source acquisition is required.",
+  "purpose": "Actual unchanged maintained pairing producer followed by an independent sixteen-lead source/geometry/privacy/refusal observer. Source code and all real metadata inputs already exist; this source package does not execute them.",
+  "maintained_interface": {
+    "source": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_pairing.py",
+      "sha256": "aa223ca371fd86317bc00e3cb26430ba87674fc44e781dba8abce405d61bd20e",
+      "bytes": 15386
+    },
+    "argv": [
+      "QUALIFIED_PYTHON",
+      "-I",
+      "-B",
+      "OWNED/execute_source.py",
+      "--plan",
+      "OUTPUT/plan.json"
+    ],
+    "executed_canonical_cli": [
+      "CANONICAL/empd2_nfi_pairing.py",
+      "--repository",
+      "/Users/bijan/bijux/bijux-pollenomics",
+      "--private-source-store",
+      "/Users/bijan/bijux/-bijux-pollenomics-data",
+      "--output",
+      "OUTPUT/producer"
+    ]
+  },
+  "selected_owner_row": {
+    "owner_id": "validation/empd2-nfi-pairing/report-products",
+    "paths": [
+      "docs/report/validation/empd2-nfi-pairing/pairs.csv",
+      "docs/report/validation/empd2-nfi-pairing/report.json"
+    ],
+    "producer_inputs": [
+      "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf"
+    ],
+    "producer_paths": [
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi.py",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_pairing.py",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/__init__.py",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/projection.py"
+    ],
+    "role": "unresolved",
+    "verification": "After authenticating the retained private source store, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.empd2_nfi_pairing --repository . --private-source-store <qualified-private-store> --output artifacts/jobs/vegetation-context-reproduction/empd2-nfi-pairing` from an absent destination; compare public pairs.csv and report.json byte-for-byte. Its SQLite, NFI workbook, source dossier and spatial screen remain external. The output is an outcome-blind 16-lead refusal ledger with zero admitted measured pairs, not a vegetation score."
+  },
+  "unchanged_source_authorities": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi.py",
+      "sha256": "f6a34d6ce35dd63fbeb5a753593e719c35fc1fd66002274ca736bf42c4ab20b0",
+      "bytes": 12501
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_pairing.py",
+      "sha256": "aa223ca371fd86317bc00e3cb26430ba87674fc44e781dba8abce405d61bd20e",
+      "bytes": 15386
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/__init__.py",
+      "sha256": "d465ffacd1f598d892c749fe680d0691ea782eb94c25622b9c6956a3a6dd243d",
+      "bytes": 332
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/projection.py",
+      "sha256": "8db4c4832eac3f2539cdb8bf52badca9831ec19e3985610636e8b8de3f23d888",
+      "bytes": 16741
+    }
+  ],
+  "source_SQL_field_authority": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_provenance.py",
+    "sha256": "0c28ac3658eab313e1035d46fa40de5faabe3c7bf7abb94e288af60d47bd78a3",
+    "bytes": 8484
+  },
+  "tracked_comparison_products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/pairs.csv",
+      "sha256": "dead80111026ca2f0ceb8bd31c36ae3461bdbb1d89f367656d43445f65d94c40",
+      "bytes": 15177
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/report.json",
+      "sha256": "cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642",
+      "bytes": 3000
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
+      "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+      "bytes": 136339
+    }
+  ],
+  "runtime_reference": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/plan.json",
+      "sha256": "5a34e885c17738c90e7fb65ac8d3780f3f57ebc39a8f5a0842bb811d409a16c4",
+      "bytes": 32228643
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/runtime-observation-terminal.json",
+      "sha256": "1fcb3926925c5e186b3885e19f0325890f9bd8a536a243793e12e2ee178a7fec",
+      "bytes": 2885
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-runtime-native-observation/independent-runtime-review.json",
+      "sha256": "9d71bfabd836242b5ec9dcf96e5d2a124200a77dea4975bdf8b19529d04ba059",
+      "bytes": 117592
+    }
+  ],
+  "runtime_scope": "Genuine dependency147 observation and complete original59882runtime/source/library pins, namespaces/aliases/absences are independently authenticated before/after. Original dependency bootstrap whole1 remains literal; no first-party installed interface is claimed.",
+  "complete_first_party_source_roots": [
+    "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src",
+    "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src",
+    "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src",
+    "/Users/bijan/bijux/bijux-pollenomics/packages/pollenomics/src"
+  ],
+  "source_expected_pin_rule": "Original controller/source/input/whole-policy rows freeze before the runtime census; all four complete source/resource namespaces freeze before authentication. Conflicting role pins refuse and final byte/membership verification precedes first output creation.",
+  "PROJ_rule": "Exact pinned bundled proj.db and complete dependency module/library payloads; PROJ_NETWORK=OFF, explicit fresh private PROJ_USER_WRITABLE_DIRECTORY. Actual public getter must return the planned artifact directory and network API must report false before producer execution. Unsupported/ignored cache override refuses; no HOME override or ambient PROJ_DATA/PROJ_LIB/PROJ_AUX_DB is admitted. A complete OS network firewall or mapped-image census is not claimed.",
+  "workbook_rule": "Only A\u2013F Year/TractID/PlotID/Inventory_Date/Easting/Northing are semantically selected. Header plus43892source rows yield263358selected cells. Worksheet XML/sharedStrings bytes are necessarily read; untouched raw outcome bytes are not claimed. Actual original decoder calls are monitored without changing original functions; any G+ decode or LRA implementation function call refuses.",
+  "SQLite_observer_rule": "Read-only immutable/query-only connection, exact sixteen metadata fields and existing age-code/publication joins. Authorizer refuses vegdescription/count tables, functions/writes/attach and unrelated schema access. Header column names are inspected before the read authorizer; tree/count values are never selected.",
+  "independent_observer": "Separate XLSX parser and whitelisted SQLite native records, full metadata/age lookup/citation/collection-note joins, sixteen native plot-year/date/coordinate identities, complete26source CSV fields and19public columns, exact opacity hash/privacy projection and every report/refusal field. Uses maintained projection EPSG3006\u21924326/WGS84 dependency geometry under unchanged1e-5m retained agreement.",
+  "complete_screen_claim_limit": "The53 combinations within1km are an authenticated retained spatial-screen claim. No new132\u00d743892all-pairs sweep is performed; the actual observer rechecks sixteen selected native pairs and all43892metadata rows.",
+  "resources": {
+    "common_native_budget_seconds": 240,
+    "producer_seconds": 120,
+    "independent_observer_seconds": 90,
+    "qualified_runtime_outer_completed_seconds": 300,
+    "completed_child_peak_RSS_postcheck_bytes": 2147483648,
+    "inclusive_logical_owned_output_postcheck_bytes": 134217728,
+    "enforced_OS_quotas_or_full_detached_descendant_cleanup_claimed": false
+  },
+  "stage_status_rule": "Native producer0/independent observer0 and source/resource guards determine current consumer success. The two tracked byte checkers remain0or2 independently; differences are recorded and never silently admitted.",
+  "scientific_limits": [
+    "0 admitted measured vegetation pairs;16refusals/eight shared gaps/five unresolved sample identities/one collection cue remain source-bound.",
+    "No collection chronology, paired measured tree values/units, effective area, pollen denominator/taxon crosswalk, basin/plot support, leakage review, benchmark policy or external human decision is supplied.",
+    "Private SQLite/workbook/source dossier/spatial screen and source-bound plot-location ledger remain private artifacts. No raw source acquisition, outcome selection, model/LRA/R run or new rights claim occurs.",
+    "Current public guide bytes are only an input identity; original missing historical acquisition and workbook/source permissions are not recovered."
+  ],
+  "public_column_cardinality": {
+    "source_columns": 26,
+    "excluded_native_location_columns": 8,
+    "public_columns": 19,
+    "rule": "26source fields minus8private location fields minus original candidate_id plus two public opaque identity fields."
+  },
+  "telemetry_dispatch_rule": "Compare exact canonical NFI filename and slash-terminated LRA source directory prefix against raw co_filename strings before owned frame inspection. Callback constructs no pathlib.Path values. Six selected columns, row counter, outcome decoder and LRA implementation refusal remain exact.",
+  "prior_execution_limit": "Prior native source stage timed out at 120.01553404104197 seconds, with no completed source-execution receipt or producer outputs; independent observer did not run. Per-call Path overhead is a plausible hypothesis, not an established cause. No real speedup or future success is claimed. The producer 120-second limit is unchanged.",
+  "prior_failed_execution": {
+    "plan.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/plan.json",
+      "sha256": "ce4e09d4525fe2f1a4e18d5c47404db148b036cf924176c7a2cac24215db3fd1",
+      "bytes": 19334323
+    },
+    "terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/terminal.json",
+      "sha256": "51f45e6af06c4b20db4754a7fe6ce03e93f39faa8a8a769eaa15ea09479ae5a8",
+      "bytes": 5671
+    },
+    "pairing-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/pairing-terminal.json",
+      "sha256": "6b3fdd716386e33c61476c50840c308d46f50dfebb0038bd2706a02d8f8726af",
+      "bytes": 3623
+    },
+    "runtime-custody-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/runtime-custody-terminal.json",
+      "sha256": "a9a1d710e17a1be1790f183e39df664fa3cfef148d138fd86393acf5487ea345",
+      "bytes": 2600
+    },
+    "stage-progress.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/stage-progress.json",
+      "sha256": "2400a9d0210586f186e5d0640d0eb061c9f0bb79fab72db20c8e8d66eb2dfbc7",
+      "bytes": 1184
+    }
+  }
+}

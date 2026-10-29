@@ -38,11 +38,13 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Matched denominator.** 430 eligible native rows ×2 ID hypotheses =860 attempts: 214 coordinate-equal, 337 found at differing coordinates and 309 absent. The 214 cover 123 recorded entities/93 sites; 112 samples at 61 sites match shared labels, two complete reported axes have 12 and 13 labels. The curated model axis has 242 labels; no source age was selected or converted.
 
+Qualified authored reader SHA-256: `cf0e9ce34583eb968a7a1ef7b57b22a75a951457921ec243988fe7885c40be0f`.
+
 - [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-literal-correspondence/report.json](report.json) (SHA-256 `1a78a1edfa57c348e0e1794016a1f794eb4e865f3c335e46fd54ddecc7f31e60`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-literal-correspondence/source-refusals.json](source-refusals.json) (SHA-256 `c36c26f13ed4447921e119382c779535d310de9469f3524caf9b399c9433de49`).
 
-- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md).
+- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->
