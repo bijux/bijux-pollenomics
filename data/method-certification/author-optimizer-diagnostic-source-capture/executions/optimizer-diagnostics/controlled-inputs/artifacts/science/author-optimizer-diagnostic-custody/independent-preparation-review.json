@@ -1,0 +1,16 @@
+{
+  "approved": true,
+  "source_manifest_sha256": "03833f3e37d8893a93c9df1e95d448445305ae492872f8c9266c5dc5aac0be63",
+  "all_manifest_members_rehashed": true,
+  "independent_controls": {
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/check_contracts.py"
+    ],
+    "native_exit": 0,
+    "cases": 10
+  },
+  "source_review": "Actual a8d500/11e284 five-stage prerequisite and observer authenticate exactly47 consumed derivedmembers, no assertionoldwhole-source equivalence. Exactaba704/bf99/currentbaseline/two original scripts protected; full195privateauthority/current4ownedsource/qualifiedruntime+stdlib/aliases freshlypinned. Unchanged two solvers240seach and independent complete scalar/container/refusal observer60s,600overall2GiB64MiB16KiBownreceiptreserve. Any actualnumericdifference fails without expectationrewrite; no full195fit,newR,prediction/scoring orfieldaccuracy claim. Existing unchangedqualifiedresourcewrapper verified exceptterminalbasename.",
+  "actual_preparer_or_diagnostic_executed": false
+}

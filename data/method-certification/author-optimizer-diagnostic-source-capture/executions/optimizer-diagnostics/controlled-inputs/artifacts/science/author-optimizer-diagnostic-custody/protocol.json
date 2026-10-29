@@ -1,0 +1,84 @@
+{
+  "schema_version": "source-bound-author-optimizer-diagnostics.v1",
+  "source_only": true,
+  "source_candidate_at_preparation": "7d78139e903a2cf4b70fbe07dd581758d7544ff5",
+  "actual_preparation_or_diagnostic_execution": false,
+  "prerequisite": {
+    "source_candidate": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/plan.json",
+      "sha256": "a8d5006746679caede8c332d6cf1307a6878bed73245db37772b1e9912b936b0",
+      "bytes": 713650
+    },
+    "outer_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/author-site-terminal.json",
+      "sha256": "11e284eb7c4280fc2cb04fbb4bea2979acd7bfb4c964f8c4c222fd68ea903ab4",
+      "bytes": 912
+    },
+    "observer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/independent-author-development-input-review.json",
+      "sha256": "bb46e0feb51b08fbc5bbb22a4bc48316a6fed23b36c73dc6dcc4f6fe2bef2e94",
+      "bytes": 28252
+    },
+    "all5stages_actual_zero": true,
+    "exact_consumed_derived_members": 47,
+    "scope": "Reuse exact authenticated original-derived input bytes, not old whole-source equivalence. All members are checked against the genuine successful original observer, not newly generated expectations. Current complete four-package source and runtime are freshly pinned for the eventual selected candidate."
+  },
+  "private_source": "All193 original private author snapshot members plus manifest/descriptor (195 maintained qualified inputs), source_manifest48d853; no copying/redistribution or new source inference.",
+  "stages": [
+    {
+      "body": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py",
+      "arguments": "--prepared original/constrained-inputs --output NEW/gradient.json",
+      "scope": "Three problematic training items CUTHILL2/HANGINGS/LONGBREACH, two rings each, exact original baseline. Existing finite differences and baseline/analytic Jacobian solver diagnostics execute unchanged. No complete BECKHAM fold or new held-out prediction."
+    },
+    {
+      "body": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite_candidate.py",
+      "arguments": "--inputs original/feasibility/extended/inputs --output NEW/finite.json",
+      "scope": "One exact bf99 extended request,30taxa/three rings/two optimized rings; original20732 denominator with159 Filipendula excluded. Existing bounded best-candidate optimizer executes unchanged, and failed convergence remains refused."
+    },
+    {
+      "body": "observe.py",
+      "scope": "Complete recursive scalar-type/value/container membership comparison to both governed original reports; independent baseline/request/three-item/two-ring joins, all input pins rehashed. Any numeric/type/count/refusal delta fails and is preserved. Expectations are never rewritten."
+    }
+  ],
+  "resources": {
+    "overall_timeout_seconds": 600,
+    "stage_timeouts_seconds": [
+      240,
+      240,
+      60
+    ],
+    "completed_child_peak_rss_bytes": 2147483648,
+    "logical_output_including_16384_byte_receipt_reserve": 67108864,
+    "parallel_workers": 1,
+    "numerical_threads_requested": 1,
+    "native_thread_counter_claim": false,
+    "OS_quota_or_full_descendant_census_claim": false
+  },
+  "custody": "Exact clean main candidate/index, qualified lexical Python3.11, full four-package source/resources, full immutable runtime/stdlib with explicit lexical aliases, protected private snapshot and input receipt/source objects. All output is under a new normalized nonsymlink repository artifacts root; common runner preserves actual failures and source before/after.",
+  "runner_lineage": {
+    "prior": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/run.py",
+      "sha256": "e9c63bb2dd18d0870ebeb5ad2186958252675c4c76250c86b41cbead0a7380e4",
+      "bytes": 3690
+    },
+    "only_change": "terminal basename author-site-terminal.json to diagnostic-terminal.json"
+  },
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/qualification.json",
+    "sha256": "b8401978d10f3da5c92caec5b71966bf92a06541ffa12d53d7b8709e9289df95",
+    "bytes": 7520
+  },
+  "not_executed": [
+    "source preparation",
+    "diagnostic solvers",
+    "full195fit",
+    "full15fold experiment",
+    "newR",
+    "newheldoutprediction",
+    "new scoring",
+    "ecological/Nordic/rights/human or official release admission"
+  ],
+  "invocation": "artifacts/science/runtime/environment/bin/python -B artifacts/science/author-optimizer-diagnostic-custody/prepare.py --candidate FINAL_SHA --output /Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-optimizer-diagnostics",
+  "source_review_required": true
+}

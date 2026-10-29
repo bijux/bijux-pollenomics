@@ -1,0 +1,48 @@
+{
+  "schema_version": "author-lra-paired-site-sensitivity.v1",
+  "comparison_sha256": "db9be74067336118a16dec6b7111a861bead644529dac3f26fb29cf248cbb514",
+  "matched_scores_sha256": "623b0eb20e46e86fccbd48e840fa20e1882b89bf17ef3ef81c89e63c3a2c6f50",
+  "excluded_site": "author:BECKHAM",
+  "method_summaries": [
+    {
+      "method": "training_mean",
+      "matched_sites": 14,
+      "direct_lower_site_count": 13,
+      "lra_lower_site_count": 1,
+      "equal_site_count": 0,
+      "mean_direct_minus_lra_mae_fraction": -0.005777684405694745,
+      "median_direct_minus_lra_mae_fraction": -0.005807984451709819,
+      "leave_one_site_out_mean_range": [
+        -0.00628897572570867,
+        -0.005363810379207
+      ]
+    },
+    {
+      "method": "nearest_site",
+      "matched_sites": 14,
+      "direct_lower_site_count": 7,
+      "lra_lower_site_count": 7,
+      "equal_site_count": 0,
+      "mean_direct_minus_lra_mae_fraction": -0.0015804106165932805,
+      "median_direct_minus_lra_mae_fraction": 0.00024392883669452445,
+      "leave_one_site_out_mean_range": [
+        -0.0020030088097791198,
+        -0.0004200084827020373
+      ]
+    },
+    {
+      "method": "inverse_distance_squared",
+      "matched_sites": 14,
+      "direct_lower_site_count": 10,
+      "lra_lower_site_count": 4,
+      "equal_site_count": 0,
+      "mean_direct_minus_lra_mae_fraction": -0.0025089047465615267,
+      "median_direct_minus_lra_mae_fraction": -0.0013191325880665883,
+      "leave_one_site_out_mean_range": [
+        -0.002968398200236862,
+        -0.001902582925819124
+      ]
+    }
+  ],
+  "interpretation": "descriptive leave-one-site-out sensitivity on prior-exposed English development sites; no sampling confidence interval, independent vegetation accuracy, or spatial transfer claim"
+}

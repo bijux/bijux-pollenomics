@@ -30334,16 +30334,13 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/optimizer-gradient/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json"
       ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Baseline and analytic-gradient diagnostic require private prepared source inputs and bounded optimizer execution; finite outputs are retained runtime evidence, not locally generated from repository inputs alone."
+      "verification": "Authenticate exact saved original source/native/product custody through the registered author-optimizer-diagnostic-source-capture SourceCapsule. Numerical implementations remain current-strict; explicit historical metadata, named documentation, finite mixed-function IO and package-export roles remain separate. Original execution epochs, all refusals and scientific limits stay literal; no model/R/optimizer/source acquisition or new biological/field/rights admission. Admit only the2 completed diagnostics; baseline input and historical attempt owners remain unresolved, with no later input-certificate promotion."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/optimizer-gradient/source-code",
@@ -30435,7 +30432,7 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/manifest.json",
@@ -30449,15 +30446,9 @@
         "docs/report/pollen-reconstruction/author-lra-constrained/report.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/scores.csv"
       ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py",
-        "docs/report/pollen-reconstruction/author-lra-constrained/prepare.py",
-        "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
-        "docs/report/pollen-reconstruction/author-lra-constrained/report.py",
-        "docs/report/pollen-reconstruction/author-lra-constrained/score.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Constrained LOVE prediction, score and direct-pollen comparisons depend on private author source preparation, numerical runs and frozen held-out evidence. No ownership declaration waives a refused fold or authenticates private inputs."
+      "verification": "Authenticate exact saved original source/native/product custody through the registered constrained-author-source-capture SourceCapsule. Numerical implementations remain current-strict; explicit historical metadata, named documentation, finite mixed-function IO and package-export roles remain separate. Original execution epochs, all refusals and scientific limits stay literal; no model/R/optimizer/source acquisition or new biological/field/rights admission. Retain all195attempts/192completed/3refused and14scored folds with BECKHAM refused; this is retained-output readback, not a fresh experiment."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/source-code",
@@ -30509,17 +30500,13 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
-        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json",
-        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json"
+        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json"
       ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite_candidate.py",
-        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Finite optimizer diagnostic and refusal report require private 193-file author source capsule, exact request and bounded numerical execution; neither is a local mechanical report product."
+      "verification": "Authenticate exact saved original source/native/product custody through the registered author-optimizer-diagnostic-source-capture SourceCapsule. Numerical implementations remain current-strict; explicit historical metadata, named documentation, finite mixed-function IO and package-export roles remain separate. Original execution epochs, all refusals and scientific limits stay literal; no model/R/optimizer/source acquisition or new biological/field/rights admission. Admit only the2 completed diagnostics; baseline input and historical attempt owners remain unresolved, with no later input-certificate promotion."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/reader-account",
@@ -67319,6 +67306,14 @@
         "docs/report/countries/sweden/observed-pollen-trajectory/geodesic-window-cells.csv"
       ],
       "producer_paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py",
+        "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py",
+        "docs/report/pollen-reconstruction/author-lra-constrained/prepare.py",
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
+        "docs/report/pollen-reconstruction/author-lra-constrained/report.py",
+        "docs/report/pollen-reconstruction/author-lra-constrained/score.py",
+        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite_candidate.py",
+        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/api/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/api/freeze_contracts.py",
@@ -67437,9 +67432,15 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_native_reference.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_optimizer_diagnostics.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/constrained_author.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_correspondence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/documentation.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/readers.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/spatial_source_exports.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
@@ -69543,6 +69544,26 @@
         "reports/science/archaeology-native-lead-support/source-custody.json"
       ],
       "verification": "Maintained finite read-only national-source consumer and independent saved-stream Decimal verification. Exact reference/replay execution is recorded separately; no event chronology, historical density, field permission, rights or scientific admission. The original lead-context metadata is authenticated as an exact reachable Git member, hashed without parsing, and is not current field-decision authority. No fresh native execution is asserted by this source correspondence."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline-reference",
+      "role": "unresolved",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read baseline input, not produced by the bounded optimizer diagnostic."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/attempt-report",
+      "role": "unresolved",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Historical feasibility attempt report was not produced by the bounded optimizer diagnostic; its original execution remains unresolved."
     }
   ]
 }

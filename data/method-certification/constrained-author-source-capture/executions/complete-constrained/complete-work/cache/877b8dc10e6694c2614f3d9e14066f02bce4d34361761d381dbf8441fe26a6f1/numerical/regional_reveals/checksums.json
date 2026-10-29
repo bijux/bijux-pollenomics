@@ -1,0 +1,18 @@
+{
+  "deposition_factors.csv": {
+    "sha256": "15999a6c38040010f82623bf444366811ef639bf892258f82a74357523e80eca",
+    "bytes": 975
+  },
+  "reconstruction.csv": {
+    "sha256": "8a602b87bc906127d9d59cdd82c14bf517af4b8fcdcf86acddf1130aaab9acd4",
+    "bytes": 3412
+  },
+  "result_contract.json": {
+    "sha256": "a8924b7e4bbcf33a7e372473fbc0da683bde5df05be88c6661f0f638a557b253",
+    "bytes": 242
+  },
+  "run_manifest.json": {
+    "sha256": "b50c29998dbbaba1042a7d8332bdefc8279b1243849008399852d08e0c8309b5",
+    "bytes": 1239
+  }
+}

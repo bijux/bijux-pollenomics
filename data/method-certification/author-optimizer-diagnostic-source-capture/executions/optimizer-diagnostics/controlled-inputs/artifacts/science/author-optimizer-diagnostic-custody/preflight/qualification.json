@@ -1,0 +1,150 @@
+{
+  "source_only": true,
+  "all_actual_exit_zero": true,
+  "pure_guard_cases": 10,
+  "strict_modules": 2,
+  "lint_format_AST_files": 6,
+  "commands": [
+    {
+      "label": "guards",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/check_contracts.py"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/guards.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/guards.stderr"
+    },
+    {
+      "label": "lint",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--config",
+        "configs/ruff.toml",
+        "--cache-dir",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/ruff-cache",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/check_contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/storage.py"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/lint.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/lint.stderr"
+    },
+    {
+      "label": "format",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "--config",
+        "configs/ruff.toml",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/check_contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/observe.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/prepare.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/run.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/storage.py"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/format.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/format.stderr"
+    },
+    {
+      "label": "strict",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "mypy",
+        "--config-file",
+        "configs/mypy.ini",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/contracts.py",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/storage.py"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/strict.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/strict.stderr"
+    },
+    {
+      "label": "prepare.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/prepare.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/prepare.py-help.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/prepare.py-help.stderr"
+    },
+    {
+      "label": "observe.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/observe.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/observe.py-help.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/observe.py-help.stderr"
+    },
+    {
+      "label": "run.py-help",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/run.py",
+        "--help"
+      ],
+      "actual_exit": 0,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/run.py-help.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/preflight/run.py-help.stderr"
+    }
+  ],
+  "source_files": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/check_contracts.py",
+      "sha256": "d1e2442e1c968551d65665823fa2e6122f67ea9b1403e59faac793b78ca79ab9",
+      "bytes": 2761
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/contracts.py",
+      "sha256": "3fb6e04ef13ef4c46e524f56aa8503de6afa2e99adef5709c0c4ce49c616cd32",
+      "bytes": 2772
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/observe.py",
+      "sha256": "30ed4a5d789fc0e1dec756839f6c7d88a50648fa8a8cf896676620352c90bc8a",
+      "bytes": 2919
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/prepare.py",
+      "sha256": "e0a281457fc00c4d630e206491f01d32db2d6e677ee3c95ed5e360bebbcf6fcb",
+      "bytes": 13958
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/run.py",
+      "sha256": "c57917ef5d466346d787356d4948025d1506aba29458c4978777ab84d91e5aa5",
+      "bytes": 3689
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-optimizer-diagnostic-custody/storage.py",
+      "sha256": "bea316312519e5aac06d8006be90e0038963832432ba4c2f2f93138d6f1ec10a",
+      "bytes": 998
+    }
+  ],
+  "no_diagnostic_optimizer_body_or_preparation_run": true
+}
