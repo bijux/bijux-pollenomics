@@ -56,6 +56,9 @@ from .scientific_captures.lake_registry.svar_census import (
 from .scientific_captures.land_use.hyde_country import (
     validated_hyde_country_capture,
 )
+from .scientific_captures.land_use.openland_members import (
+    validated_openland_member_capture,
+)
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
@@ -336,6 +339,9 @@ def validated_maintained_report_sources(
     svar_census_entries, svar_census_evidence = validated_svar_feature_census_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    openland_entries, openland_evidence = validated_openland_member_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -355,6 +361,7 @@ def validated_maintained_report_sources(
         + solsoe_entries
         + solsoe_pollen_entries
         + svar_entries
+        + openland_entries
         + svar_census_entries
         + hyde_entries
         + swedish_entries
@@ -438,4 +445,6 @@ def validated_maintained_report_sources(
         evidence["retained_empd2_nfi_pairing_source"] = empd2_nfi_evidence
     if svar_census_entries:
         evidence["retained_svar_feature_census"] = svar_census_evidence
+    if openland_entries:
+        evidence["retained_openland_member_custody"] = openland_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

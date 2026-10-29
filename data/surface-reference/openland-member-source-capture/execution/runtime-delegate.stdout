@@ -1,0 +1,3 @@
+{"stage": "maintained-openland-member-source", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 14.680971207970288}
+{"stage": "independent-openland-member-copychain-observer", "actual_exit": 0, "producer_native_exit": null, "manifest_exists": false, "elapsed_seconds": 9.364563042006921}
+{"terminal": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay/terminal.json", "sha256": "b48e5f477ce14205f8ca6cf9926aa95c5fd428994ce561ebc0a9b5bee49f9d38", "status": "passed"}

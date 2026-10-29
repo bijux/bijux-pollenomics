@@ -22608,7 +22608,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/openland-intake/README.md",
-      "content_sha256": "67c721295b65af637d21d85baa9dfe314139ff7f8dd2f6c818ac61303283341d",
+      "content_sha256": "0754a8a649e3162fed24e198dd29c423a95ea285fa627a551bbcb1cd7c265dcb",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -22633,7 +22633,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/openland-intake/doi-lineage.md",
-      "content_sha256": "0aa89a5e32533fa88c19db44c6a135d6cb61545a0f9ec93a185fed9b673d63af",
+      "content_sha256": "d5a5d1889cd0dfefea9bb2df86a42c07fd1f32b316a3beb25f20b261183792a0",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

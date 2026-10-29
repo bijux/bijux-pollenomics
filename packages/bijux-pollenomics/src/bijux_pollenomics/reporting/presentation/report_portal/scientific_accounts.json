@@ -8209,7 +8209,7 @@
         "fields": {
           "supported_claim": "The 51-entry OpenLand intake distinguishes exact upstream modeled CSVs from private/local derivative and project-state members.",
           "unsupported_claim": "Pollen-derived modeled cover is not independent vegetation truth; upstream data/code terms do not license a mixed private archive or local script.",
-          "actual_verification_performed": "Read all member roles, rights posture and pinned upstream identity in report.json/members.csv; no archive extraction, script execution or source recapture.",
+          "actual_verification_performed": "Read all member roles, rights posture and pinned upstream identity in report.json/members.csv; no archive extraction, script execution or source recapture. A separate source-built execution used commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87. The unchanged OpenLand producer and independent archive and copy-chain observer both exited 0, and the complete run exited 0. The member CSV matched exactly, with byte-checker exit 0. The report byte checker exited 2 because one source-attribution digest changed. The independent observer verified that this digest was the only report difference, preserved all scientific and rights values, and exited 0. The producer generated members.csv and report.json. The upstream-tree and DOI-lineage files were copies of retained declared inputs; they are not fresh HTTP retrievals or proof of original acquisition. The archive still contains 51 entries, including 25 modeled CSVs and 26 exact upstream blobs. There were 27 selected ZIP member reads and no GeoPackage or editor payload reads or LRA calls. An authored capsule retains 2,209 public members and all 66,430 ordered input identities. The payloads of 4,356 bytecodes, 59,886 runtime authorities and three private archive or intake authorities are omitted. The capsule does not establish fresh bytecode compilation, new native retention execution, public member rights, PANGAEA row equivalence, independent vegetation truth, ecological or human acceptance, or LRA admission.",
           "remaining_input_or_review": "Exact input-row relation, member-specific rights and scientific role decisions remain required before public use.",
           "cause_category": "Mixed archive rights and dependent modeled inputs.",
           "consequence": "25 CSVs route to private modeled-source review without a second LandClim authority.",
@@ -8220,7 +8220,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/openland-intake/report.json",
-            "sha256": "6ede25d42a64a041139aab7a32ed6abfb3e2fb19ec0caf932647b7377455e52b"
+            "sha256": "dbe01c0f556eca264e5523a895e19dfe15719ad99adc01f537c27082b6fa6243"
           },
           {
             "path": "docs/report/source-relations/openland-intake/members.csv",
@@ -8229,6 +8229,10 @@
           {
             "path": "docs/report/source-relations/openland-intake/upstream-tree.json",
             "sha256": "4bbd8f7a11b6fc01083dab358143f01b8f06192c8562592758e451436f75eae1"
+          },
+          {
+            "path": "reports/science/source-lineage/openland-member-custody.json",
+            "sha256": "dc437a7dee28a31b1ea341be1e76e0397d54ab0d93a0f6ad146bcbf99116365f"
           }
         ]
       }
@@ -8251,7 +8255,7 @@
         "fields": {
           "supported_claim": "Two retained DataCite records establish 931856 IsObsoletedBy 937075 with distinct rights declarations.",
           "unsupported_claim": "DOI supersession does not establish byte/row equivalence or transfer successor licensing to an OpenLand derivative.",
-          "actual_verification_performed": "Read the exact DOI-lineage response fields and intake role decision; no DOI lookup or numerical source join rerun.",
+          "actual_verification_performed": "Read the exact DOI-lineage response fields and intake role decision; no DOI lookup or numerical source join rerun. A separate source-built execution used commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87. The unchanged OpenLand producer and independent archive and copy-chain observer both exited 0, and the complete run exited 0. The member CSV matched exactly, with byte-checker exit 0. The report byte checker exited 2 because one source-attribution digest changed. The independent observer verified that this digest was the only report difference, preserved all scientific and rights values, and exited 0. The producer generated members.csv and report.json. The upstream-tree and DOI-lineage files were copies of retained declared inputs; they are not fresh HTTP retrievals or proof of original acquisition. The archive still contains 51 entries, including 25 modeled CSVs and 26 exact upstream blobs. There were 27 selected ZIP member reads and no GeoPackage or editor payload reads or LRA calls. An authored capsule retains 2,209 public members and all 66,430 ordered input identities. The payloads of 4,356 bytecodes, 59,886 runtime authorities and three private archive or intake authorities are omitted. The capsule does not establish fresh bytecode compilation, new native retention execution, public member rights, PANGAEA row equivalence, independent vegetation truth, ecological or human acceptance, or LRA admission.",
           "remaining_input_or_review": "An input-level join and derivative-specific permission/scientific role review remain missing.",
           "cause_category": "Dataset lineage is narrower than version/rights equivalence.",
           "consequence": "The older restricted record is not replaced silently by an openly licensed successor.",
@@ -8266,7 +8270,11 @@
           },
           {
             "path": "docs/report/source-relations/openland-intake/report.json",
-            "sha256": "6ede25d42a64a041139aab7a32ed6abfb3e2fb19ec0caf932647b7377455e52b"
+            "sha256": "dbe01c0f556eca264e5523a895e19dfe15719ad99adc01f537c27082b6fa6243"
+          },
+          {
+            "path": "reports/science/source-lineage/openland-member-custody.json",
+            "sha256": "dc437a7dee28a31b1ea341be1e76e0397d54ab0d93a0f6ad146bcbf99116365f"
           }
         ]
       }
