@@ -175,9 +175,8 @@ def test_changed_choice_source_refuses(
     import hashlib
 
     callback = GUARD["validated_development_setting_selection"]
-    name = next(
-        name for name in GUARD["SCIENTIFIC_SOURCES"] if name.endswith("selection.py")
-    )
+    name = "reports/science/development-setting-selection/source/choice.py"
+    assert name in GUARD["SCIENTIFIC_SOURCES"]
     raw = b"constructed-computational-source"
     target = tmp_path / name
     target.parent.mkdir(parents=True)
