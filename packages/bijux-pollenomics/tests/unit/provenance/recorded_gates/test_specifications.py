@@ -2,9 +2,12 @@ from __future__ import annotations
 
 import json
 import os
+from pathlib import Path
 import re
 import shlex
 import subprocess
+
+import pytest
 
 from bijux_pollenomics.governance.country_coverage import INPUT_PATHS
 from bijux_pollenomics.provenance import gates as gate_module
@@ -175,7 +178,7 @@ def test_make_release_evidence_does_not_rerun_recorded_gates() -> None:
         text=True,
     )
 
-    assert " -m pytest" not in completed.stdout
+    assert not _release_evidence_reruns_gates(completed.stdout)
     modules = [
         words[words.index("-m") + 1]
         for line in completed.stdout.replace("\\\n", " ").splitlines()
@@ -230,3 +233,58 @@ def test_release_gate_inputs_match_policy_bundles() -> None:
         assert artifacts[f"gate-{gate_id}"]["path"] == (
             f"{gate_directory}/{gate_id}.json"
         )
+
+
+def _release_evidence_reruns_gates(stdout: str) -> bool:
+    """Recognize direct gate and pytest commands in Make's printed recipes."""
+    for line in stdout.replace("\\\n", " ").splitlines():
+        lexer = shlex.shlex(line, posix=True, punctuation_chars=";&|")
+        lexer.whitespace_split = True
+        lexer.commenters = ""
+        tokens = list(lexer)
+        for option, module in zip(tokens, tokens[1:], strict=False):
+            if option == "-m" and module in {
+                "pytest",
+                "bijux_pollenomics.provenance.gate_runner",
+                "bijux_pollenomics.provenance.gates",
+            }:
+                return True
+        command_start = True
+        for token in tokens:
+            if token in {";", "&&", "||", "|", "&"}:
+                command_start = True
+            elif command_start:
+                if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*=.*", token):
+                    continue
+                if token in {"env", "-i", "--ignore-environment"}:
+                    continue
+                if Path(token).name in {"pytest", "py.test"}:
+                    return True
+                command_start = False
+    return False
+
+
+@pytest.mark.parametrize(
+    ("command", "reruns_gates"),
+    [
+        (
+            "python -m bijux_pollenomics.provenance.gates.temporary "
+            '--directory "/owned/temporary/release-evidence/pytest"',
+            False,
+        ),
+        ("python -m bijux_pollenomics.provenance request", False),
+        ("python -m bijux_pollenomics.provenance write", False),
+        ("python -m bijux_pollenomics.provenance.gate_runner --gate-id science", True),
+        ("python -m bijux_pollenomics.provenance.gates --gate-id science", True),
+        ("python -m pytest -q", True),
+        ('"/owned/environment/bin/pytest" -q', True),
+        ('PYTHONPATH="/owned/source tree" "/owned/environment/bin/pytest" -q', True),
+        ("env -i LANG=C pytest -q", True),
+        ("echo ready && pytest -q", True),
+        ("echo ready; py.test -q", True),
+        ("python -m bijux_pollenomics.provenance write\npytest -q", True),
+        ("python \\\n -m bijux_pollenomics.provenance.gate_runner", True),
+    ],
+)
+def test_release_evidence_command_boundary(command: str, reruns_gates: bool) -> None:
+    assert _release_evidence_reruns_gates(command) is reruns_gates

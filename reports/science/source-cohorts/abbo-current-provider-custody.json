@@ -1,0 +1,147 @@
+{
+  "schema_version": "abbo-current-official-provider-custody.v1",
+  "source_candidate": "0caba19fdca39e183dce2b1a3929d1b94495cc21",
+  "doi": "10.1594/PANGAEA.740080",
+  "official_download_url": "https://doi.pangaea.de/10.1594/PANGAEA.740080?format=textfile",
+  "current_acquisition": {
+    "started_utc": "2026-10-16T17:28:58.878206+00:00",
+    "finished_utc": "2026-10-16T17:28:59.016772+00:00",
+    "http_status": 200,
+    "requests": 1,
+    "body_complete": true,
+    "body_sha256": "9717f1600c62659a33a4901da16c6b5fc3dac7cc47f8c005e54909568929704d",
+    "body_bytes": 2977,
+    "matches_previously_declared_table_identity": true,
+    "native_exit": 0,
+    "stage_exit": 0
+  },
+  "saved_evidence": {
+    "plan": {
+      "path": "artifacts/science/current-abbo-format-query-retrieval/plan.json",
+      "sha256": "53122d53ebb441810dd1591ac75f47789c5f935d5042e699b88b17431c249e53",
+      "bytes": 101899
+    },
+    "native_terminal": {
+      "path": "artifacts/science/current-abbo-format-query-retrieval/native/terminal.json",
+      "sha256": "9d87888fa1d08123e359f370f3ff56c691d80563b7ad8c0d9d8f04beca85da26",
+      "bytes": 2779
+    },
+    "capture": {
+      "path": "artifacts/science/current-abbo-format-query-retrieval/native/products/capture.json",
+      "sha256": "df703719adbe0286e59ffa379f223f5a8ef5ae2e12280033463567368d3c0c9b",
+      "bytes": 1594
+    },
+    "response_headers": {
+      "path": "artifacts/science/current-abbo-format-query-retrieval/native/products/response-0.headers.bin",
+      "sha256": "193a514d2547766bf7ba25ee0ee5a06365356157b56b77ca1aa2ff2591135273",
+      "bytes": 1112
+    },
+    "response_body": {
+      "path": "artifacts/science/current-abbo-format-query-retrieval/native/products/response-0.body.bin",
+      "sha256": "9717f1600c62659a33a4901da16c6b5fc3dac7cc47f8c005e54909568929704d",
+      "bytes": 2977
+    },
+    "retained_comparison": {
+      "path": "docs/report/source-relations/neotoma/abbo-age-controls/report.json",
+      "sha256": "629efd8c18ce6b3ab570d36cf4c3ebbb99a180d1018cdb8eec2ecfa268039445",
+      "bytes": 3639
+    }
+  },
+  "source_table": {
+    "records": 6,
+    "unique_lab_numbers": 6,
+    "depth_unit": "m",
+    "dated_thickness_unit": "mm",
+    "dated_thickness_values_mm": [
+      10
+    ],
+    "radiocarbon_age_unit": "ka BP",
+    "bp_reference_year": 1950,
+    "radiocarbon_half_life_convention": "Libby",
+    "older_error_unit": "ka +",
+    "younger_error_unit": "ka -",
+    "error_confidence_level": "not inferred",
+    "thickness_interval_semantics": "not inferred",
+    "dated_material_counts": {
+      "Bulk sediment": 1,
+      "Alnus": 2,
+      "Pinus": 3
+    },
+    "source_license_label": "CC-BY-NC-3.0"
+  },
+  "comparison": {
+    "dataset_id": 19913,
+    "site_id": 13338,
+    "chronology_id": 11516,
+    "records_checked": 6,
+    "exact_lab_depth_age_older_younger_matches": 6,
+    "native_depth_interpretation": "Published meters multiplied by 100 match retained Neotoma depth_cm; native depth labels remain unlabeled.",
+    "radiocarbon_unit_comparison": "Published ka BP and ka error values multiplied by 1000 match retained radiocarbon BP/error fields; calibrated BP values are not substituted.",
+    "lab_control_joins": [
+      {
+        "lab_number": "Poz-4445",
+        "neotoma_chroncontrol_id": 39858,
+        "depth_age_older_younger_equal": true
+      },
+      {
+        "lab_number": "Poz-4446",
+        "neotoma_chroncontrol_id": 39859,
+        "depth_age_older_younger_equal": true
+      },
+      {
+        "lab_number": "Poz-4511",
+        "neotoma_chroncontrol_id": 39860,
+        "depth_age_older_younger_equal": true
+      },
+      {
+        "lab_number": "Poz-4447",
+        "neotoma_chroncontrol_id": 39861,
+        "depth_age_older_younger_equal": true
+      },
+      {
+        "lab_number": "Poz-4512",
+        "neotoma_chroncontrol_id": 39862,
+        "depth_age_older_younger_equal": true
+      },
+      {
+        "lab_number": "Poz-4514",
+        "neotoma_chroncontrol_id": 39863,
+        "depth_age_older_younger_equal": true
+      }
+    ],
+    "thickness_scope": "All six provider rows record 10 mm; no fresh Neotoma thickness comparison or interval interpretation.",
+    "calibration_calls": 0,
+    "model_calls": 0,
+    "private_source_reads": 0
+  },
+  "preserved_failed_observation": {
+    "http_status": 400,
+    "native_exit": 1,
+    "body_bytes": 250,
+    "body_sha256": "1ca4d1e19a6c06176348177d217da5b3f7d9ba83d65023f1f39cc124ede8c2ce",
+    "reason": "Explicit Accept content negotiation conflicted with the official URL format query; corrected capture removed only that header.",
+    "native_terminal": {
+      "path": "artifacts/science/current-abbo-provider-retrieval/native/terminal.json",
+      "sha256": "99b7859b1002ba31fc8b6bbf0bac297bfe13cfc674cdc36ec1295081a1fe5476",
+      "bytes": 2767
+    },
+    "capture": {
+      "path": "artifacts/science/current-abbo-provider-retrieval/native/products/capture.json",
+      "sha256": "7ee8daf148e887560c5924d0219b21ebc63388049029cf4c7e9e4b47f704f2af",
+      "bytes": 1706
+    },
+    "response_body": {
+      "path": "artifacts/science/current-abbo-provider-retrieval/native/products/response-0.body.bin",
+      "sha256": "1ca4d1e19a6c06176348177d217da5b3f7d9ba83d65023f1f39cc124ede8c2ce",
+      "bytes": 250
+    }
+  },
+  "limits": {
+    "historical_acquisition_recovered": false,
+    "source_use_authority_admitted": false,
+    "scientific_owner_promoted": false,
+    "lra_admitted_samples": 0,
+    "sample_ages_without_uncertainty_bounds": 107,
+    "scope": "Current 2026-10-16 official-provider response custody only. Matching bytes do not reconstruct historical acquisition, authorize analytical use, resolve collection dates or sample-age uncertainty, provide historical lake geometry, or establish LRA admission. The original unresolved owner criterion and numerical comparison remain unchanged."
+  }
+}

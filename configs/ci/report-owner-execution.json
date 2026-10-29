@@ -2149,19 +2149,6 @@
       "timeout_seconds": 180
     },
     {
-      "module": "bijux_pollenomics_dev.source_completion.neotoma.abbo_age_controls",
-      "artifact_output_flag": "--retained-artifacts-root",
-      "external_source_descriptor": "configs/ci/qualified-report-sources/abbo-age-controls.json",
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
-      "source_arguments": [],
-      "source_paths": {
-        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
-      },
-      "timeout_seconds": 60
-    },
-    {
       "module": "bijux_pollenomics_dev.source_completion.method_certification.retained_vector_diagnostics",
       "output_mode": "directory",
       "output_subdirectory": "source-products",

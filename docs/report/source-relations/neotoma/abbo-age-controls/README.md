@@ -45,6 +45,27 @@ The producer checks the external file's exact hash, citation, license, table
 schema and every date field before writing its receipt. Source differences
 require a new comparison rather than silent fallback.
 
+## Current official-provider observation
+
+On 16 October 2026, one HTTPS request to the official PANGAEA download URL
+returned HTTP 200 and the complete 2,977-byte table with the SHA-256 above.
+The [current-provider custody receipt](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/abbo-current-provider-custody.json)
+binds the saved response, native execution and unchanged comparison. All six
+lab/depth/radiocarbon-age/older-error/younger-error records match that comparison
+using decimal unit conversion. The source records thickness in millimeters,
+ages in ka BP relative to 1950 using the Libby convention, and six dated
+materials; neither error confidence levels nor thickness-interval semantics
+are inferred. Calibrated control ages remain separate.
+
+An earlier request returned HTTP 400 because an explicit Accept header
+conflicted with the URL's format query. Its response and failed execution
+remain retained; removing that header enabled the successful observation.
+This establishes current provider-byte custody, not the original acquisition
+epoch or permission for analytical use under CC-BY-NC-3.0. The original
+unresolved owner criterion, the 107 missing sample-age uncertainty bounds,
+collection-date and historical-geometry questions, and zero admitted ABBO
+LRA samples remain unchanged. No calibration or scientific model was run.
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
@@ -55,7 +76,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** Calibrated control bounds do not supply sample-age uncertainty or historical lake geometry, and the core top is not a seventh published 14C date.
 
-**Actual verification performed.** Read all six control matches, core-top exception and sample-bound absence in the retained comparison; no calibration or source download. The original scientific ownership acceptance criteria have been restored verbatim. The SLU guide, HYDE country products, ABBO age-control report, Swedish cohort screen, OpenLand intake and Neotoma publication-attribution owners remain unresolved because their required original acquisition/copy custody or source-use authority has not been independently established. Genuine current executions, exact-byte checks and retained source captures remain scoped evidence; they do not discharge those original conditions. No numerical result, source chronology, permission, qualified human decision or LRA admission has changed.
+**Actual verification performed.** On 2026-10-16, a fresh official-provider GET returned HTTP 200, one complete 2,977-byte body matching the retained table SHA-256, and native/stage zero. Independently compared all six lab/depth/radiocarbon-age/older-error/younger-error records to the retained comparison using decimal unit conversion; no calibration, private-source replay or model. Preserved the earlier HTTP 400 response and failed native execution. Current byte custody does not reconstruct historical acquisition or establish analytical use authority; the original unresolved owner criterion, numerical results, permissions, human decisions and zero LRA admission remain unchanged.
 
 **Remaining input or review.** Collection-date roles, 107 interpolated sample uncertainties, historical basin geometry and source analytical rights need resolution.
 
@@ -74,6 +95,8 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 - [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-profile/report.json](../abbo-profile/report.json) (SHA-256 `c29738753e25a99767776cfecfbdaebe0c3a4394c38df91b72bb2c4c944c6263`).
 
 - [Retained qualification evidence: reports/science/source-cohorts/abbo-age-original-acceptance.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/abbo-age-original-acceptance.json) (SHA-256 `38b8edf5632f9104146dd3c2a0f505313ef836fbe1ee6d8c335040c14f6490e7`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/abbo-current-provider-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/abbo-current-provider-custody.json) (SHA-256 `a30ac256f25d088b2a1ba4a03d859605dc5fe846d02e185d4eb37e37aa589b8c`).
 
 - [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md).
 

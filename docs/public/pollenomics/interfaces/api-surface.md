@@ -4,7 +4,7 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-12
+last_reviewed: 2026-10-16
 ---
 
 # API Surface
@@ -247,6 +247,16 @@ the latter conditions on the now-observed count total. Missing targets and
 incompatible taxon denominators remain explicit. These primitives do not
 materialize real source observations, choose a regional background, authenticate
 scientific review, or constitute a complete experiment runner.
+
+## Supplied joint predictive laws
+
+The advanced owning-module exports in `bijux_pollenomics.analysis.lra_validation.spatial`
+include `JointSpatialDraw`, `UnavailableSpatialDraw`,
+`propagate_withheld_spatial_draws` and `spatial_identifiability`. They propagate
+a supplied paired law through training-only refits and forward calls, retaining
+upstream refusal mass. They do not authenticate its physical uncertainty model.
+Follow the [runnable supplied-law guide](predictive-uncertainty.md) for the
+complete atom, target-group exclusion, omission and failed-mass contracts.
 
 ## Governed observation and release-scoring products
 
