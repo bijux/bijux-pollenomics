@@ -12,6 +12,7 @@ from typing import Any, cast
 import pytest
 
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.ownership import ReportOwnershipError
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
     source_correspondence as source,
 )
@@ -225,7 +226,12 @@ def test_current_source_confinement_and_freshness(
         moved = parent.with_name(parent.name + "-outside")
         parent.rename(moved)
         parent.symlink_to(moved, target_is_directory=True)
-    with pytest.raises(ReportRebuildError):
+    expected = (
+        ReportOwnershipError
+        if kind in {"symlink", "ancestor-symlink"}
+        else ReportRebuildError
+    )
+    with pytest.raises(expected):
         _check(admitted)
 
 
