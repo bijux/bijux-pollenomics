@@ -52,6 +52,11 @@ A different machine must provision the locked source archive and dependencies
 before replay. The producer refuses an archive/installed-source
 marker mismatch and checks numerical gaps before writing its passed report.
 
+The retained [current-source execution capsule](https://github.com/bijux/bijux-pollenomics/blob/main/data/method-certification/controlled-lra-numerical-source-capture/capture.json) records a separate genuine three-stage certification at source commit `60bf419979bdc682ef227fb01e42a4f5ed6e2722`, followed by metadata retention at `d027effd6c0ac91512cd586c3a51db987ea46d54`. Both maintained numerical replays and the independent observer returned zero. The capsule retains all eleven raw products, complete original first-party source and controls, both same-process namespace/DLL observations and every original input identity. The original source functions, case arrays and prospective tolerances were unchanged. Nine published products are byte-identical to their earlier accounts; the two report JSON products differ only in independently enumerated executed input-path identities. The older missing execution proofs are not recovered or relabelled. Runtime binaries are not redistributed; executing again requires a separately qualified runtime.
+
+The fresh controlled certification evaluated all three objectives and both cross-candidates. The declared `1e-4` objective-gap and `1e-10` cross-evaluation criteria passed. The R 400-iteration cap remains an attained-objective observation and supplies no convergence certificate; ambiguous fitted coordinates are not uniquely identified.
+
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
@@ -62,27 +67,29 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 
 **Unsupported claim.** Small objective gaps do not prove parameter identifiability, unique vector recovery, calibrated confidence, convergence of the R run, paper reproduction or ecological accuracy.
 
-**Actual verification performed.** Reviewed the three-case objective contract, retained candidate/evaluation summaries and exact report/case JSON bytes. No optimizer, RcppDE process or independent objective computation was executed in this reader qualification.
+**Actual verification performed.** A separately retained current-source certification executed the unchanged three-case Python and native-R replays plus an independent observer at source commit 60bf419979bdc682ef227fb01e42a4f5ed6e2722. All three native stages returned zero; exact objectives, common-candidate evaluations, prospective thresholds, original inputs and same-process namespace/DLL observations were retained. This reading qualification does not establish ecological or human scientific acceptance.
 
-**Remaining input or review.** The configured current-source owner must replay exact cases and candidate cross-evaluation; an applied scientific objective additionally needs identifiable parameters and justified observation/model assumptions.
+**Remaining input or review.** The named current-source numerical replay is retained separately from absent historical execution proofs. An applied scientific objective still needs identifiable parameters, justified observation/model assumptions and independent scientific review. Re-execution requires newly qualified runtime bytes rather than inferred availability.
 
 **Cause category.** Bounded numerical objective correspondence with nonunique solutions and iteration limits.
 
 **Consequence.** Objective agreement can support the named mathematical comparison even when coordinates differ; reaching a fixed iteration cap supplies no convergence certificate.
 
-**Precise next acceptance route.** Replay the three declared symmetric, boundary and ambiguous cases under frozen budgets and compare both candidates in both objectives before interpreting any fitted physical parameter.
+**Precise next acceptance route.** Use the retained three-case certification within its exact source/input/runtime epoch; require a justified applied case and independent review before interpreting fitted physical parameters. Preserve the nonunique-vector and R iteration-cap limitations.
 
 **Negative or refused result.** The R comparator reaches its 400-iteration cap. Ambiguous/nonunique vectors remain acceptable only under the stated objective-gap criterion, not as evidence of unique recovered parameters.
 
 **Matched denominator.** Three objective cases; Python 29–40 iterations and 600–1230 evaluations, R 400-iteration caps and 8020 or 12030 evaluations; declared objective gap below 1e-4 and cross-evaluation gap below 1e-10.
 
-- [Retained qualification evidence: docs/report/method-certification/optimizer-solution-quality/report.json](report.json) (SHA-256 `62da8c5e4af32da8feeb297c1fc63d1a02e1c19c5d765cd8fab5ccbd71584aba`).
+Qualified authored reader SHA-256: `87e35292891330c5d3a9ca40d5402ab6c17c403ab32579748998e9c0f9726200`.
+
+- [Retained qualification evidence: docs/report/method-certification/optimizer-solution-quality/report.json](report.json) (SHA-256 `eb473519e413849339ae4080cb2346f66426d5d7823ae67399778fbb5883a0f1`).
 
 - [Retained qualification evidence: docs/report/method-certification/optimizer-solution-quality/cases.json](cases.json) (SHA-256 `747c5f5535c0a6dedfc93723b13383312a4204e11332f56e3f4c641f619d2af7`).
 
-- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
+- [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) (source SHA-256 `81407d77987fd391ea470cc975195107085cdf7a934a6716aac7a1b22cb19050`).
 
-- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->
