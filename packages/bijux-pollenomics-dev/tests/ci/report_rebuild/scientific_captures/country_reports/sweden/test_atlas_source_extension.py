@@ -54,7 +54,7 @@ def _world(root: Path) -> tuple[list[dict[str, Any]], Any]:
         body = OLD if index == 0 else f"VALUE = {index}\n".encode()
         digest = hashlib.sha256(body).hexdigest()
         logical = "members/" + digest
-        identity = {"bytes": len(body), "sha256": digest}
+        identity = {"sha256": digest, "bytes": len(body)}
         rows.append({"path": name, **identity})
         members[logical] = identity
         resolved.append((logical, name))
@@ -94,6 +94,11 @@ def test_extension_never_waives_original_custody_or_other_math(
     tmp_path: Path, damage: str
 ) -> None:
     rows, resolver = _world(tmp_path)
+    baseline = validate_recorded_source_contracts(
+        tmp_path, rows, cast(SourceCapsule, resolver)
+    )
+    assert baseline["finite_atlas_asset_extension_sources"] == [PAYLOAD]
+    assert baseline["current_default_exact_sources"] == 50
     logical = "members/" + rows[0]["sha256"]
     target = tmp_path / PAYLOAD
     if damage == "attached":
