@@ -1,0 +1,46 @@
+[
+  {
+    "id": "maintained-swedish-cohort-source",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.18491799995535985,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/maintained-swedish-cohort-source.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/maintained-swedish-cohort-source.stderr",
+    "stdout_sha256": "0f5a2ab4dea5d15883a2725880fb6cd8e856705b9ea8c5c76b62c33ed7f470fb",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 50397184
+  },
+  {
+    "id": "independent-swedish-cohort-metadata-observer",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 1,
+    "timed_out": false,
+    "elapsed_seconds": 0.2981003330205567,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/independent-swedish-cohort-metadata-observer.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/independent-swedish-cohort-metadata-observer.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "58562cba88db2fb86820b029417db7d483714f25461da44ccb1f2efee183e60e",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 50397184
+  }
+]

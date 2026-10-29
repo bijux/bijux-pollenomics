@@ -1,0 +1,105 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+  "plan_sha256": "31dd70673048842d4d2ae84efaa6a09ffdda6f6f8e41b6966266b956fa732084",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 1.5899940830422565,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/plan.json",
+    "--registered-plan-sha256",
+    "31dd70673048842d4d2ae84efaa6a09ffdda6f6f8e41b6966266b956fa732084"
+  ],
+  "canonical_before": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "status": "",
+    "tracked_inventory_sha256": "cfb3a85deaff6975d1094cc4f10b6944fe07fc24e8377d832882498cbec05c0d"
+  },
+  "canonical_after": {
+    "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+    "status": "",
+    "tracked_inventory_sha256": "cfb3a85deaff6975d1094cc4f10b6944fe07fc24e8377d832882498cbec05c0d"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "independent-nested-swedish-metadata-observer",
+      "argv": [
+        "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+        "-I",
+        "-S",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-nested-source-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/plan.json"
+      ],
+      "timeout_seconds": 45,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 1.0618168750079349,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/independent-nested-swedish-metadata-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/independent-nested-swedish-metadata-observer.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 56229888
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/independent-nested-swedish-metadata-observer.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/independent-nested-swedish-metadata-observer.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/independent-source-review.json",
+      "sha256": "fb55d556c11a414e61f2ea0a8aa07100248958ad825e9195b0eb87c470046d3a",
+      "bytes": 96091
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/plan.json",
+      "sha256": "31dd70673048842d4d2ae84efaa6a09ffdda6f6f8e41b6966266b956fa732084",
+      "bytes": 1464228
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/preparation.json",
+      "sha256": "71e5b2ba2333659ce89bba01e4c550130cdb062e2a002b9daa286a49fd2df0fb",
+      "bytes": 810
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/root-launch.log",
+      "sha256": "ea42f50a46c576620f907dce9b47a138828532abfaf5940cd73c436285f8f4ad",
+      "bytes": 171
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-nested-metadata-review/stage-progress.json",
+      "sha256": "7f7bf2ed6643bcdf80700c50285815dbef888d4ec6436cd1588ca6cd0b10a007",
+      "bytes": 1193
+    }
+  ],
+  "output_bytes": 1562493,
+  "resources": {
+    "overall_timeout_seconds": 110,
+    "resident_memory_limit_bytes": 1073741824,
+    "output_byte_limit": 134217728,
+    "outer_timeout_seconds": 100,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 134217728
+  },
+  "scope": "One corrected independent full metadata source join over genuine unchanged source0/observer1. No producer rerun, new acquisition/count table/selected age/physical fresh cohort/rights/ecology/LRA/human acceptance.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

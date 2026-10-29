@@ -1,0 +1,29 @@
+{
+  "candidate": "c292dafa60f9d992f162c92dd327207d9aefd76b",
+  "plan_sha256": "686e9b4c0a73735bfd5dac7e081832e5e94fc33c827be86c729a0519b2f3e652",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay/terminal.json",
+    "sha256": "324e7e084d6a111608b84f2863f6536ee6d03ae69cb53adcc9936390107ac02a",
+    "bytes": 7398
+  },
+  "common_actual_exit": 1,
+  "outer_timed_out": false,
+  "observed_elapsed_seconds": 2.2661111659836024,
+  "completed_whole_wall_bound_pass": true,
+  "framework_membership_unchanged": true,
+  "absent_paths_unchanged": true,
+  "actual_native_stage_exits": [
+    0,
+    1
+  ],
+  "tracked_byte_checker_exit": null,
+  "independent_review": null,
+  "completed_child_peak_rss_bytes_macos": 50397184,
+  "output_bytes_before_receipt": 1568217,
+  "own_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 1,
+  "scope": "Metadata-only current maintained Swedish cohort/source collision replay. No new acquisition, pollen/count table, selected sample age/chronology, distinct untouched cohort, LRA, rights/human or ecological acceptance.",
+  "resource_limit": "Completed-child peak RSS and logical regular output accounting; no enforced memory/disk quota or complete descendant census."
+}

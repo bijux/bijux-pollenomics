@@ -1,0 +1,41 @@
+{
+  "schema_version": "swedish-cohort-metadata-source-custody.v1",
+  "source_only": true,
+  "purpose": "Genuine unchanged maintained metadata-only Swedish cohort availability producer and a separate full source-join observer; no new acquisition or pollen data processing.",
+  "maintained_source": "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py",
+  "CLI": [
+    "--repository",
+    "ROOT",
+    "--private-root",
+    "/Users/bijan/bijux/-bijux-pollenomics-data",
+    "--output",
+    "FRESH_ROOT/producer/report.json"
+  ],
+  "output_role": "One JSON file, not a directory argument. Current tracked report is an expected byte baseline, not a recovered prior native receipt.",
+  "source_inputs": {
+    "selected": 33,
+    "logical_bytes": 6888314,
+    "private_metadata_members": 26,
+    "private_metadata_bytes": 5903857,
+    "bounded_discovery": "Only published sources.json and exact two named private metadata source-manifests, declared source rows, current report/replay code and relational manifest/sites/collection_units/datasets parts. No private-parent scan, raw pollen/count table or acquisition.",
+    "preserved_metadata_epoch": "Original source-manifest UTC/SHA and exact DOI/HTTP metadata source identities remain literal; current replay never relabels them as new HTTP acquisition."
+  },
+  "profile": "Exact original CPython3.11.13 BASE -I -S -B standard-library-only profile. Byteexact corrected SVAR runtime.py/common_runner.py; execute_source.py keeps its full function AST and only adds closed pre-import entry namespace, full physical stdlib/framework membership, actually required native closure/loader contexts/raw aliases/absent zip, exact source/native namespace observations. CSV and XML readers explicitly imported at preparation before inherited native census; no actual source data parsing during preparation. Cached147 profile3331 is source-validation-only, not the genuine consumer runtime.",
+  "resources": {
+    "native_stages": 2,
+    "per_stage_seconds": 45,
+    "outer_seconds": 100,
+    "whole_passing_seconds": 110,
+    "completed_child_RSS_bytes_postcheck": 1073741824,
+    "logical_output_bytes_postcheck": 134217728,
+    "own_receipt_reserved_bytes": 16384,
+    "OS_quota": false,
+    "full_descendant_census": false
+  },
+  "observer": "No producer import. Independently reopens exact metadata declarations/epochs and every selected raw metadata surface:102 unique native dataset IDs/99 sites;200 retained site IDs;206 all-country native core handles including UNASSIGNED;66 archive title records split62 retained/3 unmatched/1 generic;37 final-age metadata events; complete six named leads and two cross-archive core/site/dataset/DOI/coordinates/dated-control references. Exact complete typed report and actual tracked byte comparison, actual producer/runtime trace and complete before/after namespace/native origins. No ecology or numeric LRA.",
+  "limits": "No proof of distinct untouched physical sites, selected calibrated sample ages, usable fresh cohort, pollen/count observations, ecology/LRA, rights or qualified human acceptance. Unmatched core handle remains unresolved physical alias; three UNASSIGNED collisions remain retained. Metadata license/access values are preserved text only. Raw private metadata are never copied into public output.",
+  "final_census": "Hold original manifest/declaration/policy expected rows before long runtime census. Exact conflict-rejecting union accepts only identical duplicate roles; final immutable expected pins, own helper namespace, all framework file membership, raw aliases, absent ZIP and clean exact Git identity must match again before output mkdir. No freshly hashed replacement for an earlier expected identity.",
+  "execution_authority": "Independent source review approval bound to this final manifest, root preparation0, unique STATE registration/readback0, separate actual launch and raw terminal collection. All source/registered epochs immutable; no actual preparer/producer/observer/inspector executed by source author.",
+  "future_candidate": "Actual future clean main supplied dynamically by root; source qualification does not freeze or claim a native source candidate.",
+  "entry_namespace": "Each native entrypoint rejects unknown Python/native/bytecode modules, unknown directories, aliases and special files before importing owned helpers. Inherited manifest verification and final frozen census then bind all exact approved body bytes."
+}

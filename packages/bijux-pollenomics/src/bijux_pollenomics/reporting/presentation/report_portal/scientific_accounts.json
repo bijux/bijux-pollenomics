@@ -7031,7 +7031,7 @@
         "fields": {
           "supported_claim": "Depth and selected count correspondences witness shared EPD lineage for FLINK and STAV while preserving source age differences.",
           "unsupported_claim": "Shared lineage is not independent chronology validation or authority to correct FLINK, select STAV ages, or admit historical inputs.",
-          "actual_verification_performed": "Read the two-sequence witness JSON, selected explicit/missing-source count states and age sign anomaly; no workbook or count-table rescan.",
+          "actual_verification_performed": "Read the two-sequence witness JSON, selected explicit/missing-source count states and age sign anomaly; no workbook or count-table rescan. Two unchanged canonical Rootsi source producers and their independent raw-workbook/Neotoma observers returned four native zeros on c292dafa60f9d992f162c92dd327207d9aefd76b; both full typed reports and complete publication bytes match. The source-bound isolated base/pure-xlrd cache is distinct from observed147/SOURCE3331. All3548 original identities remain explicit in an authored58member source capsule; private workbooks/archive/intake and runtime/xlrd payloads remain omitted. FLINK sign discrepancy,HOLK reversals,RANV/STAV absent ages, negativeBP and no source age bounds remain literal. Declared1950-minus-age/0.0500001 are arithmetic diagnostics, not calendar/no-year-zero conversion or age correction. No dated basin, historical-input, independent chronology/ecology, rights/human or LRA admission, and no new retention-native outcome.",
           "remaining_input_or_review": "Source-holder chronology selection/age corrections, uncertainty, basin/count support and workbook analytical rights remain unresolved.",
           "cause_category": "Shared source lineage with absent or inconsistent workbook age evidence.",
           "consequence": "Neither sequence becomes an executable LRA input from numeric similarity.",
@@ -7043,6 +7043,10 @@
           {
             "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/report.json",
             "sha256": "9f9ae65c538a1aac79966324abf081d4ea0028fbced6b1a343633acbd6372058"
+          },
+          {
+            "path": "reports/science/source-lineage/rootsi-workbook-chronology.json",
+            "sha256": "f903bb2c7671d04b67410b7ba73ed2aebe1d5ca9f86a54354aaa10746d65e47b"
           }
         ]
       }
@@ -7065,7 +7069,7 @@
         "fields": {
           "supported_claim": "The four-workbook age audit preserves actual age-column presence, reversals and numeric metadata diagnostics.",
           "unsupported_claim": "Sequence coverage and 1950-minus-age arithmetic do not authorize sample-age conversion, row omission, calibration or historical input identity.",
-          "actual_verification_performed": "Read all four retained workbook findings and metadata comparisons; no original workbook, cached grid or model was rerun.",
+          "actual_verification_performed": "Read all four retained workbook findings and metadata comparisons; no original workbook, cached grid or model was rerun. Two unchanged canonical Rootsi source producers and their independent raw-workbook/Neotoma observers returned four native zeros on c292dafa60f9d992f162c92dd327207d9aefd76b; both full typed reports and complete publication bytes match. The source-bound isolated base/pure-xlrd cache is distinct from observed147/SOURCE3331. All3548 original identities remain explicit in an authored58member source capsule; private workbooks/archive/intake and runtime/xlrd payloads remain omitted. FLINK sign discrepancy,HOLK reversals,RANV/STAV absent ages, negativeBP and no source age bounds remain literal. Declared1950-minus-age/0.0500001 are arithmetic diagnostics, not calendar/no-year-zero conversion or age correction. No dated basin, historical-input, independent chronology/ecology, rights/human or LRA admission, and no new retention-native outcome.",
           "remaining_input_or_review": "FLINK/HOLK source-model/order explanations and RANV/STAV sample ages with model/unit/uncertainty authority remain needed.",
           "cause_category": "Missing age columns and source-native age-order contradictions.",
           "consequence": "No dated event or LRA sample is admitted by this audit.",
@@ -7077,6 +7081,10 @@
           {
             "path": "docs/report/source-relations/landclim/workbook-chronology/report.json",
             "sha256": "b2c732c11669837c9aa75b8b0a5bfb7568dbf86071014ccfb4b30d3dcfc2eb13"
+          },
+          {
+            "path": "reports/science/source-lineage/rootsi-workbook-chronology.json",
+            "sha256": "f903bb2c7671d04b67410b7ba73ed2aebe1d5ca9f86a54354aaa10746d65e47b"
           }
         ]
       }
@@ -8019,7 +8027,7 @@
         "fields": {
           "supported_claim": "The metadata-only search identifies no qualified new physical core in its bounded Swedish Neotoma/PANGAEA surfaces.",
           "unsupported_claim": "A missing literal handle is not proof of a distinct core, and metadata discovery does not validate an untouched independent holdout.",
-          "actual_verification_performed": "Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request.",
+          "actual_verification_performed": "Read the retained 102-record/99-site query and 66-title screen with all 206 retained handles and source declarations; no target count table or network request. Canonical Swedish source production returned0 on c292dafa60f9d992f162c92dd327207d9aefd76b; its original observer1 and whole1 remain literal. A separately registered corrected nested-source independent observer and complete tracked-byte check returned0, without producer repetition; the full typed report and publication bytes are unchanged. The authored78member capsule preserves3537 original and3581 corrected input identities, with26private metadata and3481runtime payloads omitted.102records/99sites,206all-country handles,66titles (62retained/3unmatched/1generic),37events and original cross-archive/UNASSIGNED collisions are retained metadata scope. No new acquisition, count observations, fresh physical cohort, calibrated selected sample ages, country normalization, rights/human/ecology/LRA admission or new retention-native outcome.",
           "remaining_input_or_review": "A truly distinct physical core, selected calibrated sample ages, permitted use and frozen pre-exposure prediction protocol remain needed.",
           "cause_category": "Cross-archive identity collisions and absent age/use authority.",
           "consequence": "Three retained UNASSIGNED cores cannot be marketed as fresh Swedish observations.",
@@ -8035,6 +8043,10 @@
           {
             "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json",
             "sha256": "c7e2c67488faec670c585fdb3d03c067cb58449bf0e4a49032698c5a1c9aad81"
+          },
+          {
+            "path": "reports/science/source-lineage/swedish-cohort-metadata.json",
+            "sha256": "b4e9e507cfd56ccc9dbda8d78c23a7d652baaf08032c85f5771feee16ec927fd"
           }
         ]
       }

@@ -1,0 +1,21 @@
+{
+  "source_only_actual_exit": 0,
+  "owner": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+  "role": "unresolved",
+  "paths": [
+    "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
+  ],
+  "actual_maintained_argparse_names": [
+    "--output",
+    "--private-root",
+    "--repository"
+  ],
+  "prepared_output_argument_is_file": true,
+  "byteexact_inherited_helpers": [
+    "runtime.py",
+    "common_runner.py"
+  ],
+  "actual_source_or_preparer_or_runtime_inspector_calls": 0,
+  "maintained_execution_loader_function_AST_exact": true,
+  "source_entry_delta": "Closed physical module/directory/alias/special guard before all four native entrypoint local imports."
+}

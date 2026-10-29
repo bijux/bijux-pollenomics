@@ -37886,8 +37886,10 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/rootsi_chronology.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_selection.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/swedish_cohort.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/correspondence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/representative_performance.py",
@@ -70137,18 +70139,13 @@
     },
     {
       "owner_id": "source-relations/landclim/neotoma-chronology-witness/paired-source-report",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/landclim/neotoma-chronology-witness/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py"
-      ],
-      "producer_inputs": [
-        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
-        "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv"
-      ],
-      "verification": "The script also reads two private Rootsi workbooks (FLINK and STAV) named with SHA-256 in overlap.csv. Repository inputs alone cannot regenerate the depth/count/age witness; bind exact private workbook custody and byte comparison. No historical author chronology admission follows."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.rootsi_chronology validator binds this unchanged source receipt to two canonical Rootsi producers and two complete raw-workbook/Neotoma independent typed/whole-byte observers on c292dafa60f9d992f162c92dd327207d9aefd76b, four native exits0. The58-member authored capsule preserves3548 original identities:39execution-source,2publicreferences,2reports,7privateidentity-only,3498runtime/xlrdidentity-only. No new native-retention outcome or private payload redistribution. FLINK sign discrepancy,HOLK reversals,RANV/STAV missing source ages, negativeBP/source bounds and declared1950-minus-age/0.0500001 diagnostics remain unchanged. No authorized calendar/year-zero conversion, age correction/interpolation, historical LandClim input identity, independent chronology/ecological taxonomy, basin/uncertainty/rights/human or LRA admission."
     },
     {
       "owner_id": "source-relations/landclim/neotoma-chronology-witness/reader-account",
@@ -70200,17 +70197,13 @@
     },
     {
       "owner_id": "source-relations/landclim/workbook-chronology/source-age-audit",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/landclim/workbook-chronology/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/landclim/workbook-chronology/replay.py"
-      ],
-      "producer_inputs": [
-        "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv"
-      ],
-      "verification": "The script also reads four private Rootsi workbooks (FLINK, HOLK, RANV, STAV) named with SHA-256 in overlap.csv. Source-native age cells are absent from repository inputs; bind private workbook custody and byte comparison. Reversals remain uncorrected, with no event-date admission."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.rootsi_chronology validator binds this unchanged source receipt to two canonical Rootsi producers and two complete raw-workbook/Neotoma independent typed/whole-byte observers on c292dafa60f9d992f162c92dd327207d9aefd76b, four native exits0. The58-member authored capsule preserves3548 original identities:39execution-source,2publicreferences,2reports,7privateidentity-only,3498runtime/xlrdidentity-only. No new native-retention outcome or private payload redistribution. FLINK sign discrepancy,HOLK reversals,RANV/STAV missing source ages, negativeBP/source bounds and declared1950-minus-age/0.0500001 diagnostics remain unchanged. No authorized calendar/year-zero conversion, age correction/interpolation, historical LandClim input identity, independent chronology/ecological taxonomy, basin/uncertainty/rights/human or LRA admission."
     },
     {
       "owner_id": "source-relations/landclim/workbook-chronology/source-code",
@@ -76976,21 +76969,13 @@
     },
     {
       "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
-      ],
-      "producer_inputs": [
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
-        "data/neotoma/relational/surfaces/datasets/part-00001.json",
-        "data/neotoma/relational/surfaces/sites/part-00001.json",
-        "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json"
-      ],
-      "verification": "Replay requires --private-root: private source-manifest.json plus seven source records, EPD source-manifest.json and 17 metadata/age-table files. Those are not repository-confined; keep unresolved until exact private capture custody, permission and byte comparison are independently bound. Metadata-only refusal is not fresh-cohort acceptance."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.swedish_cohort validator binds the unchanged Swedish availability report to original canonical metadata production0, original failed independent observer1 and whole1, followed by separately registered corrected nested-source observer0 and whole0 on c292dafa60f9d992f162c92dd327207d9aefd76b. The78-member authored capsule preserves3537 original and3581 corrected input identities,56execution sources,5existing public relation references,1unchanged report;26private metadata files and3481runtime identities remain omitted payloads. No producer rerun or new retention-native outcome.102records/99sites,206all-country handles,66titles with62retained/3unmatched/1generic and37age events remain metadata scope. Cross-archive SAMBOTOT/KLOT identity and coordinate discrepancies, ADRAN/GARASEL/LEVEANIE unmatched leads and HAKULLA5/NDRAKET/VUOLEPAL UNASSIGNED collisions stay literal. No new network acquisition, count-table observations, fresh distinct physical cohort, calibrated selected-sample chronology, country normalization, rights/human/ecological or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck",

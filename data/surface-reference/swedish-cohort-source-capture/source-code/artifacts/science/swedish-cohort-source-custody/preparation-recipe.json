@@ -1,0 +1,29 @@
+{
+  "source_only": true,
+  "prepare_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/prepare.py",
+    "--candidate",
+    "ROOT_SUPPLIES_ACTUAL_CLEAN_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-cohort-metadata-replay",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256"
+  ],
+  "after_prepare": "Root alone authenticates actual plan SHA, registers unique job and readbacks0 before separately launching the unchanged common/resource wrapper.",
+  "launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-cohort-source-custody/run.py",
+    "--plan",
+    "ACTUAL_FRESH_OUTPUT/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "actual_preparation_or_native_execution": false
+}
