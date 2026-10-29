@@ -15,7 +15,12 @@ from .presentation.correspondence import (
     PRESENTATION_SOURCE,
     validated_presentation_source_correspondence,
 )
-from .source_correspondence import validated_metadata_source_correspondence
+from .source_correspondence import (
+    AUTHOR_PROFILE_SOURCE,
+    NORDIC_SOURCE,
+    validated_author_profile_source_correspondence,
+    validated_metadata_source_correspondence,
+)
 
 CAPTURE = "data/method-certification/author-radius-source-capture/capture.json"
 CAPTURE_SHA256 = "e7d813c70f4a15befd4d99cd5ca02aa062075cad5e28081aed9aa28ec56b7e41"
@@ -366,6 +371,28 @@ def _work_scope(
             raise ReportRebuildError("Radius complete900native work bytes differ")
 
 
+def _projection_source_correspondence(
+    repository: Path, row: JsonObject, retained_source: Path
+) -> tuple[str, JsonObject]:
+    """Dispatch only the three separately reviewed source roles; refuse other drift."""
+    name = row.get("path")
+    if name == PRESENTATION_SOURCE:
+        return "presentation", validated_presentation_source_correspondence(
+            repository, row, retained_source
+        )
+    if name == NORDIC_SOURCE:
+        return "metadata", validated_metadata_source_correspondence(
+            repository, row, retained_source
+        )
+    if name == AUTHOR_PROFILE_SOURCE:
+        return "author_profile", validated_author_profile_source_correspondence(
+            repository, row, retained_source
+        )
+    raise ReportRebuildError(
+        "Radius source mismatch has no explicit reviewed correspondence"
+    )
+
+
 def validated_author_radius_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -454,6 +481,7 @@ def validated_author_radius_capture(
         raise ReportRebuildError("Radius historical source projection duplicates")
     current_metadata_correspondences = []
     current_presentation_correspondences = []
+    current_author_profile_correspondences = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
@@ -475,18 +503,15 @@ def validated_author_radius_capture(
         if current.stat().st_size != row.get("bytes") or hashlib.sha256(
             current.read_bytes()
         ).hexdigest() != row.get("sha256"):
-            if name == PRESENTATION_SOURCE:
-                current_presentation_correspondences.append(
-                    validated_presentation_source_correspondence(
-                        repository, row, retained_candidates[0]
-                    )
-                )
+            kind, correspondence = _projection_source_correspondence(
+                repository, row, retained_candidates[0]
+            )
+            if kind == "presentation":
+                current_presentation_correspondences.append(correspondence)
+            elif kind == "metadata":
+                current_metadata_correspondences.append(correspondence)
             else:
-                current_metadata_correspondences.append(
-                    validated_metadata_source_correspondence(
-                        repository, row, retained_candidates[0]
-                    )
-                )
+                current_author_profile_correspondences.append(correspondence)
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 5:
         raise ReportRebuildError("Radius needs exactly five genuine produced outputs")
@@ -588,10 +613,12 @@ def validated_author_radius_capture(
         "current_scientific_projection": 2136,
         "current_projection_byteequal_members": 2136
         - len(current_metadata_correspondences)
-        - len(current_presentation_correspondences),
+        - len(current_presentation_correspondences)
+        - len(current_author_profile_correspondences),
         "current_metadata_source_correspondences": current_metadata_correspondences,
         "current_presentation_source_correspondences": current_presentation_correspondences,
+        "current_author_profile_source_correspondences": current_author_profile_correspondences,
         "original_projection_members_retained_unchanged": 2136,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Three genuine source-bound fixed-vegetation radius products and separate generated paired2 retain fourteen exposed English sites, three methods/factors, exact195/192/3 training source custody and BECKHAM refusal. Both original execution epochs and full historicalsource/resources stay explicit; no refit/R, physicalradius, vegetation-accuracy, equal-information independent ranking, Nordic/ecological/rights/human acceptance.",
+        "scope": "Three genuine source-bound fixed-vegetation radius products and separate generated paired2 retain fourteen exposed English sites, three methods/factors, exact195/192/3 training source custody and BECKHAM refusal. Both original execution epochs and full historicalsource/resources stay explicit; no refit/R, physicalradius, vegetation-accuracy, equal-information independent ranking, Nordic/ecological/rights/human acceptance. Exact returned Nordic metadata, atlas-presentation and author-profile owner-criterion correspondences remain separate from byte-equal members; no whole-current-tree equality is claimed.",
     }
