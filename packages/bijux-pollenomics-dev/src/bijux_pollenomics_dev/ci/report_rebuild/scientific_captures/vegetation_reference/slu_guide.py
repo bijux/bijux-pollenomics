@@ -322,11 +322,14 @@ def validated_slu_guide_capture(
     _exact(packet["members"], EXPECTED_MEMBERS)
     _exact(packet["scope"], EXPECTED_SCOPE)
     prefix = str(Path(CAPTURE).parent)
-    physical = {
-        path.relative_to(packet_path.parent).as_posix()
-        for path in packet_path.parent.rglob("*")
-        if path.is_file() or path.is_symlink()
-    }
+    physical = set()
+    for path in packet_path.parent.rglob("*"):
+        _require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "capture contains an alias or special member",
+        )
+        if path.is_file():
+            physical.add(path.relative_to(packet_path.parent).as_posix())
     _exact(physical, set(EXPECTED_MEMBERS) | {"capture.json"})
     for name, wanted in EXPECTED_MEMBERS.items():
         path = _file(repository, prefix + "/" + name)
@@ -363,6 +366,7 @@ def validated_slu_guide_capture(
     entry = tracked_by_path.get(REPORT)
     _require(entry is not None, "tracked PDF inventory required")
     assert entry is not None
+    _exact(entry.path, REPORT.removeprefix("docs/report/"))
     _exact(entry.kind, "file")
     _exact(entry.sha256, digest)
     _exact(entry.size, 136339)
