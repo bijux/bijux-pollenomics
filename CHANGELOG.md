@@ -12,6 +12,7 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- **Pending review:** Retain pollen development, withheld-fold and input-isolation evidence through scoped scientific readers ([#283](https://github.com/bijux/bijux-pollenomics/pull/283)).
 - **Pending review:** Authenticate retained aDNA exports, source accounting, selected counts, Sweden observations and optimizer input evidence through genuine public source ownership ([#282](https://github.com/bijux/bijux-pollenomics/pull/282)).
 - **Verified merge (2026-10-29 17:48:31 UTC):** Authenticate reference input, source capability and publication evidence through genuine source ownership while preserving unresolved original acceptance criteria ([#281](https://github.com/bijux/bijux-pollenomics/pull/281)).
 - **Verified merge (2026-10-29 16:56:49 UTC):** Authenticate source-lineage and original acceptance evidence while preserving unresolved provider and scientific criteria ([#280](https://github.com/bijux/bijux-pollenomics/pull/280)).
