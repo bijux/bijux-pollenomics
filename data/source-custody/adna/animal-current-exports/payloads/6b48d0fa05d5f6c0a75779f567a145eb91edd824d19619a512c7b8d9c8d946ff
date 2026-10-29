@@ -1,9 +1,0 @@
-{
-  "species": {
-    "slug": "equus_caballus",
-    "latin_name": "Equus caballus"
-  },
-  "country_query": "Norway",
-  "actual_typed_records": [],
-  "actual_dataset_row_counts": {}
-}
