@@ -30,7 +30,6 @@ REPORT_SHA256 = "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a
 
 
 def regular(repository: Path, name: str) -> Path:
-    """Require an ordinary confined retained source file."""
     try:
         return _regular_confined_file(
             repository, name, "Amsoldingersee retained source"
@@ -40,7 +39,6 @@ def regular(repository: Path, name: str) -> Path:
 
 
 def validate_packet(root: Path, capture: dict[str, Any]) -> None:
-    """Authenticate the complete original source and refusal packet."""
     require(
         capture["schema_version"] == "amsoldingersee-retained-source-capture.v1",
         "Capture schema changed",
@@ -120,7 +118,6 @@ def validated_amsoldingersee_capture(
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject | None]:
-    """Admit the retained source refusal without rerunning the source reader."""
     selected = [row for row in owners if row.get("owner_id") == OWNER]
     if not selected and not (repository / CAPTURE).exists():
         return (), None

@@ -69,11 +69,13 @@ Earlier authored qualification: Published-product versus released-author-example
 
 **Matched denominator.** One metadata row 1059 outside the 17 author examples; one current site 2973, three candidates 3873/3874/3875, 23/24/52 native sample IDs; 11 response bodies and 14 consumed private inputs; zero of three admitted candidates.
 
+Qualified authored reader SHA-256: `ad0098d692f5a2d30a8447adc5e73a50984c9ca8e3b45be9f18ecdd0d085e2f0`.
+
 - [Retained qualification evidence: docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json](report.json) (SHA-256 `eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7`).
 
 - [Retained qualification evidence: reports/science/source-cohorts/amsoldingersee-source-custody.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/amsoldingersee-source-custody.json) (SHA-256 `f5fa3b0d13017c4cf15cf5332de09880fb39c191c8ca151abd784dc61bffb37e`).
 
-- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
+- [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md) (source SHA-256 `ffcac6cb938189c61113cf92453c4ee1c79fcd9a69305d4bf15fec387bbca898`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->
