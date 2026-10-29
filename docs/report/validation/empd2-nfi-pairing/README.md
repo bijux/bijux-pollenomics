@@ -10,8 +10,11 @@ The original source dossier, spatial screen, EMPD2 SQLite and NFI workbook are
 preserved in the external private source store. The [result](report.json)
 records the exact input hashes checked by its producer. The dossier and screen
 contain exact NFI row locations and are not tracked in Git. The tracked [SLU
-calibration guide](inputs/slu-calibration-guide.pdf) is an exact byte copy of
-its original.
+calibration guide](inputs/slu-calibration-guide.pdf) retains its pinned local
+bytes. Its original retained acquisition provider retrieval/copy chain remains
+unqualified. A separate current official-page retrieval is not admitted by this
+measurement metadata owner and does not recover that historical receipt; the
+guide retains its separate source-admission route.
 The producer checks the private inputs' exact hashes and reads only the NFI
 workbook's first six identity/coordinate fields to bind every selected plot-year
 to an original row and recompute each geodesic distance. The source-native NFI
@@ -41,6 +44,21 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   --private-source-store /path/to/private/source-store \
   --output artifacts/jobs/empd2-nfi-pairing/nfi-measurement-schema.json
 ```
+
+The original bounded metadata producer was genuinely replayed on source commit
+`60bf419979bdc682ef227fb01e42a4f5ed6e2722`. Both the producer and its
+independent dictionary/header/area/time observer returned native zero; the public
+schema is byte-identical to the retained JSON. The replay selected columns D, G
+and H for 43,892 plot-year rows, or 131,676 metadata cells. It streamed the
+complete worksheet XML and decoded zero tree measurement outcome cells.
+
+The [retained source and execution capsule](https://github.com/bijux/bijux-pollenomics/blob/main/data/validation/nfi-measurement-metadata-capture/capture.json)
+contains the original receipts, logs, public output and 2,139 declared first-party
+source files, including 1,161 observed import origins. Its separate metadata-only
+assembly on commit `d027effd6c0ac91512cd586c3a51db987ea46d54` reran no workbook
+projection or scientific model. Private workbook and runtime payloads are omitted;
+their original registered identities remain explicit. These receipts establish the
+bounded metadata replay, with zero admitted measured pairs or new guide acquisition.
 
 ## Current decision
 
@@ -98,7 +116,7 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 
 **Matched denominator.** 132 Swedish EMPD2 samples; 43892 NFI plot-years/6018 tract-plot keys; 53 combinations within 1 km across 16 pollen leads and 14 selected plot-years. Plot 153.94 m² with five m²/ha basal-area dictionary groups is not regional cover.
 
-Qualified authored reader SHA-256: `058d430ab5a999a8cb6d7cafb83cddbacbfdcf61f79a53910393d27b0d93d57c`.
+Qualified authored reader SHA-256: `bd246367462047329b8d6e0d7baab5cd625712623a490b17ccd6cb2f51aab715`.
 
 - [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/report.json](report.json) (SHA-256 `cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642`).
 

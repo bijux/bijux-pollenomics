@@ -61,6 +61,9 @@ from .scientific_captures.swedish_source_chronology import (
 from .scientific_captures.swedish_static_basin import (
     validated_swedish_static_basin_captures,
 )
+from .scientific_captures.vegetation_reference.nfi_measurement import (
+    validated_nfi_measurement_capture,
+)
 
 # This independent admission set is reviewed separately from mutable role labels.
 # Updating a maintained report path requires an explicit transport-contract change.
@@ -264,6 +267,9 @@ def validated_maintained_report_sources(
             repository, tracked_by_path, inventory["owners"]
         )
     )
+    nfi_entries, nfi_evidence = validated_nfi_measurement_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         capture_entries
         + parameter_entries
@@ -276,6 +282,7 @@ def validated_maintained_report_sources(
         + optimizer_entries
         + constrained_entries
         + radius_entries
+        + nfi_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -328,4 +335,6 @@ def validated_maintained_report_sources(
         evidence["retained_author_radius_capture"] = radius_evidence
     if performance_entries:
         evidence["retained_representative_performance_capture"] = performance_evidence
+    if nfi_entries:
+        evidence["retained_nfi_measurement_capture"] = nfi_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

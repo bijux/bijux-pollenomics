@@ -1,0 +1,16 @@
+{
+  "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+  "plan_sha256": "22fb7f1d219ee2adf9f98bf682615199df8c18d3fc681f28decf3209bb46c601",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/terminal.json",
+    "sha256": "9566b49bea315fc5ec410749fc0280e86b4ce0985c4fe897fe7f109b534fc090"
+  },
+  "common_actual_exit": 0,
+  "completed_child_peak_rss_bytes_macos": 161660928,
+  "output_bytes_before_receipt": 9620099,
+  "storage_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 0,
+  "scope": "Completed-child RSS and regular logical output bytes qualify declared bounds; 16KiB own receipt reserve included. Unchanged common runner controls exact candidate/input before-after and each actual stage, plus process-group timeouts. No OS quota or full descendant process census."
+}

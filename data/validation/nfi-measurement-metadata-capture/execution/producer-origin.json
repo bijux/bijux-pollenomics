@@ -1,0 +1,23 @@
+{
+  "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+  "actual_wrapper_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-source-policy-custody/invoke.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/plan.json"
+  ],
+  "maintained_producer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/measurement_schema.py",
+    "sha256": "33436005ef6cf56c55b569606bf5a086539b2dbbebec1c285093822464a87e71",
+    "bytes": 11218
+  },
+  "maintained_main_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/measurement_schema.py",
+    "--private-source-store",
+    "/Users/bijan/bijux/-bijux-pollenomics-data",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-nfi-measurement-metadata/nfi-measurement-schema.json"
+  ],
+  "semantic_scope": "Only unchanged source dictionary/header/D-G-H metadata main; tree outcomes stay unselected"
+}

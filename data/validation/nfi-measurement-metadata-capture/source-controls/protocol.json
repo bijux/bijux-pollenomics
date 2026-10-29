@@ -1,0 +1,41 @@
+{
+  "schema_version": "nfi-source-policy-metadata-protocol.v1",
+  "owner_id": "validation/empd2-nfi-pairing/measurement-schema",
+  "source_plan": "prepare.py --candidate CLEAN_MAIN_SHA --private-source-store /Users/bijan/bijux/-bijux-pollenomics-data --output ABSOLUTE_FRESH_ARTIFACT_ROOT",
+  "native_stages": [
+    "maintained-original-NFI-selected-metadata",
+    "independent-dictionary-header-area-time-and-owner"
+  ],
+  "actual_maintained_consumer": "Unchanged measurement_schema.main() with authentic module/source origin and exact mainargv. Own wrapper and original producer both authenticated; no fake -m argv.",
+  "source_inputs": [
+    "Exact private original workbook862d13/14,381,338bytes, read-only",
+    "Exact retained JSON schema and owner/current source authority",
+    "Complete four src/resource trees and Pythonruntime/stdlib/venv trees; exact unused global alias excluded and framework binary aliases pinned",
+    "Original eligibility and official-page metadata preserved without elevation to guide retrieval proof"
+  ],
+  "metadata_contract": "Independent dictionaryA/B,47header fields, only D/G/H date/plotarea/landuse scalar decoding across43,892plotyears. Preserve131,676 metadata scalars, exact native Excelserial min/max, area153.94, exact rawlandusecodes. Whole worksheet XML streams include unselected cells; no tree outcome scalar decoded/displayed/scored.",
+  "observer": "All generated and retained JSON fields exacttypes plus complete sorted encoded byte equality; actualproducer native0/sourceorigins/inputpins/owner partition and temporal/area semantics independently checked. Originalprivatebook not redistributed.",
+  "resources": {
+    "overall_timeout_seconds": 110,
+    "each_stage_timeout_seconds": 45,
+    "completed_child_RSS_postcheck_bytes": 1073741824,
+    "inclusive_logical_output_postcheck_bytes": 134217728,
+    "own_terminal_reserve_bytes": 16384,
+    "OSquota": false,
+    "full_descendant_RSS_census": false,
+    "kernel_network_denial": false
+  },
+  "benchmark_admission": "no_measured_pairs_admitted",
+  "calibration_guide_status": "Exact PDF CC0/use guidance is directly verified by8be8d30 source review. Ownership still unresolved pending original provider retrieval/copy and authenticated retained official-page literal PDF href. No authored-guide attribution.",
+  "future_adoption": "Only after actual producer/independentobserver native0, assemble bounded retained metadata/source/control/log capsule excluding private workbook; then sourceowner/lock/reader admission through guarded proposal. No owner or STATE change by this source preparation.",
+  "source_use_evidence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/slu-calibration-guide-source-review/retained-source-review.json",
+    "sha256": "8be8d30b38ab3f6848f809edb8d7881c490a1dc0022365d71809957a3c630350",
+    "bytes": 4342
+  },
+  "predecessor_protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-measurement-metadata-custody/protocol.json",
+    "sha256": "04bf53e77edf464052d7d4cb0f54faa61af2b6c07b6eb49e79535ec2a7516927",
+    "bytes": 2519
+  }
+}
