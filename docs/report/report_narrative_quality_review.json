@@ -471,7 +471,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
-      "content_sha256": "4245268e6f1fde3fbc85db504365b318f92b93227c8c2adfa72a933e88fbd1a4",
+      "content_sha256": "8f19e9203fefec7019ede77ee193993b2664f264a3961a4625342e403690def3",
       "prose_paragraph_count": 16,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -482,9 +482,9 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
-      "content_sha256": "104b9175c7ea86c6bae0fbaf89f521379a2040346534f748741b5d56333c4c1b",
+      "content_sha256": "aa89fe0e88eaef01c2b7da425f7987ca59f89e33dc2fc76b0fb9bc29c19ce422",
       "prose_paragraph_count": 13,
-      "link_bullet_count": 9,
+      "link_bullet_count": 12,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -493,7 +493,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md",
-      "content_sha256": "2e2dcae97bf3772f37fe7f17f911ed6e354edf7a40118b71245e544f6ade16a9",
+      "content_sha256": "bdf0fa216f89cda91a14f62b3ec31061dc4dc4410de60145a81288edabaf89cb",
       "prose_paragraph_count": 17,
       "link_bullet_count": 6,
       "bullet_sentence_count": 0,
@@ -504,7 +504,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md",
-      "content_sha256": "b0a4666b4bdb855188f891d55f7a787994f7a4ca2e541da76e2026f6657e1fde",
+      "content_sha256": "4d49d7fbb35ccb26d37212b38e92adc227fe781a8ddd130566ff6d5aaa3269b5",
       "prose_paragraph_count": 17,
       "link_bullet_count": 4,
       "bullet_sentence_count": 0,
@@ -515,7 +515,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md",
-      "content_sha256": "cce7891a9211aeefe73b09d6a84629c93c625eca3faaaa3ff05a0fafab8d4e14",
+      "content_sha256": "ebd7defcddfb3ed85a5b533247556af85644dc021a5c84efdee174269b4dcfc1",
       "prose_paragraph_count": 17,
       "link_bullet_count": 6,
       "bullet_sentence_count": 0,
@@ -526,9 +526,9 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md",
-      "content_sha256": "c1d8ed0c3d7db19b1464343e861fc7d5eefb56b51bc46c5bbf0e1fe6c9c95d1a",
+      "content_sha256": "9be29888a30a7e580c2a06dfcc383b84b03a084b1eb81373743cd356b5d432f3",
       "prose_paragraph_count": 17,
-      "link_bullet_count": 2,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -537,7 +537,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md",
-      "content_sha256": "f4a16a127e9edfa97abe621a921d0f3b112b79a48ae86b96cda4c3587741fe0d",
+      "content_sha256": "dbf7deac35fc7dd671fda813fb5815422cbfe9cfdd8535b0c624a416ef265121",
       "prose_paragraph_count": 18,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -548,7 +548,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md",
-      "content_sha256": "d2e9f7116e5dd0c4ae2e3334bd4001b6775073ff30879f98803838f310d538e3",
+      "content_sha256": "d06221c5dd479d48a8ea6120ce8f2a1d5499e83a194dcbea4ba34c8e45425e71",
       "prose_paragraph_count": 16,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,
@@ -559,7 +559,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md",
-      "content_sha256": "be3d0a2f112c5feac00130be6f91e62e9a18f990488b23335c3d53641c3b655b",
+      "content_sha256": "2cbfbc94bb28d4e2dd831c8e3e9d00c7fe96f93ff5a324fc1fec66f0536e8830",
       "prose_paragraph_count": 15,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,

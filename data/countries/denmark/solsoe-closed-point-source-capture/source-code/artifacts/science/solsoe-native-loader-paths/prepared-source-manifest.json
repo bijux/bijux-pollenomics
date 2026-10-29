@@ -1,0 +1,96 @@
+{
+  "schema_version": "solsoe-native-loader-prepared-source.v1",
+  "candidate_context": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/prepared-source-manifest.json",
+    "sha256": "4819ff1e4eb84f95a863e633b95b6ca991a567183fb66ef88f66140db3b6d8a5",
+    "bytes": 2909
+  },
+  "files": [
+    {
+      "path": "contracts.py",
+      "sha256": "9e318fe5f60372ca6d5fd42a07623b47c727326790f5440a3630d8bcf2c53d9e",
+      "bytes": 17595
+    },
+    {
+      "path": "runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "8ef483b4051922558641e9445b215e8e566132a63341d377bbaf37b9c4159a41",
+      "bytes": 7232
+    },
+    {
+      "path": "run.py",
+      "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+      "bytes": 7251
+    },
+    {
+      "path": "observe.py",
+      "sha256": "2b17b79e5e551a49233ba48ddb223221a564e9cae3e94e984d1e501594bbe777",
+      "bytes": 6421
+    },
+    {
+      "path": "check_contract.py",
+      "sha256": "561f1bd65e1398812e87645421381aaeafbd3951c725367fd1460a31d25a0752",
+      "bytes": 21753
+    },
+    {
+      "path": "execute_source.py",
+      "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+      "bytes": 3027
+    },
+    {
+      "path": "common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "source_style.py",
+      "sha256": "20577109ddac469ae2231bf3aba77df0f09be64ddf4297dc4bacda83651287f5",
+      "bytes": 1077
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "1a1f3ea95bf11e3110cf9f52152059d58fe6a018d68a8f24091d99507af96563",
+      "bytes": 4847
+    },
+    {
+      "path": "source-correspondence.json",
+      "sha256": "df74e3070d10d7097156a03cd3ac8a6128f755ec71af32ee60d6513eb274f5db",
+      "bytes": 6178
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "0bb46c6ee1bc1a065f2e6d213adc07c35f5a4666d229229d4133eaa3aa490116",
+      "bytes": 2505
+    },
+    {
+      "path": "preflight/guards.log",
+      "sha256": "b7c3a148240495d09023649eb43d9195d6e04b8e96eb7529823d5ceb5af93607",
+      "bytes": 129
+    },
+    {
+      "path": "preflight/strict.log",
+      "sha256": "f9b031e5c45aa702cd4fef028d465551cb20a2c4698e0913c7b00766b20ac4d8",
+      "bytes": 43
+    },
+    {
+      "path": "preflight/alias-final-style.log",
+      "sha256": "d3d4a4f118ad59577988bea41ce64ccde8da7dc7c6dc24af60a19c9f92719c97",
+      "bytes": 149
+    },
+    {
+      "path": "preflight/actual-declared-aliases.json",
+      "sha256": "2deccc51a2b7028e42357a2e0c9dac8320052c330b2b3e0d7792bea6ea92b3cd",
+      "bytes": 777
+    }
+  ],
+  "source_only_qualified": true,
+  "typing_and_configured_style_qualified": true,
+  "independent_source_review_required": true,
+  "actual_native_preparation": false,
+  "actual_native_execution": false
+}

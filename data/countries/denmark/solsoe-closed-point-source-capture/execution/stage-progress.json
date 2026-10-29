@@ -1,0 +1,46 @@
+[
+  {
+    "id": "solsoe-maintained-closed-central-point-replay",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.29513216600753367,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/solsoe-maintained-closed-central-point-replay.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/solsoe-maintained-closed-central-point-replay.stderr",
+    "stdout_sha256": "73e6afe6c1b83546db8abf40d42a2a892a891632adf5ea3e37bd7c5314fdf12a",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 203358208
+  },
+  {
+    "id": "independent-solsoe-controls-and-native-sample-joins",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.5301645419676788,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/independent-solsoe-controls-and-native-sample-joins.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/independent-solsoe-controls-and-native-sample-joins.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 208666624
+  }
+]

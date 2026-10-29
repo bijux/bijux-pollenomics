@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2134,
+  "surface_count": 2135,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -15,15 +15,15 @@
     "maps": 88,
     "portal": 2,
     "reviews": 36,
-    "scopes": 767
+    "scopes": 768
   },
   "audience_counts": {
     "maintainer_diagnostic": 1233,
-    "public_reading_surface": 776,
+    "public_reading_surface": 777,
     "scientific_review_surface": 125
   },
   "geography_counts": {
-    "denmark": 49,
+    "denmark": 50,
     "europe_plus": 62,
     "finland": 14,
     "nordic": 498,
@@ -1798,6 +1798,19 @@
       "reader_route": "maintainer_truth"
     },
     {
+      "repository_path": "docs/report/caveats/index.md",
+      "content_sha256": "3272bc7c9645520581e1f84aac5adebea58f800e6dbbfac11f36871a453fcd37",
+      "family": "caveats",
+      "family_label": "Scientific caveats",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Reader-facing portal page for navigating the report tree.",
+      "reader_route": "start_here"
+    },
+    {
       "repository_path": "docs/report/classification/source-custody/README.md",
       "content_sha256": "e7b59b1a720decdc073b65e588f99b5ae93fdf9b0b1ab720798052c544299406",
       "family": "maintenance",
@@ -1997,7 +2010,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
-      "content_sha256": "4245268e6f1fde3fbc85db504365b318f92b93227c8c2adfa72a933e88fbd1a4",
+      "content_sha256": "8f19e9203fefec7019ede77ee193993b2664f264a3961a4625342e403690def3",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2034,7 +2047,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
-      "content_sha256": "104b9175c7ea86c6bae0fbaf89f521379a2040346534f748741b5d56333c4c1b",
+      "content_sha256": "aa89fe0e88eaef01c2b7da425f7987ca59f89e33dc2fc76b0fb9bc29c19ce422",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2047,7 +2060,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md",
-      "content_sha256": "2e2dcae97bf3772f37fe7f17f911ed6e354edf7a40118b71245e544f6ade16a9",
+      "content_sha256": "bdf0fa216f89cda91a14f62b3ec31061dc4dc4410de60145a81288edabaf89cb",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2131,8 +2144,20 @@
       "reader_route": "scope_bundle"
     },
     {
+      "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "denmark",
+      "caution_level": "medium",
+      "explanation": "Retained current descriptive closed central-point source result; historical v1 and analytical/LRA limits remain separate.",
+      "reader_route": "scope_bundle"
+    },
+    {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md",
-      "content_sha256": "b0a4666b4bdb855188f891d55f7a787994f7a4ca2e541da76e2026f6657e1fde",
+      "content_sha256": "4d49d7fbb35ccb26d37212b38e92adc227fe781a8ddd130566ff6d5aaa3269b5",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2193,7 +2218,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md",
-      "content_sha256": "cce7891a9211aeefe73b09d6a84629c93c625eca3faaaa3ff05a0fafab8d4e14",
+      "content_sha256": "ebd7defcddfb3ed85a5b533247556af85644dc021a5c84efdee174269b4dcfc1",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2278,7 +2303,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md",
-      "content_sha256": "c1d8ed0c3d7db19b1464343e861fc7d5eefb56b51bc46c5bbf0e1fe6c9c95d1a",
+      "content_sha256": "9be29888a30a7e580c2a06dfcc383b84b03a084b1eb81373743cd356b5d432f3",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2315,7 +2340,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md",
-      "content_sha256": "f4a16a127e9edfa97abe621a921d0f3b112b79a48ae86b96cda4c3587741fe0d",
+      "content_sha256": "dbf7deac35fc7dd671fda813fb5815422cbfe9cfdd8535b0c624a416ef265121",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2340,7 +2365,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md",
-      "content_sha256": "d2e9f7116e5dd0c4ae2e3334bd4001b6775073ff30879f98803838f310d538e3",
+      "content_sha256": "d06221c5dd479d48a8ea6120ce8f2a1d5499e83a194dcbea4ba34c8e45425e71",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2377,7 +2402,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md",
-      "content_sha256": "be3d0a2f112c5feac00130be6f91e62e9a18f990488b23335c3d53641c3b655b",
+      "content_sha256": "2cbfbc94bb28d4e2dd831c8e3e9d00c7fe96f93ff5a324fc1fec66f0536e8830",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3443,6 +3468,58 @@
       "caution_level": "medium",
       "explanation": "Governed report artifact.",
       "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/how-to-read.md",
+      "content_sha256": "c7dccdf552422d86d50658ae3b15eb1ec7365705ed21b4981eaf749038a9e257",
+      "family": "portal",
+      "family_label": "Portal guidance",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Reader-facing portal page for navigating the report tree.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/index.md",
+      "content_sha256": "69a4ee80543170f610e66c4076db67676edbb46c400f3825dfe0f85a7a36a250",
+      "family": "portal",
+      "family_label": "Portal guidance",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Reader-facing portal page for navigating the report tree.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/maintenance/index.md",
+      "content_sha256": "5f947c49945ce8e53f5d9ee836a9215bee468cceeec3d55421e6bfc471a03e35",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Reader-facing portal page for navigating the report tree.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/maps/index.md",
+      "content_sha256": "bb2aee2a9c5e903aa811b52533d90ea625d9297cf05b07baf9e3de3b37fad4c1",
+      "family": "maps",
+      "family_label": "Map surfaces",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Reader-facing portal page for navigating the report tree.",
+      "reader_route": "start_here"
     },
     {
       "repository_path": "docs/report/method-certification/analytical-love-ring-sensitivity/README.md",
@@ -20981,6 +21058,32 @@
       "reader_route": "maintainer_truth"
     },
     {
+      "repository_path": "docs/report/reviews/index.md",
+      "content_sha256": "358617c0ccdd6921d037c832a5ba66064df2b677f25ef00f334eee5c5125ffc1",
+      "family": "reviews",
+      "family_label": "Evidence reviews",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Reader-facing portal page for navigating the report tree.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/scopes/index.md",
+      "content_sha256": "cf6172332a69751c4029a1e326958f21555ebe303ce031639facfa8184a85679",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "medium",
+      "explanation": "Reader-facing portal page for navigating the report tree.",
+      "reader_route": "start_here"
+    },
+    {
       "repository_path": "docs/report/source-relations/dna-scope/README.md",
       "content_sha256": "e7a2c9154ef1f76a7e882b460244ca336fe2e0a91401402012e337ba438616b6",
       "family": "maintenance",
@@ -25872,97 +25975,6 @@
       "caution_level": "medium",
       "explanation": "Scope summary surface for direct inspection or downstream filtering.",
       "reader_route": "scope_bundle"
-    },
-    {
-      "repository_path": "docs/report/caveats/index.md",
-      "content_sha256": "3272bc7c9645520581e1f84aac5adebea58f800e6dbbfac11f36871a453fcd37",
-      "family": "caveats",
-      "family_label": "Scientific caveats",
-      "audience": "public_reading_surface",
-      "audience_label": "Public reading surface",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Reader-facing portal page for navigating the report tree.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/how-to-read.md",
-      "content_sha256": "c7dccdf552422d86d50658ae3b15eb1ec7365705ed21b4981eaf749038a9e257",
-      "family": "portal",
-      "family_label": "Portal guidance",
-      "audience": "public_reading_surface",
-      "audience_label": "Public reading surface",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Reader-facing portal page for navigating the report tree.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/index.md",
-      "content_sha256": "69a4ee80543170f610e66c4076db67676edbb46c400f3825dfe0f85a7a36a250",
-      "family": "portal",
-      "family_label": "Portal guidance",
-      "audience": "public_reading_surface",
-      "audience_label": "Public reading surface",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Reader-facing portal page for navigating the report tree.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "5f947c49945ce8e53f5d9ee836a9215bee468cceeec3d55421e6bfc471a03e35",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "public_reading_surface",
-      "audience_label": "Public reading surface",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Reader-facing portal page for navigating the report tree.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/maps/index.md",
-      "content_sha256": "bb2aee2a9c5e903aa811b52533d90ea625d9297cf05b07baf9e3de3b37fad4c1",
-      "family": "maps",
-      "family_label": "Map surfaces",
-      "audience": "public_reading_surface",
-      "audience_label": "Public reading surface",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Reader-facing portal page for navigating the report tree.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/reviews/index.md",
-      "content_sha256": "358617c0ccdd6921d037c832a5ba66064df2b677f25ef00f334eee5c5125ffc1",
-      "family": "reviews",
-      "family_label": "Evidence reviews",
-      "audience": "public_reading_surface",
-      "audience_label": "Public reading surface",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Reader-facing portal page for navigating the report tree.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/scopes/index.md",
-      "content_sha256": "cf6172332a69751c4029a1e326958f21555ebe303ce031639facfa8184a85679",
-      "family": "scopes",
-      "family_label": "Scope-filtered outputs",
-      "audience": "public_reading_surface",
-      "audience_label": "Public reading surface",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "medium",
-      "explanation": "Reader-facing portal page for navigating the report tree.",
-      "reader_route": "start_here"
     }
   ]
 }

@@ -1,0 +1,33 @@
+{
+  "candidate": "c397f95cc2cbe8f451df17b4f7fa6a856ad71a75",
+  "plan_sha256": "2265fea7c867e9de1fcd6f01900376770202ce06ccfb5be5e1cb579f09b3e173",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/terminal.json",
+    "sha256": "f966d666024eafd032942ab699ee81df2527e69174da5c4744563afec27863ab",
+    "bytes": 7612
+  },
+  "common_actual_exit": 0,
+  "outer_timed_out": false,
+  "observed_elapsed_seconds": 2.3256024590227753,
+  "completed_whole_wall_bound_pass": true,
+  "framework_membership_unchanged": true,
+  "absent_paths_unchanged": true,
+  "actual_native_stage_exits": [
+    0,
+    0
+  ],
+  "tracked_byte_checker_exit": 2,
+  "independent_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-solsoe-closed-point-replay/independent-source-review.json",
+    "sha256": "7e91f2a55508ff18544cfaf6ecd490667b07507d1c3cf539b7e7a44708f81d68",
+    "bytes": 35540
+  },
+  "completed_child_peak_rss_bytes_macos": 208666624,
+  "output_bytes_before_receipt": 1779511,
+  "own_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 0,
+  "scope": "Genuine current standalone stdlib closed central-point replay against exact retained Neotoma relations. Complete92-row raw ledger/refusals and14 native relation IDs/seven underlying controls; no corrected total asserted before execution. Canonical source executes under truthful runpy launcher with actual namespace/native before-after records and separate source/metadata exits. Original8456 v1 half-unbounded report remains historical. PDF identity only, no fresh table extraction, original provider/process recovery,79 membership, uncertainty-support/analytical admission, basin chronology, ecological or human acceptance. Distinct isolated base profile; no dependency-equipped scientific runtime substitution.",
+  "resource_limit": "Completed-child peak RSS and logical regular output accounting; no enforced memory/disk quota or complete descendant census."
+}

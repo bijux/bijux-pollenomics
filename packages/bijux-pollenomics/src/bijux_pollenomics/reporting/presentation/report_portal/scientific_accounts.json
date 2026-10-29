@@ -874,7 +874,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         },
         {
           "report_path": "reports/science/source-cohorts.md",
@@ -908,16 +908,16 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         }
       ],
       "scope_reason": "Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.",
       "qualification": {
-        "authored_reader_sha256": "04207b9da22427318466ec015e6418f2e8933fb70039265b1e46c705ad5818e2",
+        "authored_reader_sha256": "c12a2c03eb976c0095ba399e9e317f725602d587069f991d251e11f92d626805",
         "fields": {
           "supported_claim": "This stable research pointer links the governed Solsø source decision and its machine account; it adds zero observations, fits or independent scientific checks.",
           "unsupported_claim": "The link does not identify the 79 published LandClim II source samples, authenticate author chronology or convert static site area/radius into sample-age basin geometry.",
-          "actual_verification_performed": "Read this pointer and retained machine lineage account and pinned their current bytes; no LandClim/Neotoma source join or numerical producer was rerun.",
+          "actual_verification_performed": "Read this pointer and retained machine lineage account and pinned their current bytes; no LandClim/Neotoma source join or numerical producer was rerun. A separate retained current closed central-point source replay and independent observer returned native zero; this pointer does not rerun that source operation.",
           "remaining_input_or_review": "The linked account still needs exact author sample/core selection, source-owned chronology, dated basin geometry and qualified taxonomy/count/rights decisions.",
           "cause_category": "Citation routing to incomplete historical input lineage.",
           "consequence": "The 91 selected Neotoma samples support observed-pollen development only; the website citation is not a second experiment or LRA admission.",
@@ -929,6 +929,14 @@
           {
             "path": "docs/report/countries/denmark/solsoe-source-lineage/report.json",
             "sha256": "508c3808131dddc4f4c455a42c4f16af37fe0e01793ff7e3da9562bfda9238e6"
+          },
+          {
+            "path": "docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json",
+            "sha256": "999534b826902f14c0fbd08ff36a5760f191070a13179d9d1bede9ca2cfa4436"
+          },
+          {
+            "path": "reports/science/source-lineage/solsoe-closed-point-source.json",
+            "sha256": "987d12fddc24e1c7ab0ae3a1f8e8e50dcdcc6b92fe2928191afcf9734dcf2665"
           }
         ]
       }
@@ -938,7 +946,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         }
       ],
       "scope_reason": "Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.",
@@ -984,7 +992,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         }
       ],
       "scope_reason": "Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.",
@@ -1022,7 +1030,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         }
       ],
       "scope_reason": "Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.",
@@ -1068,27 +1076,35 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         }
       ],
       "scope_reason": "Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.",
       "qualification": {
-        "authored_reader_sha256": "4fc28d1b42c896dc0229a439aa9f0c0111b0e682dfa83af253dd4599f12a23bd",
+        "authored_reader_sha256": "5d941c2162dfe1218b78fe8958ccb084c8790c88ec1eb908f1c638f9654364b0",
         "fields": {
           "supported_claim": "The retained original-paper comparison matches all seven distinct 1983 radiocarbon controls and describes explicit 1981/1983 core intervals and a 9000BC basin figure.",
           "unsupported_claim": "An ungeoreferenced 9000BC reconstruction and conditional calendar conversion cannot identify the 79 author input samples or provide one radius valid for every sample age.",
-          "actual_verification_performed": "Read the retained historical v1 account and source-bound closed central-point predicate controls. The older 76/74 comparison omitted two stated outer endpoints; no corrected source replay or fresh PDF table extraction was performed in this reading qualification.",
+          "actual_verification_performed": "The maintained closed central-point source replay and independent native source observer returned zero on c397f95cc2cbe8f451df17b4f7fa6a856ad71a75. Retained native observations bind92 raw source/refusal records, 14 chronology-view control rows/seven underlying radiocarbon controls and descriptive75/74 proxies. PDF byte identity only; no fresh table extraction, original provider history or historical-v1 execution recovery.",
           "remaining_input_or_review": "The original author sample IDs, historical chronology and georeferenced time-specific basin outline remain missing for LRA.",
           "cause_category": "Historical core lineage established in part; author selection and physical basin support unresolved.",
           "consequence": "Seven declared date matches support the documented 1983 core lineage. Historical half-unbounded 76/74 proxies remain distinct from complete closed central-point membership, uncertainty support, source eligibility and the published 79 author rows.",
-          "precise_next_acceptance_route": "Run the corrected maintained source under a registered isolated stdlib profile, preserve all 92 raw source rows/refusals and independently verify native central-point inclusion/exclusion before reporting its total. Original 79 membership, chronology and dated basin/rights review remain separate.",
-          "negative_or_refused_result": "Historical 76/74 proxies are not the complete paper intervals and do not recover79 author samples. Native352996 remains refused/negative_bp even if its central point is inside. LRA-admitted 0.",
-          "matched_denominator": "Seven declared radiocarbon controls occur in 14 chronology-view relation rows; 92 raw central-age source records. Historical half-unbounded selection 76 (56+20), bounded 74; corrected complete-interval total is pending registered replay. One 9000 BC basin figure from 51 corings is not age-specific sample support."
+          "precise_next_acceptance_route": "Use the separate retained current result for its declared closed central-point comparison. Independently recover the original historical-v1 production custody if needed; obtain the original 79 same-core sample IDs, author chronology, dated basin and rights/qualified scientific review before LRA admission.",
+          "negative_or_refused_result": "Historical 76/74 proxies are not the complete paper intervals and do not recover79 author samples. Native352996 remains refused/negative_bp even if its central point is inside. LRA-admitted 0. Current 75/74 descriptive counts also fail to recover79; no uncertainty-support or analytical admission is inferred.",
+          "matched_denominator": "Seven declared radiocarbon controls occur in 14 chronology-view relation rows; 92 raw central-age source records. Current closed selection 75 (55+20), bounded 74 (54+20); historical half-unbounded76 (56+20)/74 remains unchanged. The75 include raw native 352996 with refused/negative_bp, so these are not analytically admitted counts. One 9000 BC basin from 51 corings is not sample-age support."
         },
         "evidence_pins": [
           {
             "path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json",
             "sha256": "8456bf919423c4b57ed202704cc43d04b891ba98069b9ad9e0765192abf533a6"
+          },
+          {
+            "path": "docs/report/countries/denmark/solsoe-source-lineage/closed-central-point-selection/report.json",
+            "sha256": "999534b826902f14c0fbd08ff36a5760f191070a13179d9d1bede9ca2cfa4436"
+          },
+          {
+            "path": "reports/science/source-lineage/solsoe-closed-point-source.json",
+            "sha256": "987d12fddc24e1c7ab0ae3a1f8e8e50dcdcc6b92fe2928191afcf9734dcf2665"
           }
         ]
       }
@@ -1098,7 +1114,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         }
       ],
       "scope_reason": "Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.",
@@ -1128,7 +1144,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         }
       ],
       "scope_reason": "Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.",
@@ -1158,7 +1174,7 @@
       "canonical_accounts": [
         {
           "report_path": "reports/science/solsoe-lra-input.md",
-          "source_sha256": "3f8a2b8a26f84b4029a7f1e3761a4eac3e9a7a07514a375d5aa5cbc1781a7caf"
+          "source_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f"
         }
       ],
       "scope_reason": "Solsø two-core native counts/ages, source lineage and unresolved historical79 versus current92 selection.",

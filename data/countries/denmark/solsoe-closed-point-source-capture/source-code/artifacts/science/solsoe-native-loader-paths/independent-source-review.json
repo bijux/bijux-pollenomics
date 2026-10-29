@@ -1,0 +1,134 @@
+{
+  "schema_version": "solsoe-loader-path-independent-source-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "9d192b9130eecd11da43e274dff3f483fefa91ed54617817d95eaf897b537419",
+  "source_manifest": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/prepared-source-manifest.json",
+  "reviewed_at_utc": "2026-10-14T23:59:10.342323+00:00",
+  "scope": "Finite loader-prefix runtime correction; source-only, parent scientific contract/observer review retained.",
+  "physical_members_verified": [
+    {
+      "path": "contracts.py",
+      "sha256": "9e318fe5f60372ca6d5fd42a07623b47c727326790f5440a3630d8bcf2c53d9e",
+      "bytes": 17595
+    },
+    {
+      "path": "runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "8ef483b4051922558641e9445b215e8e566132a63341d377bbaf37b9c4159a41",
+      "bytes": 7232
+    },
+    {
+      "path": "run.py",
+      "sha256": "0f60502e117c01a72d6c7824f5af5ef44894ee826c9d756642a0686dbeff783b",
+      "bytes": 7251
+    },
+    {
+      "path": "observe.py",
+      "sha256": "2b17b79e5e551a49233ba48ddb223221a564e9cae3e94e984d1e501594bbe777",
+      "bytes": 6421
+    },
+    {
+      "path": "check_contract.py",
+      "sha256": "561f1bd65e1398812e87645421381aaeafbd3951c725367fd1460a31d25a0752",
+      "bytes": 21753
+    },
+    {
+      "path": "execute_source.py",
+      "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+      "bytes": 3027
+    },
+    {
+      "path": "common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "source_style.py",
+      "sha256": "20577109ddac469ae2231bf3aba77df0f09be64ddf4297dc4bacda83651287f5",
+      "bytes": 1077
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "1a1f3ea95bf11e3110cf9f52152059d58fe6a018d68a8f24091d99507af96563",
+      "bytes": 4847
+    },
+    {
+      "path": "source-correspondence.json",
+      "sha256": "df74e3070d10d7097156a03cd3ac8a6128f755ec71af32ee60d6513eb274f5db",
+      "bytes": 6178
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "0bb46c6ee1bc1a065f2e6d213adc07c35f5a4666d229229d4133eaa3aa490116",
+      "bytes": 2505
+    },
+    {
+      "path": "preflight/guards.log",
+      "sha256": "b7c3a148240495d09023649eb43d9195d6e04b8e96eb7529823d5ceb5af93607",
+      "bytes": 129
+    },
+    {
+      "path": "preflight/strict.log",
+      "sha256": "f9b031e5c45aa702cd4fef028d465551cb20a2c4698e0913c7b00766b20ac4d8",
+      "bytes": 43
+    },
+    {
+      "path": "preflight/alias-final-style.log",
+      "sha256": "d3d4a4f118ad59577988bea41ce64ccde8da7dc7c6dc24af60a19c9f92719c97",
+      "bytes": 149
+    },
+    {
+      "path": "preflight/actual-declared-aliases.json",
+      "sha256": "2deccc51a2b7028e42357a2e0c9dac8320052c330b2b3e0d7792bea6ea92b3cd",
+      "bytes": 777
+    }
+  ],
+  "predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/prepared-source-manifest.json",
+    "sha256": "4819ff1e4eb84f95a863e633b95b6ca991a567183fb66ef88f66140db3b6d8a5",
+    "bytes": 2909
+  },
+  "runtime_controllers_byte_identical": [
+    "contracts.py",
+    "prepare.py",
+    "run.py",
+    "observe.py",
+    "execute_source.py",
+    "common_runner.py"
+  ],
+  "changed_runtime_controllers": [
+    "runtime.py",
+    "check_contract.py"
+  ],
+  "independent_guard_execution": {
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-native-loader-paths/check_contract.py"
+    ],
+    "native_exit": 0,
+    "tests": 30,
+    "observed_output": "Ran 30 tests in 0.021s; OK"
+  },
+  "findings": [
+    "Recognizes only declared leading loader/executable prefixes; absolute Homebrew openssl@3 and internal @ characters remain literal.",
+    "Unknown leading tokens and relative paths refuse; exact-target uniqueness, raw alias and resolved-file custody remain unchanged.",
+    "Actual OpenSSL/XZ alias raw targets and file SHA/size are guarded.",
+    "Fixed classic inspector, architecture/LC_ID parsing, complete namespace, loader-key presence and wall/refusal boundaries retain predecessor source qualification."
+  ],
+  "prior_runtime_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/solsoe-isolated-stdlib-custody/independent-runtime-source-review.json",
+    "sha256": "64f11a9432cfff7edc416a1ec48612263061e22e021da76648afc80ccea1e838"
+  },
+  "limitations": [
+    "No runtime_inputs, native dependency commands, raw dyld capture, preparation, scientific replay, total calculation, model or installation performed.",
+    "Original failed preparations and all predecessor source bytes remain immutable; actual corrected preparation and replay are root-owned."
+  ],
+  "blockers": []
+}
