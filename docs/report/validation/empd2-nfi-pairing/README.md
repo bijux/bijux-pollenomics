@@ -102,7 +102,7 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 
 **Unsupported claim.** Proximity, plot area and dictionary units do not provide paired vegetation measurements, a regional target, authenticated pollen collection dates or a frozen performance benchmark.
 
-**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated. The original SLU guide ownership criterion remains verbatim and unresolved: exact current guide bytes and a genuine current download do not establish the original provider retrieval/copy receipt or the publication/use statement bound to those bytes. Native results remain partial source evidence; no numerical result, permission, human decision or LRA admission changes.
+**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification.
 
 **Remaining input or review.** Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication.
 
@@ -116,15 +116,13 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 
 **Matched denominator.** 132 Swedish EMPD2 samples; 43892 NFI plot-years/6018 tract-plot keys; 53 combinations within 1 km across 16 pollen leads and 14 selected plot-years. Plot 153.94 m² with five m²/ha basal-area dictionary groups is not regional cover.
 
+Qualified authored reader SHA-256: `bd246367462047329b8d6e0d7baab5cd625712623a490b17ccd6cb2f51aab715`.
+
 - [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/report.json](report.json) (SHA-256 `cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642`).
 
 - [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json](nfi-measurement-schema.json) (SHA-256 `5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505`).
 
-- [Retained qualification evidence: reports/science/vegetation-reference/slu-current-guide-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/slu-current-guide-source.json) (SHA-256 `b28238feadb2cee4ed5da5ec7a2eb9241f67b583d3156d32c60a7e8947bdc07c`).
-
-- [Retained qualification evidence: reports/science/source-cohorts/original-owner-acceptance.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/original-owner-acceptance.json) (SHA-256 `e03c2de940f5a127ebd9886ae038b278b7c6e6b8ef8d35cb4755d633a532ab05`).
-
-- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md).
+- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

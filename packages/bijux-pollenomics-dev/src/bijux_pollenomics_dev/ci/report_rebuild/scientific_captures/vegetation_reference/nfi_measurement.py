@@ -11,7 +11,6 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import ReportOwnershipError, _regular_confined_file
-from ...retained_source import SourceCapsule, validated_descriptor
 
 CAPTURE = "data/validation/nfi-measurement-metadata-capture/capture.json"
 CAPTURE_SHA256 = "bcff46b3478f3ad80d2253c96773b63b054f8cce81d9d84c5917b9ae731ba41a"
@@ -27,32 +26,6 @@ RECEIPTS = {
     "nfi-metadata-terminal.json": "02bfafe6c10f7a17a81f0ff165373e0f1fa0ff4ed93da03094459d9fe318a543",
     "independent-metadata-review.json": "b4f19bc9d5345959fdc1472609ee4c3691b3c70f8399c0dee7f53bd5f6eecb29",
 }
-
-
-def _validate_source_transport(
-    repository: Path, prefix: str, members: dict[str, Any]
-) -> SourceCapsule:
-    """Bind original package and named control identities without restoring their copies."""
-    source_buffer = validated_descriptor(repository, prefix, members)
-    control_names = {
-        "source-controls/check_contract.py",
-        "source-controls/contracts.py",
-        "source-controls/invoke.py",
-        "source-controls/observe.py",
-        "source-controls/prepare.py",
-        "source-controls/run.py",
-        "source-controls/runtime_custody.py",
-        "source-controls/common-runner.py",
-    }
-    _exact(
-        sorted(source_buffer.detached),
-        sorted(
-            {name for name in members if name.startswith("source-code/packages/")}
-            | control_names
-        ),
-    )
-    _require(control_names <= set(members), "NFI named source controls are incomplete")
-    return source_buffer
 
 
 def _require(value: object, message: str) -> None:
@@ -246,7 +219,26 @@ def validated_nfi_measurement_capture(
     prefix = path.parent.relative_to(repository).as_posix()
     members = _object(capture.get("members"))
     _require(len(members) == 2168, "NFI capsule member count differs")
-    source_buffer = _validate_source_transport(repository, prefix, members)
+    for name, raw in members.items():
+        member = _file(repository, prefix + "/" + _name(name))
+        record = _object(raw)
+        _exact(member.stat().st_size, record.get("bytes"))
+        _require(
+            hashlib.sha256(member.read_bytes()).hexdigest() == record.get("sha256"),
+            "NFI capsule member bytes differ",
+        )
+    physical = set()
+    for item in path.parent.rglob("*"):
+        _require(
+            not item.is_symlink() and (item.is_file() or item.is_dir()),
+            "NFI capsule contains alias/special file",
+        )
+        if item.is_file():
+            physical.add(item.relative_to(path.parent).as_posix())
+    _require(
+        physical == set(members) | {"capture.json"},
+        "NFI complete physical capsule membership differs",
+    )
     records = []
     for name, digest in RECEIPTS.items():
         file = _file(repository, prefix + "/execution/" + name)
@@ -343,7 +335,6 @@ def validated_nfi_measurement_capture(
         "NFI tracked product inventory differs",
     )
     assert entry is not None
-    source_buffer.fresh()
     return (entry,), {
         "owner_id": OWNER,
         "capture_sha256": CAPTURE_SHA256,
