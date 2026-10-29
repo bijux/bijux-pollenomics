@@ -1,0 +1,37 @@
+{
+  "objects": [
+    {
+      "bytes": 2352,
+      "retention_key": "sha256:086bd37d927063079a431398020644e68b950645ac0bab3550c48340157412be",
+      "roles": [
+        "seeded-native-report"
+      ],
+      "sha256": "086bd37d927063079a431398020644e68b950645ac0bab3550c48340157412be"
+    },
+    {
+      "bytes": 2538,
+      "retention_key": "sha256:578665d82036d13d571ac71c19097b972787e6048753c2b005a9c14205bdb40e",
+      "roles": [
+        "seeded-native-terminal"
+      ],
+      "sha256": "578665d82036d13d571ac71c19097b972787e6048753c2b005a9c14205bdb40e"
+    },
+    {
+      "bytes": 509712,
+      "retention_key": "sha256:b786b3ce27d43717495b4b7e8c428366b71638cd3f0eb68156da0615408b32d9",
+      "roles": [
+        "seeded-raw-diagnostics"
+      ],
+      "sha256": "b786b3ce27d43717495b4b7e8c428366b71638cd3f0eb68156da0615408b32d9"
+    },
+    {
+      "bytes": 251545,
+      "retention_key": "sha256:73825eaefedb312af6f738612ffb4324eb2b1bf1db6afb2bfbb98d9756783e59",
+      "roles": [
+        "seeded-trial-ledger"
+      ],
+      "sha256": "73825eaefedb312af6f738612ffb4324eb2b1bf1db6afb2bfbb98d9756783e59"
+    }
+  ],
+  "schema_version": "seeded-love-domain-trace-index.v1"
+}

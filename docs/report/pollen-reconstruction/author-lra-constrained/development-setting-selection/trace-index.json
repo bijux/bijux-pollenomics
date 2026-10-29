@@ -1,0 +1,45 @@
+{
+  "objects": [
+    {
+      "bytes": 1110,
+      "retention_key": "sha256:4e99dcd5e97b7b835edcef45cfd0c2b8dd0ff40d28a2ed5271f06d1a44572054",
+      "roles": [
+        "outcome-access.jsonl"
+      ],
+      "sha256": "4e99dcd5e97b7b835edcef45cfd0c2b8dd0ff40d28a2ed5271f06d1a44572054"
+    },
+    {
+      "bytes": 1044650,
+      "retention_key": "sha256:4fcd843e1a4a0946f113ca93f36d72a62664c4ce377847dae67c660378816fb0",
+      "roles": [
+        "outer-outcome-reuse.json"
+      ],
+      "sha256": "4fcd843e1a4a0946f113ca93f36d72a62664c4ce377847dae67c660378816fb0"
+    },
+    {
+      "bytes": 17599,
+      "retention_key": "sha256:73d5f944c3131b9efc855905d997b78dcb1ffcf782d412ee897a88f42930e226",
+      "roles": [
+        "report.json"
+      ],
+      "sha256": "73d5f944c3131b9efc855905d997b78dcb1ffcf782d412ee897a88f42930e226"
+    },
+    {
+      "bytes": 932702,
+      "retention_key": "sha256:1118d482a3c618463e71e86c8c54beb080902e5de8509b5194e10d49519ae759",
+      "roles": [
+        "selected-prediction-freeze.json"
+      ],
+      "sha256": "1118d482a3c618463e71e86c8c54beb080902e5de8509b5194e10d49519ae759"
+    },
+    {
+      "bytes": 26013616,
+      "retention_key": "sha256:1e6982dd7775c117603ef22b3e768c8e2e4f0eefc25335ef3fa9a4e079fd18cd",
+      "roles": [
+        "selection-evidence.json"
+      ],
+      "sha256": "1e6982dd7775c117603ef22b3e768c8e2e4f0eefc25335ef3fa9a4e079fd18cd"
+    }
+  ],
+  "schema_version": "development-setting-selection-trace-index.v1"
+}

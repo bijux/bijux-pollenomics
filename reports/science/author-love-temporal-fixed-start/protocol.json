@@ -1,0 +1,219 @@
+{
+  "schema_version": "author-love-temporal-fixed-start-protocol.v1",
+  "optimizer": {
+    "starts_per_ring": 32,
+    "rings": 2,
+    "maxiter": 300,
+    "max_search_evaluations": 16000,
+    "ftol": 1e-08,
+    "root_seed": 7,
+    "selection": "converged_finite_feasible_minimum_then_start_id",
+    "composition": "unrounded_x_divided_by_sum_after_original_1e-6_gate"
+  },
+  "source_files": [
+    {
+      "path": "regional.py",
+      "sha256": "7dad2324b4fcf5e367ed6f3761dcb6363a41f71d06ba9dbd9c158164991ab39c",
+      "bytes": 9677
+    },
+    {
+      "path": "replay.py",
+      "sha256": "930a9c48ccc673b0b86e6f0e449121a68cb3739ab7caab83518726b22577a1e7",
+      "bytes": 16752
+    },
+    {
+      "path": "training.py",
+      "sha256": "78b5738a16c6e41bdb80860f6316f101847694a4d1366be6f7448321fd7b4539",
+      "bytes": 11366
+    }
+  ],
+  "maintained_sources": [
+    {
+      "bytes": 18124,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py",
+      "sha256": "2b3f23c22974b07177feb9b7c9b7e3d078cb8ec3f94b3d0e350a5b4cb472c907"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.py",
+      "sha256": "0cfae4ed1afdd9b74a971ed1d435557c2bb8695bc98a708d9b24ed03977d42af",
+      "bytes": 5361
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py",
+      "sha256": "6383372379623ced187c8b8b5dd43f813dd5ec384a467f872bb99b579e2d1e38",
+      "bytes": 16188
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py",
+      "sha256": "b499c48f0a5051e31d0f918f01d4ffc2d9a79966ee1c34fada5cdc2085209351",
+      "bytes": 20248
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/replay.py",
+      "sha256": "4b3d156408e97300b956df35abfe8b8738e09decdbcc82bbc36802e3c8d49590",
+      "bytes": 20626
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/topology.py",
+      "sha256": "868078de872b1e9d6aa2ee0f7d8f142da90573aed9d2d03a74045bdd98f23820",
+      "bytes": 6558
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+      "sha256": "0b21d9ade1bfb83ca2e31577093059ef8c7dd0fcc86f5af00cbe65e544d02600",
+      "bytes": 14851
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+      "sha256": "6a21e37c0a49b1ec944a45acb5fcbfaa08a6e72648e6352a32be285da28b7700",
+      "bytes": 12488
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+      "sha256": "7580a831eb025a0aba9bbc8b55d57c63bd47781130983ff0d1c73673060c98ed",
+      "bytes": 18010
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+      "sha256": "6a66342a06ff47cb1240349bab0303ab54053e3f82dd8213d9b56a25de6740b8",
+      "bytes": 17295
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
+      "sha256": "7a1c9d287aa5d874a61e7fd0a5f915e1fe6bfb54123393ef0e6ad1c6a4510dc2",
+      "bytes": 3694
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
+      "sha256": "bd6e26ead910ba59f47d2f151e93ca323be24381ff9b0c39aa11baf1114c94e8",
+      "bytes": 1846
+    },
+    {
+      "bytes": 9790,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/execution.py",
+      "sha256": "f114389cd375e9ee021f38eda7e30786069f8033a2487493db821d2a97d862fd"
+    },
+    {
+      "bytes": 4776,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/models.py",
+      "sha256": "4f752f6db2c981ee777b62485bed68791cba211708f32795d8c25beada6b71f8"
+    },
+    {
+      "bytes": 12238,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/engine/discovery.py",
+      "sha256": "fb638aca094aa0b106d3ea169a6dee1f95779f2bbbaf8a73604d7344786251a1"
+    },
+    {
+      "bytes": 7167,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/adapter.py",
+      "sha256": "03eb7b10f7588161f3289cadd1b72ecad57025e655ade54978734a14cf3dc880"
+    },
+    {
+      "bytes": 3629,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/cache.py",
+      "sha256": "36c2a7da86223104aff6d27581601201627981a47a2e58935d1663316715bc68"
+    },
+    {
+      "bytes": 2760,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/outputs/identity.py",
+      "sha256": "0a551add445866d30f65577bf1fa02c7a05e25a76100e4062c397b6223b0ccbe"
+    },
+    {
+      "bytes": 18988,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/configuration.py",
+      "sha256": "165853bc260ecb272618e38dfdba4aebc1295bf33633e5fa97c62b70bd17ee0f"
+    },
+    {
+      "bytes": 17941,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/inputs.py",
+      "sha256": "deddf3bab321ba872bf9470fb406bf9a8ebfefe97b844f9d6e1c57611868031f"
+    },
+    {
+      "bytes": 21064,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/prediction.py",
+      "sha256": "ae4c7db5596734fd6527edf0f18e8ab7dab304e3eb5c914cb15e35e671883230"
+    },
+    {
+      "bytes": 8231,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/reconstruction.py",
+      "sha256": "b26b8d90c1aa03e865e0e7d2a230a595cbc3034dec154adc6a671703b7f458fd"
+    },
+    {
+      "bytes": 9355,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+      "sha256": "8c90297434e12dc5d5c14a2bed1857c9f19fbdbbdccd54d1454f3bb112ea5219"
+    },
+    {
+      "bytes": 9991,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+      "sha256": "f2f6e893460250b4c3d46922a538df4fc70f5aa233855c2d63d76f0b2e168141"
+    }
+  ],
+  "temporal_protocol": {
+    "path": "docs/report/pollen-reconstruction/author-lra-constrained/temporal-development/protocol.json",
+    "sha256": "deb9c4a592f5dcc974e4624aafeaf50cbaad5f3dd407a8d6ac44f24e47c1aae2",
+    "bytes": 7170
+  },
+  "projected_authority": {
+    "path": "artifacts/science/author-love-temporal-projection-current-preparation/projected-input-authority.json",
+    "sha256": "b77ab2ed458c8b51e820dcac2941c9b4d03ab51c98d23d765065a64a1f3ff786",
+    "bytes": 29174
+  },
+  "original_projected_argument": {
+    "bytes": 29174,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-projection-current-preparation/projected-input-authority.json",
+    "sha256": "b77ab2ed458c8b51e820dcac2941c9b4d03ab51c98d23d765065a64a1f3ff786"
+  },
+  "uniform_authority": {
+    "path": "artifacts/science/author-love-temporal-development-current-preparation/output-authority.json",
+    "sha256": "0dcdb4483c2fd1a82a7ed3a3a9266d570f0a7a89ea57ab0b0bfb23a2852761b3",
+    "bytes": 24938
+  },
+  "request_manifests": {
+    "4": {
+      "bytes": 77088,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-development-proposal/reader-handoff/TW4/requests.json",
+      "sha256": "9a4c7508327ead9cd618092c3d4a7a30bfe74b21809aa1104abd556f6ed3ff29"
+    },
+    "6": {
+      "bytes": 89387,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-development-proposal/reader-handoff/TW6/requests.json",
+      "sha256": "9eb4f3fe040e07a71f0c0f5af2655a650287954805dadf527c7aa85b41ecef9b"
+    }
+  },
+  "original_search_forecast": {
+    "path": "artifacts/science/author-love-development-sweep-proposal/protocol-forecast.json",
+    "sha256": "b380a21aad7d91dbacd64f8d7edd8a772ca8d25033209968250da6e2d2c920ab",
+    "bytes": 45440
+  },
+  "scientific_protocol": {
+    "training_profile": "Original32 deterministic positive starts:half-uniform/half local observed;half-uniform/half normalized regional direction;30half-uniform/taxon corners. Only start direction is normalized. Objective retains raw rounded regional fraction.",
+    "original_request_profile": "Unchanged deterministic uniform LRA request identifies inputs/geometry. Direct fixed-start local adapter is separate from host LRAProduct publication, retaining raw optimizer result and exact x/x.sum diagnostic transform.",
+    "ring_selection": "Every32start/ring attempt retained; gate original success+finite objective+finite30vector+[0,1]+sum tolerance1e-6; minimum objective then start_id; both rings required per training request. No targetscore selection.",
+    "seed": "Root7, maintained SeedSequence.spawn(2);regional1201125462/local3618983171; deterministic starts do not consume outcomes.",
+    "budgets": "Per start300iterations and16000searchobjective calls plus maintained certification semantics;1472startsTW4/1600TW6, ceilings2496perwindow unexceeded.",
+    "regional_reuse": "Exact pinned d605 original stage identities, deterministic2draws identical/3decimal percentages.0newREVEALS;7local request failures do not remove independently retained equivalent regional stages.",
+    "prediction": "Same3maintained baselines independently applicable; complete39/42window predicted/refused slots fsynced and reopened before post-freeze scoring decode. Same sources can legitimately train otherfolds.",
+    "population": "All17native availabilitymasks retained by admitted d863 projection.13TW4 and14TW6 positive sites, explicit31-to30taxa exclusion unchanged. Wholecore identity persists;143/168logical and23/25numericrequests do not multiply independent observations.",
+    "failure": "Known nonconvergence is a result with all original diagnostics; unknown source/configuration exceptions remain nativefatal with fsynced attempt/request lifecycle.",
+    "exposure": "Previously exposed development only; within-window distinct500year estimands frozen together before either job. No cross-bin winner, untouchedtest, vegetation accuracy or calibrated interval claim.",
+    "units": "Source-declared calibrated-BP bins750\u20131250 and1750\u20132250; referenceepoch/calibrationmodel/ageuncertainty unqualified."
+  },
+  "future_execution": {
+    "candidate": "Root must supply actual committed sourceepoch separately from d605 result/d863 input epochs.",
+    "metadata": "Reuse c9 currentSCM-derived source declarations and real load_engine/capture_code_identity preflight; no installedwheel claim.",
+    "calls": {
+      "new_REVEALS": 0,
+      "new_fixed_start_attempts": {
+        "4": 1472,
+        "6": 1600
+      },
+      "new_LOVE_host_request_calls": 0
+    },
+    "native_seconds_each": 900,
+    "workers": 1,
+    "threads": 1,
+    "max_parallel_jobs": 1,
+    "resources": "Root must qualify actual registered processgroup/RSS/output bounds before launch; no future successful terminal assumed."
+  }
+}

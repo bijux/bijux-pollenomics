@@ -1,0 +1,173 @@
+{
+  "counts_forecasts": [
+    {
+      "logical_requests": 143,
+      "prediction_slots": 39,
+      "sites": 13,
+      "unique_requests": 23,
+      "window": 4
+    },
+    {
+      "logical_requests": 168,
+      "prediction_slots": 42,
+      "sites": 14,
+      "unique_requests": 25,
+      "window": 6
+    }
+  ],
+  "maintained_sources": [
+    {
+      "bytes": 18124,
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py",
+      "sha256": "2b3f23c22974b07177feb9b7c9b7e3d078cb8ec3f94b3d0e350a5b4cb472c907"
+    },
+    {
+      "bytes": 18988,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/configuration.py",
+      "sha256": "165853bc260ecb272618e38dfdba4aebc1295bf33633e5fa97c62b70bd17ee0f"
+    },
+    {
+      "bytes": 17941,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/inputs.py",
+      "sha256": "deddf3bab321ba872bf9470fb406bf9a8ebfefe97b844f9d6e1c57611868031f"
+    },
+    {
+      "bytes": 8231,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/reconstruction.py",
+      "sha256": "b26b8d90c1aa03e865e0e7d2a230a595cbc3034dec154adc6a671703b7f458fd"
+    },
+    {
+      "bytes": 21064,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/experiments/prediction.py",
+      "sha256": "ae4c7db5596734fd6527edf0f18e8ab7dab304e3eb5c914cb15e35e671883230"
+    },
+    {
+      "bytes": 9991,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+      "sha256": "f2f6e893460250b4c3d46922a538df4fc70f5aa233855c2d63d76f0b2e168141"
+    },
+    {
+      "bytes": 9355,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+      "sha256": "8c90297434e12dc5d5c14a2bed1857c9f19fbdbbdccd54d1454f3bb112ea5219"
+    },
+    {
+      "bytes": 4776,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/models.py",
+      "sha256": "4f752f6db2c981ee777b62485bed68791cba211708f32795d8c25beada6b71f8"
+    },
+    {
+      "bytes": 9790,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/execution.py",
+      "sha256": "f114389cd375e9ee021f38eda7e30786069f8033a2487493db821d2a97d862fd"
+    },
+    {
+      "bytes": 3629,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/cache.py",
+      "sha256": "36c2a7da86223104aff6d27581601201627981a47a2e58935d1663316715bc68"
+    },
+    {
+      "bytes": 7167,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/adapter.py",
+      "sha256": "03eb7b10f7588161f3289cadd1b72ecad57025e655ade54978734a14cf3dc880"
+    },
+    {
+      "bytes": 2760,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/outputs/identity.py",
+      "sha256": "0a551add445866d30f65577bf1fa02c7a05e25a76100e4062c397b6223b0ccbe"
+    },
+    {
+      "bytes": 12238,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/engine/discovery.py",
+      "sha256": "fb638aca094aa0b106d3ea169a6dee1f95779f2bbbaf8a73604d7344786251a1"
+    }
+  ],
+  "profile": {
+    "configuration": {
+      "love": {
+        "distance_weighting": "gpm neutral",
+        "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+        "max_ring": 2,
+        "method": "optimized",
+        "optimized_profile": "ring-taxon-preserving",
+        "optimizer_backend": "scipy.slsqp-simplex-uniform",
+        "optimizer_iterations": 300,
+        "optimizer_max_evaluations": 16000,
+        "optimizer_tolerance": 1e-08,
+        "repeats": 1,
+        "stochastic": false
+      },
+      "reveals": {
+        "distance_weighting": "gpm neutral",
+        "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+        "iterations": 2,
+        "stochastic": false
+      },
+      "seed": 7
+    },
+    "parameters_sha256": "d16163471b8e2de02110e4ca1654e969f41f58d9befc83fdf8c2a1c612216502",
+    "taxa": [
+      "Abies.alba",
+      "Alnus.glutinosa",
+      "Amanranthaceae.Chenopodiaceae",
+      "Artemisia",
+      "Betula",
+      "Buxus.sempervirens",
+      "Calluna.vulgaris",
+      "Carpinus.betulus",
+      "Carpinus.orientalis",
+      "Castanea",
+      "Cerealia.t",
+      "Corylus.avellana",
+      "Cyperaceae",
+      "Ericaceae",
+      "Fagus.sylvatica",
+      "Fraxinus",
+      "Juniperus",
+      "Phillyrea",
+      "Picea",
+      "Pinus",
+      "Pistacia",
+      "Plantago.lanceolata.type",
+      "Poaceae",
+      "Quercus.deciduous",
+      "Quercus.evergreen",
+      "Rumex.acetosa.t",
+      "Salix",
+      "Secale",
+      "Tilia",
+      "Ulmus"
+    ]
+  },
+  "runtime_prerequisites": [
+    "Exact admitted 30-taxon inputs, frozen request identities and current computational source identities are required before fitting.",
+    "Engine discovery and host/LRA metadata identity must pass a separate metadata-only preflight. Source declarations do not establish installed-wheel parity.",
+    "Each window uses one worker and one numerical thread. All prediction and refusal slots are saved and reopened before post-freeze scoring outcome access."
+  ],
+  "schema_version": "author-love-temporal-development-protocol.v1",
+  "scientific_protocol": {
+    "comparisons": "Only within each frozen 500-year target bin. Different periods are different estimands; no cross-window global winner or target-score-driven policy choice.",
+    "fit_sharing": "One maintained host batch per window over exact canonical request identities; no prior-window or cross-window numerical reuse. The saved input handshakes measured 143 logical/23 unique requests for TW4 and 168 logical/25 unique requests for TW6. Every execution must authenticate its exact saved request manifest.",
+    "identity": "Same site/core IDs persist across windows and aliases are grouped before requests. Grids, periods and repeats are ancestry: the 27 site-window records are not 27 independent physical sites. No independently unexposed field or vegetation truth is claimed.",
+    "methods": [
+      "training_mean",
+      "nearest_site",
+      "inverse_distance_squared"
+    ],
+    "optimization": "Existing deterministic uniform-start SLSQP only: 300 iterations, 16000 search evaluations, ftol 1e-8, two local rings, one repeat and seed 7. The separate 32-start optimizer diagnostic is not reused.",
+    "outcome_access": "All per-window prediction/refusal slots are fsynced and reopened before post-freeze scoring outcome decode. A held-out source can legitimately already serve as training in another fold; no global-unread claim.",
+    "scope": "Prior-exposed exploratory model development; point pollen predictions only, no ecological/vegetation accuracy, calibrated age uncertainty, global temporal ranking or release acceptance."
+  },
+  "source_files": [
+    {
+      "bytes": 20626,
+      "path": "replay.py",
+      "sha256": "4b3d156408e97300b956df35abfe8b8738e09decdbcc82bbc36802e3c8d49590"
+    },
+    {
+      "bytes": 6558,
+      "path": "topology.py",
+      "sha256": "868078de872b1e9d6aa2ee0f7d8f142da90573aed9d2d03a74045bdd98f23820"
+    }
+  ]
+}

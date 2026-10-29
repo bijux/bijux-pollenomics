@@ -1,0 +1,493 @@
+{
+  "objects": [
+    {
+      "bytes": 23580,
+      "retention_key": "sha256:00576968477e294f6d12597e2c1f9cd91734200b49ff10295d3a892ca3f485a9",
+      "roles": [
+        "TW6:request:34265a97b2bdf6a340184fef12389f8612cf49760dc4203f093f71aa83c72418:manifest"
+      ],
+      "sha256": "00576968477e294f6d12597e2c1f9cd91734200b49ff10295d3a892ca3f485a9"
+    },
+    {
+      "bytes": 23587,
+      "retention_key": "sha256:038da3f3bd4a28f8caebcf9e076b615a81c06b1124e10e5df7f44bc7ec1cf1ce",
+      "roles": [
+        "TW6:request:c036042062a921ad27886ea3f9c6bf52fc39fb6ccfd9ff23980a27ed6eb19f8a:manifest"
+      ],
+      "sha256": "038da3f3bd4a28f8caebcf9e076b615a81c06b1124e10e5df7f44bc7ec1cf1ce"
+    },
+    {
+      "bytes": 23571,
+      "retention_key": "sha256:0433d097aac90c00f0649f630120bfe74d419a5a34cada252c164213ae50be72",
+      "roles": [
+        "TW4:request:75f8646a21ec9133bcb6e81ee0408933905e29c2ece00818e5e11c425422ca4f:manifest"
+      ],
+      "sha256": "0433d097aac90c00f0649f630120bfe74d419a5a34cada252c164213ae50be72"
+    },
+    {
+      "bytes": 23580,
+      "retention_key": "sha256:06f83808ad1d400dfbd17524cabba47df74a39a326b5ad92d0f291feb5ebfe9a",
+      "roles": [
+        "TW6:request:0e2b22d630f0e07e029abbae0d0bbd06a5f5d940b547a68dce67110d1bb83b7d:manifest"
+      ],
+      "sha256": "06f83808ad1d400dfbd17524cabba47df74a39a326b5ad92d0f291feb5ebfe9a"
+    },
+    {
+      "bytes": 23579,
+      "retention_key": "sha256:0c48447b5c2c1488bfa8aedaaa93454da46857b3bd08ff03417811aeed8d008e",
+      "roles": [
+        "TW6:request:be963b9310b7e80ed8e88a267684eaf732581f644531b0900af934228e81610a:manifest"
+      ],
+      "sha256": "0c48447b5c2c1488bfa8aedaaa93454da46857b3bd08ff03417811aeed8d008e"
+    },
+    {
+      "bytes": 24938,
+      "retention_key": "sha256:0dcdb4483c2fd1a82a7ed3a3a9266d570f0a7a89ea57ab0b0bfb23a2852761b3",
+      "roles": [
+        "provenance:root_authority"
+      ],
+      "sha256": "0dcdb4483c2fd1a82a7ed3a3a9266d570f0a7a89ea57ab0b0bfb23a2852761b3"
+    },
+    {
+      "bytes": 23591,
+      "retention_key": "sha256:140ef8300f2fc3207742d2dbddc83cca37d412b8a4cf7d6adb06e623193e7473",
+      "roles": [
+        "TW6:request:6b42355fa9680d0764ab510a133913e678e61f7f4440ce6d45ef56dec046f71f:manifest"
+      ],
+      "sha256": "140ef8300f2fc3207742d2dbddc83cca37d412b8a4cf7d6adb06e623193e7473"
+    },
+    {
+      "bytes": 23578,
+      "retention_key": "sha256:2037b42e1e47972a14ca960b630b2506a28874a1236dfd74540143288097cefb",
+      "roles": [
+        "TW4:request:a97813252b53a31d98a29737c44584f4cb03e3de75a176711ab2ee5e31b16d62:manifest"
+      ],
+      "sha256": "2037b42e1e47972a14ca960b630b2506a28874a1236dfd74540143288097cefb"
+    },
+    {
+      "bytes": 23578,
+      "retention_key": "sha256:27d428ed97eb1173dd45ced2a24bb20e736f6b970b1795c529a1d42205dbb8e2",
+      "roles": [
+        "TW4:request:d569453592c66f6cd58d54b3a47fd02ffeba2fe72cf5adabdde468beec16f487:manifest"
+      ],
+      "sha256": "27d428ed97eb1173dd45ced2a24bb20e736f6b970b1795c529a1d42205dbb8e2"
+    },
+    {
+      "bytes": 23580,
+      "retention_key": "sha256:2a8082471034ab96a43d85d43fa05e8b449b227930da1806a76a9f58d5320ddb",
+      "roles": [
+        "TW6:request:f799e76c43151584874ac2ea5e7197b573b2072ea07b5cd6c345146f0222eac4:manifest"
+      ],
+      "sha256": "2a8082471034ab96a43d85d43fa05e8b449b227930da1806a76a9f58d5320ddb"
+    },
+    {
+      "bytes": 23575,
+      "retention_key": "sha256:2a91c2358b3cc2bf7df5bbf69776a227518ff30ef378a17a43bd8fc7091e961a",
+      "roles": [
+        "TW6:request:743be8da3af0209ce55c050b3f2745c68f326e48530fb4c927be94a598c70c7d:manifest"
+      ],
+      "sha256": "2a91c2358b3cc2bf7df5bbf69776a227518ff30ef378a17a43bd8fc7091e961a"
+    },
+    {
+      "bytes": 23580,
+      "retention_key": "sha256:3493d5dc560d20c058bf929c443302df02c07ee5e53eb72d3e345a3a7f042654",
+      "roles": [
+        "TW6:request:d948cc98a0ffd6b59e2d256483915c2849c7b254faf23677c0928f7b10f937a0:manifest"
+      ],
+      "sha256": "3493d5dc560d20c058bf929c443302df02c07ee5e53eb72d3e345a3a7f042654"
+    },
+    {
+      "bytes": 2497,
+      "retention_key": "sha256:3628762c81eb3db1a6234d5dbe7685349418af217f4f4db4fa90e8dd818400c6",
+      "roles": [
+        "TW6:native-terminal"
+      ],
+      "sha256": "3628762c81eb3db1a6234d5dbe7685349418af217f4f4db4fa90e8dd818400c6"
+    },
+    {
+      "bytes": 23582,
+      "retention_key": "sha256:38993819505890bb45c0777c7e5ba5c225b734ad62c72b2bc67fc256553ff432",
+      "roles": [
+        "TW4:request:3267530d96acfe96e9751042afc402a55d7c13e822d68a3d4faaff9ee91b4a56:manifest"
+      ],
+      "sha256": "38993819505890bb45c0777c7e5ba5c225b734ad62c72b2bc67fc256553ff432"
+    },
+    {
+      "bytes": 23575,
+      "retention_key": "sha256:38a5aa5de6b14a97b51726c3126cb22251b8c44b2967ce10d183b8b4df1509a2",
+      "roles": [
+        "TW6:request:0bb998a915a95b8add99b985e341608e2916cb4d5373e581e3f7141a923615ae:manifest"
+      ],
+      "sha256": "38a5aa5de6b14a97b51726c3126cb22251b8c44b2967ce10d183b8b4df1509a2"
+    },
+    {
+      "bytes": 23576,
+      "retention_key": "sha256:42ae4251893ec67d01d65246a0c1a5d0aa116819fc8aff329aa5fa3d23657e16",
+      "roles": [
+        "TW6:request:b851e833e4a29f2610a0f45ad49216e74d28063f6c06b727ed154067f7d3c797:manifest"
+      ],
+      "sha256": "42ae4251893ec67d01d65246a0c1a5d0aa116819fc8aff329aa5fa3d23657e16"
+    },
+    {
+      "bytes": 23586,
+      "retention_key": "sha256:4375ce1a74caf75e64e1ec9901d0126e03f5a89b03520488196d204871db893d",
+      "roles": [
+        "TW4:request:d8140351cd67610ac5a54ee0f6f7072fdbb8840eda817dc20f8bbc2762ec1c96:manifest"
+      ],
+      "sha256": "4375ce1a74caf75e64e1ec9901d0126e03f5a89b03520488196d204871db893d"
+    },
+    {
+      "bytes": 23576,
+      "retention_key": "sha256:446120c02a2aaa446d89b87bac109ca1e7307f18c89a0b417770d33497325969",
+      "roles": [
+        "TW6:request:5648ee863a054430abf79ff1fd5681fa9a545b51331c3a0db07fe625fb7c9bfe:manifest"
+      ],
+      "sha256": "446120c02a2aaa446d89b87bac109ca1e7307f18c89a0b417770d33497325969"
+    },
+    {
+      "bytes": 947384,
+      "retention_key": "sha256:4589b58ace9b9a3cba2b9a6bf7774e322852c54652d1a04d042a4a2e88a97034",
+      "roles": [
+        "TW6:plan"
+      ],
+      "sha256": "4589b58ace9b9a3cba2b9a6bf7774e322852c54652d1a04d042a4a2e88a97034"
+    },
+    {
+      "bytes": 23590,
+      "retention_key": "sha256:459fb9c93e01fe616ee87526972fefbc61bc1925f2c10d3bda3bc3ba393e91bc",
+      "roles": [
+        "TW4:request:3347230e631293d4a48811bf9e92ded81660ce2e1dc05a5fd1acd44ac427264e:manifest"
+      ],
+      "sha256": "459fb9c93e01fe616ee87526972fefbc61bc1925f2c10d3bda3bc3ba393e91bc"
+    },
+    {
+      "bytes": 23576,
+      "retention_key": "sha256:466b14ccdf348c0f58020848113f102a92564ac56ec33fcebbe930bb82c81b22",
+      "roles": [
+        "TW6:request:56747f0d368c1a24c020c18020c526fb70873227b8bba90e227f36a3b14d3a7e:manifest"
+      ],
+      "sha256": "466b14ccdf348c0f58020848113f102a92564ac56ec33fcebbe930bb82c81b22"
+    },
+    {
+      "bytes": 23575,
+      "retention_key": "sha256:46cc6dd0b226a55cf55a2a6e3e6a063952522469ed6976ef9812aea975f03a68",
+      "roles": [
+        "TW4:request:51f6164b6a62697c2d1f7687eebd31ae6bd8e2f565c1d2ecd6b624cbf7ce2c37:manifest"
+      ],
+      "sha256": "46cc6dd0b226a55cf55a2a6e3e6a063952522469ed6976ef9812aea975f03a68"
+    },
+    {
+      "bytes": 1161,
+      "retention_key": "sha256:48509562bea0c233d369f82a5f3d16482e3377e9d3d47049a1af554dc5edb243",
+      "roles": [
+        "provenance:observer_execution"
+      ],
+      "sha256": "48509562bea0c233d369f82a5f3d16482e3377e9d3d47049a1af554dc5edb243"
+    },
+    {
+      "bytes": 23572,
+      "retention_key": "sha256:49cb8c1f29c6060a42c9d8dc097687aa41b3f3b38f4f73a51cc9944b0e6b3850",
+      "roles": [
+        "TW6:request:00087fbcc37e441196b4b54f14ebf9658f50086e2eddc065ad11de557f9172d3:manifest"
+      ],
+      "sha256": "49cb8c1f29c6060a42c9d8dc097687aa41b3f3b38f4f73a51cc9944b0e6b3850"
+    },
+    {
+      "bytes": 23583,
+      "retention_key": "sha256:5438d438c61a616d0ed6ca20d77d65eab7a4e7aa0bf38e4d67663323ac145535",
+      "roles": [
+        "TW6:request:f7fb1aaf26a877e2606e30ddbd7efa6ba90d6a479b394c2c92286e7c948a1de0:manifest"
+      ],
+      "sha256": "5438d438c61a616d0ed6ca20d77d65eab7a4e7aa0bf38e4d67663323ac145535"
+    },
+    {
+      "bytes": 23575,
+      "retention_key": "sha256:5651d030837c14741caf0b0157581b56f2025836f3218c8a876539780776eafa",
+      "roles": [
+        "TW4:request:d3bd0ca88fd86ccfb300816583a1e01cccf4275b5d73f1909115d8f7e0d4b65e:manifest"
+      ],
+      "sha256": "5651d030837c14741caf0b0157581b56f2025836f3218c8a876539780776eafa"
+    },
+    {
+      "bytes": 32905,
+      "retention_key": "sha256:5bf4f75c001e610ec4fb12866a8bdeda5acddc447744d6490d6f97d9c715c27f",
+      "roles": [
+        "TW6:batch-result.json"
+      ],
+      "sha256": "5bf4f75c001e610ec4fb12866a8bdeda5acddc447744d6490d6f97d9c715c27f"
+    },
+    {
+      "bytes": 23575,
+      "retention_key": "sha256:68081fe68395fdd1b510001c3f2e9c47a17dbe03ece0f09b118a27eff8364810",
+      "roles": [
+        "TW4:request:243e963a68c6ecd67be4eb0f93457709461af20eef410f93ab2a23aa21bfd0ae:manifest"
+      ],
+      "sha256": "68081fe68395fdd1b510001c3f2e9c47a17dbe03ece0f09b118a27eff8364810"
+    },
+    {
+      "bytes": 23579,
+      "retention_key": "sha256:6f0975985a943bc638bd53f421383e91c181853ce6929ee356f2885575ecad3d",
+      "roles": [
+        "TW6:request:ae443f7eb7461fa49fe4486fa0ff588b5d6e7c5ccb170fe403acc0721c701d3b:manifest"
+      ],
+      "sha256": "6f0975985a943bc638bd53f421383e91c181853ce6929ee356f2885575ecad3d"
+    },
+    {
+      "bytes": 23576,
+      "retention_key": "sha256:6f64d0ec5d4236189c2fc7ac6398b748502ec606e6b8a0dc7fedc7eaf4e6baf7",
+      "roles": [
+        "TW6:request:f1b8c30dc9e7f1a2c05cff9c0f9d8a747f66d05ffb8a7d0595e74cae9000eb3c:manifest"
+      ],
+      "sha256": "6f64d0ec5d4236189c2fc7ac6398b748502ec606e6b8a0dc7fedc7eaf4e6baf7"
+    },
+    {
+      "bytes": 23575,
+      "retention_key": "sha256:767262381fad0c8932403dac6bb83c3781bd0427f85f6e4d3a1f3c3e58dd463f",
+      "roles": [
+        "TW4:request:d92f4254022c4c5a2e608c2969d95cba6439af18f35268ea0ef1f59cc1a2a0d2:manifest"
+      ],
+      "sha256": "767262381fad0c8932403dac6bb83c3781bd0427f85f6e4d3a1f3c3e58dd463f"
+    },
+    {
+      "bytes": 1676,
+      "retention_key": "sha256:788b187d4f45aae08aa71b3a4362b43e45d081812b540499be62a9df909ad841",
+      "roles": [
+        "TW4:report.json"
+      ],
+      "sha256": "788b187d4f45aae08aa71b3a4362b43e45d081812b540499be62a9df909ad841"
+    },
+    {
+      "bytes": 23586,
+      "retention_key": "sha256:78feb61dae162e6e6834805e5bb3c7f8aa09fb299bced5c85d7db84040ddc4e2",
+      "roles": [
+        "TW4:request:200cd412b30c77f32bea4fae991f94a4c010d880f822bde4975720e925a1b60c:manifest"
+      ],
+      "sha256": "78feb61dae162e6e6834805e5bb3c7f8aa09fb299bced5c85d7db84040ddc4e2"
+    },
+    {
+      "bytes": 23576,
+      "retention_key": "sha256:7eb1ad591db9095c69738c1acbc48d1944188ddddb02acffcf2fd52dd6190a88",
+      "roles": [
+        "TW6:request:7052acf3119cd07ede63e4a9e381afc37c2a7ef262c84da04fca81143092d2bf:manifest"
+      ],
+      "sha256": "7eb1ad591db9095c69738c1acbc48d1944188ddddb02acffcf2fd52dd6190a88"
+    },
+    {
+      "bytes": 23574,
+      "retention_key": "sha256:80dda8a9358d8ac5d36670a5a5cd33f669df913fb0c952dd9234ec5ab37c5371",
+      "roles": [
+        "TW4:request:c9d578b1d464752bbb5caf0f9c68485539214bf599b92c886365c01ba3f80025:manifest"
+      ],
+      "sha256": "80dda8a9358d8ac5d36670a5a5cd33f669df913fb0c952dd9234ec5ab37c5371"
+    },
+    {
+      "bytes": 2496,
+      "retention_key": "sha256:8892e20a51568890aa2e2271f27edcc5c1a5b2558abbbbcedc96653b95eab8f2",
+      "roles": [
+        "TW4:native-terminal"
+      ],
+      "sha256": "8892e20a51568890aa2e2271f27edcc5c1a5b2558abbbbcedc96653b95eab8f2"
+    },
+    {
+      "bytes": 372,
+      "retention_key": "sha256:8914a12a8a3bcebb1a738a438aeb685a7814efdeb058edcad798a4e77e45eeaa",
+      "roles": [
+        "TW6:outcome-access.jsonl"
+      ],
+      "sha256": "8914a12a8a3bcebb1a738a438aeb685a7814efdeb058edcad798a4e77e45eeaa"
+    },
+    {
+      "bytes": 23579,
+      "retention_key": "sha256:9d743622fee96e00b06007319194dd8fcec5716b1048ecef92e27d8629866d70",
+      "roles": [
+        "TW4:request:5f266d4a577650d6bba1e18d854628a4e89f7f1c59f818c42c7690a7a3ebed2f:manifest"
+      ],
+      "sha256": "9d743622fee96e00b06007319194dd8fcec5716b1048ecef92e27d8629866d70"
+    },
+    {
+      "bytes": 22152,
+      "retention_key": "sha256:a23afd26e93c25221bc87b564e184b849c01d03ea0b8d66bde8215f143768ad0",
+      "roles": [
+        "TW4:batch/summary/receipt.json"
+      ],
+      "sha256": "a23afd26e93c25221bc87b564e184b849c01d03ea0b8d66bde8215f143768ad0"
+    },
+    {
+      "bytes": 23578,
+      "retention_key": "sha256:a440de4cf03bda1c254319cc4020e4eaa88f1af887069c8b01126736cb301d2d",
+      "roles": [
+        "TW4:request:c10b384ab9a06319efef94c84ecd6a02e4ff3d82939b83156ba318c89a60e6b8:manifest"
+      ],
+      "sha256": "a440de4cf03bda1c254319cc4020e4eaa88f1af887069c8b01126736cb301d2d"
+    },
+    {
+      "bytes": 23583,
+      "retention_key": "sha256:a8f55d948aeba14a75cb4c7a240680e7575a783eb3e2a5cff841de008d2997fc",
+      "roles": [
+        "TW6:request:ee0bb43dbf0002448e313f8681855cbc753a8e58e5573e41719c725a2e21a19b:manifest"
+      ],
+      "sha256": "a8f55d948aeba14a75cb4c7a240680e7575a783eb3e2a5cff841de008d2997fc"
+    },
+    {
+      "bytes": 23579,
+      "retention_key": "sha256:abf1a710b0449d8342777943f45964ba365c26829c634f1eb07dae092f069505",
+      "roles": [
+        "TW6:request:4aed8596cdb6e0eb7761d4183d546fce3a585bd8a90a28bd600e9f6028c424fc:manifest"
+      ],
+      "sha256": "abf1a710b0449d8342777943f45964ba365c26829c634f1eb07dae092f069505"
+    },
+    {
+      "bytes": 24210,
+      "retention_key": "sha256:aff389a1eac80fccd98fbf385b3dabce19b884ee2706757303d1a7af16cc2d7f",
+      "roles": [
+        "provenance:observation"
+      ],
+      "sha256": "aff389a1eac80fccd98fbf385b3dabce19b884ee2706757303d1a7af16cc2d7f"
+    },
+    {
+      "bytes": 23578,
+      "retention_key": "sha256:b1ff056d40fa91318729b5c920626f7f36545afd3ee608da7cbcf122d4b9fdb4",
+      "roles": [
+        "TW4:request:6decdcb1ba7c9b6efcf77180af13d6847df65894b13be280d95b3b1796a6787b:manifest"
+      ],
+      "sha256": "b1ff056d40fa91318729b5c920626f7f36545afd3ee608da7cbcf122d4b9fdb4"
+    },
+    {
+      "bytes": 23579,
+      "retention_key": "sha256:b41993f4fa8ff0387eb905470c0a5ea966951d236f4126d2806012dcb5b10071",
+      "roles": [
+        "TW4:request:852a810d82767852cd8bffc4f07b0980445e3a29a61cdffd03bad3eb4b857611:manifest"
+      ],
+      "sha256": "b41993f4fa8ff0387eb905470c0a5ea966951d236f4126d2806012dcb5b10071"
+    },
+    {
+      "bytes": 23579,
+      "retention_key": "sha256:b41c8d13f88ff1f8e692c50f2ef3262b26b730456b183d0205df8d02dd5413c7",
+      "roles": [
+        "TW6:request:63689d549afc871acbd441e9a5da5d916968fdd333da3e1c671279e7adcb3ebc:manifest"
+      ],
+      "sha256": "b41c8d13f88ff1f8e692c50f2ef3262b26b730456b183d0205df8d02dd5413c7"
+    },
+    {
+      "bytes": 947384,
+      "retention_key": "sha256:b93c8e8b3c58a58b5dd46840f01ddf32a02d27e6c3a9f85ad480f37e21b9e9b1",
+      "roles": [
+        "TW4:plan"
+      ],
+      "sha256": "b93c8e8b3c58a58b5dd46840f01ddf32a02d27e6c3a9f85ad480f37e21b9e9b1"
+    },
+    {
+      "bytes": 23582,
+      "retention_key": "sha256:ca7fd9572c775927d2c9773c1b08689407fa4680ac5e3c77fc011796c81fccb2",
+      "roles": [
+        "TW4:request:79ade1ddf7af662eb2869d68b238fc641d4d156360dd5d348d80105c9cd11276:manifest"
+      ],
+      "sha256": "ca7fd9572c775927d2c9773c1b08689407fa4680ac5e3c77fc011796c81fccb2"
+    },
+    {
+      "bytes": 274556,
+      "retention_key": "sha256:cb035b9938b1e8dcd56cfb029ab9efb11900463fc905446dc6f4944295ffd131",
+      "roles": [
+        "TW4:prediction-freeze.json"
+      ],
+      "sha256": "cb035b9938b1e8dcd56cfb029ab9efb11900463fc905446dc6f4944295ffd131"
+    },
+    {
+      "bytes": 25073,
+      "retention_key": "sha256:cdbfc696873fecb1826078e3cfdec6312a9a8b0a3e9bc78fc2654967a9da3da9",
+      "roles": [
+        "TW6:batch/summary/receipt.json"
+      ],
+      "sha256": "cdbfc696873fecb1826078e3cfdec6312a9a8b0a3e9bc78fc2654967a9da3da9"
+    },
+    {
+      "bytes": 183307,
+      "retention_key": "sha256:d43a8afc2aa418f82285203e24dbb6021281c66d8e0a76e09a97474b9b71496f",
+      "roles": [
+        "TW6:batch/receipt.json"
+      ],
+      "sha256": "d43a8afc2aa418f82285203e24dbb6021281c66d8e0a76e09a97474b9b71496f"
+    },
+    {
+      "bytes": 7125,
+      "retention_key": "sha256:e24e7425c641ec636accbff60091c6d8ce9951630346e181957783a971449f6f",
+      "roles": [
+        "provenance:observer_source_review"
+      ],
+      "sha256": "e24e7425c641ec636accbff60091c6d8ce9951630346e181957783a971449f6f"
+    },
+    {
+      "bytes": 0,
+      "retention_key": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "roles": [
+        "TW4:outcome-access.jsonl"
+      ],
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 288726,
+      "retention_key": "sha256:e4a8e5aa8fdd35f877bef943c0834f8c2e2aa842b1545f1ff2ecece017aba9ad",
+      "roles": [
+        "TW6:prediction-freeze.json"
+      ],
+      "sha256": "e4a8e5aa8fdd35f877bef943c0834f8c2e2aa842b1545f1ff2ecece017aba9ad"
+    },
+    {
+      "bytes": 23579,
+      "retention_key": "sha256:e58d77f12260d06cb1383b6e20b79604fe7ae99ef9a1cb83460db5e78d091231",
+      "roles": [
+        "TW4:request:93e850fc00356a623db2eba2a912f0ffd076efde08fd0b64caaa79410d22c001:manifest"
+      ],
+      "sha256": "e58d77f12260d06cb1383b6e20b79604fe7ae99ef9a1cb83460db5e78d091231"
+    },
+    {
+      "bytes": 28549,
+      "retention_key": "sha256:e7e46976de2b49ee2df2205d00ea6bb268ccaf4256a28a9e345f9b33a20fd3bd",
+      "roles": [
+        "TW4:batch-result.json"
+      ],
+      "sha256": "e7e46976de2b49ee2df2205d00ea6bb268ccaf4256a28a9e345f9b33a20fd3bd"
+    },
+    {
+      "bytes": 23575,
+      "retention_key": "sha256:eae5cf6b1b059bae0c9dae5fb67553656699a74219046c121ecbef639ee1ca0a",
+      "roles": [
+        "TW4:request:f5926adacb4257d963e1aa5af39fe6b8f2fcc0243f8b1029ce33aaa71347e612:manifest"
+      ],
+      "sha256": "eae5cf6b1b059bae0c9dae5fb67553656699a74219046c121ecbef639ee1ca0a"
+    },
+    {
+      "bytes": 23576,
+      "retention_key": "sha256:eee79ab696e2d5f4f6da1c1b472f68697a9ce59b21e39cfdaa407e7b78da84ad",
+      "roles": [
+        "TW6:request:b34fedd437f8c382e6548e40a5ca52bc08890e05c7a40bfb213d9bc3482475d4:manifest"
+      ],
+      "sha256": "eee79ab696e2d5f4f6da1c1b472f68697a9ce59b21e39cfdaa407e7b78da84ad"
+    },
+    {
+      "bytes": 168694,
+      "retention_key": "sha256:f0487a95242ba02145bd27ffdf65671084fb1dd057c457d00960d770fc9d6dd1",
+      "roles": [
+        "TW4:batch/receipt.json"
+      ],
+      "sha256": "f0487a95242ba02145bd27ffdf65671084fb1dd057c457d00960d770fc9d6dd1"
+    },
+    {
+      "bytes": 10828,
+      "retention_key": "sha256:f0b83ae95208863a81476ddf14620dc46bf1284edc3946e5fe0b3696cec29864",
+      "roles": [
+        "TW6:report.json"
+      ],
+      "sha256": "f0b83ae95208863a81476ddf14620dc46bf1284edc3946e5fe0b3696cec29864"
+    },
+    {
+      "bytes": 23578,
+      "retention_key": "sha256:fc7b95bbdc0794bf45ad96e55c87161167fba45535af00e3e2e653122c56f3fb",
+      "roles": [
+        "TW4:request:736e5ddaa6d90911065dd4e1c792e8ff57b4ed63ce1363ad77f621f18b69bae8:manifest"
+      ],
+      "sha256": "fc7b95bbdc0794bf45ad96e55c87161167fba45535af00e3e2e653122c56f3fb"
+    }
+  ],
+  "schema_version": "author-love-temporal-development-trace-index.v1"
+}

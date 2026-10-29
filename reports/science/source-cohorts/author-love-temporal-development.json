@@ -1,0 +1,188 @@
+{
+  "actual_exit": 0,
+  "admitted_input_populations": [
+    {
+      "native31_total_count": 22582,
+      "positive_sites": 13,
+      "retained30_nisp": 22064,
+      "unavailable_source_filled_sites": [
+        "COMERSLA",
+        "EXEBRID",
+        "WHH05",
+        "WHH11"
+      ],
+      "window": 4
+    },
+    {
+      "native31_total_count": 23009,
+      "positive_sites": 14,
+      "retained30_nisp": 22842,
+      "unavailable_source_filled_sites": [
+        "EXEBRID",
+        "WHH05",
+        "WHH11"
+      ],
+      "window": 6
+    }
+  ],
+  "approved": true,
+  "candidate": "d60500153ff589db3b93c38fe3bddde46c2994a9",
+  "input_epoch": "d863e6c939fab8eed3e53c4dc01c52953bc2434a",
+  "proofs": {
+    "observation": {
+      "bytes": 24210,
+      "retention_key": "sha256:aff389a1eac80fccd98fbf385b3dabce19b884ee2706757303d1a7af16cc2d7f",
+      "sha256": "aff389a1eac80fccd98fbf385b3dabce19b884ee2706757303d1a7af16cc2d7f"
+    },
+    "observer_execution": {
+      "bytes": 1161,
+      "retention_key": "sha256:48509562bea0c233d369f82a5f3d16482e3377e9d3d47049a1af554dc5edb243",
+      "sha256": "48509562bea0c233d369f82a5f3d16482e3377e9d3d47049a1af554dc5edb243"
+    },
+    "observer_source_review": {
+      "bytes": 7125,
+      "retention_key": "sha256:e24e7425c641ec636accbff60091c6d8ce9951630346e181957783a971449f6f",
+      "sha256": "e24e7425c641ec636accbff60091c6d8ce9951630346e181957783a971449f6f"
+    },
+    "root_authority": {
+      "bytes": 24938,
+      "retention_key": "sha256:0dcdb4483c2fd1a82a7ed3a3a9266d570f0a7a89ea57ab0b0bfb23a2852761b3",
+      "sha256": "0dcdb4483c2fd1a82a7ed3a3a9266d570f0a7a89ea57ab0b0bfb23a2852761b3"
+    }
+  },
+  "public_products": {
+    "report.json": {
+      "bytes": 286492,
+      "sha256": "17b6b96fce90e1fd05fe35621d94b1289ba401c1f9036b874c3c44e0ac882d2f"
+    },
+    "trace-index.json": {
+      "bytes": 19445,
+      "sha256": "4aee58ce6422089c2f76fa672238327092255284bf6a78bc2da4fa2e96acea27"
+    }
+  },
+  "schema_version": "author-love-temporal-development-public-authority.v1",
+  "scientific_saved_products_admitted": true,
+  "scope": "Saved requests, complete per-window predicted/refused slots and independent Decimal50 direct-pollen scores only. Source-verified freeze ordering with exact journal/hash joins; not independent timestamp measurement. No new optimizer, kernel, forward or scoring API; prior-exposed within-window development, no cross-window global winner or vegetation accuracy.",
+  "shared_provenance": {
+    "profile": {
+      "configuration": {
+        "love": {
+          "distance_weighting": "gpm neutral",
+          "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+          "max_ring": 2,
+          "method": "optimized",
+          "optimized_profile": "ring-taxon-preserving",
+          "optimizer_backend": "scipy.slsqp-simplex-uniform",
+          "optimizer_iterations": 300,
+          "optimizer_max_evaluations": 16000,
+          "optimizer_tolerance": 1e-08,
+          "repeats": 1,
+          "stochastic": false
+        },
+        "reveals": {
+          "distance_weighting": "gpm neutral",
+          "fall_speed_profile": "disqover-0.9.14-wrapper-v1",
+          "iterations": 2,
+          "stochastic": false
+        },
+        "seed": 7
+      },
+      "parameters_sha256": "d16163471b8e2de02110e4ca1654e969f41f58d9befc83fdf8c2a1c612216502",
+      "taxa": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Carpinus.betulus",
+        "Carpinus.orientalis",
+        "Castanea",
+        "Cerealia.t",
+        "Corylus.avellana",
+        "Cyperaceae",
+        "Ericaceae",
+        "Fagus.sylvatica",
+        "Fraxinus",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.deciduous",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale",
+        "Tilia",
+        "Ulmus"
+      ]
+    },
+    "protocol_sha256": "deb9c4a592f5dcc974e4624aafeaf50cbaad5f3dd407a8d6ac44f24e47c1aae2",
+    "source_files": {
+      "protocol.json": {
+        "bytes": 7170,
+        "sha256": "deb9c4a592f5dcc974e4624aafeaf50cbaad5f3dd407a8d6ac44f24e47c1aae2"
+      },
+      "replay.py": {
+        "bytes": 20626,
+        "sha256": "4b3d156408e97300b956df35abfe8b8738e09decdbcc82bbc36802e3c8d49590"
+      },
+      "topology.py": {
+        "bytes": 6558,
+        "sha256": "868078de872b1e9d6aa2ee0f7d8f142da90573aed9d2d03a74045bdd98f23820"
+      }
+    }
+  },
+  "summaries": [
+    {
+      "batch_status_counts": {
+        "completed": 20,
+        "failed": 0,
+        "not_run": 0,
+        "refused": 3,
+        "unobserved": 0
+      },
+      "folds": 13,
+      "logical_requests": 143,
+      "point_pollen_only": true,
+      "predicted_slots": 0,
+      "prediction_slots": 39,
+      "refusal_reason_counts": {
+        "training_request_or_composition_refused": 39
+      },
+      "refused_slots": 39,
+      "scored_rows": 0,
+      "sites": 13,
+      "unique_requests": 23,
+      "window": 4,
+      "zero_probability_positive_count_rows": 0
+    },
+    {
+      "batch_status_counts": {
+        "completed": 21,
+        "failed": 0,
+        "not_run": 0,
+        "refused": 4,
+        "unobserved": 0
+      },
+      "folds": 14,
+      "logical_requests": 168,
+      "point_pollen_only": true,
+      "predicted_slots": 3,
+      "prediction_slots": 42,
+      "refusal_reason_counts": {
+        "training_request_or_composition_refused": 39
+      },
+      "refused_slots": 39,
+      "scored_rows": 3,
+      "sites": 14,
+      "unique_requests": 25,
+      "window": 6,
+      "zero_probability_positive_count_rows": 0
+    }
+  ]
+}

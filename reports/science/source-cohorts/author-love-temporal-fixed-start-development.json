@@ -1,0 +1,247 @@
+{
+  "actual_exit": 0,
+  "approved": true,
+  "input_epoch": "d863e6c939fab8eed3e53c4dc01c52953bc2434a",
+  "native_jobs": [
+    {
+      "actual_exit": 0,
+      "plan": {
+        "bytes": 1000448,
+        "path": "artifacts/science/author-love-temporal-fixed-start-TW4-execution/plan.json",
+        "sha256": "651aa3c30b2cc19d969ddef22a0075ffad9245651bc9737ca6f4867596b335e6"
+      },
+      "terminal": {
+        "bytes": 2657,
+        "path": "artifacts/science/author-love-temporal-fixed-start-TW4-execution/native/terminal.json",
+        "sha256": "9773f31d24399ed5b3dda74dfd94968578bb9b16bdb8c2e9ed6d5e27a218fda6"
+      },
+      "window": 4
+    },
+    {
+      "actual_exit": 0,
+      "plan": {
+        "bytes": 1000448,
+        "path": "artifacts/science/author-love-temporal-fixed-start-TW6-execution/plan.json",
+        "sha256": "64ffb6de09ede1bf90b61550cc671a279281aa87f78dbc34d84b6dc09d01d0c7"
+      },
+      "terminal": {
+        "bytes": 2657,
+        "path": "artifacts/science/author-love-temporal-fixed-start-TW6-execution/native/terminal.json",
+        "sha256": "5007b952048c7de425723de528949608d43fc43f7b23dd5adf13d6ce1477dc75"
+      },
+      "window": 6
+    }
+  ],
+  "observation": {
+    "bytes": 85331,
+    "path": "artifacts/science/temporal-fixed-start-output-admission/observation.json",
+    "sha256": "7dff93a9ee4dfe527c8fce00dfd818a89502c9a97d336b6d8b8f0350b752dc77"
+  },
+  "observer_execution": {
+    "bytes": 2372,
+    "path": "artifacts/science/temporal-fixed-start-output-admission/execution.json",
+    "sha256": "97d6532b3dff545483e869a22a5f7de4b027186a7bc1baac1050b5c28a885d08"
+  },
+  "observer_source_review": {
+    "bytes": 15424,
+    "path": "artifacts/science/temporal-fixed-start-output-admission/source-review.json",
+    "sha256": "3cdfeeb3b81a43fe816f32d3a7c2b1fe8a9804dbd562af2716979633e7866950"
+  },
+  "original_products": {
+    "4": {
+      "outcome-access.jsonl": {
+        "bytes": 4854,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW4-execution/native/products/outcome-access.jsonl",
+        "sha256": "c53a00386271ca72c17603254c64f4db8513d3a2671cc2cc4fb68c3fb0b3f55e"
+      },
+      "prediction-freeze.json": {
+        "bytes": 1333478,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW4-execution/native/products/prediction-freeze.json",
+        "sha256": "407222f4ee8a81d8ddadeb6326638af47f857f477bef45604fc8ba1cc6e477b6"
+      },
+      "readiness.json": {
+        "bytes": 36821,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW4-execution/native/products/readiness.json",
+        "sha256": "711debc5e91e9e81ee2df81c87cd03bcbacf5ec2075c3c80564f4b4d0e14be35"
+      },
+      "report.json": {
+        "bytes": 121006,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW4-execution/native/products/report.json",
+        "sha256": "0d363b54f500449c73b135c6fb521aa367904de2621d8afaa76c384d40ba49a2"
+      },
+      "request-events.jsonl": {
+        "bytes": 7429,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW4-execution/native/products/request-events.jsonl",
+        "sha256": "91b10acefcaf4e56ad1e5264220399a2350421923bba42c2b829f219aa2a4d12"
+      },
+      "training.json": {
+        "bytes": 4300343,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW4-execution/native/products/training.json",
+        "sha256": "74f8eb432dd124c7e8f5bfca7852a985dd28123128edaf096273bcd81801e1b0"
+      },
+      "trials.jsonl": {
+        "bytes": 4306664,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW4-execution/native/products/trials.jsonl",
+        "sha256": "8cad22f959a128ad30e5721a4a5a58aeffe1a3ffce079e928c69439119dd3cf0"
+      }
+    },
+    "6": {
+      "outcome-access.jsonl": {
+        "bytes": 5227,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW6-execution/native/products/outcome-access.jsonl",
+        "sha256": "da6114a800062acb95a50c35e7ce3ae8c6ce72e167e024aeb77f877c0ae69fed"
+      },
+      "prediction-freeze.json": {
+        "bytes": 1465418,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW6-execution/native/products/prediction-freeze.json",
+        "sha256": "79b7cfaa0f9f5ec83b5f8ef78615660963d02de09313b05b44b61ca4ad517a51"
+      },
+      "readiness.json": {
+        "bytes": 38612,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW6-execution/native/products/readiness.json",
+        "sha256": "2abfac21bf764d5e78e1a4860b0b3112d2f2daa45ff7a314f6c042256255bfbc"
+      },
+      "report.json": {
+        "bytes": 130149,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW6-execution/native/products/report.json",
+        "sha256": "be1e34f4557858aeb44172f84cacd2e122594d1b83e46b2c8fcea9ed2083d95d"
+      },
+      "request-events.jsonl": {
+        "bytes": 8075,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW6-execution/native/products/request-events.jsonl",
+        "sha256": "547c143d5bcca8f8a730a3507f069ad7f3dcb96e78fb943176d171fc2a868b53"
+      },
+      "training.json": {
+        "bytes": 4679197,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW6-execution/native/products/training.json",
+        "sha256": "290ae242a786ee9ce0aacdb7e3acad7535a9a92879968fb863ccf74f82e25843"
+      },
+      "trials.jsonl": {
+        "bytes": 4688019,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-temporal-fixed-start-TW6-execution/native/products/trials.jsonl",
+        "sha256": "f1855a4e206205e0c0cb1ba36d94885069f7be6a2b5efbfb674de38765ec0979"
+      }
+    }
+  },
+  "original_uniform_authority": {
+    "bytes": 5767,
+    "path": "reports/science/source-cohorts/author-love-temporal-development.json",
+    "sha256": "565e7cbb494dab8721913ab6148a14c78fa2aeb3d97b5e6cce497f7533e8569b"
+  },
+  "projection_digests": {
+    "optimizer": "0264afbc7b04ed8304fcfe6faaa4e362a401978add748a0b9cbc86b8ff2f8988",
+    "taxa": "6223215ed7ffa800f190abdbff4eda970ca914ded46cced21e2a60345ba0afac",
+    "windows": "a67aba040f8631e382e21e83ed791b335b5a092ebaea9a81e27634b36b83e035"
+  },
+  "public_products": {
+    "report.json": {
+      "bytes": 1340988,
+      "sha256": "d11d8713f594582a3b93ac11b7043518935489095215f98dce9bc12ca8229eb9"
+    },
+    "trace-index.json": {
+      "bytes": 4455,
+      "sha256": "a53f7c69fec549a0df4d276cb56840d4f7067e473253a83df4f79f62e2785110"
+    }
+  },
+  "schema_version": "temporal-fixed-start-publication-authority.v1",
+  "scientific_limits": {
+    "calibrated_uncertainty_admitted": false,
+    "cross_window_winner_admitted": false,
+    "epoch_age_calibration_admitted": false,
+    "isolated_start_effect_admitted": false,
+    "kernels_independently_recomputed": false,
+    "method_change": "Thirty-two training-only fixed starts plus explicit unrounded x/xsum diagnostic compositions; original uniform host products used source rounding. This is a joint method comparison, not a starting-point causal effect.",
+    "point_geometry_only": true,
+    "prior_exposed_development_only": true,
+    "scientific_main_return_observed": false,
+    "vegetation_accuracy_admitted": false
+  },
+  "scientific_saved_products_admitted": true,
+  "scientific_sources": {
+    "reports/science/author-love-temporal-fixed-start/protocol.json": {
+      "bytes": 11025,
+      "sha256": "3462886d6b4a4e1e7546f995948a509d6457663dce29211be485e2ca1121d80d"
+    },
+    "reports/science/author-love-temporal-fixed-start/source/regional.py": {
+      "bytes": 9677,
+      "sha256": "7dad2324b4fcf5e367ed6f3761dcb6363a41f71d06ba9dbd9c158164991ab39c"
+    },
+    "reports/science/author-love-temporal-fixed-start/source/replay.py": {
+      "bytes": 16752,
+      "sha256": "930a9c48ccc673b0b86e6f0e449121a68cb3739ab7caab83518726b22577a1e7"
+    },
+    "reports/science/author-love-temporal-fixed-start/source/training.py": {
+      "bytes": 11366,
+      "sha256": "78b5738a16c6e41bdb80860f6316f101847694a4d1366be6f7448321fd7b4539"
+    }
+  },
+  "scope": "Compact projection of already independently admitted saved outputs; raw3072attempts and lifecycle logs remain exact external trace references. No scientific rerun or new numerical source claim.",
+  "source_epoch": "352246275aee76d8d1afa5b13c53a1006ff1ba26",
+  "trace_roles": {
+    "TW4:native-terminal": {
+      "bytes": 2657,
+      "sha256": "9773f31d24399ed5b3dda74dfd94968578bb9b16bdb8c2e9ed6d5e27a218fda6"
+    },
+    "TW4:outcome-access.jsonl": {
+      "bytes": 4854,
+      "sha256": "c53a00386271ca72c17603254c64f4db8513d3a2671cc2cc4fb68c3fb0b3f55e"
+    },
+    "TW4:prediction-freeze.json": {
+      "bytes": 1333478,
+      "sha256": "407222f4ee8a81d8ddadeb6326638af47f857f477bef45604fc8ba1cc6e477b6"
+    },
+    "TW4:readiness.json": {
+      "bytes": 36821,
+      "sha256": "711debc5e91e9e81ee2df81c87cd03bcbacf5ec2075c3c80564f4b4d0e14be35"
+    },
+    "TW4:report.json": {
+      "bytes": 121006,
+      "sha256": "0d363b54f500449c73b135c6fb521aa367904de2621d8afaa76c384d40ba49a2"
+    },
+    "TW4:request-events.jsonl": {
+      "bytes": 7429,
+      "sha256": "91b10acefcaf4e56ad1e5264220399a2350421923bba42c2b829f219aa2a4d12"
+    },
+    "TW4:training.json": {
+      "bytes": 4300343,
+      "sha256": "74f8eb432dd124c7e8f5bfca7852a985dd28123128edaf096273bcd81801e1b0"
+    },
+    "TW4:trials.jsonl": {
+      "bytes": 4306664,
+      "sha256": "8cad22f959a128ad30e5721a4a5a58aeffe1a3ffce079e928c69439119dd3cf0"
+    },
+    "TW6:native-terminal": {
+      "bytes": 2657,
+      "sha256": "5007b952048c7de425723de528949608d43fc43f7b23dd5adf13d6ce1477dc75"
+    },
+    "TW6:outcome-access.jsonl": {
+      "bytes": 5227,
+      "sha256": "da6114a800062acb95a50c35e7ce3ae8c6ce72e167e024aeb77f877c0ae69fed"
+    },
+    "TW6:prediction-freeze.json": {
+      "bytes": 1465418,
+      "sha256": "79b7cfaa0f9f5ec83b5f8ef78615660963d02de09313b05b44b61ca4ad517a51"
+    },
+    "TW6:readiness.json": {
+      "bytes": 38612,
+      "sha256": "2abfac21bf764d5e78e1a4860b0b3112d2f2daa45ff7a314f6c042256255bfbc"
+    },
+    "TW6:report.json": {
+      "bytes": 130149,
+      "sha256": "be1e34f4557858aeb44172f84cacd2e122594d1b83e46b2c8fcea9ed2083d95d"
+    },
+    "TW6:request-events.jsonl": {
+      "bytes": 8075,
+      "sha256": "547c143d5bcca8f8a730a3507f069ad7f3dcb96e78fb943176d171fc2a868b53"
+    },
+    "TW6:training.json": {
+      "bytes": 4679197,
+      "sha256": "290ae242a786ee9ce0aacdb7e3acad7535a9a92879968fb863ccf74f82e25843"
+    },
+    "TW6:trials.jsonl": {
+      "bytes": 4688019,
+      "sha256": "f1855a4e206205e0c0cb1ba36d94885069f7be6a2b5efbfb674de38765ec0979"
+    }
+  },
+  "uniform_source_epoch": "d60500153ff589db3b93c38fe3bddde46c2994a9"
+}
