@@ -16,6 +16,7 @@ from ..ownership import ReportOwnershipError, _regular_confined_file
 from ..retained_source.descriptor import normalize_members
 from ..retained_source.generated import reconstruct
 from ..retained_source.index import SourceCapsule, validated_descriptor
+from .source_correspondence import validated_current_scientific_source
 
 OWNER = "method-certification/linux-r-oracle/report-products"
 FAMILY = "docs/report/method-certification/linux-r-oracle/"
@@ -141,31 +142,23 @@ def _native_references(
             raise ReportRebuildError("Linux executed source bytes differ")
 
 
-_CURRENT_READER_CORRESPONDENCE = {
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py": [
+_HISTORICAL_READER_IDENTITIES = {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics.py": (
         "ca844dca8751054f17055c99c227c8a54084981da745e8c13e3071d2093e911e",
         12514,
-        "c205ef6f229a5ef15f86c460b6af99c76fabf42004e4b85fd3a47362ed90ebab",
-        12716,
-    ],
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py": [
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/diagnostics_verification.py": (
         "c8abeb8902e199073e61e9860535605c17c9d882205729562bc058d9a01c51bd",
         15067,
-        "baaedda161655c125aea75fa6d54d15de196da819207a93ed5346b5fa8a697bb",
-        16763,
-    ],
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/finite_covariance_capture.py": [
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/finite_covariance_capture.py": (
         "59b4770fbf38efe60633b540edf5925d09be56fe1c1c2795d6cf0af206edefee",
         9194,
-        "c9f147049d6f00dd6a6be89600488b3d2d0dad94435f52922a106eb062bb70d0",
-        13369,
-    ],
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_layout_adoption.py": [
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_layout_adoption.py": (
         "f0c340faca10b48ec3b9036659ffec26e37bc36719605a98eea7acec2e404272",
         7080,
-        "bde1a6303f61a714dae3288937eb29bd8b1705c6b37fe59342d6b19d7092b475",
-        7540,
-    ],
+    ),
 }
 _DOCUMENTED_NUMERIC_DEFINITIONS = {
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/two_taxon_counting.py": [
@@ -231,8 +224,13 @@ def _named_documentation_insertions(
 
 
 def _require_scientific_projection(
-    repository: Path, name: str, identity: dict[str, Any], historical: bytes
-) -> None:
+    repository: Path,
+    name: str,
+    identity: dict[str, Any],
+    historical: bytes,
+    *,
+    source_buffer: SourceCapsule | None = None,
+) -> JsonObject | None:
     """Keep ordinary sources strict and six reviewed reader/documentation roles explicit."""
     expected = identity.get("sha256"), identity.get("bytes")
     if (
@@ -251,18 +249,37 @@ def _require_scientific_projection(
     body = current.read_bytes()
     actual = hashlib.sha256(body).hexdigest(), len(body)
     if actual == expected:
-        return
-    correspondence = _CURRENT_READER_CORRESPONDENCE.get(name)
+        return None
+    correspondence = _HISTORICAL_READER_IDENTITIES.get(name)
     if correspondence is not None:
-        old_sha, old_bytes, current_sha, current_bytes = correspondence
-        if expected == (old_sha, old_bytes) and actual == (current_sha, current_bytes):
-            return
-        raise ReportRebuildError("Linux declared reader source correspondence differs")
+        logical = "source/" + name
+        if (
+            expected != tuple(correspondence)
+            or source_buffer is None
+            or logical not in source_buffer.detached
+            or source_buffer.read_source(logical) != historical
+        ):
+            raise ReportRebuildError(
+                "Linux declared reader source correspondence differs"
+            )
+        role = validated_current_scientific_source(
+            repository,
+            {"path": name, "sha256": expected[0], "bytes": expected[1]},
+            logical,
+            source_buffer,
+        )
+        if (
+            role is None
+            or role.get("path") != name
+            or role.get("classification") != "historical_custody_reader_metadata"
+        ):
+            raise ReportRebuildError("Linux declared reader custody role differs")
+        return role
     definitions = _DOCUMENTED_NUMERIC_DEFINITIONS.get(name)
     if definitions is not None and _named_documentation_insertions(
         historical, body, definitions
     ):
-        return
+        return None
     raise ReportRebuildError("Linux current scientific implementation changed")
 
 
@@ -356,6 +373,7 @@ def validated_linux_r_reference_capture(
     if not isinstance(scientific, list) or len(scientific) != 127:
         raise ReportRebuildError("Linux scientific projection differs")
     historical_generated = 0
+    reader_correspondences: list[JsonObject] = []
     for raw in scientific:
         item = _object(raw, "Linux source projection malformed")
         name = item.get("relative_path")
@@ -375,7 +393,11 @@ def validated_linux_r_reference_capture(
             _historical_version_metadata(source_buffer, item, historical)
             historical_generated += 1
         else:
-            _require_scientific_projection(repository, name, item, historical)
+            role = _require_scientific_projection(
+                repository, name, item, historical, source_buffer=source_buffer
+            )
+            if role is not None:
+                reader_correspondences.append(role)
     if historical_generated != 1:
         raise ReportRebuildError("Linux historical generated source membership differs")
     lock_name = "configs/ci/lra-r-source-lock.v1.json"
@@ -437,11 +459,12 @@ def validated_linux_r_reference_capture(
         "assembly_candidate": capture.get("assembly_candidate"),
         "source_files": 2148,
         "scientific_current_projection": 126,
+        "historical_reader_source_correspondences": reader_correspondences,
         "historical_generated_metadata_members": 1,
         "historical_generated_metadata_sha256": VERSION_SHA256,
         "retained_execution_files": 140,
         "report_outputs": 137,
         "paths_sha256": canonical_json_sha256(sorted(names)),
         "historical_source_gap_retained": True,
-        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:120exact tracked inputs, four fixed historical/current reader correspondences and two exact named numeric-documentation insertions. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The six declared current reader/documentation bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
+        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:120exact tracked inputs, four fixed old-identity reader custody roles and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The six declared current reader/documentation bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
     }

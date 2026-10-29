@@ -6,6 +6,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any
 
 import pytest
@@ -213,11 +214,11 @@ def projection(monkeypatch: pytest.MonkeyPatch) -> dict[str, Any]:
     """Patch only finite authority tables while calling the normal candidate helper."""
     readers: dict[str, Any] = {}
     documentation: dict[str, Any] = {}
-    monkeypatch.setattr(linux, "_CURRENT_READER_CORRESPONDENCE", readers)
+    monkeypatch.setattr(linux, "_HISTORICAL_READER_IDENTITIES", readers)
     monkeypatch.setattr(linux, "_DOCUMENTED_NUMERIC_DEFINITIONS", documentation)
     return {
         "_require_scientific_projection": linux._require_scientific_projection,
-        "_CURRENT_READER_CORRESPONDENCE": readers,
+        "_HISTORICAL_READER_IDENTITIES": readers,
         "_DOCUMENTED_NUMERIC_DEFINITIONS": documentation,
     }
 
@@ -238,14 +239,23 @@ def test_ordinary_exact_source_retains_its_original_size_bound(
 
 
 @pytest.mark.parametrize(
-    "damage", ["numeric", "comment", "wrong_old_identity", "unknown_path"]
+    "damage",
+    [
+        "wrong_classification",
+        "unbound_member",
+        "wrong_old_identity",
+        "unlisted_path",
+        "wrong_member_body",
+        "missing_resolver",
+    ],
 )
 def test_reader_correspondence_is_exact_and_never_a_generic_source_fallback(
     tmp_path: Path,
     projection: dict[str, Any],
     damage: str,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    """Admit only the fixed reader identities and refuse other current bodies."""
+    """Require the fixed old identity, exact detached binding and existing custody role."""
     old = b"def read(): return 1\n"
     current = b"def read(): return 1  # explicit synthetic transport body\n"
     name = "reader.py"
@@ -253,26 +263,56 @@ def test_reader_correspondence_is_exact_and_never_a_generic_source_fallback(
         "sha256": hashlib.sha256(old).hexdigest(),
         "bytes": len(old),
     }
-    projection["_CURRENT_READER_CORRESPONDENCE"][name] = [
+    projection["_HISTORICAL_READER_IDENTITIES"][name] = [
         identity["sha256"],
         identity["bytes"],
-        hashlib.sha256(current).hexdigest(),
-        len(current),
     ]
+    logical = "source/" + name
+    resolver = SimpleNamespace(
+        detached=frozenset({logical}), read_source=lambda selected: old
+    )
+    role: dict[str, Any] = {
+        "path": name,
+        "classification": "historical_custody_reader_metadata",
+    }
+    calls: list[str] = []
+
+    def qualified(
+        repository: Path,
+        historical: dict[str, Any],
+        selected: str,
+        source_buffer: object,
+    ) -> dict[str, Any]:
+        assert repository == tmp_path
+        assert historical == {"path": "reader.py", **identity}
+        assert selected == logical and source_buffer is resolver
+        calls.append(selected)
+        return role
+
+    monkeypatch.setattr(linux, "validated_current_scientific_source", qualified)
     (tmp_path / name).write_bytes(current)
     check = projection["_require_scientific_projection"]
-    check(tmp_path, name, identity, old)
-    if damage == "numeric":
-        current = current.replace(b"return 1", b"return 2")
-    elif damage == "comment":
-        current += b"# another body\n"
+    assert check(tmp_path, name, identity, old, source_buffer=resolver) is role
+    assert calls == [logical]
+    if damage == "wrong_classification":
+        role["classification"] = "unadmitted_source"
+    elif damage == "unbound_member":
+        resolver.detached = frozenset()
     elif damage == "wrong_old_identity":
-        projection["_CURRENT_READER_CORRESPONDENCE"][name][0] = "0" * 64
-    else:
+        projection["_HISTORICAL_READER_IDENTITIES"][name][0] = "0" * 64
+    elif damage == "unlisted_path":
         name = "other.py"
+    elif damage == "wrong_member_body":
+        resolver.read_source = lambda selected: b"unbound old bytes"
     (tmp_path / name).write_bytes(current)
     with pytest.raises(ReportRebuildError):
-        check(tmp_path, name, identity, old)
+        check(
+            tmp_path,
+            name,
+            identity,
+            old,
+            source_buffer=None if damage == "missing_resolver" else resolver,
+        )
 
 
 @pytest.mark.parametrize(
@@ -291,11 +331,9 @@ def test_original_source_identity_cannot_be_replaced_by_current_correspondence(
         "sha256": hashlib.sha256(old).hexdigest(),
         "bytes": len(old),
     }
-    projection["_CURRENT_READER_CORRESPONDENCE"][name] = [
+    projection["_HISTORICAL_READER_IDENTITIES"][name] = [
         identity["sha256"],
         identity["bytes"],
-        hashlib.sha256(current).hexdigest(),
-        len(current),
     ]
     (tmp_path / name).write_bytes(current)
     if damage == "historical_bytes":
