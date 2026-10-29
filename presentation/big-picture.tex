@@ -93,13 +93,14 @@ Bins show scored/attempted support. IDW weights training sites by inverse square
 \evidence{reports/science/sambosjon-direct-pollen.md; docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json}
 \end{frame}
 
-\begin{frame}{English LRA demonstrates a bounded executable workflow}
+\begin{frame}{English LRA: coverage and predictive quality are separate}
+\small
 \begin{itemize}
-\item Start from 15 author sites in the 1,250--1,750 BP interval, with 30 pollen targets after a declared transport exclusion.
-\item Hold out one site at a time, reconstruct with the remaining sites, and freeze three forward-pollen predictions for that target.
-\item Fourteen sites produce all three predictions. One fold refuses after three training optimizations fail.
+\item The original uniform-start study used 15 author sites and 30 pollen targets. Fourteen sites supplied all three predictions; BECKHAM refused.
+\item Later fixed-start training supplied 45 predictions on all 15 exposed TW5 development sites. Recovering a refused fold did not establish lower error: the matched 14-site comparison was slightly worse for all three baselines.
+\item All sixteen declared settings now retain outcomes, including failures, aliases and separate time windows. They are not sixteen successful or directly comparable models.
 \end{itemize}
-\scope{This checks reconstruction-to-pollen prediction on English author examples. No independent measured cover is available, and this does not admit Nordic LRA inputs.}
+\scope{Observed-pollen development evidence, not measured-vegetation accuracy. The following direct-versus-LRA table retains the original matched 14-site uniform-start study.}
 \evidence{reports/science/english-lra-pollen-prediction.md}
 \end{frame}
 
@@ -116,7 +117,7 @@ Inverse distance squared & .018579 & .021088 & .243673 & .285415 \\
 \bottomrule
 \end{tabular}
 \par\medskip
-Fourteen matched sites, 30 taxa; both metrics average equally across sites. Hellinger compares compositions on a 0--1 scale; zero means identical, and lower is better.
+Original uniform-start study: fourteen matched sites, 30 taxa; both metrics average equally across sites. Hellinger compares compositions on a 0--1 scale; zero means identical, and lower is better.
 \scope{Training information differs between routes and the outcomes are exposed development evidence. Lower pollen error does not establish a better vegetation reconstruction.}
 \evidence{reports/science/pollen-prediction.md; docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json}
 \end{frame}

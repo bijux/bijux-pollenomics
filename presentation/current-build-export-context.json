@@ -1,0 +1,164 @@
+{
+  "schema_version": "current-scientific-deck-export.v1",
+  "producer": {
+    "candidate": "0caba19fdca39e183dce2b1a3929d1b94495cc21",
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-deck-stable-macro-regeneration/plan.json",
+      "sha256": "e08c9354267375decfaef0da14611ee60d99669ddfe5fb409782779110d401e8",
+      "bytes": 191936
+    },
+    "native_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-deck-stable-macro-regeneration/native/terminal.json",
+      "sha256": "139548b02e20724e0ac3627014d0f1115881ecace60fc57c3143d74965227842",
+      "bytes": 3945
+    },
+    "runtime_preflight": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-deck-stable-macro-regeneration/native/runtime-preflight.json",
+      "sha256": "bba2de98616f28fd2d0a7835d442a3f375f2cb41540e5796415f5ad4d20e5a6e",
+      "bytes": 6373
+    },
+    "build_summary": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-deck-stable-macro-regeneration/native/build-summary.json",
+      "sha256": "8adb4191d461b13f61762ae67f97887e16d16ee68dbdb4aed3da2cebe70689b6",
+      "bytes": 60282
+    },
+    "execution_source_manifest": {
+      "bytes": 3814,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-deck-stable-macro-execution-proposal/source-proposal.json",
+      "sha256": "02860e7e3adc5d9e1ad117c6031c5bc1e2bfe28dd362cf6dc4995427ee21ea65"
+    },
+    "runtime_profile": {
+      "bytes": 6154531,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-deck-stable-macro-execution-proposal/runtime-profile.json",
+      "sha256": "ce583823ce27ac9f45d61a2f708721363c52bf6b516bc4371c8d689bb0b0e109"
+    },
+    "actual_exit": 0,
+    "actual_builder_main_return": 0,
+    "stages": [
+      {
+        "id": "runtime-preflight",
+        "actual_exit": 0
+      },
+      {
+        "id": "build-decks",
+        "actual_exit": 0
+      }
+    ]
+  },
+  "source_lock": {
+    "path": "presentation/source-lock.json",
+    "sha256": "77fc01319daedb348ee497379999c81b6a5bc951d55c4ca378b6a7cc42faed99",
+    "bytes": 16272
+  },
+  "source_origin": {
+    "base_member_count": 119,
+    "source_proposal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/english-scientific-deck-source-proposal/source-proposal.json",
+      "sha256": "c188f4f971a934204052dd9a9ea84cd607e2a44728734e4e7045cde657241999",
+      "bytes": 3368
+    },
+    "overlays": [
+      {
+        "path": "presentation/big-picture.tex",
+        "preimage": {
+          "path": "artifacts/science/english-scientific-deck-source-proposal/preimages/presentation/big-picture.tex",
+          "sha256": "29fd5c32a68d90ee824f253463ca37950e2899982ea2dc61c5e7d12f8e2aa4e4",
+          "bytes": 11936
+        },
+        "postimage": {
+          "path": "artifacts/science/english-scientific-deck-source-proposal/proposal/presentation/big-picture.tex",
+          "sha256": "010a87316d64fb2c7759e485c29be50ee2fa4b6cb1ff0a1968ca6e5d3d551464",
+          "bytes": 12162
+        }
+      },
+      {
+        "path": "presentation/scientific-evidence.tex",
+        "preimage": {
+          "path": "artifacts/science/english-scientific-deck-source-proposal/preimages/presentation/scientific-evidence.tex",
+          "sha256": "1566008c237d38e28e64abacd2710cdfc11db2fb57f553590046490d56ba8d94",
+          "bytes": 31131
+        },
+        "postimage": {
+          "path": "artifacts/science/english-scientific-deck-source-proposal/proposal/presentation/scientific-evidence.tex",
+          "sha256": "be57f0ef7b5c0ee8f4f93164d714d50647187ad8544847723887e73d9ea37027",
+          "bytes": 33639
+        }
+      }
+    ]
+  },
+  "supplemental_printed_citation": {
+    "association": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-deck-citation-association-proposal/supplemental-citation-association.json",
+      "sha256": "f0e0a55d4888b536f445e5d3b9263ffde0ed460dac88a316d954b8a999583f59",
+      "bytes": 3461
+    },
+    "count": 1,
+    "compiled_input": false
+  },
+  "products": [
+    {
+      "path": "presentation/big-picture.pdf",
+      "sha256": "07108905d5b123ef29d5aefa7358e5d06466f9838f49fd4918603271a004c6f9",
+      "bytes": 177930
+    },
+    {
+      "path": "presentation/developer.pdf",
+      "sha256": "8d420eae43d36b8f2ecdd311e445c51cce7a2f7f22b81201c6a6cb5ea84d0ffa",
+      "bytes": 160771
+    },
+    {
+      "path": "presentation/scientific-evidence.pdf",
+      "sha256": "fabc11c7384d05e3b8b5b1194eab5342ddc6da3ea1d5946c00c0372fe992d70b",
+      "bytes": 222289
+    }
+  ],
+  "historical_epochs": {
+    "retained_build": {
+      "accepted_revision": "4ec5f1f614ba2e0e1c8b16f3e9b3aa1abd73c3c3",
+      "source_revision": "2f526aee907574df061318ef2982af11012626e4",
+      "source_lock_path": "presentation/source-lock.json",
+      "source_lock_sha256": "e5f3ccf408cbea0b3961c5ca9abf2b11edeaa2710d1587b62f60d5145bdd696e",
+      "source_count": 121,
+      "native_terminal_sha256": "6e018822b26df4db52f844ae923fbfd5c328796d8f64e601c2a6eeeeff33d31b",
+      "pdf_sha256": {
+        "presentation/big-picture.pdf": "d1c924e807c77c79c98fe64ad29c1b7bac3df41f6862cbd006591655f129e739",
+        "presentation/developer.pdf": "ddb85077744cf4a9cefd2223280572e0c534bb51d8d1336c1083a4495738fde6",
+        "presentation/scientific-evidence.pdf": "7a9ec3066a0a577b5b4775a937ddae6df3e50cafd6049adc6a48778df7478031"
+      },
+      "scope": "Three retained actual native PDF builds; original121-source lock and PDF bytes remain unchanged. Current source correspondence does not rerun slides or scientific models."
+    },
+    "previous_deck_epoch": {
+      "context_path": "presentation/retained-source-context.json",
+      "context_sha256": "14f1d06e8f1470e5810865f4ae6d56b8d7cd08e30f3b73ad07d43fdda9bd0818",
+      "source_revision": "11079034b7dc0c1a0d94d26c97c70ec59fcf27f7",
+      "source_lock_sha256": "42fc24dc8c0a4f43bb754d4176f8259bb93a61133fa73ee00a9c20e27b2cad5b",
+      "source_count": 98,
+      "scope": "Original deck epoch remains historical; it is not the source lock of the later121-source PDFs."
+    }
+  },
+  "historical_contexts": [
+    {
+      "path": "presentation/retained-source-context.json",
+      "sha256": "14f1d06e8f1470e5810865f4ae6d56b8d7cd08e30f3b73ad07d43fdda9bd0818",
+      "bytes": 664
+    },
+    {
+      "path": "presentation/retained-build-source-context.json",
+      "sha256": "f4eb173ef20d869138bd481e161728b5a48a44a9d02b7421e5966ed84ba4fb40",
+      "bytes": 37770
+    }
+  ],
+  "export_review": {
+    "receipt": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-deck-stable-macro-regeneration/export-admission.json",
+      "sha256": "2e863920695135c08fea643652d7176805a971902a5b38eaab72606bbef39262",
+      "bytes": 4367
+    },
+    "machine_admitted": true,
+    "model_visual_admitted": true,
+    "tagged_accessibility_admitted": false,
+    "pptx_decision": "PPTX remains a pending format decision; no PPTX body produced",
+    "human_readability": "Unfamiliar-reader judgment remains external"
+  },
+  "scope": "New actual three-PDF build at canonical producer0caba with two reviewed TeX artifact overlays; remaining119 compiled inputs match producer Git. Published current121source bytes are checked separately at publication HEAD. Original retained121/98 authorities remain historical. One Git-backed supplemental printed citation is a post-production association, not a compiled input. Machine font/offline/text/citation checks and bounded model page review passed; unfamiliar-human readability, tagged accessibility and PPTX decision remain external/pending. No scientific model rerun or release/rights acceptance."
+}
