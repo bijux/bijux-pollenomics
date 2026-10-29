@@ -13,7 +13,7 @@ from typing import Any
 import pytest
 
 from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
-    load_routes,
+    parse_routes,
     render_route,
 )
 from bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications import (
@@ -99,6 +99,7 @@ def constructed(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Fixture:
                 "producer_inputs": [],
             }
         owners.append(owner)
+        assert isinstance(names, list)
         for name in names:
             current = tmp_path / name
             current.parent.mkdir(parents=True, exist_ok=True)
@@ -179,7 +180,9 @@ def test_complete_owned_outputs_with_separate_historical_version(
     assert (root / author.VERSION_SOURCE).read_bytes() == current
     assert facts["profile_owner_remains_unresolved"] is True
     assert facts["profile_original_acceptance_discharged"] is False
-    assert author.PROFILE_OWNER not in facts["owner_ids"]
+    owner_ids = facts["owner_ids"]
+    assert isinstance(owner_ids, list)
+    assert author.PROFILE_OWNER not in owner_ids
 
 
 @pytest.mark.parametrize(
@@ -336,7 +339,7 @@ def test_only_the_qualified_managed_footer_projects_the_saved_report(
     resource = tmp_path / author.ROUTE_RESOURCE
     resource.parent.mkdir(parents=True)
     resource.write_bytes(raw)
-    parsed = load_routes(raw)[0]
+    parsed = parse_routes(raw.decode("utf-8"))[author.MANAGED_READER]
     stem = b"# Invented scientific report\n\nOnly invented values are used in this source-free control.\n"
     current = render_route(stem, parsed)
     historical = current.replace(

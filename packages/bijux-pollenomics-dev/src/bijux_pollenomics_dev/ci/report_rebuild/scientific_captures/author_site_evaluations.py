@@ -9,7 +9,7 @@ from typing import Any
 
 from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
     authored_reader,
-    load_routes,
+    parse_routes,
     render_route,
 )
 from bijux_pollenomics.reporting.presentation.report_portal.scientific_qualifications import (
@@ -370,17 +370,14 @@ def _current_managed_reader(
     if name != MANAGED_READER:
         return False
     try:
-        routes = [
-            route
-            for route in load_routes(_file(repository, ROUTE_RESOURCE).read_bytes())
-            if route.reader_path == name
-        ]
-        if len(routes) != 1 or routes[0].qualification is None:
+        routes = parse_routes(_file(repository, ROUTE_RESOURCE).read_text(encoding="utf-8"))
+        route = routes.get(name)
+        if route is None or route.qualification is None:
             return False
-        validate_evidence(repository, routes[0].qualification, portal=False)
+        validate_evidence(repository, route.qualification, portal=False)
         return (
             authored_reader(historical) == authored_reader(current)
-            and render_route(current, routes[0]) == current
+            and render_route(current, route) == current
         )
     except (ValueError, OSError):
         return False
@@ -457,6 +454,7 @@ def validated_author_site_evaluation_captures(
             ).hexdigest() != row.get("sha256"):
                 if (
                     name != SPATIAL_EXPORT_SOURCE
+                    or current.stat().st_nlink != 1
                     or not 0 < current.stat().st_size <= 4096
                 ):
                     raise ReportRebuildError(
