@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Authenticate constrained execution and optimizer diagnostic source custody while retaining unresolved baseline and feasibility criteria ([#278](https://github.com/bijux/bijux-pollenomics/pull/278)).
+- **Pending review:** Retain radius, performance and sampling execution source custody through exact historical witnesses and scoped current readers ([#279](https://github.com/bijux/bijux-pollenomics/pull/279)).
+- **Verified merge (2026-10-29 02:26:01 UTC):** Authenticate constrained execution and optimizer diagnostic source custody while retaining unresolved baseline and feasibility criteria ([#278](https://github.com/bijux/bijux-pollenomics/pull/278)).
 - **Verified merge (2026-10-29 01:32:16 UTC):** Bound relationship rendering, cancel obsolete map selections, and index substring searches and crossing edges while preserving dated native atlas evidence ([#277](https://github.com/bijux/bijux-pollenomics/pull/277)).
 - **Verified merge (2026-10-29 00:54:21 UTC):** Authenticate retained author site and native-comparison source evidence while preserving unresolved profile criteria and historical runtime identity. ([#276](https://github.com/bijux/bijux-pollenomics/pull/276)).
 - **Verified merge (2026-10-29 00:07:25 UTC):** Propagate supplied joint uncertainty through withheld spatial fits while preserving refusal mass, source coupling, and training-only information boundaries ([#274](https://github.com/bijux/bijux-pollenomics/pull/274)).
