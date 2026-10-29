@@ -999,10 +999,10 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md",
-      "prose_paragraph_count": 16,
-      "link_bullet_count": 4,
+      "prose_paragraph_count": 21,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 2,
+      "heading_count": 3,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -1229,11 +1229,11 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
-      "prose_paragraph_count": 37,
-      "link_bullet_count": 6,
+      "prose_paragraph_count": 56,
+      "link_bullet_count": 10,
       "bullet_sentence_count": 0,
-      "heading_count": 7,
-      "table_line_count": 6,
+      "heading_count": 11,
+      "table_line_count": 18,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -1339,10 +1339,10 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/README.md",
-      "prose_paragraph_count": 30,
-      "link_bullet_count": 4,
+      "prose_paragraph_count": 33,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 2,
+      "heading_count": 3,
       "table_line_count": 6,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
