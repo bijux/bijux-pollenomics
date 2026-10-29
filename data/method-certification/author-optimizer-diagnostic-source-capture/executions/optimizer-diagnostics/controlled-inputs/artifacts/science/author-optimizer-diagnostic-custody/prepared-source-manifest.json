@@ -1,0 +1,47 @@
+{
+  "schema_version": "author-optimizer-diagnostic-source-preparation.v1",
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "d1e2442e1c968551d65665823fa2e6122f67ea9b1403e59faac793b78ca79ab9",
+      "bytes": 2761
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "3fb6e04ef13ef4c46e524f56aa8503de6afa2e99adef5709c0c4ce49c616cd32",
+      "bytes": 2772
+    },
+    {
+      "path": "observe.py",
+      "sha256": "30ed4a5d789fc0e1dec756839f6c7d88a50648fa8a8cf896676620352c90bc8a",
+      "bytes": 2919
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "e0a281457fc00c4d630e206491f01d32db2d6e677ee3c95ed5e360bebbcf6fcb",
+      "bytes": 13958
+    },
+    {
+      "path": "run.py",
+      "sha256": "c57917ef5d466346d787356d4948025d1506aba29458c4978777ab84d91e5aa5",
+      "bytes": 3689
+    },
+    {
+      "path": "storage.py",
+      "sha256": "bea316312519e5aac06d8006be90e0038963832432ba4c2f2f93138d6f1ec10a",
+      "bytes": 998
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "84fe1c60e9bb50129f9f967480eb7e98bfabf82ff8074692e0e54c37478a7733",
+      "bytes": 4951
+    },
+    {
+      "path": "preflight/qualification.json",
+      "sha256": "b8401978d10f3da5c92caec5b71966bf92a06541ffa12d53d7b8709e9289df95",
+      "bytes": 7520
+    }
+  ],
+  "source_only": true,
+  "actual_preparation_or_native_job": false
+}
