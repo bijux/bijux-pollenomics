@@ -1,0 +1,24 @@
+{
+  "schema_version": "hyde-country-source-independent-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "350c12f95524f52ed458e24f99f549f648e251624efceec42d0c5f6d6c11b1a8",
+  "physical_source_members": 12,
+  "independent_guard_session": 77170,
+  "independent_guard_exit": 0,
+  "meaningful_guard_groups": 20,
+  "reviewed_surfaces": [
+    "consumer-protocol.json",
+    "prepare.py",
+    "execute_source.py",
+    "observe.py",
+    "contracts.py",
+    "metadata.py",
+    "run.py",
+    "check_contracts.py"
+  ],
+  "exact_predecessor_sources": [
+    "runtime.py",
+    "common_runner.py"
+  ],
+  "scope": "Four exact native HYDE country inputs/2rightscontextidentityonly, independentXMLcountrymapping+Decimal84modeledrows/28countryyears/sevenliteralCElabels/3scenarios and complete2product bytes. Fulltypedmetadata/scope/sourcehashes and nointerval/calendar/rights/ecology/LRA inflation. Beforecensus frozenpins/conflictunion/finalframeworknamespace+aliases+absences+Git verified beforefirstoutputwrite. Bound2stages45seach/120scompletedwhole140souter/1GiB64MiBpostchecks16KiBreceiptreserve; no OSquotas/full descendant claim. No147runtime requirement/privategrid parsing or raw redistribution."
+}

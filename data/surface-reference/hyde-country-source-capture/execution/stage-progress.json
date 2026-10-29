@@ -1,0 +1,46 @@
+[
+  {
+    "id": "maintained-hyde-country-source",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.1307049589813687,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/maintained-hyde-country-source.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/maintained-hyde-country-source.stderr",
+    "stdout_sha256": "efd35cc5fca620d5fa2b3bb4a319f578074e368bddab57fffea0976c102785dc",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 36405248
+  },
+  {
+    "id": "independent-hyde-country-metadata-observer",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-country-source-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.4877207500394434,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/independent-hyde-country-metadata-observer.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/independent-hyde-country-metadata-observer.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 36749312
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "schema_version": "hyde-modeled-country-source-review.v1",
+  "public_capture": {
+    "path": "data/surface-reference/hyde-country-source-capture/capture.json",
+    "sha256": "bd7d37efaa8839af0e3997707e760a8c0b12cd053881549464a50e94638cea20",
+    "bytes": 1271992
+  },
+  "original_execution_candidate": "97be88f37a117a518c8c4639ccca98927e13cb24",
+  "original_native_stages": [
+    0,
+    0
+  ],
+  "original_tracked_byte_checker_exit": 0,
+  "publication_paths": [
+    "docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
+    "docs/report/regions/nordic/hyde-country-cropland/report.json"
+  ],
+  "original_input_count": 3506,
+  "input_scope_counts": {
+    "runtime_identity_only": 3482,
+    "private_rights_context_identity_only": 2,
+    "private_country_source_identity_only": 4,
+    "retained_execution_source": 16,
+    "retained_produced_product": 2
+  },
+  "source_receipts": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/plan.json",
+      "sha256": "44666c0828ef818488f220b896e08abd3831f9b7959f9f47af34f7c4c4fc162b",
+      "bytes": 1450565
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-hyde-country-source-replay/hyde-country-terminal.json",
+      "sha256": "ffbbe83e6a8517f225ba4ee8f7331718b47cd5ca20b4923ba23a3cec7c2214b4",
+      "bytes": 1605
+    }
+  ],
+  "scope": {
+    "new_native_retention_execution_claimed": false,
+    "raw_private_tables_or_runtime_redistributed": false,
+    "source_grid_reread_or_overlay_claimed": false,
+    "source_scenarios_are_uncertainty_intervals": false,
+    "independent_vegetation_or_pollen_covariates_admitted": false,
+    "CE_BP_or_NetCDF_calendar_conversion_claimed": false,
+    "release_rights_or_version_reconciled": false,
+    "paired_HYDE_ablation_or_LRA_human_ecology_admitted": false
+  },
+  "custody": "Authored retention of two genuinely completed source/independent native commands and unchanged84row/28country-year publication bytes. No new retention-native outcome. Four private modeled country-source inputs, two private rights/version context files and3482runtime payloads remain identity-only. CE labels, source-scenario roles and original redistribution/release/calendar/ecological refusals remain unchanged."
+}

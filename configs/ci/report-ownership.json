@@ -37883,6 +37883,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/native_execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/hyde_country.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
@@ -62346,11 +62348,9 @@
         "docs/report/regions/nordic/hyde-country-cropland/report.json"
       ],
       "producer_inputs": [],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py"
-      ],
-      "role": "unresolved",
-      "verification": "The retained country-year producer is `bijux_pollenomics_dev.source_completion.hyde_country_cropland --source-root <governed-HYDE-3.5-root> --output artifacts/jobs/vegetation-context-reproduction/hyde-country`. It reads the external general ZIP and three scenario country tables pinned in report.json. Bind exact HYDE release/source custody and permitted use before a fresh-output byte comparison of country-years.csv and report.json; no source grid, redistribution, calendar, CRS, or ecological reference acceptance is implied."
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "The maintained land_use.hyde_country validator binds two unchanged HYDE country products to genuine canonical source production and independent XML/Decimal arithmetic/whole-byte observer on97be88f37a117a518c8c4639ccca98927e13cb24, two native exits0 and tracked-byte0. The authored30-member capsule preserves3506original identities:16execution-source,2products,4privatecountry-source identity-only,2private license/version context identity-only,3482runtime identity-only. Four source countries x seven literal CE labels x three source scenarios remain84 modeled rows/28country-years. No raw private/runtime redistribution or new retention-native outcome. No large source-grid reread/overlay, source scenarios as uncertainty intervals, independent vegetation, pollen covariates, CE/BP/NetCDF calendar conversion, release/version/rights reconciliation, matched HYDE ablation, human/ecological or LRA admission."
     },
     {
       "owner_id": "regions/nordic/landclim-modeled-panels",

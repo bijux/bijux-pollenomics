@@ -50,6 +50,9 @@ from .scientific_captures.controlled_numerical.lra_comparison import (
 from .scientific_captures.lake_registry.svar import (
     validated_svar_capture,
 )
+from .scientific_captures.land_use.hyde_country import (
+    validated_hyde_country_capture,
+)
 from .scientific_captures.linux_r_reference import (
     validated_linux_r_reference_capture,
 )
@@ -318,6 +321,9 @@ def validated_maintained_report_sources(
     swedish_entries, swedish_evidence = validated_swedish_cohort_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    hyde_entries, hyde_evidence = validated_hyde_country_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -336,6 +342,7 @@ def validated_maintained_report_sources(
         + solsoe_entries
         + solsoe_pollen_entries
         + svar_entries
+        + hyde_entries
         + swedish_entries
         + rootsi_entries
         + controlled_numerical_entries
@@ -411,4 +418,6 @@ def validated_maintained_report_sources(
         evidence["retained_rootsi_workbook_chronology"] = rootsi_evidence
     if swedish_entries:
         evidence["retained_swedish_cohort_metadata"] = swedish_evidence
+    if hyde_entries:
+        evidence["retained_hyde_modeled_country_totals"] = hyde_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence
