@@ -56,8 +56,8 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "3f891d3fbaf1fb50b783d12667ca451035372fcde2e96b96826b01d7eac5d864",
-      "bytes": 132699
+      "sha256": "1cf6aa7ef5b1c8bd1f75ed3284e251a8817cd5883d6abc5910ab35247aa7a306",
+      "bytes": 132083
     },
     {
       "path": "configs/ci/report-ownership.json",
