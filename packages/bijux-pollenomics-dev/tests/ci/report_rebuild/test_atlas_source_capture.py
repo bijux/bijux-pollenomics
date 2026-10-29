@@ -369,10 +369,12 @@ def packet(
         "propagation-model.v1.yaml",
     )
     canonical = ["configs/scientific-contracts/" + name for name in configs]
-    canonical += sorted(capture.HISTORICAL_PORTAL_READER_SOURCES)
+    canonical += sorted(
+        capture.HISTORICAL_PORTAL_READER_SOURCES | capture.HISTORICAL_RENDERING_SOURCES
+    )
     canonical += [
         f"packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/fixture_{i:03}.py"
-        for i in range(387)
+        for i in range(381)
     ]
     for name in canonical:
         raw = ("# own synthetic source " + name + "\n").encode()

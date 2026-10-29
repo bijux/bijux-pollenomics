@@ -21,6 +21,7 @@ from .atlas_source_views import (
     _sha,
     read_object,
 )
+from .presentation_source_roles import HISTORICAL_RENDERING_SOURCES
 
 CURRENT_CAPTURE_PATH = "data/atlas/sample-chronology-source-view-capture/capture.json"
 CURRENT_CAPTURE_SHA256 = (
@@ -230,7 +231,7 @@ def _validate_current_source(
     expected: str,
     detached: frozenset[str],
 ) -> None:
-    """Keep exact source bytes or the finite retained-reader/documentation role."""
+    """Keep raw capture bytes exact and current presentation roles explicit."""
     _require(
         hashlib.sha256(captured).hexdigest() == expected,
         "captured source bytes differ: " + name,
@@ -238,12 +239,12 @@ def _validate_current_source(
     source = _regular_confined_file(
         repository, _relative(name), "current captured source"
     )
-    if name in HISTORICAL_PORTAL_READER_SOURCES:
+    if name in HISTORICAL_PORTAL_READER_SOURCES | HISTORICAL_RENDERING_SOURCES:
         _require(
             logical == "source/" + name
             and logical in detached
             and source.stat().st_nlink == 1,
-            "historical portal reader storage role differs: " + name,
+            "historical presentation storage role differs: " + name,
         )
         return
     current = source.read_bytes()

@@ -13,6 +13,7 @@ from typing import Any
 from ..contracts import ReportRebuildError
 from ..ownership import _regular_confined_file
 from ..retained_source.index import validated_descriptor
+from .presentation_source_roles import HISTORICAL_RENDERING_SOURCES
 
 CAPTURE_PATH = "data/atlas/source-view-capture/capture.json"
 CAPTURE_SHA256 = "bf5a62652a8b22734f15ac60584e2ab0f8ab8870d96a632307cfd40211daeddd"
@@ -327,8 +328,9 @@ def validated_atlas_source_views(repository: Path) -> ValidatedAtlasCapture:
     """Admit a fixed native packet, never an arbitrary ownership role or receipt.
 
     Every captured source and verifier body authenticates the historical display.
-    Six portal readers remain historical Git witnesses; their current maintained
-    software is separately qualified and is not asserted equal to those bodies.
+    Six portal readers and six display sources remain historical Git witnesses;
+    current presentation software is separately checked and is not asserted equal
+    to those browser-epoch bodies.
     Retained transport admits no fresh source reproduction, browser execution,
     generator execution or extension of displayed scientific admission.
     """
@@ -387,12 +389,12 @@ def validated_atlas_source_views(repository: Path) -> ValidatedAtlasCapture:
         )
 
         source = captured_source_path(repository, _relative(name))
-        if name in HISTORICAL_PORTAL_READER_SOURCES:
+        if name in HISTORICAL_PORTAL_READER_SOURCES | HISTORICAL_RENDERING_SOURCES:
             _require(
                 logical_member == "source/" + name
                 and logical_member in source_buffer.detached
                 and source.stat().st_nlink == 1,
-                "historical portal reader storage role differs: " + name,
+                "historical presentation storage role differs: " + name,
             )
             continue
         if _sha(source) != expected:
