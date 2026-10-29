@@ -2751,7 +2751,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       ]);
       async function staticAtlasBoundedGunzip(encoded, expectedByteCount, label) {
         if (typeof encoded !== 'string' || !encoded.length || encoded.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(encoded)) staticAtlasFailure(`${label} compressed payload is invalid`);
-        if (typeof DecompressionStream === 'undefined' || typeof atob === 'undefined' || typeof TextDecoder === 'undefined') staticAtlasFailure(`${label} gzip decoding support is unavailable`);
+        if (typeof ReadableStream === 'undefined' || typeof DecompressionStream === 'undefined' || typeof atob === 'undefined' || typeof TextDecoder === 'undefined') staticAtlasFailure(`${label} gzip decoding support is unavailable`);
         const limit = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes, 'chunk byte budget');
         const hasExpectedByteCount = expectedByteCount !== null && expectedByteCount !== undefined;
         const expected = hasExpectedByteCount ? staticAtlasNonnegativeInteger(expectedByteCount, `${label} decoded byte count`) : null;
@@ -2763,7 +2763,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         } catch (error) {
           staticAtlasFailure(`${label} compressed payload is invalid`);
         }
-        const reader = new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip')).getReader();
+        // Keep cached bytes in memory: offline Blob reads can fail before gzip decoding.
+        const source = new ReadableStream({
+          start(controller) {
+            controller.enqueue(compressed);
+            controller.close();
+          },
+        });
+        const reader = source.pipeThrough(new DecompressionStream('gzip')).getReader();
         const chunks = [];
         let actual = 0;
         try {
@@ -5363,7 +5370,7 @@ __URL_STATE_CONTROLLER__
           const shown = total ? `${start + 1}–${end}` : '0';
           const escapedPath = escapeHtml(tablePath);
           const supplements = renderDetailObjectEntries(table, tablePath, DETAIL_TABLE_INTERNAL_KEYS);
-          return `<div class="focus-detail-table-meta"><span>Showing ${shown} of ${total}</span><span class="focus-detail-table-actions"><button type="button" data-detail-table-page="${escapedPath}" data-page-direction="previous" ${page === 0 ? 'disabled' : ''}>Previous</button><button type="button" data-detail-table-page="${escapedPath}" data-page-direction="next" ${page + 1 >= pageCount ? 'disabled' : ''}>Next</button></span></div><div class="focus-detail-table-wrap"><table class="focus-detail-table"><thead><tr>${heading}</tr></thead><tbody>${body}</tbody></table></div>${supplements}`;
+          return `<div class="focus-detail-table-meta"><span>Showing ${shown} of ${total}</span><span class="focus-detail-table-actions"><button type="button" data-detail-table-page="${escapedPath}" data-page-direction="previous" tabindex="0" ${page === 0 ? 'disabled' : ''}>Previous</button><button type="button" data-detail-table-page="${escapedPath}" data-page-direction="next" tabindex="0" ${page + 1 >= pageCount ? 'disabled' : ''}>Next</button></span></div><div class="focus-detail-table-wrap"><table class="focus-detail-table"><thead><tr>${heading}</tr></thead><tbody>${body}</tbody></table></div>${supplements}`;
         } catch (error) {
           return '<div class="scientific-status">Unavailable: encoded_detail_table_invalid</div>';
         }

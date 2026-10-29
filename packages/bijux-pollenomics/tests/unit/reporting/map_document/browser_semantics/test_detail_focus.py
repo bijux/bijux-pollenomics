@@ -119,3 +119,37 @@ def test_detail_focus_candidate_exposes_labelled_panel_and_loaded_sample_pages(
     assert "focusedTable" in html
     assert "restoreFocusFromCard()" in html
     assert (tmp_path / "_map_assets/leaflet/leaflet.js").is_file()
+
+
+def test_detail_paging_controls_keep_sequential_focus_and_boundary_disabling() -> None:
+    import re
+
+    renderer = template_block(
+        "function renderDetailTable", "function renderDetailValue"
+    )
+    observed = run_node_json(
+        """
+const DETAIL_TABLE_PAGE_SIZE=2;
+const detailTablePages=new Map();
+const DETAIL_TABLE_INTERNAL_KEYS=new Set();
+function detailTableShape(table){return Array.isArray(table.records);}
+function decodeDetailTableRow(table,row){return {sample_id:row[0]};}
+function escapeHtml(value){return String(value);}
+function detailTableText(value){return String(value);}
+function renderDetailObjectEntries(){return '';}
+"""
+        + renderer
+        + """
+const table={record_count:5,fields:['sample_id'],records:[['a'],['b'],['c'],['d'],['e']]};
+const pages=[0,1,2].map(page=>{detailTablePages.set('samples',page);return renderDetailTable(table,'samples');});
+console.log(JSON.stringify(pages));
+"""
+    )
+    for page, html in enumerate(observed):
+        buttons = re.findall(r"<button\b[^>]*>", html)
+        assert len(buttons) == 2
+        for button in buttons:
+            assert 'tabindex="0"' in button
+            assert 'data-detail-table-page="samples"' in button
+        assert ("disabled" in buttons[0]) is (page == 0)
+        assert ("disabled" in buttons[1]) is (page == 2)
