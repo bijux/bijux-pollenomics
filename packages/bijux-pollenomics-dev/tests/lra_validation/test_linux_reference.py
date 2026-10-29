@@ -122,8 +122,16 @@ def test_retained_linux_r_vectors_satisfy_exact_local_profiles() -> None:
             json.dumps(source_set, sort_keys=True, separators=(",", ":")).encode()
         ).hexdigest()
     )
-    assert context["head_during_execution_independently_verified"] is False
-    assert context["head_changed_before_annotation"] is True
+    assert context["schema_version"] == "current-local-linux-execution-context.v1"
+    assert context["source_tree_is_git_checkout"] is False
+    assert context["in_container_git_head_observed"] is False, (
+        "Retained exported source has no container HEAD observation"
+    )
+    identity = context["canonical_identity_before_and_after"]
+    assert identity["candidate"] == context["candidate"]
+    assert identity["status"] == ""
+    assert context["release_certificate"] is False
+    assert context["release_refusal_codes"] == report["release_refusal_codes"]
     assert report["status"] == "passed_local_linux_oracle"
     assert report["release_certificate"] is False
     assert report["release_refusal_codes"] == [

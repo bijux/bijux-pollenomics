@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Expose source-bound predictive examples and preserve unresolved report-execution boundaries ([#288](https://github.com/bijux/bijux-pollenomics/pull/288)).
+- **Pending review:** Retain reference source qualifiers, saved Python comparison evidence and explicit report partition contracts ([#289](https://github.com/bijux/bijux-pollenomics/pull/289)).
+- **Verified merge (2026-10-29 22:53:20 UTC):** Expose source-bound predictive examples and preserve unresolved report-execution boundaries with dated presentation custody ([#288](https://github.com/bijux/bijux-pollenomics/pull/288)).
 - **Verified merge (2026-10-29 22:34:00 UTC):** Retain keyed categorical, integer and Boolean SEAD source components and their dated publications ([#287](https://github.com/bijux/bijux-pollenomics/pull/287)).
 - **Verified merge (2026-10-29 22:06:44 UTC):** Authenticate retained aDNA country publication evidence with the closed historical authority set and Git-only programme witnesses ([#286](https://github.com/bijux/bijux-pollenomics/pull/286)).
 - **Verified merge (2026-10-29 21:34:08 UTC):** Retain temporal-window and spatial development evidence through scoped saved-result readers ([#285](https://github.com/bijux/bijux-pollenomics/pull/285)).

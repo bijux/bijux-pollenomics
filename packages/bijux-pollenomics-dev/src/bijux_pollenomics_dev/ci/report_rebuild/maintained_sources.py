@@ -78,6 +78,9 @@ from .scientific_captures.controlled_numerical.love_objective import (
 from .scientific_captures.controlled_numerical.lra_comparison import (
     validated_controlled_lra_comparison_capture,
 )
+from .scientific_captures.controlled_numerical.python_reference import (
+    validated_current_python_r_comparison,
+)
 from .scientific_captures.country_reports.sweden import (
     validated_sweden_country_capture,
 )
@@ -533,6 +536,9 @@ def validated_maintained_report_sources(
     legacy_entries, legacy_evidence = validated_author_legacy_wrapper_domain(
         repository, tracked_by_path, inventory["owners"]
     )
+    python_r_entries, python_r_evidence = validated_current_python_r_comparison(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         (
             (
@@ -586,6 +592,7 @@ def validated_maintained_report_sources(
         + circular_entries
         + selector_entries
         + legacy_entries
+        + python_r_entries
     )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
@@ -731,4 +738,6 @@ def validated_maintained_report_sources(
         evidence["retained_development_setting_selection"] = selector_evidence
     if legacy_entries:
         evidence["retained_author_legacy_wrapper_domain"] = legacy_evidence
+    if python_r_entries:
+        evidence["retained_current_python_R_comparison"] = python_r_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

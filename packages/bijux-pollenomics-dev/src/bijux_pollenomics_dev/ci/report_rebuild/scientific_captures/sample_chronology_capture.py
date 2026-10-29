@@ -10,6 +10,7 @@ from typing import Any
 
 from ..contracts import ReportRebuildError
 from ..ownership import _regular_confined_file
+from ..retained_source import SourceCapsule
 from ..retained_source.descriptor import normalize_members
 from ..retained_source.index import validated_descriptor
 from .atlas_source_views import (
@@ -226,6 +227,81 @@ def _documented_source_matches(name: str, captured: bytes, current: bytes) -> bo
     return True
 
 
+_NEOTOMA_QUALIFIER_SOURCE = "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/__init__.py"
+_NEOTOMA_QUALIFIER_IDENTITY = (
+    "cdf755312d22f0b6e1a3edc8f7bd7fac0a8c9bd41b180273d6b22f16c7e47974",
+    3711,
+)
+
+
+def _neotoma_qualifier_source_correspondence(
+    repository: Path,
+    name: str,
+    logical: str,
+    captured: bytes,
+    current: bytes,
+    expected: str,
+    source_buffer: SourceCapsule | None,
+) -> bool:
+    """Bind one qualifier annotation extension to the original chronology source."""
+    if name != _NEOTOMA_QUALIFIER_SOURCE or source_buffer is None:
+        return False
+    checksum, size = _NEOTOMA_QUALIFIER_IDENTITY
+    identity = {"sha256": checksum, "bytes": size}
+    _require(
+        repository == repository.resolve()
+        and source_buffer.repository == repository
+        and source_buffer.prefix == "data/atlas/sample-chronology-source-view-capture"
+        and source_buffer.descriptor.capture.get("sha256")
+        == "2491a59a0d5cde5dffd05397c4a7dcc95ab98ba922019863e5ea2662681dba62"
+        and expected == checksum
+        and len(captured) == size
+        and hashlib.sha256(captured).hexdigest() == checksum
+        and logical == "source/" + name
+        and logical in source_buffer.detached
+        and source_buffer.descriptor.members.get(logical) == identity
+        and [
+            path
+            for group in source_buffer.descriptor.groups
+            for member, path in group["resolved_paths"]
+            if member == logical
+        ]
+        == [name],
+        "original chronology qualifier source binding differs",
+    )
+    source_buffer.fresh()
+    source = _regular_confined_file(repository, name, "current qualifier source")
+    before = source.stat()
+    _require(
+        before.st_nlink == 1
+        and 0 < before.st_size <= 128 * 1024**2
+        and source.read_bytes() == current,
+        "current qualifier source must be bounded stable single-link",
+    )
+    added = b're.compile(r"(?:^|\\s)cf\\.?\\s", re.IGNORECASE)'
+    original = b're.compile(r"(?:^|\\s)cf\\.\\s", re.IGNORECASE)'
+    if current.count(added) != 1 or current.replace(added, original, 1) != captured:
+        return False
+    source_buffer.fresh()
+    after_source = _regular_confined_file(repository, name, "current qualifier source")
+    after = after_source.stat()
+    fields = (
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_size",
+        "st_mtime_ns",
+        "st_ctime_ns",
+    )
+    _require(
+        all(getattr(before, field) == getattr(after, field) for field in fields)
+        and after_source.read_bytes() == current,
+        "current qualifier source changed during correspondence",
+    )
+    return True
+
+
 def _validate_current_source(
     repository: Path,
     name: str,
@@ -233,6 +309,8 @@ def _validate_current_source(
     captured: bytes,
     expected: str,
     detached: frozenset[str],
+    *,
+    source_buffer: SourceCapsule | None = None,
 ) -> None:
     """Keep raw capture bytes exact and current presentation roles explicit."""
     _require(
@@ -262,6 +340,15 @@ def _validate_current_source(
                     and _documented_source_matches(name, captured, current)
                 )
                 or atlas_extension_matches(name, captured, current)
+                or _neotoma_qualifier_source_correspondence(
+                    repository,
+                    name,
+                    logical,
+                    captured,
+                    current,
+                    expected,
+                    source_buffer,
+                )
             ),
             "current source footprint differs: " + name,
         )
@@ -478,7 +565,13 @@ def validated_sample_chronology_capture(repository: Path) -> ValidatedAtlasCaptu
         logical = _relative(packet["source_members"][name])
         captured = source_buffer.read_source(logical)
         _validate_current_source(
-            repository, name, logical, captured, expected, source_buffer.detached
+            repository,
+            name,
+            logical,
+            captured,
+            expected,
+            source_buffer.detached,
+            source_buffer=source_buffer,
         )
     runtime_resources = packet.get("runtime_resources", {})
     _require(isinstance(runtime_resources, dict), "runtime resource inventory differs")

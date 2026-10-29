@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -196,7 +197,12 @@ def test_retained_consumer_and_case_vector_identity(
     result = reader._require_retained_comparison(repository, report, replay)
     assert result.manifest_sha256 == "b" * 64
     assert (report, replay) == before
-    assert len(report["consumer_inputs"]["code_sha256"]) == 116
+    policy = json.loads((repository / "configs/ci/report-ownership.json").read_text())
+    (owner,) = policy["owners"]
+    expected_source_digest = hashlib.sha256(b"").hexdigest()
+    assert report["consumer_inputs"]["code_sha256"] == dict.fromkeys(
+        owner["producer_paths"], expected_source_digest
+    )
     assert len(report["consumer_inputs"]["data_sha256"]) == 290
     assert replay["retained_numeric_csv"]["file_count"] == 97
 

@@ -61,7 +61,14 @@ def test_each_missing_detached_role_refuses(
         )
 
 
-@pytest.mark.parametrize("extra", ["source-code/undeclared.py", "execution/plan.json"])
+@pytest.mark.parametrize(
+    "extra",
+    [
+        "source-code/undeclared.py",
+        "execution/plan.json",
+        "source-code/configs/ci/unqualified-ownership.json",
+    ],
+)
 def test_extra_source_or_non_source_role_refuses(
     monkeypatch: pytest.MonkeyPatch, tmp_path: Path, extra: str
 ) -> None:

@@ -123,3 +123,49 @@ def test_refusals_remain_exact_and_fail_closed() -> None:
         match="^conflicting duplicate observation_id: obs:1$",
     ):
         build_neotoma_classification_accounting(snapshot)
+
+
+@pytest.mark.parametrize(
+    ("label", "has_cf_marker"),
+    [
+        ("Vaccinium cf V. uliginosum", True),
+        ("Vaccinium cf. V. uliginosum", True),
+        ("Vaccinium CF V. uliginosum", True),
+        ("cf. Avena", True),
+        ("Vaccinium cfo V. uliginosum", False),
+        ("Scf species", False),
+        ("cfAvena", False),
+    ],
+)
+def test_accounting_retains_native_cf_resolution_without_accepting_a_taxon(
+    label: str, has_cf_marker: bool
+) -> None:
+    snapshot = representative_snapshot()
+    for observation in snapshot["observations"]:
+        if observation["variable_id"] == "var:1":
+            observation["source_reported_name"] = label
+            observation["source_taxon_id"] = 40997
+    for variable in snapshot["variables"]:
+        if variable["variable_id"] == "var:1":
+            variable["source_reported_name"] = label
+            variable["source_taxon_id"] = 40997
+
+    source_snapshot = json.loads(json.dumps(snapshot))
+    payload = build_neotoma_classification_accounting(snapshot)
+    assert snapshot == source_snapshot
+    concepts = cast(list[dict[str, Any]], payload["concepts"])
+    concept = next(row for row in concepts if row["source_variable_id"] == "var:1")
+    assert concept["source_reported_name"] == label
+    assert concept["source_taxon_id"] == 40997
+    assert concept["source_label_qualifier_markers"] == (
+        ["cf"] if has_cf_marker else []
+    )
+    assert concept["observation_count"] == 1
+    assert concept["mapping_status"] == "unmapped"
+    assert concept["accepted_taxon_concept_id"] is None
+    assert concept["accepted_taxon_name"] is None
+    assert concept["primary_group_id"] is None
+    assert concept["role_ids"] == []
+    assert concept["release_eligible"] is False
+    reconciliation = cast(dict[str, int], payload["reconciliation"])
+    assert reconciliation["unique_observation_count"] == 3

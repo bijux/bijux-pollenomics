@@ -2,6 +2,21 @@
 
 The current mapped comparison explicitly selects the separate native finite-covariance source packet described below. The prior capture and its governed raw files remain historical evidence.
 
+## Current Python against retained R
+
+A separately executed [current Python comparison](current-python-comparison.json) regenerated **43 core** and **23 source-domain** expectations at source revision `ba3a0c1da916b315eb96b7e521ebabacf4487638` and passed all 66 original case thresholds. The [trace index](current-python-trace-index.json) binds the actual successful native/collector execution, original R vectors, current output vectors, command, source/input contract and runtime profile. This is a new Python comparison with retained genuine R output, with **zero fresh R calls and zero new author-example calls**. It does not replace the historical reports below.
+
+| Current comparison | Cases passed | Maximum absolute error | Maximum relative error |
+| --- | ---: | ---: | ---: |
+| DISQOVER core | 43/43 | 2.4868995751603507e-14 | 1.0 |
+| Source domains | 23/23 | 5.551115123125783e-16 | 6.780649216896142e-13 |
+
+These 66 rows contain 5,828 ordered entries: 169 labels, 3,865 finite numeric pairs and 1,794 matching NaN pairs. There are 2,148 nonidentical finite/label positions, no unequal zero-reference entries and no NaN or infinity-mask mismatches. Original per-case tolerances and exact-coordinate requirements remain unchanged. Relative residuals use the current Python reference and exclude zero/nonfinite denominators; a maximum of 1.0 near zero does not imply a large absolute error. Matching NaNs retain their source meaning and do not certify a finite computation or successful optimizer convergence.
+
+The actual selected runtime is Python3.11.13, NumPy2.4.6, Pandas2.3.3 and SciPy1.17.1. Its NumPy/SciPy build configurations declare Accelerate with unknown BLAS version. The historical frozen sync/lock records the same Python and dependency version numbers; it is not a historical Python-BLAS payload/configuration measurement. The new result records its actual runtime and source epoch, without an installed first-party distribution claim or a claim that every future publication HEAD was recomputed.
+
+The original finite-covariance R source epoch remains `92a0adc1f00245c1a51b4e096e1eaac4c23325e5`. The separate [author correspondence](../../publication-replay/landclim-author-example-correspondence/README.md) retains its 14,074 supported mean/SE pairs, original shared draws and source/profile identity; all 59 watched source files matched at this new comparison's execution. That earlier author result was reused, not recomputed here. The older original-R bundle's 18 absent cases remain absent there, and the local Linux record remains separate from required hosted same-revision certification. No ecological accuracy, global optimizer solution quality, new covariance-extension R parity, qualified human approval or whole release acceptance follows from these 66 rows.
+
 ## Historical native capture
 
 The historical authenticated native macOS R 4.6.0 capture passed **43 core cases**, **23 source-domain cases** and **48 comparisons against the original R reference**. The capture identifies the executed Python source revision `064d1237fd743d957538fff2cbae74db06e17338`, the locked DISQOVER 0.9.14 source, the R runtime and the exact dependency versions. All 97 numeric CSV files matched the previously retained values byte for byte. The capture is a bounded numerical comparison, with no ecological accuracy or Linux release certification claim.
@@ -208,23 +223,23 @@ The [source replay verifier](https://github.com/bijux/bijux-pollenomics/blob/695
 
 Numerical/method correspondence reader: source assumptions and historical/independent accuracy acceptance remain separate.
 
-**Supported claim.** The retained current finite-covariance native capture identifies source revision 92a0adc1f00245c1a51b4e096e1eaac4c23325e5, 43 core and 23 domain R cases, and 48 historical comparisons; later mapped reports consume retained values without generating new R expectations. Retained-vector diagnostics separately account for 74 rows and 6076 ordered entries under the unchanged case tolerances.
+**Supported claim.** The retained current finite-covariance native capture identifies source revision 92a0adc1f00245c1a51b4e096e1eaac4c23325e5, 43 core and 23 domain R cases, and 48 historical comparisons; later mapped reports consume retained values without generating new R expectations. Retained-vector diagnostics separately account for 74 rows and 6076 ordered entries under the unchanged case tolerances. A separately executed Python comparison at ba3a0c1da916b315eb96b7e521ebabacf4487638 passed all 43 core and 23 domain thresholds against retained genuine R.
 
 **Unsupported claim.** A local macOS source export is not hosted same-revision Linux certification, a complete clean Git checkout, parity for new fixed/joint covariance extensions or independent ecological accuracy.
 
-**Actual verification performed.** The actual original native capture passed 43 core, 23 source-domain and 48 historical-vector comparisons. A later maintained retained-only producer and strengthened independent standard-library observer checked 6076 entry pairs, every 1408 nonidentical entry, all nonfinite masks, zero-reference differences, comparison kinds and unchanged threshold outcomes. Two additional source-confined maintained recipe lanes reproduced the original report and complete review byte for byte. Maximum relative residual 1.0 occurs at two saved references near zero, with absolute residuals below 2.18e-15. These new observations execute no R, source model, optimizer, draws or Python expectations. Earlier two-string mapped-report metadata correspondence retains its original consumer epoch.
+**Actual verification performed.** The actual original native capture passed 43 core, 23 source-domain and 48 historical-vector comparisons. A later maintained retained-only producer and strengthened independent standard-library observer checked 6076 entry pairs, every 1408 nonidentical entry, all nonfinite masks, zero-reference differences, comparison kinds and unchanged threshold outcomes. Two additional source-confined maintained recipe lanes reproduced the original report and complete review byte for byte. Maximum relative residual 1.0 occurs at two saved references near zero, with absolute residuals below 2.18e-15. These new observations execute no R, source model, optimizer, draws or Python expectations. Earlier two-string mapped-report metadata correspondence retains its original consumer epoch. A subsequent actual current-Python run regenerated 43 core and 23 domain expectations, passed all 66 cases, and completed native/collector0 in 17.609 seconds; it executed no new R or author examples. Its source/runtime/case-vector identities and original tolerances are retained separately.
 
 **Remaining input or review.** Resolve the newly declared generated owner against the complete canonical Git inventory and its exact output checkers; any changed native mapped-owner code/data/policy needs its own retained comparison mapping. Historical Python BLAS was not physically recorded, and the exact 2022 Petr executable remains unauthenticated. Official release still requires separately admitted same-revision hosted Linux/R and native-parity evidence.
 
 **Cause category.** Historical native numerical correspondence with separately scoped deterministic mapping and release admission.
 
-**Consequence.** The actual R capture remains valid for its pinned source and finite domain; later report mapping cannot enlarge its mathematical, platform or release scope.
+**Consequence.** The actual R capture remains valid for its pinned source and finite domain; later report mapping cannot enlarge its mathematical, platform or release scope. The separately recorded current-Python result qualifies its ba3a source/runtime epoch, without converting later reader publication into another numerical run.
 
 **Precise next acceptance route.** Run ordinary configured retained-vector reference/replay consumers when their declared source inputs change, preserve original 43+23 native cases and 48 historical comparisons, and keep current mapped-report custody separate. Resolve historical provenance only with authentic evidence; qualify hosted release artifacts at their actual source revision.
 
 **Negative or refused result.** The historical 18 cases absent from the original certificate remain absent there; later current-R cases do not retroactively fill that inventory. Fixed/joint covariance extensions remain outside its R case list. The 1794 matching NaN pairs remain nonfinite source outcomes; a historical Python BLAS measurement and authenticated 2022 Petr executable remain unavailable.
 
-**Matched denominator.** 43 current core cases,23 domain cases,48 original comparisons and 97 retained CSV byte-parity outputs; the native capture protects 68 inputs, while this reader adds zero new R cases. The residual account has 43 core + 23 domain + 8 Petr quantity rows: 6076 entries, 169 labels, 5907 numeric pairs, 1408 nonidentical entries and 0 threshold failures.
+**Matched denominator.** 43 current core cases,23 domain cases,48 original comparisons and 97 retained CSV byte-parity outputs; the native capture protects 68 inputs, while this reader adds zero new R cases. The residual account has 43 core + 23 domain + 8 Petr quantity rows: 6076 entries, 169 labels, 5907 numeric pairs, 1408 nonidentical entries and 0 threshold failures. The separate ba3a current-Python comparison has 66 rows and 5,828 entries: 169 labels, 3,865 finite pairs, 1,794 matching NaN pairs, 2,148 nonidentical finite/label positions and zero threshold failures; these are not the older 6,076-entry diagnostic population.
 
 - [Retained qualification evidence: docs/report/method-certification/current-r-oracle/report.json](report.json) (SHA-256 `a5238a9499c9bdc5289b2d8ac3c270f61388725df867d935c205b13517141881`).
 
@@ -235,6 +250,10 @@ Numerical/method correspondence reader: source assumptions and historical/indepe
 - [Retained qualification evidence: docs/report/method-certification/current-r-oracle/retained-vector-review.json](retained-vector-review.json) (SHA-256 `c5be016e6b5ae521a4942b88effab716185df7d16c70d7d5ad0d529863f62f22`).
 
 - [Retained qualification evidence: docs/report/method-certification/current-r-oracle/retained-vector-source.json](retained-vector-source.json) (SHA-256 `74c6657e79c94255c75c0ceec89c91ae67b7bd7a2339d6bfc31d4127e7c5401e`).
+
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/current-python-comparison.json](current-python-comparison.json) (SHA-256 `01bdf20cd4a1d02c1439e6042cde7eb5ba8e43b85ffbe87c3dd9b15100c0e1ec`).
+
+- [Retained qualification evidence: docs/report/method-certification/current-r-oracle/current-python-trace-index.json](current-python-trace-index.json) (SHA-256 `92872c5c701f54a444d03c88f23bc20ab8dfd2a83f8b1a3d73f1aedecd08d09a`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

@@ -153,9 +153,18 @@ def test_nfi_named_control_namespace_is_exact(
         ).detached == frozenset(names)
 
 
-@pytest.mark.parametrize("altered", [False, True])
+@pytest.mark.parametrize(
+    "change",
+    [
+        "positive",
+        "extra_control",
+        "missing_reference",
+        "missing_package",
+        "extra_reference",
+    ],
+)
 def test_performance_named_execution_roles_are_exact(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, altered: bool
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, change: str
 ) -> None:
     """Retain original control/replay roles without copying a real timing packet."""
     controls = {
@@ -183,8 +192,16 @@ def test_performance_named_execution_roles_are_exact(
     }
     members = [{"path": name, "bytes": 3, "sha256": "0" * 64} for name in sorted(names)]
     declared = set(names)
-    if altered:
+    if change == "extra_control":
         declared.add("controls/unqualified.py")
+    elif change == "missing_reference":
+        declared.remove(
+            "reference-inputs/docs/report/method-certification/author-site-uncertainty/replay.py"
+        )
+    elif change == "missing_package":
+        declared.remove("source-code/packages/example/src/own.py")
+    elif change == "extra_reference":
+        declared.add("reference-inputs/docs/report/unadmitted/replay.py")
 
     def descriptor(
         repository: Path, prefix: str, selected: list[dict[str, Any]]
@@ -193,7 +210,7 @@ def test_performance_named_execution_roles_are_exact(
         return SimpleNamespace(detached=frozenset(declared))
 
     monkeypatch.setattr(performance, "validated_descriptor", descriptor)
-    if altered:
+    if change != "positive":
         with pytest.raises(ValueError):
             performance._validate_source_transport(
                 tmp_path, tmp_path / "invented", members

@@ -1,0 +1,121 @@
+{
+  "schema_version": "nordic-conditional-physical-window-r-reference.v1",
+  "source_report": {
+    "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+    "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+    "bytes": 604997,
+    "scientific_candidate": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "source_tuples": {
+    "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/physical-response-tuples.json",
+    "sha256": "675e7ae2107829fd575255249f2643bde31951945b15690e46631455137be8e3",
+    "bytes": 12504
+  },
+  "populations": {
+    "cores": 4,
+    "cases": 9,
+    "physical_tuples": 23,
+    "case_taxon_uses": 29,
+    "occupied_case_windows": 182,
+    "window_components": 518,
+    "matrix_cells_per_quantity": 1762,
+    "six_quantity_cells_per_track": 6840,
+    "tracks": 2,
+    "output_value_rows": 13680
+  },
+  "input_columns": {
+    "tuples.tsv": [
+      "tuple_id",
+      "receiver_radius_m",
+      "source_inner_radius_m",
+      "regional_extent_m",
+      "fall_speed_m_s",
+      "empirical_diffusion_coefficient",
+      "turbulence_parameter",
+      "wind_speed_m_s"
+    ],
+    "scenarios.tsv": [
+      "case_id",
+      "taxon_index",
+      "taxon",
+      "tuple_id",
+      "ppe",
+      "ppe_sd",
+      "saved_factor"
+    ],
+    "windows.tsv": [
+      "case_id",
+      "window_id",
+      "younger_cal_bp",
+      "older_cal_bp_exclusive",
+      "taxon_index",
+      "count",
+      "panel_count_denominator"
+    ]
+  },
+  "input_rules": [
+    "The exporter authenticates exact report/tuple buffers and original case/tuple/taxon-use bijection; R never receives expected moments.",
+    "Indices are one-based original case taxon/result positions. Counts are original pooled panel integer counts, not full reported pollen NISP.",
+    "No source-window interpolation, empty-window insertion, missing-taxon zero fill, chronology conversion or new source acquisition.",
+    "The outer registered runner checks original report, tuple, source and runtime pins before and after execution. The exporter derives the TSVs within the owned job; the final comparator regenerates those exact TSV buffers from the pinned originals and authenticates their manifest and complete bytes. Base R does not perform SHA-256 verification."
+  ],
+  "output_columns": {
+    "factors.tsv": [
+      "tuple_id",
+      "factor",
+      "raw_factor",
+      "estimated_absolute_error",
+      "tail_mass_bound",
+      "subdivisions_used"
+    ],
+    "values.tsv": [
+      "case_id",
+      "window_id",
+      "track",
+      "quantity",
+      "i",
+      "j",
+      "value"
+    ]
+  },
+  "quantities": [
+    "conditional_cover",
+    "direct_pollen_panel_fraction",
+    "conditional_standard_error",
+    "counting_covariance",
+    "assumed_ppe_covariance",
+    "total_conditional_covariance"
+  ],
+  "output_rules": [
+    "track is fresh_factor or saved_factor; vectors use column j=0, matrices use one-based taxon indices.",
+    "Only two new R TSV files; the comparator validates exact complete namespaces and both raw buffer hashes.",
+    "R failure is native failure; no suppressed quadrature/infrastructure error or skipped tuple/window can pass."
+  ],
+  "reference": "Reuse canonical receiver_reference.R unchanged: displacement hazard/circle-overlap integral; abs1e-11 rel1e-10 subdivisions1000 per segment; nonrigorous error and analytic exp(-700) tail bound retained.",
+  "independent_marginal_derivation": {
+    "a": "a_i=1/(PPE_i*K_i); Z=sum(n_i*a_i); v_i=n_i*a_i/Z",
+    "D": "D_ij=(delta_ij*a_i-v_i*a_j)/Z, derivative with respect to native panel counts",
+    "C_count": "D [diag(n)-n*n^T/N] D^T",
+    "H": "H_ij=(v_i*v_j-delta_ij*v_i)/PPE_j",
+    "C_PPE": "H diag(PPE_SD^2) H^T",
+    "total": "C_count+C_PPE; marginal SE=sqrt(diagonal). No optimizer/inverse estimation is used."
+  },
+  "comparisons": {
+    "factor_absolute": 1e-08,
+    "fresh_factor_moments_absolute": 1e-08,
+    "fresh_factor_moments_relative": 1e-08,
+    "saved_factor_moments_absolute": 2e-12,
+    "saved_factor_moments_relative": 2e-12,
+    "reason": "Saved-factor track isolates algebra from independently integrated physical factors; quadrature acceptance is not ecological uncertainty."
+  },
+  "conditional_scope": [
+    "Explicit static circular basins, homogeneous isotropic source annuli, literal panels, assumed wind/metre transport and diagonal PPE covariance retain original source scope.",
+    "Four cores include two Solso cores of one lake; geometry cases repeat latent counts and PPE, not independent observations.",
+    "Only original marginal matrices are compared. Existing joint count/PPE blocks, cross-case covariance, chronology and basin uncertainty are not newly evaluated.",
+    "No historical author-R equivalence, old source-epoch rerun, original LandClim selection, full-assemblage cover, calibrated interval coverage, measured vegetation accuracy or complete scientific validation."
+  ],
+  "controls": {
+    "script": "test_physical_windows.R",
+    "scope": "Hand-derived two-component expectations, common-scale/count-scaling/boundary invariants and invalid-input/axis refusals. Physical quadrature and complete saved-input comparison are separate explicit commands."
+  }
+}

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Callable, Mapping
+from copy import deepcopy
 import json
 from pathlib import Path
 import shlex
@@ -16,6 +18,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import (
     inventory_reports,
     load_policy,
 )
+from bijux_pollenomics_dev.ci.report_rebuild import planning as rebuild_planning
 from bijux_pollenomics_dev.ci.report_rebuild import verification as rebuild_verification
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import (
     ReportRebuildError,
@@ -31,6 +34,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.execution import load_fragments
 from bijux_pollenomics_dev.ci.report_rebuild.original_r_reference import (
     validated_original_r_reference,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.runtime_process import run_runtime_command
 from bijux_pollenomics_dev.ci.report_rebuild.workflow import (
     assemble_partition_lane,
     build_owner_output,
@@ -1689,3 +1693,120 @@ def test_owner_artifact_namespace_preserves_exact_mapped_output_guard(
     assert (
         json.loads((evidence / "producer-execution.json").read_text())["exit_code"] == 0
     )
+
+
+def _reuse_runtime_plan_response(
+    dispatch: Callable[[Mapping[str, object]], JsonObject],
+) -> Callable[[Mapping[str, object]], JsonObject]:
+    """Reuse one real canonical plan response within this test module only."""
+    response: JsonObject | None = None
+
+    def load(request: Mapping[str, object]) -> JsonObject:
+        nonlocal response
+        if (
+            type(request) is not dict
+            or type(request.get("country_group_size")) is not int
+            or request
+            != {
+                "schema_version": "published-report-partition-command.v1",
+                "operation": "plan",
+                "country_group_size": 2,
+            }
+        ):
+            return dispatch(request)
+        if response is None:
+            response = deepcopy(dispatch(request))
+        return deepcopy(response)
+
+    return load
+
+
+@pytest.fixture(scope="module")
+def _module_runtime_plan() -> Callable[[Mapping[str, object]], JsonObject]:
+    return _reuse_runtime_plan_response(run_runtime_command)
+
+
+@pytest.fixture(autouse=True)
+def _shared_runtime_plan(
+    monkeypatch: pytest.MonkeyPatch,
+    _module_runtime_plan: Callable[[Mapping[str, object]], JsonObject],
+) -> None:
+    """Keep every binding check while avoiding identical process startups."""
+    monkeypatch.setattr(rebuild_planning, "run_runtime_command", _module_runtime_plan)
+
+
+def test_runtime_plan_fixture_dispatches_unmatched_requests() -> None:
+    calls: list[dict[str, object]] = []
+
+    def dispatch(request: Mapping[str, object]) -> JsonObject:
+        calls.append(dict(request))
+        return {"countries": ["Sweden"]}
+
+    load = _reuse_runtime_plan_response(dispatch)
+    request: JsonObject = {
+        "schema_version": "published-report-partition-command.v1",
+        "operation": "plan",
+        "country_group_size": 2,
+    }
+    assert load(request) == load(dict(request))
+    assert len(calls) == 1
+    for changes in (
+        {"country_group_size": 3},
+        {"country_group_size": 2.0},
+        {"country_group_size": "2"},
+        {"operation": "assemble"},
+        {"schema_version": "unsupported"},
+        {"unexpected": True},
+    ):
+        different = dict(request, **changes)
+        load(different)
+        load(different)
+        assert calls[-2:] == [different, different]
+    assert len(calls) == 13
+
+
+def test_runtime_plan_fixture_detaches_backend_and_caller_mutations() -> None:
+    source: JsonObject = {"countries": ["Sweden"], "nested": {"paths": ["source"]}}
+    calls = 0
+
+    def dispatch(_request: Mapping[str, object]) -> JsonObject:
+        nonlocal calls
+        calls += 1
+        return source
+
+    load = _reuse_runtime_plan_response(dispatch)
+    request: JsonObject = {
+        "schema_version": "published-report-partition-command.v1",
+        "operation": "plan",
+        "country_group_size": 2,
+    }
+    first = load(request)
+    cast(list[str], first["countries"]).append("foreign")
+    cast(dict[str, list[str]], first["nested"])["paths"].clear()
+    cast(list[str], source["countries"]).clear()
+    source["nested"] = {"foreign": True}
+    assert load(request) == {"countries": ["Sweden"], "nested": {"paths": ["source"]}}
+    assert calls == 1
+
+
+def test_runtime_plan_fixture_retries_failed_dispatch() -> None:
+    calls = 0
+
+    def dispatch(_request: Mapping[str, object]) -> JsonObject:
+        nonlocal calls
+        calls += 1
+        if calls == 1:
+            raise ReportRebuildError("controlled runtime refusal")
+        return {"countries": ["Sweden"]}
+
+    load = _reuse_runtime_plan_response(dispatch)
+    request: JsonObject = {
+        "schema_version": "published-report-partition-command.v1",
+        "operation": "plan",
+        "country_group_size": 2,
+    }
+    with pytest.raises(ReportRebuildError, match="controlled runtime refusal"):
+        load(request)
+    assert load(request) == {"countries": ["Sweden"]}
+    assert load(request) == {"countries": ["Sweden"]}
+    assert calls == 2
