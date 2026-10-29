@@ -1,0 +1,43 @@
+{
+  "all_optimizers_converged": false,
+  "excluded_filipendula_counts": 159,
+  "optimizer_acceptance": "diagnostic only; no convergence waiver or LRA product",
+  "original_count_denominator": 20732,
+  "request_sha256": "bf99b6d8add47095749b1770a0e62a575c1f90217af2c477f36525ddd0a5d69c",
+  "rows": [
+    {
+      "cover_min": 0.0008,
+      "cover_sum_after_source_rounding": 1.0002,
+      "forward_pollen_mae_percentage_points": 4.335452079566003,
+      "forward_pollen_max_error_percentage_points": 62.36019891500905,
+      "optimizer": {
+        "algorithm": "scipy.differential_evolution",
+        "certification_nfev": 0,
+        "fun": 6.960119760842714,
+        "message": "Evaluation budget reached",
+        "nfev": 20000,
+        "nit": 65,
+        "success": false
+      },
+      "ring_outer_m": 500
+    },
+    {
+      "cover_min": 0.0003,
+      "cover_sum_after_source_rounding": 0.9998999999999998,
+      "forward_pollen_mae_percentage_points": 4.4584514767932495,
+      "forward_pollen_max_error_percentage_points": 63.250198915009044,
+      "optimizer": {
+        "algorithm": "scipy.differential_evolution",
+        "certification_nfev": 0,
+        "fun": 6.763315465665135,
+        "message": "Evaluation budget reached",
+        "nfev": 20000,
+        "nit": 65,
+        "success": false
+      },
+      "ring_outer_m": 1000
+    }
+  ],
+  "schema_version": "author-love-finite-candidate-diagnostic.v1",
+  "taxa": 30
+}

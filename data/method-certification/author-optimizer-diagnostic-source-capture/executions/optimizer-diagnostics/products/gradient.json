@@ -1,0 +1,222 @@
+{
+  "beckham_fold_status": "refused",
+  "experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+  "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+  "held_out_prediction_count": 0,
+  "interpretation": "Source-bound prior-exposed English development diagnostic. Exact gradients recover HANGINGS only; CUTHILL2 and LONGBREACH still refuse. No complete BECKHAM training fold, held-out score, vegetation truth, or Nordic admission.",
+  "items": [
+    {
+      "item_id": "author:CUTHILL2",
+      "request_sha256": "5c8f9dc338ab88bc0284f53e8d5fead0467c87538f16539a9b35f0ea211e8ee2",
+      "rings": [
+        {
+          "analytic": {
+            "algorithm": "scipy.slsqp-simplex-analytic-jacobian",
+            "certification_nfev": 1,
+            "fun": 0.8230886817938257,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 402,
+            "nit": 120,
+            "success": false
+          },
+          "baseline": {
+            "fun": 0.8230886799982721,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 4898,
+            "nit": 147,
+            "success": false
+          },
+          "baseline_reproduced": true,
+          "cover_min": 9.034077902797688e-13,
+          "cover_sum": 1.0000008577291768,
+          "gradient_check": {
+            "max_ambient_absolute_error": 1.796430915135261e-08,
+            "max_ambient_scaled_error": 7.411734416392021e-09,
+            "max_tangent_absolute_error": 3.656905089854945e-07,
+            "max_tangent_scaled_error": 2.7909603134978216e-08
+          },
+          "objective_delta_vs_baseline": 1.7955535946967416e-09,
+          "outer_m": 500,
+          "ring_index": 0
+        },
+        {
+          "analytic": {
+            "algorithm": "scipy.slsqp-simplex-analytic-jacobian",
+            "certification_nfev": 1,
+            "fun": 0.8230886817938257,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 402,
+            "nit": 120,
+            "success": false
+          },
+          "baseline": {
+            "fun": 0.8230886799982721,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 4898,
+            "nit": 147,
+            "success": false
+          },
+          "baseline_reproduced": true,
+          "cover_min": 9.034077902797688e-13,
+          "cover_sum": 1.0000008577291768,
+          "gradient_check": {
+            "max_ambient_absolute_error": 1.796430915135261e-08,
+            "max_ambient_scaled_error": 7.411734416392021e-09,
+            "max_tangent_absolute_error": 3.656905089854945e-07,
+            "max_tangent_scaled_error": 2.7909603134978216e-08
+          },
+          "objective_delta_vs_baseline": 1.7955535946967416e-09,
+          "outer_m": 1000,
+          "ring_index": 1
+        }
+      ]
+    },
+    {
+      "item_id": "author:HANGINGS",
+      "request_sha256": "26f508a84f564826fadbddf4b4cc8b802fd68c86e63bb120620303a830da5370",
+      "rings": [
+        {
+          "analytic": {
+            "algorithm": "scipy.slsqp-simplex-analytic-jacobian",
+            "certification_nfev": 1,
+            "fun": 1.116182164533585,
+            "message": "Optimization terminated successfully",
+            "nfev": 313,
+            "nit": 110,
+            "success": true
+          },
+          "baseline": {
+            "fun": 1.1161822067632334,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 4210,
+            "nit": 129,
+            "success": false
+          },
+          "baseline_reproduced": true,
+          "cover_min": 4.933865523077788e-15,
+          "cover_sum": 1.0000000174515578,
+          "gradient_check": {
+            "max_ambient_absolute_error": 1.682349726195298e-08,
+            "max_ambient_scaled_error": 6.801243345801212e-09,
+            "max_tangent_absolute_error": 1.3927099029586998e-08,
+            "max_tangent_scaled_error": 1.2854041647133318e-08
+          },
+          "objective_delta_vs_baseline": -4.222964844480259e-08,
+          "outer_m": 500,
+          "ring_index": 0
+        },
+        {
+          "analytic": {
+            "algorithm": "scipy.slsqp-simplex-analytic-jacobian",
+            "certification_nfev": 1,
+            "fun": 1.116182164533585,
+            "message": "Optimization terminated successfully",
+            "nfev": 313,
+            "nit": 110,
+            "success": true
+          },
+          "baseline": {
+            "fun": 1.1161822067632334,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 4210,
+            "nit": 129,
+            "success": false
+          },
+          "baseline_reproduced": true,
+          "cover_min": 4.933865523077788e-15,
+          "cover_sum": 1.0000000174515578,
+          "gradient_check": {
+            "max_ambient_absolute_error": 1.682349726195298e-08,
+            "max_ambient_scaled_error": 6.801243345801212e-09,
+            "max_tangent_absolute_error": 1.3927099029586998e-08,
+            "max_tangent_scaled_error": 1.2854041647133318e-08
+          },
+          "objective_delta_vs_baseline": -4.222964844480259e-08,
+          "outer_m": 1000,
+          "ring_index": 1
+        }
+      ]
+    },
+    {
+      "item_id": "author:LONGBREACH",
+      "request_sha256": "65b8920c442ff7afb3db5ad5d78faf00047825e4c4027044851b67e5d2762eb7",
+      "rings": [
+        {
+          "analytic": {
+            "algorithm": "scipy.slsqp-simplex-analytic-jacobian",
+            "certification_nfev": 1,
+            "fun": 0.587410833421881,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 540,
+            "nit": 154,
+            "success": false
+          },
+          "baseline": {
+            "fun": 0.5874116458258167,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 5123,
+            "nit": 156,
+            "success": false
+          },
+          "baseline_reproduced": true,
+          "cover_min": 1.9925186053753788e-12,
+          "cover_sum": 1.000000153667704,
+          "gradient_check": {
+            "max_ambient_absolute_error": 8.17699286059792e-09,
+            "max_ambient_scaled_error": 3.282510264991161e-09,
+            "max_tangent_absolute_error": 3.398780634711329e-08,
+            "max_tangent_scaled_error": 1.4767604233090024e-09
+          },
+          "objective_delta_vs_baseline": -8.124039356793844e-07,
+          "outer_m": 500,
+          "ring_index": 0
+        },
+        {
+          "analytic": {
+            "algorithm": "scipy.slsqp-simplex-analytic-jacobian",
+            "certification_nfev": 1,
+            "fun": 0.587410833421881,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 540,
+            "nit": 154,
+            "success": false
+          },
+          "baseline": {
+            "fun": 0.5874116458258167,
+            "message": "Positive directional derivative for linesearch",
+            "nfev": 5123,
+            "nit": 156,
+            "success": false
+          },
+          "baseline_reproduced": true,
+          "cover_min": 1.9925186053753788e-12,
+          "cover_sum": 1.000000153667704,
+          "gradient_check": {
+            "max_ambient_absolute_error": 8.17699286059792e-09,
+            "max_ambient_scaled_error": 3.282510264991161e-09,
+            "max_tangent_absolute_error": 3.398780634711329e-08,
+            "max_tangent_scaled_error": 1.4767604233090024e-09
+          },
+          "objective_delta_vs_baseline": -8.124039356793844e-07,
+          "outer_m": 1000,
+          "ring_index": 1
+        }
+      ]
+    }
+  ],
+  "optimizer_contract": {
+    "baseline_objective_absolute_tolerance": 1e-10,
+    "ftol": 1e-08,
+    "gradient_check_scaled_tolerance": 1e-05,
+    "max_iterations_per_ring": 300,
+    "max_objective_evaluations_per_ring": 16000,
+    "method": "same LOVE log-Euclidean objective and simplex constraints",
+    "start": "uniform"
+  },
+  "regional_anchor": "author:BROADOWN",
+  "schema_version": "author-love-analytic-gradient-diagnostic.v1",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "training_items_converged": 1,
+  "training_items_required": 3,
+  "withheld_site": "author:BECKHAM"
+}

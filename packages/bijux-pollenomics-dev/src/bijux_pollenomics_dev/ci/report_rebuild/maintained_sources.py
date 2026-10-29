@@ -33,6 +33,9 @@ from .ownership import (
 from .scientific_captures.author_native_reference import (
     validated_author_native_reference_capture,
 )
+from .scientific_captures.author_optimizer_diagnostics import (
+    validated_author_optimizer_diagnostic_capture,
+)
 from .scientific_captures.author_site_evaluations import (
     validated_author_site_evaluation_captures,
 )
@@ -244,6 +247,11 @@ def validated_maintained_report_sources(
     constrained_entries, constrained_evidence = validated_constrained_author_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    optimizer_entries, optimizer_evidence = (
+        validated_author_optimizer_diagnostic_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
     all_capture_entries = (
         capture_entries
         + parameter_entries
@@ -252,6 +260,7 @@ def validated_maintained_report_sources(
         + linux_entries
         + author_entries
         + native_reference_entries
+        + optimizer_entries
         + constrained_entries
     )
     for entry in all_capture_entries:
@@ -299,4 +308,6 @@ def validated_maintained_report_sources(
         evidence["retained_author_native_reference_capture"] = native_reference_evidence
     if constrained_entries:
         evidence["retained_constrained_author_capture"] = constrained_evidence
+    if optimizer_entries:
+        evidence["retained_author_optimizer_diagnostic_capture"] = optimizer_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence
