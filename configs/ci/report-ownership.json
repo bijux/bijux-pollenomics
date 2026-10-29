@@ -37893,6 +37893,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar_census/transport.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/hyde_country.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/hyde_grid.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/openland_members.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
@@ -62361,12 +62362,9 @@
         "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json"
       ],
       "producer_inputs": [],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_grid_conservation.py"
-      ],
-      "role": "unresolved",
-      "verification": "The retained native-grid producer is `bijux_pollenomics_dev.source_completion.hyde_country_grid_conservation --source-root <governed-HYDE-3.5-root> --output artifacts/jobs/vegetation-context-reproduction/hyde-grid`. It reads the external ISO ZIP, 21 year/scenario ZIPs and three country tables pinned in report.json. Bind the exact HYDE package and use route, then compare both outputs from an absent artifact destination. This checks modeled source-grid reconciliation, not measured vegetation, rights, formal CRS or historical calendar."
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "The grouped land_use.hyde_grid guard authenticates the genuine grid producer and independent source reconstruction from commit 61eb1bfe697d0e7f15831b9c23bc45322ce042e8. Both existing report products remain byte exact. Complete owned source/resources, all 62,127 original ordered input identities, actual two-stage and resource receipts, and explicit private/runtime/cache/generated-metadata omissions are retained. The unavailable historical native/runtime epoch and prior country-table admission remain distinct. No rights, formal CRS, BP/calendar, independent vegetation, human or LRA acceptance is asserted."
     },
     {
       "owner_id": "regions/nordic/hyde-country-cropland/reader-account",

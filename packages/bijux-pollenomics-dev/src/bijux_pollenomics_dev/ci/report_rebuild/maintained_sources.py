@@ -62,6 +62,9 @@ from .scientific_captures.lake_registry.svar_census import (
 from .scientific_captures.land_use.hyde_country import (
     validated_hyde_country_capture,
 )
+from .scientific_captures.land_use.hyde_grid import (
+    validated_hyde_grid_source_captures,
+)
 from .scientific_captures.land_use.openland_members import (
     validated_openland_member_capture,
 )
@@ -376,6 +379,9 @@ def validated_maintained_report_sources(
     amsoldingersee_entries, amsoldingersee_evidence = validated_amsoldingersee_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    hyde_grid_entries, hyde_grid_evidence = validated_hyde_grid_source_captures(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -403,6 +409,7 @@ def validated_maintained_report_sources(
         + swedish_preparation_entries
         + svar_census_entries
         + hyde_entries
+        + hyde_grid_entries
         + swedish_entries
         + rootsi_entries
         + controlled_numerical_entries
@@ -498,4 +505,6 @@ def validated_maintained_report_sources(
         evidence["retained_love_objective_sources"] = love_objective_evidence
     if amsoldingersee_entries:
         evidence["retained_amsoldingersee_sources"] = amsoldingersee_evidence
+    if hyde_grid_entries:
+        evidence["retained_hyde_grid_source_conservation"] = hyde_grid_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence
