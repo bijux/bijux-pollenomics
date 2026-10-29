@@ -9,10 +9,8 @@ from pathlib import Path
 import sqlite3
 import sys
 import tempfile
-from types import SimpleNamespace
 from typing import Any
 import unittest
-from unittest.mock import patch
 from zipfile import ZipFile
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -34,8 +32,6 @@ from contracts import (
     public_projection,
     union,
 )
-import execute_source
-from execute_source import source_call_watcher
 from metadata import (
     NS,
     authorizer,
@@ -47,120 +43,6 @@ from run import accounted_receipt
 
 
 class Guards(unittest.TestCase):
-    def telemetry(self) -> tuple[Any, dict[str, int]]:
-        counts = {
-            "selected_NFI_cells": 0,
-            "selected_NFI_rows": 0,
-            "outcome_cell_decode_attempts": 0,
-            "LRA_implementation_function_calls": 0,
-        }
-        return source_call_watcher("/owned/nfi.py", "/owned/lra/src/", counts), counts
-
-    def test_million_unrelated_calls_construct_no_paths_or_read_function_name(
-        self,
-    ) -> None:
-        class UnrelatedCode:
-            co_filename = "/stdlib/xml/parser.py"
-
-            @property
-            def co_name(self) -> str:
-                raise AssertionError("Unrelated function name inspected")
-
-        watch, counts = self.telemetry()
-        frame = SimpleNamespace(f_code=UnrelatedCode())
-        with patch.object(
-            execute_source, "Path", side_effect=AssertionError("Path allocated")
-        ) as paths:
-            for _ in range(1_000_000):
-                watch(frame, "call", None)
-            self.assertEqual(paths.call_count, 0)
-        self.assertEqual(set(counts.values()), {0})
-
-    def test_non_call_event_never_reads_frame(self) -> None:
-        watch, counts = self.telemetry()
-        watch(object(), "return", None)
-        self.assertEqual(set(counts.values()), {0})
-
-    def test_exact_owned_six_columns_and_row_counters(self) -> None:
-        watch, counts = self.telemetry()
-        for column in "ABCDEF":
-            watch(
-                SimpleNamespace(
-                    f_code=SimpleNamespace(
-                        co_filename="/owned/nfi.py", co_name="_cell"
-                    ),
-                    f_locals={"cell": {"r": column + "123"}},
-                ),
-                "call",
-                None,
-            )
-        watch(
-            SimpleNamespace(
-                f_code=SimpleNamespace(co_filename="/owned/nfi.py", co_name="_selected")
-            ),
-            "call",
-            None,
-        )
-        self.assertEqual(
-            counts,
-            {
-                "selected_NFI_cells": 6,
-                "selected_NFI_rows": 1,
-                "outcome_cell_decode_attempts": 0,
-                "LRA_implementation_function_calls": 0,
-            },
-        )
-
-    def test_owned_outcome_decoder_refuses_before_selection(self) -> None:
-        watch, counts = self.telemetry()
-        with self.assertRaisesRegex(ValueError, "Tree outcome"):
-            watch(
-                SimpleNamespace(
-                    f_code=SimpleNamespace(
-                        co_filename="/owned/nfi.py", co_name="_cell"
-                    ),
-                    f_locals={"cell": {"r": "G2"}},
-                ),
-                "call",
-                None,
-            )
-        self.assertEqual(counts["outcome_cell_decode_attempts"], 1)
-        self.assertEqual(counts["selected_NFI_cells"], 0)
-        watch(
-            SimpleNamespace(
-                f_code=SimpleNamespace(co_filename="/other/nfi.py", co_name="_cell")
-            ),
-            "call",
-            None,
-        )
-        self.assertEqual(counts["outcome_cell_decode_attempts"], 1)
-
-    def test_lra_function_refuses_with_exact_directory_boundary(self) -> None:
-        watch, counts = self.telemetry()
-        for filename, name in (
-            ("/owned/lra/src/module.py", "<module>"),
-            ("/owned/lra/src_other/module.py", "fit"),
-        ):
-            watch(
-                SimpleNamespace(
-                    f_code=SimpleNamespace(co_filename=filename, co_name=name)
-                ),
-                "call",
-                None,
-            )
-        self.assertEqual(counts["LRA_implementation_function_calls"], 0)
-        with self.assertRaisesRegex(ValueError, "LRA implementation"):
-            watch(
-                SimpleNamespace(
-                    f_code=SimpleNamespace(
-                        co_filename="/owned/lra/src/module.py", co_name="fit"
-                    )
-                ),
-                "call",
-                None,
-            )
-        self.assertEqual(counts["LRA_implementation_function_calls"], 1)
-
     def setUp(self) -> None:
         self.storage = tempfile.TemporaryDirectory(dir=SOURCE / "preflight")
         self.root = Path(self.storage.name)

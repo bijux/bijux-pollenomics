@@ -11,6 +11,7 @@ _expected_python = {
     "execute_source.py",
     "observe.py",
     "metadata.py",
+    "custody.py",
     "common_runner.py",
     "runtime.py",
     "prepare.py",
@@ -39,6 +40,7 @@ from contracts import (  # noqa: E402 - closed namespace must precede owned impo
     validate_scope,
     verify_frozen_pins,
 )
+from custody import RETAINED, authenticate_retained  # noqa: E402
 from metadata import (  # noqa: E402
     report as independently_joined_report,
 )
@@ -55,10 +57,15 @@ def main() -> None:
     args = parser.parse_args()
     source_namespace()
     profile_guard()
-    plan = load(args.plan)
+    current = load(args.plan)
+    plan, products = authenticate_retained()
+    require(
+        exact(products, current["retained_output_members"]), "Retained members differ"
+    )
+    destination = Path(current["output"])
     output = Path(plan["output"])
     before = raw_process_snapshot()
-    qualify_process_snapshot(before, plan["input_pins"], SOURCE)
+    qualify_process_snapshot(before, current["input_pins"], SOURCE)
     verify_frozen_pins(plan["input_pins"])
     declared = load(SOURCE / "declared-inputs.json")
     expected = independently_joined_report(ROOT, Path(declared["private_root"]))
@@ -84,22 +91,37 @@ def main() -> None:
     )
     require(
         runtime["candidate"] == plan["candidate"]
-        and exact(runtime["plan"], pin(args.plan))
+        and exact(runtime["plan"], pin(RETAINED / "plan.json"))
         and exact(runtime["source"], plan["maintained_source"])
         and exact(runtime["executed_source_argv"], plan["maintained_source_argv"]),
         "Actual source execution binding differs",
     )
     for position in ("before", "after"):
-        qualify_process_snapshot(runtime[position], plan["input_pins"], SOURCE)
-    verify_frozen_pins(plan["input_pins"])
+        qualify_process_snapshot(
+            runtime[position],
+            plan["input_pins"],
+            Path(plan["stages"][0]["argv"][4]).parent,
+        )
+    verify_frozen_pins(current["input_pins"])
+    retained, checked_products = authenticate_retained()
+    require(
+        exact(retained, plan) and exact(checked_products, products),
+        "Retained production changed",
+    )
     after = raw_process_snapshot()
-    qualify_process_snapshot(after, plan["input_pins"], SOURCE)
+    qualify_process_snapshot(after, current["input_pins"], SOURCE)
     dump(
-        output / "independent-source-review.json",
+        destination / "independent-source-review.json",
         {
             "actual_exit": 0,
-            "candidate": plan["candidate"],
+            "candidate": current["candidate"],
             "plan": pin(args.plan),
+            "original_plan": pin(RETAINED / "plan.json"),
+            "original_common": pin(RETAINED / "terminal.json"),
+            "original_outer": pin(RETAINED / "swedish-cohort-terminal.json"),
+            "original_whole_actual_exit": 1,
+            "retained_producer_native_exit": 0,
+            "producer_rerun": False,
             "generated": pin(generated),
             "canonical": pin(original),
             "tracked_byte_checker_exit": 0,

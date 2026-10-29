@@ -15,6 +15,7 @@ _expected_python = {
     "execute_source.py",
     "observe.py",
     "metadata.py",
+    "custody.py",
     "common_runner.py",
     "runtime.py",
     "prepare.py",

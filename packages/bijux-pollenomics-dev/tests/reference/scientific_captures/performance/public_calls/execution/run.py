@@ -24,7 +24,7 @@ def main():
         Path(entry).resolve() == Path(target)
         for entry, target in plan["runtime_entry_targets"].items()
     )
-    terminal = out / "performance-terminal.json"
+    terminal = out / "performance-publication-terminal.json"
     assert not terminal.exists()
     command = [
         plan["qualified_python"],

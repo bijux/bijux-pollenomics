@@ -92,13 +92,34 @@ def title_screen(
 
 
 def dataset_sites(records: list[dict[str, Any]]) -> set[int]:
-    require(len(records) == 102, "Complete current dataset inventory required")
-    datasets = [row["datasetid"] for row in records]
-    sites = [row["site"]["siteid"] for row in records]
+    """Read native dataset IDs at the declared site.datasets boundary, without coercion."""
     require(
-        all(type(value) is int for value in [*datasets, *sites])
-        and len(set(datasets)) == 102
-        and len(set(sites)) == 99,
+        type(records) is list and len(records) == 102,
+        "Complete current dataset inventory required",
+    )
+    datasets: list[int] = []
+    sites: list[int] = []
+    for row in records:
+        require(
+            type(row) is dict and set(row) == {"site"},
+            "Declared nested metadata record required",
+        )
+        site = row["site"]
+        require(
+            type(site) is dict and type(site.get("siteid")) is int,
+            "Native integer site identity required",
+        )
+        entries = site.get("datasets")
+        require(
+            type(entries) is list and len(entries) == 1 and type(entries[0]) is dict,
+            "One declared nested dataset required",
+        )
+        dataset = entries[0].get("datasetid")
+        require(type(dataset) is int, "Native integer nested dataset identity required")
+        datasets.append(dataset)
+        sites.append(site["siteid"])
+    require(
+        len(set(datasets)) == 102 and len(set(sites)) == 99,
         "Unique dataset/native site identities differ",
     )
     return set(sites)

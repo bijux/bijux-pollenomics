@@ -1,204 +1,243 @@
-"""Join timings to retained scientific outputs without selecting favorable repeats."""
+"""Independently join retained measurements and source pins after metadata assembly."""
 
 from __future__ import annotations
 
 import argparse
 import csv
 import hashlib
+import importlib.util
 import json
 import math
 from pathlib import Path
 from statistics import median
 
-from boundary import assess
-from storage import write_json
-from workloads import digest
+from contracts import (
+    CAPTURE,
+    REPORT_ROOT,
+    WORKERS,
+    WORKLOADS,
+    exact,
+    pin,
+    require,
+    write_json,
+)
+
+A = Path(__file__).absolute().parent
 
 
-def legacy(value):
-    if isinstance(value, dict) and set(value) == {"nonfinite"}:
-        return None
-    if isinstance(value, list):
-        return [legacy(child) for child in value]
-    return value
+def independent_boundary(timings: dict) -> dict:
+    baseline, passthrough, instrumented, inside, clock = [
+        timings[k]
+        for k in ("baseline", "passthrough", "instrumented", "inside", "clock_cost")
+    ]
+    require(
+        all(len(v) == 3 for v in (baseline, passthrough, instrumented, inside, clock)),
+        "three boundary repeats required",
+    )
+    require(
+        all(
+            type(x) in (int, float) and math.isfinite(x) and x >= 0
+            for group in (baseline, passthrough, instrumented, inside, clock)
+            for x in group
+        )
+        and min(baseline) > 0,
+        "invalid boundary timing",
+    )
+    require(
+        all(a <= b for a, b in zip(inside, instrumented, strict=True)),
+        "boundary exceeds public call",
+    )
+    overhead = max(0.0, (median(instrumented) - median(baseline)) / median(baseline))
+    share = max(
+        0.0, min(inside) - max(clock) - max(0.0, max(passthrough) - min(baseline))
+    ) / max(baseline)
+    return {
+        "instrumentation_overhead_ratio": overhead,
+        "conservative_measured_boundary_share": share,
+        "qualified_measured_hotspot": overhead <= 0.05 and share >= 0.5,
+        "allows_compilation": False,
+    }
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--plan", type=Path, required=True)
     args = parser.parse_args()
     plan = json.loads(args.plan.read_bytes())
-    root, output = Path(plan["repository"]), Path(plan["output"])
-    report = json.loads(
+    output = Path(plan["output"])
+    repository = output / "source-products"
+    capsule = repository / CAPTURE
+    packet = json.loads(capsule.read_bytes())
+    require(
+        exact(
+            [row["original"] for row in packet["metadata_source_custody"]],
+            plan["metadata_source_pins"],
+        ),
+        "actual metadata source custody differs from registered plan",
+    )
+    module_path = (
+        A
+        / "proposal/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/retained_performance.py"
+    )
+    spec = importlib.util.spec_from_file_location(
+        "retained_performance_contract", module_path
+    )
+    require(
+        spec is not None and spec.loader is not None, "retained consumer import failed"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    report = module.validated_capture(repository, capture_sha256=pin(capsule)["sha256"])
+    original = Path(plan["execution_root"])
+    original_plan = json.loads((original / "plan.json").read_bytes())
+    copied = repository / Path(CAPTURE).parent / "execution"
+    reference = copied.parent / "reference-inputs/docs/report"
+    uncertainty = json.loads(
         (
-            root
-            / "docs/report/method-certification/author-site-uncertainty/report.json"
+            reference / "method-certification/author-site-uncertainty/report.json"
         ).read_bytes()
     )
     with (
-        root
-        / "docs/report/method-certification/author-site-uncertainty/cover-draws.csv"
+        reference / "method-certification/author-site-uncertainty/cover-draws.csv"
     ).open(newline="") as stream:
         table = list(csv.reader(stream))
-    assert table[0] == report["prepared_targets"]
-    expected_covers = [[float(x) for x in row] for row in table[1:]]
+    require(
+        table[0] == uncertainty["prepared_targets"] and len(table) == 1025,
+        "public draw table dimensions differ",
+    )
+    original_covers = [[float(cell) for cell in row] for row in table[1:]]
     baseline = next(
-        x
-        for x in json.loads(
+        row
+        for row in json.loads(
             (
-                root / "docs/report/numerical-performance/python-baseline/report.json"
+                reference / "numerical-performance/python-baseline/report.json"
             ).read_bytes()
         )["workloads"]
-        if x["name"] == "love-optimized-replay"
+        if row["name"] == "love-optimized-replay"
     )
-    references = {}
-    summary = []
-    measured_boundaries = {}
-    for workload in plan["workloads"]:
-        for worker in (0, 1, 2, 100, 101, 102, 103):
-            data = json.loads(
-                (output / workload / f"worker-{worker}/measurement.json").read_bytes()
+
+    def legacy(value):
+        if isinstance(value, dict) and set(value) == {"nonfinite"}:
+            return None
+        if isinstance(value, list):
+            return [legacy(child) for child in value]
+        return value
+
+    require(
+        {p.relative_to(original).as_posix() for p in original.rglob("*") if p.is_file()}
+        == {p.relative_to(copied).as_posix() for p in copied.rglob("*") if p.is_file()},
+        "original complete execution membership differs",
+    )
+    for path in original.rglob("*"):
+        if path.is_file():
+            require(
+                path.read_bytes() == (copied / path.relative_to(original)).read_bytes(),
+                "original execution bytes differ",
             )
-            assert data["candidate"] == plan["candidate"] and data["worker"] == worker
-            assert data["R_or_compiler_executed"] is False
-            assert len(data["rows"]) == 1 and [r["workload"] for r in data["rows"]] == [
-                workload
-            ]
-            assert data["native_thread_counters_observed"] is False
-            assert data["thread_limits"] == dict.fromkeys(
-                (
-                    "OMP_NUM_THREADS",
-                    "OPENBLAS_NUM_THREADS",
-                    "MKL_NUM_THREADS",
-                    "NUMEXPR_NUM_THREADS",
-                    "VECLIB_MAXIMUM_THREADS",
-                    "BLIS_NUM_THREADS",
+    boundaries = {}
+    for workload in WORKLOADS:
+        for worker in WORKERS:
+            source = json.loads(
+                (original / workload / f"worker-{worker}/measurement.json").read_bytes()
+            )
+            require(
+                all(
+                    path == original_plan["module_origins"][name]["path"]
+                    for name, path in source["source_origins"].items()
                 ),
-                "1",
+                "worker source origin differs",
             )
-            rss = data["peak_RSS_native"] * (
-                1 if data["rss_units"] == "bytes" else 1024
+            row = source["rows"][0]
+            scientific = json.loads(
+                (copied / workload / f"worker-{worker}/{workload}.json").read_bytes()
             )
-            assert rss <= plan["resources"]["declared_memory_bytes"]
-            for module, path in data["source_origins"].items():
-                assert path == plan["module_origins"][module]["path"]
-            for row in data["rows"]:
-                name = row["workload"]
-                p = output / workload / f"worker-{worker}" / (name + ".json")
-                assert Path(row["scientific_output_path"]) == p and not p.is_symlink()
-                value = json.loads(p.read_bytes())
-                assert digest(value) == row["scientific_output_sha256"]
-                key = {
-                    "contract": row["contract"],
-                    "input_identity": row["input_identity"],
-                    "output_sha256": row["scientific_output_sha256"],
-                }
-                if name in references:
-                    assert references[name] == key
-                references[name] = key
-                timings = [
-                    row["first_public_call_seconds"],
-                    *row["warm_public_call_seconds"],
-                ]
-                assert len(timings) == (8 if worker < 3 else 1)
-                assert all(
-                    type(x) is float and math.isfinite(x) and x > 0 for x in timings
+            if workload == WORKLOADS[0]:
+                require(
+                    exact(scientific["cover_draws"], original_covers)
+                    and exact(scientific["mean"], uncertainty["joint_mean_cover"])
+                    and exact(
+                        scientific["standard_error"],
+                        uncertainty["joint_standard_error"],
+                    ),
+                    "original public uncertainty scientific values differ",
                 )
-                assert row["profile_is_unprofiled_hotspot_evidence"] is False
-                if name == "author-conditional-joint-draws":
-                    assert value["cover_draws"] == expected_covers
-                    assert (
-                        value["mean"] == report["joint_mean_cover"]
-                        and value["standard_error"] == report["joint_standard_error"]
-                    )
-                else:
-                    assert len(value) == 128 and all(v == value[0] for v in value)
-                    mean_hash = hashlib.sha256(
-                        json.dumps(
-                            legacy(value[0]["cover"]), sort_keys=True, allow_nan=False
-                        ).encode()
-                    ).hexdigest()
-                    assert mean_hash == baseline["scientific_output_sha256"]
-                if worker < 3:
-                    summary.append(
-                        {
-                            "worker": worker,
-                            "workload": name,
-                            "first_seconds": timings[0],
-                            "warm_seconds": timings[1:],
-                            "warm_median_seconds": median(timings[1:]),
-                            "warm_min_seconds": min(timings[1:]),
-                            "warm_max_seconds": max(timings[1:]),
-                            "whole_worker_peak_RSS_bytes": rss,
-                        }
-                    )
-                    for measured in row["measured_unprofiled_boundaries"]:
-                        actual = assess(
-                            **measured["timings_seconds"],
-                            outputs_exact=True,
-                            inputs_exact=True,
-                        )
-                        assert (
-                            actual == measured["assessment"]
-                            and actual["allows_compilation"] is False
-                        )
-                        measured_boundaries.setdefault(
-                            measured["module"] + ":" + measured["attribute"], []
-                        ).append(actual)
-    scaling = json.loads((output / "scaling.json").read_bytes())
-    assert [r["mode"] for r in scaling["rows"]] == [
-        "sequential",
-        "parallel",
-        "sequential",
-        "parallel",
-    ]
-    assert [r["workers"] for r in scaling["rows"]] == [
-        [100, 101],
-        [102, 103],
-        [100, 101],
-        [102, 103],
-    ]
-    assert all(
-        type(r["wall_seconds"]) is float
-        and math.isfinite(r["wall_seconds"])
-        and r["wall_seconds"] > 0
-        for r in scaling["rows"]
+            else:
+                cover = json.dumps(
+                    legacy(scientific[0]["cover"]), sort_keys=True, allow_nan=False
+                ).encode()
+                require(
+                    hashlib.sha256(cover).hexdigest()
+                    == baseline["scientific_output_sha256"],
+                    "original LOVE scientific mean differs",
+                )
+            if worker >= 3:
+                continue
+            observation = next(
+                x
+                for x in report["observations"]
+                if x["workload"] == workload and x["worker"] == worker
+            )
+            require(
+                exact(observation["warm_seconds"], row["warm_public_call_seconds"])
+                and len(observation["warm_seconds"]) == 7,
+                "warm samples were omitted",
+            )
+            require(
+                exact(
+                    observation["output_projection_seconds"],
+                    row["output_projection_seconds"],
+                )
+                and len(observation["output_projection_seconds"]) == 8,
+                "output conversion observations differ",
+            )
+            for entry in row["measured_unprofiled_boundaries"]:
+                assessed = independent_boundary(entry["timings_seconds"])
+                require(
+                    exact(assessed, entry["assessment"]),
+                    "independent conservative boundary calculation differs",
+                )
+                boundaries.setdefault(
+                    entry["module"] + ":" + entry["attribute"], []
+                ).append(assessed)
+    require(
+        exact(boundaries, report["all_worker_boundary_assessments"])
+        and all(
+            len(rows) == 3
+            and not all(row["qualified_measured_hotspot"] for row in rows)
+            for rows in boundaries.values()
+        ),
+        "no-hotspot decision differs",
     )
-    for row in plan["input_pins"]:
-        p = Path(row["path"])
-        assert p.is_file() and not p.is_symlink() and p.stat().st_size == row["bytes"]
-        with p.open("rb") as stream:
-            assert hashlib.file_digest(stream, "sha256").hexdigest() == row["sha256"]
-    result = {
-        "candidate": plan["candidate"],
-        "scientific_sources_outputs_and_all_repeated_identities_pass": True,
-        "observations": summary,
-        "all_worker_boundary_assessments": measured_boundaries,
-        "qualified_all_three_worker_hotspots": [
-            k
-            for k, rows in measured_boundaries.items()
-            if len(rows) == 3
-            and all(r["qualified_measured_hotspot"] is True for r in rows)
-        ],
-        "scaling": scaling,
-        "new_cpp_allowed": False,
-        "source_R_same_input_comparison_executed": False,
-        "thread_scope": "One numerical thread is requested through six pinned vendor environment variables; immutable runtime lacks threadpoolctl, so no native thread-counter observation is claimed. Maximum two worker processes is independently bounded.",
-        "remaining": "Any candidate still requires actual current identical-input sourceR/Python comparison and a separately reviewed compiled proposal under the existing2x conversion-inclusive/1.25RSS gates. No C++ adoption, optimizer convergence, field-site/vegetation/right/human or official release conclusion.",
-        "scope": plan["scope"],
-    }
-    path = output / "independent-performance-review.json"
-    assert not path.exists()
-    write_json(output, path, result)
-    print(
-        json.dumps(
-            {
-                "native_exit": 0,
-                "isolated_worker_processes": 14,
-                "observations": len(summary),
-                "new_cpp_allowed": False,
-            }
+    require(
+        report["new_cpp_allowed"]
+        is report["source_R_same_input_comparison_executed"]
+        is False,
+        "compiled or R evidence invented",
+    )
+    replay = output / "independent-transport"
+    module.build(repository, replay, capture_sha256=pin(capsule)["sha256"])
+    for name in ("report.json", "README.md"):
+        require(
+            (replay / REPORT_ROOT / name).read_bytes()
+            == (repository / REPORT_ROOT / name).read_bytes(),
+            "maintained transport differs from generated public product",
         )
+    write_json(
+        output / "independent-publication-review.json",
+        {
+            "native_exit": 0,
+            "source_only_metadata": True,
+            "capture": pin(capsule),
+            "original_input_count": len(original_plan["input_pins"]),
+            "original_complete_execution_files_exact": 66,
+            "all_fourteen_worker_measurements_and_scientific_outputs_exact": True,
+            "all_six_first_plus_seven_warm_observations_preserved": True,
+            "independent_unprofiled_boundary_assessments": boundaries,
+            "qualified_all_three_worker_hotspots": [],
+            "new_model_timing_profile_compiler_R_calls": 0,
+            "maintained_transport_exact": True,
+            "scope": "Retained execution publication only; no new timing, profiling, model, compiler, R or release admission.",
+        },
     )
 
 

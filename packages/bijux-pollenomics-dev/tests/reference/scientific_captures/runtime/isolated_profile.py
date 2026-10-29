@@ -11,7 +11,8 @@ import subprocess
 import sys
 from typing import Any
 
-from contracts import BASE, BASE_SHA, PREFIX, pin, require, sha
+from cache_contract import validate_cache
+from contracts import BASE, BASE_SHA, CACHE, PREFIX, SOURCE, load, pin, require, sha
 
 UNUSED = PREFIX / "lib/python3.11/site-packages"
 UNUSED_LINK = "../../../../../../../../../lib/python3.11/site-packages"
@@ -209,7 +210,9 @@ def profile_guard() -> dict[str, Any]:
         str(PREFIX / "lib/python3.11/lib-dynload"),
     ]
     # Helper scripts explicitly add their own authenticated source directory only.
-    actual = [p for p in sys.path if p != str(Path(__file__).resolve().parent)]
+    actual = [p for p in sys.path if p not in (str(SOURCE), str(CACHE))]
+    if str(CACHE) in sys.path:
+        validate_cache(CACHE, load(SOURCE / "xlrd-cache-contract.json"))
     require(
         actual == expected and absent_path(Path(expected[0])),
         "Isolated stdlib path/absent zip changed",
@@ -220,7 +223,7 @@ def profile_guard() -> dict[str, Any]:
         "Ambient package path admitted",
     )
     return {
-        "profile": "isolated-base-standard-library",
+        "profile": "source-bound-isolated-base-with-pure-xlrd",
         "python": pin(BASE),
         "version": sys.version,
         "prefix": sys.prefix,
@@ -232,6 +235,10 @@ def profile_guard() -> dict[str, Any]:
 
 
 def expand_dependency(value: str, owner: Path, executable: Path) -> Path:
+    if value == "@loader_path":
+        return owner.parent
+    if value == "@executable_path":
+        return executable.parent
     if value.startswith("@loader_path/"):
         return owner.parent / value.removeprefix("@loader_path/")
     if value.startswith("@executable_path/"):
@@ -334,7 +341,9 @@ def native_closure(
 
 def runtime_inputs() -> tuple[set[Path], dict[str, Any]]:
     guard = profile_guard()
+    cache_files = enable_xlrd()
     files, aliases = tree(PREFIX)
+    files.update(Path(row["path"]) for row in cache_files)
     # These are the exact maintained replay, common launcher and observer stdlib
     # imports. Unused bundled extensions remain physically pinned but are not
     # relabelled as loaded or required launch contexts.
@@ -353,6 +362,15 @@ def runtime_inputs() -> tuple[set[Path], dict[str, Any]]:
         "traceback",
         "typing",
         "math",
+        "array",
+        "mmap",
+        "zipfile",
+        "zlib",
+        "bz2",
+        "lzma",
+        "datetime",
+        "csv",
+        "decimal",
     ):
         __import__(name)
     seeds = {BASE, PREFIX / "Python"}
@@ -363,7 +381,8 @@ def runtime_inputs() -> tuple[set[Path], dict[str, Any]]:
             path = Path(value).resolve()
             require(
                 path.is_relative_to(PREFIX)
-                or path.is_relative_to(Path(__file__).resolve().parent),
+                or path.is_relative_to(Path(__file__).resolve().parent)
+                or path.is_relative_to(CACHE),
                 f"Unowned stdlib preparation import: {name}: {path}",
             )
             origins.append({"module": name, "file": pin(path)})
@@ -382,6 +401,10 @@ def runtime_inputs() -> tuple[set[Path], dict[str, Any]]:
     system = subprocess.check_output(["/usr/bin/sw_vers"], text=True, timeout=15)
     return files, {
         **guard,
+        "cache_contract": pin(SOURCE / "xlrd-cache-contract.json"),
+        "xlrd_cache_root": str(CACHE),
+        "xlrd_cache_membership": tree_membership(CACHE),
+        "xlrd_cache_files": cache_files,
         "framework_root": str(PREFIX),
         "framework_membership": tree_membership(PREFIX),
         "native_inspector": pin(INSPECTOR),
@@ -468,7 +491,9 @@ def qualify_process_snapshot(
         if row["file"] is not None:
             path = Path(row["file"])
             require(
-                path.is_relative_to(PREFIX) or path.is_relative_to(source),
+                path.is_relative_to(PREFIX)
+                or path.is_relative_to(source)
+                or path.is_relative_to(CACHE),
                 "Namespace outside isolated stdlib/owned source: "
                 + row["module"]
                 + ": "
@@ -478,3 +503,23 @@ def qualify_process_snapshot(
                 str(path) in expected and pin(path) == expected[str(path)],
                 "Unpinned namespace origin: " + str(path),
             )
+
+
+def enable_xlrd() -> list[dict[str, Any]]:
+    """Add only the complete authenticated pure package cache to isolated sys.path."""
+    profile_guard()
+    files = validate_cache(CACHE, load(SOURCE / "xlrd-cache-contract.json"))
+    if str(CACHE) not in sys.path:
+        sys.path.insert(0, str(CACHE))
+    module = __import__("xlrd")
+    origin = getattr(module, "__file__", None)
+    require(type(origin) is str, "xlrd must have a physical module file")
+    assert isinstance(origin, str)
+    require(
+        Path(origin).resolve() == CACHE / "xlrd/__init__.py"
+        and module.__version__ == "2.0.2"
+        and module.XL_CELL_NUMBER == 2,
+        "Selected xlrd import/version/representation differs",
+    )
+    profile_guard()
+    return files

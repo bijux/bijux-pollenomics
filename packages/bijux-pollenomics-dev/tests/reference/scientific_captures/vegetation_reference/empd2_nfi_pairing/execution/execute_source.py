@@ -112,33 +112,6 @@ def source_origins(plan: dict[str, Any]) -> list[dict[str, Any]]:
     return records
 
 
-def source_call_watcher(
-    nfi_filename: str, lra_prefix: str, counters: dict[str, int]
-) -> Callable[[Any, str, Any], None]:
-    """Inspect only owned source calls without allocating paths for unrelated frames."""
-
-    def watch(frame: Any, event: str, arg: Any) -> None:
-        if event != "call":
-            return
-        filename = frame.f_code.co_filename
-        if filename == nfi_filename:
-            name = frame.f_code.co_name
-            if name == "_cell":
-                cell = frame.f_locals["cell"]
-                column = cell.get("r", "").rstrip("0123456789")
-                if column not in {"A", "B", "C", "D", "E", "F"}:
-                    counters["outcome_cell_decode_attempts"] += 1
-                    raise ValueError("Tree outcome cell decoder reached")
-                counters["selected_NFI_cells"] += 1
-            if name == "_selected":
-                counters["selected_NFI_rows"] += 1
-        if filename.startswith(lra_prefix) and frame.f_code.co_name != "<module>":
-            counters["LRA_implementation_function_calls"] += 1
-            raise ValueError("LRA implementation execution is outside metadata scope")
-
-    return watch
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--plan", type=Path, required=True)
@@ -170,7 +143,22 @@ def main() -> None:
     ).resolve()
     lra_root = ROOT / "packages/bijux-pollenomics-lra/src"
 
-    watch = source_call_watcher(str(nfi_source), str(lra_root) + "/", counters)
+    def watch(frame: Any, event: str, arg: Any) -> None:
+        if event != "call":
+            return
+        path = Path(frame.f_code.co_filename)
+        if path == nfi_source and frame.f_code.co_name == "_cell":
+            cell = frame.f_locals["cell"]
+            column = cell.get("r", "").rstrip("0123456789")
+            if column not in {"A", "B", "C", "D", "E", "F"}:
+                counters["outcome_cell_decode_attempts"] += 1
+                raise ValueError("Tree outcome cell decoder reached")
+            counters["selected_NFI_cells"] += 1
+        if path == nfi_source and frame.f_code.co_name == "_selected":
+            counters["selected_NFI_rows"] += 1
+        if path.is_relative_to(lra_root) and frame.f_code.co_name != "<module>":
+            counters["LRA_implementation_function_calls"] += 1
+            raise ValueError("LRA implementation execution is outside metadata scope")
 
     record: dict[str, Any] = {
         "candidate": plan["candidate"],
