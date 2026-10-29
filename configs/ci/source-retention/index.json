@@ -38,12 +38,12 @@
     },
     "data/method-certification/constrained-author-source-capture": {
       "descriptor": "source-transport.json",
-      "sha256": "41b32a018ac58064dd2738601f8df192ebe24c8e5e9aaff072f9e03a1c252acf",
+      "sha256": "f1ee83f831500f592fe2bcff06c8f6217fbe033c85e87c135879a7759f10d143",
       "bytes": 659703
     },
     "data/method-certification/author-optimizer-diagnostic-source-capture": {
       "descriptor": "source-transport.json",
-      "sha256": "b22088086ef04e7794d1c18fee29ce1bd52d6bede2dd027615d213e7adfc44a5",
+      "sha256": "08e9657776a8f3136fab6c99eef1990ebc76a6769332abd3faa8015766276b48",
       "bytes": 660562
     }
   },
