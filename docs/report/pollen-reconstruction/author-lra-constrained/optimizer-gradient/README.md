@@ -69,7 +69,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Unsupported claim.** A completed BECKHAM held-out prediction/score, permission to score nonconverged fits, measured vegetation accuracy or Nordic LRA source admission.
 
-**Actual verification performed.** The reader, frozen original diagnostics and retained derivative report were inspected. The retained replay reproduces all six original ring-fit stop/iteration/evaluation/objective diagnostics and checks tangent/off-simplex finite differences before analytic-gradient fitting. This qualification executes none of those fits or numerical derivative checks.
+**Actual verification performed.** The reader, frozen original diagnostics and retained derivative report were inspected. The retained replay reproduces all six original ring-fit stop/iteration/evaluation/objective diagnostics and checks tangent/off-simplex finite differences before analytic-gradient fitting. This qualification executes none of those fits or numerical derivative checks. An exact retained input certificate now binds the 2,090-byte optimizer baseline to the original protected plan and the completed three-stage diagnostic at source commit 19642380cc6051ed9d6cfc3fbddfdb56b4feeba7. All original input identities and the separate independent baseline/refusal checks remain bound. The baseline is a read reference; that execution did not produce it, and this certificate does not recover its earlier generation. No optimizer, derivative, R or held-out prediction was rerun for this metadata adoption. The two produced diagnostic reports and their convergence refusals are unchanged. The historical feasibility attempt remains unresolved. There is no new ecological, source-rights, human or LRA admission.
 
 **Remaining input or review.** CUTHILL2 and LONGBREACH still refuse under the unchanged analytic-gradient request. Exact derivatives cannot supply source-compatible valid convergence, missing physical basin interpretation, independent vegetation truth or qualified ecological review.
 
@@ -88,6 +88,8 @@ Qualified authored reader SHA-256: `2ca14edd4cac1d3b8d9363757ff6e7663c3e6464f77a
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json](baseline.json) (SHA-256 `68afb09419754130f482783397f58b12c7c06ee041430b24d264dc7f9c30e009`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json](report.json) (SHA-256 `8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/optimizer-baseline-input.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/optimizer-baseline-input.json) (SHA-256 `5d0a70920cf88b936580477cbdf86db657e44a0344edf0a8dfc26ac3967e10cf`).
 
 - [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (source SHA-256 `1645884c253eec4ee079a5cfc7703a52f12516e20cfea2e5956ca646c16256ec`).
 

@@ -1,4 +1,4 @@
-"""Authenticate the two produced optimizer diagnostics without admitting their historical references."""
+"""Authenticate produced diagnostics and a separately certified read-only baseline."""
 
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
+from .optimizer_inputs.baseline import validated_optimizer_input_reference
 from .source_correspondence import validated_metadata_source_correspondence
 
 CAPTURE = (
@@ -38,7 +39,6 @@ OWNERS = {
     ),
 }
 UNRESOLVED = {
-    "pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline-reference": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json",
     "pollen-reconstruction/author-lra-optimized-feasibility/attempt-report": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json",
 }
 
@@ -224,7 +224,13 @@ def validated_author_optimizer_diagnostic_capture(
             raise ReportRebuildError(
                 "Optimizer reference/attempt ownership must remain unresolved"
             )
-    baseline_name = UNRESOLVED[next(iter(UNRESOLVED))]
+    try:
+        input_certificate = validated_optimizer_input_reference(repository, owners)
+    except ValueError as error:
+        raise ReportRebuildError(
+            "Optimizer baseline input certificate differs"
+        ) from error
+    baseline_name = "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json"
     baseline = _file(repository, baseline_name)
     if (
         hashlib.sha256(baseline.read_bytes()).hexdigest()
@@ -394,6 +400,17 @@ def validated_author_optimizer_diagnostic_capture(
             raise ReportRebuildError(
                 "Author optimizer diagnostic retained ownership overlaps"
             )
+    if input_certificate:
+        entry = tracked_by_path.get(baseline_name)
+        if (
+            entry is None
+            or entry.kind != "file"
+            or entry.path != baseline_name.removeprefix("docs/report/")
+            or entry.sha256 != input_certificate["baseline"]["sha256"]
+            or entry.size != input_certificate["baseline"]["bytes"]
+        ):
+            raise ReportRebuildError("Certified optimizer input inventory differs")
+        accepted.append(entry)
     return tuple(accepted), {
         "owner_ids": sorted(OWNERS),
         "capture_sha256": CAPTURE_SHA256,
@@ -401,11 +418,12 @@ def validated_author_optimizer_diagnostic_capture(
             lane: values[0] for lane, values in EXECUTIONS.items()
         },
         "report_outputs": 2,
+        "retained_input_reference": input_certificate,
         "current_scientific_projection": 2072,
         "current_projection_byteequal_members": 2072
         - len(current_metadata_correspondences),
         "current_metadata_source_correspondences": current_metadata_correspondences,
         "original_projection_members_retained_unchanged": 2072,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Two actual bounded prior-exposed English optimizer diagnostic JSON reports. Exact original source, reference baseline and negative convergence are retained. The baseline is read input and historical feasibility attempt report remains unresolved. No full experiment fit, held-out prediction, R, ecology, Nordic, rights, human or official release acceptance is admitted.",
+        "scope": "Two actual bounded prior-exposed English optimizer diagnostic JSON reports. Exact original source, reference baseline and negative convergence are retained. The baseline remains read input; its exact certificate is separate from produced diagnostics. The historical feasibility attempt report remains unresolved. No full experiment fit, held-out prediction, R, ecology, Nordic, rights, human or official release acceptance is admitted.",
     }

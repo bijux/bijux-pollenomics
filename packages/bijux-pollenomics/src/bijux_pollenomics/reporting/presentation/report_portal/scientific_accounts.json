@@ -3843,7 +3843,7 @@
         "fields": {
           "supported_claim": "An exact derivative of the same normalized log-Euclidean LOVE objective reduces SLSQP evaluation counts and recovers HANGINGS under fixed source inputs, objective, constraints, start and budgets; the BECKHAM outer fold remains incomplete.",
           "unsupported_claim": "A completed BECKHAM held-out prediction/score, permission to score nonconverged fits, measured vegetation accuracy or Nordic LRA source admission.",
-          "actual_verification_performed": "The reader, frozen original diagnostics and retained derivative report were inspected. The retained replay reproduces all six original ring-fit stop/iteration/evaluation/objective diagnostics and checks tangent/off-simplex finite differences before analytic-gradient fitting. This qualification executes none of those fits or numerical derivative checks.",
+          "actual_verification_performed": "The reader, frozen original diagnostics and retained derivative report were inspected. The retained replay reproduces all six original ring-fit stop/iteration/evaluation/objective diagnostics and checks tangent/off-simplex finite differences before analytic-gradient fitting. This qualification executes none of those fits or numerical derivative checks. An exact retained input certificate now binds the 2,090-byte optimizer baseline to the original protected plan and the completed three-stage diagnostic at source commit 19642380cc6051ed9d6cfc3fbddfdb56b4feeba7. All original input identities and the separate independent baseline/refusal checks remain bound. The baseline is a read reference; that execution did not produce it, and this certificate does not recover its earlier generation. No optimizer, derivative, R or held-out prediction was rerun for this metadata adoption. The two produced diagnostic reports and their convergence refusals are unchanged. The historical feasibility attempt remains unresolved. There is no new ecological, source-rights, human or LRA admission.",
           "remaining_input_or_review": "CUTHILL2 and LONGBREACH still refuse under the unchanged analytic-gradient request. Exact derivatives cannot supply source-compatible valid convergence, missing physical basin interpretation, independent vegetation truth or qualified ecological review.",
           "cause_category": "algorithm/numerical | assumption | comparability | qualified review",
           "consequence": "Retain convergence as an acceptance requirement. Lower evaluation counts or a slightly lower refused objective do not turn the incomplete outer fold into a scored prediction.",
@@ -3859,6 +3859,10 @@
           {
             "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json",
             "sha256": "8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d"
+          },
+          {
+            "path": "reports/science/source-cohorts/optimizer-baseline-input.json",
+            "sha256": "5d0a70920cf88b936580477cbdf86db657e44a0344edf0a8dfc26ac3967e10cf"
           }
         ]
       }

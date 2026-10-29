@@ -1373,9 +1373,9 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md",
-      "content_sha256": "6d592300c4298fdf2f9e6b38c1a48df8edd16fac591d64371bcf185394007d2f",
+      "content_sha256": "804fab449a50fd08f17e40279f62939e4c2f3e08754f738d73dfa52604d9d549",
       "prose_paragraph_count": 16,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 5,
