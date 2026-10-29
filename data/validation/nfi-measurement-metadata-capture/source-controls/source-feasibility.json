@@ -1,0 +1,72 @@
+{
+  "schema_version": "nfi-source-policy-feasibility.v1",
+  "source_only": true,
+  "measurement_owner": "validation/empd2-nfi-pairing/measurement-schema",
+  "maintained_producer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/measurement_schema.py",
+    "sha256": "33436005ef6cf56c55b569606bf5a086539b2dbbebec1c285093822464a87e71",
+    "bytes": 11218
+  },
+  "workbook": {
+    "path": "/Users/bijan/bijux/-bijux-pollenomics-data/reference-sources/empd2-nfi/nfi/swedish-plot-data.xlsx",
+    "sha256": "862d13f26b868e3b32504f0f714f369018e700e54b245fcd2e16c80640316294",
+    "bytes": 14381338
+  },
+  "physical_exact_private_original_available": true,
+  "private_store": "/Users/bijan/bijux/-bijux-pollenomics-data",
+  "named_metadata_inspected": [
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/reference-sources/empd2-nfi/nfi/swedish-eligibility.json",
+      "sha256": "a38cba2995ec1c71f7276a4798f2ea79778f4cbbbb587bc507f902b71abc33fd",
+      "bytes": 1793
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/reference-sources/empd2-nfi/nfi/nordic-access.json",
+      "sha256": "b0ab87f8016b561d84cdff16e74500df1b2f1e4013f4600a3d7e0ec0942d6825",
+      "bytes": 2381
+    },
+    {
+      "path": "/Users/bijan/bijux/-bijux-pollenomics-data/reference-sources/empd2-nfi/pairing/source-provenance.json",
+      "sha256": "bcab3834980f6934143f3a2bf4e2a0155bf3c7024850989de4f0f28f89584c31",
+      "bytes": 28945
+    }
+  ],
+  "private_outcome_cells_decoded": 0,
+  "public_retained_metadata_only": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json",
+    "sha256": "5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505",
+    "bytes": 2537
+  },
+  "known_metadata_population": {
+    "plot_year_rows": 43892,
+    "selected_metadata_cells": 131676,
+    "area_each_m2": 153.94,
+    "header_count": 47
+  },
+  "calibration_owner": "validation/empd2-nfi-pairing/calibration-guide",
+  "calibration_guide": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "calibration_ownership_admitted": false,
+  "calibration_missing_named_evidence": [
+    "Original provider retrieval/copy receipt bound to exact PDF SHA",
+    "Authenticated retained official-page body with literal PDF href"
+  ],
+  "inspection_limit": "Named governed private source tree, eligibility/nordic official-page/dossier metadata, maintained source and current owner/README only. No blanket claim that a historical receipt is absent from all archives. No network/acquisition/provider authorization invented.",
+  "original_eligibility_limit": "Prior receipt explicitly says complete worksheet XML streamed including unselected measurement cells, but no measurement fields selected or values displayed/scored; no cryptographic final-test seal claimed.",
+  "no_original_provider_or_guide_authorship_inference": true,
+  "publication_use_statements_verified": true,
+  "publication_use_evidence": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/slu-calibration-guide-source-review/retained-source-review.json",
+    "sha256": "8be8d30b38ab3f6848f809edb8d7881c490a1dc0022365d71809957a3c630350",
+    "bytes": 4342
+  },
+  "source_use_qualification_scope": "Exact retained PDF explicitly states CC0 1.0 and remote-sensing reference/validation use; not geographic totals/means. Original provider retrieval/copy and authenticated retained source-page href remain unqualified.",
+  "previous_limited_source_audit": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-measurement-metadata-custody/source-feasibility.json",
+    "sha256": "42364709ff78262d7378b84f3cc63cf6bcc61da08c319379d375f5ad4d02e1dc",
+    "bytes": 3152
+  }
+}

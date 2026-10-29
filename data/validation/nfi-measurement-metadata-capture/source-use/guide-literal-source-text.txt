@@ -1,0 +1,70 @@
+NFI data for calibration
+A subset of the field data collected on temporary NFI plots can be downloaded in Excel format from this
+web site.
+
+This work is licensed under the Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.
+For more information, see https://creativecommons.org/publicdomain/zero/1.0/deed.en.
+
+The file includes a Read_me sheet and a sheet with field data from temporary plots on forest land1
+collected from 2007 to 2025. Note that plots located on boundaries (for example boundaries between
+forest stands, or different land use classes) are not included in the dataset. The dataset is primarily
+intended to be used as reference data and validation data in remote sensing applications. It cannot be
+used to derive estimates of totals or mean values for a geographic area of any size.
+
+Note that the definition of mean stand height differs depending on the mean height! If basal area
+weighted mean stand height is less than 7 m arithmetic mean is used, otherwise basal area weighted
+mean height is used.
+
+An English version of the field manual can be found at
+https://www.slu.se/globalassets/ew/org/centrb/rt/dokument/faltinst/nfi_fieldwork_instructions_eng.p
+df
+
+The forest variables included in the dataset are:
+
+    -   Plot ID
+    -   Position of plot (Sweref 99TM)
+        (Info about the Swedish reference system on http://www.lantmateriet.se/en/Maps-and-
+        geographic-information/GPS-and-geodetic-surveys/Reference-systems/ )
+        Note: Navigation to the theoretical position of the plots was until 2023 performed using
+        a handheld Garmin GPS device. From 2024 navigation is performed using an Emlid RS3
+        RTK GNSS-device with an accuracy of 2-5 cm.
+    -   Date of inventory
+    -   Plot size (same size for all plots)
+    -   LandUseClass (National classification according to table in the Read_me sheet. Only
+        plots from Forestland according to FAO-definitions included.
+    -   Treelayers (number of tree-layers on the plot, 0-3)
+    -   FullyLayered (Indicator for fully layered stand, 1 if fully layered, otherwise 0)
+    -   Mean stand height (m)
+    -   Stand age (yrs) [Top-class = 101 yrs, i.e. all ages above 100 yrs]
+    -   Site Index (m) for the tree-species used for Site Index determination
+    -   Tree-species used for Site Index determination
+    -   Maturity class (Missing if not productive forest, i.e. LandUseclass=1)
+    -   Stand density (Missing if not productive forest, i.e. LandUseclass=1)
+    -   Stand Gaps (Missing if not productive forest, i.e. LandUseclass=1)
+    -   Dry weight for different tree fractions (kg/ha)
+    -   Volume (m3/ha)2 by tree species
+    -   Basal area (m2/ha)2 by tree species
+   -   Mean diameter (mm)2 by tree species
+   -   Number of stems per hectare2 by tree species
+   -   Soil moisture class
+   -   Soil type class
+   -   Soil texture class
+   -   Soil depth class
+   -   Bottom layer vegetation type
+   -   Field layer vegetation type
+
+
+
+NFI Website
+https://www.slu.se/en/Collaborative-Centres-and-Projects/the-swedish-national-forest-inventory/
+
+Contact persons
+
+Jonas Fridman
+Mats Nilsson
+       1
+        ) Forest land according to the FAO definition
+       2
+        ) Values are given separately for Scots pine, Lodgepole pine, Norway spruce, Birch, and other
+       deciduous species.
+
