@@ -77,6 +77,9 @@ from .scientific_captures.pollen_source.solsoe_selection import (
 from .scientific_captures.pollen_source.swedish_cohort import (
     validated_swedish_cohort_capture,
 )
+from .scientific_captures.pollen_source.swedish_direct_pollen import (
+    validated_swedish_direct_pollen_capture,
+)
 from .scientific_captures.representative_performance import (
     validated_representative_performance_capture,
 )
@@ -342,6 +345,11 @@ def validated_maintained_report_sources(
     openland_entries, openland_evidence = validated_openland_member_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    swedish_preparation_entries, swedish_preparation_evidence = (
+        validated_swedish_direct_pollen_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -362,6 +370,7 @@ def validated_maintained_report_sources(
         + solsoe_pollen_entries
         + svar_entries
         + openland_entries
+        + swedish_preparation_entries
         + svar_census_entries
         + hyde_entries
         + swedish_entries
@@ -447,4 +456,8 @@ def validated_maintained_report_sources(
         evidence["retained_svar_feature_census"] = svar_census_evidence
     if openland_entries:
         evidence["retained_openland_member_custody"] = openland_evidence
+    if swedish_preparation_entries:
+        evidence["retained_swedish_direct_pollen_preparation"] = (
+            swedish_preparation_evidence
+        )
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

@@ -37896,6 +37896,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/solsoe_selection.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/swedish_cohort.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/swedish_direct_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/correspondence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/representative_performance.py",
@@ -65733,43 +65734,28 @@
     {
       "owner_id": "regions/nordic/swedish-lake-transfer/report-products",
       "paths": [
-        "docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json",
-        "docs/report/regions/nordic/swedish-lake-transfer/inputs/metadata-SE.json.gz",
-        "docs/report/regions/nordic/swedish-lake-transfer/inputs/training-SE.json.gz",
         "docs/report/regions/nordic/swedish-lake-transfer/manifest.json",
         "docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json",
         "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
-        "docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt",
+        "docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "These remaining protocol, historical freeze, reference-text and verification artifacts are unresolved. The current maintained preparation command genuinely produced four different files, which have a separate source-preparation-products owner. It did not produce or authenticate the historical authorship, freeze timestamp, original reference or whole-family verification represented here. The former whole-family producer recipe is preserved in the source capsule and witness. Its training-DK declaration did not match the actual protocol-selected training-SE input. Neither the actual replay nor the owner partition supplies a new historical-production certificate, untouched confirmation, source rights, human approval or LRA admission."
+    },
+    {
+      "owner_id": "regions/nordic/swedish-lake-transfer/source-preparation-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json",
+        "docs/report/regions/nordic/swedish-lake-transfer/inputs/metadata-SE.json.gz",
+        "docs/report/regions/nordic/swedish-lake-transfer/inputs/training-SE.json.gz",
         "docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz"
       ],
-      "producer_inputs": [
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/reconciliation.json",
-        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
-        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
-        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
-        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
-        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
-        "data/neotoma/relational/surfaces/datasets/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00002.json",
-        "data/neotoma/relational/surfaces/observations/part-00003.json",
-        "data/neotoma/relational/surfaces/observations/part-00004.json",
-        "data/neotoma/relational/surfaces/observations/part-00005.json",
-        "data/neotoma/relational/surfaces/observations/part-00006.json",
-        "data/neotoma/relational/surfaces/observations/part-00007.json",
-        "data/neotoma/relational/surfaces/observations/part-00008.json",
-        "data/neotoma/relational/surfaces/orphans/part-00001.json",
-        "data/neotoma/relational/surfaces/samples/part-00001.json",
-        "data/neotoma/relational/surfaces/sites/part-00001.json",
-        "data/neotoma/relational/surfaces/variables/part-00001.json",
-        "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py"
-      ],
-      "role": "unresolved",
-      "verification": "Input preparation requires the pinned private 10,788-row author taxonomy lookup; the protocol is authored JSON. The historical freeze binds earlier producer bytes, reference producer text is a retained snapshot, and manifest.json is verification-only. Do not promote these to independent generated custody."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.swedish_direct_pollen validator binds exactly four preparation files to source-built execution at commit 65d4752111915e1157315004d59603469af2d644. Across both study families, six maintained prepare, predict and score calls and two independent observers exited 0; the common, inner and outer run results were 0. All ten native products per family matched retained bytes. This owner admits only the four actually produced preparation files. The separate historical owner remains unresolved. Both protocols used the exact training-SE input, not the incorrect training-DK declaration in the original owner recipe. The 2,276-member authored public capsule preserves 66,481 ordered input identities, the original complete public source and controls, and 65 narrowly checked source files actually read by maintained stages. Runtime, private taxonomy lookup, relational payloads and 4,356 bytecodes remain identity-only. The original outer receipt incorrectly mentions EMPD2 in generic prose; it is preserved literally, while the bound Swedish plan and eight native commands identify the execution. This previously exposed direct-pollen development replay does not establish untouched confirmation, field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Capsule authoring is not a new native retention execution."
     },
     {
       "owner_id": "regions/nordic/swedish-lake-transfer/scored-products",
@@ -65914,44 +65900,29 @@
     {
       "owner_id": "regions/nordic/swedish-neotoma-holdout/report-products",
       "paths": [
-        "docs/report/regions/nordic/swedish-neotoma-holdout/input-manifest.json",
-        "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/metadata-SE.json.gz",
-        "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/training-SE.json.gz",
         "docs/report/regions/nordic/swedish-neotoma-holdout/manifest.json",
         "docs/report/regions/nordic/swedish-neotoma-holdout/prediction-freeze.json",
         "docs/report/regions/nordic/swedish-neotoma-holdout/protocol.json",
         "docs/report/regions/nordic/swedish-neotoma-holdout/reference/parallel-dataset-review-producer.py.txt",
-        "docs/report/regions/nordic/swedish-neotoma-holdout/reference/prediction-producer.py.txt",
+        "docs/report/regions/nordic/swedish-neotoma-holdout/reference/prediction-producer.py.txt"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "These remaining protocol, historical freeze, reference-text and verification artifacts are unresolved. The current maintained preparation command genuinely produced four different files, which have a separate source-preparation-products owner. It did not produce or authenticate the historical authorship, freeze timestamp, original reference or whole-family verification represented here. The former whole-family producer recipe is preserved in the source capsule and witness. Its training-DK declaration did not match the actual protocol-selected training-SE input. Neither the actual replay nor the owner partition supplies a new historical-production certificate, untouched confirmation, source rights, human approval or LRA admission."
+    },
+    {
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/source-preparation-products",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/regions/nordic/swedish-neotoma-holdout/input-manifest.json",
+        "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/metadata-SE.json.gz",
+        "docs/report/regions/nordic/swedish-neotoma-holdout/inputs/training-SE.json.gz",
         "docs/report/regions/nordic/swedish-neotoma-holdout/sealed-outcomes/outcomes-SE.json.gz"
       ],
-      "producer_inputs": [
-        "data/neotoma/relational/manifest.json",
-        "data/neotoma/relational/reconciliation.json",
-        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
-        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
-        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
-        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
-        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
-        "data/neotoma/relational/surfaces/datasets/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00001.json",
-        "data/neotoma/relational/surfaces/observations/part-00002.json",
-        "data/neotoma/relational/surfaces/observations/part-00003.json",
-        "data/neotoma/relational/surfaces/observations/part-00004.json",
-        "data/neotoma/relational/surfaces/observations/part-00005.json",
-        "data/neotoma/relational/surfaces/observations/part-00006.json",
-        "data/neotoma/relational/surfaces/observations/part-00007.json",
-        "data/neotoma/relational/surfaces/observations/part-00008.json",
-        "data/neotoma/relational/surfaces/orphans/part-00001.json",
-        "data/neotoma/relational/surfaces/samples/part-00001.json",
-        "data/neotoma/relational/surfaces/sites/part-00001.json",
-        "data/neotoma/relational/surfaces/variables/part-00001.json",
-        "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py"
-      ],
-      "role": "unresolved",
-      "verification": "Input preparation requires the pinned private author taxonomy lookup. Historical freeze and producer snapshots have distinct custody; the verification-only manifest and authored protocol are not independent generated outputs. Keep the parallel dataset as one core."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained pollen_source.swedish_direct_pollen validator binds exactly four preparation files to source-built execution at commit 65d4752111915e1157315004d59603469af2d644. Across both study families, six maintained prepare, predict and score calls and two independent observers exited 0; the common, inner and outer run results were 0. All ten native products per family matched retained bytes. This owner admits only the four actually produced preparation files. The separate historical owner remains unresolved. Both protocols used the exact training-SE input, not the incorrect training-DK declaration in the original owner recipe. The 2,276-member authored public capsule preserves 66,481 ordered input identities, the original complete public source and controls, and 65 narrowly checked source files actually read by maintained stages. Runtime, private taxonomy lookup, relational payloads and 4,356 bytecodes remain identity-only. The original outer receipt incorrectly mentions EMPD2 in generic prose; it is preserved literally, while the bound Swedish plan and eight native commands identify the execution. This previously exposed direct-pollen development replay does not establish untouched confirmation, field accuracy, vegetation truth, acquisition or reuse rights, human acceptance or LRA admission. Capsule authoring is not a new native retention execution."
     },
     {
       "owner_id": "regions/nordic/swedish-neotoma-holdout/scored-products",

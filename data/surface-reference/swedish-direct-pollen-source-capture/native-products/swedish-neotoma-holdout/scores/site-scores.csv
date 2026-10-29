@@ -1,0 +1,4 @@
+country,site_id,method,scored_bins,site_mae_fraction,site_hellinger_distance
+SE,neotoma:site:28874,inverse_distance_squared,22,0.01688146645432986,0.2857228812736664
+SE,neotoma:site:28874,nearest_site,22,0.015388827161345433,0.2437857673012424
+SE,neotoma:site:28874,training_mean,22,0.01935065046774327,0.32725956980655174

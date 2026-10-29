@@ -1,0 +1,213 @@
+{
+  "schema_version": "swedish-direct-pollen-source-observation.v1",
+  "actual_exit": 0,
+  "candidate": "65d4752111915e1157315004d59603469af2d644",
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/plan.json",
+    "sha256": "ab097749ed7a282886cf5d1f44508ccaf2ff9a63d3d94f6eaaa1bc6c86f96b5b",
+    "bytes": 30185118
+  },
+  "family": "swedish-neotoma-holdout",
+  "actual_native_source_receipts": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/native-receipts/swedish-neotoma-holdout-prepare.json",
+      "sha256": "c934733ff995ab7daac5d846f83238b58e509ee466f1f54821d492ae2d5307c3",
+      "bytes": 539248
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/native-receipts/swedish-neotoma-holdout-predict.json",
+      "sha256": "718c7a4df0d2cbcafa171dc7749db9702a1fb86fdc25c404f6cb802c058675b7",
+      "bytes": 536651
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/native-receipts/swedish-neotoma-holdout-score.json",
+      "sha256": "deb67130f6f2483294e573e9a1acc6607126d1a6c07565bc4ec0c205e8baf4c2",
+      "bytes": 538677
+    }
+  ],
+  "native_source_membership_and_mass": {
+    "selected_samples": 77,
+    "selected_sites": 1,
+    "selected_observation_rows": 1020,
+    "target_bins": 22,
+    "axis": [
+      "Abies alba",
+      "Alnus glutinosa",
+      "Amanranthaceae/Chenopodiaceae",
+      "Artemisia",
+      "Betula",
+      "Buxus sempervirens",
+      "Calluna vulgaris",
+      "Carpinus betulus",
+      "Carpinus orientalis",
+      "Castanea",
+      "Cerealia-t",
+      "Corylus avellana",
+      "Cyperaceae",
+      "Ericaceae",
+      "Fagus sylvatica",
+      "Filipendula",
+      "Fraxinus",
+      "Juniperus",
+      "Phillyrea",
+      "Picea",
+      "Pinus",
+      "Pistacia",
+      "Plantago lanceolata type",
+      "Poaceae",
+      "Quercus deciduous",
+      "Quercus evergreen",
+      "Rumex acetosa-t",
+      "Salix",
+      "Secale",
+      "Tilia",
+      "Ulmus"
+    ]
+  },
+  "independent_score_arithmetic": {
+    "predicted_bins": 22,
+    "refused_bins": 0,
+    "prediction_rows": 66,
+    "score_rows": 66
+  },
+  "this_study_complete_ten_product_comparisons": [
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/prepared/input-manifest.json",
+        "sha256": "752d43a47cbbc6cdde39b2625595c4bf939047649c09cae239449baf59b1994f",
+        "bytes": 3135
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/input-manifest.json",
+        "sha256": "752d43a47cbbc6cdde39b2625595c4bf939047649c09cae239449baf59b1994f",
+        "bytes": 3135
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/prepared/inputs/metadata-SE.json.gz",
+        "sha256": "061003889b07f4cad3db40484c217a2ef26a418ab92b80570f28e852d67b6913",
+        "bytes": 454
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/inputs/metadata-SE.json.gz",
+        "sha256": "061003889b07f4cad3db40484c217a2ef26a418ab92b80570f28e852d67b6913",
+        "bytes": 454
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/prepared/inputs/training-SE.json.gz",
+        "sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80",
+        "bytes": 99397
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/inputs/training-SE.json.gz",
+        "sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80",
+        "bytes": 99397
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/prepared/sealed-outcomes/outcomes-SE.json.gz",
+        "sha256": "6fe46a235568eeba5a8d94849d2b82d3013e4d3d11cee27d02a4ceb731e1a1ab",
+        "bytes": 1878
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/sealed-outcomes/outcomes-SE.json.gz",
+        "sha256": "6fe46a235568eeba5a8d94849d2b82d3013e4d3d11cee27d02a4ceb731e1a1ab",
+        "bytes": 1878
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/predictions/predictions-SE.json.gz",
+        "sha256": "1d21d1d351bfa7ee41a6dd1f2764e5ee9085f06931db40ca0c1263c5447b2a45",
+        "bytes": 19185
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/predictions/predictions-SE.json.gz",
+        "sha256": "1d21d1d351bfa7ee41a6dd1f2764e5ee9085f06931db40ca0c1263c5447b2a45",
+        "bytes": 19185
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/scores/coverage.csv",
+        "sha256": "27f5e87fff312b2473c778374d8013ecb110003ca76ca06946c1a70fd7e432ff",
+        "bytes": 137
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/coverage.csv",
+        "sha256": "27f5e87fff312b2473c778374d8013ecb110003ca76ca06946c1a70fd7e432ff",
+        "bytes": 137
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/scores/report.json",
+        "sha256": "4e208e1016cbc14544ebb45be11f5feffa2c5497b8c50c326d37643419638aab",
+        "bytes": 2231
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/report.json",
+        "sha256": "4e208e1016cbc14544ebb45be11f5feffa2c5497b8c50c326d37643419638aab",
+        "bytes": 2231
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/scores/scores.csv",
+        "sha256": "80c37ec37a0ce650cd1989f4b35b5f3ac174e78a3c733d2e97e092c5f6a322fc",
+        "bytes": 11064
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/scores.csv",
+        "sha256": "80c37ec37a0ce650cd1989f4b35b5f3ac174e78a3c733d2e97e092c5f6a322fc",
+        "bytes": 11064
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/scores/site-scores.csv",
+        "sha256": "f8ec59aa2341a605fed7e00bd523c9f2a9d3d576ffe5e39b6c3ed951346472d7",
+        "bytes": 323
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/site-scores.csv",
+        "sha256": "f8ec59aa2341a605fed7e00bd523c9f2a9d3d576ffe5e39b6c3ed951346472d7",
+        "bytes": 323
+      },
+      "checker_actual_exit": 0
+    },
+    {
+      "generated": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-swedish-direct-pollen-cache-replay/swedish-neotoma-holdout/scores/taxon-diagnostics.csv",
+        "sha256": "3ae354c5582cea80c21456610a734b733e73f0c94ce7f8aaa9efb2a3f1cccc3f",
+        "bytes": 4976
+      },
+      "retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/regions/nordic/swedish-neotoma-holdout/taxon-diagnostics.csv",
+        "sha256": "3ae354c5582cea80c21456610a734b733e73f0c94ce7f8aaa9efb2a3f1cccc3f",
+        "bytes": 4976
+      },
+      "checker_actual_exit": 0
+    }
+  ],
+  "prepared_product_count": 4,
+  "prediction_product_count": 1,
+  "scoring_product_count": 5,
+  "source_metadata_defect": "Both original owner producer_inputs incorrectly name training-DK under author-target-pollen. Actual protocols read the independently pinned training-SE under swedish-author-target-pollen. No silent substitution; future canonical owner correction must be reviewed separately.",
+  "historical_protocol_freeze_reference_or_verification_files_reproduced": false,
+  "previously_exposed_direct_pollen_development_only": true,
+  "LRA_or_field_accuracy_independent_confirmation_rights_or_human_acceptance": false,
+  "scope": "New source-bound replay of two previously exposed direct observed-pollen cohorts. Maintained prepare/predict/score and independent source membership/count-mass/exclusion/score/whole-byte observer. Four preparation products per cohort are actually produced; authored protocol, earlier freeze/reference snapshot and verification manifest remain historical input roles. Fixed spatial baselines only; no LRA, independent confirmation, vegetation/field accuracy, acquisition, rights or human acceptance."
+}
