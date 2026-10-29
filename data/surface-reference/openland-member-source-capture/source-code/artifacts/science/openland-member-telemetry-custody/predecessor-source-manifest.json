@@ -1,0 +1,131 @@
+{
+  "schema_version": "openland-member-source-controller-manifest.v1",
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "59eca079a2bb5b302ca0be5ed5e600e4d18f7439f39930727b2c2d65d8d89ecf",
+      "bytes": 13319
+    },
+    {
+      "path": "common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "consumer-protocol.json",
+      "sha256": "49c2461797f133bf6231e21328a3475e0af20ba3c415a4894633a2280d108a48",
+      "bytes": 6426
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "d8461cb821ff7d72961b10993206ba597f9eed5ff42781d4548c5ef0cabc4b25",
+      "bytes": 10770
+    },
+    {
+      "path": "execute_source.py",
+      "sha256": "17d64fb4a0f0af3b6d6219af21c6f9b0aff92847bcc94222663ab4cc835fa3fe",
+      "bytes": 7498
+    },
+    {
+      "path": "metadata.py",
+      "sha256": "794a229f2abea158a2f5c8c4fa1f35c3f1efd35e912ace2d34aa87b8eae96c38",
+      "bytes": 11283
+    },
+    {
+      "path": "observe.py",
+      "sha256": "59b468b4b6981c9f8e9eabdb9610c8e64292aff855ef6296606b67269ee1fa4a",
+      "bytes": 6795
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "eca3539eacb75f3b57a1f910dc6b449fe9466b25bc8967017ec3f523ee6d6a91",
+      "bytes": 9808
+    },
+    {
+      "path": "run.py",
+      "sha256": "e66dc404a7f81591321bf26f10110852b48ca05da8b64be56dd6fa559ec2640b",
+      "bytes": 7401
+    },
+    {
+      "path": "runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "runtime_guarded_runner.py",
+      "sha256": "22416ae203803e6a0432dd2196142513a9baf6c600b8b899093527a261b0968a",
+      "bytes": 8337
+    },
+    {
+      "path": "source-attribution-bridge.json",
+      "sha256": "d4e4ec2a3288ea07d6e16eaf3ed0617d0e03776913a378dc7072c93639101c3b",
+      "bytes": 994
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "d2ac440feef8a767f7344b1aae07e5d5a428ff18b1019dacc05f473d4b959267",
+      "bytes": 8243
+    },
+    {
+      "path": "source_runtime.py",
+      "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+      "bytes": 11236
+    }
+  ],
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/source-qualification.json",
+    "sha256": "d2ac440feef8a767f7344b1aae07e5d5a428ff18b1019dacc05f473d4b959267",
+    "bytes": 8243
+  },
+  "immutable_runtime_sources": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/source_runtime.py",
+      "sha256": "a64da3788dafe80b442575b5822287a2519699c691f18b8fc873699a79ee8970",
+      "bytes": 11236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/runtime_contracts.py",
+      "sha256": "40ca33563c15a3555ef0fb338dc4899f89f6d06168d7593b47b89ba30b6a9c28",
+      "bytes": 16576
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/runtime_guarded_runner.py",
+      "sha256": "22416ae203803e6a0432dd2196142513a9baf6c600b8b899093527a261b0968a",
+      "bytes": 8337
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    }
+  ],
+  "declared_external_references": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-openland-source-feasibility/recorded-authority.py",
+      "sha256": "3d7c3ef41e2ff3ce1bf91f2f61dd176d6be6a22acd36b8efb9e832990dc86a65",
+      "bytes": 2522
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/hyde-openland-source-feasibility/feasibility-review.json",
+      "sha256": "2deeb7434808ca76fd67083e7600302e281eaf786780a1298c464a64e570191c",
+      "bytes": 15554
+    }
+  ],
+  "scope": "Source-only current OpenLand CLI two-product replay plus separately retained two-input copy chain; actual native execution awaits root preparation/registration after independent approval. No synthetic package initialization bypass, original HTTP/copy acquisition, raw redistribution or scientific acceptance.",
+  "future_preparation_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/prepare.py",
+    "--candidate",
+    "ACTUAL_FUTURE_CLEAN_GIT_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-openland-member-source-replay",
+    "--review",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/openland-member-source-custody/independent-source-review.json",
+    "--review-sha256",
+    "ACTUAL_SOURCE_PEER_SHA"
+  ],
+  "native_produced_output_count": 2,
+  "retained_declared_metadata_input_count": 2
+}

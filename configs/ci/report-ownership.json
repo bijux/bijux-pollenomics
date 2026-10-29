@@ -37888,6 +37888,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/lake_registry/svar_census/transport.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/hyde_country.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/land_use/openland_members.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
@@ -77311,21 +77312,16 @@
     },
     {
       "owner_id": "source-relations/openland-intake/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/openland-intake/doi-lineage.json",
         "docs/report/source-relations/openland-intake/members.csv",
         "docs/report/source-relations/openland-intake/report.json",
         "docs/report/source-relations/openland-intake/upstream-tree.json"
       ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/openland_intake.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py"
-      ],
-      "producer_inputs": [
-        "data/landclim/raw/landclim_sources.json"
-      ],
-      "verification": "Original private ZIP SHA7ed602f3b480a995cd2e1ff6dc445e994442100b1f626a953185849305e2434b is required for report/member production. Retained upstream Git-tree and DOI JSON also need original response/copy custody. Authenticate each input and its role before replay. Zero public member admissions/independent benchmarks and superseded DOI rights remain separate; do not turn derived data into vegetation truth."
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "The maintained land_use.openland_members validator binds two source-produced OpenLand intake files and two retained input copies to execution at commit 5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87. The producer and independent observer both exited 0, and the complete run exited 0. The member CSV byte checker exited 0. The report byte checker exited 2 because one source-attribution digest changed; the independent observer confirmed that this was the only report change and exited 0. The 2,209-member authored capsule preserves all 66,430 original input identities. It contains public source files, resources and execution controls. It omits the payloads of 4,356 bytecodes, 59,886 runtime authorities and three private archive or intake authorities. The original source tree is preserved separately from three narrowly checked current source identities. The archive still has 51 entries, 26 exact upstream blobs and 25 modeled CSVs; the producer made 27 selected ZIP member reads. It read no GeoPackage or editor payloads and called no LRA functions. The upstream-tree and DOI-lineage copies do not establish original HTTP retrieval or acquisition. No public member rights, independent vegetation benchmark, PANGAEA row overlap, ecological or human acceptance, or LRA admission is established. Authoring the capsule is not a new native retention execution."
     },
     {
       "owner_id": "source-relations/raa/native-lead-support/products",
