@@ -1,0 +1,46 @@
+[
+  {
+    "id": "normalized-svar-feature-census",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/census.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-feature-census/plan.json"
+    ],
+    "timeout_seconds": 150,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 12.09045487496769,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-feature-census/normalized-svar-feature-census.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-feature-census/normalized-svar-feature-census.stderr",
+    "stdout_sha256": "5914e93c11eab2370a37ff2fa7c82488290db6a26e8e32dcf864a3e8a2a57132",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 546111488
+  },
+  {
+    "id": "independent-svar-stream-observer",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-feature-prefix-custody/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-feature-census/plan.json"
+    ],
+    "timeout_seconds": 210,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 19.429158375016414,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-feature-census/independent-svar-stream-observer.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-feature-census/independent-svar-stream-observer.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 546111488
+  }
+]

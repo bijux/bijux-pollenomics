@@ -1,0 +1,11 @@
+{
+  "actual_exit": 0,
+  "candidate": "5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87",
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-feature-census/plan.json",
+    "sha256": "6d3399fd228f43ea97a5fefb07084a688252ff67b6ed75838de0f3aed7ab3633",
+    "bytes": 1459087
+  },
+  "protected_input_count": 3578,
+  "native_consumers_launched": 0
+}
