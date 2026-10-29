@@ -11,8 +11,11 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
-from ..retained_source import validated_descriptor
-from .source_correspondence import validated_current_scientific_source
+from .presentation.correspondence import (
+    PRESENTATION_SOURCE,
+    validated_presentation_source_correspondence,
+)
+from .source_correspondence import validated_metadata_source_correspondence
 
 CAPTURE = "data/method-certification/constrained-author-source-capture/capture.json"
 CAPTURE_SHA256 = "fa46f5757af2acfb647f82162314b11c5e9401fbd7ecdbff585b70a687b9080c"
@@ -293,42 +296,69 @@ def validated_constrained_author_capture(
     for raw in raw_members:
         row = _object(raw)
         name = _member_name(row.get("path"))
-        if name in members:
-            raise ReportRebuildError("Duplicate retained source member")
+        physical = _file(repository, prefix + "/" + name)
+        if (
+            name in members
+            or type(row.get("bytes")) is not int
+            or row["bytes"] < 0
+            or physical.stat().st_size != row["bytes"]
+            or hashlib.sha256(physical.read_bytes()).hexdigest() != row.get("sha256")
+        ):
+            raise ReportRebuildError(
+                "Constrained author experiment retained member bytes differ"
+            )
         members[name] = row
-    resolver = validated_descriptor(repository, prefix, members)
+    physical_names: set[str] = set()
+    for physical in path.parent.rglob("*"):
+        if physical.is_symlink():
+            raise ReportRebuildError(
+                "Constrained author experiment packet contains a link"
+            )
+        if physical.is_file():
+            physical_names.add(physical.relative_to(path.parent).as_posix())
+    if physical_names != set(members) | {"capture.json"}:
+        raise ReportRebuildError(
+            "Constrained author experiment physical packet membership differs"
+        )
     _native_references(path.parent, capture)
     projection = capture.get("current_scientific_source_projection")
     if not isinstance(projection, list) or len(projection) != 2136:
         raise ReportRebuildError(
             "Constrained author experiment current scientific source projection differs"
         )
-    current_metadata_correspondences: list[JsonObject] = []
-    current_presentation_correspondences: list[JsonObject] = []
-    current_author_profile_correspondences: list[JsonObject] = []
-    current_intake_guard_correspondences: list[JsonObject] = []
+    current_metadata_correspondences = []
+    current_presentation_correspondences = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
+        current = _file(repository, name)
         retained_candidates = [
-            f"executions/{lane}/first-party-inputs/{name}"
+            path.parent / f"executions/{lane}/first-party-inputs/{name}"
             for lane in EXECUTIONS
             if members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
                 "sha256"
             )
             == row.get("sha256")
-            and members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
-                "bytes"
-            )
-            == row.get("bytes")
         ]
-        if type(row.get("bytes")) is not int or not retained_candidates:
-            raise ReportRebuildError("Retained scientific source is unbound")
-        correspondence = validated_current_scientific_source(
-            repository, row, retained_candidates[0], resolver
-        )
-        if correspondence is not None:
-            current_metadata_correspondences.append(correspondence)
+        if not retained_candidates:
+            raise ReportRebuildError(
+                "Constrained author experiment retained scientific source is unbound"
+            )
+        if current.stat().st_size != row.get("bytes") or hashlib.sha256(
+            current.read_bytes()
+        ).hexdigest() != row.get("sha256"):
+            if name == PRESENTATION_SOURCE:
+                current_presentation_correspondences.append(
+                    validated_presentation_source_correspondence(
+                        repository, row, retained_candidates[0]
+                    )
+                )
+            else:
+                current_metadata_correspondences.append(
+                    validated_metadata_source_correspondence(
+                        repository, row, retained_candidates[0]
+                    )
+                )
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 11:
         raise ReportRebuildError(
@@ -391,7 +421,6 @@ def validated_constrained_author_capture(
             raise ReportRebuildError(
                 "Constrained author experiment retained ownership overlaps"
             )
-    resolver.fresh()
     return tuple(accepted), {
         "owner_ids": sorted(OWNERS),
         "capture_sha256": CAPTURE_SHA256,
@@ -399,35 +428,13 @@ def validated_constrained_author_capture(
             lane: values[0] for lane, values in EXECUTIONS.items()
         },
         "report_outputs": 11,
-        "logical_scientific_projection": 2136,
-        "current_scientific_projection": 2136
-        - sum(
-            item.get("classification")
-            in {
-                "historical_private_control_current_absence",
-                "historical_generated_version_metadata",
-            }
-            for item in current_metadata_correspondences
-        ),
-        "historical_only_projection_roles": [
-            item
-            for item in current_metadata_correspondences
-            if item.get("classification")
-            in {
-                "historical_private_control_current_absence",
-                "historical_generated_version_metadata",
-            }
-        ],
+        "current_scientific_projection": 2136,
         "current_projection_byteequal_members": 2136
         - len(current_metadata_correspondences)
-        - len(current_presentation_correspondences)
-        - len(current_author_profile_correspondences)
-        - len(current_intake_guard_correspondences),
+        - len(current_presentation_correspondences),
         "current_metadata_source_correspondences": current_metadata_correspondences,
         "current_presentation_source_correspondences": current_presentation_correspondences,
-        "current_author_profile_source_correspondences": current_author_profile_correspondences,
-        "current_intake_guard_source_correspondences": current_intake_guard_correspondences,
         "original_projection_members_retained_unchanged": 2136,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Eleven genuine constrained author products retain the complete 195-attempt source experiment,192 completed/3 refused training items and14 scored/BECKHAM refused folds. Original source/resources and original900-file work are retained byteexact. Current source matches except explicitly returned Nordic metadata, atlas-presentation, author-profile owner-criterion or archive-intake guard correspondences; no whole-current-tree equality is claimed; historical presentation, absent retired private control, generated version metadata, named documentation and finite IO/export roles are explicitly returned. This transports actual numerical evidence without refitting/scoring/R and supplies no ecological validation, new untouched cohort, Nordic transfer, rights or qualified human/release decision.",
+        "scope": "Eleven genuine constrained author products retain the complete 195-attempt source experiment,192 completed/3 refused training items and14 scored/BECKHAM refused folds. Original source/resources and original900-file work are retained byteexact. Current source matches except explicitly returned metadata or atlas-presentation correspondences; no whole-current-tree equality is claimed. This transports actual numerical evidence without refitting/scoring/R and supplies no ecological validation, new untouched cohort, Nordic transfer, rights or qualified human/release decision.",
     }
