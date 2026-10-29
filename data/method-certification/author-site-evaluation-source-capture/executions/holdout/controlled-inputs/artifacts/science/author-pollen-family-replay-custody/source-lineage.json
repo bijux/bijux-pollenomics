@@ -1,0 +1,35 @@
+{
+  "copies": [
+    {
+      "path": "prepare.py",
+      "original_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/prepare.py",
+      "original_sha256": "b558d4008f63c5c3479ec8e52230b571f4d12f839093de5b187dac8ea2fd76a8"
+    },
+    {
+      "path": "observe.py",
+      "original_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/observe.py",
+      "original_sha256": "64f9b177f8bedc3562a85adc521b4c3887351a7d82883ed3e5cc3bd96d4aa0c8"
+    },
+    {
+      "path": "input_custody.py",
+      "original_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/input_custody.py",
+      "original_sha256": "3c2e742b176ebe20e5553a4da333ff9e6411c9c86d5223fa22dbb282885a157b"
+    },
+    {
+      "path": "run.py",
+      "original_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/run.py",
+      "original_sha256": "e9c63bb2dd18d0870ebeb5ad2186958252675c4c76250c86b41cbead0a7380e4"
+    },
+    {
+      "path": "comparison.py",
+      "original_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/comparison.py",
+      "original_sha256": "ac30d41291cae3cf10ba3fdf7bbb6772f1c63ab689fc90a811e8ad89e48e8a8e"
+    },
+    {
+      "path": "check_boundaries.py",
+      "original_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/check_boundaries.py",
+      "original_sha256": "250f17f7a826566b18e79d2a2febee4c2322f813401c39f4878282b5fcc595dd"
+    }
+  ],
+  "scope": "Disjoint successor only; original registered actual112 holdout controls remain immutable. Actual future family CLI replaces direct producer invocation and final allfour byte checks are stronger."
+}

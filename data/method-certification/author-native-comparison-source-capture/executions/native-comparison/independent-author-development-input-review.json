@@ -1,0 +1,814 @@
+{
+  "candidate": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+  "actual_exit": 0,
+  "historical_native_comparison_byte_exact": true,
+  "source_preparation": {
+    "age_support_bp": [
+      1250,
+      1750
+    ],
+    "eligible_sites": [
+      "BECKHAM",
+      "BROADOWN",
+      "COMERSLA",
+      "CUTHILL2",
+      "GOURTEMIRES",
+      "HANGINGS",
+      "HARESDOWN",
+      "LARKBARR",
+      "LOBBSBOG",
+      "LONGBREACH",
+      "MOLECHAM",
+      "NTWITCHEN",
+      "WHH05",
+      "WINDMILL",
+      "WINNEYS"
+    ],
+    "experiment_sha256": "58de0bc64c7d2615fd02edea5643cc99ca93396e0769997bd1f156a396a78c28",
+    "ring_geometry": "declared circular/homogeneous modeling assumption",
+    "schema_version": "author-lra-development-inputs.v1",
+    "scientific_posture": "prior-exposed exploratory development; no vegetation truth",
+    "selected_window": 5,
+    "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+    "total_count": 20732,
+    "zero_count_sites": [
+      "EXEBRID",
+      "WHH11"
+    ]
+  },
+  "constrained_preparation": {
+    "age_support_bp": [
+      1250,
+      1750
+    ],
+    "closed_taxon_count": 30,
+    "eligible_sites": [
+      "BECKHAM",
+      "BROADOWN",
+      "COMERSLA",
+      "CUTHILL2",
+      "GOURTEMIRES",
+      "HANGINGS",
+      "HARESDOWN",
+      "LARKBARR",
+      "LOBBSBOG",
+      "LONGBREACH",
+      "MOLECHAM",
+      "NTWITCHEN",
+      "WHH05",
+      "WINDMILL",
+      "WINNEYS"
+    ],
+    "excluded_taxon": "Filipendula",
+    "excluded_taxon_nisp": 159,
+    "experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+    "optimizer_backend": "scipy.slsqp-simplex-uniform",
+    "original_count_denominator": 20732,
+    "ring_geometry": "declared circular/homogeneous modeling assumption",
+    "schema_version": "author-lra-development-inputs.v1",
+    "scientific_posture": "prior-exposed exploratory development; no vegetation truth",
+    "selected_window": 5,
+    "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+    "total_count": 20732,
+    "zero_count_sites": [
+      "EXEBRID",
+      "WHH11"
+    ]
+  },
+  "exact_original_requests": [
+    {
+      "label": "initial",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/feasibility/initial/inputs/request.json",
+      "sha256": "7d2b1da93b5490823c906d7c977a0d9a41dba2e21cafcd58c90c358313716dfa"
+    },
+    {
+      "label": "extended",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-development-inputs/feasibility/extended/inputs/request.json",
+      "sha256": "bf99b6d8add47095749b1770a0e62a575c1f90217af2c477f36525ddd0a5d69c"
+    }
+  ],
+  "products_before_observer": [
+    {
+      "path": "bounded-feasibility-request-inputs.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "bounded-feasibility-request-inputs.stdout",
+      "sha256": "c5bbf68673891d7e3de0ef783ebf6c25b7784273046e21abcb71bf54f1da6477",
+      "bytes": 837
+    },
+    {
+      "path": "comparison/native-report.json",
+      "sha256": "273c1b129551e6392ca926988bf594a66c7de9f435b299832e24b771731d8995",
+      "bytes": 4951
+    },
+    {
+      "path": "constrained-inputs/BECKHAM-geometry.json",
+      "sha256": "aec355256e6ec13bcbf9d2b4eea0c411db30b793021278fb8ab068e867e9f87c",
+      "bytes": 1274
+    },
+    {
+      "path": "constrained-inputs/BECKHAM-raw.json",
+      "sha256": "2d1103760390e12dcdca46bd42779021d99c5a17fb6c086701fc1bb979137abf",
+      "bytes": 837
+    },
+    {
+      "path": "constrained-inputs/BROADOWN-geometry.json",
+      "sha256": "3945348d26462772b3d223c896b76aa5c8371b2580c0b0c9ab6a294fffd9af24",
+      "bytes": 1274
+    },
+    {
+      "path": "constrained-inputs/BROADOWN-raw.json",
+      "sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+      "bytes": 846
+    },
+    {
+      "path": "constrained-inputs/COMERSLA-geometry.json",
+      "sha256": "ece6fc457e939a3bf85fa610a9c6615af3b16220a222b94eecdaf518724d0c5c",
+      "bytes": 1274
+    },
+    {
+      "path": "constrained-inputs/COMERSLA-raw.json",
+      "sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550",
+      "bytes": 835
+    },
+    {
+      "path": "constrained-inputs/CUTHILL2-geometry.json",
+      "sha256": "afc2d3c3a803add89446edfaed388d822ce448f55fe428118349fec05df8e7b9",
+      "bytes": 1274
+    },
+    {
+      "path": "constrained-inputs/CUTHILL2-raw.json",
+      "sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+      "bytes": 841
+    },
+    {
+      "path": "constrained-inputs/GOURTEMIRES-geometry.json",
+      "sha256": "3fd8477e0ab7464151c9c35231b01f562c2d9095a64b79bbf8423f7b3c5e588d",
+      "bytes": 1273
+    },
+    {
+      "path": "constrained-inputs/GOURTEMIRES-raw.json",
+      "sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9",
+      "bytes": 851
+    },
+    {
+      "path": "constrained-inputs/HANGINGS-geometry.json",
+      "sha256": "3869ab346920f563b99236265d5a6d42609f00c90a10c47f40078a5eba68c802",
+      "bytes": 1276
+    },
+    {
+      "path": "constrained-inputs/HANGINGS-raw.json",
+      "sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4",
+      "bytes": 840
+    },
+    {
+      "path": "constrained-inputs/HARESDOWN-geometry.json",
+      "sha256": "efe0b68cc9baeecc147b3bf53fad56c2ceaeb83da68ec8d738028fa2ff21d3f0",
+      "bytes": 1269
+    },
+    {
+      "path": "constrained-inputs/HARESDOWN-raw.json",
+      "sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67",
+      "bytes": 842
+    },
+    {
+      "path": "constrained-inputs/LARKBARR-geometry.json",
+      "sha256": "533992a1551d3b83c16092ed1475a0b4913a8516b5d6d7b75ad03be07bcf4dbd",
+      "bytes": 1274
+    },
+    {
+      "path": "constrained-inputs/LARKBARR-raw.json",
+      "sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+      "bytes": 834
+    },
+    {
+      "path": "constrained-inputs/LOBBSBOG-geometry.json",
+      "sha256": "ed93da1cd35d75c7809917a5c26f38bae312b7679b614c7cb275fba8bce4b0cb",
+      "bytes": 1266
+    },
+    {
+      "path": "constrained-inputs/LOBBSBOG-raw.json",
+      "sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2",
+      "bytes": 844
+    },
+    {
+      "path": "constrained-inputs/LONGBREACH-geometry.json",
+      "sha256": "2af6d37741816cc0d2a13618e8cfb4865e1af3e5dec3b039ddfdd3e99b576d0e",
+      "bytes": 1271
+    },
+    {
+      "path": "constrained-inputs/LONGBREACH-raw.json",
+      "sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+      "bytes": 843
+    },
+    {
+      "path": "constrained-inputs/MOLECHAM-geometry.json",
+      "sha256": "668e7a631c1c217ef73df499f964c6de13fc5d37330e09604e3b433af80b3bdb",
+      "bytes": 1271
+    },
+    {
+      "path": "constrained-inputs/MOLECHAM-raw.json",
+      "sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40",
+      "bytes": 844
+    },
+    {
+      "path": "constrained-inputs/NTWITCHEN-geometry.json",
+      "sha256": "571beefb9b6508f5d5d79ad603435c5d314f6c6ea09ff0bcfb208811fc98352c",
+      "bytes": 1268
+    },
+    {
+      "path": "constrained-inputs/NTWITCHEN-raw.json",
+      "sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed",
+      "bytes": 847
+    },
+    {
+      "path": "constrained-inputs/WHH05-geometry.json",
+      "sha256": "74831663b572a8ca7e0e4f9acb7891895dc11556e59499f1bd4785e0f7d36f63",
+      "bytes": 1275
+    },
+    {
+      "path": "constrained-inputs/WHH05-raw.json",
+      "sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e",
+      "bytes": 826
+    },
+    {
+      "path": "constrained-inputs/WINDMILL-geometry.json",
+      "sha256": "6ca174a372f1076889fa8b5cc6c948648fb481da1d2795a092befc44df69bee7",
+      "bytes": 1267
+    },
+    {
+      "path": "constrained-inputs/WINDMILL-raw.json",
+      "sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c",
+      "bytes": 838
+    },
+    {
+      "path": "constrained-inputs/WINNEYS-geometry.json",
+      "sha256": "c0858b436dc00de79d50c771d78f540e1a97ba817844d8d416717e31273a7020",
+      "bytes": 1271
+    },
+    {
+      "path": "constrained-inputs/WINNEYS-raw.json",
+      "sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88",
+      "bytes": 840
+    },
+    {
+      "path": "constrained-inputs/chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506",
+      "bytes": 107
+    },
+    {
+      "path": "constrained-inputs/decision.json",
+      "sha256": "774b314f43f07138ae5ec99cf7b4e12e5314b133f4046bf47ecb9e66eda2bdd8",
+      "bytes": 496
+    },
+    {
+      "path": "constrained-inputs/dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb",
+      "bytes": 95
+    },
+    {
+      "path": "constrained-inputs/experiment.json",
+      "sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+      "bytes": 10913
+    },
+    {
+      "path": "constrained-inputs/parameters.json",
+      "sha256": "33ab18119b606287f46989e92fe4c88c47560dd4964132f90591230894a373c6",
+      "bytes": 174
+    },
+    {
+      "path": "constrained-inputs/source-report.json",
+      "sha256": "e89867dd2baebe347c18256c094281162ac9107f5d5a862fe090d0b28f86b7dc",
+      "bytes": 888
+    },
+    {
+      "path": "constrained-inputs/taxa.json",
+      "sha256": "23ea956d3a64f6111c337e9e322cae32855e8604881483e9b12a2b27916c75e0",
+      "bytes": 655
+    },
+    {
+      "path": "constrained-love-closed-composition-inputs.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "constrained-love-closed-composition-inputs.stdout",
+      "sha256": "80d93edc625af60d8404b15b4f48a90e89b4086c2b6f74ced4a8a6e7c76b3a2f",
+      "bytes": 252
+    },
+    {
+      "path": "feasibility/extended/inputs/BECKHAM-geometry.json",
+      "sha256": "303392717818cc614e61cb5431489cc15c01a0eaf62954de642efdee72ee9ff1",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/extended/inputs/BECKHAM-raw.json",
+      "sha256": "2d1103760390e12dcdca46bd42779021d99c5a17fb6c086701fc1bb979137abf",
+      "bytes": 837
+    },
+    {
+      "path": "feasibility/extended/inputs/LARKBARR-geometry.json",
+      "sha256": "da4143276c22dc41fe3057327d19915e3e410b3f63bda71112cde379d0fb67ad",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/extended/inputs/LARKBARR-raw.json",
+      "sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+      "bytes": 834
+    },
+    {
+      "path": "feasibility/extended/inputs/chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506",
+      "bytes": 107
+    },
+    {
+      "path": "feasibility/extended/inputs/decision.json",
+      "sha256": "2a0ac53c44b4e8b8606f2a3f0afd4e1f1bfb15c06f998c2083903abc765e1446",
+      "bytes": 641
+    },
+    {
+      "path": "feasibility/extended/inputs/dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb",
+      "bytes": 95
+    },
+    {
+      "path": "feasibility/extended/inputs/parameters.json",
+      "sha256": "3bb1e6c3c1b5d601b0cf25212826ef4ab7f54768030b21d835ebe4684ec94fb1",
+      "bytes": 803
+    },
+    {
+      "path": "feasibility/extended/inputs/request.json",
+      "sha256": "bf99b6d8add47095749b1770a0e62a575c1f90217af2c477f36525ddd0a5d69c",
+      "bytes": 10474
+    },
+    {
+      "path": "feasibility/extended/inputs/taxa.json",
+      "sha256": "02a4f022e7398d343564d1c6cc849642fe2deb90f543b5a6dc37afbf75781a62",
+      "bytes": 1205
+    },
+    {
+      "path": "feasibility/initial/inputs/BECKHAM-geometry.json",
+      "sha256": "303392717818cc614e61cb5431489cc15c01a0eaf62954de642efdee72ee9ff1",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/initial/inputs/BECKHAM-raw.json",
+      "sha256": "2d1103760390e12dcdca46bd42779021d99c5a17fb6c086701fc1bb979137abf",
+      "bytes": 837
+    },
+    {
+      "path": "feasibility/initial/inputs/LARKBARR-geometry.json",
+      "sha256": "da4143276c22dc41fe3057327d19915e3e410b3f63bda71112cde379d0fb67ad",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/initial/inputs/LARKBARR-raw.json",
+      "sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+      "bytes": 834
+    },
+    {
+      "path": "feasibility/initial/inputs/chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506",
+      "bytes": 107
+    },
+    {
+      "path": "feasibility/initial/inputs/decision.json",
+      "sha256": "2a0ac53c44b4e8b8606f2a3f0afd4e1f1bfb15c06f998c2083903abc765e1446",
+      "bytes": 641
+    },
+    {
+      "path": "feasibility/initial/inputs/dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb",
+      "bytes": 95
+    },
+    {
+      "path": "feasibility/initial/inputs/parameters.json",
+      "sha256": "3bb1e6c3c1b5d601b0cf25212826ef4ab7f54768030b21d835ebe4684ec94fb1",
+      "bytes": 803
+    },
+    {
+      "path": "feasibility/initial/inputs/request.json",
+      "sha256": "7d2b1da93b5490823c906d7c977a0d9a41dba2e21cafcd58c90c358313716dfa",
+      "bytes": 10472
+    },
+    {
+      "path": "feasibility/initial/inputs/taxa.json",
+      "sha256": "02a4f022e7398d343564d1c6cc849642fe2deb90f543b5a6dc37afbf75781a62",
+      "bytes": 1205
+    },
+    {
+      "path": "feasibility/source-inputs/BECKHAM-geometry.json",
+      "sha256": "303392717818cc614e61cb5431489cc15c01a0eaf62954de642efdee72ee9ff1",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/source-inputs/BECKHAM-raw.json",
+      "sha256": "75429df3d27ccb65b018ebd92d1c19da654cf86a32ad6dcd460f96995713a581",
+      "bytes": 856
+    },
+    {
+      "path": "feasibility/source-inputs/BROADOWN-geometry.json",
+      "sha256": "8a409510b7e563daa20f2ff2294b4873ccdc326e6880354bd418758411dfb010",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/source-inputs/BROADOWN-raw.json",
+      "sha256": "f41c24e2eca3bf9e944575e0e9134d8b7f69369bce6fd644ea8c5cb51572885a",
+      "bytes": 864
+    },
+    {
+      "path": "feasibility/source-inputs/COMERSLA-geometry.json",
+      "sha256": "2267ae3bc07fe6629ef20cedce0071521affe439784877aa4c78a20259c04974",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/source-inputs/COMERSLA-raw.json",
+      "sha256": "91533b88695e215a5aa21ec43f2db60ddbd559f0d5fed1659948e505cb186117",
+      "bytes": 853
+    },
+    {
+      "path": "feasibility/source-inputs/CUTHILL2-geometry.json",
+      "sha256": "7b89ebd86feda5afa24f8fe33c1d4201e5379c084b3564135d4914ce23f0f725",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/source-inputs/CUTHILL2-raw.json",
+      "sha256": "a96e0142765b1e90aa92dff04bf6106be08f876fab1343756012709cba0225d5",
+      "bytes": 859
+    },
+    {
+      "path": "feasibility/source-inputs/GOURTEMIRES-geometry.json",
+      "sha256": "a4c4fc29c1746aa1a72e442c9e434be8790ef50be0a0ce3d8584d5cb52a36f20",
+      "bytes": 1141
+    },
+    {
+      "path": "feasibility/source-inputs/GOURTEMIRES-raw.json",
+      "sha256": "3d55f28e9977511ee8f6588bd8189a290e313079a4c773e095280406a9ac832c",
+      "bytes": 869
+    },
+    {
+      "path": "feasibility/source-inputs/HANGINGS-geometry.json",
+      "sha256": "4438b909bae8ce089ad64a78e17db1f36b40aa5cd6de413a03dcd82da24b4a5d",
+      "bytes": 1144
+    },
+    {
+      "path": "feasibility/source-inputs/HANGINGS-raw.json",
+      "sha256": "a2460d46833d7a14b36a83402337791081969391021f45fbd3ddc5b497c0fa4c",
+      "bytes": 858
+    },
+    {
+      "path": "feasibility/source-inputs/HARESDOWN-geometry.json",
+      "sha256": "661e207840c30d2369221bb9a76910279b12af0e47c627598ae40baa8336bd5c",
+      "bytes": 1137
+    },
+    {
+      "path": "feasibility/source-inputs/HARESDOWN-raw.json",
+      "sha256": "0635daf31b924ddf8b50b2c1c29fb6f6b6aa5a2173d3cf046dcb2a5f794159c3",
+      "bytes": 860
+    },
+    {
+      "path": "feasibility/source-inputs/LARKBARR-geometry.json",
+      "sha256": "da4143276c22dc41fe3057327d19915e3e410b3f63bda71112cde379d0fb67ad",
+      "bytes": 1142
+    },
+    {
+      "path": "feasibility/source-inputs/LARKBARR-raw.json",
+      "sha256": "308e5fa587ebe7b1dfc5695296f7aeb5f5424852e9ea665c42de98053fa0f0f9",
+      "bytes": 853
+    },
+    {
+      "path": "feasibility/source-inputs/LOBBSBOG-geometry.json",
+      "sha256": "a30efe02a0def746460aaa9656f969388d7582ba844fcb419ab9f0193eed3602",
+      "bytes": 1134
+    },
+    {
+      "path": "feasibility/source-inputs/LOBBSBOG-raw.json",
+      "sha256": "94945c6e93dfeb4d8a1c82ca42d2f3d56da90b2a326bb91f4007f9780bce4a30",
+      "bytes": 862
+    },
+    {
+      "path": "feasibility/source-inputs/LONGBREACH-geometry.json",
+      "sha256": "b87c1446aac575057e06b88f48aa740e574abea909a29fe74725db293eeba623",
+      "bytes": 1139
+    },
+    {
+      "path": "feasibility/source-inputs/LONGBREACH-raw.json",
+      "sha256": "684e6ef8f00662b9b04adf204aca4653006a2bd0d4fe7bdfd9b31a091376f024",
+      "bytes": 861
+    },
+    {
+      "path": "feasibility/source-inputs/MOLECHAM-geometry.json",
+      "sha256": "2b031e5f80cbd2e942f95536045e893436f99d49016138a476e7ccd0e778ba58",
+      "bytes": 1139
+    },
+    {
+      "path": "feasibility/source-inputs/MOLECHAM-raw.json",
+      "sha256": "11f6bfd4831b7b3f50cfd991b0e830d5f4bf1ee43904033fd4d6c1cc4b7d2364",
+      "bytes": 863
+    },
+    {
+      "path": "feasibility/source-inputs/NTWITCHEN-geometry.json",
+      "sha256": "ca9ed07f03343e979a34e312507cda087bbff2fbf3a4f8fd9ef005e494bc56d0",
+      "bytes": 1136
+    },
+    {
+      "path": "feasibility/source-inputs/NTWITCHEN-raw.json",
+      "sha256": "824626b086be80919c6fe46e9e39cf64695f633196f95061e77e9da3196d33b1",
+      "bytes": 865
+    },
+    {
+      "path": "feasibility/source-inputs/WHH05-geometry.json",
+      "sha256": "31967d3bc150a458c923ddb709f3ef7a422490387a47f41c3f7e45425b16b14e",
+      "bytes": 1143
+    },
+    {
+      "path": "feasibility/source-inputs/WHH05-raw.json",
+      "sha256": "30b1d4ad60e69da13dd00e3974ff6624335521de733d3d25da3b5a69018f2bf2",
+      "bytes": 844
+    },
+    {
+      "path": "feasibility/source-inputs/WINDMILL-geometry.json",
+      "sha256": "879959a7737eff063091caade8bf2d10a8a80ca79ed315cd67d6e38aab008a48",
+      "bytes": 1135
+    },
+    {
+      "path": "feasibility/source-inputs/WINDMILL-raw.json",
+      "sha256": "8874a163a2ff5f17e44ce5a60649a106fb7c0cd45073b24eeebdb8472986801a",
+      "bytes": 856
+    },
+    {
+      "path": "feasibility/source-inputs/WINNEYS-geometry.json",
+      "sha256": "66ecc0844081601b56cebf195c6b8915000b1dc7b7cc17812f6449fc209f8380",
+      "bytes": 1139
+    },
+    {
+      "path": "feasibility/source-inputs/WINNEYS-raw.json",
+      "sha256": "468b1349c01c9f8440c46068868d3e48b799c0c31eaf5938cbd98c50b37dbbdd",
+      "bytes": 858
+    },
+    {
+      "path": "feasibility/source-inputs/chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506",
+      "bytes": 107
+    },
+    {
+      "path": "feasibility/source-inputs/decision.json",
+      "sha256": "e9e43f7043de925583ad8f5fda8705a2d4e01427bf4b945e1ff7b512366fd56a",
+      "bytes": 159
+    },
+    {
+      "path": "feasibility/source-inputs/dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb",
+      "bytes": 95
+    },
+    {
+      "path": "feasibility/source-inputs/experiment.json",
+      "sha256": "58de0bc64c7d2615fd02edea5643cc99ca93396e0769997bd1f156a396a78c28",
+      "bytes": 10858
+    },
+    {
+      "path": "feasibility/source-inputs/parameters.json",
+      "sha256": "33ab18119b606287f46989e92fe4c88c47560dd4964132f90591230894a373c6",
+      "bytes": 174
+    },
+    {
+      "path": "feasibility/source-inputs/source-report.json",
+      "sha256": "680cb486f39dc91d45c07eaa1e0be53d6db859c9b04888893ed134675d9c56f5",
+      "bytes": 712
+    },
+    {
+      "path": "feasibility/source-inputs/taxa.json",
+      "sha256": "5b0ee1d67772ca1b3c854efa75929cc324b5b8c78937de5b15fa4c623b4d5e5c",
+      "bytes": 591
+    },
+    {
+      "path": "historical-python-full-grid-comparison.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "historical-python-full-grid-comparison.stdout",
+      "sha256": "91a4e100c3b4cd0b08f6a69ad67d64a297aa80a58112e9affc3d725f5fff0950",
+      "bytes": 77
+    },
+    {
+      "path": "independent-original-science-and-request-identities.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "independent-original-science-and-request-identities.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "plan.json",
+      "sha256": "a8d5006746679caede8c332d6cf1307a6878bed73245db37772b1e9912b936b0",
+      "bytes": 713650
+    },
+    {
+      "path": "source-bound-author-development-inputs.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "source-bound-author-development-inputs.stdout",
+      "sha256": "fb6577825c754236963861ef689feb37d9b8057dfddcf09db328bd272850b589",
+      "bytes": 122
+    },
+    {
+      "path": "source-inputs/BECKHAM-geometry.json",
+      "sha256": "303392717818cc614e61cb5431489cc15c01a0eaf62954de642efdee72ee9ff1",
+      "bytes": 1142
+    },
+    {
+      "path": "source-inputs/BECKHAM-raw.json",
+      "sha256": "75429df3d27ccb65b018ebd92d1c19da654cf86a32ad6dcd460f96995713a581",
+      "bytes": 856
+    },
+    {
+      "path": "source-inputs/BROADOWN-geometry.json",
+      "sha256": "8a409510b7e563daa20f2ff2294b4873ccdc326e6880354bd418758411dfb010",
+      "bytes": 1142
+    },
+    {
+      "path": "source-inputs/BROADOWN-raw.json",
+      "sha256": "f41c24e2eca3bf9e944575e0e9134d8b7f69369bce6fd644ea8c5cb51572885a",
+      "bytes": 864
+    },
+    {
+      "path": "source-inputs/COMERSLA-geometry.json",
+      "sha256": "2267ae3bc07fe6629ef20cedce0071521affe439784877aa4c78a20259c04974",
+      "bytes": 1142
+    },
+    {
+      "path": "source-inputs/COMERSLA-raw.json",
+      "sha256": "91533b88695e215a5aa21ec43f2db60ddbd559f0d5fed1659948e505cb186117",
+      "bytes": 853
+    },
+    {
+      "path": "source-inputs/CUTHILL2-geometry.json",
+      "sha256": "7b89ebd86feda5afa24f8fe33c1d4201e5379c084b3564135d4914ce23f0f725",
+      "bytes": 1142
+    },
+    {
+      "path": "source-inputs/CUTHILL2-raw.json",
+      "sha256": "a96e0142765b1e90aa92dff04bf6106be08f876fab1343756012709cba0225d5",
+      "bytes": 859
+    },
+    {
+      "path": "source-inputs/GOURTEMIRES-geometry.json",
+      "sha256": "a4c4fc29c1746aa1a72e442c9e434be8790ef50be0a0ce3d8584d5cb52a36f20",
+      "bytes": 1141
+    },
+    {
+      "path": "source-inputs/GOURTEMIRES-raw.json",
+      "sha256": "3d55f28e9977511ee8f6588bd8189a290e313079a4c773e095280406a9ac832c",
+      "bytes": 869
+    },
+    {
+      "path": "source-inputs/HANGINGS-geometry.json",
+      "sha256": "4438b909bae8ce089ad64a78e17db1f36b40aa5cd6de413a03dcd82da24b4a5d",
+      "bytes": 1144
+    },
+    {
+      "path": "source-inputs/HANGINGS-raw.json",
+      "sha256": "a2460d46833d7a14b36a83402337791081969391021f45fbd3ddc5b497c0fa4c",
+      "bytes": 858
+    },
+    {
+      "path": "source-inputs/HARESDOWN-geometry.json",
+      "sha256": "661e207840c30d2369221bb9a76910279b12af0e47c627598ae40baa8336bd5c",
+      "bytes": 1137
+    },
+    {
+      "path": "source-inputs/HARESDOWN-raw.json",
+      "sha256": "0635daf31b924ddf8b50b2c1c29fb6f6b6aa5a2173d3cf046dcb2a5f794159c3",
+      "bytes": 860
+    },
+    {
+      "path": "source-inputs/LARKBARR-geometry.json",
+      "sha256": "da4143276c22dc41fe3057327d19915e3e410b3f63bda71112cde379d0fb67ad",
+      "bytes": 1142
+    },
+    {
+      "path": "source-inputs/LARKBARR-raw.json",
+      "sha256": "308e5fa587ebe7b1dfc5695296f7aeb5f5424852e9ea665c42de98053fa0f0f9",
+      "bytes": 853
+    },
+    {
+      "path": "source-inputs/LOBBSBOG-geometry.json",
+      "sha256": "a30efe02a0def746460aaa9656f969388d7582ba844fcb419ab9f0193eed3602",
+      "bytes": 1134
+    },
+    {
+      "path": "source-inputs/LOBBSBOG-raw.json",
+      "sha256": "94945c6e93dfeb4d8a1c82ca42d2f3d56da90b2a326bb91f4007f9780bce4a30",
+      "bytes": 862
+    },
+    {
+      "path": "source-inputs/LONGBREACH-geometry.json",
+      "sha256": "b87c1446aac575057e06b88f48aa740e574abea909a29fe74725db293eeba623",
+      "bytes": 1139
+    },
+    {
+      "path": "source-inputs/LONGBREACH-raw.json",
+      "sha256": "684e6ef8f00662b9b04adf204aca4653006a2bd0d4fe7bdfd9b31a091376f024",
+      "bytes": 861
+    },
+    {
+      "path": "source-inputs/MOLECHAM-geometry.json",
+      "sha256": "2b031e5f80cbd2e942f95536045e893436f99d49016138a476e7ccd0e778ba58",
+      "bytes": 1139
+    },
+    {
+      "path": "source-inputs/MOLECHAM-raw.json",
+      "sha256": "11f6bfd4831b7b3f50cfd991b0e830d5f4bf1ee43904033fd4d6c1cc4b7d2364",
+      "bytes": 863
+    },
+    {
+      "path": "source-inputs/NTWITCHEN-geometry.json",
+      "sha256": "ca9ed07f03343e979a34e312507cda087bbff2fbf3a4f8fd9ef005e494bc56d0",
+      "bytes": 1136
+    },
+    {
+      "path": "source-inputs/NTWITCHEN-raw.json",
+      "sha256": "824626b086be80919c6fe46e9e39cf64695f633196f95061e77e9da3196d33b1",
+      "bytes": 865
+    },
+    {
+      "path": "source-inputs/WHH05-geometry.json",
+      "sha256": "31967d3bc150a458c923ddb709f3ef7a422490387a47f41c3f7e45425b16b14e",
+      "bytes": 1143
+    },
+    {
+      "path": "source-inputs/WHH05-raw.json",
+      "sha256": "30b1d4ad60e69da13dd00e3974ff6624335521de733d3d25da3b5a69018f2bf2",
+      "bytes": 844
+    },
+    {
+      "path": "source-inputs/WINDMILL-geometry.json",
+      "sha256": "879959a7737eff063091caade8bf2d10a8a80ca79ed315cd67d6e38aab008a48",
+      "bytes": 1135
+    },
+    {
+      "path": "source-inputs/WINDMILL-raw.json",
+      "sha256": "8874a163a2ff5f17e44ce5a60649a106fb7c0cd45073b24eeebdb8472986801a",
+      "bytes": 856
+    },
+    {
+      "path": "source-inputs/WINNEYS-geometry.json",
+      "sha256": "66ecc0844081601b56cebf195c6b8915000b1dc7b7cc17812f6449fc209f8380",
+      "bytes": 1139
+    },
+    {
+      "path": "source-inputs/WINNEYS-raw.json",
+      "sha256": "468b1349c01c9f8440c46068868d3e48b799c0c31eaf5938cbd98c50b37dbbdd",
+      "bytes": 858
+    },
+    {
+      "path": "source-inputs/chronology.json",
+      "sha256": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506",
+      "bytes": 107
+    },
+    {
+      "path": "source-inputs/decision.json",
+      "sha256": "e9e43f7043de925583ad8f5fda8705a2d4e01427bf4b945e1ff7b512366fd56a",
+      "bytes": 159
+    },
+    {
+      "path": "source-inputs/dependency-lock.json",
+      "sha256": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb",
+      "bytes": 95
+    },
+    {
+      "path": "source-inputs/experiment.json",
+      "sha256": "58de0bc64c7d2615fd02edea5643cc99ca93396e0769997bd1f156a396a78c28",
+      "bytes": 10858
+    },
+    {
+      "path": "source-inputs/parameters.json",
+      "sha256": "33ab18119b606287f46989e92fe4c88c47560dd4964132f90591230894a373c6",
+      "bytes": 174
+    },
+    {
+      "path": "source-inputs/source-report.json",
+      "sha256": "680cb486f39dc91d45c07eaa1e0be53d6db859c9b04888893ed134675d9c56f5",
+      "bytes": 712
+    },
+    {
+      "path": "source-inputs/taxa.json",
+      "sha256": "5b0ee1d67772ca1b3c854efa75929cc324b5b8c78937de5b15fa4c623b4d5e5c",
+      "bytes": 591
+    },
+    {
+      "path": "stage-progress.json",
+      "sha256": "24731c169d3232b41a29af6838762e482a37dd19e2dc6e401b1a1c95e7d14a45",
+      "bytes": 5034
+    }
+  ],
+  "optimizer_R_or_new_prediction_executed": false,
+  "scope": "One actual current Python historical nine-site31-taxon grid comparison on original tagged-R retained draws, plus deterministic original15site author input preparation and exact30taxon constrained/feasibility request identities. No optimizer/fit/newR or new prediction/scoring/frozen outcome. Prior-exposed English development only; no Nordic/independent vegetation/geometry/rights/human/release admission."
+}

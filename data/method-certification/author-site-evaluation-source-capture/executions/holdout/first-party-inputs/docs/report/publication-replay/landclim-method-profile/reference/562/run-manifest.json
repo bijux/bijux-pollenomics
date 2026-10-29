@@ -1,0 +1,52 @@
+{
+  "algorithm": "REVEALS-multisite-publication-source",
+  "parameters": {
+    "bootstrap_replicates": 1000,
+    "bootstrap_sampling": "explicit_original_site_indices_uniform_resampling_reference",
+    "known_source_limitations": [
+      "single_site_ppe_diagonal_preserves_source_operator_order",
+      "single_site_se_depends_on_taxon_order_in_source",
+      "multisite_bootstrap_does_not_propagate_ppe_covariance",
+      "bootstrap_mean_is_ratio_of_accumulated_unclosed_productivity_adjusted_cover",
+      "lake_gamma_expression_has_unresolved_author_source_comment",
+      "source_agreement_does_not_certify_independent_vegetation_accuracy"
+    ],
+    "missing_support": "masked_nan_instead_of_source_zero",
+    "profile": "landclimii-2016-release-source-v1",
+    "regional_extent_m": 100000.0,
+    "single_site_regional_output": "same_individual_cover_and_se",
+    "source_file_sha256": "7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87",
+    "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+    "time_bin_profile": "landclimii-author-archive-bins-v1",
+    "time_bins": "explicit_calendar_years_bp_1950CE_younger_older",
+    "units": {
+      "counts": "count",
+      "cover": "fraction",
+      "radius": "metre",
+      "standard_error": "fraction"
+    },
+    "wind_speed_m_s": 3.0
+  },
+  "inputs": {
+    "bootstrap_indices": "3c28d2d41ab0b322ecf054c28562f26846692f24050b7cc42ff7407a82d016b0",
+    "inputs": "e0cf8de5b8a217c1f14fdeb4dfc60e4d9b0fa5b1f52a5be6c0171f3759f3b823"
+  },
+  "stochastic": false,
+  "seed": null,
+  "compatibility_mode": "landclimii-2016-release-source-v1",
+  "package": "bijux-pollenomics-lra",
+  "package_version": "0.1.8",
+  "reference_package": "LRA-REVEALS-release.R",
+  "reference_version": "2016-10-30",
+  "reference_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-09-12T17:45:18.424844+00:00",
+  "runtime": {
+    "numerical_backend": "python-numpy-scipy",
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.13",
+    "scipy": "1.18.1"
+  }
+}

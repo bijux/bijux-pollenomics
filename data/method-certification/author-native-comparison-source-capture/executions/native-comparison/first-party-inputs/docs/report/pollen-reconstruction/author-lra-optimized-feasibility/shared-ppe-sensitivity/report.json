@@ -1,0 +1,310 @@
+{
+  "schema_version": "english-shared-ppe-likelihood-sensitivity.v1",
+  "source_id": "landclim/author-reference",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "source_covariance_sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918",
+  "prepared_request_sha256": "bf99b6d8add47095749b1770a0e62a575c1f90217af2c477f36525ddd0a5d69c",
+  "prepared_evidence_sha256": {
+    "BECKHAM-geometry.json": "303392717818cc614e61cb5431489cc15c01a0eaf62954de642efdee72ee9ff1",
+    "BECKHAM-raw.json": "2d1103760390e12dcdca46bd42779021d99c5a17fb6c086701fc1bb979137abf",
+    "LARKBARR-geometry.json": "da4143276c22dc41fe3057327d19915e3e410b3f63bda71112cde379d0fb67ad",
+    "LARKBARR-raw.json": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+    "chronology.json": "9453607ca0296965f24c49ec1bc1e146d010e3699ab5ee92a2d643be91490506",
+    "decision.json": "2a0ac53c44b4e8b8606f2a3f0afd4e1f1bfb15c06f998c2083903abc765e1446",
+    "dependency-lock.json": "ed1e9e8f907a860b5c10fa92a7c5967ad3dbfe94281c3bb1b6d30321204fe2fb",
+    "parameters.json": "3bb1e6c3c1b5d601b0cf25212826ef4ab7f54768030b21d835ebe4684ec94fb1",
+    "taxa.json": "02a4f022e7398d343564d1c6cc849642fe2deb90f543b5a6dc37afbf75781a62"
+  },
+  "taxa": [
+    "Abies.alba",
+    "Alnus.glutinosa",
+    "Amanranthaceae.Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus.sempervirens",
+    "Calluna.vulgaris",
+    "Carpinus.betulus",
+    "Carpinus.orientalis",
+    "Castanea",
+    "Cerealia.t",
+    "Corylus.avellana",
+    "Cyperaceae",
+    "Ericaceae",
+    "Fagus.sylvatica",
+    "Fraxinus",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago.lanceolata.type",
+    "Poaceae",
+    "Quercus.deciduous",
+    "Quercus.evergreen",
+    "Rumex.acetosa.t",
+    "Salix",
+    "Secale",
+    "Tilia",
+    "Ulmus"
+  ],
+  "fixed_counts": {
+    "regional": 699,
+    "local": 553
+  },
+  "seed": 20261002,
+  "draws": 64,
+  "stochastic_draws": 63,
+  "ppe_covariance": "source-declared diagonal, source-normal whole-vector rejection",
+  "same_ppe_regional_and_local": true,
+  "zero_second_local_ring": true,
+  "fit_profile": "homogeneous-fixed-input-likelihood-v1",
+  "gap_tolerance": 1e-07,
+  "max_steps": 10000,
+  "max_condition_number": 1000000000000.0,
+  "maximum_observed_gap": 9.959748226151532e-08,
+  "maximum_forward_abs": 5.551115123125783e-16,
+  "conditional_only": true,
+  "interpretation": "Conditional sensitivity for one exposed English training pair; no historical vegetation, held-out accuracy, field covariance, source-rights or ecological admission.",
+  "cover_by_taxon": [
+    {
+      "taxon": "Abies.alba",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Alnus.glutinosa",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Amanranthaceae.Chenopodiaceae",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Artemisia",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Betula",
+      "nominal_cover": 0.0002397291308666335,
+      "stochastic_cover_mean": 0.0002528560854810737,
+      "stochastic_cover_sd": 5.5705753702936335e-05,
+      "stochastic_cover_q05": 0.00017640404740508492,
+      "stochastic_cover_q95": 0.00035206024963575615
+    },
+    {
+      "taxon": "Buxus.sempervirens",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Calluna.vulgaris",
+      "nominal_cover": 0.02162160847996488,
+      "stochastic_cover_mean": 0.021577534467390143,
+      "stochastic_cover_sd": 0.0005143316125085782,
+      "stochastic_cover_q05": 0.020793761414085055,
+      "stochastic_cover_q95": 0.022380784024742976
+    },
+    {
+      "taxon": "Carpinus.betulus",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Carpinus.orientalis",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Castanea",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Cerealia.t",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Corylus.avellana",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Cyperaceae",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Ericaceae",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Fagus.sylvatica",
+      "nominal_cover": 0.000813372859609062,
+      "stochastic_cover_mean": 0.0008132938138418072,
+      "stochastic_cover_sd": 2.691423045121844e-05,
+      "stochastic_cover_q05": 0.0007755163250090625,
+      "stochastic_cover_q95": 0.000854259214876945
+    },
+    {
+      "taxon": "Fraxinus",
+      "nominal_cover": 0.00029528294733806895,
+      "stochastic_cover_mean": 0.00032145489811991594,
+      "stochastic_cover_sd": 8.716969535878537e-05,
+      "stochastic_cover_q05": 0.00019475120076938758,
+      "stochastic_cover_q95": 0.0004727439660453383
+    },
+    {
+      "taxon": "Juniperus",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Phillyrea",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Picea",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Pinus",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Pistacia",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Plantago.lanceolata.type",
+      "nominal_cover": 0.0025590139964023918,
+      "stochastic_cover_mean": 0.0026147415901464155,
+      "stochastic_cover_sd": 0.00022245821263438954,
+      "stochastic_cover_q05": 0.0023159329226740254,
+      "stochastic_cover_q95": 0.002991465159770735
+    },
+    {
+      "taxon": "Poaceae",
+      "nominal_cover": 0.9744709925858192,
+      "stochastic_cover_mean": 0.9744195636607926,
+      "stochastic_cover_sd": 0.0005987200233392915,
+      "stochastic_cover_q05": 0.9734192258007538,
+      "stochastic_cover_q95": 0.9753216458623792
+    },
+    {
+      "taxon": "Quercus.deciduous",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Quercus.evergreen",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Rumex.acetosa.t",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 5.554842279596857e-07,
+      "stochastic_cover_sd": 4.409019373200122e-06,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Salix",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Secale",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Tilia",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    },
+    {
+      "taxon": "Ulmus",
+      "nominal_cover": 0.0,
+      "stochastic_cover_mean": 0.0,
+      "stochastic_cover_sd": 0.0,
+      "stochastic_cover_q05": 0.0,
+      "stochastic_cover_q95": 0.0
+    }
+  ]
+}

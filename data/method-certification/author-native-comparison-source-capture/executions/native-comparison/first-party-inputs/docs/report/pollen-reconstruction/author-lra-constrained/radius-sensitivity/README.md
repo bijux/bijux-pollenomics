@@ -1,0 +1,146 @@
+# English author basin-radius forward sensitivity
+
+We varied each declared circular lake radius by factors 0.8 and 1.2 around
+the source profile's radius, while holding the 42 published LRA vegetation
+fractions, regional cover, PPE, fall speeds, and training fits fixed. The
+original 14 scored sites have assumed radii from 10 to 200 m. We changed the
+first forward and inversion annulus inner edges and areas consistently; the
+outer edges and all later annuli stayed fixed. This is a target-basin forward
+transport diagnostic, not a new LOVE reconstruction or a claim that the
+author-example radii represent age-specific surveyed basins.
+
+We [froze 126 pollen predictions](frozen/predictions.json) before opening the
+target counts. The unmodified radius reproduces every published forward
+pollen fraction exactly. We then [scored all 126 rows](scored/scores.csv) on
+the existing 30-taxon count denominator. The unmodified-radius MAE reproduces
+the published [42 held-out scores](../scores.csv) within `1e-15`.
+
+| Fixed vegetation method | Radius factor | Site-macro pollen MAE | Site-macro Hellinger |
+| --- | ---: | ---: | ---: |
+| Training mean | 0.8 | 0.026396 | 0.360975 |
+| Training mean | 1.0 | 0.026273 | 0.360671 |
+| Training mean | 1.2 | 0.026246 | 0.361927 |
+| Nearest site | 0.8 | 0.020960 | 0.283415 |
+| Nearest site | 1.0 | 0.021132 | 0.286001 |
+| Nearest site | 1.2 | 0.021491 | 0.291210 |
+| Inverse distance squared | 0.8 | 0.021032 | 0.283976 |
+| Inverse distance squared | 1.0 | 0.021088 | 0.285415 |
+| Inverse distance squared | 1.2 | 0.021457 | 0.289825 |
+
+We retain the [machine report](scored/report.json) and per-site scores because
+the aggregate moves differently by method and metric. The original study
+attempted 15 folds; BECKHAM still has no LRA prediction because three
+training fits refused, so this diagnostic scores 14 paired sites. All sites
+and target outcomes were already exposed in development. These shifts do not
+select a physical radius, quantify chronology or PPE uncertainty, establish
+vegetation accuracy, or admit a Swedish core to LRA.
+
+## Paired direct-pollen comparison
+
+We joined the radius scores to the published direct-pollen MAE and Hellinger
+rows by target site, method and exact observed raw-row SHA-256. We checked
+that the unvaried LRA score and prediction identity reproduce the original
+comparison. The [paired rows](paired/paired-scores.csv) and
+[summary](paired/report.json) cover 126 matched method/radius/site rows.
+
+| Method | Radius factor | Direct minus LRA MAE | Direct minus LRA Hellinger | Sites favoring direct by MAE |
+| --- | ---: | ---: | ---: | ---: |
+| Training mean | 0.8 / 1.0 / 1.2 | −0.005900 / −0.005778 / −0.005750 | −0.078892 / −0.078588 / −0.079845 | 13 / 13 / 13 of 14 |
+| Nearest site | 0.8 / 1.0 / 1.2 | −0.001408 / −0.001580 / −0.001939 | −0.027647 / −0.030234 / −0.035443 | 6 / 7 / 7 of 14 |
+| Inverse distance squared | 0.8 / 1.0 / 1.2 | −0.002454 / −0.002509 / −0.002878 | −0.040303 / −0.041743 / −0.046152 | 10 / 10 / 9 of 14 |
+
+Negative aggregate differences favor direct pollen. We found that varying
+the assumed radius by 20% does not reverse the aggregate direct-pollen
+advantage on this matched English development support. Individual sites
+disagree, and the direct route used all 14 training pollen sites while LRA
+used a regional anchor plus 13 local reconstruction predictors. This is not
+an independent model ranking or vegetation-accuracy comparison.
+
+We regenerated the source inputs and 15-site predictions from the qualified
+author snapshot. The source experiment hash matched exactly. The fresh
+prediction bundle has different run metadata, but all 1,260 retained
+vegetation and forward-pollen values match the governed prediction table
+exactly. Its 126 radius scores are byte-identical to the governed scores;
+only the source and freeze identities in the new run report differ. The
+[producer](https://github.com/bijux/bijux-pollenomics/blob/6956a977bf391b9b1de1706f4f4c0bd75e222ba2/docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py) verifies the candidate bundle members
+and every numerical prediction cell against that retained table before it
+freezes the radius projections.
+
+To reproduce from the private author snapshot, run these commands from the
+repository root with an absent job directory:
+
+```sh
+job=artifacts/jobs/author-lra-radius-replay
+source_root=/path/to/private/landclim/author-reference
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
+  bijux_pollenomics_dev.essd_reproduction.author_lra_development \
+  --author-source-root "$source_root" --output "$job/source-inputs"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/prepare.py \
+  --source "$job/source-inputs" --destination "$job/constrained-inputs"
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 \
+  .venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_lra_run \
+  --inputs "$job/constrained-inputs" --cache-root "$job/cache" \
+  --output "$job/predictions"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py \
+  freeze --inputs "$job/constrained-inputs" --predictions "$job/predictions" \
+  --output "$job/frozen"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py \
+  score --inputs "$job/constrained-inputs" --predictions "$job/predictions" \
+  --frozen "$job/frozen/predictions.json" --output "$job/scored"
+```
+
+The producer authenticates the source experiment, prediction bundle members,
+every target geometry and each raw count row against the source declarations.
+It invokes the installed LRA forward consumer for every projection. Private
+author inputs stay outside the repository; the governed outputs preserve the
+original prediction and score identities.
+
+To reproduce the downstream comparison from the retained source-locked
+scores without private raw files:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py \
+  --output artifacts/jobs/author-lra-radius-paired-replay
+```
+
+
+<!-- scientific-account-route:begin -->
+## Scientific verification and limits
+
+Source-bound conditional reconstruction or exposed pollen development wrapper; own source assumptions and exact scored/refused populations must be preserved alongside account links.
+
+**Supported claim.** A target-basin forward diagnostic varies radius factors 0.8/1.0/1.2 while freezing previously reconstructed vegetation and training fits. The matched direct-pollen aggregate advantage persists across these scenarios, with site/method/metric disagreements retained.
+
+**Unsupported claim.** A newly fitted LOVE reconstruction, physical radius selection, age-specific surveyed basin geometry, independent/equal-information model ranking, chronology/PPE uncertainty or measured vegetation accuracy.
+
+**Actual verification performed.** The reader and retained freeze, scored and paired ledgers were inspected. Retained source replay reports exact unvaried forward fractions and 42 baseline scores within 1e-15;126 radius scores are byte-identical under a separately regenerated source bundle despite differing metadata identities. This qualification performs no forward, inversion or source replay.
+
+**Remaining input or review.** Radii are declared source-profile assumptions, vegetation/training fits stay fixed, outcomes were already exposed and BECKHAM remains refused. Direct pollen uses 14 training pollen sites while LRA uses a regional anchor plus 13 local predictors; those information sets differ.
+
+**Cause category.** data | assumption | comparability | qualified review
+
+**Consequence.** Interpret changes as conditional transport sensitivity on 14 paired exposed targets. Do not select a radius from these scores or describe the direct/LRA difference as an independent vegetation-accuracy ranking.
+
+**Precise next acceptance route.** Obtain source- and age-specific measured basin geometry for a physical-radius claim; define comparable information sets and freeze a new independent evaluation before stronger prediction comparisons. Source/PPE/chronology uncertainty and measured vegetation require separate admission.
+
+**Negative or refused result.** BECKHAM still has no LRA prediction after 3 training fits fail. Individual sites and metrics disagree with the aggregate; changing assumed radius by 20% does not reverse the aggregate direct-pollen advantage on the matched exposed support.
+
+**Matched denominator.** 14 scored sites,3 fixed vegetation methods and 3 radius factors yield 126 frozen/scored/paired method-radius-site rows. The factor 1 baseline has 42 rows. Scores use the existing 30-taxon count axis and exact observed raw-row SHA per target; the source study attempted 15 outer folds.
+
+Qualified authored reader SHA-256: `44e969a8db481c0f92d568b579040ab60864f0ed75c2ae645c4abbf34816def4`.
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json](frozen/predictions.json) (SHA-256 `ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json](scored/report.json) (SHA-256 `d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129`).
+
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json](paired/report.json) (SHA-256 `c1bf2d0ef2b4eecde08cc4ff372e0d99a18dbad30d05d20a2ccbdc73504eba67`).
+
+- [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (source SHA-256 `f17a2f3b862cdfcd7713dcc0901e030a4d1423fa81874c79373d8e239c7a2f9e`).
+
+JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
+<!-- scientific-account-route:end -->

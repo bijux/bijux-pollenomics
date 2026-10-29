@@ -1,0 +1,30 @@
+{
+  "approved": true,
+  "source_manifest_sha256": "12dd573b5a692cf192efefb05645b28d59564b38377d235e5ee5a006085318ef",
+  "source_manifest": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-development-input-custody/prepared-source-manifest.json",
+  "all6members_rehashed": true,
+  "source_only_controls": {
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-development-input-custody/check_contracts.py"
+    ],
+    "native_exit": 0,
+    "cases": 11,
+    "stderr_sha256": "34a82a30511a2175a5286cff0751874e9220ce5fb08cab87b09cc04e220f6b31"
+  },
+  "maintained_bodies_reviewed": [
+    "native_comparison.compare executes actual Python run_reveals_multisite against original saved R/reference data; no new R process.",
+    "author_lra_development materializes deterministic source-bound original15site/31taxon requests; constrained prepare removes exact159Filipendula of20732 and preserves20573 count mass.",
+    "feasibility prepare reconstructs exact original two bounded requests via make_request/validate_lra_inputs, never calls execute/optimizer/fit/new prediction or scoring."
+  ],
+  "custody": "Actual195pin author authority,14private+2reference+5code records must all match physical current hashes. Four complete package trees/resources and loaded runtime source plus actual common runner are pinned. Clean main/fullindex before/after and qualified lexical Python/sys.prefix; confined absent output/symlink guards.",
+  "independent_observer": "Complete native comparison bytes and JSON types/order exact; original31/30taxon source counts/15unique sites/2unavailable, excluded159 mass andaba704 constrained experiment, both7d2/bf99 historical request identities validated. All generated raw/geometry/evidence hash joins checked, untouched original input pins rehashed.",
+  "bounds": "Five sequential native stages120/60/60/60/60 under420s;2GiB completed-child RSS and64MiBlogical output+16KiB own reserve, actual postchecks rather than OS quota.",
+  "limits": [
+    "Source-only controller approval, no actual prepare/consumer performed by peer.",
+    "Future historical comparison is genuine numerical Python execution, not merely metadata, but no freshR/fit/optimizer/outcomes are claimed.",
+    "English prior-exposed prepared development scope; no Nordic physical pollen, ecological/rights/human or release admission."
+  ],
+  "root_required": "Prepare0 against chosen clean candidate, register/readback exact plan and separate actual launch; any historical request identity drift remains a refusal, never rehash expected values."
+}

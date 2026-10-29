@@ -1,0 +1,81 @@
+{
+  "schema_version": "author-pollen-replay-managed-reader-contract.v1",
+  "base_candidate": "960f1fe995573b48dce4793b5c28212f027e47d1",
+  "paths": [
+    {
+      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py",
+      "preimage_sha256": "70e6c222f006484e60f5e5b35b26e68c26b92e27e227bad627b071f7232c8e90",
+      "preimage_git_blob": "1906b2d680a40663b72c380a9b852460ed141de2",
+      "proposed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-replay-reader-contract/proposal/docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py",
+      "proposed_sha256": "ebaa48cb85d3d130168f8ed603ebe48fe31ce957e07b9b4ca9ff140b234c780a",
+      "bytes": 6003
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_site_holdout_reader_replay.py",
+      "preimage_sha256": null,
+      "preimage_git_blob": null,
+      "proposed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-replay-reader-contract/proposal/packages/bijux-pollenomics-dev/tests/essd_reproduction/test_site_holdout_reader_replay.py",
+      "proposed_sha256": "5524fe7edc14d163f59cc898a840dae077283952573c7d35626c6ba2c09901e0",
+      "bytes": 4519
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/manifest.json",
+      "preimage_sha256": "9013bb7d0c329316effeb5f16d7963d291c46e6d5e301dd06300c0fdd47cdacd",
+      "preimage_git_blob": "e6e71d2b0e8c9cbd9e7ca49be3b8d627bb733c79",
+      "proposed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-replay-reader-contract/proposal/docs/report/pollen-reconstruction/manifest.json",
+      "proposed_sha256": "c9550054ea5e9657e12daabfd202a4eb728929ef1542283cd9cd2065812c8017",
+      "bytes": 449545
+    },
+    {
+      "path": "reports/source-lock.json",
+      "preimage_sha256": "ec23ac32960759deae5a17237fa7de10555c504f174cc9effd627de733f634d3",
+      "preimage_git_blob": "2ecc1fcfa289c7c6b79007b90c131c8690349ee4",
+      "proposed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-replay-reader-contract/proposal/reports/source-lock.json",
+      "proposed_sha256": "9722405e8e849175da7749fa581a61b805a15ec5792c55d721561e6342a604f6",
+      "bytes": 295847
+    }
+  ],
+  "maintained_contract": "Both tracked/generated REPORT prose use verified_authored_reader and actual render_route before publishing exact governed bytes. Existing all4files exact comparison stays intact, CSV CRLF\u2192LF unchanged. Linked outputs refused, all4source roots replace dev-only override.",
+  "source_only_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-replay-reader-contract/final-source-preflight/receipt.json",
+    "sha256": "ccfeec573a14b87c41132c102dcdf94c921f6046b4d0bf15ffeb15112081f8f2",
+    "cases": 11,
+    "strict": 2,
+    "Ruff_format": 2,
+    "full_four_package_source_view": true,
+    "actual_wrapper_or_model_executed": false
+  },
+  "metadata": "Existing pollen manifest replay.py SHA+byte row only; existing source-lock pollen manifest hash only. New dedicated test is outside the actual GEO declared source_completion-test closure, so no owner-policy change is fabricated.",
+  "existing_declared_owner": "pollen-reconstruction/author-example-site-mean-holdout/report-products already includes replay.py producer; source-code owner already owns it.",
+  "footprints": {
+    "captured_maintained_source": {
+      "count": 1226,
+      "changed_intersection": []
+    },
+    "captured_verifier_source": {
+      "count": 9,
+      "changed_intersection": []
+    },
+    "PDF_current121": {
+      "count": 121,
+      "changed_intersection": []
+    },
+    "R_code100_data291": {
+      "count": 391,
+      "changed_intersection": []
+    },
+    "GEO2109": {
+      "count": 2109,
+      "changed_intersection": []
+    },
+    "release_embedded_source": {
+      "count": 54,
+      "changed_intersection": []
+    }
+  },
+  "previous_refusals_preserved": [
+    "preflight/receipt.json:11controls/strict2/format2pass, Ruff2style failures",
+    "qualified-preflight/receipt.json:11controls/strict2/Ruff2pass, one format-only refusal"
+  ],
+  "root_required": "Independent source peer, narrow canonical11/strict2/Ruff2/format2 +report metadata guards, coherent source commit, then genuinely registered family wrapper/nativefour-product observer before current reader verification publication. Original112 producer/observer0 remains historical, unchanged."
+}
