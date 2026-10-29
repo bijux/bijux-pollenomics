@@ -8,14 +8,14 @@ directly against current pages; machine-readable outputs retain their domain
 manifests. It excludes the four registry/review metadata
 files themselves; its count is a scoped subset of the complete report tree.
 
-- Surface count: `2131`
+- Surface count: `2133`
 
 ## Report families
 
 | Family | Count |
 | --- | ---: |
 | [Scientific caveats](caveats/index.md) | 10 |
-| [Maintainer truth surfaces](maintenance/index.md) | 1228 |
+| [Maintainer truth surfaces](maintenance/index.md) | 1230 |
 | [Map surfaces](maps/index.md) | 88 |
 | [Portal guidance](index.md) | 2 |
 | [Evidence reviews](reviews/index.md) | 36 |
@@ -25,6 +25,6 @@ files themselves; its count is a scoped subset of the complete report tree.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 1230 |
+| Maintainer diagnostic | 1232 |
 | Public reading surface | 776 |
 | Scientific review surface | 125 |

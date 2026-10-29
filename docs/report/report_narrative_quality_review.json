@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v2",
-  "page_count": 322,
+  "page_count": 323,
   "quality_posture_counts": {
-    "reader_ready": 305,
+    "reader_ready": 306,
     "structured_reference": 8,
     "thin_structure": 9
   },
@@ -3224,6 +3224,16 @@
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/numerical-performance/representative-public-calls/README.md",
+      "prose_paragraph_count": 19,
+      "link_bullet_count": 4,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
+      "table_line_count": 8,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     }

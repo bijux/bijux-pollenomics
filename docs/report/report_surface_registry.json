@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v2",
-  "surface_count": 2131,
+  "surface_count": 2133,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "excluded_metadata_paths": [
     "docs/report/report_narrative_quality_review.json",
@@ -10,14 +10,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1228,
+    "maintenance": 1230,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 767
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1230,
+    "maintainer_diagnostic": 1232,
     "public_reading_surface": 776,
     "scientific_review_surface": 125
   },
@@ -27,7 +27,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1279,
+    "report_root": 1281,
     "sweden": 55,
     "world": 160
   },
@@ -25594,6 +25594,30 @@
     },
     {
       "repository_path": "docs/report/source-relations/raa/native-lead-support/source-account.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/numerical-performance/representative-public-calls/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/numerical-performance/representative-public-calls/report.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
