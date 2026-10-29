@@ -19,6 +19,7 @@ from .metadata import (
     PROOF_IDENTITIES,
     exact_file,
     object_buffer,
+    validate_historical_reader,
     validate_metadata,
     validate_recorded_source_contracts,
 )
@@ -198,20 +199,7 @@ def validated_sweden_country_capture(
             REPORT,
             {"sha256": OLD_REPORT_SHA, "bytes": 5680},
         )
-        historical = "data/source-custody/country-reports/sweden/historical-reader.md"
-        historical_path = repository / historical
-        require(
-            historical_path.is_file() and historical_path.stat().st_size <= MAX_CAPTURE,
-            "Historical reader absent",
-        )
-        exact_file(
-            repository,
-            historical,
-            {
-                "sha256": witness["historical_reader_raw_sha256"],
-                "bytes": historical_path.stat().st_size,
-            },
-        )
+        validate_historical_reader(repository, witness["historical_reader_raw_sha256"])
         entry = tracked_by_path.get(REPORT)
         require(entry is not None, "Governed Sweden receipt inventory missing")
         assert entry is not None
