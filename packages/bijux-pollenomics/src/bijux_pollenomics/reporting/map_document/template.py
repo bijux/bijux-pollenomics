@@ -25,6 +25,10 @@ def load_map_document_template() -> str:
                 encoding="utf-8"
             ),
         )
+        .replace(
+            "__SEARCH_INDEX_CONTROLLER__",
+            package_root.joinpath("assets/search-index.js").read_text(encoding="utf-8"),
+        )
     )
 
 

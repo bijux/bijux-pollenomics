@@ -306,6 +306,7 @@ def write_static_atlas_assets(
             "edge_schema": "atlas-edges-chunk.v1",
             "sequence_schema": "atlas-sequences-chunk.v1",
             "index_schema": index_bundle["schema_version"],
+            "search_index_abi": indexes["search_index_abi"],
         },
         "budgets": {
             "bootstrap_max_bytes": ATLAS_BOOTSTRAP_MAX_BYTES,
