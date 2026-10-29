@@ -37921,6 +37921,9 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation/correspondence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/representative_performance.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_accounting/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_accounting/current_audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_accounting/transport.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_correspondence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
@@ -80903,26 +80906,12 @@
     },
     {
       "owner_id": "source-relations/source-reconciliation/report-products",
-      "role": "unresolved",
+      "role": "retained_source",
       "paths": [
         "docs/report/source-relations/source-reconciliation/report.json"
       ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__main__.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/intake_custody.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/intakes.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py"
-      ],
-      "producer_inputs": [
-        "data/country_dimension_coverage.json",
-        "data/source_fact_ownership_registry.json",
-        "data/source_family_contracts.json",
-        "data/source_family_evidence_stage_matrix.json",
-        "data/source_spatiotemporal_posture_registry.json"
-      ],
+      "producer_paths": [],
+      "producer_inputs": [],
       "verification": "Known audit/summary modules and five governing registries are declared, but this is not the full321-path read set. Original private Rootsi/OpenLand intake archives and complete manifest/authority closure must be bound before mechanical summary reproduction. Reuse the retained zero-finding accounting scope; do not rerun the unchanged full source audit or infer full_source_confirmation."
     },
     {

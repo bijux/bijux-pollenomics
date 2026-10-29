@@ -104,6 +104,9 @@ from .scientific_captures.pollen_source.swedish_direct_pollen import (
 from .scientific_captures.representative_performance import (
     validated_representative_performance_capture,
 )
+from .scientific_captures.source_accounting.current_audit import (
+    validated_current_source_accounting_capture,
+)
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
 )
@@ -394,6 +397,11 @@ def validated_maintained_report_sources(
     hyde_grid_entries, hyde_grid_evidence = validated_hyde_grid_source_captures(
         repository, tracked_by_path, inventory["owners"]
     )
+    source_accounting_entries, source_accounting_evidence = (
+        validated_current_source_accounting_capture(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
     if any(
         (
             slu_guide_entries,
@@ -429,6 +437,7 @@ def validated_maintained_report_sources(
         + svar_census_entries
         + hyde_grid_entries
         + rootsi_entries
+        + source_accounting_entries
         + controlled_numerical_entries
     )
     for entry in all_capture_entries:
@@ -532,4 +541,6 @@ def validated_maintained_report_sources(
         evidence["retained_amsoldingersee_sources"] = amsoldingersee_evidence
     if hyde_grid_entries:
         evidence["retained_hyde_grid_source_conservation"] = hyde_grid_evidence
+    if source_accounting_entries:
+        evidence["retained_current_source_accounting"] = source_accounting_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

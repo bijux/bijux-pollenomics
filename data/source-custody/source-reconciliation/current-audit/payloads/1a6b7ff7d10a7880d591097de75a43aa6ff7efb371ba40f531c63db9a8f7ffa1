@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-custody/entry.py", line 153, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-custody/entry.py", line 131, in main
+    prepare()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-custody/prepare.py", line 108, in main
+    "repository": collect_repository(ROOT, declared["authorities"]),
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-custody/inputs/closure.py", line 184, in collect_repository
+    path = view.add(name)
+           ^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-custody/inputs/closure.py", line 66, in add
+    path = path_at(self.root, name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-custody/inputs/closure.py", line 40, in path_at
+    require(
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-custody/inputs/closure.py", line 28, in require
+    raise ValueError(reason)
+ValueError: Audit input ancestor alias refused: /Users/bijan/bijux/bijux-pollenomics/data/adna/species/homo_sapiens/raw/aadr

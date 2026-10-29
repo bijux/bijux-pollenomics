@@ -1,0 +1,14 @@
+{
+  "actual_exit": 0,
+  "metadata_retention_only": true,
+  "raw_decode_or_source_consumer_repeated": false,
+  "public_capture_path": "data/source-custody/source-reconciliation/current-audit/capture.json",
+  "capture": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-source-audit-capture/packet/capture.json",
+    "sha256": "c7f755751a4da3e2e3eefbe83bb6d0e72be73461f4dc8faba659367c1bb60c68",
+    "bytes": 33636603
+  },
+  "public_payload_count": 2269,
+  "exact_packet_bytes": 110733995,
+  "original_owner_acceptance_changed": false
+}

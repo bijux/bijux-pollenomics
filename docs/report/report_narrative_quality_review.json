@@ -3287,9 +3287,9 @@
     },
     {
       "repository_path": "docs/report/source-relations/source-reconciliation/README.md",
-      "content_sha256": "c602768db457def43082fab6dcd48027be1dd7a786e1d728ce265adbaec012c9",
-      "prose_paragraph_count": 16,
-      "link_bullet_count": 2,
+      "content_sha256": "f32a8b213db6903244d0775b33693866f437134c12b6199bcd46af11f2393fb9",
+      "prose_paragraph_count": 19,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,

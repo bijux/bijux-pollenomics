@@ -9013,11 +9013,11 @@
       ],
       "scope_reason": "Source-native/context/propagation evidence: source units and eligibility/refusal populations do not become pollen observations or ecological events.",
       "qualification": {
-        "authored_reader_sha256": "1cde29f9ced7222cc04c936cd9062508519351b3c703fe97988f188f4edbfb5b",
+        "authored_reader_sha256": "655ef1776978cc63ab6c373f4421a4ae1373c45c98d638cf7653b3fea858a11e",
         "fields": {
           "supported_claim": "The pinned source audit reconciles registered families, country/capability cells and historical intake custody without claiming full source confirmation.",
           "unsupported_claim": "Zero mechanical findings cannot certify provider completeness, historical input semantics, rights or scientific review.",
-          "actual_verification_performed": "Read retained summary, external intake dispositions and source-specific blockers; no private archives or whole-registry audit rerun.",
+          "actual_verification_performed": "Read retained summary, external intake dispositions and source-specific blockers; no private archives or whole-registry audit rerun. The earlier qualification read the historical retained summary without replaying private archives. A later source consumer from commit ad591c301bcadb6a3f963caa836a2e38a16d0de4 executed the maintained current audit, intake and summary APIs; its independent reconstruction checked the complete typed results and both serialized JSONs. The actual proof binds all 321 consumed paths, 592 repository and 7 private identities, both original Rootsi/OpenLand archives, the five governing registries and 204 manifest-verification rows. Both native stages and the complete execution exited zero. A separate metadata assembly and independent packet observer also exited zero. The governed report now contains the exact current summary, whose 15 scientific/intake/status fields equal the earlier summary; only its three provenance digests differ. The exact earlier summary remains in public history. The older 26116 full-audit object and old summary construction receipt have not been recovered. This later current-summary succession separately satisfies the unchanged original report-owner mechanical input conditions; it does not rewrite the capture-time unresolved owner state or establish source permissions, qualified review, provider completeness, every country partition, ecology or LRA admission. Unknown counts and native missing paths remain distinct from observed zero. Full source confirmation remains false.",
           "remaining_input_or_review": "53 supported dimensions need missing/partial materialization; qualified taxonomy, chronology, basin, rights and independent truth evidence remain.",
           "cause_category": "Mechanical accounting and scientific acceptance are separate states.",
           "consequence": "Rootsi/OpenLand are intake relationships, not new independent vegetation families.",
@@ -9028,7 +9028,11 @@
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/source-reconciliation/report.json",
-            "sha256": "16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2"
+            "sha256": "eaac246b596399e19f88a4730f84500d2aca654e5549ed7868255b8bf73bd85a"
+          },
+          {
+            "path": "reports/science/source-cohorts/current-source-accounting.json",
+            "sha256": "83664560ef60b587027d19dffcada0ae2e815c5a985de368cff0d33ed7940e3e"
           }
         ]
       }
