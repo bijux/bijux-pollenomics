@@ -55,7 +55,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** Calibrated control bounds do not supply sample-age uncertainty or historical lake geometry, and the core top is not a seventh published 14C date.
 
-**Actual verification performed.** Read all six control matches, core-top exception and sample-bound absence in the retained comparison; no calibration or source download.
+**Actual verification performed.** Read all six control matches, core-top exception and sample-bound absence in the retained comparison; no calibration or source download. The original scientific ownership acceptance criteria have been restored verbatim. The SLU guide, HYDE country products, ABBO age-control report, Swedish cohort screen, OpenLand intake and Neotoma publication-attribution owners remain unresolved because their required original acquisition/copy custody or source-use authority has not been independently established. Genuine current executions, exact-byte checks and retained source captures remain scoped evidence; they do not discharge those original conditions. No numerical result, source chronology, permission, qualified human decision or LRA admission has changed.
 
 **Remaining input or review.** Collection-date roles, 107 interpolated sample uncertainties, historical basin geometry and source analytical rights need resolution.
 
@@ -74,6 +74,8 @@ Qualified authored reader SHA-256: `7624ddef469a420bf8254ecee40b09df654fd3679cdc
 - [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-age-controls/report.json](report.json) (SHA-256 `629efd8c18ce6b3ab570d36cf4c3ebbb99a180d1018cdb8eec2ecfa268039445`).
 
 - [Retained qualification evidence: docs/report/source-relations/neotoma/abbo-profile/report.json](../abbo-profile/report.json) (SHA-256 `c29738753e25a99767776cfecfbdaebe0c3a4394c38df91b72bb2c4c944c6263`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/original-owner-acceptance.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/original-owner-acceptance.json) (SHA-256 `37d3ff0e8058675304a0dbee2d4454a077e7b0e294566b4bbe75ac7ffc99746e`).
 
 - [Canonical scientific account: reports/science/abborrtjarnen-source-method.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md) (source SHA-256 `264420c81e18a6ee56b0b612e657f881fa26829a9cc060114d69b15d2491120f`).
 

@@ -20,6 +20,33 @@ MEMBER_COUNT: Any = 2209
 MEMBERS_SHA256: Any = "658d4236f0f35d9db12278b2fb3e209eda083f907d5b1859d3325c004f6aba07"
 ORIGINAL_CANDIDATE: Any = "5c120dcb67d31b50d9da6d7bf5efb41dcb0ddf87"
 OWNER: Any = "source-relations/openland-intake/report-products"
+
+ORIGINAL_OWNER: JsonObject = {
+    "owner_id": "source-relations/openland-intake/report-products",
+    "role": "unresolved",
+    "paths": [
+        "docs/report/source-relations/openland-intake/doi-lineage.json",
+        "docs/report/source-relations/openland-intake/members.csv",
+        "docs/report/source-relations/openland-intake/report.json",
+        "docs/report/source-relations/openland-intake/upstream-tree.json",
+    ],
+    "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/openland_intake.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py",
+    ],
+    "producer_inputs": ["data/landclim/raw/landclim_sources.json"],
+    "verification": "Original private ZIP "
+    "SHA7ed602f3b480a995cd2e1ff6dc445e994442100b1f626a953185849305e2434b "
+    "is required for report/member production. Retained upstream Git-tree "
+    "and DOI JSON also need original response/copy custody. Authenticate "
+    "each input and its role before replay. Zero public member "
+    "admissions/independent benchmarks and superseded DOI rights remain "
+    "separate; do not turn derived data into vegetation truth.",
+}
+CORRECTION_WITNESS = "reports/science/source-cohorts/original-owner-acceptance.json"
+CORRECTION_WITNESS_SHA256 = (
+    "37d3ff0e8058675304a0dbee2d4454a077e7b0e294566b4bbe75ac7ffc99746e"
+)
 PUBLICATIONS: Any = [
     "docs/report/source-relations/openland-intake/doi-lineage.json",
     "docs/report/source-relations/openland-intake/members.csv",
@@ -286,32 +313,54 @@ def validate_native_records(
     _exact(plan["owner_row"]["paths"], PUBLICATIONS)
 
 
+def _validate_original_owner(owners: list[JsonObject]) -> None:
+    """Require the complete original unresolved contract, including unchanged criteria."""
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    _require(len(selected) == 1, "One exact original owner required")
+    _exact(selected[0], ORIGINAL_OWNER)
+    owned_paths = ORIGINAL_OWNER["paths"]
+    assert isinstance(owned_paths, list)
+    for other in owners:
+        if other is selected[0]:
+            continue
+        paths = other.get("paths", [])
+        _require(
+            isinstance(paths, list)
+            and all(isinstance(path, str) for path in paths)
+            and not set(owned_paths).intersection(paths),
+            "Another owner overlaps current evidence paths",
+        )
+
+
+def _capture_required(repository: Path) -> bool:
+    """A published correction keeps its existing physical evidence mandatory."""
+    capture = repository / CAPTURE
+    present = bool(capture.exists() or capture.is_symlink())
+    witness = repository / CORRECTION_WITNESS
+    _require(
+        not any(node.is_symlink() for node in (witness, *witness.parents)),
+        "Original-acceptance witness ancestry alias",
+    )
+    if witness.exists() or witness.is_symlink():
+        path = _file(repository, CORRECTION_WITNESS)
+        _exact(hashlib.sha256(path.read_bytes()).hexdigest(), CORRECTION_WITNESS_SHA256)
+        _require(present, "Published partial evidence requires its exact capture")
+    return present
+
+
 def validated_openland_member_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
-    """Admit two source-produced files and two declared input copies, without acquisition claims."""
+    """Validate partial current evidence while original owner acceptance stays unresolved."""
+    present = _capture_required(repository)
     selected = [row for row in owners if row.get("owner_id") == OWNER]
-    if not selected and not (repository / CAPTURE).exists():
+    if not selected and not present:
         return (), {}
-    _exact(len(selected), 1)
-    owner = selected[0]
-    for key, value in [
-        ("role", "retained_source"),
-        ("paths", PUBLICATIONS),
-        ("producer_paths", []),
-        ("producer_inputs", []),
-    ]:
-        _exact(owner[key], value)
-    for other in owners:
-        if other is not owner:
-            other_paths = other.get("paths")
-            _require(
-                isinstance(other_paths, list)
-                and not set(PUBLICATIONS).intersection(other_paths),
-                "Other owner overlaps exact four outputs/input copies",
-            )
+    _validate_original_owner(owners)
+    if not present:
+        return (), {}
     capture = _file(repository, CAPTURE)
     _exact(
         {
@@ -519,7 +568,11 @@ def validated_openland_member_capture(
         ]:
             _exact(actual, value)
         entries.append(entry)
-    return tuple(entries), {
+    return (), {
+        "selected_retained_entries": 0,
+        "original_owner_acceptance_discharged": False,
+        "owner_remains_unresolved": True,
+        "original_acceptance_criterion": ORIGINAL_OWNER["verification"],
         "owner_id": OWNER,
         "capture_sha256": CAPTURE_SHA256,
         "original_execution_candidate": ORIGINAL_CANDIDATE,

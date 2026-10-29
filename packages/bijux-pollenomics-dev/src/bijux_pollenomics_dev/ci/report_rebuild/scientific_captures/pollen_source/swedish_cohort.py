@@ -15,6 +15,34 @@ from ...ownership import ReportOwnershipError, _regular_confined_file
 CAPTURE: Any = "data/surface-reference/swedish-cohort-source-capture/capture.json"
 CAPTURE_SHA256: Any = "a777339c3eb30ea62669b1054aea12a9363cf82d8cef57da907bb8a29727379e"
 OWNER: Any = "source-relations/neotoma/swedish-cohort-availability/source-screen"
+
+ORIGINAL_OWNER: JsonObject = {
+    "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+    "role": "unresolved",
+    "paths": [
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
+    ],
+    "producer_paths": [
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
+    ],
+    "producer_inputs": [
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json",
+    ],
+    "verification": "Replay requires --private-root: private source-manifest.json plus "
+    "seven source records, EPD source-manifest.json and 17 "
+    "metadata/age-table files. Those are not repository-confined; keep "
+    "unresolved until exact private capture custody, permission and byte "
+    "comparison are independently bound. Metadata-only refusal is not "
+    "fresh-cohort acceptance.",
+}
+CORRECTION_WITNESS = "reports/science/source-cohorts/original-owner-acceptance.json"
+CORRECTION_WITNESS_SHA256 = (
+    "37d3ff0e8058675304a0dbee2d4454a077e7b0e294566b4bbe75ac7ffc99746e"
+)
 REPORT: Any = (
     "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
 )
@@ -674,24 +702,54 @@ def validate_native_records(
                 )
 
 
+def _validate_original_owner(owners: list[JsonObject]) -> None:
+    """Require the complete original unresolved contract, including unchanged criteria."""
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    _require(len(selected) == 1, "One exact original owner required")
+    _exact(selected[0], ORIGINAL_OWNER)
+    owned_paths = ORIGINAL_OWNER["paths"]
+    assert isinstance(owned_paths, list)
+    for other in owners:
+        if other is selected[0]:
+            continue
+        paths = other.get("paths", [])
+        _require(
+            isinstance(paths, list)
+            and all(isinstance(path, str) for path in paths)
+            and not set(owned_paths).intersection(paths),
+            "Another owner overlaps current evidence paths",
+        )
+
+
+def _capture_required(repository: Path) -> bool:
+    """A published correction keeps its existing physical evidence mandatory."""
+    capture = repository / CAPTURE
+    present = bool(capture.exists() or capture.is_symlink())
+    witness = repository / CORRECTION_WITNESS
+    _require(
+        not any(node.is_symlink() for node in (witness, *witness.parents)),
+        "Original-acceptance witness ancestry alias",
+    )
+    if witness.exists() or witness.is_symlink():
+        path = _file(repository, CORRECTION_WITNESS)
+        _exact(hashlib.sha256(path.read_bytes()).hexdigest(), CORRECTION_WITNESS_SHA256)
+        _require(present, "Published partial evidence requires its exact capture")
+    return present
+
+
 def validated_swedish_cohort_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
-    """Retain one metadata source receipt without admitting a fresh physical cohort."""
-    value: Any
-    selected = [r for r in owners if r.get("owner_id") == OWNER]
-    if not selected and not (repository / CAPTURE).exists():
+    """Validate partial current evidence while original owner acceptance stays unresolved."""
+    present = _capture_required(repository)
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    if not selected and not present:
         return (), {}
-    _require(len(selected) == 1, "One exact source owner required")
-    for key, value in (
-        ("role", "retained_source"),
-        ("paths", [REPORT]),
-        ("producer_paths", []),
-        ("producer_inputs", []),
-    ):
-        _exact(selected[0][key], value)
+    _validate_original_owner(owners)
+    if not present:
+        return (), {}
     path = _file(repository, CAPTURE)
     _exact(hashlib.sha256(path.read_bytes()).hexdigest(), CAPTURE_SHA256)
     packet = _json(path)
@@ -831,7 +889,11 @@ def validated_swedish_cohort_capture(
         (entry.size, wanted["bytes"]),
     ):
         _exact(actual, expected)
-    return (entry,), {
+    return (), {
+        "selected_retained_entries": 0,
+        "original_owner_acceptance_discharged": False,
+        "owner_remains_unresolved": True,
+        "original_acceptance_criterion": ORIGINAL_OWNER["verification"],
         "owner_id": OWNER,
         "capture_sha256": CAPTURE_SHA256,
         "original_source_whole_exit": 1,

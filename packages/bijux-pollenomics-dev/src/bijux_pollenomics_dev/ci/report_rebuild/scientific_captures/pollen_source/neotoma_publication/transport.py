@@ -1,4 +1,4 @@
-"""Admit exact Neotoma publication products with a finite two-leaf provenance bridge."""
+"""Validate current Neotoma evidence while original source acceptance remains unresolved."""
 
 from __future__ import annotations
 
@@ -27,6 +27,36 @@ CAPTURE_BYTES = 536650
 MEMBERS = 2355
 CANDIDATE = "82c8fc4ed3d847909d14162f51b77dc59ccc0a70"
 OWNER = "regions/nordic/source-capability/neotoma-attribution/report-products"
+
+ORIGINAL_OWNER: JsonObject = {
+    "owner_id": "regions/nordic/source-capability/neotoma-attribution/report-products",
+    "role": "unresolved",
+    "paths": [
+        "docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+        "docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
+    ],
+    "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_publication_readiness.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/publication_intake.py",
+    ],
+    "producer_inputs": [
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "docs/public/pollenomics-data/sources/neotoma.md",
+        "docs/report/regions/nordic/source-capability/neotoma-entities/report.json",
+    ],
+    "verification": "Provider publication and distinct-DOI replay modules require "
+    "original private HTTP captures plus manifests and response headers "
+    "at the documented capture-root. Known repository inputs here do not "
+    "close those responses. Bind exact original capture custody and "
+    "compare both products separately without reacquiring mutable API "
+    "responses.79primary links and six review gaps describe citation "
+    "posture, not sample source rights, basin or LRA admission.",
+}
+CORRECTION_WITNESS = "reports/science/source-cohorts/original-owner-acceptance.json"
+CORRECTION_WITNESS_SHA256 = (
+    "37d3ff0e8058675304a0dbee2d4454a077e7b0e294566b4bbe75ac7ffc99746e"
+)
 BASE = "docs/report/regions/nordic/source-capability/neotoma-attribution/"
 PLANS = {
     "production": "ca4003d9c94379843d7803d8cc213c7fe89be4789615dce58fcc4a0c779fb11f",
@@ -77,25 +107,43 @@ def load(path: Path) -> Any:
 
 
 def validate_owner(owners: list[JsonObject]) -> None:
+    """Require the unchanged unresolved original source-custody contract."""
+    _validate_original_owner(owners)
+
+
+def _validate_original_owner(owners: list[JsonObject]) -> None:
+    """Require the complete original unresolved contract, including unchanged criteria."""
     selected = [row for row in owners if row.get("owner_id") == OWNER]
-    exact(len(selected), 1)
-    row = selected[0]
-    for key, value in {
-        "role": "retained_source",
-        "paths": sorted(PRODUCTS),
-        "producer_paths": [],
-        "producer_inputs": [],
-    }.items():
-        exact(row[key], value)
+    require(len(selected) == 1, "One exact original owner required")
+    exact(selected[0], ORIGINAL_OWNER)
+    owned_paths = ORIGINAL_OWNER["paths"]
+    assert isinstance(owned_paths, list)
     for other in owners:
-        if other is not row:
-            other_paths = other.get("paths", [])
-            require(isinstance(other_paths, list), "Owner path sequence required")
-            assert isinstance(other_paths, list)
-            require(
-                not set(PRODUCTS).intersection(other_paths),
-                "Publication owner overlap",
-            )
+        if other is selected[0]:
+            continue
+        paths = other.get("paths", [])
+        require(
+            isinstance(paths, list)
+            and all(isinstance(path, str) for path in paths)
+            and not set(owned_paths).intersection(paths),
+            "Another owner overlaps current evidence paths",
+        )
+
+
+def _capture_required(repository: Path) -> bool:
+    """A published correction keeps its existing physical evidence mandatory."""
+    capture = repository / CAPTURE
+    present = bool(capture.exists() or capture.is_symlink())
+    witness = repository / CORRECTION_WITNESS
+    require(
+        not any(node.is_symlink() for node in (witness, *witness.parents)),
+        "Original-acceptance witness ancestry alias",
+    )
+    if witness.exists() or witness.is_symlink():
+        path = file(repository, CORRECTION_WITNESS)
+        exact(hashlib.sha256(path.read_bytes()).hexdigest(), CORRECTION_WITNESS_SHA256)
+        require(present, "Published partial evidence requires its exact capture")
+    return present
 
 
 def validated_neotoma_publication_capture(
@@ -103,12 +151,14 @@ def validated_neotoma_publication_capture(
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
-    if not (repository / CAPTURE).exists() and not any(
-        row.get("owner_id") == OWNER and row.get("role") == "retained_source"
-        for row in owners
-    ):
+    """Validate partial current evidence while original owner acceptance stays unresolved."""
+    present = _capture_required(repository)
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    if not selected and not present:
         return (), {}
-    validate_owner(owners)
+    _validate_original_owner(owners)
+    if not present:
+        return (), {}
     capture_path = file(repository, CAPTURE)
     exact(pin(capture_path), {"sha256": CAPTURE_SHA256, "bytes": CAPTURE_BYTES})
     capture = load(capture_path)
@@ -351,7 +401,11 @@ def validated_neotoma_publication_capture(
         exact(entry.sha256, expected_pin["sha256"])
         exact(entry.size, expected_pin["bytes"])
         entries.append(entry)
-    return tuple(entries), {
+    return (), {
+        "selected_retained_entries": 0,
+        "original_owner_acceptance_discharged": False,
+        "owner_remains_unresolved": True,
+        "original_acceptance_criterion": ORIGINAL_OWNER["verification"],
         "capture_sha256": CAPTURE_SHA256,
         "original_execution_candidate": CANDIDATE,
         "original_native_exits": [0, 0, 1],

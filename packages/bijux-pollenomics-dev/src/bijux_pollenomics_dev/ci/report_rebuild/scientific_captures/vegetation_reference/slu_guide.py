@@ -13,6 +13,26 @@ from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import ReportOwnershipError, _regular_confined_file
 
 OWNER = "validation/empd2-nfi-pairing/calibration-guide"
+
+ORIGINAL_OWNER: JsonObject = {
+    "owner_id": "validation/empd2-nfi-pairing/calibration-guide",
+    "paths": [
+        "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf"
+    ],
+    "producer_inputs": [],
+    "producer_paths": [],
+    "role": "unresolved",
+    "verification": "The tracked SLU calibration guide is pinned as SHA-256 "
+    "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8 in "
+    "the EMPD2–NFI report. Bind its original provider retrieval/copy "
+    "receipt and publication/use statement to these exact bytes before "
+    "retained-source ownership; the pairing producer consumes the guide "
+    "but does not produce it.",
+}
+CORRECTION_WITNESS = "reports/science/source-cohorts/original-owner-acceptance.json"
+CORRECTION_WITNESS_SHA256 = (
+    "37d3ff0e8058675304a0dbee2d4454a077e7b0e294566b4bbe75ac7ffc99746e"
+)
 REPORT = "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf"
 ORIGINAL_CANDIDATE = "d027effd6c0ac91512cd586c3a51db987ea46d54"
 PAGE_URL = "https://www.slu.se/en/about-slu/organisation/departments/forest-resource-management/miljoanalys/nfi/our-data/"
@@ -295,24 +315,54 @@ def validate_public_response(
     )
 
 
+def _validate_original_owner(owners: list[JsonObject]) -> None:
+    """Require the complete original unresolved contract, including unchanged criteria."""
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    _require(len(selected) == 1, "One exact original owner required")
+    _exact(selected[0], ORIGINAL_OWNER)
+    owned_paths = ORIGINAL_OWNER["paths"]
+    assert isinstance(owned_paths, list)
+    for other in owners:
+        if other is selected[0]:
+            continue
+        paths = other.get("paths", [])
+        _require(
+            isinstance(paths, list)
+            and all(isinstance(path, str) for path in paths)
+            and not set(owned_paths).intersection(paths),
+            "Another owner overlaps current evidence paths",
+        )
+
+
+def _capture_required(repository: Path) -> bool:
+    """A published correction keeps its existing physical evidence mandatory."""
+    capture = repository / CAPTURE
+    present = bool(capture.exists() or capture.is_symlink())
+    witness = repository / CORRECTION_WITNESS
+    _require(
+        not any(node.is_symlink() for node in (witness, *witness.parents)),
+        "Original-acceptance witness ancestry alias",
+    )
+    if witness.exists() or witness.is_symlink():
+        path = _file(repository, CORRECTION_WITNESS)
+        _exact(hashlib.sha256(path.read_bytes()).hexdigest(), CORRECTION_WITNESS_SHA256)
+        _require(present, "Published partial evidence requires its exact capture")
+    return present
+
+
 def validated_slu_guide_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
-    """Admit the unchanged PDF through its separately retained official current acquisition."""
+    """Validate partial current evidence while original owner acceptance stays unresolved."""
+    present = _capture_required(repository)
     selected = [row for row in owners if row.get("owner_id") == OWNER]
-    if (
-        not any(row.get("role") == "retained_source" for row in selected)
-        and not (repository / CAPTURE).exists()
-    ):
+    if not selected and not present:
         return (), {}
-    _require(len(selected) == 1, "one exact owner required")
-    owner = selected[0]
-    _exact(owner["role"], "retained_source")
-    _exact(owner["paths"], [REPORT])
-    _exact(owner["producer_paths"], [])
-    _exact(owner["producer_inputs"], [])
+    _validate_original_owner(owners)
+    if not present:
+        return (), {}
     packet_path = _file(repository, CAPTURE)
     _exact(hashlib.sha256(packet_path.read_bytes()).hexdigest(), CAPTURE_SHA256)
     packet = _json(packet_path)
@@ -370,7 +420,11 @@ def validated_slu_guide_capture(
     _exact(entry.kind, "file")
     _exact(entry.sha256, digest)
     _exact(entry.size, 136339)
-    return (entry,), {
+    return (), {
+        "selected_retained_entries": 0,
+        "original_owner_acceptance_discharged": False,
+        "owner_remains_unresolved": True,
+        "original_acceptance_criterion": ORIGINAL_OWNER["verification"],
         "owner_id": OWNER,
         "capture_sha256": CAPTURE_SHA256,
         "original_execution_candidate": ORIGINAL_CANDIDATE,

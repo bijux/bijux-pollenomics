@@ -1,0 +1,235 @@
+{
+  "schema_version": "scientific-owner-original-acceptance-correction.v1",
+  "base_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+  "original_acceptance_authority": {
+    "repository": "bijux/bijux-pollenomics",
+    "commit": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+    "repository_path": "configs/ci/report-ownership.json",
+    "git_blob": "4cf9713757b0d35c15f484bac13e9a4229ca36a5",
+    "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
+    "bytes": 4580598
+  },
+  "owners": [
+    {
+      "owner_id": "validation/empd2-nfi-pairing/calibration-guide",
+      "original_owner": {
+        "owner_id": "validation/empd2-nfi-pairing/calibration-guide",
+        "paths": [
+          "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf"
+        ],
+        "producer_inputs": [],
+        "producer_paths": [],
+        "role": "unresolved",
+        "verification": "The tracked SLU calibration guide is pinned as SHA-256 793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8 in the EMPD2–NFI report. Bind its original provider retrieval/copy receipt and publication/use statement to these exact bytes before retained-source ownership; the pairing producer consumes the guide but does not produce it."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "exact_guide_bytes",
+          "status": "supported",
+          "evidence": "Current official HTTPS page/literal link/PDF chain and independent review bind SHA793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8,136339B; native stages0/0 and whole0."
+        },
+        {
+          "condition": "original_provider_retrieval_copy_receipt",
+          "status": "not_established",
+          "evidence": "Current acquisition explicitly does not recover original2026-09-21/a063; a new genuine same-byte acquisition is preserved separately."
+        },
+        {
+          "condition": "publication_use_statement_bound_to_exact_bytes",
+          "status": "not_established",
+          "evidence": "Capsule requires prior_8be8_documentary_use_review_available=false and new_documentary_license_revalidation=false. Availability over HTTPS is not the original use-statement predicate."
+        }
+      ],
+      "exact_remaining_resolver": "Bind the exact original provider retrieval/copy receipt (or explicitly reviewed replacement criterion through a separate authorized policy decision), and the provider publication/use statement or qualified documentary-use review to the same793d90 PDF. Do not infer permission from a current public download."
+    },
+    {
+      "owner_id": "regions/nordic/hyde-country-cropland/report-products",
+      "original_owner": {
+        "owner_id": "regions/nordic/hyde-country-cropland/report-products",
+        "paths": [
+          "docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
+          "docs/report/regions/nordic/hyde-country-cropland/report.json"
+        ],
+        "producer_inputs": [],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py"
+        ],
+        "role": "unresolved",
+        "verification": "The retained country-year producer is `bijux_pollenomics_dev.source_completion.hyde_country_cropland --source-root <governed-HYDE-3.5-root> --output artifacts/jobs/vegetation-context-reproduction/hyde-country`. It reads the external general ZIP and three scenario country tables pinned in report.json. Bind exact HYDE release/source custody and permitted use before a fresh-output byte comparison of country-years.csv and report.json; no source grid, redistribution, calendar, CRS, or ecological reference acceptance is implied."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "exact_source_identity_and_native_output_bytes",
+          "status": "supported_with_scope",
+          "evidence": "Four private source identities and two rights/version context identities are pinned. Native source0/observer0/whole0/trackedchecker0 authenticate84 modeled rows and both existing products."
+        },
+        {
+          "condition": "exact_governed_HYDE_release_source_custody",
+          "status": "not_fully_established",
+          "evidence": "Local gbc2025_7apr label/input identities are retained; report records release coverage prose conflicts and helper forces release_rights_or_version_reconciled=false. No original provider retrieval chain is established by that identity ledger."
+        },
+        {
+          "condition": "permitted_use_bound_before_byte_comparison",
+          "status": "not_established",
+          "evidence": "Report preserves competing local CC-BY-NC4.0 versus README/NetCDF CC-BY3.0 declarations and pending redistribution review. Two identity-only context pins do not resolve effective release/use authority."
+        }
+      ],
+      "exact_remaining_resolver": "Resolve the exact governed HYDE release/source-provider custody and effective release/license/permitted derived-use statement for all four table inputs, using the two named context identities; preserve current native arithmetic separately. Do not rerun arithmetic solely to replace a missing permission decision."
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
+      "original_owner": {
+        "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
+        "paths": [
+          "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
+        ],
+        "producer_inputs": [
+          "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+          "docs/report/source-relations/neotoma/abbo-profile/report.json"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_age_controls.py"
+        ],
+        "role": "unresolved",
+        "verification": "The maintained producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_age_controls.py` reads repository inputs declared here and the PANGAEA ABBO age-determination TSV identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "exact_external_table_identity",
+          "status": "supported_by_maintained_guard",
+          "evidence": "Specialized source contract requires DOI10.1594/PANGAEA.740080,CC-BY-NC-3.0,2977B,SHA9717f1600c62659a33a4901da16c6b5fc3dac7cc47f8c005e54909568929704d. This audit does not hash the external table."
+        },
+        {
+          "condition": "independently_bound_external_acquisition_custody",
+          "status": "not_established",
+          "evidence": "Descriptor and specialized validator explicitly require capture_custody=not_established. The dispatcher routes this schema to that validator, not the generic receipt-authenticated source-bundle validator."
+        },
+        {
+          "condition": "use_authority",
+          "status": "not_established",
+          "evidence": "DOI/license literal and exact bytes are checked; no provider receipt/use-authorization decision is authenticated. Reader retains source analytical rights as remaining input."
+        },
+        {
+          "condition": "fresh_whole_output_byte_comparison",
+          "status": "current_policy_claim_not_independently_authenticated_here",
+          "evidence": "Current owner claims two atomic source writes0/exactreport on651debe15aaa0ea01518597e02e14c22e8297176. No named physical native terminal was supplied in bounded authority/reader/descriptor; no receipt search or replay was performed."
+        }
+      ],
+      "exact_remaining_resolver": "Authenticate a named provider retrieval/copy receipt tied to the2977B PANGAEA table and a scoped use-authority decision; supply exact actual native two-write terminal/catalogue refs if fresh native proof must be independently audited. Keep source chronology/LRA limits."
+    },
+    {
+      "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+      "original_owner": {
+        "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+        "role": "unresolved",
+        "paths": [
+          "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
+        ],
+        "producer_paths": [
+          "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
+        ],
+        "producer_inputs": [
+          "data/neotoma/relational/manifest.json",
+          "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+          "data/neotoma/relational/surfaces/datasets/part-00001.json",
+          "data/neotoma/relational/surfaces/sites/part-00001.json",
+          "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json"
+        ],
+        "verification": "Replay requires --private-root: private source-manifest.json plus seven source records, EPD source-manifest.json and 17 metadata/age-table files. Those are not repository-confined; keep unresolved until exact private capture custody, permission and byte comparison are independently bound. Metadata-only refusal is not fresh-cohort acceptance."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "exact_private_source_member_identities",
+          "status": "supported_with_scope",
+          "evidence": "Original3537/corrected3581 ledgers bind26 private metadata members (8Neotoma including manifest,18EPD including manifest); payloads remain identity-only."
+        },
+        {
+          "condition": "independently_bound_private_capture_custody",
+          "status": "not_established_by_current_certificate",
+          "evidence": "Source-manifest identity and metadata reconstruction are proved, but current retained capsule does not independently establish original provider/acquisition chain for all26 inputs."
+        },
+        {
+          "condition": "permission",
+          "status": "not_established",
+          "evidence": "Current original and corrected native scopes exclude rights acceptance; independent corrected review acquisition_rights_human_ecological_or_LRA_admitted=false. No separate permission predicate is evaluated."
+        },
+        {
+          "condition": "independent_byte_comparison",
+          "status": "supported_across_distinct_jobs",
+          "evidence": "Originalproducer0/observer1/whole1 preserved; correctedobserver0/whole0/trackedchecker0 reuses unchanged report. Original failure is not relabelled success."
+        }
+      ],
+      "exact_remaining_resolver": "Bind original private Neotoma8/EPD18 capture provenance/receipts and permission decisions to all26 exact identities. Retain current metadata replay as partial evidence; no fresh physical cohort or selected chronology is inferred."
+    },
+    {
+      "owner_id": "source-relations/openland-intake/report-products",
+      "original_owner": {
+        "owner_id": "source-relations/openland-intake/report-products",
+        "role": "unresolved",
+        "paths": [
+          "docs/report/source-relations/openland-intake/doi-lineage.json",
+          "docs/report/source-relations/openland-intake/members.csv",
+          "docs/report/source-relations/openland-intake/report.json",
+          "docs/report/source-relations/openland-intake/upstream-tree.json"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/openland_intake.py",
+          "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py"
+        ],
+        "producer_inputs": [
+          "data/landclim/raw/landclim_sources.json"
+        ],
+        "verification": "Original private ZIP SHA7ed602f3b480a995cd2e1ff6dc445e994442100b1f626a953185849305e2434b is required for report/member production. Retained upstream Git-tree and DOI JSON also need original response/copy custody. Authenticate each input and its role before replay. Zero public member admissions/independent benchmarks and superseded DOI rights remain separate; do not turn derived data into vegetation truth."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "original_upstream_tree_DOI_response_copy_custody",
+          "status": "not_established",
+          "evidence": "The current guarded declaration explicitly disclaims original HTTP retrieval/acquisition for both metadata copies."
+        }
+      ],
+      "exact_remaining_resolver": "Bind original provider response/copy custody to upstream-tree and DOI-lineage JSON; retain genuine ZIP/member/native/attribution evidence separately."
+    },
+    {
+      "owner_id": "regions/nordic/source-capability/neotoma-attribution/report-products",
+      "original_owner": {
+        "owner_id": "regions/nordic/source-capability/neotoma-attribution/report-products",
+        "role": "unresolved",
+        "paths": [
+          "docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+          "docs/report/regions/nordic/source-capability/neotoma-attribution/report.json"
+        ],
+        "producer_paths": [
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
+          "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_publication_readiness.py",
+          "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/publication_intake.py"
+        ],
+        "producer_inputs": [
+          "data/neotoma/relational/surfaces/datasets/part-00001.json",
+          "docs/public/pollenomics-data/sources/neotoma.md",
+          "docs/report/regions/nordic/source-capability/neotoma-entities/report.json"
+        ],
+        "verification": "Provider publication and distinct-DOI replay modules require original private HTTP captures plus manifests and response headers at the documented capture-root. Known repository inputs here do not close those responses. Bind exact original capture custody and compare both products separately without reacquiring mutable API responses.79primary links and six review gaps describe citation posture, not sample source rights, basin or LRA admission."
+      },
+      "original_acceptance_discharged": false,
+      "conditions": [
+        {
+          "condition": "original_capture_predecessor_and_response_headers",
+          "status": "not_established",
+          "evidence": "Original criterion explicitly requires original private HTTP captures, manifests and response headers. Current helper/capture explicitly preserves original_acquisition_predecessor_06f08e_authenticated=False; named root original manifest schema review2a0d does not provide the missing prerequisite."
+        }
+      ],
+      "exact_remaining_resolver": "Bind the original predecessor capture and complete response-header/capture-manifest custody to the exact original provider responses. Preserve current85-dataset/two-product source checks separately; do not reacquire mutable APIs to invent original custody."
+    }
+  ],
+  "all_current_physical_execution_source_and_product_evidence_preserved": true,
+  "new_native_execution_or_data_acquisition": false,
+  "new_retained_source_entries": 0,
+  "scientific_or_human_decision_changed": false,
+  "permission_or_source_use_decision_added": false,
+  "scope": "Restore unmet original owner acceptance criteria verbatim. Current exact-byte, arithmetic, source-metadata and official-download evidence remains partial and separate from original provider/copy custody and use authority. No historical native result, public source product, raw capsule, authored scientific body, claim register or human decision is rewritten."
+}

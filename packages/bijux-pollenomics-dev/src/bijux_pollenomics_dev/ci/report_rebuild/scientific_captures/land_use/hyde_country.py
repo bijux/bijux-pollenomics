@@ -16,6 +16,32 @@ CAPTURE: Any = "data/surface-reference/hyde-country-source-capture/capture.json"
 CAPTURE_SHA256: Any = "bd7d37efaa8839af0e3997707e760a8c0b12cd053881549464a50e94638cea20"
 ORIGINAL_CANDIDATE: Any = "97be88f37a117a518c8c4639ccca98927e13cb24"
 OWNER: Any = "regions/nordic/hyde-country-cropland/report-products"
+
+ORIGINAL_OWNER: JsonObject = {
+    "owner_id": "regions/nordic/hyde-country-cropland/report-products",
+    "paths": [
+        "docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
+        "docs/report/regions/nordic/hyde-country-cropland/report.json",
+    ],
+    "producer_inputs": [],
+    "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py"
+    ],
+    "role": "unresolved",
+    "verification": "The retained country-year producer is "
+    "`bijux_pollenomics_dev.source_completion.hyde_country_cropland "
+    "--source-root <governed-HYDE-3.5-root> --output "
+    "artifacts/jobs/vegetation-context-reproduction/hyde-country`. It "
+    "reads the external general ZIP and three scenario country tables "
+    "pinned in report.json. Bind exact HYDE release/source custody and "
+    "permitted use before a fresh-output byte comparison of "
+    "country-years.csv and report.json; no source grid, redistribution, "
+    "calendar, CRS, or ecological reference acceptance is implied.",
+}
+CORRECTION_WITNESS = "reports/science/source-cohorts/original-owner-acceptance.json"
+CORRECTION_WITNESS_SHA256 = (
+    "37d3ff0e8058675304a0dbee2d4454a077e7b0e294566b4bbe75ac7ffc99746e"
+)
 PUBLICATIONS: Any = [
     "docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
     "docs/report/regions/nordic/hyde-country-cropland/report.json",
@@ -398,31 +424,54 @@ def validate_native_records(
             )
 
 
+def _validate_original_owner(owners: list[JsonObject]) -> None:
+    """Require the complete original unresolved contract, including unchanged criteria."""
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    _require(len(selected) == 1, "One exact original owner required")
+    _exact(selected[0], ORIGINAL_OWNER)
+    owned_paths = ORIGINAL_OWNER["paths"]
+    assert isinstance(owned_paths, list)
+    for other in owners:
+        if other is selected[0]:
+            continue
+        paths = other.get("paths", [])
+        _require(
+            isinstance(paths, list)
+            and all(isinstance(path, str) for path in paths)
+            and not set(owned_paths).intersection(paths),
+            "Another owner overlaps current evidence paths",
+        )
+
+
+def _capture_required(repository: Path) -> bool:
+    """A published correction keeps its existing physical evidence mandatory."""
+    capture = repository / CAPTURE
+    present = bool(capture.exists() or capture.is_symlink())
+    witness = repository / CORRECTION_WITNESS
+    _require(
+        not any(node.is_symlink() for node in (witness, *witness.parents)),
+        "Original-acceptance witness ancestry alias",
+    )
+    if witness.exists() or witness.is_symlink():
+        path = _file(repository, CORRECTION_WITNESS)
+        _exact(hashlib.sha256(path.read_bytes()).hexdigest(), CORRECTION_WITNESS_SHA256)
+        _require(present, "Published partial evidence requires its exact capture")
+    return present
+
+
 def validated_hyde_country_capture(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
     owners: list[JsonObject],
 ) -> tuple[tuple[InventoryEntry, ...], JsonObject]:
-    """Admit one modeled country-table source receipt while retaining every scientific limit."""
-    selected = [r for r in owners if r.get("owner_id") == OWNER]
-    if not selected and not (repository / CAPTURE).exists():
+    """Validate partial current evidence while original owner acceptance stays unresolved."""
+    present = _capture_required(repository)
+    selected = [row for row in owners if row.get("owner_id") == OWNER]
+    if not selected and not present:
         return (), {}
-    _exact(len(selected), 1)
-    owner = selected[0]
-    for key, value in [
-        ("role", "retained_source"),
-        ("paths", PUBLICATIONS),
-        ("producer_paths", []),
-        ("producer_inputs", []),
-    ]:
-        _exact(owner[key], value)
-    for other in owners:
-        if other is not owner:
-            paths = other.get("paths", [])
-            _require(
-                isinstance(paths, list) and not set(PUBLICATIONS).intersection(paths),
-                "Other owner overlaps source products",
-            )
+    _validate_original_owner(owners)
+    if not present:
+        return (), {}
     capture = _file(repository, CAPTURE)
     _exact(hashlib.sha256(capture.read_bytes()).hexdigest(), CAPTURE_SHA256)
     packet = _json(capture)
@@ -526,7 +575,11 @@ def validated_hyde_country_capture(
         ]:
             _exact(actual, value)
         entries.append(entry)
-    return tuple(entries), {
+    return (), {
+        "selected_retained_entries": 0,
+        "original_owner_acceptance_discharged": False,
+        "owner_remains_unresolved": True,
+        "original_acceptance_criterion": ORIGINAL_OWNER["verification"],
         "owner_id": OWNER,
         "capture_sha256": CAPTURE_SHA256,
         "original_execution_candidate": ORIGINAL_CANDIDATE,

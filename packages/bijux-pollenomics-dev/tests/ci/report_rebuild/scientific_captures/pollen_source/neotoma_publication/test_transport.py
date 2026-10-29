@@ -1,4 +1,4 @@
-"""The complete public capsule admits exactly two current outputs and one source owner."""
+"""The public capsule validates current evidence without admitting unresolved source ownership."""
 
 from __future__ import annotations
 
@@ -23,15 +23,7 @@ ROOT = next(
 
 
 def owners() -> list[JsonObject]:
-    return [
-        {
-            "owner_id": subject.OWNER,
-            "role": "retained_source",
-            "paths": sorted(subject.PRODUCTS),
-            "producer_paths": [],
-            "producer_inputs": [],
-        }
-    ]
+    return [deepcopy(subject.ORIGINAL_OWNER)]
 
 
 def entries() -> dict[str, InventoryEntry]:
@@ -52,7 +44,7 @@ class TransportControls(unittest.TestCase):
         got, evidence = subject.validated_neotoma_publication_capture(
             ROOT, entries(), owners()
         )
-        self.assertEqual(len(got), 2)
+        self.assertEqual(len(got), 0)
         self.assertEqual(evidence["original_whole_exit"], 1)
         self.assertEqual(evidence["original_tracked_checker_exits"], [2, 2])
         self.assertIs(
@@ -84,6 +76,6 @@ class TransportControls(unittest.TestCase):
                     "docs/report/never-produced.json",
                 ]
             else:
-                rows[0]["role"] = "unresolved"
+                rows[0]["role"] = "retained_source"
             with self.subTest(case=case), self.assertRaises(ReportRebuildError):
                 subject.validate_owner(rows)
