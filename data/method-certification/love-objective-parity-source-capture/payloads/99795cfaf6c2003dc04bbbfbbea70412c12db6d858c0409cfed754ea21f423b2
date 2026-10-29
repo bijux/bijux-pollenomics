@@ -1,0 +1,313 @@
+"""Guard the qualified dependency runtime around outcome-blind source metadata stages."""
+
+from __future__ import annotations
+
+import argparse
+import contextlib
+import hashlib
+import json
+import os
+from pathlib import Path
+import resource
+import signal
+import subprocess
+import sys
+import time
+from typing import Any
+
+
+def _verify_entry_namespace(root: Path) -> None:
+    expected = {
+        ".": [
+            "check_contracts.py",
+            "common_runner.py",
+            "contracts.py",
+            "observe.py",
+            "prepare.py",
+            "produce.py",
+            "r_runtime_contracts.py",
+            "run.py",
+            "runtime_contracts.py",
+            "runtime_guarded_runner.py",
+            "source_runtime.py",
+        ]
+    }
+    for domain, names in expected.items():
+        directory = root if domain == "." else root / domain
+        if directory.is_symlink() or not directory.is_dir():
+            raise ValueError("Controller import domain is absent or linked")
+        for entry in directory.iterdir():
+            if entry.is_symlink() or not (entry.is_file() or entry.is_dir()):
+                raise ValueError("Controller import namespace contains alias/special")
+            if domain == ".":
+                if entry.is_dir() and entry.name not in {
+                    "preflight",
+                    *set(expected) - {"."},
+                }:
+                    raise ValueError("Unexpected controller import directory")
+                if (
+                    entry.suffix in {".py", ".pyc", ".so", ".pyd", ".dylib"}
+                    and entry.name not in names
+                ):
+                    raise ValueError("Unexpected controller import member")
+            elif entry.is_dir() or entry.name not in names:
+                raise ValueError("Unexpected nested controller import member")
+        if domain != "." and {entry.name for entry in directory.iterdir()} != set(
+            names
+        ):
+            raise ValueError("Nested controller import member is missing")
+
+
+def _verify_reviewed_entry(root: Path) -> None:
+    manifest = root / "prepared-source-manifest.json"
+    review = root / "independent-source-review.json"
+    for path in (manifest, review):
+        if not path.is_file() or any(
+            parent.is_symlink() for parent in (path, *path.parents)
+        ):
+            raise ValueError(
+                "Reviewed controller entry requires regular source authority"
+            )
+    raw = manifest.read_bytes()
+    document = json.loads(raw)
+    admission = json.loads(review.read_bytes())
+    if (
+        document["source_only"] is not True
+        or admission["approved"] is not True
+        or admission["source_manifest_sha256"] != hashlib.sha256(raw).hexdigest()
+    ):
+        raise ValueError(
+            "Exact independent source approval required before local imports"
+        )
+    names = [row["path"] for row in document["files"]]
+    if names != sorted(set(names)):
+        raise ValueError("Reviewed entry source paths must be sorted and unique")
+    for row in document["files"]:
+        path = Path(row["path"])
+        if (
+            not path.is_absolute()
+            or ".." in path.parts
+            or (not path.is_relative_to(root))
+            or any(parent.is_symlink() for parent in (path, *path.parents))
+        ):
+            raise ValueError("Reviewed controller entry leaves physical source")
+        if (
+            not path.is_file()
+            or type(row["bytes"]) is not int
+            or path.stat().st_size != row["bytes"]
+        ):
+            raise ValueError("Reviewed controller entry length changed")
+        with path.open("rb") as stream:
+            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+        if checksum != row["sha256"]:
+            raise ValueError("Reviewed controller source changed before local imports")
+    required = {
+        entry
+        for names in {
+            ".": [
+                "check_contracts.py",
+                "common_runner.py",
+                "contracts.py",
+                "observe.py",
+                "prepare.py",
+                "produce.py",
+                "r_runtime_contracts.py",
+                "run.py",
+                "runtime_contracts.py",
+                "runtime_guarded_runner.py",
+                "source_runtime.py",
+            ]
+        }.values()
+        for entry in names
+    }
+    declared = {Path(name).relative_to(root).as_posix() for name in names}
+    if not required.issubset(declared):
+        raise ValueError("Reviewed controller manifest omits a local import member")
+
+
+_entry_path = Path(__file__).absolute()
+if _entry_path != _entry_path.resolve() or any(
+    p.is_symlink() for p in (_entry_path, *_entry_path.parents)
+):
+    raise ValueError("Physical normalized source entrypoint required")
+_entry_directory = _entry_path.parent
+_verify_entry_namespace(_entry_directory)
+if __name__ == "__main__":
+    _verify_reviewed_entry(_entry_directory)
+sys.path.insert(0, str(_entry_directory))
+
+from source_runtime import (  # noqa: E402 - guarded local namespace.
+    authenticate_runtime,
+    clean_child_environment,
+)
+
+
+def completed_bytes(
+    roots: list[Path], aliases: list[dict[str, str]] | None = None
+) -> int:
+    unique: list[Path] = []
+    for root in sorted(set(roots), key=lambda path: len(path.parts)):
+        if any(root.is_relative_to(parent) for parent in unique):
+            continue
+        unique.append(root)
+    declared = {row["path"]: row["target"] for row in aliases or []}
+    if len(declared) != len(aliases or []):
+        raise ValueError("Duplicate output alias")
+    seen = set()
+    total = 0
+    for root in unique:
+        if not root.is_dir() or root.is_symlink():
+            raise ValueError("Measured output root is missing or linked")
+        for path in root.rglob("*"):
+            if path.is_symlink():
+                if (
+                    str(path) not in declared
+                    or os.readlink(path) != declared[str(path)]
+                    or not path.resolve().is_relative_to(root)
+                    or not path.resolve().exists()
+                ):
+                    raise ValueError(
+                        "Output alias differs from the registered exact source alias"
+                    )
+                seen.add(str(path))
+                total += len(os.fsencode(os.readlink(path)))
+                continue
+            if not (path.is_file() or path.is_dir()):
+                raise ValueError("Output special entry is not admitted")
+            if path.is_file():
+                total += path.stat().st_size
+    if seen != set(declared):
+        raise ValueError("A registered output alias is missing")
+    return total
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    parser.add_argument("--registered-plan-sha256", required=True)
+    args = parser.parse_args()
+    import hashlib
+
+    raw = args.plan.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != args.registered_plan_sha256:
+        raise ValueError("Registered runtime-guarded plan differs")
+    plan: dict[str, Any] = json.loads(raw)
+    output = Path(plan["qualified_runtime_output_root"])
+    terminal = output / "runtime-custody-terminal.json"
+    if terminal.exists() or terminal.is_symlink():
+        raise ValueError("Runtime custody receipt already exists")
+    resources = plan["qualified_runtime_resource_bounds"]
+    started = time.monotonic()
+    authority = None
+    before_error = None
+    after_error = None
+    code = None
+    timed_out = False
+    try:
+        authority, _ = authenticate_runtime()
+        if authority != plan["qualified_source_runtime"]:
+            raise ValueError(
+                "Current runtime observation differs from registered source epoch"
+            )
+    except (ValueError, OSError) as error:
+        before_error = str(error)
+    if before_error is None:
+        delegate = [
+            args.registered_plan_sha256
+            if value in {"PLAN_SHA256", "<registered-plan-sha256>"}
+            else value
+            for value in plan["qualified_runtime_delegate_argv"]
+        ]
+        env = {
+            key: value
+            for key, value in clean_child_environment(dict(os.environ)).items()
+            if not key.startswith("GIT_")
+        }
+        private = output / "runtime-temporary"
+        private.mkdir()
+        for name in ("cache", "matplotlib"):
+            (private / name).mkdir()
+        env.update(
+            TMPDIR=str(private),
+            XDG_CACHE_HOME=str(private / "cache"),
+            MPLCONFIGDIR=str(private / "matplotlib"),
+            PYTHONDONTWRITEBYTECODE="1",
+            PATH="/Library/Developer/CommandLineTools/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin",
+        )
+        with (
+            (output / "runtime-delegate.stdout").open("xb") as out,
+            (output / "runtime-delegate.stderr").open("xb") as err,
+        ):
+            child = subprocess.Popen(
+                delegate,
+                cwd=plan["qualified_runtime_repository"],
+                env=env,
+                stdout=out,
+                stderr=err,
+                start_new_session=True,
+            )
+            try:
+                remaining = resources["overall_seconds"] - (time.monotonic() - started)
+                if remaining <= 0:
+                    raise subprocess.TimeoutExpired(delegate, 0)
+                code = child.wait(timeout=remaining)
+            except subprocess.TimeoutExpired:
+                timed_out = True
+                with contextlib.suppress(ProcessLookupError):
+                    os.killpg(child.pid, signal.SIGKILL)
+                child.wait()
+                code = 124
+    try:
+        after, _ = authenticate_runtime()
+        if after != plan["qualified_source_runtime"]:
+            raise ValueError("Runtime observation changed after delegated execution")
+    except (ValueError, OSError) as error:
+        after_error = str(error)
+    peak = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
+    roots = [output, *[Path(name) for name in plan.get("measured_output_roots", [])]]
+    output_error = None
+    used = 0
+    try:
+        used = completed_bytes(roots, plan.get("qualified_runtime_output_aliases", []))
+    except (ValueError, OSError) as error:
+        output_error = str(error)
+    elapsed = time.monotonic() - started
+    passed = (
+        output_error is None
+        and before_error is None
+        and after_error is None
+        and type(code) is int
+        and code == 0
+        and not timed_out
+        and elapsed <= resources["overall_seconds"]
+        and peak <= resources["completed_child_peak_rss_bytes"]
+        and used + 16384 <= resources["logical_output_bytes"]
+    )
+    receipt = {
+        "schema_version": "atlas-qualified-source-runtime-custody.v1",
+        "plan_sha256": args.registered_plan_sha256,
+        "source_candidate": plan["candidate"],
+        "qualified_source_runtime": plan["qualified_source_runtime"],
+        "delegate_actual_exit": code,
+        "actual_exit": 0 if passed else 1,
+        "timed_out": timed_out,
+        "before_runtime_error": before_error,
+        "after_runtime_error": after_error,
+        "completed_elapsed_seconds": elapsed,
+        "completed_child_peak_rss_bytes_macos": peak,
+        "output_logical_bytes_before_receipt": used,
+        "output_measurement_error": output_error,
+        "own_receipt_reserved_bytes": 16384,
+        "resource_bounds_met": passed,
+        "scope": "New147 dependency runtime before/after pin/namespace/alias/absence custody around unchanged native stages. Original129 bootstrap whole1 and production3zero remain historical; actual current LOVE shared source parity epoch is separate. Completed-child RSS/logical storage postchecks are not OS quotas or aggregate descendants; outer-timeout cleanup does not establish detached descendant termination.",
+    }
+    encoded = (json.dumps(receipt, indent=2) + "\n").encode()
+    if len(encoded) > 16384:
+        raise ValueError("Runtime custody receipt exceeded reserved bytes")
+    with terminal.open("xb") as stream:
+        stream.write(encoded)
+    raise SystemExit(0 if passed else 1)
+
+
+if __name__ == "__main__":
+    main()

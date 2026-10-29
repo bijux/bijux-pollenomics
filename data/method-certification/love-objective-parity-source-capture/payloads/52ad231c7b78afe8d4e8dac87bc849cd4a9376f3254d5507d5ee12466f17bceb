@@ -1,0 +1,700 @@
+"""Independently compare complete shared binary64 inputs and every candidate objective."""
+
+from __future__ import annotations
+
+import argparse
+import ast
+import csv
+import hashlib
+import json
+import math
+from pathlib import Path
+import sys
+from typing import Any
+
+
+def _verify_entry_namespace(root: Path) -> None:
+    expected = {
+        ".": [
+            "check_contracts.py",
+            "common_runner.py",
+            "contracts.py",
+            "observe.py",
+            "prepare.py",
+            "produce.py",
+            "r_runtime_contracts.py",
+            "retained_export.py",
+            "retained_r.py",
+            "run.py",
+            "runtime_contracts.py",
+            "runtime_guarded_runner.py",
+            "source_runtime.py",
+        ]
+    }
+    for domain, names in expected.items():
+        directory = root if domain == "." else root / domain
+        if directory.is_symlink() or not directory.is_dir():
+            raise ValueError("Controller import domain is absent or linked")
+        for entry in directory.iterdir():
+            if entry.is_symlink() or not (entry.is_file() or entry.is_dir()):
+                raise ValueError("Controller import namespace contains alias/special")
+            if domain == ".":
+                if entry.is_dir() and entry.name not in {
+                    "preflight",
+                    *set(expected) - {"."},
+                }:
+                    raise ValueError("Unexpected controller import directory")
+                if (
+                    entry.suffix in {".py", ".pyc", ".so", ".pyd", ".dylib"}
+                    and entry.name not in names
+                ):
+                    raise ValueError("Unexpected controller import member")
+            elif entry.is_dir() or entry.name not in names:
+                raise ValueError("Unexpected nested controller import member")
+        if domain != "." and {entry.name for entry in directory.iterdir()} != set(
+            names
+        ):
+            raise ValueError("Nested controller import member is missing")
+
+
+def _verify_reviewed_entry(root: Path) -> None:
+    manifest = root / "prepared-source-manifest.json"
+    review = root / "independent-source-review.json"
+    for path in (manifest, review):
+        if not path.is_file() or any(
+            parent.is_symlink() for parent in (path, *path.parents)
+        ):
+            raise ValueError(
+                "Reviewed controller entry requires regular source authority"
+            )
+    raw = manifest.read_bytes()
+    document = json.loads(raw)
+    admission = json.loads(review.read_bytes())
+    if (
+        document["source_only"] is not True
+        or admission["approved"] is not True
+        or admission["source_manifest_sha256"] != hashlib.sha256(raw).hexdigest()
+    ):
+        raise ValueError(
+            "Exact independent source approval required before local imports"
+        )
+    names = [row["path"] for row in document["files"]]
+    if names != sorted(set(names)):
+        raise ValueError("Reviewed entry source paths must be sorted and unique")
+    for row in document["files"]:
+        path = Path(row["path"])
+        if (
+            not path.is_absolute()
+            or ".." in path.parts
+            or (not path.is_relative_to(root))
+            or any(parent.is_symlink() for parent in (path, *path.parents))
+        ):
+            raise ValueError("Reviewed controller entry leaves physical source")
+        if (
+            not path.is_file()
+            or type(row["bytes"]) is not int
+            or path.stat().st_size != row["bytes"]
+        ):
+            raise ValueError("Reviewed controller entry length changed")
+        with path.open("rb") as stream:
+            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+        if checksum != row["sha256"]:
+            raise ValueError("Reviewed controller source changed before local imports")
+    required = {
+        entry
+        for names in {
+            ".": [
+                "check_contracts.py",
+                "common_runner.py",
+                "contracts.py",
+                "observe.py",
+                "prepare.py",
+                "produce.py",
+                "r_runtime_contracts.py",
+                "retained_export.py",
+                "retained_r.py",
+                "run.py",
+                "runtime_contracts.py",
+                "runtime_guarded_runner.py",
+                "source_runtime.py",
+            ]
+        }.values()
+        for entry in names
+    }
+    declared = {Path(name).relative_to(root).as_posix() for name in names}
+    if not required.issubset(declared):
+        raise ValueError("Reviewed controller manifest omits a local import member")
+
+
+_entry_path = Path(__file__).absolute()
+if _entry_path != _entry_path.resolve() or any(
+    p.is_symlink() for p in (_entry_path, *_entry_path.parents)
+):
+    raise ValueError("Physical normalized source entrypoint required")
+_entry_directory = _entry_path.parent
+_verify_entry_namespace(_entry_directory)
+if __name__ == "__main__":
+    _verify_reviewed_entry(_entry_directory)
+sys.path.insert(0, str(_entry_directory))
+
+from contracts import (  # noqa: E402 - authenticate local helpers before importing.
+    CONTRACT,
+    INPUT_NAMES,
+    R_LIBRARY,
+    checked_plan,
+    dump,
+    load,
+    pin,
+    require,
+)
+
+
+def table(path: Path) -> tuple[list[str], list[list[str]]]:
+    with path.open(newline="") as stream:
+        reader = csv.reader(stream)
+        rows = list(reader)
+    require(
+        bool(rows) and bool(rows[0]) and len(set(rows[0])) == len(rows[0]),
+        "CSV header differs",
+    )
+    require(all(len(row) == len(rows[0]) for row in rows[1:]), "Ragged CSV")
+    return rows[0], rows[1:]
+
+
+def number(value: str) -> float:
+    require(value == value.strip() and value != "", "Blank/whitespace numeric cell")
+    return float(value)
+
+
+def same_number(left: float, right: float) -> bool:
+    if math.isnan(left) or math.isnan(right):
+        return math.isnan(left) and math.isnan(right)
+    if math.isinf(left) or math.isinf(right):
+        return left == right
+    return abs(left - right) <= float(CONTRACT["absolute_tolerance"]) + float(
+        CONTRACT["relative_tolerance"]
+    ) * abs(right)
+
+
+def selected(values: list[float]) -> int:
+    valid = [
+        (value, index + 1) for index, value in enumerate(values) if math.isfinite(value)
+    ]
+    require(bool(valid), "All replay candidates undefined")
+    return min(valid)[1]
+
+
+def objective_comparison(
+    r_values: list[float], python_values: list[float]
+) -> list[dict[str, Any]]:
+    require(
+        len(r_values) == len(python_values) == 256, "Not all 8x32 objectives retained"
+    )
+    result = []
+    for call in range(8):
+        r = r_values[call * 32 : (call + 1) * 32]
+        p = python_values[call * 32 : (call + 1) * 32]
+        require(
+            all(same_number(x, y) for x, y in zip(r, p, strict=True)),
+            "Per-vector objective mismatch",
+        )
+        require(selected(r) == selected(p), "Selected candidate differs")
+        result.append(
+            {
+                "call": call + 1,
+                "vectors_compared": 32,
+                "selected_index_one_based": selected(r),
+                "maximum_absolute_finite_error": max(
+                    (
+                        abs(x - y)
+                        for x, y in zip(r, p, strict=True)
+                        if math.isfinite(x) and math.isfinite(y)
+                    ),
+                    default=None,
+                ),
+            }
+        )
+    return result
+
+
+def context_comparison(
+    rows: list[list[str]], contexts: list[dict[str, Any]]
+) -> dict[str, Any]:
+    require(len(contexts) == 8, "Objective context call membership differs")
+    expected: list[tuple[str, str, str, float]] = []
+    for call, context in enumerate(contexts, 1):
+        require(
+            list(context)
+            == ["vPoldepRegio", "mKlocal", "vFlocal", "vSampleLocPro", "ppes"],
+            "Objective argument names/order differ",
+        )
+        for argument, values in context.items():
+            expected.extend(
+                (str(call), argument, str(index), float.fromhex(value))
+                for index, value in enumerate(values, 1)
+            )
+    require(len(rows) == len(expected), "Objective context scalar membership differs")
+    for row, (call_id, argument, scalar_index, value) in zip(
+        rows, expected, strict=True
+    ):
+        require(
+            len(row) == 4
+            and row[:3] == [call_id, argument, scalar_index]
+            and same_number(number(row[3]), value),
+            "Objective source argument differs",
+        )
+    return {
+        "calls": 8,
+        "argument_names": [
+            "vPoldepRegio",
+            "mKlocal",
+            "vFlocal",
+            "vSampleLocPro",
+            "ppes",
+        ],
+        "scalar_pairs": len(expected),
+    }
+
+
+def numeric_product(
+    left: Path, right: Path, shape: tuple[int, int], fields: list[str]
+) -> dict[str, Any]:
+    lh, lr = table(left)
+    rh, rr = table(right)
+    require(
+        lh == rh == fields and len(lr) == len(rr) == shape[0] and len(lh) == shape[1],
+        "Complete output axes/shape differ",
+    )
+    pairs = [
+        (number(x), number(y))
+        for a, b in zip(lr, rr, strict=True)
+        for x, y in zip(a, b, strict=True)
+    ]
+    require(all(same_number(x, y) for x, y in pairs), "Output scalar/NaN mask differs")
+    return {
+        "R": pin(left),
+        "Python": pin(right),
+        "shape": list(shape),
+        "finite_pairs": sum(math.isfinite(x) and math.isfinite(y) for x, y in pairs),
+        "NaN_pairs": sum(math.isnan(x) and math.isnan(y) for x, y in pairs),
+        "maximum_absolute_finite_error": max(
+            (abs(x - y) for x, y in pairs if math.isfinite(x) and math.isfinite(y)),
+            default=None,
+        ),
+    }
+
+
+def shared_inputs(
+    directory: Path, input_root: Path | None = None, r_root: Path | None = None
+) -> dict[str, Any]:
+    r_root = directory / "r" if r_root is None else r_root
+    input_root = directory / "input" if input_root is None else input_root
+    records = {}
+    for name in INPUT_NAMES:
+        headers, rows = table(input_root / (name + ".csv"))
+        hh, hexrows = table(input_root / (name + "-hex.csv"))
+        require(
+            len(rows) == len(hexrows) and set(hh) <= set(headers),
+            "Input hex axes differ",
+        )
+        numeric = {column: i for i, column in enumerate(headers) if column in hh}
+        exacts: dict[str, list[float]] = {column: [] for column in hh}
+        for row, hexadecimal in zip(rows, hexrows, strict=True):
+            for column, cell in zip(hh, hexadecimal, strict=True):
+                value = float.fromhex(cell)
+                require(
+                    math.isfinite(value) and number(row[numeric[column]]) == value,
+                    "Decimal/hex source mismatch",
+                )
+                exacts[column].append(value)
+        flat = [v for column in hh for v in exacts[column]]
+        native = [
+            float.fromhex(line)
+            for line in (r_root / ("r-input-" + name + "-hex.txt"))
+            .read_text()
+            .splitlines()
+        ]
+        require(flat == native, "R did not parse the identical binary64 inputs")
+        if name == "candidates":
+            require(
+                headers == hh == [str(i) for i in range(10)] and len(rows) == 32,
+                "32x10 candidate axes differ",
+            )
+            require(
+                all(0 <= x <= 1 for x in flat) and len(set(flat)) == 320,
+                "Candidate bounds/uniqueness differ",
+            )
+        else:
+            native_headers, native_rows = table(r_root / ("r-input-" + name + ".csv"))
+            require(
+                native_headers == headers and len(native_rows) == len(rows),
+                "Native input axes differ",
+            )
+            for row, native_row in zip(rows, native_rows, strict=True):
+                require(
+                    all(
+                        row[i] == native_row[i]
+                        for i, column in enumerate(headers)
+                        if column not in hh
+                    ),
+                    "Native textual source cells differ",
+                )
+        records[name] = {
+            "rows": len(rows),
+            "headers": headers,
+            "numeric_headers": hh,
+            "binary64_values_compared": len(flat),
+        }
+    return records
+
+
+def runtime_observation(
+    plan: dict[str, Any], directory: Path, r_root: Path | None = None
+) -> dict[str, Any]:
+    r_root = directory / "r" if r_root is None else r_root
+    pins = {row["path"]: row for row in plan["retained_R_plan"]["input_pins"]}
+    library_paths = (r_root / "r-library-paths.txt").read_text().splitlines()
+    base = "/Library/Frameworks/R.framework/Versions/4.6/Resources/library"
+    require(library_paths == [str(R_LIBRARY), base], "Unexpected R library search root")
+    snapshots = {}
+    for label in ("before", "after"):
+        fields, rows = table(r_root / ("r-" + label + "-namespaces.csv"))
+        require(fields == ["name", "version", "path"], "R namespace schema changed")
+        require(len(rows) == len({row[0] for row in rows}), "Duplicate R namespace")
+        observed = {row[0]: row[1] for row in rows}
+        require(
+            observed.get("disqover") == "0.9.14",
+            "Actual disqover source namespace absent",
+        )
+        if label == "after":
+            require("RcppDE" in observed, "Actual source optimizer namespace absent")
+        for name, version, raw in rows:
+            path = Path(raw)
+            require(
+                path.parent in (R_LIBRARY, Path(base)) and path.name == name,
+                "R namespace origin escaped qualified library",
+            )
+            description = path / "DESCRIPTION"
+            require(
+                str(description) in pins and pin(description) == pins[str(description)],
+                "Namespace DESCRIPTION unprotected",
+            )
+            from r_runtime_contracts import description as parse_description
+
+            declared = parse_description(description.read_text())
+            require(
+                declared["Package"] == name and declared["Version"] == version,
+                "Literal namespace version differs from protected source",
+            )
+        fields, dlls = table(r_root / ("r-" + label + "-dlls.csv"))
+        require(
+            fields == ["name", "path", "dynamic_lookup"]
+            and len(dlls) == len({r[0] for r in dlls}),
+            "R loaded DLL schema/uniqueness differs",
+        )
+        for name, raw, _ in dlls:
+            if raw == "base":
+                require(name == "base", "Only builtin base has no physical DLL")
+                continue
+            path = Path(raw)
+            require(
+                path.name not in {"R_X11.so", "cairo.so", "R_de.so"},
+                "Identity-only graphics DLL loaded",
+            )
+            require(
+                str(path) in pins and pin(path) == pins[str(path)],
+                "Unprotected R loaded DLL",
+            )
+        snapshots[label] = {"namespace_count": len(rows), "DLL_count": len(dlls)}
+    return {
+        "library_paths": library_paths,
+        "snapshots": snapshots,
+        "scope": "Observed before/after R namespace and getLoadedDLLs origins. No complete transient OS dyld image census claim.",
+    }
+
+
+def source_routes(plan: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    from contracts import SOURCE
+
+    interface = load(SOURCE / "source-interface.json")
+    pins = {row["path"]: row for row in plan["input_pins"]}
+    result = {}
+    for key, definitions in (
+        ("Python_objective", [("objective", "LOVEoptim", "objective")]),
+        (
+            "Python_selector",
+            [
+                ("solver", None, "optimize_box"),
+                ("search", "optimize_box", "custom_objective"),
+                ("replay", "ReplayOptimizer", "solve"),
+            ],
+        ),
+    ):
+        row = interface[key]["source"]
+        require(
+            pins.get(row["path"]) == row and pin(Path(row["path"])) == row,
+            "Event route source unprotected",
+        )
+        tree = ast.parse(Path(row["path"]).read_bytes())
+        for role, parent_name, name in definitions:
+            parent = (
+                tree
+                if parent_name is None
+                else next(
+                    n
+                    for n in ast.walk(tree)
+                    if isinstance(n, (ast.FunctionDef, ast.ClassDef))
+                    and n.name == parent_name
+                )
+            )
+            found = [
+                n
+                for n in ast.walk(parent)
+                if isinstance(n, ast.FunctionDef) and n.name == name
+            ]
+            require(len(found) == 1, "Unique actual event route source required")
+            node = found[0]
+            result[role] = {
+                "path": row["path"],
+                "function": name,
+                "first_line": node.lineno,
+                "end_line": node.end_lineno,
+            }
+            if role == "replay":
+                comprehensions = [
+                    n for n in ast.walk(node) if isinstance(n, ast.ListComp)
+                ]
+                require(
+                    len(comprehensions) == 1,
+                    "Unique replay list comprehension required",
+                )
+                comp = comprehensions[0]
+                result["comprehension"] = {
+                    "path": row["path"],
+                    "function": "<listcomp>",
+                    "first_line": comp.lineno,
+                    "end_line": comp.end_lineno,
+                }
+    return result
+
+
+def review_events(
+    py: dict[str, Any], candidates: list[list[str]], routes: dict[str, dict[str, Any]]
+) -> dict[str, Any]:
+    require(
+        py["search_returns"] == 256
+        and py["certification_returns"] == 8
+        and py["all_tf_returns"] == 264,
+        "Complete search/certification count differs",
+    )
+    require(
+        py["code_routes_verified_against_pinned_source"] is True,
+        "Actual source/code correspondence missing",
+    )
+    events = py["objective_events"]
+    require(
+        len(events) == 264
+        and len(py["certification_events"]) == len(py["diagnostics"]) == 8,
+        "Complete event membership differs",
+    )
+    values = py["objective_values_binary64"]
+    require(
+        len(values) == 256 and len(candidates) == 32, "Search/candidate axes differ"
+    )
+    for call in range(1, 9):
+        block = values[(call - 1) * 32 : call * 32]
+        best = selected([float.fromhex(v) for v in block])
+        for position in range(33):
+            event = events[(call - 1) * 33 + position]
+            kind = "search" if position < 32 else "certification"
+            index = position + 1 if position < 32 else best
+            token = block[position] if position < 32 else block[best - 1]
+            require(
+                event["kind"] == kind
+                and event["call"] == call
+                and event["candidate_index"] == index
+                and event["candidate_binary64"] == candidates[index - 1]
+                and event["value_binary64"] == token
+                and event["context_binary64"]
+                == py["objective_contexts_binary64"][call - 1],
+                "Actual objective event order/value/arguments differ",
+            )
+            roles = (
+                ["objective", "search", "comprehension", "replay", "solver"]
+                if kind == "search"
+                else ["objective", "solver"]
+            )
+            stack = event["actual_stack"]
+            require(len(stack) == len(roles), "Actual objective stack length differs")
+            for observed, role in zip(stack, roles, strict=True):
+                expected = routes[role]
+                require(
+                    observed["role"] == role
+                    and all(
+                        observed[k] == expected[k]
+                        for k in ("path", "function", "first_line")
+                    )
+                    and type(observed["line"]) is int
+                    and expected["first_line"]
+                    <= observed["line"]
+                    <= expected["end_line"],
+                    "Actual code route escaped authenticated original source",
+                )
+        certification = py["certification_events"][call - 1]
+        require(
+            certification
+            == {
+                "call": call,
+                "candidate_index": best,
+                "candidate_binary64": candidates[best - 1],
+                "value_binary64": block[best - 1],
+            },
+            "Certification ledger differs",
+        )
+        diagnostic = py["diagnostics"][call - 1]
+        require(
+            diagnostic["best_index"] == best
+            and diagnostic["bestval"] == block[best - 1]
+            and diagnostic["nfev"] == 32
+            and diagnostic["certification_nfev"] == 1,
+            "Actual solver diagnostic/certification result differs",
+        )
+    return {
+        "search_returns_compared_to_R": 256,
+        "solver_certification_returns": 8,
+        "all_Python_tf_returns": 264,
+        "complete_actual_contexts": 264,
+        "selected_first_finite_minimum_certified": True,
+        "observer_objective_calls": 0,
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = checked_plan(args.plan)
+    directory = Path(plan["output"])
+    r_root = Path(plan["retained_R_output_root"])
+    from retained_r import verify_R_products
+
+    verify_R_products(r_root, plan["retained_completed_R"]["retained_R_products"])
+    shared = load(Path(plan["shared_input_manifest"]))
+    input_root = Path(plan["shared_input_root"])
+    require(
+        type(shared.get("actual_exit")) is int
+        and shared["actual_exit"] == 0
+        and shared["candidate"] == plan["candidate"]
+        and shared["contract"] == CONTRACT,
+        "Shared exporter identity/contract differs",
+    )
+    expected_files = [
+        input_root / (name + suffix)
+        for name in INPUT_NAMES
+        for suffix in (".csv", "-hex.csv")
+    ]
+    expected_files.sort()
+    require(
+        shared["files"] == [pin(path) for path in expected_files],
+        "Shared inputs changed after export",
+    )
+    inputs = shared_inputs(directory, input_root, r_root)
+    py = load(directory / "python/python-trace.json")
+    require(
+        type(py.get("actual_exit")) is int and py["actual_exit"] == 0,
+        "Python source trace did not pass",
+    )
+    protected = {row["path"]: row for row in plan["input_pins"]}
+    for origin_document in (shared, py):
+        for key in ("source_origins", "dependency_origins"):
+            require(
+                bool(origin_document[key]), "Actual source/dependency origins missing"
+            )
+            modules = [row["module"] for row in origin_document[key]]
+            require(len(modules) == len(set(modules)), "Repeated actual module origin")
+            for record in origin_document[key]:
+                row = {key: record[key] for key in ("path", "sha256", "bytes")}
+                require(
+                    protected.get(row["path"]) == row and pin(Path(row["path"])) == row,
+                    "Actual module origin not protected",
+                )
+    fields, rows = table(r_root / "r-candidate-objectives.csv")
+    require(fields == ["call", "candidate", "value"], "Native objective table schema")
+    require(
+        [(int(r[0]), int(r[1])) for r in rows]
+        == [(c, k) for c in range(1, 9) for k in range(1, 33)],
+        "Per-vector R membership/order differs",
+    )
+    values = [number(r[2]) for r in rows]
+    python_values = [float.fromhex(x) for x in py["objective_values_binary64"]]
+    calls = objective_comparison(values, python_values)
+    fields, contexts = table(r_root / "r-objective-contexts.csv")
+    require(
+        fields == ["call", "argument", "index", "value"],
+        "Objective context schema differs",
+    )
+    context_review = context_comparison(contexts, py["objective_contexts_binary64"])
+    _, candidate_rows = table(input_root / "candidates-hex.csv")
+    require(
+        py["candidate_vectors_binary64"] == candidate_rows * 8,
+        "Actual Python candidate sequence differs",
+    )
+    event_review = review_events(py, candidate_rows, source_routes(plan))
+    fields, trace = table(r_root / "r-trace.csv")
+    require(
+        fields == ["bestval", "iter", "nfev", "success", "best_index"]
+        and len(trace) == len(py["diagnostics"]) == 8,
+        "Optimizer trace axes differ",
+    )
+    for call, raw, diagnostic in zip(calls, trace, py["diagnostics"], strict=True):
+        require(
+            int(raw[4]) == diagnostic["best_index"] == call["selected_index_one_based"]
+            and int(raw[2]) == diagnostic["nfev"] == 32
+            and diagnostic["certification_nfev"] == 1
+            and number(raw[1]) == number(raw[3]) == 1
+            and diagnostic["algorithm"] == "candidate-replay"
+            and same_number(number(raw[0]), float.fromhex(diagnostic["bestval"])),
+            "Incomplete/different optimizer trace",
+        )
+    taxa = inputs["local"]["headers"][1:]
+    products = {}
+    for name, shape, headers in [
+        ("cover", (10, 10), taxa),
+        ("pollen", (10, 10), taxa),
+        ("objective", (10, 2), ["1", "2"]),
+        ("k", (inputs["rings"]["rows"], 10), taxa),
+    ]:
+        products[name] = numeric_product(
+            r_root / ("r-" + name + ".csv"),
+            directory / "python" / ("python-" + name + ".csv"),
+            shape,
+            headers,
+        )
+    dump(
+        directory / "independent-review.json",
+        {
+            "actual_exit": 0,
+            "candidate": plan["candidate"],
+            "numerical_contract": CONTRACT,
+            "shared_inputs": inputs,
+            "per_call_objectives": calls,
+            "objective_argument_comparison": context_review,
+            "Python_objective_events": event_review,
+            "retained_completed_R": plan["retained_completed_R"],
+            "products": products,
+            "R_runtime_origins": runtime_observation(plan, directory, r_root),
+            "actual_R_command": plan["retained_completed_R"][
+                "retained_completed_R_stage"
+            ]["argv"],
+            "actual_Python_command": plan["stages"][0]["argv"],
+            "old56_source_gate_waived": False,
+            "historical_performance_reproduced": False,
+            "new_CPP_adopted": False,
+            "optimizer_convergence_tested": False,
+            "scope": CONTRACT["scope"],
+        },
+    )
+
+
+if __name__ == "__main__":
+    main()

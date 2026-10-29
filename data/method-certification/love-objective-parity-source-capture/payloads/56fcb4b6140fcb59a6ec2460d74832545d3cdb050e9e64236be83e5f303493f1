@@ -1,0 +1,37 @@
+--- /Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-installed-source-parity/replay.R
++++ /Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-namespace-source-parity/replay.R
+@@ -14,18 +14,24 @@
+ stopifnot(length(marker_value)==1L,identical(marker_value,args[4]))
+ source(args[5])
+ snapshot <- function(label) {
++  # sessionInfo may load lapack; include its origins in the following snapshot.
++  session <- capture.output(sessionInfo())
+   names <- sort(loadedNamespaces())
+-  rows <- lapply(names, function(name) data.frame(name=name,
+-    version=as.character(getNamespaceVersion(name)),
+-    path=normalizePath(getNamespaceInfo(name,'path'),mustWork=TRUE)))
++  rows <- lapply(names, function(name) {
++    raw <- if (identical(name,'base')) file.path(R.home('library'),'base') else getNamespaceInfo(name,'path')
++    version <- if (identical(name,'base')) as.character(getRversion()) else as.character(getNamespaceVersion(name))
++    data.frame(name=name,version=version,path=normalizePath(raw,mustWork=TRUE))
++  })
+   write.csv(do.call(rbind, rows),file.path(output,paste0('r-',label,'-namespaces.csv')),row.names=FALSE)
+   dlls <- getLoadedDLLs()
+   rows <- lapply(dlls,function(item) {
+     raw <- item[['path']]
+-    path <- if (identical(raw,'base')) raw else normalizePath(raw,mustWork=TRUE)
++    built_in <- identical(item[['name']],'base') && identical(raw,'base')
++    path <- if (built_in) 'base' else normalizePath(raw,mustWork=TRUE)
+     data.frame(name=item[['name']],path=path,dynamic_lookup=item[['dynamicLookup']])
+   })
+   write.csv(do.call(rbind,rows),file.path(output,paste0('r-',label,'-dlls.csv')),row.names=FALSE)
++  writeLines(session,file.path(output,'r-session.txt'))
+ }
+ snapshot('before')
+ for (name in c('local','regional','ppes','rings')) {
+@@ -84,5 +90,4 @@
+ write.csv(do.call(rbind,CONTEXT_ROWS),file.path(output,'r-objective-contexts.csv'),row.names=FALSE,na='NaN')
+ stopifnot(CALL_NUMBER==8L,length(OBJECTIVE_ROWS)==256L)
+ snapshot('after')
+-writeLines(capture.output(sessionInfo()),file.path(output,'r-session.txt'))
+ writeLines(normalizePath(.libPaths()),file.path(output,'r-library-paths.txt'))

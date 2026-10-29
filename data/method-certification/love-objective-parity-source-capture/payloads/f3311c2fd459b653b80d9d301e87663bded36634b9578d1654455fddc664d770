@@ -1,0 +1,123 @@
+{
+  "schema_version": "love-saved-observer-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "4fbb8c1c01e2eff0f352e98c4a17e103b427704bbc2ca3bf33534e0ad4adb095",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/prepared-source-manifest.json",
+    "sha256": "4fbb8c1c01e2eff0f352e98c4a17e103b427704bbc2ca3bf33534e0ad4adb095",
+    "bytes": 6445
+  },
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/source-qualification.json",
+    "sha256": "eb30bd38eef2a77d7de5dd68494744b2e9519e5a0307ff8567ba4bca36fb1680",
+    "bytes": 8902
+  },
+  "preserved_findings": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-saved-observer-independent-review/held-source-findings.json",
+    "sha256": "2a68a9c01a763bcaca8956a50c331a87239776686285e13a31fc2192c754ef87",
+    "bytes": 2696
+  },
+  "postfreeze_final_entry_receipt": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/final-manifest-entry-review.json",
+    "sha256": "6047cafac949c2d55b95a3937668d8cc49feb5e4820acc9048e659f05d82151f",
+    "bytes": 1382
+  },
+  "source_check_receipts_authenticated": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-guards.json",
+      "sha256": "fe90ba4949d0613432bdcf73fbc20a8ee62f1149681bbd074da545e2c179d541",
+      "bytes": 1144
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-strict.json",
+      "sha256": "3e39570b2aae7e87bc1ea482b56785b42b4ffe868b08e22833a47e20ae7afe85",
+      "bytes": 1523
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-ruff.json",
+      "sha256": "6c3f5e394d74a00ddcf8393e20db8def3c140129a26da45406215e13c2f07ade",
+      "bytes": 1073
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-format.json",
+      "sha256": "e9ceb283920ca10ad58b84ad6d18794cfaf6c85e8c2e0a3f96e13298514339eb",
+      "bytes": 1093
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-guards.stdout",
+      "sha256": "105258b2482790d97cf5c348c515af2ac056a00eb1c0551076d162dfc1b924be",
+      "bytes": 3162
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-guards.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-strict.stdout",
+      "sha256": "f9b031e5c45aa702cd4fef028d465551cb20a2c4698e0913c7b00766b20ac4d8",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-strict.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-ruff.stdout",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-ruff.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-format.stdout",
+      "sha256": "3bc53bf3e981a98a34a852e175bf9b77af841edea74fca595d9aedcbaf9a4938",
+      "bytes": 26
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-pandas-missing-token-custody/preflight/qualified-format.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "authenticated_members": 24,
+  "unchanged_Python_files": [
+    "common_runner.py",
+    "contracts.py",
+    "observe.py",
+    "prepare.py",
+    "produce.py",
+    "r_runtime_contracts.py",
+    "retained_export.py",
+    "retained_r.py",
+    "run.py",
+    "runtime_contracts.py",
+    "runtime_guarded_runner.py",
+    "source_runtime.py"
+  ],
+  "unchanged_R_driver": true,
+  "independent_controls": {
+    "five_actual_prefix_guards_absolute_pass_relative_refusal_helper_tamper_refusal": 15,
+    "exact_empty_Python_only_default_NaN_adapter_strict_global_R_input_parser": true,
+    "synthetic_NaN_zero_mask_not_zero_filled": true,
+    "exact_actual_saved_stderr_pass_changed_tail_refused": true
+  },
+  "source_review": {
+    "one_exact_native_observer_role_completion_checked": true,
+    "saved_R_and_Python_models_never_reexecuted": true,
+    "115446_original_inputs_five_Python_products_seven_directory_namespace_guarded": true,
+    "original_343_prefix_plus_only224_failed_terminal_tail_distinct_from567_full_pin": true,
+    "old_R_job_and_Python_job_whole_failures_preserved": true,
+    "four_exact_source_writers_and_pandas_default_AST_bound": true,
+    "ten_numerical_input_runtime_event_predicate_ASTs_unchanged": true,
+    "tolerances_and_engine_unchanged": true
+  },
+  "actual_saved_numeric_observer_preparer_R_Python_model_target_runtime_census_private_parse_native_Git_STATE_canonical_actions": false,
+  "reviewer_initial_synthetic_fixture_refusal": "synthetic-R-token-refusal.log preserves the initial artificial NA-token error; corrected fixture uses the already declared strict float NaN token without changing reviewed source.",
+  "limits": "Source approval and controlled parser/entry tests only. Parent alone prepares/registers and executes the saved-products observer; no numerical parity pass or broader scientific/rights/human/performance acceptance is established here."
+}

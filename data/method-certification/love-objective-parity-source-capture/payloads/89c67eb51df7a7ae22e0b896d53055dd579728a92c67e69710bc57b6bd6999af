@@ -1,0 +1,41 @@
+{
+  "schema_version": "love-missing-token-source-correspondence.v1",
+  "actual_exit": 0,
+  "refused_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-saved-product-observation-custody/prepared-source-manifest.json",
+    "sha256": "f70a5c79e1148c981faf74bbbb7e85d3133372412eb393a64e7b6d9f799e78c0",
+    "bytes": 4362
+  },
+  "refusal_findings": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-saved-observer-independent-review/held-source-findings.json",
+    "sha256": "2a68a9c01a763bcaca8956a50c331a87239776686285e13a31fc2192c754ef87",
+    "bytes": 2696
+  },
+  "changed_Python_files": [
+    "check_contracts.py",
+    "retained_python.py"
+  ],
+  "byte_exact_Python_files": [
+    "common_runner.py",
+    "contracts.py",
+    "observe.py",
+    "prepare.py",
+    "produce.py",
+    "r_runtime_contracts.py",
+    "retained_export.py",
+    "retained_r.py",
+    "run.py",
+    "runtime_contracts.py",
+    "runtime_guarded_runner.py",
+    "source_runtime.py"
+  ],
+  "R_driver_byte_exact": true,
+  "all_five_actual_entry_guards_byte_exact": true,
+  "numerical_observer_and_input_parsers_byte_exact": true,
+  "new_manifest_paths": "Sorted unique absolute physical paths; strict entry guards unchanged.",
+  "exact_original_observer_stderr": {
+    "sha256": "5a4ba7643b8a052f687550babb0a7eca1e124cfbb5b7325cb18b1142c638c58c",
+    "final_line": "ValueError: Blank/whitespace numeric cell"
+  },
+  "scope": "Only exact original refusal evidence and actual held-manifest format controls. No scientific source, numerical predicate, output product, tolerance, stage or runtime change."
+}

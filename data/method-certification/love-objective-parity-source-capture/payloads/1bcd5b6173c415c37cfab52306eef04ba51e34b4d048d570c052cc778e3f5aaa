@@ -1,0 +1,39 @@
+{
+  "schema_version": "love-shared-source-parity-independent-source-review.v1",
+  "approved": true,
+  "source_manifest_sha256": "e50d0c428592a0e71a681acf2f0a4cf780c121132ce3da58552f794a170b1037",
+  "reviewer": "foreground integrator independent of source author",
+  "reviewed_at": "2026-10-15T04:47:17.793536+00:00",
+  "source_members_authenticated": 16,
+  "Python_AST_files": 11,
+  "root_guard_native_session": 58591,
+  "root_guard_collected_exit": 0,
+  "root_guard_groups": 23,
+  "root_guard_log_sha256": "8081b089e02aaf543714f54dd33104df0a17f5791af9ef52e13e8f292c091a70",
+  "source_qualification_sha256": "666d4a58c0f07cb8c3d07758e6650a89aa79d4a5e14826bb03738e70881ea212",
+  "protocol_sha256": "0389ae36513327b478cce2cc5f7e8b9bbf4b7f19f37ed8738218496a6e85853e",
+  "review": [
+    "Exact shared five fixture/candidate tables export17digits+binary64hex and independent R-native value/text/axis checks,32x10vectorsequence.",
+    "Unchanged R-source tf receives actualarguments via logged selector delegatedunchanged replay_de_traced; public Python run_love executesunchanged optimized.tf with return-event observation, never reevaluates objectives.",
+    "Independent all256values/eight first-finite-min selections/actualargumentcontexts and4completeproducts/NaN+signedInfinity masks; fixed3e-10absolute1e-10relative gate, no posthoc adjustment.",
+    "Actual source calK peatland-path behavior/fixed samplers/source roundings retained and disclosed; software conditional sourceparity, not convergence/ecology/RNG/128timings/C++/historical56gate restoration.",
+    "Fullfive actualentry prefixes require source/peer hashes before local imports; actual extracted-function fixtures cover helper tamper/falsepeer/native shadow plus alias/special/unknownnamespace.",
+    "Pinned physicalGit/main/separatebranchcheck/configisolation preserve906canonicalidentityschema. Complete fourfirstparty source/resource namespaces, qualified147runtime, exact52393 savedRinputs/aliases/nine namespaces/918library; no reinstalls.",
+    "Actual imported firstparty/numerical dependency and Rnamespace/DLL origins observed and pinned; identity-onlygraphics DLLs rejected, no full transientOSimageclaim.",
+    "Four reusedruntime/custody helpers byteexact separatelyqualifiedpredecessors; dynamic actualcandidate andfull expected inputunion checked before outputs; common/native receipts retained perstage."
+  ],
+  "resources": {
+    "stage_seconds": [
+      30,
+      180,
+      60,
+      60
+    ],
+    "common_wall_seconds": 540,
+    "outer_runtime_wall_seconds": 600,
+    "completed_child_RSS_bytes": 2147483648,
+    "inclusive_output_bytes": 268435456
+  },
+  "preparation_or_numerical_execution_performed": false,
+  "limits": "Postcheck RSS/storage, no OSquota/aggregate-descendant claim. Existing failures unchanged; no release/hosted/rights/human/scientific ecosystem acceptance."
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2136,
+  "surface_count": 2138,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1232,
+    "maintenance": 1234,
     "maps": 88,
     "portal": 2,
     "reviews": 36,
     "scopes": 768
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1234,
+    "maintainer_diagnostic": 1236,
     "public_reading_surface": 777,
     "scientific_review_surface": 125
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1283,
+    "report_root": 1285,
     "sweden": 55,
     "world": 160
   },
@@ -7142,6 +7142,31 @@
       "reader_route": "maintainer_truth"
     },
     {
+      "repository_path": "docs/report/method-certification/love-objective-parity/README.md",
+      "content_sha256": "0d721e88bef6b0e0fe792c946d85f3c187ec17116fdc1ba9630df49c3e7fc85c",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/method-certification/love-objective-parity/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
       "repository_path": "docs/report/method-certification/love-paper-correspondence/README.md",
       "content_sha256": "153f0f5f660e8915e7943c1a5cc11b32896cf4286ee4cc87c6deb9e5889a434c",
       "family": "maintenance",
@@ -9108,7 +9133,7 @@
     },
     {
       "repository_path": "docs/report/numerical-performance/love-source-comparison/README.md",
-      "content_sha256": "560d19048697edbf5241b281c606ac7fc03dc4a916713d64a8ed7de68e4608bc",
+      "content_sha256": "77d0267eff571745ec21f96c78418ac7a6a0b764d51d214c8b8f1996b085fa71",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

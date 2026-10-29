@@ -1,0 +1,71 @@
+{
+  "schema_version": "love-shared-source-parity-terminal.v1",
+  "actual_exit": 1,
+  "candidate": "123c7811e49cc692c32015826c029b8ad99e96d8",
+  "plan_sha256": "4d985444a36261808d287b862ee1f7f4849b038d91642fada12c3db54e83c7a4",
+  "common_actual_exit": 1,
+  "actual_stages": [
+    {
+      "id": "export-shared-binary64-source-fixture",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-shared-source-parity/produce.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/plan.json",
+        "--mode",
+        "shared-inputs"
+      ],
+      "timeout_seconds": 30,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 3.9876478749793023,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/export-shared-binary64-source-fixture.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/export-shared-binary64-source-fixture.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 420855808
+    },
+    {
+      "id": "source-R-thirty-two-candidate-replay",
+      "argv": [
+        "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+        "--vanilla",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/love-shared-source-parity/replay.R",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/input",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/r",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-R-runner-source-build/library",
+        "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+        "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 1,
+      "timed_out": false,
+      "elapsed_seconds": 0.4741322079789825,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/source-R-thirty-two-candidate-replay.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-love-shared-source-parity/source-R-thirty-two-candidate-replay.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "dde101acf93b2211539915360c4e26dfca4a663e5c6f5272ed618ad30f4d3b63",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 420855808
+    }
+  ],
+  "timed_out": false,
+  "after_input_error": null,
+  "elapsed_seconds": 89.41091729095206,
+  "completed_child_peak_rss_bytes_macos": 420855808,
+  "resources": {
+    "overall_timeout_seconds": 540,
+    "resident_memory_limit_bytes": 2147483648,
+    "output_byte_limit": 268435456
+  },
+  "scope": "One conditional software/source parity workload. No optimizer convergence, 128-call timing, C++, historical56-source restoration, ecological, rights, hosted or human acceptance.",
+  "limits": [
+    "Resource checks are completed-child RSS/logical output postchecks, not OS quotas or aggregate descendants.",
+    "Timeout kills/waits only the authenticated owned launcher group; detached descendants unconfirmed.",
+    "This is a fresh source-parity epoch, not old performance/source/runtime identity recovery."
+  ],
+  "completed_output_bytes_including_receipt": 57922312
+}

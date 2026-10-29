@@ -1,0 +1,392 @@
+"""Export one shared fixture or call the unchanged public Python LOVE API once."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import sys
+from typing import Any
+import warnings
+
+
+def _verify_entry_namespace(root: Path) -> None:
+    expected = {
+        ".": [
+            "check_contracts.py",
+            "common_runner.py",
+            "contracts.py",
+            "observe.py",
+            "prepare.py",
+            "produce.py",
+            "r_runtime_contracts.py",
+            "retained_export.py",
+            "run.py",
+            "runtime_contracts.py",
+            "runtime_guarded_runner.py",
+            "source_runtime.py",
+        ]
+    }
+    for domain, names in expected.items():
+        directory = root if domain == "." else root / domain
+        if directory.is_symlink() or not directory.is_dir():
+            raise ValueError("Controller import domain is absent or linked")
+        for entry in directory.iterdir():
+            if entry.is_symlink() or not (entry.is_file() or entry.is_dir()):
+                raise ValueError("Controller import namespace contains alias/special")
+            if domain == ".":
+                if entry.is_dir() and entry.name not in {
+                    "preflight",
+                    *set(expected) - {"."},
+                }:
+                    raise ValueError("Unexpected controller import directory")
+                if (
+                    entry.suffix in {".py", ".pyc", ".so", ".pyd", ".dylib"}
+                    and entry.name not in names
+                ):
+                    raise ValueError("Unexpected controller import member")
+            elif entry.is_dir() or entry.name not in names:
+                raise ValueError("Unexpected nested controller import member")
+        if domain != "." and {entry.name for entry in directory.iterdir()} != set(
+            names
+        ):
+            raise ValueError("Nested controller import member is missing")
+
+
+def _verify_reviewed_entry(root: Path) -> None:
+    manifest = root / "prepared-source-manifest.json"
+    review = root / "independent-source-review.json"
+    for path in (manifest, review):
+        if not path.is_file() or any(
+            parent.is_symlink() for parent in (path, *path.parents)
+        ):
+            raise ValueError(
+                "Reviewed controller entry requires regular source authority"
+            )
+    raw = manifest.read_bytes()
+    document = json.loads(raw)
+    admission = json.loads(review.read_bytes())
+    if (
+        document["source_only"] is not True
+        or admission["approved"] is not True
+        or admission["source_manifest_sha256"] != hashlib.sha256(raw).hexdigest()
+    ):
+        raise ValueError(
+            "Exact independent source approval required before local imports"
+        )
+    names = [row["path"] for row in document["files"]]
+    if names != sorted(set(names)):
+        raise ValueError("Reviewed entry source paths must be sorted and unique")
+    for row in document["files"]:
+        path = Path(row["path"])
+        if (
+            not path.is_absolute()
+            or ".." in path.parts
+            or (not path.is_relative_to(root))
+            or any(parent.is_symlink() for parent in (path, *path.parents))
+        ):
+            raise ValueError("Reviewed controller entry leaves physical source")
+        if (
+            not path.is_file()
+            or type(row["bytes"]) is not int
+            or path.stat().st_size != row["bytes"]
+        ):
+            raise ValueError("Reviewed controller entry length changed")
+        with path.open("rb") as stream:
+            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+        if checksum != row["sha256"]:
+            raise ValueError("Reviewed controller source changed before local imports")
+    required = {
+        entry
+        for names in {
+            ".": [
+                "check_contracts.py",
+                "common_runner.py",
+                "contracts.py",
+                "observe.py",
+                "prepare.py",
+                "produce.py",
+                "r_runtime_contracts.py",
+                "retained_export.py",
+                "run.py",
+                "runtime_contracts.py",
+                "runtime_guarded_runner.py",
+                "source_runtime.py",
+            ]
+        }.values()
+        for entry in names
+    }
+    declared = {Path(name).relative_to(root).as_posix() for name in names}
+    if not required.issubset(declared):
+        raise ValueError("Reviewed controller manifest omits a local import member")
+
+
+_entry_path = Path(__file__).absolute()
+if _entry_path != _entry_path.resolve() or any(
+    p.is_symlink() for p in (_entry_path, *_entry_path.parents)
+):
+    raise ValueError("Physical normalized source entrypoint required")
+_entry_directory = _entry_path.parent
+_verify_entry_namespace(_entry_directory)
+if __name__ == "__main__":
+    _verify_reviewed_entry(_entry_directory)
+sys.path.insert(0, str(_entry_directory))
+
+from contracts import (  # noqa: E402 - authenticate local helpers before importing.
+    CONTRACT,
+    INPUT_NAMES,
+    PACKAGE_ROOTS,
+    TF_SOURCE,
+    checked_plan,
+    dump,
+    pin,
+    require,
+)
+
+
+def frame(path: Path) -> Any:
+    import pandas as pd
+
+    return pd.read_csv(path, float_precision="round_trip")
+
+
+def origins(plan: dict[str, Any]) -> list[dict[str, Any]]:
+    pins = {row["path"]: row for row in plan["input_pins"]}
+    result = []
+    for name, module in sorted(sys.modules.items()):
+        if not name.startswith(("bijux_pollenomics", "pollenomics")):
+            continue
+        raw = getattr(module, "__file__", None)
+        require(isinstance(raw, str), "First-party origin is missing")
+        assert isinstance(raw, str)
+        path = Path(raw)
+        require(
+            any(path.is_relative_to(root) for root in PACKAGE_ROOTS),
+            "First-party origin escaped",
+        )
+        row = pin(path)
+        require(pins.get(row["path"]) == row, "First-party source not protected")
+        result.append({"module": name, **row})
+    return result
+
+
+def dependency_origins(plan: dict[str, Any]) -> list[dict[str, Any]]:
+    protected = {row["path"]: row for row in plan["input_pins"]}
+    result = []
+    for name, module in sorted(sys.modules.items()):
+        if name.split(".")[0] not in {"numpy", "pandas", "scipy"}:
+            continue
+        raw = getattr(module, "__file__", None)
+        if raw is None:
+            # Namespace-only packages have no executable file; their children are checked.
+            require(
+                getattr(module, "__path__", None) is not None,
+                "Dependency origin missing",
+            )
+            continue
+        require(isinstance(raw, str), "Dependency origin is not a path")
+        assert isinstance(raw, str)
+        row = pin(Path(raw))
+        require(
+            protected.get(row["path"]) == row, "Unqualified numerical dependency origin"
+        )
+        result.append({"module": name, **row})
+    require(
+        {"numpy", "pandas"} <= {row["module"] for row in result},
+        "Core dependency not observed",
+    )
+    return result
+
+
+def export(plan: dict[str, Any]) -> None:
+    import numpy as np
+    import pandas as pd
+
+    from bijux_pollenomics_lra.resources.examples import load_love_example
+
+    output = Path(plan["output"]) / "input"
+    output.mkdir()
+    local, regional, params, rings = load_love_example()
+    tables = {
+        "local": local,
+        "regional": regional,
+        "ppes": params["ppes"],
+        "rings": rings,
+        "candidates": pd.DataFrame(np.linspace(0.1, 0.9, 320).reshape(32, 10)),
+    }
+    require(
+        list(local.columns[1:])
+        == list(regional.columns[1:])
+        == list(params["ppes"]["Taxon"]),
+        "Source taxon axes differ",
+    )
+    for name, table in tables.items():
+        table.to_csv(output / (name + ".csv"), index=False, float_format="%.17g")
+        numeric = table.select_dtypes(include="number")
+        pd.DataFrame(
+            {
+                column: [float(value).hex() for value in numeric[column]]
+                for column in numeric
+            }
+        ).to_csv(output / (name + "-hex.csv"), index=False)
+        restored = frame(output / (name + ".csv"))
+        require(
+            list(restored.columns) == [str(c) for c in table.columns],
+            "Export column order",
+        )
+        require(
+            np.array_equal(
+                restored.select_dtypes(include="number").to_numpy(), numeric.to_numpy()
+            ),
+            "Decimal binary64 round trip failed",
+        )
+    dump(
+        Path(plan["output"]) / "shared-inputs.json",
+        {
+            "actual_exit": 0,
+            "candidate": plan["candidate"],
+            "contract": CONTRACT,
+            "files": [pin(path) for path in sorted(output.iterdir())],
+            "source_origins": origins(plan),
+            "dependency_origins": dependency_origins(plan),
+            "actual_argv": [sys.executable, *sys.argv],
+        },
+    )
+
+
+def numeric_token(value: float) -> str:
+    return float(value).hex()
+
+
+def python(plan: dict[str, Any]) -> None:
+    import numpy as np
+
+    from bijux_pollenomics_lra.api import LoveConfig, run_love
+    from bijux_pollenomics_lra.reconstruction.optimized import tf
+
+    directory = Path(plan["output"])
+    shared = Path(plan["shared_input_root"])
+    output = directory / "python"
+    output.mkdir()
+    tables = {name: frame(shared / (name + ".csv")) for name in INPUT_NAMES}
+    candidates = tables["candidates"].to_numpy(dtype=float)
+    require(candidates.shape == (32, 10), "Candidate shape differs")
+    require(tf.__code__.co_filename == str(TF_SOURCE), "Objective code origin changed")
+    values: list[float] = []
+    candidates_seen: list[list[str]] = []
+    contexts: list[dict[str, Any]] = []
+
+    def watch(f: Any, event: str, value: Any) -> None:
+        if event == "return" and f.f_code is tf.__code__:
+            candidate = np.asarray(f.f_locals["a"], dtype=float)
+            index = len(values) % 32
+            if index == 0:
+                contexts.append(
+                    {
+                        name: [
+                            float(v).hex()
+                            for v in np.asarray(f.f_locals[name], dtype=float).ravel(
+                                order="F"
+                            )
+                        ]
+                        for name in (
+                            "vPoldepRegio",
+                            "mKlocal",
+                            "vFlocal",
+                            "vSampleLocPro",
+                            "ppes",
+                        )
+                    }
+                )
+            require(
+                np.array_equal(candidate, candidates[index]),
+                "Objective candidate order differs",
+            )
+            values.append(float(value))
+            candidates_seen.append([float(x).hex() for x in candidate])
+
+    config = LoveConfig(
+        "optimized",
+        "lake",
+        300,
+        12.9,
+        10,
+        repeats=2,
+        stochastic=False,
+        seed=7,
+        optimizer_max_evaluations=32,
+    )
+    require(sys.getprofile() is None, "Unexpected existing profiler")
+    try:
+        sys.setprofile(watch)
+        with warnings.catch_warnings():
+            warnings.filterwarnings(
+                "ignore", message="Terrestrial area exceeds geometric ring area"
+            )
+            result = run_love(
+                tables["local"],
+                tables["regional"],
+                tables["ppes"],
+                tables["rings"],
+                config,
+                replay_candidates=candidates,
+            )
+    finally:
+        sys.setprofile(None)
+    require(
+        len(values) == 256 and len(result.diagnostics) == 8,
+        "Actual objective call count differs",
+    )
+    result.cover["mean"].to_csv(output / "python-cover.csv", index=False)
+    result.pollen_percentages["mean"].to_csv(output / "python-pollen.csv", index=False)
+    require(result.objective_values is not None, "No objective product")
+    assert result.objective_values is not None
+    result.objective_values.to_csv(output / "python-objective.csv", index=False)
+    result.auxiliary["K"].to_csv(output / "python-k.csv", index=False)
+    diagnostics = []
+    for item in result.diagnostics:
+        selected = np.flatnonzero(np.all(candidates == item.x, axis=1))
+        require(
+            len(selected) == 1 and item.nfev == 32 and item.success,
+            "Incomplete candidate replay",
+        )
+        diagnostics.append(
+            {
+                "best_index": int(selected[0]) + 1,
+                "nfev": item.nfev,
+                "bestval": numeric_token(item.fun),
+                "algorithm": item.algorithm,
+            }
+        )
+    dump(
+        output / "python-trace.json",
+        {
+            "actual_exit": 0,
+            "diagnostics": diagnostics,
+            "objective_values_binary64": [numeric_token(value) for value in values],
+            "objective_contexts_binary64": contexts,
+            "candidate_vectors_binary64": candidates_seen,
+            "source_origins": origins(plan),
+            "dependency_origins": dependency_origins(plan),
+            "actual_argv": [sys.executable, *sys.argv],
+            "instrumentation": "Return events from unchanged optimized.tf during the public run_love call; no reevaluation.",
+        },
+    )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    parser.add_argument("--mode", choices=("shared-inputs", "python"), required=True)
+    args = parser.parse_args()
+    plan = checked_plan(args.plan)
+    sys.path[:0] = [str(path) for path in PACKAGE_ROOTS]
+    if args.mode == "shared-inputs":
+        export(plan)
+    else:
+        python(plan)
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,342 @@
+"""Retain three actual parity stage exits and the separate original export epoch and complete before/after source/runtime custody."""
+
+from __future__ import annotations
+
+import argparse
+from contextlib import suppress
+import hashlib
+import json
+import os
+from pathlib import Path
+import resource
+import signal
+import subprocess
+import sys
+import time
+from typing import Any
+
+
+def _verify_entry_namespace(root: Path) -> None:
+    expected = {
+        ".": [
+            "check_contracts.py",
+            "common_runner.py",
+            "contracts.py",
+            "observe.py",
+            "prepare.py",
+            "produce.py",
+            "r_runtime_contracts.py",
+            "retained_export.py",
+            "retained_r.py",
+            "run.py",
+            "runtime_contracts.py",
+            "runtime_guarded_runner.py",
+            "source_runtime.py",
+        ]
+    }
+    for domain, names in expected.items():
+        directory = root if domain == "." else root / domain
+        if directory.is_symlink() or not directory.is_dir():
+            raise ValueError("Controller import domain is absent or linked")
+        for entry in directory.iterdir():
+            if entry.is_symlink() or not (entry.is_file() or entry.is_dir()):
+                raise ValueError("Controller import namespace contains alias/special")
+            if domain == ".":
+                if entry.is_dir() and entry.name not in {
+                    "preflight",
+                    *set(expected) - {"."},
+                }:
+                    raise ValueError("Unexpected controller import directory")
+                if (
+                    entry.suffix in {".py", ".pyc", ".so", ".pyd", ".dylib"}
+                    and entry.name not in names
+                ):
+                    raise ValueError("Unexpected controller import member")
+            elif entry.is_dir() or entry.name not in names:
+                raise ValueError("Unexpected nested controller import member")
+        if domain != "." and {entry.name for entry in directory.iterdir()} != set(
+            names
+        ):
+            raise ValueError("Nested controller import member is missing")
+
+
+def _verify_reviewed_entry(root: Path) -> None:
+    manifest = root / "prepared-source-manifest.json"
+    review = root / "independent-source-review.json"
+    for path in (manifest, review):
+        if not path.is_file() or any(
+            parent.is_symlink() for parent in (path, *path.parents)
+        ):
+            raise ValueError(
+                "Reviewed controller entry requires regular source authority"
+            )
+    raw = manifest.read_bytes()
+    document = json.loads(raw)
+    admission = json.loads(review.read_bytes())
+    if (
+        document["source_only"] is not True
+        or admission["approved"] is not True
+        or admission["source_manifest_sha256"] != hashlib.sha256(raw).hexdigest()
+    ):
+        raise ValueError(
+            "Exact independent source approval required before local imports"
+        )
+    names = [row["path"] for row in document["files"]]
+    if names != sorted(set(names)):
+        raise ValueError("Reviewed entry source paths must be sorted and unique")
+    for row in document["files"]:
+        path = Path(row["path"])
+        if (
+            not path.is_absolute()
+            or ".." in path.parts
+            or (not path.is_relative_to(root))
+            or any(parent.is_symlink() for parent in (path, *path.parents))
+        ):
+            raise ValueError("Reviewed controller entry leaves physical source")
+        if (
+            not path.is_file()
+            or type(row["bytes"]) is not int
+            or path.stat().st_size != row["bytes"]
+        ):
+            raise ValueError("Reviewed controller entry length changed")
+        with path.open("rb") as stream:
+            checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+        if checksum != row["sha256"]:
+            raise ValueError("Reviewed controller source changed before local imports")
+    required = {
+        entry
+        for names in {
+            ".": [
+                "check_contracts.py",
+                "common_runner.py",
+                "contracts.py",
+                "observe.py",
+                "prepare.py",
+                "produce.py",
+                "r_runtime_contracts.py",
+                "retained_export.py",
+                "retained_r.py",
+                "run.py",
+                "runtime_contracts.py",
+                "runtime_guarded_runner.py",
+                "source_runtime.py",
+            ]
+        }.values()
+        for entry in names
+    }
+    declared = {Path(name).relative_to(root).as_posix() for name in names}
+    if not required.issubset(declared):
+        raise ValueError("Reviewed controller manifest omits a local import member")
+
+
+_entry_path = Path(__file__).absolute()
+if _entry_path != _entry_path.resolve() or any(
+    p.is_symlink() for p in (_entry_path, *_entry_path.parents)
+):
+    raise ValueError("Physical normalized source entrypoint required")
+_entry_directory = _entry_path.parent
+_verify_entry_namespace(_entry_directory)
+if __name__ == "__main__":
+    _verify_reviewed_entry(_entry_directory)
+sys.path.insert(0, str(_entry_directory))
+
+from contracts import (  # noqa: E402 - authenticate local helpers before importing.
+    ROOT,
+    SOURCE,
+    checked_plan,
+    identity,
+    load,
+    require,
+    sha,
+    verify_inputs,
+)
+from source_runtime import (  # noqa: E402 - guarded local namespace.
+    PYTHON,  # noqa: E402 - authenticate local helpers before importing.
+)
+
+
+def accounted_receipt(output: Path, value: dict[str, Any], bound: int) -> bytes:
+    used = 0
+    for path in output.rglob("*"):
+        require(
+            not path.is_symlink() and (path.is_file() or path.is_dir()),
+            "Output special/alias",
+        )
+        if path.is_file():
+            used += path.stat().st_size
+    total = used
+    for _ in range(32):
+        raw = (
+            json.dumps(
+                {**value, "completed_output_bytes_including_receipt": total},
+                indent=2,
+                allow_nan=False,
+            )
+            + "\n"
+        ).encode()
+        size = used + len(raw)
+        if size == total:
+            require(size <= bound, "Inclusive output bound exceeded")
+            return raw
+        total = size
+    raise ValueError("Receipt accounting did not converge")
+
+
+def stages_passed(plan: dict[str, Any], common: dict[str, Any]) -> bool:
+    """Require the two declared native consumers, including complete command identity."""
+    expected, actual = plan.get("stages"), common.get("stages")
+    if (
+        not isinstance(expected, list)
+        or not isinstance(actual, list)
+        or len(expected) != 2
+        or len(actual) != 2
+        or type(common.get("actual_exit")) is not int
+        or common["actual_exit"] != 0
+    ):
+        return False
+    plan_path = str(Path(plan["output"]) / "plan.json")
+    commands = [
+        (
+            "public-Python-thirty-two-candidate-replay",
+            [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(SOURCE / "produce.py"),
+                "--plan",
+                plan_path,
+                "--mode",
+                "python",
+            ],
+        ),
+        (
+            "independent-shared-input-and-all-vector-observer",
+            [str(PYTHON), "-I", "-B", str(SOURCE / "observe.py"), "--plan", plan_path],
+        ),
+    ]
+    for result, declared, (role, argv) in zip(actual, expected, commands, strict=True):
+        if not isinstance(result, dict) or not isinstance(declared, dict):
+            return False
+        if not (
+            declared.get("id") == role
+            and declared.get("argv") == argv
+            and type(declared.get("timeout_seconds")) is int
+            and declared["timeout_seconds"] == 60
+            and declared.get("must_succeed") is True
+            and all(
+                result.get(key) == declared.get(key)
+                for key in ("id", "argv", "timeout_seconds", "must_succeed")
+            )
+            and type(result.get("timeout_seconds")) is int
+            and result.get("must_succeed") is True
+            and type(result.get("actual_exit")) is int
+            and result["actual_exit"] == 0
+            and result.get("timed_out") is False
+        ):
+            return False
+    return True
+
+
+def main() -> None:
+    started = time.monotonic()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    parser.add_argument("--registered-plan-sha256", required=True)
+    args = parser.parse_args()
+    require(sha(args.plan) == args.registered_plan_sha256, "Registered plan differs")
+    plan = checked_plan(args.plan)
+    verify_inputs(plan)
+    require(
+        identity() == plan["canonical_identity"], "Current clean main identity differs"
+    )
+    output = Path(plan["output"])
+    target = output / "love-parity-terminal.json"
+    require(
+        not target.exists() and not (output / "terminal.json").exists(),
+        "Already launched",
+    )
+    remaining = plan["resources"]["overall_timeout_seconds"] - (
+        time.monotonic() - started
+    )
+    require(remaining > 0, "No wall allowance remains before launch")
+    child = subprocess.Popen(
+        [
+            str(PYTHON),
+            "-I",
+            "-B",
+            plan["common_runner"],
+            "--plan",
+            str(args.plan),
+            "--registered-plan-sha256",
+            args.registered_plan_sha256,
+        ],
+        cwd=ROOT,
+        start_new_session=True,
+    )
+    timeout = False
+    try:
+        remaining = plan["resources"]["overall_timeout_seconds"] - (
+            time.monotonic() - started
+        )
+        require(remaining > 0, "No wall allowance remains")
+        code = child.wait(timeout=remaining)
+    except subprocess.TimeoutExpired:
+        timeout = True
+        with suppress(ProcessLookupError):
+            os.killpg(child.pid, signal.SIGKILL)
+        child.wait()
+        code = 124
+    custody = None
+    try:
+        verify_inputs(plan)
+        require(
+            identity() == plan["canonical_identity"],
+            "After clean main identity differs",
+        )
+    except Exception as error:
+        custody = str(error)
+    common: dict[str, Any] = (
+        load(output / "terminal.json")
+        if (output / "terminal.json").is_file()
+        else {"actual_exit": code, "stages": []}
+    )
+    actual = common["stages"]
+    stages = stages_passed(plan, common)
+    elapsed = time.monotonic() - started
+    rss = resource.getrusage(resource.RUSAGE_CHILDREN).ru_maxrss
+    passed = (
+        code == 0
+        and common["actual_exit"] == 0
+        and stages
+        and not timeout
+        and custody is None
+        and elapsed <= plan["resources"]["overall_timeout_seconds"]
+        and rss <= plan["resources"]["resident_memory_limit_bytes"]
+    )
+    value = {
+        "schema_version": "love-shared-source-parity-terminal.v1",
+        "actual_exit": 0 if passed else 1,
+        "candidate": plan["candidate"],
+        "plan_sha256": args.registered_plan_sha256,
+        "common_actual_exit": common["actual_exit"],
+        "actual_stages": actual,
+        "timed_out": timeout,
+        "after_input_error": custody,
+        "elapsed_seconds": elapsed,
+        "completed_child_peak_rss_bytes_macos": rss,
+        "resources": plan["resources"],
+        "scope": plan["scope"],
+        "limits": [
+            "Resource checks are completed-child RSS/logical output postchecks, not OS quotas or aggregate descendants.",
+            "Timeout kills/waits only the authenticated owned launcher group; detached descendants unconfirmed.",
+            "This is a fresh source-parity epoch, not old performance/source/runtime identity recovery.",
+        ],
+    }
+    raw = accounted_receipt(output, value, plan["resources"]["output_byte_limit"])
+    with target.open("xb") as stream:
+        stream.write(raw)
+    raise SystemExit(0 if passed else 1)
+
+
+if __name__ == "__main__":
+    main()
