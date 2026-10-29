@@ -430,7 +430,7 @@
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
       "prose_paragraph_count": 13,
-      "link_bullet_count": 9,
+      "link_bullet_count": 12,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -470,7 +470,7 @@
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md",
       "prose_paragraph_count": 17,
-      "link_bullet_count": 2,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -500,7 +500,7 @@
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md",
       "prose_paragraph_count": 15,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -1390,7 +1390,7 @@
     {
       "repository_path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
       "prose_paragraph_count": 14,
-      "link_bullet_count": 4,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -1400,7 +1400,7 @@
     {
       "repository_path": "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
       "prose_paragraph_count": 13,
-      "link_bullet_count": 4,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -1410,7 +1410,7 @@
     {
       "repository_path": "docs/report/publication-replay/landclim-example-reexecution/README.md",
       "prose_paragraph_count": 12,
-      "link_bullet_count": 2,
+      "link_bullet_count": 3,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -1700,7 +1700,7 @@
     {
       "repository_path": "docs/report/regions/nordic/hyde-country-cropland/README.md",
       "prose_paragraph_count": 11,
-      "link_bullet_count": 2,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 0,
@@ -2290,7 +2290,7 @@
     {
       "repository_path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
       "prose_paragraph_count": 15,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 4,
@@ -2300,7 +2300,7 @@
     {
       "repository_path": "docs/report/source-relations/landclim/workbook-chronology/README.md",
       "prose_paragraph_count": 15,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 6,
@@ -2590,7 +2590,7 @@
     {
       "repository_path": "docs/report/source-relations/neotoma/swedish-cohort-availability/README.md",
       "prose_paragraph_count": 18,
-      "link_bullet_count": 3,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
       "heading_count": 2,
       "table_line_count": 8,
@@ -2850,7 +2850,7 @@
     {
       "repository_path": "docs/report/source-relations/svar/normalized-export/README.md",
       "prose_paragraph_count": 19,
-      "link_bullet_count": 3,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 3,
       "table_line_count": 5,
