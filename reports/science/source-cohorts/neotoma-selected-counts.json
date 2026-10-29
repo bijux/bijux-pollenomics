@@ -1,0 +1,182 @@
+{
+  "schema_version": "neotoma-current-selected-count-source-witness.v1",
+  "capture": {
+    "path": "data/source-custody/neotoma/selected-counts/capture.json",
+    "sha256": "22f2c291682ce9b7f7d502f6ce8e98b06e79d62e8627e545faf38c21fafd3a75"
+  },
+  "actual_original_source_candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+  "actual_native_plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-source-review/plan.json",
+    "sha256": "05f915932c2e803680a98609e2bf449dafd693621c9356b5f0edf31c80e4dfb9",
+    "bytes": 17617006
+  },
+  "actual_native_inner": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-source-review/selected-count-terminal.json",
+    "sha256": "c5d1bc9a91a19dc3d3d08551e3f82c9008965595a382733279dc3c018f837fce",
+    "bytes": 4839
+  },
+  "actual_native_outer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-source-review/selected-count-launch-terminal.json",
+    "sha256": "e034ca2902f8f70c25c2570fa9cbd74f1a18ade7e87595e5f6d448e4f3f9d0ed",
+    "bytes": 2534
+  },
+  "actual_independent_source_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-source-review/independent-source-review.json",
+    "sha256": "7a1ce54ac4816a5f580922085dcdc8694b99615c48e845f50299c4e789c28334",
+    "bytes": 10933
+  },
+  "actual_metadata_candidate": "e37f34a310e22a3a934d255de43b5bdad3cdb69d",
+  "actual_metadata_receipts": {
+    "inner": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-capture/capture-terminal.json",
+      "sha256": "2b49a491a5906496040b33eb336170058d342b428f672df8f729630e5ba0ea6a",
+      "bytes": 4712
+    },
+    "outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-capture/capture-launch-terminal.json",
+      "sha256": "fb096b61767575c02186331b0b98a0122a362f4d875a230e49286c6f7356d8ef",
+      "bytes": 2493
+    },
+    "assembly": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-capture/assembly-result.json",
+      "sha256": "f9429bf78c5d95a46c8728f698627512a395dbf46df89e4826b001a6a1da6dd2",
+      "bytes": 564
+    },
+    "observer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-capture/independent-capture-review.json",
+      "sha256": "612f943c8e34a499f26cc390565574064c2229453b41a680fa665b3c828bb692",
+      "bytes": 5119
+    }
+  },
+  "current_count_evidence": {
+    "source_candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+    "original_producer_native_exit": 0,
+    "original_independent_native_exit": 0,
+    "original_inner_and_outer": [
+      0,
+      0
+    ],
+    "selected_denominators": {
+      "samples": 3,
+      "lra_refused_samples": 3,
+      "observations": 136,
+      "count_candidate_observations": 135,
+      "pollen_labelled_count_candidates": 112,
+      "age_claims": 3
+    },
+    "current_source_count_mass_rows": [
+      {
+        "sample_id": "neotoma:sample:173174",
+        "country_code": "SE",
+        "source_locator": {
+          "authority": "normalized",
+          "surface": "samples",
+          "path": "surfaces/samples/part-00001.json",
+          "row_index": 190,
+          "row_sha256": "68559e5417273200932d69fe741589629a1ab7e3bc6f168dad589f45aba289d4"
+        },
+        "observations": 29,
+        "refused_count_observations": 0,
+        "count_candidate_observations": 29,
+        "pollen_count_observations": 23,
+        "nonpollen_count_observations": 6,
+        "unresolved_label_count_observations": 0,
+        "source_unit_partitions": [
+          {
+            "source_unit": "NISP",
+            "pollen_count_observations": 23,
+            "pollen_exact_count_sum": 1206,
+            "pollen_observed_zero_observations": 0,
+            "nonpollen_count_observations": 6,
+            "nonpollen_exact_count_sum": 57,
+            "nonpollen_observed_zero_observations": 0,
+            "unresolved_label_count_observations": 0,
+            "unresolved_label_exact_count_sum": 0,
+            "unresolved_label_observed_zero_observations": 0
+          }
+        ],
+        "known_compatible_pollen_denominator_status": "not_evaluated",
+        "lra_admission_status": "refused"
+      },
+      {
+        "sample_id": "neotoma:sample:552101",
+        "country_code": "SE",
+        "source_locator": {
+          "authority": "normalized",
+          "surface": "samples",
+          "path": "surfaces/samples/part-00001.json",
+          "row_index": 10690,
+          "row_sha256": "495dd1e3a626dc943daa3a0767528000eabe1bb1b838221b28c656a2acdfbe5c"
+        },
+        "observations": 53,
+        "refused_count_observations": 0,
+        "count_candidate_observations": 53,
+        "pollen_count_observations": 46,
+        "nonpollen_count_observations": 6,
+        "unresolved_label_count_observations": 1,
+        "source_unit_partitions": [
+          {
+            "source_unit": "NISP",
+            "pollen_count_observations": 46,
+            "pollen_exact_count_sum": 1963,
+            "pollen_observed_zero_observations": 0,
+            "nonpollen_count_observations": 6,
+            "nonpollen_exact_count_sum": 131,
+            "nonpollen_observed_zero_observations": 0,
+            "unresolved_label_count_observations": 1,
+            "unresolved_label_exact_count_sum": 11,
+            "unresolved_label_observed_zero_observations": 0
+          }
+        ],
+        "known_compatible_pollen_denominator_status": "not_evaluated",
+        "lra_admission_status": "refused"
+      },
+      {
+        "sample_id": "neotoma:sample:552389",
+        "country_code": "SE",
+        "source_locator": {
+          "authority": "normalized",
+          "surface": "samples",
+          "path": "surfaces/samples/part-00001.json",
+          "row_index": 10911,
+          "row_sha256": "d64d7bf5da94f411daebe4df4bdeaf48d08fc71876727e7bebd2949111c48277"
+        },
+        "observations": 54,
+        "refused_count_observations": 1,
+        "count_candidate_observations": 53,
+        "pollen_count_observations": 43,
+        "nonpollen_count_observations": 10,
+        "unresolved_label_count_observations": 0,
+        "source_unit_partitions": [
+          {
+            "source_unit": "NISP",
+            "pollen_count_observations": 43,
+            "pollen_exact_count_sum": 540,
+            "pollen_observed_zero_observations": 0,
+            "nonpollen_count_observations": 10,
+            "nonpollen_exact_count_sum": 279,
+            "nonpollen_observed_zero_observations": 0,
+            "unresolved_label_count_observations": 0,
+            "unresolved_label_exact_count_sum": 0,
+            "unresolved_label_observed_zero_observations": 0
+          }
+        ],
+        "known_compatible_pollen_denominator_status": "not_evaluated",
+        "lra_admission_status": "refused"
+      }
+    ],
+    "historical_manifest_ownership_changed": false,
+    "original_mass_or_manifest_construction_recovered": false,
+    "scientific_chronology_or_LRA_admission": false
+  },
+  "current_count_evidence_paths": [
+    "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json",
+    "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json"
+  ],
+  "original_mass_object_or_custody_manifest_construction_recovered": false,
+  "count_owner_acceptance_discharged": false,
+  "both_count_and_manifest_owners_remain_unresolved": true,
+  "historical_manifest_owners_qualified": false,
+  "whole_core_report_products_rebuilt": false,
+  "physical_core_chronology_denominator_rights_human_or_LRA_admitted": false
+}

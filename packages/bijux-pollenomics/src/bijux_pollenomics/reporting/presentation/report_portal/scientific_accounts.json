@@ -7231,7 +7231,7 @@
         "fields": {
           "supported_claim": "The ABBO/ABB comparison preserves a same-name 107-sample/0.334 m point identity lead and selected sample count partition.",
           "unsupported_claim": "Close points and matched sample counts do not establish a shared physical core, basin radius, selected chronology or count denominator.",
-          "actual_verification_performed": "Read the source-bound report, manifest and independent selected count-mass receipt; no source consumer rerun.",
+          "actual_verification_performed": "Read the source-bound report, manifest and independent selected count-mass receipt; no source consumer rerun. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner’s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.",
           "remaining_input_or_review": "ABBO versus ABB core identity, 13 m elevation discrepancy, age model, basin/count/PPE support and rights require qualification.",
           "cause_category": "Metadata similarity is insufficient identity authority.",
           "consequence": "The 98 m LandClim radius is not transferred to Neotoma.",
@@ -7251,6 +7251,10 @@
           {
             "path": "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json",
             "sha256": "fea274f27de4ea834eb38ac4ad8c3a07766aec27bc6a1633e1088f8e247f8e2f"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-selected-counts.json",
+            "sha256": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18"
           }
         ]
       }
@@ -7269,7 +7273,7 @@
         "fields": {
           "supported_claim": "The generated ABBO interpretation summarizes its bounded physical-core review lead and explicit radius/chronology refusals.",
           "unsupported_claim": "This interpretation adds no independent core identification or numerical check beyond the owning comparison report.",
-          "actual_verification_performed": "Read the generated prose against the same report and manifest, checking native count categories and differing end labels; no replay.",
+          "actual_verification_performed": "Read the generated prose against the same report and manifest, checking native count categories and differing end labels; no replay. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner’s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.",
           "remaining_input_or_review": "Physical core, selected age support, denominator, parameter applicability and analytical rights remain unqualified.",
           "cause_category": "Generated interpretation inherits a bounded source comparison.",
           "consequence": "ABBO water depth cannot become radius and ABB source coverage cannot become sample chronology.",
@@ -7285,6 +7289,10 @@
           {
             "path": "docs/report/source-relations/neotoma/abbo-core-identity/manifest.json",
             "sha256": "c817748f52c5cda435d2f5bbfb746f442aa346ca4f4d2ca71b38ae360bf6739c"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-selected-counts.json",
+            "sha256": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18"
           }
         ]
       }
@@ -8133,7 +8141,7 @@
         "fields": {
           "supported_claim": "The two-lake comparison preserves full native count/age coverage and close LandClim metadata leads for BUS/BOKE.",
           "unsupported_claim": "Submetre points and nearly equal endpoint numbers do not establish common cores, historical radii, selected chronology or pollen denominator.",
-          "actual_verification_performed": "Read both source-bound lake records, manifest and two-sample mass receipt; no count/core consumer replay.",
+          "actual_verification_performed": "Read both source-bound lake records, manifest and two-sample mass receipt; no count/core consumer replay. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner’s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.",
           "remaining_input_or_review": "Elevation/coordinate conflicts, original count support, source chronology/geometry and analytical-use decisions remain.",
           "cause_category": "Metadata and endpoint agreement are incomplete physical-core authority.",
           "consequence": "69 m/80 m radii are not transferred and candidate-filter counts do not replace native sample totals.",
@@ -8153,6 +8161,10 @@
           {
             "path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json",
             "sha256": "afff295e29fb5210ff94dbf599ba0b1530191b6e06abc3f96e35bb06f05812d9"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-selected-counts.json",
+            "sha256": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18"
           }
         ]
       }
@@ -8171,7 +8183,7 @@
         "fields": {
           "supported_claim": "The generated two-lake report preserves native/prerequisite sample denominators and source NISP partitions without merging their roles.",
           "unsupported_claim": "This prose is not a second independent source study or an accepted historical radius/chronology input.",
-          "actual_verification_performed": "Read generated tables against the owning two-lake JSON and manifest, including first-sample count categories; no new numerical run.",
+          "actual_verification_performed": "Read generated tables against the owning two-lake JSON and manifest, including first-sample count categories; no new numerical run. A later source consumer from commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 read the authenticated raw and normalized Neotoma authorities for exactly samples 173174, 552101 and 552389. Its independent reconstruction checked every selected observation, count partition, age alternative and normalized locator against the complete current typed result. The two unchanged count receipts match those current reconstructed rows. This partial evidence does not discharge either count owner’s original acceptance criterion and does not recover the historical original-mass object or either custody manifest construction or historical comparison receipt; both count owners and both manifest owners remain unresolved. The current count check does not replay the whole-core reports or independently establish their LandClim workbook, physical-core, country or historical source claims. Exact unit labels, observed zeros and missing, fractional, negative, Boolean and noncount refusals retain their distinct meanings. All age alternatives and raw bounds remain separate, without choosing a chronology or collapsing supports. Source pollen labels are not an approved taxon mapping or compatible pollen denominator. No radius transfer, source-use right, qualified human decision, ecology, model, R or LRA admission follows; all three selected samples remain refused for LRA.",
           "remaining_input_or_review": "Core/elevation/chronology reconciliation, eligible mask/parameters and analytical rights remain.",
           "cause_category": "Generated interpretation inherits bounded metadata comparison.",
           "consequence": "Native counts, prerequisite candidates and time-end labels cannot substitute for one another.",
@@ -8187,6 +8199,10 @@
           {
             "path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/manifest.json",
             "sha256": "bf8f76d4513859615b84ec7d408a774c26591bd89a8d0d5a34b43d18d70b907a"
+          },
+          {
+            "path": "reports/science/source-cohorts/neotoma-selected-counts.json",
+            "sha256": "5cc87cc7a325172a5a797cf1b5294976c490915c7928ff93ac144c0584108a18"
           }
         ]
       }

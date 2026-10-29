@@ -1,0 +1,86 @@
+{
+  "schema_version": "neotoma-count-row-retention-protocol.v1",
+  "source_only": true,
+  "root_only_preparer_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-row-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CURRENT_CLEAN_MAIN_SHA",
+    "--review-sha256",
+    "ACTUAL_INDEPENDENT_SOURCE_REVIEW_SHA256",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-capture",
+    "--native-inner-sha256",
+    "c5d1bc9a91a19dc3d3d08551e3f82c9008965595a382733279dc3c018f837fce",
+    "--native-outer-sha256",
+    "e034ca2902f8f70c25c2570fa9cbd74f1a18ade7e87595e5f6d448e4f3f9d0ed"
+  ],
+  "root_only_separate_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-count-row-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-neotoma-selected-count-capture/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA256"
+  ],
+  "registration_and_readback_required_between_prepare_and_separate_launch": true,
+  "actual_original_plan_sha256": "05f915932c2e803680a98609e2bf449dafd693621c9356b5f0edf31c80e4dfb9",
+  "actual_original_source_candidate": "601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7",
+  "current_metadata_candidate_dynamic_and_separate": true,
+  "actual_original_native_stage_exits": [
+    0,
+    0
+  ],
+  "original_ordered_input_identities": 62148,
+  "public_capture_path": "data/source-custody/neotoma/selected-counts/capture.json",
+  "public_payload_roles": [
+    "Complete exact owned four-package tracked source/resources and original/projected source ledgers",
+    "Complete raw native plan, source-controller/peer controls, original ordered identity role catalog, native/metadata receipts, logs and complete two-moment catalogue/namespace",
+    "The exact three-sample derived selected-series product, including emitted selected native observation/age excerpts; this is not the full private raw/normalized archive",
+    "Six original public count receipt/manifest/report inputs and two prior public input-identity authority metadata files",
+    "Exact qualified runtime authority JSON receipts/plans, never its executable/library/site payloads"
+  ],
+  "identity_only_omissions": [
+    "Thirty private raw/normalized source files, all exact original identities preserved without body copy",
+    "Qualified runtime/stdlib/native executable/package payloads",
+    "4356 original cache bytecodes and one configured generated version module; no execution or fresh-compilation equivalence"
+  ],
+  "stream_boundary": "Outer launcher PIPE buffers are written after the inner product catalogue/terminal. Neither launch stream belongs to the earlier catalogue. Bind the complete 266-byte stdout to the source-derived actual inner receipt print; no virtual prefix or arbitrary suffix. Keep exact original stream identities.",
+  "source_scientific_boundary": "Current native proof certifies exact three selected source rows, observations, source units, zero/missing/fraction/refusal alternatives, ages and locators. No original fe589 mass-object recovery or historical custody-manifest construction is established. Two existing count owners may later gain current retained-source proof; both custody-manifest owners stay unresolved. No owner change is performed by this retainer.",
+  "resources": {
+    "stage_seconds": [
+      180,
+      180
+    ],
+    "completed_whole_seconds": 420,
+    "outer_owned_child_seconds": 480,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 536870912,
+    "maximum_packet_bytes": 402653184,
+    "physical_free_reserve_bytes": 1073741824
+  },
+  "forecast_contract": "Root preparer authenticates finite original ledgers/catalogues and computes exact SHA-deduplicated packet size plus raw plan before any mkdir. It refuses over-budget or insufficient actual disk space; this source author does not run that census.",
+  "parent_watchdog_scope": "480 seconds covers the owned inner process group through input/runtime admission, both metadata stages and final scans. Stage children inherit that session. Parent startup/accounting is measured with no independent parent watchdog; no detached descendant, aggregate-RSS or OS-quota claim.",
+  "author_did_not_execute": [
+    "actual_retainer",
+    "actual_preparer",
+    "raw_or_selected_sample_decode",
+    "private_payload_hashes",
+    "runtime_census",
+    "data_API",
+    "models",
+    "R",
+    "Git_STATE_or_canonical_mutation"
+  ],
+  "metadata_terminal_schemas": {
+    "inner": "neotoma-selected-count-metadata-capture-terminal.v1",
+    "outer": "neotoma-selected-count-metadata-capture-watchdog.v1"
+  },
+  "scientific_row_join_semantics": "Ignore JSON object insertion order only at the complete saved/current scientific count-row join; preserve exact key populations/types/values/ordered lists. Strict same() remains unchanged for protected metadata wire/role/pin/namespace joins."
+}

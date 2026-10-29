@@ -80,6 +80,9 @@ from .scientific_captures.nordic_static_basin import (
 from .scientific_captures.pollen_source.amsoldingersee import (
     validated_amsoldingersee_capture,
 )
+from .scientific_captures.pollen_source.neotoma_counts import (
+    validated_neotoma_selected_count_evidence,
+)
 from .scientific_captures.pollen_source.neotoma_publication import (
     validated_neotoma_publication_capture,
 )
@@ -374,6 +377,9 @@ def validated_maintained_report_sources(
     neotoma_lake_entries, neotoma_lake_evidence = validated_neotoma_lake_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    neotoma_count_evidence = validated_neotoma_selected_count_evidence(
+        repository, tracked_by_path, inventory["owners"]
+    )
     neotoma_publication_entries, neotoma_publication_evidence = (
         validated_neotoma_publication_capture(
             repository, tracked_by_path, inventory["owners"]
@@ -507,6 +513,10 @@ def validated_maintained_report_sources(
         )
     if neotoma_lake_entries:
         evidence["retained_neotoma_lake_sources"] = neotoma_lake_evidence
+    if neotoma_count_evidence:
+        evidence["current_neotoma_selected_count_partial_evidence"] = (
+            neotoma_count_evidence
+        )
     if neotoma_publication_entries:
         evidence["retained_neotoma_publication_sources"] = neotoma_publication_evidence
     if love_objective_entries:
