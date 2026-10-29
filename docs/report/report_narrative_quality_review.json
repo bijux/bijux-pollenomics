@@ -1362,7 +1362,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
-      "content_sha256": "674218022b9a9d9992d89dfa05e75a5257868dbd93a8d83eb56ff42c6f211550",
+      "content_sha256": "36f0ea5cdfd370b81094113667c2eba4dccc3edc92b7c8f141a7b0b7ce71bf26",
       "prose_paragraph_count": 51,
       "link_bullet_count": 5,
       "bullet_sentence_count": 0,
@@ -1373,7 +1373,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/README.md",
-      "content_sha256": "50d4441542bc97abbd6b406c1291fb45bb675a1e2a86b0e0778cbbf87dd85e36",
+      "content_sha256": "315afe12c367d30bf8855e123e22250d17a8043c30f9c69be2003515de3c03a5",
       "prose_paragraph_count": 14,
       "link_bullet_count": 3,
       "bullet_sentence_count": 0,
@@ -3309,18 +3309,18 @@
     },
     {
       "repository_path": "docs/report/validation/empd2-nfi-pairing/README.md",
-      "content_sha256": "398170c85865fab3bbc4f78a869142a5a292c89a3d8f97fa2bc2618646d6d06e",
-      "prose_paragraph_count": 22,
-      "link_bullet_count": 4,
+      "content_sha256": "86539ebc9b8e7334617ef4419ed515853ff2464e77a7198d77faa1fd87fe7859",
+      "prose_paragraph_count": 24,
+      "link_bullet_count": 5,
       "bullet_sentence_count": 0,
-      "heading_count": 4,
+      "heading_count": 5,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/vegetation-reference/farskesjon/README.md",
-      "content_sha256": "9b5dc853040794b0f0b42ce536578715db1772b5f0c46d1bb400da8603dfddc3",
+      "content_sha256": "366868fa7616e0e2cbeefc8bef6196a44b11196eeb6e7d4d40aa4dc82e6dc240",
       "prose_paragraph_count": 13,
       "link_bullet_count": 2,
       "bullet_sentence_count": 0,

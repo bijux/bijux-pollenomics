@@ -37900,6 +37900,9 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/vegetation_reference/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/vegetation_reference/empd2_nfi_pairing/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/vegetation_reference/empd2_nfi_pairing/capsule.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/vegetation_reference/empd2_nfi_pairing/execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/vegetation_reference/nfi_measurement.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/vegetation_reference/slu_guide.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_contracts/__init__.py",
@@ -82480,17 +82483,10 @@
         "docs/report/validation/empd2-nfi-pairing/pairs.csv",
         "docs/report/validation/empd2-nfi-pairing/report.json"
       ],
-      "producer_inputs": [
-        "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_pairing.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/__init__.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/projection.py"
-      ],
-      "role": "unresolved",
-      "verification": "After authenticating the retained private source store, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.empd2_nfi_pairing --repository . --private-source-store <qualified-private-store> --output artifacts/jobs/vegetation-context-reproduction/empd2-nfi-pairing` from an absent destination; compare public pairs.csv and report.json byte-for-byte. Its SQLite, NFI workbook, source dossier and spatial screen remain external. The output is an outcome-blind 16-lead refusal ledger with zero admitted measured pairs, not a vegetation score."
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "The maintained grouped vegetation_reference.empd2_nfi_pairing validator authenticates both exact public products through the separately retained maintained outcome-blind source replay and independent observer on source commit `97be88f37a117a518c8c4639ccca98927e13cb24`, both native exit 0 and public byte comparison exit 0. It retains 2,286 public members, 2,159 first-party source/resource files, 92 declared controls and 66,501 ordered input identities. All 4,356 bytecode identities remain omitted with no source/cache/fresh-compilation equivalence. Six metadata columns, 43,892 rows, 6,018 tract/plot keys, 16 native pollen records, 26 source fields and 19 public fields remain explicit; all 16 refused pairs and zero admitted pairs, zero outcome decoder and LRA implementation calls. XML/sharedStrings bytes were read; only 16 selected distances rechecked, not a full spatial sweep. Private inputs/pair locations/runtime payloads are omitted. Original timeout exit 124/whole exit 1 remains unchanged; no new metadata native outcome, ecology, chronology, measured-area/taxon/leakage/benchmark, rights or human acceptance is added."
     },
     {
       "owner_id": "vegetation-reference/farskesjon/reader-account",

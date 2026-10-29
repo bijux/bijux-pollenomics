@@ -156,7 +156,7 @@ Qualified authored reader SHA-256: `7cfab1ae30764cb550026c622130ac30f6a09f343f7a
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/historical-comparison.json](historical-comparison.json) (SHA-256 `989f50becb4efcb4c10c55ee4dd7651ab0686e08d9d83502b166b666acd665fa`).
 
-- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e`).
+- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

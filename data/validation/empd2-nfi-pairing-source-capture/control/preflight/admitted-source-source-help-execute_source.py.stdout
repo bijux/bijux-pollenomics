@@ -1,0 +1,8 @@
+usage: execute_source.py [-h] --plan PLAN
+
+Execute the unchanged pairing CLI with outcome-selection and source-origin
+telemetry.
+
+options:
+  -h, --help   show this help message and exit
+  --plan PLAN

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/preflight/qualify_source.py", line 18, in <module>
+    call('source-strict',PREFIX+['--mode','mypy','--','--config-file',str(R/'configs/mypy.ini'),'--strict','--follow-imports=silent','--cache-dir',str(A/'preflight/mypy-cache'),*files])
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-pairing-source-custody/preflight/qualify_source.py", line 15, in call
+    assert result.returncode==0,(label,result.returncode)
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('complete-source-strict', 1)

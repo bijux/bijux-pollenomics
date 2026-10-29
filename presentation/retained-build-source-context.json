@@ -141,7 +141,7 @@
     "reports/science/sweden-spatiotemporal-sensitivity.md": "0f63d75c1c8066204d2f5b6778b334461c5c3c50d7d8458801b419357f5f0db7",
     "reports/science/sweden-training-scope.md": "77379e0ac7c7ade74d8f63a353dd6d7aa351bf2ed0fec433f88b1b7751dfd16a",
     "reports/science/synthetic-model-selection/README.md": "f64a92a05228eb448ee63a8eb6c23767eca2ba3f83e10393898e4133791af685",
-    "reports/science/vegetation-reference.md": "5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e",
+    "reports/science/vegetation-reference.md": "05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a",
     "reports/verify.py": "49787df262595377f2e1bef24760313fc9613a9ea86762f2357b335c380d579a",
     "uv.lock": "084b925243d89451ef89b55e54b0757f10e2ac5ed4556796a155fadc4a68b8b7"
   },
@@ -283,6 +283,12 @@
       "retained_sha256": "e6b29b0cfd3e763b8bc38ca390f894b0cc5c583259040a3e3c9fef2bf363fe71",
       "current_sha256": "99e7ca4e9d88391f808fec8665108601b6956fa9627b8db6991682d6c715131f",
       "review": "Current authored prose now labels 76/74 as historical half-unbounded central-value proxies and states the complete closed-boundary correction, raw refusal/uncertainty limits and pending genuine replay. Original121-source PDFs and their source epoch remain unchanged; no new total, model or documentary interpretation inferred. The separately retained genuine maintained closed-central-point replay and independent native source observer on c397f95cc2cbe8f451df17b4f7fa6a856ad71a75 returned zero and measured75/74 descriptive proxies from 92 raw source/refusal records. Original half-unbounded76/74, original-provider/79-row/basin/rights/human limits and all12 historical PDFs remain unchanged."
+    },
+    {
+      "path": "reports/science/vegetation-reference.md",
+      "retained_sha256": "5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e",
+      "current_sha256": "05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a",
+      "review": " The retained maintained outcome-blind EMPD2-NFI source replay and independent observer on source commit `97be88f37a117a518c8c4639ccca98927e13cb24` returned native exit 0 and both public products matched byte for byte. All 16 refusals, zero admitted pairs, six metadata columns, 43,892 rows, 6,018 tract/plot keys and 16 native joins remain bounded; no private outcome/model/rights/human admission or fresh-compilation equivalence. The original 121 PDF source identities and all 12 PDF files and prior reviewed evidence remain unchanged."
     },
     {
       "path": "reports/verify.py",

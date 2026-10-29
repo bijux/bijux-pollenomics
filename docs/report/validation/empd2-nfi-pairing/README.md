@@ -71,6 +71,26 @@ projection or scientific model. Private workbook and runtime payloads are omitte
 their original registered identities remain explicit. These receipts establish the
 bounded metadata replay, with zero admitted measured pairs or new guide acquisition.
 
+## Retained outcome-blind source replay
+
+The maintained replay and independent source observer on commit
+`97be88f37a117a518c8c4639ccca98927e13cb24` both returned native zero.
+Their [retained source witness](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/empd2-nfi-pairing-source.json)
+binds the exact unchanged public CSV/report and all 16 native source joins.
+Six metadata columns cover 43,892 rows and 6,018 tract/plot keys; all 26 source
+and 19 public fields were checked. Outcome decoder and LRA implementation
+calls stayed zero. XML/sharedStrings bytes were read; raw outcome bytes are
+not claimed unread. Only the 16 selected pair distances were rechecked,
+without a fresh full spatial screen. All 16 candidates remain refused.
+
+The source capsule retains 2,159 public first-party source/resource files,
+92 declared controls and 66,501 ordered input identities. The 4,356 original
+bytecode identities are omitted payloads and establish no source/cache or
+fresh-compilation equivalence. Private source-bound pair locations, original
+private inputs and native runtime payloads are not published. The earlier
+timeout stays a failed execution; these later native-zero receipts do not
+relabel it. Authored source retention is not a new metadata execution.
+
 ## Current decision
 
 All 16 leads lack an authenticated pollen collection date, opened NFI tree
@@ -113,7 +133,7 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 
 **Unsupported claim.** Proximity, plot area and dictionary units do not provide paired vegetation measurements, a regional target, authenticated pollen collection dates or a frozen performance benchmark.
 
-**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated.
+**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated. The separately retained maintained outcome-blind source replay and independent observer returned native zero and both public products byte-match;16 native joins, 26 source fields, 19 public fields, six metadata columns, 43,892 rows and 6,018 tract/plot keys are checked. No outcome decoder/LRA calls, private payload publication or fresh-compilation equivalence is claimed.
 
 **Remaining input or review.** Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication. Current official guide-source custody is separate from the missing original2026-09-21/a063 acquisition and unavailable prior documentary-review receipt; it supplies no additional observation rights or measured support.
 
@@ -127,7 +147,7 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 
 **Matched denominator.** 132 Swedish EMPD2 samples; 43892 NFI plot-years/6018 tract-plot keys; 53 combinations within 1 km across 16 pollen leads and 14 selected plot-years. Plot 153.94 m² with five m²/ha basal-area dictionary groups is not regional cover.
 
-Qualified authored reader SHA-256: `7a53845b8b441ec27761552096aa94d83e3b04cd65d74b11fe638ded070e5e31`.
+Qualified authored reader SHA-256: `8a710910966b69b78b494d2189a21e6e22046b2a4d44fbf880824875884263de`.
 
 - [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/report.json](report.json) (SHA-256 `cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642`).
 
@@ -135,7 +155,9 @@ Qualified authored reader SHA-256: `7a53845b8b441ec27761552096aa94d83e3b04cd65d7
 
 - [Retained qualification evidence: reports/science/vegetation-reference/slu-current-guide-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/slu-current-guide-source.json) (SHA-256 `b28238feadb2cee4ed5da5ec7a2eb9241f67b583d3156d32c60a7e8947bdc07c`).
 
-- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e`).
+- [Retained qualification evidence: reports/science/vegetation-reference/empd2-nfi-pairing-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/empd2-nfi-pairing-source.json) (SHA-256 `c1e4d8623b7d695b2c705cf5c3d69f474d107c3458d1aaa8b3e1ddeda82b6050`).
+
+- [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `05c9c049a22e125cdfaee2547f6334c5c170901838419080dd8858217155916a`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

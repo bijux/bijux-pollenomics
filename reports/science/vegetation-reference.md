@@ -19,6 +19,19 @@ The [EMPD2–NFI decision](../../docs/report/validation/empd2-nfi-pairing/report
 retains **zero admitted measured pairs** among 16 nearby candidates. We have
 therefore not calculated a repository vegetation accuracy score.
 
+The maintained outcome-blind source replay and independent observer on source
+commit `97be88f37a117a518c8c4639ccca98927e13cb24` both returned native zero;
+the [retained source witness](vegetation-reference/empd2-nfi-pairing-source.json)
+binds their exact public CSV and report. All 16 leads remain refused and zero
+measured pairs are admitted. The replay joins all 16 native pollen records,
+26 source fields and 19 public fields, and selects only six NFI metadata
+columns across 43,892 rows and 6,018 tract/plot keys. It calls no outcome
+decoder or LRA implementation. XML/sharedStrings bytes were read; this is
+not a claim that raw outcome bytes were unread. Sixteen selected distances
+were independently checked, without repeating the full spatial screen.
+Original source/resource copies and omitted bytecode identities remain
+distinct; this is not fresh-compilation, ecological or human acceptance.
+
 We separately acquired the original CC BY 4.0 [Namibian modern soil-pollen and
 vegetation tables](../../docs/report/vegetation-reference/namibia-pollen-vegetation/README.md)
 from PANGAEA. Their source-bound join contains ten pollen sites and 150
@@ -134,7 +147,7 @@ packet and resolver.
 
 **Unsupported claim.** Nordic repository measured-vegetation accuracy, independent validation by LandClim/HYDE modeled cover, full Pyrenees 18-axis or 116-plot paper reproduction, or vegetation accuracy inferred from botanical projection or Namibia descriptive distances.
 
-**Actual verification performed.** Original plot/map/nine-label/Namibia sources and modeled LandClim dependency checks are synthesized from retained producer outputs. Pyrenees actual native/maintained/canonical captures retain 54 guards and 64424 independent Decimal comparisons at 2e-13 tolerance; new code/name, parent and blank alternatives preserve positive source mass and ambiguity. This index refresh performs no source reacquisition, numerical model or qualified human review.
+**Actual verification performed.** Original plot/map/nine-label/Namibia sources and modeled LandClim dependency checks are synthesized from retained producer outputs. Pyrenees actual native/maintained/canonical captures retain 54 guards and 64424 independent Decimal comparisons at 2e-13 tolerance; new code/name, parent and blank alternatives preserve positive source mass and ambiguity. This index refresh performs no source reacquisition, numerical model or qualified human review. Separately retained maintained outcome-blind source replay and independent observer both returned native zero on source commit `97be88f37a117a518c8c4639ccca98927e13cb24`; both public products are byte identical. All 16 native records, 26 source fields, 19 public fields, 43,892 metadata rows and 6,018 tract/plot keys and six selected metadata columns are bound; outcome decoder and LRA implementation counters remain zero. Sixteen selected distances were independently rechecked, not the full screen. Original timeout remains whole exit 1/native exit 124; no cache/source equivalence or new metadata job is claimed.
 
 **Remaining input or review.** Nordic EMPD2-NFI, historical-map and printed-figure leads yield zero admitted site/time/taxon/footprint/units/rights matched prediction-reference pairs. Namibia modern observed subcompositions have distinct savanna soil-pollen support. Pyrenees botanical vectors are conditional on taxonomy, parent-row and zero-for-blank scenarios; recovered 125 plots differ from the unrecovered paper 116 selection and lack Cichorioideae/full 18-axis reproduction. Resolver: Measurement and pollen source custodians plus independent landscape/palynology/taxonomy and rights reviewers Reopen when: A source-owner-reviewed original vegetation/pollen packet supplies genuinely matched physical sites, dates, taxa, landscape support, units, uncertainty and terms; freeze benchmark and predictions before previously unopened outcomes.
 
@@ -148,10 +161,10 @@ packet and resolver.
 
 **Matched denominator.** 16 nearby Nordic leads;three Småland bogs with shared modern pollen anchors;nine printed labels across two published regional figures;ten Namibian soil sites/150 radius rows/750 five-taxon pairs. Separate Pyrenees 125 recovered plots/208 taxa/1757 positive observations:16 scenarios,2000 plot contexts,34000 raw axis cells;1000 strict refusals and 1000 conditional 17-axis vectors. None is a pooled independent accuracy population.
 
-Retained evidence: [reports/science/vegetation-reference/farskesjon/report.json](vegetation-reference/farskesjon/report.json), [reports/science/vegetation-reference/smaland-historical-maps/coverage.json](vegetation-reference/smaland-historical-maps/coverage.json), [reports/science/vegetation-reference/southern-sweden-figure/report.json](vegetation-reference/southern-sweden-figure/report.json), [docs/report/validation/empd2-nfi-pairing/report.json](../../docs/report/validation/empd2-nfi-pairing/report.json), [docs/report/vegetation-reference/namibia-pollen-vegetation/report.json](../../docs/report/vegetation-reference/namibia-pollen-vegetation/report.json), [docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/report.json](../../docs/report/vegetation-reference/pyrenees-botanical-projection/report.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json](../../docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json).
+Retained evidence: [reports/science/vegetation-reference/farskesjon/report.json](vegetation-reference/farskesjon/report.json), [reports/science/vegetation-reference/smaland-historical-maps/coverage.json](vegetation-reference/smaland-historical-maps/coverage.json), [reports/science/vegetation-reference/southern-sweden-figure/report.json](vegetation-reference/southern-sweden-figure/report.json), [docs/report/validation/empd2-nfi-pairing/report.json](../../docs/report/validation/empd2-nfi-pairing/report.json), [docs/report/vegetation-reference/namibia-pollen-vegetation/report.json](../../docs/report/vegetation-reference/namibia-pollen-vegetation/report.json), [docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/report.json](../../docs/report/vegetation-reference/pyrenees-botanical-projection/report.json), [docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json](../../docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json), [reports/science/vegetation-reference/empd2-nfi-pairing-source.json](vegetation-reference/empd2-nfi-pairing-source.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
-<!-- scientific-claim-semantic-sha256: d824910f2463ef9e0fa8cde5852b8778b4d85ca66e985f51bf06286283bbeb86 -->
-<!-- scientific-authored-source-sha256: 50cd7f16f1cc598db8afe61ee3f1dcefc65650c1fe1ef85959658d54666b9e01 -->
+<!-- scientific-claim-semantic-sha256: 1669221ab0dec401869c91173baa0b4d008ccc6aa175c8b2bdf801e9cb23de50 -->
+<!-- scientific-authored-source-sha256: f51ca12dff6e86e2e38589a566368585a230b719d3f621c51896bc44369a3904 -->
 <!-- scientific-verification-and-limits:end -->

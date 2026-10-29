@@ -1,0 +1,45 @@
+F821 Undefined name `cast`
+   --> artifacts/science/empd2-nfi-pairing-source-custody/observe.py:126:18
+    |
+124 |     require(
+125 |         Path(datadir.get_data_dir()) == Path(plan["PROJ_data_directory"])
+126 |         and Path(cast(Callable[[bool], str], datadir.get_user_data_dir)(False))
+    |                  ^^^^
+127 |         == Path(plan["PROJ_user_directory"])
+128 |         and (cast(Callable[[], bool], network.is_network_enabled)() is False),
+    |
+
+F821 Undefined name `Callable`
+   --> artifacts/science/empd2-nfi-pairing-source-custody/observe.py:126:23
+    |
+124 |     require(
+125 |         Path(datadir.get_data_dir()) == Path(plan["PROJ_data_directory"])
+126 |         and Path(cast(Callable[[bool], str], datadir.get_user_data_dir)(False))
+    |                       ^^^^^^^^
+127 |         == Path(plan["PROJ_user_directory"])
+128 |         and (cast(Callable[[], bool], network.is_network_enabled)() is False),
+    |
+
+F821 Undefined name `cast`
+   --> artifacts/science/empd2-nfi-pairing-source-custody/observe.py:128:14
+    |
+126 |         and Path(cast(Callable[[bool], str], datadir.get_user_data_dir)(False))
+127 |         == Path(plan["PROJ_user_directory"])
+128 |         and (cast(Callable[[], bool], network.is_network_enabled)() is False),
+    |              ^^^^
+129 |         "Observer PROJ context differs",
+130 |     )
+    |
+
+F821 Undefined name `Callable`
+   --> artifacts/science/empd2-nfi-pairing-source-custody/observe.py:128:19
+    |
+126 |         and Path(cast(Callable[[bool], str], datadir.get_user_data_dir)(False))
+127 |         == Path(plan["PROJ_user_directory"])
+128 |         and (cast(Callable[[], bool], network.is_network_enabled)() is False),
+    |                   ^^^^^^^^
+129 |         "Observer PROJ context differs",
+130 |     )
+    |
+
+Found 10 errors (6 fixed, 4 remaining).

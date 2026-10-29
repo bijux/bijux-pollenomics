@@ -1,0 +1,106 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "97be88f37a117a518c8c4639ccca98927e13cb24",
+  "plan_sha256": "ce4e09d4525fe2f1a4e18d5c47404db148b036cf924176c7a2cac24215db3fd1",
+  "actual_exit": 1,
+  "status": "failed",
+  "elapsed_seconds": 125.66476612503175,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/common_runner.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/plan.json",
+    "--registered-plan-sha256",
+    "ce4e09d4525fe2f1a4e18d5c47404db148b036cf924176c7a2cac24215db3fd1"
+  ],
+  "canonical_before": {
+    "candidate": "97be88f37a117a518c8c4639ccca98927e13cb24",
+    "status": "",
+    "tracked_inventory_sha256": "492cbcf34fb3982c7f74bcf62b49e9c685f1cd670d42b7f11234fc1f8e3189a4"
+  },
+  "canonical_after": {
+    "candidate": "97be88f37a117a518c8c4639ccca98927e13cb24",
+    "status": "",
+    "tracked_inventory_sha256": "492cbcf34fb3982c7f74bcf62b49e9c685f1cd670d42b7f11234fc1f8e3189a4"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "maintained-outcome-blind-pairing",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/empd2-nfi-refusal-ledger-custody/execute_source.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/plan.json"
+      ],
+      "timeout_seconds": 120,
+      "must_succeed": true,
+      "actual_exit": 124,
+      "timed_out": true,
+      "elapsed_seconds": 120.01553404104197,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/maintained-outcome-blind-pairing.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/maintained-outcome-blind-pairing.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 192430080
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/maintained-outcome-blind-pairing.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/maintained-outcome-blind-pairing.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/plan.json",
+      "sha256": "ce4e09d4525fe2f1a4e18d5c47404db148b036cf924176c7a2cac24215db3fd1",
+      "bytes": 19334323
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/preparation.json",
+      "sha256": "7f4cbe0b8e6713bbc4badad52033929b57b0463a0c459a5d62c3fd69c68ca59f",
+      "bytes": 3236
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/root-launch.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/runtime-delegate.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/runtime-delegate.stdout",
+      "sha256": "503a4aa02971584551fb57b498b082eafcc40adc4937069f910d4fe3b0531490",
+      "bytes": 161
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-outcome-blind-empd2-nfi-pairing/stage-progress.json",
+      "sha256": "2400a9d0210586f186e5d0640d0eb061c9f0bb79fab72db20c8e8d66eb2dfbc7",
+      "bytes": 1184
+    }
+  ],
+  "output_bytes": 19338904,
+  "resources": {
+    "overall_timeout_seconds": 240,
+    "resident_memory_limit_bytes": 2147483648,
+    "output_byte_limit": 134217728
+  },
+  "scope": "Fresh maintained metadata-only refusal replay. Native geometry rechecks sixteen selected source pairs under unchanged1e-5m agreement; the retained53 full-screen combinations are not a new132x43892 sweep. No measured vegetation/outcome selection, LRA estimator, model, R, source acquisition, rights, leakage or human review admission.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}
