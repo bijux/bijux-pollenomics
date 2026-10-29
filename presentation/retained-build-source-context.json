@@ -45,7 +45,7 @@
     "docs/report/numerical-performance/native-forward/report.json": "4d16a1400d6878f2abf21f796fb190dd72a365f0dd40295639b8635bd807d1d5",
     "docs/report/numerical-performance/native-memory/report.json": "6fcac93d4ccb79e80f8bedecb131e209e026800d7b979129025e47a628976f06",
     "docs/report/pollen-reconstruction/age-interval-sensitivity/comparison.json": "29ebcf5719161541c4241436e56feb02e282559780d5225c1e2a2b450f7eeab1",
-    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
     "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json": "c1bf2d0ef2b4eecde08cc4ff372e0d99a18dbad30d05d20a2ccbdc73504eba67",
     "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129",
     "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json": "2d2202914ec86f70aad49d63782066c10a198997ef628f65d4e9134f2aefb869",
@@ -111,7 +111,7 @@
     "reports/science/dalmutladdo-lra-input/report.json": "55734d1ac5b783d53c7b43730359e63fbad57be99921f0780bcbc2da43b6b0b8",
     "reports/science/denmark-finland-norway-author-pollen.md": "d085e5647dd14ff550206363e825f346b184b128613147651aec3dc1a709a917",
     "reports/science/english-analytical-love/report.json": "cf36b604ed37ddc22b1c0bba4e9efb39df9a9099bb19c318a2fe92012e0e8013",
-    "reports/science/english-lra-pollen-prediction.md": "f17a2f3b862cdfcd7713dcc0901e030a4d1423fa81874c79373d8e239c7a2f9e",
+    "reports/science/english-lra-pollen-prediction.md": "1645884c253eec4ee079a5cfc7703a52f12516e20cfea2e5956ca646c16256ec",
     "reports/science/hyde-cropland-source-account.md": "995c8f3d6ee273554fc0d97f68dcd8bb8a0bb4cf8da56759f8adceda337f8c29",
     "reports/science/laihalampi-lra-input/README.md": "e5b3e9bfe56091817bd19d75a4cef7f96d9446c7f7a404b846c8cb530ffd602b",
     "reports/science/laihalampi-lra-input/report.json": "baa364c53ad90a665b53a0f89f8fbd2b6c2b540ca57e5af287a7fbf6a2c792bd",
@@ -169,6 +169,12 @@
       "retained_sha256": "e085beaf54619eb6dd0e644e63234b01938d1751c12ac6eadaf7cda20eb60278",
       "current_sha256": "08e09ac6ab4e565126403de6b0dc76b350bb97c11333cc168e5ced603a85eb6a",
       "review": "Individual source-specific nine-field qualification replaces generic routing prose and binds original native denominators/negative outcomes/rights and source limits. Retained mathematical/scientific result tables and original slides remain unchanged; this is reader qualification, not a numerical rerun."
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json",
+      "retained_sha256": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+      "current_sha256": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
+      "review": "Current paired Hellinger result updates only authenticated prediction/score identities and downstream hashes from the genuine clean 22c6e480 complete run. Independent full-value comparison preserves exact numerical cells, ordered support,14 scored folds and BECKHAM refusal. Original 121-source JSON/PDF bytes remain historical; current metadata is not a PDF regeneration or new ecological result."
     },
     {
       "path": "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md",
@@ -235,6 +241,12 @@
       "retained_sha256": "afa27b5ea097b644dbcc693fe5dde1f147b005214ef3f11f12ed6d7a97d28cd8",
       "current_sha256": "ff9ffebc96f66d9e026de3f2e9c629bf3afb9dc357f8e17338b73ef649baa625",
       "review": "Current needed-input reader links the five unranked Swedish leads/forty unsent field questions. All18source requests/36domain-review questions/40field questions remain unanswered and zero leads admitted. This locally prepared source-access/field evidence is current reading context, not a source rights grant, field decision or retained slide rebuild."
+    },
+    {
+      "path": "reports/science/english-lra-pollen-prediction.md",
+      "retained_sha256": "f17a2f3b862cdfcd7713dcc0901e030a4d1423fa81874c79373d8e239c7a2f9e",
+      "current_sha256": "1645884c253eec4ee079a5cfc7703a52f12516e20cfea2e5956ca646c16256ec",
+      "review": "Current primary reader replaces unavailable historical 3d6 execution custody with the genuine clean 22c6e480 ten-stage / 195-attempt run and independently authenticated eleven current products. All numerical values, denominators and negative results stay unchanged; original authored bytes are preserved in the retained 121-source PDF epoch. This current reader was not rendered into that historical PDF."
     },
     {
       "path": "reports/verify.py",

@@ -19,7 +19,7 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 **Unsupported claim.** Ecological cover accuracy, calibrated uncertainty, field PPE covariance, selection of a physical receiving radius or an equal-information solver ranking.
 
-**Actual verification performed.** The wrapper, retained constrained report and maintained primary account were inspected for source, target-axis and fold correspondence. The primary account binds actual qualified producer/source comparisons; this wrapper qualification does not repeat the ten-stage consumer or claim all eleven outputs byte-identical.
+**Actual verification performed.** The maintained ten-stage source consumer and independent observer genuinely passed on clean commit 22c6e480ba4690cc508202925a8773afe95ab36e, terminal c4ab7b6a50c989cd646454ae2b52020df2bbdc749a4806077a45917117fc1539. All eleven products preserve complete scientific values, ordered support and refusals; three also equal earlier bytes and eight have independently authenticated current prediction/score identity differences. Current publication uses the exact new eleven product bytes. All 195 native training attempts were retained and source-verified: 192 completed, 3 refused, 14 scored folds and BECKHAM refused. The historical 3d6 terminal is unavailable and supplies no current custody. This does not qualify ecology, uncertainty calibration, rights, Nordic inputs or human review. This citation wrapper adds no new fit or scored observation.
 
 **Remaining input or review.** One outer fold remains refused after 3 training reconstructions fail. Source transport/basin geometry and conditional PPE moments require review; the exposed English source is not a new independent vegetation cohort.
 
@@ -35,11 +35,11 @@ Source-bound conditional reconstruction or exposed pollen development wrapper; o
 
 Qualified authored reader SHA-256: `aa04b2fee46cbd33b7de30bfa510993d68dc05ada97aad60ee1a3956c14e37aa`.
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/report.json](report.json) (SHA-256 `99bc052531b052ee218f91d36645cdeaaf2b1641ca8bd20140afa1b4e87f8150`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/report.json](report.json) (SHA-256 `c77a3152fbd51deea71aae1ba52b506bb1596850d563afaacff9d3d67a737e11`).
 
-- [Retained qualification evidence: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (SHA-256 `f17a2f3b862cdfcd7713dcc0901e030a4d1423fa81874c79373d8e239c7a2f9e`).
+- [Retained qualification evidence: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (SHA-256 `1645884c253eec4ee079a5cfc7703a52f12516e20cfea2e5956ca646c16256ec`).
 
-- [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (source SHA-256 `f17a2f3b862cdfcd7713dcc0901e030a4d1423fa81874c79373d8e239c7a2f9e`).
+- [Canonical scientific account: reports/science/english-lra-pollen-prediction.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-lra-pollen-prediction.md) (source SHA-256 `1645884c253eec4ee079a5cfc7703a52f12516e20cfea2e5956ca646c16256ec`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->
