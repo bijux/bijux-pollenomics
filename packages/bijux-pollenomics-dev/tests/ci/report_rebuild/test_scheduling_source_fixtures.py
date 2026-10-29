@@ -7,11 +7,16 @@ from pathlib import Path
 
 import pytest
 
+from bijux_pollenomics_dev.ci.report_rebuild import scheduling
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import (
     QualifiedReportSources,
 )
 
 from ... import test_scientific_change_impact as IMPACT
+from . import test_scheduling_custody as CUSTODY
+
+scheduling_repository = CUSTODY.repository
 
 configured_owner_rows = IMPACT.configured_owner_rows
 
@@ -260,3 +265,43 @@ def test_retained_native_capture_scheduling_fixtures_are_exact_and_unauthenticat
         assert result.inputs[name].stat().st_size == len(
             b"synthetic archive-layout fixture\n"
         )
+
+
+def test_schedule_matches_generated_population_without_admitting_pending_age_owner(
+    configured_owner_rows: list[dict[str, str]],
+) -> None:
+    inventory = json.loads(
+        (IMPACT.REPO_ROOT / "configs/ci/report-ownership.json").read_bytes()
+    )
+    generated = {
+        row["owner_id"]
+        for row in inventory["owners"]
+        if row["role"] == "generated_owner"
+    }
+    scheduled = {row["id"] for row in configured_owner_rows}
+    assert scheduled == generated
+    assert len(scheduled) == len(configured_owner_rows)
+    identity = "source-relations/neotoma/abbo-age-controls/report-products"
+    (pending,) = [row for row in inventory["owners"] if row["owner_id"] == identity]
+    assert pending["role"] == "unresolved"
+    assert pending["verification"]
+    assert identity not in scheduled
+
+
+def test_schedule_refuses_submitted_unresolved_owner_without_promoting_it(
+    scheduling_repository: Path,
+) -> None:
+    inventory = scheduling_repository / "configs/ci/report-ownership.json"
+    payload = json.loads(inventory.read_bytes())
+    pending = payload["owners"][1]
+    pending["role"] = "unresolved"
+    pending["verification"] = (
+        "Independent source acquisition and use authority required."
+    )
+    inventory.write_text(json.dumps(payload))
+    before = inventory.read_bytes()
+    with pytest.raises(
+        ReportRebuildError, match="owner is not declared generated: domain/b"
+    ):
+        scheduling.configured_owner_schedule(scheduling_repository)
+    assert inventory.read_bytes() == before

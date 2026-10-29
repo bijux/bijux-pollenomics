@@ -29,11 +29,26 @@ def source_history(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> dict[str,
     _git(tmp_path, "init", "-q")
     _git(tmp_path, "config", "user.name", "Bijux")
     _git(tmp_path, "config", "user.email", "tests@bijux.invalid")
+    from bijux_pollenomics_dev.ci.report_rebuild.retained_source import (
+        index as source_index,
+    )
+
+    registry = "configs/ci/source-retention/index.json"
+    registry_raw = b'{"schema_version":"retained-source-index.v1","capsules":{},"source_revisions":{}}\n'
+    registry_file = tmp_path / registry
+    registry_file.parent.mkdir(parents=True, exist_ok=True)
+    registry_file.write_bytes(registry_raw)
+    monkeypatch.setattr(
+        source_index,
+        "INDEX_SHA256",
+        hashlib.sha256(registry_raw).hexdigest(),
+    )
+    monkeypatch.setattr(source_index, "INDEX_BYTES", len(registry_raw))
     path = tmp_path / PRODUCER
     path.parent.mkdir(parents=True)
     path.write_text('"""Original renderer."""\n')
     original_digest = hashlib.sha256(path.read_bytes()).hexdigest()
-    _git(tmp_path, "add", PRODUCER)
+    _git(tmp_path, "add", PRODUCER, registry)
     _git(tmp_path, "commit", "-qm", "test(reports): define original renderer")
     original = _git(tmp_path, "rev-parse", "HEAD")
     path.write_text('"""Successor renderer."""\n')

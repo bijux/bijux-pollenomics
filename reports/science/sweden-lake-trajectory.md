@@ -3,7 +3,8 @@
 We compared observed `Alnus` and `Plantago lanceolata` pollen at two Swedish
 lakes to ask whether their changes point in the same direction. We also asked
 whether nearby dated archaeology supports a local land-use conclusion. We
-chose 13 common 500-year calibrated-BP bins, from -500 to 6000 BP, and kept
+chose 13 common 500-year bins, from -500 to 6000 on the source-declared
+calibrated-BP scale, and kept
 the two lakes' native count denominators separate. The [governed report](../../docs/report/countries/sweden/observed-pollen-trajectory/report.json)
 and [48 transition rows](../../docs/report/countries/sweden/observed-pollen-trajectory/transitions.csv)
 retain the counts, sample support, comparisons and refusals.
@@ -16,6 +17,22 @@ subtotal. We called a transition a shared direction only when both lakes
 changed with the same sign under both denominators and passed a fixed 0.5 or
 1.0 percentage point threshold. These thresholds describe the retained
 series; they are not confidence intervals or ecological effect sizes.
+
+The age scale retains Neotoma's **“Calibrated radiocarbon years BP”** label;
+we did not independently recalibrate these dates. The selected `LANDCLIM`
+chronologies are `38418` at Bussjösjön and `38422` at Bökesjön. Both source
+models specify a smoothing spline with smoothness **0.5**. Bussjösjön's source
+notes say that radiocarbon dates were transferred from Ageröds mosse and
+lead-210 information from Krageholmssjön; Bökesjön's notes describe calibrated
+radiocarbon and lead-210 dates. These are source age-model assertions, not
+independent evidence that the lakes' transitions were synchronous.
+
+The raw chronologies retain age-control limits, while the prepared sample
+ages have no sample-level older/younger bounds. This fixed-bin comparison
+propagates neither type of age uncertainty. It also does not independently
+establish the BP reference epoch or calibration curve/version, or convert
+the labels to calendar dates. A common bin label therefore does not by itself
+make pollen changes and nearby SEAD display intervals coeval observations.
 
 We also compared an equal-lake mean with a fraction pooled from the two
 lakes' counts. Each pooled numerator uses the matching pooled denominator;

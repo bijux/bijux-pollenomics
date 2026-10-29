@@ -71,6 +71,21 @@ def _source_revision_library(
     source = root / "reports/science/paper.md"
     library = root / "reports/exports/papers"
     source.parent.mkdir(parents=True)
+    from bijux_pollenomics_dev.ci.report_rebuild.retained_source import (
+        index as source_index,
+    )
+
+    registry = "configs/ci/source-retention/index.json"
+    registry_raw = b'{"schema_version":"retained-source-index.v1","capsules":{},"source_revisions":{}}\n'
+    registry_file = root / registry
+    registry_file.parent.mkdir(parents=True, exist_ok=True)
+    registry_file.write_bytes(registry_raw)
+    monkeypatch.setattr(
+        source_index,
+        "INDEX_SHA256",
+        hashlib.sha256(registry_raw).hexdigest(),
+    )
+    monkeypatch.setattr(source_index, "INDEX_BYTES", len(registry_raw))
     library.mkdir(parents=True)
     inventory = source.with_name("paper-accounts.csv")
     inventory.write_text("paper_id,canonical_report\npaper,reports/science/paper.md\n")
@@ -84,7 +99,7 @@ def _source_revision_library(
     producer.write_text('"""Stable renderer identity fixture."""\n')
     for args in (
         ["init", "--quiet"],
-        ["add", "reports/science", producer_relative],
+        ["add", "reports/science", producer_relative, registry],
     ):
         subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
 

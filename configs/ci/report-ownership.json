@@ -24156,6 +24156,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_layout_adoption.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_replay.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/neotoma_first_observed.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/predictive_uncertainty/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/predictive_uncertainty/example.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/propagation_challenge.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reconstruction_challenge.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/recovery_evidence.py",

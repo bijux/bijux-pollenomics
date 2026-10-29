@@ -170,3 +170,11 @@ The table names the repository-owned default roots. Explicit paths override
 those defaults, as in the isolated examples above. Before execution, resolve
 every relative path against the current working directory and record the full
 input and output identities.
+
+## Supplied predictive uncertainty example
+
+The [paired-law example](predictive-uncertainty.md) uses the maintained spatial
+uncertainty exports without target pollen or count totals. It authenticates an
+explicit constructed fixture, retains real upstream refusal envelopes and writes
+complete, mixed-refusal and all-unavailable results to an absent `artifacts/`
+destination. This is API usage; it does not supply a calibrated field law.

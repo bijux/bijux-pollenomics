@@ -1,0 +1,120 @@
+{
+  "atoms": [
+    {
+      "draw_id": "d0",
+      "local_k": [
+        [
+          1,
+          2
+        ]
+      ],
+      "mass": {
+        "denominator": 3,
+        "numerator": 1
+      },
+      "ppe": [
+        2,
+        1
+      ],
+      "regional_deposition": [
+        0.25,
+        0.75
+      ],
+      "terrestrial_fraction": [
+        1
+      ],
+      "training_compositions": {
+        "r1": {
+          "a": 0.9411764705882353,
+          "b": 0.058823529411764705
+        },
+        "r2": {
+          "a": 0.5,
+          "b": 0.5
+        }
+      }
+    },
+    {
+      "draw_id": "d1",
+      "local_k": [
+        [
+          2,
+          1
+        ]
+      ],
+      "mass": {
+        "denominator": 3,
+        "numerator": 2
+      },
+      "ppe": [
+        1,
+        3
+      ],
+      "regional_deposition": [
+        0.75,
+        0.25
+      ],
+      "terrestrial_fraction": [
+        1
+      ],
+      "training_compositions": {
+        "r1": {
+          "a": 0.5,
+          "b": 0.5
+        },
+        "r2": {
+          "a": 0.9411764705882353,
+          "b": 0.058823529411764705
+        }
+      }
+    }
+  ],
+  "coordinates": {
+    "p10": [
+      0,
+      0
+    ],
+    "r1": [
+      0,
+      0
+    ],
+    "r2": [
+      0,
+      1
+    ]
+  },
+  "kind": "constructed_example_not_field_law",
+  "length_scale_km": 100,
+  "records": [
+    {
+      "identity_keys": [],
+      "record_id": "r1",
+      "site_id": "left"
+    },
+    {
+      "identity_keys": [],
+      "record_id": "r2",
+      "site_id": "right"
+    },
+    {
+      "identity_keys": [],
+      "record_id": "p10",
+      "site_id": "target"
+    },
+    {
+      "identity_keys": [
+        "p10"
+      ],
+      "record_id": "p10-alias",
+      "site_id": "renamed"
+    }
+  ],
+  "ridge_rule": "squared_one_minus_offdiagonal",
+  "schema_version": "predictive-uncertainty-usage-law.v1",
+  "support_id": "example:spatial-support",
+  "taxa": [
+    "a",
+    "b"
+  ],
+  "temporal_support_id": "example:fixed-target-time"
+}

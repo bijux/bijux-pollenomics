@@ -1146,6 +1146,33 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"validate_evidence"}
         ),
     },
+    "bijux_pollenomics_dev/lra_validation/predictive_uncertainty/example.py": {
+        "bijux_pollenomics.analysis.lra.uncertainty.projection": frozenset({"project"}),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"SiteRecord", "site_group_id"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.prediction": frozenset(
+            {"ForwardInputs"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {
+                "SiteCoordinate",
+                "JointSpatialDraw",
+                "SpatialConfig",
+                "UnavailableSpatialDraw",
+                "propagate_withheld_spatial_draws",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.uncertainty.contracts": frozenset(
+            {"UPSTREAM_SOURCES", "CONDITIONED_SOURCES"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_leave_one_out"}
+        ),
+    },
 }
 
 
@@ -1452,3 +1479,24 @@ def test_sead_staging_identity_bindings_remain_file_module_and_symbol_specific()
             (f"importlib.import_module({module!r})", path),
         ):
             assert host_import_violations(source, owner)
+
+
+def test_predictive_uncertainty_bindings_remain_file_module_and_symbol_specific() -> (
+    None
+):
+    """One example's reviewed host symbols grant no neighboring capability."""
+    path = "bijux_pollenomics_dev/lra_validation/predictive_uncertainty/example.py"
+    for module, symbols in APPROVED_HOST_IMPORTS[path].items():
+        for symbol in symbols:
+            statement = f"from {module} import {symbol}"
+            assert not host_import_violations(statement, path)
+            for source, reader in (
+                (statement, path.replace("example.py", "other.py")),
+                (f"from {module} import {symbol}_other", path),
+                (f"from {module}.other import {symbol}", path),
+                (f"from {module} import *", path),
+                (f"import {module}", path),
+                (f"__import__({module!r})", path),
+                (f"importlib.import_module({module!r})", path),
+            ):
+                assert host_import_violations(source, reader)
