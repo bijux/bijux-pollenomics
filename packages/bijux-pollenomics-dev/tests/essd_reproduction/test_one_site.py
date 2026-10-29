@@ -24,7 +24,7 @@ from bijux_pollenomics_dev.essd_reproduction.one_site import (
 REPOSITORY = Path(__file__).resolve().parents[4]
 _SOURCE_CAPSULE = os.environ.get("BIJUX_LANDCLIM_AUTHOR_REFERENCE")
 SOURCE_ROOT = Path(_SOURCE_CAPSULE).resolve() / "author" if _SOURCE_CAPSULE else Path()
-pytestmark = pytest.mark.skipif(
+requires_private_reference = pytest.mark.skipif(
     not _SOURCE_CAPSULE, reason="private LandClim author reference not supplied"
 )
 
@@ -41,6 +41,7 @@ def payload() -> JsonObject:
     return build_whh05_one_site_slice(SOURCE_ROOT).payload()
 
 
+@requires_private_reference
 def test_slice_binds_every_historical_input_by_exact_identity(
     payload: JsonObject,
 ) -> None:
@@ -90,6 +91,7 @@ def test_slice_binds_every_historical_input_by_exact_identity(
         assert path.stat().st_size == row["byte_count"]
 
 
+@requires_private_reference
 def test_raw_sum_is_not_misreported_as_a_thirty_first_taxon(
     payload: JsonObject,
 ) -> None:
@@ -109,6 +111,7 @@ def test_raw_sum_is_not_misreported_as_a_thirty_first_taxon(
     assert raw["source_locator"] == "input/WHH05.csv#age.cal.BP=1320"
 
 
+@requires_private_reference
 def test_reconciliation_is_301_equals_297_plus_four_explicit_exclusions(
     payload: JsonObject,
 ) -> None:
@@ -130,6 +133,7 @@ def test_reconciliation_is_301_equals_297_plus_four_explicit_exclusions(
     assert all(row["ecological_judgment_asserted"] is False for row in exclusions)
 
 
+@requires_private_reference
 def test_prepared_positive_counts_are_exact_and_not_percentages(
     payload: JsonObject,
 ) -> None:
@@ -155,6 +159,7 @@ def test_prepared_positive_counts_are_exact_and_not_percentages(
     }
 
 
+@requires_private_reference
 def test_source_age_stays_distinct_from_repository_bin_and_label(
     payload: JsonObject,
 ) -> None:
@@ -174,6 +179,7 @@ def test_source_age_stays_distinct_from_repository_bin_and_label(
     }
 
 
+@requires_private_reference
 def test_author_radius_is_converted_to_host_diameter_and_guarded(
     payload: JsonObject,
 ) -> None:
@@ -187,6 +193,7 @@ def test_author_radius_is_converted_to_host_diameter_and_guarded(
         validate_host_basin_diameter(source_radius_m=150, host_basin_diameter_m=150)
 
 
+@requires_private_reference
 def test_scope_and_historical_execution_do_not_overclaim(payload: JsonObject) -> None:
     assert payload["scope"] == "single_site_author_example_input_reconstruction"
     claims = _object(payload["claims"])
@@ -221,6 +228,7 @@ def test_scope_and_historical_execution_do_not_overclaim(payload: JsonObject) ->
     }
 
 
+@requires_private_reference
 def test_product_is_deterministic_and_payload_is_defensively_copied() -> None:
     first = build_whh05_one_site_slice(SOURCE_ROOT)
     second = build_whh05_one_site_slice(SOURCE_ROOT)
@@ -355,6 +363,7 @@ def test_source_window_contract_refuses_unbound_or_changed_cells(
         _assert_supported_window(rows, taxa, execution)
 
 
+@requires_private_reference
 def test_whh05_source_window_links_to_executed_site_estimate(
     payload: JsonObject,
 ) -> None:
@@ -437,6 +446,7 @@ def test_whh05_source_window_links_to_executed_site_estimate(
     assert _object(estimate["se"])["passed"] is True
 
 
+@requires_private_reference
 def test_any_input_drift_fails_closed(tmp_path: Path) -> None:
     copied = tmp_path / "source"
     shutil.copytree(SOURCE_ROOT, copied)
