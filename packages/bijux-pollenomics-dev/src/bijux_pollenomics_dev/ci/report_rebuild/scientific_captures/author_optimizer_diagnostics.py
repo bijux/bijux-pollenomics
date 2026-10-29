@@ -1,4 +1,4 @@
-"""Authenticate the two produced optimizer diagnostics without admitting their historical references."""
+"""Authenticate produced diagnostics and a separately certified read-only baseline."""
 
 from __future__ import annotations
 
@@ -11,6 +11,8 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 
 from ..contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ..ownership import ReportOwnershipError, _regular_confined_file
+from ..retained_source import validated_descriptor
+from .source_correspondence import validated_current_scientific_source
 
 CAPTURE = (
     "data/method-certification/author-optimizer-diagnostic-source-capture/capture.json"
@@ -253,54 +255,40 @@ def validated_author_optimizer_diagnostic_capture(
     for raw in raw_members:
         row = _object(raw)
         name = _member_name(row.get("path"))
-        physical = _file(repository, prefix + "/" + name)
-        if (
-            name in members
-            or type(row.get("bytes")) is not int
-            or row["bytes"] < 0
-            or physical.stat().st_size != row["bytes"]
-            or hashlib.sha256(physical.read_bytes()).hexdigest() != row.get("sha256")
-        ):
-            raise ReportRebuildError(
-                "Author optimizer diagnostic retained member bytes differ"
-            )
+        if name in members:
+            raise ReportRebuildError("Duplicate retained source member")
         members[name] = row
-    physical_names: set[str] = set()
-    for physical in path.parent.rglob("*"):
-        if physical.is_symlink():
-            raise ReportRebuildError(
-                "Author optimizer diagnostic packet contains a link"
-            )
-        if physical.is_file():
-            physical_names.add(physical.relative_to(path.parent).as_posix())
-    if physical_names != set(members) | {"capture.json"}:
-        raise ReportRebuildError(
-            "Author optimizer diagnostic physical packet membership differs"
-        )
+    resolver = validated_descriptor(repository, prefix, members)
     _native_references(path.parent, capture)
     projection = capture.get("current_scientific_source_projection")
     if not isinstance(projection, list) or len(projection) != 2072:
         raise ReportRebuildError(
             "Author optimizer diagnostic current scientific source projection differs"
         )
+    current_metadata_correspondences = []
+    current_intake_guard_correspondences = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
-        current = _file(repository, name)
-        if (
-            current.stat().st_size != row.get("bytes")
-            or hashlib.sha256(current.read_bytes()).hexdigest() != row.get("sha256")
-            or not any(
-                members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
-                    "sha256"
-                )
-                == row.get("sha256")
-                for lane in EXECUTIONS
+        retained_candidates = [
+            f"executions/{lane}/first-party-inputs/{name}"
+            for lane in EXECUTIONS
+            if members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
+                "sha256"
             )
-        ):
-            raise ReportRebuildError(
-                "Author optimizer diagnostic scientific implementation changed"
+            == row.get("sha256")
+            and members.get(f"executions/{lane}/first-party-inputs/{name}", {}).get(
+                "bytes"
             )
+            == row.get("bytes")
+        ]
+        if type(row.get("bytes")) is not int or not retained_candidates:
+            raise ReportRebuildError("Retained scientific source is unbound")
+        correspondence = validated_current_scientific_source(
+            repository, row, retained_candidates[0], resolver
+        )
+        if correspondence is not None:
+            current_metadata_correspondences.append(correspondence)
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 2:
         raise ReportRebuildError(
@@ -386,6 +374,7 @@ def validated_author_optimizer_diagnostic_capture(
             raise ReportRebuildError(
                 "Author optimizer diagnostic retained ownership overlaps"
             )
+    resolver.fresh()
     return tuple(accepted), {
         "owner_ids": sorted(OWNERS),
         "capture_sha256": CAPTURE_SHA256,
@@ -393,7 +382,31 @@ def validated_author_optimizer_diagnostic_capture(
             lane: values[0] for lane, values in EXECUTIONS.items()
         },
         "report_outputs": 2,
-        "current_scientific_projection": 2072,
+        "logical_scientific_projection": 2072,
+        "current_scientific_projection": 2072
+        - sum(
+            item.get("classification")
+            in {
+                "historical_private_control_current_absence",
+                "historical_generated_version_metadata",
+            }
+            for item in current_metadata_correspondences
+        ),
+        "historical_only_projection_roles": [
+            item
+            for item in current_metadata_correspondences
+            if item.get("classification")
+            in {
+                "historical_private_control_current_absence",
+                "historical_generated_version_metadata",
+            }
+        ],
+        "current_projection_byteequal_members": 2072
+        - len(current_metadata_correspondences)
+        - len(current_intake_guard_correspondences),
+        "current_metadata_source_correspondences": current_metadata_correspondences,
+        "current_intake_guard_source_correspondences": current_intake_guard_correspondences,
+        "original_projection_members_retained_unchanged": 2072,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Two actual bounded prior-exposed English optimizer diagnostic JSON reports. Exact original source, reference baseline and negative convergence are retained. The baseline is read input and historical feasibility attempt report remains unresolved. No full experiment fit, held-out prediction, R, ecology, Nordic, rights, human or official release acceptance is admitted.",
+        "scope": "Two actual bounded prior-exposed English optimizer diagnostic JSON reports. Exact original source, reference baseline and negative convergence are retained. The baseline remains read input; its exact certificate is separate from produced diagnostics. Exact returned Nordic metadata and archive-intake guard correspondences remain separate from byte-equal members; no whole-current-tree equality or extraction/model replay is claimed. The historical feasibility attempt report remains unresolved. No full experiment fit, held-out prediction, R, ecology, Nordic, rights, human or official release acceptance is admitted.",
     }

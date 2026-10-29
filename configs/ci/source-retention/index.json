@@ -35,6 +35,16 @@
       "descriptor": "source-transport.json",
       "sha256": "136651236a0f689c95e80d40e8eb97673e485cf9d9dd5bfe215e0432854c353d",
       "bytes": 653606
+    },
+    "data/method-certification/constrained-author-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "41b32a018ac58064dd2738601f8df192ebe24c8e5e9aaff072f9e03a1c252acf",
+      "bytes": 659703
+    },
+    "data/method-certification/author-optimizer-diagnostic-source-capture": {
+      "descriptor": "source-transport.json",
+      "sha256": "b22088086ef04e7794d1c18fee29ce1bd52d6bede2dd027615d213e7adfc44a5",
+      "bytes": 660562
     }
   },
   "source_revisions": {
