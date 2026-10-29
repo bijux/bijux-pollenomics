@@ -1,0 +1,62 @@
+{
+  "schema_version": "reviewed-author-source-epoch-controls.v1",
+  "files": [
+    {
+      "path": "prepare.py",
+      "bytes": 13897,
+      "sha256": "b3e3243ed3200d6f578379d02300cf4a85255c02e2633fde9aced7a5e70cb50d"
+    },
+    {
+      "path": "observe.py",
+      "bytes": 5820,
+      "sha256": "6b4008175ba91987bf24c8ce2edc4df232f0a2c754b241720b43d0e4d8971065"
+    },
+    {
+      "path": "comparison.py",
+      "bytes": 2654,
+      "sha256": "df2222088a51f2780752ad6acf2965a20f2c0c5f5e65756fcf05666335d8c17b"
+    },
+    {
+      "path": "custody.py",
+      "bytes": 6457,
+      "sha256": "42418204abd333908a4599f25570349fec5c32cca39c842d25f6a0104a46d909"
+    },
+    {
+      "path": "run.py",
+      "bytes": 3690,
+      "sha256": "e9c63bb2dd18d0870ebeb5ad2186958252675c4c76250c86b41cbead0a7380e4"
+    },
+    {
+      "path": "check_comparison.py",
+      "bytes": 3516,
+      "sha256": "6c427236e729c2a83f0f31fc0ccfcb4e4996f21008e21e1e745c03b683ae53ca"
+    },
+    {
+      "path": "check_epochs.py",
+      "bytes": 3331,
+      "sha256": "eec19c669e2841aee5181b5baa6c612247f58fbccac6c7dd04d6cb3888bbc5fa"
+    },
+    {
+      "path": "protocol.json",
+      "bytes": 3370,
+      "sha256": "dc4de2aa557a037e5f64ff3c01e7c422dcdc4ec50e11a998a4d968e9292aada7"
+    },
+    {
+      "path": "qualified-source-proposal.json",
+      "bytes": 2927,
+      "sha256": "08416aace22aab4ec4908527a2be5a4e6c720c2801b80930ac48e3d62f839024"
+    },
+    {
+      "path": "retained-original-uncertainty-report.json",
+      "bytes": 10125,
+      "sha256": "415185927514de10a71b6a7ba6c26d7bc1fd3ed8cc140760ec2e3e9f58f1c243"
+    },
+    {
+      "path": "original-current-uncertainty-differences.json",
+      "bytes": 1022,
+      "sha256": "e5d3655e333b69054e02c20f92b8d78b913a8bc73ed6cc3d42a56e1f93cef3a3"
+    }
+  ],
+  "source_only": true,
+  "actual_job_prepared": false
+}

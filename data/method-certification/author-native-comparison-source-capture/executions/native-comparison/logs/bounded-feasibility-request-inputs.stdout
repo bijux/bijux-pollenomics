@@ -1,0 +1,26 @@
+{
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "source_request_sha256": "05802721173c2d8b30c042d0eca585b8c27b79dff82138aec0247611565774d5",
+  "excluded_cohort_counts": 159,
+  "original_cohort_counts": 20732,
+  "prepared": [
+    {
+      "label": "initial",
+      "request_sha256": "7d2b1da93b5490823c906d7c977a0d9a41dba2e21cafcd58c90c358313716dfa",
+      "local_removed_counts": 10,
+      "regional_removed_counts": 42,
+      "iterations": 40,
+      "max_evaluations": 1000,
+      "repeats": 2
+    },
+    {
+      "label": "extended",
+      "request_sha256": "bf99b6d8add47095749b1770a0e62a575c1f90217af2c477f36525ddd0a5d69c",
+      "local_removed_counts": 10,
+      "regional_removed_counts": 42,
+      "iterations": 120,
+      "max_evaluations": 20000,
+      "repeats": 1
+    }
+  ]
+}

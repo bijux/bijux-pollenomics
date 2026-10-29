@@ -1,0 +1,57 @@
+{
+  "checks": [
+    {
+      "name": "controls",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-development-input-custody/check_contracts.py"
+      ],
+      "native_exit": 0,
+      "log": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-development-input-custody/source-checks/controls.log",
+      "sha256": "4c3b3b2f85f7f81206f2731efca1a5c61f58b2f6c54d820b4003b988757b84ec"
+    },
+    {
+      "name": "lint-final",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "check",
+        "--config",
+        "configs/ruff.toml",
+        "artifacts/science/author-development-input-custody/check_contracts.py",
+        "artifacts/science/author-development-input-custody/observe.py",
+        "artifacts/science/author-development-input-custody/prepare.py",
+        "artifacts/science/author-development-input-custody/run.py"
+      ],
+      "native_exit": 0,
+      "log": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-development-input-custody/source-checks/lint-final.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "format-final",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "--config",
+        "configs/ruff.toml",
+        "artifacts/science/author-development-input-custody/check_contracts.py",
+        "artifacts/science/author-development-input-custody/observe.py",
+        "artifacts/science/author-development-input-custody/prepare.py",
+        "artifacts/science/author-development-input-custody/run.py"
+      ],
+      "native_exit": 0,
+      "log": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-development-input-custody/source-checks/format-final.log",
+      "sha256": "177f260a5645724013185e4b140c7045cc39e56c0c97b120f5cb23599f85f0de"
+    }
+  ],
+  "controls": 11,
+  "all_passed": true,
+  "native_producer_executed": false
+}

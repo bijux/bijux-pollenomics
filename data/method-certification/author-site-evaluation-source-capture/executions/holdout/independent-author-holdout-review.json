@@ -1,0 +1,96 @@
+{
+  "schema_version": "independent-author-pollen-family-replay-review.v1",
+  "candidate": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+  "actual_producer": {
+    "id": "maintained-managed-reader-family-replay",
+    "argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py",
+      "--source-root",
+      "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/author-reference",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products"
+    ],
+    "timeout_seconds": 120,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 1.1675405830028467,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/maintained-managed-reader-family-replay.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/maintained-managed-reader-family-replay.stderr",
+    "stdout_sha256": "fdc94367f9f2f42dd9aaa53253d2519d41ef51555fe0ea1c473ae66632df4035",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 66748416
+  },
+  "products": [
+    {
+      "name": "REPORT.md",
+      "actual": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products/REPORT.md",
+        "sha256": "7781b39aa732ecab3748f5f59dfb9cb3056848c4ada1c7c04487dd757d254403",
+        "bytes": 5496
+      },
+      "current_retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
+        "sha256": "7781b39aa732ecab3748f5f59dfb9cb3056848c4ada1c7c04487dd757d254403",
+        "bytes": 5496
+      },
+      "comparison": "Maintained verified_authored_reader/render_route and exact full current managed reader bytes"
+    },
+    {
+      "name": "predictions.csv",
+      "actual": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products/predictions.csv",
+        "sha256": "ef41a225f53f55323144457d377f87ebc719df1e329fb607a30a5c16470db84d",
+        "bytes": 630499
+      },
+      "current_retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",
+        "sha256": "ef41a225f53f55323144457d377f87ebc719df1e329fb607a30a5c16470db84d",
+        "bytes": 630499
+      },
+      "comparison": "Family wrapper normalized CSV wire; final bytes exact"
+    },
+    {
+      "name": "report.json",
+      "actual": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products/report.json",
+        "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca",
+        "bytes": 7853
+      },
+      "current_retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json",
+        "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca",
+        "bytes": 7853
+      },
+      "comparison": "Byte and typed JSON exact"
+    },
+    {
+      "name": "scores.csv",
+      "actual": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-pollen-family-replay/products/scores.csv",
+        "sha256": "baf477c6a5389699d247e0d2a1e3055fd3d2a4454142c46eb9c6f0148f1e5797",
+        "bytes": 35032
+      },
+      "current_retained": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/scores.csv",
+        "sha256": "baf477c6a5389699d247e0d2a1e3055fd3d2a4454142c46eb9c6f0148f1e5797",
+        "bytes": 35032
+      },
+      "comparison": "Family wrapper normalized CSV wire; final bytes exact"
+    }
+  ],
+  "source_snapshot_members": 193,
+  "source_sites": 17,
+  "grids": 2,
+  "prepared_taxa": 31,
+  "attempted_site_bins": 184,
+  "scored_site_bins": 177,
+  "refused_no_training_site_bins": 7,
+  "all_scientific_typed_values_exact": true,
+  "all_source_inputs_exact": true,
+  "R_executed": false,
+  "vegetation_accuracy_or_rights_or_human_acceptance": false,
+  "scope": "Actual maintained family replay CLI wrapping the unchanged observed-pollen site-ID holdout on original193-member prior-exposed English author capsule;17sites/2grids/31taxa. Reuses original authenticated reference receipts without newR. All four final family outputs must be byte-exact, including the fully rendered managed REPORT and normalized CSV. Source count/zero-unavailable/site-denominator/refusal limits unchanged. No vegetation accuracy/Nordic cohort/rights or human/scientific release acceptance. Source-qualified replay is not itself complete same-candidate mixedreport gate."
+}

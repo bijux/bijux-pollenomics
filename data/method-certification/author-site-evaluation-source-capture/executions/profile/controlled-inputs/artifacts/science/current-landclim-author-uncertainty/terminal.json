@@ -1,0 +1,142 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "1180a97d7d7356d0f7a6b05d116f342587861997",
+  "plan_sha256": "4cbf712fb818e926dac0193c1c8d59d5c712421864540e4230a454ccd7b64f53",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 2.7265567499562167,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/plan.json",
+    "--registered-plan-sha256",
+    "4cbf712fb818e926dac0193c1c8d59d5c712421864540e4230a454ccd7b64f53"
+  ],
+  "canonical_before": {
+    "candidate": "1180a97d7d7356d0f7a6b05d116f342587861997",
+    "status": "",
+    "tracked_inventory_sha256": "9a2b5744fb1b938e79f6b6075a4aa3552b20a6586440bbe0b6d3a46c28c7a2d3"
+  },
+  "canonical_after": {
+    "candidate": "1180a97d7d7356d0f7a6b05d116f342587861997",
+    "status": "",
+    "tracked_inventory_sha256": "9a2b5744fb1b938e79f6b6075a4aa3552b20a6586440bbe0b6d3a46c28c7a2d3"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "current-original-source-author-site-uncertainty",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/author-site-uncertainty/replay.py",
+        "--repository",
+        "/Users/bijan/bijux/bijux-pollenomics",
+        "--source-root",
+        "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/author-reference",
+        "--output",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/author-site-uncertainty"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 2.2958846659748815,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/current-original-source-author-site-uncertainty.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/current-original-source-author-site-uncertainty.stderr",
+      "stdout_sha256": "d11b86bcad9f35bf88a6b31d6d69b8221c8f3af61af3aab74b7361a42db37c0d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 173572096
+    },
+    {
+      "id": "independent-original-source-numerical-output-review",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/landclim-author-input-epochs/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/plan.json"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.1976108750095591,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/independent-original-source-numerical-output-review.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/independent-original-source-numerical-output-review.stderr",
+      "stdout_sha256": "17091e4cf6118081759e1ac05d70fc746698b452014483cc86def8eb7ffbf01c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 173572096
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/author-site-uncertainty/cover-draws.csv",
+      "sha256": "dffe151e3b4aa177cbe17332ba9c10f73fa0119f9dbc9c607b4d060f935f6885",
+      "bytes": 212477
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/author-site-uncertainty/draws.json",
+      "sha256": "84da401dc862452bc329d11df074d2c6d7353b3e34b223892b5fd6702fae4390",
+      "bytes": 398124
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/author-site-uncertainty/report.json",
+      "sha256": "7da46aa0ca1c17b6915f6ee99e51c4911632472a244aefdc1a62828f1d4c41d4",
+      "bytes": 10137
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/current-original-source-author-site-uncertainty.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/current-original-source-author-site-uncertainty.stdout",
+      "sha256": "d11b86bcad9f35bf88a6b31d6d69b8221c8f3af61af3aab74b7361a42db37c0d",
+      "bytes": 70
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/independent-author-review.json",
+      "sha256": "bdde25827b73ea9077e3a2e462098c92824f7b6c86a4a60f8210bf57a63b44a0",
+      "bytes": 8088
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/independent-original-source-numerical-output-review.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/independent-original-source-numerical-output-review.stdout",
+      "sha256": "17091e4cf6118081759e1ac05d70fc746698b452014483cc86def8eb7ffbf01c",
+      "bytes": 227
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/plan.json",
+      "sha256": "4cbf712fb818e926dac0193c1c8d59d5c712421864540e4230a454ccd7b64f53",
+      "bytes": 816835
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-landclim-author-uncertainty/stage-progress.json",
+      "sha256": "12c5eda4fb1b60f3f06e45611d6bbb50f4cf469766d8c7780e2fd53541091c0e",
+      "bytes": 2515
+    }
+  ],
+  "output_bytes": 1448473,
+  "resources": {
+    "overall_timeout_seconds": 180,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 67108864,
+    "sequential_stage_count": 2,
+    "numerical_threads": 1
+  },
+  "scope": "One genuine maintained current Python author-site replay on exact original193-member private prior-exposed author capsule. Uncertainty owns three products and1024 conditional joint draws; profile runs only after those genuine successful outputs are adopted at canonical input paths and owns one report using1000 identical retained paired draws. Exact original typed scientific values, six sites/ten positive taxa, source/chronology/geometry/PPE/rights caveats preserved. Only authenticated actual code provenance and exact actual upstream documentation input identities may change. No R/optimizer/ecological validation, private redistribution or human/scientific release claim. Separate candidate epochs remain explicit.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}
