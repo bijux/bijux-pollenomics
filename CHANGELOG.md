@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Preserve authenticated partial SLU guide retrieval evidence while retaining the original unresolved provider and publication criteria ([#272](https://github.com/bijux/bijux-pollenomics/pull/272)).
+- **Pending review:** Retain partial Swedish cohort source observations under the original unresolved use criterion and historical ownership prerequisites ([#275](https://github.com/bijux/bijux-pollenomics/pull/275)).
+- **Verified merge (2026-10-28 23:48:19 UTC):** Preserve authenticated partial SLU guide retrieval evidence while retaining the original unresolved provider and publication criteria ([#272](https://github.com/bijux/bijux-pollenomics/pull/272)).
 - **Verified merge (2026-10-28 23:35:53 UTC):** Authenticate retained Linux R source and result custody with exact historical runtime provenance and strict current scientific source checks ([#270](https://github.com/bijux/bijux-pollenomics/pull/270)).
 - **Verified merge (2026-10-28 23:15:47 UTC):** Retain execution reference source ownership and corrections in Git while removing current programme copies and authenticating exact historical source inputs ([#271](https://github.com/bijux/bijux-pollenomics/pull/271)).
 - **Verified merge (2026-10-28 22:24:30 UTC):** Reject archive extraction destinations beneath symlink ancestors before writing selected members ([#269](https://github.com/bijux/bijux-pollenomics/pull/269)).
