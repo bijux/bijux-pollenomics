@@ -3309,9 +3309,9 @@
     },
     {
       "repository_path": "docs/report/validation/empd2-nfi-pairing/README.md",
-      "content_sha256": "5f64fdd8e18d23d8ae0a9356f6c72fa096d6bb9708731ac03138e7e8c8f7d2b9",
-      "prose_paragraph_count": 21,
-      "link_bullet_count": 3,
+      "content_sha256": "398170c85865fab3bbc4f78a869142a5a292c89a3d8f97fa2bc2618646d6d06e",
+      "prose_paragraph_count": 22,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 4,
       "table_line_count": 0,

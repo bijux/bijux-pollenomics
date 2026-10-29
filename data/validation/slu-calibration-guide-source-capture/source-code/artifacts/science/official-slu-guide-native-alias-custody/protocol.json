@@ -1,0 +1,96 @@
+{
+  "schema_version": "current-official-slu-guide-source-preparation.v1",
+  "scope": "Two future bounded metadata stages: current official page/PDF acquisition then independent offline rawresponse/literalhref/retainedbyte observer. No workbook, measured outcomes, model, outreach or historical acquisition reconstruction.",
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/source-qualification.json",
+    "sha256": "3eeee1e6c3a7ebd15c873406091febdb6e865d08eae8abc6d0bb4d173b0cc0c4",
+    "bytes": 3844
+  },
+  "page_url": "https://www.slu.se/en/about-slu/organisation/departments/forest-resource-management/miljoanalys/nfi/our-data/",
+  "PDF_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",
+  "retained_guide": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "official_authority": "Only HTTPS exacthosts slu.se/www.slu.se, verifiedcertificate/hostname with explicit pinned CA; directnoenvproxy. Redirectmax3/Locationcheckedbeforeforeignrequest, final200/mime/identityencoding/length/rawSHA,2MiBpage/256KiBPDF,45sinnerdeadline/8sreadsocket bound and native65sprocessgroup stage.",
+  "literal_source_link": "Actual rawpage UTF8 preserved; only actual HTML anchor href exactabsolute or rootrelative officialPDF is admitted. Tag/line/column/literalhref/text preserved. No searchresult/linkfromcomment/script/guessedURL evidence.",
+  "current_epoch": "Rawheaders/redirectLocation/status/URL/UTCbody receipts and exact136339BPDF793d90 matched to retainedbytes. Does NOT recover missing2026-09-21pagebody/a063receipt/copychain, and does NOT close original guide history or NFI outcome/benchmark/human/release acceptance.",
+  "source_runtime": "Qualifiedlexical3.11 -I -B; immutable fullstdlibtree/actual loadedmodule origins/nativeMachOdependencyclosure/runtimealias contracts/explicitCA/OSbuild/receipt pin. Existing byteexact runtime_custody reused, no runtime install/global writes. Source and caches/scratch/output all artifactscoped; -Xpycache_prefix explicit actual stages. OS sealed-system/dyld dependency authority remains an OS-build statement, not fake physical-file hash.",
+  "network_declared": {
+    "requests": [
+      "officialpageGET",
+      "literalPDFGET"
+    ],
+    "allowed_hosts": [
+      "slu.se",
+      "www.slu.se"
+    ],
+    "automatic_retries": 0,
+    "proxy": false,
+    "download_limits_bytes": {
+      "page": 2097152,
+      "PDF": 262144
+    },
+    "redirects_each": 3,
+    "cookies_or_auth": false
+  },
+  "resources": {
+    "stages": 2,
+    "timeouts_seconds": [
+      65,
+      20
+    ],
+    "overall_timeout_seconds": 100,
+    "declared_memory_bytes": 1073741824,
+    "declared_storage_bytes": 67108864,
+    "own_receipt_reserve_bytes": 16384,
+    "scope": "Maintained process-group timeout/commonGit+input beforeafter; completedchildRSS/logicaloutputpostcheck, no OShardquota/full descendantRSS claim."
+  },
+  "review_gate": "Requires approved:true/source_manifest_sha256 exact independent-source-review.json before sourcepreparer. Root alone prepares/registers exact native plan. Dynamiccleanmaincandidate; no controller executed by author.",
+  "refusal": "Any transport/host/link/status/type/byte/time/TLS/retainedidentity mismatch preserves current-retrieval-refusal.json actual1 and any rawproducts already acquired. No oldfile fallback, no waiver, no repeated retries.",
+  "future_admission": "Only after genuine current acquisition0/independentobserver0, propose source-bound current retrieval/copy qualification and exact owner admission while original history remains unavailable. This source-only protocol supplies no fabricated future terminal/path/member count.",
+  "runtime_helper_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-retained-capture-claims/runtime_custody.py",
+    "sha256": "0964eec589d0f69f97201b1bfbde558f33f41ab1e775fc53f879c85493af4d20",
+    "bytes": 12005
+  },
+  "resource_wrapper_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nfi-retained-capture-claims/run.py",
+    "sha256": "7d18f259ef9ced296059a20a14fb7d6bb16ca906b671f82f99d014f4686815d5",
+    "bytes": 4094
+  },
+  "source_only": true,
+  "finite_native_alias_successor": {
+    "predecessor": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-source-custody/prepared-source-manifest.json",
+      "sha256": "a4db26620063d04ac49b761253dd9a90ebb842b5024cbdc34fa388eafbde9a02",
+      "bytes": 1731
+    },
+    "changed_source": [
+      "prepare.py",
+      "check_contracts.py"
+    ],
+    "unchanged5": [
+      "contracts.py",
+      "acquire.py",
+      "observe.py",
+      "run.py",
+      "runtime_custody.py"
+    ],
+    "binding": "Only actual loader-declared lexical dependency path components with actual symlinks are recorded as resolvedtarget+rawreadlink. Existing exact runtime aliases before/after wrapper checks consume the additional entries. No blanket path permission, changed HTTP/TLS/body/redirect behavior or runtime modification.",
+    "actual_observed_aliases": {
+      "/opt/homebrew/opt/xz": "/opt/homebrew/Cellar/xz/5.8.4",
+      "/opt/homebrew/opt/openssl@3": "/opt/homebrew/Cellar/openssl@3/3.6.3"
+    },
+    "actual_literal_links": {
+      "/opt/homebrew/opt/xz": "../Cellar/xz/5.8.4",
+      "/opt/homebrew/opt/openssl@3": "../Cellar/openssl@3/3.6.3"
+    },
+    "census": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/official-slu-guide-native-alias-custody/preflight/actual-native-alias-census.json",
+      "sha256": "fcada26d8164106b679e49a80300b106c76783310fc3a3238f489225ab4bda1e",
+      "bytes": 2852
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "slu-current-guide-source-review.v1",
+  "capture": {
+    "path": "data/validation/slu-calibration-guide-source-capture/capture.json",
+    "sha256": "41b37d3136d020ad14176688e2fd65f3d0d6feaac010462b876f340fb553ee4a"
+  },
+  "original_execution_candidate": "d027effd6c0ac91512cd586c3a51db987ea46d54",
+  "actual_original_native_stage_exits": [
+    0,
+    0
+  ],
+  "original_plan_sha256": "036f80b72208fbf561c9246836a3fe764a754853f1a611b814f22431076eb84d",
+  "guide": {
+    "path": "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
+    "sha256": "793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8",
+    "bytes": 136339
+  },
+  "scope": {
+    "current_official_page_link_and_PDF_chain": true,
+    "original_2026_09_21_copy_recovered": false,
+    "historical_a063_receipt_recovered": false,
+    "prior_8be8_documentary_use_review_available": false,
+    "new_documentary_license_revalidation": false,
+    "raw_page_payload_redistributed": false,
+    "runtime_payloads_redistributed": false,
+    "workbook_metadata_record_rewritten": false,
+    "workbook_outcomes_decoded": 0,
+    "measured_pairs_admitted": 0,
+    "human_or_ecological_acceptance": false,
+    "new_network_requests": 0
+  },
+  "source_custody": "Authored retained source postimages authenticate already completed original acquisition and independent response/link/PDF observer. No new retention native job is claimed. Raw HTML, native runtime binaries and cookie values are excluded; original page/HTTP receipt identities remain explicit.",
+  "missing_prior_documentary_review": "Prior8be8d30 receipt was not authenticated in the exact retention index/STATE/RESUME checked by the integrator. This is not an exhaustive archive-absence claim. No fresh PDF text extraction or licence/use review was performed for this source admission.",
+  "historical_limits": "The absent2026-09-21/a063 original provider/copy history is not recovered. Existing workbook schema and its original guide-admitted-false claim remain literal; no plot outcome, measured pair, regional area, rights extension or human/official acceptance follows."
+}

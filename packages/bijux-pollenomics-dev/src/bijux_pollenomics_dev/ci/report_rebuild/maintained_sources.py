@@ -68,6 +68,9 @@ from .scientific_captures.swedish_static_basin import (
 from .scientific_captures.vegetation_reference.nfi_measurement import (
     validated_nfi_measurement_capture,
 )
+from .scientific_captures.vegetation_reference.slu_guide import (
+    validated_slu_guide_capture,
+)
 
 # This independent admission set is reviewed separately from mutable role labels.
 # Updating a maintained report path requires an explicit transport-contract change.
@@ -282,6 +285,9 @@ def validated_maintained_report_sources(
     author_grid_entries, author_grid_evidence = validated_author_grid_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    slu_guide_entries, slu_guide_evidence = validated_slu_guide_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -296,6 +302,7 @@ def validated_maintained_report_sources(
         + constrained_entries
         + radius_entries
         + nfi_entries
+        + slu_guide_entries
         + controlled_numerical_entries
     )
     for entry in all_capture_entries:
@@ -357,4 +364,6 @@ def validated_maintained_report_sources(
         )
     if author_grid_entries:
         evidence["retained_author_grid_capture"] = author_grid_evidence
+    if slu_guide_entries:
+        evidence["retained_slu_guide_source"] = slu_guide_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

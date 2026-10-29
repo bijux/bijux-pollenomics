@@ -11,10 +11,21 @@ preserved in the external private source store. The [result](report.json)
 records the exact input hashes checked by its producer. The dossier and screen
 contain exact NFI row locations and are not tracked in Git. The tracked [SLU
 calibration guide](inputs/slu-calibration-guide.pdf) retains its pinned local
-bytes. Its original retained acquisition provider retrieval/copy chain remains
-unqualified. A separate current official-page retrieval is not admitted by this
-measurement metadata owner and does not recover that historical receipt; the
-guide retains its separate source-admission route.
+bytes. Its original retained2026-09-21/a063 provider retrieval/copy chain
+remains unqualified. A separate official SLU page-to-PDF acquisition on source
+commit `d027effd6c0ac91512cd586c3a51db987ea46d54` and its independent observer
+both returned native zero. Their [retained current-source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/slu-current-guide-source.json)
+binds the HTTP200/TLS-verified page, literal download href and exact same
+136,339-byte guide. This guide source owner is independent of the workbook
+metadata owner; the older metadata capsule's guide-admitted-false claim remains
+literal. The current acquisition does not recover the missing historical copy.
+
+The public source capsule omits raw HTML and runtime binaries and removes
+cookie headers from its declared HTTP metadata projections while preserving
+the original raw-response hashes. The earlier documentary licence/use review
+receipt is not currently authenticated; this admission performs no fresh PDF
+text extraction or licence/use revalidation. It grants no additional workbook
+or observation rights and does not turn plot measurements into regional totals.
 The producer checks the private inputs' exact hashes and reads only the NFI
 workbook's first six identity/coordinate fields to bind every selected plot-year
 to an original row and recompute each geodesic distance. The source-native NFI
@@ -102,25 +113,27 @@ Named measured/mapped/published reference scope and unmatched temporal/taxon/obs
 
 **Unsupported claim.** Proximity, plot area and dictionary units do not provide paired vegetation measurements, a regional target, authenticated pollen collection dates or a frozen performance benchmark.
 
-**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification.
+**Actual verification performed.** Read the retained pair decision and bounded workbook-schema account, including zero decoded tree measurement outcomes; bound their public identities. No private workbook, tree values, spatial screen or reconstruction was opened or rerun for this qualification. Separately retained original official-page/literal-link/PDF acquisition and its independent observer returned native zero and authenticate the unchanged guide bytes. Authored source custody omits HTML/runtime payloads/cookie values. No new source request, workbook projection or documentary licence review is performed; the prior8be8 review receipt is not currently authenticated.
 
-**Remaining input or review.** Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication.
+**Remaining input or review.** Missing pollen dates, measured tree outcomes, taxon denominator/crosswalk, footprint relation and qualified source/leakage review remain; five leads need extra physical identity review and one collection note needs authentication. Current official guide-source custody is separate from the missing original2026-09-21/a063 acquisition and unavailable prior documentary-review receipt; it supplies no additional observation rights or measured support.
 
 **Cause category.** Independent-measurement admission refusal despite geographic proximity.
 
 **Consequence.** The sixteen rows are missing benchmark support, not sixteen negative measured observations; benchmark policy and evaluation remain false.
 
-**Precise next acceptance route.** Recover the named missing source facts and reviewed plot-to-basin relation, then predeclare non-null sample/error minima before opening qualified independent evaluation outcomes and recording a new decision.
+**Precise next acceptance route.** Recover the named missing source facts and reviewed plot-to-basin relation, then predeclare non-null sample/error minima before opening qualified independent evaluation outcomes and recording a new decision. Cite the separate current guide chain within its exact epoch while preserving the missing original-copy and documentary-review record; retain every measured-pair, estimand, source-rights and qualified-review condition.
 
 **Negative or refused result.** Zero measured pairs are admitted, no reconstruction is evaluated and no tree-outcome cell is decoded by this schema review. Five headers lack exact dictionary counterparts and remain unresolved.
 
 **Matched denominator.** 132 Swedish EMPD2 samples; 43892 NFI plot-years/6018 tract-plot keys; 53 combinations within 1 km across 16 pollen leads and 14 selected plot-years. Plot 153.94 m² with five m²/ha basal-area dictionary groups is not regional cover.
 
-Qualified authored reader SHA-256: `bd246367462047329b8d6e0d7baab5cd625712623a490b17ccd6cb2f51aab715`.
+Qualified authored reader SHA-256: `7a53845b8b441ec27761552096aa94d83e3b04cd65d74b11fe638ded070e5e31`.
 
 - [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/report.json](report.json) (SHA-256 `cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642`).
 
 - [Retained qualification evidence: docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json](nfi-measurement-schema.json) (SHA-256 `5b4d5bb087501af7b223ffa8c5494a8ad4073a0503906b47aa36a2748a8e1505`).
+
+- [Retained qualification evidence: reports/science/vegetation-reference/slu-current-guide-source.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/slu-current-guide-source.json) (SHA-256 `b28238feadb2cee4ed5da5ec7a2eb9241f67b583d3156d32c60a7e8947bdc07c`).
 
 - [Canonical scientific account: reports/science/vegetation-reference.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md) (source SHA-256 `5da159339e8a44edde91836598b760c7694456abe4363d048835e7304dc1690e`).
 
