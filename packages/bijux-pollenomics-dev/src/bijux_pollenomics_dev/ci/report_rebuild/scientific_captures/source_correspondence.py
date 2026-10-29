@@ -178,6 +178,138 @@ def _historical_version_source_role(
     }
 
 
+_COLLECTOR_SOURCE_IDENTITIES: dict[str, tuple[str, int]] = {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/rootsi_input_closure.py": (
+        "68de0c8e7da6f5e265ba27e30ae99c92378b8529ef538ce1242b9540ffb4816e",
+        37541,
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/__init__.py": (
+        "cdf755312d22f0b6e1a3edc8f7bd7fac0a8c9bd41b180273d6b22f16c7e47974",
+        3711,
+    ),
+}
+_ROOTSI_INDEX_INITIALIZATION = b"    if not inputs.rootsi:\n        return {row.worksheet_row: ((), ()) for row in inputs.publication.records}\n    sequences: dict[str, set[int]] = {}\n    sites: dict[tuple[str, str], set[int]] = {}\n    for index, rootsi in enumerate(inputs.rootsi):\n        sequences.setdefault(_normalized(rootsi.site_label), set()).add(index)\n        if rootsi.sample_count_claim is not None:\n            key = (_normalized(rootsi.site_name), str(rootsi.sample_count_claim))\n            sites.setdefault(key, set()).add(index)\n"
+_ROOTSI_INDEX_LOOKUP = b'        # Validate the same three columns even when no indexed candidate matches.\n        sequence = _raw(publication, "csvfilename")\n        site = _raw(publication, "SiteName")\n        samples = _raw(publication, "nPollenSamples")\n        indexes = set(sequences.get(_normalized(_sequence_stem(sequence)), ()))\n        if samples is not None:\n            indexes.update(sites.get((_normalized(site), samples), ()))\n        # Original indices preserve duplicates and source order; the original\n        # predicate owns reasons, exact sample text, and lazy country validation.\n'
+
+
+def collector_source_extension_matches(
+    name: str, captured: bytes, current: bytes
+) -> bool:
+    """Invert only the declared index or qualifier spans to every original byte."""
+    if (
+        name
+        == "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/__init__.py"
+    ):
+        added = b're.compile(r"(?:^|\\s)cf\\.?\\s", re.IGNORECASE)'
+        original = b're.compile(r"(?:^|\\s)cf\\.\\s", re.IGNORECASE)'
+        return (
+            current.count(added) == 1
+            and current.replace(added, original, 1) == captured
+        )
+    if (
+        name
+        != "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/rootsi_input_closure.py"
+    ):
+        return False
+    body = current
+    spans = (
+        (_ROOTSI_INDEX_INITIALIZATION, b""),
+        (_ROOTSI_INDEX_LOOKUP, b""),
+        (
+            b"            for index in sorted(indexes)\n",
+            b"            for rootsi in inputs.rootsi\n",
+        ),
+        (b"_match(inputs.rootsi[index], publication)", b"_match(rootsi, publication)"),
+    )
+    for inserted, original in spans:
+        if body.count(inserted) != 1:
+            return False
+        body = body.replace(inserted, original, 1)
+    return body == captured
+
+
+def _collector_source_extension_correspondence(
+    repository: Path,
+    historical: JsonObject,
+    logical: str,
+    source_buffer: SourceCapsule,
+) -> JsonObject:
+    """Bind two finite collector extensions to the original optimizer source only."""
+    name = historical.get("path")
+    if not isinstance(name, str) or name not in _COLLECTOR_SOURCE_IDENTITIES:
+        raise ReportRebuildError("Unknown collector source extension")
+    checksum, size = _COLLECTOR_SOURCE_IDENTITIES[name]
+    expected = {"sha256": checksum, "bytes": size}
+    if (
+        repository != repository.resolve()
+        or source_buffer.repository != repository
+        or source_buffer.prefix
+        != "data/method-certification/author-optimizer-diagnostic-source-capture"
+        or source_buffer.descriptor.capture.get("sha256")
+        != "f865795aac7585e56c4cf44faac84496d339e1c176fc6ee111cba3cbc9b4ce93"
+        or set(historical) != {"path", "sha256", "bytes"}
+        or type(historical.get("bytes")) is not int
+        or historical != {"path": name, **expected}
+        or logical != "executions/optimizer-diagnostics/first-party-inputs/" + name
+        or logical not in source_buffer.detached
+        or source_buffer.descriptor.members.get(logical) != expected
+        or [
+            path
+            for group in source_buffer.descriptor.groups
+            for member, path in group["resolved_paths"]
+            if member == logical
+        ]
+        != [name]
+    ):
+        raise ReportRebuildError("Original collector source extension binding differs")
+    source_buffer.fresh()
+    captured = source_buffer.read_source(logical)
+    if len(captured) != size or hashlib.sha256(captured).hexdigest() != checksum:
+        raise ReportRebuildError("Original collector source extension bytes differ")
+    source = _regular_confined_file(repository, name, "current collector source")
+    before = source.stat()
+    if before.st_nlink != 1 or not 0 < before.st_size <= 128 * 1024**2:
+        raise ReportRebuildError("Current collector source must be bounded single-link")
+    current = source.read_bytes()
+    if not collector_source_extension_matches(name, captured, current):
+        raise ReportRebuildError(
+            "Collector source differs beyond its finite original-byte law"
+        )
+    source_buffer.fresh()
+    again = _regular_confined_file(repository, name, "current collector source")
+    after = again.stat()
+    fields = (
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_size",
+        "st_mtime_ns",
+        "st_ctime_ns",
+    )
+    if (
+        any(getattr(before, field) != getattr(after, field) for field in fields)
+        or again.read_bytes() != current
+    ):
+        raise ReportRebuildError(
+            "Current collector source changed during correspondence"
+        )
+    return {
+        "path": name,
+        "classification": "finite_collector_source_extension",
+        "extension": "source_qualifier_annotation"
+        if name.endswith("/neotoma/__init__.py")
+        else "typed_rootsi_indexed_join",
+        "original_member": logical,
+        "original_sha256": checksum,
+        "original_bytes": size,
+        "old_noninserted_bytes_exact": True,
+        "current_regular_single_link_and_stable": True,
+        "current_classifier_native_or_browser_equivalence_claimed": False,
+        "scope": "Exact source-span correspondence only; the qualifier annotation extension and indexed typed-record software have separate constructed controls. Original optimizer observations and all other source predicates remain unchanged.",
+    }
+
+
 def validated_current_scientific_source(
     repository: Path,
     historical: JsonObject,
@@ -260,6 +392,10 @@ def validated_current_scientific_source(
             "old_bindings_preserved": True,
             "native_execution_claimed": False,
         }
+    if name in _COLLECTOR_SOURCE_IDENTITIES:
+        return _collector_source_extension_correspondence(
+            repository, historical, logical, source_buffer
+        )
     if name == AUTHOR_DEFAULT_SOURCE:
         return _author_default_source_correspondence(
             repository, historical, captured, body, logical, source_buffer
