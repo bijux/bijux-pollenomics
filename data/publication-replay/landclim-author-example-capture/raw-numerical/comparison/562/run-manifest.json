@@ -1,0 +1,230 @@
+{
+  "algorithm": "REVEALS-multisite-publication-source",
+  "parameters": {
+    "bin_bounds_bp": [
+      [
+        -65.0,
+        100.0
+      ],
+      [
+        100.0,
+        350.0
+      ],
+      [
+        350.0,
+        750.0
+      ],
+      [
+        750.0,
+        1250.0
+      ],
+      [
+        1250.0,
+        1750.0
+      ],
+      [
+        1750.0,
+        2250.0
+      ],
+      [
+        2250.0,
+        2750.0
+      ],
+      [
+        2750.0,
+        3250.0
+      ],
+      [
+        3250.0,
+        3750.0
+      ],
+      [
+        3750.0,
+        4250.0
+      ],
+      [
+        4250.0,
+        4750.0
+      ],
+      [
+        4750.0,
+        5250.0
+      ],
+      [
+        5250.0,
+        5750.0
+      ],
+      [
+        5750.0,
+        6250.0
+      ],
+      [
+        6250.0,
+        6750.0
+      ],
+      [
+        6750.0,
+        7250.0
+      ],
+      [
+        7250.0,
+        7750.0
+      ],
+      [
+        7750.0,
+        8250.0
+      ],
+      [
+        8250.0,
+        8750.0
+      ],
+      [
+        8750.0,
+        9250.0
+      ],
+      [
+        9250.0,
+        9750.0
+      ],
+      [
+        9750.0,
+        10250.0
+      ],
+      [
+        10250.0,
+        10750.0
+      ],
+      [
+        10750.0,
+        11250.0
+      ],
+      [
+        11250.0,
+        11750.0
+      ]
+    ],
+    "bootstrap_replicates": 1000,
+    "bootstrap_sampling": "explicit_original_site_indices_uniform_resampling_reference",
+    "known_source_limitations": [
+      "single_site_ppe_diagonal_preserves_source_operator_order",
+      "single_site_se_depends_on_taxon_order_in_source",
+      "multisite_bootstrap_does_not_propagate_ppe_covariance",
+      "bootstrap_mean_is_ratio_of_accumulated_unclosed_productivity_adjusted_cover",
+      "lake_gamma_expression_has_unresolved_author_source_comment",
+      "source_agreement_does_not_certify_independent_vegetation_accuracy"
+    ],
+    "missing_support": "masked_nan_instead_of_source_zero",
+    "profile": "landclimii-2016-release-source-v1",
+    "regional_cover_draw_index_base": 0,
+    "regional_cover_draws": "closed_Vx_rows_for_multisite_bins_only",
+    "regional_extent_m": 100000.0,
+    "single_site_regional_output": "same_individual_cover_and_se",
+    "source_axes": {
+      "bin_ids": [
+        "50",
+        "225",
+        "550",
+        "1000",
+        "1500",
+        "2000",
+        "2500",
+        "3000",
+        "3500",
+        "4000",
+        "4500",
+        "5000",
+        "5500",
+        "6000",
+        "6500",
+        "7000",
+        "7500",
+        "8000",
+        "8500",
+        "9000",
+        "9500",
+        "10000",
+        "10500",
+        "11000",
+        "11500"
+      ],
+      "site_ids": [
+        "BECKHAM",
+        "COMERSLA",
+        "EXEBRID",
+        "GOURTEMIRES",
+        "LARKBARR",
+        "LONGBREACH",
+        "MOLECHAM",
+        "NTWITCHEN"
+      ],
+      "taxon_ids": [
+        "Abies alba",
+        "Alnus glutinosa",
+        "Amanranthaceae/Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus sempervirens",
+        "Calluna vulgaris",
+        "Carpinus betulus",
+        "Carpinus orientalis",
+        "Castanea",
+        "Cerealia-t",
+        "Corylus avellana",
+        "Cyperaceae",
+        "Ericaceae",
+        "Fagus sylvatica",
+        "Filipendula",
+        "Fraxinus",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago lanceolata type",
+        "Poaceae",
+        "Quercus deciduous",
+        "Quercus evergreen",
+        "Rumex acetosa-t",
+        "Salix",
+        "Secale",
+        "Tilia",
+        "Ulmus"
+      ]
+    },
+    "source_file_sha256": "7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87",
+    "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+    "time_bin_profile": "landclimii-author-archive-bins-v1",
+    "time_bins": "explicit_calendar_years_bp_1950CE_younger_older",
+    "units": {
+      "counts": "count",
+      "cover": "fraction",
+      "radius": "metre",
+      "standard_error": "fraction"
+    },
+    "wind_speed_m_s": 3.0
+  },
+  "inputs": {
+    "bin_bounds_bp": "33db0f0360a7b4e467dd3799ec39f0137ed1f1247b243707ea6533af07d35f73",
+    "bootstrap_indices": "3c28d2d41ab0b322ecf054c28562f26846692f24050b7cc42ff7407a82d016b0",
+    "inputs": "e0cf8de5b8a217c1f14fdeb4dfc60e4d9b0fa5b1f52a5be6c0171f3759f3b823",
+    "source_axes": "8713e2de85322b5979ad08412da151c715825539d883075004f22977d20d7455"
+  },
+  "stochastic": false,
+  "seed": null,
+  "compatibility_mode": "landclimii-2016-release-source-v1",
+  "package": "bijux-pollenomics-lra",
+  "package_version": "0.1.9.dev1462",
+  "reference_package": "LRA-REVEALS-release.R",
+  "reference_version": "2016-10-30",
+  "reference_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-10-14T19:45:21.359778+00:00",
+  "runtime": {
+    "numerical_backend": "python-numpy-scipy",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.11.13",
+    "scipy": "1.17.1"
+  }
+}

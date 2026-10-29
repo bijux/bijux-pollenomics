@@ -1,0 +1,598 @@
+{
+  "schema_version": "original-author-two-grid-scientific-observer.v1",
+  "candidate": "e282e08d796528488b438edd3ea661fb94b97b5d",
+  "source_sha256": "7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87",
+  "reference_receipt": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/reference/receipt.json",
+    "sha256": "b8adff41d1c1ee59881a053aa965f8514e964f8bf86968efed320dc445432746",
+    "bytes": 11447
+  },
+  "native_comparison": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/comparison/report.json",
+    "sha256": "0b8567330bb61e9c4b7954e88c987a9c0786816f278aba442ec309cb75eef56e",
+    "bytes": 24499
+  },
+  "transport_receipt": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/transport-receipt.json",
+    "sha256": "0e586f5b079b50e763d7b81a0b6110a04228911887580220c899177b3dd3159c",
+    "bytes": 3650
+  },
+  "native_output_closure": {
+    "512": {
+      "checksum_manifest_sha256": "731501f4f5efa824f74c129a2a6618b8a7fd4039339145f7c7ab2a2eb9a20b1c",
+      "files": 53,
+      "bytes": 9106375
+    },
+    "562": {
+      "checksum_manifest_sha256": "28a34501bf2413a7c23c9a060363877683b6779a45ebb165cc43185a437831b8",
+      "files": 52,
+      "bytes": 9623696
+    }
+  },
+  "grids": [
+    {
+      "grid_id": "512",
+      "sites": 9,
+      "bins": 25,
+      "taxa": 31,
+      "available_site_bins": 97,
+      "missing_site_bins": 128,
+      "supported_bins": 18,
+      "multi_site_bootstrap_bins": 17,
+      "all_new_R_draws_exactly_reused": true,
+      "comparisons": {
+        "regional_cover": {
+          "values": 558,
+          "finite_pairs": 558,
+          "undefined_pairs": 0,
+          "max_absolute_error": 1.2378986724570495e-13,
+          "atol": 1e-11,
+          "rtol": 1e-10,
+          "undefined_masks_equal": true,
+          "passed": true
+        },
+        "regional_se": {
+          "values": 558,
+          "finite_pairs": 558,
+          "undefined_pairs": 0,
+          "max_absolute_error": 6.458722445756848e-14,
+          "atol": 5e-08,
+          "rtol": 1e-09,
+          "undefined_masks_equal": true,
+          "passed": true
+        },
+        "sites": [
+          {
+            "site_id": "BROADOWN",
+            "cover": {
+              "values": 527,
+              "finite_pairs": 527,
+              "undefined_pairs": 0,
+              "max_absolute_error": 2.1316282072803006e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 527,
+              "finite_pairs": 527,
+              "undefined_pairs": 0,
+              "max_absolute_error": 3.698430450782553e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "CUTHILL2",
+            "cover": {
+              "values": 403,
+              "finite_pairs": 403,
+              "undefined_pairs": 0,
+              "max_absolute_error": 4.0023540037736893e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 403,
+              "finite_pairs": 403,
+              "undefined_pairs": 0,
+              "max_absolute_error": 3.9968028886505635e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "HANGINGS",
+            "cover": {
+              "values": 527,
+              "finite_pairs": 527,
+              "undefined_pairs": 0,
+              "max_absolute_error": 4.418687638008123e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 527,
+              "finite_pairs": 527,
+              "undefined_pairs": 0,
+              "max_absolute_error": 5.3013149425851225e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "HARESDOWN",
+            "cover": {
+              "values": 217,
+              "finite_pairs": 217,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.141309269314661e-13,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 217,
+              "finite_pairs": 217,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.5900475380803414e-14,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "LOBBSBOG",
+            "cover": {
+              "values": 217,
+              "finite_pairs": 217,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.035838081975271e-13,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 217,
+              "finite_pairs": 217,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.2798789805756883e-14,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "WHH05",
+            "cover": {
+              "values": 248,
+              "finite_pairs": 248,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.3711254354120683e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 248,
+              "finite_pairs": 248,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.700029006457271e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "WHH11",
+            "cover": {
+              "values": 124,
+              "finite_pairs": 124,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.3100631690576847e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 124,
+              "finite_pairs": 124,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.0026701691145945e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "WINDMILL",
+            "cover": {
+              "values": 217,
+              "finite_pairs": 217,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.2549683514606613e-13,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 217,
+              "finite_pairs": 217,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.500015389677145e-14,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "WINNEYS",
+            "cover": {
+              "values": 527,
+              "finite_pairs": 527,
+              "undefined_pairs": 0,
+              "max_absolute_error": 2.6867397195928788e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 527,
+              "finite_pairs": 527,
+              "undefined_pairs": 0,
+              "max_absolute_error": 3.101685575046531e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "grid_id": "562",
+      "sites": 8,
+      "bins": 25,
+      "taxa": 31,
+      "available_site_bins": 87,
+      "missing_site_bins": 113,
+      "supported_bins": 25,
+      "multi_site_bootstrap_bins": 19,
+      "all_new_R_draws_exactly_reused": true,
+      "comparisons": {
+        "regional_cover": {
+          "values": 775,
+          "finite_pairs": 775,
+          "undefined_pairs": 0,
+          "max_absolute_error": 7.321920847402907e-14,
+          "atol": 1e-11,
+          "rtol": 1e-10,
+          "undefined_masks_equal": true,
+          "passed": true
+        },
+        "regional_se": {
+          "values": 775,
+          "finite_pairs": 775,
+          "undefined_pairs": 0,
+          "max_absolute_error": 7.159550730051478e-14,
+          "atol": 5e-08,
+          "rtol": 1e-09,
+          "undefined_masks_equal": true,
+          "passed": true
+        },
+        "sites": [
+          {
+            "site_id": "BECKHAM",
+            "cover": {
+              "values": 341,
+              "finite_pairs": 341,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.7985612998927536e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 341,
+              "finite_pairs": 341,
+              "undefined_pairs": 0,
+              "max_absolute_error": 4.799979858027825e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "COMERSLA",
+            "cover": {
+              "values": 496,
+              "finite_pairs": 496,
+              "undefined_pairs": 0,
+              "max_absolute_error": 3.419486915845482e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 496,
+              "finite_pairs": 496,
+              "undefined_pairs": 0,
+              "max_absolute_error": 5.700301342059788e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "EXEBRID",
+            "cover": {
+              "values": 310,
+              "finite_pairs": 310,
+              "undefined_pairs": 0,
+              "max_absolute_error": 7.1803674117632e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 310,
+              "finite_pairs": 310,
+              "undefined_pairs": 0,
+              "max_absolute_error": 6.99787450209044e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "GOURTEMIRES",
+            "cover": {
+              "values": 279,
+              "finite_pairs": 279,
+              "undefined_pairs": 0,
+              "max_absolute_error": 5.5316862201948425e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 279,
+              "finite_pairs": 279,
+              "undefined_pairs": 0,
+              "max_absolute_error": 6.300515664747763e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "LARKBARR",
+            "cover": {
+              "values": 279,
+              "finite_pairs": 279,
+              "undefined_pairs": 0,
+              "max_absolute_error": 4.898859096158503e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 279,
+              "finite_pairs": 279,
+              "undefined_pairs": 0,
+              "max_absolute_error": 6.501743587961073e-15,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "LONGBREACH",
+            "cover": {
+              "values": 465,
+              "finite_pairs": 465,
+              "undefined_pairs": 0,
+              "max_absolute_error": 9.736655925962623e-14,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 465,
+              "finite_pairs": 465,
+              "undefined_pairs": 0,
+              "max_absolute_error": 2.3600045528926472e-14,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "MOLECHAM",
+            "cover": {
+              "values": 217,
+              "finite_pairs": 217,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.8390844402915718e-13,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 217,
+              "finite_pairs": 217,
+              "undefined_pairs": 0,
+              "max_absolute_error": 5.390132784555135e-14,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          },
+          {
+            "site_id": "NTWITCHEN",
+            "cover": {
+              "values": 310,
+              "finite_pairs": 310,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.6608936448392342e-13,
+              "atol": 1e-11,
+              "rtol": 1e-10,
+              "undefined_masks_equal": true,
+              "passed": true
+            },
+            "se": {
+              "values": 310,
+              "finite_pairs": 310,
+              "undefined_pairs": 0,
+              "max_absolute_error": 1.3400738851920835e-14,
+              "atol": 5e-08,
+              "rtol": 1e-09,
+              "undefined_masks_equal": true,
+              "passed": true
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "all_protected_inputs_unchanged": true,
+  "all_original_numerical_gates_passed": true,
+  "scope": "Two genuine author example grids only; fresh R reference draws and current Python. No full study, independent ecological accuracy, historical runtime, redistribution rights, secondary-R-source admission or hosted release claim.",
+  "maintained_report_projection": {
+    "report": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-source-site-review/retained-products/report.json",
+      "sha256": "4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f",
+      "bytes": 55141
+    },
+    "maintained_verify_report": {
+      "passed": true,
+      "grids": [
+        "512",
+        "562"
+      ],
+      "raw_bytes_verified": true
+    },
+    "scope": "New actual commands/source/runtime/output epoch. No old9dd1 provenance copied or inferred."
+  },
+  "prior_failed_metadata_review": {
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-serialized-output-review/plan.json",
+      "sha256": "67e3dcdcc3c5b7da5dbb775fa22406f79db79a2d6a8afc687094ff9e6c0f40b2",
+      "bytes": 65863168
+    },
+    "outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-serialized-output-review/author-grid-review-terminal.json",
+      "sha256": "130995be325e29547c76d32ca4835805916e51ab2a6f6db25fd84dccb81d937d",
+      "bytes": 925
+    },
+    "terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-serialized-output-review/terminal.json",
+      "sha256": "b156e5106673a21ad262e8780c1ba97666919c589d755aca5dcd7b955264d618",
+      "bytes": 60803
+    },
+    "actual_exit": 1,
+    "failure": "Global source-site bootstrap IDs were incorrectly compared to compact available-site cardinality."
+  },
+  "metadata_review_candidate": "2784d4eae839e4a4e43f80ec77fd26bd0172aff0",
+  "original_whole_job": {
+    "terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-numerical-comparison/terminal.json",
+      "sha256": "1842fe6e1d68f36d427aaa3ec8742b038407968cb188bfc8eff6daf32ad0bb8d",
+      "bytes": 60649
+    },
+    "outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-numerical-comparison/author-grid-terminal.json",
+      "sha256": "706d3009a9831521f97e049faef4cb6626188cb25e7b28f037be70c1327cd72b",
+      "bytes": 921
+    },
+    "actual_exit": 1,
+    "successful_numerical_stages": [
+      0,
+      0
+    ],
+    "failed_observer": {
+      "id": "independent-complete-grid-site-draw-observer",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-report-custody/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-numerical-comparison/plan.json"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 1,
+      "timed_out": false,
+      "elapsed_seconds": 16.33631141699152,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-numerical-comparison/independent-complete-grid-site-draw-observer.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-author-grid-numerical-comparison/independent-complete-grid-site-draw-observer.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "77d8469423b292c470300eeeb61b23788a1da48d6c295153ab0816644b959c3c",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 276971520
+    }
+  },
+  "actual_R_model_comparator_replays": 0,
+  "exact_publication_input_substitutions": [
+    "docs/report/pollen-reconstruction/author-lra-constrained/README.md",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/site-sensitivity.json",
+    "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md",
+    "docs/report/pollen-reconstruction/author-lra-constrained/predictions.csv",
+    "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md",
+    "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
+    "docs/report/pollen-reconstruction/author-lra-constrained/report.json",
+    "docs/report/pollen-reconstruction/author-lra-constrained/scores.csv",
+    "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
+    "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md",
+    "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
+    "docs/report/report_narrative_quality_review.json",
+    "docs/report/report_surface_registry.json",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json",
+    "presentation/retained-build-source-context.json",
+    "reports/exports/site-downloads.json",
+    "reports/needed/report-claims.csv",
+    "reports/needed/scientific-review.csv",
+    "reports/science/english-lra-pollen-prediction.md",
+    "reports/source-lock.json"
+  ]
+}

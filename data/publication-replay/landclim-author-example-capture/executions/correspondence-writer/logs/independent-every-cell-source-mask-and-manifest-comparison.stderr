@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-producer-custody/observe.py", line 160, in <module>
+    main()
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-producer-custody/observe.py", line 40, in main
+    review = qualify_ledger(raw, source)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-producer-custody/ledger_contract.py", line 204, in qualify_ledger
+    cells, summaries, grids = independent_cells(raw_root)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-grid-producer-custody/ledger_contract.py", line 149, in independent_cells
+    assert math.isnan(got) and math.isnan(wanted), (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Unavailable estimate became numeric

@@ -30,6 +30,7 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.author_grid.admission import validated_author_grid_capture
 from .scientific_captures.author_native_reference import (
     validated_author_native_reference_capture,
 )
@@ -278,8 +279,12 @@ def validated_maintained_report_sources(
             repository, tracked_by_path, inventory["owners"]
         )
     )
+    author_grid_entries, author_grid_evidence = validated_author_grid_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
-        capture_entries
+        author_grid_entries
+        + capture_entries
         + parameter_entries
         + chronology_entries
         + nordic_entries
@@ -350,4 +355,6 @@ def validated_maintained_report_sources(
         evidence["retained_controlled_lra_comparison_capture"] = (
             controlled_numerical_evidence
         )
+    if author_grid_entries:
+        evidence["retained_author_grid_capture"] = author_grid_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence
