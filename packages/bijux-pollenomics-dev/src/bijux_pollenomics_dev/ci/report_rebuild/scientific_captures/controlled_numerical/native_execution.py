@@ -59,6 +59,7 @@ def native_records(
     outer: dict[str, Any],
     review: dict[str, Any],
 ) -> None:
+    """Read exact retained native records under their declared source authority."""
     _require(
         all(
             v["candidate"] == ORIGINAL_CANDIDATE

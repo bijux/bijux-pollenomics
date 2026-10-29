@@ -34,16 +34,19 @@ THREADS = dict.fromkeys(
 
 
 def require(condition: bool, reason: str) -> None:
+    """Refuse retained performance evidence that violates its declared contract."""
     if not condition:
         raise ValueError(reason)
 
 
 def sha(path: Path) -> str:
+    """Return the byte digest of a declared retained file."""
     with path.open("rb") as stream:
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
 def pin(path: Path) -> dict[str, Any]:
+    """Describe one regular confined file with its byte identity."""
     require(
         path.is_absolute() and path.resolve() == path and path.is_file(),
         "file is absent, linked or unconfined",
@@ -56,10 +59,12 @@ def pin(path: Path) -> dict[str, Any]:
 
 
 def json_value(path: Path) -> Any:
+    """Decode the declared retained JSON file."""
     return json.loads(path.read_bytes())
 
 
 def exact(left: Any, right: Any) -> bool:
+    """Compare ordered native values without collapsing types or signed zero."""
     if type(left) is not type(right):
         return False
     if isinstance(left, dict):
@@ -74,6 +79,7 @@ def exact(left: Any, right: Any) -> bool:
 
 
 def relative_name(value: str) -> str:
+    """Require a confined canonical relative member name."""
     path = PurePosixPath(value)
     require(
         bool(value)
@@ -86,6 +92,7 @@ def relative_name(value: str) -> str:
 
 
 def scientific_digest(value: Any) -> str:
+    """Digest canonical finite scientific metadata."""
     return hashlib.sha256(
         json.dumps(
             value, sort_keys=True, separators=(",", ":"), allow_nan=False
@@ -171,6 +178,7 @@ def _validate_source_transport(
 
 
 def qualified_execution(root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Validate the retained execution and its declared source and output identities."""
     for name, digest in (
         ("plan.json", PLAN_SHA256),
         ("terminal.json", COMMON_SHA256),
@@ -287,6 +295,7 @@ def qualified_execution(root: Path) -> tuple[dict[str, Any], dict[str, Any]]:
 def measurement_projection(
     root: Path, plan: dict[str, Any], review: dict[str, Any]
 ) -> dict[str, Any]:
+    """Project retained measurements within their declared workload and resource scope."""
     observations: list[dict[str, Any]] = []
     boundaries: dict[str, list[dict[str, Any]]] = {}
     identities: dict[str, Any] = {}
@@ -431,6 +440,7 @@ def measurement_projection(
 
 
 def write_json(path: Path, value: Any) -> None:
+    """Write one absent JSON output with finite native values."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("x", encoding="utf-8") as stream:
         json.dump(value, stream, indent=2, allow_nan=False)

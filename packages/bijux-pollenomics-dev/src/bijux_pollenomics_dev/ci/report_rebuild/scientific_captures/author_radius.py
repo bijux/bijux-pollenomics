@@ -20,6 +20,8 @@ EXPECTED_MEMBERS = 5382
 
 
 class ExecutionAuthority(TypedDict):
+    """Identify the retained radius execution and its declared evidence scope."""
+
     candidate: str
     plan_sha256: str
     outer_file: str
