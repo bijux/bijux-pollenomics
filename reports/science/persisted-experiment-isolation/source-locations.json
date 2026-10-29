@@ -1,0 +1,25 @@
+{
+  "direct_clone_replay_admitted": false,
+  "members": [
+    {
+      "bytes": 14645,
+      "canonical_path": "reports/science/persisted-experiment-isolation/source/replay.py",
+      "executed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/development-input-isolation-saved-handoff/proposal/source/replay.py",
+      "sha256": "dd0173b484ce218232ce5ba2910a707c34a3236a50477659b06d5927e561ef13"
+    },
+    {
+      "bytes": 12402,
+      "canonical_path": "reports/science/persisted-experiment-isolation/source/evidence.py",
+      "executed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/development-input-isolation-saved-handoff/proposal/source/evidence.py",
+      "sha256": "f205de8d94530cca6626209b0041e5dd381639c5f78e87a15855e23f8b871bc1"
+    },
+    {
+      "bytes": 43732,
+      "canonical_path": "reports/science/persisted-experiment-isolation/protocol.json",
+      "executed_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/development-input-isolation-saved-handoff/proposal/protocol.json",
+      "sha256": "125f0564b7e24756287b37a2a7b03883851d0dfb8e515589ff8e95c47622abb2"
+    }
+  ],
+  "schema_version": "persisted-experiment-isolation-source-locations.v1",
+  "scope": "Exact executed protocol/source bytes preserved. Protocol retains original artifact paths; prepare an isolated source-bound registered view before executing. This location map does not change numerical inputs or assert direct sparse replay."
+}

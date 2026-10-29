@@ -1,0 +1,30 @@
+{
+  "locations": [
+    {
+      "bytes": 9050,
+      "canonical_path": "reports/science/author-love-analytical-diagnostics/source/inputs.py",
+      "original_path": "artifacts/science/author-love-analytical-cohort-proposal/source/inputs.py",
+      "sha256": "2f6be1c6719f02dd02a063ff26c5c8d6d1f279a4b7481d1d0ab6084825ea081d"
+    },
+    {
+      "bytes": 12656,
+      "canonical_path": "reports/science/author-love-analytical-diagnostics/source/replay.py",
+      "original_path": "artifacts/science/author-love-analytical-cohort-proposal/source/replay.py",
+      "sha256": "b6b7578092bfacb4ec4a0b4fed8081446b8fb47328f52350a79801ae50b42f0b"
+    },
+    {
+      "bytes": 28142,
+      "canonical_path": "reports/science/author-love-analytical-diagnostics/protocol.json",
+      "original_path": "artifacts/science/author-love-analytical-cohort-proposal/protocol.json",
+      "sha256": "17a56327cab995eb3f44b3c2fd03a68d0de31261c87d13d0a236bf3d5ba55b89"
+    }
+  ],
+  "original_plan": {
+    "bytes": 908394,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-analytical-cohort-execution/plan.json",
+    "sha256": "ed7160afdce866048036589c3a9884782899fe1a51fb0b57c02545469efde503"
+  },
+  "replay_qualification": "Exact executed source/protocol bytes in a canonical responsibility library; preserve original source namespace and registered plan identities. This is provenance transport, not a new execution or standalone replay. Original37 inputs, nominal descriptor/certificate/native1/recovery0 chain and borrowed numerical sources, derived LRA metadata and admitted runtime must be restored and a fresh exact plan admitted before replay.",
+  "schema_version": "author-love-analytical-source-locations.v1",
+  "source_candidate": "23ea4670d12ee6f61e0fb086c20f6dfe455eb0e4"
+}

@@ -114,5 +114,13 @@
     "checks": 104617,
     "status": "passed",
     "scope": "Independent standard-library receipt, CSV/JSON, exact source/denominator and controlled-return identity audit; no producer import, model rerun or human/biological/rights acceptance."
+  },
+  "current_physical_custody": {
+    "account": "package-custody.json",
+    "historical_qualification_only": "Original bundle/physical/completion/terminal and historical test/audit identities in this document remain unchanged. Their missing originals are not replaced by current source-bound execution.",
+    "original_missing_bundle_restored": false,
+    "saved_output_admission_sha256": "6cc619015ef58ab6eef6a307d0a5ee64652358fe836c706f1ca49c23f98a392c",
+    "source_candidate": "b30acdff340aa36c9ab28974232f73badd53393d",
+    "account_sha256": "a901097c3da24a7e1774aca4659dbb96d176c906438faae5bb96f90cf331b347"
   }
 }

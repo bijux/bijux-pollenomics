@@ -1,0 +1,6286 @@
+{
+  "counts": {
+    "folds": 15,
+    "logical_attempt_references": 12480,
+    "logical_requests": 195,
+    "new_attempts": 896,
+    "prediction_slots": 45,
+    "reused_attempts": 832,
+    "unique_attempts": 1728,
+    "unique_requests": 27
+  },
+  "exposure": "Homogeneous retrospective prior-exposed fifteen-site diagnostic; original uniform evaluations remain separate.",
+  "failures": [],
+  "predicted_folds": 15,
+  "prediction_freeze": {
+    "bytes": 1625224,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/native/products/prediction-freeze.json",
+    "sha256": "1459879a51fe6263e587316a7eeaf80baffbe74b717618024618b7d5f944d81b"
+  },
+  "profile": "author-love-fixed-start-cohort-diagnostic",
+  "refused_folds": 0,
+  "schema_version": "author-love-cohort-development.v1",
+  "scientific_acceptance": "not_evaluated",
+  "scores": [
+    {
+      "baseline": "training_mean",
+      "bias_fraction": 6.577493179745393e-19,
+      "count_conditioned_deviance": 1345.4796571944219,
+      "fold_id": "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+      "mae_fraction": 0.01947189875169232,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2207,
+      "record_id": "author:GOURTEMIRES",
+      "rmse_fraction": 0.05208409741657348,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0019223888045277744
+        ],
+        [
+          "Alnus.glutinosa",
+          0.1943411981901992
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0016216361764917588
+        ],
+        [
+          "Artemisia",
+          0.0015409005247049444
+        ],
+        [
+          "Betula",
+          0.011116366049315585
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0012745552130631185
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.12912714802390407
+        ],
+        [
+          "Carpinus.betulus",
+          0.0017897980423258113
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0012460703670239982
+        ],
+        [
+          "Castanea",
+          0.0011662657816151453
+        ],
+        [
+          "Cerealia.t",
+          0.0024275987681633623
+        ],
+        [
+          "Corylus.avellana",
+          0.02534568642352651
+        ],
+        [
+          "Cyperaceae",
+          0.013845092974866177
+        ],
+        [
+          "Ericaceae",
+          0.0038744118181473905
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0026580176305139843
+        ],
+        [
+          "Fraxinus",
+          -0.002186360993618181
+        ],
+        [
+          "Juniperus",
+          0.0008481066626391526
+        ],
+        [
+          "Phillyrea",
+          0.0011646589203460126
+        ],
+        [
+          "Picea",
+          0.0014296716227401342
+        ],
+        [
+          "Pinus",
+          0.0019576172056166717
+        ],
+        [
+          "Pistacia",
+          0.0012483573147657704
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.005894294755000723
+        ],
+        [
+          "Poaceae",
+          -0.16076497225786252
+        ],
+        [
+          "Quercus.deciduous",
+          0.0024047584495040103
+        ],
+        [
+          "Quercus.evergreen",
+          0.0013013849185614995
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0022495333464356065
+        ],
+        [
+          "Salix",
+          0.004905310284243628
+        ],
+        [
+          "Secale",
+          0.0020266311425356496
+        ],
+        [
+          "Tilia",
+          0.0013236843015189193
+        ],
+        [
+          "Ulmus",
+          0.001154485586992254
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.2920784812753848,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": -2.2930875948068417e-18,
+      "count_conditioned_deviance": 457.9318298567254,
+      "fold_id": "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+      "mae_fraction": 0.0091921223219753,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2207,
+      "record_id": "author:GOURTEMIRES",
+      "rmse_fraction": 0.025634186491041634,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0008620396408988394
+        ],
+        [
+          "Alnus.glutinosa",
+          0.006903249427766675
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0012836512710329823
+        ],
+        [
+          "Artemisia",
+          0.00021337200563193088
+        ],
+        [
+          "Betula",
+          0.007179782241524247
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008496562009721946
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.126805487793822
+        ],
+        [
+          "Carpinus.betulus",
+          0.0003977715161795745
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008508752929640422
+        ],
+        [
+          "Castanea",
+          0.0008471542834810569
+        ],
+        [
+          "Cerealia.t",
+          0.005517588011653627
+        ],
+        [
+          "Corylus.avellana",
+          0.006532104192722835
+        ],
+        [
+          "Cyperaceae",
+          0.043800144837339225
+        ],
+        [
+          "Ericaceae",
+          -0.000962033474235172
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.003687878193347517
+        ],
+        [
+          "Fraxinus",
+          -0.001674492010655751
+        ],
+        [
+          "Juniperus",
+          -5.839558257753638e-05
+        ],
+        [
+          "Phillyrea",
+          0.0008477010421635021
+        ],
+        [
+          "Picea",
+          0.000852666560220843
+        ],
+        [
+          "Pinus",
+          -0.00016951502960371083
+        ],
+        [
+          "Pistacia",
+          0.0008494185182816118
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.0059236957210367265
+        ],
+        [
+          "Poaceae",
+          0.03484181921491547
+        ],
+        [
+          "Quercus.deciduous",
+          -0.004524032745387846
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008500165948210029
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.01563653819986915
+        ],
+        [
+          "Salix",
+          8.289183590876438e-05
+        ],
+        [
+          "Secale",
+          0.001877206775106542
+        ],
+        [
+          "Tilia",
+          0.0003965524490883102
+        ],
+        [
+          "Ulmus",
+          0.00048593899605031167
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.13788183482962948,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": 1.7853195773594638e-18,
+      "count_conditioned_deviance": 514.3129020330763,
+      "fold_id": "site-group:13529a5dafe285fccce56381df12a57a637c6603c99b13e670713af2edb2ab73",
+      "mae_fraction": 0.009404746730103452,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2207,
+      "record_id": "author:GOURTEMIRES",
+      "rmse_fraction": 0.02693018259538629,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0008836707504452629
+        ],
+        [
+          "Alnus.glutinosa",
+          0.011565284218310672
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0012759338892872675
+        ],
+        [
+          "Artemisia",
+          0.0002528173663652807
+        ],
+        [
+          "Betula",
+          0.00719658380539072
+        ],
+        [
+          "Buxus.sempervirens",
+          0.000858796313621018
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.1327416721129759
+        ],
+        [
+          "Carpinus.betulus",
+          0.00045421457472517363
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008592016878327047
+        ],
+        [
+          "Castanea",
+          0.0008545619496086958
+        ],
+        [
+          "Cerealia.t",
+          0.005113407879721526
+        ],
+        [
+          "Corylus.avellana",
+          0.0048390232190237
+        ],
+        [
+          "Cyperaceae",
+          0.05492988358806898
+        ],
+        [
+          "Ericaceae",
+          -0.0007912145826933575
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.0034581933799301967
+        ],
+        [
+          "Fraxinus",
+          -0.0016479585181302736
+        ],
+        [
+          "Juniperus",
+          -3.824984897628442e-06
+        ],
+        [
+          "Phillyrea",
+          0.0008549363314010848
+        ],
+        [
+          "Picea",
+          0.000864494701189103
+        ],
+        [
+          "Pinus",
+          0.00013308903728062376
+        ],
+        [
+          "Pistacia",
+          0.0008580669900263862
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.005484077906254534
+        ],
+        [
+          "Poaceae",
+          0.024833526840649656
+        ],
+        [
+          "Quercus.deciduous",
+          -0.0024283373729243884
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008596339930996136
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.014261797541835694
+        ],
+        [
+          "Salix",
+          0.0007761948316553433
+        ],
+        [
+          "Secale",
+          0.0019567324215490284
+        ],
+        [
+          "Tilia",
+          0.0004675404952168797
+        ],
+        [
+          "Ulmus",
+          0.0006377306189928396
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.1410712009515518,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": 3.773023560249555e-18,
+      "count_conditioned_deviance": 464.4904666775386,
+      "fold_id": "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+      "mae_fraction": 0.018335071337181038,
+      "missing_observed_taxa": [],
+      "observed_total_count": 833,
+      "record_id": "author:LONGBREACH",
+      "rmse_fraction": 0.05443382442446742,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.001922545308470419
+        ],
+        [
+          "Alnus.glutinosa",
+          0.19114653060126133
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0013128181551274036
+        ],
+        [
+          "Artemisia",
+          0.002492431300539985
+        ],
+        [
+          "Betula",
+          0.009172844110600516
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0012746046151094303
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.009929434604231083
+        ],
+        [
+          "Carpinus.betulus",
+          0.002265713629794391
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0012460864916281006
+        ],
+        [
+          "Castanea",
+          0.0011662967194370267
+        ],
+        [
+          "Cerealia.t",
+          -0.0033995872170330256
+        ],
+        [
+          "Corylus.avellana",
+          0.017228601216467354
+        ],
+        [
+          "Cyperaceae",
+          -0.024076290307805726
+        ],
+        [
+          "Ericaceae",
+          0.005777966457057393
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0069652450549076575
+        ],
+        [
+          "Fraxinus",
+          0.0019519866124279432
+        ],
+        [
+          "Juniperus",
+          0.0017994498942415745
+        ],
+        [
+          "Phillyrea",
+          0.0011646801178982146
+        ],
+        [
+          "Picea",
+          0.001429750439510818
+        ],
+        [
+          "Pinus",
+          0.0035517709455861607
+        ],
+        [
+          "Pistacia",
+          0.0012483972741826987
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.000978282803811223
+        ],
+        [
+          "Poaceae",
+          -0.22558244028099594
+        ],
+        [
+          "Quercus.deciduous",
+          0.008457158490194114
+        ],
+        [
+          "Quercus.evergreen",
+          0.0013014418770813168
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.01203831764764964
+        ],
+        [
+          "Salix",
+          0.006333134322987405
+        ],
+        [
+          "Secale",
+          0.0007661354045352434
+        ],
+        [
+          "Tilia",
+          0.0017994740560623589
+        ],
+        [
+          "Ulmus",
+          0.002272724158795465
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.27502607005771557,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 2.284052576702796e-18,
+      "count_conditioned_deviance": 106.99002924398393,
+      "fold_id": "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+      "mae_fraction": 0.008350384129679948,
+      "missing_observed_taxa": [],
+      "observed_total_count": 833,
+      "record_id": "author:LONGBREACH",
+      "rmse_fraction": 0.021057922265900954,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0008613506714530225
+        ],
+        [
+          "Alnus.glutinosa",
+          0.0012434293237952795
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0007401221312734966
+        ],
+        [
+          "Artemisia",
+          0.0018887192256161155
+        ],
+        [
+          "Betula",
+          0.004542009949860069
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008491529853494263
+        ],
+        [
+          "Calluna.vulgaris",
+          0.07992765662006399
+        ],
+        [
+          "Carpinus.betulus",
+          0.0012357006971301671
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008498983755811767
+        ],
+        [
+          "Castanea",
+          0.0008466711689220857
+        ],
+        [
+          "Cerealia.t",
+          -0.00476350438285686
+        ],
+        [
+          "Corylus.avellana",
+          -0.007487214454976257
+        ],
+        [
+          "Cyperaceae",
+          -0.022499790916226947
+        ],
+        [
+          "Ericaceae",
+          0.002390163423755787
+        ],
+        [
+          "Fagus.sylvatica",
+          0.003906657975908734
+        ],
+        [
+          "Fraxinus",
+          0.005611479402209196
+        ],
+        [
+          "Juniperus",
+          0.0016150854790298243
+        ],
+        [
+          "Phillyrea",
+          0.0008470585535459702
+        ],
+        [
+          "Picea",
+          0.000852183345148497
+        ],
+        [
+          "Pinus",
+          0.0026388615472918023
+        ],
+        [
+          "Pistacia",
+          0.0008488364308159415
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.0027033720424169475
+        ],
+        [
+          "Poaceae",
+          -0.07798276158640954
+        ],
+        [
+          "Quercus.deciduous",
+          0.00642480412058305
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008495584548686434
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.009471333286299906
+        ],
+        [
+          "Salix",
+          0.0025959502173831567
+        ],
+        [
+          "Secale",
+          -0.00034778527601273456
+        ],
+        [
+          "Tilia",
+          0.0012338074277523138
+        ],
+        [
+          "Ulmus",
+          0.002456604417861513
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.12525576194519922,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": 6.56303715077892e-18,
+      "count_conditioned_deviance": 95.11492417181778,
+      "fold_id": "site-group:1f9359847f550894836966e4771c639f049f52bd78aecd71fbc6ac7ffb51f612",
+      "mae_fraction": 0.007705567210839939,
+      "missing_observed_taxa": [],
+      "observed_total_count": 833,
+      "record_id": "author:LONGBREACH",
+      "rmse_fraction": 0.019068456145098674,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0008905970956720988
+        ],
+        [
+          "Alnus.glutinosa",
+          0.005671949882868319
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0007711434518752642
+        ],
+        [
+          "Artemisia",
+          0.001835735482597268
+        ],
+        [
+          "Betula",
+          0.004655718843239105
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008608835722462341
+        ],
+        [
+          "Calluna.vulgaris",
+          0.06318683114693088
+        ],
+        [
+          "Carpinus.betulus",
+          0.0012584001626378305
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008612914866171414
+        ],
+        [
+          "Castanea",
+          0.0008557243862370809
+        ],
+        [
+          "Cerealia.t",
+          -0.004624403723922007
+        ],
+        [
+          "Corylus.avellana",
+          -0.007474635123100676
+        ],
+        [
+          "Cyperaceae",
+          -0.011455592284558613
+        ],
+        [
+          "Ericaceae",
+          0.0023713726296893116
+        ],
+        [
+          "Fagus.sylvatica",
+          0.003748618245945522
+        ],
+        [
+          "Fraxinus",
+          0.005268586523521426
+        ],
+        [
+          "Juniperus",
+          0.0015702973902003768
+        ],
+        [
+          "Phillyrea",
+          0.0008561518218411328
+        ],
+        [
+          "Picea",
+          0.0008677639582088316
+        ],
+        [
+          "Pinus",
+          0.002770266964332516
+        ],
+        [
+          "Pistacia",
+          0.0008599880226010634
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.0023924508986635125
+        ],
+        [
+          "Poaceae",
+          -0.07998423871773375
+        ],
+        [
+          "Quercus.deciduous",
+          0.00853255360045603
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008619019678125019
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.009464811764856248
+        ],
+        [
+          "Salix",
+          0.003274963658674487
+        ],
+        [
+          "Secale",
+          -0.00018737564976418824
+        ],
+        [
+          "Tilia",
+          0.001251056114982597
+        ],
+        [
+          "Ulmus",
+          0.0025017117534121783
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.11558350816259909,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -1.8033896135675557e-18,
+      "count_conditioned_deviance": 541.0001511539089,
+      "fold_id": "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+      "mae_fraction": 0.017166398554870673,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1150,
+      "record_id": "author:CUTHILL2",
+      "rmse_fraction": 0.039363323854614024,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0007046159689521148
+        ],
+        [
+          "Alnus.glutinosa",
+          0.08413434789037019
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.00039129394184855186
+        ],
+        [
+          "Artemisia",
+          0.0003770251264000521
+        ],
+        [
+          "Betula",
+          -0.005516131364728841
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0007762911074544021
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.10249322265432508
+        ],
+        [
+          "Carpinus.betulus",
+          0.0004097645421593678
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0007192175693073667
+        ],
+        [
+          "Castanea",
+          0.0007923486246145834
+        ],
+        [
+          "Cerealia.t",
+          -0.00028457246377564405
+        ],
+        [
+          "Corylus.avellana",
+          -0.08113088856202001
+        ],
+        [
+          "Cyperaceae",
+          0.1361505799657138
+        ],
+        [
+          "Ericaceae",
+          -0.002932174439165842
+        ],
+        [
+          "Fagus.sylvatica",
+          0.004478386725285474
+        ],
+        [
+          "Fraxinus",
+          0.0021960657489015767
+        ],
+        [
+          "Juniperus",
+          0.0011989120240927266
+        ],
+        [
+          "Phillyrea",
+          0.0007720239368986378
+        ],
+        [
+          "Picea",
+          0.0007667669355447587
+        ],
+        [
+          "Pinus",
+          0.0038097589160517773
+        ],
+        [
+          "Pistacia",
+          0.0007679311136331569
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.004967279544233354
+        ],
+        [
+          "Poaceae",
+          -0.059666946048659575
+        ],
+        [
+          "Quercus.deciduous",
+          0.007969037880267663
+        ],
+        [
+          "Quercus.evergreen",
+          0.0007806276016710077
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.005826729350041096
+        ],
+        [
+          "Salix",
+          0.003603119417873539
+        ],
+        [
+          "Secale",
+          0.001074687318660035
+        ],
+        [
+          "Tilia",
+          0.0001877405591667031
+        ],
+        [
+          "Ulmus",
+          -0.00011346930430320302
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.2574959783230601,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": -3.180326372624146e-19,
+      "count_conditioned_deviance": 380.2023579442277,
+      "fold_id": "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+      "mae_fraction": 0.016306794233196278,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1150,
+      "record_id": "author:CUTHILL2",
+      "rmse_fraction": 0.03932512474923839,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0011948848125688388
+        ],
+        [
+          "Alnus.glutinosa",
+          0.00567496536779713
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0005191367592962824
+        ],
+        [
+          "Artemisia",
+          0.0008149947462248628
+        ],
+        [
+          "Betula",
+          0.008688071629942652
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0010763690924895115
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.07215961014703955
+        ],
+        [
+          "Carpinus.betulus",
+          0.0007454376472059253
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0010589470810991593
+        ],
+        [
+          "Castanea",
+          0.0010468930713304835
+        ],
+        [
+          "Cerealia.t",
+          -9.839099331243996e-05
+        ],
+        [
+          "Corylus.avellana",
+          0.02917445694293938
+        ],
+        [
+          "Cyperaceae",
+          0.08555930865852554
+        ],
+        [
+          "Ericaceae",
+          -0.0013646225354020762
+        ],
+        [
+          "Fagus.sylvatica",
+          0.010806126419842145
+        ],
+        [
+          "Fraxinus",
+          0.002545971809460739
+        ],
+        [
+          "Juniperus",
+          0.001054443648694165
+        ],
+        [
+          "Phillyrea",
+          0.0010445706608257312
+        ],
+        [
+          "Picea",
+          0.001113525271365552
+        ],
+        [
+          "Pinus",
+          0.0050800477393497115
+        ],
+        [
+          "Pistacia",
+          0.0010684631106366675
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.0201045345929048
+        ],
+        [
+          "Poaceae",
+          -0.16930018070836433
+        ],
+        [
+          "Quercus.deciduous",
+          0.060521313525441295
+        ],
+        [
+          "Quercus.evergreen",
+          0.0010837200379283792
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0035268549796131574
+        ],
+        [
+          "Salix",
+          0.00029498309058526126
+        ],
+        [
+          "Secale",
+          0.0011182424314252718
+        ],
+        [
+          "Tilia",
+          0.00020478712974779454
+        ],
+        [
+          "Ulmus",
+          -0.0011599723545294986
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.24460191349794416,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": 6.299214622140781e-18,
+      "count_conditioned_deviance": 617.5633048860315,
+      "fold_id": "site-group:22da3666ebd12109481f6d48d4810122c554bcc2adc140ad387eb3801bf9a179",
+      "mae_fraction": 0.02092917720619443,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1150,
+      "record_id": "author:CUTHILL2",
+      "rmse_fraction": 0.05456383531529782,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0012800290896993504
+        ],
+        [
+          "Alnus.glutinosa",
+          0.19676545835578857
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          6.116895299030853e-05
+        ],
+        [
+          "Artemisia",
+          0.0014773827628542658
+        ],
+        [
+          "Betula",
+          -0.0009162024344172223
+        ],
+        [
+          "Buxus.sempervirens",
+          0.001190160399808699
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.07460579309759147
+        ],
+        [
+          "Carpinus.betulus",
+          0.001363827435649543
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0010992473328389958
+        ],
+        [
+          "Castanea",
+          0.0011568076133930884
+        ],
+        [
+          "Cerealia.t",
+          8.696963612535974e-05
+        ],
+        [
+          "Corylus.avellana",
+          -0.04263794827682195
+        ],
+        [
+          "Cyperaceae",
+          0.07045874648816769
+        ],
+        [
+          "Ericaceae",
+          0.0001490593584985685
+        ],
+        [
+          "Fagus.sylvatica",
+          0.010463224794600396
+        ],
+        [
+          "Fraxinus",
+          0.0010736319059063042
+        ],
+        [
+          "Juniperus",
+          0.0019400923112043317
+        ],
+        [
+          "Phillyrea",
+          0.0011299245481413312
+        ],
+        [
+          "Picea",
+          0.001240928005733344
+        ],
+        [
+          "Pinus",
+          0.004322237540441941
+        ],
+        [
+          "Pistacia",
+          0.0011667141391120419
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.00015434133044611373
+        ],
+        [
+          "Poaceae",
+          -0.19486178171635382
+        ],
+        [
+          "Quercus.deciduous",
+          0.011079348868889907
+        ],
+        [
+          "Quercus.evergreen",
+          0.0012081598993328284
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.001919090307282753
+        ],
+        [
+          "Salix",
+          0.0013511275679290002
+        ],
+        [
+          "Secale",
+          0.0012456275060876512
+        ],
+        [
+          "Tilia",
+          0.000708693272440209
+        ],
+        [
+          "Ulmus",
+          -0.0007615912372858054
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.31393765809291646,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -7.054542135639015e-18,
+      "count_conditioned_deviance": 2440.190808381113,
+      "fold_id": "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+      "mae_fraction": 0.03135291702672644,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1861,
+      "record_id": "author:HARESDOWN",
+      "rmse_fraction": 0.08106633917270999,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.002547579231104896
+        ],
+        [
+          "Alnus.glutinosa",
+          0.19089668966466744
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0014546125883890414
+        ],
+        [
+          "Artemisia",
+          0.0025291522202739976
+        ],
+        [
+          "Betula",
+          0.009936008686545953
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0013773784018025282
+        ],
+        [
+          "Calluna.vulgaris",
+          0.08456263803073012
+        ],
+        [
+          "Carpinus.betulus",
+          0.0024925689981770286
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0013745834000924075
+        ],
+        [
+          "Castanea",
+          0.001209206441043045
+        ],
+        [
+          "Cerealia.t",
+          0.0010666238320806002
+        ],
+        [
+          "Corylus.avellana",
+          0.0866706378785201
+        ],
+        [
+          "Cyperaceae",
+          -0.36544757206642037
+        ],
+        [
+          "Ericaceae",
+          0.006292743211582004
+        ],
+        [
+          "Fagus.sylvatica",
+          0.008699678520175051
+        ],
+        [
+          "Fraxinus",
+          0.0028346747471101304
+        ],
+        [
+          "Juniperus",
+          0.00188319912650918
+        ],
+        [
+          "Phillyrea",
+          0.0012186330879645063
+        ],
+        [
+          "Picea",
+          0.0016238735095297596
+        ],
+        [
+          "Pinus",
+          0.0003198365975841458
+        ],
+        [
+          "Pistacia",
+          0.0013438515175223382
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.017427137160827357
+        ],
+        [
+          "Poaceae",
+          -0.10484618333447632
+        ],
+        [
+          "Quercus.deciduous",
+          0.030137572772398785
+        ],
+        [
+          "Quercus.evergreen",
+          0.0014147323793780415
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0008794107244011803
+        ],
+        [
+          "Salix",
+          0.0041897976477498575
+        ],
+        [
+          "Secale",
+          0.002318253312484762
+        ],
+        [
+          "Tilia",
+          0.0013792726712940247
+        ],
+        [
+          "Ulmus",
+          0.0022134090409581817
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.47029375540089663,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": -3.816391647148976e-18,
+      "count_conditioned_deviance": 508.9026592367569,
+      "fold_id": "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+      "mae_fraction": 0.014241993638165383,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1861,
+      "record_id": "author:HARESDOWN",
+      "rmse_fraction": 0.03148628523060597,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0009032473394782779
+        ],
+        [
+          "Alnus.glutinosa",
+          0.044753124252644105
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0010240181937567537
+        ],
+        [
+          "Artemisia",
+          0.0010958943393607062
+        ],
+        [
+          "Betula",
+          0.003946088729315976
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008802839183956974
+        ],
+        [
+          "Calluna.vulgaris",
+          0.04245863018728928
+        ],
+        [
+          "Carpinus.betulus",
+          0.0008829026423941779
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008780685596500259
+        ],
+        [
+          "Castanea",
+          0.0008757095262305442
+        ],
+        [
+          "Cerealia.t",
+          0.004545735172422974
+        ],
+        [
+          "Corylus.avellana",
+          0.023799769935821214
+        ],
+        [
+          "Cyperaceae",
+          -0.09736351794719711
+        ],
+        [
+          "Ericaceae",
+          0.0037828959367536075
+        ],
+        [
+          "Fagus.sylvatica",
+          0.004558714218909357
+        ],
+        [
+          "Fraxinus",
+          0.0023006699015307346
+        ],
+        [
+          "Juniperus",
+          0.002796476134947147
+        ],
+        [
+          "Phillyrea",
+          0.0008751253335957033
+        ],
+        [
+          "Picea",
+          0.000886333343708516
+        ],
+        [
+          "Pinus",
+          0.0009911225389514864
+        ],
+        [
+          "Pistacia",
+          0.0008790434054691963
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.0011343196138534888
+        ],
+        [
+          "Poaceae",
+          -0.11547113308879292
+        ],
+        [
+          "Quercus.deciduous",
+          0.048088030057511014
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008814241376466884
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0031450037641842198
+        ],
+        [
+          "Salix",
+          -0.0007952535364907731
+        ],
+        [
+          "Secale",
+          0.010642198548569744
+        ],
+        [
+          "Tilia",
+          0.0022665708410072407
+        ],
+        [
+          "Ulmus",
+          0.004358503999082787
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.21362990457248074,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": -2.9923979960599924e-18,
+      "count_conditioned_deviance": 429.96949819266655,
+      "fold_id": "site-group:237b78af8fd76d5dad3bc7dba6e50b1e1af9c042740b7e5bbe72327ae9410906",
+      "mae_fraction": 0.01293239209493099,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1861,
+      "record_id": "author:HARESDOWN",
+      "rmse_fraction": 0.028614537410542,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0009420781599842474
+        ],
+        [
+          "Alnus.glutinosa",
+          0.043967861172237235
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0008409833598437646
+        ],
+        [
+          "Artemisia",
+          0.0012395907791063474
+        ],
+        [
+          "Betula",
+          0.004131574189309688
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008887499690612688
+        ],
+        [
+          "Calluna.vulgaris",
+          0.037007392999867175
+        ],
+        [
+          "Carpinus.betulus",
+          0.0009052997984475351
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008885825189728015
+        ],
+        [
+          "Castanea",
+          0.0008789514890960709
+        ],
+        [
+          "Cerealia.t",
+          0.003663036947127779
+        ],
+        [
+          "Corylus.avellana",
+          0.023597061768862015
+        ],
+        [
+          "Cyperaceae",
+          -0.10981132041148328
+        ],
+        [
+          "Ericaceae",
+          0.0033580868156696305
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0036239095506462177
+        ],
+        [
+          "Fraxinus",
+          0.002385684202703202
+        ],
+        [
+          "Juniperus",
+          0.002406093487454465
+        ],
+        [
+          "Phillyrea",
+          0.0008793253961496427
+        ],
+        [
+          "Picea",
+          0.0009015857883555007
+        ],
+        [
+          "Pinus",
+          0.001092689474096113
+        ],
+        [
+          "Pistacia",
+          0.0008868955391093229
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.00273842504829179
+        ],
+        [
+          "Poaceae",
+          -0.08365859814633902
+        ],
+        [
+          "Quercus.deciduous",
+          0.038188806193020855
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008907388570181973
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.003356649201965465
+        ],
+        [
+          "Salix",
+          -0.0005159628661425828
+        ],
+        [
+          "Secale",
+          0.008617695090583287
+        ],
+        [
+          "Tilia",
+          0.001876850198232929
+        ],
+        [
+          "Ulmus",
+          0.00383128342875226
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.19398588142396483,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -2.4864369822334235e-18,
+      "count_conditioned_deviance": 1434.6579382376726,
+      "fold_id": "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+      "mae_fraction": 0.02256439473097958,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2092,
+      "record_id": "author:BROADOWN",
+      "rmse_fraction": 0.050224204029968744,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.00039961841989838735
+        ],
+        [
+          "Alnus.glutinosa",
+          0.052002149805289846
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.001189429107880637
+        ],
+        [
+          "Artemisia",
+          0.0005191427219868522
+        ],
+        [
+          "Betula",
+          -0.007851427148082082
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0005084090649308862
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.07320601436816274
+        ],
+        [
+          "Carpinus.betulus",
+          0.00036621880297105474
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0004637702027181862
+        ],
+        [
+          "Castanea",
+          0.0005362500468498489
+        ],
+        [
+          "Cerealia.t",
+          0.000491791294455187
+        ],
+        [
+          "Corylus.avellana",
+          -0.17472825639620898
+        ],
+        [
+          "Cyperaceae",
+          0.15254555632660302
+        ],
+        [
+          "Ericaceae",
+          -0.0011991261912800075
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.0066697200928352
+        ],
+        [
+          "Fraxinus",
+          0.0019587679900311605
+        ],
+        [
+          "Juniperus",
+          0.000815838909521804
+        ],
+        [
+          "Phillyrea",
+          0.0005186184358502219
+        ],
+        [
+          "Picea",
+          0.000483877019088839
+        ],
+        [
+          "Pinus",
+          -0.0003615949572762806
+        ],
+        [
+          "Pistacia",
+          0.0005044166506056093
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.02502506494628362
+        ],
+        [
+          "Poaceae",
+          0.10186823917553811
+        ],
+        [
+          "Quercus.deciduous",
+          -0.049424716864564816
+        ],
+        [
+          "Quercus.evergreen",
+          0.000508958482444904
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.015044049369453347
+        ],
+        [
+          "Salix",
+          0.0038520535194179004
+        ],
+        [
+          "Secale",
+          0.0006838616888066914
+        ],
+        [
+          "Tilia",
+          0.0007343626331648637
+        ],
+        [
+          "Ulmus",
+          0.002470541297186273
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.3384659209646937,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 3.0068540250264657e-18,
+      "count_conditioned_deviance": 863.4535492380579,
+      "fold_id": "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+      "mae_fraction": 0.01593357031252622,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2092,
+      "record_id": "author:BROADOWN",
+      "rmse_fraction": 0.03471742501466679,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0013161239428984863
+        ],
+        [
+          "Alnus.glutinosa",
+          0.03716366339430037
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.003936351350920886
+        ],
+        [
+          "Artemisia",
+          0.004693869287235956
+        ],
+        [
+          "Betula",
+          0.005225384122562307
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0012962867807850525
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.05121691027540715
+        ],
+        [
+          "Carpinus.betulus",
+          0.0034975527481851416
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0011942899461118664
+        ],
+        [
+          "Castanea",
+          0.0012749015600161662
+        ],
+        [
+          "Cerealia.t",
+          0.0021169122842399565
+        ],
+        [
+          "Corylus.avellana",
+          -0.13124635930666584
+        ],
+        [
+          "Cyperaceae",
+          0.11262682852123382
+        ],
+        [
+          "Ericaceae",
+          0.0032103896685109806
+        ],
+        [
+          "Fagus.sylvatica",
+          0.011944546326819003
+        ],
+        [
+          "Fraxinus",
+          0.0009353911869516189
+        ],
+        [
+          "Juniperus",
+          0.0038476144483636275
+        ],
+        [
+          "Phillyrea",
+          0.0012462442178381122
+        ],
+        [
+          "Picea",
+          0.0013313747653003467
+        ],
+        [
+          "Pinus",
+          0.0005072774271687097
+        ],
+        [
+          "Pistacia",
+          0.001274588108109945
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.026531974272378186
+        ],
+        [
+          "Poaceae",
+          0.012290802011917845
+        ],
+        [
+          "Quercus.deciduous",
+          -0.030008310833442062
+        ],
+        [
+          "Quercus.evergreen",
+          0.0013117576459035212
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.01288891965976039
+        ],
+        [
+          "Salix",
+          0.005674952781181105
+        ],
+        [
+          "Secale",
+          0.0013306586227888667
+        ],
+        [
+          "Tilia",
+          0.002571116699152286
+        ],
+        [
+          "Ulmus",
+          0.004295757179636962
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.23900355468789333,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": 1.5901631863120731e-18,
+      "count_conditioned_deviance": 949.9458828160435,
+      "fold_id": "site-group:2f26a65411303e51b67a3964ae4a3be4e57ea70a8a701abe3a8f162f5035bf95",
+      "mae_fraction": 0.0175020527648407,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2092,
+      "record_id": "author:BROADOWN",
+      "rmse_fraction": 0.03879708744464964,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0009161596384926129
+        ],
+        [
+          "Alnus.glutinosa",
+          0.08016500911422719
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.002626546814421613
+        ],
+        [
+          "Artemisia",
+          0.0025744127886010906
+        ],
+        [
+          "Betula",
+          -0.0010344787266819352
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0009457298376940378
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.04720361725654319
+        ],
+        [
+          "Carpinus.betulus",
+          0.0019350212593022818
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008694736256725844
+        ],
+        [
+          "Castanea",
+          0.0009420100305513813
+        ],
+        [
+          "Cerealia.t",
+          0.0013661198500019667
+        ],
+        [
+          "Corylus.avellana",
+          -0.14264417394062695
+        ],
+        [
+          "Cyperaceae",
+          0.11186424564699674
+        ],
+        [
+          "Ericaceae",
+          0.001898809896096062
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0014811508563753219
+        ],
+        [
+          "Fraxinus",
+          0.0011146015841567661
+        ],
+        [
+          "Juniperus",
+          0.0022205702461302905
+        ],
+        [
+          "Phillyrea",
+          0.000918224179335892
+        ],
+        [
+          "Picea",
+          0.000958192221562162
+        ],
+        [
+          "Pinus",
+          -0.00030261565693819655
+        ],
+        [
+          "Pistacia",
+          0.0009309673718386874
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.025269572909276766
+        ],
+        [
+          "Poaceae",
+          0.025466829732842033
+        ],
+        [
+          "Quercus.deciduous",
+          -0.046076332982543364
+        ],
+        [
+          "Quercus.evergreen",
+          0.0009555085037786749
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.012791461268934106
+        ],
+        [
+          "Salix",
+          0.0036888345004421194
+        ],
+        [
+          "Secale",
+          0.000957257415256053
+        ],
+        [
+          "Tilia",
+          0.0017148066162939904
+        ],
+        [
+          "Ulmus",
+          0.00322884847360681
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.2625307914726105,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -3.064678140892359e-18,
+      "count_conditioned_deviance": 1728.3291861517696,
+      "fold_id": "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+      "mae_fraction": 0.020446874961917504,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2399,
+      "record_id": "author:NTWITCHEN",
+      "rmse_fraction": 0.050438848452713854,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.002185588184889959
+        ],
+        [
+          "Alnus.glutinosa",
+          0.20146949209694331
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0021547621145783444
+        ],
+        [
+          "Artemisia",
+          0.0016440053968390768
+        ],
+        [
+          "Betula",
+          0.007307496101759752
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0013254385895782117
+        ],
+        [
+          "Calluna.vulgaris",
+          0.04484258200311273
+        ],
+        [
+          "Carpinus.betulus",
+          0.00017171178074782203
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0013072713893690915
+        ],
+        [
+          "Castanea",
+          0.0011905642029065313
+        ],
+        [
+          "Cerealia.t",
+          0.0008949130355707818
+        ],
+        [
+          "Corylus.avellana",
+          0.0010562967579534899
+        ],
+        [
+          "Cyperaceae",
+          -0.11030682876691286
+        ],
+        [
+          "Ericaceae",
+          0.005184024839199409
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.008914552144839289
+        ],
+        [
+          "Fraxinus",
+          0.0029593491279482974
+        ],
+        [
+          "Juniperus",
+          0.0018504588627649352
+        ],
+        [
+          "Phillyrea",
+          0.0011936811162891372
+        ],
+        [
+          "Picea",
+          0.0015199414917085492
+        ],
+        [
+          "Pinus",
+          -0.001331604721736079
+        ],
+        [
+          "Pistacia",
+          0.0012958699741211497
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.007430500714887246
+        ],
+        [
+          "Poaceae",
+          -0.042531624332242224
+        ],
+        [
+          "Quercus.deciduous",
+          -0.13913290068834003
+        ],
+        [
+          "Quercus.evergreen",
+          0.001356972203815433
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.007871856206352695
+        ],
+        [
+          "Salix",
+          0.006449791274585653
+        ],
+        [
+          "Secale",
+          0.0021658327551092194
+        ],
+        [
+          "Tilia",
+          0.001874724207731717
+        ],
+        [
+          "Ulmus",
+          -0.004485613774692136
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.3067031244287626,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 3.758567531283082e-19,
+      "count_conditioned_deviance": 1133.9035983374836,
+      "fold_id": "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+      "mae_fraction": 0.0187089813525859,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2399,
+      "record_id": "author:NTWITCHEN",
+      "rmse_fraction": 0.040429900898191866,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0015013196233267909
+        ],
+        [
+          "Alnus.glutinosa",
+          0.02322809820157662
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.004325535658661713
+        ],
+        [
+          "Artemisia",
+          0.00017339214492284323
+        ],
+        [
+          "Betula",
+          0.0015438303795309513
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0010491034372507142
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.02005933516871994
+        ],
+        [
+          "Carpinus.betulus",
+          -0.0009948380921823803
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0010704633953075977
+        ],
+        [
+          "Castanea",
+          0.0009729525987998972
+        ],
+        [
+          "Cerealia.t",
+          -0.0009201140505349481
+        ],
+        [
+          "Corylus.avellana",
+          0.07209761409970998
+        ],
+        [
+          "Cyperaceae",
+          -0.1203059736398747
+        ],
+        [
+          "Ericaceae",
+          0.00023965759898228348
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.018182263881033105
+        ],
+        [
+          "Fraxinus",
+          0.007199953631456691
+        ],
+        [
+          "Juniperus",
+          0.0009923142069649406
+        ],
+        [
+          "Phillyrea",
+          0.0009841389586690247
+        ],
+        [
+          "Picea",
+          0.0011491519636522118
+        ],
+        [
+          "Pinus",
+          -0.0010942641502945166
+        ],
+        [
+          "Pistacia",
+          0.0010387774426351174
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.03361381420228459
+        ],
+        [
+          "Poaceae",
+          0.11786347158101895
+        ],
+        [
+          "Quercus.deciduous",
+          -0.11357493165517848
+        ],
+        [
+          "Quercus.evergreen",
+          0.001062244622413986
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.007153569212504211
+        ],
+        [
+          "Salix",
+          0.0011606726471578316
+        ],
+        [
+          "Secale",
+          0.0011666654701988372
+        ],
+        [
+          "Tilia",
+          0.0010479792117627223
+        ],
+        [
+          "Ulmus",
+          -0.005502999650970421
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.2806347202887885,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": 5.7534995286564106e-18,
+      "count_conditioned_deviance": 1098.8292695762752,
+      "fold_id": "site-group:3c54a33f9396f2c7e3bf2fbf9ca01bb283375e9da72e5f9b2f86b2dd1df5073e",
+      "mae_fraction": 0.018615618119900017,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2399,
+      "record_id": "author:NTWITCHEN",
+      "rmse_fraction": 0.041079841283948655,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0014793434957897473
+        ],
+        [
+          "Alnus.glutinosa",
+          0.02052631448355092
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.003567731589960374
+        ],
+        [
+          "Artemisia",
+          0.0002778513619012829
+        ],
+        [
+          "Betula",
+          0.001650294395608612
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0010421559934509187
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.016724110849174988
+        ],
+        [
+          "Carpinus.betulus",
+          -0.0007224164930614561
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0010646371587665624
+        ],
+        [
+          "Castanea",
+          0.0009685549131396343
+        ],
+        [
+          "Cerealia.t",
+          -0.0008609895299015434
+        ],
+        [
+          "Corylus.avellana",
+          0.047104470941170165
+        ],
+        [
+          "Cyperaceae",
+          -0.1252628610826188
+        ],
+        [
+          "Ericaceae",
+          0.0009061219053858072
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.01716031040765551
+        ],
+        [
+          "Fraxinus",
+          0.006328021893980993
+        ],
+        [
+          "Juniperus",
+          0.0009994639140332884
+        ],
+        [
+          "Phillyrea",
+          0.000979901764945147
+        ],
+        [
+          "Picea",
+          0.001138646727451931
+        ],
+        [
+          "Pinus",
+          -0.0012803167310664167
+        ],
+        [
+          "Pistacia",
+          0.0010324728032173954
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.028881529949402858
+        ],
+        [
+          "Poaceae",
+          0.1338194530059521
+        ],
+        [
+          "Quercus.deciduous",
+          -0.11215268614657614
+        ],
+        [
+          "Quercus.evergreen",
+          0.0010546783129533341
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.009279508435049042
+        ],
+        [
+          "Salix",
+          0.014719335785430743
+        ],
+        [
+          "Secale",
+          0.0011861406819629707
+        ],
+        [
+          "Tilia",
+          0.0012276422853965516
+        ],
+        [
+          "Ulmus",
+          -0.0050705805584453445
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.27923427179850024,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": 2.883977778811442e-18,
+      "count_conditioned_deviance": 1372.0208729531776,
+      "fold_id": "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+      "mae_fraction": 0.03332230327448145,
+      "missing_observed_taxa": [],
+      "observed_total_count": 971,
+      "record_id": "author:WINNEYS",
+      "rmse_fraction": 0.083144141415412,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.00016543879905121366
+        ],
+        [
+          "Alnus.glutinosa",
+          -0.015717073450610602
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0012493233711430942
+        ],
+        [
+          "Artemisia",
+          -0.0024994859076406363
+        ],
+        [
+          "Betula",
+          -0.010697038460629839
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0002381308454282728
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.11996026141654267
+        ],
+        [
+          "Carpinus.betulus",
+          -0.0017513707477579967
+        ],
+        [
+          "Carpinus.orientalis",
+          0.00021647365070107198
+        ],
+        [
+          "Castanea",
+          0.00025880140632477793
+        ],
+        [
+          "Cerealia.t",
+          -0.0006065057048649644
+        ],
+        [
+          "Corylus.avellana",
+          -0.25418189781429096
+        ],
+        [
+          "Cyperaceae",
+          0.1725667033977392
+        ],
+        [
+          "Ericaceae",
+          -0.003161835574522923
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.0167173166549644
+        ],
+        [
+          "Fraxinus",
+          0.002751358144805362
+        ],
+        [
+          "Juniperus",
+          -0.0017683304307297624
+        ],
+        [
+          "Phillyrea",
+          0.00024931430666606905
+        ],
+        [
+          "Picea",
+          0.00021886806635635584
+        ],
+        [
+          "Pinus",
+          0.00030281046941373155
+        ],
+        [
+          "Pistacia",
+          0.0002373108713184093
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.00030275012270113144
+        ],
+        [
+          "Poaceae",
+          0.3049148054402473
+        ],
+        [
+          "Quercus.deciduous",
+          -0.06831035918000462
+        ],
+        [
+          "Quercus.evergreen",
+          0.00023715321455248045
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.01715903403905761
+        ],
+        [
+          "Salix",
+          -0.0012067085728707152
+        ],
+        [
+          "Secale",
+          0.00031834646555998976
+        ],
+        [
+          "Tilia",
+          -0.00073009231912234
+        ],
+        [
+          "Ulmus",
+          -0.0009741993888250358
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.49983454911722175,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": -4.849997718251823e-18,
+      "count_conditioned_deviance": 952.9100078941855,
+      "fold_id": "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+      "mae_fraction": 0.029514106226611565,
+      "missing_observed_taxa": [],
+      "observed_total_count": 971,
+      "record_id": "author:WINNEYS",
+      "rmse_fraction": 0.07105926050443011,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0003579695437286975
+        ],
+        [
+          "Alnus.glutinosa",
+          -0.041403205604137294
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0011929718367106818
+        ],
+        [
+          "Artemisia",
+          -0.00215361069682085
+        ],
+        [
+          "Betula",
+          -0.0052296889275121605
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0003984992128837805
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.10848253193592905
+        ],
+        [
+          "Carpinus.betulus",
+          -0.0014754172974488365
+        ],
+        [
+          "Carpinus.orientalis",
+          0.00038313157885017123
+        ],
+        [
+          "Castanea",
+          0.00040732202777671707
+        ],
+        [
+          "Cerealia.t",
+          -0.00046071084903811935
+        ],
+        [
+          "Corylus.avellana",
+          -0.2122226604123662
+        ],
+        [
+          "Cyperaceae",
+          0.15199345089189237
+        ],
+        [
+          "Ericaceae",
+          -0.0023950505372081557
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.013550840035792332
+        ],
+        [
+          "Fraxinus",
+          0.0027626452582690886
+        ],
+        [
+          "Juniperus",
+          -0.0016549392795014314
+        ],
+        [
+          "Phillyrea",
+          0.00040190308535899174
+        ],
+        [
+          "Picea",
+          0.0003899301756297773
+        ],
+        [
+          "Pinus",
+          0.0008618052224176635
+        ],
+        [
+          "Pistacia",
+          0.00039738381897041466
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.008780766673296182
+        ],
+        [
+          "Poaceae",
+          0.25875201074358223
+        ],
+        [
+          "Quercus.deciduous",
+          -0.04824364616161109
+        ],
+        [
+          "Quercus.evergreen",
+          0.00039847211289920634
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.016038396506685565
+        ],
+        [
+          "Salix",
+          -0.0022720212878387307
+        ],
+        [
+          "Secale",
+          0.0003879065469325841
+        ],
+        [
+          "Tilia",
+          -0.0006321135549407191
+        ],
+        [
+          "Ulmus",
+          -0.0013421849823178926
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.4427115933991735,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": -2.168404344971009e-20,
+      "count_conditioned_deviance": 1009.7338584194458,
+      "fold_id": "site-group:5a644faffd339eccacf89b4fff95cae1d9cb0876be571a55e6ab58278285b658",
+      "mae_fraction": 0.029414166877699564,
+      "missing_observed_taxa": [],
+      "observed_total_count": 971,
+      "record_id": "author:WINNEYS",
+      "rmse_fraction": 0.07201279728111434,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0003238144534529696
+        ],
+        [
+          "Alnus.glutinosa",
+          0.01734332084448184
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0012029478310756538
+        ],
+        [
+          "Artemisia",
+          -0.0023040445346755737
+        ],
+        [
+          "Betula",
+          -0.008931939569166755
+        ],
+        [
+          "Buxus.sempervirens",
+          0.00038204143602356015
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.1062726783185522
+        ],
+        [
+          "Carpinus.betulus",
+          -0.001541707307703648
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0003516173577169238
+        ],
+        [
+          "Castanea",
+          0.0003939789949762525
+        ],
+        [
+          "Cerealia.t",
+          -0.0004891973870764479
+        ],
+        [
+          "Corylus.avellana",
+          -0.2323425479247005
+        ],
+        [
+          "Cyperaceae",
+          0.14628588730702302
+        ],
+        [
+          "Ericaceae",
+          -0.0021011003261871496
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.015397310980915901
+        ],
+        [
+          "Fraxinus",
+          0.0023267263798619946
+        ],
+        [
+          "Juniperus",
+          -0.0016690022695853056
+        ],
+        [
+          "Phillyrea",
+          0.0003824343898332152
+        ],
+        [
+          "Picea",
+          0.00037194281576054456
+        ],
+        [
+          "Pinus",
+          0.00044730981393110037
+        ],
+        [
+          "Pistacia",
+          0.0003781047060009027
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.0034158557821526575
+        ],
+        [
+          "Poaceae",
+          0.25262499598438315
+        ],
+        [
+          "Quercus.deciduous",
+          -0.06466007144937708
+        ],
+        [
+          "Quercus.evergreen",
+          0.00038367905253592694
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.015431114129366045
+        ],
+        [
+          "Salix",
+          -0.002305446252194542
+        ],
+        [
+          "Secale",
+          0.00036967971799341107
+        ],
+        [
+          "Tilia",
+          -0.0006052827401328293
+        ],
+        [
+          "Ulmus",
+          -0.0013892262741499887
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.4412125031654935,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -3.3248866622888804e-18,
+      "count_conditioned_deviance": 815.0800447525704,
+      "fold_id": "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+      "mae_fraction": 0.023715081431026845,
+      "missing_observed_taxa": [],
+      "observed_total_count": 915,
+      "record_id": "author:WINDMILL",
+      "rmse_fraction": 0.06730000799061488,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.002557152257303593
+        ],
+        [
+          "Alnus.glutinosa",
+          0.14596238761593022
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0014381745180696106
+        ],
+        [
+          "Artemisia",
+          0.002538710246424398
+        ],
+        [
+          "Betula",
+          0.015382449705241637
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0013797233981240713
+        ],
+        [
+          "Calluna.vulgaris",
+          0.03423936040707872
+        ],
+        [
+          "Carpinus.betulus",
+          0.002501871150057674
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0013771231270581616
+        ],
+        [
+          "Castanea",
+          0.0012105229927263155
+        ],
+        [
+          "Cerealia.t",
+          -0.0035766162267543197
+        ],
+        [
+          "Corylus.avellana",
+          0.0683967755712342
+        ],
+        [
+          "Cyperaceae",
+          -0.3262234932931441
+        ],
+        [
+          "Ericaceae",
+          0.002872125060076355
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0040821313699830565
+        ],
+        [
+          "Fraxinus",
+          0.0028409654731081056
+        ],
+        [
+          "Juniperus",
+          -0.0004128926212488878
+        ],
+        [
+          "Phillyrea",
+          0.0012200824440327547
+        ],
+        [
+          "Picea",
+          0.001627709836202747
+        ],
+        [
+          "Pinus",
+          0.00023773163032015255
+        ],
+        [
+          "Pistacia",
+          0.0013460291862594242
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.02026474621425601
+        ],
+        [
+          "Poaceae",
+          0.0350323561684229
+        ],
+        [
+          "Quercus.deciduous",
+          -0.014716562714793824
+        ],
+        [
+          "Quercus.evergreen",
+          0.0014172838941326974
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.001327771214537591
+        ],
+        [
+          "Salix",
+          0.006473037984822255
+        ],
+        [
+          "Secale",
+          -0.009191161349148585
+        ],
+        [
+          "Tilia",
+          -0.0003543677116503363
+        ],
+        [
+          "Ulmus",
+          -0.0012511275486627171
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.35572622146540267,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": -6.794333614242494e-19,
+      "count_conditioned_deviance": 287.21168630146974,
+      "fold_id": "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+      "mae_fraction": 0.01154520872057953,
+      "missing_observed_taxa": [],
+      "observed_total_count": 915,
+      "record_id": "author:WINDMILL",
+      "rmse_fraction": 0.028536058432797884,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0008897429980355889
+        ],
+        [
+          "Alnus.glutinosa",
+          -0.041140621258174706
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.00098859666269311
+        ],
+        [
+          "Artemisia",
+          0.00110657012252087
+        ],
+        [
+          "Betula",
+          0.010612057804827832
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008660490884399493
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.04803199190753451
+        ],
+        [
+          "Carpinus.betulus",
+          0.0008684059683861041
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008675019106150208
+        ],
+        [
+          "Castanea",
+          0.0008614127263676056
+        ],
+        [
+          "Cerealia.t",
+          -0.0038093504851973896
+        ],
+        [
+          "Corylus.avellana",
+          -0.009484095546692783
+        ],
+        [
+          "Cyperaceae",
+          -0.01252651772865232
+        ],
+        [
+          "Ericaceae",
+          -0.002411217578862441
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.0038857520421166133
+        ],
+        [
+          "Fraxinus",
+          0.0026735736495670935
+        ],
+        [
+          "Juniperus",
+          -0.0013231823354719159
+        ],
+        [
+          "Phillyrea",
+          0.0008621244184561078
+        ],
+        [
+          "Picea",
+          0.0008718157796394966
+        ],
+        [
+          "Pinus",
+          0.0008243956304811511
+        ],
+        [
+          "Pistacia",
+          0.0008654553818873783
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.005997114779896369
+        ],
+        [
+          "Poaceae",
+          0.1356946235503527
+        ],
+        [
+          "Quercus.deciduous",
+          -0.037864817889681504
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008668121569792306
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.004210029146694881
+        ],
+        [
+          "Salix",
+          0.0032518490328524406
+        ],
+        [
+          "Secale",
+          -0.010056160311067748
+        ],
+        [
+          "Tilia",
+          -0.0008544874920777181
+        ],
+        [
+          "Ulmus",
+          -0.0017899362331632996
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.17317813080869293,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": -1.5178830414797062e-18,
+      "count_conditioned_deviance": 250.4219454275825,
+      "fold_id": "site-group:85d806f92e8336807c86febf58a087aa256fea8d4a50ad0e35ffbf2683b6df01",
+      "mae_fraction": 0.012870889371281748,
+      "missing_observed_taxa": [],
+      "observed_total_count": 915,
+      "record_id": "author:WINDMILL",
+      "rmse_fraction": 0.032342736785846114,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0009720402590062968
+        ],
+        [
+          "Alnus.glutinosa",
+          -0.021187723046523638
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0005058980891138548
+        ],
+        [
+          "Artemisia",
+          0.0014579978657035641
+        ],
+        [
+          "Betula",
+          0.010331760921807046
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008882884515158572
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.04319759652861467
+        ],
+        [
+          "Carpinus.betulus",
+          0.0009034841112772287
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008924929551956932
+        ],
+        [
+          "Castanea",
+          0.0008728763745269908
+        ],
+        [
+          "Cerealia.t",
+          -0.003971842293701086
+        ],
+        [
+          "Corylus.avellana",
+          -0.003962612079507426
+        ],
+        [
+          "Cyperaceae",
+          -0.05928312147325787
+        ],
+        [
+          "Ericaceae",
+          -0.001998843681855142
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.004310304724299061
+        ],
+        [
+          "Fraxinus",
+          0.0026090996632406214
+        ],
+        [
+          "Juniperus",
+          -0.0013040580432753669
+        ],
+        [
+          "Phillyrea",
+          0.0008750326114849241
+        ],
+        [
+          "Picea",
+          0.0009079665013054635
+        ],
+        [
+          "Pinus",
+          0.0012049814911935372
+        ],
+        [
+          "Pistacia",
+          0.0008861811461202503
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.008447429975580956
+        ],
+        [
+          "Poaceae",
+          0.1532226585579138
+        ],
+        [
+          "Quercus.deciduous",
+          -0.04113467166794945
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008909304905518777
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.004359968444148314
+        ],
+        [
+          "Salix",
+          0.0028342526595399255
+        ],
+        [
+          "Secale",
+          -0.010013888783109912
+        ],
+        [
+          "Tilia",
+          -0.0010696314881676427
+        ],
+        [
+          "Ulmus",
+          -0.001629046758964984
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.19306334056922622,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -1.3660947373317355e-18,
+      "count_conditioned_deviance": 2442.184486598279,
+      "fold_id": "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+      "mae_fraction": 0.026916041401528194,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2336,
+      "record_id": "author:MOLECHAM",
+      "rmse_fraction": 0.06904247681425923,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.001298482941741291
+        ],
+        [
+          "Alnus.glutinosa",
+          0.17161588556783386
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0020710609370769967
+        ],
+        [
+          "Artemisia",
+          0.001954637565770739
+        ],
+        [
+          "Betula",
+          0.01033043908727554
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0010973542646860932
+        ],
+        [
+          "Calluna.vulgaris",
+          0.043500206566768736
+        ],
+        [
+          "Carpinus.betulus",
+          0.00055877162139684
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0010464423742924359
+        ],
+        [
+          "Castanea",
+          0.0010566513882728302
+        ],
+        [
+          "Cerealia.t",
+          0.0023410847454349262
+        ],
+        [
+          "Corylus.avellana",
+          0.03509803322568518
+        ],
+        [
+          "Cyperaceae",
+          0.11280377854102858
+        ],
+        [
+          "Ericaceae",
+          0.0017810920309127313
+        ],
+        [
+          "Fagus.sylvatica",
+          0.004857086222591414
+        ],
+        [
+          "Fraxinus",
+          0.0016954417877945924
+        ],
+        [
+          "Juniperus",
+          0.001612166334148538
+        ],
+        [
+          "Phillyrea",
+          0.00104333390560938
+        ],
+        [
+          "Picea",
+          0.0011590457852710832
+        ],
+        [
+          "Pinus",
+          0.0016332587689164716
+        ],
+        [
+          "Pistacia",
+          0.0010799057946352414
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.006896794980207049
+        ],
+        [
+          "Poaceae",
+          -0.30453229999842135
+        ],
+        [
+          "Quercus.deciduous",
+          -0.021910735997815525
+        ],
+        [
+          "Quercus.evergreen",
+          0.0011123908740261006
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.0052812770967317485
+        ],
+        [
+          "Salix",
+          -0.06511951294974719
+        ],
+        [
+          "Secale",
+          0.0016305398888997078
+        ],
+        [
+          "Tilia",
+          0.0006520099915941682
+        ],
+        [
+          "Ulmus",
+          0.000711520811259378
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.4037406210229229,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 4.8572257327350596e-18,
+      "count_conditioned_deviance": 2086.6824329975907,
+      "fold_id": "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+      "mae_fraction": 0.02352925139079744,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2336,
+      "record_id": "author:MOLECHAM",
+      "rmse_fraction": 0.06319566151862094,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0005354878505239928
+        ],
+        [
+          "Alnus.glutinosa",
+          0.002433705728863771
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0011597880174320514
+        ],
+        [
+          "Artemisia",
+          0.0013927826847506392
+        ],
+        [
+          "Betula",
+          0.008076406383104187
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0007263670732776826
+        ],
+        [
+          "Calluna.vulgaris",
+          0.002616631578807524
+        ],
+        [
+          "Carpinus.betulus",
+          0.0008923296412919005
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0007007033065284106
+        ],
+        [
+          "Castanea",
+          0.0007734914611884647
+        ],
+        [
+          "Cerealia.t",
+          0.0020491544067358105
+        ],
+        [
+          "Corylus.avellana",
+          0.03210558688112644
+        ],
+        [
+          "Cyperaceae",
+          0.17973183930033307
+        ],
+        [
+          "Ericaceae",
+          -0.0016874195558598984
+        ],
+        [
+          "Fagus.sylvatica",
+          0.01008272751785792
+        ],
+        [
+          "Fraxinus",
+          0.0011979156402506146
+        ],
+        [
+          "Juniperus",
+          0.0007607042684235688
+        ],
+        [
+          "Phillyrea",
+          0.0007614304007966604
+        ],
+        [
+          "Picea",
+          0.0006743660318528012
+        ],
+        [
+          "Pinus",
+          0.003240372301305006
+        ],
+        [
+          "Pistacia",
+          0.0007299761619868471
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.010486193971676057
+        ],
+        [
+          "Poaceae",
+          -0.26930174954575836
+        ],
+        [
+          "Quercus.deciduous",
+          0.09611819297716805
+        ],
+        [
+          "Quercus.evergreen",
+          0.000720280204176823
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.00542265475999563
+        ],
+        [
+          "Salix",
+          -0.06591068101180951
+        ],
+        [
+          "Secale",
+          0.0006654880198575829
+        ],
+        [
+          "Tilia",
+          -0.00013007201686206964
+        ],
+        [
+          "Ulmus",
+          0.004793043024321892
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.3529387708619616,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": -3.8453037050819226e-18,
+      "count_conditioned_deviance": 1744.0568631907952,
+      "fold_id": "site-group:88540365ea490754867df3bedb0f01496e5658b82e88e0e7b03bb1527961d973",
+      "mae_fraction": 0.019648607800252717,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2336,
+      "record_id": "author:MOLECHAM",
+      "rmse_fraction": 0.051862995874495436,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.000680443362436217
+        ],
+        [
+          "Alnus.glutinosa",
+          0.010944607749733532
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.00212660677217914
+        ],
+        [
+          "Artemisia",
+          0.0011293040206491248
+        ],
+        [
+          "Betula",
+          0.007332974208920743
+        ],
+        [
+          "Buxus.sempervirens",
+          0.000779472996557056
+        ],
+        [
+          "Calluna.vulgaris",
+          9.262763835442278e-06
+        ],
+        [
+          "Carpinus.betulus",
+          0.0003493746357870369
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0007598387454193707
+        ],
+        [
+          "Castanea",
+          0.0008043263102135662
+        ],
+        [
+          "Cerealia.t",
+          0.0016531295592036323
+        ],
+        [
+          "Corylus.avellana",
+          0.05042838307666635
+        ],
+        [
+          "Cyperaceae",
+          0.14956679975039924
+        ],
+        [
+          "Ericaceae",
+          -0.0018018162701525532
+        ],
+        [
+          "Fagus.sylvatica",
+          0.004879670972112175
+        ],
+        [
+          "Fraxinus",
+          0.002803992595243902
+        ],
+        [
+          "Juniperus",
+          0.0008195481565580524
+        ],
+        [
+          "Phillyrea",
+          0.0007959949445675405
+        ],
+        [
+          "Picea",
+          0.0007530275155907843
+        ],
+        [
+          "Pinus",
+          0.002519239499023965
+        ],
+        [
+          "Pistacia",
+          0.000780285850135997
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.001504881646559885
+        ],
+        [
+          "Poaceae",
+          -0.2204941954887118
+        ],
+        [
+          "Quercus.deciduous",
+          0.05052036114076956
+        ],
+        [
+          "Quercus.evergreen",
+          0.0007769482615221298
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.004941933088173806
+        ],
+        [
+          "Salix",
+          -0.06592635350552234
+        ],
+        [
+          "Secale",
+          0.0007951862326322957
+        ],
+        [
+          "Tilia",
+          -5.9937004670448956e-05
+        ],
+        [
+          "Ulmus",
+          0.002720337883633857
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.29472911700379073,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": 7.820711670862106e-18,
+      "count_conditioned_deviance": 651.873281057717,
+      "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+      "mae_fraction": 0.027367952997044944,
+      "missing_observed_taxa": [],
+      "observed_total_count": 699,
+      "record_id": "author:BECKHAM",
+      "rmse_fraction": 0.06388129856868874,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0003805869011980148
+        ],
+        [
+          "Alnus.glutinosa",
+          0.10757924839922518
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0003476845836931524
+        ],
+        [
+          "Artemisia",
+          0.0005002076233627151
+        ],
+        [
+          "Betula",
+          0.0016442775218094528
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0004657840402787518
+        ],
+        [
+          "Calluna.vulgaris",
+          0.08389746708399579
+        ],
+        [
+          "Carpinus.betulus",
+          0.000992729765201225
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0004332908235156947
+        ],
+        [
+          "Castanea",
+          0.0004886983045241167
+        ],
+        [
+          "Cerealia.t",
+          0.0010221299858808818
+        ],
+        [
+          "Corylus.avellana",
+          0.1594944128211034
+        ],
+        [
+          "Cyperaceae",
+          -0.17406888983318936
+        ],
+        [
+          "Ericaceae",
+          0.0036904767688928
+        ],
+        [
+          "Fagus.sylvatica",
+          0.005744951635374377
+        ],
+        [
+          "Fraxinus",
+          -0.002725736169960944
+        ],
+        [
+          "Juniperus",
+          0.0007649840819503517
+        ],
+        [
+          "Phillyrea",
+          0.00047552123772046995
+        ],
+        [
+          "Picea",
+          0.0004451824655952152
+        ],
+        [
+          "Pinus",
+          0.00037948633395005517
+        ],
+        [
+          "Pistacia",
+          0.00046334822627538063
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.016682544637932555
+        ],
+        [
+          "Poaceae",
+          -0.21685808065376888
+        ],
+        [
+          "Quercus.deciduous",
+          0.022311725016307377
+        ],
+        [
+          "Quercus.evergreen",
+          0.00046565363130620535
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.014161064655750684
+        ],
+        [
+          "Salix",
+          0.000547986101223614
+        ],
+        [
+          "Secale",
+          0.0006216383829255313
+        ],
+        [
+          "Tilia",
+          0.0006792785824319722
+        ],
+        [
+          "Ulmus",
+          -0.0027055236430041972
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.4105192949556742,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 2.9345738801940986e-18,
+      "count_conditioned_deviance": 516.9511287490751,
+      "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+      "mae_fraction": 0.02249285400879284,
+      "missing_observed_taxa": [],
+      "observed_total_count": 699,
+      "record_id": "author:BECKHAM",
+      "rmse_fraction": 0.05474310894854353,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.00030707387559090283
+        ],
+        [
+          "Alnus.glutinosa",
+          0.0317919331156683
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0002929502441250441
+        ],
+        [
+          "Artemisia",
+          -5.290958045849666e-05
+        ],
+        [
+          "Betula",
+          0.003179622070987164
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0003784787738918643
+        ],
+        [
+          "Calluna.vulgaris",
+          0.07574342777889763
+        ],
+        [
+          "Carpinus.betulus",
+          0.0006165507427508399
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0003586726715474923
+        ],
+        [
+          "Castanea",
+          0.00039581076321043346
+        ],
+        [
+          "Cerealia.t",
+          0.0005257403234334973
+        ],
+        [
+          "Corylus.avellana",
+          0.1763155453508285
+        ],
+        [
+          "Cyperaceae",
+          -0.1753931115682181
+        ],
+        [
+          "Ericaceae",
+          0.0025584119281438417
+        ],
+        [
+          "Fagus.sylvatica",
+          0.00435312174785216
+        ],
+        [
+          "Fraxinus",
+          -0.0018948650494537101
+        ],
+        [
+          "Juniperus",
+          0.00039092394703748836
+        ],
+        [
+          "Phillyrea",
+          0.00038793377108359625
+        ],
+        [
+          "Picea",
+          0.0003608337211690658
+        ],
+        [
+          "Pinus",
+          -0.00017900776895985338
+        ],
+        [
+          "Pistacia",
+          0.00037793599739627444
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.01936492721171843
+        ],
+        [
+          "Poaceae",
+          -0.1427585313024543
+        ],
+        [
+          "Quercus.deciduous",
+          0.01887349223113967
+        ],
+        [
+          "Quercus.evergreen",
+          0.0003774022768722353
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.011852745293838791
+        ],
+        [
+          "Salix",
+          -0.0017748831773699606
+        ],
+        [
+          "Secale",
+          0.00035731315362401525
+        ],
+        [
+          "Tilia",
+          0.00037765867904926767
+        ],
+        [
+          "Ulmus",
+          -0.0031938061470142896
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.3373928101318926,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": -8.731441495749929e-18,
+      "count_conditioned_deviance": 516.7064195318193,
+      "fold_id": "site-group:90cdb79e218b9136816c50046029f538967dc0b31bf9ad78b3563a0d6924761b",
+      "mae_fraction": 0.022667139685827217,
+      "missing_observed_taxa": [],
+      "observed_total_count": 699,
+      "record_id": "author:BECKHAM",
+      "rmse_fraction": 0.05502581221911692,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0002954865982581793
+        ],
+        [
+          "Alnus.glutinosa",
+          0.032314135586458445
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0002465632482676352
+        ],
+        [
+          "Artemisia",
+          -3.529637995600002e-05
+        ],
+        [
+          "Betula",
+          0.003099726921517821
+        ],
+        [
+          "Buxus.sempervirens",
+          0.00037068002532781013
+        ],
+        [
+          "Calluna.vulgaris",
+          0.07625418204903035
+        ],
+        [
+          "Carpinus.betulus",
+          0.000631839291564661
+        ],
+        [
+          "Carpinus.orientalis",
+          0.00035101035070318233
+        ],
+        [
+          "Castanea",
+          0.0003895350940187814
+        ],
+        [
+          "Cerealia.t",
+          0.0005542418551505048
+        ],
+        [
+          "Corylus.avellana",
+          0.17613427672812557
+        ],
+        [
+          "Cyperaceae",
+          -0.17460207508691566
+        ],
+        [
+          "Ericaceae",
+          0.0025858566282379136
+        ],
+        [
+          "Fagus.sylvatica",
+          0.004449458576487738
+        ],
+        [
+          "Fraxinus",
+          -0.0019396536862882228
+        ],
+        [
+          "Juniperus",
+          0.0003904803362169577
+        ],
+        [
+          "Phillyrea",
+          0.00038153312047483885
+        ],
+        [
+          "Picea",
+          0.0003515292944336049
+        ],
+        [
+          "Pinus",
+          -0.00011448239063307879
+        ],
+        [
+          "Pistacia",
+          0.0003703979376210756
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.019537457374140345
+        ],
+        [
+          "Poaceae",
+          -0.1465220265245455
+        ],
+        [
+          "Quercus.deciduous",
+          0.02043703995419449
+        ],
+        [
+          "Quercus.evergreen",
+          0.00036933239006834914
+        ],
+        [
+          "Rumex.acetosa.t",
+          -0.01204632440786781
+        ],
+        [
+          "Salix",
+          -0.0013302746678357413
+        ],
+        [
+          "Secale",
+          0.0003592741026778957
+        ],
+        [
+          "Tilia",
+          0.00037962107269963946
+        ],
+        [
+          "Ulmus",
+          -0.0031703988950987235
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.34000709528740825,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": 4.77048955893622e-19,
+      "count_conditioned_deviance": 144.694606279516,
+      "fold_id": "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+      "mae_fraction": 0.01946033558532419,
+      "missing_observed_taxa": [],
+      "observed_total_count": 274,
+      "record_id": "author:COMERSLA",
+      "rmse_fraction": 0.05191446099622304,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0012046855835938434
+        ],
+        [
+          "Alnus.glutinosa",
+          0.15238678037628087
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0013436846176710171
+        ],
+        [
+          "Artemisia",
+          0.0023870446585668647
+        ],
+        [
+          "Betula",
+          0.010566175871968751
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0010594461732826598
+        ],
+        [
+          "Calluna.vulgaris",
+          0.04985568674186136
+        ],
+        [
+          "Carpinus.betulus",
+          0.0018399630822572477
+        ],
+        [
+          "Carpinus.orientalis",
+          0.001006508804849294
+        ],
+        [
+          "Castanea",
+          0.001028954456517915
+        ],
+        [
+          "Cerealia.t",
+          0.002238812390627183
+        ],
+        [
+          "Corylus.avellana",
+          -0.038139673717805564
+        ],
+        [
+          "Cyperaceae",
+          0.01927235250179324
+        ],
+        [
+          "Ericaceae",
+          0.004768045673821769
+        ],
+        [
+          "Fagus.sylvatica",
+          0.008584025940598166
+        ],
+        [
+          "Fraxinus",
+          -0.0022168151021497474
+        ],
+        [
+          "Juniperus",
+          0.0015683956852466376
+        ],
+        [
+          "Phillyrea",
+          0.0010141713902456137
+        ],
+        [
+          "Picea",
+          0.0011078286924342973
+        ],
+        [
+          "Pinus",
+          0.000935945222921529
+        ],
+        [
+          "Pistacia",
+          0.0010434959948338106
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.02125380468355003
+        ],
+        [
+          "Poaceae",
+          -0.22895105565868645
+        ],
+        [
+          "Quercus.deciduous",
+          0.004540847428002384
+        ],
+        [
+          "Quercus.evergreen",
+          0.0010726278386318222
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.011488448111529513
+        ],
+        [
+          "Salix",
+          0.00599689102577349
+        ],
+        [
+          "Secale",
+          0.001557757665247584
+        ],
+        [
+          "Tilia",
+          0.0015011292342130657
+        ],
+        [
+          "Ulmus",
+          0.003879013234763883
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.2919050337798629,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 4.8572257327350596e-18,
+      "count_conditioned_deviance": 103.60694972179627,
+      "fold_id": "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+      "mae_fraction": 0.018167362755452523,
+      "missing_observed_taxa": [],
+      "observed_total_count": 274,
+      "record_id": "author:COMERSLA",
+      "rmse_fraction": 0.04571901470795034,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.000496545822771283
+        ],
+        [
+          "Alnus.glutinosa",
+          -0.011332150521684951
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0020507171920286582
+        ],
+        [
+          "Artemisia",
+          0.0018168208902838141
+        ],
+        [
+          "Betula",
+          0.008417813703841825
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0007003283828283797
+        ],
+        [
+          "Calluna.vulgaris",
+          0.009843983566981091
+        ],
+        [
+          "Carpinus.betulus",
+          0.002090213708179439
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0006729006985737815
+        ],
+        [
+          "Castanea",
+          0.000752004921574336
+        ],
+        [
+          "Cerealia.t",
+          0.001953214128955655
+        ],
+        [
+          "Corylus.avellana",
+          -0.03546663893814672
+        ],
+        [
+          "Cyperaceae",
+          0.08568088240830427
+        ],
+        [
+          "Ericaceae",
+          0.001259232353707525
+        ],
+        [
+          "Fagus.sylvatica",
+          0.013338327379378836
+        ],
+        [
+          "Fraxinus",
+          -0.002473812477070721
+        ],
+        [
+          "Juniperus",
+          0.0007379365470799697
+        ],
+        [
+          "Phillyrea",
+          0.000738915921954329
+        ],
+        [
+          "Picea",
+          0.0006438808923213558
+        ],
+        [
+          "Pinus",
+          0.0025256602098355334
+        ],
+        [
+          "Pistacia",
+          0.0007043585203934048
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.02370546988082689
+        ],
+        [
+          "Poaceae",
+          -0.19748165232202985
+        ],
+        [
+          "Quercus.deciduous",
+          0.11771350234789599
+        ],
+        [
+          "Quercus.evergreen",
+          0.0006936395996427838
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.010886491422156617
+        ],
+        [
+          "Salix",
+          0.00178778925843774
+        ],
+        [
+          "Secale",
+          0.0006343302382503847
+        ],
+        [
+          "Tilia",
+          0.000700063523887664
+        ],
+        [
+          "Ulmus",
+          0.007721604884551952
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.27251044133178787,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": 4.799401616869166e-18,
+      "count_conditioned_deviance": 90.53926710435891,
+      "fold_id": "site-group:c75829fd34a5566f2c32ab67dca2b994aeafcdf81055fd5148f7a309f6aa31cd",
+      "mae_fraction": 0.016467897538904437,
+      "missing_observed_taxa": [],
+      "observed_total_count": 274,
+      "record_id": "author:COMERSLA",
+      "rmse_fraction": 0.03958143665989152,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0005415424007629567
+        ],
+        [
+          "Alnus.glutinosa",
+          -0.009855180502075046
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.002045302834380561
+        ],
+        [
+          "Artemisia",
+          0.0017624791154784156
+        ],
+        [
+          "Betula",
+          0.008180680420602219
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0007156149455137108
+        ],
+        [
+          "Calluna.vulgaris",
+          0.010077649811997599
+        ],
+        [
+          "Carpinus.betulus",
+          0.002005173353061085
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0006912982807480216
+        ],
+        [
+          "Castanea",
+          0.0007596921035933021
+        ],
+        [
+          "Cerealia.t",
+          0.0018096022665307378
+        ],
+        [
+          "Corylus.avellana",
+          -0.04031916067838205
+        ],
+        [
+          "Cyperaceae",
+          0.07098655728690623
+        ],
+        [
+          "Ericaceae",
+          0.0015279016987629988
+        ],
+        [
+          "Fagus.sylvatica",
+          0.011729512470672642
+        ],
+        [
+          "Fraxinus",
+          -0.0022595534826685337
+        ],
+        [
+          "Juniperus",
+          0.0007591664172158981
+        ],
+        [
+          "Phillyrea",
+          0.0007482411326371656
+        ],
+        [
+          "Picea",
+          0.000667581680637287
+        ],
+        [
+          "Pinus",
+          0.002154721661874091
+        ],
+        [
+          "Pistacia",
+          0.0007188876696049207
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.02231488530672718
+        ],
+        [
+          "Poaceae",
+          -0.17022438027933307
+        ],
+        [
+          "Quercus.deciduous",
+          0.10073273438577451
+        ],
+        [
+          "Quercus.evergreen",
+          0.0007100144853741988
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.01220336585886279
+        ],
+        [
+          "Salix",
+          0.008919187261475434
+        ],
+        [
+          "Secale",
+          0.00068426697367395
+        ],
+        [
+          "Tilia",
+          0.0008138865837365912
+        ],
+        [
+          "Ulmus",
+          0.0071187048180698384
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.24701846308356656,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": 6.505213034913026e-20,
+      "count_conditioned_deviance": 2147.80080580813,
+      "fold_id": "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+      "mae_fraction": 0.027216515709775325,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2547,
+      "record_id": "author:LOBBSBOG",
+      "rmse_fraction": 0.06395298750333907,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.002172701876812531
+        ],
+        [
+          "Alnus.glutinosa",
+          0.14612964534441522
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0025792362727068336
+        ],
+        [
+          "Artemisia",
+          0.0016876447077941298
+        ],
+        [
+          "Betula",
+          0.014287239961108159
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0013218282978510877
+        ],
+        [
+          "Calluna.vulgaris",
+          0.07273610912627354
+        ],
+        [
+          "Carpinus.betulus",
+          0.0023676335739123105
+        ],
+        [
+          "Carpinus.orientalis",
+          0.001303840735819611
+        ],
+        [
+          "Castanea",
+          0.0011883989474111758
+        ],
+        [
+          "Cerealia.t",
+          0.0014350358815250408
+        ],
+        [
+          "Corylus.avellana",
+          0.07361724551681528
+        ],
+        [
+          "Cyperaceae",
+          -0.2561858145769391
+        ],
+        [
+          "Ericaceae",
+          0.005188735638091393
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0092662158243872
+        ],
+        [
+          "Fraxinus",
+          0.0037768450193922908
+        ],
+        [
+          "Juniperus",
+          0.0018410372371808887
+        ],
+        [
+          "Phillyrea",
+          0.0011914766452621056
+        ],
+        [
+          "Picea",
+          0.0015142419790407033
+        ],
+        [
+          "Pinus",
+          -0.0005385868797773341
+        ],
+        [
+          "Pistacia",
+          0.0012925743894905324
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.011670158035983973
+        ],
+        [
+          "Poaceae",
+          -0.15152333418991337
+        ],
+        [
+          "Quercus.deciduous",
+          0.03875371132040056
+        ],
+        [
+          "Quercus.evergreen",
+          0.0013530246353566414
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0006034443338922332
+        ],
+        [
+          "Salix",
+          0.0051542223583270685
+        ],
+        [
+          "Secale",
+          0.002153028498571462
+        ],
+        [
+          "Tilia",
+          0.0018650627842474925
+        ],
+        [
+          "Ulmus",
+          0.0017973967045603148
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.40824773564662986,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": -2.3852447794681098e-18,
+      "count_conditioned_deviance": 583.9266233290443,
+      "fold_id": "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+      "mae_fraction": 0.010935587193482704,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2547,
+      "record_id": "author:LOBBSBOG",
+      "rmse_fraction": 0.03117074775806033,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.000765426529883986
+        ],
+        [
+          "Alnus.glutinosa",
+          0.0054949153087424304
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.002106564278334613
+        ],
+        [
+          "Artemisia",
+          0.00034182779703521523
+        ],
+        [
+          "Betula",
+          0.008692094912946133
+        ],
+        [
+          "Buxus.sempervirens",
+          0.000838639513990081
+        ],
+        [
+          "Calluna.vulgaris",
+          0.03243662497654259
+        ],
+        [
+          "Carpinus.betulus",
+          0.0008315559679929283
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008270030193860803
+        ],
+        [
+          "Castanea",
+          0.0008539811475592029
+        ],
+        [
+          "Cerealia.t",
+          0.004598684626092517
+        ],
+        [
+          "Corylus.avellana",
+          0.013428888655532975
+        ],
+        [
+          "Cyperaceae",
+          -0.003944639558739471
+        ],
+        [
+          "Ericaceae",
+          0.0027942402336181517
+        ],
+        [
+          "Fagus.sylvatica",
+          0.005290408922822768
+        ],
+        [
+          "Fraxinus",
+          0.003321003444172118
+        ],
+        [
+          "Juniperus",
+          0.0027104817460933696
+        ],
+        [
+          "Phillyrea",
+          0.0008490897622046105
+        ],
+        [
+          "Picea",
+          0.0008208032438717836
+        ],
+        [
+          "Pinus",
+          0.00015640101996237336
+        ],
+        [
+          "Pistacia",
+          0.000839325557758324
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.0036302636081681893
+        ],
+        [
+          "Poaceae",
+          -0.15645890473533292
+        ],
+        [
+          "Quercus.deciduous",
+          0.05557577261122773
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008368912919978624
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0029741536737178473
+        ],
+        [
+          "Salix",
+          0.0002803420021980426
+        ],
+        [
+          "Secale",
+          0.009806164723141463
+        ],
+        [
+          "Tilia",
+          0.0026712688933558416
+        ],
+        [
+          "Ulmus",
+          0.003891254042059451
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.16403380790224056,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": 1.0263780566196109e-18,
+      "count_conditioned_deviance": 459.2782763279417,
+      "fold_id": "site-group:c7e517eb873534a558c3f02905962f5e37deb2390b34e538f3685b28eb6381f4",
+      "mae_fraction": 0.009227557596417604,
+      "missing_observed_taxa": [],
+      "observed_total_count": 2547,
+      "record_id": "author:LOBBSBOG",
+      "rmse_fraction": 0.02655476137245457,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0007734755060956995
+        ],
+        [
+          "Alnus.glutinosa",
+          -0.001904557278107781
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.002105436141855008
+        ],
+        [
+          "Artemisia",
+          0.00035479894530028025
+        ],
+        [
+          "Betula",
+          0.008984991649018344
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008387232991932464
+        ],
+        [
+          "Calluna.vulgaris",
+          0.025990062344538004
+        ],
+        [
+          "Carpinus.betulus",
+          0.000841738911242023
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008280109894315921
+        ],
+        [
+          "Castanea",
+          0.0008526972123179433
+        ],
+        [
+          "Cerealia.t",
+          0.0038708451471673564
+        ],
+        [
+          "Corylus.avellana",
+          0.01151252353597719
+        ],
+        [
+          "Cyperaceae",
+          -9.020893097261284e-05
+        ],
+        [
+          "Ericaceae",
+          0.002275068751616428
+        ],
+        [
+          "Fagus.sylvatica",
+          0.00461302254298979
+        ],
+        [
+          "Fraxinus",
+          0.003428681107138456
+        ],
+        [
+          "Juniperus",
+          0.002341581295893568
+        ],
+        [
+          "Phillyrea",
+          0.00084821789287495
+        ],
+        [
+          "Picea",
+          0.0008226438400161789
+        ],
+        [
+          "Pinus",
+          0.00011566680886071837
+        ],
+        [
+          "Pistacia",
+          0.0008393178015477322
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.0029615026133728867
+        ],
+        [
+          "Poaceae",
+          -0.1334570951238107
+        ],
+        [
+          "Quercus.deciduous",
+          0.04776955502865629
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008371615562684366
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0031253174141379
+        ],
+        [
+          "Salix",
+          0.0006922411169423804
+        ],
+        [
+          "Secale",
+          0.008004257251573997
+        ],
+        [
+          "Tilia",
+          0.0023885270123526776
+        ],
+        [
+          "Ulmus",
+          0.0033588008432578315
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.13841336394626405,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -8.44232091642046e-18,
+      "count_conditioned_deviance": 508.86726726228994,
+      "fold_id": "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+      "mae_fraction": 0.02871424135009262,
+      "missing_observed_taxa": [],
+      "observed_total_count": 553,
+      "record_id": "author:LARKBARR",
+      "rmse_fraction": 0.0858944743752039,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0008662472989999462
+        ],
+        [
+          "Alnus.glutinosa",
+          0.14703380594966176
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0024114402062599414
+        ],
+        [
+          "Artemisia",
+          0.0022706830366438
+        ],
+        [
+          "Betula",
+          0.005216698842300804
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0008861710034909261
+        ],
+        [
+          "Calluna.vulgaris",
+          0.04815266180787742
+        ],
+        [
+          "Carpinus.betulus",
+          0.0015152673673678562
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008284072493593433
+        ],
+        [
+          "Castanea",
+          0.000889639040424095
+        ],
+        [
+          "Cerealia.t",
+          0.0017919123794843538
+        ],
+        [
+          "Corylus.avellana",
+          0.08137347063841324
+        ],
+        [
+          "Cyperaceae",
+          0.057435233932922256
+        ],
+        [
+          "Ericaceae",
+          0.003950876965726176
+        ],
+        [
+          "Fagus.sylvatica",
+          0.005184244856690459
+        ],
+        [
+          "Fraxinus",
+          0.0005639151343862737
+        ],
+        [
+          "Juniperus",
+          0.0013433166663051456
+        ],
+        [
+          "Phillyrea",
+          0.0008703317272961817
+        ],
+        [
+          "Picea",
+          0.0008918749749194588
+        ],
+        [
+          "Pinus",
+          0.002832543354005607
+        ],
+        [
+          "Pistacia",
+          0.000875469521548454
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.008036679269232322
+        ],
+        [
+          "Poaceae",
+          -0.4307136202513895
+        ],
+        [
+          "Quercus.deciduous",
+          0.04184786486315253
+        ],
+        [
+          "Quercus.evergreen",
+          0.0008930608017935699
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0023235602319975346
+        ],
+        [
+          "Salix",
+          0.005591681894083491
+        ],
+        [
+          "Secale",
+          0.0012464044224971445
+        ],
+        [
+          "Tilia",
+          0.0012553951658736025
+        ],
+        [
+          "Ulmus",
+          0.0023347616486756612
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.4307136202513893,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 6.577493179745393e-19,
+      "count_conditioned_deviance": 268.35519988546844,
+      "fold_id": "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+      "mae_fraction": 0.020347944397669175,
+      "missing_observed_taxa": [],
+      "observed_total_count": 553,
+      "record_id": "author:LARKBARR",
+      "rmse_fraction": 0.0617715406944683,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0005843581421629501
+        ],
+        [
+          "Alnus.glutinosa",
+          0.02047529560633269
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.003860188376069765
+        ],
+        [
+          "Artemisia",
+          0.0012296365581632017
+        ],
+        [
+          "Betula",
+          0.00213815800731805
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0006765426637266629
+        ],
+        [
+          "Calluna.vulgaris",
+          0.004248579053399811
+        ],
+        [
+          "Carpinus.betulus",
+          0.0006675503093274044
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0006559684317120632
+        ],
+        [
+          "Castanea",
+          0.0006977587939076517
+        ],
+        [
+          "Cerealia.t",
+          0.000647965467242832
+        ],
+        [
+          "Corylus.avellana",
+          0.12487596399717102
+        ],
+        [
+          "Cyperaceae",
+          0.050628633001495796
+        ],
+        [
+          "Ericaceae",
+          0.0006714332496438073
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.0008862118242291772
+        ],
+        [
+          "Fraxinus",
+          0.003783623651455982
+        ],
+        [
+          "Juniperus",
+          0.0006918960891335149
+        ],
+        [
+          "Phillyrea",
+          0.0006894518440464506
+        ],
+        [
+          "Picea",
+          0.0006537670905025876
+        ],
+        [
+          "Pinus",
+          0.0028256204418247756
+        ],
+        [
+          "Pistacia",
+          0.0006766179020302101
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.025215650396427387
+        ],
+        [
+          "Poaceae",
+          -0.30433295414080846
+        ],
+        [
+          "Quercus.deciduous",
+          0.05059519562232997
+        ],
+        [
+          "Quercus.evergreen",
+          0.0006747291551839381
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.0025392013166807767
+        ],
+        [
+          "Salix",
+          0.0019456477463429965
+        ],
+        [
+          "Secale",
+          0.000649400329878191
+        ],
+        [
+          "Tilia",
+          0.0006758176765811927
+        ],
+        [
+          "Ulmus",
+          0.0015445150449459692
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.3052191659650376,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": 5.348730717595155e-19,
+      "count_conditioned_deviance": 274.6943068828895,
+      "fold_id": "site-group:e3955a9c6c0aebba8988ebedb7357000cfc8ff08983a7eb27f0e9f957816efd2",
+      "mae_fraction": 0.021625757079866893,
+      "missing_observed_taxa": [],
+      "observed_total_count": 553,
+      "record_id": "author:LARKBARR",
+      "rmse_fraction": 0.06402243360253092,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0004740474751213875
+        ],
+        [
+          "Alnus.glutinosa",
+          0.024988608375081565
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0022839472300923694
+        ],
+        [
+          "Artemisia",
+          0.0015626131358015256
+        ],
+        [
+          "Betula",
+          0.003216438273737448
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0006235661593445638
+        ],
+        [
+          "Calluna.vulgaris",
+          0.026018638657985354
+        ],
+        [
+          "Carpinus.betulus",
+          0.0010290541212786553
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0005974945554634481
+        ],
+        [
+          "Castanea",
+          0.0006633011118879319
+        ],
+        [
+          "Cerealia.t",
+          0.0014339318789636903
+        ],
+        [
+          "Corylus.avellana",
+          0.07577183491653
+        ],
+        [
+          "Cyperaceae",
+          0.08165948998154758
+        ],
+        [
+          "Ericaceae",
+          0.001459570136035519
+        ],
+        [
+          "Fagus.sylvatica",
+          0.002642282750860242
+        ],
+        [
+          "Fraxinus",
+          0.0017729797626090203
+        ],
+        [
+          "Juniperus",
+          0.0007935857255839176
+        ],
+        [
+          "Phillyrea",
+          0.0006514723104672054
+        ],
+        [
+          "Picea",
+          0.0005821162317569777
+        ],
+        [
+          "Pinus",
+          0.0027509143205592616
+        ],
+        [
+          "Pistacia",
+          0.0006256111832391966
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.010860916195361201
+        ],
+        [
+          "Poaceae",
+          -0.3243863561980033
+        ],
+        [
+          "Quercus.deciduous",
+          0.06100431492894153
+        ],
+        [
+          "Quercus.evergreen",
+          0.0006191759375181377
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.005514663551906834
+        ],
+        [
+          "Salix",
+          0.010223666265791314
+        ],
+        [
+          "Secale",
+          0.0008646148665769125
+        ],
+        [
+          "Tilia",
+          0.0008278643920488126
+        ],
+        [
+          "Ulmus",
+          0.0028696417659117976
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.3243863561980034,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -2.9201178512276253e-18,
+      "count_conditioned_deviance": 913.7151724444349,
+      "fold_id": "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+      "mae_fraction": 0.021690091399923995,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1439,
+      "record_id": "author:HANGINGS",
+      "rmse_fraction": 0.04677414703311125,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0007055192788225701
+        ],
+        [
+          "Alnus.glutinosa",
+          0.09189721566119624
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0008962694970983461
+        ],
+        [
+          "Artemisia",
+          0.0007460904903140119
+        ],
+        [
+          "Betula",
+          0.005871066911511808
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0007766979984358382
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.1278063085297591
+        ],
+        [
+          "Carpinus.betulus",
+          0.0013277209744785962
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0007202725302862815
+        ],
+        [
+          "Castanea",
+          0.0007926965546765213
+        ],
+        [
+          "Cerealia.t",
+          0.0015512039584921027
+        ],
+        [
+          "Corylus.avellana",
+          -0.058054671018029
+        ],
+        [
+          "Cyperaceae",
+          0.14278961768319473
+        ],
+        [
+          "Ericaceae",
+          0.0034946942315176414
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0033729817131663412
+        ],
+        [
+          "Fraxinus",
+          0.00018347581469844217
+        ],
+        [
+          "Juniperus",
+          0.0011984403504176732
+        ],
+        [
+          "Phillyrea",
+          0.0007725764752187552
+        ],
+        [
+          "Picea",
+          0.000767175471754581
+        ],
+        [
+          "Pinus",
+          0.001802605331759534
+        ],
+        [
+          "Pistacia",
+          0.0007684407035321187
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.018077549662103367
+        ],
+        [
+          "Poaceae",
+          -0.12141284178896844
+        ],
+        [
+          "Quercus.deciduous",
+          0.04190923551061599
+        ],
+        [
+          "Quercus.evergreen",
+          0.0007809755318752567
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.01310279288247228
+        ],
+        [
+          "Salix",
+          0.003965819217972869
+        ],
+        [
+          "Secale",
+          0.0010744892254637142
+        ],
+        [
+          "Tilia",
+          0.0011060531083662924
+        ],
+        [
+          "Ulmus",
+          0.002977243891521315
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.3253513709988599,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": -1.0842021724855044e-17,
+      "count_conditioned_deviance": 3137.1589574787477,
+      "fold_id": "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+      "mae_fraction": 0.044376670613915835,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1439,
+      "record_id": "author:HANGINGS",
+      "rmse_fraction": 0.1317520599396171,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0009950645617178564
+        ],
+        [
+          "Alnus.glutinosa",
+          0.6022048057816689
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.0003521040604250725
+        ],
+        [
+          "Artemisia",
+          -0.00037736303009544125
+        ],
+        [
+          "Betula",
+          -0.009452610454604974
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0010292730652846191
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.11913658988848903
+        ],
+        [
+          "Carpinus.betulus",
+          0.0010571492581854202
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008452582098851519
+        ],
+        [
+          "Castanea",
+          0.001011705671152421
+        ],
+        [
+          "Cerealia.t",
+          0.0010299321788997096
+        ],
+        [
+          "Corylus.avellana",
+          -0.12548419121542626
+        ],
+        [
+          "Cyperaceae",
+          0.0356780438558494
+        ],
+        [
+          "Ericaceae",
+          0.007899785490653432
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.001812000879264532
+        ],
+        [
+          "Fraxinus",
+          -0.003514241370423147
+        ],
+        [
+          "Juniperus",
+          0.0010137410689727922
+        ],
+        [
+          "Phillyrea",
+          0.0009486939098159816
+        ],
+        [
+          "Picea",
+          0.0010726817057384588
+        ],
+        [
+          "Pinus",
+          0.001670985475639122
+        ],
+        [
+          "Pistacia",
+          0.000988046821634907
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.03440907080260653
+        ],
+        [
+          "Poaceae",
+          -0.35386326736635454
+        ],
+        [
+          "Quercus.deciduous",
+          -0.016845928626847514
+        ],
+        [
+          "Quercus.evergreen",
+          0.0010581582065043752
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.00488546231864153
+        ],
+        [
+          "Salix",
+          -0.00040269151420056055
+        ],
+        [
+          "Secale",
+          0.001066430298341345
+        ],
+        [
+          "Tilia",
+          0.0010132624637165146
+        ],
+        [
+          "Ulmus",
+          0.00018157886643538432
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.6656500592087375,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": -2.023844055306275e-18,
+      "count_conditioned_deviance": 3097.6296929403698,
+      "fold_id": "site-group:edd6da210fbd6f93aef34709951c5e22cd5c9b8a7669aaa10a15bdf2286d71cb",
+      "mae_fraction": 0.04416675771544475,
+      "missing_observed_taxa": [],
+      "observed_total_count": 1439,
+      "record_id": "author:HANGINGS",
+      "rmse_fraction": 0.13106468252310216,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0009975820669247673
+        ],
+        [
+          "Alnus.glutinosa",
+          0.5985259920436488
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          -0.00033245635905787313
+        ],
+        [
+          "Artemisia",
+          -0.00035406848183721284
+        ],
+        [
+          "Betula",
+          -0.009269779766607178
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0010307273416160392
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.11893186695290908
+        ],
+        [
+          "Carpinus.betulus",
+          0.0010705361084062358
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0008475485219294198
+        ],
+        [
+          "Castanea",
+          0.001013029680097584
+        ],
+        [
+          "Cerealia.t",
+          0.0010404386986522314
+        ],
+        [
+          "Corylus.avellana",
+          -0.12459377689851658
+        ],
+        [
+          "Cyperaceae",
+          0.036089212574897056
+        ],
+        [
+          "Ericaceae",
+          0.007892502929914235
+        ],
+        [
+          "Fagus.sylvatica",
+          -0.0017124165023905621
+        ],
+        [
+          "Fraxinus",
+          -0.0034918628823317212
+        ],
+        [
+          "Juniperus",
+          0.001024060198881681
+        ],
+        [
+          "Phillyrea",
+          0.0009503433952017802
+        ],
+        [
+          "Picea",
+          0.0010741887655170014
+        ],
+        [
+          "Pinus",
+          0.001672047474771806
+        ],
+        [
+          "Pistacia",
+          0.0009896635765911706
+        ],
+        [
+          "Plantago.lanceolata.type",
+          -0.03425821397179993
+        ],
+        [
+          "Poaceae",
+          -0.35283024591723133
+        ],
+        [
+          "Quercus.deciduous",
+          -0.016348126735465394
+        ],
+        [
+          "Quercus.evergreen",
+          0.0010595119433138415
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.004927810155615289
+        ],
+        [
+          "Salix",
+          -0.00037855126352450124
+        ],
+        [
+          "Secale",
+          0.0010680750936366491
+        ],
+        [
+          "Tilia",
+          0.0010209491888880373
+        ],
+        [
+          "Ulmus",
+          0.00020714597316760655
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.6625013657316713,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "training_mean",
+      "bias_fraction": -1.61907524424502e-18,
+      "count_conditioned_deviance": 1554.7017666398708,
+      "fold_id": "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51",
+      "mae_fraction": 0.05745778161103776,
+      "missing_observed_taxa": [],
+      "observed_total_count": 297,
+      "record_id": "author:WHH05",
+      "rmse_fraction": 0.17565041288345692,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0003832108165274406
+        ],
+        [
+          "Alnus.glutinosa",
+          0.03381818724306144
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.002274706165690786
+        ],
+        [
+          "Artemisia",
+          0.0021025531929129647
+        ],
+        [
+          "Betula",
+          0.026482429034586894
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0004818935090566766
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.856764955576253
+        ],
+        [
+          "Carpinus.betulus",
+          0.0008669387653497306
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0004557478436445261
+        ],
+        [
+          "Castanea",
+          0.0005100168400916745
+        ],
+        [
+          "Cerealia.t",
+          0.0010050585073083543
+        ],
+        [
+          "Corylus.avellana",
+          0.07800343193719465
+        ],
+        [
+          "Cyperaceae",
+          0.1901139991837172
+        ],
+        [
+          "Ericaceae",
+          -0.005101768589313374
+        ],
+        [
+          "Fagus.sylvatica",
+          0.004694086643929308
+        ],
+        [
+          "Fraxinus",
+          0.008238824802000748
+        ],
+        [
+          "Juniperus",
+          0.0008065664900745183
+        ],
+        [
+          "Phillyrea",
+          0.0004991731127240104
+        ],
+        [
+          "Picea",
+          0.0004549465093658116
+        ],
+        [
+          "Pinus",
+          0.001144384264187536
+        ],
+        [
+          "Pistacia",
+          0.0004819094037679912
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.02292029679933396
+        ],
+        [
+          "Poaceae",
+          0.3738195994998807
+        ],
+        [
+          "Quercus.deciduous",
+          0.08174132099063293
+        ],
+        [
+          "Quercus.evergreen",
+          0.0004797521048586725
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.01845027856171912
+        ],
+        [
+          "Salix",
+          0.0050951494026476914
+        ],
+        [
+          "Secale",
+          0.000667885136284769
+        ],
+        [
+          "Tilia",
+          0.0007227811985023671
+        ],
+        [
+          "Ulmus",
+          0.005151596206513835
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.8618667241655664,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "nearest_site",
+      "bias_fraction": 3.23815048849004e-18,
+      "count_conditioned_deviance": 1166.9707743117544,
+      "fold_id": "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51",
+      "mae_fraction": 0.054705942182933766,
+      "missing_observed_taxa": [],
+      "observed_total_count": 297,
+      "record_id": "author:WHH05",
+      "rmse_fraction": 0.16618865691688264,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.0004450796660776647
+        ],
+        [
+          "Alnus.glutinosa",
+          0.041413469485178954
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0021606714175717977
+        ],
+        [
+          "Artemisia",
+          0.0020472358909520063
+        ],
+        [
+          "Betula",
+          0.024886200215216817
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0005086357088138765
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.8143603484975623
+        ],
+        [
+          "Carpinus.betulus",
+          0.0005025559435514404
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0004924866291944098
+        ],
+        [
+          "Castanea",
+          0.0005235453380500568
+        ],
+        [
+          "Cerealia.t",
+          0.0004887907257825154
+        ],
+        [
+          "Corylus.avellana",
+          0.11128808820685326
+        ],
+        [
+          "Cyperaceae",
+          0.1596278094783479
+        ],
+        [
+          "Ericaceae",
+          -0.006228784246444165
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0022965031759785088
+        ],
+        [
+          "Fraxinus",
+          0.008940055395233218
+        ],
+        [
+          "Juniperus",
+          0.0005193780372470503
+        ],
+        [
+          "Phillyrea",
+          0.0005172606317664468
+        ],
+        [
+          "Picea",
+          0.0004931488308510322
+        ],
+        [
+          "Pinus",
+          0.0007601497707570687
+        ],
+        [
+          "Pistacia",
+          0.0005084019868275749
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.031817311868008104
+        ],
+        [
+          "Poaceae",
+          0.3470430850826709
+        ],
+        [
+          "Quercus.deciduous",
+          0.057082285945982775
+        ],
+        [
+          "Quercus.evergreen",
+          0.0005075602560005013
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.017399408420840336
+        ],
+        [
+          "Salix",
+          0.0029648284745331342
+        ],
+        [
+          "Secale",
+          0.0004900972830993211
+        ],
+        [
+          "Tilia",
+          0.0005080171849132521
+        ],
+        [
+          "Ulmus",
+          0.004357071693706501
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.8205891327440065,
+      "zero_probability_positive_count": false
+    },
+    {
+      "baseline": "inverse_distance_squared",
+      "bias_fraction": -3.7874795892160285e-18,
+      "count_conditioned_deviance": 1168.1843686698107,
+      "fold_id": "site-group:f7b8416933c3fd89cc1348c402e56cf932ee586335a153253957d4b3a7cb5c51",
+      "mae_fraction": 0.054718633611642975,
+      "missing_observed_taxa": [],
+      "observed_total_count": 297,
+      "record_id": "author:WHH05",
+      "rmse_fraction": 0.16617464509724714,
+      "scored_taxon_count": 30,
+      "signed_error_by_taxon": [
+        [
+          "Abies.alba",
+          0.00045143181423671654
+        ],
+        [
+          "Alnus.glutinosa",
+          0.041715366838781666
+        ],
+        [
+          "Amanranthaceae.Chenopodiaceae",
+          0.0021805931849831245
+        ],
+        [
+          "Artemisia",
+          0.002073901829213848
+        ],
+        [
+          "Betula",
+          0.02502320877066755
+        ],
+        [
+          "Buxus.sempervirens",
+          0.0005143099885050622
+        ],
+        [
+          "Calluna.vulgaris",
+          -0.8146167281792207
+        ],
+        [
+          "Carpinus.betulus",
+          0.0005286243755107406
+        ],
+        [
+          "Carpinus.orientalis",
+          0.0004976465158441738
+        ],
+        [
+          "Castanea",
+          0.0005289542220875113
+        ],
+        [
+          "Cerealia.t",
+          0.0005092174430170094
+        ],
+        [
+          "Corylus.avellana",
+          0.11136529266786938
+        ],
+        [
+          "Cyperaceae",
+          0.15943502336206075
+        ],
+        [
+          "Ericaceae",
+          -0.006162775995424085
+        ],
+        [
+          "Fagus.sylvatica",
+          0.0024394106122822006
+        ],
+        [
+          "Fraxinus",
+          0.008916024720166966
+        ],
+        [
+          "Juniperus",
+          0.000540509089332528
+        ],
+        [
+          "Phillyrea",
+          0.0005225410004698046
+        ],
+        [
+          "Picea",
+          0.0004991816432557736
+        ],
+        [
+          "Pinus",
+          0.0007668210777054371
+        ],
+        [
+          "Pistacia",
+          0.0005139397653482555
+        ],
+        [
+          "Plantago.lanceolata.type",
+          0.031706017000725235
+        ],
+        [
+          "Poaceae",
+          0.3461839173594058
+        ],
+        [
+          "Quercus.deciduous",
+          0.057591203736746956
+        ],
+        [
+          "Quercus.evergreen",
+          0.0005133425800872517
+        ],
+        [
+          "Rumex.acetosa.t",
+          0.01737828005733767
+        ],
+        [
+          "Salix",
+          0.002986787979170772
+        ],
+        [
+          "Secale",
+          0.0004962486853038158
+        ],
+        [
+          "Tilia",
+          0.0005242261812559373
+        ],
+        [
+          "Ulmus",
+          0.004377481673272965
+        ]
+      ],
+      "status": "scored",
+      "target": "pollen_composition",
+      "taxon_count": 30,
+      "total_variation": 0.8207795041746446,
+      "zero_probability_positive_count": false
+    }
+  ],
+  "training": {
+    "bytes": 2625790,
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-love-cohort-execution/native/products/training.json",
+    "sha256": "ba24a3d9d7a41b8be459c61078ff975422483ce9b8c26eac8155ea02f4938e2f"
+  }
+}
