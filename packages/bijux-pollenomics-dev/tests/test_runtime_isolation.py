@@ -14,6 +14,21 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    "bijux_pollenomics_dev/source_completion/sead/boolean_staging.py": {
+        "bijux_pollenomics.collection.sources.sead.evidence.source_keys.identities": frozenset(
+            {"canonical_site_uuid"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/sead/categorical_staging.py": {
+        "bijux_pollenomics.collection.sources.sead.evidence.source_keys.identities": frozenset(
+            {"canonical_site_uuid"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/sead/integer_staging.py": {
+        "bijux_pollenomics.collection.sources.sead.evidence.source_keys.identities": frozenset(
+            {"canonical_site_uuid"}
+        ),
+    },
     # Saved-score checks share the canonical sample identity schema.
     "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/optimizer_inputs/cohort_predictions.py": {
         "bijux_pollenomics.analysis.lra_validation.experiments.inputs": frozenset(
@@ -1411,3 +1426,29 @@ def test_cohort_prediction_schema_binding_remains_file_module_and_symbol_specifi
         (f"importlib.import_module({module!r})", reader),
     ):
         assert host_import_violations(source, path)
+
+
+def test_sead_staging_identity_bindings_remain_file_module_and_symbol_specific() -> (
+    None
+):
+    """Staging may canonicalize its site key without broader host capabilities."""
+    module = "bijux_pollenomics.collection.sources.sead.evidence.source_keys.identities"
+    for filename in (
+        "categorical_staging.py",
+        "integer_staging.py",
+        "boolean_staging.py",
+    ):
+        path = "bijux_pollenomics_dev/source_completion/sead/" + filename
+        statement = f"from {module} import canonical_site_uuid"
+        assert not host_import_violations(statement, path)
+        for source, owner in (
+            (statement, path + ".other"),
+            (f"from {module}.other import canonical_site_uuid", path),
+            (f"from {module} import canonical_site_uuid_other", path),
+            (f"from {module} import canonical_site_uuid, unreviewed", path),
+            (f"from {module} import *", path),
+            (f"import {module}", path),
+            (f"__import__({module!r})", path),
+            (f"importlib.import_module({module!r})", path),
+        ):
+            assert host_import_violations(source, owner)

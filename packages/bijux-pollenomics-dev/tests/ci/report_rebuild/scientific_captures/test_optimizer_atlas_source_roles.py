@@ -79,7 +79,7 @@ def test_each_of_six_roles_retains_old_source_without_current_equivalence(
 ) -> None:
     rows, resolver = _world(tmp_path, monkeypatch, own_sources)
     logical = "executions/optimizer-diagnostics/first-party-inputs/" + name
-    facts = module._optimizer_atlas_source_correspondence(
+    facts = module._optimizer_source_input_correspondence(
         tmp_path, rows[name], logical, cast(SourceCapsule, resolver)
     )
     assert facts is not None
@@ -103,7 +103,7 @@ def test_byte_equal_default_stays_unclassified(
     logical = "executions/optimizer-diagnostics/first-party-inputs/" + name
     (tmp_path / name).write_bytes(resolver.owned_bodies[logical])
     assert (
-        module._optimizer_atlas_source_correspondence(
+        module._optimizer_source_input_correspondence(
             tmp_path, rows[name], logical, cast(SourceCapsule, resolver)
         )
         is None
@@ -209,7 +209,7 @@ def test_lane_custody_and_finite_math_refusals_remain_strict(
             )
         )
     with pytest.raises((ReportRebuildError, OSError)):
-        module._optimizer_atlas_source_correspondence(
+        module._optimizer_source_input_correspondence(
             tmp_path, row, logical, cast(SourceCapsule, resolver)
         )
 
@@ -223,7 +223,7 @@ def test_six_role_facts_have_truthful_current_historical_and_exact_partitions(
     correspondences = []
     for name in NAMES:
         logical = "executions/optimizer-diagnostics/first-party-inputs/" + name
-        facts = module._optimizer_atlas_source_correspondence(
+        facts = module._optimizer_source_input_correspondence(
             tmp_path, rows[name], logical, cast(SourceCapsule, resolver)
         )
         assert facts is not None

@@ -45,6 +45,36 @@ All 68,705 parent observations retain refused event eligibility and the
 source continuity. It supplies no ecological classification, calibrated age,
 chronology admission or first-observed event.
 
+## Individually keyed preparation rows
+
+The [11,603-row typed table](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/sead-boolean-values.csv)
+retains exact component, parent, site UUID, sample, entity and dataset identities.
+Native component values and parent `boolean_value` fields agree on every row;
+that equality does not interpret their independent display labels. The
+[source-cohort account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md#keyed-sead-component-preparation)
+records the actual run and independent nine-table source checks at `64fd304cf`.
+
+The table preserves 1,708 true/9,895 false values, 38 literal `nära` qualifiers
+and 11,565 null qualifiers at 397 sites. It also exposes 738 actual Boolean
+components under native `Count`/`integer` metadata for Sapwood indicator, with
+10,865 under Boolean metadata. Those declarations are retained without casting
+values or repairing source metadata. All same-entity chronology links are
+unavailable, no source unit is exposed and no event is admitted. The original
+grouped report is unchanged.
+
+To request the table, add this option to the command below; the CSV must be a
+distinct sibling of the report and is bounded at 16 MiB:
+
+```sh
+  --rows-output "$PWD/artifacts/sead-boolean-lineage/values.csv"
+```
+
+The opted-in report adds a compact `typed_staging` account and the additional
+consumed raw relation identities. Missing, source-null and native true/false
+remain separate states; numeric/text substitutes refuse parsing. Broken source
+relations or inaccessible inputs refuse publication rather than becoming null
+or excluded observations. All relationship review ledgers are empty here.
+
 ## Reproduce
 
 From the repository root, with an absent artifact destination:
@@ -73,7 +103,7 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Unsupported claim.** False is not source null, and native flags are not ecological presence/absence, selected dates or accepted events.
 
-**Actual verification performed.** Read the 11,603-component lineage report and 17 display/class/state groups; no typed-source consumer rerun.
+**Actual verification performed.** The maintained consumer ran at 64fd304cf, exit zero in 4.26 s, producing all 11,603 keyed rows. An independent nine-original-table join confirms native keys, exact UUIDs, values, qualifiers, parent flags and class/type declarations, including 738 Boolean components under Count/integer metadata. All 57 focused tests and configured lint/types pass; the original 17-group report remains unchanged.
 
 **Remaining input or review.** Source class interpretation, scientific chronology/entity qualification and use review remain.
 
@@ -85,9 +115,11 @@ Source-native/context/propagation evidence: source units and eligibility/refusal
 
 **Negative or refused result.** All 68,705 parent event eligibilities remain refused; 0 typed nulls is not proof every parent is measured.
 
-**Matched denominator.** 177,763 staged observations; 68,705 analysis parents; 11,603 boolean parents/components=1,708 true+9,895 false; 17 groups; 0 events.
+**Matched denominator.** 11,603 components/parents at 397 sites, 4,774 samples and 6,088 datasets; 1,708 true/9,895 false; 38 literal nära/11,565 null qualifiers; 738 Count/integer versus 10,865 Boolean declarations; zero events.
 
 - [Retained qualification evidence: docs/report/source-relations/sead/analysis-boolean-values/report.json](report.json) (SHA-256 `1cb2b0777fd98181d749cf9aa81b418062048108d96e80816b31f77e48a9bc30`).
+
+- [Retained qualification evidence: reports/science/source-cohorts/sead-boolean-values.csv](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/sead-boolean-values.csv) (SHA-256 `c934c60bb71c513fa1b849f3c58ad42d9f521fb8bd850adeaad6fb3bded6b63d`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

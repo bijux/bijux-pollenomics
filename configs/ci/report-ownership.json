@@ -24476,7 +24476,9 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/analysis_value_components.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/analysis_value_methods.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_staging.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_values.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_staging.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_age_review.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/__init__.py",
@@ -24486,6 +24488,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/custody.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/report.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_annotations/source.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/integer_staging.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/integer_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/numerical_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/pollen_dataset_screen.py",
@@ -62741,6 +62744,7 @@
       ],
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_staging.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py",
@@ -62806,7 +62810,9 @@
       ],
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_staging.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_values.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_staging.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py",
@@ -62917,6 +62923,7 @@
       ],
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/integer_staging.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/integer_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_integer_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",

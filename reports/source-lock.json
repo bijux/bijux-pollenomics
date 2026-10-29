@@ -83,7 +83,7 @@
     "configs/ci/report-capture-projections/atlas-source-view-root-api.json": "ff0d3d8b14b522313aae5fb49d8a117950f8d8217fa4c0171686ad4d76c24c18",
     "configs/ci/report-capture-projections/lra-uncertainty-source-layout.json": "8f6d5e31f612b140b8bebec47419fb529f2aebc7bacddbe034845fd9cd0a54ef",
     "configs/ci/report-owner-execution.json": "3f891d3fbaf1fb50b783d12667ca451035372fcde2e96b96826b01d7eac5d864",
-    "configs/ci/report-ownership.json": "00dad9b82be665bc1d5a4623afb7e884e641799ee61b93484d9402d3be91b8bb",
+    "configs/ci/report-ownership.json": "268a5b701479a7000281e46921c82eb1198b1d32066c07aac4f835ce1050b749",
     "configs/ci/report-sources/swedish-literal-pair-counting.json": "ce732135ba63a7977521557983caf9e6c7de79d553422f3913cb9d6b866a1a6b",
     "configs/docs/scientific-source-files.json": "c02369f98d81e10f5c6c21dba8a2159a2c536ef598323786cb55d07a3cee4102",
     "data/adna/governance/source_library/projects/SRP073444/sample_master.json": "91fd9903db37c31659507b0f6ff8f042bee69312ada894d06ab50b16bcf5907c",
@@ -601,7 +601,7 @@
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json": "2152fde730bc4a80ba7b919ece7351a89bc3d4c1a947b27a660b2245be8e7b90",
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity-source.json": "ee23dfc891c1ad4e771f5c18fc0c0f6a4d64452c8929e2e27d5ce30709c7d5b2",
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity.json": "e27cdd607d9e565344472428d815efcb1db5edd6b8ab1e3e8821e3d625c4d4fa",
-    "docs/report/pollen-reconstruction/manifest.json": "46859ae67e68383b52c044d3142851b010f592a9cba170b3cce70cce45ccac78",
+    "docs/report/pollen-reconstruction/manifest.json": "4227cd2e5cb56c9ae46bf377558b1f8c752cb894dda5c79696db71a1e855956d",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json": "70911e6f14d2afb3ed54ec5d12f27b074514243ec525fd35222eca5b21cb77c5",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/attribution.json": "03fe513cc07c64ba00bfe1641e32e8f77ee4746ed1d775b182a7cf975bee3c45",
@@ -981,7 +981,10 @@
     "docs/report/synthetic-validation/persisted-experiment-isolation/report.json": "d6dbfccfb40cacc7b99b601b880501b3b285e15c6a0511ef7d51c5b5e01935d9",
     "docs/report/synthetic-validation/persisted-experiment-isolation/trace-index.json": "131cd1958367b87acf267e5303ead71430511b5735db2738e7f6656a284a8e81",
     "reports/science/source-cohorts/adna-current-contract-adjudication.json": "7c1abf2b936ad95182ea3137c8e7a1df1f5553b2ceac2df7a9fe32a993e744a9",
-    "reports/science/source-cohorts/adna-current-domain-evidence.json": "cdef4f083b1ab0c674a83e7d2c961b968b2e3539a38a527b99a04bb91681380e"
+    "reports/science/source-cohorts/adna-current-domain-evidence.json": "cdef4f083b1ab0c674a83e7d2c961b968b2e3539a38a527b99a04bb91681380e",
+    "reports/science/source-cohorts/sead-boolean-values.csv": "c934c60bb71c513fa1b849f3c58ad42d9f521fb8bd850adeaad6fb3bded6b63d",
+    "reports/science/source-cohorts/sead-categorical-values.csv": "e542145a14b4e241ecebf7711a8907e9f2c077d4af13e23296af04e09d960644",
+    "reports/science/source-cohorts/sead-integer-values.csv": "ffc3dd23f5878c7d0c798bf6b177211f56112edbb7a7b6b3418ff3ed147ac91b"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",

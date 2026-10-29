@@ -15,7 +15,7 @@ CORE_PATH = Path(
 )
 
 
-def run(repository: Path, output: Path) -> None:
+def run(repository: Path, output: Path, *, rows_output: Path | None = None) -> None:
     """Invoke the existing writer with its fixed data root and absent output."""
     repository = repository.resolve(strict=True)
     if output.is_symlink():
@@ -41,6 +41,8 @@ def run(repository: Path, output: Path) -> None:
             "--output",
             str(destination),
         ]
+        if rows_output is not None:
+            sys.argv.extend(["--rows-output", str(rows_output)])
         runpy.run_module(CORE, run_name="__main__")
     finally:
         sys.argv = original
@@ -51,8 +53,9 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--rows-output", type=Path)
     args = parser.parse_args(argv)
-    run(args.repository, args.output)
+    run(args.repository, args.output, rows_output=args.rows_output)
     return 0
 
 
