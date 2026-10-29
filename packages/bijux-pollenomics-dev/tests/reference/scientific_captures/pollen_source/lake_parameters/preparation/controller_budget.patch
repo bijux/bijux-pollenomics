@@ -1,0 +1,28 @@
+--- /Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-source-custody/prepare.py
++++ /Users/bijan/bijux/bijux-pollenomics/artifacts/science/neotoma-lakeparameter-runtime-budget-custody/prepare.py
+@@ -270,20 +270,20 @@
+             ),
+         },
+         "resources": {
+-            "overall_timeout_seconds": 360,
+-            "outer_timeout_seconds": 380,
++            "overall_timeout_seconds": 720,
++            "outer_timeout_seconds": 740,
+             "declared_memory_bytes": 4 * 1024**3,
+             "declared_storage_bytes": 128 * 1024**2,
+         },
+         "scope": "Offline maintained lake reader checker plus independent complete source-page/type/site/value/locator reconstruction. Optional genuine current prerequisite projection only with all30 source files; original54 site capture and current projection universes remain distinct. Live pagination is not transactional, absence not certified, basin unreviewed, zero LRA. No HTTP/acquisition/model/R, rights/human/ecological or release admission.",
+     }
+-    selections = [("maintained-lakeparameter-reader-checker", "execute_reader.py", 45)]
++    selections = [("maintained-lakeparameter-reader-checker", "execute_reader.py", 120)]
+     if args.include_prerequisites:
+         selections.append(
+-            ("maintained-current-prerequisite-projection", "execute_projection.py", 180)
++            ("maintained-current-prerequisite-projection", "execute_projection.py", 240)
+         )
+     selections.append(
+-        ("independent-lake-source-and-optional-projection-observer", "observe.py", 60)
++        ("independent-lake-source-and-optional-projection-observer", "observe.py", 120)
+     )
+     plan["stages"] = [
+         {

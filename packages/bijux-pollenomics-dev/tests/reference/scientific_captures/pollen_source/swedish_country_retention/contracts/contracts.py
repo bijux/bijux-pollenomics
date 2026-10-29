@@ -1,0 +1,285 @@
+"""Bind the complete owned Sweden country source, resources and data projection."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+from typing import Any
+
+from runtime_contracts import (
+    namespace_snapshot,
+    require_runtime_environment,
+    verify_base_namespaces,
+)
+from source_admission import reviewed_controls
+from source_inputs import InputScope, exact_union, pin
+from source_runtime import PYTHON as PYTHON
+from source_runtime import SOURCE as SOURCE
+from source_runtime import authenticate_runtime
+
+ROOT = SOURCE.parents[2]
+GIT = Path("/Library/Developer/CommandLineTools/usr/bin/git")
+PACKAGES = (
+    "bijux-pollenomics",
+    "bijux-pollenomics-lra",
+    "bijux-pollenomics-dev",
+    "pollenomics",
+)
+RESOURCES = {
+    "overall_timeout_seconds": 480,
+    "outer_timeout_seconds": 540,
+    "declared_memory_bytes": 4 * 1024**3,
+    "declared_storage_bytes": 1024**3,
+}
+
+
+def require(value: object, message: str) -> None:
+    if not value:
+        raise ValueError(message)
+
+
+def load(path: Path) -> dict[str, Any]:
+    value = json.loads(path.read_bytes())
+    require(isinstance(value, dict), "JSON object required")
+    assert isinstance(value, dict)
+    return value
+
+
+def write(path: Path, value: object) -> None:
+    require(
+        path.is_absolute()
+        and ".." not in path.parts
+        and path.is_relative_to(ROOT / "artifacts")
+        and not path.exists()
+        and not any(node.is_symlink() for node in (path, *path.parents)),
+        "Fresh owned regular output required",
+    )
+    with path.open("x") as stream:
+        stream.write(json.dumps(value, indent=2, allow_nan=False) + "\n")
+
+
+def verify_private_ancestry(root: Path, names: list[str]) -> None:
+    for name in names:
+        path = root / name
+        require(
+            not any(node.is_symlink() for node in (path, *path.parents)),
+            "Declared private source alias ancestry changed",
+        )
+
+
+def git_environment() -> dict[str, str]:
+    require_runtime_environment(dict(os.environ))
+    environment = {
+        key: value for key, value in os.environ.items() if not key.startswith("GIT_")
+    }
+    environment.update(
+        GIT_OPTIONAL_LOCKS="0", GIT_CONFIG_NOSYSTEM="1", GIT_CONFIG_GLOBAL=os.devnull
+    )
+    return environment
+
+
+def identity() -> dict[str, str]:
+    require_runtime_environment(dict(os.environ))
+    require(
+        not any(node.is_symlink() for node in (GIT, *GIT.parents)),
+        "Reviewed Git tool alias refused",
+    )
+    require(
+        pin(GIT)
+        == {
+            "path": str(GIT),
+            "sha256": "a73bf622a2e470d5d57a4b1d5aef1e8680e67278018d4858a2f93825b7d595c7",
+            "bytes": 3837392,
+        },
+        "Reviewed Git tool changed before first invocation",
+    )
+
+    def git(*args: str) -> bytes:
+        return subprocess.check_output(
+            [str(GIT), *args],
+            cwd=ROOT,
+            timeout=60,
+            env=git_environment(),
+        )
+
+    require(
+        git("branch", "--show-current").strip() == b"main"
+        and git("rev-parse", "--show-toplevel").decode().strip() == str(ROOT),
+        "Actual repository main required",
+    )
+    return {
+        "candidate": git("rev-parse", "HEAD").decode().strip(),
+        "status": git("status", "--porcelain").decode(),
+        "tracked_inventory_sha256": hashlib.sha256(
+            git("ls-files", "-s", "-z")
+        ).hexdigest(),
+    }
+
+
+def fresh_output(path: Path) -> Path:
+    path = path.absolute()
+    require(
+        path.is_relative_to(ROOT / "artifacts")
+        and path != ROOT / "artifacts"
+        and ".." not in path.parts
+        and path.resolve() == path
+        and not path.exists()
+        and not any(p.is_symlink() for p in (path, *path.parents)),
+        "Fresh normalized artifact output required",
+    )
+    return path
+
+
+def regular_tree(
+    root: Path, *, allow_cache_bytecode: bool = False
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    require(
+        not any(p.is_symlink() for p in (root, *root.parents)),
+        "Input root alias refused",
+    )
+    snapshot = namespace_snapshot(root, [])
+    rows = []
+    for name, value in snapshot["entries"].items():
+        require(value["kind"] in {"file", "directory"}, "Source alias/special refused")
+        if value["kind"] == "file":
+            path = root / name
+            require(
+                allow_cache_bytecode or path.suffix not in {".pyc", ".pyo"},
+                "Unreviewed source bytecode refused",
+            )
+            require(path.stat().st_nlink == 1, "Hardlinked source refused")
+            rows.append(pin(path))
+    return snapshot, rows
+
+
+def registered_plan(path: Path, expected: str) -> dict[str, Any]:
+    require(
+        type(expected) is str
+        and len(expected) == 64
+        and all(c in "0123456789abcdef" for c in expected),
+        "Exact registered plan SHA required",
+    )
+    require(
+        path.is_absolute()
+        and path == path.resolve()
+        and path.is_file()
+        and path.stat().st_nlink == 1
+        and not any(p.is_symlink() for p in (path, *path.parents)),
+        "Physical registered plan required",
+    )
+    raw = path.read_bytes()
+    require(
+        hashlib.sha256(raw).hexdigest() == expected, "Registered plan buffer differs"
+    )
+
+    def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
+        require(len(rows) == len({key for key, _ in rows}), "Duplicate plan key")
+        return dict(rows)
+
+    def refuse(value: str) -> None:
+        raise ValueError("Nonfinite registered JSON: " + value)
+
+    value = json.loads(raw, object_pairs_hook=pairs, parse_constant=refuse)
+    require(isinstance(value, dict), "Registered plan object required")
+    assert isinstance(value, dict)
+    return value
+
+
+def stage_plan(path: Path) -> dict[str, Any]:
+    return registered_plan(path, os.environ.get("BIJUX_REGISTERED_PLAN_SHA256", ""))
+
+
+def bootstrap(plan: dict[str, Any]) -> list[str]:
+    require(
+        Path(sys.executable).absolute() == PYTHON
+        and sys.flags.isolated == 1
+        and sys.dont_write_bytecode,
+        "Qualified isolated lexical Python required",
+    )
+    owned = Path(plan["owned_repository"])
+    roots = [owned / "packages" / name / "src" for name in PACKAGES]
+    require(
+        all(p.is_dir() and not p.is_symlink() for p in roots),
+        "Four owned package sources required",
+    )
+    sys.path[:0] = list(map(str, roots))
+    return list(map(str, roots))
+
+
+def strict_equal(left: object, right: object) -> bool:
+    if type(left) is not type(right):
+        return False
+    if isinstance(left, dict) and isinstance(right, dict):
+        return list(left) == list(right) and all(
+            strict_equal(left[key], right[key]) for key in left
+        )
+    if isinstance(left, list) and isinstance(right, list):
+        return len(left) == len(right) and all(
+            strict_equal(a, b) for a, b in zip(left, right, strict=True)
+        )
+    return left == right
+
+
+def checkpoint(
+    authority: dict[str, Any],
+    scope: InputScope,
+    snapshots: list[dict[str, Any]],
+    original_paths: list[str],
+) -> None:
+    reviewed_controls(SOURCE)
+    verify_private_ancestry(Path("/"), original_paths)
+    for snapshot in snapshots:
+        node = Path(snapshot["root"])
+        require(
+            not any(p.is_symlink() for p in (node, *node.parents)),
+            "Owned source/data ancestry changed",
+        )
+    scope.verify()
+    verify_base_namespaces(snapshots)
+    current, _ = authenticate_runtime()
+    require(current == authority, "Qualified147 source runtime changed")
+    scope.verify()
+    verify_base_namespaces(snapshots)
+
+
+def execution_scope(plan: dict[str, Any]) -> tuple[dict[str, Any], InputScope]:
+    from data_roles import native_orders, verify_selection
+
+    _, _, controlled = reviewed_controls(SOURCE)
+    require(
+        strict_equal(plan["source_declaration"], load(SOURCE / "declared-inputs.json")),
+        "Held source/data role declaration differs from registered plan",
+    )
+    authority, _ = authenticate_runtime()
+    require(authority == plan["qualified_source_runtime"], "Runtime authority differs")
+    scope = InputScope(exact_union(plan["input_pins"], controlled), [PYTHON])
+    require(
+        scope.rows == plan["input_pins"],
+        "Current source controls absent from frozen plan",
+    )
+    require(
+        scope.aliases == plan["runtime_entry_raw_aliases"]
+        and scope.entries == plan["runtime_entry_lexical_paths"],
+        "Raw runtime lexical entry changed",
+    )
+    verify_selection(
+        Path(plan["owned_repository"]),
+        plan["source_declaration"],
+        plan["source_input_selection"],
+    )
+    require(
+        native_orders(Path(plan["owned_repository"]), plan["source_declaration"])
+        == plan["owned_native_glob_orders"],
+        "Owned native glob order changed",
+    )
+    checkpoint(
+        authority,
+        scope,
+        plan["owned_namespace_snapshots"],
+        plan["original_physical_ancestry_paths"],
+    )
+    return authority, scope

@@ -1,0 +1,333 @@
+"""Prepare current publication source custody; native consumers require registration."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+from pathlib import Path
+import shutil
+import sys
+from typing import Any
+
+_entry_path = Path(__file__).absolute()
+if _entry_path != _entry_path.resolve(strict=True) or any(
+    p.is_symlink() for p in (_entry_path, *_entry_path.parents)
+):
+    raise ValueError("Physical absolute controller entry and ancestors required")
+_entry_directory = _entry_path.parent
+_expected_python = {
+    "common_runner.py",
+    "prepare.py",
+    "run.py",
+    "runtime_contracts.py",
+    "check_contracts.py",
+    "runtime_guarded_runner.py",
+    "source_runtime.py",
+    "observe.py",
+    "execute_source.py",
+    "contracts.py",
+    "metadata.py",
+}
+_present_python = set()
+for _entry in _entry_directory.iterdir():
+    if _entry.is_symlink() or not (_entry.is_dir() or _entry.is_file()):
+        raise ValueError("Controller alias/special entry before helper import")
+    if _entry.is_dir() and _entry.name != "preflight":
+        raise ValueError("Unexpected controller directory before helper import")
+    if _entry.suffix in {".py", ".pyc", ".so", ".dylib", ".pyd"}:
+        if _entry.name not in _expected_python:
+            raise ValueError("Unexpected controller import before helper import")
+        _present_python.add(_entry.name)
+if _present_python != _expected_python:
+    raise ValueError("Incomplete exact controller import namespace")
+sys.path.insert(0, str(_entry_directory))
+import contracts as c  # noqa: E402
+from runtime_contracts import namespace_snapshot  # noqa: E402
+from source_runtime import (  # noqa: E402
+    PYTHON,
+    attach_runtime_launcher,
+    authenticate_runtime,
+)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--review", type=Path, required=True)
+    parser.add_argument("--review-sha256", required=True)
+    args = parser.parse_args()
+    c.namespace()
+    output = c.output_root(args.output, absent=True)
+    c.require(
+        not output.is_relative_to(c.SOURCE) and not c.SOURCE.is_relative_to(output),
+        "Source/output overlap",
+    )
+    canonical = c.identity()
+    c.require(
+        canonical["candidate"] == args.candidate and canonical["status"] == "",
+        "Exact clean candidate required",
+    )
+    manifest_path = c.SOURCE / "prepared-source-manifest.json"
+    manifest_record = c.pin(manifest_path)
+    review_record = c.pin(args.review)
+    c.require(review_record["sha256"] == args.review_sha256, "Review SHA differs")
+    review = c.load(args.review)
+    c.require(
+        review["approved"] is True
+        and review["source_manifest_sha256"] == manifest_record["sha256"],
+        "Exact independent source approval required",
+    )
+    original = c.union([manifest_record, review_record])
+    for row in c.load(manifest_path)["files"]:
+        relative = Path(row["path"])
+        c.require(
+            not relative.is_absolute() and ".." not in relative.parts,
+            "Held source path escaped",
+        )
+        expected = {**row, "path": str(c.SOURCE / relative)}
+        c.require(
+            c.pin(Path(expected["path"])) == expected,
+            "Held source/control bytes changed",
+        )
+        original = c.union(original, [expected])
+    authority_record = c.pin(c.CAPTURE_AUTHORITY)
+    c.require(
+        authority_record["sha256"] == c.CAPTURE_AUTHORITY_SHA,
+        "Root-authenticated capture authority changed",
+    )
+    authority = c.load(c.CAPTURE_AUTHORITY)
+    c.require(
+        authority["raw_responses_only_hashed_not_semantically_parsed"] is True
+        and authority["maintained_builders_or_native_models_executed"] is False,
+        "Input authority scope differs",
+    )
+    original = c.union(original, [authority_record])
+    by_root = {row["root"]: row for row in authority["capture_sets"]}
+    c.require(len(by_root) == 3, "Exact three retained capture roots required")
+    capture_namespaces = []
+    capture_records = {}
+    total_bytes = 0
+    for role, (root, checksum, count) in c.CAPTURES.items():
+        record = by_root.get(str(root))
+        c.require(
+            record is not None
+            and record["manifest_sha256"] == checksum
+            and record["member_count"] == count
+            and len(record["members"]) == count,
+            "Capture-set authority differs: " + role,
+        )
+        assert record is not None
+        expected_names = set()
+        rows = []
+        for row in record["members"]:
+            path = Path(row["path"])
+            c.require(
+                path.is_relative_to(root)
+                and path == path.resolve()
+                and not any(p.is_symlink() for p in (path, *path.parents)),
+                "Raw capture alias/escape",
+            )
+            c.require(c.pin(path) == row, "Original raw capture pin changed")
+            expected_names.add(path.relative_to(root).as_posix())
+            rows.append(row)
+            total_bytes += row["bytes"]
+        c.require(
+            len(expected_names) == count
+            and c.pin(root / "capture-manifest.json")["sha256"] == checksum,
+            "Raw manifest membership differs",
+        )
+        tree = namespace_snapshot(root, [])
+        c.require(
+            all(v["kind"] != "symlink" for v in tree["entries"].values()),
+            "Raw capture namespace alias",
+        )
+        c.require(
+            {name for name, v in tree["entries"].items() if v["kind"] == "file"}
+            == expected_names,
+            "Complete raw capture file membership differs",
+        )
+        capture_namespaces.append(tree)
+        capture_records[role] = {
+            "root": str(root),
+            "manifest_sha256": checksum,
+            "members": rows,
+        }
+        original = c.union(original, rows)
+    c.require(
+        sum(len(row["members"]) for row in capture_records.values()) == 256
+        and total_bytes == 640035,
+        "Root-authenticated256-file capture total differs",
+    )
+    owner_policy = c.pin(c.ROOT / c.POLICY)
+    owners = [
+        row for row in c.load(c.ROOT / c.POLICY)["owners"] if row["owner_id"] == c.OWNER
+    ]
+    c.require(len(owners) == 1, "Exact current owner required")
+    owner = owners[0]
+    c.require(
+        owner["paths"] == [c.REPORT + "/doi-review.json", c.REPORT + "/report.json"],
+        "Owner output partition differs",
+    )
+    reader = "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/publication_intake.py"
+    c.require(
+        set(owner["producer_paths"]) == {*c.PRODUCERS.values(), reader},
+        "Declared maintained producer paths differ; no silent correction",
+    )
+    c.require(
+        set(owner["producer_inputs"]) == {c.ENTITY, c.DATASETS, c.POLICY_REVIEW},
+        "Declared public source inputs differ",
+    )
+    for name in [
+        c.POLICY,
+        *owner["producer_paths"],
+        *owner["producer_inputs"],
+        *owner["paths"],
+    ]:
+        original = c.union(original, [c.pin(c.ROOT / name)])
+    trees, source_rows = c.first_party_snapshot()
+    runtime_authority, runtime_rows = authenticate_runtime()
+    inputs = c.union(original, source_rows, runtime_rows)
+    plan: dict[str, Any] = {
+        "schema_version": "neotoma-current-publication-source-plan.v1",
+        "id": "neotoma-publication-source-"
+        + hashlib.sha256(
+            (args.candidate + str(output) + manifest_record["sha256"]).encode()
+        ).hexdigest()[:16],
+        "candidate": args.candidate,
+        "repository": str(c.ROOT),
+        "canonical_identity": canonical,
+        "output": str(output),
+        "owner_id": c.OWNER,
+        "owner_row": owner,
+        "whole_ownership_policy": owner_policy,
+        "maintained_sources": {
+            role: c.pin(c.ROOT / name) for role, name in c.PRODUCERS.items()
+        },
+        "capture_input_authority": authority_record,
+        "capture_sets": capture_records,
+        "first_party_namespaces": trees,
+        "capture_namespaces": capture_namespaces,
+        "input_pins": inputs,
+        "original_controller_and_source_expected_pins": original,
+        "absent_input_paths": [],
+        "common_runner": str(c.SOURCE / "common_runner.py"),
+        "stage2_repository_view": str(output / "producer"),
+        "stage2_input_roles": {
+            "generated_attribution": str(
+                output / "producer" / c.REPORT / "report.json"
+            ),
+            "canonical_comparison_only": str(c.ROOT / c.REPORT / "report.json"),
+        },
+        "resources": {
+            "overall_timeout_seconds": 240,
+            "resident_memory_limit_bytes": 2 * 1024**3,
+            "output_byte_limit": 128 * 1024**2,
+        },
+        "scope": "Current maintained publication-readiness and DOI consumers over exact retained169provider/26DataCite captures, with58older provider responses independently inspected as a distinct epoch. Stage2 consumes actual stage1 output. Whole-byte and complete ordered typed values are compared separately. Original acquisition predecessor06f08e remains unauthenticated; no freshHTTP, rights, citation-selection, human, model, untouched or LRA admission.",
+    }
+    plan["environment"] = {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "TMPDIR": str(output / "temporary"),
+        "XDG_CACHE_HOME": str(output / "cache"),
+        "MPLCONFIGDIR": str(output / "matplotlib"),
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+    }
+    plan["stages"] = [
+        {
+            "id": "maintained-publication-readiness",
+            "argv": [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(c.SOURCE / "execute_source.py"),
+                "--plan",
+                str(output / "plan.json"),
+                "--kind",
+                "publication",
+            ],
+            "timeout_seconds": 60,
+            "must_succeed": True,
+        },
+        {
+            "id": "maintained-distinct-doi-review",
+            "argv": [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(c.SOURCE / "execute_source.py"),
+                "--plan",
+                str(output / "plan.json"),
+                "--kind",
+                "doi",
+            ],
+            "timeout_seconds": 60,
+            "must_succeed": True,
+        },
+        {
+            "id": "independent-provider-registry-source-observer",
+            "argv": [
+                str(PYTHON),
+                "-I",
+                "-B",
+                str(c.SOURCE / "observe.py"),
+                "--plan",
+                str(output / "plan.json"),
+            ],
+            "timeout_seconds": 75,
+            "must_succeed": True,
+        },
+    ]
+    plan["actual_launch_argv"] = attach_runtime_launcher(
+        plan,
+        runtime_authority,
+        runtime_rows,
+        output,
+        output / "plan.json",
+        [
+            str(PYTHON),
+            "-I",
+            "-B",
+            str(c.SOURCE / "run.py"),
+            "--plan",
+            str(output / "plan.json"),
+            "--registered-plan-sha256",
+            "PLAN_SHA256",
+        ],
+        wall=240,
+        memory=2 * 1024**3,
+        storage=128 * 1024**2,
+    )
+    c.verify_inputs(plan)
+    c.require(c.identity() == canonical, "Clean candidate changed during preparation")
+    parent = output.parent
+    while not parent.exists():
+        parent = parent.parent
+    c.require(
+        shutil.disk_usage(parent).free >= 512 * 1024**2, "Insufficient512MiB reserve"
+    )
+    output.parent.mkdir(parents=True, exist_ok=True)
+    c.output_root(output, absent=True).mkdir()
+    for name in ("temporary", "cache", "matplotlib", "producer"):
+        (output / name).mkdir()
+    c.dump(output / "plan.json", plan)
+    c.dump(
+        output / "preparation.json",
+        {
+            "actual_exit": 0,
+            "candidate": args.candidate,
+            "plan": c.pin(output / "plan.json"),
+            "protected_inputs": len(plan["input_pins"]),
+            "retained_raw_capture_files": 256,
+            "retained_raw_capture_bytes": 640035,
+            "actual_native_stages_launched": 0,
+            "runtime_authority": runtime_authority,
+        },
+    )
+    print(output / "plan.json")
+
+
+if __name__ == "__main__":
+    main()
