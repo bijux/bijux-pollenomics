@@ -1,0 +1,38 @@
+{
+  "actual_exit": 0,
+  "metadata_only": true,
+  "capture": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/packet/capture.json",
+    "sha256": "1d03f47b264366da0acdc544e991bac38fdd7d1d403d3fd522f2c4e4ea37fd64",
+    "bytes": 32660595
+  },
+  "original_ordered_inputs": 62435,
+  "original_source_join_count": 6710,
+  "retained_payloads": 2351,
+  "actual_packet_bytes": 126159750,
+  "receipt_scope": {
+    "source_candidate": "ad591c301bcadb6a3f963caa836a2e38a16d0de4",
+    "native_stage_exits": [
+      0,
+      0
+    ],
+    "native_inner_and_outer_exits": [
+      0,
+      0
+    ],
+    "species": 10,
+    "manifest_calls": 10,
+    "API_load_calls": 50,
+    "default_writer_calls": 100,
+    "derived_products": 150,
+    "saved_source_population": 1468,
+    "actual_API_population": 1468,
+    "blocked_source_owned_taxon_contexts": 4,
+    "typed_only_block_flags_preserved": true,
+    "generic_exports_include_those_block_flags": false,
+    "original_normalization_receipt_recovered": false,
+    "rights_biology_human_calibration_LRA_or_whole_ADNA_admitted": false
+  },
+  "raw_or_selected_rows_decoded_or_consumer_repeated": false,
+  "original_owner_acceptance_changed": false
+}

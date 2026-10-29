@@ -1,0 +1,102 @@
+{
+  "schema_version": "animal-current-export-metadata-capture-terminal.v1",
+  "candidate": "1931cba9dcf60ff0297f8d438c4d2866a19f37b6",
+  "plan_sha256": "02208621bd6c8f71f04adeeb55a04bca96887b81eeb2ffd1acf32eec63ba84bf",
+  "actual_exit": 0,
+  "actual_launch_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-current-export-capture-custody/entry.py",
+    "run",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/plan.json",
+    "--registered-plan-sha256",
+    "02208621bd6c8f71f04adeeb55a04bca96887b81eeb2ffd1acf32eec63ba84bf"
+  ],
+  "stages": [
+    {
+      "id": "retained-animal-current-export-assembly",
+      "action": "assemble",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-current-export-capture-custody/entry.py",
+        "assemble",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 32.23052745801397,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/retained-animal-current-export-assembly.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/retained-animal-current-export-assembly.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    {
+      "id": "independent-animal-current-export-capture-observer",
+      "action": "observer",
+      "timeout_seconds": 180,
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+        "-I",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-current-export-capture-custody/entry.py",
+        "observer",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/plan.json"
+      ],
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 37.18459079199238,
+      "stdout": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/independent-animal-current-export-capture-observer.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "stderr": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/independent-animal-current-export-capture-observer.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    }
+  ],
+  "exception": null,
+  "after_custody_error": null,
+  "completed_elapsed_seconds": 103.88345079199644,
+  "completed_child_peak_RSS_bytes_macos": 577110016,
+  "memory_bound_pass": true,
+  "inclusive_storage_bound_pass": true,
+  "completed_whole_wall_bound_pass": true,
+  "products_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/output-products.json",
+    "sha256": "5fb549922f3847fc09583425ecd51406890f970335dc454064f70885dc79ff7d",
+    "bytes": 708025
+  },
+  "products_count_before_manifest": 2361,
+  "own_receipt_reserve_bytes": 16384,
+  "outer_receipt_reserve_bytes": 16384,
+  "source_freeze_identity": {
+    "candidate": "1931cba9dcf60ff0297f8d438c4d2866a19f37b6",
+    "status": "",
+    "tracked_inventory_sha256": "a987681b4323d6aafd7cefab814ed38204442a55f93cb6765f035700030e7a01"
+  },
+  "live_canonical_equality_claimed": false,
+  "OS_quota_or_full_descendant_RSS_claimed": false,
+  "resources": {
+    "overall_timeout_seconds": 420,
+    "outer_timeout_seconds": 480,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 536870912
+  },
+  "scope": "Metadata retention of the genuine current ten-species animal source assembly, fifty public queries and150 derived typed/default-v2 CSV/GeoJSON exports. All160 owned data bodies and162 original source authorities are identity-only. No historical normalization receipt recovery, acquisition, genotype, biology, calibration, rights, human, ecological or LRA acceptance. Full ADNA adjudication remains a separate explicit contract."
+}

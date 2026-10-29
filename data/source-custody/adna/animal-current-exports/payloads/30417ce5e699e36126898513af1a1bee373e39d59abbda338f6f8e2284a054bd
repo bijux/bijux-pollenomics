@@ -1,0 +1,9 @@
+{
+  "species": {
+    "slug": "sus_scrofa_domesticus",
+    "latin_name": "Sus scrofa domesticus"
+  },
+  "country_query": "Norway",
+  "actual_typed_records": [],
+  "actual_dataset_row_counts": {}
+}

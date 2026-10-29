@@ -1,0 +1,36 @@
+{
+  "schema_version": "animal-current-export-retention-recipe.v1",
+  "source_only": true,
+  "requires_independent_source_approval": true,
+  "root_only_preparation_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-current-export-capture-custody/entry.py",
+    "prepare",
+    "--candidate",
+    "ACTUAL_CLEAN_MAIN_SHA",
+    "--review-sha256",
+    "ACTUAL_APPROVED_SOURCE_REVIEW_SHA",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture",
+    "--native-inner-sha256",
+    "10f9be9e75a77b22c589dc25170b40d2f5cfb38c60d6e0a0c1fba54a472e7509",
+    "--native-outer-sha256",
+    "f79e745a567e0d86fe6021f52eafdf5ca9df47d4706dc492c7c93441821df993"
+  ],
+  "registration_then_separate_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/animal-current-export-capture-custody/entry.py",
+    "launch",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/plan.json",
+    "--registered-plan-sha256",
+    "ACTUAL_REGISTERED_PLAN_SHA"
+  ],
+  "expected_capture": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-animal-export-capture/packet/capture.json",
+  "actual_future_capture_or_exit_assumed": false,
+  "canonical_or_owner_mutation": false
+}
