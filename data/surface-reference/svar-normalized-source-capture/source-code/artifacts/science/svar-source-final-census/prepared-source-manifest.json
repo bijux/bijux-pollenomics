@@ -1,0 +1,111 @@
+{
+  "schema_version": "svar-final-census-prepared-source.v1",
+  "reference_candidate": "f115fc211483768b51a5122af142ecee7bbc95c5",
+  "files": [
+    {
+      "path": "check_contracts.py",
+      "sha256": "d4672fa8eabd49a25c3709d4a181988d14f1eac5e5a2ed2bafd48a3fb1118f71",
+      "bytes": 4695
+    },
+    {
+      "path": "common_runner.py",
+      "sha256": "9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
+      "bytes": 6924
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "d1993f6910c8dbbb19f9581998ed1658b6272f05ce389d1254e7abbd75425b82",
+      "bytes": 5135
+    },
+    {
+      "path": "execute_source.py",
+      "sha256": "39d29b0796af42118b5adb8601eece582eb6368febd220001dff2cb141189166",
+      "bytes": 3027
+    },
+    {
+      "path": "observe.py",
+      "sha256": "d3645d7a5e12b9efef8b801eaebfe8b7e1b96d8844ff4b0fc2476a52d4a0e3c8",
+      "bytes": 5094
+    },
+    {
+      "path": "prepare.py",
+      "sha256": "435bfb5e8be5784e3319d4c51abd8815bab9368814f7341fa401127814134c14",
+      "bytes": 6867
+    },
+    {
+      "path": "run.py",
+      "sha256": "b87356b8abcb1d2d88ae32f8a3d58fea072e5963d895949fc3a172a02d45e9c5",
+      "bytes": 7115
+    },
+    {
+      "path": "runtime.py",
+      "sha256": "403f378400b8236aecc001406aa2e7837eef20b0b3202c13e661ebe3e4d0de98",
+      "bytes": 17236
+    },
+    {
+      "path": "declared-inputs.json",
+      "sha256": "22c279e3935d8ebc77d38140e83ba6e089e189f00c795d31d03821cb9d254f34",
+      "bytes": 2267
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "135beab7b22dc68a769c6a48253ad16cfb5c8f41fbd6fa57417016f510f3650e",
+      "bytes": 2956
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "c1f5ef63dd0ebfe1948d24136c39bd8da369b266cfa479f799514a07bd5b4ba7",
+      "bytes": 5446
+    },
+    {
+      "path": "source-correction.diff",
+      "sha256": "8e8470e1725e81eefd21559e8e424621631db6377fed598b5597d9af4433ff38",
+      "bytes": 9825
+    },
+    {
+      "path": "preflight/guards.log",
+      "sha256": "dc7e9d1f824ca5c6481617fb4ef9c3123f3c24ef7628fdb622ca3ae983bfee3f",
+      "bytes": 103
+    },
+    {
+      "path": "preflight/strict.log",
+      "sha256": "050c52a2b0c61e8b681ef5c485e0bc03340b8d55148e0acef27d744c8be42033",
+      "bytes": 43
+    },
+    {
+      "path": "preflight/final-style.log",
+      "sha256": "63cf07208296b7d4c933dad0e9dfa9e3e201bec2a151898fdf6991e5ff245988",
+      "bytes": 67
+    }
+  ],
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/source-qualification.json",
+    "sha256": "c1f5ef63dd0ebfe1948d24136c39bd8da369b266cfa479f799514a07bd5b4ba7",
+    "bytes": 5446
+  },
+  "predecessor_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-normalized-source-custody/prepared-source-manifest.json",
+    "sha256": "f7aea2a2cb253c0b620839adf88ad44be56ac52106885be5c046add2ac69548b",
+    "bytes": 2933
+  },
+  "future_preparation_recipe": {
+    "candidate": "ACTUAL_CLEAN_COMMIT",
+    "output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay",
+    "review_sha256": "ACTUAL_APPROVED_REVIEW_SHA",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/prepare.py",
+      "--candidate",
+      "ACTUAL_CLEAN_COMMIT",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay",
+      "--review-sha256",
+      "ACTUAL_APPROVED_REVIEW_SHA"
+    ]
+  },
+  "actual_preparer_or_native_execution": false,
+  "scope": "Exact unchanged two-stage maintained normalized-source verifier/current refusal and independent source identity observer. Corrected final input census and total output-entry boundary only; no source population reconciliation, source acquisition, ranking, rights or ecological/human acceptance."
+}

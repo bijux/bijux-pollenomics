@@ -1,0 +1,46 @@
+[
+  {
+    "id": "maintained-svar-normalized-source",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/execute_source.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.24156912497710437,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/maintained-svar-normalized-source.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/maintained-svar-normalized-source.stderr",
+    "stdout_sha256": "9309f8f54826ba206c27d3eb753a77264eb6f8f715c3432a14da67a37d02a30e",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 32260096
+  },
+  {
+    "id": "independent-svar-source-refusal-observer",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/svar-source-final-census/observe.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 0.2706502919900231,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/independent-svar-source-refusal-observer.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-svar-normalized-source-replay/independent-svar-source-refusal-observer.stderr",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 32260096
+  }
+]
