@@ -19,6 +19,12 @@ def load_map_document_template() -> str:
             "__EDGE_DISPLAY_CONTROLLER__",
             package_root.joinpath("assets/edge-display.js").read_text(encoding="utf-8"),
         )
+        .replace(
+            "__SELECTION_LOADING_CONTROLLER__",
+            package_root.joinpath("assets/selection-loading.js").read_text(
+                encoding="utf-8"
+            ),
+        )
     )
 
 

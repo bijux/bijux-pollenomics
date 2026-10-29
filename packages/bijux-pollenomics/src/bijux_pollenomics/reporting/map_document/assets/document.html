@@ -2749,7 +2749,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         'signal_layer_indexes',
         'detail_record_asset_keys',
       ]);
-      async function staticAtlasBoundedGunzip(encoded, expectedByteCount, label) {
+      async function staticAtlasBoundedGunzip(encoded, expectedByteCount, label, signal = null) {
+        signal?.throwIfAborted();
         if (typeof encoded !== 'string' || !encoded.length || encoded.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(encoded)) staticAtlasFailure(`${label} compressed payload is invalid`);
         if (typeof ReadableStream === 'undefined' || typeof DecompressionStream === 'undefined' || typeof atob === 'undefined' || typeof TextDecoder === 'undefined') staticAtlasFailure(`${label} gzip decoding support is unavailable`);
         const limit = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes, 'chunk byte budget');
@@ -2771,11 +2772,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           },
         });
         const reader = source.pipeThrough(new DecompressionStream('gzip')).getReader();
+        const cancelRead = () => { reader.cancel().catch(() => {}); };
+        signal?.addEventListener('abort', cancelRead, { once: true });
         const chunks = [];
         let actual = 0;
         try {
           while (true) {
+            signal?.throwIfAborted();
             const { done, value } = await reader.read();
+            signal?.throwIfAborted();
             if (done) break;
             actual += value.byteLength;
             if (actual > limit) {
@@ -2789,8 +2794,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             chunks.push(value);
           }
         } catch (error) {
+          signal?.throwIfAborted();
           if (error instanceof Error && error.message.startsWith('Static atlas data cannot be loaded:')) throw error;
           staticAtlasFailure(`${label} compressed payload is invalid`);
+        } finally {
+          signal?.removeEventListener('abort', cancelRead);
         }
         if (expected !== null && actual !== expected) staticAtlasFailure(`${label} decoded byte count mismatch`);
         const decoded = new Uint8Array(actual);
@@ -2966,11 +2974,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         staticAtlasTemporalIdentity(payload, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
         if (row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)) staticAtlasIndexShardEnvelopes(row, payload);
       }
-      async function consumeStaticAtlasAsset(row) {
+      async function consumeStaticAtlasAsset(row, signal = null, fetchedEnvelope = null) {
+        signal?.throwIfAborted();
         if (staticAtlasLoadedAssets.has(row.asset_key)) return;
-        const matches = STATIC_ATLAS_RAW_CHUNKS.filter((candidate) => candidate.asset_key === row.asset_key);
+        const matches = fetchedEnvelope === null
+          ? STATIC_ATLAS_RAW_CHUNKS.filter((candidate) => candidate.asset_key === row.asset_key)
+          : [fetchedEnvelope];
         if (matches.length !== 1) staticAtlasFailure(`${row.asset_key} script did not register exactly once`);
         const envelope = matches[0];
+        if (envelope.asset_key !== row.asset_key) staticAtlasFailure(`${row.asset_key} registered identity mismatch`);
         if (envelope.payload_sha256 !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} declared payload digest mismatch`);
         const payloadEncoding = row.payload_encoding || 'json';
         if ((envelope.payload_encoding || 'json') !== payloadEncoding) staticAtlasFailure(`${row.asset_key} payload encoding mismatch`);
@@ -2980,14 +2992,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           payloadJson = envelope.payload_json;
         } else if (payloadEncoding === 'gzip_base64') {
           if (typeof envelope.payload_gzip_base64 !== 'string') staticAtlasFailure(`${row.asset_key} compressed payload is missing`);
-          payloadJson = await staticAtlasBoundedGunzip(envelope.payload_gzip_base64, row.decoded_byte_count ?? null, row.asset_key);
+          payloadJson = await staticAtlasBoundedGunzip(envelope.payload_gzip_base64, row.decoded_byte_count ?? null, row.asset_key, signal);
         } else {
           staticAtlasFailure(`${row.asset_key} payload encoding is unsupported`);
         }
+        signal?.throwIfAborted();
         const decodedByteCount = new TextEncoder().encode(payloadJson).byteLength;
         if (decodedByteCount > Number(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes)) staticAtlasFailure(`${row.asset_key} decoded payload exceeds its byte budget`);
         if (row.decoded_byte_count !== undefined && decodedByteCount !== row.decoded_byte_count) staticAtlasFailure(`${row.asset_key} decoded byte count mismatch`);
         if (await staticAtlasSha256(payloadJson) !== row.payload_sha256) staticAtlasFailure(`${row.asset_key} payload integrity mismatch`);
+        signal?.throwIfAborted();
         let payload;
         try {
           payload = JSON.parse(payloadJson);
@@ -2998,15 +3012,25 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const acceptedPayload = row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)
           ? await staticAtlasMergeIndexShards(row, payload)
           : payload;
+        signal?.throwIfAborted();
         if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
         else if (row.domain === 'details') STATIC_ATLAS_CHUNKS.details.push(payload);
         else STATIC_ATLAS_CHUNKS[row.domain] = acceptedPayload;
         staticAtlasLoadedAssets.add(row.asset_key);
       }
-      function loadStaticAtlasAsset(row) {
+      function loadStaticAtlasAsset(row, selectionOwned = false) {
         if (staticAtlasLoadedAssets.has(row.asset_key)) return Promise.resolve();
-        if (staticAtlasInFlightAssets.has(row.asset_key)) return staticAtlasInFlightAssets.get(row.asset_key);
-        const promise = new Promise((resolve, reject) => {
+        const existing = staticAtlasInFlightAssets.get(row.asset_key);
+        if (existing) {
+          if (!selectionOwned) existing.retained = true;
+          return existing.promise;
+        }
+        const cancellable = selectionOwned && row.domain === 'nodes'
+          && ['http:', 'https:'].includes(window.location.protocol);
+        const operation = { controller: cancellable ? new AbortController() : null, retained: !selectionOwned, promise: null };
+        const request = cancellable
+          ? fetchStaticAtlasNodeAsset(row, operation.controller.signal)
+          : new Promise((resolve, reject) => {
           const script = document.createElement('script');
           script.src = `./${row.path}`;
           if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
@@ -3018,10 +3042,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           script.addEventListener('load', () => consumeStaticAtlasAsset(row).then(resolve, reject), { once: true });
           script.addEventListener('error', () => reject(new Error(`Static atlas data cannot be loaded: ${row.asset_key} request failed. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`)), { once: true });
           document.head.appendChild(script);
-        }).finally(() => staticAtlasInFlightAssets.delete(row.asset_key));
-        staticAtlasInFlightAssets.set(row.asset_key, promise);
-        return promise;
+        });
+        operation.promise = request.finally(() => {
+          if (staticAtlasInFlightAssets.get(row.asset_key) === operation) staticAtlasInFlightAssets.delete(row.asset_key);
+        });
+        staticAtlasInFlightAssets.set(row.asset_key, operation);
+        return operation.promise;
       }
+      __SELECTION_LOADING_CONTROLLER__
       if (!STATIC_ATLAS_INLINE) {
         validateStaticAtlasBootstrap();
         for (const row of STATIC_ATLAS_BOOTSTRAP.assets.filter((candidate) => candidate.initial_load === true)) {
@@ -4768,8 +4796,16 @@ __URL_STATE_CONTROLLER__
         }
       }
       async function ensureStaticAtlasSelectionLoaded() {
-        const required = requiredStaticAtlasNodeAssets();
-        await Promise.all(required.map((row) => loadStaticAtlasAsset(row)));
+        let required;
+        try {
+          required = requiredStaticAtlasNodeAssets();
+        } catch (error) {
+          beginStaticAtlasSelection([]);
+          throw error;
+        }
+        const signal = beginStaticAtlasSelection(required);
+        await waitForStaticAtlasSelection(Promise.all(required.map((row) => loadStaticAtlasAsset(row, true))), signal);
+        signal.throwIfAborted();
         refreshStaticAtlasLayers();
         return required;
       }
