@@ -1,0 +1,91 @@
+{
+  "source_only": true,
+  "runtime_prerequisite": {
+    "candidate": "60bf419979bdc682ef227fb01e42a4f5ed6e2722",
+    "receipts": {
+      "plan.json": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-introspection-probe/plan.json",
+        "sha256": "195696988e1ed51109895514fa04c729b74cf64da00414fc4893a017efb3edf9",
+        "bytes": 12007138
+      },
+      "terminal.json": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-introspection-probe/terminal.json",
+        "sha256": "65b3b3dd699559e5d7e663fbabab59364b59d3a19a88863ac9180a6779ea98bb",
+        "bytes": 7099
+      },
+      "controlled-runtime-terminal.json": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-introspection-probe/controlled-runtime-terminal.json",
+        "sha256": "a66268f607f6a38be8a3745184bfe9b14072f41233c560936fd5a6071a903e19",
+        "bytes": 923
+      },
+      "independent-runtime-review.json": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-introspection-probe/independent-runtime-review.json",
+        "sha256": "6a3d32fe1ace7c9b6d687bc32679cb0826425efea7c4e888ba012cba761f8696",
+        "bytes": 2049
+      }
+    },
+    "raw_observation": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-introspection-probe/runtime-observation.json",
+      "sha256": "8b317216e18d2cf233493c158b71470917bfdc9ccfeee0b0b8354a3a620bd6da",
+      "bytes": 46947
+    },
+    "observed_counts": {
+      "before_namespaces": 40,
+      "before_DLLs": 29,
+      "after_namespaces": 40,
+      "after_DLLs": 29
+    },
+    "input_pin_count": 44691,
+    "source_and_runtime_all_original_pins_revalidated": true,
+    "qualification": "Metadata-only original124 prerequisite; not numerical execution or ecological/historical/release acceptance."
+  },
+  "all_original_prerequisite_input_and_product_pins_reauthenticated": 44701,
+  "native_seeds": 34,
+  "native_dependency_files": 44,
+  "native_loader_records": 138,
+  "native_source_closure_matches_actual_qualified_probe": true,
+  "unchanged_canonical_numerical_sources": [
+    {
+      "family": "optimizer-solution-quality",
+      "kind": "canonical_python",
+      "unchanged_original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/replay.py",
+        "sha256": "450a03523ed43d07b4e3f326056264d48e28e4749beea57ad4d21425c145df47",
+        "bytes": 7807
+      }
+    },
+    {
+      "family": "optimizer-solution-quality",
+      "kind": "canonical_R",
+      "unchanged_original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/solver.R",
+        "sha256": "e24a7783669d2603d1c5f038da75cb10d6b75ae32c738262a5f44dcc1df69178",
+        "bytes": 1996
+      }
+    },
+    {
+      "family": "paired-love-draws",
+      "kind": "canonical_python",
+      "unchanged_original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/replay.py",
+        "sha256": "2d2ba1a42c2fd3e71129d20b857db2c9d60be21c3337fd31f5e7ddb925d21e35",
+        "bytes": 8802
+      }
+    },
+    {
+      "family": "paired-love-draws",
+      "kind": "canonical_R",
+      "unchanged_original": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/paired-love-draws/replay.R",
+        "sha256": "960fb50e63a3ce9a53464f5ef239fa7655f527477e3d993e4ce0d04a196dd171",
+        "bytes": 2819
+      }
+    }
+  ],
+  "unchanged_optimizer_cases": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/cases.json",
+    "sha256": "747c5f5535c0a6dedfc93723b13383312a4204e11332f56e3f4c641f619d2af7",
+    "bytes": 714
+  },
+  "R_model_optimizer_installer_preparer_calls": 0
+}

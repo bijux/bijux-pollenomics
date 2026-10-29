@@ -1,0 +1,15 @@
+{
+  "approved": true,
+  "source_manifest_sha256": "b7dd93d7bdddcec97b49164f6c32b754ce2b08f2722a4656a3b3270e7a141ec9",
+  "reviewer": "root",
+  "scope": "Independent held-source review, no native/model execution. Exact original optimizer/paired cases/math/tolerances retained; same-named R wrappers source unchanged canonical R with raw before/after metadata. Metadata-only original124 probe four exact receipts, all pins/products/aliases/actual2stage0 and40namespace29DLL evidence fully joined; no oldfailedprobe repair. All44MachO dependencies match actual qualified runtime. Exact full4package/runtime trees/resources pin, lexicalvenv preserved, inheritedHOME, output/resources qualified by completed postchecks. Independent stdlib objective and all400 ordered paired cells/120finite280missing remain original contracts.",
+  "unchanged_runtime_members": [
+    "contracts.py",
+    "runtime_custody.py",
+    "oracle_metadata.R",
+    "observe_runtime_probe.py"
+  ],
+  "runner_only_change_from_metadata_probe": "terminal filename controlled-numerical-terminal.json",
+  "qualification_sha256": "c515107f2c16b5b0276043d4fa41e47eb7892eca5139a54f134b281c1d835913",
+  "qualification_status": "18pureguards and strict8/configuredRuff8/format8/AST8/help3 passed in source qualification; root inspected exact new prerequisite and numerical observer changes."
+}

@@ -1,0 +1,10 @@
+Registered S3 methods overwritten by 'RcppDE':
+  method          from   
+  plot.DEoptim    DEoptim
+  summary.DEoptim DEoptim
+Error in guarded_replay("/Users/bijan/bijux/bijux-pollenomics/docs/report/method-certification/optimizer-solution-quality/solver.R",  : 
+  Namespace metadata refused: path %in% native_files is not TRUE
+In addition: Warning messages:
+1: replacing previous import 'DEoptim::DEoptim.control' by 'RcppDE::DEoptim.control' when loading 'disqover' 
+2: replacing previous import 'DEoptim::DEoptim' by 'RcppDE::DEoptim' when loading 'disqover' 
+Execution halted

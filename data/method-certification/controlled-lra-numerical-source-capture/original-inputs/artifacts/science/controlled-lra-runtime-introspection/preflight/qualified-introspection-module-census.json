@@ -1,0 +1,1503 @@
+{
+  "source_only": true,
+  "no_R_model_optimizer_preparer_calls": true,
+  "exact_core_module": {
+    "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+    "sha256": "cf823ae5d9106ca61ce4f9e5552db236e7d16f7a577c574c7cd6b7c88d0c5c39",
+    "bytes": 106784
+  },
+  "existing_failed_probe_pin": {
+    "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+    "sha256": "cf823ae5d9106ca61ce4f9e5552db236e7d16f7a577c574c7cd6b7c88d0c5c39",
+    "bytes": 106784
+  },
+  "module_layout_config": {
+    "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/etc/Makeconf",
+    "sha256": "5a2729736c3a00d540f743e6fb4255eaa72cd50a646116158f3e04853b51a48e",
+    "bytes": 8959
+  },
+  "version_header": {
+    "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/include/Rversion.h",
+    "sha256": "f534842a2edd0efaa000e2b543870715dff037f0810531c8c476c2c74b1f5a55",
+    "bytes": 576
+  },
+  "original_failed_raw_metadata": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-runtime-probe/runtime-observation.json",
+    "sha256": "5eee84b91f4877a8017ee37daf6a268cc881d985d95b7eb88ab896c8b315e025",
+    "bytes": 46840
+  },
+  "before_DLL_count": 28,
+  "after_DLL_count": 29,
+  "only_after_added_DLL": [
+    "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so"
+  ],
+  "actual_raw_module_row": {
+    "name": "lapack",
+    "raw_path": "/Library/Frameworks/R.framework/Resources/modules//lapack.so",
+    "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+    "path_error": null,
+    "built_in": false,
+    "dynamicLookup": true
+  },
+  "static_native_seed_count": 34,
+  "static_native_file_count": 44,
+  "native_files": [
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+      "sha256": "d918ce5022d859e20c38094bb0b6199186cefd8bb96ffeb58618471c9a65a22d",
+      "bytes": 70848
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/exec/R",
+      "sha256": "15e31d349bf5e18974e729ceff13c94138e9522b861f91c655ec6d9c421c2615",
+      "bytes": 53376
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+      "bytes": 5802544
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+      "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+      "bytes": 209392
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "sha256": "d5ccf13dfdcb31f291f99da51e8b1497fae53ddfa5fc9862fe024b910f5e9d4c",
+      "bytes": 1827488
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgcc_s.1.1.dylib",
+      "sha256": "4fed6106d6bac2fb62f022e86089c56cd3d2e0fd2f8f63f7272ca38d044a7983",
+      "bytes": 219744
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "sha256": "00e4077481cd86f00d011fca0f4cc2277f76c93d26f3506a80cdbfc6602689cf",
+      "bytes": 1967328
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libomp.dylib",
+      "sha256": "b77ca5fff4944c55088ba4fba6e1f845508d1ac23d62777b0de58012dfbb5329",
+      "bytes": 1685408
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+      "sha256": "d00309d973f4ebf4cfa34bc3b9ff55c214cfdbe2e233bc7d120f07e9583f8e21",
+      "bytes": 378592
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim/libs/DEoptim.so",
+      "sha256": "0a918c31856f5f95a50c5eebd92330dc009a06f32df9a94d12e2bbb3dbb6de16",
+      "bytes": 53960
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp/libs/Rcpp.so",
+      "sha256": "5fbd1a80a811b3d9dc0435805d8ee72cab1eb63a7636ea2597e217538eec4a2f",
+      "bytes": 547016
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7/libs/S7.so",
+      "sha256": "31915496dda5381d89ab516832853d68a6d6938f007309c5cef2174d334508c1",
+      "bytes": 57112
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli/libs/cli.so",
+      "sha256": "c93ed996dacb900ada9899215546065ed4cb0c5b6651a886f7838747c2a8ae0b",
+      "bytes": 250952
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr/libs/dplyr.so",
+      "sha256": "41f1c6cc3d9976013a4b99523b4a97997bc45fc3cf6457cf1659f4918974a260",
+      "bytes": 107560
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver/libs/farver.so",
+      "sha256": "88be134b22de50bb9a6e346943f36f3fd8caf9fb8d9734012293c527a8fff085",
+      "bytes": 720472
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue/libs/glue.so",
+      "sha256": "cf51fb5724c9f2192251e7a9a2578ac786f3fa701482082ff27bb62776a520e2",
+      "bytes": 52680
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "sha256": "e8f4b2e0ee45e1f2e21a453dfbb1b2f3b7de9fe357a68fdf207dacbcc8c48be8",
+      "bytes": 428016
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics/libs/graphics.so",
+      "sha256": "799097425fe0f2fe68302abd33fd4f67333bb1ba52acfcbe83a004f04e085cc9",
+      "bytes": 293264
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid/libs/grid.so",
+      "sha256": "4ea74364ecaeed177c0ec0b70fad6d89760df2201d05e651316a0a02300ea92a",
+      "bytes": 225328
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/isoband/libs/isoband.so",
+      "sha256": "b49ad08bd57778b22dd5f2baacdaee884df254d3019a30f19d749af5416e5c2c",
+      "bytes": 163560
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite/libs/jsonlite.so",
+      "sha256": "09efa84a649d3b3d2d4d3af838e80e73f6f03773454b165abcc241a53d4701bc",
+      "bytes": 104920
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr/libs/magrittr.so",
+      "sha256": "0572d9955bd0d0d90167638c015160853798a78b905bb052fd5eb33d8ce2c647",
+      "bytes": 55144
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods/libs/methods.so",
+      "sha256": "cbdbfc663cd9f462fda673989bce71d82968f6af840602b147441d82d86d6186",
+      "bytes": 98720
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel/libs/parallel.so",
+      "sha256": "84eeb1e9603348c03b735368ad478892d8371ae21e025b358bd7018007e54f95",
+      "bytes": 91680
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr/libs/purrr.so",
+      "sha256": "d78ffddba03d1f973de44e6e6178c01d81d7f79774541e1769b2e560d9e62e00",
+      "bytes": 80408
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang/libs/rlang.so",
+      "sha256": "095265946e89ea36b24bd600e7981c09f2cdd2c5a3d231493c74edb6f70f6147",
+      "bytes": 330504
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+      "sha256": "d760e752f2b151b30f7ea0818c681f491fdc3509ea7c6b13a92c68d4518d87ac",
+      "bytes": 683632
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stringi/libs/stringi.so",
+      "sha256": "0f26bb9bfcd2bcba7013bf2287cb3dbcb03f10e01e121c3d8cdb0a09ae9ea668",
+      "bytes": 35455208
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble/libs/tibble.so",
+      "sha256": "a3e296481177ad6c5012316dc3d521536cc5a7c246a7184cc43c40df70c1d02a",
+      "bytes": 53784
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr/libs/tidyr.so",
+      "sha256": "37bffd101562277c22698ceddecc45c55526dbfae36fa1e708c08b98174d2c27",
+      "bytes": 122184
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools/libs/tools.so",
+      "sha256": "19aa734cbce62f73cbecca8dee5c98c06faf9728e92e600caefd0516d507a8eb",
+      "bytes": 173072
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utf8/libs/utf8.so",
+      "sha256": "58f19f5097308c6a892a319db10564857cbca15c5e3b4e1593845cf4c653ec52",
+      "bytes": 353256
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils/libs/utils.so",
+      "sha256": "d9153eb476509a27260da42c190d714a4ba1151cd944508de412f36e3fb2f66c",
+      "bytes": 116240
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs/libs/vctrs.so",
+      "sha256": "7af16ba230d416ec7dff591fe0aa1c8a4c12a7e9d325919cceb25307fbb8579b",
+      "bytes": 752184
+    },
+    {
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+      "sha256": "cf823ae5d9106ca61ce4f9e5552db236e7d16f7a577c574c7cd6b7c88d0c5c39",
+      "bytes": 106784
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+      "sha256": "ab4c765033bc4f8458615fb14ffa2bc54255d0b20691ba16270fa7dc2748302f",
+      "bytes": 120568
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "sha256": "873d673003135057ead1920d760bb7b20112cc7fa7c7d8acbbdbcf45a68a9b8e",
+      "bytes": 230512
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+      "sha256": "b611c50434b61e43ed362ef106f2e2fc3b013fbbc0b93561437e18f387e8300e",
+      "bytes": 211176
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains/libs/Rmalschains.so",
+      "sha256": "ca168275a2820eab38e6bb1cde893b183271229376cfcc3768c90b7bc6a72e1c",
+      "bytes": 1220160
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover/libs/disqover.so",
+      "sha256": "55b232f1bbe212f36a5e5ad4beb6dd74f2f2d38047c2f17c2983e55ffabc1e09",
+      "bytes": 232632
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr/libs/plyr.so",
+      "sha256": "98ec93d800069f9f3139aa1bea51eb8238e32c95a8f42560ed9372cc6cb10154",
+      "bytes": 118424
+    },
+    {
+      "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgcc_s.1.1.dylib",
+      "sha256": "a80543d816003b21ccd3d297c10ab4eb8e2c746faf27f385656ee5a9ee4195b2",
+      "bytes": 219232
+    },
+    {
+      "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgfortran.5.dylib",
+      "sha256": "624e083bf9ebdcd8c6713ef8adaf1aa49ec2a1756cd0dbaed553fd48fc3e6950",
+      "bytes": 2202464
+    },
+    {
+      "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libquadmath.0.dylib",
+      "sha256": "773034db811835ca98358409e647c46a97cb9dc3f4fbb6956c858e5a31cdf580",
+      "bytes": 360752
+    }
+  ],
+  "native_load_commands": [
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr/libs/plyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr/libs/plyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/plyr/libs/plyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+        "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+        "bytes": 209392
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+        "sha256": "00e4077481cd86f00d011fca0f4cc2277f76c93d26f3506a80cdbfc6602689cf",
+        "bytes": 1967328
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+        "sha256": "d00309d973f4ebf4cfa34bc3b9ff55c214cfdbe2e233bc7d120f07e9583f8e21",
+        "bytes": 378592
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libncurses.5.4.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libbz2.1.0.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libz.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libicucore.A.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+        "sha256": "d00309d973f4ebf4cfa34bc3b9ff55c214cfdbe2e233bc7d120f07e9583f8e21",
+        "bytes": 378592
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgcc_s.1.1.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgcc_s.1.1.dylib",
+        "sha256": "4fed6106d6bac2fb62f022e86089c56cd3d2e0fd2f8f63f7272ca38d044a7983",
+        "bytes": 219744
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgcc_s.1.1.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgcc_s.1.1.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+        "sha256": "00e4077481cd86f00d011fca0f4cc2277f76c93d26f3506a80cdbfc6602689cf",
+        "bytes": 1967328
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+        "sha256": "d00309d973f4ebf4cfa34bc3b9ff55c214cfdbe2e233bc7d120f07e9583f8e21",
+        "bytes": 378592
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover/libs/disqover.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover/libs/disqover.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/disqover/libs/disqover.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains/libs/Rmalschains.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains/libs/Rmalschains.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/Rmalschains/libs/Rmalschains.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+        "sha256": "d5ccf13dfdcb31f291f99da51e8b1497fae53ddfa5fc9862fe024b910f5e9d4c",
+        "bytes": 1827488
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+        "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+        "bytes": 209392
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgfortran.5.dylib",
+        "sha256": "624e083bf9ebdcd8c6713ef8adaf1aa49ec2a1756cd0dbaed553fd48fc3e6950",
+        "bytes": 2202464
+      },
+      "lexical_path": "/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libquadmath.0.dylib",
+        "sha256": "773034db811835ca98358409e647c46a97cb9dc3f4fbb6956c858e5a31cdf580",
+        "bytes": 360752
+      },
+      "lexical_path": "/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppDE/libs/RcppDE.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libquadmath.0.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgfortran.5.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "@rpath/libquadmath.0.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libquadmath.0.dylib",
+        "sha256": "773034db811835ca98358409e647c46a97cb9dc3f4fbb6956c858e5a31cdf580",
+        "bytes": 360752
+      },
+      "lexical_path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgfortran.5.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "@rpath/libgcc_s.1.1.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgcc_s.1.1.dylib",
+        "sha256": "a80543d816003b21ccd3d297c10ab4eb8e2c746faf27f385656ee5a9ee4195b2",
+        "bytes": 219232
+      },
+      "lexical_path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgcc_s.1.1.dylib"
+    },
+    {
+      "loader": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgfortran.5.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgcc_s.1.1.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+        "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+        "bytes": 209392
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+        "sha256": "00e4077481cd86f00d011fca0f4cc2277f76c93d26f3506a80cdbfc6602689cf",
+        "bytes": 1967328
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+        "sha256": "d00309d973f4ebf4cfa34bc3b9ff55c214cfdbe2e233bc7d120f07e9583f8e21",
+        "bytes": 378592
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libomp.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libomp.dylib",
+        "sha256": "b77ca5fff4944c55088ba4fba6e1f845508d1ac23d62777b0de58012dfbb5329",
+        "bytes": 1685408
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libomp.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+        "sha256": "d5ccf13dfdcb31f291f99da51e8b1497fae53ddfa5fc9862fe024b910f5e9d4c",
+        "bytes": 1827488
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+        "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+        "bytes": 209392
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgfortran.5.dylib",
+        "sha256": "624e083bf9ebdcd8c6713ef8adaf1aa49ec2a1756cd0dbaed553fd48fc3e6950",
+        "bytes": 2202464
+      },
+      "lexical_path": "/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libquadmath.0.dylib",
+        "sha256": "773034db811835ca98358409e647c46a97cb9dc3f4fbb6956c858e5a31cdf580",
+        "bytes": 360752
+      },
+      "lexical_path": "/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/RcppArmadillo/libs/RcppArmadillo.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libomp.dylib",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+        "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+        "bytes": 209392
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libgfortran.5.dylib",
+        "sha256": "624e083bf9ebdcd8c6713ef8adaf1aa49ec2a1756cd0dbaed553fd48fc3e6950",
+        "bytes": 2202464
+      },
+      "lexical_path": "/opt/homebrew/opt/gcc/lib/gcc/current/libgfortran.5.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib",
+      "target": {
+        "path": "/opt/homebrew/Cellar/gcc/15.2.0_1/lib/gcc/current/libquadmath.0.dylib",
+        "sha256": "773034db811835ca98358409e647c46a97cb9dc3f4fbb6956c858e5a31cdf580",
+        "bytes": 360752
+      },
+      "lexical_path": "/opt/homebrew/opt/gcc/lib/gcc/current/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/native-reference-admission/native/library/GenSA/libs/GenSA.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+        "sha256": "d5ccf13dfdcb31f291f99da51e8b1497fae53ddfa5fc9862fe024b910f5e9d4c",
+        "bytes": 1827488
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+        "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+        "bytes": 209392
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+        "sha256": "00e4077481cd86f00d011fca0f4cc2277f76c93d26f3506a80cdbfc6602689cf",
+        "bytes": 1967328
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+        "sha256": "d00309d973f4ebf4cfa34bc3b9ff55c214cfdbe2e233bc7d120f07e9583f8e21",
+        "bytes": 378592
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/modules/lapack.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs/libs/vctrs.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/vctrs/libs/vctrs.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils/libs/utils.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utils/libs/utils.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utf8/libs/utf8.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/utf8/libs/utf8.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools/libs/tools.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tools/libs/tools.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr/libs/tidyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr/libs/tidyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tidyr/libs/tidyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble/libs/tibble.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/tibble/libs/tibble.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stringi/libs/stringi.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stringi/libs/stringi.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stringi/libs/stringi.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib",
+        "sha256": "d5ccf13dfdcb31f291f99da51e8b1497fae53ddfa5fc9862fe024b910f5e9d4c",
+        "bytes": 1827488
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRlapack.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+        "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+        "bytes": 209392
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib",
+        "sha256": "00e4077481cd86f00d011fca0f4cc2277f76c93d26f3506a80cdbfc6602689cf",
+        "bytes": 1967328
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libgfortran.5.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib",
+        "sha256": "d00309d973f4ebf4cfa34bc3b9ff55c214cfdbe2e233bc7d120f07e9583f8e21",
+        "bytes": 378592
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libquadmath.0.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/stats/libs/stats.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang/libs/rlang.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/rlang/libs/rlang.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr/libs/purrr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/purrr/libs/purrr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel/libs/parallel.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/parallel/libs/parallel.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods/libs/methods.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/methods/libs/methods.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr/libs/magrittr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/magrittr/libs/magrittr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite/libs/jsonlite.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/jsonlite/libs/jsonlite.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/isoband/libs/isoband.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/isoband/libs/isoband.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/isoband/libs/isoband.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid/libs/grid.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grid/libs/grid.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics/libs/graphics.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/graphics/libs/graphics.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libz.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/grDevices/libs/grDevices.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libobjc.A.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue/libs/glue.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/glue/libs/glue.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver/libs/farver.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver/libs/farver.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/farver/libs/farver.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr/libs/dplyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr/libs/dplyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/dplyr/libs/dplyr.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli/libs/cli.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/cli/libs/cli.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7/libs/S7.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/S7/libs/S7.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp/libs/Rcpp.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp/libs/Rcpp.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libc++.1.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/Rcpp/libs/Rcpp.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim/libs/DEoptim.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/library/DEoptim/libs/DEoptim.so",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/exec/R",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib",
+        "sha256": "36cad66500df89c8faf36cd31f4e3249f62e1f163a1db37779a57048d882064a",
+        "bytes": 5802544
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libR.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/exec/R",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib",
+      "target": {
+        "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.0.dylib",
+        "sha256": "c112a8ceec685b64cd619c5194ab07646eefe1d4445b8efa84af888bcdc9ccaf",
+        "bytes": 209392
+      },
+      "lexical_path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/lib/libRblas.dylib"
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/exec/R",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    },
+    {
+      "loader": "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+      "command": "LC_LOAD_DYLIB",
+      "path": "/usr/lib/libSystem.B.dylib",
+      "authority": "Apple sealed-system/dyld cache; current OS build pinned separately",
+      "physical_file_claim": false
+    }
+  ],
+  "actual_static_custody_statement": "Exact observed R core LAPACK module is already in original full current R_HOME pins; selected by version/config/layout and actual introspection receipt, not arbitrary observed DLL whitelist. No additional actual runtime success inferred."
+}

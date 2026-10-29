@@ -1,0 +1,92 @@
+{
+  "schema_version": "controlled-lra-numerical-source-capture.v1",
+  "files": [
+    {
+      "path": "check_contract.py",
+      "sha256": "39a7fd9920e009588e87166ef15276756195b6a2b7f1a96f25f227461e3047bb",
+      "bytes": 27330
+    },
+    {
+      "path": "contracts.py",
+      "sha256": "68dd43e3b1246c7ef2b733a7ff380ac575d0358661a61576fa8325adf994f4c5",
+      "bytes": 12064
+    },
+    {
+      "path": "observe_numerical.py",
+      "sha256": "a4cd0f72cdaa11a8f2dea74465a15d841c6b6168638a10ecd56c9504ff50a007",
+      "bytes": 13120
+    },
+    {
+      "path": "observe_runtime_probe.py",
+      "sha256": "aad775d579b5e22d3f8ae7b96beb8eb4a2469c43bd46287ee96ce50dd971bf2d",
+      "bytes": 5477
+    },
+    {
+      "path": "oracle_metadata.R",
+      "sha256": "220d5c9e13e51d4689ee79847ef94b884e68738d8a83197a7910f7acc3d5082e",
+      "bytes": 5196
+    },
+    {
+      "path": "preflight/qualified-prerequisite-and-numerical-source.json",
+      "sha256": "c55592abc6d49b344f31ef1e76a24c3e0bed26f1d1a170d173f78590e9cfc609",
+      "bytes": 3947
+    },
+    {
+      "path": "prepare_numerical.py",
+      "sha256": "7927262464c97fc9d2d779cd2bc5e139ee66a3679348785422b531dc0a83af8c",
+      "bytes": 12308
+    },
+    {
+      "path": "probe_custody.py",
+      "sha256": "6ef2a3555cbb7efc5f531a4056b0120a8bc7c78e51d4a0d596ad5b45ce8603ee",
+      "bytes": 4968
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "dbc30f2daad6f9f2db374aa18addcd009441828a102f6b64199dab4b95d0746f",
+      "bytes": 3630
+    },
+    {
+      "path": "run.py",
+      "sha256": "80823aca701d7d57a89498f3db4cec9c15c3bd924977a0f1a1b69c488ac11c69",
+      "bytes": 4094
+    },
+    {
+      "path": "runtime_custody.py",
+      "sha256": "6e66857241441b18521ec0de49e667a74546cfb27ffad4f2e2d5dea66a0305a7",
+      "bytes": 13968
+    },
+    {
+      "path": "source-correspondence.json",
+      "sha256": "799893a16a711e424de0757c385298dc2ffb5b6c744296ad8c1983085da5c90f",
+      "bytes": 3707
+    },
+    {
+      "path": "source-qualification.json",
+      "sha256": "c515107f2c16b5b0276043d4fa41e47eb7892eca5139a54f134b281c1d835913",
+      "bytes": 3400
+    },
+    {
+      "path": "three-owner-feasibility.json",
+      "sha256": "5e0bcf7038b41cba4e49ef0e3824e4f9bc4e6dda21dc3c3c222842c4dff81456",
+      "bytes": 3668
+    }
+  ],
+  "qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-current-numerical-custody/source-qualification.json",
+    "sha256": "c515107f2c16b5b0276043d4fa41e47eb7892eca5139a54f134b281c1d835913",
+    "bytes": 3400
+  },
+  "initial_numerical_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-alias-custody/prepared-source-manifest.json",
+    "sha256": "bb7d1212f19a10ead198872d04a2538deb616ca505d018cb845823b7fefcd721",
+    "bytes": 2950
+  },
+  "qualified_runtime_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/controlled-lra-runtime-introspection/prepared-source-manifest.json",
+    "sha256": "ecd0cdea9671bc2b65e2f674d9b0d7ee348c5e337c79bcebba0f3b58abbdf7ae",
+    "bytes": 2743
+  },
+  "source_candidate_parameter": "Dynamic exact clean local main; all qualified124probe input/product source bytes must remain exact. No current numerical plan/execution.",
+  "scope": "Two fresh controlled numerical owners on genuinely qualified runtime; original cases/thresholds/400pairedcells unchanged, old failures preserved. Third installed batch separate."
+}

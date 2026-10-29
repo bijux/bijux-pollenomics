@@ -1,0 +1,16 @@
+{
+  "candidate": "aed78f8befdf0449789249e780ad80f13f44e086",
+  "plan_sha256": "69dc4d4cd1487349ac9f578175f5d156bbceb193c4f6adcca283bbc8688dfb7f",
+  "common_terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-controlled-lra-numerical-certification/terminal.json",
+    "sha256": "3e61e228806047291b388b3ffa52bae0eb6f8585944e2491bff775b11cf89543"
+  },
+  "common_actual_exit": 1,
+  "completed_child_peak_rss_bytes_macos": 168001536,
+  "output_bytes_before_receipt": 12016929,
+  "storage_receipt_reserved_bytes": 16384,
+  "memory_bound_pass": true,
+  "storage_bound_pass": true,
+  "actual_exit": 1,
+  "scope": "Completed-child RSS and regular logical output bytes qualify declared bounds; 16KiB own receipt reserve included. Unchanged common runner controls exact candidate/input before-after and each actual stage, plus process-group timeouts. No OS quota or full descendant process census."
+}
