@@ -141,26 +141,28 @@ def atlas_extension_matches(name: str, captured: bytes, current: bytes) -> bool:
     """
     try:
         old = captured.decode("utf-8")
-        body: str | None = current.decode("utf-8")
+        body = current.decode("utf-8")
         ast.parse(old)
         tree = ast.parse(body)
         if name == WORKFLOW:
             if not _workflow_nodes(tree):
                 return False
-            body = _replace_once(body, ASSET_IMPORT, "")
-            if body is None:
+            candidate = _replace_once(body, ASSET_IMPORT, "")
+            if candidate is None:
                 return False
-            body = _replace_once(body, ASSET_WRITE, "    copy_map_assets(stage)\n")
+            candidate = _replace_once(
+                candidate, ASSET_WRITE, "    copy_map_assets(stage)\n"
+            )
         elif name == PAYLOAD:
             if not _payload_nodes(tree):
                 return False
             if body.startswith(PAYLOAD_DOC):
                 body = body[len(PAYLOAD_DOC) :]
-            body = _replace_once(body, SCRIPT_BINDING, "")
-            if body is None:
+            candidate = _replace_once(body, SCRIPT_BINDING, "")
+            if candidate is None:
                 return False
-            body = _replace_once(
-                body,
+            candidate = _replace_once(
+                candidate,
                 "        if native_lra is not None and static_assets is None\n",
                 "        if native_lra is not None\n",
             )
@@ -223,9 +225,9 @@ def atlas_extension_matches(name: str, captured: bytes, current: bytes) -> bool:
             if "".join(lines[function.end_lineno :]):
                 return False
             body = body[:start] + "\n"
-            body = _replace_once(body, MODE_GUARD, "")
+            candidate = _replace_once(body, MODE_GUARD, "")
         else:
             return False
-        return body is not None and body.encode("utf-8") == captured
+        return candidate is not None and candidate.encode("utf-8") == captured
     except (SyntaxError, UnicodeDecodeError, ValueError, TypeError):
         return False
