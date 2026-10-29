@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-import importlib
 from copy import deepcopy
+import importlib
 from types import ModuleType
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 
 EXPECTED: dict[str, dict[str, Any]] = {
@@ -43,7 +44,7 @@ def test_exact_original_contract_remains_unresolved(name: str) -> None:
     module = reader(name)
     expected = deepcopy(EXPECTED[name])
     assert expected["role"] == "unresolved"
-    assert module.ORIGINAL_OWNER == expected
+    assert expected == module.ORIGINAL_OWNER
     assert module._validate_original_owner([expected]) is None
 
 
