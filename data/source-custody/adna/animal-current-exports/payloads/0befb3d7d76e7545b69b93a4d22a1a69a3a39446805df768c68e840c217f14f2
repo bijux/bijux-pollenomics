@@ -1,0 +1,180 @@
+"""Bind the existing place-hierarchy PDF gate as a distinct current source dependency."""
+
+from __future__ import annotations
+
+import ast
+from copy import deepcopy
+import hashlib
+from pathlib import Path
+from typing import Any
+
+from source_inputs import pin
+
+from inputs.official_roles import normalized, typed_equal
+
+SOURCE_PATH = "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/registry/sites/hierarchy.py"
+PDF_PATH = "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/supplementary/42003_2021_2794_MOESM2_ESM.pdf"
+PROJECT = "PRJEB36540"
+
+
+def require(value: object, reason: str) -> None:
+    if not value:
+        raise ValueError(reason)
+
+
+def validate_roles(roles: list[dict[str, Any]]) -> None:
+    require(
+        type(roles) is list and len(roles) == 1,
+        "Exactly one current place-hierarchy dependency required",
+    )
+    row = roles[0]
+    require(
+        set(row)
+        == {
+            "project_accession",
+            "source_role",
+            "original_catalog_protection_claimed",
+            "payload",
+        }
+        and row["project_accession"] == PROJECT
+        and row["source_role"] == "current_place_hierarchy_source_evidence"
+        and row["original_catalog_protection_claimed"] is False,
+        "Current place evidence was crossed or relabelled original",
+    )
+    require(
+        normalized(row["payload"])["path"] == PDF_PATH,
+        "Unexpected place-hierarchy source path",
+    )
+
+
+def dependency_identity(root: Path, declaration: dict[str, Any]) -> dict[str, Any]:
+    """Read only authenticated Python AST, not a PDF body or an API execution."""
+    spec = normalized(declaration["place_hierarchy_source_contract"])
+    require(spec["path"] == SOURCE_PATH, "Exact maintained hierarchy source required")
+    path = root / spec["path"]
+    require(
+        path.is_file() and not any(p.is_symlink() for p in (path, *path.parents)),
+        "Place-hierarchy source missing or aliased",
+    )
+    raw = path.read_bytes()
+    require(
+        len(raw) == spec["bytes"] and hashlib.sha256(raw).hexdigest() == spec["sha256"],
+        "Place-hierarchy AST source differs from reviewed authority",
+    )
+    module = ast.parse(raw)
+    hashes = [
+        ast.literal_eval(node.value)
+        for node in module.body
+        if isinstance(node, ast.Assign)
+        and any(
+            isinstance(target, ast.Name)
+            and target.id == "_PRJEB36540_HIERARCHY_SOURCE_SHA256"
+            for target in node.targets
+        )
+    ]
+    functions = [
+        node
+        for node in module.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_project_hierarchy_profiles"
+    ]
+    require(
+        len(hashes) == len(functions) == 1,
+        "Exact place-hierarchy source/constant roles absent",
+    )
+    assignments = [
+        node.value
+        for node in ast.walk(functions[0])
+        if isinstance(node, ast.Assign)
+        and len(node.targets) == 1
+        and isinstance(node.targets[0], ast.Name)
+        and node.targets[0].id == "source_path"
+    ]
+    require(len(assignments) == 1, "Exact native hierarchy path assignment required")
+
+    def components(node: ast.expr) -> list[str]:
+        if isinstance(node, ast.Name) and node.id == "output_root":
+            return []
+        require(
+            isinstance(node, ast.BinOp)
+            and isinstance(node.op, ast.Div)
+            and isinstance(node.right, ast.Constant)
+            and type(node.right.value) is str,
+            "Native hierarchy path is not a literal output-root projection",
+        )
+        assert isinstance(node, ast.BinOp) and isinstance(node.right, ast.Constant)
+        return [*components(node.left), str(node.right.value)]
+
+    relative = Path("data", *components(assignments[0])).as_posix()
+    require(relative == PDF_PATH, "Native place-hierarchy PDF path changed")
+    roles = declaration["current_place_hierarchy_sources"]
+    validate_roles(roles)
+    require(
+        roles[0]["payload"]["sha256"] == hashes[0],
+        "Native hierarchy hash gate and declared PDF disagree",
+    )
+    original = {row["path"] for row in declaration["original_source_library_roles"]}
+    others = {row["path"] for row in declaration["other_source_inputs"]}
+    require(
+        PDF_PATH not in original and PDF_PATH not in others,
+        "Current place evidence cannot be invented as an original catalogue member",
+    )
+    return normalized(roles[0]["payload"])
+
+
+def freeze_current_place(
+    root: Path, declaration: dict[str, Any]
+) -> list[dict[str, Any]]:
+    expected = dependency_identity(root, declaration)
+    path = root / expected["path"]
+    require(
+        not any(p.is_symlink() for p in (path, *path.parents)),
+        "Place-hierarchy PDF alias refused",
+    )
+    current = pin(path)
+    require(
+        {**current, "path": expected["path"]} == expected,
+        "Current place-hierarchy PDF differs before source/runtime census",
+    )
+    return [current]
+
+
+def bind_current_place(
+    root: Path, declaration: dict[str, Any], frozen: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    roles = declaration["current_place_hierarchy_sources"]
+    validate_roles(roles)
+    rows = {row["path"]: row for row in frozen}
+    for role in roles:
+        expected = role["payload"]
+        require(
+            rows.get(str(root / expected["path"]))
+            == {**expected, "path": str(root / expected["path"])},
+            "Current place-hierarchy source lost its exact pre-census pin",
+        )
+    return deepcopy(roles)
+
+
+def verify_registered_place(
+    plan: dict[str, Any], observed: list[dict[str, Any]]
+) -> None:
+    expected = bind_current_place(
+        Path(plan["repository"]),
+        plan["source_declaration"],
+        plan["original_data_row_authority"],
+    )
+    require(
+        typed_equal(plan["current_place_hierarchy_sources"], expected)
+        and typed_equal(observed, expected),
+        "Registered current place-hierarchy role differs",
+    )
+    owned = Path(plan["owned_repository"])
+    payload = dependency_identity(owned, plan["source_declaration"])
+    source_spec = plan["source_declaration"]["place_hierarchy_source_contract"]
+    protected = {row["path"]: row for row in plan["input_pins"]}
+    for row in (payload, source_spec):
+        name = str(owned / row["path"])
+        require(
+            typed_equal(protected.get(name), {**row, "path": name}),
+            "Owned place PDF/source absent from registered input closure",
+        )

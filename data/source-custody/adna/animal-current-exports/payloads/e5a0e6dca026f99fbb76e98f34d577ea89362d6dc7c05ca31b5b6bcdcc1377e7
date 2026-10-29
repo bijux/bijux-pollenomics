@@ -1,0 +1,253 @@
+"""Use the unchanged public animal loader and default writers on an owned source projection."""
+
+from __future__ import annotations
+
+import argparse
+import importlib.abc
+from pathlib import Path
+import sys
+from typing import Any
+
+from contracts import (
+    COUNTRIES,
+    bootstrap,
+    checkpoint,
+    execution_scope,
+    require,
+    stage_plan,
+    write,
+)
+from data_inputs import verify_logical_inputs
+from inputs.archive_roles import observe_current_logical
+from inputs.place_roles import verify_registered_place
+from source_inputs import pin
+
+
+class DenyNumerical(importlib.abc.MetaPathFinder):
+    def __init__(self) -> None:
+        self.attempts: list[str] = []
+
+    def find_spec(self, fullname: str, path: Any = None, target: Any = None) -> Any:
+        if fullname.split(".")[0] in {"bijux_pollenomics_lra", "pollenomics"}:
+            self.attempts.append(fullname)
+            raise ImportError(
+                "Numerical engine/facade outside animal source metadata export"
+            )
+        return None
+
+
+def origins(plan: dict[str, Any]) -> list[dict[str, Any]]:
+    owned = Path(plan["owned_repository"])
+    protected = {row["path"]: row for row in plan["input_pins"]}
+    rows = []
+    for name, module in sorted(sys.modules.items()):
+        if name.split(".")[0] not in {
+            "bijux_pollenomics",
+            "bijux_pollenomics_dev",
+            "bijux_pollenomics_lra",
+            "pollenomics",
+        }:
+            continue
+        filename = getattr(module, "__file__", None)
+        require(isinstance(filename, str), "First-party source origin missing")
+        assert isinstance(filename, str)
+        path = Path(filename)
+        row = pin(path)
+        require(
+            path.is_relative_to(owned) and protected.get(str(path)) == row,
+            "First-party namespace left owned pinned source",
+        )
+        if hasattr(module, "__path__"):
+            require(
+                list(module.__path__) == [str(path.parent)],
+                "Mixed first-party namespace refused",
+            )
+        rows.append({"module": name, **row})
+    return rows
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = stage_plan(args.plan)
+    authority, scope = execution_scope(plan)
+    roots = bootstrap(plan)
+    require(
+        plan["countries"] == list(COUNTRIES), "Exact four country requests required"
+    )
+    owned = Path(plan["owned_repository"])
+    verify_logical_inputs(owned, plan["logical_source_identities"])
+    verify_registered_place(plan, plan["current_place_hierarchy_sources"])
+    current_archive_observations = observe_current_logical(
+        owned, plan["new_current_adapter_sources"]
+    )
+    denial = DenyNumerical()
+    require(
+        not any(
+            name.split(".")[0] in {"bijux_pollenomics_lra", "pollenomics"}
+            for name in sys.modules
+        ),
+        "Numerical namespace already loaded",
+    )
+    sys.meta_path.insert(0, denial)
+    network_attempts: list[str] = []
+
+    def deny_network(event: str, arguments: tuple[Any, ...]) -> None:
+        if event in {"socket.connect", "socket.getaddrinfo"}:
+            network_attempts.append(event)
+            raise RuntimeError("No network source acquisition permitted: " + event)
+
+    sys.addaudithook(deny_network)
+    import defusedxml  # type: ignore[import-untyped]
+
+    from bijux_pollenomics.adna import (
+        AdnaSampleQuery,
+        build_species_runtime_manifest,
+        load_species_samples,
+    )
+    import bijux_pollenomics.adna.workflow.normalization.samples as source_samples
+    from bijux_pollenomics.core.repository import repository_data_root
+    from bijux_pollenomics.reporting.rendering import (
+        write_samples_csv,
+        write_samples_geojson,
+    )
+
+    require(
+        repository_data_root(source_samples.__file__) == owned / "data",
+        "Animal API data root borrowed an outside workspace",
+    )
+    output = Path(plan["output"]) / "producer"
+    require(
+        not output.exists() and not output.is_symlink(),
+        "Fresh animal export products required",
+    )
+    output.mkdir()
+    calls = []
+    populations = []
+    for species in plan["species"]:
+        manifest = build_species_runtime_manifest(
+            species["latin_name"], data_root=owned / "data"
+        )
+        require(
+            manifest.species.slug == species["slug"]
+            and manifest.species.latin_name == species["latin_name"],
+            "Actual species manifest differs",
+        )
+        calls.append(
+            {
+                "call": "build_species_runtime_manifest",
+                "species": species["latin_name"],
+                "data_root": str(owned / "data"),
+            }
+        )
+        results = []
+        for country in (None, *COUNTRIES):
+            query = (
+                None if country is None else AdnaSampleQuery(political_entity=country)
+            )
+            samples, counts = load_species_samples(manifest, query=query)
+            label = "all" if country is None else country.casefold()
+            directory = output / species["slug"]
+            directory.mkdir(exist_ok=True)
+            paths = {
+                "typed": directory / (label + ".typed.json"),
+                "csv": directory / (label + ".csv"),
+                "geojson": directory / (label + ".geojson"),
+            }
+            require(
+                all(not p.exists() and not p.is_symlink() for p in paths.values()),
+                "Animal product replacement refused",
+            )
+            write_samples_csv(paths["csv"], samples)
+            write_samples_geojson(paths["geojson"], samples)
+            write(
+                paths["typed"],
+                {
+                    "species": species,
+                    "country_query": country,
+                    "actual_typed_records": [sample.as_dict() for sample in samples],
+                    "actual_dataset_row_counts": dict(sorted(counts.items())),
+                },
+            )
+            calls.append(
+                {
+                    "call": "load_species_samples",
+                    "species": species["latin_name"],
+                    "political_entity": country,
+                }
+            )
+            calls.append(
+                {
+                    "call": "write_samples_csv",
+                    "schema_argument": "omitted_default_v2",
+                    "path": str(paths["csv"]),
+                }
+            )
+            calls.append(
+                {
+                    "call": "write_samples_geojson",
+                    "schema_argument": "omitted_default_v2",
+                    "path": str(paths["geojson"]),
+                }
+            )
+            results.append(
+                {
+                    "country_query": country,
+                    "sample_count": len(samples),
+                    "dataset_row_counts": dict(sorted(counts.items())),
+                    "products": {key: pin(path) for key, path in paths.items()},
+                }
+            )
+        populations.append(
+            {
+                "species": species,
+                "runtime_manifest": manifest.as_dict(),
+                "results": results,
+            }
+        )
+    actual_origins = origins(plan)
+    require(not denial.attempts, "Numerical engine import attempted")
+    require(not network_attempts, "Network source acquisition attempted")
+    xml_origin = pin(Path(defusedxml.__file__))
+    require(
+        {row["path"]: row for row in plan["input_pins"]}.get(xml_origin["path"])
+        == xml_origin,
+        "XML dependency origin is outside qualified runtime",
+    )
+    checkpoint(authority, scope, plan["owned_namespace_snapshots"])
+    write(
+        Path(plan["output"]) / "maintained-producer-execution.json",
+        {
+            "schema_version": "animal-current-public-export-execution.v1",
+            "actual_exit": 0,
+            "candidate": plan["candidate"],
+            "actual_argv": sys.orig_argv,
+            "actual_executable": sys.executable,
+            "owned_package_search_roots": roots,
+            "actual_first_party_origins": actual_origins,
+            "actual_XML_dependency_origin": xml_origin,
+            "actual_data_root": str(owned / "data"),
+            "original_logical_source_identities_verified": len(
+                plan["logical_source_identities"]
+            ),
+            "current_adapter_logical_observations": current_archive_observations,
+            "current_official_XML_input_roles": plan[
+                "new_current_official_XML_sources"
+            ],
+            "current_place_hierarchy_input_roles": plan[
+                "current_place_hierarchy_sources"
+            ],
+            "maintained_public_calls": calls,
+            "populations": populations,
+            "numerical_import_attempts": denial.attempts,
+            "network_attempts": network_attempts,
+            "API_reads_saved_normalized_JSON_as_producer_input": False,
+            "actual_behavior": "Unchanged loader rebuilds source-owned animal metadata from the exact original source projection, with current receipts separately frozen; saved normalized files are independent comparison authorities.",
+            "new_HTTP_genotype_model_R_or_full_requirement_admission": False,
+        },
+    )
+
+
+if __name__ == "__main__":
+    main()

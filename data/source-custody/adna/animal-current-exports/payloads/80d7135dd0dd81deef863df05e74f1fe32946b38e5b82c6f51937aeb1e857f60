@@ -1,0 +1,144 @@
+"""Freeze metadata transport for completed current animal export execution."""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+import shutil
+from typing import Any
+
+from contracts import (
+    PYTHON,
+    RESOURCES,
+    ROOT,
+    SOURCE,
+    checkpoint,
+    fresh_output,
+    identity,
+    require,
+    write,
+)
+from retained import authenticate
+from source_admission import reviewed_controls
+from source_inputs import InputScope, pin
+from source_runtime import authenticate_runtime
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--candidate", required=True)
+    parser.add_argument("--review-sha256", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--native-inner-sha256", required=True)
+    parser.add_argument("--native-outer-sha256", required=True)
+    args = parser.parse_args()
+    output = fresh_output(args.output)
+    _, peer, controls = reviewed_controls(SOURCE)
+    require(
+        pin(peer)["sha256"] == args.review_sha256, "Exact metadata source peer required"
+    )
+    initial = InputScope(controls, [PYTHON])
+    before = identity()
+    require(
+        before["candidate"] == args.candidate and before["status"] == "",
+        "Actual current clean source candidate required",
+    )
+    authority, runtime = authenticate_runtime()
+    initial.extend(runtime)
+    transport, history, namespaces = authenticate(
+        args.native_inner_sha256, args.native_outer_sha256
+    )
+    initial.extend(history)
+    checkpoint(authority, initial, namespaces)
+    require(
+        identity() == before,
+        "Current source identity changed during metadata preparation",
+    )
+    require(
+        transport["total_packet_bytes"] + 64 * 1024**2
+        < RESOURCES["declared_storage_bytes"],
+        "Packet and plan/receipt reserve exceed output budget",
+    )
+    require(
+        shutil.disk_usage(output.parent).free
+        >= transport["total_packet_bytes"] + 1024**3,
+        "Packet plus1GiB physical reserve required",
+    )
+    plan_path = output / "plan.json"
+    plan: dict[str, Any] = {
+        "schema_version": "animal-current-export-metadata-capture-plan.v1",
+        "candidate": args.candidate,
+        "canonical_identity_at_source_freeze": before,
+        "repository": str(ROOT),
+        "owned_repository": str(SOURCE),
+        "output": str(output),
+        "transport": transport,
+        "qualified_source_runtime": authority,
+        "historical_namespaces": namespaces,
+        "resources": RESOURCES,
+        "input_pins": initial.rows,
+        "runtime_entry_raw_aliases": initial.aliases,
+        "runtime_entry_lexical_paths": initial.entries,
+        "absent_input_paths": [],
+        "environment": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONPATH": "",
+            "TMPDIR": str(output / "scratch"),
+            "XDG_CACHE_HOME": str(output / "cache"),
+            "MPLCONFIGDIR": str(output / "cache/matplotlib"),
+            "PATH": "/usr/bin:/bin",
+        },
+        "stages": [
+            {
+                "id": name,
+                "action": action,
+                "timeout_seconds": 180,
+                "argv": [
+                    str(PYTHON),
+                    "-I",
+                    "-B",
+                    str(SOURCE / "entry.py"),
+                    action,
+                    "--plan",
+                    str(plan_path),
+                ],
+            }
+            for name, action in (
+                ("retained-animal-current-export-assembly", "assemble"),
+                ("independent-animal-current-export-capture-observer", "observer"),
+            )
+        ],
+        "scope": "Metadata retention of the genuine current ten-species animal source assembly, fifty public queries and150 derived typed/default-v2 CSV/GeoJSON exports. All160 owned data bodies and162 original source authorities are identity-only. No historical normalization receipt recovery, acquisition, genotype, biology, calibration, rights, human, ecological or LRA acceptance. Full ADNA adjudication remains a separate explicit contract.",
+    }
+    encoded = (json.dumps(plan, indent=2, allow_nan=False) + "\n").encode()
+    require(
+        len(encoded) + transport["total_packet_bytes"] + 1024**2
+        < RESOURCES["declared_storage_bytes"],
+        "Exact plan/packet plus receipt reserve exceeds storage",
+    )
+    # Expected rows came from sealed original records or reviewed source before
+    # census; the final check never repins a changed source as a new baseline.
+    checkpoint(authority, initial, namespaces)
+    require(identity() == before, "Current source identity changed before writes")
+    fresh_output(output)
+    output.mkdir()
+    for name in ("scratch", "cache", "cache/matplotlib"):
+        (output / name).mkdir()
+    with plan_path.open("xb") as stream:
+        stream.write(encoded)
+    write(
+        output / "preparation.json",
+        {
+            "actual_exit": 0,
+            "plan": pin(plan_path),
+            "packet_forecast_bytes": transport["total_packet_bytes"],
+            "ordered_original_native_inputs": 62435,
+            "actual_retention_or_model_executed": False,
+        },
+    )
+    print(json.dumps({"plan": pin(plan_path), "actual_exit": 0}))
+
+
+if __name__ == "__main__":
+    main()

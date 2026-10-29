@@ -1,0 +1,188 @@
+"""Qualify current archive roles with artificial inputs and maintained source ASTs."""
+
+from __future__ import annotations
+
+import ast
+from collections.abc import Callable
+from copy import deepcopy
+from functools import partial
+import json
+from pathlib import Path
+import sys
+import tempfile
+from typing import Any
+
+SOURCE = Path(__file__).absolute().parent
+sys.path.insert(0, str(SOURCE))
+
+from check_controls import artificial_data_authority  # noqa: E402
+from contracts import ROOT  # noqa: E402
+from data_inputs import expected_data  # noqa: E402
+from inputs.archive_roles import (  # noqa: E402
+    PROJECTS,
+    bind_current_archives,
+    freeze_current_archives,
+    observe_current_logical,
+    validate_roles,
+    verify_observed_archives,
+)
+from source_inputs import InputScope  # noqa: E402
+
+CASES = 0
+
+
+def refuses(call: Any) -> None:
+    global CASES
+    try:
+        call()
+    except (ValueError, TypeError):
+        CASES += 1
+        return
+    raise AssertionError("Current source archive predicate accepted an invalid role")
+
+
+def source_trace(declared: dict[str, Any]) -> None:
+    prefix = (
+        ROOT
+        / "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master"
+    )
+    tree = ast.parse((prefix / "models.py").read_text())
+    archive_projects = next(
+        ast.literal_eval(node.value)
+        for node in tree.body
+        if isinstance(node, ast.Assign)
+        and any(
+            isinstance(name, ast.Name)
+            and name.id == "_ARCHIVE_PROJECT_SAMPLE_ACCESSIONS"
+            for name in node.targets
+        )
+    )
+    original = {
+        Path(row["logical"]["path"]).parent.name
+        for row in declared["logical_transport_roles"]
+    }
+    assert archive_projects - original == set(PROJECTS[:-1])
+    special = ast.parse((prefix / "supplements.py").read_text())
+    assert any(
+        isinstance(node, ast.If)
+        and isinstance(node.test, ast.Compare)
+        and any(
+            isinstance(value, ast.Constant) and value.value == "PRJEB44430"
+            for value in node.test.comparators
+        )
+        and any(
+            isinstance(call, ast.Call)
+            and isinstance(call.func, ast.Name)
+            and call.func.id == "_horse_nature_supplementary_sample_rows"
+            for call in ast.walk(node)
+        )
+        for node in ast.walk(special)
+    )
+    species = ast.parse((prefix / "species_supplements.py").read_text())
+    function = next(
+        node
+        for node in species.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_horse_nature_supplementary_sample_rows"
+    )
+    assert any(
+        isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id == "_build_archive_sample_accession_lookup"
+        for node in ast.walk(function)
+    )
+
+
+def main() -> None:
+    global CASES
+    declaration = json.loads((SOURCE / "declared-inputs.json").read_bytes())
+    validate_roles(declaration["current_adapter_sources"])
+    source_trace(declaration)
+    CASES += 1
+    with tempfile.TemporaryDirectory(dir=SOURCE / "preflight") as name:
+        root = Path(name)
+        inputs = artificial_data_authority(root, declaration)
+        roles = inputs["current_adapter_sources"]
+        frozen, metadata = expected_data(root, inputs)
+        assert len(frozen) == 162 and len(metadata) == 53
+        scoped = InputScope(frozen, [])
+        bound = bind_current_archives(root, roles, frozen)
+        assert len(bound) == 5
+        assert roles[-1]["stored"]["sha256"] is None
+        assert bound[-1]["stored"]["sha256"] is not None
+        assert bound[-1]["logical"]["sha256"] is None
+        observed = observe_current_logical(root, bound)
+        plan: dict[str, Any] = {
+            "repository": str(root),
+            "source_declaration": inputs,
+            "original_data_row_authority": frozen,
+            "new_current_adapter_sources": bound,
+        }
+        verify_observed_archives(plan, observed)
+        scoped.verify()
+        CASES += 1
+        mutators: tuple[Callable[[list[dict[str, Any]]], object], ...] = (
+            lambda rows: rows.pop(),
+            lambda rows: rows.reverse(),
+            lambda rows: rows[0].update(original_catalog_protection_claimed=True),
+            lambda rows: rows[0]["stored"].update(sha256=None),
+            lambda rows: rows[0]["logical"].update(bytes=True),
+            lambda rows: rows[0]["receipt"].update(path="../foreign.json"),
+            lambda rows: rows[-1].update(logical_SHA_authority="original_catalogue"),
+            lambda rows: rows[-1]["stored"].update(sha256="a" * 64),
+        )
+        for mutate in mutators:
+            changed = deepcopy(roles)
+            mutate(changed)
+            refuses(partial(validate_roles, changed))
+        for key, replacement in (
+            ("bytes", True),
+            ("bytes", 9999),
+            ("sha256", False),
+            ("sha256", "not-sha"),
+        ):
+            wrong = deepcopy(observed)
+            wrong[0]["logical"][key] = replacement
+            refuses(partial(verify_observed_archives, plan, wrong))
+        wrong = deepcopy(observed)
+        wrong[0]["logical"]["sha256"] = "0" * 64
+        refuses(partial(verify_observed_archives, plan, wrong))
+        wrong = deepcopy(observed)
+        wrong[-1]["original_catalog_protection_claimed"] = True
+        refuses(partial(verify_observed_archives, plan, wrong))
+        wrong_plan = deepcopy(plan)
+        wrong_plan["new_current_adapter_sources"][0]["stored"] = {
+            **bound[0]["stored"],
+            "sha256": "f" * 64,
+        }
+        refuses(partial(verify_observed_archives, wrong_plan, observed))
+        receipt = root / roles[0]["receipt"]["path"]
+        old = receipt.read_bytes()
+        receipt.write_bytes(old + b" ")
+        refuses(partial(freeze_current_archives, root, roles))
+        receipt.write_bytes(old)
+        stored = root / roles[-1]["stored"]["path"]
+        saved = stored.read_bytes()
+        stored.write_bytes(saved + b"x")
+        refuses(scoped.verify)
+        refuses(partial(observe_current_logical, root, bound))
+        stored.write_bytes(saved)
+        logical = root / roles[0]["logical"]["path"]
+        logical.symlink_to(root / roles[0]["stored"]["path"])
+        refuses(partial(freeze_current_archives, root, roles))
+        logical.unlink()
+        assert observe_current_logical(root, bound) == observed
+    print(
+        json.dumps(
+            {
+                "source_only": True,
+                "actual_exit": 0,
+                "artificial_cases": CASES,
+                "real_source_body_or_API_or_preparation_or_runtime_executed": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,259 @@
+"""Keep original source identities distinct from newly frozen receipt metadata."""
+
+from __future__ import annotations
+
+import gzip
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
+
+from inputs.archive_roles import freeze_current_archives
+from inputs.official_roles import freeze_current_official
+from inputs.place_roles import freeze_current_place
+from source_inputs import exact_union, pin, verify_rows
+
+
+def require(value: object, reason: str) -> None:
+    if not value:
+        raise ValueError(reason)
+
+
+def require_source_environment(environment: dict[str, str]) -> None:
+    require(
+        "BIJUX_POLLENOMICS_REFERENCE_STASH_ROOT" not in environment,
+        "An ambient reference stash is outside the selected source projection",
+    )
+
+
+def verify_source_ancestry(root: Path, rows: list[dict[str, Any]]) -> None:
+    for row in rows:
+        path = Path(row["path"])
+        if path.is_relative_to(root / "data"):
+            require(
+                not any(node.is_symlink() for node in (path, *path.parents)),
+                "Original source input ancestor alias changed",
+            )
+
+
+def absolute_rows(root: Path, rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = []
+    for row in rows:
+        relative = Path(row["path"])
+        require(
+            not relative.is_absolute()
+            and relative.parts
+            and ".." not in relative.parts,
+            "Source role escaped its declared repository",
+        )
+        result.append(
+            {
+                key: value
+                for key, value in {**row, "path": str(root / relative)}.items()
+                if key in {"path", "sha256", "bytes"}
+            }
+        )
+    return result
+
+
+def role_rows(declared: dict[str, Any]) -> list[dict[str, Any]]:
+    original = declared["original_source_library_roles"]
+    physical = declared["physical_source_library_rows"]
+    logical = declared["logical_transport_roles"]
+    require(
+        len(original) == 77 and len(physical) == 69 and len(logical) == 8,
+        "Original source-library role cardinalities changed",
+    )
+    by_name = {row["path"]: row for row in original}
+    require(len(by_name) == 77, "Repeated original source role")
+    physical_names = {row["path"] for row in physical}
+    logical_names = {row["logical"]["path"] for row in logical}
+    require(
+        len(physical_names) == 69
+        and len(logical_names) == 8
+        and physical_names | logical_names == set(by_name),
+        "Every original source role must have exactly one physical or logical owner",
+    )
+    require(
+        {row["path"] for row in physical}.isdisjoint(
+            {row["logical"]["path"] for row in logical}
+        ),
+        "Logical and physical source roles crossed",
+    )
+    require(
+        len(physical) + len(logical) == len(original),
+        "Original role partition incomplete",
+    )
+    for row in physical:
+        require(
+            by_name.get(row["path"]) == row, "Original stored source identity changed"
+        )
+    for row in logical:
+        require(
+            by_name.get(row["logical"]["path"]) == row["logical"]
+            and by_name.get(row["stored"]["path"]) == row["stored"]
+            and by_name.get(row["receipt"]["path"]) == row["receipt"]
+            and row["stored"]["path"] == row["logical"]["path"] + ".gz",
+            "Original logical/transport/receipt relation differs",
+        )
+    comparisons = declared["comparison_inputs"]
+    require(
+        len(comparisons) == 20 and len({row["path"] for row in comparisons}) == 20,
+        "Ten exact normalized JSON/CSV comparison pairs required",
+    )
+    require(
+        len(declared["species"]) == 10
+        and len({row["slug"] for row in declared["species"]}) == 10,
+        "Ten distinct original species required",
+    )
+    for species in declared["species"]:
+        names = {
+            f"data/adna/species/{species['slug']}/normalized/sample_records.{suffix}"
+            for suffix in ("json", "csv")
+        }
+        require(
+            names.issubset({row["path"] for row in comparisons}),
+            "Species comparison pair missing",
+        )
+    current_metadata = declared["additional_current_metadata"]
+    expected_sidecars = {
+        row["path"] + ".metadata.json"
+        for row in physical
+        if not row["path"].endswith((".metadata.json", ".gz"))
+    }
+    require(
+        len(current_metadata) == len(expected_sidecars) == 53
+        and {row["path"] for row in current_metadata} == expected_sidecars,
+        "Current source metadata must be the exact53 original-file sidecars",
+    )
+    return [*physical, *comparisons, *declared["other_source_inputs"]]
+
+
+def expected_data(
+    root: Path, declared: dict[str, Any]
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    require(declared["source_root"] == str(root), "Exact original repository required")
+    current_archive_pins = freeze_current_archives(
+        root, declared["current_adapter_sources"]
+    )
+    current_official_pins = freeze_current_official(root, declared)
+    current_place_pins = freeze_current_place(root, declared)
+    authorities = [declared["original_catalog"], declared["saved_normalized_authority"]]
+    verify_rows(authorities)
+    catalog = json.loads(Path(authorities[0]["path"]).read_bytes())
+    original = [
+        row
+        for row in catalog["inputs"]
+        if row["path"].startswith("data/adna/governance/source_library/")
+    ]
+    require(
+        original == declared["original_source_library_roles"],
+        "Original77 catalog differs",
+    )
+    saved = json.loads(Path(authorities[1]["path"]).read_bytes())
+    saved_rows = {row["path"]: row for row in saved["declared_inputs"]["files"]}
+    fixed = role_rows(declared)
+    for row in declared["comparison_inputs"]:
+        require(
+            all(
+                saved_rows[row["path"]][key] == row[key]
+                for key in ("path", "sha256", "bytes")
+            ),
+            "Saved normalized input authority differs",
+        )
+    for row in declared["other_source_inputs"]:
+        require(row in catalog["inputs"], "Additional original source input unbound")
+    required = absolute_rows(root, fixed)
+    for row in required:
+        path = Path(row["path"])
+        require(
+            not any(node.is_symlink() for node in (path, *path.parents)),
+            "Source ancestor alias refused",
+        )
+    verify_rows(required)
+    metadata = []
+    names = set()
+    for row in declared["additional_current_metadata"]:
+        path = root / row["path"]
+        require(
+            row["path"] not in names
+            and row["role"] == "additional_current_source_metadata_receipt"
+            and row["original_catalog_protection_claimed"] is False
+            and path.is_relative_to(root / "data/adna/governance/source_library")
+            and path.name.endswith(".metadata.json")
+            and type(row["bytes"]) is int
+            and not any(node.is_symlink() for node in (path, *path.parents)),
+            "Current receipt role or ancestry differs",
+        )
+        current = pin(path)
+        require(
+            current["bytes"] == row["bytes"],
+            "Current metadata size changed before source freeze",
+        )
+        metadata.append(current)
+        names.add(row["path"])
+    require(len(metadata) == 53, "Exact current metadata53 projection required")
+    for row in declared["logical_transport_roles"]:
+        path = root / row["logical"]["path"]
+        require(
+            not path.exists() and not path.is_symlink(),
+            "Originally absent plaintext source appeared",
+        )
+    # This is a new current metadata freeze before any long census, never an old input claim.
+    return exact_union(
+        required,
+        metadata,
+        authorities,
+        current_archive_pins,
+        current_official_pins,
+        current_place_pins,
+    ), metadata
+
+
+def projection_rows(root: Path, frozen: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [row for row in frozen if Path(row["path"]).is_relative_to(root / "data")]
+
+
+def namespace(root: Path, rows: list[dict[str, Any]]) -> dict[str, Any]:
+    entries: dict[str, dict[str, str]] = {}
+    for row in rows:
+        path = Path(row["path"])
+        require(path.is_relative_to(root), "Owned data member escaped")
+        relative = path.relative_to(root)
+        require(
+            relative.parts and ".." not in relative.parts, "Owned source name invalid"
+        )
+        entries[relative.as_posix()] = {"kind": "file"}
+        for parent in relative.parents:
+            if parent != Path("."):
+                entries[parent.as_posix()] = {"kind": "directory"}
+    return {"root": str(root), "excluded": [], "entries": entries}
+
+
+def verify_logical_inputs(owned: Path, roles: list[dict[str, Any]]) -> None:
+    for row in roles:
+        expected = row["logical"]
+        logical = owned / expected["path"]
+        stored = owned / row["stored"]["path"]
+        require(
+            not logical.exists() and not logical.is_symlink(),
+            "Owned logical source presence changed",
+        )
+        require(
+            pin(stored)["sha256"] == row["stored"]["sha256"],
+            "Original gzip transport changed",
+        )
+        digest = hashlib.sha256()
+        size = 0
+        with gzip.open(stored, "rb") as stream:
+            for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+                size += len(chunk)
+                require(
+                    size <= expected["bytes"],
+                    "Logical gzip source exceeds original size",
+                )
+                digest.update(chunk)
+        require(
+            size == expected["bytes"] and digest.hexdigest() == expected["sha256"],
+            "Original logical source identity differs",
+        )

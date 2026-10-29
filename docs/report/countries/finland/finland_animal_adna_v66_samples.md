@@ -19,7 +19,7 @@ Country animal sample/context wrapper; broader entity ledger is not an ecologica
 
 **Unsupported claim.** Publication traceability and modern country placement do not establish an exact specimen findspot, domestication, a farming event, inferred population prevalence or qualified scientific country assignment.
 
-**Actual verification performed.** Read this samples appendix and machine summary; reconciled 2 sample CSV rows, native sample IDs, 1 locality and 1 project citation. Checked the listed warning population; no paper extraction, chronology review or model was rerun.
+**Actual verification performed.** Read this samples appendix and machine summary; reconciled 2 sample CSV rows, native sample IDs, 1 locality and 1 project citation. Checked the listed warning population; no paper extraction, chronology review or model was rerun. A separate current human source export and current animal public-API export have both completed with independent full typed/default-writer observers. Human source commit 601112dd1f4b9e09d2cfdec7fa57d9f4ae3303a7 and animal source commit ad591c301bcadb6a3f963caa836a2e38a16d0de4 remain distinct. Their 263 watched source resources and shared observed origins match. The current joint metadata observation checked all 54 queries and 162 products: 49 typed fields, 29 default CSV fields and complete default GeoJSONs. It observed source-domain separation while preserving human metadata_only and animal archive_reads or mitogenome_only source modalities. Four source-owned taxon contexts remain blocked; the generic CSV/GeoJSON schema omits those typed-only block fields and does not imply scientific admission. The earlier metadata callback 17984 exited zero with partial/wholefalse flags; those historical fields are unchanged. The original saved native [0,1]/whole1 remains failed; no missing historical six-stage receipt has been recovered. Current human and animal native stages and their separate metadata captures exited zero, and current joint observation 51102 exited zero. These are current software/data-contract observations, without new genotype, biological, rights, qualified chronology, ecological or LRA acceptance. Historical 1,325 human review-required records and three missing historical backlink metadata digests remain separate. Existing published products, ownership roles and full original acceptance criteria are unchanged.
 
 **Remaining input or review.** Review the native evidence excerpt, taxonomy, dating basis and coordinate precision for each Finland sample before scientific use; missing country rows require source-backed evidence, not inferred placement.
 
@@ -33,15 +33,19 @@ Country animal sample/context wrapper; broader entity ledger is not an ecologica
 
 **Matched denominator.** This Finland appendix covers 2 sample rows,1 locality,1 tracked species and 1 project. 2 warning entries are cautions, not extra observations. Both sheep samples share Kastelholm and source coordinates reported to two decimal degrees; two specimens do not create two independent sites.
 
+Qualified authored reader SHA-256: `9f6e360460d2cff563691e1358229c37f2c2f2abc837485ec3f49a47eed379c4`.
+
 - [Retained qualification evidence: docs/report/countries/finland/finland_animal_adna_v66_summary.json](finland_animal_adna_v66_summary.json) (SHA-256 `fb822baee3de235d9a3ec75ed360db69fe78b66e7841d6852be65a25ff8e933d`).
 
 - [Retained qualification evidence: docs/report/countries/finland/finland_animal_adna_v66_samples.csv](finland_animal_adna_v66_samples.csv) (SHA-256 `fc525193febcb01b6f796f9d01ae5b78570ac84e39143cfcbf3d96509c24ba47`).
 
 - [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
 
-- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
+- [Retained qualification evidence: reports/science/source-cohorts/adna-current-domain-evidence.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/adna-current-domain-evidence.json) (SHA-256 `cdef4f083b1ab0c674a83e7d2c961b968b2e3539a38a527b99a04bb91681380e`).
 
-- [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md).
+- [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md) (source SHA-256 `fdca2e23ab7891334135a9b72600149ec44ac2b4c8f5e7452da1ccec7289281d`).
+
+- [Canonical scientific account: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md) (source SHA-256 `0f4b689193ff2e872be0155dc77e48be083f917812248c6b29cb6b364c390545`).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.
 <!-- scientific-account-route:end -->

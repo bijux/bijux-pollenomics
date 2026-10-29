@@ -30,6 +30,9 @@ from .ownership import (
     _regular_confined_file,
     check_report_ownership,
 )
+from .scientific_captures.adna.current_domain import (
+    validated_current_domain_evidence,
+)
 from .scientific_captures.adna.current_export import (
     validated_aadr_current_export_evidence,
 )
@@ -288,6 +291,9 @@ def validated_maintained_report_sources(
     adna_current_export_evidence = validated_aadr_current_export_evidence(
         repository, inventory["owners"]
     )
+    adna_current_domain_evidence = validated_current_domain_evidence(
+        repository, inventory["owners"], adna_current_export_evidence
+    )
     capture_entries, capture_evidence = validated_swedish_static_basin_captures(
         repository, tracked_by_path, inventory["owners"]
     )
@@ -469,6 +475,8 @@ def validated_maintained_report_sources(
         },
         "inventory": inventory_json(sorted(selected, key=lambda entry: entry.path)),
     }
+    if adna_current_domain_evidence is not None:
+        evidence["retained_adna_current_domain_evidence"] = adna_current_domain_evidence
     if adna_current_export_evidence is not None:
         evidence["retained_adna_current_export_evidence"] = adna_current_export_evidence
     if capture_entries:

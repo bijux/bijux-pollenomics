@@ -1,0 +1,585 @@
+"""Artificial animal-capture role, source and receipt controls; no API or data decoding."""
+
+from __future__ import annotations
+
+from copy import deepcopy
+import hashlib
+import json
+from pathlib import Path
+import sys
+from typing import Any
+
+sys.path.insert(0, str(Path(__file__).absolute().parent))
+import contracts
+import launch
+import packet
+import run
+
+COUNT = 0
+
+
+def identity(path: str) -> dict[str, Any]:
+    return {
+        "path": path,
+        "sha256": hashlib.sha256(path.encode()).hexdigest(),
+        "bytes": len(path),
+    }
+
+
+def refusal(call: Any) -> None:
+    global COUNT
+    try:
+        call()
+    except (ValueError, KeyError, TypeError, AssertionError):
+        COUNT += 1
+        return
+    raise AssertionError("Artificial mutation should refuse")
+
+
+def source_fixture() -> tuple[
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+    dict[str, Any],
+]:
+    root = "/fixture/repository"
+    owned = "/fixture/native/owned-source"
+    data = [identity(root + "/data/source/" + str(i)) for i in range(160)]
+    authority = data + [
+        identity(root + "/reports/source-inputs.json"),
+        identity("/fixture/older-native/plan.json"),
+    ]
+    public = [
+        identity(root + "/packages/bijux-pollenomics/src/package/resource" + str(i))
+        for i in range(2193)
+    ]
+    selected = public + data
+    copied = [{**row, "path": owned + row["path"][len(root) :]} for row in selected]
+    cache = [
+        {
+            **identity(
+                root
+                + "/packages/bijux-pollenomics/src/package/__pycache__/m"
+                + str(i)
+                + ".cpython-311.pyc"
+            ),
+            "executed_or_copied": False,
+            "source_equivalence_claimed": False,
+        }
+        for i in range(4356)
+    ]
+    generated = [
+        {
+            **identity(
+                root + "/packages/bijux-pollenomics-lra/src/LRA_build_version.py"
+            ),
+            "executed_or_copied": False,
+            "source_equivalence_claimed": False,
+        }
+    ]
+    plan: dict[str, Any] = {
+        "repository": root,
+        "owned_repository": owned,
+        "output": "/fixture/native",
+        "canonical_identity_at_source_freeze": {
+            "candidate": packet.CANDIDATE,
+            "status": "",
+        },
+        "original_data_row_authority": authority,
+        "new_current_metadata_epoch": [],
+        "new_current_adapter_sources": [],
+        "new_current_official_XML_sources": [],
+        "current_place_hierarchy_sources": [],
+        "logical_source_identities": [],
+    }
+    ledger = {
+        "canonical_identity": plan["canonical_identity_at_source_freeze"],
+        "original_sources": selected
+        + [packet.normalized(r) for r in cache + generated],
+        "selected_execution_sources": selected,
+        "copied_sources": copied,
+        "omitted_unselected_cache_bytecode": cache,
+        "omitted_configured_generated_metadata": generated,
+        "bytecode_payloads_copied_or_executed": False,
+        "bytecode_source_equivalence_claimed": False,
+        **{
+            k: plan[k]
+            for k in (
+                "original_data_row_authority",
+                "new_current_metadata_epoch",
+                "new_current_adapter_sources",
+                "new_current_official_XML_sources",
+                "current_place_hierarchy_sources",
+                "logical_source_identities",
+            )
+        },
+    }
+    source = {
+        "files": [
+            identity("/fixture/controller/module" + str(i) + ".py") for i in range(31)
+        ]
+    }
+    manifest = identity("/fixture/controller/prepared-source-manifest.json")
+    peer = identity("/fixture/controller/independent-source-review.json")
+    runtime = {
+        "input_pins": [identity("/fixture/runtime/" + str(i)) for i in range(59882)]
+    }
+    authority_metadata = {
+        key: identity("/fixture/runtime-authority/" + key + ".json")
+        for key in ("plan", "outer", "common", "independent_review")
+    }
+    plan["qualified_source_runtime"] = authority_metadata
+    plan["source_ledger"] = identity("/fixture/native/original-source-ledger.json")
+    plan["input_pins"] = (
+        authority
+        + copied
+        + source["files"]
+        + [manifest, peer, plan["source_ledger"]]
+        + list(authority_metadata.values())
+        + runtime["input_pins"]
+    )
+    assert len(plan["input_pins"]) == 62435
+    return plan, ledger, source, manifest, peer, runtime
+
+
+def native_fixture() -> tuple[
+    dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]
+]:
+    plan: dict[str, Any] = {
+        "schema_version": "animal-owned-public-export-plan.v1",
+        "candidate": packet.CANDIDATE,
+        "output": "/fixture/native",
+        "owned_repository": "/fixture/native/owned-source",
+        "runtime_entry_lexical_paths": ["/fixture/runtime/python"],
+        "input_pins": [],
+        "stages": [],
+        "countries": packet.COUNTRIES,
+        "species": [
+            {"slug": "species_" + str(i), "latin_name": "Artificial species " + str(i)}
+            for i in range(10)
+        ],
+        "logical_source_identities": [{} for _ in range(8)],
+        "new_current_adapter_sources": [],
+        "new_current_official_XML_sources": [
+            {"original_catalog_protection_claimed": False} for _ in range(3)
+        ],
+        "current_place_hierarchy_sources": [
+            {"original_catalog_protection_claimed": False}
+        ],
+    }
+    for name, action, seconds in [
+        ("maintained-animal-source-export", "producer", 300),
+        ("independent-animal-default-export-observer", "observer", 180),
+    ]:
+        plan["stages"].append(
+            {
+                "id": name,
+                "action": action,
+                "timeout_seconds": seconds,
+                "argv": [
+                    "/fixture/runtime/python",
+                    "-I",
+                    "-B",
+                    "/fixture/controller/entry.py",
+                    action,
+                    "--plan",
+                    "/fixture/native/plan.json",
+                ],
+            }
+        )
+    inner = {
+        "schema_version": "animal-animal-export-terminal.v1",
+        "candidate": packet.CANDIDATE,
+        "plan_sha256": packet.PLAN_SHA,
+        "actual_exit": 0,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_whole_wall_bound_pass": True,
+        "exception": None,
+        "after_custody_error": None,
+        "live_canonical_equality_claimed": False,
+        "OS_quota_or_full_descendant_RSS_claimed": False,
+        "stages": [
+            {**row, "actual_exit": 0, "timed_out": False} for row in plan["stages"]
+        ],
+    }
+    outer = {
+        "schema_version": "animal-animal-export-owned-child-watchdog-terminal.v1",
+        "candidate": packet.CANDIDATE,
+        "plan_sha256": packet.PLAN_SHA,
+        "actual_exit": 0,
+        "memory_bound_pass": True,
+        "inclusive_storage_bound_pass": True,
+        "completed_outer_wall_bound_pass": True,
+        "child_native_exit": 0,
+        "child_timed_out": False,
+        "registered_plan_unchanged": True,
+    }
+    modules = [
+        "bijux_pollenomics.adna.workflow.runtime",
+        "bijux_pollenomics.adna.workflow.normalization.samples",
+        "bijux_pollenomics.reporting.rendering.record_exports",
+    ]
+    origins = [
+        {
+            "module": name,
+            **identity(plan["owned_repository"] + "/" + name.replace(".", "/") + ".py"),
+        }
+        for name in modules
+    ]
+    xml = identity("/fixture/runtime/defusedxml/__init__.py")
+    plan["input_pins"] = [packet.normalized(row) for row in origins] + [xml]
+    producer: dict[str, Any] = {
+        "schema_version": "animal-current-public-export-execution.v1",
+        "actual_exit": 0,
+        "candidate": packet.CANDIDATE,
+        "actual_argv": ["/fixture/framework/Python", *plan["stages"][0]["argv"][1:]],
+        "actual_executable": "/fixture/runtime/python",
+        "owned_package_search_roots": [
+            plan["owned_repository"] + "/packages/" + name + "/src"
+            for name in (
+                "bijux-pollenomics",
+                "bijux-pollenomics-lra",
+                "bijux-pollenomics-dev",
+                "pollenomics",
+            )
+        ],
+        "actual_first_party_origins": origins,
+        "actual_XML_dependency_origin": xml,
+        "actual_data_root": plan["owned_repository"] + "/data",
+        "original_logical_source_identities_verified": 8,
+        "current_adapter_logical_observations": [],
+        "current_official_XML_input_roles": plan["new_current_official_XML_sources"],
+        "current_place_hierarchy_input_roles": plan["current_place_hierarchy_sources"],
+        "maintained_public_calls": packet.expected_calls(plan),
+        "populations": [],
+        "numerical_import_attempts": [],
+        "network_attempts": [],
+        "API_reads_saved_normalized_JSON_as_producer_input": False,
+        "new_HTTP_genotype_model_R_or_full_requirement_admission": False,
+    }
+    for i in range(5):
+        row: dict[str, Any] = {
+            "project_accession": "ARTIFICIAL" + str(i),
+            "logical": {
+                "path": "data/source" + str(i),
+                "sha256": None if i == 4 else "a" * 64,
+                "bytes": 100,
+            },
+            "stored": identity("/fixture/source" + str(i) + ".gz"),
+            "receipt": identity("/fixture/source" + str(i) + ".metadata.json"),
+            "logical_SHA_authority": "new_registered_observation"
+            if i == 4
+            else "declared_current_receipt",
+            "original_catalog_protection_claimed": False,
+        }
+        plan["new_current_adapter_sources"].append(row)
+        actual = deepcopy(row)
+        actual["logical"]["sha256"] = "a" * 64
+        producer["current_adapter_logical_observations"].append(actual)
+    review: dict[str, Any] = {
+        "schema_version": "animal-current-public-API-export-review.v1",
+        "actual_exit": 0,
+        "candidate": packet.CANDIDATE,
+        "registered_plan_sha256": packet.PLAN_SHA,
+        "producer_execution": {
+            "path": "/fixture/native/maintained-producer-execution.json",
+            "sha256": packet.PRODUCER_SHA,
+            "bytes": 100,
+        },
+        "species": [],
+        "complete_saved_source_population": 1468,
+        "actual_API_source_admitted_population": 1468,
+        "source_owned_taxon_exceptions": [],
+        "actual_default_export_fields": packet.CURRENT_FIELDS,
+        "typed_flags_preserved_but_not_exported_by_current_contract": [
+            "inclusion_status",
+            "taxon_alignment_status",
+        ],
+        "full_typed_identity_chronology_native_taxon_and_context_checked": True,
+        "no_pollen_measurement_fields_in_typed_or_default_exports": True,
+        "API_country_query_is_direct_political_entity_not_legacy_country_bundle_interpolation": True,
+        "whole_ADNA_requirement_current_default_or_rights_biology_LRA_acceptance_predeclared": False,
+        "original_normalization_native_receipt_requalified": False,
+        "new_HTTP_raw_archive_acquisition_genotype_model_or_R_executed": False,
+    }
+    for species in plan["species"]:
+        actual = {
+            "species": species,
+            "runtime_manifest": {
+                "schema_version": "adna-runtime-manifest.v1",
+                "runtime_ready": False,
+            },
+            "results": [],
+        }
+        comparison = {"species": species, "all_queries": []}
+        for country in (None, *packet.COUNTRIES):
+            label = "all" if country is None else country.casefold()
+            products = {
+                form: identity(
+                    plan["output"]
+                    + "/producer/"
+                    + species["slug"]
+                    + "/"
+                    + label
+                    + "."
+                    + suffix
+                )
+                for form, suffix in [
+                    ("typed", "typed.json"),
+                    ("csv", "csv"),
+                    ("geojson", "geojson"),
+                ]
+            }
+            actual["results"].append(
+                {
+                    "country_query": country,
+                    "sample_count": 1,
+                    "dataset_row_counts": {"artificial": 1},
+                    "products": products,
+                }
+            )
+            comparison["all_queries"].append(
+                {
+                    "country_query": country,
+                    "records": 1,
+                    "complete_typed_source_equal": True,
+                    "both_default_writers_full_bytes_equal": True,
+                    "products": products,
+                }
+            )
+        producer["populations"].append(actual)
+        review["species"].append(comparison)
+    for slug, native, taxon, tax_id, project in [
+        (
+            "bos_taurus",
+            "prjna705960:samn18106827",
+            "Bos primigenius",
+            "9909",
+            "PRJNA705960",
+        ),
+        (
+            "bos_taurus",
+            "prjna705960:samn18106828",
+            "Bos primigenius",
+            "9909",
+            "PRJNA705960",
+        ),
+        (
+            "bos_taurus",
+            "prjna705960:samn18106829",
+            "Bos primigenius",
+            "9909",
+            "PRJNA705960",
+        ),
+        ("ovis_aries", "prjeb41594:samea8022722", "Capra hircus", "9925", "PRJEB41594"),
+    ]:
+        review["source_owned_taxon_exceptions"].append(
+            {
+                "container_namespace": slug + ":curated_sample",
+                "native_sample_id": slug + ":sample:" + native,
+                "source_species": taxon,
+                "source_native_tax_id": tax_id,
+                "project_accession": project,
+                "taxon_alignment_status": "project_species_mismatch",
+                "inclusion_status": "sample_context_blocked",
+                "cross_species_publication_admitted": False,
+            }
+        )
+    return plan, inner, outer, producer, review
+
+
+def main() -> None:
+    global COUNT
+    changed: Any
+    p, ledger, s, m, q, r = source_fixture()
+    assert len(packet.data_identity_rows(p)) == 322
+    COUNT += 1
+    roles = packet.input_roles(p, ledger, s, m, q, r)
+    assert (
+        len(roles) == 62435
+        and sum(row["payload_member"] is None for row in roles) == 60204
+    )
+    COUNT += 1
+    assert (
+        len(packet.source_join(p, ledger)) == 6710
+        and len(packet.retention_input_rows(p)) == 62435
+    )
+    COUNT += 1
+    catalogue = {
+        "files": ledger["copied_sources"]
+        + [identity("/fixture/native/output" + str(i)) for i in range(159)]
+    }
+    assert (
+        len(catalogue["files"]) == 2512
+        and len(packet.selected_catalogue_rows(p, catalogue)) == 2352
+    )
+    COUNT += 1
+    original_paths = set(packet.data_identity_rows(p))
+    assert not original_paths.intersection(
+        row["path"] for row in packet.selected_catalogue_rows(p, catalogue)
+    )
+    COUNT += 1
+    changed = deepcopy(catalogue)
+    changed["files"].append(identity("/fixture/native/owned-source/data/unknown"))
+    refusal(lambda: packet.selected_catalogue_rows(p, changed))
+    changed = deepcopy(p)
+    changed["input_pins"][0]["bytes"] = True
+    refusal(lambda: packet.retention_input_rows(changed))
+    changed = deepcopy(ledger)
+    changed["omitted_unselected_cache_bytecode"][0]["executed_or_copied"] = True
+    refusal(lambda: packet.source_join(p, changed))
+    fixture = native_fixture()
+    result = packet.qualify_scope(*fixture)
+    assert (
+        result["derived_products"] == 150
+        and result["rights_biology_human_calibration_LRA_or_whole_ADNA_admitted"]
+        is False
+    )
+    COUNT += 1
+    assert len(packet.product_roles(fixture[0], fixture[3], fixture[4])) == 150
+    COUNT += 1
+    mutations: list[tuple[int, str, Any]] = [
+        (1, "actual_exit", True),
+        (1, "actual_exit", 1),
+        (2, "child_native_exit", False),
+        (4, "actual_API_source_admitted_population", 1468.0),
+        (4, "no_pollen_measurement_fields_in_typed_or_default_exports", False),
+        (4, "original_normalization_native_receipt_requalified", True),
+        (3, "API_reads_saved_normalized_JSON_as_producer_input", True),
+        (3, "original_logical_source_identities_verified", True),
+    ]
+    for index, key, value in mutations:
+        changed = deepcopy(fixture)
+        changed[index][key] = value
+        refusal(lambda changed=changed: packet.qualify_scope(*changed))
+    for mutation in [
+        "stage",
+        "timeout",
+        "extra",
+        "writer",
+        "field",
+        "block",
+        "count",
+        "product",
+        "ready",
+        "oldrole",
+        "archive",
+        "private",
+    ]:
+        changed = deepcopy(fixture)
+        if mutation == "stage":
+            changed[1]["stages"].reverse()
+        elif mutation == "timeout":
+            changed[1]["stages"][0]["timeout_seconds"] = True
+        elif mutation == "extra":
+            changed[0]["stages"].append(changed[0]["stages"][0])
+        elif mutation == "writer":
+            changed[3]["maintained_public_calls"][-1]["schema_argument"] = "legacy_v1"
+        elif mutation == "field":
+            changed[4]["actual_default_export_fields"][0] = "pollen_count"
+        elif mutation == "block":
+            changed[4]["source_owned_taxon_exceptions"][0]["inclusion_status"] = (
+                "included"
+            )
+        elif mutation == "count":
+            changed[3]["populations"][0]["results"][0]["sample_count"] = True
+        elif mutation == "product":
+            changed[3]["populations"][0]["results"][0]["products"]["typed"]["path"] = (
+                "/fixture/raw/source.json"
+            )
+        elif mutation == "ready":
+            changed[3]["populations"][0]["runtime_manifest"]["runtime_ready"] = True
+        elif mutation == "oldrole":
+            changed[3]["current_place_hierarchy_input_roles"][0][
+                "original_catalog_protection_claimed"
+            ] = True
+        elif mutation == "archive":
+            changed[3]["current_adapter_logical_observations"][4]["logical"][
+                "bytes"
+            ] = True
+        else:
+            changed[3]["actual_first_party_origins"][0]["path"] = (
+                "/fixture/private/source.py"
+            )
+        refusal(lambda changed=changed: packet.qualify_scope(*changed))
+    packet.object_same({"a": [1, 2], "b": False}, {"b": False, "a": [1, 2]})
+    COUNT += 1
+    for left, right in [
+        ({"a": 1}, {"a": True}),
+        ({"a": [1, 2]}, {"a": [2, 1]}),
+        ({"a": 0.0}, {"a": -0.0}),
+    ]:
+        refusal(lambda left=left, right=right: packet.object_same(left, right))
+    for name in [".", "../payload", "payloads/" + "g" * 64]:
+        refusal(lambda name=name: packet.member_name(name))
+    inner = identity("/fixture/native/animal-export-terminal.json")
+    raw = (json.dumps({"terminal": inner, "actual_exit": 0}) + "\n").encode()
+    outer = {
+        "stdout": {
+            "path": "/fixture/native/launch.stdout",
+            "sha256": hashlib.sha256(raw).hexdigest(),
+            "bytes": len(raw),
+        },
+        "stderr": identity("/fixture/native/launch.stderr"),
+    }
+    packet.outer_stream_correspondence({"files": []}, outer, inner)
+    COUNT += 1
+    refusal(
+        lambda: packet.outer_stream_correspondence(
+            {"files": [outer["stdout"]]}, outer, inner
+        )
+    )
+    path = Path("/fixture/retention/plan.json")
+    metadata: dict[str, Any] = {
+        "resources": deepcopy(contracts.RESOURCES),
+        "stages": [],
+    }
+    for name, action in [
+        ("retained-animal-current-export-assembly", "assemble"),
+        ("independent-animal-current-export-capture-observer", "observer"),
+    ]:
+        metadata["stages"].append(
+            {
+                "id": name,
+                "action": action,
+                "timeout_seconds": 180,
+                "argv": [
+                    str(contracts.PYTHON),
+                    "-I",
+                    "-B",
+                    str(contracts.SOURCE / "entry.py"),
+                    action,
+                    "--plan",
+                    str(path),
+                ],
+            }
+        )
+    run.validate_stages(metadata, path)
+    COUNT += 1
+    for key, value in [
+        ("timeout_seconds", True),
+        ("timeout_seconds", 181),
+        ("id", "foreign"),
+    ]:
+        changed = deepcopy(metadata)
+        changed["stages"][0][key] = value
+        refusal(lambda changed=changed: run.validate_stages(changed, path))
+    assert launch.remaining_seconds(10.0, 11.0, 480) == 479.0
+    COUNT += 1
+    refusal(lambda: launch.remaining_seconds(10.0, 491.0, 480))
+    print(
+        json.dumps(
+            {
+                "actual_exit": 0,
+                "artificial_controls": COUNT,
+                "actual_API_data_body_or_retainer": False,
+            }
+        )
+    )
+
+
+if __name__ == "__main__":
+    main()

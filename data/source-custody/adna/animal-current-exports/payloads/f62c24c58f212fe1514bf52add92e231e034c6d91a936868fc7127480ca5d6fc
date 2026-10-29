@@ -1,0 +1,356 @@
+"""Compare actual animal API types and both default writers to saved source records."""
+
+from __future__ import annotations
+
+import argparse
+from collections import Counter
+import hashlib
+import json
+from pathlib import Path
+from typing import Any
+
+from contracts import (
+    COUNTRIES,
+    PACKAGES,
+    PYTHON,
+    SOURCE,
+    checkpoint,
+    execution_scope,
+    stage_plan,
+    write,
+)
+from independent import (
+    CURRENT_FIELDS,
+    SOURCE_TAXON_EXCEPTIONS,
+    admitted_sources,
+    clean,
+    country_rows,
+    csv_bytes,
+    dataset_counts,
+    geojson_document,
+    project_roles,
+    read,
+    require,
+    same,
+    source_population,
+)
+from inputs.archive_roles import verify_observed_archives
+from inputs.official_roles import verify_registered_official
+from inputs.place_roles import verify_registered_place
+from source_inputs import pin
+
+
+def expected_calls(plan: dict[str, Any]) -> list[dict[str, Any]]:
+    output = Path(plan["output"]) / "producer"
+    calls = []
+    for species in plan["species"]:
+        calls.append(
+            {
+                "call": "build_species_runtime_manifest",
+                "species": species["latin_name"],
+                "data_root": str(Path(plan["owned_repository"]) / "data"),
+            }
+        )
+        for country in (None, *COUNTRIES):
+            label = "all" if country is None else country.casefold()
+            calls.append(
+                {
+                    "call": "load_species_samples",
+                    "species": species["latin_name"],
+                    "political_entity": country,
+                }
+            )
+            for form, name in (
+                ("csv", "write_samples_csv"),
+                ("geojson", "write_samples_geojson"),
+            ):
+                calls.append(
+                    {
+                        "call": name,
+                        "schema_argument": "omitted_default_v2",
+                        "path": str(output / species["slug"] / (label + "." + form)),
+                    }
+                )
+    return calls
+
+
+def validate_witness(plan: dict[str, Any], value: dict[str, Any]) -> None:
+    require(
+        type(value["actual_exit"]) is int
+        and value["actual_exit"] == 0
+        and value["candidate"] == plan["candidate"],
+        "Native producer/source epoch differs",
+    )
+    same(
+        value["actual_argv"][1:],
+        [
+            "-I",
+            "-B",
+            str(SOURCE / "entry.py"),
+            "producer",
+            "--plan",
+            str(Path(plan["output"]) / "plan.json"),
+        ],
+    )
+    require(
+        value["actual_executable"] == str(PYTHON), "Native lexical interpreter differs"
+    )
+    owned = Path(plan["owned_repository"])
+    same(
+        value["owned_package_search_roots"],
+        [str(owned / "packages" / name / "src") for name in PACKAGES],
+    )
+    require(
+        value["actual_data_root"] == str(owned / "data"), "Native API data root differs"
+    )
+    same(value["maintained_public_calls"], expected_calls(plan))
+    verify_observed_archives(plan, value["current_adapter_logical_observations"])
+    verify_registered_official(plan, value["current_official_XML_input_roles"])
+    verify_registered_place(plan, value["current_place_hierarchy_input_roles"])
+    require(
+        type(value["original_logical_source_identities_verified"]) is int
+        and value["original_logical_source_identities_verified"] == 8,
+        "Original logical transport verification missing",
+    )
+    require(
+        value["API_reads_saved_normalized_JSON_as_producer_input"] is False
+        and value["new_HTTP_genotype_model_R_or_full_requirement_admission"] is False
+        and value["numerical_import_attempts"] == []
+        and value["network_attempts"] == [],
+        "Native source scope promoted",
+    )
+    protected = {row["path"]: row for row in plan["input_pins"]}
+    origins = value["actual_first_party_origins"]
+    require(
+        type(origins) is list and bool(origins), "No actual maintained source origins"
+    )
+    names = []
+    for row in origins:
+        physical = {key: row[key] for key in ("path", "sha256", "bytes")}
+        require(
+            Path(row["path"]).is_relative_to(owned)
+            and protected.get(row["path"]) == physical
+            and pin(Path(row["path"])) == physical,
+            "Native first-party origin left pinned owned source",
+        )
+        names.append(row["module"])
+    require(
+        len(names) == len(set(names))
+        and {
+            "bijux_pollenomics.adna.workflow.runtime",
+            "bijux_pollenomics.adna.workflow.normalization.samples",
+            "bijux_pollenomics.reporting.rendering.record_exports",
+        }.issubset(names),
+        "Native API or writer origin missing",
+    )
+    xml_origin = value["actual_XML_dependency_origin"]
+    require(
+        protected.get(xml_origin["path"]) == xml_origin
+        and pin(Path(xml_origin["path"])) == xml_origin,
+        "XML native dependency source origin differs",
+    )
+
+
+def product_paths(output: Path, slug: str, country: str | None) -> dict[str, Path]:
+    label = "all" if country is None else country.casefold()
+    return {
+        form: output / "producer" / slug / (label + "." + suffix)
+        for form, suffix in (
+            ("typed", "typed.json"),
+            ("csv", "csv"),
+            ("geojson", "geojson"),
+        )
+    }
+
+
+def validate_products(plan: dict[str, Any], value: dict[str, Any]) -> dict[str, Any]:
+    owned = Path(plan["owned_repository"])
+    output = Path(plan["output"])
+    roles = project_roles(owned)
+    same(roles, plan["source_declaration"]["project_source_roles"])
+    populations = value["populations"]
+    require(
+        type(populations) is list and len(populations) == len(plan["species"]) == 10,
+        "Ten exact native species populations required",
+    )
+    results = []
+    all_source_ids: set[str] = set()
+    all_API_ids: set[str] = set()
+    taxon_witnesses = []
+    seen_products: set[Path] = set()
+    for species, native in zip(plan["species"], populations, strict=True):
+        same(native["species"], species)
+        document = read(
+            owned
+            / "data/adna/species"
+            / species["slug"]
+            / "normalized/sample_records.json"
+        )
+        selected, excluded, witnesses = source_population(species, document, roles)
+        taxon_witnesses.extend(witnesses)
+        ids = {row["identity"]["stable_token"] for row in document["samples"]}
+        require(
+            not ids.intersection(all_source_ids),
+            "Native source ID crossed species containers",
+        )
+        all_source_ids.update(ids)
+        require(
+            len(native["results"]) == 5,
+            "All-record plus four actual country queries required",
+        )
+        bundles = native["runtime_manifest"]["source_bundles"]
+        require(
+            native["runtime_manifest"]["schema_version"] == "adna-runtime-manifest.v1"
+            and native["runtime_manifest"]["runtime_ready"] is False,
+            "A successful metadata consumer must not promote species runtime readiness",
+        )
+        actual_admitted = {
+            (row["source_family"], row["source_release"]) for row in bundles
+        }
+        require(
+            len(actual_admitted) == len(bundles)
+            and actual_admitted == admitted_sources(species, roles),
+            "Actual runtime manifest source admission differs from pinned native catalogue",
+        )
+        details = []
+        for country, query in zip((None, *COUNTRIES), native["results"], strict=True):
+            same(query["country_query"], country)
+            expected = country_rows(selected, country)
+            paths = product_paths(output, species["slug"], country)
+            require(
+                not seen_products.intersection(paths.values()),
+                "Native output role reused",
+            )
+            seen_products.update(paths.values())
+            same(query["products"], {key: pin(path) for key, path in paths.items()})
+            require(
+                type(query["sample_count"]) is int
+                and query["sample_count"] == len(expected),
+                "Actual API record count differs",
+            )
+            same(query["dataset_row_counts"], dataset_counts(expected))
+            same(
+                read(paths["typed"]),
+                {
+                    "species": species,
+                    "country_query": country,
+                    "actual_typed_records": expected,
+                    "actual_dataset_row_counts": dataset_counts(expected),
+                },
+            )
+            expected_csv = csv_bytes(expected)
+            require(
+                paths["csv"].read_bytes() == expected_csv,
+                "Every default-v2 CSV field/order/JSON-valued cell differs",
+            )
+            expected_geojson = geojson_document(expected)
+            same(read(paths["geojson"]), expected_geojson)
+            require(
+                paths["geojson"].read_bytes()
+                == json.dumps(
+                    expected_geojson, indent=2, ensure_ascii=False, allow_nan=False
+                ).encode("utf-8"),
+                "Complete default-v2 GeoJSON native bytes differ",
+            )
+            clean(read(paths["typed"]))
+            clean(expected_geojson)
+            details.append(
+                {
+                    "country_query": country,
+                    "records": len(expected),
+                    "complete_typed_source_equal": True,
+                    "both_default_writers_full_bytes_equal": True,
+                    "products": {key: pin(path) for key, path in paths.items()},
+                }
+            )
+        all_API_ids.update(row["identity"]["stable_token"] for row in selected)
+        results.append(
+            {
+                "species": species,
+                "saved_normalized_records": len(document["samples"]),
+                "actual_API_source_admitted_records": len(selected),
+                "API_excluded_source_rows": excluded,
+                "all_queries": details,
+                "source_typed_inclusion_statuses": dict(
+                    sorted(
+                        Counter(
+                            row["inclusion_status"] for row in document["samples"]
+                        ).items()
+                    )
+                ),
+                "source_typed_taxon_alignment_statuses": dict(
+                    sorted(
+                        Counter(
+                            row["taxon_alignment_status"] for row in document["samples"]
+                        ).items()
+                    )
+                ),
+            }
+        )
+    require(
+        len(seen_products) == 150
+        and {p for p in (output / "producer").rglob("*") if p.is_file()}
+        == seen_products,
+        "Complete fifty-query/150-product output namespace differs",
+    )
+    expected_exception_ids = {
+        (slug, native) for slug, native in SOURCE_TAXON_EXCEPTIONS
+    }
+    observed_exception_ids = {
+        (
+            row["container_namespace"].split(":", 1)[0],
+            row["native_sample_id"].split(":sample:", 1)[1],
+        )
+        for row in taxon_witnesses
+    }
+    require(
+        observed_exception_ids == expected_exception_ids and len(taxon_witnesses) == 4,
+        "Exact four reviewed source-owned blocked taxonomy contexts differ",
+    )
+    return {
+        "species": results,
+        "complete_saved_source_population": len(all_source_ids),
+        "actual_API_source_admitted_population": len(all_API_ids),
+        "source_owned_taxon_exceptions": taxon_witnesses,
+        "actual_default_export_fields": list(CURRENT_FIELDS),
+        "typed_flags_preserved_but_not_exported_by_current_contract": [
+            "inclusion_status",
+            "taxon_alignment_status",
+        ],
+        "full_typed_identity_chronology_native_taxon_and_context_checked": True,
+        "no_pollen_measurement_fields_in_typed_or_default_exports": True,
+        "API_country_query_is_direct_political_entity_not_legacy_country_bundle_interpolation": True,
+        "whole_ADNA_requirement_current_default_or_rights_biology_LRA_acceptance_predeclared": False,
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--plan", type=Path, required=True)
+    args = parser.parse_args()
+    plan = stage_plan(args.plan)
+    authority, scope = execution_scope(plan)
+    output = Path(plan["output"])
+    native = read(output / "maintained-producer-execution.json")
+    validate_witness(plan, native)
+    result = validate_products(plan, native)
+    checkpoint(authority, scope, plan["owned_namespace_snapshots"])
+    write(
+        output / "independent-animal-export-review.json",
+        {
+            "schema_version": "animal-current-public-API-export-review.v1",
+            "actual_exit": 0,
+            "candidate": plan["candidate"],
+            "registered_plan_sha256": hashlib.sha256(
+                args.plan.read_bytes()
+            ).hexdigest(),
+            "producer_execution": pin(output / "maintained-producer-execution.json"),
+            **result,
+            "original_normalization_native_receipt_requalified": False,
+            "new_HTTP_raw_archive_acquisition_genotype_model_or_R_executed": False,
+        },
+    )
+
+
+if __name__ == "__main__":
+    main()
