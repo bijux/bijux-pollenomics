@@ -1,0 +1,174 @@
+{
+  "schema_version": "amsoldingersee-retained-source-execution-witness.v1",
+  "actual_generated_helper_callback": {
+    "reference": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-root-admission/actual-qualified-helper-callback.json",
+      "sha256": "d7dd73a7d9c4122364d1570895e207defc555d1c57c245b16cb6aa27a5aa1ee9",
+      "bytes": 3569
+    },
+    "complete_qualification": {
+      "actual_exit": 0,
+      "source_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+      "assembly_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+      "capture_sha256": "3c1d102fb62d1ff91229104e313795da733deb81901f5b74402232c01d1c4415",
+      "report_sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7",
+      "entries": 1,
+      "summary": {
+        "capture_sha256": "3c1d102fb62d1ff91229104e313795da733deb81901f5b74402232c01d1c4415",
+        "original_execution_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+        "original_whole_exits": [
+          1,
+          0
+        ],
+        "original_native_exits": [
+          [
+            0,
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "tracked_byte_checker_exit": 0,
+        "historical_E69_chronology_rights_human_or_LRA_admitted": false
+      },
+      "byteexact_generated_package_copies": [
+        {
+          "original": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/proposal/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/amsoldingersee/__init__.py",
+          "qualified_copy": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-root-admission/qualified-package/amsoldingersee/__init__.py",
+          "sha256": "aa5f8f81840126fb1d8a39c14432b21d2b048b65e01c179ad3c3e39888e82022",
+          "bytes": 177
+        },
+        {
+          "original": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/proposal/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/amsoldingersee/execution.py",
+          "qualified_copy": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-root-admission/qualified-package/amsoldingersee/execution.py",
+          "sha256": "4b00a4d3a5a5ca8f47984d1f3c1aac837491f9b997d2a6a329d89136602ff060",
+          "bytes": 8165
+        },
+        {
+          "original": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/proposal/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/amsoldingersee/members.py",
+          "qualified_copy": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-root-admission/qualified-package/amsoldingersee/members.py",
+          "sha256": "9d52c00811cd7a956746016f265966e8cdec0377e4c438ddce835e271df18bd8",
+          "bytes": 8786
+        },
+        {
+          "original": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/proposal/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/amsoldingersee/transport.py",
+          "qualified_copy": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-root-admission/qualified-package/amsoldingersee/transport.py",
+          "sha256": "d91c3f712e3ec5f41b89b0fe1ceb1f99693275ccd10f76b71ba709a9e0f80846",
+          "bytes": 6287
+        }
+      ],
+      "original_wrapper_refusal": {
+        "actual_session": 45778,
+        "collected_exit": 1,
+        "reason": "SOURCE3331 forbids imported source outside driver namespace; inner callback returned0 but whole check1, not admitted"
+      },
+      "scope": "Actual generated four-module package callback against registered52898 metadata proposal. Real maintained InventoryEntry and one exact retained owner supplied for isolated qualification; canonical policy/readers/full reports later. No original private source,model,R,HTTP or numerical observer invoked."
+    }
+  },
+  "original_execution_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "metadata_assembly_candidate": "61eb1bfe697d0e7f15831b9c23bc45322ce042e8",
+  "capture": {
+    "path": "data/source-custody/landclim/amsoldingersee/capture.json",
+    "sha256": "3c1d102fb62d1ff91229104e313795da733deb81901f5b74402232c01d1c4415",
+    "bytes": 2664450
+  },
+  "actual_metadata_retention_receipts": {
+    "plan.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/plan.json",
+      "sha256": "d21d50a47514cd69539aaf1351262c87fa528fd292963afa62b38a6c9b57669d",
+      "bytes": 9592675
+    },
+    "terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/terminal.json",
+      "sha256": "c506dd26b6a7339e794565d741c64fdb0d8e114b840c022fe05d6983a9049b68",
+      "bytes": 827616
+    },
+    "amsoldingersee-terminal.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/amsoldingersee-terminal.json",
+      "sha256": "848614e81e31e28060dde9b97c25d7ba58609537f588f0893b2c68a3d6d444ab",
+      "bytes": 2185
+    },
+    "assembly.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/assembly.json",
+      "sha256": "fde6134f582e9195e853cef7358137bbc8e3e9c629330c1c738f38221a627cb0",
+      "bytes": 941
+    },
+    "independent-capture-review.json": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-retained-source-publication/independent-capture-review.json",
+      "sha256": "bb1d8951a1cc972dc35571c11d12827da08c1d9c57bb246969e758b491156563",
+      "bytes": 1180
+    }
+  },
+  "original_input_counts": {
+    "production": 10058,
+    "observation": 10094
+  },
+  "original_whole_exits": [
+    1,
+    0
+  ],
+  "original_native_stage_exits": [
+    [
+      0,
+      1
+    ],
+    [
+      0
+    ]
+  ],
+  "original_source_producer_exit": 0,
+  "original_source_metadata_exit": 0,
+  "original_observer_exit": 1,
+  "original_tracked_checker_exit": null,
+  "original_observer_refusal": "Actual Python entry argv differs",
+  "saved_observer_native_exit": 0,
+  "saved_tracked_checker_exit": 0,
+  "maintained_producer_repeated": false,
+  "metadata_retention_stage_exits": [
+    0,
+    0
+  ],
+  "metadata_retention_whole_exit": 0,
+  "public_content_members": 2232,
+  "public_first_party_source_identities": 2178,
+  "original_ordered_input_roles": {
+    "production": {
+      "runtime_identity_only": 3482,
+      "private_identity_only": 15,
+      "public_control": 27,
+      "public_source": 2178,
+      "bytecode_identity_only": 4356
+    },
+    "observation": {
+      "runtime_identity_only": 3482,
+      "private_identity_only": 15,
+      "public_control": 51,
+      "public_result": 12,
+      "public_source": 2178,
+      "bytecode_identity_only": 4356
+    }
+  },
+  "private_runtime_bytecode_payloads_published": false,
+  "bytecode_source_equivalence_or_fresh_compilation_claimed": false,
+  "source_files_verified": 14,
+  "retained_response_hash_status_events": 11,
+  "author_example_rows": 17,
+  "native_site_id": 2973,
+  "declared_dataset_request_labels": [
+    3873,
+    3874,
+    3875
+  ],
+  "dataset_request_labels_independently_observed_in_native_metadata": false,
+  "report": {
+    "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json",
+    "sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7",
+    "bytes": 4006
+  },
+  "report_changed": false,
+  "exact_E69_or_author_chronology_bridge_admitted": false,
+  "new_API_requests_or_model_calls": 0,
+  "rights_human_ecology_or_LRA_admitted": false,
+  "captured_input_http_history": "Retained capture response hashes/statuses were reconstructed. No original provider acquisition history was newly recovered and no new HTTP request was performed."
+}

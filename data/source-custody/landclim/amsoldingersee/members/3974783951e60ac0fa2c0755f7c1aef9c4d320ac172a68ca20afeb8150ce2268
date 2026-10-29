@@ -1,0 +1,25 @@
+[
+  {
+    "id": "independent-saved-amsoldingersee-source-joins",
+    "argv": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-saved-observation-custody/entry.py",
+      "observe",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-saved-source-observation/plan.json"
+    ],
+    "timeout_seconds": 45,
+    "must_succeed": true,
+    "actual_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 8.784820874978323,
+    "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-saved-source-observation/independent-saved-amsoldingersee-source-joins.stdout",
+    "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-amsoldingersee-saved-source-observation/independent-saved-amsoldingersee-source-joins.stderr",
+    "stdout_sha256": "a478bdf6196c69122b4e428f86afe895271af7b97f435336ff4b3f311138bcac",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_cumulative_completed_child_peak_rss_bytes_macos": 138428416
+  }
+]

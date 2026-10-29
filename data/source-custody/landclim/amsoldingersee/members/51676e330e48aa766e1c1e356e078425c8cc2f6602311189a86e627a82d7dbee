@@ -1,0 +1,122 @@
+{
+  "schema_version": "amsoldingersee-source-refusal-protocol.v1",
+  "source_only": true,
+  "owner_id": "publication-replay/landclim-amsoldingersee-source-review/report-products",
+  "candidate": "Dynamic exact clean local main supplied to root preparation; no old candidate is relabelled current.",
+  "maintained_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
+    "sha256": "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0",
+    "bytes": 8383
+  },
+  "input_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/data/landclim/review/amsoldingersee-source-inputs.json",
+    "sha256": "09811a8a6042d586770fa99b9f2e9d1a79209c4452a4dd839a3411cd644ff397",
+    "bytes": 2190
+  },
+  "declared_private_files": {
+    "capture/chronologies.raw": {
+      "bytes": 4940,
+      "sha256": "44d4f13546812cd34fd229ab9e4d033ed7ebafd56cc2a90462b36a0e8b1a31dc"
+    },
+    "capture/dataset.raw": {
+      "bytes": 893,
+      "sha256": "1a1d300846eadc6d01d1d461df5db67b5a2c84b441cf2e76e70d7639945e19e9"
+    },
+    "capture/doi.raw": {
+      "bytes": 109,
+      "sha256": "de5845149ec18e12eb3a0761e2771f19384cafd3c7813c9c3e3069d795c82540"
+    },
+    "capture/download.raw": {
+      "bytes": 298507,
+      "sha256": "f067287ed8e79997933c52802f62b8a8fe487457c9c521f2498252e25cedc08b"
+    },
+    "capture/receipt.json": {
+      "bytes": 6344,
+      "sha256": "e329edaaa2af5f63d28fda86c795dc5c9713e34b84b69660372c80b263c8a0df"
+    },
+    "capture/selected-publication-row.json": {
+      "bytes": 5139,
+      "sha256": "f8bf5e91b17e1715a5e2c58e2c9e6aa9c1c44861639eb630ecf2ec18e1d50845"
+    },
+    "capture/siblings001/chronologies-3873.raw": {
+      "bytes": 63,
+      "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc"
+    },
+    "capture/siblings001/chronologies-3874.raw": {
+      "bytes": 3129,
+      "sha256": "5d4e9606a45fba5b1465f0a7af414d0dd1334fbec046977f4c1247d74db4829b"
+    },
+    "capture/siblings001/dataset-3873.raw": {
+      "bytes": 798,
+      "sha256": "4633e0cb727804ea7d749a87363bd46ecebc6b1c23907519d97d5280d55a04da"
+    },
+    "capture/siblings001/dataset-3874.raw": {
+      "bytes": 985,
+      "sha256": "4c9737804be8dd57db73fe5da943f2dbf7f06c48f11efd43a3a2d24b56276a68"
+    },
+    "capture/siblings001/download-3873.raw": {
+      "bytes": 129077,
+      "sha256": "946de88e33477eadd1be4352967dcbab31da3f103385a2ad758439b2bad90c8d"
+    },
+    "capture/siblings001/download-3874.raw": {
+      "bytes": 110388,
+      "sha256": "8399bf295f8f4d4fead1d6f2f8d3786c15c542a6260ec2bb891f36ad4d83a6e9"
+    },
+    "capture/siblings001/receipt.json": {
+      "bytes": 7581,
+      "sha256": "d62a2dade3e109be05c9009e21c96e1433cca10ab394f30b504c941761b41f92"
+    },
+    "capture/sites.raw": {
+      "bytes": 1197,
+      "sha256": "99fe655e3c5e120098327d28e5e184654bb74bcaad8af875e1f9fe2b87be8c3a"
+    }
+  },
+  "author_example": {
+    "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/author-reference/author/site.metadata.csv",
+    "sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+    "bytes": 1019,
+    "scope": "17-row original example; hashed only during source feasibility; parsed only in future genuine stages."
+  },
+  "source_feasibility": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-owner-next-action-custody/physical-input-check.json",
+    "sha256": "611e036d63e922d510791cc3236ee364b4bf9275a1cfe98bbbf816caffcad80a",
+    "bytes": 30070
+  },
+  "entrypoint": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/amsoldingersee-source-refusal-custody/entry.py",
+  "public_source_import_boundary": "Exact ten importable controller members plus preflight directory; physical normalized entry and held manifest/independent approval checked before any owned helper import.",
+  "initial_expected_inputs": "Held manifest/source/review, exact14 response identities, manifest/author/policy/report/maintained source/Git pinned before runtime census. Conflict union and full final original expected revalidation before first output mkdir.",
+  "namespace_custody": "Full four-package source/resource trees with membership, full exact base framework files/aliases, explicit required stdlib import/native dependency closure, exact inspector/Git/sw_vers identities and OS authority; before/after complete input/namespace/alias/absence/Git checks.",
+  "native_stages": [
+    {
+      "id": "maintained-amsoldingersee-source-refusal",
+      "role": "Unchanged maintained module producer",
+      "timeout_seconds": 45
+    },
+    {
+      "id": "independent-amsoldingersee-source-joins",
+      "role": "Independent captured-response reconstruction, exact full typed/serialized comparison and separate tracked byte checker",
+      "timeout_seconds": 45
+    }
+  ],
+  "resources": {
+    "completed_whole_wall_seconds": 110,
+    "outer_failsafe_seconds": 130,
+    "completed_child_peak_RSS_bytes_macos": 1073741824,
+    "inclusive_owned_output_bytes": 134217728,
+    "free_space_reserve_bytes": 1073741824,
+    "enforcement_scope": "Completed wall check110 starts at run.main after entry verification/imports and is measured before final output scan/write. Alarm130 starts after profile/plan checks and ends before final receipt processing; it is not a full-entry/all-postprocessing fail-safe. Completed-child RSS/logical storage/wall postchecks, not OS quota or aggregate process census. Timeout kills/waits owned launcher group; separate-session descendants remain unconfirmed."
+  },
+  "identity_scope": "Actual native site2973/sample string identities/chronology/units/full14input and11response joins. Dataset3873/3874/3875 are declared request identities authenticated by captured manifest, not an invented independently read dataset-id field.",
+  "separate_outcomes": "Native source exit, metadata exit, independent source exit and tracked complete-byte checker 0/2 are distinct. Source and independent success do not turn a byte checker failure into tracked output admission.",
+  "source_refusal": "Zero exact E#69 bridge, zero authenticated author chronology, zero reproduction-ready. Current candidate records remain distinct from the retained 2026-09-21 capture and unproved historical input identity.",
+  "excluded_claims": [
+    "New HTTP/provider retrieval",
+    "Original acquisition recovered",
+    "Historical 23-sample revision or E#69 core mapping",
+    "Authenticated author age-depth or taxon/PFT transformation",
+    "Full 1128-sequence replay",
+    "Rights/citation selection/human approval",
+    "Model/R/LRA/untouched outcome admission"
+  ],
+  "actual_preparation_or_native_execution_performed": false
+}

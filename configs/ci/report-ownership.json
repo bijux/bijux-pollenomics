@@ -37897,6 +37897,10 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/linux_r_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/amsoldingersee/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/amsoldingersee/execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/amsoldingersee/members.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/amsoldingersee/transport.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/neotoma_publication/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/neotoma_publication/execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/pollen_source/neotoma_publication/members.py",
@@ -52346,14 +52350,10 @@
       "paths": [
         "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json"
       ],
-      "producer_inputs": [
-        "data/landclim/review/amsoldingersee-source-inputs.json"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py"
-      ],
-      "role": "unresolved",
-      "verification": "The review producer requires fourteen pinned private Neotoma/API capture files and an exact Amsoldingersee source-root. The repository manifest alone does not supply those bytes. Retain the recorded source-identification refusals; this is not a 1,128-sequence replay."
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "The review producer requires fourteen pinned private Neotoma/API capture files and an exact Amsoldingersee source-root. The repository manifest alone does not supply those bytes. Retain the recorded source-identification refusals; this is not a 1,128-sequence replay. The grouped pollen_source.amsoldingersee transport binds this unchanged report to its genuine maintained source producer and separate saved source observer. Original producer/source metadata zero, original observer and whole one, unrun original checker, saved observer and tracked checker zero, and later two-stage metadata retention zero remain separate literal histories. Complete ordered original inputs, public source/resources, declared controls, native logs and products are retained; private input, runtime and bytecode payloads remain identity-only. The E#69 bridge, exact historical counts/author chronology, source-use decision, human review, ecological truth and LRA admission remain unqualified."
     },
     {
       "owner_id": "publication-replay/landclim-author-example-correspondence/reader-account",

@@ -71,6 +71,9 @@ from .scientific_captures.linux_r_reference import (
 from .scientific_captures.nordic_static_basin import (
     validated_nordic_static_basin_captures,
 )
+from .scientific_captures.pollen_source.amsoldingersee import (
+    validated_amsoldingersee_capture,
+)
 from .scientific_captures.pollen_source.neotoma_publication import (
     validated_neotoma_publication_capture,
 )
@@ -370,6 +373,9 @@ def validated_maintained_report_sources(
     love_objective_entries, love_objective_evidence = validated_love_objective_capture(
         repository, tracked_by_path, inventory["owners"]
     )
+    amsoldingersee_entries, amsoldingersee_evidence = validated_amsoldingersee_capture(
+        repository, tracked_by_path, inventory["owners"]
+    )
     all_capture_entries = (
         author_grid_entries
         + capture_entries
@@ -391,6 +397,7 @@ def validated_maintained_report_sources(
         + svar_entries
         + neotoma_lake_entries
         + neotoma_publication_entries
+        + amsoldingersee_entries
         + love_objective_entries
         + openland_entries
         + swedish_preparation_entries
@@ -489,4 +496,6 @@ def validated_maintained_report_sources(
         evidence["retained_neotoma_publication_sources"] = neotoma_publication_evidence
     if love_objective_entries:
         evidence["retained_love_objective_sources"] = love_objective_evidence
+    if amsoldingersee_entries:
+        evidence["retained_amsoldingersee_sources"] = amsoldingersee_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence
