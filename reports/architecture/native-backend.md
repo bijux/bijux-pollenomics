@@ -100,3 +100,7 @@ This gives us a selected architecture and a measurable reopening condition
 without claiming production adoption. The four-country observed-pollen
 results and English author-example LRA study do not establish that Nordic
 cores are eligible for LRA; that source admission remains a separate decision.
+
+## Larger retained public-call measurement
+
+The [representative public-call report](../../docs/report/numerical-performance/representative-public-calls/README.md) retains the completed Python measurement at commit `19642380cc6051ed9d6cfc3fbddfdb56b4feeba7`: six actual author sites, ten taxa and 1,024 stored joint draws, plus 128 computational repetitions of one LOVE fixture. Each workload has three isolated first-plus-seven-warm observations, separate loading/conversion and diagnostic profile costs, unprofiled boundary measurements, peak RSS and equal-total one-versus-two-process scaling. None of the three named boundaries reached the conservative 50% share and 5% instrumentation-overhead rule in all workers. No compiler or same-input source R was run, and this result does not reopen the rejected forward C++ adoption or qualify another kernel. Other workload families and the applicable source-R, optimizer, memory/build/platform and scientific acceptance remain separate.

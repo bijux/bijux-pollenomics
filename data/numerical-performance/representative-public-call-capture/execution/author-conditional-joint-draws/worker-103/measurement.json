@@ -1,0 +1,75 @@
+{
+  "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "worker": 103,
+  "rows": [
+    {
+      "workload": "author-conditional-joint-draws",
+      "contract": {
+        "source": "six original author sites; fixed chronology/static source radius",
+        "sites": [
+          "BROADOWN",
+          "HANGINGS",
+          "HARESDOWN",
+          "LOBBSBOG",
+          "WINDMILL",
+          "WINNEYS"
+        ],
+        "taxa": [
+          "Alnus.glutinosa",
+          "Betula",
+          "Calluna.vulgaris",
+          "Cerealia.t",
+          "Corylus.avellana",
+          "Cyperaceae",
+          "Pinus",
+          "Plantago.lanceolata.type",
+          "Poaceae",
+          "Quercus.deciduous"
+        ],
+        "draws": 1024,
+        "selected_counts": [
+          289,
+          293,
+          2223,
+          2786,
+          4251,
+          562
+        ],
+        "profile": "reveals-joint-site-count-ppe-draws-v1",
+        "ecological_accuracy": false
+      },
+      "input_identity": "23e911874df29a0f5534e471cbbce49522da192a0c2fb5bee6a850dfad8b03fb",
+      "construction_loading_conversion_seconds": 1.9652902079978958,
+      "first_public_call_seconds": 0.0008777500479482114,
+      "warm_public_call_seconds": [],
+      "output_projection_seconds": [
+        0.008602333022281528
+      ],
+      "scientific_output_sha256": "0280b4291ac792c4ee8939e082a76f22c268c84282c408e6acdce8da39d6c1d5",
+      "scientific_output_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-103/author-conditional-joint-draws.json",
+      "diagnostic_profile_total_seconds": null,
+      "diagnostic_top_self": [],
+      "diagnostic_top_cumulative": [],
+      "profile_is_unprofiled_hotspot_evidence": false,
+      "warnings": []
+    }
+  ],
+  "worker_body_seconds": 2.1466152919456363,
+  "peak_RSS_native": 207257600,
+  "rss_units": "bytes",
+  "thread_limits": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1"
+  },
+  "native_thread_counters_observed": false,
+  "R_or_compiler_executed": false,
+  "source_origins": {
+    "bijux_pollenomics_lra": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+    "bijux_pollenomics_dev": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py"
+  },
+  "limits": "Fresh process first call is not guaranteed OS-cold. Seven warm observations include all repeats; profiles are diagnostic only. Full public calls exclude separately measured input construction/projection; no compiled adoption or sourceR parity claim."
+}

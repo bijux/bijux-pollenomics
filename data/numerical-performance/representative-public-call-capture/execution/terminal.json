@@ -1,0 +1,551 @@
+{
+  "schema_version": "frozen-configured-report-account-qualification-terminal.v1",
+  "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+  "plan_sha256": "654d6c451994c277768d5aa82a5e559817df7801d93dbee33ef0b931bf8bfac9",
+  "actual_exit": 0,
+  "status": "passed",
+  "elapsed_seconds": 286.7739695829805,
+  "actual_launch_argv": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-report-custody/run_account_qualification.py",
+    "--plan",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json",
+    "--registered-plan-sha256",
+    "654d6c451994c277768d5aa82a5e559817df7801d93dbee33ef0b931bf8bfac9"
+  ],
+  "canonical_before": {
+    "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+    "status": "",
+    "tracked_inventory_sha256": "8dca788ab48417cd0374fea54fa454d1762a60a1c811fffa7e331a110485b78a"
+  },
+  "canonical_after": {
+    "candidate": "19642380cc6051ed9d6cfc3fbddfdb56b4feeba7",
+    "status": "",
+    "tracked_inventory_sha256": "8dca788ab48417cd0374fea54fa454d1762a60a1c811fffa7e331a110485b78a"
+  },
+  "before_pin_mismatches": [],
+  "after_pin_mismatches": [],
+  "absent_input_paths_unchanged": true,
+  "stages": [
+    {
+      "id": "author-conditional-joint-draws-worker-0",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json",
+        "--worker",
+        "0",
+        "--workload",
+        "author-conditional-joint-draws"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 2.429170334013179,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-0.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-0.stderr",
+      "stdout_sha256": "7063e0ae777e53b499ce8279600a16d6406eb83e452df2c2ea0e58415f7acf13",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 209158144
+    },
+    {
+      "id": "author-conditional-joint-draws-worker-1",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json",
+        "--worker",
+        "1",
+        "--workload",
+        "author-conditional-joint-draws"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 2.4124132079887204,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-1.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-1.stderr",
+      "stdout_sha256": "0fb065ffaeb8bae4285efe5a62f05d09320101febff41d11cc9ec56ef7e2703a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 210649088
+    },
+    {
+      "id": "author-conditional-joint-draws-worker-2",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json",
+        "--worker",
+        "2",
+        "--workload",
+        "author-conditional-joint-draws"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 2.53389399999287,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-2.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-2.stderr",
+      "stdout_sha256": "8a1c26b709e6babb4e810b3163ec4aa65a38e6f1ec790a825e23086e9d755996",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 210649088
+    },
+    {
+      "id": "love-larger-fixed-candidate-batch-worker-0",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json",
+        "--worker",
+        "0",
+        "--workload",
+        "love-larger-fixed-candidate-batch"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 83.82348512503086,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-0.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-0.stderr",
+      "stdout_sha256": "7063e0ae777e53b499ce8279600a16d6406eb83e452df2c2ea0e58415f7acf13",
+      "stderr_sha256": "19fbf37fd9976b6ec99ddf475e9413e232d03a03700f0b905b0e1fa8061a33c4",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 241401856
+    },
+    {
+      "id": "love-larger-fixed-candidate-batch-worker-1",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json",
+        "--worker",
+        "1",
+        "--workload",
+        "love-larger-fixed-candidate-batch"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 82.71420637500705,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-1.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-1.stderr",
+      "stdout_sha256": "0fb065ffaeb8bae4285efe5a62f05d09320101febff41d11cc9ec56ef7e2703a",
+      "stderr_sha256": "19fbf37fd9976b6ec99ddf475e9413e232d03a03700f0b905b0e1fa8061a33c4",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 241401856
+    },
+    {
+      "id": "love-larger-fixed-candidate-batch-worker-2",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json",
+        "--worker",
+        "2",
+        "--workload",
+        "love-larger-fixed-candidate-batch"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 83.25088233296992,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-2.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-2.stderr",
+      "stdout_sha256": "8a1c26b709e6babb4e810b3163ec4aa65a38e6f1ec790a825e23086e9d755996",
+      "stderr_sha256": "19fbf37fd9976b6ec99ddf475e9413e232d03a03700f0b905b0e1fa8061a33c4",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 252493824
+    },
+    {
+      "id": "equal-total-work-process-scaling",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/scaling.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json"
+      ],
+      "timeout_seconds": 180,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 23.492509457981214,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/equal-total-work-process-scaling.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/equal-total-work-process-scaling.stderr",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 252493824
+    },
+    {
+      "id": "independent-source-output-timing-review",
+      "argv": [
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/runtime/environment/bin/python",
+        "-B",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/observe.py",
+        "--plan",
+        "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json"
+      ],
+      "timeout_seconds": 60,
+      "must_succeed": true,
+      "actual_exit": 0,
+      "timed_out": false,
+      "elapsed_seconds": 4.261296332988422,
+      "stdout": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/independent-source-output-timing-review.stdout",
+      "stderr": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/independent-source-output-timing-review.stderr",
+      "stdout_sha256": "e9cab26c776eeaf3f9107efbdd8f2f15753d39fffadc92ee65eb9753710061a3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "observed_cumulative_completed_child_peak_rss_bytes_macos": 252493824
+    }
+  ],
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-0/author-conditional-joint-draws.json",
+      "sha256": "04bb1e30c0d2dfbc4fe2f777512c06014a429ffb92ec3d143aa6c02035a8ba03",
+      "bytes": 300020
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-0/measurement.json",
+      "sha256": "c283ba1eadc70165681aa2454119e596a63963bb0d9659053898438b9408e2d6",
+      "bytes": 17941
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-1/author-conditional-joint-draws.json",
+      "sha256": "04bb1e30c0d2dfbc4fe2f777512c06014a429ffb92ec3d143aa6c02035a8ba03",
+      "bytes": 300020
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-1/measurement.json",
+      "sha256": "6e9fefb642b949bfb713799cd74c4f96c5f16ddafacf8a1671b684eacef3b43a",
+      "bytes": 18089
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-100/author-conditional-joint-draws.json",
+      "sha256": "04bb1e30c0d2dfbc4fe2f777512c06014a429ffb92ec3d143aa6c02035a8ba03",
+      "bytes": 300020
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-100/measurement.json",
+      "sha256": "e27714fb21f75de72d7622a10755d53767c684daa1dad72d1e4f56ec92ada290",
+      "bytes": 2768
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-101/author-conditional-joint-draws.json",
+      "sha256": "04bb1e30c0d2dfbc4fe2f777512c06014a429ffb92ec3d143aa6c02035a8ba03",
+      "bytes": 300020
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-101/measurement.json",
+      "sha256": "7aecff37774203eea7b9b658af0d02c5a7b6112c766a433d40aab6b416939744",
+      "bytes": 2771
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-102/author-conditional-joint-draws.json",
+      "sha256": "04bb1e30c0d2dfbc4fe2f777512c06014a429ffb92ec3d143aa6c02035a8ba03",
+      "bytes": 300020
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-102/measurement.json",
+      "sha256": "dbec5738a06448aa55493328267b0dc5513e5dfc7d2d4bd50b7bade7d301c676",
+      "bytes": 2770
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-103/author-conditional-joint-draws.json",
+      "sha256": "04bb1e30c0d2dfbc4fe2f777512c06014a429ffb92ec3d143aa6c02035a8ba03",
+      "bytes": 300020
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-103/measurement.json",
+      "sha256": "8cc77fda19add9cb15830c7b0a66f695f7b7a6f49d66523a37877eda69e81580",
+      "bytes": 2772
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-2/author-conditional-joint-draws.json",
+      "sha256": "04bb1e30c0d2dfbc4fe2f777512c06014a429ffb92ec3d143aa6c02035a8ba03",
+      "bytes": 300020
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws/worker-2/measurement.json",
+      "sha256": "af261972d739749e0a7df43fda5244281f1a8188f05c7593f54e8b72215f0490",
+      "bytes": 17839
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-0.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-0.stdout",
+      "sha256": "7063e0ae777e53b499ce8279600a16d6406eb83e452df2c2ea0e58415f7acf13",
+      "bytes": 48
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-1.stdout",
+      "sha256": "0fb065ffaeb8bae4285efe5a62f05d09320101febff41d11cc9ec56ef7e2703a",
+      "bytes": 48
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/author-conditional-joint-draws-worker-2.stdout",
+      "sha256": "8a1c26b709e6babb4e810b3163ec4aa65a38e6f1ec790a825e23086e9d755996",
+      "bytes": 48
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/equal-total-work-process-scaling.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/equal-total-work-process-scaling.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/independent-performance-review.json",
+      "sha256": "67b127de47dd23385677a94902f42f3faa4fe9989a2b8265e76cd3a2c0670854",
+      "bytes": 8491
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/independent-source-output-timing-review.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/independent-source-output-timing-review.stdout",
+      "sha256": "e9cab26c776eeaf3f9107efbdd8f2f15753d39fffadc92ee65eb9753710061a3",
+      "bytes": 97
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-0/love-larger-fixed-candidate-batch.json",
+      "sha256": "9958217448d5ad6653b6715aad32efdef9fd79e5ef85421363d316bfc8518a4d",
+      "bytes": 2538499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-0/measurement.json",
+      "sha256": "c23de93799e1fafb809bc0209be827b7118c78e3999ca87c569fb83fe9b99405",
+      "bytes": 19690
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-1/love-larger-fixed-candidate-batch.json",
+      "sha256": "9958217448d5ad6653b6715aad32efdef9fd79e5ef85421363d316bfc8518a4d",
+      "bytes": 2538499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-1/measurement.json",
+      "sha256": "ea7ac4ed000e71b7a8401060434b15118684a0eaeebb2ebc1cb38820e6198f2b",
+      "bytes": 19851
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-100/love-larger-fixed-candidate-batch.json",
+      "sha256": "9958217448d5ad6653b6715aad32efdef9fd79e5ef85421363d316bfc8518a4d",
+      "bytes": 2538499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-100/measurement.json",
+      "sha256": "3266ba2e28d310183ed0a59c8a72116de29cb6e419407147138491371d78f866",
+      "bytes": 3056
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-101/love-larger-fixed-candidate-batch.json",
+      "sha256": "9958217448d5ad6653b6715aad32efdef9fd79e5ef85421363d316bfc8518a4d",
+      "bytes": 2538499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-101/measurement.json",
+      "sha256": "0f6e0b4f9e2cd9e8f0c35c1aadc3a0bb6d984b83db76a80271e2db7f090bd755",
+      "bytes": 3056
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-102/love-larger-fixed-candidate-batch.json",
+      "sha256": "9958217448d5ad6653b6715aad32efdef9fd79e5ef85421363d316bfc8518a4d",
+      "bytes": 2538499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-102/measurement.json",
+      "sha256": "ed211678cdab09c7eaceb763f77a96af74d42a2386bc6e491623643bb468980e",
+      "bytes": 3055
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-103/love-larger-fixed-candidate-batch.json",
+      "sha256": "9958217448d5ad6653b6715aad32efdef9fd79e5ef85421363d316bfc8518a4d",
+      "bytes": 2538499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-103/measurement.json",
+      "sha256": "b22da0537a45f2974ed6f3f857968f2779b5971ad2b20e162a79af138f75393f",
+      "bytes": 3056
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-2/love-larger-fixed-candidate-batch.json",
+      "sha256": "9958217448d5ad6653b6715aad32efdef9fd79e5ef85421363d316bfc8518a4d",
+      "bytes": 2538499
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch/worker-2/measurement.json",
+      "sha256": "823bb596bd90544ede8d29b64ceb7299de120ceebfcf538f783f281b35b68a62",
+      "bytes": 19752
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-0.stderr",
+      "sha256": "19fbf37fd9976b6ec99ddf475e9413e232d03a03700f0b905b0e1fa8061a33c4",
+      "bytes": 564480
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-0.stdout",
+      "sha256": "7063e0ae777e53b499ce8279600a16d6406eb83e452df2c2ea0e58415f7acf13",
+      "bytes": 48
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-1.stderr",
+      "sha256": "19fbf37fd9976b6ec99ddf475e9413e232d03a03700f0b905b0e1fa8061a33c4",
+      "bytes": 564480
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-1.stdout",
+      "sha256": "0fb065ffaeb8bae4285efe5a62f05d09320101febff41d11cc9ec56ef7e2703a",
+      "bytes": 48
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-2.stderr",
+      "sha256": "19fbf37fd9976b6ec99ddf475e9413e232d03a03700f0b905b0e1fa8061a33c4",
+      "bytes": 564480
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/love-larger-fixed-candidate-batch-worker-2.stdout",
+      "sha256": "8a1c26b709e6babb4e810b3163ec4aa65a38e6f1ec790a825e23086e9d755996",
+      "bytes": 48
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/plan.json",
+      "sha256": "654d6c451994c277768d5aa82a5e559817df7801d93dbee33ef0b931bf8bfac9",
+      "bytes": 9299217
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-author-conditional-joint-draws-100.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-author-conditional-joint-draws-100.stdout",
+      "sha256": "37bcd71cdc46596cc0b5a1b3509b2ba980748948cfd88c09224c8980d15ca6b8",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-author-conditional-joint-draws-101.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-author-conditional-joint-draws-101.stdout",
+      "sha256": "3667fe161424fd697b5d50326c617b299af30e4fe43e938ead48b1a95367a4e2",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-author-conditional-joint-draws-102.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-author-conditional-joint-draws-102.stdout",
+      "sha256": "3ce4dc3cca907c2d5600a0c6bd92f3fb728ce1a0b8151093ca4a0fc95e25efd9",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-author-conditional-joint-draws-103.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-author-conditional-joint-draws-103.stdout",
+      "sha256": "b898427619e8b2da47f82c96ae04d9ae71f2418f6ed20afb367bf6a6442b8c17",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-love-larger-fixed-candidate-batch-100.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-love-larger-fixed-candidate-batch-100.stdout",
+      "sha256": "37bcd71cdc46596cc0b5a1b3509b2ba980748948cfd88c09224c8980d15ca6b8",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-love-larger-fixed-candidate-batch-101.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-love-larger-fixed-candidate-batch-101.stdout",
+      "sha256": "3667fe161424fd697b5d50326c617b299af30e4fe43e938ead48b1a95367a4e2",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-love-larger-fixed-candidate-batch-102.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-love-larger-fixed-candidate-batch-102.stdout",
+      "sha256": "3ce4dc3cca907c2d5600a0c6bd92f3fb728ce1a0b8151093ca4a0fc95e25efd9",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-love-larger-fixed-candidate-batch-103.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling-love-larger-fixed-candidate-batch-103.stdout",
+      "sha256": "b898427619e8b2da47f82c96ae04d9ae71f2418f6ed20afb367bf6a6442b8c17",
+      "bytes": 50
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/scaling.json",
+      "sha256": "20d903d851c88aae96e2abf0931b55628a0c64bc5ed943dcdf013c322bf21a0d",
+      "bytes": 1277
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-public-call-profile/stage-progress.json",
+      "sha256": "ddd8d8166900b3f03c21da5e4c126599170db222c20f6be93ed125e8434b8940",
+      "bytes": 9613
+    }
+  ],
+  "output_bytes": 31018922,
+  "resources": {
+    "overall_timeout_seconds": 1200,
+    "declared_memory_bytes": 2147483648,
+    "declared_storage_bytes": 268435456,
+    "maximum_parallel_workers": 2,
+    "numerical_threads_per_worker": 1
+  },
+  "scope": "Source-qualified actual six-site/ten-taxon/1024stored conditional joint draw public calls and128synthetic computational LOVEexample repetitions, never128independent sites. Three isolated first+sevenwarm calls each, separate diagnostic profile and unprofiled one-boundary measurements, equal-total1vs2workers. No sourceR execution, optimizer search, newC++compiler/kernel, ecological/rights/human or release admission; old seven-workload/64replica timings retain historical scope. Confirmed measured hotspot alone cannot authorize compilation: same-input currentR/Python and separately reviewed prospective spike remain required.",
+  "limits": [
+    "Actual producer execution status, successful output manifest and configured tracked-byte checker status remain separate. No producer success is inferred from checker failure.",
+    "JSON numeric differences are exact leaf differences, not a tolerance or scientific equivalence claim. Immutable old numerical/R/source captures retain original scope.",
+    "Outer wrappers and native inner producers own separate process-group timeouts; complete descendant process census and enforced memory/storage quotas are not claimed."
+  ]
+}

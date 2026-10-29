@@ -1,0 +1,206 @@
+{
+  "schema_version": "representative-performance-independent-source-review.v1",
+  "approved": true,
+  "source_only": true,
+  "source_manifest_sha256": "93fbc5bda9575c6a6d9560d22e15d0722674c778d2705910a9c8c7e42c82a489",
+  "source_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/prepared-source-manifest.json",
+    "sha256": "93fbc5bda9575c6a6d9560d22e15d0722674c778d2705910a9c8c7e42c82a489",
+    "bytes": 1941
+  },
+  "qualified_source_members": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/boundary.py",
+      "sha256": "f09ff1197cfacd9ad0027a3828d52efa48aaf9fbce463288157fa84da43b2af4",
+      "bytes": 1682
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/check_contracts.py",
+      "sha256": "2f474cd31c550edbc3c42c89ce7df67a508f8cdf2dd002fa95ead6db51234539",
+      "bytes": 4414
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/measure.py",
+      "sha256": "3ee0065468f1bb6c83f3bd265829f384ea7554ab68cab4e66d74491a141a62ea",
+      "bytes": 8971
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/observe.py",
+      "sha256": "5fdfcab2a3988077b57546d8e6844586baa20f4ed2aa4d7a157ca7df0bdad3b8",
+      "bytes": 8445
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/prepare.py",
+      "sha256": "6e3796f1e5f34003b6270201240b238d8c5e09c13a8cb55526344d63b9aa98c1",
+      "bytes": 13727
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/run.py",
+      "sha256": "86ce5ea4f8860cc2a7266eff3fbd5f0abb7ef5ab0f9df0e730c3cc1d019a42c7",
+      "bytes": 3690
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/scaling.py",
+      "sha256": "5e009c4c042d2f9e7e95743d5844f25e2c6ab57b0ac92e0bd8ce0808853dcb5a",
+      "bytes": 3089
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/storage.py",
+      "sha256": "bea316312519e5aac06d8006be90e0038963832432ba4c2f2f93138d6f1ec10a",
+      "bytes": 998
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/workloads.py",
+      "sha256": "c7b85206cb4a20a09e3e847abd2ec89a2420328bb8d8fc27b9319c16a4a8924a",
+      "bytes": 6224
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/protocol.json",
+      "sha256": "987f399ab9571744d14fcef83e0b6b40932ae1e506ceab7421c379ebb802ad22",
+      "bytes": 7603
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/qualification.json",
+      "sha256": "a1300c4401748eb531395a124b0e6f197c44617c8f57b4af9184258278cc5b27",
+      "bytes": 12441
+    }
+  ],
+  "source_qualification": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/qualification.json",
+    "sha256": "a1300c4401748eb531395a124b0e6f197c44617c8f57b4af9184258278cc5b27",
+    "bytes": 12441
+  },
+  "existing_check_receipts_independently_pinned": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/guards.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/guards.stderr",
+      "sha256": "f6a7ca1bb8354dd4a96ce5b18e6ef9a20fa2a4585a46b6c12a17980ea1dc4087",
+      "bytes": 117
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/lint.stdout",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/lint.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/format.stdout",
+      "sha256": "2ce9758b9f8abd876ec3e76c589e099e8b05377b1e7ea2331e81ee80f07bdff8",
+      "bytes": 26
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/format.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/strict.stdout",
+      "sha256": "e317872697c2cbfdefa321527a6efe73290dff3a390b0fa8723b87092eccba6a",
+      "bytes": 43
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/strict.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/prepare.py-help.stdout",
+      "sha256": "3ddd0215127209f63a2f42e5cdedad215beff4774c248223605980e558448750",
+      "bytes": 231
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/prepare.py-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/measure.py-help.stdout",
+      "sha256": "f8c31438a8e4087c022ad0e6a7fd641ab6bf5397187cabac44081b22d6e46c44",
+      "bytes": 379
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/measure.py-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/scaling.py-help.stdout",
+      "sha256": "599379e0207114cc77c295d0aee9c2d70e6f7beb727b408326b8ea1f5a07d1f1",
+      "bytes": 106
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/scaling.py-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/observe.py-help.stdout",
+      "sha256": "0003b1a3b7b704c9d29b0a4345573e3116d6b2760fc22c33b5d70f9a05d96533",
+      "bytes": 106
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/observe.py-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/run.py-help.stdout",
+      "sha256": "47232bb088aef0db6dbad4101aea5b2c35e9709313cfac8222a539d033770ff1",
+      "bytes": 209
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/run.py-help.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/api-signatures.stdout",
+      "sha256": "207b51f8ad527f352b444efc5e2804d3e37f0c8cc74fe1ce16431da009ec01d2",
+      "bytes": 96
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/api-signatures.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "input_construction_preflight": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/representative-performance-source-capture/source-preflight/input-construction.json",
+    "sha256": "1f4669512d26805a1bd2aaf03ce821e1dd7feadd38c98b8aecb10ecd1279f881",
+    "bytes": 2314
+  },
+  "source_AST_count": 9,
+  "runner_predecessor": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-holdout-custody/run.py",
+    "sha256": "e9c63bb2dd18d0870ebeb5ad2186958252675c4c76250c86b41cbead0a7380e4",
+    "bytes": 3690
+  },
+  "runner_AST_difference": "Only author-site-terminal.json to performance-terminal.json; resource/input/process-group/native status behavior unchanged.",
+  "reviewed_contracts": [
+    "Qualified lexical3.11, clean selectedmain and exactfour-package source/runtime/private195 inputs; input-only mode creates no output or numerical call.",
+    "Original6sites/10taxa/1024retained draws and exact covers/mean/SE references remain authenticated; all14isolated worker input/output digests must agree for each declared workload.",
+    "128LOVE calls explicitly repeat one real source fixture with32fixed candidates and2repeats. No independent128sites or optimizer convergence claim.",
+    "Three first+sevenwarm samples retain every observation. Input construction/output projection costs separate, no OS cold-cache claim. cProfile is diagnostic only.",
+    "One boundary at a time, three baseline/passthrough/instrumented repeats, exact input/output checks, explicit clock/passthrough subtraction, >=0.5conservative share and <=5percent instrumentation overhead. No nestedcostsum/bestrepeat selection.",
+    "Equal two-call totalwork across1/2process configurations, max2concurrent children; all worker outputs and original source typedvalues checked independently.",
+    "Completed-child RSS plus entire logical output/own16KiB receipt reserve; existing resource runner scope retained. No OS quota/fulltreeRSS assumption.",
+    "Compilation and sourceR remain false regardless of measured hotspot. Current same-input R/parity and separately reviewed2x-full-call/1.25RSS prospective candidate required."
+  ],
+  "thread_scope": "Six environment variables request1vendor thread; native enforcement/thread counters are unobserved. Scaling row phrase one numerical thread per worker is a configuration request only, expressly qualified by protocol and independent observer; no observed native thread proof is admitted.",
+  "findings": [],
+  "actual_preparation_or_plan_or_numerical_or_R_or_compiler_execution_by_reviewer": false,
+  "pending": [
+    "root actual clean candidate/input-only preparation",
+    "root persistedregistration/readback",
+    "genuine bounded worker/scaling/independent observer execution",
+    "actual measurement interpretation; no future result inferred"
+  ]
+}
