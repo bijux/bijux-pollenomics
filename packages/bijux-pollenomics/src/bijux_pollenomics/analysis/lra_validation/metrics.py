@@ -69,13 +69,18 @@ def hellinger_distance(
         raise ValidationRefusal(
             "taxon_denominator_mismatch", "Hellinger taxon keys must match"
         )
-    return sqrt(
-        0.5
-        * sum(
-            (sqrt(prediction[taxon]) - sqrt(observation[taxon])) ** 2
+    # Rationalize the root difference before taking its scaled Euclidean norm.
+    # Separate square roots can coincide for distinct adjacent fractions, and
+    # squaring a representable root difference can underflow before the norm.
+    return hypot(
+        *(
+            (prediction[taxon] - observation[taxon])
+            / (sqrt(prediction[taxon]) + sqrt(observation[taxon]))
+            if prediction[taxon] or observation[taxon]
+            else 0.0
             for taxon in prediction
         )
-    )
+    ) / sqrt(2.0)
 
 
 def _round_subnormal_boundary_rmse(errors: list[float]) -> float:
