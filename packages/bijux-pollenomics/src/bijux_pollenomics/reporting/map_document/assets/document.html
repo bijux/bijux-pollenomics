@@ -2290,11 +2290,11 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                   <select id="relation-target-country-filter" class="search-input"></select>
                   <p class="search-meta">Stored endpoints do not establish direction for indeterminate relations. Candidate status is not scientific admission.</p>
                   <div id="relation-filter-status" role="status" aria-live="polite" class="search-meta"></div>
-                  <details>
+                  <details data-evidence-tools>
                     <summary>Retained relation country counts</summary>
                     <div id="relation-country-summary"></div>
                   </details>
-                  <details>
+                  <details data-evidence-tools>
                     <summary>Retained relation endpoint ages</summary>
                     <div id="relation-time-summary"></div>
                   </details>
@@ -2783,7 +2783,12 @@ __NATIVE_LRA_SCRIPT_TAG__
         const binding = document.getElementById('atlas-native-lra-binding');
         if (!binding || typeof binding.textContent !== 'string') staticAtlasFailure('native binding payload is unavailable');
         const inlineBytes = new TextEncoder().encode(binding.textContent).byteLength;
-        const totalBytes = runtimeBytes + inlineBytes + STATIC_ATLAS_BOOTSTRAP.assets.reduce((total, row) => total + row.byte_count, 0);
+        const optionalControllers = runtime?.optional_controllers;
+        if (optionalControllers !== undefined && (!optionalControllers || Object.keys(optionalControllers).join('|') !== 'evidence_tools')) staticAtlasFailure('optional runtime controllers are invalid');
+        const optionalTools = optionalControllers === undefined ? null : evidenceToolsDescriptor();
+        if (optionalTools && (optionalTools.path === runtime.path || paths.includes(optionalTools.path))) staticAtlasFailure('optional runtime path is duplicated');
+        if (STATIC_ATLAS_BOOTSTRAP.assets.length + runtimeRequests + Number(Boolean(optionalTools)) > 512) staticAtlasFailure('total asset file budget exceeded');
+        const totalBytes = runtimeBytes + (optionalTools?.byte_count || 0) + inlineBytes + STATIC_ATLAS_BOOTSTRAP.assets.reduce((total, row) => total + row.byte_count, 0);
         const totalByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.static_assets_max_bytes, 'total asset byte budget');
         if (totalBytes > totalByteBudget) staticAtlasFailure('total asset byte budget exceeded');
         const initialBytes = runtimeBytes + inlineBytes + initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
@@ -6941,11 +6946,83 @@ __URL_STATE_CONTROLLER__
       }
       let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
       __EDGE_DISPLAY_CONTROLLER__
+      /* atlas-evidence-tools:begin */
       __RELATION_SUMMARY_CONTROLLER__
       __RELATION_TIME_SUMMARY_CONTROLLER__
+      __SCIENTIFIC_PICKER_CONTROLLER__
+      /* atlas-evidence-tools:end */
+      let evidenceTools = null, evidenceToolsRequest = null, evidenceToolsError = null;
+      function currentEvidenceTools() {
+        if (!evidenceTools && typeof relationSummaryData === 'function') {
+          evidenceTools = Object.freeze({countryData: relationSummaryData, countryHtml: renderRelationSummary,
+            timeData: relationTimeSummaryData, timeHtml: renderRelationTimeSummary,
+            pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
+            pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
+            pickerHtml: renderScientificPicker});
+        }
+        return evidenceTools;
+      }
+      function evidenceToolsDescriptor() {
+        const row = STATIC_ATLAS_BOOTSTRAP.runtime?.optional_controllers?.evidence_tools;
+        if (!row || typeof row !== 'object' || Array.isArray(row)
+          || Object.keys(row).sort().join('|') !== 'byte_count|integrity|path'
+          || typeof row.path !== 'string' || typeof row.integrity !== 'string'
+          || !/^[A-Za-z0-9][A-Za-z0-9._-]*[.]atlas-evidence-tools[.][a-f0-9]{16}[.]js$/.test(row.path)
+          || !/^sha256-[A-Za-z0-9+/]{43}=$/.test(row.integrity)
+          || !Number.isSafeInteger(row.byte_count) || row.byte_count <= 0 || row.byte_count > 524288) {
+          throw new Error('Evidence tools transport identity is unavailable. Keep all atlas files from the same build together.');
+        }
+        return row;
+      }
+      function loadEvidenceTools() {
+        if (currentEvidenceTools()) return Promise.resolve(evidenceTools);
+        if (evidenceToolsRequest) return evidenceToolsRequest;
+        evidenceToolsRequest = Promise.resolve().then(() => {
+          const row = evidenceToolsDescriptor();
+          if (!['http:', 'https:', 'file:'].includes(window.location.protocol)) throw new Error('Evidence tools require HTTP, HTTPS or a local file.');
+          return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = `./${row.path}`;
+            if (['http:', 'https:'].includes(window.location.protocol)) {
+              script.integrity = row.integrity;
+              script.crossOrigin = 'anonymous';
+            }
+            // Local-file script transport follows the main runtime policy; SRI is
+            // enforced by the browser for HTTP and HTTPS distributions.
+            script.addEventListener('load', () => {
+              try {
+                if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
+                const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
+                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+                evidenceTools = tools;
+                resolve(tools);
+              } catch (error) { reject(error); }
+            }, {once: true});
+            script.addEventListener('error', () => reject(new Error('Evidence tools could not be loaded. Keep all atlas files together and reload.')), {once: true});
+            document.head.appendChild(script);
+          });
+        }).catch(error => { evidenceToolsError = String(error.message || error); throw error; });
+        return evidenceToolsRequest;
+      }
+      function renderRelationTimeSummaryPanel() {
+        const container = document.getElementById('relation-time-summary');
+        if (!container) return;
+        const tools = currentEvidenceTools();
+        container.innerHTML = tools ? tools.timeHtml(tools.timeData(visibleGovernedEdges()))
+          : `<p>${escapeHtml(evidenceToolsError || 'Open this panel to load the endpoint age summary.')}</p>`;
+      }
+      function renderEvidenceToolPanels() {
+        renderRelationCountrySummary();
+        renderRelationTimeSummaryPanel();
+      }
       function renderRelationCountrySummary() {
         const container = document.getElementById('relation-country-summary');
         if (!container) return;
+        const tools = currentEvidenceTools();
+        if (!tools) {
+          container.innerHTML = `<p>${escapeHtml(evidenceToolsError || 'Open this panel to load the country summary.')}</p>`;
+          return;
+        }
         const edges = visibleGovernedEdges();
         const href = (edgeId, scenarioId) => {
           if (!atlasURLState.canPublish()) return null;
@@ -6956,7 +7033,7 @@ __URL_STATE_CONTROLLER__
           if (!writeEdgeFocusHash(params, {kind: 'edge', edgeId, scenarioId, atlasBuildId: build, edgeShareable: true}, 'relation', build)) return null;
           return `#${params.toString()}`;
         };
-        container.innerHTML = renderRelationSummary(relationSummaryData(edges), href, DETAIL_TABLE_PAGE_SIZE);
+        container.innerHTML = tools.countryHtml(tools.countryData(edges), href, DETAIL_TABLE_PAGE_SIZE);
       }
       async function openEdgeDetail(edge, source, compare = false, fromSharedLink = false) {
         if (!fromSharedLink) pendingEdgeFocus = null;
@@ -7350,8 +7427,7 @@ __URL_STATE_CONTROLLER__
         densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
         emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
         syncHashState();
-        renderRelationCountrySummary();
-        document.getElementById('relation-time-summary').innerHTML = renderRelationTimeSummary(relationTimeSummaryData(visibleGovernedEdges()));
+        renderEvidenceToolPanels();
         if (document.documentElement.classList.contains('atlas-capture-mode') && atlasCapturePresentation !== null) {
           renderAtlasCaptureOverlay(atlasCaptureSnapshot());
         }
@@ -7963,6 +8039,14 @@ __URL_STATE_CONTROLLER__
           button.textContent = 'Copy failed';
         }
         window.setTimeout(() => { button.textContent = previous; }, 1400);
+      });
+      document.querySelectorAll('details[data-evidence-tools]').forEach(panel => {
+        panel.addEventListener('toggle', () => {
+          if (!panel.open) return;
+          const containers = panel.querySelectorAll('#relation-country-summary, #relation-time-summary');
+          if (!currentEvidenceTools()) containers.forEach(container => { container.textContent = evidenceToolsError || 'Loading evidence tools…'; });
+          loadEvidenceTools().then(() => { if (panel.open) renderEvidenceToolPanels(); }, () => { if (panel.open) renderEvidenceToolPanels(); });
+        });
       });
       document.getElementById('fullscreen-toggle').addEventListener('click', async () => {
         const target = document.querySelector('.map-stage');

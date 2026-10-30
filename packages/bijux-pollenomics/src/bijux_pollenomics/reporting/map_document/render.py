@@ -106,6 +106,13 @@ def render_multi_country_map_html(
 
 _RUNTIME_BEGIN = "<!-- atlas-runtime:begin -->"
 _RUNTIME_END = "<!-- atlas-runtime:end -->"
+_EVIDENCE_BEGIN = "/* atlas-evidence-tools:begin */"
+_EVIDENCE_END = "/* atlas-evidence-tools:end */"
+_EVIDENCE_FACTORY = """globalThis.BijuxPollenomicsEvidenceTools=function(escapeHtml,scientificCueGlyph){
+%s
+return Object.freeze({countryData:relationSummaryData,countryHtml:renderRelationSummary,timeData:relationTimeSummaryData,timeHtml:renderRelationTimeSummary,pickerCatalog:scientificPickerCatalog,pickerSearch:scientificPickerSearch,pickerInitial:scientificPickerInitialState,pickerAction:scientificPickerAction,pickerHtml:renderScientificPicker});
+};
+"""
 _BOOTSTRAP = re.compile(
     r'(<script id="atlas-static-bootstrap" type="application/json">)(.*?)(</script>)',
     re.DOTALL,
@@ -140,7 +147,10 @@ _RUNTIME_LOADER = """<script>
 
 
 def _runtime_resources(
-    assets: StaticAtlasAssets, runtime_bytes: int, document: str
+    assets: StaticAtlasAssets,
+    runtime_bytes: int,
+    document: str,
+    optional_bytes: int = 0,
 ) -> None:
     """Charge executable transport and the actual inline binding to both budgets."""
     bindings = _NATIVE_BINDING.findall(document)
@@ -150,6 +160,11 @@ def _runtime_resources(
     inline_bytes = len(bindings[0].encode("utf-8"))
     if not 0 < runtime_bytes <= ATLAS_DOCUMENT_MAX_BYTES:
         raise ValueError("static atlas runtime exceeds its byte budget")
+    if (
+        type(optional_bytes) is not int
+        or not 0 <= optional_bytes <= ATLAS_DOCUMENT_MAX_BYTES
+    ):
+        raise ValueError("static atlas optional controller exceeds its byte budget")
     rows = normalize_asset_inventory(assets.manifest["assets"])
     counts: list[int] = []
     initial: list[int] = []
@@ -164,10 +179,106 @@ def _runtime_resources(
         raise ValueError("static atlas runtime exceeds initial request budget")
     if sum(initial) + runtime_bytes + inline_bytes > ATLAS_INITIAL_MAX_BYTES:
         raise ValueError("static atlas runtime exceeds initial byte budget")
-    if len(rows) + 1 > ATLAS_STATIC_ASSETS_MAX_FILES:
+    if len(rows) + 1 + bool(optional_bytes) > ATLAS_STATIC_ASSETS_MAX_FILES:
         raise ValueError("static atlas runtime exceeds total asset count budget")
-    if sum(counts) + runtime_bytes + inline_bytes > ATLAS_STATIC_ASSETS_MAX_BYTES:
+    if (
+        sum(counts) + runtime_bytes + inline_bytes + optional_bytes
+        > ATLAS_STATIC_ASSETS_MAX_BYTES
+    ):
         raise ValueError("static atlas runtime exceeds total asset byte budget")
+
+
+def _separate_evidence_tools(body: str) -> tuple[bytes, bytes]:
+    """Move only the complete marked helper block into its explicit factory."""
+    if body.count(_EVIDENCE_BEGIN) != 1 or body.count(_EVIDENCE_END) != 1:
+        raise ValueError("static map requires one evidence tools boundary")
+    matches = [
+        re.search(r"(?m)^[ \t]*" + re.escape(marker) + r"[ \t]*$", body)
+        for marker in (_EVIDENCE_BEGIN, _EVIDENCE_END)
+    ]
+    begin, end = matches
+    opening = re.match(r"\s*\(async \(\) => \{", body)
+    closing = re.search(r"(?m)^[ \t]*\}\)\(\)\.catch\(", body)
+    if (
+        begin is None
+        or end is None
+        or opening is None
+        or closing is None
+        or not opening.end() <= begin.start() < end.start() < closing.start()
+    ):
+        raise ValueError("static map evidence tools boundary is unsafe")
+    helpers = body[begin.end() : end.start()]
+    if not helpers.strip():
+        raise ValueError("static map evidence tools block is empty")
+    return (
+        (body[: begin.start()] + body[end.end() :]).encode("utf-8"),
+        (_EVIDENCE_FACTORY % helpers).encode("utf-8"),
+    )
+
+
+def _code_reference(
+    parent: Path, stem: str, kind: str, body: bytes
+) -> tuple[Path, dict[str, object]]:
+    digest = hashlib.sha256(body).digest()
+    path = parent / f"{stem}.{kind}.{digest.hex()[:16]}.js"
+    return path, {
+        "path": path.name,
+        "byte_count": len(body),
+        "integrity": "sha256-" + base64.b64encode(digest).decode("ascii"),
+    }
+
+
+def _check_code_target(path: Path, payload: bytes) -> None:
+    if path.is_symlink() or (
+        path.exists() and (not path.is_file() or path.stat().st_nlink != 1)
+    ):
+        raise ValueError("static map code must be an unaliased immutable file")
+    if path.exists() and path.read_bytes() != payload:
+        raise ValueError(f"static atlas asset collision: {path.name}")
+
+
+def static_map_optional_controller_paths(document_path: Path) -> tuple[Path, ...]:
+    """Read the exact distributed code reference for bundle inventory closure."""
+    document_path = document_path.absolute()
+    if (
+        document_path.resolve(strict=True) != document_path
+        or not document_path.is_file()
+        or document_path.stat().st_nlink != 1
+    ):
+        raise ValueError("static map inventory requires a physical document")
+    bootstraps = list(_BOOTSTRAP.finditer(document_path.read_text(encoding="utf-8")))
+    if len(bootstraps) != 1:
+        raise ValueError("static map inventory requires one bootstrap")
+    bootstrap = json.loads(bootstraps[0].group(2))
+    if not isinstance(bootstrap, dict) or not isinstance(
+        bootstrap.get("runtime", {}), dict
+    ):
+        raise ValueError("static map runtime identity is invalid")
+    runtime = bootstrap.get("runtime", {})
+    if "optional_controllers" not in runtime:
+        return ()
+    optional = runtime["optional_controllers"]
+    if not isinstance(optional, dict) or set(optional) != {"evidence_tools"}:
+        raise ValueError("static map optional controller identity is invalid")
+    reference = optional["evidence_tools"]
+    if not isinstance(reference, dict) or not isinstance(reference.get("path"), str):
+        raise ValueError("static map optional controller identity is invalid")
+    name = reference["path"]
+    if not re.fullmatch(
+        re.escape(document_path.stem) + r"\.atlas-evidence-tools\.[a-f0-9]{16}\.js",
+        name,
+    ):
+        raise ValueError("static map optional controller path is invalid")
+    path = document_path.parent / name
+    if path.is_symlink() or not path.is_file() or path.stat().st_nlink != 1:
+        raise ValueError("static map optional controller must be an unaliased file")
+    payload = path.read_bytes()
+    _, actual = _code_reference(
+        path.parent, document_path.stem, "atlas-evidence-tools", payload
+    )
+    if reference != actual or not 0 < len(payload) <= ATLAS_DOCUMENT_MAX_BYTES:
+        raise ValueError("static map optional controller bytes differ")
+    return (path,)
 
 
 def write_static_map_document(
@@ -184,11 +295,12 @@ def write_static_map_document(
     *,
     native_lra: dict[str, Any] | None = None,
 ) -> tuple[Path, Path]:
-    """Write bounded HTML and its unchanged main IIFE as one immutable sidecar.
+    """Write bounded HTML, main IIFE and lazily requested evidence tools.
 
     Runtime identity belongs to the distributed document, outside scientific
     chunk identities. HTTP(S) uses SRI; file transport has no pre-execution SRI,
-    matching the existing offline policy. Callers must inventory both paths.
+    matching the existing offline policy. The return remains HTML/main runtime;
+    bundle inventories must also include the declared optional controller path.
     """
     output = output_path.absolute()
     parent = output.parent
@@ -220,15 +332,13 @@ def write_static_map_document(
     match = re.fullmatch(r"\s*<script>(.*)</script>\s*", marked, re.DOTALL)
     if match is None:
         raise ValueError("static map runtime boundary is invalid")
-    body = match.group(1).encode("utf-8")
-    _runtime_resources(static_assets, len(body), document)
-    digest = hashlib.sha256(body).digest()
-    runtime = parent / f"{output.stem}.atlas-runtime.{digest.hex()[:16]}.js"
-    reference = {
-        "path": runtime.name,
-        "byte_count": len(body),
-        "integrity": "sha256-" + base64.b64encode(digest).decode("ascii"),
-    }
+    body, evidence_body = _separate_evidence_tools(match.group(1))
+    _runtime_resources(static_assets, len(body), document, len(evidence_body))
+    runtime, reference = _code_reference(parent, output.stem, "atlas-runtime", body)
+    evidence, evidence_reference = _code_reference(
+        parent, output.stem, "atlas-evidence-tools", evidence_body
+    )
+    reference["optional_controllers"] = {"evidence_tools": evidence_reference}
     document = before + _RUNTIME_LOADER + after
     bootstraps = list(_BOOTSTRAP.finditer(document))
     if (
@@ -244,8 +354,9 @@ def write_static_map_document(
         raise ValueError("static atlas runtime bootstrap exceeds its byte budget")
     document = document[: bootstrap.start(2)] + encoded + document[bootstrap.end(2) :]
     validate_static_atlas_document(document)
-    if runtime.is_symlink() or (runtime.exists() and runtime.stat().st_nlink != 1):
-        raise ValueError("static map runtime must be an unaliased immutable file")
+    _check_code_target(runtime, body)
+    _check_code_target(evidence, evidence_body)
     write_immutable(runtime, body)
+    write_immutable(evidence, evidence_body)
     output.write_text(document, encoding="utf-8")
     return output, runtime
