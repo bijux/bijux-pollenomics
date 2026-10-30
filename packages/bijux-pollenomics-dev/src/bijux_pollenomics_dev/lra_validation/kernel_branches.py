@@ -6,6 +6,9 @@ Peatland regionCutoff arguments 999999/1000000/1000001 m cross din-dout/din.
 The latter argument is used literally, without resolving the source's differing
 documentation and distance use. Source negatives, warnings and nonfinite return
 values remain visible. Matching NaNs are source behavior, not finite success.
+An explicit separate minimum-lake population checks one paired domain refusal
+at diameter 5 m and two finite scalar comparisons at 6/7 m, without extending
+the default 30-case population or counting a refusal as numerical success.
 """
 
 from __future__ import annotations
@@ -34,7 +37,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
     require_absent_artifact_output,
 )
 from bijux_pollenomics_lra.dispersal import kernels, loess, rounding
-from bijux_pollenomics_lra.models import validation
+from bijux_pollenomics_lra.models import errors, validation
 
 METHODS = (
     "lsm unstable",
@@ -47,6 +50,10 @@ RTOL, ATOL = 1e-10, 3e-10
 TIME_LIMIT = 60.0
 OUTPUT_LIMIT = 1024 * 1024
 LOCK = "configs/ci/lra-r-source-lock.v1.json"
+DEFAULT_POPULATION = "kernel-boundaries"
+MINIMUM_LAKE_POPULATION = "minimum-lake-diameter"
+R_DOMAIN_ERROR = "wrong sign in 'by' argument"
+PYTHON_DOMAIN_ERROR = "ValidationError: The source lake integration requires a basin diameter of at least 6 m"
 _NUMBER = re.compile(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?\Z")
 
 
@@ -61,8 +68,17 @@ class KernelCase:
     wind_speed_m_s: int = 3
 
 
-def cases() -> tuple[KernelCase, ...]:
+def cases(population: str = DEFAULT_POPULATION) -> tuple[KernelCase, ...]:
     """The source-derived matrix is fixed before any numerical evaluation."""
+    if population == MINIMUM_LAKE_POPULATION:
+        return tuple(
+            KernelCase(
+                f"lake-d{d}-c100000-gpm_neutral", "lake", d, 100000, "gpm neutral"
+            )
+            for d in (5, 6, 7)
+        )
+    if population != DEFAULT_POPULATION:
+        raise ValueError("Unknown kernel population")
     return tuple(
         KernelCase(
             f"{basin}-d{diameter}-c{cutoff}-{method.replace(' ', '_')}",
@@ -115,9 +131,11 @@ def compare(reference: str, actual: float) -> dict[str, Any]:
     }
 
 
-def python_values(deadline: float) -> list[dict[str, Any]]:
+def python_values(
+    deadline: float, population: str = DEFAULT_POPULATION
+) -> list[dict[str, Any]]:
     values = []
-    for case in cases():
+    for case in cases(population):
         if time.monotonic() >= deadline:
             raise TimeoutError("Kernel comparison exceeded its total deadline")
         row: dict[str, Any] = {"status": "error", "value": "", "error": ""}
@@ -145,7 +163,12 @@ def python_values(deadline: float) -> list[dict[str, Any]]:
     return values
 
 
-def r_script(library: Path, output: Path, lock: dict[str, Any]) -> str:
+def r_script(
+    library: Path,
+    output: Path,
+    lock: dict[str, Any],
+    population: str = DEFAULT_POPULATION,
+) -> str:
     """Call the installed original function; never copy or redefine its body."""
     literal = json.dumps
     # DESCRIPTION versions are literal lock identities. numeric_version display
@@ -170,8 +193,16 @@ def r_script(library: Path, output: Path, lock: dict[str, Any]) -> str:
             )
         )
         + ")"
-        for c in cases()
+        for c in cases(population)
     )
+    native_contract = 'all(result$status=="returned")'
+    if population == MINIMUM_LAKE_POPULATION:
+        native_contract = (
+            'identical(result$status,c("error","returned","returned")) && '
+            'result$length[1]==0 && result$value[1]=="" && '
+            f"result$error[1]=={literal(R_DOMAIN_ERROR)} && "
+            "all(is.finite(as.numeric(result$value[2:3])))"
+        )
     return f"""options(digits=17,warn=1)
 library_path <- {literal(str(library))}
 out <- {literal(str(output))}
@@ -202,11 +233,11 @@ run_case <- function(id,basin,diameter,cutoff,method) {{
 {calls}
 result <- do.call(rbind,rows)
 write.csv(result,file.path(out,"r-values.csv"),row.names=FALSE,na="NA")
-quit(status=if(all(result$status=="returned"))0L else 1L)
+quit(status=if({native_contract})0L else 1L)
 """
 
 
-def read_r(path: Path) -> list[dict[str, str]]:
+def read_r(path: Path, population: str = DEFAULT_POPULATION) -> list[dict[str, str]]:
     with path.open(newline="") as handle:
         reader = csv.DictReader(handle)
         if reader.fieldnames != [
@@ -219,7 +250,7 @@ def read_r(path: Path) -> list[dict[str, str]]:
         ]:
             raise ValueError("R output columns differ")
         rows = list(reader)
-    if [row["case_id"] for row in rows] != [case.case_id for case in cases()]:
+    if [row["case_id"] for row in rows] != [case.case_id for case in cases(population)]:
         raise ValueError("R output population/order differs")
     if any(None in row or any(v is None for v in row.values()) for row in rows):
         raise ValueError("R output row shape differs")
@@ -227,10 +258,12 @@ def read_r(path: Path) -> list[dict[str, str]]:
 
 
 def comparison_rows(
-    raw: list[dict[str, str]], python: list[dict[str, Any]]
+    raw: list[dict[str, str]],
+    python: list[dict[str, Any]],
+    population: str = DEFAULT_POPULATION,
 ) -> list[dict[str, Any]]:
     result = []
-    for case, r, p in zip(cases(), raw, python, strict=True):
+    for case, r, p in zip(cases(population), raw, python, strict=True):
         row = asdict(case) | {
             "r_value": r["value"],
             "python_value": repr(p["value"]),
@@ -249,12 +282,31 @@ def comparison_rows(
         }
         if r["case_id"] != case.case_id:
             raise ValueError("R case identity differs")
-        if (
+        refusal = population == MINIMUM_LAKE_POPULATION and case.diameter_m == 5
+        if refusal:
+            row["passed"] = (
+                r["status"] == p["status"] == "error"
+                and r["length"] == "0"
+                and r["value"] == p["value"] == ""
+                and r["error"] == R_DOMAIN_ERROR
+                and p["error"] == PYTHON_DOMAIN_ERROR
+            )
+        elif (
             r["status"] == p["status"] == "returned"
             and r["length"] == "1"
             and not r["error"]
         ):
             row.update(compare(r["value"], p["value"]))
+        if population == MINIMUM_LAKE_POPULATION:
+            if not refusal:
+                row["passed"] = (
+                    row["passed"] and row["r_kind"] == row["python_kind"] == "finite"
+                )
+            expected = "paired_refusal" if refusal else "finite_comparison"
+            row.update(
+                expected_outcome=expected,
+                outcome=expected if row["passed"] else "failed",
+            )
         result.append(row)
     return result
 
@@ -269,6 +321,7 @@ def _source(repository: Path) -> tuple[str, dict[str, Any]]:
         (kernels, root + "dispersal/kernels.py"),
         (loess, root + "dispersal/loess.py"),
         (rounding, root + "dispersal/rounding.py"),
+        (errors, root + "models/errors.py"),
         (validation, root + "models/validation.py"),
     )
     paths = [LOCK, root + "resources/data/lsm_models.npz"]
@@ -304,7 +357,13 @@ def _source(repository: Path) -> tuple[str, dict[str, Any]]:
     return revision, lock
 
 
-def execute(repository: Path, library: Path, rscript: Path, output: Path) -> int:
+def execute(
+    repository: Path,
+    library: Path,
+    rscript: Path,
+    output: Path,
+    population: str = DEFAULT_POPULATION,
+) -> int:
     """Use one existing library/batch; preserve raw failures and guard actual source."""
     started = time.monotonic()
     deadline = started + TIME_LIMIT
@@ -320,9 +379,9 @@ def execute(repository: Path, library: Path, rscript: Path, output: Path) -> int
     )
     terminal = 1
     try:
-        python = python_values(deadline)
+        python = python_values(deadline, population)
         script = output / "oracle-command.R"
-        script.write_text(r_script(library, output, lock))
+        script.write_text(r_script(library, output, lock, population))
         environment = {
             "R_LIBS_USER": str(library),
             "R_LIBS_SITE": "",
@@ -350,7 +409,9 @@ def execute(repository: Path, library: Path, rscript: Path, output: Path) -> int
             f"r_exit={completed.returncode} timed_out={completed.timed_out} r_seconds={completed.duration_seconds}",
             flush=True,
         )
-        rows = comparison_rows(read_r(output / "r-values.csv"), python)
+        rows = comparison_rows(
+            read_r(output / "r-values.csv", population), python, population
+        )
         with (output / "comparison.csv").open("x", newline="") as handle:
             writer = csv.DictWriter(
                 handle, fieldnames=list(rows[0]), lineterminator="\n"
@@ -366,6 +427,12 @@ def execute(repository: Path, library: Path, rscript: Path, output: Path) -> int
             f"cases={len(rows)} passed={sum(row['passed'] for row in rows)} rtol={RTOL} atol={ATOL}",
             flush=True,
         )
+        if population == MINIMUM_LAKE_POPULATION:
+            print(
+                f"population={population} numerical_matches={sum(r['outcome'] == 'finite_comparison' for r in rows)} "
+                f"paired_refusals={sum(r['outcome'] == 'paired_refusal' for r in rows)}",
+                flush=True,
+            )
     except (ValueError, OSError, TimeoutError, RuntimeError) as error:
         print(f"failure={type(error).__name__}: {error}", flush=True)
     finally:
@@ -390,6 +457,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     for name in ("repository", "library", "rscript", "output"):
         parser.add_argument("--" + name, required=True, type=Path)
+    parser.add_argument(
+        "--population",
+        choices=(DEFAULT_POPULATION, MINIMUM_LAKE_POPULATION),
+        default=DEFAULT_POPULATION,
+    )
     args = parser.parse_args()
     if args.repository.absolute().resolve(strict=True) != args.repository.absolute():
         raise ValueError("Physical repository required")
@@ -399,6 +471,7 @@ def main() -> None:
             args.library.absolute(),
             args.rscript.absolute(),
             args.output.absolute(),
+            args.population,
         )
     )
 

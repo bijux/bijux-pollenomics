@@ -263,6 +263,8 @@ def test_generated_r_admission_accepts_only_real_scalars_without_calling_kernels
     control = f"""guard <- function(value){{error <- "";{expression}}}
 values <- list(.25,1L,NA_real_,NaN,Inf,-.25,matrix(1,1,1),array(1,c(1,1,1)),1+1i,TRUE,"1",list(1),numeric(0))
 stopifnot(identical(vapply(values,guard,logical(1)),c(rep(TRUE,6),rep(FALSE,7))))
+message <- tryCatch(seq(from=2,to=1.5,by=2),error=conditionMessage)
+stopifnot(identical(message,{json.dumps(subject.R_DOMAIN_ERROR)}))
 cat("Real scalar guard passed; no source package or kernel was invoked.\\n")"""
     result = subprocess.run(
         [rscript, "--vanilla", "-e", control],
