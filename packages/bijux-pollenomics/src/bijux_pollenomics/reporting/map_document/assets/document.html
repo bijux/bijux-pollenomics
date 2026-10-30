@@ -2294,6 +2294,10 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                     <summary>Retained relation country counts</summary>
                     <div id="relation-country-summary"></div>
                   </details>
+                  <details>
+                    <summary>Retained relation endpoint ages</summary>
+                    <div id="relation-time-summary"></div>
+                  </details>
                   <label class="chip-toggle">
                     <input id="cross-border-only" type="checkbox" aria-label="Show cross-border candidate relations only">
                     <span class="chip-swatch" style="background:rgba(124,58,237,0.18);border-color:#6d28d9;"></span>
@@ -6931,6 +6935,7 @@ __URL_STATE_CONTROLLER__
       let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
       __EDGE_DISPLAY_CONTROLLER__
       __RELATION_SUMMARY_CONTROLLER__
+      __RELATION_TIME_SUMMARY_CONTROLLER__
       function renderRelationCountrySummary() {
         const container = document.getElementById('relation-country-summary');
         if (!container) return;
@@ -7339,6 +7344,7 @@ __URL_STATE_CONTROLLER__
         emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
         syncHashState();
         renderRelationCountrySummary();
+        document.getElementById('relation-time-summary').innerHTML = renderRelationTimeSummary(relationTimeSummaryData(visibleGovernedEdges()));
         if (document.documentElement.classList.contains('atlas-capture-mode') && atlasCapturePresentation !== null) {
           renderAtlasCaptureOverlay(atlasCaptureSnapshot());
         }
