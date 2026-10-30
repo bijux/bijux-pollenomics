@@ -220,6 +220,17 @@ bound and a value strictly inside it. These necessary inequalities are
 compatible with some covariance; we did not identify the archived covariance
 or replay the paper's delta-method uncertainty.
 
+We then checked whether those groups could share
+[one covariance with a constant LCT total](publication-correspondence/pft-crosswalk/README.md#can-the-groups-share-one-closed-total-covariance).
+Of 8,031 assessed native rows, 2,420 satisfy that conditional partial-tree
+model and 5,611 do not. All assessed rows pass the five local bounds; every
+joint failure violates the additional zero-total constraint. We retain
+2,467 all-zero rows and two negative-mean refusals separately. Independent
+exact covariance calculations confirm the complete population and all
+8,080 diagnostics. The source's proportional-unit description and apparent
+archive percentage scale remain explicit. This is a covariance-consistency
+diagnostic, not a recovered historical covariance or full 31-taxon admission.
+
 We recorded that [the paper's Sect. 3.2](https://essd.copernicus.org/articles/14/1581/2022/)
 assigns deciduous Quercus type to TBS while the archive's
 `Quercus.deciduous` mean contributes to `ISTS`. We keep this
@@ -302,11 +313,11 @@ rights, formal CRS and historical time support still need resolution.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Released author examples correspond numerically while exact TW2 archive and PFT differences are retained. A source-bound cached-feature census classifies 76 workbooks and retains three header refusals.
+**Supported claim.** Released author examples correspond numerically while exact TW2 archive and PFT differences are retained. A source-bound cached-feature census classifies 76 workbooks and retains three header refusals. Conditional partial-tree covariance consistency separates 2,420 feasible and 5,611 infeasible archived rows.
 
 **Unsupported claim.** Full ESSD paper reproduction, source-causal diagnosis or ecological accuracy.
 
-**Actual verification performed.** Existing author replay, archive-window and PFT ledgers are synthesized. The new 79-workbook cached-feature census returned 0; independent classification checks 472,460 feature cells, every row partition/anomaly index and EKE controls using the same xlrd parser. No model or R replay was performed by this census.
+**Actual verification performed.** Existing author replay, archive-window and PFT ledgers are synthesized. The new 79-workbook cached-feature census returned 0; independent classification checks 472,460 feature cells, every row partition/anomaly index and EKE controls using the same xlrd parser. No model or R replay was performed by this census. The actual joint PFT consumer at dd3766f16 and an independent exact covariance calculation agree on all 10,500 source rows and 8,080 diagnostics; this does not reproduce the historical delta method.
 
 **Remaining input or review.** Two-grid example parity is strong, but 1,128 historical inputs, archive PFT/covariance producer, nonmatching windows, source rights and independent ecological comparison remain open. Resolver: LandClim paper/archive producer and qualified taxon, chronology and ecology reviewers Reopen when: A versioned historical row and output transform with rights allow source-bound archive replay and separate reference pairing.
 
@@ -320,7 +331,7 @@ rights, formal CRS and historical time support still need resolution.
 
 **Matched denominator.** 14,074 supported example mean/SE values; 79 Rootsi metadata candidates among 1,128 records, zero reproduction-ready historical rows; 10,500 archived grid/window rows. Census: 5,170 mechanical rows across 79 workbooks; 4,869 rows classified in 76 workbooks, 301 rows unclassified in three.
 
-Retained evidence: [docs/report/pollen-reconstruction/paper-correspondence.csv](../../docs/report/pollen-reconstruction/paper-correspondence.csv), [reports/science/publication-correspondence/pft-crosswalk/README.md](publication-correspondence/pft-crosswalk/README.md), [reports/science/publication-correspondence/rootsi-feature-census/report.json](publication-correspondence/rootsi-feature-census/report.json).
+Retained evidence: [docs/report/pollen-reconstruction/paper-correspondence.csv](../../docs/report/pollen-reconstruction/paper-correspondence.csv), [reports/science/publication-correspondence/pft-crosswalk/README.md](publication-correspondence/pft-crosswalk/README.md), [reports/science/publication-correspondence/rootsi-feature-census/report.json](publication-correspondence/rootsi-feature-census/report.json), [reports/science/publication-correspondence/pft-crosswalk/joint-covariance/report.json](publication-correspondence/pft-crosswalk/joint-covariance/report.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

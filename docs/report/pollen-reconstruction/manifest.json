@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "b64f8c5a8b4489aa59651b6169105eb2eacb02d34c245fc94939f2e655bc1401",
-      "bytes": 7384832
+      "sha256": "fd7f9d550b6c53be5575e22aac36ffcfe852ae2eac82a2397c59a2154e323cd9",
+      "bytes": 7385618
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5293,6 +5293,21 @@
       "path": "reports/science/publication-correspondence/rootsi-feature-census/report.json",
       "sha256": "4a1b0834f41446a3ddbfbd992fa5f2d0572c95a49d008402c1fa935c2cafe40d",
       "bytes": 183486
+    },
+    {
+      "path": "reports/science/chronology/abborrtjarne-joint-prediction-age-sensitivity.json",
+      "sha256": "8f226e0e118b2a38312421973646d3de13d75852b8238c42b560469dede5247f",
+      "bytes": 111667
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/joint-covariance/refusals.csv",
+      "sha256": "c5bccd0e2fe939cb8300e52a1ea405fa7230f267d07b5d8254c2d38bc4b6f742",
+      "bytes": 2419760
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/joint-covariance/report.json",
+      "sha256": "692d3f384df5835f1836c5491291a971f1171b9bc68575acbb77f6ba38b5d3fe",
+      "bytes": 56054
     }
   ],
   "maintained_paths": [
@@ -5568,6 +5583,9 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/workflow.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_covariance/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_covariance/archive.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_covariance/lengths.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_crosswalk.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_uncertainty_bounds.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/__init__.py",
@@ -5709,10 +5727,13 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne_joint_prediction_sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne_prediction_sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/count_fraction.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/domains.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/extrema.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/joint_allocations.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/joint_prediction_sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/prediction_sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_sensitivity.py",

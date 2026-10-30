@@ -1,0 +1,2099 @@
+{
+  "schema_version": "landclim-partial-joint-covariance.v1",
+  "question": "Do exact archived PFT/LCT SEs admit one PSD covariance for the five declared partial sum identities plus a conditional constant ET+ST+OL total?",
+  "source_git_revision": "dd3766f1699cbdf198a6f12e631ed47e7314da84",
+  "command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-B",
+    "-m",
+    "bijux_pollenomics_dev.essd_reproduction.pft_covariance.archive",
+    "--repository",
+    "/Users/bijan/bijux/bijux-pollenomics",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/pft-joint-covariance"
+  ],
+  "inputs": [
+    {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "bytes": 4007032,
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "path": "data/landclim/raw/landclim_sources.json",
+      "bytes": 4880,
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    }
+  ],
+  "source": "PANGAEA 937075, June 2021 native results; https://doi.pangaea.de/10.1594/PANGAEA.937075",
+  "source_grid_window_rows": 10500,
+  "populations": {
+    "mean_total_near_hundred": 8031,
+    "conditional_point_covariance_feasible": 2420,
+    "conditional_point_covariance_infeasible": 5611,
+    "native_all_zero": 2467,
+    "negative_native_value": 2
+  },
+  "coordinate_rows": {
+    "matched_finite": 10350,
+    "matched_missing": 150
+  },
+  "groups": {
+    "ET": [
+      "TBE1",
+      "TBE2",
+      "IBE",
+      "MTBE",
+      "TSE",
+      "MTSE"
+    ],
+    "ST": [
+      "IBS",
+      "ISTS",
+      "TBS",
+      "TSD"
+    ],
+    "OL": [
+      "LSE",
+      "GL",
+      "AL"
+    ],
+    "ISTS": [
+      "Corylus.avellana",
+      "Fraxinus",
+      "Quercus.deciduous"
+    ],
+    "TBS": [
+      "Carpinus.betulus",
+      "Carpinus.orientalis",
+      "Castanea",
+      "Fagus.sylvatica",
+      "Tilia",
+      "Ulmus"
+    ],
+    "declared_constant_total": [
+      "ET",
+      "ST",
+      "OL"
+    ]
+  },
+  "ungrouped_taxon_variables": [
+    "Abies.alba",
+    "Alnus.glutinosa",
+    "Amanranthaceae.Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus.sempervirens",
+    "Calluna.vulgaris",
+    "Cerealia.t",
+    "Cyperaceae",
+    "Ericaceae",
+    "Filipendula",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago.lanceolata.type",
+    "Poaceae",
+    "Quercus.evergreen",
+    "Rumex.acetosa.t",
+    "Salix",
+    "Secale"
+  ],
+  "windows": [
+    {
+      "window": 1,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 307,
+        "conditional_point_covariance_feasible": 90,
+        "conditional_point_covariance_infeasible": 217,
+        "native_all_zero": 113
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-48900863386782533/250000000000000",
+          "upper": "856538839833059/250000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "11/100000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "4950000000001089/50000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "1089/50000000000000",
+          "within_existing_mean_threshold": 307
+        }
+      }
+    },
+    {
+      "window": 2,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 326,
+        "conditional_point_covariance_infeasible": 235,
+        "conditional_point_covariance_feasible": 91,
+        "native_all_zero": 94
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-160254825526456937/1000000000000000",
+          "upper": "4308324839880079/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "13/100000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000151/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "151/10000000000000",
+          "within_existing_mean_threshold": 326
+        }
+      }
+    },
+    {
+      "window": 3,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 362,
+        "conditional_point_covariance_feasible": 113,
+        "conditional_point_covariance_infeasible": 249,
+        "native_all_zero": 58
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-405392806185453/2500000000000",
+          "upper": "2140238210511279/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "157/1000000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "198000000000037/2000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "37/2000000000000",
+          "within_existing_mean_threshold": 362
+        }
+      }
+    },
+    {
+      "window": 4,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 365,
+        "conditional_point_covariance_infeasible": 261,
+        "conditional_point_covariance_feasible": 104,
+        "native_all_zero": 54,
+        "negative_native_value": 1
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-38209763033247711/250000000000000",
+          "upper": "3378889484965317/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "3/25000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 419,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "4950000000000939/50000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 419,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "939/50000000000000",
+          "within_existing_mean_threshold": 365
+        }
+      }
+    },
+    {
+      "window": 5,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 376,
+        "conditional_point_covariance_infeasible": 269,
+        "conditional_point_covariance_feasible": 107,
+        "native_all_zero": 44
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-157801550307241989/1000000000000000",
+          "upper": "764226420789049/250000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "7/50000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000229/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "229/10000000000000",
+          "within_existing_mean_threshold": 376
+        }
+      }
+    },
+    {
+      "window": 6,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 376,
+        "conditional_point_covariance_infeasible": 253,
+        "conditional_point_covariance_feasible": 123,
+        "native_all_zero": 44
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-18575735349544029/100000000000000",
+          "upper": "18942671690972477/5000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "7/50000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "1980000000000393/20000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "393/20000000000000",
+          "within_existing_mean_threshold": 376
+        }
+      }
+    },
+    {
+      "window": 7,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 369,
+        "conditional_point_covariance_infeasible": 268,
+        "conditional_point_covariance_feasible": 101,
+        "native_all_zero": 51
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-48668555631348383/250000000000000",
+          "upper": "234618043315141/78125000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "37/250000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "1237500000000209/12500000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "209/12500000000000",
+          "within_existing_mean_threshold": 369
+        }
+      }
+    },
+    {
+      "window": 8,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 370,
+        "conditional_point_covariance_infeasible": 282,
+        "native_all_zero": 50,
+        "conditional_point_covariance_feasible": 88
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-7895530502449569/40000000000000",
+          "upper": "27186305397011651/10000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "39/250000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "2475000000000767/25000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "767/25000000000000",
+          "within_existing_mean_threshold": 370
+        }
+      }
+    },
+    {
+      "window": 9,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 369,
+        "conditional_point_covariance_infeasible": 267,
+        "conditional_point_covariance_feasible": 102,
+        "native_all_zero": 51
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-386035553269581/1953125000000",
+          "upper": "2173639014537313/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "113/1000000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000231/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "231/10000000000000",
+          "within_existing_mean_threshold": 369
+        }
+      }
+    },
+    {
+      "window": 10,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 360,
+        "conditional_point_covariance_infeasible": 265,
+        "conditional_point_covariance_feasible": 95,
+        "native_all_zero": 60
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-198822205198408479/1000000000000000",
+          "upper": "19540096144550513/10000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "163/1000000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "1237500000000307/12500000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "307/12500000000000",
+          "within_existing_mean_threshold": 360
+        }
+      }
+    },
+    {
+      "window": 11,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 356,
+        "conditional_point_covariance_infeasible": 256,
+        "conditional_point_covariance_feasible": 100,
+        "native_all_zero": 64
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-7721139519702919/50000000000000",
+          "upper": "1228445989976607/625000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "69/500000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "12375000000003/125000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "3/125000000000",
+          "within_existing_mean_threshold": 356
+        }
+      }
+    },
+    {
+      "window": 12,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 351,
+        "conditional_point_covariance_infeasible": 257,
+        "conditional_point_covariance_feasible": 94,
+        "native_all_zero": 68,
+        "negative_native_value": 1
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-197524999366051983/1000000000000000",
+          "upper": "4404676140805001/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "1/7812500000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 419,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "4950000000000941/50000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 419,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "941/50000000000000",
+          "within_existing_mean_threshold": 351
+        }
+      }
+    },
+    {
+      "window": 13,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 354,
+        "conditional_point_covariance_infeasible": 241,
+        "conditional_point_covariance_feasible": 113,
+        "native_all_zero": 66
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-200569309750346691/1000000000000000",
+          "upper": "797182124424207/250000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "147/1000000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "9900000000002599/100000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "2599/100000000000000",
+          "within_existing_mean_threshold": 354
+        }
+      }
+    },
+    {
+      "window": 14,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 341,
+        "conditional_point_covariance_feasible": 106,
+        "native_all_zero": 79,
+        "conditional_point_covariance_infeasible": 235
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-20274965877492459/100000000000000",
+          "upper": "220649250160169/125000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "87/500000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000179/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "179/10000000000000",
+          "within_existing_mean_threshold": 341
+        }
+      }
+    },
+    {
+      "window": 15,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 326,
+        "conditional_point_covariance_infeasible": 229,
+        "conditional_point_covariance_feasible": 97,
+        "native_all_zero": 94
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-594689977886627/3125000000000",
+          "upper": "794085166428193/250000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "3/25000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "9900000000001543/100000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "1543/100000000000000",
+          "within_existing_mean_threshold": 326
+        }
+      }
+    },
+    {
+      "window": 16,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 317,
+        "conditional_point_covariance_feasible": 95,
+        "native_all_zero": 103,
+        "conditional_point_covariance_infeasible": 222
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-16775551449293361/100000000000000",
+          "upper": "1650097775263841/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "37/200000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "9900000000002753/100000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "2753/100000000000000",
+          "within_existing_mean_threshold": 317
+        }
+      }
+    },
+    {
+      "window": 17,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 308,
+        "conditional_point_covariance_feasible": 105,
+        "native_all_zero": 112,
+        "conditional_point_covariance_infeasible": 203
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-7638369113619317/50000000000000",
+          "upper": "1122645776713647/500000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "151/1000000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "4950000000000877/50000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "877/50000000000000",
+          "within_existing_mean_threshold": 308
+        }
+      }
+    },
+    {
+      "window": 18,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 303,
+        "conditional_point_covariance_feasible": 87,
+        "conditional_point_covariance_infeasible": 216,
+        "native_all_zero": 117
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-147845068340899039/1000000000000000",
+          "upper": "20322645357905469/25000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "31/250000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000147/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "147/10000000000000",
+          "within_existing_mean_threshold": 303
+        }
+      }
+    },
+    {
+      "window": 19,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 294,
+        "conditional_point_covariance_infeasible": 209,
+        "conditional_point_covariance_feasible": 85,
+        "native_all_zero": 126
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-3502366565575663/20000000000000",
+          "upper": "469981014799907/250000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "127/1000000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "198000000000033/2000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "33/2000000000000",
+          "within_existing_mean_threshold": 294
+        }
+      }
+    },
+    {
+      "window": 20,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 284,
+        "conditional_point_covariance_infeasible": 181,
+        "native_all_zero": 136,
+        "conditional_point_covariance_feasible": 103
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-12287569981665491/62500000000000",
+          "upper": "1156309740346647/500000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "13/100000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000239/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "239/10000000000000",
+          "within_existing_mean_threshold": 284
+        }
+      }
+    },
+    {
+      "window": 21,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 275,
+        "conditional_point_covariance_infeasible": 181,
+        "conditional_point_covariance_feasible": 94,
+        "native_all_zero": 145
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-16985007679526697/100000000000000",
+          "upper": "2566853053367067/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "13/100000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000153/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "153/10000000000000",
+          "within_existing_mean_threshold": 275
+        }
+      }
+    },
+    {
+      "window": 22,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 262,
+        "conditional_point_covariance_feasible": 100,
+        "conditional_point_covariance_infeasible": 162,
+        "native_all_zero": 158
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-1095752589494753/6250000000000",
+          "upper": "2006561343821079/1250000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "11/100000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000181/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "181/10000000000000",
+          "within_existing_mean_threshold": 262
+        }
+      }
+    },
+    {
+      "window": 23,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 245,
+        "conditional_point_covariance_infeasible": 153,
+        "native_all_zero": 175,
+        "conditional_point_covariance_feasible": 92
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-17907888998175153/100000000000000",
+          "upper": "781488498635028023/50000000000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "11/100000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "4950000000000523/50000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "523/50000000000000",
+          "within_existing_mean_threshold": 245
+        }
+      }
+    },
+    {
+      "window": 24,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 226,
+        "conditional_point_covariance_infeasible": 158,
+        "native_all_zero": 194,
+        "conditional_point_covariance_feasible": 68
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-4521475415882143/25000000000000",
+          "upper": "3623841505030367/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "11/100000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "198000000000037/2000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "37/2000000000000",
+          "within_existing_mean_threshold": 226
+        }
+      }
+    },
+    {
+      "window": 25,
+      "source_grid_rows": 420,
+      "populations": {
+        "mean_total_near_hundred": 209,
+        "conditional_point_covariance_feasible": 67,
+        "native_all_zero": 211,
+        "conditional_point_covariance_infeasible": 142
+      },
+      "coordinate_rows": {
+        "matched_finite": 414,
+        "matched_missing": 6
+      },
+      "ungrouped_taxon_variables": [
+        "Abies.alba",
+        "Alnus.glutinosa",
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Cerealia.t",
+        "Cyperaceae",
+        "Ericaceae",
+        "Filipendula",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pinus",
+        "Pistacia",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Quercus.evergreen",
+        "Rumex.acetosa.t",
+        "Salix",
+        "Secale"
+      ],
+      "minimum_exact_SE_constraint_margins": {
+        "ISTS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "TBS": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ET": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "ST": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "OL": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "declared_constant_total": {
+          "lower": "-17264649671230451/100000000000000",
+          "upper": "3305808348619151/1000000000000000"
+        }
+      },
+      "maximum_absolute_native_mean_identity_residual_exact": "27/250000000000000",
+      "native_lct_total_residuals": {
+        "one": {
+          "rows": 420,
+          "minimum_signed_exact": "-1",
+          "maximum_signed_exact": "990000000000207/10000000000000",
+          "within_existing_mean_threshold": 0
+        },
+        "hundred": {
+          "rows": 420,
+          "minimum_signed_exact": "-100",
+          "maximum_signed_exact": "207/10000000000000",
+          "within_existing_mean_threshold": 209
+        }
+      }
+    }
+  ],
+  "diagnostic_csv": "refusals.csv",
+  "diagnostic_rows": 8080,
+  "native_mean_comparison_threshold_exact": "1/1000000000",
+  "SE_decisions": "Literal source decimal SEs are exact point intervals. PSD feasibility uses exact rational arithmetic and no tolerance, clipping, rescaling or inferred rounding envelope.",
+  "source_admission": "The primary deposit declares proportional closed estimates; native recorded values show percentage-like totals. Both literal residuals to 1 and 100 are retained. Existing 1e-9 mean comparisons qualify only a conditional recorded mean identity, not source units or original covariance production. All-zero native rows remain separate.",
+  "limits": [
+    "The partial tree contains 20 leaves and 5 measured groups plus the declared zero-uncertainty ET+ST+OL total; 22 other taxon uncertainties remain ungrouped. No complete 31-taxon/13-PFT covariance consistency is established.",
+    "The constant-total sum is a conditional interpretation of the published closed estimand. Mean agreement does not authenticate shared draws, missing PFT-producing source or its historical delta-method implementation.",
+    "A feasible partial PSD covariance is not a recovered covariance, calibrated uncertainty or a bounded random composition with the reported means. An exact point failure records its magnitude; unknown source rounding remains unknown.",
+    "Only one common positive unit scale preserves the covariance predicate. No mixed-unit repair, biological ISTS reclassification, historical model rerun, source rights decision, field accuracy or human scientific approval follows.",
+    "Exactly paired native #N/A coordinates are matched missing metadata, never zeros or geographic admission. Finite coordinates must match exactly; covariance consistency makes no spatial claim."
+  ]
+}
