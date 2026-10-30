@@ -31,6 +31,10 @@ from .source_roles.numerical_precision import (
     METRICS_SOURCE,
     validated_hellinger_precision_source,
 )
+from .source_roles.propagation_qualification import (
+    PROPAGATION_QUALIFICATION_SOURCE,
+    validated_propagation_qualification_source,
+)
 from .source_roles.readers import (
     SWEDISH_REFERENCE_READER_SOURCE,
     _historical_custody_source_role,
@@ -533,6 +537,10 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if name == PROPAGATION_QUALIFICATION_SOURCE:
+        return validated_propagation_qualification_source(
+            repository, historical, logical, source_buffer
+        )
     if name in SEAD_JOIN_IDENTITY_SOURCES:
         return validated_declared_join_identity_source(
             repository, historical, logical, source_buffer
