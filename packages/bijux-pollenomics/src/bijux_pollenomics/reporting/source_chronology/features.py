@@ -6,12 +6,17 @@ from bijux_pollenomics.analysis.propagation.source_chronology import (
     SourceChronologyNode,
 )
 from bijux_pollenomics.core.geospatial.geojson import JsonObject
+from bijux_pollenomics.core.temporal_semantics import canonical_bp_interval
 
 from .facets import COUNTRY_NAMES, source_ecological_code_label
 
 
 def build_atlas_feature(node: SourceChronologyNode) -> JsonObject:
     """Project one validated source node without introducing event semantics."""
+    if canonical_bp_interval(node.younger_bp, node.older_bp) is None:
+        raise ValueError(
+            "source chronology feature requires a selected numeric interval"
+        )
     code = node.source_ecological_group
     name = node.source_reported_name
     title = (
@@ -53,6 +58,19 @@ def build_atlas_feature(node: SourceChronologyNode) -> JsonObject:
         "time_start_bp": node.younger_bp,
         "time_end_bp": node.older_bp,
         "time_label": _time_label(node.younger_bp, node.older_bp),
+        "temporal_semantics": {
+            "schema_version": "temporal-semantics.v1",
+            "comparability_posture": "numeric_interval_with_caveat",
+            "evidence_class": "source_selected_sample_chronology",
+            "precision_posture": "source_reported_interval",
+            "time_start_bp": node.younger_bp,
+            "time_end_bp": node.older_bp,
+            "chronology_claim_id": node.chronology_claim_id,
+            "comparison_note": (
+                "Selected comparable source sample age only; no harmonized event "
+                "or propagation admission."
+            ),
+        },
         "provenance_record_id": node.provenance_record_id,
         "input_digest": node.input_digest,
         "coordinate_quality": node.coordinate_quality,

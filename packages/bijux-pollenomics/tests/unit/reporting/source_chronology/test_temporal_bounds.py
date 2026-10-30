@@ -5,7 +5,13 @@ from __future__ import annotations
 import pytest
 
 from bijux_pollenomics.reporting.map_document.state import build_map_document_state
+from bijux_pollenomics.reporting.map_document.temporal_admission import (
+    feature_temporal_admission,
+)
 from bijux_pollenomics.reporting.map_publication import MapScopePolicy
+from bijux_pollenomics.reporting.source_chronology.features import build_atlas_feature
+
+from .support import source_result
 
 
 def _policy() -> MapScopePolicy:
@@ -104,3 +110,48 @@ def test_fractional_numbers_without_source_permission_do_not_create_bounds(
     assert not state.has_time_data
     assert state.source_time_bounds_bp is None
     assert feature["time_start_bp"] == 0.75 and feature["time_end_bp"] == 878.26
+
+
+@pytest.mark.parametrize("bounds", [(0, 0), (0.75, 878.26)])
+@pytest.mark.parametrize("source_default", [True, False])
+def test_selected_source_claim_declares_exact_numeric_context(
+    bounds: tuple[int | float, int | float], source_default: bool
+) -> None:
+    result = source_result(
+        younger_bp=bounds[0], older_bp=bounds[1], source_default=source_default
+    )
+    assert len(result.nodes) == 3
+    for node in result.nodes:
+        original = node.as_dict()
+        feature = build_atlas_feature(node)
+        semantics = feature["temporal_semantics"]
+        assert isinstance(semantics, dict)
+        assert semantics["comparability_posture"] == "numeric_interval_with_caveat"
+        assert semantics["chronology_claim_id"] == node.chronology_claim_id
+        assert semantics["time_start_bp"] == feature["time_start_bp"] == bounds[0]
+        assert semantics["time_end_bp"] == feature["time_end_bp"] == bounds[1]
+        assert type(feature["time_start_bp"]) is type(bounds[0])
+        assert type(feature["time_end_bp"]) is type(bounds[1])
+        assert feature_temporal_admission(feature) == ("admitted", bounds)
+        assert feature["is_default_chronology"] is source_default
+        assert feature["chronology_selection_posture"] == (
+            "selected_source_default"
+            if source_default
+            else "selected_unique_nondefault"
+        )
+        assert feature["propagation_eligible"] is False
+        assert feature["candidate_generation_status"] == "refused"
+        assert feature["candidate_refusal_reason"] == node.candidate_refusal_reason
+        assert node.as_dict() == original
+
+
+@pytest.mark.parametrize(
+    ("younger", "older", "comparable"),
+    [(20, 10, True), (-1, 10, True), (False, 10, True), (0, 10, False)],
+)
+def test_invalid_or_refused_source_claim_never_acquires_numeric_feature(
+    younger: float | int, older: float | int, comparable: bool
+) -> None:
+    result = source_result(younger_bp=younger, older_bp=older, comparable=comparable)
+    assert not result.nodes
+    assert result.admission_refusals
