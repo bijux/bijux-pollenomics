@@ -673,7 +673,7 @@ def test_chronology_method_binding_refuses_after_positive_nonpython_baseline(
     if defect == "logical":
         case.logical = "source/" + _MODELS
     elif defect == "hash":
-        case.row["sha256"] = "0" * 64
+        case.buffer.descriptor.members[case.logical]["sha256"] = "0" * 64
     elif defect == "group":
         case.buffer.descriptor.groups[0]["resolved_paths"] = [(case.logical, _MODELS)]
     else:
