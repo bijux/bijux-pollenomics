@@ -143,5 +143,11 @@ def candidate_relation_details(
         "rule_type": "rectangular",
         "maximum_distance_km": scenario.maximum_distance_km,
         "maximum_lag_years": scenario.maximum_lag_years,
+        "event_definition": {
+            "event_type": source.event_type,
+            "threshold_profile_id": source.threshold_profile_id,
+            "measurement_semantics_id": source.measurement_semantics_id,
+            "method_compatibility_key": source.method_compatibility_key,
+        },
         "predicates": checks,
     }

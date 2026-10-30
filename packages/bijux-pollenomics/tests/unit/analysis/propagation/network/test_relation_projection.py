@@ -124,6 +124,12 @@ def test_all_candidate_statuses_explain_only_reached_checks(
     assert details["rule_type"] == "rectangular"
     assert details["maximum_distance_km"] == scenario.maximum_distance_km
     assert details["maximum_lag_years"] == scenario.maximum_lag_years
+    assert details["event_definition"] == {
+        "event_type": source.event_type,
+        "threshold_profile_id": source.threshold_profile_id,
+        "measurement_semantics_id": source.measurement_semantics_id,
+        "method_compatibility_key": source.method_compatibility_key,
+    }
     predicates = details["predicates"]
     assert isinstance(predicates, list)
     assert [item["predicate_id"] for item in predicates] == list(IDS)
@@ -183,6 +189,9 @@ def test_exact_distance_limit_is_inclusive() -> None:
         {"site_id": "foreign-site"},
         {"build_id": "foreign-build"},
         {"measurement_semantics_id": "foreign-measurement"},
+        {"event_type": "derived_first_observed"},
+        {"threshold_profile_id": "foreign-profile"},
+        {"method_compatibility_key": "foreign-method"},
         {"younger_bp": 5800, "older_bp": 5800},
     ],
 )
