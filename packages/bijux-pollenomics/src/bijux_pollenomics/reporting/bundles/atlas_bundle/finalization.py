@@ -25,11 +25,26 @@ def finalize_bundle(
     static_assets: Any,
     build_multi_country_map_summary_fn: Any,
     copy_map_assets_fn: Any,
-    render_multi_country_map_html_fn: Any,
+    write_static_map_document_fn: Any,
     render_multi_country_map_markdown_fn: Any,
     write_summary_json_fn: Any,
     surface: Any,
 ) -> None:
+    """Write the atlas document, inventory its runtime, and finalize bundle reports."""
+    copy_map_assets_fn(staging_output_dir)
+    _, runtime_path = write_static_map_document_fn(
+        output_path=bundle_paths.map_html_path,
+        title=title,
+        version=version,
+        generated_on=generated_on,
+        countries=countries,
+        policy=map_policy,
+        point_layers=point_layers,
+        polygon_layers=polygon_layers,
+        asset_base_path=asset_base_path,
+        static_assets=static_assets,
+    )
+    extra_artifacts.append(("Static atlas runtime", runtime_path.name))
     write_summary_json_fn(
         bundle_paths.bundle_manifest_path,
         surface.build_multi_country_bundle_manifest(
@@ -40,7 +55,6 @@ def finalize_bundle(
             animal_atlas_summary=animal_atlas_summary,
         ),
     )
-    copy_map_assets_fn(staging_output_dir)
     write_summary_json_fn(
         bundle_paths.summary_json_path,
         build_multi_country_map_summary_fn(
@@ -50,20 +64,6 @@ def finalize_bundle(
             map_publication_contract=map_publication_contract,
             animal_atlas_summary=animal_atlas_summary,
         ),
-    )
-    bundle_paths.map_html_path.write_text(
-        render_multi_country_map_html_fn(
-            title=title,
-            version=version,
-            generated_on=generated_on,
-            countries=countries,
-            policy=map_policy,
-            point_layers=point_layers,
-            polygon_layers=polygon_layers,
-            asset_base_path=asset_base_path,
-            static_assets=static_assets,
-        ),
-        encoding="utf-8",
     )
     bundle_paths.readme_path.write_text(
         render_multi_country_map_markdown_fn(

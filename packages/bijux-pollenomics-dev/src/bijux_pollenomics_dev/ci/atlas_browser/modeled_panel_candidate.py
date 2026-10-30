@@ -13,7 +13,7 @@ import shutil
 from typing import Any, cast
 
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
-from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
@@ -183,7 +183,8 @@ def generate_modeled_panel_candidate(
             if scope.key == "nordic"
         )
     )
-    document = render_multi_country_map_html(
+    write_static_map_document(
+        destination / "index.html",
         "Retained PANGAEA modeled panels",
         "retained-pangaea-panel-context",
         "2026-09-28",
@@ -194,7 +195,6 @@ def generate_modeled_panel_candidate(
         "./_map_assets",
         static_assets=assets,
     )
-    (destination / "index.html").write_text(document)
     package = repository / "packages/bijux-pollenomics/src/bijux_pollenomics"
     for domain in ("reporting", "core"):
         for path in sorted((package / domain).rglob("*")):

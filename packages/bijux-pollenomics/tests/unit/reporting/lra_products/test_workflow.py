@@ -323,7 +323,7 @@ def test_signed_report_uses_complete_static_transport_and_bound_support(
     assert len(html.encode()) <= ATLAS_DOCUMENT_MAX_BYTES
     script = '<script src="_map_assets/native-lra.js"></script>'
     assert html.count(script) == 1
-    assert html.index(script) < html.index("(async () => {")
+    assert html.index(script) < html.index("const runtime = JSON.parse")
     assert "function createNativeLraController" not in html
     bootstrap = json.loads(
         html.split('<script id="atlas-static-bootstrap" type="application/json">', 1)[
@@ -334,6 +334,15 @@ def test_signed_report_uses_complete_static_transport_and_bound_support(
     assert bootstrap["load_strategy"] == "selection_aware_static_scripts"
     assert bootstrap["assets"]["schema_version"] == "atlas-static-asset-table.v4"
     assert bootstrap["native_view_sha256"] == manifest["native_view_sha256"]
+    runtime_path = report.directory / bootstrap["runtime"]["path"]
+    runtime = runtime_path.read_bytes()
+    assert manifest["files"][runtime_path.name] == sha(runtime)
+    assert bootstrap["runtime"]["byte_count"] == len(runtime)
+    assert "(async () => {" in runtime.decode()
+    binding = json.loads(
+        runtime.decode().split("const NATIVE_LRA_BINDING = ", 1)[1].split(";", 1)[0]
+    )
+    assert binding["sha256"] == manifest["native_view_sha256"]
     assert all(
         row["source_calendar_support"]["younger_bp"] == endpoints[0]
         for row in view["rows"]

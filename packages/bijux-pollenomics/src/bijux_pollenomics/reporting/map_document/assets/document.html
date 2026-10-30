@@ -1449,6 +1449,9 @@
       }
       .focus-detail {
         display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        min-width: 0;
+        overflow-wrap: anywhere;
         gap: 8px;
         margin-bottom: 12px;
         padding: 12px;
@@ -1458,6 +1461,23 @@
         color: var(--ink-soft);
         font-size: 12px;
         line-height: 1.5;
+      }
+      .focus-detail > *,
+      .focus-detail figure,
+      .focus-detail section {
+        min-width: 0;
+      }
+      .focus-detail select {
+        width: 100%;
+        min-width: 0;
+      }
+      .source-diagram-plot {
+        max-width: 100%;
+        overflow-x: auto;
+      }
+      .source-diagram-plot svg {
+        display: block;
+        min-width: 640px;
       }
       .focus-detail-row {
         display: grid;
@@ -1839,8 +1859,8 @@
           left: 10px;
           right: auto;
           bottom: 76px;
-          width: min(340px, 46vw);
-          max-height: min(22vh, 220px);
+          width: min(560px, calc(100vw - 20px));
+          max-height: min(60vh, 560px);
           transition: opacity 160ms ease, transform 160ms ease;
         }
         .map-status {
@@ -1954,10 +1974,10 @@
         }
         .focus-card {
           left: 8px;
-          right: auto;
+          right: 8px;
           bottom: 72px;
-          width: min(188px, 46vw);
-          max-height: min(18vh, 152px);
+          width: auto;
+          max-height: min(65vh, calc(100dvh - 144px));
           padding: 12px;
         }
         .focus-meta-row {
@@ -2508,6 +2528,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
     <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
 __STATIC_CHUNK_SCRIPT_TAGS__
 __NATIVE_LRA_SCRIPT_TAG__
+    <!-- atlas-runtime:begin -->
     <script>
       (async () => {
       const STATIC_ATLAS_ASSET_TABLE_FIELDS = Object.freeze([
@@ -2729,14 +2750,25 @@ __NATIVE_LRA_SCRIPT_TAG__
         const sequences = STATIC_ATLAS_BOOTSTRAP.assets.map((row) => row.sequence);
         if (sequences.some((sequence, index) => !Number.isSafeInteger(sequence) || sequence !== index) || new Set(sequences).size !== sequences.length) staticAtlasFailure('bootstrap asset sequences are invalid');
         const initial = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.initial_load === true);
-        const initialBytes = initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        const runtime = STATIC_ATLAS_BOOTSTRAP.runtime;
+        let runtimeBytes = 0, runtimeRequests = 0;
+        if (runtime !== undefined) {
+          if (!runtime || typeof runtime !== 'object'
+            || typeof runtime.path !== 'string' || typeof runtime.integrity !== 'string'
+            || !/^[A-Za-z0-9][A-Za-z0-9._-]*[.]atlas-runtime[.][a-f0-9]{16}[.]js$/.test(runtime.path)
+            || !/^sha256-[A-Za-z0-9+/]{43}=$/.test(runtime.integrity)) staticAtlasFailure('runtime transport identity is invalid');
+          runtimeBytes = staticAtlasNonnegativeInteger(runtime.byte_count, 'runtime byte count');
+          if (runtimeBytes <= 0 || runtimeBytes > 524288) staticAtlasFailure('runtime byte budget exceeded');
+          runtimeRequests = 1;
+        }
+        const initialBytes = runtimeBytes + initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
         const initialRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_requests, 'initial request budget');
         const initialByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_bytes, 'initial byte budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_requests, 'interaction request budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_bytes, 'interaction byte budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.chunk_max_bytes, 'chunk byte budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.filter_main_thread_max_ms, 'filter main-thread budget');
-        if (initial.length > initialRequestBudget) staticAtlasFailure('initial request budget exceeded');
+        if (initial.length + runtimeRequests > initialRequestBudget) staticAtlasFailure('initial request budget exceeded');
         if (initialBytes > initialByteBudget) staticAtlasFailure('initial byte budget exceeded');
       }
       async function staticAtlasSha256(text) {
@@ -5507,6 +5539,31 @@ __URL_STATE_CONTROLLER__
           return '<div class="scientific-status">Unavailable: encoded_detail_table_invalid</div>';
         }
       }
+      function renderReviewedClassificationContext(value, valuePath) {
+        const unavailable = '<div class="scientific-status">Unavailable: reviewed_classification_context_invalid</div>';
+        const roleIds = ['direct_crop_confirmed', 'crop_type_qualified', 'anthropogenic_indicator', 'pastoral_indicator', 'ruderal_disturbance_indicator'];
+        const totals = value.crop_indicator_totals;
+        const count = (number) => Number.isSafeInteger(number) && number >= 0;
+        if (value.schema_version !== 'classification-reviewed-context.v1' || value.scope !== 'reviewed_source_context_only'
+          || !Array.isArray(totals) || totals.length !== roleIds.length
+          || !totals.every((row) => row && roleIds.includes(row.role_id)
+            && typeof row.label === 'string' && row.label.trim()
+            && count(row.unique_observation_count) && row.pollen_alone_proves === false
+            && typeof row.unproven_claim === 'string' && row.unproven_claim.trim())
+          || new Set(totals.map((row) => row.role_id)).size !== roleIds.length
+          || !count(value.crop_indicator_union_observation_count)
+          || !count(value.whole_pollen_category_observation_count)) return unavailable;
+        const union = value.crop_indicator_union_observation_count;
+        const memberships = totals.reduce((total, row) => total + row.unique_observation_count, 0);
+        if (union < Math.max(...totals.map((row) => row.unique_observation_count)) || union > memberships || union > value.whole_pollen_category_observation_count) return unavailable;
+        const byRole = new Map(totals.map((row) => [row.role_id, row]));
+        const rows = roleIds.map((role) => {
+          const row = byRole.get(role);
+          return `<tr><th scope="row">${escapeHtml(row.label)}</th><td>${row.unique_observation_count}</td><td>Pollen alone does not prove ${escapeHtml(row.unproven_claim)}.</td></tr>`;
+        }).join('');
+        const summaryKeys = new Set(['crop_indicator_totals', 'crop_indicator_union_observation_count', 'whole_pollen_category_observation_count']);
+        return `<div class="focus-detail-table-wrap"><table class="focus-detail-table"><caption>Reviewed crop and indicator context</caption><thead><tr><th scope="col">Evidence category</th><th scope="col">Unique observations</th><th scope="col">Interpretation limit</th></tr></thead><tbody>${rows}</tbody></table></div><p>Unique observations across these categories: ${union}. Categories overlap; do not add their counts.</p><p>Whole-pollen category observations: ${value.whole_pollen_category_observation_count}. These are category memberships, not pollen abundances or cultivation, grazing or other causal proof. Context review alone does not admit a pollen event or LRA input.</p>${renderDetailObjectEntries(value, valuePath, summaryKeys)}`;
+      }
       function renderDetailValue(value, valuePath = 'detail') {
         if (value === null || value === undefined || value === '') return '<span>Unavailable</span>';
         if (detailTableShape(value)) return renderDetailTable(value, valuePath);
@@ -5515,10 +5572,23 @@ __URL_STATE_CONTROLLER__
           return `<span>${escapeHtml(JSON.stringify(value))}</span>`;
         }
         if (typeof value === 'object') {
+          if ((typeof value.schema_version === 'string' && value.schema_version.startsWith('classification-reviewed-context.')) || value.scope === 'reviewed_source_context_only') return renderReviewedClassificationContext(value, valuePath);
           if (value.status === 'unavailable') return `<div class="scientific-status">Unavailable: ${escapeHtml(value.reason_code || 'evidence_not_available')}</div>`;
           return renderDetailObjectEntries(value, valuePath);
         }
         return `<span>${escapeHtml(String(value))}</span>`;
+      }
+      __CHRONOLOGY_DIAGRAM_CONTROLLER__
+      __POLLEN_DIAGRAM_CONTROLLER__
+      __POLLEN_AGE_AXIS_CONTROLLER__
+      __POLLEN_SMALL_MULTIPLES_CONTROLLER__
+      const pollenDepthSelections = new WeakMap();
+      const pollenAgeSelections = new WeakMap();
+      function renderPollenObservationDiagram(tabs) {
+        const ageKey = pollenAgeSelections.get(tabs) ?? null;
+        return renderPollenDepthDiagram(tabs, pollenDepthSelections.get(tabs) ?? null,
+          group => renderPollenAgeDiagram(tabs, group.key, ageKey, false)
+            + renderPollenSmallMultiples(tabs, group.key, ageKey));
       }
       function renderFocusDetail() {
         const focused = document.activeElement;
@@ -5529,7 +5599,9 @@ __URL_STATE_CONTROLLER__
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
         focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
-        focusDetail.innerHTML = renderDetailValue(tabs[activeFocusTab], activeFocusTab);
+        const sourceDiagram = activeFocusTab === 'chronology' ? renderAgeDepthDiagram(tabs)
+          : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
+        focusDetail.innerHTML = sourceDiagram + renderDetailValue(tabs[activeFocusTab], activeFocusTab);
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
         focusCopyLinkButton.disabled = focusState?.kind !== 'point';
@@ -5549,6 +5621,32 @@ __URL_STATE_CONTROLLER__
             const direction = button.dataset.pageDirection === 'previous' ? -1 : 1;
             detailTablePages.set(tablePath, Math.max(0, (detailTablePages.get(tablePath) || 0) + direction));
             renderFocusDetail();
+          });
+        });
+        focusDetail.querySelectorAll('[data-pollen-depth-group]').forEach((select) => {
+          select.addEventListener('change', () => {
+            pollenAgeSelections.delete(tabs);
+            if (pollenDepthDiagramData(tabs).groups.some(group => group.key === select.value)) {
+              pollenDepthSelections.set(tabs, select.value);
+            } else {
+              pollenDepthSelections.delete(tabs);
+            }
+            renderFocusDetail();
+            focusDetail.querySelectorAll('[data-pollen-depth-group]')[0]?.focus({ preventScroll: true });
+          });
+        });
+        focusDetail.querySelectorAll('[data-pollen-age-group]').forEach((select) => {
+          select.addEventListener('change', () => {
+            const native = pollenDepthDiagramData(tabs);
+            const nativeKey = pollenDepthSelections.get(tabs) ?? native.groups[0]?.key;
+            const choices = pollenAgeAxisData(tabs, nativeKey).options;
+            if (select.value && choices.some(option => option.key === select.value)) {
+              pollenAgeSelections.set(tabs, select.value);
+            } else {
+              pollenAgeSelections.delete(tabs);
+            }
+            renderFocusDetail();
+            focusDetail.querySelectorAll('[data-pollen-age-group]')[0]?.focus({ preventScroll: true });
           });
         });
         if (focusedTab) {
@@ -6154,9 +6252,13 @@ __URL_STATE_CONTROLLER__
         const clusterLegendSection = visiblePointEntries.length > 0
           ? '<div class="legend-group"><div class="legend-group-label">Map grouping</div><div class="legend-item legend-item--compact"><span class="legend-cluster-cue">12</span><span>Numbered circles group same-layer records at the current zoom; the number is a record count, not abundance.</span></div></div>'
           : '';
+        const visibleScientificEdges = visibleGovernedEdges();
+        const relationLegendSection = visibleScientificEdges.length
+          ? '<div class="legend-group"><div class="legend-group-label">Evidence relations</div><div class="legend-item">Lines connect evidence endpoints; they are relations, not reconstructed movement paths.</div></div>'
+          : '';
         const visibleScientificSignalIds = new Set([
           ...visiblePointEntries.flatMap(({ feature }) => Array.isArray(feature.scientific_signal_ids) ? feature.scientific_signal_ids : []),
-          ...visibleGovernedEdges().map((edge) => edge.signal_id),
+          ...visibleScientificEdges.map((edge) => edge.signal_id),
         ]);
         const visibleScientificSignals = SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id) && visibleScientificSignalIds.has(signal.signal_id));
         const scientificLegendSection = visibleScientificSignals.length
@@ -6168,7 +6270,7 @@ __URL_STATE_CONTROLLER__
         const neighborContextLegendSection = visiblePointEntries.some(({ neighborContext }) => neighborContext)
           ? '<div class="legend-group"><div class="legend-group-label">Cross-border context</div><div class="legend-item">Dimmed, labeled neighboring endpoints are retained for selected cross-border relations. They are excluded from focal-country point counts.</div></div>'
           : '';
-        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${neighborContextLegendSection}${LAYER_GROUP_DEFINITIONS
+        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${relationLegendSection}${sourceConcentrationLegendSection}${neighborContextLegendSection}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         const visibleRaaDensityLayer = visiblePolygonFeatureEntries.find(({ layer }) => layer.key === 'raa-archaeology')?.layer || null;
@@ -6711,16 +6813,24 @@ __URL_STATE_CONTROLLER__
         const directional = directionalStatus && (native ? edge.directional_arrow_allowed === true : edge.directional_arrow_allowed !== false);
         const indeterminate = status === 'indeterminate_order';
         const refused = ['unresolved', 'excluded_spatial', 'excluded_temporal_nonpositive', 'excluded_temporal_too_large'].includes(status);
+        const scenario = typeof edge.scenario_id === 'string' && edge.scenario_id.trim() ? edge.scenario_id : null;
+        const candidateInterpretation = native && directional && scenario
+          ? `Under scenario ${scenario}, these governed observations form a candidate propagation link. This relation is consistent with spatiotemporal succession; it does not demonstrate a migration route, transport mechanism, local establishment, cultivation, or causation.`
+          : 'Candidate succession under the governed rule; not proof of migration or causation.';
+        const interpretation = indeterminate
+          ? 'Order is indeterminate; this endpoint connection has no direction and is not a migration route.'
+          : refused ? `No candidate succession is admitted for ${status}; this endpoint connection is not proof of migration or causation.`
+          : candidateInterpretation;
+        const wholePollenLimit = native && edge.resolution === 'whole_pollen'
+          ? ' Whole-pollen comparison is an exploratory aggregate of heterogeneous taxa; it does not establish taxon-level equivalence.'
+          : '';
         return {
           status,
           dashArray: indeterminate ? '2 7' : status === 'possible_candidate' ? '10 7' : null,
           separator: directional ? ' → ' : ' — ',
           label: indeterminate ? 'Indeterminate order (no direction)' : status,
           relationLabel: directional ? 'Candidate relation' : 'Endpoint connection',
-          interpretation: indeterminate
-            ? 'Order is indeterminate; this endpoint connection has no direction and is not a migration route.'
-            : refused ? `No candidate succession is admitted for ${status}; this endpoint connection is not proof of migration or causation.`
-            : 'Candidate succession under the governed rule; not proof of migration or causation.',
+          interpretation: interpretation + wholePollenLimit,
         };
       }
       function providedEdgeFields(edge, keys) {
@@ -8080,5 +8190,6 @@ __URL_STATE_CONTROLLER__
         console.error(error);
       });
     </script>
+    <!-- atlas-runtime:end -->
   </body>
 </html>

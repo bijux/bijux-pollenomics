@@ -11,7 +11,7 @@ from typing import Any, cast
 
 from bijux_pollenomics.core.geospatial.distance import wgs84_inverse_geodesic
 from bijux_pollenomics.core.geospatial.geojson import JsonObject
-from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
@@ -194,7 +194,8 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
         scientific_signals=signals,
         edge_records=edges,
     )
-    document = render_multi_country_map_html(
+    write_static_map_document(
+        destination / "index.html",
         "Controlled cross-border neighbor fixture",
         "controlled-cross-border",
         "2026-09-28",
@@ -205,7 +206,6 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
         "./_map_assets",
         static_assets=assets,
     )
-    (destination / "index.html").write_text(document, encoding="utf-8")
     shutil.copytree(
         repository
         / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map",

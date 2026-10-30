@@ -28,6 +28,9 @@ from .support import (
     _rehash_classification_bundle,
 )
 
+_OMIT_FIELD = object()
+_WHOLE_POLLEN = "pair_compatibility.whole_pollen_resolution"
+
 
 @pytest.mark.parametrize(
     (
@@ -410,6 +413,13 @@ def test_contract_and_producer_pins_are_recomputed_from_governed_files(
         ("geographic_scope", "domestic_and_cross_border_rules_identical", False),
         ("candidate_logic", "no_midpoint_shortcut", False),
         ("output_edge_contract", "route_interpretation_allowed", True),
+        (_WHOLE_POLLEN, "heterogeneous_taxa_warning_required", False),
+        (_WHOLE_POLLEN, "heterogeneous_taxa_warning_required", 1),
+        (_WHOLE_POLLEN, "heterogeneous_taxa_warning_required", None),
+        (_WHOLE_POLLEN, "heterogeneous_taxa_warning_required", _OMIT_FIELD),
+        (_WHOLE_POLLEN, "interpretive_strength_cap", "confirmed_aggregate"),
+        (_WHOLE_POLLEN, "interpretive_strength_cap", _OMIT_FIELD),
+        ("pair_compatibility", "whole_pollen_resolution", _OMIT_FIELD),
     ),
 )
 def test_rehashed_normative_claim_semantic_mutations_are_refused(
@@ -420,9 +430,14 @@ def test_rehashed_normative_claim_semantic_mutations_are_refused(
     value: object,
 ) -> None:
     changed_model = json.loads(json.dumps(_MODEL))
-    changed_section = changed_model[section]
-    assert isinstance(changed_section, dict)
-    changed_section[field] = value
+    changed_section = changed_model
+    for part in section.split("."):
+        changed_section = changed_section[part]
+        assert isinstance(changed_section, dict)
+    if value is _OMIT_FIELD:
+        changed_section.pop(field)
+    else:
+        changed_section[field] = value
     changed_bytes = json.dumps(changed_model, sort_keys=True).encode()
     contract_path = schema_root / "propagation-model.v1.yaml"
     contract_path.write_bytes(changed_bytes)

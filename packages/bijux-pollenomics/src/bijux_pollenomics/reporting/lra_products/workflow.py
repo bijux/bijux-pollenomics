@@ -17,8 +17,8 @@ from ...analysis.lra.api import read_lra_product
 from ...analysis.lra.inputs.schema import REQUEST_SCHEMA
 from ...core.geospatial.geojson import JsonObject
 from ...core.owned_tree import publish_new_output_tree
-from ..map_document import render_multi_country_map_html
 from ..map_document.native_lra import bind_native_view
+from ..map_document.render import write_static_map_document
 from ..map_document.static_assets import write_static_atlas_assets
 from ..rendering.artifacts import copy_map_assets
 from ..scope_policy import MAP_SCOPE_POLICIES
@@ -172,7 +172,8 @@ def _map(
         .read_bytes()
     )
     render_layers: list[JsonObject] = [dict(layer) for layer in layers]
-    document = render_multi_country_map_html(
+    write_static_map_document(
+        output_path=stage / "map.html",
         title="Exploratory synthetic LRA anchors",
         version="presentation-v1" if temporal_profile is None else "presentation-v2",
         generated_on="Source identities in the accompanying report",
@@ -184,7 +185,6 @@ def _map(
         static_assets=assets,
         native_lra=native_view,
     )
-    (stage / "map.html").write_text(document)
     return str(assets.manifest["build_id"])
 
 

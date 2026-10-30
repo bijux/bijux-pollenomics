@@ -12,7 +12,7 @@ import shutil
 from typing import Any
 
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
-from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
@@ -159,7 +159,8 @@ def generate_source_detail_candidate(
             if scope.key == "nordic"
         )
     )
-    document = render_multi_country_map_html(
+    html_path, _ = write_static_map_document(
+        destination / "index.html",
         "Retained Neotoma source details",
         "retained-neotoma",
         "2026-09-27",
@@ -170,7 +171,6 @@ def generate_source_detail_candidate(
         "./_map_assets",
         static_assets=assets,
     )
-    (destination / "index.html").write_text(document, encoding="utf-8")
     map_assets = (
         repository
         / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map"
@@ -217,7 +217,7 @@ def generate_source_detail_candidate(
         "inputs_sha256": inputs,
         "source_records": source_summaries,
         "candidate_build_id": assets.manifest["build_id"],
-        "candidate_document_sha256": hashlib.sha256(document.encode()).hexdigest(),
+        "candidate_document_sha256": hashlib.sha256(html_path.read_bytes()).hexdigest(),
         "scientific_posture": "source_owned_site_context; preserve chronology refusals; no reviewed classification or propagation claim",
     }
     for relative_path, digest in inputs.items():

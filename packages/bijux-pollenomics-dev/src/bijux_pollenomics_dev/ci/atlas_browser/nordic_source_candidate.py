@@ -12,7 +12,7 @@ import shutil
 from typing import Any
 
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
-from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
@@ -220,7 +220,8 @@ def generate_nordic_source_candidate(
             if scope.key == "nordic"
         )
     )
-    document = render_multi_country_map_html(
+    write_static_map_document(
+        destination / "index.html",
         "Nordic retained source contexts",
         "retained-source-context",
         "2026-09-27",
@@ -231,7 +232,6 @@ def generate_nordic_source_candidate(
         "./_map_assets",
         static_assets=assets,
     )
-    (destination / "index.html").write_text(document)
     map_assets = reporting / "assets/map"
     for path in sorted(map_assets.rglob("*")):
         if path.is_file():

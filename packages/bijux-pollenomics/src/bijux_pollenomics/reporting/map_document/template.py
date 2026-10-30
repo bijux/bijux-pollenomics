@@ -29,6 +29,30 @@ def load_map_document_template() -> str:
             "__SEARCH_INDEX_CONTROLLER__",
             package_root.joinpath("assets/search-index.js").read_text(encoding="utf-8"),
         )
+        .replace(
+            "__CHRONOLOGY_DIAGRAM_CONTROLLER__",
+            package_root.joinpath("assets/chronology-diagram.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__POLLEN_DIAGRAM_CONTROLLER__",
+            package_root.joinpath("assets/pollen-diagram.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__POLLEN_AGE_AXIS_CONTROLLER__",
+            package_root.joinpath("assets/pollen-age-axis.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__POLLEN_SMALL_MULTIPLES_CONTROLLER__",
+            package_root.joinpath("assets/pollen-small-multiples.js").read_text(
+                encoding="utf-8"
+            ),
+        )
     )
 
 

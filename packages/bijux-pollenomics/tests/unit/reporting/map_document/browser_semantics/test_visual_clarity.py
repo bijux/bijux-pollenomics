@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import re
 
+import pytest
+
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
 from .support import run_node_json, template_block
@@ -161,6 +163,56 @@ def test_legend_uses_rendered_layer_and_country_colors() -> None:
     assert "visibleScientificSignalIds.has(signal.signal_id)" in block
     assert "visiblePolygonFeatureEntries.find" in block
     assert "visibleRaaDensityLayer?.density_count_label" in block
+
+
+@pytest.mark.parametrize("visible_relation", [False, True])
+def test_visible_relation_legend_explains_endpoint_geometry(
+    visible_relation: bool,
+) -> None:
+    observed = run_node_json(
+        "const visibleRelation="
+        + str(visible_relation).lower()
+        + ";\n"
+        + """
+const edges=visibleRelation ? [{signal_id:'taxon:fixture',edge_id:'relation:fixture'}] : [];
+const before=JSON.stringify(edges);
+const visiblePointEntries=[{
+  layer:{key:'points'},neighborContext:true,
+  feature:{scientific_signal_ids:['taxon:fixture']},
+}];
+const visiblePolygonFeatureEntries=[],ALL_LAYERS=[],LAYER_GROUP_DEFINITIONS=[];
+const SCIENTIFIC_SIGNALS=[{
+  signal_id:'taxon:fixture',label:'Synthetic taxon',resolution:'taxon',
+  feature_key:'taxon:fixture',color:'#14532d',non_color_cue:'triangle',
+}];
+const activeScientificSignalIds=new Set(['taxon:fixture']);
+const activeSourceChronologyLevel=null;
+const legendItems={innerHTML:''},densityRamp={hidden:false};
+const document={getElementById(){return null}};
+function visibleGovernedEdges(){return edges}
+function sourceChronologyLayerForLevel(){return null}
+function escapeHtml(value){return String(value)}
+function scientificCueGlyph(value){return value}
+"""
+        + template_block("function renderLegend", "function sourceChronologyPopupHtml")
+        + """
+renderLegend();
+console.log(JSON.stringify({html:legendItems.innerHTML,unchanged:JSON.stringify(edges)===before}));
+"""
+    )
+    text = (
+        "Lines connect evidence endpoints; they are relations, "
+        "not reconstructed movement paths."
+    )
+    assert (text in observed["html"]) is visible_relation
+    assert ("Evidence relations" in observed["html"]) is visible_relation
+    assert "Accepted scientific comparison" in observed["html"]
+    assert 'data-cue="triangle"' in observed["html"]
+    assert 'style="color:#14532d"' in observed["html"]
+    assert "Synthetic taxon · taxon · taxon:fixture" in observed["html"]
+    assert "Cross-border context" in observed["html"]
+    assert "Dimmed, labeled neighboring endpoints" in observed["html"]
+    assert observed["unchanged"] is True
 
 
 def test_collapsed_chrome_preserves_map_space_and_open_surfaces_are_exclusive() -> None:

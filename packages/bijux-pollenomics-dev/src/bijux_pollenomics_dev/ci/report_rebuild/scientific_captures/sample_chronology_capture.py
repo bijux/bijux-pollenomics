@@ -26,6 +26,14 @@ from .presentation_source_roles import (
     HISTORICAL_RENDERING_SOURCES,
     atlas_extension_matches,
 )
+from .source_roles.atlas_runtime_transport import (
+    ATLAS_RUNTIME_TRANSPORT_SOURCES,
+    validated_atlas_runtime_transport_source,
+)
+from .source_roles.propagation_qualification import (
+    PROPAGATION_QUALIFICATION_SOURCE,
+    validated_propagation_qualification_source,
+)
 from .source_roles.sead_join_identity import (
     SEAD_JOIN_IDENTITY_SOURCES,
     validated_declared_join_identity_source,
@@ -386,6 +394,28 @@ def _validate_current_source(
                         source_buffer,
                     ).get("classification")
                     == "declared_child_key_refusal_identity"
+                )
+                or (
+                    source_buffer is not None
+                    and name in ATLAS_RUNTIME_TRANSPORT_SOURCES
+                    and validated_atlas_runtime_transport_source(
+                        repository,
+                        {"path": name, "sha256": expected, "bytes": len(captured)},
+                        logical,
+                        source_buffer,
+                    ).get("classification")
+                    == "runtime_transport_extension"
+                )
+                or (
+                    source_buffer is not None
+                    and name == PROPAGATION_QUALIFICATION_SOURCE
+                    and validated_propagation_qualification_source(
+                        repository,
+                        {"path": name, "sha256": expected, "bytes": len(captured)},
+                        logical,
+                        source_buffer,
+                    ).get("classification")
+                    == "whole_pollen_contract_refusal_refinement"
                 )
                 or _counting_api_source_extension(
                     repository, name, logical, captured, expected, source_buffer

@@ -11,6 +11,7 @@ import pytest
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
 from bijux_pollenomics.reporting.map_document.payload import serialize_json_for_script
+from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_DOCUMENT_MAX_BYTES,
     write_static_atlas_assets,
@@ -51,7 +52,8 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
             if scope.key == "nordic"
         )
     )
-    html = render_multi_country_map_html(
+    document_path, runtime_path = write_static_map_document(
+        tmp_path / "index.html",
         "Nordic",
         "v66",
         "2026-09-04",
@@ -62,6 +64,11 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
         "./_map_assets",
         static_assets=assets,
     )
+    html = document_path.read_text(encoding="utf-8")
+    runtime_source = runtime_path.read_text(encoding="utf-8")
+    published_source = html + "\n" + runtime_source
+    assert "const STATIC_ATLAS_BOOTSTRAP =" not in html
+    assert "const STATIC_ATLAS_BOOTSTRAP =" in runtime_source
 
     assert len(html.encode("utf-8")) <= ATLAS_DOCUMENT_MAX_BYTES
     source_css = MAP_DOCUMENT_TEMPLATE.split("<style>", 1)[1].split("</style>", 1)[0]
@@ -69,41 +76,52 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert len(rendered_css.encode("utf-8")) < 38_000
     assert source_css != rendered_css
     assert all(line == line.rstrip() for line in html.splitlines())
-    assert 'id="atlas-static-bootstrap"' in html
-    assert "selection_aware_static_scripts" in html
-    assert "evidence-0" not in html
-    assert "const cancellable = selectionOwned && row.domain === 'nodes'" in html
-    assert "&& ['http:', 'https:'].includes(window.location.protocol)" in html
-    assert "? fetchStaticAtlasNodeAsset(row, operation.controller.signal)" in html
-    assert "script.src = `./${row.path}`" in html
-    assert "signal, integrity: row.integrity, credentials: 'same-origin'" in html
-    assert "await waitForStaticAtlasSelection(Promise.all(" in html
+    assert 'id="atlas-static-bootstrap"' in published_source
+    assert "selection_aware_static_scripts" in published_source
+    assert "evidence-0" not in published_source
+    assert (
+        "const cancellable = selectionOwned && row.domain === 'nodes'"
+        in published_source
+    )
+    assert (
+        "&& ['http:', 'https:'].includes(window.location.protocol)" in published_source
+    )
+    assert (
+        "? fetchStaticAtlasNodeAsset(row, operation.controller.signal)"
+        in published_source
+    )
+    assert "script.src = `./${row.path}`" in published_source
+    assert (
+        "signal, integrity: row.integrity, credentials: 'same-origin'"
+        in published_source
+    )
+    assert "await waitForStaticAtlasSelection(Promise.all(" in published_source
     manifest_assets = normalize_asset_inventory(assets.manifest["assets"])
     for _row, path in zip(manifest_assets, assets.asset_paths, strict=True):
         expected_tag = f'<script src="./{path.name}"></script>'
         assert expected_tag not in html
         assert not Path(path.name).is_absolute()
-    assert "await loadStaticAtlasAsset(row)" in html
-    assert "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ =" in html
-    assert "script.integrity = row.integrity" in html
-    assert "file:// cannot reliably enforce transport SRI" in html
-    assert "staticAtlasLoadGeneration" in html
-    assert "requiredStaticAtlasNodeAssets" in html
-    assert "payload integrity mismatch" in html
-    assert "new DecompressionStream('gzip')" in html
-    assert "decoded payload exceeds its byte budget" in html
-    assert "redeploy the HTML and hashed assets from the same build" in html
-    assert "compatibility declaration mismatch" in html
-    assert "path is invalid" in html
-    assert "aria-busy" in html
-    assert ".density-ramp[hidden]{display:none;}" in html
-    assert '<div id="density-ramp" class="density-ramp" hidden>' in html
-    assert 'id="density-ramp-description"' in html
-    assert "visibleRaaDensityLayer?.density_count_label" in html
-    assert "layer.density_value_label || 'Records'" in html
-    assert "Degraded display only" in html
-    assert "layer.display_warning_codes" in html
-    assert "densityRamp.hidden = !visibleRaaDensityLayer;" in html
+    assert "await loadStaticAtlasAsset(row)" in published_source
+    assert "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ =" in published_source
+    assert "script.integrity = row.integrity" in published_source
+    assert "file:// cannot reliably enforce transport SRI" in published_source
+    assert "staticAtlasLoadGeneration" in published_source
+    assert "requiredStaticAtlasNodeAssets" in published_source
+    assert "payload integrity mismatch" in published_source
+    assert "new DecompressionStream('gzip')" in published_source
+    assert "decoded payload exceeds its byte budget" in published_source
+    assert "redeploy the HTML and hashed assets from the same build" in published_source
+    assert "compatibility declaration mismatch" in published_source
+    assert "path is invalid" in published_source
+    assert "aria-busy" in published_source
+    assert ".density-ramp[hidden]{display:none;}" in published_source
+    assert '<div id="density-ramp" class="density-ramp" hidden>' in published_source
+    assert 'id="density-ramp-description"' in published_source
+    assert "visibleRaaDensityLayer?.density_count_label" in published_source
+    assert "layer.density_value_label || 'Records'" in published_source
+    assert "Degraded display only" in published_source
+    assert "layer.display_warning_codes" in published_source
+    assert "densityRamp.hidden = !visibleRaaDensityLayer;" in published_source
 
 
 def test_scientific_atlas_document_exposes_comparison_relations_and_detail_drawer(
@@ -129,7 +147,8 @@ def test_scientific_atlas_document_exposes_comparison_relations_and_detail_drawe
             if scope.key == "nordic"
         )
     )
-    html = render_multi_country_map_html(
+    document_path, runtime_path = write_static_map_document(
+        tmp_path / "index.html",
         "Nordic",
         "v66",
         "2026-09-05",
@@ -140,6 +159,11 @@ def test_scientific_atlas_document_exposes_comparison_relations_and_detail_drawe
         "./_map_assets",
         static_assets=assets,
     )
+    html = document_path.read_text(encoding="utf-8")
+    runtime_source = runtime_path.read_text(encoding="utf-8")
+    published_source = html + "\n" + runtime_source
+    assert "const STATIC_ATLAS_BOOTSTRAP =" not in html
+    assert "const STATIC_ATLAS_BOOTSTRAP =" in runtime_source
 
     for element_id in (
         "scientific-filters",
@@ -148,7 +172,7 @@ def test_scientific_atlas_document_exposes_comparison_relations_and_detail_drawe
         "focus-tabs",
         "focus-detail",
     ):
-        assert f'id="{element_id}"' in html
+        assert f'id="{element_id}"' in published_source
     for label in (
         "Overview",
         "Samples",
@@ -158,21 +182,21 @@ def test_scientific_atlas_document_exposes_comparison_relations_and_detail_drawe
         "Classification",
         "Provenance",
     ):
-        assert label in html
-    assert "accepted_scientific_classifications_not_available" in html
-    assert "record_level_evidence_not_available" in html
-    assert "not proof of migration or causation" in html
-    assert "atlas-scientific-marker" in html
-    assert "edge) => Object.freeze({ ...edge })" in html
-    assert "resetRestoredVisibleEdges" in html
-    assert "STATIC_ATLAS_CHUNKS.edges?.status !== 'unavailable'" not in html
+        assert label in published_source
+    assert "accepted_scientific_classifications_not_available" in published_source
+    assert "record_level_evidence_not_available" in published_source
+    assert "not proof of migration or causation" in published_source
+    assert "atlas-scientific-marker" in published_source
+    assert "edge) => Object.freeze({ ...edge })" in published_source
+    assert "resetRestoredVisibleEdges" in published_source
+    assert "STATIC_ATLAS_CHUNKS.edges?.status !== 'unavailable'" not in published_source
     inline_scripts = re.findall(r"<script(?: [^>]*)?>(.*?)</script>", html, re.DOTALL)
     assert inline_scripts
     node = shutil.which("node")
     assert node is not None
     subprocess.run(
         [node, "--check", "-"],
-        input=inline_scripts[-1],
+        input=runtime_source + "\n" + inline_scripts[-1],
         check=True,
         capture_output=True,
         text=True,
@@ -292,7 +316,8 @@ def test_static_loader_suppresses_obsolete_selection_generations(
             if scope.key == "nordic"
         )
     )
-    html = render_multi_country_map_html(
+    _, runtime_path = write_static_map_document(
+        tmp_path / "index.html",
         "Nordic",
         "v66",
         "2026-09-04",
@@ -303,17 +328,19 @@ def test_static_loader_suppresses_obsolete_selection_generations(
         "./_map_assets",
         static_assets=assets,
     )
-
-    generation_start = html.index("const generation = ++staticAtlasLoadGeneration")
-    load_await = html.index(
+    runtime_source = runtime_path.read_text(encoding="utf-8")
+    generation_start = runtime_source.index(
+        "const generation = ++staticAtlasLoadGeneration"
+    )
+    load_await = runtime_source.index(
         "await ensureStaticAtlasSelectionLoaded()", generation_start
     )
-    stale_guard = html.index(
+    stale_guard = runtime_source.index(
         "if (generation !== staticAtlasLoadGeneration) return", load_await
     )
-    render = html.index("renderLoadedMapState()", stale_guard)
+    render = runtime_source.index("renderLoadedMapState()", stale_guard)
     assert generation_start < load_await < stale_guard < render
-    assert "if (generation === staticAtlasLoadGeneration)" in html
+    assert "if (generation === staticAtlasLoadGeneration)" in runtime_source
 
 
 def test_static_document_budget_accepts_exact_utf8_limit() -> None:
