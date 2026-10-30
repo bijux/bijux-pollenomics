@@ -970,6 +970,300 @@ def _source_transport(bundle: Path, profile: dict[str, Any]) -> SourceCapsule | 
             ),
         ),
     ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/certification.py": (
+        11711,
+        "bbdae578ba499bc2ed8e70ccec48aedce6af8984828c88205d2c781c94f041df",
+        (
+            (
+                b"""            timeout=1900,
+        )
+        from .profiles import validate_source_domains
+
+        validate_source_domains(
+            output / "source-domains", lock.payload["reference"]["sha256"]
+        )
+        if (
+""",
+                b"""            timeout=1900,
+        )
+        from .profiles import canonical_domain_source_reader, validate_source_domains
+
+        validate_source_domains(
+            output / "source-domains",
+            lock.payload["reference"]["sha256"],
+            read_source=canonical_domain_source_reader(repository, sources),
+        )
+        if (
+""",
+            ),
+            (
+                b"""            json.dumps(report, indent=2, allow_nan=False) + "\\n"
+        )
+        validate_bundle(bundle, target_sha=commit, expected_lock_sha256=lock_hash)
+    except BaseException as error:
+        report.update(status="failed", error=type(error).__name__ + ": " + str(error))
+""",
+                b"""            json.dumps(report, indent=2, allow_nan=False) + "\\n"
+        )
+        validate_bundle(
+            bundle,
+            target_sha=commit,
+            expected_lock_sha256=lock_hash,
+            current_repository=repository,
+        )
+    except BaseException as error:
+        report.update(status="failed", error=type(error).__name__ + ": " + str(error))
+""",
+            ),
+        ),
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/native_parity.py": (
+        4656,
+        "71f3d67783abab8fc1ec3c2dc7048c2c913f618a5e93848171c828d18b1834d6",
+        (
+            (
+                b'''    target_sha: str,
+    output: Path,
+) -> dict[str, Any]:
+    """Require equal cases and a complete actual-R certificate before passing."""
+''',
+                b'''    target_sha: str,
+    output: Path,
+    repository: Path | None = None,
+) -> dict[str, Any]:
+    """Require equal cases and a complete actual-R certificate before passing."""
+''',
+            ),
+            (
+                b"""    lock_hash = _sha(lock.read_bytes())
+    certificate = validate_bundle(
+        live, target_sha=target_sha, expected_lock_sha256=lock_hash
+    )
+    live_report = read_json((live / "oracle/report.json").read_bytes())
+""",
+                b"""    lock_hash = _sha(lock.read_bytes())
+    certificate = validate_bundle(
+        live,
+        target_sha=target_sha,
+        expected_lock_sha256=lock_hash,
+        current_repository=repository,
+    )
+    live_report = read_json((live / "oracle/report.json").read_bytes())
+""",
+            ),
+            (
+                b"""    parser.add_argument("--target-sha", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    args = parser.parse_args()
+    try:
+""",
+                b"""    parser.add_argument("--target-sha", required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--repository", type=Path)
+    args = parser.parse_args()
+    try:
+""",
+            ),
+            (
+                b"""            target_sha=args.target_sha,
+            output=args.output,
+        )
+    except (OSError, ValueError) as error:
+""",
+                b"""            target_sha=args.target_sha,
+            output=args.output,
+            repository=args.repository,
+        )
+    except (OSError, ValueError) as error:
+""",
+            ),
+        ),
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/release_gate.py": (
+        16347,
+        "01759213114f82aca8ae3fbaf4ac9fbbf7f0fe5b4bc7715e807c8ec907cba0b4",
+        (
+            (
+                b"""        expected_lock_sha256=lock_hash,
+        expected_run=(repository, run_id, attempt),
+    )
+    if (
+""",
+                b"""        expected_lock_sha256=lock_hash,
+        expected_run=(repository, run_id, attempt),
+        current_repository=repository_root,
+    )
+    if (
+""",
+            ),
+        ),
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py": (
+        12289,
+        "8e725129e23f92c594084116c0d2a5e282af9fb71048b28ea58adac3f2e460d2",
+        (
+            (
+                b"""
+from .native_reference.finite_covariance_capture import (
+    validated_finite_covariance_capture,
+)
+from .native_reference.source_replay import build_source_replay
+""",
+                b"""
+from .native_reference.finite_covariance_capture import (
+    historical_finite_covariance_capture,
+    require_current_finite_covariance_sources,
+)
+from .native_reference.source_replay import build_source_replay
+""",
+            ),
+            (
+                b"""    if retained_capture_profile != "finite-covariance":
+        raise ValueError("Retained comparison source profile must be finite-covariance")
+    capture = validated_finite_covariance_capture(repository)
+    expected = capture.source_context["protected_science_sha256"]
+    if (
+""",
+                b"""    if retained_capture_profile != "finite-covariance":
+        raise ValueError("Retained comparison source profile must be finite-covariance")
+    capture = historical_finite_covariance_capture(repository)
+    expected = capture.source_context["protected_science_sha256"]
+    if (
+""",
+            ),
+            (
+                b"""            "Retained comparison source routes or sealed source hashes differ"
+        )
+
+
+""",
+                b"""            "Retained comparison source routes or sealed source hashes differ"
+        )
+    require_current_finite_covariance_sources(repository, capture)
+
+
+""",
+            ),
+        ),
+    ),
+    "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_source_domains.py": (
+        11567,
+        "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
+        (
+            (
+                b"""@dataclass(frozen=True)
+class DomainCase:
+    id: str
+    kind: str
+""",
+                b'''@dataclass(frozen=True)
+class DomainCase:
+    """Describe one declared source-domain numerical case."""
+
+    id: str
+    kind: str
+''',
+            ),
+            (
+                b"""
+def cases() -> list[DomainCase]:
+    result = [
+        DomainCase(
+""",
+                b'''
+def cases() -> list[DomainCase]:
+    """Declare the complete fixed source-domain case inventory."""
+    result = [
+        DomainCase(
+''',
+            ),
+            (
+                b"""
+def parameters() -> pd.DataFrame:
+    return pd.DataFrame(
+        {
+""",
+                b'''
+def parameters() -> pd.DataFrame:
+    """Return the declared two-taxon physical parameter table."""
+    return pd.DataFrame(
+        {
+''',
+            ),
+            (
+                b"""
+def geometry(case: DomainCase) -> pd.DataFrame:
+    edges = np.array(
+        [case.radius, 3 * case.radius, 10 * case.radius, 50 * case.radius, 100000.0]
+""",
+                b'''
+def geometry(case: DomainCase) -> pd.DataFrame:
+    """Build the declared ring geometry for one source-domain case."""
+    edges = np.array(
+        [case.radius, 3 * case.radius, 10 * case.radius, 50 * case.radius, 100000.0]
+''',
+            ),
+            (
+                b"""
+def expectation(case: DomainCase) -> np.ndarray:
+    p = parameters().iloc[: case.taxa_count]
+    rings = geometry(case)
+""",
+                b'''
+def expectation(case: DomainCase) -> np.ndarray:
+    """Compute the fixed analytical expectation for a declared source-domain case."""
+    p = parameters().iloc[: case.taxa_count]
+    rings = geometry(case)
+''',
+            ),
+            (
+                b"""
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, required=True)
+""",
+                b'''
+def main(argv: list[str] | None = None) -> int:
+    """Parse arguments for the source-bound evidence consumer."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, required=True)
+''',
+            ),
+            (
+                b"""        source = Path(__file__).with_name(name)
+        content = source.read_bytes()
+        (output / name).write_bytes(content)
+        retained_sources[name] = hashlib.sha256(content).hexdigest()
+    archive_hash = hashlib.sha256(
+""",
+                b"""        source = Path(__file__).with_name(name)
+        content = source.read_bytes()
+        retained_sources[name] = hashlib.sha256(content).hexdigest()
+    archive_hash = hashlib.sha256(
+""",
+            ),
+            (
+                b"""        "Rscript",
+        "--vanilla",
+        str(output / "source_domains.R"),
+        str(output),
+        str(args.library.resolve()),
+        str(output / "r_support.R"),
+        archive_hash,
+    ]
+""",
+                b"""        "Rscript",
+        "--vanilla",
+        str(Path(__file__).with_name("source_domains.R")),
+        str(output),
+        str(args.library.resolve()),
+        str(Path(__file__).with_name("r_support.R")),
+        archive_hash,
+    ]
+""",
+            ),
+        ),
+    ),
 }
 
 NATIVE_REFERENCE_TRANSPORT_SOURCES = frozenset(_NATIVE_REFERENCE_TRANSPORT_CONTRACTS)
@@ -986,6 +1280,173 @@ _NATIVE_REFERENCE_TRANSPORT_CAPTURES = {
 }
 
 
+_CANONICAL_REFERENCE_IO_SPANS: dict[str, tuple[tuple[bytes, bytes], ...]] = {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/evidence.py": (
+        (
+            b"""from __future__ import annotations
+
+import csv
+import hashlib
+""",
+            b"""from __future__ import annotations
+
+from collections.abc import Callable
+import csv
+import hashlib
+""",
+        ),
+        (
+            b'''    expected_run: tuple[str, int, int] | None = None,
+    source_transport: SourceCapsule | None = None,
+) -> dict[str, Any]:
+    """Check source/runtime/case/member closure; transport authenticity is external."""
+''',
+            b'''    expected_run: tuple[str, int, int] | None = None,
+    source_transport: SourceCapsule | None = None,
+    current_repository: Path | None = None,
+) -> dict[str, Any]:
+    """Check source/runtime/case/member closure; transport authenticity is external."""
+''',
+        ),
+        (
+            b"""        if certificate.get("required_profiles") != required_profiles:
+            raise ReferenceRefusal("Required reference profile denominators differ")
+        from .profiles import validate_source_domains
+
+        validate_source_domains(
+            root / "source-domains",
+            lock.payload["reference"]["sha256"],
+            read_source=(
+                None if source_transport is None else source_transport.read_source
+            ),
+        )
+        python_runtime = certificate.get("python_runtime")
+""",
+            b"""        if certificate.get("required_profiles") != required_profiles:
+            raise ReferenceRefusal("Required reference profile denominators differ")
+        from .profiles import canonical_domain_source_reader, validate_source_domains
+
+        if source_transport is not None and current_repository is not None:
+            raise ReferenceRefusal(
+                "Historical and current source readers must remain distinct"
+            )
+        domain_source: Callable[[str], bytes] | None = None
+        retained_sources = (
+            root / "source-domains" / name
+            for name in ("run_source_domains.py", "source_domains.R", "r_support.R")
+        )
+        # Retained bundles keep their own complete source contract. A checkout
+        # supplies sources only for bundles that retain no script members.
+        if current_repository is not None and not any(
+            path.exists() or path.is_symlink() for path in retained_sources
+        ):
+            domain_source = canonical_domain_source_reader(
+                current_repository, certificate["source_files"]
+            )
+        elif source_transport is not None:
+            domain_source = source_transport.read_source
+
+        validate_source_domains(
+            root / "source-domains",
+            lock.payload["reference"]["sha256"],
+            read_source=domain_source,
+        )
+        python_runtime = certificate.get("python_runtime")
+""",
+        ),
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/profiles.py": (
+        (
+            b"""from __future__ import annotations
+
+from collections.abc import Callable
+import csv
+import hashlib
+from pathlib import Path
+from typing import Any
+
+from .contracts import ReferenceRefusal, read_json
+
+SOURCE_DOMAIN_PROFILE = "disqover-source-domains-and-corrected-forward-v1"
+""",
+            b"""from __future__ import annotations
+
+from collections.abc import Callable, Mapping
+import csv
+import hashlib
+from pathlib import Path
+import re
+from typing import Any
+
+from .contracts import ReferenceRefusal, read_json
+from .paths import local_path
+
+SOURCE_DOMAIN_PROFILE = "disqover-source-domains-and-corrected-forward-v1"
+""",
+        ),
+        (
+            b"""    "F013": "corrected-matrix-rounded-cover",
+}
+
+
+""",
+            b'''    "F013": "corrected-matrix-rounded-cover",
+}
+
+
+def canonical_domain_source_reader(
+    repository: Path, source_files: Mapping[str, str]
+) -> Callable[[str], bytes]:
+    """Authenticate the three executed scripts in their canonical source owner."""
+    repository = local_path(repository)
+    owner = Path("packages/bijux-pollenomics-lra/tests/reference/lra_oracle")
+    allowed = {
+        "source-domains/" + name
+        for name in ("run_source_domains.py", "source_domains.R", "r_support.R")
+    }
+
+    def read_source(name: str) -> bytes:
+        if name not in allowed:
+            raise ReferenceRefusal("Unlisted canonical source-domain script")
+        relative = owner / name.removeprefix("source-domains/")
+        expected = source_files.get(relative.as_posix())
+        if (
+            not isinstance(expected, str)
+            or re.fullmatch(r"[0-9a-f]{64}", expected) is None
+        ):
+            raise ReferenceRefusal("Canonical source-domain identity is missing")
+        path = local_path(repository / relative)
+        if not path.is_file() or path.stat().st_nlink != 1:
+            raise ReferenceRefusal(
+                "Canonical source-domain script is not independently owned"
+            )
+        payload = path.read_bytes()
+        if hashlib.sha256(payload).hexdigest() != expected:
+            raise ReferenceRefusal("Canonical source-domain script changed")
+        return payload
+
+    return read_source
+
+
+''',
+        ),
+    ),
+}
+
+
+def _canonical_reference_reader_basis(name: str, current: bytes) -> bytes:
+    """Reverse only the declared canonical IO layer before the existing byte law."""
+    spans = _CANONICAL_REFERENCE_IO_SPANS.get(name)
+    if spans is None:
+        return current
+    body = current
+    for previous, inserted in spans:
+        if body.count(inserted) != 1:
+            return current
+        body = body.replace(inserted, previous, 1)
+    return body
+
+
 def native_reference_transport_extension_matches(
     name: str, historical: bytes, current: bytes
 ) -> bool:
@@ -1000,7 +1461,7 @@ def native_reference_transport_extension_matches(
         or not 0 < len(current) <= 128 * 1024
     ):
         return False
-    restored = current
+    restored = _canonical_reference_reader_basis(name, current)
     for old, new in spans:
         if historical.count(old) != 1 or restored.count(new) != 1:
             return False
@@ -1014,7 +1475,7 @@ def validated_native_reference_transport_source(
     logical: str,
     source_buffer: SourceCapsule,
 ) -> JsonObject:
-    """Bind seven finite IO extensions to their two original captured source contexts."""
+    """Bind finite IO extensions to their two original captured source contexts."""
     name = historical.get("path")
     contract = (
         _NATIVE_REFERENCE_TRANSPORT_CONTRACTS.get(name)

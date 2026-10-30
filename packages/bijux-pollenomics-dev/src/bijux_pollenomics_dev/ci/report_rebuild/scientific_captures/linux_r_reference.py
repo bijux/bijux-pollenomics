@@ -224,6 +224,14 @@ def _named_documentation_insertions(
 
 
 _NATIVE_REFERENCE_TRANSPORT_IDENTITIES = {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py": (
+        "8e725129e23f92c594084116c0d2a5e282af9fb71048b28ea58adac3f2e460d2",
+        12289,
+    ),
+    "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_source_domains.py": (
+        "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
+        11567,
+    ),
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/annulus_capture.py": (
         "47af109200a23537843078d241628273f08270e30150c34e1bbfdf76ffd0603b",
         10937,
