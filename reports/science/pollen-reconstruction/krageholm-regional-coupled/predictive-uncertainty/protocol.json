@@ -1,0 +1,100 @@
+{
+  "schema_version": "krageholm-predictive-uncertainty.v1",
+  "question": "Conditional count/PPE bootstrap variability of existing domain-eligible withheld-place pollen predictions, with shared source dependencies and explicit undefined mass.",
+  "sources": {
+    "coupled_protocol": {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json",
+      "bytes": 12274,
+      "sha256": "a43df56a533efda3f97acc7027aeb65bfb1540ed422941dabe271e3ffc9d498e"
+    },
+    "input_index": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/inputs.json",
+      "bytes": 17352,
+      "sha256": "724db11e2587442f5ff6c795049c0c46702320ed8d243ac23a0da1eec8b33828"
+    },
+    "prediction_batch": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/predictions/batch.json",
+      "bytes": 94144,
+      "sha256": "8038fa2365bf90cd01d1916afbae4a77c9c5a25e9f22aa421384e135ed29900e"
+    }
+  },
+  "source_pins_scope": "Whole-source/index pins authenticate accounting; each fold scientific ancestry binds only its allowed owner-specific draw members, shared target-free PPE and target geometry.",
+  "sampling": {
+    "replicates": 1024,
+    "seed": 20261027,
+    "bit_generator": "PCG64",
+    "count_law": "fixed-total multinomial with each retained owner/window count vector normalized by its original integer total",
+    "count_stream": "SeedSequence(seed, spawn_key=(0, *eight_big_endian_uint32_words_of_SHA256_UTF8_owner_id))",
+    "ppe_stream": "SeedSequence(seed, spawn_key=(1,))",
+    "ppe_law": "existing rnorm_reveals whole-vector nonnegative NORMAL rejection; a sampled zero retains subsequent strict-positive model refusal",
+    "ppe_means": [
+      5.106,
+      1.27
+    ],
+    "ppe_sds": [
+      0.303,
+      0.05
+    ],
+    "taxa": [
+      "Betula",
+      "Ulmus"
+    ],
+    "sharing": "One PPE vector per replicate across all regional/local/forward calls and folds; one count vector per physical source owner/window reused across every allowed training fold."
+  },
+  "population": {
+    "original_folds": 18,
+    "original_method_dispositions": 54,
+    "active_window_cal_bp": [
+      2700,
+      3200
+    ],
+    "active_folds": 3,
+    "propagated_method_slots": 9,
+    "original_refused_slots_retained": 45,
+    "draw_owner_count": 4,
+    "other_metadata_owner_count": 20,
+    "rule": "Propagate only previously frozen nominal predicted cases; preserve all original refused cases without attempting stochastic rescue."
+  },
+  "fixed_conditions": [
+    "Previously selected source point chronologies and half-open bins",
+    "Original static regional/local basin geometry and all-terrestrial annuli",
+    "Saved original finite kernels, ring selection and distances; not the separate true-continuous-law study",
+    "Published parameter transfer as a conditional working model; normal components independent before their shared reuse",
+    "Original source-use and exposed-development limits"
+  ],
+  "numerical_checks": {
+    "nominal_prediction_absolute_tolerance": 1e-12,
+    "independent_absolute_tolerance": 1e-13,
+    "independent_relative_tolerance": 1e-10,
+    "no_clipping_or_single_predictor_fallback": true
+  },
+  "summaries": {
+    "conditional_population_covariance_ddof": 0,
+    "quantile_probabilities": [
+      0.025,
+      0.5,
+      0.975
+    ],
+    "quantile_method": "linear",
+    "conditional_mean_mcse": "sqrt(unbiased conditional sample variance / defined replicate count); unavailable with fewer than two defined replicates",
+    "undefined_mass": "undefined replicate count / 1024; unconditional composition summary refused if any replicate is undefined",
+    "direct_counterpart": "Same two training owner count-draw compositions and fixed mean/nearest/inverse-squared-distance weights; independent of KRAG/PPE",
+    "matched_contrasts": "Physical/direct contrasts use explicitly common-defined rows; any equal-three-target aggregate uses the intersection of complete replicate IDs."
+  },
+  "outcome_policy": "Existing exposed target fractions may be reopened for score diagnostics only after all prediction products are durably frozen and read back. No target count/total, outcome or all-owner quantitative hash enters its own fold prediction or scientific ancestry.",
+  "unsupported_claims": [
+    "Empirically calibrated field/predictive coverage",
+    "Posterior or credible intervals",
+    "Measured vegetation accuracy",
+    "Untouched confirmation",
+    "Regional representativeness or dated basin truth",
+    "Original historical publication reproduction",
+    "Numerical integration precision beyond fixed saved kernels"
+  ],
+  "limits": {
+    "producer_wall_seconds": 180,
+    "observer_wall_seconds": 180,
+    "max_rss_bytes": 805306368,
+    "max_output_bytes": 16777216
+  }
+}

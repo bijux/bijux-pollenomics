@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-28
+last_reviewed: 2026-10-28
 ---
 
 # Boundary Exports
@@ -26,15 +26,30 @@ MultiPolygon features:
 | Denmark | country membership, map framing, and Nordic composition |
 
 The repository source receipt `data/boundaries/raw/source_manifest.json`
-pins Natural Earth Admin 0 - Countries version **5.1.1**, captured on
-`2026-09-04`, to the normalized GeoJSON digest
-`bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f`.
+pins Natural Earth Admin 0 - Countries version **5.1.1**. Its full asset was
+captured on 27 October 2026 at 22:49:30 UTC; country artifacts were built on
+`2026-10-28`. The normalized GeoJSON digest is
+`8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394`.
 The collector snapshot label `v66` is a separate inventory identity, not the
-Natural Earth release. The boundary review at `data/boundaries/review/manifest.json`
-retains 147 point reviews among 3,043 evaluated points and remains
-`blocked_pending_qualified_boundary_review`. Scope exports must carry that
-qualification; polygon membership does not grant historical or scientific
-meaning.
+Natural Earth release.
+
+The explicit profile keeps `SWE`, `NOR`, `DNK` and both Finnish source members
+`FIN` and `ALD` (Åland). Five raw administrative features become four public
+country features; Finland concatenates original polygon parts and preserves
+both source identities. Separately represented Greenland and Faroe Islands
+are outside this four-country profile. All Norwegian source parts remain.
+See the [source account](../sources/boundaries.md) for exact selection,
+seven changed point memberships, independent checks and preserved failures.
+
+The boundary review at `data/boundaries/review/manifest.json` retains **141**
+point reviews among **3,039** evaluated points and remains
+`blocked_pending_qualified_boundary_review`. Four genuine prior SEAD membership
+conflicts and all four global suitability reviews remain pending. A matching
+recomputed decision under a changed authority is identified separately from
+contradictory membership; both authority identities survive. Existing source
+captures and historical exports retain their original boundary identity.
+Scope exports must carry their actual profile and qualification; polygon
+membership does not supply historical or scientific meaning.
 
 ```mermaid
 flowchart LR

@@ -131,6 +131,113 @@ def _point(
 
 
 class BoundaryCountryReviewTests(unittest.TestCase):
+    def test_combined_source_country_labels_preserve_raw_evidence(self) -> None:
+        cases = (
+            ("SWE (Sweden)", "Sweden", "SE", 1.0),
+            ("SE (Sweden)", "Sweden", "SE", 1.0),
+            ("DK (Denmark)", "Denmark", "DK", 5.0),
+            ("DNK (Denmark)", "Denmark", "DK", 5.0),
+            ("NOR (Norway)", "Norway", "NO", 9.0),
+            ("NO (Norway)", "Norway", "NO", 9.0),
+            ("FIN (Finland)", "Finland", "FI", 13.0),
+            ("FI (Finland)", "Finland", "FI", 13.0),
+            ("sWe (sWeDeN)", "Sweden", "SE", 1.0),
+        )
+        for raw, country, code, longitude in cases:
+            with self.subTest(raw_country=raw):
+                row = build_point_country_decision(
+                    _point(
+                        longitude=longitude,
+                        latitude=1.0,
+                        raw_country=raw,
+                        published_country=raw,
+                    ),
+                    authority=_authority(),
+                )
+                self.assertEqual(row["raw_country"], raw)
+                self.assertEqual(row["published_country"], raw)
+                self.assertEqual(row["derived_boundary_membership"], country)
+                self.assertEqual(row["derived_country_code"], code)
+                self.assertEqual(row["raw_country_comparison"], "agrees")
+                self.assertEqual(row["published_country_comparison"], "agrees")
+                self.assertEqual(row["country_decision_status"], "assigned")
+                self.assertEqual(row["review_reason_codes"], [])
+                self.assertEqual(row["qualified_review_status"], "not_required")
+                self.assertIsNone(row["qualified_reviewer"])
+                self.assertIsNone(row["qualified_reviewed_at"])
+
+    def test_combined_country_aliases_do_not_guess_from_one_label_component(
+        self,
+    ) -> None:
+        for raw in (
+            "SWE (Finland)",
+            "FIN (Sweden)",
+            "XX (Sweden)",
+            "SWE (Swedne)",
+            "SWE(Sweden)",
+            "Sweden (SWE)",
+            "SWE (Sweden) extra",
+            "DK (Denmark)",
+        ):
+            with self.subTest(raw_country=raw):
+                row = build_point_country_decision(
+                    _point(longitude=1.0, latitude=1.0, raw_country=raw),
+                    authority=_authority(),
+                )
+                self.assertEqual(row["raw_country"], raw)
+                self.assertEqual(row["derived_country_code"], "SE")
+                self.assertEqual(row["raw_country_comparison"], "conflicts")
+                self.assertEqual(row["country_decision_status"], "review")
+                self.assertEqual(row["review_reason_codes"], ["raw_country_conflict"])
+                self.assertEqual(row["qualified_review_status"], "pending")
+                self.assertIsNone(row["qualified_reviewer"])
+                self.assertIsNone(row["qualified_reviewed_at"])
+
+    def test_combined_source_label_cannot_resolve_point_on_boundary(self) -> None:
+        row = build_point_country_decision(
+            _point(
+                longitude=0.0,
+                latitude=1.0,
+                raw_country="SWE (Sweden)",
+                published_country="SWE (Sweden)",
+            ),
+            authority=_authority(),
+        )
+        self.assertEqual(row["raw_country"], "SWE (Sweden)")
+        self.assertEqual(row["decision_method"], "point_on_boundary")
+        self.assertEqual(row["country_decision_status"], "review")
+        self.assertEqual(row["review_reason_codes"], ["point_on_boundary"])
+        self.assertEqual(row["published_country_comparison"], "unresolved")
+        self.assertEqual(row["qualified_review_status"], "pending")
+
+    def test_published_country_conflicts_and_missing_labels_remain_explicit(
+        self,
+    ) -> None:
+        for published in ("SWE (Finland)", "XX (Sweden)", "DK (Denmark)"):
+            with self.subTest(published_country=published):
+                row = build_point_country_decision(
+                    _point(
+                        longitude=1.0,
+                        latitude=1.0,
+                        raw_country="SWE (Sweden)",
+                        published_country=published,
+                    ),
+                    authority=_authority(),
+                )
+                self.assertEqual(row["raw_country_comparison"], "agrees")
+                self.assertEqual(row["published_country"], published)
+                self.assertEqual(row["published_country_comparison"], "conflicts")
+                self.assertEqual(row["country_decision_status"], "review")
+                self.assertEqual(
+                    row["review_reason_codes"], ["published_country_conflict"]
+                )
+                self.assertEqual(row["qualified_review_status"], "pending")
+        missing = build_point_country_decision(
+            _point(longitude=1.0, latitude=1.0), authority=_authority()
+        )
+        self.assertEqual(missing["raw_country_comparison"], "not_supplied")
+        self.assertEqual(missing["published_country_comparison"], "not_supplied")
+
     def test_raw_country_conflict_is_queued_without_human_approval(self) -> None:
         row = build_point_country_decision(
             _point(

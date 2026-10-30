@@ -6,6 +6,7 @@ from collections import Counter
 from collections.abc import Sequence
 
 from ....spatial import CountryAttributionDecision, decide_country_attribution
+from ....spatial.country_classification.validation import compare_raw_country
 from .models import BoundaryAuthority, JsonObject, PointEvidence
 from .policy import (
     BOUNDARY_VERSION,
@@ -106,6 +107,15 @@ def build_point_country_decision(
         "raw_country_comparison": geometric.raw_country_comparison,
         "published_country_comparison": published_comparison,
         "prior_country_decision_comparison": prior_comparison,
+        **(
+            {
+                "prior_boundary_artifact_digest": point.prior_decision.get(
+                    "boundary_artifact_digest"
+                )
+            }
+            if point.prior_decision is not None
+            else {}
+        ),
         "review_requirement": (
             "qualified_review_required"
             if review_required
@@ -145,16 +155,30 @@ def _prior_decision_comparison(
 ) -> str:
     if prior is None:
         return "not_supplied"
+    prior_digest = prior.get("boundary_artifact_digest")
+    current_digest = geometric.boundary_artifact_digest
+    if not _valid_boundary_digest(prior_digest) or not _valid_boundary_digest(
+        current_digest
+    ):
+        return "conflicts"
     fields = {
         "decision_status": geometric.decision_status,
         "decision_method": geometric.decision_method,
         "derived_country": geometric.derived_country,
-        "boundary_artifact_digest": geometric.boundary_artifact_digest,
     }
+    if any(key not in prior or prior[key] != value for key, value in fields.items()):
+        return "conflicts"
+    # Recomputing the same decision under a new authority is not a country dispute.
+    return "agrees" if prior_digest == current_digest else "agrees_authority_changed"
+
+
+def _valid_boundary_digest(value: object) -> bool:
+    """Recognize the canonical SHA-256 namespace used by boundary receipts."""
     return (
-        "agrees"
-        if all(prior.get(key) == value for key, value in fields.items())
-        else "conflicts"
+        isinstance(value, str)
+        and value.startswith("sha256:")
+        and len(value) == 71
+        and all(character in "0123456789abcdef" for character in value[7:])
     )
 
 
@@ -164,5 +188,8 @@ def _country_comparison(raw: str | None, derived: str | None) -> str:
         return "not_supplied"
     if derived is None:
         return "unresolved"
-    aliased = COUNTRY_ALIASES.get(normalized) or COUNTRY_ALIASES.get(normalized.upper())
-    return "agrees" if aliased == derived else "conflicts"
+    return compare_raw_country(
+        raw_country=normalized,
+        derived_country=derived,
+        raw_country_aliases=COUNTRY_ALIASES,
+    )

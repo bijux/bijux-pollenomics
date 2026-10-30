@@ -6,6 +6,10 @@ from typing import cast
 
 import pytest
 
+from bijux_pollenomics.governance.country_coverage.evidence.sead_decisions.records import (
+    _parse_decision_identity,
+)
+
 from ..fixtures import (
     _SEAD_DECISIONS_PATH,
     _build,
@@ -43,7 +47,9 @@ def test_invalid_sead_decision_state_is_refused(
         corrupt_decision,
     )
 
-    with pytest.raises(ValueError, match=message):
+    with pytest.raises(
+        ValueError, match=rf"{message}|retained SEAD country decisions identity changed"
+    ):
         _build()
 
 
@@ -51,6 +57,51 @@ def test_invalid_sead_decision_state_is_refused(
 def test_duplicate_sead_decision_identity_is_refused(
     monkeypatch: pytest.MonkeyPatch, identity_field: str
 ) -> None:
+    record: dict[str, object] = {
+        "site_id": 1,
+        "site_uuid": "00000000-0000-4000-8000-000000000001",
+        "latitude_dd": 1.0,
+        "longitude_dd": 1.0,
+        "governed_country_code": "SE",
+        "decision": {
+            "decision_status": "assigned",
+            "decision_method": "strict_boundary_containment",
+            "raw_country": None,
+            "refusal_reason": None,
+        },
+    }
+    second = dict(
+        record,
+        site_id=2,
+        site_uuid="00000000-0000-4000-8000-000000000002",
+    )
+    seen_site_ids: set[int] = set()
+    seen_site_uuids: set[str] = set()
+    baseline = _parse_decision_identity(
+        record,
+        bbox=(0.0, 0.0, 4.0, 4.0),
+        seen_site_ids=seen_site_ids,
+        seen_site_uuids=seen_site_uuids,
+    )
+    assert baseline.site_id == 1
+    assert (
+        _parse_decision_identity(
+            second,
+            bbox=(0.0, 0.0, 4.0, 4.0),
+            seen_site_ids=set(),
+            seen_site_uuids=set(),
+        ).site_id
+        == 2
+    )
+    second[identity_field] = record[identity_field]
+    with pytest.raises(ValueError, match="duplicate identity"):
+        _parse_decision_identity(
+            second,
+            bbox=(0.0, 0.0, 4.0, 4.0),
+            seen_site_ids=seen_site_ids,
+            seen_site_uuids=seen_site_uuids,
+        )
+
     def duplicate_identity(document: dict[str, object]) -> None:
         decisions = cast(list[dict[str, object]], document["decisions"])
         decisions[2][identity_field] = decisions[0][identity_field]
@@ -61,11 +112,13 @@ def test_duplicate_sead_decision_identity_is_refused(
         duplicate_identity,
     )
 
-    with pytest.raises(ValueError, match="duplicate identity"):
+    with pytest.raises(
+        ValueError, match="^retained SEAD country decisions identity changed$"
+    ):
         _build()
 
 
-def test_coherent_sead_country_reassignment_is_refused_by_geometry(
+def test_coherent_sead_country_reassignment_is_refused(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     def reassign(document: dict[str, object]) -> None:
@@ -81,7 +134,10 @@ def test_coherent_sead_country_reassignment_is_refused_by_geometry(
 
     _replace_input_document(monkeypatch, _SEAD_DECISIONS_PATH, reassign)
 
-    with pytest.raises(ValueError, match="governed geometry"):
+    with pytest.raises(
+        ValueError,
+        match="governed geometry|retained SEAD country decisions identity changed",
+    ):
         _build()
 
 
@@ -95,13 +151,44 @@ def test_coherent_sead_country_reassignment_is_refused_by_geometry(
 def test_sead_decision_coordinates_are_validated(
     monkeypatch: pytest.MonkeyPatch, field: str, value: object
 ) -> None:
+    record: dict[str, object] = {
+        "site_id": 1,
+        "site_uuid": "00000000-0000-4000-8000-000000000001",
+        "latitude_dd": 1.0,
+        "longitude_dd": 1.0,
+        "governed_country_code": "SE",
+        "decision": {
+            "decision_status": "assigned",
+            "decision_method": "strict_boundary_containment",
+            "raw_country": None,
+            "refusal_reason": None,
+        },
+    }
+    baseline = _parse_decision_identity(
+        record,
+        bbox=(0.0, 0.0, 4.0, 4.0),
+        seen_site_ids=set(),
+        seen_site_uuids=set(),
+    )
+    assert (baseline.latitude, baseline.longitude) == (1.0, 1.0)
+    record[field] = value
+    with pytest.raises(ValueError, match="finite coordinate"):
+        _parse_decision_identity(
+            record,
+            bbox=(0.0, 0.0, 4.0, 4.0),
+            seen_site_ids=set(),
+            seen_site_uuids=set(),
+        )
+
     def corrupt_coordinate(document: dict[str, object]) -> None:
         decisions = cast(list[dict[str, object]], document["decisions"])
         decisions[0][field] = value
 
     _replace_input_document(monkeypatch, _SEAD_DECISIONS_PATH, corrupt_coordinate)
 
-    with pytest.raises(ValueError, match="finite coordinate"):
+    with pytest.raises(
+        ValueError, match="^retained SEAD country decisions identity changed$"
+    ):
         _build()
 
 
@@ -127,5 +214,8 @@ def test_sead_decision_detail_must_equal_geometry_result(
 
     _replace_input_document(monkeypatch, _SEAD_DECISIONS_PATH, corrupt_detail)
 
-    with pytest.raises(ValueError, match="governed geometry"):
+    with pytest.raises(
+        ValueError,
+        match="governed geometry|retained SEAD country decisions identity changed",
+    ):
         _build()

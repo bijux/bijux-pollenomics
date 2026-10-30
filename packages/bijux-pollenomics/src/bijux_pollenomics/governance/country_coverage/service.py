@@ -27,6 +27,7 @@ from .constants import (
     NFI_COVERAGE_EVIDENCE_PATH,
     PRODUCER_VERSION,
     SEAD_ADMISSION_PATH,
+    SEAD_DECISIONS_PATH,
     SOURCE_FAMILIES,
     CountryCoverageError,
 )
@@ -44,6 +45,7 @@ from .evidence import (
     _source_snapshot_ids,
     _validate_stage_rows,
 )
+from .evidence.neotoma import publication_boundary_digest
 from .publication import (
     _read_governed_input,
     _regular_path_without_symlinks,
@@ -153,6 +155,12 @@ def build_country_dimension_coverage_ledger(
         sead_claim_document=sead_claim_document,
     )
     snapshot_ids = _source_snapshot_ids(collection, input_documents, input_bytes)
+    captured_sead_digest = _required_text(
+        input_documents[SEAD_DECISIONS_PATH], "boundary_authority", "artifact_digest"
+    )
+    published_neotoma_digest = publication_boundary_digest(
+        input_documents["docs/report/regions/nordic/nordic_pollen_sites.geojson"]
+    )
     cells: list[dict[str, object]] = []
     for source_family in SOURCE_FAMILIES:
         stage = stage_rows[source_family]
@@ -166,7 +174,15 @@ def build_country_dimension_coverage_ledger(
                         evidence=evidence,
                         stage=stage,
                         snapshot_id=snapshot_ids[source_family],
-                        boundary_digest=boundary_digest,
+                        boundary_digest=(
+                            boundary_digest
+                            if source_family == "boundaries"
+                            else captured_sead_digest
+                            if source_family == "sead"
+                            else published_neotoma_digest
+                            if source_family == "neotoma" and dimension == "publication"
+                            else None
+                        ),
                         config_digest=config_digest,
                         build_id=build_id,
                     )

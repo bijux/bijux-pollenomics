@@ -46,18 +46,13 @@ def derive_sead_country_decisions(
 ) -> SeadDecisionEvidence:
     """Validate governed decisions and reconcile their country partitions."""
     decisions = _rows(decision_document, "SEAD country decisions", key="decisions")
-    governed: Counter[str] = Counter()
-    statuses: Counter[str] = Counter()
-    methods: Counter[str] = Counter()
-    country_codes: Counter[str] = Counter()
     seen_site_ids: set[int] = set()
     seen_site_uuids: set[str] = set()
-    assigned_sites: dict[int, tuple[str, float, float]] = {}
     bbox = _bbox(decision_document.get("bbox"), "SEAD country decision bbox")
     boundary_index = _boundary_component_index(boundary_collections)
 
-    for record in decisions:
-        parsed = _parse_decision(
+    parsed_rows = [
+        _parse_decision(
             record,
             bbox=bbox,
             boundary_index=boundary_index,
@@ -66,14 +61,27 @@ def derive_sead_country_decisions(
             seen_site_ids=seen_site_ids,
             seen_site_uuids=seen_site_uuids,
         )
+        for record in decisions
+    ]
+    return _decision_evidence(decisions, parsed_rows, admitted_sites=admitted_sites)
+
+
+def _decision_evidence(
+    decisions: list[Mapping[str, object]],
+    parsed_rows: list[ParsedSeadCountryDecision],
+    *,
+    admitted_sites: Mapping[int, tuple[str, float, float]],
+) -> SeadDecisionEvidence:
+    governed: Counter[str] = Counter()
+    statuses: Counter[str] = Counter()
+    methods: Counter[str] = Counter()
+    country_codes: Counter[str] = Counter()
+    assigned_sites: dict[int, tuple[str, float, float]] = {}
+    for parsed in parsed_rows:
         statuses[parsed.status] += 1
         methods[parsed.method] += 1
         country_codes[parsed.country_code] += 1
-        _record_disposition(
-            parsed,
-            assigned_sites=assigned_sites,
-            governed=governed,
-        )
+        _record_disposition(parsed, assigned_sites=assigned_sites, governed=governed)
 
     if assigned_sites != admitted_sites:
         raise CountryCoverageError(
@@ -109,6 +117,52 @@ def _parse_decision(
     seen_site_ids: set[int],
     seen_site_uuids: set[str],
 ) -> ParsedSeadCountryDecision:
+    parsed = _parse_decision_identity(
+        record, bbox=bbox, seen_site_ids=seen_site_ids, seen_site_uuids=seen_site_uuids
+    )
+    decision = _object(record.get("decision"), "SEAD country decision")
+    recomputed = _recomputed_country_decision(
+        parsed.longitude,
+        parsed.latitude,
+        boundary_index=boundary_index,
+        boundary_digest=boundary_digest,
+        boundary_version=boundary_version,
+    )
+    recomputed_country_code = (
+        _country_code(recomputed.derived_country)
+        if recomputed.decision_status == "assigned"
+        else "UNASSIGNED"
+    )
+    expected_decision = {
+        "ambiguity_reason": recomputed.ambiguity_reason,
+        "boundary_artifact_digest": recomputed.boundary_artifact_digest,
+        "boundary_version": recomputed.boundary_version,
+        "candidate_countries": list(recomputed.candidate_countries),
+        "decision_method": recomputed.decision_method,
+        "decision_status": recomputed.decision_status,
+        "derived_country": recomputed.derived_country,
+        "raw_country": recomputed.raw_country,
+        "raw_country_comparison": recomputed.raw_country_comparison,
+        "refusal_reason": recomputed.refusal_reason,
+    }
+    if dict(decision) != expected_decision:
+        raise CountryCoverageError(
+            f"SEAD country decision does not match governed geometry: {parsed.site_id}"
+        )
+    if parsed.country_code != recomputed_country_code:
+        raise CountryCoverageError(
+            f"SEAD governed country does not match governed geometry: {parsed.site_id}"
+        )
+    return parsed
+
+
+def _parse_decision_identity(
+    record: Mapping[str, object],
+    *,
+    bbox: tuple[float, float, float, float],
+    seen_site_ids: set[int],
+    seen_site_uuids: set[str],
+) -> ParsedSeadCountryDecision:
     if set(record) != _DECISION_FIELDS:
         raise CountryCoverageError("SEAD country decision row inventory changed")
     site_id = _positive_integer(record.get("site_id"), "SEAD site identity")
@@ -136,38 +190,6 @@ def _parse_decision(
     if decision.get("raw_country") is not None:
         raise CountryCoverageError("SEAD country decision raw_country must be null")
 
-    recomputed = _recomputed_country_decision(
-        longitude,
-        latitude,
-        boundary_index=boundary_index,
-        boundary_digest=boundary_digest,
-        boundary_version=boundary_version,
-    )
-    recomputed_country_code = (
-        _country_code(recomputed.derived_country)
-        if recomputed.decision_status == "assigned"
-        else "UNASSIGNED"
-    )
-    expected_decision = {
-        "ambiguity_reason": recomputed.ambiguity_reason,
-        "boundary_artifact_digest": recomputed.boundary_artifact_digest,
-        "boundary_version": recomputed.boundary_version,
-        "candidate_countries": list(recomputed.candidate_countries),
-        "decision_method": recomputed.decision_method,
-        "decision_status": recomputed.decision_status,
-        "derived_country": recomputed.derived_country,
-        "raw_country": recomputed.raw_country,
-        "raw_country_comparison": recomputed.raw_country_comparison,
-        "refusal_reason": recomputed.refusal_reason,
-    }
-    if dict(decision) != expected_decision:
-        raise CountryCoverageError(
-            f"SEAD country decision does not match governed geometry: {site_id}"
-        )
-    if country_code != recomputed_country_code:
-        raise CountryCoverageError(
-            f"SEAD governed country does not match governed geometry: {site_id}"
-        )
     return ParsedSeadCountryDecision(
         site_id=site_id,
         site_uuid=site_uuid,

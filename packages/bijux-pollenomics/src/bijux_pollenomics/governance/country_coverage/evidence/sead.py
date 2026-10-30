@@ -20,6 +20,7 @@ from ..constants import (
 from ..decoding import _geojson_country_counts, _integer_counts, _sha256
 from .partitions import EvidenceMap, _site_partition
 from .sead_decisions import admitted_sead_sites, derive_sead_country_decisions
+from .sead_decisions.retained import retained_sead_decision_evidence
 from .sead_validation import _validate_sead_country_summaries
 
 
@@ -37,36 +38,51 @@ def add_sead_evidence(
     admission = documents[SEAD_ADMISSION_PATH]
     decision_document = documents[SEAD_DECISIONS_PATH]
     admitted_sites = admitted_sead_sites(admission, documents[SEAD_SITES_PATH])
-    decision_evidence = derive_sead_country_decisions(
-        decision_document,
-        admitted_sites=admitted_sites,
-        boundary_collections=boundary_collections,
-        boundary_digest=boundary_digest,
-        boundary_version=boundary_version,
+    captured = decision_document.get("boundary_authority")
+    retained_authority = isinstance(captured, Mapping) and (
+        captured.get("artifact_digest") != boundary_digest
+        or captured.get("manifest_sha256")
+        != _sha256(input_bytes["data/boundaries/raw/source_manifest.json"])
     )
+    if retained_authority:
+        decision_evidence = retained_sead_decision_evidence(
+            admission_payload=input_bytes[SEAD_ADMISSION_PATH],
+            decision_payload=input_bytes[SEAD_DECISIONS_PATH],
+            site_payload=input_bytes[SEAD_SITES_PATH],
+            admitted_sites=admitted_sites,
+        )
+    else:
+        decision_evidence = derive_sead_country_decisions(
+            decision_document,
+            admitted_sites=admitted_sites,
+            boundary_collections=boundary_collections,
+            boundary_digest=boundary_digest,
+            boundary_version=boundary_version,
+        )
     _site_partition(
         evidence,
         "sead",
         "source_reported",
         Counter({"UNASSIGNED": len(decision_evidence.decisions)}),
     )
-    _validate_sead_country_summaries(
-        admission,
-        decision_document,
-        decision_count=len(decision_evidence.decisions),
-        decision_statuses=decision_evidence.statuses,
-        decision_methods=decision_evidence.methods,
-        decision_country_codes=decision_evidence.country_codes,
-        governed=decision_evidence.governed,
-        boundary_digest=boundary_digest,
-        boundary_version=boundary_version,
-        country_assignment_sha256=decision_evidence.country_assignment_sha256,
-        boundary_counts=boundary_counts,
-        boundary_manifest=documents["data/boundaries/raw/source_manifest.json"],
-        boundary_manifest_sha256=_sha256(
-            input_bytes["data/boundaries/raw/source_manifest.json"]
-        ),
-    )
+    if not retained_authority:
+        _validate_sead_country_summaries(
+            admission,
+            decision_document,
+            decision_count=len(decision_evidence.decisions),
+            decision_statuses=decision_evidence.statuses,
+            decision_methods=decision_evidence.methods,
+            decision_country_codes=decision_evidence.country_codes,
+            governed=decision_evidence.governed,
+            boundary_digest=boundary_digest,
+            boundary_version=boundary_version,
+            country_assignment_sha256=decision_evidence.country_assignment_sha256,
+            boundary_counts=boundary_counts,
+            boundary_manifest=documents["data/boundaries/raw/source_manifest.json"],
+            boundary_manifest_sha256=_sha256(
+                input_bytes["data/boundaries/raw/source_manifest.json"]
+            ),
+        )
     _validate_admission_copied_file(
         admission,
         relative_path="country-decisions.json",

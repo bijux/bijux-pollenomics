@@ -12,6 +12,7 @@ from .....core.geospatial.geojson import (
     parse_polygon,
 )
 from ....spatial import COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE, polygon_area
+from ..archive import build_combined_country_boundaries
 from ..collection import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,
@@ -75,13 +76,34 @@ def _load_boundary_authority(data_root: Path) -> BoundaryAuthority:
 
 def _build_boundary_review(authority: BoundaryAuthority) -> JsonObject:
     combined_features = feature_list(authority.normalized_collection)
+    expected_features = feature_list(
+        build_combined_country_boundaries(authority.boundaries)
+    )
+    expected_by_country = dict(
+        zip(
+            authority.boundaries,
+            (feature["geometry"] for feature in expected_features),
+            strict=True,
+        )
+    )
+    member_profile = authority.source_manifest.get("country_selection_profile")
     combined_by_country: dict[str, Mapping[str, object]] = {}
     for feature in combined_features:
         properties = feature.get("properties")
         if isinstance(properties, Mapping):
             country = properties.get("country")
             if isinstance(country, str):
+                if country in combined_by_country:
+                    raise ValueError(
+                        f"Duplicate normalized country boundary: {country}"
+                    )
                 combined_by_country[country] = feature
+    if set(combined_by_country) != set(authority.boundaries) or len(
+        combined_features
+    ) != len(COUNTRY_ORDER):
+        raise ValueError(
+            "Combined boundaries must contain exactly four public countries"
+        )
     countries: list[JsonObject] = []
     artifacts = authority.source_manifest.get("country_artifacts")
     if not isinstance(artifacts, Mapping):
@@ -89,12 +111,16 @@ def _build_boundary_review(authority: BoundaryAuthority) -> JsonObject:
     for code in COUNTRY_ORDER:
         country = COUNTRY_NAMES_BY_CODE[code]
         collection = authority.boundaries[country]
-        geometry_summary = _validate_country_geometry(collection, country=country)
+        geometry_summary = _validate_country_geometry(
+            collection,
+            country=country,
+            include_admin0_membership=member_profile is not None,
+        )
         combined = combined_by_country.get(country)
         raw_features = feature_list(collection)
-        if combined is None or len(raw_features) != 1:
+        if combined is None or not raw_features:
             raise ValueError(f"Combined boundary feature mismatch for {country}")
-        if combined.get("geometry") != raw_features[0].get("geometry"):
+        if combined.get("geometry") != expected_by_country[country]:
             raise ValueError(
                 f"Combined boundary did not retain all parts for {country}"
             )
@@ -106,6 +132,15 @@ def _build_boundary_review(authority: BoundaryAuthority) -> JsonObject:
                 "country_code": code,
                 "country_name": country,
                 "admin0_code": BOUNDARY_CODES[country],
+                **(
+                    {
+                        "admin0_members": [
+                            _admin0_code(feature) for feature in raw_features
+                        ]
+                    }
+                    if member_profile is not None
+                    else {}
+                ),
                 "coordinate_reference_system": "EPSG:4326",
                 "coordinate_transformation": "none",
                 "artifact_path": f"data/boundaries/raw/{artifact['path']}",
@@ -152,8 +187,18 @@ def _build_boundary_review(authority: BoundaryAuthority) -> JsonObject:
     }
 
 
+def _admin0_code(feature: Mapping[str, object]) -> str:
+    properties = feature.get("properties")
+    if not isinstance(properties, Mapping):
+        raise ValueError("Source country member properties are required")
+    return _required_text(properties.get("ADM0_A3"), "source admin-0 member")
+
+
 def _validate_country_geometry(
-    collection: Mapping[str, object], *, country: str
+    collection: Mapping[str, object],
+    *,
+    country: str,
+    include_admin0_membership: bool = False,
 ) -> JsonObject:
     features = feature_list(collection)
     if not features:
@@ -221,6 +266,11 @@ def _validate_country_geometry(
                     "geometry_part_id": (
                         f"{country_code}:polygon-part:{len(part_inventory) + 1:03d}"
                     ),
+                    **(
+                        {"source_admin0_code": _admin0_code(feature)}
+                        if include_admin0_membership
+                        else {}
+                    ),
                     "sha256": _canonical_digest(polygon),
                     "ring_count": len(polygon),
                     "interior_ring_count": max(0, len(polygon) - 1),
@@ -248,6 +298,9 @@ def _validate_country_geometry(
 
 def _boundary_identity(authority: BoundaryAuthority) -> JsonObject:
     manifest = authority.source_manifest
+    member_profile = manifest.get("country_selection_profile")
+    captured = manifest.get("source_captured_at_utc")
+    capture_date = captured.split("T", 1)[0] if isinstance(captured, str) else None
     return {
         "source": manifest["source"],
         "dataset": manifest.get("dataset"),
@@ -255,7 +308,18 @@ def _boundary_identity(authority: BoundaryAuthority) -> JsonObject:
         "source_revision": manifest["version"],
         "source_revision_date": None,
         "source_revision_date_status": "not_published_in_local_receipt",
-        "source_capture_date": manifest.get("generated_on"),
+        "source_capture_date": capture_date
+        if member_profile is not None
+        else manifest.get("generated_on"),
+        **(
+            {
+                "acquisition_mode": manifest.get("acquisition_mode"),
+                "source_captured_at_utc": captured,
+                "source_artifact_build_date": manifest.get("generated_on"),
+            }
+            if member_profile is not None
+            else {}
+        ),
         "release_page_url": manifest.get("release_page_url"),
         "asset_url": manifest["asset_url"],
         "source_asset_sha256": manifest["sha256"],
@@ -265,6 +329,14 @@ def _boundary_identity(authority: BoundaryAuthority) -> JsonObject:
         "coordinate_transformation": manifest["coordinate_transformation"],
         "country_selection_field": manifest["country_selection_field"],
         "geometry_inclusion_policy": manifest["geometry_inclusion_policy"],
+        **(
+            {
+                key: manifest[key]
+                for key in ("country_selection_profile", "country_admin0_members")
+            }
+            if "country_selection_profile" in manifest
+            else {}
+        ),
         "source_manifest_sha256": authority.manifest_sha256,
         "normalized_artifact_sha256": authority.normalized_artifact_sha256,
         "boundary_artifact_digest": authority.artifact_digest,

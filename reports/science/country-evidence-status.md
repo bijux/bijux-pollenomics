@@ -44,19 +44,63 @@ therefore remain open.
 | Original historical-paper correspondence | The later author example can be executed and compared numerically, but **zero of 1,128 publication sequence records** are authenticated as original primary inputs or reproduction-ready rows. The exact historical site/window membership, transformations, PFT classification and grouped uncertainty remain open, so a full original-paper replay is unavailable ([publication correspondence](publication-correspondence.md)). The country pollen scores above do not resolve that archive provenance. |
 | Independent measured vegetation accuracy | **Zero admitted Nordic measured pollen–vegetation pairs** among 16 nearby EMPD2–NFI candidates; no repository vegetation accuracy score was calculated. A historical map, modeled LandClim grid or published figure is not an independent matched outcome for these country predictions ([vegetation decision](vegetation-reference.md)). |
 | HYDE and other context | Each country has **21 retained HYDE modeled cropland totals**, seven CE labels by three scenarios, or **84** across four countries. The exact retained release/version, native-grid CRS/calendar/estimand and use terms remain under [source review](hyde-cropland-source-account.md); these are modeled context, not pollen or measured-cover truth. [SEAD chronology rows](source-cohorts.md#context-and-validation-sources) have zero admitted ecological events; Sweden-only RAÄ authority is refused for analytical density. No archaeology count enters this pollen study. A later four-country archaeology comparison would require appropriate national sources and comparable units, coverage, rights and time support. Missing national capture is unknown, not zero. |
-| Country boundaries and source authority | The pinned Natural Earth point assignments are computational evidence, while the [named-island and near-border queue](../../data/boundaries/review/review_queue.json) retains **147 flagged point decisions** and four country-boundary suitability items pending qualified review. The review question also separates six Neotoma retained-only site/dataset pairs from present selector decisions. AADR country-product rows and animal map labels remain context, not scientifically admitted country observations ([cohort account](source-cohorts.md#context-and-validation-sources)). No cross-border ecological conclusion is promoted from a coordinate alone. |
+| Country boundaries and source authority | The pinned Natural Earth point assignments are computational evidence, while the [named-island and near-border queue](../../data/boundaries/review/review_queue.json) retains **141 flagged point decisions** and four country-boundary suitability items pending qualified review. The review question also separates six Neotoma retained-only site/dataset pairs from present selector decisions. AADR country-product rows and animal map labels remain context, not scientifically admitted country observations ([cohort account](source-cohorts.md#context-and-validation-sources)). No cross-border ecological conclusion is promoted from a coordinate alone. |
 
 No qualified scientific decisions have been received for these country claims; source checks and model scores do not establish approval. The next acceptance route is a versioned, use-permitted packet for one named core or reference pair, followed by the corresponding source consumer and an independent decision scoped to that claim. This page reconciles retained reports and machine rows; it records no new scientific run or reviewer judgment.
 
 
+## Current assignment-authority accounting
+
+The 28 October 2026 ledger in `data/country_dimension_coverage.json` retains
+all **198** source-family/country/dimension cells and all original counts,
+availability and lifecycle states. Its 20 current input artifacts are bound
+to their exact bytes. Country assignment records identify their actual source
+scope: the boundary family uses the new four-country profile including Åland,
+while the SEAD source capture retains its own earlier admitted population.
+
+Finland has two raw administrative features, `FIN` and `ALD`, combined into
+one public-country artifact. Boundary coverage counts the four named country
+artifacts, with the unit explicit. New containment at four SEAD sites remains
+reviewed separately: it does not enlarge the captured **2,069 admitted sites**
+(SE 1,925; DK 59; NO 45; FI 40). That source discovery retains 2,195 sites,
+103 review dispositions and 23 unassigned dispositions under its captured
+boundary authority. The current global review has a different scope:
+3,039 points, 141 point reviews and four pending country suitability reviews.
+
+Neotoma publication cells retain the boundary digest supplied in their published
+source fields. Its retained governed reconciliation and other country-field
+partitions carry no inferred current boundary digest when their own evidence
+does not prove one. Their assignment methods state the materialized source
+basis. No new spatial replay, source admission, ecological event or vegetation
+measurement is created by this accounting change.
+
+The maintained writer at `a90ced83bb7f21f12bf92ceb1f06a94e3b0904ed`, using
+consumer code `d0a2ff846`, completed in **11.71 s**, RSS **737,574,912 bytes**.
+It authenticated 74 source/schema files, including all 53 retained SEAD evidence
+parts, with consumed code, HEAD and index unchanged. The independent observer
+completed in **1.87 s**, RSS **55,033,856 bytes**: all 198 schema instances,
+Cartesian identities, unchanged count/state fields and per-source authority
+bindings pass. Both meet their declared 180 s / 2 GiB / 16 MiB bounds.
+The 372,554-byte ledger and the actual result/readback are retained under
+`artifacts/root/country-coverage-boundary-authority/` and
+`artifacts/verification/country-coverage-boundary-authority/`.
+
+Thirty-five focused intrinsic/compatibility controls and configured lint/types
+pass. The broader 140-test attempt was not qualified: it exceeded its declared
+60 s / 512 MiB envelope (834,256,896 bytes RSS) and exposed an obsolete expected
+refusal message. Its literal attempt remains preserved; affected expectations
+now include the stricter exact-source-byte refusal, and source-free controls
+exercise the underlying accounting failures. No full-suite or release pass
+is claimed.
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Four-country 31-target development populations, count mass, score/refusal support and distinct source/review gaps are reconciled from retained machine rows. Separate conditional physical-forward source/target roles and all score/refusal denominators are explicit per country without changing the original 31-target populations.
+**Supported claim.** Four-country 31-target development populations, count mass, score/refusal support and distinct source/review gaps are reconciled from retained machine rows. Separate conditional physical-forward source/target roles and all score/refusal denominators are explicit per country without changing the original 31-target populations. Current198cellledger preserves count/state meanings and authentic source-specific assignment epochs; currentFIN+ALD scope does not relabel historicalSEADadmission.
 
 **Unsupported claim.** Accepted Nordic LRA reconstruction, independent vegetation accuracy, full original paper replay, untouched confirmation or four-country scientific release approval.
 
-**Actual verification performed.** Read-only result/coverage/taxonomy reconciliation, 21 HYDE rows per country, 36 unreceived review questions, 147 flagged boundary decisions and local links; no scientific study rerun. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring.
+**Actual verification performed.** Read-only result/coverage/taxonomy reconciliation, 21 HYDE rows per country, 36 unreceived review questions, 141 current flagged boundary decisions and local links; no scientific study rerun. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring. Current source-specific coverage writer at a90ced83b completed11.71s/RSS737574912B; independent schema/full198cell/count-state/authority observer1.87s/RSS55033856B passes,20currentparents/74sourcefiles authenticated. Counts,availability,lifecycle unchanged.35focusedcontrols+12pathstaticPASS; broader140-test attempt unqualified at60.05s/RSS834256896B beyond60s/512MiB, preserved; no repeatedfullsuite.
 
 **Remaining input or review.** The original prior-exposed direct-pollen country results and new conditional Swedish physical-forward point comparison do not supply historically qualified basin/core packets, authenticated original-paper inputs, independent measured vegetation or qualified country scientific approval. Resolver: Named core and reference custodians; independent chronology, basin, boundary and scientific reviewers Reopen when: A versioned same-core/window packet, independent measured reference or qualified decision changes one country claim; replay only that affected consumer.
 
@@ -66,11 +110,11 @@ No qualified scientific decisions have been received for these country claims; s
 
 **Precise next acceptance route.** Bind one named core or independent reference to lawful source bytes and the full age/basin/count/parameter support; obtain an independent scoped decision, then consume only its accepted fields.
 
-**Negative or refused result.** 94 Norwegian and 3 Swedish bins refused; zero LRA samples admitted through the original 31-target studies, zero admitted Nordic measured-cover pairs and zero received qualified decisions. The conditional physical-forward comparison retains 108 no-eligible-source family refusals; pooled BUS MAE/TV is poorer than direct (0.154732 versus 0.154539).
+**Negative or refused result.** 94 Norwegian and 3 Swedish bins refused; zero LRA samples admitted through the original 31-target studies, zero admitted Nordic measured-cover pairs and zero received qualified decisions. The conditional physical-forward comparison retains 108 no-eligible-source family refusals; pooled BUS MAE/TV is poorer than direct (0.154732 versus 0.154539). Current141pointreviews and4globalboundaryreviews remainpending; no sourcecohort enlarged by metadata refresh.
 
-**Matched denominator.** 84 selected sites; 5,660 samples; 31 author targets; 1,594/1,691 scored/attempted bins; 97 refused; 4,782 method rows across three fixed methods. Separate conditional physical-forward support: eight source cores/seven places, four Swedish targets/77 windows, 154 contexts/308 family outcomes, 200 scored/108 refused; only 26 jointly matched windows at BOKE/BUS, 13 each, enter the two-target comparison. All scored panels have two taxa. SOLSOE83 adds source support on 12 joint pooled contexts; no DK/FI/NO target score.
+**Matched denominator.** 84 selected sites; 5,660 samples; 31 author targets; 1,594/1,691 scored/attempted bins; 97 refused; 4,782 method rows across three fixed methods. Separate conditional physical-forward support: eight source cores/seven places, four Swedish targets/77 windows, 154 contexts/308 family outcomes, 200 scored/108 refused; only 26 jointly matched windows at BOKE/BUS, 13 each, enter the two-target comparison. All scored panels have two taxa. SOLSOE83 adds source support on 12 joint pooled contexts; no DK/FI/NO target score. Separate currentcoverage cube11families×6partitions×3dimensions=198cells; SEADcapture2195discovered/2069admitted retainsFI40, while4newcurrentFinnishcontainments remainreviewed.
 
-Retained evidence: [reports/science/country-evidence-status.csv](country-evidence-status.csv), [docs/report/regions/nordic/author-target-pollen/report.json](../../docs/report/regions/nordic/author-target-pollen/report.json), [docs/report/regions/nordic/swedish-author-target-pollen/report.json](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json), [docs/report/validation/empd2-nfi-pairing/report.json](../../docs/report/validation/empd2-nfi-pairing/report.json), [data/boundaries/review/review_queue.json](../../data/boundaries/review/review_queue.json), [reports/science/pollen-reconstruction/matched-pollen-forward/README.md](pollen-reconstruction/matched-pollen-forward/README.md), [reports/science/pollen-reconstruction/matched-pollen-forward/report.json](pollen-reconstruction/matched-pollen-forward/report.json), [reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json](pollen-reconstruction/matched-pollen-forward/decimal-comparison.json), [reports/science/pollen-reconstruction/matched-pollen-forward/publication.json](pollen-reconstruction/matched-pollen-forward/publication.json).
+Retained evidence: [reports/science/country-evidence-status.csv](country-evidence-status.csv), [docs/report/regions/nordic/author-target-pollen/report.json](../../docs/report/regions/nordic/author-target-pollen/report.json), [docs/report/regions/nordic/swedish-author-target-pollen/report.json](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json), [docs/report/validation/empd2-nfi-pairing/report.json](../../docs/report/validation/empd2-nfi-pairing/report.json), [data/boundaries/review/review_queue.json](../../data/boundaries/review/review_queue.json), [reports/science/pollen-reconstruction/matched-pollen-forward/README.md](pollen-reconstruction/matched-pollen-forward/README.md), [reports/science/pollen-reconstruction/matched-pollen-forward/report.json](pollen-reconstruction/matched-pollen-forward/report.json), [reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json](pollen-reconstruction/matched-pollen-forward/decimal-comparison.json), [reports/science/pollen-reconstruction/matched-pollen-forward/publication.json](pollen-reconstruction/matched-pollen-forward/publication.json), [data/country_dimension_coverage.json](../../data/country_dimension_coverage.json), [data/boundaries/raw/source_manifest.json](../../data/boundaries/raw/source_manifest.json), [data/boundaries/review/manifest.json](../../data/boundaries/review/manifest.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

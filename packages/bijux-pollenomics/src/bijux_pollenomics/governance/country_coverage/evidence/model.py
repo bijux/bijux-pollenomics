@@ -8,16 +8,14 @@ from dataclasses import dataclass
 from ..constants import (
     _AUTHORITY_STATUS_VALUES,
     _STAGE_STATUS_VALUES,
-    BOUNDARY_METHOD,
     EMPD2_ASSIGNMENT_NOT_APPLIED,
     HYDE_ASSIGNMENT_NOT_APPLIED,
     NFI_ASSIGNMENT_NOT_APPLIED,
     PRODUCER_VERSION,
-    PUBLICATION_METHOD,
     CountryCoverageError,
 )
 from ..decoding import _required_text, _text_list
-from .partitions import _empty_counts
+from .partitions import _empty_counts, assignment_basis, assignment_scope_reasons
 from .reference_sources import empd2_cell_posture, nfi_cell_posture
 
 
@@ -58,7 +56,7 @@ def _cell(
     evidence: Mapping[tuple[str, str, str], dict[str, int | None]],
     stage: Mapping[str, object],
     snapshot_id: str | None,
-    boundary_digest: str,
+    boundary_digest: str | None,
     config_digest: str,
     build_id: str,
 ) -> dict[str, object]:
@@ -76,9 +74,7 @@ def _cell(
         if source_family == "empd2"
         else NFI_ASSIGNMENT_NOT_APPLIED
         if source_family == "nfi"
-        else BOUNDARY_METHOD
-        if dimension == "governed_assignment"
-        else PUBLICATION_METHOD
+        else assignment_basis(source_family, dimension, materialized=counts is not None)
     )
     authority = str(stage.get("authority_status"))
     blocking = _text_list(stage.get("blocking_reasons"), "blocking reasons")
@@ -100,6 +96,11 @@ def _cell(
     if authority == "refused" and state.lifecycle not in {"refused", "unavailable"}:
         state.lifecycle = "refused"
         state.reasons.extend(authority_reasons)
+    state.reasons.extend(
+        assignment_scope_reasons(
+            source_family, dimension, materialized=counts is not None
+        )
+    )
     return {
         "schema_version": "2.0.0",
         "country_code": country_code,

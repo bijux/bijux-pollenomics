@@ -81,8 +81,8 @@
     },
     {
       "path": "data/country_dimension_coverage.json",
-      "sha256": "bb0262090aa04f6bfb474914535e60260417eab1eefaac092bf9ec6df494772a",
-      "bytes": 373562
+      "sha256": "1f232654afd1af0947600eb74efd1f6a1852ec364ab60a856684f64546a4dc09",
+      "bytes": 372554
     },
     {
       "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx",
@@ -3440,6 +3440,11 @@
       "bytes": 3543
     },
     {
+      "path": "reports/science/author-love-hellinger-spatial/protocol.json",
+      "sha256": "db07a8136b50a97742ff8082cc6d12fa366859dabf3bb072d3fd76d2e23a6741",
+      "bytes": 11232
+    },
+    {
       "path": "reports/science/bjaresjo-context/nearby-sead.csv",
       "sha256": "79e9d001756dbb5e0a15862e3f1eef4cd65aa5b70719e39b598605c77396adcc",
       "bytes": 78928
@@ -3503,6 +3508,11 @@
       "path": "reports/science/paper-accounts.csv",
       "sha256": "7eddabdca98385713acc11224abc2f5355567d44f9277da88a526dfedc622eb2",
       "bytes": 9182
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/predictive-uncertainty/protocol.json",
+      "sha256": "dc0ca991ad3c6e057bcf4710a49c7f667e8ffa1976939f17f90f7f4c423e9ee5",
+      "bytes": 4780
     },
     {
       "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json",

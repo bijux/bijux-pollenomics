@@ -614,7 +614,7 @@
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json": "2152fde730bc4a80ba7b919ece7351a89bc3d4c1a947b27a660b2245be8e7b90",
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity-source.json": "ee23dfc891c1ad4e771f5c18fc0c0f6a4d64452c8929e2e27d5ce30709c7d5b2",
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity.json": "e27cdd607d9e565344472428d815efcb1db5edd6b8ab1e3e8821e3d625c4d4fa",
-    "docs/report/pollen-reconstruction/manifest.json": "46977dcb9b3b17ba56d9a8e8b84f8c76b6fa7492db39c03e019d6927c7548596",
+    "docs/report/pollen-reconstruction/manifest.json": "1f906cbc3c330171b975df678bf8bf30a2596678403513ea1218767fc0ea9ba4",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json": "70911e6f14d2afb3ed54ec5d12f27b074514243ec525fd35222eca5b21cb77c5",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/attribution.json": "03fe513cc07c64ba00bfe1641e32e8f77ee4746ed1d775b182a7cf975bee3c45",
@@ -1139,7 +1139,9 @@
     "reports/science/pollen-reconstruction/krageholm-regional-coupled/result.json": "2c1434eb992512a4d80079fb3302056d52cadce805a1c7ebc4ade0ba886d724b",
     "reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/coefficient-contribution.json": "2f6b7e1c454f8a91fe38b9e589ae70f19edf1111290bc1da44e5b970c5bb1ea2",
     "reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/monotone-rings.json": "4580fc721effa9d2f4afbcc647d6e007188004fe7e7cbbd9f95862b740df4189",
-    "reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/protocol.json": "76e9f8a0d4dbfd89891e227ab9346c5bbe05076575b2edb9862edfd173e1f071"
+    "reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/protocol.json": "76e9f8a0d4dbfd89891e227ab9346c5bbe05076575b2edb9862edfd173e1f071",
+    "reports/science/author-love-hellinger-spatial/protocol.json": "db07a8136b50a97742ff8082cc6d12fa366859dabf3bb072d3fd76d2e23a6741",
+    "reports/science/pollen-reconstruction/krageholm-regional-coupled/predictive-uncertainty/protocol.json": "dc0ca991ad3c6e057bcf4710a49c7f667e8ffa1976939f17f90f7f4c423e9ee5"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",
