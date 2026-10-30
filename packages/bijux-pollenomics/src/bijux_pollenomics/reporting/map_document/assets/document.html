@@ -6180,9 +6180,13 @@ __URL_STATE_CONTROLLER__
         const clusterLegendSection = visiblePointEntries.length > 0
           ? '<div class="legend-group"><div class="legend-group-label">Map grouping</div><div class="legend-item legend-item--compact"><span class="legend-cluster-cue">12</span><span>Numbered circles group same-layer records at the current zoom; the number is a record count, not abundance.</span></div></div>'
           : '';
+        const visibleScientificEdges = visibleGovernedEdges();
+        const relationLegendSection = visibleScientificEdges.length
+          ? '<div class="legend-group"><div class="legend-group-label">Evidence relations</div><div class="legend-item">Lines connect evidence endpoints; they are relations, not reconstructed movement paths.</div></div>'
+          : '';
         const visibleScientificSignalIds = new Set([
           ...visiblePointEntries.flatMap(({ feature }) => Array.isArray(feature.scientific_signal_ids) ? feature.scientific_signal_ids : []),
-          ...visibleGovernedEdges().map((edge) => edge.signal_id),
+          ...visibleScientificEdges.map((edge) => edge.signal_id),
         ]);
         const visibleScientificSignals = SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id) && visibleScientificSignalIds.has(signal.signal_id));
         const scientificLegendSection = visibleScientificSignals.length
@@ -6194,7 +6198,7 @@ __URL_STATE_CONTROLLER__
         const neighborContextLegendSection = visiblePointEntries.some(({ neighborContext }) => neighborContext)
           ? '<div class="legend-group"><div class="legend-group-label">Cross-border context</div><div class="legend-item">Dimmed, labeled neighboring endpoints are retained for selected cross-border relations. They are excluded from focal-country point counts.</div></div>'
           : '';
-        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${neighborContextLegendSection}${LAYER_GROUP_DEFINITIONS
+        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${relationLegendSection}${sourceConcentrationLegendSection}${neighborContextLegendSection}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         const visibleRaaDensityLayer = visiblePolygonFeatureEntries.find(({ layer }) => layer.key === 'raa-archaeology')?.layer || null;
