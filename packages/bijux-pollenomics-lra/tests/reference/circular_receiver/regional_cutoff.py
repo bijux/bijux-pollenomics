@@ -196,7 +196,9 @@ def _scalar_helper_historical_basis(current: bytes) -> bytes:
         or hashlib.sha256(body).hexdigest()
         != "af2c288baefddd267e0a481a1fb6afbaba8dd94b5150a397ce1174ff0f902b56"
     ):
-        raise ValueError("nordic_wind.py differs beyond its named documentation")
+        raise ValueError(
+            "scalar helper nordic_wind.py differs beyond its named documentation"
+        )
     return body
 
 
