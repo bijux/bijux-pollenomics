@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "6f937952a76be9f5de8b52302e627667d1d9d89a3df6ff7a118a0b09c7fadc6d",
-      "bytes": 7389998
+      "sha256": "7ab16cf5333ff742b7dabec0ec95877f668458a6e52f7e06ab47dda66604e8b0",
+      "bytes": 7390146
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5608,6 +5608,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/galician_context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/numerical_precision.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/propagation_qualification.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/reference_vector_precision.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/scoring_protocols.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sead_join_identity.py",
