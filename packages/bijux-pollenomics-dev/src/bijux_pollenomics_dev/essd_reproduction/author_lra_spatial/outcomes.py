@@ -20,6 +20,7 @@ class OutcomeReader:
         protocol: dict[str, Any],
         prediction_freeze_sha256: str,
     ) -> None:
+        """Initialize outcome references and retain the declared prediction-freeze identity."""
         require(
             re.fullmatch(r"[0-9a-f]{64}", prediction_freeze_sha256) is not None,
             "Authenticated prediction freeze identity required",

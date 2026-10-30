@@ -50,6 +50,7 @@ class InputPacket:
 
 
 def require(condition: object, message: str) -> None:
+    """Raise InputError when a predictive-input condition fails."""
     if not condition:
         raise InputError(message)
 

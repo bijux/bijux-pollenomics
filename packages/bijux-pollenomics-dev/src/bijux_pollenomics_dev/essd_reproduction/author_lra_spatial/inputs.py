@@ -25,6 +25,7 @@ MAX_TOTAL_BYTES = 192 * 1024**2
 
 
 def require(condition: object, message: str) -> None:
+    """Raise a refusal when a declared spatial-input condition fails."""
     if not condition:
         raise ValueError(message)
 
@@ -37,10 +38,13 @@ def canonical(value: Any) -> bytes:
 
 
 def digest(value: Any) -> str:
+    """Hash the canonical encoding of a source-bound spatial value."""
     return hashlib.sha256(canonical(value)).hexdigest()
 
 
 def decode(raw: bytes) -> Any:
+    """Decode scientific JSON without duplicate keys or nonfinite constants."""
+
     def pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
         result: dict[str, Any] = {}
         for key, value in items:
