@@ -86,7 +86,12 @@ def _native_number(value: object, name: str, *, positive: bool = False) -> float
     """Admit native JSON numbers through current scalar rules without normalization."""
     if type(value) not in {int, float}:
         raise ValueError("English receiver requires a native numeric " + name)
-    result = finite_number(value, name, minimum=0, strict_minimum=positive)
+    try:
+        result = finite_number(value, name, minimum=0, strict_minimum=positive)
+    except OverflowError as error:
+        raise ValueError(
+            "English receiver requires a finite number for " + name
+        ) from error
     if result != value:
         raise ValueError("English receiver scalar value changed: " + name)
     return result
