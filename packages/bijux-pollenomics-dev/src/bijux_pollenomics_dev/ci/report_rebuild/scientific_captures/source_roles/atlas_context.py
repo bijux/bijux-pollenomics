@@ -526,7 +526,7 @@ def validated_atlas_context_source(
     context = _CAPTURE_CONTEXTS.get(source_buffer.prefix)
     name = historical.get("path")
     contract = _SOURCE_CONTEXT_CONTRACTS.get(name) if isinstance(name, str) else None
-    if contract is None:
+    if not isinstance(name, str) or contract is None:
         raise ReportRebuildError("Unknown source-view context source")
     size, digest, composition, _ = contract
     expected = {"sha256": digest, "bytes": size}
