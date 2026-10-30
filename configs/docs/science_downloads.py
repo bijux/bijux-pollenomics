@@ -15,6 +15,8 @@ from typing import Any, cast
 from mkdocs.config.defaults import MkDocsConfig
 from mkdocs.structure.files import File, Files
 
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import source_revision
+
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = "reports/exports/site-downloads.json"
 DECKS = ("big-picture", "developer", "scientific-evidence")
@@ -22,7 +24,7 @@ RETAINED_CONTEXT_PATH = "presentation/retained-source-context.json"
 RETAINED_CONTEXT_SHA256 = (
     "14f1d06e8f1470e5810865f4ae6d56b8d7cd08e30f3b73ad07d43fdda9bd0818"
 )
-RETAINED_CONTEXT = {
+RETAINED_CONTEXT: dict[str, Any] = {
     "schema": "retained-deck-source-context.v1",
     "source_revision": "11079034b7dc0c1a0d94d26c97c70ec59fcf27f7",
     "source_lock_sha256": "42fc24dc8c0a4f43bb754d4176f8259bb93a61133fa73ee00a9c20e27b2cad5b",
@@ -83,12 +85,12 @@ def _committed_inputs(root: Path, revision: str, paths: list[str]) -> dict[str, 
     if not paths or len(paths) != len(set(paths)) or len(paths) > 128:
         raise ValueError("Retained deck source population is ambiguous")
     for name in paths:
-        path = PurePosixPath(name)
+        canonical = PurePosixPath(name)
         if (
-            not path.parts
-            or path.is_absolute()
-            or path.as_posix() != name
-            or ".." in path.parts
+            not canonical.parts
+            or canonical.is_absolute()
+            or canonical.as_posix() != name
+            or ".." in canonical.parts
             or any(character in name for character in "\\\n\r\0")
         ):
             raise ValueError("Retained deck history requires canonical source paths")
@@ -97,11 +99,11 @@ def _committed_inputs(root: Path, revision: str, paths: list[str]) -> dict[str, 
     for record in tree.split(b"\0"):
         if not record:
             continue
-        metadata, name = record.split(b"\t", 1)
+        metadata, encoded_name = record.split(b"\t", 1)
         mode, kind, _ = metadata.split()
         if mode not in {b"100644", b"100755"} or kind != b"blob":
             raise ValueError("Retained deck history requires regular source blobs")
-        owned[name.decode()] = mode
+        owned[encoded_name.decode()] = mode
     if set(owned) != set(paths):
         raise ValueError("Retained deck history is missing an exact source")
     request = "".join(f"{revision}:{path}\n" for path in paths).encode()
@@ -119,7 +121,7 @@ def _committed_inputs(root: Path, revision: str, paths: list[str]) -> dict[str, 
     return result
 
 
-def _json_object(pairs: list[tuple[str, object]]) -> dict:
+def _json_object(pairs: list[tuple[str, object]]) -> dict[str, Any]:
     result = {}
     for key, value in pairs:
         if key in result:
@@ -354,7 +356,7 @@ def retained_deck_sources(root: Path) -> dict[str, Any]:
         exec(compile(_read(root, relative), str(root / relative), "exec"), scope)
         return cast(
             dict[str, Any],
-            scope["admitted_sources"](root, manifest, _read, _committed_inputs, _git),
+            scope["admitted_sources"](root, manifest, _read, _committed_inputs, _retained_export_git),
         )
     if (
         hashlib.sha256(_read(root, "presentation/source-lock.json")).hexdigest()
@@ -459,6 +461,21 @@ def retained_deck_sources(root: Path) -> dict[str, Any]:
         "historical_inputs": historical_inputs,
         "current_inputs": current_inputs,
     }
+
+
+def _retained_export_git(root: Path, *arguments: str) -> bytes:
+    """Check reachable source storage while preserving the original execution ID."""
+    if (
+        len(arguments) == 4
+        and arguments[:2] == ("merge-base", "--is-ancestor")
+        and arguments[3] == "HEAD"
+    ):
+        arguments = (
+            *arguments[:2],
+            source_revision(root, arguments[2]),
+            arguments[3],
+        )
+    return _git(root, *arguments)
 
 
 def _paper_sources(root: Path) -> dict[str, dict[str, object]]:

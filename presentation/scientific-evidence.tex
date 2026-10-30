@@ -1,8 +1,8 @@
 \input{presentation/shared.tex}
 \title{Bijux Pollenomics: scientific evidence}
-\subtitle{What the methods estimate, what the receipts establish, and what remains open}
+\subtitle{What the methods estimate, what the evidence supports, and what remains open}
 \author{Bijux Pollenomics}
-\date{14 October 2026}
+\date{23 October 2026}
 \begin{document}
 \frame{\titlepage}
 
@@ -144,15 +144,27 @@ Largest taxon SE gap, percentage points & 3.21615 & 4.25814 \\
 \evidence{reports/science/publication-correspondence/published-window-provenance.md}
 \end{frame}
 
-\begin{frame}{An SE envelope is not a validation interval}
+\begin{frame}{Local SE bounds can pass while a joint covariance is impossible}
 \small
-\begin{itemize}
-\item At TW2, corresponding mean $\pm$ one-SE envelopes overlap for all 31 taxa in both grids. Unknown dependence and source identity prevent a significance interpretation.
-\item Archived ISTS and TBS \emph{mean} sums close over 10,500 grid/window rows. The paper states 12 PFTs, deposit prose 11 and archive header 13 positions.
-\item Grouped SEs require their covariance/delta-method route; the archive-producing PFT/LCT code, ISTS meaning and deciduous-\emph{Quercus} mapping are not authenticated.
-\end{itemize}
-\scope{A matched R residual, a grouped mean identity and a reported SE leave biological interpretation open.}
-\evidence{reports/science/publication-correspondence/pft-crosswalk/README.md}
+For a fixed total, the ET/ST/OL standard deviations must form a triangle:
+the largest cannot exceed the sum of the other two. On the archived point
+values, all five local sum-SE checks pass in 8,031 assessed rows, yet:
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Conditional partial-tree disposition & Grid/window rows \\
+\midrule
+Joint covariance feasible & 2,420 \\
+Joint covariance infeasible & 5,611 \\
+All native means/SEs zero; not scored & 2,467 \\
+Negative native means; refused without clipping & 2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+The largest root deficit is 202.749659 native units; no rounding envelope is
+invented to repair it. Native units and the closed-total interpretation remain assumptions.
+\scope{This tests a partial grouping under one fixed total, not a full 31-taxon covariance, bounded composition, historical transformation or field uncertainty. The ISTS and taxon-mapping questions remain open.}
+\evidence{reports/science/publication-correspondence/pft-crosswalk/README.md; reports/science/publication-correspondence/pft-crosswalk/joint-covariance/report.json}
 \end{frame}
 
 \begin{frame}{The 2024 LOVE paper and our fixtures have different sites}
@@ -290,10 +302,33 @@ Sweden & 228 & 221,800/240,966 & 51/54 \\
 \begin{itemize}
 \item Four Swedish cores supply explicitly complete small taxon panels: 261/273 source samples in 77 core/windows. Missing selected observations remain refusals.
 \item Wider parameter-transfer alternatives retain 267/273 samples in 79 core/windows under an explicit assumed-zero reporting rule and surrogate parameter choices.
-\item The Rootsi EKE workbook's 42 rows partition into 25 positive-feature and 17 zero-feature rows. This reconciles its row-count claim; 24 positive rows contain noninteger features.
+\item The Rootsi candidates are workbook features, not admitted pollen counts. Their expanded census preserves incomplete cells, ambiguous headers and fractional values.
 \end{itemize}
 \scope{Conditional modeled compositions and row accounting do not authenticate historical LandClim inputs, grain units, independent vegetation accuracy or scientific approval.}
 \evidence{reports/science/landclim-paper.md; reports/science/publication-correspondence.md}
+\end{frame}
+
+\begin{frame}{Curation: 79 workbooks do not establish 5,153 pollen samples}
+\small
+All 79 original Rootsi workbooks were read without recalculating formulas.
+The 5,170 mechanical rows have this exclusive partition:
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Cached candidate-feature disposition & Rows \\
+\midrule
+Complete nonnegative values, at least one positive & 4,820 \\
+All numeric zero & 17 \\
+Missing or unsupported feature cells & 32 \\
+Unresolved header roles; classification refused & 301 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Separately, 1,024 classified rows contain noninteger features; that overlapping
+flag is not added to the partition. EKE retains 25 positive and 17 all-zero
+rows, with nonzero cached ages in those zero rows.
+\scope{Subtracting 17 gives the metadata total 5,153, including incomplete/unclassified rows. It does not authenticate grain units, ecological zeros, selected chronology, historical membership or reuse rights.}
+\evidence{reports/science/publication-correspondence.md; reports/science/publication-correspondence/rootsi-feature-census/report.json}
 \end{frame}
 
 \begin{frame}{Technical appendix: Swedish training and source support}
@@ -325,6 +360,18 @@ Same-source policy vs excluding centers within 100 km; 52 shared bins & 0.023151
 \evidence{reports/science/pollen-prediction.md}
 \end{frame}
 
+\begin{frame}{One supported ABBO chronology preserves this frozen ranking}
+\small
+\begin{itemize}
+\item All 107 samples share one nondecreasing age vector within their LegacyAge bounds; tied depths retain equal ages and five negative young ages are preserved.
+\item Four fixed 16-taxon predictors are compared across bins 3, 4, 5 and 9. The score gives each bin equal weight, then averages absolute pollen-fraction errors over taxa.
+\item There are 123,480 compatible nonempty four-bin memberships. Freely combining separate bin solutions would admit 6,050,520 combinations and lose the common chronology constraint.
+\item Nearest-site has the lowest aggregate error throughout. Every one of the six paired method differences remains strict; none ties or reverses.
+\end{itemize}
+\scope{One exposed core and frozen predictions. Supported age ranges are not a joint chronology posterior; this is sensitivity, not a confidence band, general model ranking or vegetation accuracy. A single-bin winner can differ.}
+\evidence{reports/science/abborrtjarnen-source-method.md; reports/science/chronology/abborrtjarne-joint-prediction-age-sensitivity.json}
+\end{frame}
+
 \begin{frame}{Technical appendix: two new Swedish pollen targets}
 \small
 \begin{itemize}
@@ -333,6 +380,41 @@ Same-source policy vs excluding centers within 100 km; 52 shared bins & 0.023151
 \end{itemize}
 \scope{Two distinct one-site development results; different age support and no untouched confirmation.}
 \evidence{reports/science/sambosjon-direct-pollen.md; reports/science/lilla-gloppsjon-direct-pollen.md}
+\end{frame}
+
+\begin{frame}{Two basins: a common two-taxon cover is a testable assumption}
+\small
+We fit one relative Betula/Ulmus composition per matched window, with distinct
+fixed basin responses $a_{si}=\mathrm{PPE}_i K_{si}$ and count probabilities
+$p_{si}=a_{si}v_i/\sum_j a_{sj}v_j$.
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Matched source & Samples & Betula/Ulmus grains & Original panel grains \\
+\midrule
+BOKE & 50 & 9,928 & 11,295 \\
+BUS & 43 & 3,699 & 3,699 \\
+\bottomrule
+\end{tabular}
+\end{center}
+BOKE excludes 1,367 Fraxinus grains from the new two-taxon denominator;
+all-pollen totals remain 40,999/50,675. Original sample exclusions still apply.
+All 13 fits converge. Their maximum cover difference from geometry-correct-then-pool
+is 0.280017 percentage points on this closed two-taxon axis.
+\scope{Both sites enter each fit: this is descriptive in-sample likelihood, not independent prediction or measured vegetation. The other 17 BUS samples occupy six unmatched windows and are not fitted. Historical basin/parameter/chronology admission remains open.}
+\evidence{reports/science/model-use.md; reports/science/pollen-reconstruction/common-cover/report.json}
+\end{frame}
+
+\begin{frame}{Counting constraints expose seven incompatible common-cover windows}
+\small
+\begin{itemize}
+\item Reuse the same projected counts and already-rounded fixed responses; perform no new fit or kernel evaluation.
+\item Each site's certified 97.5\% binomial pollen interval is transformed to cover. Exact intersection gives a nominal 95\% common-cover set within one declared window; independence across sites is not required.
+\item Seven of 13 windows have empty intersections; six are nonempty. Empty sets retain null physical bounds. The first two nonempty sets exclude the joint point estimate; no containment rule or midpoint repairs them.
+\item All six unmatched BUS windows remain unpaired and receive no two-site set.
+\end{itemize}
+\scope{These are separate per-window sets, not a simultaneous 95\% band across 13 windows. Pooled source samples are not proven binomial trials; fixed PPE, geometry, chronology and model omissions prevent a calibrated field rejection or accuracy claim.}
+\evidence{reports/science/model-use.md; reports/science/pollen-reconstruction/common-cover/counting-sets.json}
 \end{frame}
 
 \begin{frame}{Technical appendix: one-window R lineage}
@@ -352,12 +434,12 @@ Same-source policy vs excluding centers within 100 km; 52 shared bins & 0.023151
 \toprule
 Declared source test & Result and limit \\
 \midrule
-Original/current R and Python & 43/43 core and 23/23 source-domain cases pass; 97 numeric CSVs byte-match native R; 48 original-R shared vectors agree. \\
+23 October current R/Python & All 66 current cases pass on 5,828 coordinates; max finite gap $2.49\times10^{-14}$. The 48 available original-R pairs pass separately, max $3.20\times10^{-14}$. \\
 One fixed ten-taxon LOVEexample & Eight ring/repeat candidate selections agree; 40 finite cover and 40 pollen cells match exactly; max ring-factor/objective gaps $5.11\times10^{-15}$/$4.67\times10^{-15}$. \\
 Three shared optimized objectives & Both attain objective gaps $<10^{-4}$ from independent optima; cross-evaluated candidate gap $<10^{-10}$. Search paths and vectors need not match. \\
 \bottomrule
 \end{tabular}
-\scope{Declared arithmetic and objective quality, not the 2024 paper's eight-pond Figure 2 or real vegetation accuracy.}
+\scope{Dated inputs/code and original numerical tolerances. Matching source NaNs are not finite optimizer success. The 48 historical pairs are not extra independent data; no eight-pond Figure 2 or vegetation-accuracy claim.}
 \evidence{reports/science/method-correspondence.md}
 \end{frame}
 
@@ -444,7 +526,7 @@ Sweden & ABB/ABBO, BUS and BOKE: one jointly qualified core/window packet, inclu
 \item An independent Decimal implementation checks 39,552 scalar quantities: maximum difference $2.43\times10^{-15}$ against $2\times10^{-13}$. The empty window stays refused.
 \end{itemize}
 \scope{No historical basin authentication, chronology/geometry distribution, measured vegetation accuracy, empirical interval coverage or significance conclusion.}
-\evidence{docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md; paired-covariance.json and paired-covariance-source.json in that directory}
+\evidence{docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/README.md; docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/paired-covariance.json}
 \end{frame}
 
 \begin{frame}{Development isolation is distinct from untouched evidence}
@@ -468,7 +550,7 @@ Sweden & ABB/ABBO, BUS and BOKE: one jointly qualified core/window packet, inclu
 \item All 110 poorer contrasts remain visible. An independent 50-digit Decimal implementation checks 7,290 fields; its maximum difference is $5.36\times10^{-16}$ under $10^{-12}$.
 \end{itemize}
 \scope{Targets are deposited calculated map areas. No independent field vegetation, physical PPE/ERV calibration, historical reproduction, calibrated intervals or Nordic transfer follows. Repeated rings are not independent sites.}
-\evidence{docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md; source-account.json in that directory}
+\evidence{docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md; docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json}
 \end{frame}
 
 \begin{frame}{Pyrenean botanical alternatives preserve the source denominator}
@@ -479,7 +561,7 @@ Sweden & ABB/ABBO, BUS and BOKE: one jointly qualified core/window packet, inclu
 \item The strict cases refuse 1,000 contexts; the separate conditional cases retain their assumptions. No missing eighteenth paper axis is fabricated.
 \end{itemize}
 \scope{This is source-preserving botanical projection, not a pollen/vegetation accuracy score. Exact source/population correspondence, usable species mappings, matched support and qualified review remain required.}
-\evidence{docs/report/vegetation-reference/pyrenees-botanical-projection/README.md; source-account.json in that directory}
+\evidence{docs/report/vegetation-reference/pyrenees-botanical-projection/README.md; docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json}
 \end{frame}
 
 \begin{frame}{Synthetic coverage diagnoses a declared model}

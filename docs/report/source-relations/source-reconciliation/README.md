@@ -12,7 +12,7 @@ refusals. Its 204 manifest-verification rows preserve which expected digests or 
 available; an observed digest does not invent a missing historical expected identity.
 Seven private identities bind the custody and Rootsi manifests, three historical receipts
 and both original Rootsi/OpenLand archives. All data and private input bodies remain
-identity-only in the [public execution capture](../../../../data/source-custody/source-reconciliation/current-audit/capture.json).
+identity-only in the [public execution capture](https://github.com/bijux/bijux-pollenomics/blob/main/data/source-custody/source-reconciliation/current-audit/capture.json).
 
 The current content-bound full-audit digest is
 `3ec6ed5dc52d23c88fead8b33f812ca31f1206c8cb497780c78bc7ea04c8aa3b`.
@@ -23,7 +23,7 @@ The exact current governed summary has raw-file SHA-256
 The current source epoch is commit `ad591c301bcadb6a3f963caa836a2e38a16d0de4`;
 metadata retention is a separate execution, with its own source candidate and receipts.
 
-The [earlier governed summary](../../../../data/source-custody/source-reconciliation/summary-history/16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2.json)
+The [earlier governed summary](https://github.com/bijux/bijux-pollenomics/blob/main/data/source-custody/source-reconciliation/summary-history/16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2.json)
 is retained byte for byte. It referenced full-audit digest
 `26116f18017f5695c8782849e9ab827251d033cc56a8e1e76eabf38063c9ba90`;
 that older full-audit object and original construction receipt remain unavailable.

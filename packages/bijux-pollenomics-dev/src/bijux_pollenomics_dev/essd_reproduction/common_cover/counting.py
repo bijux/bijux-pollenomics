@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from collections import Counter
 from dataclasses import asdict
+from fractions import Fraction
 import json
 from pathlib import Path
 import re
@@ -40,6 +41,9 @@ LIMITS = [
     "Use the point report's already-rounded binary64 PPE*K responses, measured panel and original sample eligibility exactly. No optimizer, kernel, new parameter fitting, pseudocount or zero substitution is involved.",
     "Empty intersections are retained as conditional model incompatibilities, not repaired cover estimates or algorithm failures. Nonempty sets do not validate the common-cover model. No MLE-containment condition or midpoint estimate is imposed.",
     "The six unmatched BUS windows remain unpaired and receive no two-site set. Zero-effort site rows, if present, are explicitly uninformative; two empty sites refuse.",
+    "The common-pollen-probability comparator intersects the same two certified marginal pollen intervals. Under common pollen probability and the same binomial marginals, its coverage inherits counting_set.guaranteed_joint_confidence_lower_bound. Its parameter is shared relative Betula pollen probability, whereas the physical model's parameter is shared relative Betula cover under distinct fixed site responses. These intervals have different parameter axes; neither their widths nor their numerical endpoints rank the models.",
+    "Each model has its own conditional per-window confidence guarantee. There is no simultaneous guarantee across both models or thirteen windows, and no guarantee after selecting a model from these results. Both cores and the existing compatibility outcomes were exposed during development; this comparison is not an untouched confirmation.",
+    "Common pollen probability is a compatibility hypothesis, not the direct-panel-mean predictor or the point study's geometry-correct-then-pool baseline. Empty or nonempty intersections do not establish predictive accuracy, preferred field models or a causal effect of geometry.",
 ]
 
 
@@ -116,6 +120,35 @@ def authenticate_inputs(repository: Path, report: dict[str, Any]) -> None:
     require(len(report["unmatched"]) == 6, "Original six unmatched windows required")
 
 
+def _common_pollen_probability_set(
+    result: multisite_counting.MultisiteCountingSet,
+) -> dict[str, Any]:
+    """Intersect the existing marginal bounds on their original pollen axis."""
+    limits = [
+        tuple(Fraction.from_float(p) for p in site.pollen_probability_interval)
+        for site in result.sites
+    ]
+    lower = max(pair[0] for pair in limits)
+    upper = min(pair[1] for pair in limits)
+    return {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "nonempty" if lower <= upper else "empty",
+        "intersection_limits_exact": (str(lower), str(upper)),
+        "probability_interval_exact": (
+            (str(lower), str(upper)) if lower <= upper else None
+        ),
+        "probability_interval": (float(lower), float(upper))
+        if lower <= upper
+        else None,
+        "lower_attaining_site_indices": tuple(
+            i for i, pair in enumerate(limits) if pair[0] == lower
+        ),
+        "upper_attaining_site_indices": tuple(
+            i for i, pair in enumerate(limits) if pair[1] == upper
+        ),
+    }
+
+
 def evaluate(report: dict[str, Any]) -> list[dict[str, Any]]:
     """Calculate from saved counts/responses only, retaining each terminal outcome."""
     responses = [c["response_PPE_times_K"] for c in report["cores"]]
@@ -128,6 +161,7 @@ def evaluate(report: dict[str, Any]) -> list[dict[str, Any]]:
             "point_status": group["status"],
             "status": "not_run",
             "counting_set": None,
+            "common_pollen_probability_set": None,
         }
         if not fatal:
             try:
@@ -137,7 +171,13 @@ def evaluate(report: dict[str, Any]) -> list[dict[str, Any]]:
                     taxon_measured=[s["taxon_measured"] for s in group["sites"]],
                     confidence_level=0.95,
                 )
-                row.update(status="computed", counting_set=asdict(result))
+                row.update(
+                    status="computed",
+                    counting_set=asdict(result),
+                    common_pollen_probability_set=_common_pollen_probability_set(
+                        result
+                    ),
+                )
             except ValidationError as error:
                 row.update(
                     status="refused", reason=error.reason_code, detail=str(error)
@@ -220,6 +260,13 @@ def main() -> None:
         "age_unit": report["age_unit"],
         "confidence_level_per_window": 0.95,
         "simultaneous_across_windows_claimed": False,
+        "simultaneous_across_models_claimed": False,
+        "postselection_coverage_claimed": False,
+        "comparison_development_exposed": True,
+        "compared_parameters": {
+            "counting_set": "shared_first_taxon_relative_cover_with_fixed_site_responses",
+            "common_pollen_probability_set": "shared_first_taxon_pollen_probability",
+        },
         **{
             key: report[key]
             for key in (
@@ -236,8 +283,16 @@ def main() -> None:
                 r["counting_set"]["status"] for r in rows if r["status"] == "computed"
             )
         ),
+        "common_pollen_probability_set_status_counts": dict(
+            Counter(
+                r["common_pollen_probability_set"]["status"]
+                for r in rows
+                if r["status"] == "computed"
+            )
+        ),
         "new_point_fits": 0,
         "new_kernel_evaluations": 0,
+        "additional_binomial_tail_evaluations_for_comparator": 0,
         "common_field_cover_admitted": False,
         "sampling_calibration_established": False,
         "raw_redistribution_authorized": False,

@@ -1,6 +1,6 @@
 {
   "schema_version": "boke-bus-conditional-counting-sets.v1",
-  "source_commit": "d6c7b9de18395dfe91a66027a57236c66baae5cd",
+  "source_commit": "614197d3e1590fbedea65eaffad390686084b446",
   "command": [
     "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
     "-B",
@@ -9,7 +9,7 @@
     "--repository",
     "/Users/bijan/bijux/bijux-pollenomics",
     "--output",
-    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/common-cover-counting/report.json"
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/common-cover-compatibility/report.json"
   ],
   "point_report": {
     "path": "reports/science/pollen-reconstruction/common-cover/report.json",
@@ -23,6 +23,13 @@
   "age_unit": "calibrated years BP, AD1950 reference",
   "confidence_level_per_window": 0.95,
   "simultaneous_across_windows_claimed": false,
+  "simultaneous_across_models_claimed": false,
+  "postselection_coverage_claimed": false,
+  "comparison_development_exposed": true,
+  "compared_parameters": {
+    "counting_set": "shared_first_taxon_relative_cover_with_fixed_site_responses",
+    "common_pollen_probability_set": "shared_first_taxon_pollen_probability"
+  },
   "cores": [
     {
       "core": "BOKE",
@@ -648,6 +655,28 @@
         ],
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "nonempty",
+        "intersection_limits_exact": [
+          "4247991609455755/4503599627370496",
+          "266775651563791/281474976710656"
+        ],
+        "probability_interval_exact": [
+          "4247991609455755/4503599627370496",
+          "266775651563791/281474976710656"
+        ],
+        "probability_interval": [
+          0.943243618646451,
+          0.9477775064815965
+        ],
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     },
     {
@@ -888,6 +917,28 @@
         ],
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "nonempty",
+        "intersection_limits_exact": [
+          "4285916776552007/4503599627370496",
+          "8622334704286379/9007199254740992"
+        ],
+        "probability_interval_exact": [
+          "4285916776552007/4503599627370496",
+          "8622334704286379/9007199254740992"
+        ],
+        "probability_interval": [
+          0.9516646973910541,
+          0.9572714514723278
+        ],
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     },
     {
@@ -1126,6 +1177,28 @@
         ],
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "nonempty",
+        "intersection_limits_exact": [
+          "8701026200620029/9007199254740992",
+          "8879349415445349/9007199254740992"
+        ],
+        "probability_interval_exact": [
+          "8701026200620029/9007199254740992",
+          "8879349415445349/9007199254740992"
+        ],
+        "probability_interval": [
+          0.9660079625795103,
+          0.9858058164719351
+        ],
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     },
     {
@@ -1366,6 +1439,28 @@
         ],
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "nonempty",
+        "intersection_limits_exact": [
+          "1068117357501361/1125899906842624",
+          "8604260385930667/9007199254740992"
+        ],
+        "probability_interval_exact": [
+          "1068117357501361/1125899906842624",
+          "8604260385930667/9007199254740992"
+        ],
+        "probability_interval": [
+          0.9486787866398325,
+          0.9552647990330362
+        ],
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     },
     {
@@ -1606,6 +1701,28 @@
         ],
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "nonempty",
+        "intersection_limits_exact": [
+          "4007782085112287/4503599627370496",
+          "8212177183524261/9007199254740992"
+        ],
+        "probability_interval_exact": [
+          "4007782085112287/4503599627370496",
+          "8212177183524261/9007199254740992"
+        ],
+        "probability_interval": [
+          0.889906389714376,
+          0.9117348191450004
+        ],
+        "lower_attaining_site_indices": [
+          1
+        ],
+        "upper_attaining_site_indices": [
+          0
+        ]
       }
     },
     {
@@ -1834,6 +1951,22 @@
         "cover_upper": null,
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "empty",
+        "intersection_limits_exact": [
+          "1919758248199905/2251799813685248",
+          "7615705175282039/9007199254740992"
+        ],
+        "probability_interval_exact": null,
+        "probability_interval": null,
+        "lower_attaining_site_indices": [
+          1
+        ],
+        "upper_attaining_site_indices": [
+          0
+        ]
       }
     },
     {
@@ -2058,6 +2191,22 @@
         "cover_upper": null,
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "empty",
+        "intersection_limits_exact": [
+          "8120869349794089/9007199254740992",
+          "3951337499862455/4503599627370496"
+        ],
+        "probability_interval_exact": null,
+        "probability_interval": null,
+        "lower_attaining_site_indices": [
+          1
+        ],
+        "upper_attaining_site_indices": [
+          0
+        ]
       }
     },
     {
@@ -2282,6 +2431,22 @@
         "cover_upper": null,
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "empty",
+        "intersection_limits_exact": [
+          "2035370710497881/2251799813685248",
+          "7876600724485931/9007199254740992"
+        ],
+        "probability_interval_exact": null,
+        "probability_interval": null,
+        "lower_attaining_site_indices": [
+          1
+        ],
+        "upper_attaining_site_indices": [
+          0
+        ]
       }
     },
     {
@@ -2506,6 +2671,22 @@
         "cover_upper": null,
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "empty",
+        "intersection_limits_exact": [
+          "7659766719790821/9007199254740992",
+          "7648848056440325/9007199254740992"
+        ],
+        "probability_interval_exact": null,
+        "probability_interval": null,
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     },
     {
@@ -2731,6 +2912,22 @@
         "cover_upper": null,
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "empty",
+        "intersection_limits_exact": [
+          "3440470614711129/4503599627370496",
+          "1187086224372971/2251799813685248"
+        ],
+        "probability_interval_exact": null,
+        "probability_interval": null,
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     },
     {
@@ -2957,6 +3154,22 @@
         "cover_upper": null,
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "empty",
+        "intersection_limits_exact": [
+          "1918579676715481/2251799813685248",
+          "2513209668162293/4503599627370496"
+        ],
+        "probability_interval_exact": null,
+        "probability_interval": null,
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     },
     {
@@ -3184,6 +3397,22 @@
         "cover_upper": null,
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "empty",
+        "intersection_limits_exact": [
+          "3905530593792167/4503599627370496",
+          "4238509790516653/9007199254740992"
+        ],
+        "probability_interval_exact": null,
+        "probability_interval": null,
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     },
     {
@@ -3425,6 +3654,28 @@
         ],
         "numerical_certification": "directed-binomial-tails-exact-rational-intersection",
         "profile": "two-site-fixed-response-binomial-common-cover-set-v1"
+      },
+      "common_pollen_probability_set": {
+        "parameter": "shared_first_taxon_pollen_probability",
+        "status": "nonempty",
+        "intersection_limits_exact": [
+          "8159082920798227/9007199254740992",
+          "4168553684907271/4503599627370496"
+        ],
+        "probability_interval_exact": [
+          "8159082920798227/9007199254740992",
+          "4168553684907271/4503599627370496"
+        ],
+        "probability_interval": [
+          0.9058401718496064,
+          0.9256048560740184
+        ],
+        "lower_attaining_site_indices": [
+          0
+        ],
+        "upper_attaining_site_indices": [
+          1
+        ]
       }
     }
   ],
@@ -3435,8 +3686,13 @@
     "nonempty": 6,
     "empty": 7
   },
+  "common_pollen_probability_set_status_counts": {
+    "nonempty": 6,
+    "empty": 7
+  },
   "new_point_fits": 0,
   "new_kernel_evaluations": 0,
+  "additional_binomial_tail_evaluations_for_comparator": 0,
   "common_field_cover_admitted": false,
   "sampling_calibration_established": false,
   "raw_redistribution_authorized": false,
@@ -3447,6 +3703,9 @@
     "PPE, saved receiver-annulus K, geometry, chronology, within-window heterogeneity, between-site variation, measurement error and model uncertainty are omitted. The original point-report source/rights limitations remain.",
     "Use the point report's already-rounded binary64 PPE*K responses, measured panel and original sample eligibility exactly. No optimizer, kernel, new parameter fitting, pseudocount or zero substitution is involved.",
     "Empty intersections are retained as conditional model incompatibilities, not repaired cover estimates or algorithm failures. Nonempty sets do not validate the common-cover model. No MLE-containment condition or midpoint estimate is imposed.",
-    "The six unmatched BUS windows remain unpaired and receive no two-site set. Zero-effort site rows, if present, are explicitly uninformative; two empty sites refuse."
+    "The six unmatched BUS windows remain unpaired and receive no two-site set. Zero-effort site rows, if present, are explicitly uninformative; two empty sites refuse.",
+    "The common-pollen-probability comparator intersects the same two certified marginal pollen intervals. Under common pollen probability and the same binomial marginals, its coverage inherits counting_set.guaranteed_joint_confidence_lower_bound. Its parameter is shared relative Betula pollen probability, whereas the physical model's parameter is shared relative Betula cover under distinct fixed site responses. These intervals have different parameter axes; neither their widths nor their numerical endpoints rank the models.",
+    "Each model has its own conditional per-window confidence guarantee. There is no simultaneous guarantee across both models or thirteen windows, and no guarantee after selecting a model from these results. Both cores and the existing compatibility outcomes were exposed during development; this comparison is not an untouched confirmation.",
+    "Common pollen probability is a compatibility hypothesis, not the direct-panel-mean predictor or the point study's geometry-correct-then-pool baseline. Empty or nonempty intersections do not establish predictive accuracy, preferred field models or a causal effect of geometry."
   ]
 }

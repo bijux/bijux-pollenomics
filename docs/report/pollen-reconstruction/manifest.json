@@ -66,8 +66,8 @@
     },
     {
       "path": "configs/release_evidence_policy.json",
-      "sha256": "061666d7e2aec3c8ec5d447c042fecdbfc494bc84a2044daa3cc60590adc128b",
-      "bytes": 36864
+      "sha256": "885d761a73c06632007ba0d4e4dbde74f9c12deb74454062a0d66f2fed44d8bc",
+      "bytes": 36834
     },
     {
       "path": "configs/scientific-contracts/phenomenon-event.schema.json",

@@ -80,9 +80,9 @@ The retained source contains 15 positive-count sites and 20,732 original grains.
 
 Overlapping training sets, reused numerical requests and shared source/protocol choices create spatial and computational dependence. Neither 12,480 references nor 45 prediction slots is an independent-sample denominator. This deterministic point diagnostic does not establish ecological vegetation accuracy, calibrated uncertainty, untouched confirmation, source rights, original R optimizer parity, installed wheel/sdist qualification or release approval.
 
-[report.json](report.json) retains every scored/refused fold; [training.json](training.json) retains the numerical request pool and logical reuse map; [trials.jsonl](trials.jsonl) retains every new start/completion lifecycle. The linked prior evidence retains the 832 reused outcomes. [prediction-freeze.json](prediction-freeze.json) and [outcome-access.jsonl](outcome-access.jsonl) bind complete-inventory freezing and subsequent cohort scoring. [protocol.json](protocol.json), [replay.py](replay.py) and [pool.py](pool.py) retain the exact executed scientific protocol and source.
+[report.json](report.json) retains every scored/refused fold; [training.json](training.json) retains the numerical request pool and logical reuse map; [trials.jsonl](trials.jsonl) retains every new start/completion lifecycle. The linked prior evidence retains the 832 reused outcomes. [prediction-freeze.json](prediction-freeze.json) and [outcome-access.jsonl](outcome-access.jsonl) bind complete-inventory freezing and subsequent cohort scoring. [protocol.json](protocol.json), [replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py) and [pool.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py) retain the exact executed scientific protocol and source.
 
-The actual execution used clean base `5998a3c616e02c9e702fae8048ffbff6f40435d2` with separately authenticated cohort sources. Native/common/outer exits were zero, with source/input/runtime custody preserved. The compact [execution authority](../../../../../reports/science/source-cohorts/author-love-cohort-development.json) binds the original terminals, source overlay and independent saved-output arithmetic. Derived source discovery metadata is declared separately from installed-distribution qualification.
+The actual execution used clean base `5998a3c616e02c9e702fae8048ffbff6f40435d2` with separately authenticated cohort sources. Native/common/outer exits were zero, with source/input/runtime custody preserved. The compact [execution authority](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-cohort-development.json) binds the original terminals, source overlay and independent saved-output arithmetic. Derived source discovery metadata is declared separately from installed-distribution qualification.
 
 
 <!-- scientific-account-route:begin -->
@@ -120,9 +120,9 @@ Homogeneous retrospective prior-exposed English fixed-start LOVE development coh
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/protocol.json](protocol.json) (SHA-256 `6a87258f9495c417efb45e5a973a566134c7f7f28cecbe741777577ed0066585`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py](replay.py).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py](pool.py).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py).
 
 - [Retained qualification evidence: reports/science/source-cohorts/author-love-cohort-development.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-cohort-development.json) (SHA-256 `41ba3a2d8765d9cd9feaf86a7d6c9232bfc1898e12ffb0da523d7a235b3e0c23`).
 

@@ -8,6 +8,27 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{hyperref}
-\newcommand{\evidence}[1]{\par\vfill{\tiny\color{gray}Evidence: \texttt{\detokenize{#1}}}}
+\providecommand{\repositorysourcebase}{https://github.com/bijux/bijux-pollenomics/blob/main/}
+\ExplSyntaxOn
+\cs_new_protected:Npn \bijux_source_link:n #1
+  {
+    \tl_set:Nn \l_tmpa_tl {#1}
+    \tl_trim_spaces:N \l_tmpa_tl
+    \href{\repositorysourcebase\tl_use:N \l_tmpa_tl}
+      {\exp_args:NV \nolinkurl \l_tmpa_tl}
+  }
+\NewDocumentCommand{\evidence}{m}
+  {
+    \par\vfill
+    {\scriptsize\color{gray}Evidence:\space
+      \seq_set_split:Nnn \l_tmpa_seq {;} {#1}
+      \seq_map_indexed_inline:Nn \l_tmpa_seq
+        {
+          \int_compare:nNnT {##1} > {1} {;\allowbreak\space}
+          \bijux_source_link:n {##2}
+        }
+    }
+  }
+\ExplSyntaxOff
 \newcommand{\scope}[1]{\par\medskip{\small\color{blue!65!black}#1}}
 \titlegraphic{\small Source-bound research briefing}

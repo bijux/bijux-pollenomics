@@ -54,7 +54,7 @@ vegetation truth or a multi-evidence causal trajectory.
 
 ## Current source-bound observation
 
-A separate [current native receipt](../../../../../reports/science/country-reports/sweden-current-receipt.json) and [source witness](../../../../../reports/science/country-reports/sweden-current-semantic-replay.json) retain a later Sweden country-report observation. The original receipt and its unresolved acceptance remain unchanged.
+A separate [current native receipt](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-reports/sweden-current-receipt.json) and [source witness](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-reports/sweden-current-semantic-replay.json) retain a later Sweden country-report observation. The original receipt and its unresolved acceptance remain unchanged.
 
 The country method returned normally once inside the original controller and whole, which each exited 1 after a before-read denial of the qualified absent default Python ZIP. A separate saved-product observer and its whole each exited 0. The portable metadata assembly, independent observer and whole each exited 0; they repeated no country API or model.
 

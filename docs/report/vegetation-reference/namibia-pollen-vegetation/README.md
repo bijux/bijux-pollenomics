@@ -25,7 +25,7 @@ soil-sampling or satellite-image dates.
 This producer performs a source-row join for an out-of-domain modern
 development cohort. Separate experiments predict
 [mapped composition from pollen](../namibia-grouped-mapped-area/README.md) and
-[pollen from deposited areas](../../../../reports/science/namibia-pollen-vegetation-paper.md#forward-pollen-results-and-independent-confirmation).
+[pollen from deposited areas](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md#forward-pollen-results-and-independent-confirmation).
 Their fits, scores and failures remain separate from this descriptive join;
 none validates Nordic vegetation reconstruction.
 

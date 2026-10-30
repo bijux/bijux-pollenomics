@@ -203,7 +203,7 @@ def test_abbo_age_fixture_requires_the_reviewed_table_identity(
     assert not (tmp_path / "source-store").exists()
 
 
-def test_every_configured_source_schema_has_a_reviewed_scheduling_fixture() -> None:
+def test_configured_and_retained_schemas_have_reviewed_scheduling_fixtures() -> None:
     configuration = json.loads(
         (IMPACT.REPO_ROOT / "configs/ci/report-owner-execution.json").read_bytes()
     )
@@ -212,6 +212,9 @@ def test_every_configured_source_schema_has_a_reviewed_scheduling_fixture() -> N
         for row in configuration["owners"]
         if "external_source_descriptor" in row
     }
+    # Retained age-table qualification remains supported independently of
+    # whether a current report owner schedules that historical source.
+    descriptors.add("configs/ci/qualified-report-sources/abbo-age-controls.json")
     schemas = {
         json.loads((IMPACT.REPO_ROOT / path).read_bytes())["schema_version"]
         for path in descriptors

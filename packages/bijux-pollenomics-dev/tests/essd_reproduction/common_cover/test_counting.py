@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import asdict, replace
+from fractions import Fraction
 import hashlib
 import json
+import math
 from pathlib import Path
 import subprocess
 import sys
@@ -13,7 +16,10 @@ from typing import Any
 import pytest
 
 from bijux_pollenomics_dev.essd_reproduction.common_cover import cohort, counting
-from bijux_pollenomics_lra.reconstruction.uncertainty import multisite_counting
+from bijux_pollenomics_lra.reconstruction.uncertainty import (
+    multisite_counting,
+    two_taxon_counting,
+)
 
 POINT_SOURCE = "1" * 40
 PUBLICATION = "2" * 40
@@ -200,8 +206,90 @@ def test_count_only_outcomes_preserve_empty_sets_and_refusals() -> None:
     assert rows[1]["counting_set"]["status"] == "empty"
     assert rows[1]["counting_set"]["cover_lower_exact"] is None
     assert rows[2]["status"] == "refused" and rows[2]["counting_set"] is None
+    assert rows[2]["common_pollen_probability_set"] is None
     assert rows[3]["counting_set"]["excluded_zero_total_site_indices"] == (0,)
     assert rows[0]["sites"] is report["groups"][0]["sites"]
+
+
+@pytest.mark.parametrize(
+    ("intervals", "expected"),
+    [
+        (((0.1, 0.8), (0.3, 0.9)), (0.3, 0.8)),
+        (((0.1, 0.3), (0.4, 0.9)), None),
+        (((0.1, 0.3), (0.3, 0.9)), (0.3, 0.3)),
+        (((0.0, 1.0), (0.3, 0.9)), (0.3, 0.9)),
+        (((0.0, 0.0), (0.0, 0.0)), (0.0, 0.0)),
+        (((0.0, 0.5), (math.nextafter(0.5, 1.0), 1.0)), None),
+    ],
+)
+def test_pollen_intersection_uses_exact_binary64_endpoints_without_tolerance(
+    intervals: tuple[tuple[float, float], tuple[float, float]],
+    expected: tuple[float, float] | None,
+) -> None:
+    original = multisite_counting.multisite_two_taxon_counting_set(
+        ((4, 6), (5, 5)), ((1, 1), (1, 1)), taxon_measured=((True, True),) * 2
+    )
+    result = replace(
+        original,
+        sites=(
+            replace(original.sites[0], pollen_probability_interval=intervals[0]),
+            replace(original.sites[1], pollen_probability_interval=intervals[1]),
+        ),
+    )
+    actual = counting._common_pollen_probability_set(result)
+    assert actual["status"] == ("empty" if expected is None else "nonempty")
+    assert actual["probability_interval"] == expected
+    assert actual["probability_interval_exact"] == (
+        None
+        if expected is None
+        else tuple(str(Fraction.from_float(value)) for value in expected)
+    )
+    if expected == (0.3, 0.3):
+        assert actual["lower_attaining_site_indices"] == (1,)
+        assert actual["upper_attaining_site_indices"] == (0,)
+
+
+def test_models_can_disagree_without_new_tails_or_physical_result_changes(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    report = fixture_report()
+    report["cores"][0]["response_PPE_times_K"] = [19.0, 1.0]
+    report["cores"][1]["response_PPE_times_K"] = [1.0, 19.0]
+    report["groups"] = report["groups"][:2]
+    for group, observations in zip(
+        report["groups"], (((95, 5), (5, 95)), ((95, 5), (95, 5))), strict=True
+    ):
+        for site, counts in zip(group["sites"], observations, strict=True):
+            site["projected_counts"] = counts
+            site["projected_panel_N"] = sum(counts)
+    physical_results = []
+    tail_calls = []
+    original_set = multisite_counting.multisite_two_taxon_counting_set
+    original_interval = two_taxon_counting.fixed_two_taxon_counting_interval
+
+    def record_set(*args: Any, **kwargs: Any) -> Any:
+        result = original_set(*args, **kwargs)
+        physical_results.append(asdict(result))
+        return result
+
+    def record_interval(*args: Any, **kwargs: Any) -> Any:
+        tail_calls.append(args)
+        return original_interval(*args, **kwargs)
+
+    monkeypatch.setattr(
+        multisite_counting, "multisite_two_taxon_counting_set", record_set
+    )
+    monkeypatch.setattr(
+        multisite_counting, "fixed_two_taxon_counting_interval", record_interval
+    )
+    rows = counting.evaluate(report)
+    assert len(physical_results) == 2 and len(tail_calls) == 4
+    assert [row["counting_set"] for row in rows] == physical_results
+    assert [row["counting_set"]["status"] for row in rows] == ["nonempty", "empty"]
+    assert [row["common_pollen_probability_set"]["status"] for row in rows] == [
+        "empty",
+        "nonempty",
+    ]
 
 
 def test_fatal_failure_leaves_remaining_rows_explicitly_unrun(
@@ -214,6 +302,7 @@ def test_fatal_failure_leaves_remaining_rows_explicitly_unrun(
     rows = counting.evaluate(fixture_report())
     assert rows[0]["status"] == "fatal"
     assert all(row["status"] == "not_run" for row in rows[1:])
+    assert all(row["common_pollen_probability_set"] is None for row in rows)
 
 
 @pytest.mark.parametrize("changed_raw", [False, True])
@@ -265,9 +354,21 @@ def test_terminal_consumer_uses_saved_counts_and_checks_raw_integrity(
         assert actual["point_report"] == point_identity
         assert actual["status_counts"] == {"computed": 13}
         assert actual["set_status_counts"] == {"nonempty": 12, "empty": 1}
+        assert actual["common_pollen_probability_set_status_counts"] == {
+            "nonempty": 12,
+            "empty": 1,
+        }
         assert actual["unmatched"] == report["unmatched"]
         assert actual["new_point_fits"] == actual["new_kernel_evaluations"] == 0
+        assert actual["additional_binomial_tail_evaluations_for_comparator"] == 0
         assert actual["simultaneous_across_windows_claimed"] is False
+        assert actual["simultaneous_across_models_claimed"] is False
+        assert actual["postselection_coverage_claimed"] is False
+        assert actual["comparison_development_exposed"] is True
+        assert (
+            actual["compared_parameters"]["counting_set"]
+            != actual["compared_parameters"]["common_pollen_probability_set"]
+        )
         assert actual["sampling_calibration_established"] is False
         assert output.stat().st_size <= 1024**2
 

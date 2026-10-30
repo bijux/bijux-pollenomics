@@ -26,7 +26,7 @@ Total variation reaches 0.499328 on the observed scored folds. These descriptive
 
 TW4 and TW6 use their admitted source-declared calibrated-BP supports and different eligible populations (13 and 14 sites); the complete original 17-site availability masks and 31-to-30-taxon projection remain bound by the admitted input authority. Source epoch `352246275aee76d8d1afa5b13c53a1006ff1ba26`, uniform-result epoch `d60500153ff589db3b93c38fe3bddde46c2994a9` and input epoch `d863e6c939fab8eed3e53c4dc01c52953bc2434a` remain distinct. Reference epoch, age calibration and propagated field uncertainty are unqualified. There is no vegetation-truth claim.
 
-[Compact report](report.json) · [Raw-trace identities](trace-index.json) · [Scientific protocol](../../../../../reports/science/author-love-temporal-fixed-start/protocol.json) · [Original uniform account](../temporal-development/README.md)
+[Compact report](report.json) · [Raw-trace identities](trace-index.json) · [Scientific protocol](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/author-love-temporal-fixed-start/protocol.json) · [Original uniform account](../temporal-development/README.md)
 
 Both registered native stages and the independent saved-output execution completed with exit zero. This account admits complete saved products; it does not add an independently traced scientific-main-return observation. The compact guard reads only public products, source pins and the compact authority. Reproducing the raw run requires the retained input, metadata, runtime and registration dependencies as well as the 16 indexed raw objects; the index alone is not a standalone replay.
 

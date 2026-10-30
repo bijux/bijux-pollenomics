@@ -4,7 +4,7 @@ audience: scientific_review
 type: report
 status: scoped
 owner: bijux-pollenomics-scientific
-last_reviewed: 2026-09-30
+last_reviewed: 2026-10-23
 ---
 
 # What we established about Nordic pollen and source admission
@@ -53,6 +53,37 @@ Our [Solsø LRA source decision](solsoe-lra-input.md) separately compares
 LandClim I/II, PANGAEA and Neotoma sample selection; its 69 m
 LandClim-II-to-Neotoma point distance does not erase the distinct 1.352 km
 PANGAEA-event-to-Neotoma point discrepancy described here.
+
+## Classification and propagation refuse unreviewed mappings
+
+At committed source `a0dce0304`, we ran the maintained
+[scientific-evidence consumer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py)
+on the unchanged Neotoma relational snapshot:
+
+```sh
+python -B -m bijux_pollenomics_dev.ci.scientific_evidence --repository-root "$PWD"
+```
+
+| Population | Unmapped | Not applicable | Accepted | Total |
+| --- | ---: | ---: | ---: | ---: |
+| Source concepts | 1,298 | 53 | 0 | 1,351 |
+| Observation memberships | 351,162 | 19,774 | 0 | 370,936 |
+
+An independent reconstruction of the historical accounting isolates one change:
+the current parser retains `cf` in “Vaccinium cf V. uliginosum,” a concept with
+two observations. Restoring that former marker omission and the historical
+producer metadata reproduces the exact original audit identity. All source,
+country, observation and mapping-status partitions remain unchanged.
+
+The actual downstream consumer produced zero eligible propagation events and
+zero directed candidates. All 16 sensitivity-scenario records match the
+historical records exactly; the current output adds its actual producer,
+contract and classification identities. The classification and propagation
+release states remain refused, with public release disabled. These are
+mechanical source-accounting and refusal checks. They supply no accepted
+ecological mapping, human approval, inferred propagation or ecological accuracy.
+The [release policy](../../configs/release_evidence_policy.json) owns the bounded
+regenerable output paths.
 
 ## Scope and conclusion
 
@@ -290,7 +321,7 @@ of the full Nordic LRA and vegetation-validation objective.
 
 **Unsupported claim.** Full historical LandClim reproduction, independently validated Nordic LRA/vegetation accuracy, untouched generalization or causal multi-evidence history.
 
-**Actual verification performed.** Retained linked source, prediction, publication and reference receipts are synthesized; index did not rerun them. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring.
+**Actual verification performed.** Retained linked source, prediction, publication and reference receipts are synthesized; index did not rerun them. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring. At committed source a0dce0304, the maintained scientific-evidence consumer also reproduced the unchanged Neotoma source audit: 1351 concepts and 370936 memberships, zero accepted mappings, zero eligible propagation events and zero directed candidates. Independent historical comparison isolates only a retained cf marker for one concept with two observations; all scientific partitions and all 16 scenario records remain identical. The release refusal and absence of human approval are preserved.
 
 **Remaining input or review.** The synthesis retains no source-complete historical Nordic LRA reconstruction, independent Nordic vegetation pairs or fully authenticated historical LandClim input cohort. Completed conditional physical-forward point-pollen predictions use saved metadata geometry and previously exposed panels; source rights and qualified review remain open. Resolver: Country core/archive/reference custodians and qualified scientific reviewers Reopen when: Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation.
 

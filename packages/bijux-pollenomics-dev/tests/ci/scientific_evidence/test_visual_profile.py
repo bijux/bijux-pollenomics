@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import re
 
@@ -13,6 +14,9 @@ from bijux_pollenomics.analysis.classification.events.authority import (
 )
 from bijux_pollenomics.analysis.propagation.outputs.models import (
     _CLASSIFICATION_AUTHORITY as PROPAGATION_AUTHORITY,
+)
+from bijux_pollenomics.analysis.propagation.outputs.models import (
+    PROPAGATION_PRODUCER_SOURCE_PATHS,
 )
 
 _REPOSITORY = Path(__file__).resolve().parents[5]
@@ -68,3 +72,41 @@ def test_classification_receipt_owners_bind_the_current_contract() -> None:
         assert authority.accepted_mapping_count == len(
             EVENT_AUTHORITY.accepted_mapping_sha256_by_concept
         )
+
+
+def test_authorities_and_bundle_paths_bind_the_current_scientific_producers() -> None:
+    policy = json.loads(
+        (_REPOSITORY / "configs/release_evidence_policy.json").read_bytes()
+    )
+    producers = {
+        entry["artifact_identity"]: entry
+        for entry in policy["embedded_producer_identities"]
+    }
+    artifacts = {entry["identity"]: entry for entry in policy["required_artifacts"]}
+    assert producers["propagation"]["source_paths"] == list(
+        PROPAGATION_PRODUCER_SOURCE_PATHS
+    )
+    for identity in ("classification", "propagation"):
+        sources = producers[identity]["source_paths"]
+        records = [
+            {
+                "path": source,
+                "sha256": hashlib.sha256(
+                    (_REPOSITORY / source).read_bytes()
+                ).hexdigest(),
+            }
+            for source in sources
+        ]
+        digest = hashlib.sha256(
+            json.dumps(records, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        assert Path(artifacts[identity]["path"]).parent.name.endswith(f"-{digest[:8]}")
+        if identity == "classification":
+            for authority in (EVENT_AUTHORITY, PROPAGATION_AUTHORITY):
+                assert authority.producer_digest == f"sha256:{digest}"
+                assert authority.accepted_mapping_count == 0
+            assert EVENT_AUTHORITY.accepted_mapping_sha256_by_concept == ()
+    assert (
+        Path(artifacts["propagation"]["path"]).parent
+        == Path(artifacts["scenario"]["path"]).parent
+    )
