@@ -59,6 +59,8 @@ _NUMBER = re.compile(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?\Z")
 
 @dataclass(frozen=True)
 class KernelCase:
+    """Describe one declared kernel boundary input case."""
+
     case_id: str
     basin: str
     diameter_m: int
@@ -134,6 +136,7 @@ def compare(reference: str, actual: float) -> dict[str, Any]:
 def python_values(
     deadline: float, population: str = DEFAULT_POPULATION
 ) -> list[dict[str, Any]]:
+    """Evaluate declared Python kernel cases within their deadline."""
     values = []
     for case in cases(population):
         if time.monotonic() >= deadline:
@@ -238,6 +241,7 @@ quit(status=if({native_contract})0L else 1L)
 
 
 def read_r(path: Path, population: str = DEFAULT_POPULATION) -> list[dict[str, str]]:
+    """Read the complete ordered scalar records for the declared R cases."""
     with path.open(newline="") as handle:
         reader = csv.DictReader(handle)
         if reader.fieldnames != [
@@ -262,6 +266,7 @@ def comparison_rows(
     python: list[dict[str, Any]],
     population: str = DEFAULT_POPULATION,
 ) -> list[dict[str, Any]]:
+    """Compare declared Python and R scalar outcomes without changing statuses."""
     result = []
     for case, r, p in zip(cases(population), raw, python, strict=True):
         row = asdict(case) | {
@@ -454,6 +459,7 @@ def execute(
 
 
 def main() -> None:
+    """Run the explicitly configured kernel comparison command."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     for name in ("repository", "library", "rscript", "output"):
         parser.add_argument("--" + name, required=True, type=Path)
