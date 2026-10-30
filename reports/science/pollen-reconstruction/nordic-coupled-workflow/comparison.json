@@ -1,0 +1,1995 @@
+{
+  "schema_version": "nordic-coupled-direct-comparison.v1",
+  "input_execution_epoch": "efac2696d313d551cd4422164461bfc0591d1da8",
+  "prediction_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+  "score_epoch": "560abd7c16a17a38f1836fd0c1f638193ca03fcd",
+  "old_S2_epoch": "a890b5e433fd2679768b588bae2774aa3d382e17",
+  "comparisons": [
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.10594470028404825,
+        "total_variation": 0.10594470028404825
+      },
+      "direct": {
+        "mae_fraction": 0.1055960954515826,
+        "total_variation": 0.1055960954515826
+      },
+      "target_count_sha256": "47eb381cd1a52b036f50438b47f43c060b517e27fca187a09a786aefa5ab7cc1",
+      "target_panel_N": 675,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BUS",
+        "direct_sources": [
+          "BUS",
+          "SOLSOE83"
+        ]
+      },
+      "training_count_sha256": {
+        "SOLSOE83": "fc9d0bf9b85d5117a6bd1416967b8914e249d90733d2f90de6665bcd21cac019",
+        "BUS": "70d4e0885945c9857de0b5c309d6c0e35129589b8dda921f48b2c19de945665f"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BOKE",
+          "physical_site": 28872,
+          "dataset": 54001,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "direct_scope": "swedish_only",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.10594470028404825,
+        "total_variation": 0.10594470028404825
+      },
+      "direct": {
+        "mae_fraction": 0.1016136468418626,
+        "total_variation": 0.1016136468418626
+      },
+      "target_count_sha256": "47eb381cd1a52b036f50438b47f43c060b517e27fca187a09a786aefa5ab7cc1",
+      "target_panel_N": 675,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BUS",
+        "direct_sources": [
+          "BUS"
+        ]
+      },
+      "training_count_sha256": {
+        "BUS": "70d4e0885945c9857de0b5c309d6c0e35129589b8dda921f48b2c19de945665f"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BOKE",
+          "physical_site": 28872,
+          "dataset": 54001,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE83",
+          "physical_site": 3432,
+          "dataset": 4446,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.0972556223925084,
+        "total_variation": 0.0972556223925084
+      },
+      "direct": {
+        "mae_fraction": 0.04682437481121127,
+        "total_variation": 0.04682437481121127
+      },
+      "target_count_sha256": "70d4e0885945c9857de0b5c309d6c0e35129589b8dda921f48b2c19de945665f",
+      "target_panel_N": 241,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE",
+          "SOLSOE83"
+        ]
+      },
+      "training_count_sha256": {
+        "SOLSOE83": "fc9d0bf9b85d5117a6bd1416967b8914e249d90733d2f90de6665bcd21cac019",
+        "BOKE": "47eb381cd1a52b036f50438b47f43c060b517e27fca187a09a786aefa5ab7cc1"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "direct_scope": "swedish_only",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.0972556223925084,
+        "total_variation": 0.0972556223925084
+      },
+      "direct": {
+        "mae_fraction": 0.1016136468418626,
+        "total_variation": 0.1016136468418626
+      },
+      "target_count_sha256": "70d4e0885945c9857de0b5c309d6c0e35129589b8dda921f48b2c19de945665f",
+      "target_panel_N": 241,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE"
+        ]
+      },
+      "training_count_sha256": {
+        "BOKE": "47eb381cd1a52b036f50438b47f43c060b517e27fca187a09a786aefa5ab7cc1"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE83",
+          "physical_site": 3432,
+          "dataset": 4446,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-2700-3200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-2700-3200",
+          "manifest_sha256": "be50777c2d215f75a5748d4c2cff2d2e98c4ff7837fb020b2cfa9a8314344c41",
+          "scientific_content_sha256": "b83e61b1795c392b18cf15511a081b00bbc1e09009ee27dc15fcb60f08489346",
+          "prediction_manifest_sha256": "28e63037d7c1517c7fc6af67dd897a9bcab08ee42ba9d5a10fc86e2612607821",
+          "status_counts": {
+            "scored": 9
+          }
+        }
+      }
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-2700-3200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-2700-3200",
+          "manifest_sha256": "be50777c2d215f75a5748d4c2cff2d2e98c4ff7837fb020b2cfa9a8314344c41",
+          "scientific_content_sha256": "b83e61b1795c392b18cf15511a081b00bbc1e09009ee27dc15fcb60f08489346",
+          "prediction_manifest_sha256": "28e63037d7c1517c7fc6af67dd897a9bcab08ee42ba9d5a10fc86e2612607821",
+          "status_counts": {
+            "scored": 9
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "Current prediction/score unavailable",
+      "current_bin_disposition": {
+        "bin": "cal-bp-3200-3700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3200-3700",
+          "manifest_sha256": "ee123cc10f7614d6919e47069282708e82e620e1bcbb17f390ff4216551edafe",
+          "scientific_content_sha256": "cc9f488dd15cb0da324c4274d8b4a1588cb1060e91fe04e7bc0adebf97bbcd94",
+          "prediction_manifest_sha256": "81664d58bcf74cf24cac9016ab748c87cb395b58dae89716b65632887d482cc0",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "Current prediction/score unavailable",
+      "current_bin_disposition": {
+        "bin": "cal-bp-3200-3700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3200-3700",
+          "manifest_sha256": "ee123cc10f7614d6919e47069282708e82e620e1bcbb17f390ff4216551edafe",
+          "scientific_content_sha256": "cc9f488dd15cb0da324c4274d8b4a1588cb1060e91fe04e7bc0adebf97bbcd94",
+          "prediction_manifest_sha256": "81664d58bcf74cf24cac9016ab748c87cb395b58dae89716b65632887d482cc0",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.14717742560405592,
+        "total_variation": 0.14717742560405592
+      },
+      "direct": {
+        "mae_fraction": 0.14303870808678498,
+        "total_variation": 0.14303870808678498
+      },
+      "target_count_sha256": "714668ca1a697ef7639ffb3447de702bf98c14cf1c3974ec79999c27df693b93",
+      "target_panel_N": 192,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE",
+          "SOLSOE83"
+        ]
+      },
+      "training_count_sha256": {
+        "SOLSOE83": "c61ed396eabdc093531b3f1fe0c9c1a62048aef9da5fd243d63a9f5f6465e3c1",
+        "BOKE": "cb03c3d873a3136b5ad54cb4f6be2a186570d16adbd284da99bffaabb5db9cf9"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "direct_scope": "swedish_only",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.14717742560405592,
+        "total_variation": 0.14717742560405592
+      },
+      "direct": {
+        "mae_fraction": 0.14354166666666668,
+        "total_variation": 0.14354166666666668
+      },
+      "target_count_sha256": "714668ca1a697ef7639ffb3447de702bf98c14cf1c3974ec79999c27df693b93",
+      "target_panel_N": 192,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE"
+        ]
+      },
+      "training_count_sha256": {
+        "BOKE": "cb03c3d873a3136b5ad54cb4f6be2a186570d16adbd284da99bffaabb5db9cf9"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE83",
+          "physical_site": 3432,
+          "dataset": 4446,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-3200-3700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3200-3700",
+          "manifest_sha256": "ee123cc10f7614d6919e47069282708e82e620e1bcbb17f390ff4216551edafe",
+          "scientific_content_sha256": "cc9f488dd15cb0da324c4274d8b4a1588cb1060e91fe04e7bc0adebf97bbcd94",
+          "prediction_manifest_sha256": "81664d58bcf74cf24cac9016ab748c87cb395b58dae89716b65632887d482cc0",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-3200-3700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3200-3700",
+          "manifest_sha256": "ee123cc10f7614d6919e47069282708e82e620e1bcbb17f390ff4216551edafe",
+          "scientific_content_sha256": "cc9f488dd15cb0da324c4274d8b4a1588cb1060e91fe04e7bc0adebf97bbcd94",
+          "prediction_manifest_sha256": "81664d58bcf74cf24cac9016ab748c87cb395b58dae89716b65632887d482cc0",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "Current prediction/score unavailable",
+      "current_bin_disposition": {
+        "bin": "cal-bp-3700-4200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3700-4200",
+          "manifest_sha256": "f906d353c6eb7e0b404cea0af08f3858ddded4c573a3f9f40795c0f445a1c7fd",
+          "scientific_content_sha256": "5dae65e0bc20130980007f2df99bc0cd5504b1cb2afeae4624cf614a3a6a0bbb",
+          "prediction_manifest_sha256": "22381959923782982c0dde23d7c71080804477bb106777f8fce06b6a38623b81",
+          "status_counts": {
+            "scored": 3,
+            "prediction_failed": 6
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "Current prediction/score unavailable",
+      "current_bin_disposition": {
+        "bin": "cal-bp-3700-4200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3700-4200",
+          "manifest_sha256": "f906d353c6eb7e0b404cea0af08f3858ddded4c573a3f9f40795c0f445a1c7fd",
+          "scientific_content_sha256": "5dae65e0bc20130980007f2df99bc0cd5504b1cb2afeae4624cf614a3a6a0bbb",
+          "prediction_manifest_sha256": "22381959923782982c0dde23d7c71080804477bb106777f8fce06b6a38623b81",
+          "status_counts": {
+            "scored": 3,
+            "prediction_failed": 6
+          }
+        }
+      }
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.3738588957857718,
+        "total_variation": 0.3738588957857718
+      },
+      "direct": {
+        "mae_fraction": 0.42146338031360997,
+        "total_variation": 0.42146338031360997
+      },
+      "target_count_sha256": "788b58125f898aa2e23ff216255e30be90a22480f57c28270fece25ae6302977",
+      "target_panel_N": 261,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE",
+          "SOLSOE83"
+        ]
+      },
+      "training_count_sha256": {
+        "SOLSOE83": "fc02c67fd4f24fa9f2ee50532d9639bdcdb86eeb45daabc95ea5a06cb16121b4",
+        "BOKE": "324845d2b3b65058073932bc006d9bd2de557f0bb3538a386e27d5b454deadcf"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "direct_scope": "swedish_only",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.3738588957857718,
+        "total_variation": 0.3738588957857718
+      },
+      "direct": {
+        "mae_fraction": 0.3697874437608305,
+        "total_variation": 0.3697874437608305
+      },
+      "target_count_sha256": "788b58125f898aa2e23ff216255e30be90a22480f57c28270fece25ae6302977",
+      "target_panel_N": 261,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE"
+        ]
+      },
+      "training_count_sha256": {
+        "BOKE": "324845d2b3b65058073932bc006d9bd2de557f0bb3538a386e27d5b454deadcf"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE83",
+          "physical_site": 3432,
+          "dataset": 4446,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-3700-4200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3700-4200",
+          "manifest_sha256": "f906d353c6eb7e0b404cea0af08f3858ddded4c573a3f9f40795c0f445a1c7fd",
+          "scientific_content_sha256": "5dae65e0bc20130980007f2df99bc0cd5504b1cb2afeae4624cf614a3a6a0bbb",
+          "prediction_manifest_sha256": "22381959923782982c0dde23d7c71080804477bb106777f8fce06b6a38623b81",
+          "status_counts": {
+            "scored": 3,
+            "prediction_failed": 6
+          }
+        }
+      }
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-3700-4200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3700-4200",
+          "manifest_sha256": "f906d353c6eb7e0b404cea0af08f3858ddded4c573a3f9f40795c0f445a1c7fd",
+          "scientific_content_sha256": "5dae65e0bc20130980007f2df99bc0cd5504b1cb2afeae4624cf614a3a6a0bbb",
+          "prediction_manifest_sha256": "22381959923782982c0dde23d7c71080804477bb106777f8fce06b6a38623b81",
+          "status_counts": {
+            "scored": 3,
+            "prediction_failed": 6
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "Current prediction/score unavailable",
+      "current_bin_disposition": {
+        "bin": "cal-bp-4200-4700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4200-4700",
+          "manifest_sha256": "c9d538af184f64eba3d372d9717d5f519056595111f0f121ac3ef64ec1578649",
+          "scientific_content_sha256": "c06d933e4e848f50fd919f3743de7c9246ab0e22e4f530efaf1120e40da0e6f4",
+          "prediction_manifest_sha256": "055347d718762a8b7c1398a1b3af0c214469d212701a4262bf96e205d596007e",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "Current prediction/score unavailable",
+      "current_bin_disposition": {
+        "bin": "cal-bp-4200-4700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4200-4700",
+          "manifest_sha256": "c9d538af184f64eba3d372d9717d5f519056595111f0f121ac3ef64ec1578649",
+          "scientific_content_sha256": "c06d933e4e848f50fd919f3743de7c9246ab0e22e4f530efaf1120e40da0e6f4",
+          "prediction_manifest_sha256": "055347d718762a8b7c1398a1b3af0c214469d212701a4262bf96e205d596007e",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.3930539449549848,
+        "total_variation": 0.3930539449549848
+      },
+      "direct": {
+        "mae_fraction": 0.41626171079812047,
+        "total_variation": 0.41626171079812047
+      },
+      "target_count_sha256": "fd1a8a2d2e1be3286995ad23d024e592d5208fa622c9f6dc4e429733f8fe95cd",
+      "target_panel_N": 297,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE",
+          "SOLSOE83"
+        ]
+      },
+      "training_count_sha256": {
+        "SOLSOE83": "ee5ba50c26f74b8d5501ed87c3657b554b60a60a78a9f6c4e4241807c5f83589",
+        "BOKE": "4ba9e3d670387e2d0303ef42df6325e3e9f89e1069c15171248ad8cc25b7da98"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "direct_scope": "swedish_only",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.3930539449549848,
+        "total_variation": 0.3930539449549848
+      },
+      "direct": {
+        "mae_fraction": 0.38856732115159087,
+        "total_variation": 0.38856732115159087
+      },
+      "target_count_sha256": "fd1a8a2d2e1be3286995ad23d024e592d5208fa622c9f6dc4e429733f8fe95cd",
+      "target_panel_N": 297,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE"
+        ]
+      },
+      "training_count_sha256": {
+        "BOKE": "4ba9e3d670387e2d0303ef42df6325e3e9f89e1069c15171248ad8cc25b7da98"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE83",
+          "physical_site": 3432,
+          "dataset": 4446,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-4200-4700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4200-4700",
+          "manifest_sha256": "c9d538af184f64eba3d372d9717d5f519056595111f0f121ac3ef64ec1578649",
+          "scientific_content_sha256": "c06d933e4e848f50fd919f3743de7c9246ab0e22e4f530efaf1120e40da0e6f4",
+          "prediction_manifest_sha256": "055347d718762a8b7c1398a1b3af0c214469d212701a4262bf96e205d596007e",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-4200-4700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4200-4700",
+          "manifest_sha256": "c9d538af184f64eba3d372d9717d5f519056595111f0f121ac3ef64ec1578649",
+          "scientific_content_sha256": "c06d933e4e848f50fd919f3743de7c9246ab0e22e4f530efaf1120e40da0e6f4",
+          "prediction_manifest_sha256": "055347d718762a8b7c1398a1b3af0c214469d212701a4262bf96e205d596007e",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "Current prediction/score unavailable",
+      "current_bin_disposition": {
+        "bin": "cal-bp-4700-5200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4700-5200",
+          "manifest_sha256": "356c8a3e5809f502030ce1e7d69d8a83f24d8aee7467675884c83f3500203b38",
+          "scientific_content_sha256": "7cb3eeec4e11bfd960ce593a7922ced733b7d5073fc9b101b29e717b687f350b",
+          "prediction_manifest_sha256": "1d40cae2fe09318a456fdf67cce3321437021b27fa70d1f5ad215cbd237f93c7",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "Current prediction/score unavailable",
+      "current_bin_disposition": {
+        "bin": "cal-bp-4700-5200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4700-5200",
+          "manifest_sha256": "356c8a3e5809f502030ce1e7d69d8a83f24d8aee7467675884c83f3500203b38",
+          "scientific_content_sha256": "7cb3eeec4e11bfd960ce593a7922ced733b7d5073fc9b101b29e717b687f350b",
+          "prediction_manifest_sha256": "1d40cae2fe09318a456fdf67cce3321437021b27fa70d1f5ad215cbd237f93c7",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.4935222128574675,
+        "total_variation": 0.4935222128574675
+      },
+      "direct": {
+        "mae_fraction": 0.5152292470102451,
+        "total_variation": 0.5152292470102451
+      },
+      "target_count_sha256": "aa7c789cfbb93a49f9ea413946f84680a8c76fcda3729cb5c4f2737f1f19743c",
+      "target_panel_N": 258,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE",
+          "SOLSOE83"
+        ]
+      },
+      "training_count_sha256": {
+        "SOLSOE83": "33acc5dd30ec060dacff63f5be02083a48b3305e518776896756832f57636854",
+        "BOKE": "906c79622a65bed8b8f597e200bcd09eeaccd8a8f2220a245e8a6365decbadfe"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "direct_scope": "swedish_only",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.4935222128574675,
+        "total_variation": 0.4935222128574675
+      },
+      "direct": {
+        "mae_fraction": 0.4891472868217054,
+        "total_variation": 0.4891472868217054
+      },
+      "target_count_sha256": "aa7c789cfbb93a49f9ea413946f84680a8c76fcda3729cb5c4f2737f1f19743c",
+      "target_panel_N": 258,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE"
+        ]
+      },
+      "training_count_sha256": {
+        "BOKE": "906c79622a65bed8b8f597e200bcd09eeaccd8a8f2220a245e8a6365decbadfe"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE83",
+          "physical_site": 3432,
+          "dataset": 4446,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-4700-5200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4700-5200",
+          "manifest_sha256": "356c8a3e5809f502030ce1e7d69d8a83f24d8aee7467675884c83f3500203b38",
+          "scientific_content_sha256": "7cb3eeec4e11bfd960ce593a7922ced733b7d5073fc9b101b29e717b687f350b",
+          "prediction_manifest_sha256": "1d40cae2fe09318a456fdf67cce3321437021b27fa70d1f5ad215cbd237f93c7",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-4700-5200",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4700-5200",
+          "manifest_sha256": "356c8a3e5809f502030ce1e7d69d8a83f24d8aee7467675884c83f3500203b38",
+          "scientific_content_sha256": "7cb3eeec4e11bfd960ce593a7922ced733b7d5073fc9b101b29e717b687f350b",
+          "prediction_manifest_sha256": "1d40cae2fe09318a456fdf67cce3321437021b27fa70d1f5ad215cbd237f93c7",
+          "status_counts": {
+            "prediction_failed": 6,
+            "scored": 3
+          }
+        }
+      }
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.015550414177189262,
+        "total_variation": 0.015550414177189262
+      },
+      "direct": {
+        "mae_fraction": 0.0044245939618173385,
+        "total_variation": 0.0044245939618173385
+      },
+      "target_count_sha256": "87a4382514cbc65c912f95b046b3f160fc901a0db2d91fe8182d6bc91dc83741",
+      "target_panel_N": 1278,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BUS",
+        "direct_sources": [
+          "BUS",
+          "SOLSOE83"
+        ]
+      },
+      "training_count_sha256": {
+        "SOLSOE83": "4b41fc50e2b1182d901ea4d4b2631a7954998dc2ab265dc5047841ebdb5c871a",
+        "BUS": "bacbe0ab825642ee57ea947fccebaa8c1c0bd41d27ac1a7a93d9fcf209a151de"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BOKE",
+          "physical_site": 28872,
+          "dataset": 54001,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BOKE",
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "direct_scope": "swedish_only",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.015550414177189262,
+        "total_variation": 0.015550414177189262
+      },
+      "direct": {
+        "mae_fraction": 0.026664259058625246,
+        "total_variation": 0.026664259058625246
+      },
+      "target_count_sha256": "87a4382514cbc65c912f95b046b3f160fc901a0db2d91fe8182d6bc91dc83741",
+      "target_panel_N": 1278,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BUS",
+        "direct_sources": [
+          "BUS"
+        ]
+      },
+      "training_count_sha256": {
+        "BUS": "bacbe0ab825642ee57ea947fccebaa8c1c0bd41d27ac1a7a93d9fcf209a151de"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BOKE",
+          "physical_site": 28872,
+          "dataset": 54001,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE83",
+          "physical_site": 3432,
+          "dataset": 4446,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.030319504412371863,
+        "total_variation": 0.030319504412371863
+      },
+      "direct": {
+        "mae_fraction": 0.03557179462612058,
+        "total_variation": 0.03557179462612058
+      },
+      "target_count_sha256": "bacbe0ab825642ee57ea947fccebaa8c1c0bd41d27ac1a7a93d9fcf209a151de",
+      "target_panel_N": 507,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE",
+          "SOLSOE83"
+        ]
+      },
+      "training_count_sha256": {
+        "SOLSOE83": "4b41fc50e2b1182d901ea4d4b2631a7954998dc2ab265dc5047841ebdb5c871a",
+        "BOKE": "87a4382514cbc65c912f95b046b3f160fc901a0db2d91fe8182d6bc91dc83741"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "direct_scope": "swedish_only",
+      "coupled_method": "training_mean",
+      "status": "paired",
+      "coupled": {
+        "mae_fraction": 0.030319504412371863,
+        "total_variation": 0.030319504412371863
+      },
+      "direct": {
+        "mae_fraction": 0.026664259058625246,
+        "total_variation": 0.026664259058625246
+      },
+      "target_count_sha256": "bacbe0ab825642ee57ea947fccebaa8c1c0bd41d27ac1a7a93d9fcf209a151de",
+      "target_panel_N": 507,
+      "training_roles": {
+        "regional_proxy": "SOLSOE83",
+        "local_predictor": "BOKE",
+        "direct_sources": [
+          "BOKE"
+        ]
+      },
+      "training_count_sha256": {
+        "BOKE": "87a4382514cbc65c912f95b046b3f160fc901a0db2d91fe8182d6bc91dc83741"
+      },
+      "old_source_refusals": [
+        {
+          "core": "ABB",
+          "physical_site": 13338,
+          "dataset": 19913,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        },
+        {
+          "core": "BUS",
+          "physical_site": 28869,
+          "dataset": 53995,
+          "reason": "whole_target_physical_site_excluded"
+        },
+        {
+          "core": "DALMUT",
+          "physical_site": 13388,
+          "dataset": 20034,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "LAIH",
+          "physical_site": 28072,
+          "dataset": 52082,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE81",
+          "physical_site": 3432,
+          "dataset": 4445,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "SOLSOE83",
+          "physical_site": 3432,
+          "dataset": 4446,
+          "reason": "outside_declared_training_scope"
+        },
+        {
+          "core": "TIB",
+          "physical_site": 28860,
+          "dataset": 53980,
+          "reason": "target_panel_not_fully_explicit_in_saved_source_axis"
+        }
+      ]
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "direct_scope": "pooled_eligible_nordic",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-5200-5700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-5200-5700",
+          "manifest_sha256": "da1930ccd3c36afa64e8df942613307601b44560c0be186fda7301e03024de5f",
+          "scientific_content_sha256": "c36d3abeba05f9b3a25e8d57a099df1eca661d301c6b7257905c9ed9bf4b9f75",
+          "prediction_manifest_sha256": "b3910022559327ea8f71b1f8e35e1104d32658829bcc530e72592be77f8848e9",
+          "status_counts": {
+            "scored": 9
+          }
+        }
+      }
+    },
+    {
+      "core": "SOLSOE83",
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "direct_scope": "swedish_only",
+      "status": "unmatched",
+      "reason": "No existing Swedish-target S2 row",
+      "current_bin_disposition": {
+        "bin": "cal-bp-5200-5700",
+        "status": "completed",
+        "scoring": {
+          "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-5200-5700",
+          "manifest_sha256": "da1930ccd3c36afa64e8df942613307601b44560c0be186fda7301e03024de5f",
+          "scientific_content_sha256": "c36d3abeba05f9b3a25e8d57a099df1eca661d301c6b7257905c9ed9bf4b9f75",
+          "prediction_manifest_sha256": "b3910022559327ea8f71b1f8e35e1104d32658829bcc530e72592be77f8848e9",
+          "status_counts": {
+            "scored": 9
+          }
+        }
+      }
+    }
+  ],
+  "paired_rows": 16,
+  "current_method_dispositions": [
+    [
+      {
+        "fold_id": "site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      }
+    ],
+    [
+      {
+        "fold_id": "site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+        "method": "training_mean",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+        "method": "nearest_site",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+        "method": "inverse_distance_squared",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+        "method": "training_mean",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+        "method": "nearest_site",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+        "method": "inverse_distance_squared",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      }
+    ],
+    [
+      {
+        "fold_id": "site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+        "method": "training_mean",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+        "method": "nearest_site",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+        "method": "inverse_distance_squared",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+        "method": "training_mean",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+        "method": "nearest_site",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+        "method": "inverse_distance_squared",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      }
+    ],
+    [
+      {
+        "fold_id": "site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+        "method": "training_mean",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+        "method": "nearest_site",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+        "method": "inverse_distance_squared",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+        "method": "training_mean",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+        "method": "nearest_site",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+        "method": "inverse_distance_squared",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      }
+    ],
+    [
+      {
+        "fold_id": "site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+        "method": "training_mean",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+        "method": "nearest_site",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+        "method": "inverse_distance_squared",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+        "method": "training_mean",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+        "method": "nearest_site",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      },
+      {
+        "fold_id": "site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+        "method": "inverse_distance_squared",
+        "status": "refused",
+        "reason_code": "invalid_composition",
+        "detail": "Negative or out-of-range fractions cannot be scored",
+        "exception_type": "ValidationRefusal"
+      }
+    ],
+    [
+      {
+        "fold_id": "site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+        "method": "training_mean",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+        "method": "nearest_site",
+        "status": "predicted"
+      },
+      {
+        "fold_id": "site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+        "method": "inverse_distance_squared",
+        "status": "predicted"
+      }
+    ]
+  ],
+  "scope": "Training_mean physical outcome only; other two physical baselines are dependent one-predictor variants retained in native products. Two separately labeled direct comparators, not36independent target windows. No new scores/fits or untouched/field/vegetation/uncertainty acceptance."
+}

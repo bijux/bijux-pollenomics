@@ -1,0 +1,108 @@
+{
+  "schema_version": "matched-pollen-forward.report.v1",
+  "candidate": "a890b5e433fd2679768b588bae2774aa3d382e17",
+  "source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "completed": true,
+  "prediction_contexts": 154,
+  "family_outcomes": 308,
+  "prediction_freeze": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution/native/analysis/prediction-freeze.json",
+    "sha256": "2591edeb9ebc73168ea278f422e7ccb0963e592b1db1961783079a068653c24b",
+    "bytes": 382695
+  },
+  "scores": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution/native/analysis/scores.json",
+    "sha256": "dc8881e216aa1bc27d4eb2c46307b9501d6ffd0a0c0d06be4b15191dd55e6dc5",
+    "bytes": 224365
+  },
+  "status_counts": {
+    "prediction_refused": 108,
+    "scored": 200
+  },
+  "matched": {
+    "matched_target_windows": 26,
+    "physical_targets": 2,
+    "scope_family_site_macros": {
+      "pooled_eligible_nordic/direct_panel_mean": {
+        "physical_targets": 2,
+        "matched_windows": 26,
+        "per_target": {
+          "BOKE": {
+            "matched_windows": 13,
+            "mae_fraction": 0.08701632909812587,
+            "total_variation": 0.08701632909812587
+          },
+          "BUS": {
+            "matched_windows": 13,
+            "mae_fraction": 0.15453909793199222,
+            "total_variation": 0.15453909793199222
+          }
+        },
+        "mae_fraction": 0.12077771351505905,
+        "total_variation": 0.12077771351505905
+      },
+      "pooled_eligible_nordic/physical_forward": {
+        "physical_targets": 2,
+        "matched_windows": 26,
+        "per_target": {
+          "BOKE": {
+            "matched_windows": 13,
+            "mae_fraction": 0.06134826805071813,
+            "total_variation": 0.06134826805071813
+          },
+          "BUS": {
+            "matched_windows": 13,
+            "mae_fraction": 0.15473205802209306,
+            "total_variation": 0.15473205802209306
+          }
+        },
+        "mae_fraction": 0.1080401630364056,
+        "total_variation": 0.1080401630364056
+      },
+      "swedish_only/direct_panel_mean": {
+        "physical_targets": 2,
+        "matched_windows": 26,
+        "per_target": {
+          "BOKE": {
+            "matched_windows": 13,
+            "mae_fraction": 0.14999543705931445,
+            "total_variation": 0.14999543705931445
+          },
+          "BUS": {
+            "matched_windows": 13,
+            "mae_fraction": 0.14999543705931445,
+            "total_variation": 0.14999543705931445
+          }
+        },
+        "mae_fraction": 0.14999543705931445,
+        "total_variation": 0.14999543705931445
+      },
+      "swedish_only/physical_forward": {
+        "physical_targets": 2,
+        "matched_windows": 26,
+        "per_target": {
+          "BOKE": {
+            "matched_windows": 13,
+            "mae_fraction": 0.14964416421481855,
+            "total_variation": 0.14964416421481855
+          },
+          "BUS": {
+            "matched_windows": 13,
+            "mae_fraction": 0.14996673023384896,
+            "total_variation": 0.14996673023384896
+          }
+        },
+        "mae_fraction": 0.14980544722433375,
+        "total_variation": 0.14980544722433375
+      }
+    },
+    "aggregation": "Equal windows per target then equal physical targets; same four-way response/eligibility. Null when no joint scored target."
+  },
+  "uncertainty_evaluated": false,
+  "new_kernel_R_fit_optimizer_calls": 0,
+  "previously_exposed_development": true,
+  "limits": "Prior-exposed restricted-panel point predictions only. No four-country matched accuracy, independent vegetation, historical reproduction, calibrated uncertainty, source-rights or complete scientific certification. Saved native/source epochs remain distinct from this execution."
+}

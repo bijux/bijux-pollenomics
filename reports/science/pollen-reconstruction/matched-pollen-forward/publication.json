@@ -1,0 +1,116 @@
+{
+  "schema_version": "matched-pollen-forward.publication.v1",
+  "producer_candidate": "a890b5e433fd2679768b588bae2774aa3d382e17",
+  "source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "native_products": [
+    {
+      "original_native_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution/native/analysis/prediction-freeze.json",
+      "public_path": "reports/science/pollen-reconstruction/matched-pollen-forward/prediction-freeze.json",
+      "sha256": "2591edeb9ebc73168ea278f422e7ccb0963e592b1db1961783079a068653c24b",
+      "bytes": 382695
+    },
+    {
+      "original_native_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution/native/analysis/scores.json",
+      "public_path": "reports/science/pollen-reconstruction/matched-pollen-forward/scores.json",
+      "sha256": "dc8881e216aa1bc27d4eb2c46307b9501d6ffd0a0c0d06be4b15191dd55e6dc5",
+      "bytes": 224365
+    },
+    {
+      "original_native_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution/native/analysis/report.json",
+      "public_path": "reports/science/pollen-reconstruction/matched-pollen-forward/report.json",
+      "sha256": "13092254c2c1f96a998a03689b7bdf2f2df1adc2fbaa096395de3bc7d3052d67",
+      "bytes": 3926
+    }
+  ],
+  "producer_references": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution-integration/producer-admission.json",
+      "sha256": "3bf0d8427beab377b315953e7216a7346c2cb2293c0b19adf0d01acd85955499",
+      "bytes": 8929
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution/plan.json",
+      "sha256": "575e1fb7202045f5d0d64e907f1fa4863161e30a736b7b3aeac381fe878ddc99",
+      "bytes": 1893015
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution/native/terminal.json",
+      "sha256": "ded135fe2c493e1992051e7247852ad83a82b36194e716b7f92a0db4e1a4b41d",
+      "bytes": 3221
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-execution/execution.json",
+      "sha256": "047fc6c47ab9e7ce6e6b8299406b652ea6bbaaabaa62d450a0c097de6b96e2d1",
+      "bytes": 1620
+    }
+  ],
+  "independent_decimal_reference": {
+    "original_observation": {
+      "path": "artifacts/science/matched-pollen-forward-decimal-oracle-execution/native/observation.json",
+      "sha256": "cd91126b5530ccef653f600e14397cee30296e356473099c58a42ffece2d2434",
+      "bytes": 917691
+    },
+    "public_path": "reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json",
+    "sha256": "cd91126b5530ccef653f600e14397cee30296e356473099c58a42ffece2d2434",
+    "bytes": 917691,
+    "execution": {
+      "path": "artifacts/science/matched-pollen-forward-decimal-oracle-execution/execution.json",
+      "sha256": "36a77c8734a7c3a226c6f624fc714e45cf971441441c16425786f8be9c71b9f4",
+      "bytes": 1298
+    },
+    "terminal": {
+      "path": "artifacts/science/matched-pollen-forward-decimal-oracle-execution/native/terminal.json",
+      "sha256": "a434abb525e1cc190101d7b4b03f2d4ddec63342d05334c8045f484275dcea2b",
+      "bytes": 2894
+    },
+    "admission": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-decimal-oracle-integration/producer-admission.json",
+      "sha256": "44b4d5f85c8ceb349bd1bc7b1eb4d61f10d5f2a03b2efd60caf29d50bb0e7b7c",
+      "bytes": 1376
+    },
+    "plan": {
+      "path": "artifacts/science/matched-pollen-forward-decimal-oracle-execution/plan.json",
+      "sha256": "804eb84452cebe4337930257fc22356887f4ef2cef794ac13ee6bcb0c924e24d",
+      "bytes": 1897014
+    },
+    "source_manifest": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-decimal-oracle-source/source-proposal.json",
+      "sha256": "078112efa0e2788d1a88c101b87f203eb6de3cb18df2c3e1c0a3d571452ec982",
+      "bytes": 4393
+    },
+    "output_contract": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/matched-pollen-forward-decimal-oracle-source/output-contract.json",
+      "sha256": "57693f8539e35a2d339b4bcd118d943422ba8582ba6bb4650e79bfb1eddad8e7",
+      "bytes": 2679
+    },
+    "candidate": "a890b5e433fd2679768b588bae2774aa3d382e17",
+    "machine_checks_pass": true,
+    "producer_completed": true,
+    "decimal_precision": 50,
+    "comparison_absolute_tolerance": "1E-12",
+    "numeric_cells_checked": 1424,
+    "maximum_absolute_error": "1.9653480873864026090362878350698437E-16",
+    "failure_causality_independently_certified": false
+  },
+  "publication_admitted": true,
+  "outcome_access": "Previously exposed inputs were parsed before prediction; freeze persisted before score_pollen. No unread/untouched outcome claim.",
+  "native_reference_policy": "Original JSON buffers retain their original native path references. native_products explicitly maps those identities to public paths, without rewriting the native buffers.",
+  "limitations": "Restricted-panel conditional point pollen prediction only; no independent vegetation, calibrated uncertainty, four-country matched accuracy, rights/human admission, historical or complete scientific acceptance.",
+  "public_member_paths": [
+    "reports/science/pollen-reconstruction/matched-pollen-forward/README.md",
+    "reports/science/pollen-reconstruction/matched-pollen-forward/prediction-freeze.json",
+    "reports/science/pollen-reconstruction/matched-pollen-forward/scores.json",
+    "reports/science/pollen-reconstruction/matched-pollen-forward/report.json",
+    "reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json",
+    "reports/science/pollen-reconstruction/matched-pollen-forward/publication.json"
+  ],
+  "public_reader": {
+    "path": "reports/science/pollen-reconstruction/matched-pollen-forward/README.md",
+    "sha256": "5252d469ff5351150f6bbb24239f82d78bdce3a77bda05ab0d37750a4a476336",
+    "bytes": 12108
+  },
+  "self_hash_policy": "Publication manifest does not hash itself. The family manifest and research source lock authenticate its final bytes."
+}

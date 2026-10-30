@@ -1,0 +1,582 @@
+{
+  "schema_version": "nordic-coupled-batch.v1",
+  "phase": "prepare",
+  "execution_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+  "input_manifest_sha256": "f22e51b6bc7a38a68453cbeade5bdd28f7f4626a009a444fbaba9553fbe8784a",
+  "protocol_sha256": "835a1c9342ee086cdf6a755c6e6b450c1933d9f3b50625f9895349d9636990a6",
+  "bins": [
+    {
+      "bin": "cal-bp-2700-3200",
+      "status": "completed",
+      "prediction": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-2700-3200",
+        "manifest_sha256": "28e63037d7c1517c7fc6af67dd897a9bcab08ee42ba9d5a10fc86e2612607821",
+        "scientific_content_sha256": "a7c819bc1b1b04cd92c6621f2fe0b9d2a46aae5cb325ebb946296e131edfc238",
+        "failures": [],
+        "interrupted": false,
+        "retained_tables": {
+          "training.json": "88d761080fadbbc6af90ca5296d245e8b0957f9cc490adaa4c9def884a4b6325",
+          "preparations.json": "5ea3c8144c2846688f8f2b4d9b2cf2898591b594813fbef647f017588509d037",
+          "operations.json": "cfc4b04fb3a1b84888d24fb59d4f840393c0f10daf3d1fdc862dfdd62b4de1ac",
+          "failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "predictions.json": "f60e3e299220669723684f4ca98f52ec194bb1de1d602a103c06e2efe1ab0a1b"
+        },
+        "method_dispositions": [
+          {
+            "fold_id": "site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          }
+        ],
+        "status_counts": {
+          "predicted": 9
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-3200-3700",
+      "status": "completed",
+      "prediction": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3200-3700",
+        "manifest_sha256": "81664d58bcf74cf24cac9016ab748c87cb395b58dae89716b65632887d482cc0",
+        "scientific_content_sha256": "92a3a17f2d9caae2da7685a188ab7c05055912813a7a7668bdfa7d5fb9a2b8bf",
+        "failures": [
+          {
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal",
+            "fold_id": "site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+            "reason_code": "invalid_composition",
+            "record_ids": [
+              "neotoma-54001-39241-cal-bp-3200-3700"
+            ],
+            "status": "refused"
+          },
+          {
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal",
+            "fold_id": "site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+            "reason_code": "invalid_composition",
+            "record_ids": [
+              "neotoma-4446-4304-cal-bp-3200-3700"
+            ],
+            "status": "refused"
+          }
+        ],
+        "interrupted": false,
+        "retained_tables": {
+          "training.json": "52a573ccc0d7ea2d92e3c1e9a53302cf343db738dffa4608d34aee708cfebd73",
+          "preparations.json": "3bda0b041226854d81e205120466b83bab7b606d49c62d731204995549495211",
+          "operations.json": "8d980afe8eba499620c5d37d53eb4f8a01f8b9af3741c39d31e2e227d18829a2",
+          "failures.json": "2d8581bed0c3cc855bb300ada94dd8275bed76b0b2d21e9a7c48b92802827b15",
+          "predictions.json": "efdaaab80a07818997ca1cc2fdcfcdfed752d4131368bf782941c99047ab577a"
+        },
+        "method_dispositions": [
+          {
+            "fold_id": "site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+            "method": "training_mean",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+            "method": "nearest_site",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+            "method": "inverse_distance_squared",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+            "method": "training_mean",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+            "method": "nearest_site",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+            "method": "inverse_distance_squared",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          }
+        ],
+        "status_counts": {
+          "refused": 6,
+          "predicted": 3
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-3700-4200",
+      "status": "completed",
+      "prediction": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3700-4200",
+        "manifest_sha256": "22381959923782982c0dde23d7c71080804477bb106777f8fce06b6a38623b81",
+        "scientific_content_sha256": "e142d655c761dafb83bb15774b571f35a1fa5f01958e602e0edf1a1d21b8fc88",
+        "failures": [
+          {
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal",
+            "fold_id": "site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+            "reason_code": "invalid_composition",
+            "record_ids": [
+              "neotoma-4446-4304-cal-bp-3700-4200"
+            ],
+            "status": "refused"
+          },
+          {
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal",
+            "fold_id": "site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+            "reason_code": "invalid_composition",
+            "record_ids": [
+              "neotoma-54001-39241-cal-bp-3700-4200"
+            ],
+            "status": "refused"
+          }
+        ],
+        "interrupted": false,
+        "retained_tables": {
+          "training.json": "cfa11541d6fda0a673d71a3306912bfd586680c71574ca6c217aef1c5baaee5d",
+          "preparations.json": "6e5be19719a6ed6d2f7ba396435ccc75ca7f5390caaf1af0555eb53620f66fcb",
+          "operations.json": "43493b95ac2f77b2b00f7b53f81f46f4b6e1328ea75b0a4003a4f96e6b6a7a47",
+          "failures.json": "5e7c2f8266727206d4dab29b992abde5631c865e554907c63be30fe964fc0209",
+          "predictions.json": "252ea7672cce0aac9a52c8c58c67dc04b33e2eaa330ca4f60ff23b95568015e4"
+        },
+        "method_dispositions": [
+          {
+            "fold_id": "site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+            "method": "training_mean",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+            "method": "nearest_site",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+            "method": "inverse_distance_squared",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+            "method": "training_mean",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+            "method": "nearest_site",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+            "method": "inverse_distance_squared",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          }
+        ],
+        "status_counts": {
+          "predicted": 3,
+          "refused": 6
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-4200-4700",
+      "status": "completed",
+      "prediction": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4200-4700",
+        "manifest_sha256": "055347d718762a8b7c1398a1b3af0c214469d212701a4262bf96e205d596007e",
+        "scientific_content_sha256": "f44303234f59c20ce147372e1d5d2655ecb5ad9a38042b5f3a7f2805bec83b80",
+        "failures": [
+          {
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal",
+            "fold_id": "site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+            "reason_code": "invalid_composition",
+            "record_ids": [
+              "neotoma-54001-39241-cal-bp-4200-4700"
+            ],
+            "status": "refused"
+          },
+          {
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal",
+            "fold_id": "site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+            "reason_code": "invalid_composition",
+            "record_ids": [
+              "neotoma-4446-4304-cal-bp-4200-4700"
+            ],
+            "status": "refused"
+          }
+        ],
+        "interrupted": false,
+        "retained_tables": {
+          "training.json": "ba09ca058c3a63fb958bce5b55b3c2c329ed6135d24f2b34ae1f264603b61920",
+          "preparations.json": "ec6c47e11b7c78ed20e06602fc53738f151f37ea03b739e7e1294185e88a25cd",
+          "operations.json": "8e76582b73c05a93311076cdbb01a59efcda937477efffa51c29eb37d5106f0e",
+          "failures.json": "1d60043d15d34d93ec06d740a757fa0c5a1b1ef6d7f7e90b507b5269039259ce",
+          "predictions.json": "0470bdb63f94ccc31b1f4cc7cc6a9ab46c7bcc49dbc59a18f3ad8e54f34ac9c1"
+        },
+        "method_dispositions": [
+          {
+            "fold_id": "site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+            "method": "training_mean",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+            "method": "nearest_site",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+            "method": "inverse_distance_squared",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+            "method": "training_mean",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+            "method": "nearest_site",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+            "method": "inverse_distance_squared",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          }
+        ],
+        "status_counts": {
+          "refused": 6,
+          "predicted": 3
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-4700-5200",
+      "status": "completed",
+      "prediction": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4700-5200",
+        "manifest_sha256": "1d40cae2fe09318a456fdf67cce3321437021b27fa70d1f5ad215cbd237f93c7",
+        "scientific_content_sha256": "071925fffc01fd3ba30fbe5281948154942ef0c4622f51a297e49d64891eb5db",
+        "failures": [
+          {
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal",
+            "fold_id": "site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+            "reason_code": "invalid_composition",
+            "record_ids": [
+              "neotoma-54001-39241-cal-bp-4700-5200"
+            ],
+            "status": "refused"
+          },
+          {
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal",
+            "fold_id": "site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+            "reason_code": "invalid_composition",
+            "record_ids": [
+              "neotoma-4446-4304-cal-bp-4700-5200"
+            ],
+            "status": "refused"
+          }
+        ],
+        "interrupted": false,
+        "retained_tables": {
+          "training.json": "1cd2bc32a18104c214245f643f0626d4f722e7753ea9a170c94fd96804811fd1",
+          "preparations.json": "1de67aef9fc55eda601a5adffd205bf6b270b710851a5ad54f076c00a27e211e",
+          "operations.json": "d3dce099a71bc5bf374b9cd17dd41a79865d21908f3884a5b50f22b903b15aad",
+          "failures.json": "2488c46105d75c738d06682d4984281341e1de34d0a8a977b103fd673eb32cf9",
+          "predictions.json": "31290995790aa275ab10b299c6cc4a09e53ac8889eae915da12743827effc281"
+        },
+        "method_dispositions": [
+          {
+            "fold_id": "site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+            "method": "training_mean",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+            "method": "nearest_site",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+            "method": "inverse_distance_squared",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+            "method": "training_mean",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+            "method": "nearest_site",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          },
+          {
+            "fold_id": "site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+            "method": "inverse_distance_squared",
+            "status": "refused",
+            "reason_code": "invalid_composition",
+            "detail": "Negative or out-of-range fractions cannot be scored",
+            "exception_type": "ValidationRefusal"
+          }
+        ],
+        "status_counts": {
+          "refused": 6,
+          "predicted": 3
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-5200-5700",
+      "status": "completed",
+      "prediction": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-5200-5700",
+        "manifest_sha256": "b3910022559327ea8f71b1f8e35e1104d32658829bcc530e72592be77f8848e9",
+        "scientific_content_sha256": "df1e927e0df27e16708c34b8f0e6fdf90dcd1974d97443e6a9c5344c83418329",
+        "failures": [],
+        "interrupted": false,
+        "retained_tables": {
+          "training.json": "d0a24f64b5fd376aec9643118174dd7dea8bcfc19aa3298bd0c65e7208506bef",
+          "preparations.json": "a27b8df81dfb24eb6ebb2d2ae19152fa49d9d82ed42e6e4b027abbc551ecafe3",
+          "operations.json": "16602b4efd50f72b51cf59415c5356f8867b303bd059b8e431e248cf5c0a6031",
+          "failures.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "predictions.json": "6a5dd9a4538e80eb7902779b665e90aea70d4c21fca5001641996ac8e9908094"
+        },
+        "method_dispositions": [
+          {
+            "fold_id": "site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+            "method": "training_mean",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+            "method": "nearest_site",
+            "status": "predicted"
+          },
+          {
+            "fold_id": "site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+            "method": "inverse_distance_squared",
+            "status": "predicted"
+          }
+        ],
+        "status_counts": {
+          "predicted": 9
+        }
+      }
+    }
+  ],
+  "scope": "Prior-exposed conditional point predictions; small-lake regional proxies, no measured vegetation or calibrated uncertainty. Three baselines share one local predictor.",
+  "all_bins_accounted": true,
+  "bin_status_counts": {
+    "completed": 6
+  }
+}

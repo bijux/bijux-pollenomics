@@ -1,0 +1,1401 @@
+{
+  "schema_version": "nordic-coupled-composition-admissibility.v1",
+  "input_contract_sha256": "beecdd97445f141661c8080c041d81599822066fc2101f44d08ab2a79068afa2",
+  "original_native_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+  "cases": [
+    {
+      "identity": {
+        "bin": "3200-3700",
+        "fold_index": 0,
+        "withheld": "neotoma-54001-39241-cal-bp-3200-3700",
+        "local_predictor": "neotoma-53995-39238-cal-bp-3200-3700",
+        "fractions": {
+          "Betula": "-0.05475759019264426",
+          "Ulmus": "1.0547575901926443"
+        },
+        "cache_csv": "cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "593c52b0e8bfe5e698e93071d1fc5de94e4b648919aeaec84d62a29c00034992"
+      },
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              3200.0,
+              3700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3200-3700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3200.0,
+          "counts": [
+            151,
+            41
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-3200-3700",
+          "sample_id": "neotoma-53995-39238-cal-bp-3200-3700",
+          "site_id": "neotoma-site-28869"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              3200.0,
+              3700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3200-3700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3200.0,
+          "counts": [
+            471,
+            36
+          ],
+          "raw_evidence_id": "raw:neotoma-4446-4304-cal-bp-3200-3700",
+          "sample_id": "neotoma-4446-4304-cal-bp-3200-3700",
+          "site_id": "neotoma-site-3432"
+        },
+        "local_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3200-3700",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 178,
+          "geometry_evidence_id": "geometry:neotoma-4446-4304-cal-bp-3200-3700",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3200-3700",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "72.224",
+          "Ulmus": "27.776"
+        }
+      },
+      "diagnostic": {
+        "denominator_D": {
+          "numerator": "13304665751847247733",
+          "denominator": "156250000000000000000"
+        },
+        "scale_T": {
+          "numerator": "7294050364919122231",
+          "denominator": "31250000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "95885",
+              "denominator": "200558"
+            },
+            "lower_admissible_bound": {
+              "numerator": "18164635186429716442",
+              "denominator": "36470251824595611155"
+            },
+            "upper_admissible_bound": {
+              "numerator": "899122883950770405",
+              "denominator": "1042007194988446033"
+            },
+            "lower_margin": {
+              "numerator": "-146112807518620894577461",
+              "denominator": "7314400765437246582024490"
+            },
+            "upper_margin": {
+              "numerator": "80413427467931463011785",
+              "denominator": "208982879012492759486414"
+            },
+            "implied_cover": {
+              "numerator": "-146112807518620894577461",
+              "denominator": "2668357153858980310835014"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.05475759019264426",
+            "saved_minus_rational_cover": {
+              "numerator": "6089445383485208968647009",
+              "denominator": "66708928846474507770875350000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "104673",
+              "denominator": "200558"
+            },
+            "lower_admissible_bound": {
+              "numerator": "142884311037675628",
+              "denominator": "1042007194988446033"
+            },
+            "upper_admissible_bound": {
+              "numerator": "18305616638165894713",
+              "denominator": "36470251824595611155"
+            },
+            "lower_margin": {
+              "numerator": "80413427467931463011785",
+              "denominator": "208982879012492759486414"
+            },
+            "upper_margin": {
+              "numerator": "-146112807518620894577461",
+              "denominator": "7314400765437246582024490"
+            },
+            "implied_cover": {
+              "numerator": "2814469961377601205412475",
+              "denominator": "2668357153858980310835014"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.0547575901926443",
+            "saved_minus_rational_cover": {
+              "numerator": "-684217645925245731562399",
+              "denominator": "13341785769294901554175070000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      }
+    },
+    {
+      "identity": {
+        "bin": "3200-3700",
+        "fold_index": 2,
+        "withheld": "neotoma-4446-4304-cal-bp-3200-3700",
+        "local_predictor": "neotoma-54001-39241-cal-bp-3200-3700",
+        "fractions": {
+          "Betula": "1.2320886634726391",
+          "Ulmus": "-0.23208866347263946"
+        },
+        "cache_csv": "cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "f29410bc2fb3dd4f33460aa54dbfe8a40453cd543dd79b1efa858c842f93120c"
+      },
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              3200.0,
+              3700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3200-3700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3200.0,
+          "counts": [
+            93,
+            7
+          ],
+          "raw_evidence_id": "raw:neotoma-54001-39241-cal-bp-3200-3700",
+          "sample_id": "neotoma-54001-39241-cal-bp-3200-3700",
+          "site_id": "neotoma-site-28872"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              3200.0,
+              3700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3200-3700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3200.0,
+          "counts": [
+            151,
+            41
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-3200-3700",
+          "sample_id": "neotoma-53995-39238-cal-bp-3200-3700",
+          "site_id": "neotoma-site-28869"
+        },
+        "local_basin": {
+          "diameter_m": 160.0,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-3200-3700",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3200-3700",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-3200-3700",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "42.444",
+          "Ulmus": "57.556"
+        }
+      },
+      "diagnostic": {
+        "denominator_D": {
+          "numerator": "94321409040223177689",
+          "denominator": "1250000000000000000000"
+        },
+        "scale_T": {
+          "numerator": "13131092567500119361",
+          "denominator": "62500000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "19685",
+              "denominator": "25642"
+            },
+            "lower_admissible_bound": {
+              "numerator": "42699367293576810183",
+              "denominator": "131310925675001193610"
+            },
+            "upper_admissible_bound": {
+              "numerator": "35944028725475359611",
+              "denominator": "52524370270000477444"
+            },
+            "lower_margin": {
+              "numerator": "372489598942625482375091",
+              "denominator": "841768689039595151636905"
+            },
+            "upper_margin": {
+              "numerator": "-56132722093160113669939",
+              "denominator": "673414951231676121309524"
+            },
+            "implied_cover": {
+              "numerator": "1489958395770501929500364",
+              "denominator": "1209294785304701361150669"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.2320886634726391",
+            "saved_minus_rational_cover": {
+              "numerator": "-3828648488131314258394421",
+              "denominator": "12092947853047013611506690000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "5957",
+              "denominator": "25642"
+            },
+            "lower_admissible_bound": {
+              "numerator": "16580341544525117833",
+              "denominator": "52524370270000477444"
+            },
+            "upper_admissible_bound": {
+              "numerator": "88611558381424383427",
+              "denominator": "131310925675001193610"
+            },
+            "lower_margin": {
+              "numerator": "-56132722093160113669939",
+              "denominator": "673414951231676121309524"
+            },
+            "upper_margin": {
+              "numerator": "372489598942625482375091",
+              "denominator": "841768689039595151636905"
+            },
+            "implied_cover": {
+              "numerator": "-280663610465800568349695",
+              "denominator": "1209294785304701361150669"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.23208866347263946",
+            "saved_minus_rational_cover": {
+              "numerator": "-2624063694828053208739937",
+              "denominator": "60464739265235068057533450000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      }
+    },
+    {
+      "identity": {
+        "bin": "3700-4200",
+        "fold_index": 1,
+        "withheld": "neotoma-4446-4304-cal-bp-3700-4200",
+        "local_predictor": "neotoma-54001-39241-cal-bp-3700-4200",
+        "fractions": {
+          "Betula": "1.1304663126693923",
+          "Ulmus": "-0.13046631266939213"
+        },
+        "cache_csv": "cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "73cfea29561741da75ba96719840c87839b47ccc62dc852e9382747e4e74ea85"
+      },
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              3700.0,
+              4200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3700-4200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3700.0,
+          "counts": [
+            199,
+            42
+          ],
+          "raw_evidence_id": "raw:neotoma-54001-39241-cal-bp-3700-4200",
+          "sample_id": "neotoma-54001-39241-cal-bp-3700-4200",
+          "site_id": "neotoma-site-28872"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              3700.0,
+              4200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3700-4200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3700.0,
+          "counts": [
+            119,
+            142
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-3700-4200",
+          "sample_id": "neotoma-53995-39238-cal-bp-3700-4200",
+          "site_id": "neotoma-site-28869"
+        },
+        "local_basin": {
+          "diameter_m": 160.0,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-3700-4200",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3700-4200",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-3700-4200",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "14.369",
+          "Ulmus": "85.631"
+        }
+      },
+      "diagnostic": {
+        "denominator_D": {
+          "numerator": "362692730176393941331",
+          "denominator": "5000000000000000000000"
+        },
+        "scale_T": {
+          "numerator": "48584814197825699369",
+          "denominator": "250000000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "126365",
+              "denominator": "233591"
+            },
+            "lower_admissible_bound": {
+              "numerator": "57821808372576117757",
+              "denominator": "485848141978256993690"
+            },
+            "upper_admissible_bound": {
+              "numerator": "95667269384309235369",
+              "denominator": "194339256791302797476"
+            },
+            "lower_margin": {
+              "numerator": "47887546421524017084661463",
+              "denominator": "113489753332843029413040790"
+            },
+            "upper_margin": {
+              "numerator": "-2210667061682799403974661",
+              "denominator": "45395901333137211765216316"
+            },
+            "implied_cover": {
+              "numerator": "13682156120435433452760418",
+              "denominator": "12103108219233433878492803"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.1304663126693923",
+            "saved_minus_rational_cover": {
+              "numerator": "14589767696667747539336169",
+              "denominator": "121031082192334338784928030000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "107226",
+              "denominator": "233591"
+            },
+            "lower_admissible_bound": {
+              "numerator": "98671987406993562107",
+              "denominator": "194339256791302797476"
+            },
+            "upper_admissible_bound": {
+              "numerator": "428026333605680875933",
+              "denominator": "485848141978256993690"
+            },
+            "lower_margin": {
+              "numerator": "-2210667061682799403974661",
+              "denominator": "45395901333137211765216316"
+            },
+            "upper_margin": {
+              "numerator": "47887546421524017084661463",
+              "denominator": "113489753332843029413040790"
+            },
+            "implied_cover": {
+              "numerator": "-1579047901201999574267615",
+              "denominator": "12103108219233433878492803"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.13046631266939213",
+            "saved_minus_rational_cover": {
+              "numerator": "59855162760290900541015961",
+              "denominator": "1210310821923343387849280300000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      }
+    },
+    {
+      "identity": {
+        "bin": "3700-4200",
+        "fold_index": 2,
+        "withheld": "neotoma-54001-39241-cal-bp-3700-4200",
+        "local_predictor": "neotoma-53995-39238-cal-bp-3700-4200",
+        "fractions": {
+          "Betula": "-0.8928999482135171",
+          "Ulmus": "1.8928999482135174"
+        },
+        "cache_csv": "cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "80c4de4d6fd351ca05f3b098cee54effc7d736dd1596343c38cdebc1ef879876"
+      },
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              3700.0,
+              4200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3700-4200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3700.0,
+          "counts": [
+            119,
+            142
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-3700-4200",
+          "sample_id": "neotoma-53995-39238-cal-bp-3700-4200",
+          "site_id": "neotoma-site-28869"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              3700.0,
+              4200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3700-4200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3700.0,
+          "counts": [
+            393,
+            30
+          ],
+          "raw_evidence_id": "raw:neotoma-4446-4304-cal-bp-3700-4200",
+          "sample_id": "neotoma-4446-4304-cal-bp-3700-4200",
+          "site_id": "neotoma-site-3432"
+        },
+        "local_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3700-4200",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 178,
+          "geometry_evidence_id": "geometry:neotoma-4446-4304-cal-bp-3700-4200",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3700-4200",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "72.25",
+          "Ulmus": "27.75"
+        }
+      },
+      "diagnostic": {
+        "denominator_D": {
+          "numerator": "212881775571301127",
+          "denominator": "2500000000000000000"
+        },
+        "scale_T": {
+          "numerator": "933697407079255477",
+          "denominator": "4000000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "75565",
+              "denominator": "438091"
+            },
+            "lower_admissible_bound": {
+              "numerator": "2325910309649175034",
+              "denominator": "4668487035396277385"
+            },
+            "upper_admissible_bound": {
+              "numerator": "805792902843916810",
+              "denominator": "933697407079255477"
+            },
+            "lower_margin": {
+              "numerator": "-666186150634797039222569",
+              "denominator": "2045222153823790555872035"
+            },
+            "upper_margin": {
+              "numerator": "282455774033850419090205",
+              "denominator": "409044430764758111174407"
+            },
+            "implied_cover": {
+              "numerator": "-666186150634797039222569",
+              "denominator": "746092719534455056228456"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.8928999482135171",
+            "saved_minus_rational_cover": {
+              "numerator": "-23122833290258156078247",
+              "denominator": "932615899418068820285570000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "362526",
+              "denominator": "438091"
+            },
+            "lower_admissible_bound": {
+              "numerator": "127904504235338667",
+              "denominator": "933697407079255477"
+            },
+            "upper_admissible_bound": {
+              "numerator": "2342576725747102351",
+              "denominator": "4668487035396277385"
+            },
+            "lower_margin": {
+              "numerator": "282455774033850419090205",
+              "denominator": "409044430764758111174407"
+            },
+            "upper_margin": {
+              "numerator": "-666186150634797039222569",
+              "denominator": "2045222153823790555872035"
+            },
+            "implied_cover": {
+              "numerator": "1412278870169252095451025",
+              "denominator": "746092719534455056228456"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.8928999482135174",
+            "saved_minus_rational_cover": {
+              "numerator": "151453801557839401081959",
+              "denominator": "466307949709034410142785000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      }
+    },
+    {
+      "identity": {
+        "bin": "4200-4700",
+        "fold_index": 0,
+        "withheld": "neotoma-54001-39241-cal-bp-4200-4700",
+        "local_predictor": "neotoma-53995-39238-cal-bp-4200-4700",
+        "fractions": {
+          "Betula": "-0.8673810326940689",
+          "Ulmus": "1.867381032694069"
+        },
+        "cache_csv": "cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "f6e98750eebcd2c9b965b00fb307f16c2b94f2161a1d741aa0c9a2c770c9aeb7"
+      },
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              4200.0,
+              4700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4200-4700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4200.0,
+          "counts": [
+            146,
+            151
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-4200-4700",
+          "sample_id": "neotoma-53995-39238-cal-bp-4200-4700",
+          "site_id": "neotoma-site-28869"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              4200.0,
+              4700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4200-4700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4200.0,
+          "counts": [
+            1103,
+            76
+          ],
+          "raw_evidence_id": "raw:neotoma-4446-4304-cal-bp-4200-4700",
+          "sample_id": "neotoma-4446-4304-cal-bp-4200-4700",
+          "site_id": "neotoma-site-3432"
+        },
+        "local_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4200-4700",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 178,
+          "geometry_evidence_id": "geometry:neotoma-4446-4304-cal-bp-4200-4700",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4200-4700",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "74.256",
+          "Ulmus": "25.744"
+        }
+      },
+      "diagnostic": {
+        "denominator_D": {
+          "numerator": "13339461513448622177",
+          "denominator": "156250000000000000000"
+        },
+        "scale_T": {
+          "numerator": "14660100411955500153",
+          "denominator": "62500000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "92710",
+              "denominator": "478213"
+            },
+            "lower_admissible_bound": {
+              "numerator": "12450461069298525182",
+              "denominator": "24433500686592500255"
+            },
+            "upper_admissible_bound": {
+              "numerator": "12806061246958563980",
+              "denominator": "14660100411955500153"
+            },
+            "lower_margin": {
+              "numerator": "-3688742490678464924218716",
+              "denominator": "11684417663837459324444315"
+            },
+            "upper_margin": {
+              "numerator": "4764887057899401337383110",
+              "denominator": "7010650598302475594666589"
+            },
+            "implied_cover": {
+              "numerator": "-5533113736017697386328074",
+              "denominator": "6379103908730805957129701"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.8673810326940689",
+            "saved_minus_rational_cover": {
+              "numerator": "-5278773246980098907303989",
+              "denominator": "63791039087308059571297010000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "385503",
+              "denominator": "478213"
+            },
+            "lower_admissible_bound": {
+              "numerator": "1854039164996936173",
+              "denominator": "14660100411955500153"
+            },
+            "upper_admissible_bound": {
+              "numerator": "11983039617293975073",
+              "denominator": "24433500686592500255"
+            },
+            "lower_margin": {
+              "numerator": "4764887057899401337383110",
+              "denominator": "7010650598302475594666589"
+            },
+            "upper_margin": {
+              "numerator": "-3688742490678464924218716",
+              "denominator": "11684417663837459324444315"
+            },
+            "implied_cover": {
+              "numerator": "11912217644748503343457775",
+              "denominator": "6379103908730805957129701"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.867381032694069",
+            "saved_minus_rational_cover": {
+              "numerator": "1165787715571090486443369",
+              "denominator": "6379103908730805957129701000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      }
+    },
+    {
+      "identity": {
+        "bin": "4200-4700",
+        "fold_index": 2,
+        "withheld": "neotoma-4446-4304-cal-bp-4200-4700",
+        "local_predictor": "neotoma-54001-39241-cal-bp-4200-4700",
+        "fractions": {
+          "Betula": "1.376972035288925",
+          "Ulmus": "-0.3769720352889244"
+        },
+        "cache_csv": "cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "8d9e0279fae9ddca2718f24ad1922c4e021de49da19eaaa16e962cb59ed42deb"
+      },
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              4200.0,
+              4700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4200-4700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4200.0,
+          "counts": [
+            705,
+            96
+          ],
+          "raw_evidence_id": "raw:neotoma-54001-39241-cal-bp-4200-4700",
+          "sample_id": "neotoma-54001-39241-cal-bp-4200-4700",
+          "site_id": "neotoma-site-28872"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              4200.0,
+              4700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4200-4700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4200.0,
+          "counts": [
+            146,
+            151
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-4200-4700",
+          "sample_id": "neotoma-53995-39238-cal-bp-4200-4700",
+          "site_id": "neotoma-site-28869"
+        },
+        "local_basin": {
+          "diameter_m": 160.0,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-4200-4700",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4200-4700",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-4200-4700",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "16.22",
+          "Ulmus": "83.78"
+        }
+      },
+      "diagnostic": {
+        "denominator_D": {
+          "numerator": "18182742419732087489",
+          "denominator": "250000000000000000000"
+        },
+        "scale_T": {
+          "numerator": "2442227563479166561",
+          "denominator": "12500000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "149225",
+              "denominator": "230921"
+            },
+            "lower_admissible_bound": {
+              "numerator": "3263517752812250783",
+              "denominator": "24422275634791665610"
+            },
+            "upper_admissible_bound": {
+              "numerator": "4941955585071317811",
+              "denominator": "9768910253916666244"
+            },
+            "lower_margin": {
+              "numerator": "2890799298604628537591107",
+              "denominator": "5639616311861726214326810"
+            },
+            "upper_margin": {
+              "numerator": "-316564306980460740026969",
+              "denominator": "2255846524744690485730724"
+            },
+            "implied_cover": {
+              "numerator": "5781598597209257075182214",
+              "denominator": "4198777062306953375047369"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.376972035288925",
+            "saved_minus_rational_cover": {
+              "numerator": "78841356656688459043533",
+              "denominator": "167951082492278135001894760000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "81696",
+              "denominator": "230921"
+            },
+            "lower_admissible_bound": {
+              "numerator": "4826954668845348433",
+              "denominator": "9768910253916666244"
+            },
+            "upper_admissible_bound": {
+              "numerator": "21158757881979414827",
+              "denominator": "24422275634791665610"
+            },
+            "lower_margin": {
+              "numerator": "-316564306980460740026969",
+              "denominator": "2255846524744690485730724"
+            },
+            "upper_margin": {
+              "numerator": "2890799298604628537591107",
+              "denominator": "5639616311861726214326810"
+            },
+            "implied_cover": {
+              "numerator": "-1582821534902303700134845",
+              "denominator": "4198777062306953375047369"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.3769720352889244",
+            "saved_minus_rational_cover": {
+              "numerator": "1370580802417401372350241",
+              "denominator": "10496942655767383437618422500000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      }
+    },
+    {
+      "identity": {
+        "bin": "4700-5200",
+        "fold_index": 0,
+        "withheld": "neotoma-54001-39241-cal-bp-4700-5200",
+        "local_predictor": "neotoma-53995-39238-cal-bp-4700-5200",
+        "fractions": {
+          "Betula": "-1.037024124771285",
+          "Ulmus": "2.037024124771285"
+        },
+        "cache_csv": "cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "021a4226c65a2231d3d4766eb94d9e06d97007a59817fb38f62d4da66347c74d"
+      },
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              4700.0,
+              5200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4700-5200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4700.0,
+          "counts": [
+            103,
+            155
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-4700-5200",
+          "sample_id": "neotoma-53995-39238-cal-bp-4700-5200",
+          "site_id": "neotoma-site-28869"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              4700.0,
+              5200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4700-5200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4700.0,
+          "counts": [
+            1123,
+            71
+          ],
+          "raw_evidence_id": "raw:neotoma-4446-4304-cal-bp-4700-5200",
+          "sample_id": "neotoma-4446-4304-cal-bp-4700-5200",
+          "site_id": "neotoma-site-3432"
+        },
+        "local_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4700-5200",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 178,
+          "geometry_evidence_id": "geometry:neotoma-4446-4304-cal-bp-4700-5200",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4700-5200",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "75.866",
+          "Ulmus": "24.134"
+        }
+      },
+      "diagnostic": {
+        "denominator_D": {
+          "numerator": "26734061979828556219",
+          "denominator": "312500000000000000000"
+        },
+        "scale_T": {
+          "numerator": "117737179233473850289",
+          "denominator": "500000000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "13081",
+              "denominator": "92224"
+            },
+            "lower_admissible_bound": {
+              "numerator": "305289812373433067698",
+              "denominator": "588685896167369251445"
+            },
+            "upper_admissible_bound": {
+              "numerator": "103832461642412303490",
+              "denominator": "117737179233473850289"
+            },
+            "lower_margin": {
+              "numerator": "-20454447448562134057228307",
+              "denominator": "54290968088139461845263680"
+            },
+            "upper_margin": {
+              "numerator": "8035724900956760841431351",
+              "denominator": "10858193617627892369052736"
+            },
+            "implied_cover": {
+              "numerator": "-20454447448562134057228307",
+              "denominator": "19724177056221670149928448"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-1.037024124771285",
+            "saved_minus_rational_cover": {
+              "numerator": "-1593994578637291841803",
+              "denominator": "7704756662586589902315800000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "79143",
+              "denominator": "92224"
+            },
+            "lower_admissible_bound": {
+              "numerator": "13904717591061546799",
+              "denominator": "117737179233473850289"
+            },
+            "upper_admissible_bound": {
+              "numerator": "283396083793936183747",
+              "denominator": "588685896167369251445"
+            },
+            "lower_margin": {
+              "numerator": "8035724900956760841431351",
+              "denominator": "10858193617627892369052736"
+            },
+            "upper_margin": {
+              "numerator": "-20454447448562134057228307",
+              "denominator": "54290968088139461845263680"
+            },
+            "implied_cover": {
+              "numerator": "40178624504783804207156755",
+              "denominator": "19724177056221670149928448"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "2.037024124771285",
+            "saved_minus_rational_cover": {
+              "numerator": "1593994578637291841803",
+              "denominator": "7704756662586589902315800000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      }
+    },
+    {
+      "identity": {
+        "bin": "4700-5200",
+        "fold_index": 2,
+        "withheld": "neotoma-4446-4304-cal-bp-4700-5200",
+        "local_predictor": "neotoma-54001-39241-cal-bp-4700-5200",
+        "fractions": {
+          "Betula": "1.5115315035062442",
+          "Ulmus": "-0.5115315035062445"
+        },
+        "cache_csv": "cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "e0419a0cb7ac1265ce3eae61afc4274421f9d03714dad71a05783783c84ddc02"
+      },
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              4700.0,
+              5200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4700-5200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4700.0,
+          "counts": [
+            1146,
+            144
+          ],
+          "raw_evidence_id": "raw:neotoma-54001-39241-cal-bp-4700-5200",
+          "sample_id": "neotoma-54001-39241-cal-bp-4700-5200",
+          "site_id": "neotoma-site-28872"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              4700.0,
+              5200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4700-5200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4700.0,
+          "counts": [
+            103,
+            155
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-4700-5200",
+          "sample_id": "neotoma-53995-39238-cal-bp-4700-5200",
+          "site_id": "neotoma-site-28869"
+        },
+        "local_basin": {
+          "diameter_m": 160.0,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-4700-5200",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4700-5200",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-4700-5200",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "11.743",
+          "Ulmus": "88.257"
+        }
+      },
+      "diagnostic": {
+        "denominator_D": {
+          "numerator": "361327780181192026157",
+          "denominator": "5000000000000000000000"
+        },
+        "scale_T": {
+          "numerator": "48216327136542316743",
+          "denominator": "250000000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "121285",
+              "denominator": "182557"
+            },
+            "lower_admissible_bound": {
+              "numerator": "47254610322163083779",
+              "denominator": "482163271365423167430"
+            },
+            "upper_admissible_bound": {
+              "numerator": "30389133388367879581",
+              "denominator": "64288436182056422324"
+            },
+            "lower_margin": {
+              "numerator": "49852512470972222776304647",
+              "denominator": "88022280330657557176518510"
+            },
+            "upper_margin": {
+              "numerator": "-2249473958360438188897723",
+              "denominator": "11736304044087674290202468"
+            },
+            "implied_cover": {
+              "numerator": "99705024941944445552609294",
+              "denominator": "65962915566537872719143449"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.5115315035062442",
+            "saved_minus_rational_cover": {
+              "numerator": "-74371850937580107764878771",
+              "denominator": "329814577832689363595717245000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "61272",
+              "denominator": "182557"
+            },
+            "lower_admissible_bound": {
+              "numerator": "33899302793688542743",
+              "denominator": "64288436182056422324"
+            },
+            "upper_admissible_bound": {
+              "numerator": "434908661043260083651",
+              "denominator": "482163271365423167430"
+            },
+            "lower_margin": {
+              "numerator": "-2249473958360438188897723",
+              "denominator": "11736304044087674290202468"
+            },
+            "upper_margin": {
+              "numerator": "49852512470972222776304647",
+              "denominator": "88022280330657557176518510"
+            },
+            "implied_cover": {
+              "numerator": "-33742109375406572833465845",
+              "denominator": "65962915566537872719143449"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.5115315035062445",
+            "saved_minus_rational_cover": {
+              "numerator": "-9829008964890680525534561",
+              "denominator": "131925831133075745438286898000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      }
+    }
+  ],
+  "arithmetic": "Exact rational interpretation of saved decimal cells; every rational serialized numerator/denominator. Native residuals retained, no tolerance/equality permission introduced.",
+  "scope": "Conditional algebraic incompatibility of this fixed count/PPE/background/K packet with a nonnegative local cover. No field cause, faulty source, wrong geometry/PPE/kernel, universal model failure or corrected prediction inferred. No refit, K evaluation, score, clipping or source guard change."
+}

@@ -1,0 +1,98 @@
+{
+  "schema_version": "nordic-coupled-batch.v1",
+  "phase": "score",
+  "execution_epoch": "560abd7c16a17a38f1836fd0c1f638193ca03fcd",
+  "input_manifest_sha256": "f22e51b6bc7a38a68453cbeade5bdd28f7f4626a009a444fbaba9553fbe8784a",
+  "protocol_sha256": "835a1c9342ee086cdf6a755c6e6b450c1933d9f3b50625f9895349d9636990a6",
+  "bins": [
+    {
+      "bin": "cal-bp-2700-3200",
+      "status": "completed",
+      "scoring": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-2700-3200",
+        "manifest_sha256": "be50777c2d215f75a5748d4c2cff2d2e98c4ff7837fb020b2cfa9a8314344c41",
+        "scientific_content_sha256": "b83e61b1795c392b18cf15511a081b00bbc1e09009ee27dc15fcb60f08489346",
+        "prediction_manifest_sha256": "28e63037d7c1517c7fc6af67dd897a9bcab08ee42ba9d5a10fc86e2612607821",
+        "status_counts": {
+          "scored": 9
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-3200-3700",
+      "status": "completed",
+      "scoring": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3200-3700",
+        "manifest_sha256": "ee123cc10f7614d6919e47069282708e82e620e1bcbb17f390ff4216551edafe",
+        "scientific_content_sha256": "cc9f488dd15cb0da324c4274d8b4a1588cb1060e91fe04e7bc0adebf97bbcd94",
+        "prediction_manifest_sha256": "81664d58bcf74cf24cac9016ab748c87cb395b58dae89716b65632887d482cc0",
+        "status_counts": {
+          "prediction_failed": 6,
+          "scored": 3
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-3700-4200",
+      "status": "completed",
+      "scoring": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3700-4200",
+        "manifest_sha256": "f906d353c6eb7e0b404cea0af08f3858ddded4c573a3f9f40795c0f445a1c7fd",
+        "scientific_content_sha256": "5dae65e0bc20130980007f2df99bc0cd5504b1cb2afeae4624cf614a3a6a0bbb",
+        "prediction_manifest_sha256": "22381959923782982c0dde23d7c71080804477bb106777f8fce06b6a38623b81",
+        "status_counts": {
+          "scored": 3,
+          "prediction_failed": 6
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-4200-4700",
+      "status": "completed",
+      "scoring": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4200-4700",
+        "manifest_sha256": "c9d538af184f64eba3d372d9717d5f519056595111f0f121ac3ef64ec1578649",
+        "scientific_content_sha256": "c06d933e4e848f50fd919f3743de7c9246ab0e22e4f530efaf1120e40da0e6f4",
+        "prediction_manifest_sha256": "055347d718762a8b7c1398a1b3af0c214469d212701a4262bf96e205d596007e",
+        "status_counts": {
+          "prediction_failed": 6,
+          "scored": 3
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-4700-5200",
+      "status": "completed",
+      "scoring": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4700-5200",
+        "manifest_sha256": "356c8a3e5809f502030ce1e7d69d8a83f24d8aee7467675884c83f3500203b38",
+        "scientific_content_sha256": "7cb3eeec4e11bfd960ce593a7922ced733b7d5073fc9b101b29e717b687f350b",
+        "prediction_manifest_sha256": "1d40cae2fe09318a456fdf67cce3321437021b27fa70d1f5ad215cbd237f93c7",
+        "status_counts": {
+          "prediction_failed": 6,
+          "scored": 3
+        }
+      }
+    },
+    {
+      "bin": "cal-bp-5200-5700",
+      "status": "completed",
+      "scoring": {
+        "directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-5200-5700",
+        "manifest_sha256": "da1930ccd3c36afa64e8df942613307601b44560c0be186fda7301e03024de5f",
+        "scientific_content_sha256": "c36d3abeba05f9b3a25e8d57a099df1eca661d301c6b7257905c9ed9bf4b9f75",
+        "prediction_manifest_sha256": "b3910022559327ea8f71b1f8e35e1104d32658829bcc530e72592be77f8848e9",
+        "status_counts": {
+          "scored": 9
+        }
+      }
+    }
+  ],
+  "scope": "Prior-exposed conditional point predictions; small-lake regional proxies, no measured vegetation or calibrated uncertainty. Three baselines share one local predictor.",
+  "prediction_execution_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+  "prediction_index_sha256": "53a3590ac2cca5f2770ec46910823216a4947ea2826635ae6ddb5ce6d4db2180",
+  "all_bins_accounted": true,
+  "bin_status_counts": {
+    "completed": 6
+  }
+}

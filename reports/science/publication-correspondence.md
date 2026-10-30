@@ -115,6 +115,8 @@ chronology and analytical-use rights remain unresolved. The workbook is
 identified by SHA-256
 `f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e`.
 
+A separate cached-cell observation at source execution epoch `98742c4b02bef7386428e46c31bb90848c4c0e18` checked the AGE cells of these same 17 excluded rows. All 17 contain finite numeric **nonzero AGE values**; none has a numeric zero, blank or null AGE cell. Thus the all-zero description applies to the 30 feature columns, not to AGE. All 17 original identifier/AGE binary64-pair hashes matched. The source header remains `Sample age (cal AD/BC)` and the workbook SHA-256 remains `f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e`. We read cached cells without recalculating formulas or converting calendars or epochs; this check does not authenticate sample membership, chronology accuracy or analytical-use rights.
+
 We verified the retained candidate file structures, not their membership in
 a native LandClim archive or their role as published study inputs. We have
 not cleared workbook output for public release or evaluated scientific

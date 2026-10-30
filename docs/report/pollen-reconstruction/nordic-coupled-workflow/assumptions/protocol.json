@@ -1,0 +1,142 @@
+{
+  "schema_version": "nordic-coupled-conditional.protocol.v1",
+  "source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "matched_protocol_sha256": "22355c28b91af19e23240ce8060761fc0f1f45d6be212d04f5432127eb2e7249",
+  "cores": [
+    {
+      "id": "BOKE",
+      "site": 28872,
+      "dataset": 54001,
+      "collection_unit": 39241,
+      "chronology": 38422,
+      "radius_m": 80.0,
+      "longitude": 13.4375,
+      "latitude": 55.575556,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!977",
+      "historical_access_marker": "NR"
+    },
+    {
+      "id": "BUS",
+      "site": 28869,
+      "dataset": 53995,
+      "collection_unit": 39238,
+      "chronology": 38418,
+      "radius_m": 69.0,
+      "longitude": 13.816667,
+      "latitude": 55.466667,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!978",
+      "historical_access_marker": "NR"
+    },
+    {
+      "id": "SOLSOE83",
+      "site": 3432,
+      "dataset": 4446,
+      "collection_unit": 4304,
+      "chronology": 25740,
+      "radius_m": 89,
+      "longitude": 8.6145225,
+      "latitude": 56.12843278,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "historical_access_marker": "R"
+    }
+  ],
+  "windows_cal_bp": [
+    [
+      2700.0,
+      3200.0
+    ],
+    [
+      3200.0,
+      3700.0
+    ],
+    [
+      3700.0,
+      4200.0
+    ],
+    [
+      4200.0,
+      4700.0
+    ],
+    [
+      4700.0,
+      5200.0
+    ],
+    [
+      5200.0,
+      5700.0
+    ]
+  ],
+  "axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "local_support_radius_m": 1000,
+  "local_ring_count": 2,
+  "ring_generator": {
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_development.py",
+    "sha256": "2b4a30d41cde5f04b62e82b11a048d36a55f92cbad1919fba396f51c982877b4",
+    "bytes": 13392
+  },
+  "ring_convention": {
+    "source_function": "_rings(radius, inversion=...)",
+    "edges_m": "[radius+1 for inversion or radius for forward,500,1000,10000,100000]",
+    "inversion": "First2 generated rings only; shore+1m strict analytical eligibility excludes one metre as a declared numerical/support convention, not a measured shoreline buffer.",
+    "forward": "All4 generated rings begin at static shore; first2 local, remaining2 regional to100km.",
+    "means": "Arithmetic midpoint, unchanged maintained generator.",
+    "areas": "pi*(outer^2-inner^2), same generated terrestrial area; all land beyond shore assumed, not measured.",
+    "coherence": "Means/areas are evaluated separately for inversion shore+1 and forward shore; no reuse of circular_receiver_annulus K. Source-compatible GPM-neutral analytical operator is used with its own radius/support meaning."
+  },
+  "anchor_policy": "Ascending stable numeric native_site_id in each training fold; rotate small-lake regional proxies, explicitly not qualified large-lake REVEALS. Never access heldout pollen in reconstruction.",
+  "bin_support": "Six independent 3-record requests. Pairing coordinate=younger bin edge solely as exact key; age_support_bp is the declared pooled bin-stationarity support, not recovered native age uncertainty. Native named CalBP chronologies/AD1950 preserved; missing bounds remain missing.",
+  "projection": "BOKE Fraxinus and other Solsoe labels are explicitly outside Betula/Ulmus estimand. Preserve original saved panel_N, projected panel_N, excluded count mass and exact source-support hash. No source-absent zero.",
+  "baseline_degeneracy": "Two training places leave one regional anchor and one local predictor per fold. All3 spatial baselines reduce to same single local reconstructed composition, not evidence for spatial interpolation choice.",
+  "uncertainty": "Retain existing analytical native SE/diagnostics if generated; no chronology/basin/parameter-domain/spatial-model/PPE-covariance propagation or calibrated ecological interval claim.",
+  "exposure": "Prior-exposed development. Materialization opens all retained counts before fitting and scoring. Source-exclusion and prediction-before-score are not untouched information-isolation.",
+  "rights": "Use existing derived conditional local Neotoma scope and constituent attribution. Historical NR/NR/R and unresolved source metadata retained. No new source-use decision, raw redistribution, historical author/PANGAEA or full scientific admission.",
+  "scope": "Conditional3-place Betula/Ulmus source-driven coupled REVEALS/analytical LOVE and forward baseline experiment only; six bins/18possiblefolds. No original historical input equivalence, qualified regional-lake profile, four-country validation, measured vegetation, untouched confirmation or full S3/physical validation.",
+  "input_pins": [
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "sha256": "8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd",
+      "bytes": 726215
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "d9a12af1e1f7a39e690c35de19b87fc487311756a75b39318de9acba7ffe3399",
+      "bytes": 4359
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json",
+      "sha256": "0391384f85500555a554b744b56598f4cca6ae5b91fa2ba323f9de45fb4af4b8",
+      "bytes": 3247
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+      "bytes": 604997
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/retained-source-identities.json",
+      "sha256": "f903051acee72613bad110c2539f37c082d52a340966ddd79bbc03253e5453cc",
+      "bytes": 8027
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
+      "bytes": 13224
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-study-inputs/records.jsonl",
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a",
+      "bytes": 3664403
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "084b925243d89451ef89b55e54b0757f10e2ac5ed4556796a155fadc4a68b8b7",
+      "bytes": 558707
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": "nordic-coupled-comparison-publication.v1",
+  "original_comparison": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-direct-comparison-execution/native/comparison.json",
+    "sha256": "1dc01ca8b057024206a9631b2261c8b9ba15a1ecbbd694dd2e298a737cbfc0e1",
+    "bytes": 66626
+  },
+  "public_comparison_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/comparison.json",
+  "execution": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-direct-comparison-execution/execution.json",
+    "sha256": "75d3bea8c17e2173ee51d8f49accf0e414c223b75655454e03394b9d854a1a8f",
+    "bytes": 1280
+  },
+  "terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-direct-comparison-execution/native/terminal.json",
+    "sha256": "8d82216a1419527e4a7496335a2bb456f550e10819281b1062e50c04a53e0b4f",
+    "bytes": 6406
+  },
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-direct-comparison-execution/plan.json",
+    "sha256": "bb9633a28ae1e90bdc254da2f750f54b77886327da7b8c1988c60df3d4458bfe",
+    "bytes": 1959245
+  },
+  "admission": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-direct-comparison-execution/admission.json",
+    "sha256": "c374dda50d6cccfb8deb7c8cd405c268d408e11d42b0609fa7b54e89ea2ce8ab",
+    "bytes": 2620
+  },
+  "comparison_execution_epoch": "e0597c47fc1a3316875cfd4e0dacf2929dfd04ca",
+  "source_epochs": {
+    "input_execution_epoch": "efac2696d313d551cd4422164461bfc0591d1da8",
+    "prediction_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+    "score_epoch": "560abd7c16a17a38f1836fd0c1f638193ca03fcd",
+    "old_S2_epoch": "a890b5e433fd2679768b588bae2774aa3d382e17"
+  },
+  "dispositions": 36,
+  "paired_rows": 16,
+  "unmatched_rows": 20,
+  "unique_paired_target_windows": 8,
+  "original_prediction_exit": 1,
+  "later_retained_reader_exit": 0,
+  "separate_scoring_exit": 0,
+  "comparison_native_exit": 0,
+  "comparison_outer_exit": 0,
+  "public_reader": {
+    "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/README.md",
+    "sha256": "3ae807972386516981217e9e129acd8589399641c2c162963038cdd66ae3c07b",
+    "bytes": 42458
+  },
+  "scope": "Exact stored two-taxon pollen metrics and support joins only. Two direct scopes reuse eight unique windows, not16independenttargets. No newmeans/scores/fits/K, model superiority, field/vegetation/uncertainty/rights/historical/fullsourceprediction acceptance.",
+  "native_bytes_unchanged": true
+}

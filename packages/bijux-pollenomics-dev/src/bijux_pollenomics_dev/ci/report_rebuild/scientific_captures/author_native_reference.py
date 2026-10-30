@@ -291,6 +291,7 @@ def validated_author_native_reference_capture(
             "Author Python reference comparison current scientific source projection differs"
         )
     historical_generated = 0
+    counting_correspondences: list[JsonObject] = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
@@ -312,9 +313,29 @@ def validated_author_native_reference_capture(
             if current.stat().st_size != row.get("bytes") or hashlib.sha256(
                 current.read_bytes()
             ).hexdigest() != row.get("sha256"):
-                raise ReportRebuildError(
-                    "Author Python reference comparison scientific implementation changed"
+                if name not in {
+                    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+                    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+                }:
+                    raise ReportRebuildError(
+                        "Author Python reference comparison scientific implementation changed"
+                    )
+                historical_member = (
+                    "executions/native-comparison/first-party-inputs/" + name
                 )
+                from .source_correspondence import validated_current_scientific_source
+
+                role = validated_current_scientific_source(
+                    repository, row, historical_member, source_buffer
+                )
+                if (
+                    role is None
+                    or role.get("classification") != "finite_counting_api_addition"
+                ):
+                    raise ReportRebuildError(
+                        "Author counting API correspondence differs"
+                    )
+                counting_correspondences.append(role)
     if historical_generated != 1:
         raise ReportRebuildError(
             "Author Python reference comparison historical generated projection differs"
@@ -390,9 +411,11 @@ def validated_author_native_reference_capture(
         },
         "report_outputs": 1,
         "current_scientific_projection": 68,
+        "ordinary_current_byte_exact_members": 68 - len(counting_correspondences),
+        "finite_counting_api_correspondences": counting_correspondences,
         "historical_generated_metadata_members": 1,
         "historical_generated_logical_aliases": 1,
         "historical_generated_metadata_sha256": VERSION_SHA256,
         "paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "One actual prior-exposed English nine-site Python historical REVEALS comparison uses exact retained tagged-R reference draws. This transports the completed Python report and68 exact current scientific/reference bodies plus one authenticated historical539 version identity, without current ignored-file equality; it executes no R/model/optimizer and does not admit the separate historical R reference owner, ecological accuracy, source rights or human release acceptance.",
+        "scope": "One actual prior-exposed English nine-site Python historical REVEALS comparison uses exact retained tagged-R reference draws. This transports the completed Python report and68 declared current scientific/reference members, with only separately listed exact counting API additions and all other current bodies byte-exact, plus one authenticated historical539 version identity, without current ignored-file equality; it executes no R/model/optimizer and does not admit the separate historical R reference owner, ecological accuracy, source rights or human release acceptance.",
     }

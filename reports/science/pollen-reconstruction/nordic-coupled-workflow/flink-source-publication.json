@@ -1,0 +1,191 @@
+{
+  "schema_version": "flink-native-panel-publication.v1",
+  "native_projection": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-execution/native/products/panel-projection.json",
+    "sha256": "0faa39b3fef1a1dc72aa216490580b72ebfb8dd3611ee170583b8f261103be1a",
+    "bytes": 518742
+  },
+  "native_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-execution/native/products/manifest.json",
+    "sha256": "3189962576772e7b82be61ca935d39c9cd601ace0ba27688677b4b2cc99c4828",
+    "bytes": 1189
+  },
+  "native_manifest_body": {
+    "engine_calls": 0,
+    "executable_request": null,
+    "files": [
+      {
+        "bytes": 518742,
+        "path": "panel-projection.json",
+        "sha256": "0faa39b3fef1a1dc72aa216490580b72ebfb8dd3611ee170583b8f261103be1a"
+      }
+    ],
+    "protocol": {
+      "bytes": 3003,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-source-projection.json",
+      "sha256": "65c1fc6d93db27d59eba1301e1d651e6ba79161c9a9971e00bc6080a1655f982"
+    },
+    "protocol_semantic_sha256": "fcd98ea1c13a4fd13a5961846b9e8e72d57afc7dbc796d3fe8c1e8f579050401",
+    "schema_version": "flink-native-panel-manifest.v1",
+    "scope": "Literal native two-taxon pollen/NISP projection only. Pollen_N includes all literal pollen/NISP labels, not a certified terrestrial denominator; excluded_pollen_N is literal nonpanel pollen mass, not synonym mapping. Point-window membership is not age uncertainty or interpolation. No geometry, parameter, model, source-rights, historical workbook correction or qualified scientific acceptance.",
+    "source": {
+      "bytes": 24477671,
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+      "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    }
+  },
+  "public_projection": {
+    "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/flink-source-panels.json",
+    "sha256": "0faa39b3fef1a1dc72aa216490580b72ebfb8dd3611ee170583b8f261103be1a",
+    "bytes": 518742
+  },
+  "terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-execution/native/terminal.json",
+    "sha256": "4b31f0d1c9c9cf97a11dbe030f28887b64a8602252fc456eaf2e422768afa727",
+    "bytes": 5652
+  },
+  "execution": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-execution/execution.json",
+    "sha256": "dc51656b41454f15dbda5948571c4bcef30c3426dd658c4f22a8b7bcac6811bc",
+    "bytes": 1280
+  },
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-execution/plan.json",
+    "sha256": "1a478e5ab2c0a2fbdc8c9a8eba304c0676a307499cf824224bb69b6fb13327c5",
+    "bytes": 1894485
+  },
+  "admission": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-execution/admission.json",
+    "sha256": "22d58e65767b54c9883ce35cc4e324e4ce406ffc4714f4ff867f74d0af241360",
+    "bytes": 2473
+  },
+  "projection_execution_epoch": "9937173f9be978d7a72110672b636ea892e299a2",
+  "maintained_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-integration/final-entry-source-proposal.json",
+    "sha256": "0bda23aeb4e2bece9aabea6304d50aab5f7cdaadc6258d9f98a40d1472319ae4",
+    "bytes": 7315
+  },
+  "scientific_source_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-review/final-entry-review.json",
+    "sha256": "2d7b51cb8bfec55e52621c3027bad1f0c719c249c081225e1edaa850a12ea9b2",
+    "bytes": 2241
+  },
+  "postcommit_source_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-integration/committed-source-verification.json",
+    "sha256": "7cca8b044c4819adb20fbff2e1e41479d7f4c917b9a2e2b18aae1609f4390f0f",
+    "bytes": 6239
+  },
+  "canonical_sources": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_rows.py",
+      "sha256": "0e4aa29af548df9d17ab225413be2d196889a1fc4aa35c9e3fbbba4a4fb29a52",
+      "bytes": 9938
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_source.py",
+      "sha256": "99d0f90c3cc2dafb5ecea907d0a5d679346f168212283a908d3d9dc7c0cec2af",
+      "bytes": 4708
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panels.py",
+      "sha256": "8e9a3c6b26b178f741d501259f66745363e292811c90795908b1606d39c66fd0",
+      "bytes": 5375
+    }
+  ],
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-source-projection.json",
+    "sha256": "65c1fc6d93db27d59eba1301e1d651e6ba79161c9a9971e00bc6080a1655f982",
+    "bytes": 3003
+  },
+  "rerun_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "pycache_prefix=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-execution/native/source-pycache",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+    "--profile",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "--profile-sha256",
+    "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "--mode",
+    "python",
+    "--",
+    "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_source.py",
+    "--source",
+    "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+    "--protocol",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-source-projection.json",
+    "--protocol-sha256",
+    "65c1fc6d93db27d59eba1301e1d651e6ba79161c9a9971e00bc6080a1655f982",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-native-panel-execution/native/products"
+  ],
+  "source_geometry_context": {
+    "dossier": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/flink-geometry-metadata/dossier.json",
+      "sha256": "1bf0c606cef802d68e5da458c2d58281d0119fabc82ec16349a2ffa8266c179f",
+      "bytes": 51763
+    },
+    "findings": {
+      "direct_radius": {
+        "workbook": "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+        "sheet": "LANDCLIMII metadata file",
+        "cell": "D989",
+        "header_cell": "D1",
+        "header": "siteradius",
+        "native_type": "n",
+        "raw_numeric_token": "98",
+        "unit": "meters",
+        "unit_authority": "readme!A6:B6: siteradius / radius of the site in meters",
+        "identity_cells": {
+          "A989": "Flinkasjön",
+          "B989": "FLINK",
+          "C989": "lake",
+          "E989": "13.25",
+          "F989": "56.25",
+          "L989": "109",
+          "AR989": "LandClimI"
+        },
+        "interpretation": "Source-provided static site radius of 98 meters. It was not calculated from the area."
+      },
+      "direct_area": {
+        "workbook": "data/landclim/raw/landclim_i_land_cover_types.xlsx",
+        "sheet": "SiteData",
+        "cell": "G102",
+        "native_type": "s",
+        "literal": "3.00*",
+        "header_cell": "G1",
+        "header_literal": "Area of site (ha) (*Actual size)",
+        "star_meaning": "The area header explicitly defines the area asterisk as Actual size.",
+        "unit": "ha",
+        "identity_cells": {
+          "B102": "Flinkasjön",
+          "C102": "Per Lagerås",
+          "D102": "56.15.00N",
+          "E102": "13.15.00E"
+        },
+        "separate_date_star": "SiteData!M1 says No. of dates for model (*incl. top); LandClim II readme!B18 explains that date-column asterisks include the surface sediment/year of coring. That separate date-column convention is not the area-star definition."
+      },
+      "metadata_present": true,
+      "neotoma_area_null_scope": "The earlier dossier reports area:null on the Neotoma site object only. It does not establish absence of LandClim area/radius metadata.",
+      "source_point_discrepancy": {
+        "landclim_native_longitude": "13.25",
+        "landclim_native_latitude": "56.25",
+        "neotoma_longitude_from_prior_dossier": "13.24333",
+        "neotoma_latitude_from_prior_dossier": "56.25444",
+        "resolution": "Unresolved; no distance calculation, coordinate replacement or collection-point equivalence was performed."
+      }
+    },
+    "remaining_conditions": [
+      "The metadata identifies a named lake/sequence; it does not prove the radius applies to the exact core, every dated window or historical basin geometry.",
+      "No radius measurement date, measurement method, uncertainty or historical radius trajectory is supplied by these selected cells/readme explanations.",
+      "The LandClim and Neotoma point discrepancy and core/time binding remain unresolved.",
+      "Any use of the 98-meter static radius in a reconstruction must be explicitly conditional and separately protocol-bound, rather than presented as a dated measurement or historical admission.",
+      "The source R access marker and metadata presence do not discharge original rights, source admission, independent vegetation, chronology or whole scientific acceptance."
+    ],
+    "geometry_used_in_projection": false
+  },
+  "scope": "Source-only FLINK literal panel projection, no fourth-place reconstruction. All109native typed ages/missingness/negative3 and six window dispositions preserved; no new model, parameters, calendar conversion, scores, source-rights, historical or qualified human acceptance."
+}

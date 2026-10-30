@@ -323,6 +323,153 @@ def _collector_source_extension_correspondence(
     }
 
 
+_COUNTING_API_IDENTITIES: dict[str, tuple[str, int]] = {
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py": (
+        "223555bc7b778fbe4fa79a8bcdf4c2d5324aa9635cdf07c4d6450e0359b49692",
+        6085,
+    ),
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py": (
+        "4b8438dee8e9bed9a8ddbd5b875cb115eb5a91b5085dcc305323d6dfbe6acea1",
+        1979,
+    ),
+}
+_COUNTING_API_CAPTURE_BINDINGS: dict[str, tuple[str, str]] = {
+    "data/method-certification/author-optimizer-diagnostic-source-capture": (
+        "f865795aac7585e56c4cf44faac84496d339e1c176fc6ee111cba3cbc9b4ce93",
+        "executions/optimizer-diagnostics/first-party-inputs/",
+    ),
+    "data/method-certification/linux-r-source-capture": (
+        "fa6e9a4fa9c12013a04cc461fef52d0fd54044d517e132e802a9c176def2a913",
+        "source/",
+    ),
+    "data/surface-reference/swedish-direct-pollen-source-capture": (
+        "fed646a3620b7266f8ab87dd44cdbfac72461179d74df29410460deb81672449",
+        "original-source/source/",
+    ),
+    "data/atlas/sample-chronology-source-view-capture": (
+        "2491a59a0d5cde5dffd05397c4a7dcc95ab98ba922019863e5ea2662681dba62",
+        "source/",
+    ),
+}
+
+
+_COUNTING_API_AUTHOR_BINDINGS: dict[str, tuple[str, tuple[str, ...]]] = {
+    "data/method-certification/author-native-comparison-source-capture": (
+        "b5c8e7cb4a1f7a12b99b8d79c9230d0d2b1ba1f7e52cda6ab2afe31622cb95d0",
+        ("native-comparison",),
+    ),
+    "data/method-certification/author-site-evaluation-source-capture": (
+        "76617093d6c0802273453bd9c4cdc68d2486e04baa146c4893ae7e441a090f7b",
+        ("uncertainty", "profile", "holdout"),
+    ),
+}
+
+
+def _counting_api_source_correspondence(
+    repository: Path,
+    historical: JsonObject,
+    logical: str,
+    source_buffer: SourceCapsule,
+) -> JsonObject:
+    """Bind the four counting exports to exact historical API and capture bytes."""
+    from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
+        counting_api_extension_matches,
+    )
+
+    name = historical.get("path")
+    if not isinstance(name, str) or name not in _COUNTING_API_IDENTITIES:
+        raise ReportRebuildError("Unknown counting API source")
+    checksum, size = _COUNTING_API_IDENTITIES[name]
+    identity = {"sha256": checksum, "bytes": size}
+    binding = _COUNTING_API_CAPTURE_BINDINGS.get(source_buffer.prefix)
+    author_binding = _COUNTING_API_AUTHOR_BINDINGS.get(source_buffer.prefix)
+    aliases = {logical}
+    if author_binding is not None:
+        aliases = {
+            "executions/" + lane + "/first-party-inputs/" + name
+            for lane in author_binding[1]
+        }
+        if logical not in aliases:
+            raise ReportRebuildError("Original author counting API lane differs")
+        binding = (author_binding[0], logical.removesuffix(name))
+    if (
+        repository != repository.resolve()
+        or source_buffer.repository != repository
+        or binding is None
+        or source_buffer.descriptor.capture.get("sha256") != binding[0]
+        or set(historical) != {"path", "bytes", "sha256"}
+        or type(historical.get("bytes")) is not int
+        or historical != {"path": name, **identity}
+        or logical != binding[1] + name
+        or logical not in source_buffer.detached
+        or source_buffer.descriptor.members.get(logical) != identity
+        or [
+            path
+            for group in source_buffer.descriptor.groups
+            for member, path in group["resolved_paths"]
+            if member == logical
+        ]
+        != [name]
+    ):
+        raise ReportRebuildError("Original counting API capture binding differs")
+    source_buffer.fresh()
+    captured = source_buffer.read_source(logical)
+    if len(captured) != size or hashlib.sha256(captured).hexdigest() != checksum:
+        raise ReportRebuildError("Original counting API bytes differ")
+    for alias in aliases:
+        if (
+            alias not in source_buffer.detached
+            or source_buffer.descriptor.members.get(alias) != identity
+            or [
+                path
+                for group in source_buffer.descriptor.groups
+                for member, path in group["resolved_paths"]
+                if member == alias
+            ]
+            != [name]
+            or source_buffer.read_source(alias) != captured
+        ):
+            raise ReportRebuildError("Original author counting API aliases differ")
+    source = _regular_confined_file(repository, name, "current counting API")
+    before = source.stat()
+    if before.st_nlink != 1 or not 0 < before.st_size <= 32768:
+        raise ReportRebuildError("Current counting API must be bounded single-link")
+    current = source.read_bytes()
+    if not counting_api_extension_matches(name, captured, current):
+        raise ReportRebuildError(
+            "Counting API differs beyond its exact named additions"
+        )
+    source_buffer.fresh()
+    again = _regular_confined_file(repository, name, "current counting API")
+    after = again.stat()
+    fields = (
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_size",
+        "st_mtime_ns",
+        "st_ctime_ns",
+    )
+    if (
+        any(getattr(before, field) != getattr(after, field) for field in fields)
+        or again.read_bytes() != current
+    ):
+        raise ReportRebuildError("Current counting API changed during correspondence")
+    return {
+        "path": name,
+        "classification": "finite_counting_api_addition",
+        "historical": identity,
+        "original_member": logical,
+        "original_aliases": sorted(aliases),
+        "old_noninserted_bytes_and_bindings_exact": True,
+        "added_capability": "lra.love.two-taxon.fixed-background-binomial-set",
+        "new_counting_api_requires_separate_current_qualification": True,
+        "whole_current_descriptor_equal_old_claimed": False,
+        "native_execution_or_browser_equivalence_claimed": False,
+    }
+
+
 def validated_current_scientific_source(
     repository: Path,
     historical: JsonObject,
@@ -368,6 +515,10 @@ def validated_current_scientific_source(
         return None
     if name in NATIVE_REFERENCE_TRANSPORT_SOURCES:
         return validated_native_reference_transport_source(
+            repository, historical, logical, source_buffer
+        )
+    if name in _COUNTING_API_IDENTITIES:
+        return _counting_api_source_correspondence(
             repository, historical, logical, source_buffer
         )
     if name == METRICS_SOURCE:

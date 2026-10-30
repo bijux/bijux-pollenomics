@@ -298,6 +298,23 @@ def _require_scientific_projection(
                 "Linux finite native transport correspondence differs"
             )
         return role
+    if name in {
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+    }:
+        if source_buffer is None:
+            raise ReportRebuildError(
+                "Linux counting API requires captured source custody"
+            )
+        role = validated_current_scientific_source(
+            repository,
+            {"path": name, "sha256": expected[0], "bytes": expected[1]},
+            "source/" + name,
+            source_buffer,
+        )
+        if role is None or role.get("classification") != "finite_counting_api_addition":
+            raise ReportRebuildError("Linux counting API correspondence differs")
+        return role
     correspondence = _HISTORICAL_READER_IDENTITIES.get(name)
     if correspondence is not None:
         logical = "source/" + name
@@ -423,6 +440,7 @@ def validated_linux_r_reference_capture(
     historical_generated = 0
     reader_correspondences: list[JsonObject] = []
     transport_correspondences: list[JsonObject] = []
+    counting_correspondences: list[JsonObject] = []
     for raw in scientific:
         item = _object(raw, "Linux source projection malformed")
         name = item.get("relative_path")
@@ -451,6 +469,8 @@ def validated_linux_r_reference_capture(
                     == "finite_native_reference_transport_extension"
                 ):
                     transport_correspondences.append(role)
+                elif role.get("classification") == "finite_counting_api_addition":
+                    counting_correspondences.append(role)
                 else:
                     reader_correspondences.append(role)
     if historical_generated != 1:
@@ -516,11 +536,15 @@ def validated_linux_r_reference_capture(
         "scientific_current_projection": 126,
         "historical_reader_source_correspondences": reader_correspondences,
         "native_reference_transport_correspondences": transport_correspondences,
+        "finite_counting_api_correspondences": counting_correspondences,
+        "ordinary_current_byte_exact_members": 120
+        - len(transport_correspondences)
+        - len(counting_correspondences),
         "historical_generated_metadata_members": 1,
         "historical_generated_metadata_sha256": VERSION_SHA256,
         "retained_execution_files": 140,
         "report_outputs": 137,
         "paths_sha256": canonical_json_sha256(sorted(names)),
         "historical_source_gap_retained": True,
-        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:116exact tracked inputs, four fixed old-identity reader custody roles, four separately bound native-reference transport extensions and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The ten declared current reader/documentation/transport bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
+        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:116 declared ordinary tracked inputs, with separately listed exact counting API additions and all other ordinary bodies byte-exact, four fixed old-identity reader custody roles, four separately bound native-reference transport extensions and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The ten declared current reader/documentation/transport bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
     }

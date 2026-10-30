@@ -1,0 +1,1806 @@
+{
+  "schema_version": "constrained-current-hellinger-characterization.v1",
+  "epochs": {
+    "original_retained_native": "22c6e480ba4690cc508202925a8773afe95ab36e",
+    "current_metric_execution": "be49203bcb85a583e8564246f8387c16d17f1601"
+  },
+  "population": {
+    "matched_sites": 14,
+    "matched_rows": 42,
+    "taxa": 30,
+    "retained_excluded_site": "author:BECKHAM",
+    "retained_input_documents": 37,
+    "saved_vector_report_and_metric_references": 8,
+    "new_observations_predictions_or_fits": 0
+  },
+  "current_computation_completed": true,
+  "exact_correspondence": false,
+  "original_source_acceptance_discharged": false,
+  "comparison_absolute_tolerance": 0,
+  "original_internal_consistency_tolerance_is_not_correspondence_tolerance": true,
+  "literal_changed_leaves": {
+    "paired": 77,
+    "sensitivity": 11
+  },
+  "max_numeric_absolute_difference": {
+    "paired": 2.220446049250313e-16,
+    "sensitivity": 4.163336342344337e-17
+  },
+  "original_strict_contract": {
+    "paired": {
+      "passed": false,
+      "error_class": "builtins.ValueError",
+      "message": "('undeclared source/scientific/provenance value changed', ('method_summaries', '0', 'lra_forward_pollen_site_macro_hellinger'))"
+    },
+    "sensitivity": {
+      "passed": false,
+      "error_class": "builtins.ValueError",
+      "message": "('undeclared source/scientific/provenance value changed', ('paired_hellinger_sha256',))"
+    }
+  },
+  "old_current_products": {
+    "paired": {
+      "original": {
+        "schema_version": "author-lra-direct-pollen-hellinger.v1",
+        "source_experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+        "direct_prediction_manifest_sha256": "61d6e846597a4250bdbd855e17e77fe1aa1ae21d2a0aae21cf44c0e55a5a2630",
+        "lra_prediction_manifest_sha256": "e07c2f2a576dee9637a042ae2ae478ec4855fa7d4a67a828ce49429a948f4ec5",
+        "lra_prediction_csv_sha256": "85ce8fd89d992db10a17f15b799fa5c96de0c658eb0eec1a9e117e51a008e110",
+        "lra_score_csv_sha256": "d0fc6350f8ad46b4571cf2573b9e2267a8ac676cd54b7391911f111604c65cd0",
+        "matched_method_rows": 42,
+        "matched_sites": 14,
+        "excluded_site": "author:BECKHAM",
+        "taxon_count": 30,
+        "method_summaries": [
+          {
+            "method": "training_mean",
+            "matched_sites": 14,
+            "direct_pollen_site_macro_hellinger": 0.28208247358048577,
+            "lra_forward_pollen_site_macro_hellinger": 0.360670746249841,
+            "direct_lower_site_count": 14
+          },
+          {
+            "method": "nearest_site",
+            "matched_sites": 14,
+            "direct_pollen_site_macro_hellinger": 0.25576738782872227,
+            "lra_forward_pollen_site_macro_hellinger": 0.2860009278252601,
+            "direct_lower_site_count": 7
+          },
+          {
+            "method": "inverse_distance_squared",
+            "matched_sites": 14,
+            "direct_pollen_site_macro_hellinger": 0.2436725775206348,
+            "lra_forward_pollen_site_macro_hellinger": 0.28541528916644715,
+            "direct_lower_site_count": 11
+          }
+        ],
+        "site_method_rows": [
+          {
+            "target_record_id": "author:BROADOWN",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.11836465567316722,
+            "lra_forward_pollen_hellinger": 0.2509546851696126,
+            "direct_minus_lra_hellinger": -0.13259002949644538,
+            "observed_total_count": 2092,
+            "target_raw_sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+            "direct_training_identity": "25f1b8108c368836f4b05e007cf045c4f08fc7a786fc354ce718692b70f0d1e9",
+            "lra_prediction_identity": "f55bea81d18c2e16111616b7d843cb96ab311b5ae35a3b184f6bee1b43de35e1"
+          },
+          {
+            "target_record_id": "author:BROADOWN",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.16742301473987206,
+            "lra_forward_pollen_hellinger": 0.24438742670874344,
+            "direct_minus_lra_hellinger": -0.07696441196887138,
+            "observed_total_count": 2092,
+            "target_raw_sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+            "direct_training_identity": "f4f8cfaf52cfa04e2a59f0e35c4ac10c68242df034aa6d71aa6cdcfa5acc0278",
+            "lra_prediction_identity": "282fdb47a62dfbc74da886f3ffd52c3d2aa560be427dfe4652e0a2a505744253"
+          },
+          {
+            "target_record_id": "author:BROADOWN",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.2529568999658578,
+            "lra_forward_pollen_hellinger": 0.2960139993357441,
+            "direct_minus_lra_hellinger": -0.04305709936988633,
+            "observed_total_count": 2092,
+            "target_raw_sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+            "direct_training_identity": "eb3e0cb24570eb5b66faf392d8ee87a59d6efbd235b85cbbaa854bc0034222e0",
+            "lra_prediction_identity": "6622e2391d17d1820d02ad01f4a091c9b955f3f7aef542f0967b25838a3bb4a4"
+          },
+          {
+            "target_record_id": "author:COMERSLA",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.23413287204664757,
+            "lra_forward_pollen_hellinger": 0.23621150433533963,
+            "direct_minus_lra_hellinger": -0.002078632288692067,
+            "observed_total_count": 274,
+            "target_raw_sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550",
+            "direct_training_identity": "8d20c20abb789a3437be577d1abc832a79a169564c1d507ea96f2da1c454e372",
+            "lra_prediction_identity": "3cbd2ce7ba9787022a02d505bca640500c53927bdb8f8359981d2e520c9221f6"
+          },
+          {
+            "target_record_id": "author:COMERSLA",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.2563619717262075,
+            "lra_forward_pollen_hellinger": 0.24585811379563027,
+            "direct_minus_lra_hellinger": 0.010503857930577232,
+            "observed_total_count": 274,
+            "target_raw_sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550",
+            "direct_training_identity": "ae89a349626c1ddb37f7ce88749e609d34137f3d872449f8aa8170d849adc228",
+            "lra_prediction_identity": "a73715de3da522f75dede1ca40580f44030e8f930423c578e3cd3306efa7a3b2"
+          },
+          {
+            "target_record_id": "author:COMERSLA",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.22207528516769143,
+            "lra_forward_pollen_hellinger": 0.2944795010821511,
+            "direct_minus_lra_hellinger": -0.07240421591445967,
+            "observed_total_count": 274,
+            "target_raw_sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550",
+            "direct_training_identity": "eac9310497d4d0ee96490fd42ccedccf37dc9f15ee4a452268f06ec9201e5088",
+            "lra_prediction_identity": "8541a9ba30c13f5ebf7d1d20934e8c73caff4788c9cf05896429adc542619762"
+          },
+          {
+            "target_record_id": "author:CUTHILL2",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.162019186531925,
+            "lra_forward_pollen_hellinger": 0.2779726459968679,
+            "direct_minus_lra_hellinger": -0.11595345946494287,
+            "observed_total_count": 1150,
+            "target_raw_sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+            "direct_training_identity": "758282ccd6e9e24e533e8531b698f8ab82b1b9f574d935439b0c299e81c3b2de",
+            "lra_prediction_identity": "7a6ce2eb97c8f7208cb3042c25f5ebcdd1d607f43dfe5c021e9ea3705851c8e7"
+          },
+          {
+            "target_record_id": "author:CUTHILL2",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.14494370265934797,
+            "lra_forward_pollen_hellinger": 0.21554138052167093,
+            "direct_minus_lra_hellinger": -0.07059767786232296,
+            "observed_total_count": 1150,
+            "target_raw_sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+            "direct_training_identity": "03d18a3393db4d0e0fb961376627330e4e7b0714c4a86d558bc88266b06e41e6",
+            "lra_prediction_identity": "0661245f02123b4ef4f43ea7f0d2cd7acdb9b48e86d012ca72e054683511c890"
+          },
+          {
+            "target_record_id": "author:CUTHILL2",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.19963793377102454,
+            "lra_forward_pollen_hellinger": 0.25461245645553104,
+            "direct_minus_lra_hellinger": -0.054974522684506505,
+            "observed_total_count": 1150,
+            "target_raw_sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+            "direct_training_identity": "dc3f2c81cb3bb9b8eeb37da1efa176e9f823ac77a50a0b782d8278d4a0059a66",
+            "lra_prediction_identity": "e15fa7de41715bb3927dcafbc0fb4e9fbd71a5f2dc4316c380a78887fdaec575"
+          },
+          {
+            "target_record_id": "author:GOURTEMIRES",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.14936988740705176,
+            "lra_forward_pollen_hellinger": 0.171318577281116,
+            "direct_minus_lra_hellinger": -0.02194868987406423,
+            "observed_total_count": 2207,
+            "target_raw_sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9",
+            "direct_training_identity": "7d24803560e65a389546f3864db5820e13e62fb6c7b49497062567b7ae662713",
+            "lra_prediction_identity": "f59c2a5f90f5e6bd7ddf16944ff2220487c04859d3cf485ab3025c7feb194da0"
+          },
+          {
+            "target_record_id": "author:GOURTEMIRES",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.1471315480894489,
+            "lra_forward_pollen_hellinger": 0.16321878690834313,
+            "direct_minus_lra_hellinger": -0.016087238818894234,
+            "observed_total_count": 2207,
+            "target_raw_sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9",
+            "direct_training_identity": "0ebe8aa3a5e886aec7dd2294679b6b3e71923e80c69dce18bb138de0e84c31b6",
+            "lra_prediction_identity": "952efacee8e52eaa30064dc8f72cd5acabc08972e7cf8ba945253b213681aa07"
+          },
+          {
+            "target_record_id": "author:GOURTEMIRES",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.12074240381082899,
+            "lra_forward_pollen_hellinger": 0.3109021599131778,
+            "direct_minus_lra_hellinger": -0.19015975610234884,
+            "observed_total_count": 2207,
+            "target_raw_sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9",
+            "direct_training_identity": "28b1a3e8d88c80c10e60d30c975c6fae523827a24cdaaf415217a69d97ef9d3b",
+            "lra_prediction_identity": "56a416cf715b36570e6b76fac0b9886c617b6b5ade0904ff46e2e6839d520ef1"
+          },
+          {
+            "target_record_id": "author:HANGINGS",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.5566266199078675,
+            "lra_forward_pollen_hellinger": 0.5412157057125597,
+            "direct_minus_lra_hellinger": 0.015410914195307823,
+            "observed_total_count": 1439,
+            "target_raw_sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4",
+            "direct_training_identity": "bf5b678a5b4d9c65d60532ed7cb4c5e5bd0a4f2a7cc96190a2c29ffcadff630c",
+            "lra_prediction_identity": "510a06f8ab5d90fb310baa29daeb2e91bba33563b839ade6db3054e8b153d12e"
+          },
+          {
+            "target_record_id": "author:HANGINGS",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.5691225544456348,
+            "lra_forward_pollen_hellinger": 0.5438148630267914,
+            "direct_minus_lra_hellinger": 0.02530769141884337,
+            "observed_total_count": 1439,
+            "target_raw_sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4",
+            "direct_training_identity": "966256ede5d04b7b9ea413ce7e232a478a6d291021ee7671038699b9a5394189",
+            "lra_prediction_identity": "6b872375059bca3f20a575495b7e640bf1bf4eb920512b421b197e0b2bdc1300"
+          },
+          {
+            "target_record_id": "author:HANGINGS",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.2267276268859781,
+            "lra_forward_pollen_hellinger": 0.29875670273330446,
+            "direct_minus_lra_hellinger": -0.07202907584732635,
+            "observed_total_count": 1439,
+            "target_raw_sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4",
+            "direct_training_identity": "aec1b2ee40b298d6a6438e4bc5e03b10055845ee7defe3120b65e531399e1071",
+            "lra_prediction_identity": "616b36ff53aa98d821edc53e8a7f27d30869997e8036cd119751d27a152d9609"
+          },
+          {
+            "target_record_id": "author:HARESDOWN",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.16909474776678196,
+            "lra_forward_pollen_hellinger": 0.1935554770257464,
+            "direct_minus_lra_hellinger": -0.024460729258964448,
+            "observed_total_count": 1861,
+            "target_raw_sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67",
+            "direct_training_identity": "02b221ea3268e39e9041a450941e8ae424eb2ad453706893720db18f12fc76c2",
+            "lra_prediction_identity": "b8fab25820f0b8e7d3ea2f415ce17b16dd2aa3fc2cacda33d1c53a5eb0d6fa85"
+          },
+          {
+            "target_record_id": "author:HARESDOWN",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.19722182585160092,
+            "lra_forward_pollen_hellinger": 0.20958625687463714,
+            "direct_minus_lra_hellinger": -0.012364431023036221,
+            "observed_total_count": 1861,
+            "target_raw_sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67",
+            "direct_training_identity": "ca055c14a768049bc9fca7d0611823e83587dd20d2197820c14a8ab6be2df04a",
+            "lra_prediction_identity": "53f8c6e18897f6f1991056a1d994646a4b7e61c514e3eede2518e9fe43ac509f"
+          },
+          {
+            "target_record_id": "author:HARESDOWN",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.33626989357806564,
+            "lra_forward_pollen_hellinger": 0.41894638459223654,
+            "direct_minus_lra_hellinger": -0.0826764910141709,
+            "observed_total_count": 1861,
+            "target_raw_sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67",
+            "direct_training_identity": "dbd3a65dc0d440d3da47a5424b6681b8ccb9454be053495696b0177b4521f0bf",
+            "lra_prediction_identity": "fa850b819c0717ea4c65ef4d6f95dc4d1d2450e1f0916035dbdadb7f3a276909"
+          },
+          {
+            "target_record_id": "author:LARKBARR",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.213278135961404,
+            "lra_forward_pollen_hellinger": 0.2698573382988485,
+            "direct_minus_lra_hellinger": -0.05657920233744451,
+            "observed_total_count": 553,
+            "target_raw_sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+            "direct_training_identity": "8da214aabf53d502171f1dd8d7508d22f09b394960a395ab405cd9ddd2591ea5",
+            "lra_prediction_identity": "d738b2dc925e3f038bba9fbed02db9ea8f962cbef9e2e7ce788d32a7ccbb1a8e"
+          },
+          {
+            "target_record_id": "author:LARKBARR",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.21310991389876732,
+            "lra_forward_pollen_hellinger": 0.2713382612269435,
+            "direct_minus_lra_hellinger": -0.05822834732817617,
+            "observed_total_count": 553,
+            "target_raw_sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+            "direct_training_identity": "7544f837b65982ba6f21450c64fefe2a87418b2115875cf30ca9fe34e3fbbea3",
+            "lra_prediction_identity": "35711449548cb9368d6daf54acef30498b1a11be19527fd81ff9a29465e9e144"
+          },
+          {
+            "target_record_id": "author:LARKBARR",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.3236318157884489,
+            "lra_forward_pollen_hellinger": 0.36695491274697717,
+            "direct_minus_lra_hellinger": -0.04332309695852826,
+            "observed_total_count": 553,
+            "target_raw_sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+            "direct_training_identity": "557caff35c30bf08ae19d64694cf8c2761cf59f594a17a3de2d3d33bc5a4816e",
+            "lra_prediction_identity": "dcd292cdaab44bb12a36eb61219a91d0eadbf77e6b0c6619064b7e0bf7592e9b"
+          },
+          {
+            "target_record_id": "author:LOBBSBOG",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.16440428768602405,
+            "lra_forward_pollen_hellinger": 0.17154997385356582,
+            "direct_minus_lra_hellinger": -0.0071456861675417704,
+            "observed_total_count": 2547,
+            "target_raw_sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2",
+            "direct_training_identity": "4d04efe2d9160b9a52403d4ccebaaae879143da43f07d1468cf6e7c0eb9c2664",
+            "lra_prediction_identity": "25179db494d9894e2ca20221219470e40245cb05d723b679da6ff1f3f1e6c6c6"
+          },
+          {
+            "target_record_id": "author:LOBBSBOG",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.19439890147444097,
+            "lra_forward_pollen_hellinger": 0.1907772814147248,
+            "direct_minus_lra_hellinger": 0.0036216200597161685,
+            "observed_total_count": 2547,
+            "target_raw_sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2",
+            "direct_training_identity": "31a9b297697655ae18831df150b70b6231d3ad0337a733c5f6f77593991b12f7",
+            "lra_prediction_identity": "f7183bf246c632580d2037b885028c318481e3c5574914dfcbe25d08e400a21b"
+          },
+          {
+            "target_record_id": "author:LOBBSBOG",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.28003703282037595,
+            "lra_forward_pollen_hellinger": 0.33612611443090035,
+            "direct_minus_lra_hellinger": -0.056089081610524394,
+            "observed_total_count": 2547,
+            "target_raw_sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2",
+            "direct_training_identity": "d7e0f74ab3c3bca7ebe3f5fd12aa7bb7d2a4f48ebd4bb48650ae1fb8e0e8cc03",
+            "lra_prediction_identity": "b598092873396ec8ee422537b47268ae4c7dbbdd018c14f166ec8f7c0466ed8d"
+          },
+          {
+            "target_record_id": "author:LONGBREACH",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.12984289117419062,
+            "lra_forward_pollen_hellinger": 0.1383812374889376,
+            "direct_minus_lra_hellinger": -0.00853834631474698,
+            "observed_total_count": 833,
+            "target_raw_sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+            "direct_training_identity": "ffe04834d8fc8df3c4811dda9e74870e269eaeeee97e2eb8d9bd35b26c1ae421",
+            "lra_prediction_identity": "bc3efed5843cad773c8122774d3fc1cc4bb2dd79ecbb94aace0dd54c4b388043"
+          },
+          {
+            "target_record_id": "author:LONGBREACH",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.1471315480894489,
+            "lra_forward_pollen_hellinger": 0.14472216524437784,
+            "direct_minus_lra_hellinger": 0.0024093828450710564,
+            "observed_total_count": 833,
+            "target_raw_sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+            "direct_training_identity": "f4ac9b41c3565615602b7d82148fac4d9c187b08dcb1304ad130e8f0b7d207b0",
+            "lra_prediction_identity": "710c81009328fb8800cfb1f071d59a92e640f12d1f3128577067bc5a2494f3d0"
+          },
+          {
+            "target_record_id": "author:LONGBREACH",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.13205350043610922,
+            "lra_forward_pollen_hellinger": 0.30540218050720247,
+            "direct_minus_lra_hellinger": -0.17334868007109325,
+            "observed_total_count": 833,
+            "target_raw_sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+            "direct_training_identity": "7a374d72d587d1ca665c3ad9808c051723251b328d53b740bc7b99db789633d3",
+            "lra_prediction_identity": "636b613fbfeeadf2718d469c2141b53ea206acfce7cf1cc959f57b522430c81f"
+          },
+          {
+            "target_record_id": "author:MOLECHAM",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.2895836716082202,
+            "lra_forward_pollen_hellinger": 0.28380292005106555,
+            "direct_minus_lra_hellinger": 0.005780751557154629,
+            "observed_total_count": 2336,
+            "target_raw_sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40",
+            "direct_training_identity": "265b34ec571689e0edd3299a1ed0389c6b618f7abefe435b73333159f3dcfbd4",
+            "lra_prediction_identity": "6374b7f3b1be0083f11519f6dbf36a1b86c03587e6ff3cb07550993a7782e83d"
+          },
+          {
+            "target_record_id": "author:MOLECHAM",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.35376908186402717,
+            "lra_forward_pollen_hellinger": 0.31789934816849535,
+            "direct_minus_lra_hellinger": 0.035869733695531814,
+            "observed_total_count": 2336,
+            "target_raw_sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40",
+            "direct_training_identity": "c2013bd168079d8b8f7fdf17752d4e2c033fb74d59eec8eb7cf3117e4220283d",
+            "lra_prediction_identity": "bf7f0c3ceaeaca78848bbaa9bd60f8498b5f462d9b94054122ea58bd4f527bc1"
+          },
+          {
+            "target_record_id": "author:MOLECHAM",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.3008489349338621,
+            "lra_forward_pollen_hellinger": 0.3649582089336327,
+            "direct_minus_lra_hellinger": -0.06410927399977057,
+            "observed_total_count": 2336,
+            "target_raw_sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40",
+            "direct_training_identity": "0b1502a52883f9d85cac45c57545eda4668b790b26e1911ccd175a4c11da9d63",
+            "lra_prediction_identity": "bb6a8f2b9dd75a755e6b63717fc05847269599ae43969eedc2d9e19690d86855"
+          },
+          {
+            "target_record_id": "author:NTWITCHEN",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.25564913538003925,
+            "lra_forward_pollen_hellinger": 0.24733310565774264,
+            "direct_minus_lra_hellinger": 0.008316029722296614,
+            "observed_total_count": 2399,
+            "target_raw_sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed",
+            "direct_training_identity": "a9e98b185e7d1fee410bc6282ced258c09bcb978c32459ac1d0bfd96084450dd",
+            "lra_prediction_identity": "7a2af78636a71f3ffbf1ad9522eaad512f648d584e108128ccd201907b0fd59d"
+          },
+          {
+            "target_record_id": "author:NTWITCHEN",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.2563619717262075,
+            "lra_forward_pollen_hellinger": 0.2412460865604801,
+            "direct_minus_lra_hellinger": 0.0151158851657274,
+            "observed_total_count": 2399,
+            "target_raw_sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed",
+            "direct_training_identity": "742f0b947f9d125915741c1aabc135a944666b7e45fd9470e9ecce0715ebf9a0",
+            "lra_prediction_identity": "ec484b3245bed692c855ab328c8c37555e2d7502a95e5871ed6fe1291c4fae4f"
+          },
+          {
+            "target_record_id": "author:NTWITCHEN",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.22607785012842851,
+            "lra_forward_pollen_hellinger": 0.33725029735604267,
+            "direct_minus_lra_hellinger": -0.11117244722761416,
+            "observed_total_count": 2399,
+            "target_raw_sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed",
+            "direct_training_identity": "9ed1985dfcf241eb9f07d5976edd41100bba4eda0c337fbfb3d21310249ed274",
+            "lra_prediction_identity": "2bc8e1cb759e9889f4c21143b5b1e796d5bc032b60320f897cd99202b2fe3487"
+          },
+          {
+            "target_record_id": "author:WHH05",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.5690817517738056,
+            "lra_forward_pollen_hellinger": 0.6674640849953808,
+            "direct_minus_lra_hellinger": -0.09838233322157519,
+            "observed_total_count": 297,
+            "target_raw_sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e",
+            "direct_training_identity": "4f2e8e8be6d6a9818fef75d31f97d4477f39834c36f212606f46e6ff023804cf",
+            "lra_prediction_identity": "c738a6e854bf66d42ba38f76dfd5a9825bc8d60be321920aee2515b488dfeaff"
+          },
+          {
+            "target_record_id": "author:WHH05",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.5691225544456348,
+            "lra_forward_pollen_hellinger": 0.6672004589869827,
+            "direct_minus_lra_hellinger": -0.0980779045413479,
+            "observed_total_count": 297,
+            "target_raw_sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e",
+            "direct_training_identity": "87cca41495154eef322fdeb85fcb22378a77f987fe06a72510924749b384c3e3",
+            "lra_prediction_identity": "34e711a2901a38f893e60faae9cbd0afc7010b12b3572c32ad677327e843bd55"
+          },
+          {
+            "target_record_id": "author:WHH05",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.6675116970901339,
+            "lra_forward_pollen_hellinger": 0.7244050975067022,
+            "direct_minus_lra_hellinger": -0.05689340041656832,
+            "observed_total_count": 297,
+            "target_raw_sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e",
+            "direct_training_identity": "4c805c7dd81efafd86284eecfb1fd5e892229362148742ff87bdb70b2a0ce68b",
+            "lra_prediction_identity": "0c6d51d63073a73d7cc68bfdc713b7fdefefcbfa4c2c91dd4b2ac2adc347aa8e"
+          },
+          {
+            "target_record_id": "author:WINDMILL",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.1834783572207644,
+            "lra_forward_pollen_hellinger": 0.18733528326242999,
+            "direct_minus_lra_hellinger": -0.003856926041665598,
+            "observed_total_count": 915,
+            "target_raw_sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c",
+            "direct_training_identity": "6d55613f96c821819aaf31e7ab1b7daa3cbcc3569d0d2312abba7f8ba29d6423",
+            "lra_prediction_identity": "89ed47206b11fc84e470b5a8f8b73b283191eb6427c4f19548d0be32a0da529d"
+          },
+          {
+            "target_record_id": "author:WINDMILL",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.19722182585160092,
+            "lra_forward_pollen_hellinger": 0.1945221065568141,
+            "direct_minus_lra_hellinger": 0.002699719294786823,
+            "observed_total_count": 915,
+            "target_raw_sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c",
+            "direct_training_identity": "e7557ae202917d53fb3cd245a263c2f3fb7a65723020f2d35afd48113cfe48ea",
+            "lra_prediction_identity": "6bf283e9917ca3340e6f597ea4edd38bbc3cfba86c9725d06c8a1f9903299801"
+          },
+          {
+            "target_record_id": "author:WINDMILL",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.3014789997142304,
+            "lra_forward_pollen_hellinger": 0.3299592766175118,
+            "direct_minus_lra_hellinger": -0.028480276903281365,
+            "observed_total_count": 915,
+            "target_raw_sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c",
+            "direct_training_identity": "8cab0f81a0a99b791a5300132ca31fdd6cb30fa2198228252261d91babf50f7e",
+            "lra_prediction_identity": "e06e4b1ff49ed8a4b67a339ec752ff00d4e3612722b52c05a3c03facd8cd776b"
+          },
+          {
+            "target_record_id": "author:WINNEYS",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.21648988515099762,
+            "lra_forward_pollen_hellinger": 0.3588615092010463,
+            "direct_minus_lra_hellinger": -0.1423716240500487,
+            "observed_total_count": 971,
+            "target_raw_sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88",
+            "direct_training_identity": "2ad24776a19c40141b4e3cce7446c94990e296d43e7192feae6b52f2db72be37",
+            "lra_prediction_identity": "9adc28bf0b8b0591670cec2d23d08b357f58c252db17d077618040c803cd3264"
+          },
+          {
+            "target_record_id": "author:WINNEYS",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.16742301473987206,
+            "lra_forward_pollen_hellinger": 0.3539004535590063,
+            "direct_minus_lra_hellinger": -0.18647743881913423,
+            "observed_total_count": 971,
+            "target_raw_sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88",
+            "direct_training_identity": "b249b36a4eac9881c25c8fd859b815ff2e5f087bb08c9e08f0dc481e734fbfd4",
+            "lra_prediction_identity": "fb7d9bd3fc47a94fdfda479ccefc6742a7e2c94c952674fe64522fb64df34542"
+          },
+          {
+            "target_record_id": "author:WINNEYS",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.35910475603576525,
+            "lra_forward_pollen_hellinger": 0.41062315528665994,
+            "direct_minus_lra_hellinger": -0.051518399250894686,
+            "observed_total_count": 971,
+            "target_raw_sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88",
+            "direct_training_identity": "33db39cc0c9173399f4d49647c9c01f9e5e5ed1e10c1d4a04175e246635d271e",
+            "lra_prediction_identity": "ee4ca70fe6f2993364611f90874308b36c072acbea0edad53d64841faf70b028"
+          }
+        ],
+        "interpretation": "prior-exposed English development, common 30-taxon observed-pollen support; no independent vegetation accuracy or sampling interval"
+      },
+      "current": {
+        "schema_version": "author-lra-direct-pollen-hellinger.v1",
+        "source_experiment_sha256": "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4",
+        "direct_prediction_manifest_sha256": "61d6e846597a4250bdbd855e17e77fe1aa1ae21d2a0aae21cf44c0e55a5a2630",
+        "lra_prediction_manifest_sha256": "e07c2f2a576dee9637a042ae2ae478ec4855fa7d4a67a828ce49429a948f4ec5",
+        "lra_prediction_csv_sha256": "85ce8fd89d992db10a17f15b799fa5c96de0c658eb0eec1a9e117e51a008e110",
+        "lra_score_csv_sha256": "d0fc6350f8ad46b4571cf2573b9e2267a8ac676cd54b7391911f111604c65cd0",
+        "matched_method_rows": 42,
+        "matched_sites": 14,
+        "excluded_site": "author:BECKHAM",
+        "taxon_count": 30,
+        "method_summaries": [
+          {
+            "method": "training_mean",
+            "matched_sites": 14,
+            "direct_pollen_site_macro_hellinger": 0.28208247358048577,
+            "lra_forward_pollen_site_macro_hellinger": 0.36067074624984097,
+            "direct_lower_site_count": 14
+          },
+          {
+            "method": "nearest_site",
+            "matched_sites": 14,
+            "direct_pollen_site_macro_hellinger": 0.25576738782872227,
+            "lra_forward_pollen_site_macro_hellinger": 0.2860009278252601,
+            "direct_lower_site_count": 7
+          },
+          {
+            "method": "inverse_distance_squared",
+            "matched_sites": 14,
+            "direct_pollen_site_macro_hellinger": 0.24367257752063476,
+            "lra_forward_pollen_site_macro_hellinger": 0.2854152891664471,
+            "direct_lower_site_count": 11
+          }
+        ],
+        "site_method_rows": [
+          {
+            "target_record_id": "author:BROADOWN",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.11836465567316723,
+            "lra_forward_pollen_hellinger": 0.2509546851696126,
+            "direct_minus_lra_hellinger": -0.13259002949644538,
+            "observed_total_count": 2092,
+            "target_raw_sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+            "direct_training_identity": "25f1b8108c368836f4b05e007cf045c4f08fc7a786fc354ce718692b70f0d1e9",
+            "lra_prediction_identity": "f55bea81d18c2e16111616b7d843cb96ab311b5ae35a3b184f6bee1b43de35e1"
+          },
+          {
+            "target_record_id": "author:BROADOWN",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.16742301473987206,
+            "lra_forward_pollen_hellinger": 0.24438742670874336,
+            "direct_minus_lra_hellinger": -0.0769644119688713,
+            "observed_total_count": 2092,
+            "target_raw_sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+            "direct_training_identity": "f4f8cfaf52cfa04e2a59f0e35c4ac10c68242df034aa6d71aa6cdcfa5acc0278",
+            "lra_prediction_identity": "282fdb47a62dfbc74da886f3ffd52c3d2aa560be427dfe4652e0a2a505744253"
+          },
+          {
+            "target_record_id": "author:BROADOWN",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.25295689996585785,
+            "lra_forward_pollen_hellinger": 0.2960139993357441,
+            "direct_minus_lra_hellinger": -0.043057099369886276,
+            "observed_total_count": 2092,
+            "target_raw_sha256": "d85e12b53b52df1d10528372f668fa73479fd390d54b73e88238dd5f19c7a748",
+            "direct_training_identity": "eb3e0cb24570eb5b66faf392d8ee87a59d6efbd235b85cbbaa854bc0034222e0",
+            "lra_prediction_identity": "6622e2391d17d1820d02ad01f4a091c9b955f3f7aef542f0967b25838a3bb4a4"
+          },
+          {
+            "target_record_id": "author:COMERSLA",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.23413287204664754,
+            "lra_forward_pollen_hellinger": 0.23621150433533963,
+            "direct_minus_lra_hellinger": -0.002078632288692095,
+            "observed_total_count": 274,
+            "target_raw_sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550",
+            "direct_training_identity": "8d20c20abb789a3437be577d1abc832a79a169564c1d507ea96f2da1c454e372",
+            "lra_prediction_identity": "3cbd2ce7ba9787022a02d505bca640500c53927bdb8f8359981d2e520c9221f6"
+          },
+          {
+            "target_record_id": "author:COMERSLA",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.25636197172620745,
+            "lra_forward_pollen_hellinger": 0.24585811379563022,
+            "direct_minus_lra_hellinger": 0.010503857930577232,
+            "observed_total_count": 274,
+            "target_raw_sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550",
+            "direct_training_identity": "ae89a349626c1ddb37f7ce88749e609d34137f3d872449f8aa8170d849adc228",
+            "lra_prediction_identity": "a73715de3da522f75dede1ca40580f44030e8f930423c578e3cd3306efa7a3b2"
+          },
+          {
+            "target_record_id": "author:COMERSLA",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.22207528516769143,
+            "lra_forward_pollen_hellinger": 0.2944795010821511,
+            "direct_minus_lra_hellinger": -0.07240421591445967,
+            "observed_total_count": 274,
+            "target_raw_sha256": "a9ed182644e0b4c5524f6d37cbdf4c66ec7701ca8802004a1f640d46d8fa6550",
+            "direct_training_identity": "eac9310497d4d0ee96490fd42ccedccf37dc9f15ee4a452268f06ec9201e5088",
+            "lra_prediction_identity": "8541a9ba30c13f5ebf7d1d20934e8c73caff4788c9cf05896429adc542619762"
+          },
+          {
+            "target_record_id": "author:CUTHILL2",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.162019186531925,
+            "lra_forward_pollen_hellinger": 0.27797264599686794,
+            "direct_minus_lra_hellinger": -0.11595345946494293,
+            "observed_total_count": 1150,
+            "target_raw_sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+            "direct_training_identity": "758282ccd6e9e24e533e8531b698f8ab82b1b9f574d935439b0c299e81c3b2de",
+            "lra_prediction_identity": "7a6ce2eb97c8f7208cb3042c25f5ebcdd1d607f43dfe5c021e9ea3705851c8e7"
+          },
+          {
+            "target_record_id": "author:CUTHILL2",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.14494370265934797,
+            "lra_forward_pollen_hellinger": 0.21554138052167093,
+            "direct_minus_lra_hellinger": -0.07059767786232296,
+            "observed_total_count": 1150,
+            "target_raw_sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+            "direct_training_identity": "03d18a3393db4d0e0fb961376627330e4e7b0714c4a86d558bc88266b06e41e6",
+            "lra_prediction_identity": "0661245f02123b4ef4f43ea7f0d2cd7acdb9b48e86d012ca72e054683511c890"
+          },
+          {
+            "target_record_id": "author:CUTHILL2",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.19963793377102448,
+            "lra_forward_pollen_hellinger": 0.25461245645553104,
+            "direct_minus_lra_hellinger": -0.05497452268450656,
+            "observed_total_count": 1150,
+            "target_raw_sha256": "822a22542d2d8328ab0dbf8e57be472f741a7782ff7e034497b68ddbdb78ae30",
+            "direct_training_identity": "dc3f2c81cb3bb9b8eeb37da1efa176e9f823ac77a50a0b782d8278d4a0059a66",
+            "lra_prediction_identity": "e15fa7de41715bb3927dcafbc0fb4e9fbd71a5f2dc4316c380a78887fdaec575"
+          },
+          {
+            "target_record_id": "author:GOURTEMIRES",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.14936988740705173,
+            "lra_forward_pollen_hellinger": 0.17131857728111596,
+            "direct_minus_lra_hellinger": -0.02194868987406423,
+            "observed_total_count": 2207,
+            "target_raw_sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9",
+            "direct_training_identity": "7d24803560e65a389546f3864db5820e13e62fb6c7b49497062567b7ae662713",
+            "lra_prediction_identity": "f59c2a5f90f5e6bd7ddf16944ff2220487c04859d3cf485ab3025c7feb194da0"
+          },
+          {
+            "target_record_id": "author:GOURTEMIRES",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.14713154808944884,
+            "lra_forward_pollen_hellinger": 0.16321878690834313,
+            "direct_minus_lra_hellinger": -0.01608723881889429,
+            "observed_total_count": 2207,
+            "target_raw_sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9",
+            "direct_training_identity": "0ebe8aa3a5e886aec7dd2294679b6b3e71923e80c69dce18bb138de0e84c31b6",
+            "lra_prediction_identity": "952efacee8e52eaa30064dc8f72cd5acabc08972e7cf8ba945253b213681aa07"
+          },
+          {
+            "target_record_id": "author:GOURTEMIRES",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.12074240381082894,
+            "lra_forward_pollen_hellinger": 0.3109021599131777,
+            "direct_minus_lra_hellinger": -0.19015975610234875,
+            "observed_total_count": 2207,
+            "target_raw_sha256": "a86f5b2000305396c4e2ce69c21b7816c63fb85af6025f6ad51be750e7b39ed9",
+            "direct_training_identity": "28b1a3e8d88c80c10e60d30c975c6fae523827a24cdaaf415217a69d97ef9d3b",
+            "lra_prediction_identity": "56a416cf715b36570e6b76fac0b9886c617b6b5ade0904ff46e2e6839d520ef1"
+          },
+          {
+            "target_record_id": "author:HANGINGS",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.5566266199078674,
+            "lra_forward_pollen_hellinger": 0.5412157057125597,
+            "direct_minus_lra_hellinger": 0.015410914195307712,
+            "observed_total_count": 1439,
+            "target_raw_sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4",
+            "direct_training_identity": "bf5b678a5b4d9c65d60532ed7cb4c5e5bd0a4f2a7cc96190a2c29ffcadff630c",
+            "lra_prediction_identity": "510a06f8ab5d90fb310baa29daeb2e91bba33563b839ade6db3054e8b153d12e"
+          },
+          {
+            "target_record_id": "author:HANGINGS",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.5691225544456348,
+            "lra_forward_pollen_hellinger": 0.5438148630267914,
+            "direct_minus_lra_hellinger": 0.02530769141884337,
+            "observed_total_count": 1439,
+            "target_raw_sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4",
+            "direct_training_identity": "966256ede5d04b7b9ea413ce7e232a478a6d291021ee7671038699b9a5394189",
+            "lra_prediction_identity": "6b872375059bca3f20a575495b7e640bf1bf4eb920512b421b197e0b2bdc1300"
+          },
+          {
+            "target_record_id": "author:HANGINGS",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.22672762688597806,
+            "lra_forward_pollen_hellinger": 0.29875670273330457,
+            "direct_minus_lra_hellinger": -0.07202907584732651,
+            "observed_total_count": 1439,
+            "target_raw_sha256": "ef2f2f03e326f2f4a70c3c69656b2e180405527c4bf0587b6c1c560011046cb4",
+            "direct_training_identity": "aec1b2ee40b298d6a6438e4bc5e03b10055845ee7defe3120b65e531399e1071",
+            "lra_prediction_identity": "616b36ff53aa98d821edc53e8a7f27d30869997e8036cd119751d27a152d9609"
+          },
+          {
+            "target_record_id": "author:HARESDOWN",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.16909474776678193,
+            "lra_forward_pollen_hellinger": 0.1935554770257464,
+            "direct_minus_lra_hellinger": -0.024460729258964475,
+            "observed_total_count": 1861,
+            "target_raw_sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67",
+            "direct_training_identity": "02b221ea3268e39e9041a450941e8ae424eb2ad453706893720db18f12fc76c2",
+            "lra_prediction_identity": "b8fab25820f0b8e7d3ea2f415ce17b16dd2aa3fc2cacda33d1c53a5eb0d6fa85"
+          },
+          {
+            "target_record_id": "author:HARESDOWN",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.19722182585160092,
+            "lra_forward_pollen_hellinger": 0.20958625687463714,
+            "direct_minus_lra_hellinger": -0.012364431023036221,
+            "observed_total_count": 1861,
+            "target_raw_sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67",
+            "direct_training_identity": "ca055c14a768049bc9fca7d0611823e83587dd20d2197820c14a8ab6be2df04a",
+            "lra_prediction_identity": "53f8c6e18897f6f1991056a1d994646a4b7e61c514e3eede2518e9fe43ac509f"
+          },
+          {
+            "target_record_id": "author:HARESDOWN",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.3362698935780657,
+            "lra_forward_pollen_hellinger": 0.4189463845922365,
+            "direct_minus_lra_hellinger": -0.0826764910141708,
+            "observed_total_count": 1861,
+            "target_raw_sha256": "6785da41decec74e0a53d7d77bbcda48480bae1900bf38947b0209c50b1f8e67",
+            "direct_training_identity": "dbd3a65dc0d440d3da47a5424b6681b8ccb9454be053495696b0177b4521f0bf",
+            "lra_prediction_identity": "fa850b819c0717ea4c65ef4d6f95dc4d1d2450e1f0916035dbdadb7f3a276909"
+          },
+          {
+            "target_record_id": "author:LARKBARR",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.21327813596140394,
+            "lra_forward_pollen_hellinger": 0.26985733829884845,
+            "direct_minus_lra_hellinger": -0.05657920233744451,
+            "observed_total_count": 553,
+            "target_raw_sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+            "direct_training_identity": "8da214aabf53d502171f1dd8d7508d22f09b394960a395ab405cd9ddd2591ea5",
+            "lra_prediction_identity": "d738b2dc925e3f038bba9fbed02db9ea8f962cbef9e2e7ce788d32a7ccbb1a8e"
+          },
+          {
+            "target_record_id": "author:LARKBARR",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.2131099138987673,
+            "lra_forward_pollen_hellinger": 0.27133826122694343,
+            "direct_minus_lra_hellinger": -0.05822834732817614,
+            "observed_total_count": 553,
+            "target_raw_sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+            "direct_training_identity": "7544f837b65982ba6f21450c64fefe2a87418b2115875cf30ca9fe34e3fbbea3",
+            "lra_prediction_identity": "35711449548cb9368d6daf54acef30498b1a11be19527fd81ff9a29465e9e144"
+          },
+          {
+            "target_record_id": "author:LARKBARR",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.3236318157884489,
+            "lra_forward_pollen_hellinger": 0.36695491274697706,
+            "direct_minus_lra_hellinger": -0.04332309695852815,
+            "observed_total_count": 553,
+            "target_raw_sha256": "3e361e0ca89d3e146a64c8895e72f51951edad18ea2470fa6a65a8aab4e03f6c",
+            "direct_training_identity": "557caff35c30bf08ae19d64694cf8c2761cf59f594a17a3de2d3d33bc5a4816e",
+            "lra_prediction_identity": "dcd292cdaab44bb12a36eb61219a91d0eadbf77e6b0c6619064b7e0bf7592e9b"
+          },
+          {
+            "target_record_id": "author:LOBBSBOG",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.16440428768602408,
+            "lra_forward_pollen_hellinger": 0.17154997385356585,
+            "direct_minus_lra_hellinger": -0.0071456861675417704,
+            "observed_total_count": 2547,
+            "target_raw_sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2",
+            "direct_training_identity": "4d04efe2d9160b9a52403d4ccebaaae879143da43f07d1468cf6e7c0eb9c2664",
+            "lra_prediction_identity": "25179db494d9894e2ca20221219470e40245cb05d723b679da6ff1f3f1e6c6c6"
+          },
+          {
+            "target_record_id": "author:LOBBSBOG",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.19439890147444097,
+            "lra_forward_pollen_hellinger": 0.1907772814147248,
+            "direct_minus_lra_hellinger": 0.0036216200597161685,
+            "observed_total_count": 2547,
+            "target_raw_sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2",
+            "direct_training_identity": "31a9b297697655ae18831df150b70b6231d3ad0337a733c5f6f77593991b12f7",
+            "lra_prediction_identity": "f7183bf246c632580d2037b885028c318481e3c5574914dfcbe25d08e400a21b"
+          },
+          {
+            "target_record_id": "author:LOBBSBOG",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.280037032820376,
+            "lra_forward_pollen_hellinger": 0.33612611443090035,
+            "direct_minus_lra_hellinger": -0.05608908161052434,
+            "observed_total_count": 2547,
+            "target_raw_sha256": "c380d70500109a3e2f5852c44fa656498f2186b5840e1b22d153c85d7948d2d2",
+            "direct_training_identity": "d7e0f74ab3c3bca7ebe3f5fd12aa7bb7d2a4f48ebd4bb48650ae1fb8e0e8cc03",
+            "lra_prediction_identity": "b598092873396ec8ee422537b47268ae4c7dbbdd018c14f166ec8f7c0466ed8d"
+          },
+          {
+            "target_record_id": "author:LONGBREACH",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.1298428911741906,
+            "lra_forward_pollen_hellinger": 0.1383812374889376,
+            "direct_minus_lra_hellinger": -0.008538346314747008,
+            "observed_total_count": 833,
+            "target_raw_sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+            "direct_training_identity": "ffe04834d8fc8df3c4811dda9e74870e269eaeeee97e2eb8d9bd35b26c1ae421",
+            "lra_prediction_identity": "bc3efed5843cad773c8122774d3fc1cc4bb2dd79ecbb94aace0dd54c4b388043"
+          },
+          {
+            "target_record_id": "author:LONGBREACH",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.14713154808944884,
+            "lra_forward_pollen_hellinger": 0.14472216524437784,
+            "direct_minus_lra_hellinger": 0.002409382845071001,
+            "observed_total_count": 833,
+            "target_raw_sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+            "direct_training_identity": "f4ac9b41c3565615602b7d82148fac4d9c187b08dcb1304ad130e8f0b7d207b0",
+            "lra_prediction_identity": "710c81009328fb8800cfb1f071d59a92e640f12d1f3128577067bc5a2494f3d0"
+          },
+          {
+            "target_record_id": "author:LONGBREACH",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.13205350043610922,
+            "lra_forward_pollen_hellinger": 0.3054021805072024,
+            "direct_minus_lra_hellinger": -0.1733486800710932,
+            "observed_total_count": 833,
+            "target_raw_sha256": "5a09ae6240cfe6b5f8c3390ccd0ced1ae6eb2f7d2588a4edb14328fdd341199f",
+            "direct_training_identity": "7a374d72d587d1ca665c3ad9808c051723251b328d53b740bc7b99db789633d3",
+            "lra_prediction_identity": "636b613fbfeeadf2718d469c2141b53ea206acfce7cf1cc959f57b522430c81f"
+          },
+          {
+            "target_record_id": "author:MOLECHAM",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.2895836716082202,
+            "lra_forward_pollen_hellinger": 0.28380292005106555,
+            "direct_minus_lra_hellinger": 0.005780751557154629,
+            "observed_total_count": 2336,
+            "target_raw_sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40",
+            "direct_training_identity": "265b34ec571689e0edd3299a1ed0389c6b618f7abefe435b73333159f3dcfbd4",
+            "lra_prediction_identity": "6374b7f3b1be0083f11519f6dbf36a1b86c03587e6ff3cb07550993a7782e83d"
+          },
+          {
+            "target_record_id": "author:MOLECHAM",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.35376908186402717,
+            "lra_forward_pollen_hellinger": 0.31789934816849535,
+            "direct_minus_lra_hellinger": 0.035869733695531814,
+            "observed_total_count": 2336,
+            "target_raw_sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40",
+            "direct_training_identity": "c2013bd168079d8b8f7fdf17752d4e2c033fb74d59eec8eb7cf3117e4220283d",
+            "lra_prediction_identity": "bf7f0c3ceaeaca78848bbaa9bd60f8498b5f462d9b94054122ea58bd4f527bc1"
+          },
+          {
+            "target_record_id": "author:MOLECHAM",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.30084893493386206,
+            "lra_forward_pollen_hellinger": 0.36495820893363273,
+            "direct_minus_lra_hellinger": -0.06410927399977068,
+            "observed_total_count": 2336,
+            "target_raw_sha256": "d394db71152f6dc95516e73fdf25c4251f7e8dfa8c763ff9cd3c1c8cc45c7e40",
+            "direct_training_identity": "0b1502a52883f9d85cac45c57545eda4668b790b26e1911ccd175a4c11da9d63",
+            "lra_prediction_identity": "bb6a8f2b9dd75a755e6b63717fc05847269599ae43969eedc2d9e19690d86855"
+          },
+          {
+            "target_record_id": "author:NTWITCHEN",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.25564913538003925,
+            "lra_forward_pollen_hellinger": 0.24733310565774255,
+            "direct_minus_lra_hellinger": 0.008316029722296697,
+            "observed_total_count": 2399,
+            "target_raw_sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed",
+            "direct_training_identity": "a9e98b185e7d1fee410bc6282ced258c09bcb978c32459ac1d0bfd96084450dd",
+            "lra_prediction_identity": "7a2af78636a71f3ffbf1ad9522eaad512f648d584e108128ccd201907b0fd59d"
+          },
+          {
+            "target_record_id": "author:NTWITCHEN",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.25636197172620745,
+            "lra_forward_pollen_hellinger": 0.2412460865604801,
+            "direct_minus_lra_hellinger": 0.015115885165727344,
+            "observed_total_count": 2399,
+            "target_raw_sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed",
+            "direct_training_identity": "742f0b947f9d125915741c1aabc135a944666b7e45fd9470e9ecce0715ebf9a0",
+            "lra_prediction_identity": "ec484b3245bed692c855ab328c8c37555e2d7502a95e5871ed6fe1291c4fae4f"
+          },
+          {
+            "target_record_id": "author:NTWITCHEN",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.2260778501284285,
+            "lra_forward_pollen_hellinger": 0.33725029735604267,
+            "direct_minus_lra_hellinger": -0.11117244722761419,
+            "observed_total_count": 2399,
+            "target_raw_sha256": "13ba46862dfc3a2ae5f7279aabf5d399056aa7e9f5e70c2d6cfaef5dc3c191ed",
+            "direct_training_identity": "9ed1985dfcf241eb9f07d5976edd41100bba4eda0c337fbfb3d21310249ed274",
+            "lra_prediction_identity": "2bc8e1cb759e9889f4c21143b5b1e796d5bc032b60320f897cd99202b2fe3487"
+          },
+          {
+            "target_record_id": "author:WHH05",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.5690817517738056,
+            "lra_forward_pollen_hellinger": 0.6674640849953809,
+            "direct_minus_lra_hellinger": -0.0983823332215753,
+            "observed_total_count": 297,
+            "target_raw_sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e",
+            "direct_training_identity": "4f2e8e8be6d6a9818fef75d31f97d4477f39834c36f212606f46e6ff023804cf",
+            "lra_prediction_identity": "c738a6e854bf66d42ba38f76dfd5a9825bc8d60be321920aee2515b488dfeaff"
+          },
+          {
+            "target_record_id": "author:WHH05",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.5691225544456348,
+            "lra_forward_pollen_hellinger": 0.6672004589869824,
+            "direct_minus_lra_hellinger": -0.09807790454134768,
+            "observed_total_count": 297,
+            "target_raw_sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e",
+            "direct_training_identity": "87cca41495154eef322fdeb85fcb22378a77f987fe06a72510924749b384c3e3",
+            "lra_prediction_identity": "34e711a2901a38f893e60faae9cbd0afc7010b12b3572c32ad677327e843bd55"
+          },
+          {
+            "target_record_id": "author:WHH05",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.6675116970901339,
+            "lra_forward_pollen_hellinger": 0.7244050975067021,
+            "direct_minus_lra_hellinger": -0.05689340041656821,
+            "observed_total_count": 297,
+            "target_raw_sha256": "01f943baa07a93823f33a03fe6746e82a96d2edf21a19e3e44ab8a69ee770c3e",
+            "direct_training_identity": "4c805c7dd81efafd86284eecfb1fd5e892229362148742ff87bdb70b2a0ce68b",
+            "lra_prediction_identity": "0c6d51d63073a73d7cc68bfdc713b7fdefefcbfa4c2c91dd4b2ac2adc347aa8e"
+          },
+          {
+            "target_record_id": "author:WINDMILL",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.18347835722076436,
+            "lra_forward_pollen_hellinger": 0.18733528326243,
+            "direct_minus_lra_hellinger": -0.0038569260416656537,
+            "observed_total_count": 915,
+            "target_raw_sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c",
+            "direct_training_identity": "6d55613f96c821819aaf31e7ab1b7daa3cbcc3569d0d2312abba7f8ba29d6423",
+            "lra_prediction_identity": "89ed47206b11fc84e470b5a8f8b73b283191eb6427c4f19548d0be32a0da529d"
+          },
+          {
+            "target_record_id": "author:WINDMILL",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.19722182585160092,
+            "lra_forward_pollen_hellinger": 0.19452210655681407,
+            "direct_minus_lra_hellinger": 0.002699719294786851,
+            "observed_total_count": 915,
+            "target_raw_sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c",
+            "direct_training_identity": "e7557ae202917d53fb3cd245a263c2f3fb7a65723020f2d35afd48113cfe48ea",
+            "lra_prediction_identity": "6bf283e9917ca3340e6f597ea4edd38bbc3cfba86c9725d06c8a1f9903299801"
+          },
+          {
+            "target_record_id": "author:WINDMILL",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.30147899971423037,
+            "lra_forward_pollen_hellinger": 0.32995927661751184,
+            "direct_minus_lra_hellinger": -0.028480276903281476,
+            "observed_total_count": 915,
+            "target_raw_sha256": "f58c32644c948576c2f544d9ef5e5a36bf8c25eaa17b824b303207ba1c909c8c",
+            "direct_training_identity": "8cab0f81a0a99b791a5300132ca31fdd6cb30fa2198228252261d91babf50f7e",
+            "lra_prediction_identity": "e06e4b1ff49ed8a4b67a339ec752ff00d4e3612722b52c05a3c03facd8cd776b"
+          },
+          {
+            "target_record_id": "author:WINNEYS",
+            "method": "inverse_distance_squared",
+            "direct_pollen_hellinger": 0.21648988515099757,
+            "lra_forward_pollen_hellinger": 0.3588615092010463,
+            "direct_minus_lra_hellinger": -0.14237162405004875,
+            "observed_total_count": 971,
+            "target_raw_sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88",
+            "direct_training_identity": "2ad24776a19c40141b4e3cce7446c94990e296d43e7192feae6b52f2db72be37",
+            "lra_prediction_identity": "9adc28bf0b8b0591670cec2d23d08b357f58c252db17d077618040c803cd3264"
+          },
+          {
+            "target_record_id": "author:WINNEYS",
+            "method": "nearest_site",
+            "direct_pollen_hellinger": 0.16742301473987206,
+            "lra_forward_pollen_hellinger": 0.35390045355900634,
+            "direct_minus_lra_hellinger": -0.18647743881913428,
+            "observed_total_count": 971,
+            "target_raw_sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88",
+            "direct_training_identity": "b249b36a4eac9881c25c8fd859b815ff2e5f087bb08c9e08f0dc481e734fbfd4",
+            "lra_prediction_identity": "fb7d9bd3fc47a94fdfda479ccefc6742a7e2c94c952674fe64522fb64df34542"
+          },
+          {
+            "target_record_id": "author:WINNEYS",
+            "method": "training_mean",
+            "direct_pollen_hellinger": 0.35910475603576525,
+            "lra_forward_pollen_hellinger": 0.41062315528665994,
+            "direct_minus_lra_hellinger": -0.051518399250894686,
+            "observed_total_count": 971,
+            "target_raw_sha256": "bd7d9c509e57ada4ab272d450dede0b144f666636f0069d4ad8e53bf897e9a88",
+            "direct_training_identity": "33db39cc0c9173399f4d49647c9c01f9e5e5ed1e10c1d4a04175e246635d271e",
+            "lra_prediction_identity": "ee4ca70fe6f2993364611f90874308b36c072acbea0edad53d64841faf70b028"
+          }
+        ],
+        "interpretation": "prior-exposed English development, common 30-taxon observed-pollen support; no independent vegetation accuracy or sampling interval"
+      }
+    },
+    "sensitivity": {
+      "original": {
+        "schema_version": "author-lra-paired-hellinger-sensitivity.v1",
+        "paired_hellinger_sha256": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
+        "excluded_site": "author:BECKHAM",
+        "matched_sites": 14,
+        "method_summaries": [
+          {
+            "method": "training_mean",
+            "matched_sites": 14,
+            "direct_lower_site_count": 14,
+            "lra_lower_site_count": 0,
+            "equal_site_count": 0,
+            "mean_direct_minus_lra_hellinger": -0.07858827266935527,
+            "median_direct_minus_lra_hellinger": -0.06050133720816944,
+            "leave_one_site_out_mean_range": [
+              -0.08244273388213018,
+              -0.07000585086681729
+            ],
+            "omitted_site_at_range_bounds": [
+              "author:WINDMILL",
+              "author:GOURTEMIRES"
+            ]
+          },
+          {
+            "method": "nearest_site",
+            "matched_sites": 14,
+            "direct_lower_site_count": 7,
+            "lra_lower_site_count": 7,
+            "equal_site_count": 0,
+            "mean_direct_minus_lra_hellinger": -0.030233539996537804,
+            "median_direct_minus_lra_hellinger": -0.004977524088982582,
+            "leave_one_site_out_mean_range": [
+              -0.03531840720362008,
+              -0.018214778548645772
+            ],
+            "omitted_site_at_range_bounds": [
+              "author:MOLECHAM",
+              "author:WINNEYS"
+            ]
+          },
+          {
+            "method": "inverse_distance_squared",
+            "matched_sites": 14,
+            "direct_lower_site_count": 11,
+            "lra_lower_site_count": 3,
+            "equal_site_count": 0,
+            "mean_direct_minus_lra_hellinger": -0.04174271164581233,
+            "median_direct_minus_lra_hellinger": -0.015243518094405606,
+            "leave_one_site_out_mean_range": [
+              -0.04613914440282157,
+              -0.03400202607625569
+            ],
+            "omitted_site_at_range_bounds": [
+              "author:HANGINGS",
+              "author:WINNEYS"
+            ]
+          }
+        ],
+        "interpretation": "descriptive leave-one-site-out influence on prior-exposed English development; no sampling confidence interval, vegetation accuracy, or transfer claim"
+      },
+      "current": {
+        "schema_version": "author-lra-paired-hellinger-sensitivity.v1",
+        "paired_hellinger_sha256": "fba410ccdeff88f944a484600add87e51ef3e0b97c7d6fc26f40cb503d33d3c4",
+        "excluded_site": "author:BECKHAM",
+        "matched_sites": 14,
+        "method_summaries": [
+          {
+            "method": "training_mean",
+            "matched_sites": 14,
+            "direct_lower_site_count": 14,
+            "lra_lower_site_count": 0,
+            "equal_site_count": 0,
+            "mean_direct_minus_lra_hellinger": -0.07858827266935524,
+            "median_direct_minus_lra_hellinger": -0.06050133720816944,
+            "leave_one_site_out_mean_range": [
+              -0.08244273388213015,
+              -0.07000585086681729
+            ],
+            "omitted_site_at_range_bounds": [
+              "author:WINDMILL",
+              "author:GOURTEMIRES"
+            ]
+          },
+          {
+            "method": "nearest_site",
+            "matched_sites": 14,
+            "direct_lower_site_count": 7,
+            "lra_lower_site_count": 7,
+            "equal_site_count": 0,
+            "mean_direct_minus_lra_hellinger": -0.030233539996537794,
+            "median_direct_minus_lra_hellinger": -0.00497752408898261,
+            "leave_one_site_out_mean_range": [
+              -0.03531840720362007,
+              -0.018214778548645755
+            ],
+            "omitted_site_at_range_bounds": [
+              "author:MOLECHAM",
+              "author:WINNEYS"
+            ]
+          },
+          {
+            "method": "inverse_distance_squared",
+            "matched_sites": 14,
+            "direct_lower_site_count": 11,
+            "lra_lower_site_count": 3,
+            "equal_site_count": 0,
+            "mean_direct_minus_lra_hellinger": -0.04174271164581237,
+            "median_direct_minus_lra_hellinger": -0.01524351809440562,
+            "leave_one_site_out_mean_range": [
+              -0.0461391444028216,
+              -0.03400202607625572
+            ],
+            "omitted_site_at_range_bounds": [
+              "author:HANGINGS",
+              "author:WINNEYS"
+            ]
+          }
+        ],
+        "interpretation": "descriptive leave-one-site-out influence on prior-exposed English development; no sampling confidence interval, vegetation accuracy, or transfer claim"
+      }
+    }
+  },
+  "differences": {
+    "paired": [
+      {
+        "path": "/method_summaries/0/lra_forward_pollen_site_macro_hellinger",
+        "original": 0.360670746249841,
+        "current": 0.36067074624984097,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/method_summaries/2/direct_pollen_site_macro_hellinger",
+        "original": 0.2436725775206348,
+        "current": 0.24367257752063476,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/method_summaries/2/lra_forward_pollen_site_macro_hellinger",
+        "original": 0.28541528916644715,
+        "current": 0.2854152891664471,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/0/direct_pollen_hellinger",
+        "original": 0.11836465567316722,
+        "current": 0.11836465567316723,
+        "current_minus_original": 1.3877787807814457e-17
+      },
+      {
+        "path": "/site_method_rows/1/lra_forward_pollen_hellinger",
+        "original": 0.24438742670874344,
+        "current": 0.24438742670874336,
+        "current_minus_original": -8.326672684688674e-17
+      },
+      {
+        "path": "/site_method_rows/1/direct_minus_lra_hellinger",
+        "original": -0.07696441196887138,
+        "current": -0.0769644119688713,
+        "current_minus_original": 8.326672684688674e-17
+      },
+      {
+        "path": "/site_method_rows/2/direct_pollen_hellinger",
+        "original": 0.2529568999658578,
+        "current": 0.25295689996585785,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/2/direct_minus_lra_hellinger",
+        "original": -0.04305709936988633,
+        "current": -0.043057099369886276,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/3/direct_pollen_hellinger",
+        "original": 0.23413287204664757,
+        "current": 0.23413287204664754,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/3/direct_minus_lra_hellinger",
+        "original": -0.002078632288692067,
+        "current": -0.002078632288692095,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/4/direct_pollen_hellinger",
+        "original": 0.2563619717262075,
+        "current": 0.25636197172620745,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/4/lra_forward_pollen_hellinger",
+        "original": 0.24585811379563027,
+        "current": 0.24585811379563022,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/6/lra_forward_pollen_hellinger",
+        "original": 0.2779726459968679,
+        "current": 0.27797264599686794,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/6/direct_minus_lra_hellinger",
+        "original": -0.11595345946494287,
+        "current": -0.11595345946494293,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/8/direct_pollen_hellinger",
+        "original": 0.19963793377102454,
+        "current": 0.19963793377102448,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/8/direct_minus_lra_hellinger",
+        "original": -0.054974522684506505,
+        "current": -0.05497452268450656,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/9/direct_pollen_hellinger",
+        "original": 0.14936988740705176,
+        "current": 0.14936988740705173,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/9/lra_forward_pollen_hellinger",
+        "original": 0.171318577281116,
+        "current": 0.17131857728111596,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/10/direct_pollen_hellinger",
+        "original": 0.1471315480894489,
+        "current": 0.14713154808944884,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/10/direct_minus_lra_hellinger",
+        "original": -0.016087238818894234,
+        "current": -0.01608723881889429,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/11/direct_pollen_hellinger",
+        "original": 0.12074240381082899,
+        "current": 0.12074240381082894,
+        "current_minus_original": -4.163336342344337e-17
+      },
+      {
+        "path": "/site_method_rows/11/lra_forward_pollen_hellinger",
+        "original": 0.3109021599131778,
+        "current": 0.3109021599131777,
+        "current_minus_original": -1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/11/direct_minus_lra_hellinger",
+        "original": -0.19015975610234884,
+        "current": -0.19015975610234875,
+        "current_minus_original": 8.326672684688674e-17
+      },
+      {
+        "path": "/site_method_rows/12/direct_pollen_hellinger",
+        "original": 0.5566266199078675,
+        "current": 0.5566266199078674,
+        "current_minus_original": -1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/12/direct_minus_lra_hellinger",
+        "original": 0.015410914195307823,
+        "current": 0.015410914195307712,
+        "current_minus_original": -1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/14/direct_pollen_hellinger",
+        "original": 0.2267276268859781,
+        "current": 0.22672762688597806,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/14/lra_forward_pollen_hellinger",
+        "original": 0.29875670273330446,
+        "current": 0.29875670273330457,
+        "current_minus_original": 1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/14/direct_minus_lra_hellinger",
+        "original": -0.07202907584732635,
+        "current": -0.07202907584732651,
+        "current_minus_original": -1.6653345369377348e-16
+      },
+      {
+        "path": "/site_method_rows/15/direct_pollen_hellinger",
+        "original": 0.16909474776678196,
+        "current": 0.16909474776678193,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/15/direct_minus_lra_hellinger",
+        "original": -0.024460729258964448,
+        "current": -0.024460729258964475,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/17/direct_pollen_hellinger",
+        "original": 0.33626989357806564,
+        "current": 0.3362698935780657,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/17/lra_forward_pollen_hellinger",
+        "original": 0.41894638459223654,
+        "current": 0.4189463845922365,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/17/direct_minus_lra_hellinger",
+        "original": -0.0826764910141709,
+        "current": -0.0826764910141708,
+        "current_minus_original": 1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/18/direct_pollen_hellinger",
+        "original": 0.213278135961404,
+        "current": 0.21327813596140394,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/18/lra_forward_pollen_hellinger",
+        "original": 0.2698573382988485,
+        "current": 0.26985733829884845,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/19/direct_pollen_hellinger",
+        "original": 0.21310991389876732,
+        "current": 0.2131099138987673,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/19/lra_forward_pollen_hellinger",
+        "original": 0.2713382612269435,
+        "current": 0.27133826122694343,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/19/direct_minus_lra_hellinger",
+        "original": -0.05822834732817617,
+        "current": -0.05822834732817614,
+        "current_minus_original": 2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/20/lra_forward_pollen_hellinger",
+        "original": 0.36695491274697717,
+        "current": 0.36695491274697706,
+        "current_minus_original": -1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/20/direct_minus_lra_hellinger",
+        "original": -0.04332309695852826,
+        "current": -0.04332309695852815,
+        "current_minus_original": 1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/21/direct_pollen_hellinger",
+        "original": 0.16440428768602405,
+        "current": 0.16440428768602408,
+        "current_minus_original": 2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/21/lra_forward_pollen_hellinger",
+        "original": 0.17154997385356582,
+        "current": 0.17154997385356585,
+        "current_minus_original": 2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/23/direct_pollen_hellinger",
+        "original": 0.28003703282037595,
+        "current": 0.280037032820376,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/23/direct_minus_lra_hellinger",
+        "original": -0.056089081610524394,
+        "current": -0.05608908161052434,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/24/direct_pollen_hellinger",
+        "original": 0.12984289117419062,
+        "current": 0.1298428911741906,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/24/direct_minus_lra_hellinger",
+        "original": -0.00853834631474698,
+        "current": -0.008538346314747008,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/25/direct_pollen_hellinger",
+        "original": 0.1471315480894489,
+        "current": 0.14713154808944884,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/25/direct_minus_lra_hellinger",
+        "original": 0.0024093828450710564,
+        "current": 0.002409382845071001,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/26/lra_forward_pollen_hellinger",
+        "original": 0.30540218050720247,
+        "current": 0.3054021805072024,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/26/direct_minus_lra_hellinger",
+        "original": -0.17334868007109325,
+        "current": -0.1733486800710932,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/29/direct_pollen_hellinger",
+        "original": 0.3008489349338621,
+        "current": 0.30084893493386206,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/29/lra_forward_pollen_hellinger",
+        "original": 0.3649582089336327,
+        "current": 0.36495820893363273,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/29/direct_minus_lra_hellinger",
+        "original": -0.06410927399977057,
+        "current": -0.06410927399977068,
+        "current_minus_original": -1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/30/lra_forward_pollen_hellinger",
+        "original": 0.24733310565774264,
+        "current": 0.24733310565774255,
+        "current_minus_original": -8.326672684688674e-17
+      },
+      {
+        "path": "/site_method_rows/30/direct_minus_lra_hellinger",
+        "original": 0.008316029722296614,
+        "current": 0.008316029722296697,
+        "current_minus_original": 8.326672684688674e-17
+      },
+      {
+        "path": "/site_method_rows/31/direct_pollen_hellinger",
+        "original": 0.2563619717262075,
+        "current": 0.25636197172620745,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/31/direct_minus_lra_hellinger",
+        "original": 0.0151158851657274,
+        "current": 0.015115885165727344,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/32/direct_pollen_hellinger",
+        "original": 0.22607785012842851,
+        "current": 0.2260778501284285,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/32/direct_minus_lra_hellinger",
+        "original": -0.11117244722761416,
+        "current": -0.11117244722761419,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/33/lra_forward_pollen_hellinger",
+        "original": 0.6674640849953808,
+        "current": 0.6674640849953809,
+        "current_minus_original": 1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/33/direct_minus_lra_hellinger",
+        "original": -0.09838233322157519,
+        "current": -0.0983823332215753,
+        "current_minus_original": -1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/34/lra_forward_pollen_hellinger",
+        "original": 0.6672004589869827,
+        "current": 0.6672004589869824,
+        "current_minus_original": -2.220446049250313e-16
+      },
+      {
+        "path": "/site_method_rows/34/direct_minus_lra_hellinger",
+        "original": -0.0980779045413479,
+        "current": -0.09807790454134768,
+        "current_minus_original": 2.220446049250313e-16
+      },
+      {
+        "path": "/site_method_rows/35/lra_forward_pollen_hellinger",
+        "original": 0.7244050975067022,
+        "current": 0.7244050975067021,
+        "current_minus_original": -1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/35/direct_minus_lra_hellinger",
+        "original": -0.05689340041656832,
+        "current": -0.05689340041656821,
+        "current_minus_original": 1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/36/direct_pollen_hellinger",
+        "original": 0.1834783572207644,
+        "current": 0.18347835722076436,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/36/lra_forward_pollen_hellinger",
+        "original": 0.18733528326242999,
+        "current": 0.18733528326243,
+        "current_minus_original": 2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/36/direct_minus_lra_hellinger",
+        "original": -0.003856926041665598,
+        "current": -0.0038569260416656537,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/37/lra_forward_pollen_hellinger",
+        "original": 0.1945221065568141,
+        "current": 0.19452210655681407,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/37/direct_minus_lra_hellinger",
+        "original": 0.002699719294786823,
+        "current": 0.002699719294786851,
+        "current_minus_original": 2.7755575615628914e-17
+      },
+      {
+        "path": "/site_method_rows/38/direct_pollen_hellinger",
+        "original": 0.3014789997142304,
+        "current": 0.30147899971423037,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/38/lra_forward_pollen_hellinger",
+        "original": 0.3299592766175118,
+        "current": 0.32995927661751184,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/38/direct_minus_lra_hellinger",
+        "original": -0.028480276903281365,
+        "current": -0.028480276903281476,
+        "current_minus_original": -1.1102230246251565e-16
+      },
+      {
+        "path": "/site_method_rows/39/direct_pollen_hellinger",
+        "original": 0.21648988515099762,
+        "current": 0.21648988515099757,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/39/direct_minus_lra_hellinger",
+        "original": -0.1423716240500487,
+        "current": -0.14237162405004875,
+        "current_minus_original": -5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/40/lra_forward_pollen_hellinger",
+        "original": 0.3539004535590063,
+        "current": 0.35390045355900634,
+        "current_minus_original": 5.551115123125783e-17
+      },
+      {
+        "path": "/site_method_rows/40/direct_minus_lra_hellinger",
+        "original": -0.18647743881913423,
+        "current": -0.18647743881913428,
+        "current_minus_original": -5.551115123125783e-17
+      }
+    ],
+    "sensitivity": [
+      {
+        "path": "/paired_hellinger_sha256",
+        "original": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
+        "current": "fba410ccdeff88f944a484600add87e51ef3e0b97c7d6fc26f40cb503d33d3c4"
+      },
+      {
+        "path": "/method_summaries/0/mean_direct_minus_lra_hellinger",
+        "original": -0.07858827266935527,
+        "current": -0.07858827266935524,
+        "current_minus_original": 2.7755575615628914e-17
+      },
+      {
+        "path": "/method_summaries/0/leave_one_site_out_mean_range/0",
+        "original": -0.08244273388213018,
+        "current": -0.08244273388213015,
+        "current_minus_original": 2.7755575615628914e-17
+      },
+      {
+        "path": "/method_summaries/1/mean_direct_minus_lra_hellinger",
+        "original": -0.030233539996537804,
+        "current": -0.030233539996537794,
+        "current_minus_original": 1.0408340855860843e-17
+      },
+      {
+        "path": "/method_summaries/1/median_direct_minus_lra_hellinger",
+        "original": -0.004977524088982582,
+        "current": -0.00497752408898261,
+        "current_minus_original": -2.7755575615628914e-17
+      },
+      {
+        "path": "/method_summaries/1/leave_one_site_out_mean_range/0",
+        "original": -0.03531840720362008,
+        "current": -0.03531840720362007,
+        "current_minus_original": 1.3877787807814457e-17
+      },
+      {
+        "path": "/method_summaries/1/leave_one_site_out_mean_range/1",
+        "original": -0.018214778548645772,
+        "current": -0.018214778548645755,
+        "current_minus_original": 1.734723475976807e-17
+      },
+      {
+        "path": "/method_summaries/2/mean_direct_minus_lra_hellinger",
+        "original": -0.04174271164581233,
+        "current": -0.04174271164581237,
+        "current_minus_original": -4.163336342344337e-17
+      },
+      {
+        "path": "/method_summaries/2/median_direct_minus_lra_hellinger",
+        "original": -0.015243518094405606,
+        "current": -0.01524351809440562,
+        "current_minus_original": -1.3877787807814457e-17
+      },
+      {
+        "path": "/method_summaries/2/leave_one_site_out_mean_range/0",
+        "original": -0.04613914440282157,
+        "current": -0.0461391444028216,
+        "current_minus_original": -3.469446951953614e-17
+      },
+      {
+        "path": "/method_summaries/2/leave_one_site_out_mean_range/1",
+        "original": -0.03400202607625569,
+        "current": -0.03400202607625572,
+        "current_minus_original": -3.469446951953614e-17
+      }
+    ]
+  },
+  "original_metric_products": {
+    "original_paired": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/paired-hellinger.json",
+      "sha256": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
+      "bytes": 26709
+    },
+    "original_sensitivity": {
+      "path": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/paired-hellinger-sensitivity.json",
+      "sha256": "f8b4f2ecda7061f1bd9a18901d63458b5a8a7df3fc9994e3a0390f3b32ea123b",
+      "bytes": 1972
+    }
+  },
+  "current_metric_products": [
+    {
+      "path": "artifacts/science/constrained-paired-hellinger-current-execution/native/paired-hellinger.json",
+      "sha256": "fba410ccdeff88f944a484600add87e51ef3e0b97c7d6fc26f40cb503d33d3c4",
+      "bytes": 26720
+    },
+    {
+      "path": "artifacts/science/constrained-paired-hellinger-current-execution/native/paired-hellinger-sensitivity.json",
+      "sha256": "351e63fea38dd4467578799d4beb439ddb61e24ca57e4e4e82c19aeef4922f63",
+      "bytes": 1969
+    }
+  ],
+  "source_pins": {
+    "direct_source": {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py",
+      "sha256": "04079d6c6471811bbfd0cc838e4ac59e5c0d5d4eca18dc8299da3706954a6e8e",
+      "bytes": 27490
+    },
+    "metrics_source": {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+      "sha256": "69d549fd0115c6bb5744aa9c971074f36769f53eb9efb7d1dedc2838589b458b",
+      "bytes": 9713
+    },
+    "metric_contracts_source": {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+      "sha256": "c9241b3c427448491c72f488d4096ed86999f260c22533a51d92c441258cbbf6",
+      "bytes": 10583
+    },
+    "historical_comparison_source": {
+      "path": "artifacts/science/constrained-author-provenance-custody/contracts.py",
+      "sha256": "1a552242b27aff87890521c2dbee7aec68035d481a4bb3dd121ed291304775f5",
+      "bytes": 2974
+    }
+  },
+  "input_custody": {
+    "path": "artifacts/science/constrained-author-source-projection-diagnosis/saved-metric-input-custody.json",
+    "sha256": "a263d9ae4e58ebf2ce29e032280f7a3c9a0199a026dfbbe1bce2d11ce91f96a3",
+    "bytes": 19629
+  },
+  "original_capture": {
+    "path": "data/method-certification/constrained-author-source-capture/capture.json",
+    "sha256": "fa46f5757af2acfb647f82162314b11c5e9401fbd7ecdbff585b70a687b9080c",
+    "bytes": 24679834
+  },
+  "provenance": {
+    "numerical_characterization": {
+      "path": "artifacts/science/constrained-paired-hellinger-root-integration/numerical-characterization.json",
+      "sha256": "3437c263eb4ae244e60d2de6e6036bbbfae4f5ac96dcc6e74faa780df9c26225",
+      "bytes": 7175
+    },
+    "comparison": {
+      "path": "artifacts/science/constrained-paired-hellinger-current-execution/native/comparison.json",
+      "sha256": "4ebd7018b1946584f1be0dc7b8add4407d863a2b76e49a88c408a579e87622eb",
+      "bytes": 87543
+    },
+    "native_terminal": {
+      "path": "artifacts/science/constrained-paired-hellinger-current-execution/native/terminal.json",
+      "sha256": "c638e5fb7e7d535f89d28d0d90672c4a4cbaefc7343f03336fd2c57c2c1754ba",
+      "bytes": 3278
+    },
+    "execution": {
+      "path": "artifacts/science/constrained-paired-hellinger-current-execution/execution.json",
+      "sha256": "889a17b831fdf8665f01b649122f019baa9d4589e71988805fd09d210d8bce15",
+      "bytes": 1611
+    },
+    "registered_plan": {
+      "path": "artifacts/science/constrained-paired-hellinger-current-execution/plan.json",
+      "sha256": "6fd75d71ce0b6403ea3104ed46b675ee0397fec4d51da8cb970ffaf0e91b5b75",
+      "bytes": 1903775
+    },
+    "preparation_admission": {
+      "path": "artifacts/science/constrained-paired-hellinger-current-execution/admission.json",
+      "sha256": "ee8e386fbbbfdb9ec9d990bf2461e0fa108f6f37d126211d1ca150aa143f473d",
+      "bytes": 3151
+    },
+    "consumer_manifest": {
+      "path": "artifacts/science/constrained-paired-hellinger-current-source/source-proposal.json",
+      "sha256": "fc294cb1b365c6c09ec4b548c5ae660c586048c12db69fc06ed9ea0243dbb8d4",
+      "bytes": 4548
+    },
+    "consumer_peer": {
+      "path": "artifacts/science/constrained-paired-hellinger-source-review/source-review.json",
+      "sha256": "8810808fca50c1d19546eaba3786b61cdc220d571798f0928df79794866c72f7",
+      "bytes": 6001
+    }
+  },
+  "interpretation": "Completed current Hellinger scoring and descriptive site influence on the same prior-exposed English pollen vectors, not an untouched experiment. Zero-tolerance historical correspondence fails for both products; every changed scalar or identity is retained. The original source guard and report-owner current-source condition are not discharged. Original source experiment, all eleven historical products and 900 work files remain unchanged.",
+  "limits": [
+    "No new reconstruction, fitting, kernel, R, prediction or withheld split.",
+    "Small observed differences are not accepted as exact historical equivalence and no tolerance has been introduced.",
+    "The existing 1e-12 sensitivity consistency guard is not an old/current comparison tolerance.",
+    "No independent vegetation accuracy, uncertainty calibration, historical full-source equivalence, Nordic transfer, source-use authority, field evidence, human review or whole scientific/release admission.",
+    "The unresolved author-profile six private LRAready count-table lawful-custody prerequisite remains unchanged."
+  ]
+}

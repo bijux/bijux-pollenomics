@@ -1,0 +1,513 @@
+{
+  "schema_version": "nordic-coupled-workflow.publication.v1",
+  "prediction_execution_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+  "prediction_original_native_exit": 1,
+  "prediction_original_outer_exit": 1,
+  "retained_reader_exit": 0,
+  "score_execution_epoch": "560abd7c16a17a38f1836fd0c1f638193ca03fcd",
+  "score_native_exit": 0,
+  "score_outer_exit": 0,
+  "source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "native_products": [
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-2700-3200/training.json",
+        "sha256": "88d761080fadbbc6af90ca5296d245e8b0957f9cc490adaa4c9def884a4b6325",
+        "bytes": 4565
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/training.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-2700-3200/preparations.json",
+        "sha256": "5ea3c8144c2846688f8f2b4d9b2cf2898591b594813fbef647f017588509d037",
+        "bytes": 10901
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/preparations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-2700-3200/operations.json",
+        "sha256": "cfc4b04fb3a1b84888d24fb59d4f840393c0f10daf3d1fdc862dfdd62b4de1ac",
+        "bytes": 3551
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/operations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-2700-3200/folds.json",
+        "sha256": "af8b2c13412ebec63ed5105234730eb39771eb82c9985e7f4365e5b24bd48e08",
+        "bytes": 1559
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/folds.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-2700-3200/predictions.json",
+        "sha256": "f60e3e299220669723684f4ca98f52ec194bb1de1d602a103c06e2efe1ab0a1b",
+        "bytes": 31886
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/predictions.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-2700-3200/failures.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/failures.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-2700-3200/scores.json",
+        "sha256": "9d913714854d12521e28e4952521c192738fbc3e4f9dc81d2e8f7b46c82b028d",
+        "bytes": 15026
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/scores.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-2700-3200/summaries.json",
+        "sha256": "83eebaf1a873055e7a24be95cf412cbf8bc4dcb7898f7cab47106336ff4563e1",
+        "bytes": 1098
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/summaries.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-input-execution/native/inputs/cal-bp-2700-3200/projection.json",
+        "sha256": "ecf2047c47844997f18698b04f5a6b3a3242ef9619063b37d2c69863cae0dbeb",
+        "bytes": 1294
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/projection.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3200-3700/training.json",
+        "sha256": "52a573ccc0d7ea2d92e3c1e9a53302cf343db738dffa4608d34aee708cfebd73",
+        "bytes": 1521
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/training.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3200-3700/preparations.json",
+        "sha256": "3bda0b041226854d81e205120466b83bab7b606d49c62d731204995549495211",
+        "bytes": 3619
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/preparations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3200-3700/operations.json",
+        "sha256": "8d980afe8eba499620c5d37d53eb4f8a01f8b9af3741c39d31e2e227d18829a2",
+        "bytes": 1185
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/operations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3200-3700/folds.json",
+        "sha256": "bd6767e7730aacaf92cf79dd100aac075580faf222b51de09d1e06fc58712b43",
+        "bytes": 1559
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/folds.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3200-3700/predictions.json",
+        "sha256": "efdaaab80a07818997ca1cc2fdcfcdfed752d4131368bf782941c99047ab577a",
+        "bytes": 10606
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/predictions.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3200-3700/failures.json",
+        "sha256": "2d8581bed0c3cc855bb300ada94dd8275bed76b0b2d21e9a7c48b92802827b15",
+        "bytes": 598
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/failures.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3200-3700/scores.json",
+        "sha256": "b17c2de32f76eb057dbce1f480bf3473ecb3fc746b6c63ddf87b70910fbdc363",
+        "bytes": 7943
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/scores.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3200-3700/summaries.json",
+        "sha256": "5a91627cecd914911fe2e1b77467b12145702338900eab2ef0e051d87ffee370",
+        "bytes": 1164
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/summaries.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-input-execution/native/inputs/cal-bp-3200-3700/projection.json",
+        "sha256": "e413ad15f26b0cbcdf6c9fcc29d30f0fffb840eda68e6fa887c9d3e480d3f1ca",
+        "bytes": 1296
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/projection.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3700-4200/training.json",
+        "sha256": "cfa11541d6fda0a673d71a3306912bfd586680c71574ca6c217aef1c5baaee5d",
+        "bytes": 1522
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/training.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3700-4200/preparations.json",
+        "sha256": "6e5be19719a6ed6d2f7ba396435ccc75ca7f5390caaf1af0555eb53620f66fcb",
+        "bytes": 3617
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/preparations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3700-4200/operations.json",
+        "sha256": "43493b95ac2f77b2b00f7b53f81f46f4b6e1328ea75b0a4003a4f96e6b6a7a47",
+        "bytes": 1185
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/operations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3700-4200/folds.json",
+        "sha256": "d39e7d853d1b7b6032ad6ac9531c09c5945765f62a6834daefec131cea9bc1f6",
+        "bytes": 1559
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/folds.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3700-4200/predictions.json",
+        "sha256": "252ea7672cce0aac9a52c8c58c67dc04b33e2eaa330ca4f60ff23b95568015e4",
+        "bytes": 10618
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/predictions.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-3700-4200/failures.json",
+        "sha256": "5e7c2f8266727206d4dab29b992abde5631c865e554907c63be30fe964fc0209",
+        "bytes": 598
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/failures.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3700-4200/scores.json",
+        "sha256": "702f09ac016b25c25c87b137408b3ed691c259c31a5245060f62faa38abd1498",
+        "bytes": 7946
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/scores.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-3700-4200/summaries.json",
+        "sha256": "3db678be703be07910ce117fd8335544bedf419722857efb02b52767c0d68f5b",
+        "bytes": 1161
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/summaries.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-input-execution/native/inputs/cal-bp-3700-4200/projection.json",
+        "sha256": "98e05fbc970a2daa9002e6d4e0d5609964b41bb6e01bec6bbc46db3bdb6caa50",
+        "bytes": 1296
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/projection.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4200-4700/training.json",
+        "sha256": "ba09ca058c3a63fb958bce5b55b3c2c329ed6135d24f2b34ae1f264603b61920",
+        "bytes": 1522
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/training.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4200-4700/preparations.json",
+        "sha256": "ec6c47e11b7c78ed20e06602fc53738f151f37ea03b739e7e1294185e88a25cd",
+        "bytes": 3621
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/preparations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4200-4700/operations.json",
+        "sha256": "8e76582b73c05a93311076cdbb01a59efcda937477efffa51c29eb37d5106f0e",
+        "bytes": 1185
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/operations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4200-4700/folds.json",
+        "sha256": "7f7caadc7d08835b853f57f3f592071c85c662764432c816ebd683688cb27108",
+        "bytes": 1559
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/folds.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4200-4700/predictions.json",
+        "sha256": "0470bdb63f94ccc31b1f4cc7cc6a9ab46c7bcc49dbc59a18f3ad8e54f34ac9c1",
+        "bytes": 10624
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/predictions.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4200-4700/failures.json",
+        "sha256": "1d60043d15d34d93ec06d740a757fa0c5a1b1ef6d7f7e90b507b5269039259ce",
+        "bytes": 598
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/failures.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4200-4700/scores.json",
+        "sha256": "10500fc1638eeafa63704530a69077af7145e71ebb709b74af27aaee0b6cff25",
+        "bytes": 7940
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/scores.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4200-4700/summaries.json",
+        "sha256": "39c1b7079121166b05ec93071ccb7ab86f6f73f0102f081258a56e4e8af3046a",
+        "bytes": 1161
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/summaries.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-input-execution/native/inputs/cal-bp-4200-4700/projection.json",
+        "sha256": "50647b9f26d6efd09ac0856cb7d690b162e3a7ab0d9663f6945db9b7f853de0d",
+        "bytes": 1299
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/projection.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4700-5200/training.json",
+        "sha256": "1cd2bc32a18104c214245f643f0626d4f722e7753ea9a170c94fd96804811fd1",
+        "bytes": 1522
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/training.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4700-5200/preparations.json",
+        "sha256": "1de67aef9fc55eda601a5adffd205bf6b270b710851a5ad54f076c00a27e211e",
+        "bytes": 3621
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/preparations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4700-5200/operations.json",
+        "sha256": "d3dce099a71bc5bf374b9cd17dd41a79865d21908f3884a5b50f22b903b15aad",
+        "bytes": 1185
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/operations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4700-5200/folds.json",
+        "sha256": "09d2caec1db95eecbf53913e24d55d979962f72ee9474a83603edffbf9ecc385",
+        "bytes": 1559
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/folds.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4700-5200/predictions.json",
+        "sha256": "31290995790aa275ab10b299c6cc4a09e53ac8889eae915da12743827effc281",
+        "bytes": 10624
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/predictions.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-4700-5200/failures.json",
+        "sha256": "2488c46105d75c738d06682d4984281341e1de34d0a8a977b103fd673eb32cf9",
+        "bytes": 598
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/failures.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4700-5200/scores.json",
+        "sha256": "b1b85ca0762cd8167f659384c3dd10beea2ab793701e2f145815ee50cdd9ced5",
+        "bytes": 7877
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/scores.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-4700-5200/summaries.json",
+        "sha256": "f7d1c218bd9d4335440ad00098072408d67f077487c3e42cea1a287bffa34d0b",
+        "bytes": 1161
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/summaries.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-input-execution/native/inputs/cal-bp-4700-5200/projection.json",
+        "sha256": "98aeeefecb1dd8a1f64b7ce73d0eca6b135b9f3a8902bdc2bdc8f2db4984362c",
+        "bytes": 1300
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/projection.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-5200-5700/training.json",
+        "sha256": "d0a24f64b5fd376aec9643118174dd7dea8bcfc19aa3298bd0c65e7208506bef",
+        "bytes": 4561
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/training.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-5200-5700/preparations.json",
+        "sha256": "a27b8df81dfb24eb6ebb2d2ae19152fa49d9d82ed42e6e4b027abbc551ecafe3",
+        "bytes": 10897
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/preparations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-5200-5700/operations.json",
+        "sha256": "16602b4efd50f72b51cf59415c5356f8867b303bd059b8e431e248cf5c0a6031",
+        "bytes": 3551
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/operations.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-5200-5700/folds.json",
+        "sha256": "50d402cfdbbdd4cf4601ea4bea7464f627a2225384aed1f0c07d859156bd94e1",
+        "bytes": 1559
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/folds.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-5200-5700/predictions.json",
+        "sha256": "6a5dd9a4538e80eb7902779b665e90aea70d4c21fca5001641996ac8e9908094",
+        "bytes": 31868
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/predictions.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cal-bp-5200-5700/failures.json",
+        "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "bytes": 3
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/failures.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-5200-5700/scores.json",
+        "sha256": "2c66ab4896740a5af4ff645c1466608aecb74581b2817639ae93072ffa7665be",
+        "bytes": 15149
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/scores.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/cal-bp-5200-5700/summaries.json",
+        "sha256": "5980bc90662bba7f62a9bb709c64a6ca36f47311ffd3a6af4f3d4a9475813bfa",
+        "bytes": 1101
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/summaries.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-input-execution/native/inputs/cal-bp-5200-5700/projection.json",
+        "sha256": "76f1a4f1116ce29d0115ece21558106bd3801c287929a8fd7158c16b466f1a20",
+        "bytes": 1298
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/projection.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/batch.json",
+        "sha256": "53a3590ac2cca5f2770ec46910823216a4947ea2826635ae6ddb5ce6d4db2180",
+        "bytes": 26261
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/prediction-batch.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/analysis/batch.json",
+        "sha256": "d9b5bb3df4e52f85f4ce73337166faff26f66d044f7feae995af551bfc15378e",
+        "bytes": 4606
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/score-batch.json"
+    },
+    {
+      "original_native": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-composition-refusals/finding.json",
+        "sha256": "9d9aaab871d73a6c52edcd9470e35c61149253758ef99222afe0d4d9eebe613f",
+        "bytes": 5807
+      },
+      "public_path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/composition-refusals.json"
+    }
+  ],
+  "execution_references": {
+    "prediction_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/terminal.json",
+      "sha256": "1790ee9776298e3d10b23d842d5e9214fe9324db19c064a48b3d7b5891aa8b6b",
+      "bytes": 191355
+    },
+    "prediction_outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/execution.json",
+      "sha256": "360b8e7d249b8ae9cbfc4adaf0569953f31779cbd338e5eb29b6f9842d926b9d",
+      "bytes": 1443
+    },
+    "retained_reader": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-maintained-workflow-integration/postcommit-verification.json",
+      "sha256": "a9b46070e49a1e126829c7cd9be2731c36c05f35df189d437fd691866e0af00f",
+      "bytes": 2009
+    },
+    "score_terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/native/terminal.json",
+      "sha256": "bfcaf57d06e2c30c63fdc5fa02fc4f013de2760d275d429fa00730e097c7cf85",
+      "bytes": 16018
+    },
+    "score_outer": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-pollen-score-execution/execution.json",
+      "sha256": "7e21d44165f0bbbd4983b381fa8af0ae8ebdc38abd6c4934670bc9f8243f8236",
+      "bytes": 1338
+    }
+  },
+  "source_protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/protocol.json",
+    "sha256": "835a1c9342ee086cdf6a755c6e6b450c1933d9f3b50625f9895349d9636990a6",
+    "bytes": 6527
+  },
+  "limitations": "Previously exposed conditional two-taxon point development at three physical places; small-lake rotating regional proxies, one local predictor, no independent vegetation/field accuracy, calibrated intervals, historical identity, source-rights/qualified-review or complete source-driven prediction acceptance.",
+  "native_reference_policy": "Original JSON references/epochs stay literal; this map associates byte-exact source tables with public paths. Initial whole prediction job remained1; later saved-reader0 and scoring0 do not relabel it.",
+  "public_reader": {
+    "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/README.md",
+    "sha256": "3ae807972386516981217e9e129acd8589399641c2c162963038cdd66ae3c07b",
+    "bytes": 42458
+  },
+  "whole_original_acceptance_discharged": false,
+  "scientific_acceptance": "not_evaluated"
+}

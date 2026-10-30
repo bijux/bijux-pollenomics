@@ -295,6 +295,21 @@ def _root_api_without_adoptions(raw: bytes, proof: dict[str, Any]) -> str:
 def _validate_root_api_adoption(
     repository: Path, captured: bytes, current: Path
 ) -> None:
+    from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
+        fixed_background_counting_api_basis,
+    )
+
+    checked = _regular_confined_file(repository, ROOT_API_PATH, "current root API")
+    _require(current == checked, "root API path differs")
+    initial = checked.stat()
+    _require(
+        initial.st_nlink == 1 and 0 < initial.st_size <= 32768,
+        "root API must be bounded single-link",
+    )
+    current_body = checked.read_bytes()
+    adopted = fixed_background_counting_api_basis(ROOT_API_PATH, current_body)
+    if adopted is None:
+        adopted = current_body
     proof_path = _regular_confined_file(
         repository, ROOT_API_ADOPTION_PATH, "atlas source root API adoption"
     )
@@ -308,13 +323,29 @@ def _validate_root_api_adoption(
         and proof["captured_source_candidate"] == SOURCE_CANDIDATE
         and proof["path"] == ROOT_API_PATH
         and proof["captured_sha256"] == hashlib.sha256(captured).hexdigest()
-        and proof["adopted_sha256"] == _sha(current),
+        and proof["adopted_sha256"] == hashlib.sha256(adopted).hexdigest(),
         "root API adoption source identity differs",
     )
     _require(
-        _root_api_without_adoptions(current.read_bytes(), proof)
+        _root_api_without_adoptions(adopted, proof)
         == ast.dump(ast.parse(captured), include_attributes=False),
         "original root API semantics changed",
+    )
+    again = _regular_confined_file(repository, ROOT_API_PATH, "current root API")
+    final = again.stat()
+    fields = (
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_size",
+        "st_mtime_ns",
+        "st_ctime_ns",
+    )
+    _require(
+        all(getattr(initial, field) == getattr(final, field) for field in fields)
+        and again.read_bytes() == current_body,
+        "root API changed during correspondence",
     )
 
 

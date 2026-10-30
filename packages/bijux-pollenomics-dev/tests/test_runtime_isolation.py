@@ -14,6 +14,48 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/comparison.py": {
+        "bijux_pollenomics.analysis.lra_validation.experiments.outputs": frozenset(
+            {"read_experiment_product", "read_member"}
+        )
+    },
+    "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/inputs.py": {
+        "bijux_pollenomics.analysis.lra.inputs.validation": frozenset(
+            {"validate_request"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.experiments": frozenset(
+            {"SourceExperimentSpec"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.experiments.inputs": frozenset(
+            {"make_request", "read_geometry"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_leave_one_out"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/workflow.py": {
+        "bijux_pollenomics.analysis.lra.api": frozenset({"LRARefusal"}),
+        "bijux_pollenomics.analysis.lra_validation": frozenset({"ValidationRefusal"}),
+        "bijux_pollenomics.analysis.lra_validation.experiments": frozenset(
+            {
+                "read_withheld_predictions",
+                "SourceExperimentSpec",
+                "score_experiment_predictions",
+                "prepare_experiment_predictions",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.experiments.outputs": frozenset(
+            {"read_experiment_product"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/physical_forward/producer.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"ValidationRefusal"}
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/sead/boolean_staging.py": {
         "bijux_pollenomics.collection.sources.sead.evidence.source_keys.identities": frozenset(
             {"canonical_site_uuid"}
@@ -1500,3 +1542,30 @@ def test_predictive_uncertainty_bindings_remain_file_module_and_symbol_specific(
                 (f"importlib.import_module({module!r})", path),
             ):
                 assert host_import_violations(source, reader)
+
+
+def test_conditional_pollen_host_bindings_remain_file_module_and_symbol_specific() -> (
+    None
+):
+    """Pollen clients may use their exact reviewed schema, scoring and experiment calls."""
+    paths = (
+        "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/comparison.py",
+        "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/inputs.py",
+        "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/workflow.py",
+        "bijux_pollenomics_dev/essd_reproduction/physical_forward/producer.py",
+    )
+    for path in paths:
+        for module, symbols in APPROVED_HOST_IMPORTS[path].items():
+            for symbol in symbols:
+                statement = f"from {module} import {symbol}"
+                assert not host_import_violations(statement, path)
+                for text, reader in (
+                    (statement, path + ".other"),
+                    (f"from {module} import {symbol}_other", path),
+                    (f"from {module}.other import {symbol}", path),
+                    (f"from {module} import *", path),
+                    (f"import {module}", path),
+                    (f"__import__({module!r})", path),
+                    (f"importlib.import_module({module!r})", path),
+                ):
+                    assert host_import_violations(text, reader)
