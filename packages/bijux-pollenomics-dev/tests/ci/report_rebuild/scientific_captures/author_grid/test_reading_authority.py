@@ -15,7 +15,7 @@ from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts 
     verified_authored_reader,
 )
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.author_grid import (
-    admission,
+    historical_reader,
 )
 
 READER = "docs/report/constructed/REPORT.md"
@@ -81,7 +81,7 @@ def authority() -> dict[str, Any]:
 
 def test_legacy_projection_preserves_all_fields_paths_and_machine_hashes() -> None:
     original = authority()
-    routes = admission._captured_reading_routes(json.dumps(original))
+    routes = historical_reader._captured_reading_routes(json.dumps(original))
     projected = deepcopy(original)
     projected["schema_version"] = 2
     route = projected["routes"][0]
@@ -106,9 +106,9 @@ def test_changed_raw_machine_pin_remains_a_distinct_authority() -> None:
     original = authority()
     changed = deepcopy(original)
     changed["routes"][0]["qualification"]["evidence_pins"][0]["sha256"] = "9" * 64
-    assert admission._captured_reading_routes(
+    assert historical_reader._captured_reading_routes(
         json.dumps(original)
-    ) != admission._captured_reading_routes(json.dumps(changed))
+    ) != historical_reader._captured_reading_routes(json.dumps(changed))
 
 
 @pytest.mark.parametrize(
@@ -126,7 +126,7 @@ def test_unknown_legacy_fields_refuse(where: str) -> None:
     }[where]
     selected["unknown"] = True
     with pytest.raises((ValueError, KeyError, TypeError)):
-        admission._captured_reading_routes(json.dumps(value))
+        historical_reader._captured_reading_routes(json.dumps(value))
 
 
 @pytest.mark.parametrize(
@@ -165,12 +165,12 @@ def test_malformed_legacy_authority_does_not_become_a_current_route(kind: str) -
     else:
         row["qualification"]["authored_reader_sha256"] = "bad"
     with pytest.raises((ValueError, KeyError, TypeError)):
-        admission._captured_reading_routes(json.dumps(value))
+        historical_reader._captured_reading_routes(json.dumps(value))
 
 
 def test_duplicate_json_fields_refuse_before_projection() -> None:
     with pytest.raises(ValueError, match="duplicates"):
-        admission._captured_reading_routes(
+        historical_reader._captured_reading_routes(
             '{"schema_version":1,"schema_version":1,"routes":[]}'
         )
 
@@ -178,7 +178,7 @@ def test_duplicate_json_fields_refuse_before_projection() -> None:
 def test_current_footer_is_verified_while_old_capsule_bytes_are_not_relabelled() -> (
     None
 ):
-    route = admission._captured_reading_routes(json.dumps(authority()))[READER]
+    route = historical_reader._captured_reading_routes(json.dumps(authority()))[READER]
     raw = b"# Constructed raw writer text\n"
     current = render_route(raw, route)
     assert verified_authored_reader(current, route) == raw

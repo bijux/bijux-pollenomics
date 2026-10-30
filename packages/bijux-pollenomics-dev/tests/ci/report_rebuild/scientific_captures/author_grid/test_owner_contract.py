@@ -14,6 +14,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.contracts import (
 )
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.author_grid import (
     admission,
+    historical_reader,
     transport,
 )
 
@@ -53,7 +54,7 @@ def test_original_unqualified_or_overlapping_owner_refusals(change: str) -> None
     elif change == "duplicate":
         selected.append(deepcopy(selected[0]))
     elif change == "paths":
-        selected[0]["paths"].append(admission.FAMILY + "README.md")
+        selected[0]["paths"].append(historical_reader.FAMILY + "README.md")
     else:
         selected.append(
             {
@@ -70,7 +71,7 @@ def test_disjoint_reader_is_not_a_numerical_report_role() -> None:
     reader: JsonObject = {
         "owner_id": "reader",
         "role": "maintained_editorial",
-        "paths": [admission.FAMILY + "README.md"],
+        "paths": [historical_reader.FAMILY + "README.md"],
     }
     assert len(admission.owner_rows([*owners(), reader])) == 3
     assert admission.validated_author_grid_capture(Path("/unused"), {}, [reader]) == (
