@@ -103,6 +103,7 @@ def fixed_age_check(case: dict[str, Any], get_moment: Any) -> dict[str, Any]:
 
 
 def ledger_fields(count_profile: str = count_profiles.NATIVE) -> list[str]:
+    """Return ordered ledger columns for the selected native or source profile."""
     fields = [
         "seed",
         "native_row",

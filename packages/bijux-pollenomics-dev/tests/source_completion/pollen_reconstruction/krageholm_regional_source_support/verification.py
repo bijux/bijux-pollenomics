@@ -21,6 +21,7 @@ SOURCE = "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json"
 
 
 def pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Build a JSON object while refusing duplicate member names."""
     result = {}
     for key, value in items:
         require(key not in result, "duplicate JSON object member")
@@ -29,10 +30,12 @@ def pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
 
 
 def refuse_constant(token: str) -> None:
+    """Refuse a nonfinite JSON constant token."""
     raise ValueError("Nonfinite JSON constant: " + token)
 
 
 def decode(body: bytes) -> dict[str, Any]:
+    """Decode an object with exact decimal tokens and unique member names."""
     value: Any = json.loads(
         body,
         parse_float=Decimal,
@@ -75,6 +78,7 @@ def same(actual: Any, expected: Any) -> None:
 
 
 def source_bytes(path: Path, expected: dict[str, Any], limit: int) -> bytes:
+    """Read bounded unaliased source bytes and verify their declared identity."""
     require(
         path.is_absolute()
         and ".." not in path.parts
@@ -116,6 +120,7 @@ def source_bytes(path: Path, expected: dict[str, Any], limit: int) -> bytes:
 
 
 def verify(repository: Path, result_path: Path) -> dict[str, Any]:
+    """Compare the saved regional result with independent literal accounting."""
     started = time.monotonic()
     repository = repository.resolve(strict=True)
     protocol_path = repository / PROTOCOL

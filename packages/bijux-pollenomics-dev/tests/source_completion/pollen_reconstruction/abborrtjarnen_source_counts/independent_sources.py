@@ -11,6 +11,8 @@ import json
 
 @dataclass(frozen=True)
 class SourceRow:
+    """Store a source-line location, exact depth and original count tokens."""
+
     physical_line: int
     depth_token: str
     depth_m: Fraction
@@ -19,6 +21,8 @@ class SourceRow:
 
 @dataclass(frozen=True)
 class NativeSample:
+    """Store a native sample identity, exact depth and optional counts."""
+
     sample_id: int
     depth_native: Fraction
     values: tuple[int | None, ...]

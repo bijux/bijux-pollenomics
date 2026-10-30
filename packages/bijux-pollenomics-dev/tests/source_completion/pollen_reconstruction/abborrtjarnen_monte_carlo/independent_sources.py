@@ -36,6 +36,8 @@ DESIGN: dict[str, Any] = {
 
 @dataclass(frozen=True)
 class Sources:
+    """Precision protocol, qualified source inputs, and ordered native chains."""
+
     protocol: dict[str, Any]
     protocol_body: bytes
     qualified: Inputs
@@ -75,6 +77,7 @@ def ordered_rows(
 
 
 def read_sources(repository: Path) -> Sources:
+    """Check precision input pins and retain each native chain position."""
     body = (repository / PROTOCOL).read_bytes()
     protocol = json.loads(body)
     qualified = qualified_inputs(repository)

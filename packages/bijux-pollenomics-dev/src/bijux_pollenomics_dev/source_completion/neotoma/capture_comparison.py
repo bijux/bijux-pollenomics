@@ -414,6 +414,7 @@ def run(
 
 
 def main() -> int:
+    """Compare retained Neotoma source captures without reacquisition."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--capture", type=Path, required=True)

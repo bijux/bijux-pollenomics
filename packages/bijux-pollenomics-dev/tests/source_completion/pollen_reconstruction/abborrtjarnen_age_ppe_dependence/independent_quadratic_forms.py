@@ -15,6 +15,7 @@ Array = NDArray[np.float64]
 
 
 def scalar_axes() -> list[dict[str, Any]]:
+    """List component and pairwise-window contrast identities in fixed order."""
     return [
         {"kind": "component", "window_id": b, "taxon": name, "native_taxon_id": taxon}
         for b in BINS
@@ -65,6 +66,7 @@ def gradients(covers: Array, ppe: Array, sd: Array) -> Array:
 
 
 def quadratic_forms(covers: Array, ppe: Array, sd: Array) -> Array:
+    """Average component and contrast gradient outer products over cover rows."""
     g = gradients(covers, ppe, sd)
     if not len(g):
         raise ValueError("No complete finite-age population")
@@ -78,6 +80,7 @@ def quadratic_forms(covers: Array, ppe: Array, sd: Array) -> Array:
 
 
 def compare_forms(actual: Any, expected: Array) -> float:
+    """Check saved form axes and finite values against independent derivatives."""
     value = np.asarray(actual, dtype=float)
     if value.shape != expected.shape or not np.isfinite(value).all():
         raise ValueError("Saved finite Q axes/domain differ")

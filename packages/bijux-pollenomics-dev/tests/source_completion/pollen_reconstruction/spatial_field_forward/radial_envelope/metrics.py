@@ -26,6 +26,7 @@ def deposition(
     second_cover: Fraction,
     ppe: Fraction,
 ) -> Interval:
+    """Bound affine deposition with complementary mass coefficients."""
     require(
         total > 0 and ppe > 0 and min(first_cover, second_cover) >= 0,
         "positive mass/PPE and nonnegative covers required",
@@ -43,6 +44,7 @@ def deposition(
 
 
 def closure(first: Interval, second: Interval) -> tuple[Interval, Interval]:
+    """Return complementary fraction intervals for two deposition ranges."""
     require(
         0 <= first[0] <= first[1] and 0 <= second[0] <= second[1],
         "nonnegative deposition intervals required",
@@ -59,10 +61,12 @@ def closure(first: Interval, second: Interval) -> tuple[Interval, Interval]:
 def absolute_error(
     first: Fraction, observations: tuple[Fraction, Fraction]
 ) -> Fraction:
+    """Compute mean absolute error for a two-component closed prediction."""
     return (abs(first - observations[0]) + abs(1 - first - observations[1])) / 2
 
 
 def hellinger(first: Fraction, observations: tuple[Fraction, Fraction]) -> Interval:
+    """Enclose Hellinger distance using root-difference intervals."""
     squared = add(
         root_difference_square(first, observations[0]),
         root_difference_square(1 - first, observations[1]),
@@ -73,6 +77,7 @@ def hellinger(first: Fraction, observations: tuple[Fraction, Fraction]) -> Inter
 def metric_bounds(
     prediction: Interval, observations: tuple[Fraction, Fraction]
 ) -> dict[str, Interval]:
+    """Bound the three metrics over a closed prediction interval."""
     require(
         0 <= prediction[0] <= prediction[1] <= 1, "closed prediction bounds required"
     )
