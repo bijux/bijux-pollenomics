@@ -42,6 +42,7 @@
     "reports/science/pollen-prediction.md",
     "reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/README.md",
     "reports/science/pollen-reconstruction/abborrtjarnen-ppe-dependence/README.md",
+    "reports/science/pollen-reconstruction/krageholm-regional-source-support/README.md",
     "reports/science/pollen-reconstruction/matched-pollen-forward/README.md",
     "reports/science/pollen-reconstruction/nordic-coupled-workflow/README.md",
     "reports/science/pollen-reconstruction/spatial-field-forward/README.md",
@@ -612,7 +613,7 @@
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/source-files/wind-protocol.json": "2152fde730bc4a80ba7b919ece7351a89bc3d4c1a947b27a660b2245be8e7b90",
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity-source.json": "ee23dfc891c1ad4e771f5c18fc0c0f6a4d64452c8929e2e27d5ce30709c7d5b2",
     "docs/report/pollen-reconstruction/krageholm-static-geometry-sensitivity/wind-sensitivity.json": "e27cdd607d9e565344472428d815efcb1db5edd6b8ab1e3e8821e3d625c4d4fa",
-    "docs/report/pollen-reconstruction/manifest.json": "c65f98ace36529fc3fc5035ed5cf64c2cd1174572f1b3fa6afbbeec9b81f62c5",
+    "docs/report/pollen-reconstruction/manifest.json": "aeac50bb3f6351c18c401ce0dc84562e406e060e0446ce301aed6d7cb656152c",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json": "70911e6f14d2afb3ed54ec5d12f27b074514243ec525fd35222eca5b21cb77c5",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
     "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/attribution.json": "03fe513cc07c64ba00bfe1641e32e8f77ee4746ed1d775b182a7cf975bee3c45",
@@ -914,7 +915,7 @@
     "reports/science/analytical-love-ring-sensitivity/report.json": "bd43a66757c4124a4df714a480675368de62d16505c9d43982a609039aba5848",
     "reports/science/analytical-love-ring-sensitivity/ring-cover.csv": "714fdd94f40ca8c4b90f23b290190754bc5f2d82ede22395b871f2384910442e",
     "reports/science/animal-entity-capability/report.json": "fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780",
-    "reports/science/archaeology-native-lead-support/protocol.json": "8fbfb8c16bdf36b0aa2e94bfb054c0a4c2a329e35a007caa269c9464e64441ac",
+    "reports/science/archaeology-native-lead-support/protocol.json": "dcc05ceff8658a81b17af063d1beb7abe87954221ec17f3d5ab171b0a61e4e31",
     "reports/science/archaeology-native-lead-support/source-custody.json": "40936870ac87c00d57aec5e681b263bbb69271bc1991de69edc9ca45ccd4d6e6",
     "reports/science/bjaresjo-context/nearby-sead.csv": "79e9d001756dbb5e0a15862e3f1eef4cd65aa5b70719e39b598605c77396adcc",
     "reports/science/bjaresjo-context/report.json": "e9cc1a5145b65a73f13792acb00c6d1aedafdabe019ab9073b3159b4559b5822",
@@ -1129,7 +1130,10 @@
     "reports/science/source-lineage/rootsi-neotoma-dependence.csv": "b96a5fa20d85a391f8088e7ff088cf7064f1a5e0422eb16289ba6f9a875206e0",
     "reports/science/source-lineage/neotoma-occurrence-accounting.csv": "a8b50b5f3b0d86abecc6d9fb0ed984332093488ae63e7d1e33e44328f144eab7",
     "configs/ci/source-retention/index.json": "fd031bb89abcdfda0d2a4c1dec1afd6d6fa5c6c3ba42604ddf6a33f750ad71d3",
-    "docs/report/source-relations/neotoma/acquisition-scope/current-abbo-comparison.json": "a79b251bda679f0f56a4aad57f217e65f30b2ff5b43cd5d055c8b95cfdcfc8cc"
+    "docs/report/source-relations/neotoma/acquisition-scope/current-abbo-comparison.json": "a79b251bda679f0f56a4aad57f217e65f30b2ff5b43cd5d055c8b95cfdcfc8cc",
+    "reports/science/pollen-reconstruction/krageholm-regional-source-support/protocol.json": "a872f27bd95e7c1e971efb93e610cea5941466ca3e9cb387f117d451c9c93e3c",
+    "reports/science/pollen-reconstruction/krageholm-regional-source-support/result.json": "1a5344521c7621c58a960db4badfb7148947b604f0fc40f1e75480610d9310f3",
+    "reports/science/pollen-reconstruction/spatial-field-forward/radial-envelope/protocol.json": "ff34d0a50cf1033319882314c4f389351d79f938a2b3a83ab9f981571fdb5e89"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",

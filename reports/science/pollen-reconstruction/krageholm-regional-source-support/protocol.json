@@ -1,0 +1,84 @@
+{
+  "schema_version": "krageholm-regional-literal-panel-protocol.v1",
+  "question": "Does the complete retained KRAGMJNY native record supply literal Betula29/Ulmus310 count support on the same six declared calibrated-BP windows as the existing coupled study?",
+  "source": {
+    "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+    "bytes": 23953555,
+    "sha256": "93a673c6fa66522667be2292cda076489330cbe1b5da8cea6b000d9c124c10cc"
+  },
+  "source_identity_basis": "Existing retained Neotoma relational_baseline input_artifacts.raw_archive.part_sha256 and raw-download manifest locate dataset23013 in part005; size is statted before count access. This is the retained April2026 source, not a fresh HTTP capture or current-value parity claim.",
+  "identity": {
+    "site_id": 3204,
+    "dataset_id": 23013,
+    "collection_unit_id": 16622,
+    "handle": "KRAGMJNY",
+    "source_sample_count": 96
+  },
+  "chronology": {
+    "selected_id": 13366,
+    "selected_name": "Giesecke et al. 2014 (MADCAP)",
+    "selected_native_type": "Calibrated radiocarbon years BP",
+    "reference_epoch_ad": 1950,
+    "native_collection_default_reference": 13365,
+    "source_default_flags": {
+      "13365": true,
+      "13366": true
+    }
+  },
+  "chronology_policy": "Explicit selected13366 reuses the already qualified calibrated MADCAP profile. Native collection reference13365 is Fossilva/radiocarbon BP, while both13365 and13366 assert isdefault=true. Preserve all raw claims/declarations separately; do not select a generic default or relabel13366 as the sole native default. AD1950 is the inherited Neotoma BP interpretation, never publication/preparation/collection year. Preserve null and signed bounds; no calibration, interpolation, uncertainty distribution or date repair.",
+  "taxa": [
+    {
+      "label": "Betula",
+      "taxon_id": 29
+    },
+    {
+      "label": "Ulmus",
+      "taxon_id": 310
+    }
+  ],
+  "windows": [
+    [
+      2700,
+      3200
+    ],
+    [
+      3200,
+      3700
+    ],
+    [
+      3700,
+      4200
+    ],
+    [
+      4200,
+      4700
+    ],
+    [
+      4700,
+      5200
+    ],
+    [
+      5200,
+      5700
+    ]
+  ],
+  "count_policy": "A supported axis requires exactly one literal label with its exact native taxon ID, element=pollen, elementtype=pollen, units=NISP, context=null, and a native nonnegative integer value excluding booleans. Preserve reported zero, missing label, duplicate literal, ID/label conflict, incompatible metadata, null native value and invalid numeric/value type separately. No synonym mapping, fractional/string coercion, absent-to-zero, duplicate aggregation or imputation.",
+  "literal_status_precedence": "Consider the union of exact label matches and exact native-ID matches. No label gives id_label_conflict when an ID matches and missing_literal otherwise. Multiple exact labels give duplicate_literal first, including wrong-ID occurrences. With one exact label, any additional ID match or wrong/noninteger ID gives id_label_conflict. Then incompatible_metadata precedes missing_native_value, null_native_value, invalid_count, measured_zero or measured. A floating JSON token such as 1.0 is not an integer count; integer tokens and their sums remain arbitrary-precision integers.",
+  "full_mass_policy": "Classify every native datum row. The literal pollen denominator requires every pollen-role row to be an uncontextualized pollen/pollen NISP integer and a unique native taxon ID and label. Keep known valid reported-cell subtotal distinct from a complete denominator. Any incompatible/invalid/duplicate pollen row suppresses the complete full-pollen total; exact measured panel support is reported separately. Excluded mass is full literal pollen NISP minus the two-axis total only when both are defined. Non-pollen or pollen/spore roles are not silently added to that denominator or promoted to a terrestrial-pollen denominator.",
+  "age_and_window_policy": "Account for all96unique native sample owners in original order, including native depth/thickness/analysis-unit IDs and all age claims. Select only the unique typed13366 point/name with finite point and null-or-finite consistent bounds. Preserve missing, duplicate, wrong-type and invalid/conflicting selected-age states. Half-open membership uses the six fixed windows, with negative and other out-of-window ages retained separately. Any unassignable selected-age owner makes full-population window aggregates unavailable rather than silently dropping it.",
+  "age_numeric_interpretation": "Reuse the existing native JSON reader: integer tokens remain exact Python integers and noninteger numeric tokens use finite binary64 values for point membership and bound comparisons. Preserve those decoded claims and pin the complete original bytes; no exact decimal-age arithmetic or age repair is claimed. Count values never pass through binary64 conversion.",
+  "aggregation": "Each window retains all known native members. Empty windows, incomplete literal panels, zero panels, incomplete full-source mass and unassignable-age owners have explicit separate dispositions. Never select only complete samples within a window. Preserve member IDs and any invalid/missing owners; all six requested windows remain. Source-wide aggregates include all96owners and do not replace the window population.",
+  "suppression_semantics": "Null source values remain literal null with no invented censoring explanation. Suppressed output means this audit withholds an aggregate whose required source support is not established; it is not evidence that the provider suppressed the original measurement.",
+  "scope": "Source precondition accounting only. Existing Krageholm Betula/Poaceae geometry/covariance/wind/counting outputs and all coupled predictions stay unchanged. Static837m/186ha representativeness, historical core/shoreline support, parameter transfer, source-use rights and qualified field/scientific admission remain separate. No reconstruction, fitting, scoring, country assignment, new chronology, source acquisition or withheld claim.",
+  "rights_and_attribution": "Retained Neotoma/European Pollen Database source with dataset DOI10.21233/d642-mk20, counts contributed by Marie-Jose Gaillard-Lemdahl; calibrated MADCAP chronology attributed separately to Giesecke et al.2014. Preserve existing local analytical-use and historical metadata restrictions; no new rights decision, raw redistribution or global capture authority follows. Detailed sample/count outputs remain local artifacts; no source table is committed.",
+  "source_max_bytes": 33554432,
+  "resource_budget": {
+    "wall_seconds": 120,
+    "peak_rss_bytes_posthoc": 536870912,
+    "output_bytes": 2097152
+  },
+  "engine_calls": 0,
+  "model_fits": 0,
+  "source_acquisition": false,
+  "scientific_or_field_admission": false
+}

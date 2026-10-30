@@ -180,7 +180,7 @@ dated individuals, without explicitly binding Individual 2 to one laboratory
 result. Country/coordinate/date contradictions remain visible; no coordinate or
 selected chronology was changed. The existing
 `aadr-country-map-scientific-admission` question in the
-[scientific review register](../../needed/scientific-review.csv) now concerns the
+scientific review register now concerns the
 precise residual source interpretation/correction, not another download of these
 files. No custodian was contacted; both country conflicts remain review cases.
 

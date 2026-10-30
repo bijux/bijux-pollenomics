@@ -7,6 +7,10 @@ from pathlib import Path
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
+from bijux_pollenomics.adna.workflow.source_artifacts import (
+    read_source_artifact_text,
+    source_artifact_exists,
+)
 
 from .archive import _build_archive_sample_accession_lookup
 from .identity import (
@@ -29,6 +33,7 @@ from .tables import (
     _read_xlsx_member_rows,
     _read_xlsx_rows,
 )
+from .tables.goat_imputation import _qualify_goat_imputation_rows
 
 
 def _sheep_supplementary_sample_rows(
@@ -265,14 +270,29 @@ def _goat_imputation_supplementary_sample_rows(
     )
     if workbook_path is None or not workbook_path.is_file():
         return ()
-    return _build_goat_imputation_rows(
+    table_rows = _read_xlsx_rows(
+        workbook_path, sheet_name="Table S2 downsampled samples"
+    )
+    rows = _build_goat_imputation_rows(
         species=species,
         project=project,
         source_path=(
             f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1093-gbe-evaf181/"
             "supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
         ),
-        rows=_read_xlsx_rows(workbook_path, sheet_name="Table S2 downsampled samples"),
+        rows=table_rows,
+    )
+    archive_source_path = f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/archive_metadata.html"
+    archive_path = output_root / archive_source_path.removeprefix("data/")
+    return _qualify_goat_imputation_rows(
+        rows=rows,
+        table_rows=table_rows,
+        archive_text=(
+            read_source_artifact_text(archive_path)
+            if source_artifact_exists(archive_path)
+            else None
+        ),
+        archive_source_path=archive_source_path,
     )
 
 

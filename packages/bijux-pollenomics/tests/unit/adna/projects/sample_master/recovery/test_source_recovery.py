@@ -3,16 +3,231 @@
 from __future__ import annotations
 
 from collections import Counter
+import csv
+from dataclasses import replace
+import io
+import json
 
 import pytest
 
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
 )
+from bijux_pollenomics.adna.projects.sample_master.archive import _project_by_accession
+from bijux_pollenomics.adna.projects.sample_master.models import (
+    AdnaProjectSampleMasterRow,
+)
+from bijux_pollenomics.adna.projects.sample_master.tables import _read_xlsx_rows
+from bijux_pollenomics.adna.projects.sample_master.tables.goat_imputation import (
+    _build_goat_imputation_rows,
+    _qualify_goat_imputation_rows,
+)
+from bijux_pollenomics.adna.species.definitions import resolve_species_definition
+from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
 
 from .support import SampleMasterRecoveryTestCase
 
 pytestmark = pytest.mark.generated_artifacts
+
+
+class GoatImputationSourceTests(SampleMasterRecoveryTestCase):
+    """Keep reused publication rows separate from project-owned specimens."""
+
+    @staticmethod
+    def _project_rows(
+        table_rows: tuple[tuple[str, ...], ...],
+    ) -> tuple[AdnaProjectSampleMasterRow, ...]:
+        return _build_goat_imputation_rows(
+            species=resolve_species_definition("Capra hircus"),
+            project=_project_by_accession("PRJEB90141"),
+            source_path="source.xlsx",
+            rows=table_rows,
+        )
+
+    @staticmethod
+    def _table(accession: str) -> tuple[tuple[str, ...], ...]:
+        return (
+            ("Sample", "Site", "C14 range, 2σ calibrated", "Accession"),
+            ("source-label", "site", "6081-5891 BCE", accession),
+        )
+
+    def test_foreign_study_sample_matches_do_not_qualify_ownership(self) -> None:
+        table = self._table("SAMEA1")
+        rows = _qualify_goat_imputation_rows(
+            rows=self._project_rows(table),
+            table_rows=table,
+            archive_text="study_accession\tsample_accession\nFOREIGN\tSAMEA1\nPRJEB90141\tSAMEA2\n",
+            archive_source_path="archive.tsv",
+        )
+        self.assertEqual(rows[0].sample_identity_resolution, "ambiguous")
+        self.assertIn("requested-study matches: ()", rows[0].sample_ambiguity_note)
+        self.assertIn("('SAMEA1',)", rows[0].sample_ambiguity_note)
+        self.assertIn("archive.tsv", rows[0].sample_lineage_path)
+
+    def test_all_matching_pooled_accessions_remain_nonunique(self) -> None:
+        literal = "  SAMEA1 ; SAMEA2  "
+        table = self._table(literal)
+        rows = _qualify_goat_imputation_rows(
+            rows=self._project_rows(table),
+            table_rows=table,
+            archive_text="study_accession\tsample_accession\nPRJEB90141\tSAMEA1\nPRJEB90141\tSAMEA2\n",
+            archive_source_path="archive.tsv",
+        )
+        row = rows[0]
+        self.assertEqual(row.archive_native_sample_id, "SAMEA1")
+        self.assertEqual(row.repo_stable_sample_id, "prjeb90141:samea1")
+        self.assertEqual(row.sample_identity_resolution, "ambiguous")
+        self.assertEqual(row.source_native_identity_kind, "supplementary_sample_label")
+        self.assertIn(repr(literal), row.sample_ambiguity_note)
+        self.assertIn(
+            "requested-study matches: ('SAMEA1', 'SAMEA2')", row.sample_ambiguity_note
+        )
+        self.assertIn("trace only", row.sample_ambiguity_note)
+        self.assertIn("unique biological specimen", row.sample_ambiguity_note)
+
+    def test_complete_accession_cell_survives_clipped_source_excerpt(self) -> None:
+        literal = "  SAMEA1; SAMEA2  "
+        table = (
+            ("Sample", "Site", "C14 range, 2σ calibrated", "Accession"),
+            ("source-label", "long site " * 70, "6081-5891 BCE", literal),
+        )
+        projected = self._project_rows(table)
+        self.assertEqual(len(projected[0].sample_lineage_excerpt), 300)
+        self.assertNotIn("SAMEA2", projected[0].sample_lineage_excerpt)
+        self.assertIn(repr(literal), projected[0].sample_ambiguity_note)
+        qualified = _qualify_goat_imputation_rows(
+            rows=projected,
+            table_rows=table,
+            archive_text=None,
+            archive_source_path="archive.tsv",
+        )[0]
+        self.assertIn(repr(literal), qualified.sample_lineage_excerpt)
+        self.assertIn("('SAMEA1', 'SAMEA2')", qualified.sample_lineage_excerpt)
+
+    def test_missing_or_unusable_archive_is_unresolved_not_empty_population(
+        self,
+    ) -> None:
+        for archive in (None, "", "sample_accession\nSAMEA1\n"):
+            with self.subTest(archive=archive):
+                table = self._table("SAMEA1")
+                row = _qualify_goat_imputation_rows(
+                    rows=self._project_rows(table),
+                    table_rows=table,
+                    archive_text=archive,
+                    archive_source_path="archive.tsv",
+                )[0]
+                self.assertEqual(row.sample_identity_resolution, "ambiguous")
+                self.assertIn("present in capture: None", row.sample_ambiguity_note)
+                self.assertIn("unavailable", row.sample_ambiguity_note)
+
+    def test_matching_single_accession_does_not_establish_specimen_binding(
+        self,
+    ) -> None:
+        table = self._table("SAMEA1")
+        row = _qualify_goat_imputation_rows(
+            rows=self._project_rows(table),
+            table_rows=table,
+            archive_text="study_accession\tsample_accession\nPRJEB90141\tSAMEA1\n",
+            archive_source_path="archive.tsv",
+        )[0]
+        self.assertIn("requested-study matches: ('SAMEA1',)", row.sample_ambiguity_note)
+        self.assertEqual(row.sample_identity_resolution, "ambiguous")
+
+    def test_native_four_rows_keep_keys_literals_and_all_accession_alternatives(
+        self,
+    ) -> None:
+        relative = "adna/governance/source_library/"
+        workbook = self.data_root / (
+            relative + "papers/10.1093-gbe-evaf181/supplementary/"
+            "GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
+        )
+        table = _read_xlsx_rows(workbook, sheet_name="Table S2 downsampled samples")
+        archive_path = relative + "projects/PRJEB90141/archive_metadata.html"
+        archive_text = read_source_artifact_text(self.data_root / archive_path)
+        native = list(csv.DictReader(io.StringIO(archive_text), delimiter="\t"))
+        self.assertEqual(len(native), 784)
+        self.assertEqual(
+            Counter(row["study_accession"] for row in native),
+            {
+                "PRJEB31857": 266,
+                "PRJEB37208": 20,
+                "PRJEB37276": 44,
+                "PRJEB37122": 391,
+                "PRJEB37841": 8,
+                "PRJEB50463": 55,
+            },
+        )
+        alternatives = {
+            "Direkli1-2": "SAMEA4453841; SAMEA4453842",
+            "Blagotin3": "SAMEA4588077",
+            "Acem2": "SAMEA4591761",
+            "Semnan3": "SAMEA4591758",
+        }
+        header = table[0]
+        self.assertEqual(
+            {
+                row[header.index("Sample")]: row[header.index("Accession")]
+                for row in table[1:]
+                if row and row[header.index("Sample")]
+            },
+            alternatives,
+        )
+        baseline_path = self.data_root / (
+            relative + "projects/PRJEB90141/sample_master.json"
+        )
+        baseline = json.loads(baseline_path.read_text(encoding="utf-8"))
+        by_label = {row["preferred_sample_label"]: row for row in baseline["rows"]}
+        projected = self._project_rows(table)
+        # The stand-alone projection used by controls supplies a synthetic path;
+        # restore the existing source path for the literal baseline comparison.
+        projected = tuple(
+            replace(
+                row,
+                sample_lineage_path=by_label[row.preferred_sample_label][
+                    "sample_lineage_path"
+                ],
+            )
+            for row in projected
+        )
+        qualified = _qualify_goat_imputation_rows(
+            rows=projected,
+            table_rows=table,
+            archive_text=archive_text,
+            archive_source_path="data/" + archive_path,
+        )
+        self.assertEqual(len(qualified), 4)
+        changed = {
+            "sample_identity_resolution",
+            "sample_ambiguity_note",
+            "source_native_identity_kind",
+            "sample_lineage_path",
+            "sample_lineage_locator",
+            "sample_lineage_excerpt",
+        }
+        for row in qualified:
+            prior = by_label[row.preferred_sample_label]
+            self.assertEqual(
+                {
+                    key: value
+                    for key, value in row.as_dict().items()
+                    if key not in changed
+                },
+                {key: value for key, value in prior.items() if key not in changed},
+            )
+            self.assertEqual(row.sample_identity_resolution, "ambiguous")
+            self.assertIn(
+                repr(alternatives[row.preferred_sample_label]),
+                row.sample_ambiguity_note,
+            )
+            self.assertIn("present in capture: False", row.sample_ambiguity_note)
+            self.assertIn("requested-study matches: ()", row.sample_ambiguity_note)
+        all_alternatives = {
+            value.strip()
+            for literal in alternatives.values()
+            for value in literal.split(";")
+        }
+        self.assertEqual(len(all_alternatives), 5)
+        self.assertFalse(all_alternatives & {row["sample_accession"] for row in native})
 
 
 class SourceRecoveryTests(SampleMasterRecoveryTestCase):

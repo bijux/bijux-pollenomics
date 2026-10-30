@@ -108,7 +108,6 @@ def build_private(
     )
     required_inputs = {
         "data/raa/raw/national_geopackage_source.json",
-        "reports/needed/field-decisions.json",
         "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
     }
     require(

@@ -107,6 +107,29 @@ def _project_intake_expectation(
             ),
         )
 
+    if project.project_accession == "PRJEB59481":
+        return _ProjectIntakeExpectation(
+            expected_sample_count=5,
+            expected_sample_count_status="known_from_source_table",
+            expected_sample_count_provenance=(
+                "The retained Genome Biology and Evolution article Data Availability "
+                "explicitly assigns five new ancient individuals to PRJEB59481. "
+                "All five Table 1 sample labels join distinct official ENA BioSamples; "
+                "reused comparison genomes are outside this project-owned population."
+            ),
+            expected_sample_count_artifact_path=(
+                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1093-gbe-evae114/"
+                "article_full_text.xml"
+            ),
+            sample_identifier_status="paper_or_supplement_targets_curated",
+            inventory_disposition="tracked_intake_candidate",
+            rejection_reason="",
+            extraction_plan=(
+                "Preserve the five Table 1 to ENA identity bindings and keep "
+                "material disagreements and chronology evidence separate."
+            ),
+        )
+
     if project.project_accession == "PRJEB60484":
         return _ProjectIntakeExpectation(
             expected_sample_count=20,

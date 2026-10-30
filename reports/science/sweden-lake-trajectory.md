@@ -128,7 +128,7 @@ comparison.
 
 **Consequence.** Keep eight agreement/two contradiction classifications descriptive and nonindependent.
 
-**Precise next acceptance route.** Dated core/basin and permitted event packets support a reviewer decision on comparable transitions and contradictions. Then update reports/needed/README.md.
+**Precise next acceptance route.** Dated core/basin and permitted event packets support a reviewer decision on comparable transitions and contradictions. Record the accepted evidence in this scientific account.
 
 **Negative or refused result.** 38 of 48 classifications cannot give a qualified joint direction; one distinct Alnus contradiction survives declared thresholds, not age/basin review.
 

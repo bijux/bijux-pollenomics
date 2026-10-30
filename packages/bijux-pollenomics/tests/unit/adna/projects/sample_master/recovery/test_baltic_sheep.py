@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from xml.etree import ElementTree
+
 import pytest
 
 from bijux_pollenomics.adna.projects.sample_master import (
@@ -13,6 +15,10 @@ from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
 )
 from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.reconciliation import (
     BalticSheepJoinAuditRow,
+)
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
+from bijux_pollenomics.adna.sources.library.registries.projects import (
+    _project_intake_expectation,
 )
 from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
 from tests.support.repository import REPOSITORY_ROOT
@@ -35,6 +41,73 @@ WORKBOOK_SOURCE_PATH = (
 ARCHIVE_SOURCE_PATH = (
     "data/adna/governance/source_library/projects/PRJEB59481/archive_metadata.html"
 )
+
+
+def test_expected_count_matches_the_explicit_primary_project_population() -> None:
+    project = next(
+        row
+        for row in build_archive_project_catalog()
+        if row.project_accession == "PRJEB59481"
+    )
+    expectation = _project_intake_expectation(project)
+    assert expectation.expected_sample_count_status == "known_from_source_table"
+    source = expectation.expected_sample_count_artifact_path
+    assert source.endswith("10.1093-gbe-evae114/article_full_text.xml")
+    article = ElementTree.fromstring(
+        (DATA_ROOT / source.removeprefix("data/")).read_bytes()
+    )
+    assert project.paper_linkage is not None
+    assert (
+        article.findtext("./front/article-meta/article-id[@pub-id-type='doi']")
+        == project.paper_linkage.doi
+    )
+    sections = article.findall(".//sec[@sec-type='data-availability']")
+    assert len(sections) == 1
+    availability = " ".join("".join(sections[0].itertext()).split())
+    assert "five new ancient individuals" in availability
+    assert project.project_accession in availability
+    table = article.findall(".//table-wrap[@id='evae114-T1']/table/tbody/tr")
+    literal_labels = ["".join(row.findall("td")[0].itertext()) for row in table]
+    assert literal_labels == [
+        "ASTF-001",
+        "ASTF-002",
+        "ASTF-003",
+        "AKAS-001",
+        "AKAS-002",
+    ]
+    normalized_labels = {label.replace("-", "") for label in literal_labels}
+    ena_directory = (
+        DATA_ROOT / "adna/governance/source_library/projects/PRJEB59481/ena_samples"
+    )
+    paths = sorted(ena_directory.glob("*.xml"))
+    aliases, accessions = set(), set()
+    mapping = {}
+    for path in paths:
+        samples = ElementTree.fromstring(path.read_bytes()).findall("./SAMPLE")
+        assert len(samples) == 1
+        sample = samples[0]
+        assert sample.attrib["alias"] not in mapping
+        mapping[sample.attrib["alias"]] = sample.attrib["accession"]
+        aliases.add(sample.attrib["alias"])
+        accessions.add(sample.attrib["accession"])
+        assert sample.findtext("./IDENTIFIERS/PRIMARY_ID") == sample.attrib["accession"]
+        assert sample.findtext("./TITLE") == sample.attrib["alias"]
+        assert sample.findtext("./SAMPLE_NAME/TAXON_ID") == "9940"
+        assert sample.findtext("./SAMPLE_NAME/SCIENTIFIC_NAME") == "Ovis aries"
+    assert len(paths) == len(aliases) == len(accessions) == 5
+    assert mapping == {
+        "AKAS001": "SAMEA112960291",
+        "AKAS002": "SAMEA112960292",
+        "ASTF001": "SAMEA112960293",
+        "ASTF002": "SAMEA112960294",
+        "ASTF003": "SAMEA112960295",
+    }
+    assert aliases == normalized_labels
+    assert accessions == {f"SAMEA11296029{i}" for i in range(1, 6)}
+    assert expectation.expected_sample_count == len(table) == len(accessions) == 5
+    assert "Table 1" in expectation.expected_sample_count_provenance
+    assert "Data Availability" in expectation.expected_sample_count_provenance
+    assert "comparison genomes" in expectation.expected_sample_count_provenance
 
 
 def _governed_inputs() -> tuple[

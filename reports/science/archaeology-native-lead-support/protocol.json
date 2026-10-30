@@ -24,11 +24,6 @@
       "bytes": 1400
     },
     {
-      "path": "reports/needed/field-decisions.json",
-      "sha256": "a7cfb5a9521c17e56cbb96f113ab6a7b3619f4047000de0690718ff7b364eda5",
-      "bytes": 64527
-    },
-    {
       "path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
       "sha256": "c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380",
       "bytes": 191624
@@ -148,5 +143,6 @@
     "native_query_and_distance_support": "Unchanged four coordinates,20kmRTree queries,10/20km projected point/envelope classifications; fifthlead unresolved. Current maintained reproduction retains source and all three private gzip byte identities; protocol metadata owns portable source paths only.",
     "storage": "Deterministic streaming gzipNDJSON; no truncation, selectedradius narrowing, scientific admission or national scan. Geometry/UUID and occurrence-link ceilings derive directly from sixteen existing finite queries ×20001."
   },
-  "witness_format": "Private deterministic gzipNDJSON (mtime0,empty gzip filename), raw typedfields unchanged after decompression; physical and decoded byte caps separate."
+  "witness_format": "Private deterministic gzipNDJSON (mtime0,empty gzip filename), raw typedfields unchanged after decompression; physical and decoded byte caps separate.",
+  "retired_question_input": "The original execution additionally authenticated a field-question packet. That human register is now external; no numerical or geometry value came from it. The retained original result and its protocol identity are unchanged."
 }

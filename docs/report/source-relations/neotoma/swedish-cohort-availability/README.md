@@ -70,7 +70,7 @@ with eligible inputs and predictions frozen before outcomes. The requested
 physical LRA route additionally requires qualified spatial vegetation and
 forward-pollen support, with vegetation and pollen evaluated separately.
 An observed-pollen transfer study alone does not supply that confirmation.
-The [research need](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/README.md#independent-confirmation)
+The research need
 remains open for a different genuinely unexposed cohort.
 
 The historical report capture predates the recorded GARASEL exposure. Its
