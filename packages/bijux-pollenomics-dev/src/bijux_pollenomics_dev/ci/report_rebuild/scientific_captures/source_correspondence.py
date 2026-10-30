@@ -19,6 +19,10 @@ from .source_roles.documentation import (
     DOCUMENTED_SOURCE_STRINGS,
     _documented_source_matches,
 )
+from .source_roles.galician_context import (
+    GALICIAN_REVIEW_SOURCE,
+    validated_galician_literal_context_source,
+)
 from .source_roles.native_reference_transport import (
     NATIVE_REFERENCE_TRANSPORT_SOURCES,
     validated_native_reference_transport_source,
@@ -523,6 +527,10 @@ def validated_current_scientific_source(
         return None
     if name in SCORING_PROTOCOL_SOURCES:
         return validated_scoring_protocol_source(
+            repository, historical, logical, source_buffer
+        )
+    if name == GALICIAN_REVIEW_SOURCE:
+        return validated_galician_literal_context_source(
             repository, historical, logical, source_buffer
         )
     if name in NATIVE_REFERENCE_TRANSPORT_SOURCES:

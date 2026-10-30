@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "e847c52be1fbe952666a2dd7767ad5838ebd5c63303c3d242481380c55eef493",
-      "bytes": 7387259
+      "sha256": "c8453acebf520247402c9047a2dfc4703e7c985a826600cacaaec68b341b32c4",
+      "bytes": 7387517
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5328,6 +5328,11 @@
       "path": "reports/science/pollen-reconstruction/common-cover/measured-panel-counting-regions.json",
       "sha256": "054adbcfeaa9703bdd838597d180775165cd0ab8932618f5698877b56319ce05",
       "bytes": 163181
+    },
+    {
+      "path": "reports/science/source-cohorts/galician-sample-context.csv",
+      "sha256": "fb8d552cd807198397766459e6475de3ff085b20d9d32fe0e8c281994cd935d9",
+      "bytes": 19905
     }
   ],
   "maintained_paths": [
@@ -5571,6 +5576,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/regional_cutoff.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/scalar_reference.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/galician_context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/numerical_precision.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/scoring_protocols.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
@@ -5651,6 +5657,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__main__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_profile_lineage.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_literal_context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_sample_inputs.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_sample_review.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",

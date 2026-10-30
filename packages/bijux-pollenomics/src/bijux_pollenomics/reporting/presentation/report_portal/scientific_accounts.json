@@ -7148,13 +7148,13 @@
         "fields": {
           "supported_claim": "The Galician sample account preserves eight Bos taurus and three Bos primigenius through normalized and curated consumers.",
           "unsupported_claim": "Species resolution does not resolve locality, calibrated sample chronology, Nordic relevance or point eligibility.",
-          "actual_verification_performed": "Read report.json and the eleven-row samples.csv, comparing curated species, context-blocked posture and absent sample context; no consumer regeneration.",
-          "remaining_input_or_review": "Source-owned site and date evidence, project-paper linkage promotion and scoped context review remain absent.",
+          "actual_verification_performed": "The opted-in consumer ran at 85de3133f, exit zero in 2.30 s, preserving 110 literal cells for eleven BioSamples. An independent original-workbook DOM check confirms all cells, headers, types, values, blank/formula states and crosswalk rows. Fifty controlled cases and one native original-writer test pass with configured lint/types. Default report/CSV bytes remain unchanged.",
+          "remaining_input_or_review": "Literal source site/date fields are now available for review. Field-specific chronology interpretation, qualified site assignment, project-paper linkage promotion and scoped context approval remain unresolved.",
           "cause_category": "Sample identity is resolved more narrowly than spatial and temporal context.",
           "consequence": "All eleven remain outside atlas points despite their resolved sample species.",
           "precise_next_acceptance_route": "Qualify each sample-owned locality/date and project-paper relation, then rerun the scoped sample consumer.",
           "negative_or_refused_result": "All eleven have sample_context_blocked; no atlas point, sample chronology or site is admitted.",
-          "matched_denominator": "11 BioSamples/curated samples, 8 domestic and 3 aurochs; 18 paper specimens are a distinct denominator."
+          "matched_denominator": "11 BioSamples, eight domestic cattle/three aurochs; 18 paper specimens are a separate population. Literal context exports 110 cells: 109 shared strings/one present blank, zero formulas. All eleven remain point/context blocked."
         },
         "evidence_pins": [
           {
@@ -7164,6 +7164,10 @@
           {
             "path": "docs/report/source-relations/dna-scope/galician-cattle-samples/samples.csv",
             "sha256": "a423250b6e9d7f963bbda64f8ff483a906147b611ef32e51ec6a5745341adc39"
+          },
+          {
+            "path": "reports/science/source-cohorts/galician-sample-context.csv",
+            "sha256": "fb8d552cd807198397766459e6475de3ff085b20d9d32fe0e8c281994cd935d9"
           }
         ]
       }

@@ -14,6 +14,9 @@ import pytest
 
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.source_completion.adna import (
+    galician_literal_context as literal,
+)
+from bijux_pollenomics_dev.source_completion.adna import (
     galician_sample_review as account,
 )
 
@@ -275,3 +278,83 @@ def test_cli_uses_explicit_repository_and_destination(
     )
     assert account.main() == 0
     assert calls == [(packet.repository, packet.output)]
+
+
+def _literal_publish(repository: Path, output: Path) -> None:
+    report = json.loads((output / "report.json").read_bytes())
+    report["literal_context"] = {
+        "schema_version": literal.SCHEMA,
+        "table": literal.TABLE,
+        "biosample_count": 11,
+        "selected_cell_count": 110,
+        "date_conversion_performed": False,
+        "site_assignment_performed": False,
+        "scientific_admission": False,
+        "atlas_point_admitted": False,
+    }
+    (output / literal.TABLE).write_text("controlled literal cells\n")
+    (output / "report.json").write_text(json.dumps(report))
+
+
+def test_explicit_literal_option_adds_only_the_context_table(
+    packet: Packet, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(account, "write_literal_context", _literal_publish)
+    account.run(packet.repository, packet.output, literal_context=True)
+    assert {path.name for path in packet.output.iterdir()} == set(account.OUTPUTS) | {
+        literal.TABLE
+    }
+    assert (packet.output / "samples.csv").read_bytes() == b"source-owned samples\n"
+    report = json.loads((packet.output / "report.json").read_bytes())
+    assert report["admission_posture"] == account.ADMISSION
+
+
+@pytest.mark.parametrize("mutation", ["missing-table", "schema", "count", "admission"])
+def test_literal_option_refuses_incomplete_or_promoted_context(
+    packet: Packet, monkeypatch: pytest.MonkeyPatch, mutation: str
+) -> None:
+    def changed(repository: Path, output: Path) -> None:
+        _literal_publish(repository, output)
+        if mutation == "missing-table":
+            (output / literal.TABLE).unlink()
+            return
+        report = json.loads((output / "report.json").read_bytes())
+        context = report["literal_context"]
+        if mutation == "schema":
+            context["schema_version"] = "foreign"
+        elif mutation == "count":
+            context["selected_cell_count"] = 11
+        else:
+            context["scientific_admission"] = True
+        (output / "report.json").write_text(json.dumps(report))
+
+    monkeypatch.setattr(account, "write_literal_context", changed)
+    with pytest.raises(ValueError, match="population|accounting"):
+        account.run(packet.repository, packet.output, literal_context=True)
+    _absent(packet)
+
+
+def test_cli_literal_option_is_explicit(
+    packet: Packet, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    calls: list[tuple[Path, Path, bool]] = []
+
+    def observe(
+        repository: Path, output: Path, *, literal_context: bool = False
+    ) -> None:
+        calls.append((repository, output, literal_context))
+
+    monkeypatch.setattr(account, "run", observe)
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "galician-samples",
+            "--repository",
+            str(packet.repository),
+            "--output",
+            str(packet.output),
+            "--literal-context",
+        ],
+    )
+    assert account.main() == 0
+    assert calls == [(packet.repository, packet.output, True)]
