@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "604a5bd7a41bfe4688637ea5aeb8c4326861e62d39aa6ef15b763f4806890fc9",
-      "bytes": 7377684
+      "sha256": "d107f1aeed6b9192801cca0079424abde09ef53df20e307656fd01bdbcdb2668",
+      "bytes": 7377643
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -810,24 +810,9 @@
       "bytes": 192
     },
     {
-      "path": "data/method-certification/native-r-count-domain/capture/source-domains/r_support.R",
-      "sha256": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9",
-      "bytes": 5266
-    },
-    {
       "path": "data/method-certification/native-r-count-domain/capture/source-domains/report.json",
       "sha256": "c50a3b4a0fc2990d85c6af8357d43215b3b0e469686c288bd1ec47ff9640c469",
       "bytes": 3617
-    },
-    {
-      "path": "data/method-certification/native-r-count-domain/capture/source-domains/run_source_domains.py",
-      "sha256": "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
-      "bytes": 11567
-    },
-    {
-      "path": "data/method-certification/native-r-count-domain/capture/source-domains/source_domains.R",
-      "sha256": "60f0e8b750623415a7039eb489aaf4e3e8a49c6052f04a9fa87e01e671e10f29",
-      "bytes": 4243
     },
     {
       "path": "data/method-certification/native-r-count-domain/public-acquisition.json",
@@ -4848,6 +4833,26 @@
       "path": "reports/science/method-certification/author-evaluation-consumed-source-qualification.json",
       "sha256": "26d5b8e0c26e3c103a38d00522344e722281dd905607d556368722d55bd5f01e",
       "bytes": 101193
+    },
+    {
+      "path": "data/method-certification/native-r/source-transport.json",
+      "sha256": "6a9217520e99eaadae848d35fdf9c23d1fa01fe62005f5d6d7a38d3163eda6aa",
+      "bytes": 1105
+    },
+    {
+      "path": "data/method-certification/native-r-annulus/source-transport.json",
+      "sha256": "8b4d236f095598f7358ec224a3f309aaaa132b509e9360256f354a49048c0974",
+      "bytes": 1105
+    },
+    {
+      "path": "data/method-certification/native-r-count-domain/source-transport.json",
+      "sha256": "7787054870cff0c2f4dcc8223fd2159a7163b128d466d5d42a425ee658644010",
+      "bytes": 1105
+    },
+    {
+      "path": "data/method-certification/source-locked-linux-r/reference-bundle/source-transport.json",
+      "sha256": "7210b25d2c53192c5e5b0e1aaf2781c5ef9f46adbad0b0da568f6460362cc138",
+      "bytes": 1519
     }
   ],
   "maintained_paths": [

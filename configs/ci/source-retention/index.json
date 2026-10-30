@@ -180,6 +180,26 @@
       "descriptor": "source-transport.json",
       "sha256": "a0c3bd883bde0aa55b82bde5d5551ea4ced47b5bdc8576727273690451b7e8d3",
       "bytes": 2778
+    },
+    "data/method-certification/native-r": {
+      "descriptor": "source-transport.json",
+      "sha256": "6a9217520e99eaadae848d35fdf9c23d1fa01fe62005f5d6d7a38d3163eda6aa",
+      "bytes": 1105
+    },
+    "data/method-certification/native-r-annulus": {
+      "descriptor": "source-transport.json",
+      "sha256": "8b4d236f095598f7358ec224a3f309aaaa132b509e9360256f354a49048c0974",
+      "bytes": 1105
+    },
+    "data/method-certification/native-r-count-domain": {
+      "descriptor": "source-transport.json",
+      "sha256": "7787054870cff0c2f4dcc8223fd2159a7163b128d466d5d42a425ee658644010",
+      "bytes": 1105
+    },
+    "data/method-certification/source-locked-linux-r/reference-bundle": {
+      "descriptor": "source-transport.json",
+      "sha256": "7210b25d2c53192c5e5b0e1aaf2781c5ef9f46adbad0b0da568f6460362cc138",
+      "bytes": 1519
     }
   },
   "source_revisions": {

@@ -223,6 +223,26 @@ def _named_documentation_insertions(
     return unchanged.encode("utf-8") == historical
 
 
+_NATIVE_REFERENCE_TRANSPORT_IDENTITIES = {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/annulus_capture.py": (
+        "47af109200a23537843078d241628273f08270e30150c34e1bbfdf76ffd0603b",
+        10937,
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/capture.py": (
+        "873b8a968223ca88f8235f999ad803d7f0b66c36dc503850e69478a23506849b",
+        6846,
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/count_domain_capture.py": (
+        "256ba71ff27976534da4b4c7a5fc496270a4e59c9a2af5100f078cccff8cc761",
+        23947,
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/retained_reference/identity.py": (
+        "bab7252e9e0b8059a58aa486555163b1cbde321bf1b870da719b23a3253f44bf",
+        4875,
+    ),
+}
+
+
 def _require_scientific_projection(
     repository: Path,
     name: str,
@@ -250,6 +270,34 @@ def _require_scientific_projection(
     actual = hashlib.sha256(body).hexdigest(), len(body)
     if actual == expected:
         return None
+    transport = _NATIVE_REFERENCE_TRANSPORT_IDENTITIES.get(name)
+    if transport is not None:
+        logical = "source/" + name
+        if (
+            expected != tuple(transport)
+            or source_buffer is None
+            or logical not in source_buffer.detached
+            or source_buffer.read_source(logical) != historical
+        ):
+            raise ReportRebuildError(
+                "Linux fixed native transport source identity differs"
+            )
+        role = validated_current_scientific_source(
+            repository,
+            {"path": name, "sha256": expected[0], "bytes": expected[1]},
+            logical,
+            source_buffer,
+        )
+        if (
+            role is None
+            or role.get("path") != name
+            or role.get("classification")
+            != "finite_native_reference_transport_extension"
+        ):
+            raise ReportRebuildError(
+                "Linux finite native transport correspondence differs"
+            )
+        return role
     correspondence = _HISTORICAL_READER_IDENTITIES.get(name)
     if correspondence is not None:
         logical = "source/" + name
@@ -374,6 +422,7 @@ def validated_linux_r_reference_capture(
         raise ReportRebuildError("Linux scientific projection differs")
     historical_generated = 0
     reader_correspondences: list[JsonObject] = []
+    transport_correspondences: list[JsonObject] = []
     for raw in scientific:
         item = _object(raw, "Linux source projection malformed")
         name = item.get("relative_path")
@@ -397,7 +446,13 @@ def validated_linux_r_reference_capture(
                 repository, name, item, historical, source_buffer=source_buffer
             )
             if role is not None:
-                reader_correspondences.append(role)
+                if (
+                    role.get("classification")
+                    == "finite_native_reference_transport_extension"
+                ):
+                    transport_correspondences.append(role)
+                else:
+                    reader_correspondences.append(role)
     if historical_generated != 1:
         raise ReportRebuildError("Linux historical generated source membership differs")
     lock_name = "configs/ci/lra-r-source-lock.v1.json"
@@ -460,11 +515,12 @@ def validated_linux_r_reference_capture(
         "source_files": 2148,
         "scientific_current_projection": 126,
         "historical_reader_source_correspondences": reader_correspondences,
+        "native_reference_transport_correspondences": transport_correspondences,
         "historical_generated_metadata_members": 1,
         "historical_generated_metadata_sha256": VERSION_SHA256,
         "retained_execution_files": 140,
         "report_outputs": 137,
         "paths_sha256": canonical_json_sha256(sorted(names)),
         "historical_source_gap_retained": True,
-        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:120exact tracked inputs, four fixed old-identity reader custody roles and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The six declared current reader/documentation bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
+        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:116exact tracked inputs, four fixed old-identity reader custody roles, four separately bound native-reference transport extensions and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The ten declared current reader/documentation/transport bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
     }

@@ -321,7 +321,7 @@ def _validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCa
         CAPTURE_MANIFEST_SHA256,
         tuple(reports),
         raw_digests,
-        inputs,
+        dict(inputs),
         context,
         read_input,
     )

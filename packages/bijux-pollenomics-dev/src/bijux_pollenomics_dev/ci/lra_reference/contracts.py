@@ -35,7 +35,7 @@ class ReferenceLock:
     install_order: tuple[str, ...]
 
 
-def _load_lock(path: Path) -> ReferenceLock:
+def _load_lock(path: Path, *, raw: bytes | None = None) -> ReferenceLock:
     def unique(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
         value: dict[str, Any] = {}
         for key, item in pairs:
@@ -44,7 +44,9 @@ def _load_lock(path: Path) -> ReferenceLock:
             value[key] = item
         return value
 
-    value = json.loads(path.read_bytes(), object_pairs_hook=unique)
+    value = json.loads(
+        path.read_bytes() if raw is None else raw, object_pairs_hook=unique
+    )
     if (
         not isinstance(value, dict)
         or value.get("schema_version") != "lra-r-source-lock.v1"
@@ -105,10 +107,10 @@ def _load_lock(path: Path) -> ReferenceLock:
     return ReferenceLock(path, value, tuple(sources), tuple(order))
 
 
-def load_lock(path: Path) -> ReferenceLock:
+def load_lock(path: Path, *, raw: bytes | None = None) -> ReferenceLock:
     """Malformed or unsupported lock content is always a typed refusal."""
     try:
-        result = _load_lock(path)
+        result = _load_lock(path, raw=raw)
         reference = result.payload["reference"]
         if (
             reference["package"] != "disqover"

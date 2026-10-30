@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 import csv
 import hashlib
 from pathlib import Path
@@ -25,7 +26,12 @@ SOURCE_DOMAIN_SEMANTICS = {
 }
 
 
-def validate_source_domains(root: Path, reference_hash: str) -> dict[str, Any]:
+def validate_source_domains(
+    root: Path,
+    reference_hash: str,
+    *,
+    read_source: Callable[[str], bytes] | None = None,
+) -> dict[str, Any]:
     """Validate source-domain and corrected-forward R cases against executed evidence."""
     report = read_json((root / "report.json").read_bytes())
     manifest = read_json((root / "case_manifest.json").read_bytes())
@@ -92,7 +98,12 @@ def validate_source_domains(root: Path, reference_hash: str) -> dict[str, Any]:
         not isinstance(identities, dict)
         or set(identities) != required
         or any(
-            hashlib.sha256((root / name).read_bytes()).hexdigest() != identities[name]
+            hashlib.sha256(
+                (root / name).read_bytes()
+                if read_source is None
+                else read_source("source-domains/" + name)
+            ).hexdigest()
+            != identities[name]
             for name in required
         )
     ):
