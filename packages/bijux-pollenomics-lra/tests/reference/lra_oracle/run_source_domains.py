@@ -32,6 +32,8 @@ from bijux_pollenomics_lra.api import (  # noqa: E402
 
 @dataclass(frozen=True)
 class DomainCase:
+    """Describe one declared source-domain numerical case."""
+
     id: str
     kind: str
     semantics: str
@@ -48,6 +50,7 @@ class DomainCase:
 
 
 def cases() -> list[DomainCase]:
+    """Declare the complete fixed source-domain case inventory."""
     result = [
         DomainCase(
             f"S00{n}",
@@ -117,6 +120,7 @@ def cases() -> list[DomainCase]:
 
 
 def parameters() -> pd.DataFrame:
+    """Return the declared two-taxon physical parameter table."""
     return pd.DataFrame(
         {
             "Taxon": ["Alnus", "Betula", "Pinus"],
@@ -128,6 +132,7 @@ def parameters() -> pd.DataFrame:
 
 
 def geometry(case: DomainCase) -> pd.DataFrame:
+    """Build the declared ring geometry for one source-domain case."""
     edges = np.array(
         [case.radius, 3 * case.radius, 10 * case.radius, 50 * case.radius, 100000.0]
     )
@@ -150,6 +155,7 @@ def geometry(case: DomainCase) -> pd.DataFrame:
 
 
 def expectation(case: DomainCase) -> np.ndarray:
+    """Compute the fixed analytical expectation for a declared source-domain case."""
     p = parameters().iloc[: case.taxa_count]
     rings = geometry(case)
     local = pd.DataFrame(
@@ -252,6 +258,7 @@ def _save(path: Path, value: object) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Parse arguments for the source-bound evidence consumer."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--library", type=Path, default=ROOT / ".r-library")
@@ -277,7 +284,6 @@ def main(argv: list[str] | None = None) -> int:
     for name in ["run_source_domains.py", "source_domains.R", "r_support.R"]:
         source = Path(__file__).with_name(name)
         content = source.read_bytes()
-        (output / name).write_bytes(content)
         retained_sources[name] = hashlib.sha256(content).hexdigest()
     archive_hash = hashlib.sha256(
         (ROOT / "vendor/disqover_0.9.14.tar.gz").read_bytes()
@@ -305,10 +311,10 @@ def main(argv: list[str] | None = None) -> int:
     command = [
         "Rscript",
         "--vanilla",
-        str(output / "source_domains.R"),
+        str(Path(__file__).with_name("source_domains.R")),
         str(output),
         str(args.library.resolve()),
-        str(output / "r_support.R"),
+        str(Path(__file__).with_name("r_support.R")),
         archive_hash,
     ]
     _save(output / "command.json", command)

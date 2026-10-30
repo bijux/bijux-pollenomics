@@ -48,6 +48,7 @@ def verify_native_parity(
     lock: Path,
     target_sha: str,
     output: Path,
+    repository: Path | None = None,
 ) -> dict[str, Any]:
     """Require equal cases and a complete actual-R certificate before passing."""
     if output.exists():
@@ -69,7 +70,10 @@ def verify_native_parity(
         raise ReferenceRefusal("Native and live-R case inventory/input digests differ")
     lock_hash = _sha(lock.read_bytes())
     certificate = validate_bundle(
-        live, target_sha=target_sha, expected_lock_sha256=lock_hash
+        live,
+        target_sha=target_sha,
+        expected_lock_sha256=lock_hash,
+        current_repository=repository,
     )
     live_report = read_json((live / "oracle/report.json").read_bytes())
     if (
@@ -107,6 +111,7 @@ def main() -> None:
     parser.add_argument("--lock", type=Path, required=True)
     parser.add_argument("--target-sha", required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--repository", type=Path)
     args = parser.parse_args()
     try:
         verify_native_parity(
@@ -115,6 +120,7 @@ def main() -> None:
             lock=args.lock,
             target_sha=args.target_sha,
             output=args.output,
+            repository=args.repository,
         )
     except (OSError, ValueError) as error:
         parser.exit(2, "Native/live R parity refused: " + str(error) + "\n")

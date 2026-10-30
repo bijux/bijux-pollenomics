@@ -21,7 +21,8 @@ from bijux_pollenomics_dev.lra_validation.reference_replay import (
 )
 
 from .native_reference.finite_covariance_capture import (
-    validated_finite_covariance_capture,
+    historical_finite_covariance_capture,
+    require_current_finite_covariance_sources,
 )
 from .native_reference.source_replay import build_source_replay
 
@@ -75,7 +76,7 @@ def _require_current_inputs(
         return
     if retained_capture_profile != "finite-covariance":
         raise ValueError("Retained comparison source profile must be finite-covariance")
-    capture = validated_finite_covariance_capture(repository)
+    capture = historical_finite_covariance_capture(repository)
     expected = capture.source_context["protected_science_sha256"]
     if (
         run != capture.directory
@@ -87,6 +88,7 @@ def _require_current_inputs(
         raise ValueError(
             "Retained comparison source routes or sealed source hashes differ"
         )
+    require_current_finite_covariance_sources(repository, capture)
 
 
 def summarize(

@@ -221,10 +221,12 @@ def certify(
             output,
             timeout=1900,
         )
-        from .profiles import validate_source_domains
+        from .profiles import canonical_domain_source_reader, validate_source_domains
 
         validate_source_domains(
-            output / "source-domains", lock.payload["reference"]["sha256"]
+            output / "source-domains",
+            lock.payload["reference"]["sha256"],
+            read_source=canonical_domain_source_reader(repository, sources),
         )
         if (
             identity.executed_files != source_inventory(repository)
@@ -303,7 +305,12 @@ def certify(
         (bundle / "certificate.json").write_text(
             json.dumps(report, indent=2, allow_nan=False) + "\n"
         )
-        validate_bundle(bundle, target_sha=commit, expected_lock_sha256=lock_hash)
+        validate_bundle(
+            bundle,
+            target_sha=commit,
+            expected_lock_sha256=lock_hash,
+            current_repository=repository,
+        )
     except BaseException as error:
         report.update(status="failed", error=type(error).__name__ + ": " + str(error))
         raise

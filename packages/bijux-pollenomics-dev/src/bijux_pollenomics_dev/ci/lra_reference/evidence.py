@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 import csv
 import hashlib
 import io
@@ -245,6 +246,7 @@ def validate_bundle(
     expected_lock_sha256: str,
     expected_run: tuple[str, int, int] | None = None,
     source_transport: SourceCapsule | None = None,
+    current_repository: Path | None = None,
 ) -> dict[str, Any]:
     """Check source/runtime/case/member closure; transport authenticity is external."""
     try:
@@ -383,14 +385,32 @@ def validate_bundle(
             required_profiles["prospective_optimized_love"] = 18
         if certificate.get("required_profiles") != required_profiles:
             raise ReferenceRefusal("Required reference profile denominators differ")
-        from .profiles import validate_source_domains
+        from .profiles import canonical_domain_source_reader, validate_source_domains
+
+        if source_transport is not None and current_repository is not None:
+            raise ReferenceRefusal(
+                "Historical and current source readers must remain distinct"
+            )
+        domain_source: Callable[[str], bytes] | None = None
+        retained_sources = (
+            root / "source-domains" / name
+            for name in ("run_source_domains.py", "source_domains.R", "r_support.R")
+        )
+        # Retained bundles keep their own complete source contract. A checkout
+        # supplies sources only for bundles that retain no script members.
+        if current_repository is not None and not any(
+            path.exists() or path.is_symlink() for path in retained_sources
+        ):
+            domain_source = canonical_domain_source_reader(
+                current_repository, certificate["source_files"]
+            )
+        elif source_transport is not None:
+            domain_source = source_transport.read_source
 
         validate_source_domains(
             root / "source-domains",
             lock.payload["reference"]["sha256"],
-            read_source=(
-                None if source_transport is None else source_transport.read_source
-            ),
+            read_source=domain_source,
         )
         python_runtime = certificate.get("python_runtime")
         if (
