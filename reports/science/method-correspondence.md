@@ -106,6 +106,104 @@ and archive expose different PFT counts or positions. We still need a
 provider-bound historical input and transformation packet to reproduce the
 full paper.
 
+## Current LOVE wrapper comparison
+
+At source `01ca11bb1eea641b13a9b4ea6fc350bad08fb627`, a new maintained
+[consumer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/love_comparison/execution.py)
+compared complete Python and source-R LOVE calls on the same packaged
+`LOVEexample`. The protocol and 42 controlled tests were committed before the
+actual run. The run exited zero in **6.844 seconds**, with unchanged source,
+inputs and installed source archive. It used the existing shared R library;
+no installation, C++ build or paper-simulation reconstruction was performed.
+The earlier [historical comparison](../../docs/report/numerical-performance/love-source-comparison/README.md)
+and its source gate remain unchanged.
+
+One local and one regional pollen row, ten taxa and 36 rings supply the inputs.
+The maximum local ring is ten, with two deterministic repeats and 32 fixed
+candidates at each active ring/repeat. Five decimal tables and five hexadecimal
+sidecars preserve identical parsed binary64 values, taxon names and order.
+Regional/local sampling and the R search are replaced by the existing test-only
+fixed samplers and candidate replay. This is not untouched RcppDE search or a
+comparison of stochastic optimizer trajectories. Eight active calls return
+256 search evaluations; Python additionally performs eight mandatory solver
+certifications per complete call. The extra work is retained in its timing.
+
+The [580-cell paired ledger](method-certification/love-wrapper-values.csv)
+preserves both writers' original numeric tokens. Cover is a fraction and local
+pollen is a percentage. Row indices retain each product's native row order:
+ten requested local rings for cover/pollen/objective, and 36 source rows for
+`K`; objective columns identify the two repeats. The source's six undefined
+local rings remain missing: R writes `NaN`, Python an empty CSV cell. These
+tokens are not zeros. All output column names, shapes and missing masks agree.
+
+| Product | Shape | Finite paired cells | Undefined paired cells | Maximum absolute gap |
+| --- | ---: | ---: | ---: | ---: |
+| Mean cover | 10 × 10 | 40 | 60 | 0 |
+| Mean local pollen | 10 × 10 | 40 | 60 | 0 |
+| Best objective | 10 × 2 | 8 | 12 | 4.663e-15 |
+| Ring factor `K` | 36 × 10 | 360 | 0 | 5.103e-15 |
+
+All 448 finite pairs meet the original `3e-10` absolute plus `1e-10` relative
+tolerance. The 132 missing pairs retain the source outcome. Every active call
+selects candidate one from this monotone candidate set; exact candidate IDs and
+32-return budgets agree. Both implementations also refuse the separate
+all-undefined candidate control. Neither the selected row nor numerical
+agreement establishes optimizer convergence or a useful landscape estimate.
+
+Each fresh engine process made one first and five warm complete wrapper calls.
+Parsing precedes those clocks; regional preparation, ring factors, objective
+replay and result summaries are inside them. Every repeat returned identical
+products and selection traces within its engine. The R timer resolves
+milliseconds. All five numerical thread environment settings were one.
+
+| Call | Python milliseconds | R milliseconds |
+| --- | ---: | ---: |
+| First | 76.774 | 420 |
+| Warm 1 | 24.092 | 418 |
+| Warm 2 | 22.868 | 479 |
+| Warm 3 | 23.111 | 381 |
+| Warm 4 | 22.743 | 366 |
+| Warm 5 | 22.517 | 368 |
+| Warm median | 22.868 | 381 |
+
+The observed warm-wrapper ratio is **16.66 R/Python** for this fixture.
+It is not a kernel, larger-study or complete application speedup. Whole worker
+wall times were **1.174 seconds Python** and **3.646 seconds R**. Those include
+imports, setup, all six calls, exports, refusal controls and diagnostics;
+subtracting call time does not isolate startup. Python's measured setup after
+imports was 4.822 ms and export 3.379 ms. R's pre-call setup was 760 ms and
+post-call export 72 ms; its setup includes source/library checks as well as
+parsing, so these setup categories are not equivalent measurements.
+
+Native whole-process peak RSS was **136.67 MiB Python** and **203.28 MiB R**.
+These high-water marks include setup and are not incremental kernel allocations.
+The machine was macOS 26.6.2 arm64, Python 3.11.13 with NumPy 2.4.6,
+pandas 2.3.3 and SciPy 1.17.1, and R 4.6.0 with DISQOVER 0.9.14.
+Python used Accelerate; R reported its `libRblas` and LAPACK 3.12.1. Different
+libraries, one workstation and five warm samples do not identify a language
+effect or supply a timing confidence interval. First calls are not a claim of
+empty operating-system caches. The editable/imported LRA version still reported
+`0.1.9.dev841`; the actual consumed source is the Git revision above, not a
+new built release or hosted qualification.
+
+Reproduce with the existing qualified R library and an absent output directory:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+  MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
+  .venv/bin/python -B -m bijux_pollenomics_dev.native_backend.love_comparison \
+  --repository . --library "$R_LIBRARY" \
+  --output artifacts/love-wrapper-comparison
+```
+
+The consumer checks the original DISQOVER archive and installed source marker,
+requires committed clean consumed code, and preserves failed native exits and
+changed/missing-input refusals. Its aggregate deadline is 120 seconds with
+outputs below 16 MiB. This actual run wrote 89,687 bytes. It supplies current
+fixed-candidate method correspondence and bounded wrapper timings; it does not
+complete the representative 128-call or three-way R/Python/C++ investigation,
+justify C++ adoption, establish ecological accuracy or qualify a release.
+
 ## How to use this result
 
 We use the selected author profile to test numerical fidelity to the
@@ -120,11 +218,11 @@ we summarize its matched direct-pollen scores and model conditions in the
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Declared original-R/native and fixed candidate numerical cases agree within retained tolerances.
+**Supported claim.** Declared original-R/native and fixed candidate numerical cases agree within retained tolerances. Separately, current fixed-candidate LOVE wrapper arithmetic agrees and first/warm timings are measured on one declared workstation/fixture.
 
-**Unsupported claim.** Global optimizer convergence, identical stochastic paths, historical publication source identity or ecological validity.
+**Unsupported claim.** Global optimizer convergence, identical stochastic paths, historical publication source identity or ecological validity. C++ benefit, larger-study speedup, a causal language effect or hosted release qualification.
 
-**Actual verification performed.** Retained 14,074 author example values, 17 byte-identical prepared files and R/oracle comparisons are reported; index did not rerun.
+**Actual verification performed.** Retained 14,074 author example values, 17 byte-identical prepared files and R/oracle comparisons are reported; index did not rerun. At committed source 01ca11bb1, one new actual R/Python LOVEexample wrapper comparison passed in 6.844 seconds: 448 finite pairs plus 132 shared missing cells, exact labels/shapes/eight candidate IDs, first plus five warm calls per engine. 42 controlled tests and one independent code review preceded execution; source/input/archive unchanged.
 
 **Remaining input or review.** Declared R/native cells and fixed-candidate objectives agree; random search paths, global convergence outside tested cases, full historical input identity and ecological accuracy are not established. Resolver: Method implementation/optimizer owner and independent scientific reviewer Reopen when: New authenticated source case or changed algorithm is tested against the original oracle with convergence and ecological reference separately.
 
@@ -134,11 +232,11 @@ we summarize its matched direct-pollen scores and model conditions in the
 
 **Precise next acceptance route.** New authenticated source case or changed algorithm is tested against the original oracle with convergence and ecological reference separately. Then update reports/science/publication-correspondence.md.
 
-**Negative or refused result.** No mismatch within declared paired numeric tolerances; untested stochastic/global cases are not zero error.
+**Negative or refused result.** No mismatch within declared paired numeric tolerances; untested stochastic/global cases are not zero error. Six requested local LOVE rings remain undefined; all active calls choose candidate one, and both engines refuse the all-undefined control. Python retains eight extra mandatory certifications.
 
-**Matched denominator.** 17 sites, 184 supported site-windows, 31 taxa and 14,074 author mean/SE values; separate four-case one-window R lineage: 124 cover values plus 124 standard errors.
+**Matched denominator.** 17 sites, 184 supported site-windows, 31 taxa and 14,074 author mean/SE values; separate four-case one-window R lineage: 124 cover values plus 124 standard errors. Separate current LOVE fixture: one local/regional row, ten taxa, 36 rings, maximum local ring ten, two repeats, eight active calls / 256 search returns plus eight Python certifications per call; 580 paired cells with 448 finite and 132 missing; one first / five warm complete calls per engine.
 
-Retained evidence: [docs/report/method-certification/original-r-reference/README.md](../../docs/report/method-certification/original-r-reference/README.md), [docs/report/method-certification/optimizer-solution-quality/README.md](../../docs/report/method-certification/optimizer-solution-quality/README.md).
+Retained evidence: [docs/report/method-certification/original-r-reference/README.md](../../docs/report/method-certification/original-r-reference/README.md), [docs/report/method-certification/optimizer-solution-quality/README.md](../../docs/report/method-certification/optimizer-solution-quality/README.md), [reports/science/method-certification/love-wrapper-values.csv](method-certification/love-wrapper-values.csv).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
