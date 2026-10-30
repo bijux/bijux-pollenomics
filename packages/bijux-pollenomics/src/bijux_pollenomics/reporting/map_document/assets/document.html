@@ -7451,7 +7451,7 @@ __URL_STATE_CONTROLLER__
             const coordinates = featureCoordinatePair(match.feature);
             if (!coordinates) return;
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
-            map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+            map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7, ...(reducedMotionQuery.matches ? { animate: false } : {}) });
             window.setTimeout(() => match.marker.openPopup(), 250);
             setSearchOpen(false);
           });
@@ -8522,11 +8522,11 @@ __URL_STATE_CONTROLLER__
       focusZoomButton.addEventListener('click', () => {
         if (!focusState) return;
         if (focusState.kind === 'polygon' && focusState.bounds) {
-          map.fitBounds(focusState.bounds, { padding: [32, 32] });
+          map.fitBounds(focusState.bounds, { padding: [32, 32], ...(reducedMotionQuery.matches ? { animate: false } : {}) });
           return;
         }
         if (Number.isFinite(focusState.latitude) && Number.isFinite(focusState.longitude)) {
-          map.flyTo([focusState.latitude, focusState.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+          map.flyTo([focusState.latitude, focusState.longitude], Math.max(map.getZoom(), 8), { duration: 0.7, ...(reducedMotionQuery.matches ? { animate: false } : {}) });
         }
       });
       map.on('zoomend', () => {

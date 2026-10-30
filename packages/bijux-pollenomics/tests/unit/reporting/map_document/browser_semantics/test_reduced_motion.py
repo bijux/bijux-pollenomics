@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import json
+
+import pytest
+
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
 from .support import run_node_json, template_block
@@ -114,4 +118,85 @@ console.log(JSON.stringify({
         "playbackDisabled": True,
         "manualStart": 0,
         "manualEnd": 100,
+    }
+
+
+@pytest.mark.parametrize("reduced", [False, True])
+@pytest.mark.parametrize(
+    "kind", ["point", "zoomed_point", "polygon", "absent", "invalid"]
+)
+def test_focus_navigation_preserves_destination_and_honors_motion_preference(
+    reduced: bool, kind: str
+) -> None:
+    handler = template_block(
+        "focusZoomButton.addEventListener('click'", "map.on('zoomend'"
+    )
+    states: dict[str, object] = {
+        "point": {"kind": "point", "latitude": 59.25, "longitude": 18.75},
+        "zoomed_point": {"kind": "point", "latitude": 59.25, "longitude": 18.75},
+        "polygon": {"kind": "polygon", "bounds": [[58, 17], [60, 19]]},
+        "absent": None,
+        "invalid": {"kind": "point", "latitude": None, "longitude": 18.75},
+    }
+    zoom = 12 if kind == "zoomed_point" else 3
+    observed = run_node_json(
+        "const calls=[];let listener;"
+        f"const reducedMotionQuery={{matches:{json.dumps(reduced)}}};"
+        f"const focusState={json.dumps(states[kind])};"
+        f"const map={{getZoom:()=>{zoom},"
+        "fitBounds:(...args)=>calls.push(['bounds',...args]),"
+        "flyTo:(...args)=>calls.push(['point',...args])};"
+        "const focusZoomButton={addEventListener(type,fn){listener=fn}};"
+        + handler
+        + "listener();console.log(JSON.stringify({calls,focusState}));"
+    )
+    options: dict[str, object] = {"animate": False} if reduced else {}
+    bounds_options: dict[str, object] = {"padding": [32, 32], **options}
+    expected = (
+        [["bounds", [[58, 17], [60, 19]], bounds_options]]
+        if kind == "polygon"
+        else []
+        if kind in {"absent", "invalid"}
+        else [["point", [59.25, 18.75], max(zoom, 8), {"duration": 0.7, **options}]]
+    )
+    assert observed == {"calls": expected, "focusState": states[kind]}
+
+
+@pytest.mark.parametrize("reduced", [False, True])
+def test_search_result_focus_preserves_identity_with_motion_preference(
+    reduced: bool,
+) -> None:
+    handler = template_block(
+        "function buildSearchResults()", "function renderSelectionEmptyStatePanel("
+    )
+    observed = run_node_json(
+        f"const reducedMotionQuery={{matches:{json.dumps(reduced)}}};"
+        """
+const calls=[],focused=[],timers=[];let click,popup=0,searchOpen=true;
+const match={layer:{label:'Source'},feature:{title:'Exact source',country:'Sweden'},
+ marker:{openPopup(){popup++}}};
+const visiblePointEntries=[{feature:{title:'Other'}},match];
+const searchInput={value:'Exact source'},searchClearButton={},searchCount={};
+const searchResults={querySelectorAll:()=>[{addEventListener(type,fn){click=fn}}]};
+const publishedSearchCounts=()=>({focalCount:2,neighborCount:0});
+const publishedSearchResults=()=>[match];
+const featureTimeDescriptor=()=>null,escapeHtml=String;
+const featureCoordinatePair=()=>({latitude:59.25,longitude:18.75});
+const focusPointAtVisibleIndex=index=>focused.push(index);
+const setSearchOpen=value=>{searchOpen=value};
+const window={setTimeout(fn,delay){timers.push(delay);fn()}};
+const map={getZoom:()=>11,flyTo:(...args)=>calls.push(args)};
+"""
+        + handler
+        + "buildSearchResults();click();console.log(JSON.stringify({calls,focused,timers,popup,searchOpen}));"
+    )
+    options: dict[str, object] = {"duration": 0.7}
+    if reduced:
+        options["animate"] = False
+    assert observed == {
+        "calls": [[[59.25, 18.75], 11, options]],
+        "focused": [1],
+        "timers": [250],
+        "popup": 1,
+        "searchOpen": False,
     }
