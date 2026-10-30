@@ -368,6 +368,7 @@ const focusDetail={innerHTML:'',dataset:{},contains(){return false;},setAttribut
     currentSelect={value:'',focus(){focusedSelect++;},addEventListener(event,callback){callbacks.change=callback;}};
     return [currentSelect];
   }
+  if(selector!=='[data-detail-table-page]')return [];
   return [{dataset:{detailTablePage:'pollen_composition',pageDirection:'next'},disabled:false,addEventListener(event,callback){callbacks.next=callback;}}];
 }};
 const focusExportButton={},focusCopyLinkButton={},focusExportStatus={},document={activeElement:null};

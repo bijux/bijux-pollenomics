@@ -410,17 +410,19 @@ def test_search_results_are_explicit_and_close_on_escape() -> None:
     assert "searchToggleButton.focus({ preventScroll: true })" in search_state
 
 
-def test_populated_search_and_mobile_focus_preserve_map_space() -> None:
+def test_mobile_search_preserves_map_space_and_focus_allows_readable_details() -> None:
     assert "width: min(360px, 100%);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(18vh, 140px);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(240px, 46vw);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(220px, calc(100vw - 16px));" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(14vh, 88px);" in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(340px, 46vw);" in MAP_DOCUMENT_TEMPLATE
+    assert "width: min(560px, calc(100vw - 20px));" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(32vh, 320px);" in MAP_DOCUMENT_TEMPLATE
-    assert "max-height: min(22vh, 220px);" in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(188px, 46vw);" in MAP_DOCUMENT_TEMPLATE
-    assert "max-height: min(18vh, 152px);" in MAP_DOCUMENT_TEMPLATE
+    narrow_css = MAP_DOCUMENT_TEMPLATE.split("@media (max-width: 640px) {", 1)[1]
+    focus_rule = narrow_css.split(".focus-card {", 1)[1].split("}", 1)[0]
+    assert "left: 8px;" in focus_rule and "right: 8px;" in focus_rule
+    assert "width: auto;" in focus_rule and "bottom: 72px;" in focus_rule
+    assert "max-height: min(65vh, calc(100dvh - 144px));" in focus_rule
     assert MAP_DOCUMENT_TEMPLATE.index('class="time-stepper topbar-time-stepper"') < (
         MAP_DOCUMENT_TEMPLATE.index('id="topbar-search" class="topbar-search"')
     )
