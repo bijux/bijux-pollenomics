@@ -4,13 +4,10 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
-import csv
 from fractions import Fraction
-import io
 import json
 import math
 from pathlib import Path
-import re
 import sys
 from typing import Any
 
@@ -27,9 +24,7 @@ from ..physical_forward.inputs import require
 from . import cohort, counting
 
 AXIS = ["Betula", "Fraxinus", "Ulmus"]
-SWEDISH_REPORT = (
-    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json"
-)
+SWEDISH_REPORT = cohort.SWEDISH_REPORT
 PROFILE = "boke-three-bus-two-conditional-measured-panels-v1"
 LIMITS = [
     "New conditional reconstruction on declared measured panels: BOKE Betula/Fraxinus/Ulmus and BUS Betula/Ulmus. BUS Fraxinus remains unmeasured, not zero or predicted. Relative three-taxon cover is not whole vegetation.",
@@ -104,7 +99,7 @@ def complete_panel(
     )
     nbu, nf = nb[0] + nb[2], nb[1]
     total = sum(nb) + sum(ns)
-    _domain(0 < nbu and total < 2**53, "Positive BOKE B/U effort required")
+    _domain(nbu > 0 and total < 2**53, "Positive BOKE B/U effort required")
     _domain(
         boke["projected_counts"] == [nb[0], nb[2]]
         and bus["projected_counts"] == ns
@@ -223,69 +218,9 @@ def complete_panel(
     }
 
 
-def _read_pin(repository: Path, point: dict[str, Any], relative: str) -> bytes:
-    pins = [
-        p
-        for p in point["scientific_inputs"]
-        if Path(p["path"]) in (Path(relative), repository / relative)
-    ]
-    require(len(pins) == 1, "One original scientific source identity required")
-    return sources.read_bound(repository, relative, pins[0])
-
-
 def read_response(repository: Path, point: dict[str, Any]) -> dict[str, Any]:
-    """Reuse the original full BOKE response and literal public Fraxinus row."""
-    saved = inputs.decode(_read_pin(repository, point, SWEDISH_REPORT))
-    cores = [c for c in saved["cores"] if c["metadata_code"] == "BOKE"]
-    require(
-        len(cores) == 1 and cores[0]["parameter_taxa"] == AXIS,
-        "Original BOKE3 axis required",
-    )
-    core = cores[0]
-    quadrature = [
-        q for q in core["quadrature"] if q["profile"] == "metadata_radius_wind_3"
-    ]
-    require(
-        len(quadrature) == 1 and len(quadrature[0]["factors"]) == 1,
-        "Original saved kernel required",
-    )
-    ppe = inputs.numbers(core["ppe"], 3, positive=True)
-    sd = inputs.numbers(core["ppe_standard_deviation"], 3, positive=False)
-    speeds = inputs.numbers(core["fall_speed_m_s"], 3, positive=True)
-    kernels = inputs.numbers(quadrature[0]["factors"][0], 3, positive=True)
-    require(all(k <= 1 for k in kernels), "Receiver probabilities exceed one")
-    require(
-        point["cores"][0]["core"] == "BOKE"
-        and point["cores"][0]["ppe"] == [ppe[0], ppe[2]]
-        and point["cores"][0]["saved_K"] == [kernels[0], kernels[2]],
-        "Original projected response differs",
-    )
-    rows = list(
-        csv.DictReader(
-            io.StringIO(_read_pin(repository, point, cohort.PARAMETERS).decode())
-        )
-    )
-    rows = [r for r in rows if r["Plant taxa/Pollen-morphological types"] == "Fraxinus"]
-    require(len(rows) == 1, "Unique literal Fraxinus parameter row required")
-    match = re.fullmatch(r"([0-9.]+) \(([0-9.]+)\)", rows[0]["PPE (SD)"])
-    require(match is not None, "Literal Fraxinus PPE annotation unsupported")
-    assert match is not None
-    require(
-        (float(match[1]), float(match[2]), float(rows[0]["FSP (m/s)"]))
-        == (ppe[1], sd[1], speeds[1]),
-        "Original Fraxinus parameter differs",
-    )
-    return {
-        "taxa": AXIS,
-        "ppe": ppe,
-        "saved_K": kernels,
-        "response_PPE_times_K": [
-            _positive(e * k) for e, k in zip(ppe, kernels, strict=True)
-        ],
-        "saved_quadrature": quadrature[0],
-        "source_report": SWEDISH_REPORT,
-        "source_parameters": cohort.PARAMETERS,
-    }
+    """Reuse source-owned full-panel response admission for the point consumer."""
+    return cohort.read_full_response(repository, point)
 
 
 def _revision(repository: Path) -> str:
