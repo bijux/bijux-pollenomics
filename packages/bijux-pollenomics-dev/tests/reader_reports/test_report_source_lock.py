@@ -147,6 +147,7 @@ def test_catalog_refuses_ambiguous_or_malformed_roles(
         "data/source/account.md",
         "docs/report/reference/original.py",
         "reports/science/result.json",
+        "presentation/unowned.tex",
     ],
 )
 def test_evidence_cannot_be_relabelled_as_maintained_prose_or_code(
@@ -312,3 +313,32 @@ def test_historical_api_member_keeps_missing_git_witness_refusal(
     preimage.assert_called_once_with(
         tmp_path, tmp_path / verifier.SOURCE_LAYOUT_API_PATH
     )
+
+
+@pytest.mark.parametrize(
+    "relative",
+    [
+        "presentation/big-picture.tex",
+        "presentation/developer.tex",
+        "presentation/scientific-evidence.tex",
+        "presentation/shared.tex",
+        "presentation/build.py",
+        "makes/pollenomics-verification.mk",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/scientific_accounts.json",
+        "docs/report/report_surface_registry.json",
+        "docs/report/report_narrative_quality_review.json",
+    ],
+)
+def test_named_maintained_inputs_preserve_evidence_identities(
+    tmp_path: Path, verifier: ModuleType, lock: dict[str, Any], relative: str
+) -> None:
+    path = tmp_path / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("Reader bookkeeping\n")
+    lock["maintained_paths"] = sorted([*lock["maintained_paths"], relative])
+    sources = lock["sources"].copy()
+    expected = (len(sources), len(lock["maintained_paths"]))
+    assert verifier.verify_source_lock(tmp_path, lock) == expected
+    path.write_text("Edited reader bookkeeping\n")
+    assert verifier.verify_source_lock(tmp_path, lock) == expected
+    assert lock["sources"] == sources
