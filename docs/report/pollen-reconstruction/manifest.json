@@ -61,12 +61,12 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "85981a24c44802b46d46150b391d1ebccbd56c7d6d0779f6a0480a76bc11ccb9",
-      "bytes": 7393761
+      "sha256": "e7ed975d68da375d0bc37f24689a846651e18c4012631ef1d57da2d1efc3981b",
+      "bytes": 7397833
     },
     {
       "path": "configs/release_evidence_policy.json",
-      "sha256": "23cdf743cf015b02af6dea9c318ddfdd587182acd2e76f705de81cac2f9b045c",
+      "sha256": "885d761a73c06632007ba0d4e4dbde74f9c12deb74454062a0d66f2fed44d8bc",
       "bytes": 36834
     },
     {
@@ -81,7 +81,7 @@
     },
     {
       "path": "data/country_dimension_coverage.json",
-      "sha256": "eca09c9cfb11a6af6a5d47a75e172e42ac9f05f572332bb9cdfd8ac8c79976ba",
+      "sha256": "bb0262090aa04f6bfb474914535e60260417eab1eefaac092bf9ec6df494772a",
       "bytes": 373562
     },
     {
@@ -3100,6 +3100,11 @@
       "bytes": 1784
     },
     {
+      "path": "docs/report/source-relations/neotoma/acquisition-scope/current-abbo-comparison.json",
+      "sha256": "a79b251bda679f0f56a4aad57f217e65f30b2ff5b43cd5d055c8b95cfdcfc8cc",
+      "bytes": 24550
+    },
+    {
       "path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json",
       "sha256": "5727ed9f735436aa6c806368be0bf1f39402c4f84575cb94562e8c879b6bb057",
       "bytes": 839013
@@ -3141,13 +3146,13 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json",
-      "sha256": "dc915089ee968411dafb97c269693613b89dbcbfecbd3e92a580405ea50cad89",
-      "bytes": 7767
+      "sha256": "91c21717d160d5f6e217696367de484dd1cb1848a438e9e0b68031bcaf9da528",
+      "bytes": 9356
     },
     {
       "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json",
-      "sha256": "c7e2c67488faec670c585fdb3d03c067cb58449bf0e4a49032698c5a1c9aad81",
-      "bytes": 2725
+      "sha256": "231eed502626c85799e8f2981f60f3a062237960b6c155119c5c67b2c37239ff",
+      "bytes": 3154
     },
     {
       "path": "docs/report/source-relations/openland-intake/report.json",
@@ -4846,8 +4851,8 @@
     },
     {
       "path": "data/method-certification/source-locked-linux-r/reference-bundle/source-transport.json",
-      "sha256": "3e4a690e1a55f84ce62432c1efa29f93dfd3a29f93a1070a7960e657faaade29",
-      "bytes": 2565
+      "sha256": "d85639f74d24b00c9a78ad492edba6cbbb4b461c3990531837658bc51d377a48",
+      "bytes": 2301
     },
     {
       "path": "docs/report/pollen-reconstruction/matched-pollen-forward/assumptions/protocol.json",
@@ -5311,8 +5316,8 @@
     },
     {
       "path": "reports/science/pollen-reconstruction/common-cover/counting-sets.json",
-      "sha256": "87628271482d4bbe6a2a0fb4291c99e7d4f4f11a9e5441bd194d7bce90f384e2",
-      "bytes": 108286
+      "sha256": "f2554acd2794423a83a98a61fdd1f92ddb2b574ff3be860460e17fb9ce9fb8ba",
+      "bytes": 117343
     },
     {
       "path": "reports/science/pollen-reconstruction/common-cover/measured-panels.json",
@@ -6424,8 +6429,8 @@
     "packages/bijux-pollenomics/tests/unit/reporting/context/test_external_layers.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/basemap/__init__.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/basemap/test_provider_failure.py",
+    "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/selection/test_scientific_filter_controls.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_mobile_legend_clearance.py",
-    "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_scientific_filter_controls.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_tile_free_orientation_controls.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/edges/__init__.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/edges/test_resolution_selection.py",

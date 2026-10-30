@@ -1,8 +1,12 @@
 """Source-shaped repeated support and independent derivative/covariance controls."""
 
+from __future__ import annotations
+
 from dataclasses import replace
+from typing import Any, cast
 
 import numpy as np
+from numpy.typing import ArrayLike, NDArray
 import pytest
 
 from bijux_pollenomics_lra.models.errors import ValidationError
@@ -14,7 +18,12 @@ from bijux_pollenomics_lra.reconstruction.joint_fixed_site_covariance import (
 )
 
 
-def observation(result_id="a", *, support=None, deposition=(1.0, 1.0)):
+def observation(
+    result_id: str = "a",
+    *,
+    support: CountSupport | None = None,
+    deposition: tuple[float, float] = (1.0, 1.0),
+) -> ConditionalResultInput:
     return ConditionalResultInput(
         result_id,
         support or CountSupport(37925, 52082, 37160, 0, 100, "a" * 64),
@@ -26,13 +35,13 @@ def observation(result_id="a", *, support=None, deposition=(1.0, 1.0)):
 
 
 def evaluate(
-    *rows,
-    parameters=("parameter-row/Betula", "parameter-row/Pinus"),
-    ppe=(1.0, 1.0),
-    covariance=None,
-    windows=True,
-    units=True,
-):
+    *rows: ConditionalResultInput,
+    parameters: tuple[str, ...] = ("parameter-row/Betula", "parameter-row/Pinus"),
+    ppe: ArrayLike = (1.0, 1.0),
+    covariance: NDArray[Any] | None = None,
+    windows: bool = True,
+    units: bool = True,
+) -> JointFixedSiteCovariance:
     return joint_fixed_site_covariance(
         tuple(rows),
         parameter_ids=parameters,
@@ -104,7 +113,7 @@ def test_fixed_site_masks_cannot_become_backing_counts_parameters_or_covariance(
             )
 
 
-def test_identical_geometry_is_one_count_observation_and_zero_contrast():
+def test_identical_geometry_is_one_count_observation_and_zero_contrast() -> None:
     out = evaluate(observation(), observation("b"))
     assert out.distinct_count_supports == 1
     assert out.count_jacobian.shape == (4, 2)
@@ -119,15 +128,17 @@ def test_identical_geometry_is_one_count_observation_and_zero_contrast():
     )
 
 
-def test_count_and_ppe_derivatives_match_independent_perturbation():
+def test_count_and_ppe_derivatives_match_independent_perturbation() -> None:
     item = observation(deposition=(2.0, 0.7))
     p = np.array([1.4, 2.3])
     out = evaluate(item, ppe=p)
     n = item.counts.astype(float)
 
-    def closed(count, parameters):
+    def closed(
+        count: NDArray[np.float64], parameters: NDArray[np.float64]
+    ) -> NDArray[np.float64]:
         weights = count / (item.deposition * parameters)
-        return weights / weights.sum()
+        return cast(NDArray[np.float64], weights / weights.sum())
 
     delta = 1e-5
     for column in range(2):
@@ -144,7 +155,7 @@ def test_count_and_ppe_derivatives_match_independent_perturbation():
     np.testing.assert_allclose(np.ones(2) @ out.ppe_jacobian, 0, atol=1e-15)
 
 
-def test_disjoint_windows_share_ppe_but_not_declared_count_latents():
+def test_disjoint_windows_share_ppe_but_not_declared_count_latents() -> None:
     a = observation()
     b = observation(
         "b",
@@ -160,7 +171,7 @@ def test_disjoint_windows_share_ppe_but_not_declared_count_latents():
         evaluate(a, b, windows=False)
 
 
-def test_distinct_unit_count_independence_is_explicit():
+def test_distinct_unit_count_independence_is_explicit() -> None:
     a = observation()
     b = observation(
         "b",
@@ -179,7 +190,7 @@ def test_distinct_unit_count_independence_is_explicit():
     assert out.ppe_covariance[0, 2] > 0
 
 
-def test_asymmetric_geometry_and_global_parameter_permutation():
+def test_asymmetric_geometry_and_global_parameter_permutation() -> None:
     rows = (observation(), observation("b", deposition=(2.0, 0.7)))
     out = evaluate(*rows)
     reordered = evaluate(
@@ -213,7 +224,7 @@ def test_asymmetric_geometry_and_global_parameter_permutation():
         "nonpositive_k",
     ],
 )
-def test_unresolved_support_or_invalid_source_axes_refuse(mutation):
+def test_unresolved_support_or_invalid_source_axes_refuse(mutation: str) -> None:
     a = observation()
     b = observation("b")
     if mutation == "counts":
@@ -254,6 +265,8 @@ def test_unresolved_support_or_invalid_source_axes_refuse(mutation):
         np.array([[1, 0], [0.1, 1]]),
     ],
 )
-def test_invalid_global_ppe_covariance_refuses(covariance):
+def test_invalid_global_ppe_covariance_refuses(
+    covariance: NDArray[Any],
+) -> None:
     with pytest.raises(ValidationError):
         evaluate(observation(), covariance=covariance)
