@@ -1,0 +1,2102 @@
+{
+  "schema_version": "boke-bus-conditional-measured-panels.v1",
+  "source_commit": "1749da7f89728a17f6be8ba5fa0bfd6f880a4a26",
+  "command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-B",
+    "-m",
+    "bijux_pollenomics_dev.essd_reproduction.common_cover.measured_panels",
+    "--repository",
+    "/Users/bijan/bijux/bijux-pollenomics",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/common-cover-measured-panels/report.json"
+  ],
+  "point_report": {
+    "path": "reports/science/pollen-reconstruction/common-cover/report.json",
+    "publication_commit": "9f63efe4757efff490462bedf3e26f809e21aa05",
+    "point_source_commit": "025fe2da34ec6426c075767be512943fd1afb6d3"
+  },
+  "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+  "taxa": [
+    "Betula",
+    "Fraxinus",
+    "Ulmus"
+  ],
+  "age_unit": "calibrated years BP, AD1950 reference",
+  "boke_original_response": {
+    "taxa": [
+      "Betula",
+      "Fraxinus",
+      "Ulmus"
+    ],
+    "ppe": [
+      5.106,
+      1.044,
+      1.27
+    ],
+    "saved_K": [
+      0.2968731304200054,
+      0.3099666306428735,
+      0.2382713964696883
+    ],
+    "response_PPE_times_K": [
+      1.5158342039245476,
+      0.32360516239115994,
+      0.30260467351650416
+    ],
+    "saved_quadrature": {
+      "profile": "metadata_radius_wind_3",
+      "factors": [
+        [
+          0.2968731304200054,
+          0.3099666306428735,
+          0.2382713964696883
+        ]
+      ],
+      "estimated_absolute_error": [
+        2.362920920853322e-09,
+        2.16899566388775e-09,
+        2.2936877772427384e-09
+      ],
+      "rigorous_error_bound": false
+    },
+    "source_report": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+    "source_parameters": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+  },
+  "scientific_inputs": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/matched-pollen-forward/assumptions/protocol.json",
+      "sha256": "22355c28b91af19e23240ce8060761fc0f1f45d6be212d04f5432127eb2e7249",
+      "bytes": 17806
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "sha256": "8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd",
+      "bytes": 726215
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "d9a12af1e1f7a39e690c35de19b87fc487311756a75b39318de9acba7ffe3399",
+      "bytes": 4359
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json",
+      "sha256": "0391384f85500555a554b744b56598f4cca6ae5b91fa2ba323f9de45fb4af4b8",
+      "bytes": 3247
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+      "bytes": 604997
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/retained-source-identities.json",
+      "sha256": "f903051acee72613bad110c2539f37c082d52a340966ddd79bbc03253e5453cc",
+      "bytes": 8027
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
+      "bytes": 13224
+    },
+    {
+      "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+      "bytes": 24477671,
+      "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    }
+  ],
+  "original_source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "unmatched": [
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        5700.0,
+        6200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        92,
+        218
+      ],
+      "original_panel_N": 310,
+      "projected_counts": [
+        92,
+        218
+      ],
+      "projected_panel_N": 310,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2032,
+      "outside_original_panel_N": 1722,
+      "outside_projected_panel_N": 1722,
+      "sample_ids": [
+        552146,
+        552145
+      ],
+      "raw_age_bounds_missing": 2,
+      "original_native_support_sha256": "4bfb34d5ff9ee3abf185aa0da41b01ea067af9a6a656828a893bbe16a7ae8e6c",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        6200.0,
+        6700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        99,
+        206
+      ],
+      "original_panel_N": 305,
+      "projected_counts": [
+        99,
+        206
+      ],
+      "projected_panel_N": 305,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2260,
+      "outside_original_panel_N": 1955,
+      "outside_projected_panel_N": 1955,
+      "sample_ids": [
+        552147,
+        552148
+      ],
+      "raw_age_bounds_missing": 2,
+      "original_native_support_sha256": "7345afb0478b51f2ff4fa366ecba6c4e9fd045b360940f09f0bfbadd50f45536",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        6700.0,
+        7200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        232,
+        262
+      ],
+      "original_panel_N": 494,
+      "projected_counts": [
+        232,
+        262
+      ],
+      "projected_panel_N": 494,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2508,
+      "outside_original_panel_N": 2014,
+      "outside_projected_panel_N": 2014,
+      "sample_ids": [
+        552149,
+        552150,
+        552151
+      ],
+      "raw_age_bounds_missing": 3,
+      "original_native_support_sha256": "dc3c96bd2b39e3299d16bddc2f8dca1020b3ad4c5356808e854525bcaf99a255",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        7200.0,
+        7700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        169,
+        192
+      ],
+      "original_panel_N": 361,
+      "projected_counts": [
+        169,
+        192
+      ],
+      "projected_panel_N": 361,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 1920,
+      "outside_original_panel_N": 1559,
+      "outside_projected_panel_N": 1559,
+      "sample_ids": [
+        552152,
+        552153,
+        552155
+      ],
+      "raw_age_bounds_missing": 3,
+      "original_native_support_sha256": "3f0b852c515b00fa7e5b25195d4bb387f838ca0430e31203c9a3e9cba2695877",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        7700.0,
+        8200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        1129,
+        182
+      ],
+      "original_panel_N": 1311,
+      "projected_counts": [
+        1129,
+        182
+      ],
+      "projected_panel_N": 1311,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 3824,
+      "outside_original_panel_N": 2513,
+      "outside_projected_panel_N": 2513,
+      "sample_ids": [
+        552154,
+        552156,
+        552157,
+        552158,
+        552159,
+        552161
+      ],
+      "raw_age_bounds_missing": 6,
+      "original_native_support_sha256": "49ae7811c2ab15a04653657bdae74375f96980ebf6f9a48082d50b7f91b17aad",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        8200.0,
+        8700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        365,
+        3
+      ],
+      "original_panel_N": 368,
+      "projected_counts": [
+        365,
+        3
+      ],
+      "projected_panel_N": 368,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 459,
+      "outside_original_panel_N": 91,
+      "outside_projected_panel_N": 91,
+      "sample_ids": [
+        552163
+      ],
+      "raw_age_bounds_missing": 1,
+      "original_native_support_sha256": "a0d36c33c698a8dbb47a101007ba9a9155e8e7391ce9abcc9ff21d4097853165",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    }
+  ],
+  "groups": [
+    {
+      "window_cal_bp": [
+        0.0,
+        100.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            355,
+            9,
+            11
+          ],
+          "original_panel_N": 375,
+          "projected_counts": [
+            355,
+            11
+          ],
+          "projected_panel_N": 366,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 9
+          },
+          "Fraxinus_original_panel_count": 9,
+          "reported_all_pollen_NISP_N": 1070,
+          "outside_original_panel_N": 695,
+          "outside_projected_panel_N": 704,
+          "sample_ids": [
+            552391,
+            552390
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "00fe597216ea7eaf7c9184e8247846a074e4089e0605fb5e6cfe68b0f7944541",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            52,
+            8
+          ],
+          "original_panel_N": 60,
+          "projected_counts": [
+            52,
+            8
+          ],
+          "projected_panel_N": 60,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 1838,
+          "outside_original_panel_N": 1778,
+          "outside_projected_panel_N": 1778,
+          "sample_ids": [
+            552110,
+            552109
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "97121a8617142756b4c88e75458a09d76122fff154951c675c1b7c5de7b9f7cf",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.7384096258905654,
+        0.08902215555047173,
+        0.17256821855896287
+      ],
+      "original_B_over_B_plus_U_cover": 0.8105681498069366,
+      "BOKE_predicted_measured_panel": [
+        0.9324955040146036,
+        0.024,
+        0.04350449598539639
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.9552364332418983,
+        null,
+        0.04476356675810162
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 435,
+      "original_projected_grains": 426,
+      "retained_Fraxinus_grains": 9,
+      "negative_log_likelihood_without_combinatorial_constant": 120.09469903559864,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.2760797678979279,
+      "saturated_panel_negative_log_likelihood": 115.40404331197652,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 42.45843851797804,
+      "original_projected_negative_log_likelihood": 77.6362605176206,
+      "multinomial_deviance": 9.38131144724423,
+      "original_projected_deviance": 9.381311447244256,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": -1.4210854715202004e-14,
+        "projected_minus_original_nll": 1.4210854715202004e-14,
+        "full_minus_original_deviance": -2.6645352591003757e-14
+      }
+    },
+    {
+      "window_cal_bp": [
+        100.0,
+        350.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            623,
+            26,
+            19
+          ],
+          "original_panel_N": 668,
+          "projected_counts": [
+            623,
+            19
+          ],
+          "projected_panel_N": 642,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 26
+          },
+          "Fraxinus_original_panel_count": 26,
+          "reported_all_pollen_NISP_N": 2663,
+          "outside_original_panel_N": 1995,
+          "outside_projected_panel_N": 2021,
+          "sample_ids": [
+            552394,
+            552389,
+            552392,
+            552393,
+            552396
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "6b2a2eaa062b0a3c8bfc1b3721d4080d203c8803cf8a7a3e8257d98398fe4a29",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            107,
+            11
+          ],
+          "original_panel_N": 118,
+          "projected_counts": [
+            107,
+            11
+          ],
+          "projected_panel_N": 118,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4404,
+          "outside_original_panel_N": 4286,
+          "outside_projected_panel_N": 4286,
+          "sample_ids": [
+            552111,
+            552114,
+            552112,
+            552115
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "bc3cf73f0c91865fdbcc0237d7aa9dc71f7686de00a962138ad4059cb7f03c7e",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.7126501712656663,
+        0.14074399818700295,
+        0.14660583054733076
+      ],
+      "original_B_over_B_plus_U_cover": 0.8293804986662903,
+      "BOKE_predicted_measured_panel": [
+        0.9231656925671362,
+        0.038922155688622756,
+        0.03791215174424102
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.9603840454672391,
+        null,
+        0.03961595453276092
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 786,
+      "original_projected_grains": 760,
+      "retained_Fraxinus_grains": 26,
+      "negative_log_likelihood_without_combinatorial_constant": 236.22378227162812,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.30053916319545565,
+      "saturated_panel_negative_log_likelihood": 232.0584205239175,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 109.88829896496574,
+      "original_projected_negative_log_likelihood": 126.33548330666241,
+      "multinomial_deviance": 8.330723495421239,
+      "original_projected_deviance": 8.330723495421244,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 0.0,
+        "projected_minus_original_nll": -1.4210854715202004e-14,
+        "full_minus_original_deviance": -5.329070518200751e-15
+      }
+    },
+    {
+      "window_cal_bp": [
+        350.0,
+        700.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            527,
+            15,
+            9
+          ],
+          "original_panel_N": 551,
+          "projected_counts": [
+            527,
+            9
+          ],
+          "projected_panel_N": 536,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 15
+          },
+          "Fraxinus_original_panel_count": 15,
+          "reported_all_pollen_NISP_N": 2122,
+          "outside_original_panel_N": 1571,
+          "outside_projected_panel_N": 1586,
+          "sample_ids": [
+            552395,
+            552397,
+            552398
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "6a9c5f60dab139afba91ddc589c235bf11d6aa57908a97cbf872b1b03ed62c53",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            339,
+            11
+          ],
+          "original_panel_N": 350,
+          "projected_counts": [
+            339,
+            11
+          ],
+          "projected_panel_N": 350,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 6306,
+          "outside_original_panel_N": 5956,
+          "outside_projected_panel_N": 5956,
+          "sample_ids": [
+            552118,
+            552101,
+            552102,
+            552103
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "b6309b44f4378cf616258ac68f42c1827d39ef3921a501f940642f78b432f195",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.800259135781469,
+        0.10732280519698612,
+        0.09241805902154487
+      ],
+      "original_B_over_B_plus_U_cover": 0.896470908454272,
+      "BOKE_predicted_measured_panel": [
+        0.9508555516835328,
+        0.02722323049001815,
+        0.02192121782644906
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.9773674029209325,
+        null,
+        0.02263259707906756
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 901,
+      "original_projected_grains": 886,
+      "retained_Fraxinus_grains": 15,
+      "negative_log_likelihood_without_combinatorial_constant": 164.42775667572414,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.18249473548915,
+      "saturated_panel_negative_log_likelihood": 163.4411362158549,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 68.84921649277288,
+      "original_projected_negative_log_likelihood": 95.57854018295123,
+      "multinomial_deviance": 1.9732409197384868,
+      "original_projected_deviance": 1.9732409197384104,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 0.0,
+        "projected_minus_original_nll": 4.263256414560601e-14,
+        "full_minus_original_deviance": 7.638334409421077e-14
+      }
+    },
+    {
+      "window_cal_bp": [
+        700.0,
+        1200.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1315,
+            134,
+            52
+          ],
+          "original_panel_N": 1501,
+          "projected_counts": [
+            1315,
+            52
+          ],
+          "projected_panel_N": 1367,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 134
+          },
+          "Fraxinus_original_panel_count": 134,
+          "reported_all_pollen_NISP_N": 5152,
+          "outside_original_panel_N": 3651,
+          "outside_projected_panel_N": 3785,
+          "sample_ids": [
+            552400,
+            552399,
+            552401,
+            552403,
+            552402,
+            552404
+          ],
+          "raw_age_bounds_missing": 6,
+          "original_native_support_sha256": "05b96293c015c662a98f7cf5b15c460e8a948d4ab34d9e0b999468812c3ca0ef",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            368,
+            28
+          ],
+          "original_panel_N": 396,
+          "projected_counts": [
+            368,
+            28
+          ],
+          "projected_panel_N": 396,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 5003,
+          "outside_original_panel_N": 4607,
+          "outside_projected_panel_N": 4607,
+          "sample_ids": [
+            552104,
+            552105,
+            552106
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "92e8d86e790e6f513d40e1bdc6227e489f3a99abe72f39a7978efae86c986798",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.5817849088080407,
+        0.2798230827316188,
+        0.13839200846034047
+      ],
+      "original_B_over_B_plus_U_cover": 0.8078360953510437,
+      "BOKE_predicted_measured_panel": [
+        0.8694393304485003,
+        0.08927381745502998,
+        0.04128685209646967
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.9544736489816076,
+        null,
+        0.0455263510183924
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 1897,
+      "original_projected_grains": 1763,
+      "retained_Fraxinus_grains": 134,
+      "negative_log_likelihood_without_combinatorial_constant": 777.1146651016808,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.4096545414347289,
+      "saturated_panel_negative_log_likelihood": 773.7393006832697,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 451.5825662867652,
+      "original_projected_negative_log_likelihood": 325.5320988149154,
+      "multinomial_deviance": 6.750728836822191,
+      "original_projected_deviance": 6.75072883682186,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 1.1368683772161603e-13,
+        "projected_minus_original_nll": 5.684341886080802e-14,
+        "full_minus_original_deviance": 3.304023721284466e-13
+      }
+    },
+    {
+      "window_cal_bp": [
+        1200.0,
+        1700.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            832,
+            148,
+            103
+          ],
+          "original_panel_N": 1083,
+          "projected_counts": [
+            832,
+            103
+          ],
+          "projected_panel_N": 935,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 148
+          },
+          "Fraxinus_original_panel_count": 148,
+          "reported_all_pollen_NISP_N": 3925,
+          "outside_original_panel_N": 2842,
+          "outside_projected_panel_N": 2990,
+          "sample_ids": [
+            552405,
+            552406,
+            552407,
+            552408,
+            552409
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "fdf98e329768d392831081951fcdcabb7ca3091b453636765c278f5b539d7a2a",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            447,
+            38
+          ],
+          "original_panel_N": 485,
+          "projected_counts": [
+            447,
+            38
+          ],
+          "projected_panel_N": 485,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4655,
+          "outside_original_panel_N": 4170,
+          "outside_projected_panel_N": 4170,
+          "sample_ids": [
+            552107,
+            552108,
+            552113,
+            552117
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "e604c0645a53cfe912cd2a9576f85ac00ea56a123ae525218f7f5c35b75d66f8",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.4211461248550048,
+        0.3466343599501955,
+        0.23221951519479975
+      ],
+      "original_B_over_B_plus_U_cover": 0.6445795417446528,
+      "BOKE_predicted_measured_panel": [
+        0.7777333444048853,
+        0.13665743305632502,
+        0.08560922253878975
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.9004428618749468,
+        null,
+        0.09955713812505315
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 1568,
+      "original_projected_grains": 1420,
+      "retained_Fraxinus_grains": 148,
+      "negative_log_likelihood_without_combinatorial_constant": 891.4155343524693,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.5685048050717278,
+      "saturated_panel_negative_log_likelihood": 889.4990906768974,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 431.9535161000615,
+      "original_projected_negative_log_likelihood": 459.462018252408,
+      "multinomial_deviance": 3.8328873511438815,
+      "original_projected_deviance": 3.8328873511444392,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": -1.1368683772161603e-13,
+        "projected_minus_original_nll": -5.684341886080802e-14,
+        "full_minus_original_deviance": -5.577760475716786e-13
+      }
+    },
+    {
+      "window_cal_bp": [
+        1700.0,
+        2200.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1059,
+            200,
+            229
+          ],
+          "original_panel_N": 1488,
+          "projected_counts": [
+            1059,
+            229
+          ],
+          "projected_panel_N": 1288,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 200
+          },
+          "Fraxinus_original_panel_count": 200,
+          "reported_all_pollen_NISP_N": 5602,
+          "outside_original_panel_N": 4114,
+          "outside_projected_panel_N": 4314,
+          "sample_ids": [
+            552411,
+            552410,
+            552415,
+            552413,
+            552412,
+            552414
+          ],
+          "raw_age_bounds_missing": 6,
+          "original_native_support_sha256": "7a865fba8a0a3a52b788e64c85b33a48ef207028b412a9b4189730e8a6c14f0e",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            315,
+            37
+          ],
+          "original_panel_N": 352,
+          "projected_counts": [
+            315,
+            37
+          ],
+          "projected_panel_N": 352,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3554,
+          "outside_original_panel_N": 3202,
+          "outside_projected_panel_N": 3202,
+          "sample_ids": [
+            552119,
+            552120,
+            552121
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "019184d6510d18e5cf1b68184f7c1e4e177d3b8618c5f40d6e7fa0fec473a8f6",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.35249839346930445,
+        0.3059831672476556,
+        0.34151843928303993
+      ],
+      "original_B_over_B_plus_U_cover": 0.5079104379520019,
+      "BOKE_predicted_measured_panel": [
+        0.7253087754785542,
+        0.13440860215053765,
+        0.14028262237090813
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.837331085476752,
+        null,
+        0.16266891452324808
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 1840,
+      "original_projected_grains": 1640,
+      "retained_Fraxinus_grains": 200,
+      "negative_log_likelihood_without_combinatorial_constant": 1314.3754911887133,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.7143345060808225,
+      "saturated_panel_negative_log_likelihood": 1308.4479962020414,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 587.287063411615,
+      "original_projected_negative_log_likelihood": 727.0884277770983,
+      "multinomial_deviance": 11.85498997334389,
+      "original_projected_deviance": 11.854989973344438,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": -2.2737367544323206e-13,
+        "projected_minus_original_nll": 2.2737367544323206e-13,
+        "full_minus_original_deviance": -5.471179065352771e-13
+      }
+    },
+    {
+      "window_cal_bp": [
+        2200.0,
+        2700.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            343,
+            104,
+            66
+          ],
+          "original_panel_N": 513,
+          "projected_counts": [
+            343,
+            66
+          ],
+          "projected_panel_N": 409,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 104
+          },
+          "Fraxinus_original_panel_count": 104,
+          "reported_all_pollen_NISP_N": 2258,
+          "outside_original_panel_N": 1745,
+          "outside_projected_panel_N": 1849,
+          "sample_ids": [
+            552416,
+            552417,
+            552418
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "ee5a114436c24272aca2f0f0e0eaf05338a734b2b7809bae45db28e06accfcc1",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            173,
+            9
+          ],
+          "original_panel_N": 182,
+          "projected_counts": [
+            173,
+            9
+          ],
+          "projected_panel_N": 182,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 1924,
+          "outside_original_panel_N": 1742,
+          "outside_projected_panel_N": 1742,
+          "sample_ids": [
+            552122,
+            552123
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "23a8f2a54b14ac2f6c41865801f51190730a15a431df2ae1b657a54501de666c",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.32351135517224267,
+        0.44126377371696635,
+        0.23522487111079093
+      ],
+      "original_B_over_B_plus_U_cover": 0.5790055127164149,
+      "BOKE_predicted_measured_panel": [
+        0.6962151821370381,
+        0.202729044834308,
+        0.10105577302865387
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.8727561074925253,
+        null,
+        0.12724389250747464
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 695,
+      "original_projected_grains": 591,
+      "retained_Fraxinus_grains": 104,
+      "negative_log_likelihood_without_combinatorial_constant": 483.5485883194436,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.6957533644884081,
+      "saturated_panel_negative_log_likelihood": 475.2208487140756,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 258.6353562403961,
+      "original_projected_negative_log_likelihood": 224.91323207904753,
+      "multinomial_deviance": 16.65547921073596,
+      "original_projected_deviance": 16.65547921073612,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": -5.684341886080802e-14,
+        "projected_minus_original_nll": 0.0,
+        "full_minus_original_deviance": -1.5987211554602254e-13
+      }
+    },
+    {
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            570,
+            94,
+            105
+          ],
+          "original_panel_N": 769,
+          "projected_counts": [
+            570,
+            105
+          ],
+          "projected_panel_N": 675,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 94
+          },
+          "Fraxinus_original_panel_count": 94,
+          "reported_all_pollen_NISP_N": 2553,
+          "outside_original_panel_N": 1784,
+          "outside_projected_panel_N": 1878,
+          "sample_ids": [
+            552419,
+            552422,
+            552421
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "afb209489884ab489a9a0cfe8df443086f7f252288ba927ddd8f198dbcb0e84f",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            228,
+            13
+          ],
+          "original_panel_N": 241,
+          "projected_counts": [
+            228,
+            13
+          ],
+          "projected_panel_N": 241,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 2368,
+          "outside_original_panel_N": 2127,
+          "outside_projected_panel_N": 2127,
+          "sample_ids": [
+            552124,
+            552125
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "cf01c2e0753ae07e3dbbe4e0ec772884a9625f0af098078bfd5b8a721532ca09",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.40184494979376184,
+        0.30084728843323705,
+        0.2973077617730011
+      ],
+      "original_B_over_B_plus_U_cover": 0.5747599103109381,
+      "BOKE_predicted_measured_panel": [
+        0.7648040661376572,
+        0.12223667100130038,
+        0.11295926286104245
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.8708119217430086,
+        null,
+        0.12918807825699144
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 1010,
+      "original_projected_grains": 916,
+      "retained_Fraxinus_grains": 94,
+      "negative_log_likelihood_without_combinatorial_constant": 637.5259658585035,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.6312138275826767,
+      "saturated_panel_negative_log_likelihood": 627.9275995002557,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 285.57417967750223,
+      "original_projected_negative_log_likelihood": 351.9517861810012,
+      "multinomial_deviance": 19.19673271649549,
+      "original_projected_deviance": 19.19673271649557,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 0.0,
+        "projected_minus_original_nll": 0.0,
+        "full_minus_original_deviance": -8.171241461241152e-14
+      }
+    },
+    {
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            93,
+            13,
+            7
+          ],
+          "original_panel_N": 113,
+          "projected_counts": [
+            93,
+            7
+          ],
+          "projected_panel_N": 100,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 13
+          },
+          "Fraxinus_original_panel_count": 13,
+          "reported_all_pollen_NISP_N": 525,
+          "outside_original_panel_N": 412,
+          "outside_projected_panel_N": 425,
+          "sample_ids": [
+            552424
+          ],
+          "raw_age_bounds_missing": 1,
+          "original_native_support_sha256": "b8f98b7c6677338de627b7b05c967b8d6c893d609416ac73c6b41a56e161cf45",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            151,
+            41
+          ],
+          "original_panel_N": 192,
+          "projected_counts": [
+            151,
+            41
+          ],
+          "projected_panel_N": 192,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4279,
+          "outside_original_panel_N": 4087,
+          "outside_projected_panel_N": 4087,
+          "sample_ids": [
+            552126,
+            552128,
+            552127,
+            552129
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "4b79d06a51e6a578e5c14f4b0f34b71c560734e1b33275245cf5f08639273f98",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.36887391399420816,
+        0.2686844352781732,
+        0.36244165072761864
+      ],
+      "original_B_over_B_plus_U_cover": 0.5043977344233308,
+      "BOKE_predicted_measured_panel": [
+        0.7398379509113248,
+        0.11504424778761063,
+        0.1451178013010646
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.8354078726405757,
+        null,
+        0.1645921273594243
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 305,
+      "original_projected_grains": 292,
+      "retained_Fraxinus_grains": 13,
+      "negative_log_likelihood_without_combinatorial_constant": 170.77710092055892,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.5599249210510129,
+      "saturated_panel_negative_log_likelihood": 165.27075929625838,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 40.333463268685364,
+      "original_projected_negative_log_likelihood": 130.44363765187353,
+      "multinomial_deviance": 11.012683248601093,
+      "original_projected_deviance": 11.012683248601107,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 2.842170943040401e-14,
+        "projected_minus_original_nll": 0.0,
+        "full_minus_original_deviance": -1.4210854715202004e-14
+      }
+    },
+    {
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            199,
+            36,
+            42
+          ],
+          "original_panel_N": 277,
+          "projected_counts": [
+            199,
+            42
+          ],
+          "projected_panel_N": 241,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 36
+          },
+          "Fraxinus_original_panel_count": 36,
+          "reported_all_pollen_NISP_N": 1039,
+          "outside_original_panel_N": 762,
+          "outside_projected_panel_N": 798,
+          "sample_ids": [
+            552420,
+            552423
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "584319cedffcd1fd129650fefe9e52ed49e83353571c72b62318e778745d928d",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            119,
+            142
+          ],
+          "original_panel_N": 261,
+          "projected_counts": [
+            119,
+            142
+          ],
+          "projected_panel_N": 261,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4250,
+          "outside_original_panel_N": 3989,
+          "outside_projected_panel_N": 3989,
+          "sample_ids": [
+            552130,
+            552131,
+            552132,
+            552133
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "2b56968037f6114ccf6710533616e64cc31f2aaae25a99900242b85958d80039",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.20018305796490643,
+        0.2209320318892298,
+        0.5788849101458637
+      ],
+      "original_B_over_B_plus_U_cover": 0.2569519812890623,
+      "BOKE_predicted_measured_panel": [
+        0.5516042776067088,
+        0.1299638989169675,
+        0.31843182347632365
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.6329717053752297,
+        null,
+        0.3670282946247703
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 538,
+      "original_projected_grains": 502,
+      "retained_Fraxinus_grains": 36,
+      "negative_log_likelihood_without_combinatorial_constant": 436.66160586025205,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.811638672602699,
+      "saturated_panel_negative_log_likelihood": 398.3930717929693,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 107.01010645822493,
+      "original_projected_negative_log_likelihood": 329.6514994020271,
+      "multinomial_deviance": 76.53706813456552,
+      "original_projected_deviance": 76.53706813456563,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 0.0,
+        "projected_minus_original_nll": 0.0,
+        "full_minus_original_deviance": -1.1368683772161603e-13
+      }
+    },
+    {
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            705,
+            229,
+            96
+          ],
+          "original_panel_N": 1030,
+          "projected_counts": [
+            705,
+            96
+          ],
+          "projected_panel_N": 801,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 229
+          },
+          "Fraxinus_original_panel_count": 229,
+          "reported_all_pollen_NISP_N": 4019,
+          "outside_original_panel_N": 2989,
+          "outside_projected_panel_N": 3218,
+          "sample_ids": [
+            552427,
+            552426,
+            552425,
+            552428
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "e9bf4472b50210cec10c5523b711f4cf3b699a24465b6bb41e6f301381260456",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            146,
+            151
+          ],
+          "original_panel_N": 297,
+          "projected_counts": [
+            146,
+            151
+          ],
+          "projected_panel_N": 297,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3463,
+          "outside_original_panel_N": 3166,
+          "outside_projected_panel_N": 3166,
+          "sample_ids": [
+            552134,
+            552135,
+            552136
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "449da99d8575fd4b0bc1d0ae8394ed8431af1e5df10aad32459038a7e1acf7e9",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.23925779322235055,
+        0.41329564750577463,
+        0.3474465592718748
+      ],
+      "original_B_over_B_plus_U_cover": 0.4077995879955662,
+      "BOKE_predicted_measured_panel": [
+        0.6028923593668517,
+        0.22233009708737864,
+        0.17477754354576966
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.7744810432730059,
+        null,
+        0.22551895672699404
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 1327,
+      "original_projected_grains": 1098,
+      "retained_Fraxinus_grains": 229,
+      "negative_log_likelihood_without_combinatorial_constant": 1130.7155334229592,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.852084049301401,
+      "saturated_panel_negative_log_likelihood": 1045.2269105788403,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 545.7365462447152,
+      "original_projected_negative_log_likelihood": 584.978987178244,
+      "multinomial_deviance": 170.97724568823787,
+      "original_projected_deviance": 170.9772456882379,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 0.0,
+        "projected_minus_original_nll": -1.1368683772161603e-13,
+        "full_minus_original_deviance": -2.842170943040401e-14
+      }
+    },
+    {
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1146,
+            198,
+            144
+          ],
+          "original_panel_N": 1488,
+          "projected_counts": [
+            1146,
+            144
+          ],
+          "projected_panel_N": 1290,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 198
+          },
+          "Fraxinus_original_panel_count": 198,
+          "reported_all_pollen_NISP_N": 5065,
+          "outside_original_panel_N": 3577,
+          "outside_projected_panel_N": 3775,
+          "sample_ids": [
+            552429,
+            552430,
+            552431,
+            552433,
+            552432
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "fecd3b2d146e9c715b64c1a3ccc204a5426197a419127792d98d2afd2bbf9b73",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            103,
+            155
+          ],
+          "original_panel_N": 258,
+          "projected_counts": [
+            103,
+            155
+          ],
+          "projected_panel_N": 258,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3086,
+          "outside_original_panel_N": 2828,
+          "outside_projected_panel_N": 2828,
+          "sample_ids": [
+            552139,
+            552137,
+            552138
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "eefafbcb3f09415f1041b32d27a615560fcaa48911adae1169cf07d0557c623a",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.3237027470337527,
+        0.28840618991997763,
+        0.3878910630462697
+      ],
+      "original_B_over_B_plus_U_cover": 0.45489820519567287,
+      "BOKE_predicted_measured_panel": [
+        0.6995847406601118,
+        0.13306451612903225,
+        0.16735074321085602
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.8062709530918669,
+        null,
+        0.19372904690813308
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 1746,
+      "original_projected_grains": 1548,
+      "retained_Fraxinus_grains": 198,
+      "negative_log_likelihood_without_combinatorial_constant": 1342.7836885981596,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.7690628227939059,
+      "saturated_panel_negative_log_likelihood": 1208.48397101123,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 583.5504208384453,
+      "original_projected_negative_log_likelihood": 759.2332677597144,
+      "multinomial_deviance": 268.5994351738591,
+      "original_projected_deviance": 268.5994351738598,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 0.0,
+        "projected_minus_original_nll": 0.0,
+        "full_minus_original_deviance": -6.821210263296962e-13
+      }
+    },
+    {
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "status": "computed",
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1181,
+            161,
+            97
+          ],
+          "original_panel_N": 1439,
+          "projected_counts": [
+            1181,
+            97
+          ],
+          "projected_panel_N": 1278,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 161
+          },
+          "Fraxinus_original_panel_count": 161,
+          "reported_all_pollen_NISP_N": 5006,
+          "outside_original_panel_N": 3567,
+          "outside_projected_panel_N": 3728,
+          "sample_ids": [
+            552434,
+            552436,
+            552435,
+            552437,
+            552438
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "09b1c93d11de5ed0a99d61e5e835dcc9107f1fa09f7a36bc82334329823e8609",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            455,
+            52
+          ],
+          "original_panel_N": 507,
+          "projected_counts": [
+            455,
+            52
+          ],
+          "projected_panel_N": 507,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 5545,
+          "outside_original_panel_N": 5038,
+          "outside_projected_panel_N": 5038,
+          "sample_ids": [
+            552140,
+            552141,
+            552143,
+            552142,
+            552144
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "b05aa69f49628f9717d52662d1254563c54766a39da5d6c49f4ca64464e71f90",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "profile": "boke-three-bus-two-conditional-measured-panels-v1",
+      "common_relative_cover": [
+        0.4763188017805174,
+        0.3066466479394565,
+        0.21703455028002608
+      ],
+      "original_B_over_B_plus_U_cover": 0.6869784365575914,
+      "BOKE_predicted_measured_panel": [
+        0.814068305586119,
+        0.11188325225851285,
+        0.07404844215536822
+      ],
+      "BUS_predicted_measured_panel_on_common_axis": [
+        0.9162834482473703,
+        null,
+        0.08371655175262965
+      ],
+      "taxon_measured_on_common_axis": [
+        [
+          true,
+          true,
+          true
+        ],
+        [
+          true,
+          false,
+          true
+        ]
+      ],
+      "full_measured_grains": 1946,
+      "original_projected_grains": 1785,
+      "retained_Fraxinus_grains": 161,
+      "negative_log_likelihood_without_combinatorial_constant": 1016.8343565235889,
+      "mean_negative_log_likelihood_per_full_measured_grain": 0.5225253630645369,
+      "saturated_panel_negative_log_likelihood": 1015.2516864363239,
+      "profiled_Fraxinus_binomial_negative_log_likelihood": 504.27554199832406,
+      "original_projected_negative_log_likelihood": 512.5588145252648,
+      "multinomial_deviance": 3.1653401745300016,
+      "original_projected_deviance": 3.1653401745304066,
+      "factorization_residuals": {
+        "full_minus_projected_and_binomial_nll": 0.0,
+        "projected_minus_original_nll": 0.0,
+        "full_minus_original_deviance": -4.050093593832571e-13
+      }
+    }
+  ],
+  "status_counts": {
+    "computed": 13
+  },
+  "new_optimizer_runs": 0,
+  "reused_B_U_point_fits": 13,
+  "analytic_profile_completions": 13,
+  "new_kernel_evaluations": 0,
+  "new_count_tail_evaluations": 0,
+  "three_taxon_uncertainty_evaluated": false,
+  "historical_reproduction_claimed": false,
+  "common_field_cover_admitted": false,
+  "raw_redistribution_authorized": false,
+  "development_exposed": true,
+  "factorization_absolute_tolerances": {
+    "nll": 1e-09,
+    "deviance": 1e-08
+  },
+  "limits": [
+    "New conditional reconstruction on declared measured panels: BOKE Betula/Fraxinus/Ulmus and BUS Betula/Ulmus. BUS Fraxinus remains unmeasured, not zero or predicted. Relative three-taxon cover is not whole vegetation.",
+    "The BOKE multinomial factors into its conditional Betula/Ulmus likelihood and a Fraxinus-versus-panel-remainder binomial. The free Fraxinus coordinate saturates the latter at every Betula/Ulmus cover ratio. The profiled ratio and likelihood deviance therefore retain the original two-taxon result; the extra grains do not add cross-site confirmation of that ratio or Fraxinus.",
+    "Both cores' exposed counts enter the original fit. These are descriptive in-sample likelihoods, not withheld prediction, ecological accuracy, a preferred field model, historical reproduction or chi-square p-values. Original sample exclusions, age windows, native count units, source rights and geometry limitations remain.",
+    "Full-panel raw negative log likelihood omits multinomial combinatorial constants. Its mean uses the larger measured-grain denominator and must not be compared with the projected mean as an improvement. The fitted Fraxinus binomial contribution cancels in the corresponding saturated-model deviance.",
+    "The model conditions on each declared measured panel. Recorded counts within a panel must follow that multinomial observation model; selective reporting or heterogeneous pooled samples are not validated by this calculation. BOKE alone identifies Fraxinus relative to the other two taxa.",
+    "No three-taxon uncertainty interval is calculated. The earlier projected counting sets are not joint intervals for this composition. PPE, saved non-rigorous quadrature, geometry, chronology and common-field-cover assumptions remain fixed or unqualified; no fits, kernels or count-tail evaluations are added."
+  ],
+  "original_point_limits": [
+    "New conditional reconstruction of relative Betula/Ulmus cover, not historical reproduction or whole vegetation. Original exact-panel matched groups remain zero; projection creates these new groups. Original full-panel sample eligibility/exclusions remain: projection never newly admits BOKE samples missing Fraxinus.",
+    "Both sites' counts enter each fit. Likelihood and deviance are descriptive in-sample statistics, not independent prediction, vegetation accuracy, transfer validation or chi-square p-values.",
+    "Two distinct physical places do not establish independent sampling or common cover. Thirteen windows repeatedly use the same two cores; pooled native samples are not proven homogeneous multinomial trials.",
+    "Named calibrated BP point ages retain AD1950 as reference. Missing raw age bounds do not imply certainty. BUS chronology borrows dates from Agerods mosse and Krageholmssjon; no recalibration or chronology uncertainty is fitted.",
+    "PPE and saved receiver-annulus K remain fixed. Static metadata disk radii, 3m/s wind, 100km extent and empirical metre-based diffusion coefficient are declared scenarios; no new kernel, geometry/PPE uncertainty or field applicability is established.",
+    "Fraxinus_original_panel_count null means Fraxinus is outside the original saved parameter panel, not a measured zero. All reported native pollen mass and original panel mass are retained separately.",
+    "Literal taxon/parameter names do not supply human-approved taxonomic equivalence. Historical metadata NR flags and local raw-source custody remain; no redistribution, permission, human review or release approval follows.",
+    "Geometry-correct-then-pool means close(sum_site count/(PPE*K)), retaining grain effort. It is not the historical equal-place mean of independently closed inverse covers and does not reproduce prior held-out forward scores.",
+    "Numerical stationarity/count-balance and relative-information checks are arithmetic policies, not uncertainty or certified cover-error bounds. Nonconverged candidates are withheld."
+  ]
+}

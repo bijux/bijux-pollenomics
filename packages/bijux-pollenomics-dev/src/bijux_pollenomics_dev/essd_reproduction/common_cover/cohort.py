@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Callable
 import csv
 import io
 import json
@@ -19,6 +20,10 @@ from ..physical_forward.inputs import Core, digest, require
 
 TAXA = ("Betula", "Ulmus")
 CORES = ("BOKE", "BUS")
+FULL_TAXA = ("Betula", "Fraxinus", "Ulmus")
+SWEDISH_REPORT = (
+    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json"
+)
 RAW = "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json"
 PARAMETERS = "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
 
@@ -35,10 +40,10 @@ def _support(value: object) -> str:
     )
 
 
-def project_core(
+def project_count_core(
     native: dict[str, Any], saved: dict[str, Any], core: Core, edges: list[int]
 ) -> list[dict[str, Any]]:
-    """Reconcile native measured cells and original support before projection."""
+    """Reconcile the original measured panel without selecting positive B/U effort."""
     site = native["site"]
     unit = site["collectionunit"]
     dataset = unit["dataset"]
@@ -159,7 +164,6 @@ def project_core(
             "Projected taxon is unmeasured; absence cannot become zero",
         )
         projected = [counts[core.axis.index(name)] for name in TAXA]
-        require(sum(projected) > 0, "Projected panel has no counted grains")
         discarded = {
             name: counts[i] for i, name in enumerate(core.axis) if name not in TAXA
         }
@@ -191,7 +195,24 @@ def project_core(
     return output
 
 
-def load_groups(repository: Path) -> dict[str, Any]:
+def project_core(
+    native: dict[str, Any], saved: dict[str, Any], core: Core, edges: list[int]
+) -> list[dict[str, Any]]:
+    """Retain the positive projected-effort contract of the point-study intake."""
+    rows = project_count_core(native, saved, core, edges)
+    require(
+        all(row["projected_panel_N"] > 0 for row in rows),
+        "Projected panel has no counted grains",
+    )
+    return rows
+
+
+def _load_groups(
+    repository: Path,
+    project: Callable[
+        [dict[str, Any], dict[str, Any], Core, list[int]], list[dict[str, Any]]
+    ],
+) -> dict[str, Any]:
     """Admit the original matched native windows without fitting new cover."""
     cores, protocol, pins = inputs.load(repository)
     selected = tuple(c for name in CORES for c in cores if c.id == name)
@@ -248,7 +269,7 @@ def load_groups(repository: Path) -> dict[str, Any]:
                 == (ppe[i], core.sd[indices[i]], row["fall_speed_m_s"][indices[i]]),
                 "Saved fixed parameter differs from literal source",
             )
-        projected[core.id] = project_core(
+        projected[core.id] = project(
             source[0], row, core, saved["protocol"]["age_window_edges_cal_bp"]
         )
         metadata.append(
@@ -313,4 +334,103 @@ def load_groups(repository: Path) -> dict[str, Any]:
         "scientific_inputs": pins
         + [{"path": name, **declaration[name]} for name in (RAW, PARAMETERS)],
         "original_source_epochs": protocol["source_epochs"],
+    }
+
+
+def load_groups(repository: Path) -> dict[str, Any]:
+    """Admit the original positive B/U point-study input, without changing its shape."""
+    return _load_groups(repository, project_core)
+
+
+def load_count_groups(repository: Path) -> dict[str, Any]:
+    """Read full measured counts directly; no fitted report or positive B/U selection.
+
+    Original full-panel sample eligibility, native supports and fixed window
+    membership remain in force. A Fraxinus-only BOKE window retains its positive
+    full-panel effort even though its conditional B/U experiment has zero trials.
+    """
+    loaded = _load_groups(repository, project_count_core)
+    boke = read_full_response(repository, loaded)
+    bus = loaded["cores"][1]
+    loaded["full_panel_responses"] = [
+        {"core": "BOKE", **boke},
+        {
+            "core": "BUS",
+            "taxa": list(TAXA),
+            **{k: bus[k] for k in ("ppe", "saved_K", "response_PPE_times_K")},
+        },
+    ]
+    for row in [*loaded["groups"], *loaded["unmatched"]]:
+        for site in row.get("sites", [row]):
+            site["original_taxon_measured"] = [True] * len(site["original_axis"])
+            site["taxon_measured_on_common_axis"] = (
+                [True, True, True] if site["core"] == "BOKE" else [True, False, True]
+            )
+    return loaded
+
+
+def _read_pin(repository: Path, admitted: dict[str, Any], relative: str) -> bytes:
+    pins = [
+        p
+        for p in admitted["scientific_inputs"]
+        if Path(p["path"]) in (Path(relative), repository / relative)
+    ]
+    require(len(pins) == 1, "One original scientific source identity required")
+    return sources.read_bound(repository, relative, pins[0])
+
+
+def read_full_response(repository: Path, admitted: dict[str, Any]) -> dict[str, Any]:
+    """Reuse the original full BOKE response and literal public Fraxinus row."""
+    saved = inputs.decode(_read_pin(repository, admitted, SWEDISH_REPORT))
+    cores = [c for c in saved["cores"] if c["metadata_code"] == "BOKE"]
+    require(
+        len(cores) == 1 and cores[0]["parameter_taxa"] == list(FULL_TAXA),
+        "Original BOKE3 axis required",
+    )
+    core = cores[0]
+    quadrature = [
+        q for q in core["quadrature"] if q["profile"] == "metadata_radius_wind_3"
+    ]
+    require(
+        len(quadrature) == 1 and len(quadrature[0]["factors"]) == 1,
+        "Original saved kernel required",
+    )
+    ppe = inputs.numbers(core["ppe"], 3, positive=True)
+    sd = inputs.numbers(core["ppe_standard_deviation"], 3, positive=False)
+    speeds = inputs.numbers(core["fall_speed_m_s"], 3, positive=True)
+    kernels = inputs.numbers(quadrature[0]["factors"][0], 3, positive=True)
+    require(all(k <= 1 for k in kernels), "Receiver probabilities exceed one")
+    require(
+        admitted["cores"][0]["core"] == "BOKE"
+        and admitted["cores"][0]["ppe"] == [ppe[0], ppe[2]]
+        and admitted["cores"][0]["saved_K"] == [kernels[0], kernels[2]],
+        "Original projected response differs",
+    )
+    rows = list(
+        csv.DictReader(
+            io.StringIO(_read_pin(repository, admitted, PARAMETERS).decode())
+        )
+    )
+    rows = [r for r in rows if r["Plant taxa/Pollen-morphological types"] == "Fraxinus"]
+    require(len(rows) == 1, "Unique literal Fraxinus parameter row required")
+    match = re.fullmatch(r"([0-9.]+) \(([0-9.]+)\)", rows[0]["PPE (SD)"])
+    require(match is not None, "Literal Fraxinus PPE annotation unsupported")
+    assert match is not None
+    require(
+        (float(match[1]), float(match[2]), float(rows[0]["FSP (m/s)"]))
+        == (ppe[1], sd[1], speeds[1]),
+        "Original Fraxinus parameter differs",
+    )
+    return {
+        "taxa": list(FULL_TAXA),
+        "ppe": ppe,
+        "saved_K": kernels,
+        "response_PPE_times_K": list(
+            inputs.numbers(
+                [e * k for e, k in zip(ppe, kernels, strict=True)], 3, positive=True
+            )
+        ),
+        "saved_quadrature": quadrature[0],
+        "source_report": SWEDISH_REPORT,
+        "source_parameters": PARAMETERS,
     }
