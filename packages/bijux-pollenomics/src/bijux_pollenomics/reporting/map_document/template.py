@@ -35,6 +35,12 @@ def load_map_document_template() -> str:
                 encoding="utf-8"
             ),
         )
+        .replace(
+            "__POLLEN_DIAGRAM_CONTROLLER__",
+            package_root.joinpath("assets/pollen-diagram.js").read_text(
+                encoding="utf-8"
+            ),
+        )
     )
 
 

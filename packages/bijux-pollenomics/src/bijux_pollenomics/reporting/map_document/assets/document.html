@@ -5547,6 +5547,8 @@ __URL_STATE_CONTROLLER__
         return `<span>${escapeHtml(String(value))}</span>`;
       }
       __CHRONOLOGY_DIAGRAM_CONTROLLER__
+      __POLLEN_DIAGRAM_CONTROLLER__
+      const pollenDepthSelections = new WeakMap();
       function renderFocusDetail() {
         const focused = document.activeElement;
         const focusedTab = focusTabs.contains(focused) ? focused.dataset.focusTab : null;
@@ -5556,7 +5558,9 @@ __URL_STATE_CONTROLLER__
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
         focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
-        focusDetail.innerHTML = (activeFocusTab === 'chronology' ? renderAgeDepthDiagram(tabs) : '') + renderDetailValue(tabs[activeFocusTab], activeFocusTab);
+        const sourceDiagram = activeFocusTab === 'chronology' ? renderAgeDepthDiagram(tabs)
+          : activeFocusTab === 'pollen_composition' ? renderPollenDepthDiagram(tabs, pollenDepthSelections.get(tabs) ?? null) : '';
+        focusDetail.innerHTML = sourceDiagram + renderDetailValue(tabs[activeFocusTab], activeFocusTab);
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
         focusCopyLinkButton.disabled = focusState?.kind !== 'point';
@@ -5576,6 +5580,17 @@ __URL_STATE_CONTROLLER__
             const direction = button.dataset.pageDirection === 'previous' ? -1 : 1;
             detailTablePages.set(tablePath, Math.max(0, (detailTablePages.get(tablePath) || 0) + direction));
             renderFocusDetail();
+          });
+        });
+        focusDetail.querySelectorAll('[data-pollen-depth-group]').forEach((select) => {
+          select.addEventListener('change', () => {
+            if (pollenDepthDiagramData(tabs).groups.some(group => group.key === select.value)) {
+              pollenDepthSelections.set(tabs, select.value);
+            } else {
+              pollenDepthSelections.delete(tabs);
+            }
+            renderFocusDetail();
+            focusDetail.querySelectorAll('[data-pollen-depth-group]')[0]?.focus({ preventScroll: true });
           });
         });
         if (focusedTab) {
