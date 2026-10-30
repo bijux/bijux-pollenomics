@@ -2290,6 +2290,10 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                   <select id="relation-target-country-filter" class="search-input"></select>
                   <p class="search-meta">Stored endpoints do not establish direction for indeterminate relations. Candidate status is not scientific admission.</p>
                   <div id="relation-filter-status" role="status" aria-live="polite" class="search-meta"></div>
+                  <details>
+                    <summary>Retained relation country counts</summary>
+                    <div id="relation-country-summary"></div>
+                  </details>
                   <label class="chip-toggle">
                     <input id="cross-border-only" type="checkbox" aria-label="Show cross-border candidate relations only">
                     <span class="chip-swatch" style="background:rgba(124,58,237,0.18);border-color:#6d28d9;"></span>
@@ -5259,6 +5263,10 @@ __URL_STATE_CONTROLLER__
       function syncHashState() {
         if (pendingEdgeFocus) return;
         if (!atlasURLState.canPublish()) return;
+        const nextHash = atlasSelectionHashParams().toString();
+        atlasURLState.publish(nextHash ? `#${nextHash}` : '');
+      }
+      function atlasSelectionHashParams() {
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
@@ -5299,9 +5307,7 @@ __URL_STATE_CONTROLLER__
           writeSourceRecordFocusHash(params, focusState, activeFocusTab);
           writeEdgeFocusHash(params, focusState, activeFocusTab, publishedEdgeFocusBuild());
         }
-        const nextHash = params.toString();
-        const desiredHash = nextHash ? `#${nextHash}` : '';
-        atlasURLState.publish(desiredHash);
+        return params;
       }
       function clearHighlightedPoint() {
         if (!highlightedPointEntry || !highlightedPointEntry.marker) return;
@@ -6924,6 +6930,22 @@ __URL_STATE_CONTROLLER__
       }
       let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
       __EDGE_DISPLAY_CONTROLLER__
+      __RELATION_SUMMARY_CONTROLLER__
+      function renderRelationCountrySummary() {
+        const container = document.getElementById('relation-country-summary');
+        if (!container) return;
+        const edges = visibleGovernedEdges();
+        const href = (edgeId, scenarioId) => {
+          if (!atlasURLState.canPublish()) return null;
+          const build = publishedEdgeFocusBuild();
+          if (!edgeFocusSelection({edgeId, scenarioId, atlasBuildId: build}, build, edges, visiblePointEntries)) return null;
+          const params = atlasSelectionHashParams();
+          ['focus_layer', 'focus_feature', 'focus_record', 'focus_tab'].forEach(key => params.delete(key));
+          if (!writeEdgeFocusHash(params, {kind: 'edge', edgeId, scenarioId, atlasBuildId: build, edgeShareable: true}, 'relation', build)) return null;
+          return `#${params.toString()}`;
+        };
+        container.innerHTML = renderRelationSummary(relationSummaryData(edges), href, DETAIL_TABLE_PAGE_SIZE);
+      }
       async function openEdgeDetail(edge, source, compare = false, fromSharedLink = false) {
         if (!fromSharedLink) pendingEdgeFocus = null;
         const signal = scientificSignalById(edge.signal_id), presentation = edgeScientificPresentation(edge);
@@ -7316,6 +7338,7 @@ __URL_STATE_CONTROLLER__
         densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
         emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
         syncHashState();
+        renderRelationCountrySummary();
         if (document.documentElement.classList.contains('atlas-capture-mode') && atlasCapturePresentation !== null) {
           renderAtlasCaptureOverlay(atlasCaptureSnapshot());
         }
