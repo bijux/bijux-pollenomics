@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Preserve declared child keys in SEAD reconciliation diagnostics ([#301](https://github.com/bijux/bijux-pollenomics/pull/301)).
+- **Pending review:** Retain literal count correspondence and descriptive forest-plot evidence ([#302](https://github.com/bijux/bijux-pollenomics/pull/302)).
+- **Verified merge (2026-10-30 07:57:11 UTC):** Preserve declared child keys in SEAD reconciliation diagnostics ([#301](https://github.com/bijux/bijux-pollenomics/pull/301)).
 - **Verified merge (2026-10-30 07:12:27 UTC):** Retain literal Galician worksheet context and refuse broad taxonomy labels ([#300](https://github.com/bijux/bijux-pollenomics/pull/300)).
 - **Verified merge (2026-10-30 06:34:54 UTC):** Preserve historical scoring and authenticate Atlas wrapper transport ([#299](https://github.com/bijux/bijux-pollenomics/pull/299)).
 - **Verified merge (2026-10-30 05:34:50 UTC):** Authenticate canonical reference context, historical finite evidence and strict controller source custody ([#298](https://github.com/bijux/bijux-pollenomics/pull/298)).

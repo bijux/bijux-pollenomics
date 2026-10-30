@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "a2db77201204b9d3ab7a7d0dcbc0289473045c2b5b6e82c175ef57b7cb5b3dc9",
-      "bytes": 7387658
+      "sha256": "0fd3cba88b131d147998fcf22f79b016dcb68edc3076265dd03e1fd97ac2edb5",
+      "bytes": 7388131
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5333,6 +5333,16 @@
       "path": "reports/science/source-cohorts/galician-sample-context.csv",
       "sha256": "fb8d552cd807198397766459e6475de3ff085b20d9d32fe0e8c281994cd935d9",
       "bytes": 19905
+    },
+    {
+      "path": "reports/science/source-lineage/exhult-count-correspondence.csv",
+      "sha256": "d0a5021ebbdf1abba9365a95a0be4b325b6dbd979541bd4249139f950d0c8148",
+      "bytes": 3337
+    },
+    {
+      "path": "reports/science/vegetation-reference/forest-plot-pollen.csv",
+      "sha256": "e22ceffd366b0f0c8b98795b2137370ac4e66871906677eb0113fcc6b06e5a3b",
+      "bytes": 6859
     }
   ],
   "maintained_paths": [
@@ -5705,6 +5715,8 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/model_validation/synthetic_recovery_evidence.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/direct_pollen_measure_strata.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/exhult_cells.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/exhult_count_correspondence.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_allocation.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_join.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/native_roundtrip.py",
@@ -5908,6 +5920,8 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/site_leakage.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/spatial_eligibility.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/writer_execution.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/forest_plot_inputs.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/forest_plot_pollen.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/__main__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/account.py",
