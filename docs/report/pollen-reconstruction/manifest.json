@@ -6425,7 +6425,7 @@
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/basemap/__init__.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/basemap/test_provider_failure.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_mobile_legend_clearance.py",
-    "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_scientific_filter_controls.py",
+    "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/selection/test_scientific_filter_controls.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_tile_free_orientation_controls.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/edges/__init__.py",
     "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/edges/test_resolution_selection.py",

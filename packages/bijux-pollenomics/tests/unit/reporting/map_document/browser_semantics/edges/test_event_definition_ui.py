@@ -13,7 +13,7 @@ import pytest
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
 from ..support import template_block
-from .test_edge_focus_url import browser
+from .inspection.focus_support import browser
 from .test_event_definition_filters import DEFAULT, edge
 from .test_scenario_filters import packet as packet
 

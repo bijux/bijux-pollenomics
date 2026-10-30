@@ -65,7 +65,6 @@ from .reporting import (
 )
 
 __all__ = [
-    "build_benchmark_lra_parser",
     "build_adna_archive_projects_parser",
     "build_adna_artifact_plan_parser",
     "build_adna_curation_manifest_parser",
@@ -77,6 +76,7 @@ __all__ = [
     "build_adna_runtime_manifest_parser",
     "build_adna_species_parser",
     "build_adna_species_review_parser",
+    "build_benchmark_lra_parser",
     "build_collect_data_parser",
     "build_multi_country_map_parser",
     "build_ownership_map_parser",

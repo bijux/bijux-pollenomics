@@ -28,7 +28,7 @@ from ....atlas.static_assets.fixtures.scientific_evidence import (
     build_scientific_point_layers,
 )
 from ..support import template_block
-from .test_edge_focus_url import browser
+from .inspection.focus_support import browser
 from .test_scientific_edges import normalize_edges
 
 

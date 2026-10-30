@@ -4,7 +4,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-10-24
 ---
 
 # Quality Gates
@@ -152,6 +152,70 @@ Every gate report therefore names the input identity, scope, selection rule,
 and result population. Empty selection is an explicit outcome, not an
 automatic pass. A focused gate may be exactly the right proof, but its success
 must remain bounded to the surface it actually observed.
+
+### Atlas Browser Qualification
+
+The controlled atlas supplies eight software catalog entries and two exact
+six-signal selections. Two nearby points produce two candidate relation
+rows for the same endpoint pair, using 100 km and 100-year or 200-year limits.
+A native-shaped Neotoma fixture passes through the normal builder,
+materializer and projection: NISP 3 and concentration 12.5 retain separate
+units, and two age claims retain their source meanings, including the
+selected 1150–1250 BP interval. These are software inputs, not admitted field
+observations or an accepted taxonomic crosswalk.
+
+Reproduce the inputs from the owning `browser_semantics/` tests,
+`build_scientific_signals`/`build_scientific_point_layers` and
+`download_row(201)` fixtures; use
+`generate_propagation_network`/`project_propagation_network` for canonical
+candidates. Write one bundle with `write_static_atlas_assets` and
+`write_static_map_document`, then use those same bytes across browsers.
+Keep the Git revision separate from the data build ID: a rendering change
+can leave the latter unchanged. Retain commands, engine versions, input
+selection, unsuccessful attempts and process/profile cleanup under
+`artifacts/qualification/`.
+
+Tested engines include Brave Chromium 155.0.8059.80, Chrome for Testing
+156.0.8078.47, Firefox 158.0.1 and WebKit 26.4, with different qualified scopes.
+A version listing is not a complete protocol/download matrix pass. Reconcile
+exact pins, legend/features and full memberships, native chronology, drawing
+and uncapped exports; retained relations and endpoint/viewport-eligible marks
+have different denominators.
+
+At `c5d8a7fbc`, the declared no-basemap view measured eight default cue colors
+above 4.993:1 and two edge styles above 3.036:1 using solid paint cores,
+excluding antialias fringe and dash gaps. That measurement used a native
+zoom-out; it did not qualify the original Fit placement. WebKit at
+`db00caf9c` verified both six-signal selections, all 24 cue-center hit tests
+and source details/downloads. Chrome at `a11fac631` separately confirmed
+post-Fit geometry and paint clearance, Reset and selection exports. An
+instrumented hidden-container reveal recovered once without refitting on later
+resize.
+The same two selections retained their labels, literal IDs, shapes, glyphs and
+cue visibility under protanopia, deuteranopia, tritanopia, achromatopsia and
+blurred-vision simulations. This checks software rendering and noncolor cues;
+it does not measure transformed contrast or establish human perceptual acceptance.
+Firefox saved both native JSON downloads with three points, two relations
+and two endpoint-eligible relation rows; Playwright received no download event.
+That observer timeout remains preserved without assigning an unproved cause.
+
+Chrome's separate browser-native 200% comparison retained identical native
+content bounds while CSS layout changed from 1280 × 900 to 640 × 450,
+pixel ratio from 1 to 2, and visual viewport scale stayed 1.
+Viewport/DPR emulation alone establishes equivalent layout, not browser zoom.
+Hit tests and nonzero paint samples are also separate requirements: an overlay
+can leave a marker hit-testable while altering its paint. Retained CDP navigation,
+source-window/disclosure and remote-download API failures are unsuccessful
+observer attempts, not retrospective passes. Affected-revision ordinary-test
+passes are not a single-HEAD release result.
+
+Authentic raster contrast requires an actively viewed, terms-permitted input.
+The [OSM tile policy](https://operations.osmfoundation.org/policies/tiles/)
+permits ordinary interactive viewing and caching, and prohibits prefetching
+outside the actively viewed area and headless tile-forcing sweeps.
+Headed automation alone is not permission; no provider outage is inferred.
+Custom colors, unrestricted raster views, governed scientific inputs and human
+taxonomic, perceptual and screen-reader review remain separate gates.
 
 ## Classify A Failure Before Expanding
 

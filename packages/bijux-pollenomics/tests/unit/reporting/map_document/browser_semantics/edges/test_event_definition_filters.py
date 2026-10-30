@@ -23,7 +23,7 @@ from bijux_pollenomics.analysis.propagation.projection.geojson import candidate_
 
 from .....analysis.propagation.network.support import event
 from ..support import run_node_json, template_block
-from .test_relation_time_summary import edge as status_edge
+from .inspection.test_relation_time_summary import edge as status_edge
 from .test_scientific_edges import normalize_edges
 
 FIELDS = (
