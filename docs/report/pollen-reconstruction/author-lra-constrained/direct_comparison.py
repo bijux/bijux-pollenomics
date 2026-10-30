@@ -21,6 +21,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments.inputs import (
     read_training_observation,
 )
 from bijux_pollenomics.analysis.lra_validation.metrics import (
+    HellingerArithmeticProfile,
     hellinger_distance,
     score_pollen,
 )
@@ -88,7 +89,7 @@ def predict(inputs: Path, destination: Path) -> str:
                 "raw_sha256": site.raw.sha256,
                 "geometry_sha256": site.geometry.sha256,
             }
-        graph = {record_id: () for record_id in fold.train_record_ids}
+        graph = dict.fromkeys(fold.train_record_ids, ())
         for method in METHODS:
             prediction = predict_spatial_baseline(
                 fold,
@@ -324,8 +325,21 @@ def paired_hellinger(
     lra_report: Path,
     comparison: Path,
     output: Path,
+    *,
+    arithmetic_profile: HellingerArithmeticProfile = "stable",
+    arithmetic_receipt: Path | None = None,
 ) -> dict[str, object]:
     """Score frozen direct and LRA pollen predictions on the same raw source rows."""
+    if arithmetic_profile not in ("stable", "source-compatible-22c6e480"):
+        raise ValueError("Unknown Hellinger arithmetic profile")
+    if arithmetic_profile != "stable" and arithmetic_receipt is None:
+        raise ValueError("Historical arithmetic requires a separate receipt")
+    if arithmetic_receipt is not None and (
+        arithmetic_receipt.exists()
+        or arithmetic_receipt.is_symlink()
+        or arithmetic_receipt.resolve() == output.resolve()
+    ):
+        raise ValueError("Absent separate arithmetic receipt required")
     if output.exists() or output.is_symlink():
         raise ValueError("Absent Hellinger output required")
     spec, source_sha = _source(inputs)
@@ -397,9 +411,13 @@ def paired_hellinger(
             raise ValueError("Observed pollen denominator changed")
         observed = {taxon: count / total for taxon, count in counts.items()}
         direct_distance = hellinger_distance(
-            direct[(target, method)]["pollen_fraction"], observed
+            direct[(target, method)]["pollen_fraction"],
+            observed,
+            arithmetic_profile=arithmetic_profile,
         )
-        lra_distance = hellinger_distance(lra[(target, method)], observed)
+        lra_distance = hellinger_distance(
+            lra[(target, method)], observed, arithmetic_profile=arithmetic_profile
+        )
         rows.append(
             {
                 "target_record_id": target,
@@ -461,6 +479,20 @@ def paired_hellinger(
     }
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2) + "\n")
+    if arithmetic_receipt is not None:
+        output_raw = output.read_bytes()
+        receipt = {
+            "schema_version": "author-paired-hellinger-arithmetic.v1",
+            "arithmetic_profile": arithmetic_profile,
+            "paired_output": {
+                "sha256": hashlib.sha256(output_raw).hexdigest(),
+                "bytes": len(output_raw),
+            },
+            "scope": "Arithmetic selection only; original exact correspondence and source acceptance remain separate checks.",
+        }
+        arithmetic_receipt.parent.mkdir(parents=True, exist_ok=True)
+        with arithmetic_receipt.open("x") as stream:
+            stream.write(json.dumps(receipt, indent=2) + "\n")
     return report
 
 
@@ -575,6 +607,12 @@ def main() -> None:
     fourth.add_argument("--lra-report", type=Path, required=True)
     fourth.add_argument("--comparison", type=Path, required=True)
     fourth.add_argument("--output", type=Path, required=True)
+    fourth.add_argument(
+        "--arithmetic-profile",
+        choices=("stable", "source-compatible-22c6e480"),
+        default="stable",
+    )
+    fourth.add_argument("--arithmetic-receipt", type=Path)
     fifth = sub.add_parser("hellinger-sensitivity")
     fifth.add_argument("--hellinger", type=Path, required=True)
     fifth.add_argument("--output", type=Path, required=True)
@@ -618,6 +656,10 @@ def main() -> None:
                     args.lra_report,
                     args.comparison,
                     args.output,
+                    arithmetic_profile=cast(
+                        HellingerArithmeticProfile, args.arithmetic_profile
+                    ),
+                    arithmetic_receipt=args.arithmetic_receipt,
                 ),
                 sort_keys=True,
             )
