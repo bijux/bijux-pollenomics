@@ -24190,6 +24190,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/development_design.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/development_evidence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/experiment_ledger.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/kernel_branches.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/known_landscape.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference.py",
