@@ -6,8 +6,8 @@ from bijux_pollenomics.reporting.map_document import render_multi_country_map_ht
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import MapScopePolicy
 
-from .controls.test_scientific_picker import SCRIPT
-from .controls.test_scientific_picker_mounting import MOUNT
+from .controls.selection.test_scientific_picker import SCRIPT
+from .controls.selection.test_scientific_picker_mounting import MOUNT
 from .support import run_node_json, template_block
 
 
