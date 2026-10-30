@@ -590,3 +590,186 @@ def test_existing_outer_workflow_route_stays_on_accepted_runtime_helper(
         and result["classification"] == "runtime_transport_extension"
     )
     assert calls == [case.row["path"]]
+
+
+_NATIVE_METHOD_SOURCE = "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js"
+
+
+def _native_method_case(
+    root: Path, monkeypatch: pytest.MonkeyPatch, prefix: str = _CONTEXTS[1]
+) -> RelationCase:
+    """Repin inert comment bytes at the non-Python coordinate, never execute them."""
+    case = _case(root, monkeypatch, prefix, _NATIVE_METHOD_SOURCE)
+    contracts = dict(subject._RELATION_CONTEXT_CONTRACTS)
+    contracts[_NATIVE_METHOD_SOURCE] = (
+        len(_OLD),
+        _identity(_OLD)["sha256"],
+        "ordinary_original_bytes",
+        _PAIRS,
+    )
+    monkeypatch.setattr(subject, "_RELATION_CONTEXT_CONTRACTS", contracts)
+    return case
+
+
+def _observe_native_method(monkeypatch: pytest.MonkeyPatch) -> list[dict[str, Any]]:
+    """Record actual custody results from the real chronology non-Python route."""
+    observed: list[dict[str, Any]] = []
+    original = subject.validated_atlas_relation_context_source
+
+    def actual(
+        repository: Path, row: dict[str, Any], logical: str, resolver: SourceCapsule
+    ) -> dict[str, Any]:
+        result = original(repository, row, logical, resolver)
+        observed.append(result)
+        return result
+
+    monkeypatch.setattr(chronology, "validated_atlas_relation_context_source", actual)
+    return observed
+
+
+def test_chronology_nonpython_method_context_uses_real_fixed_custody(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """An actual .js dispatch reads old Git comments and current bytes exactly."""
+    case = _native_method_case(tmp_path / "repository", monkeypatch)
+    observed = _observe_native_method(monkeypatch)
+    assert _dispatch(case) is None
+    assert len(observed) == 1
+    role = observed[0]
+    assert role["path"] == _NATIVE_METHOD_SOURCE
+    assert role["original_member"] == "source/" + _NATIVE_METHOD_SOURCE
+    assert role["original_bytes"] == len(_OLD)
+    assert role["original_sha256"] == _identity(_OLD)["sha256"]
+    assert role["classification"] == "atlas_relation_context_extension"
+    assert role["whole_old_module_reconstructed"] is True
+    assert role["current_regular_single_link_and_stable"] is True
+    assert role["declared_native_method_display_intentionally_extended"] is True
+    assert role["producer_inventory_intentionally_extended"] is False
+    assert role["retained_current_producer_digest_guard_relaxed"] is False
+    assert role["historical_native_equal_current_output_claimed"] is False
+    assert role["historical_browser_equal_current_browser_claimed"] is False
+    assert role["old_native_equal_current_admission_claimed"] is False
+    assert role["new_native_or_scientific_execution_claimed"] is False
+
+
+def test_chronology_unknown_javascript_bytes_refuse_after_real_route_baseline(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A .js extension never becomes an unrestricted historical display role."""
+    case = _native_method_case(tmp_path / "repository", monkeypatch)
+    assert _dispatch(case) is None
+    case.target.write_bytes(_CURRENT + b"globalThis.unclassified = true;\n")
+    with pytest.raises(ReportRebuildError):
+        _dispatch(case)
+
+
+@pytest.mark.parametrize("defect", ("logical", "hash", "group", "detached"))
+def test_chronology_method_binding_refuses_after_positive_nonpython_baseline(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, defect: str
+) -> None:
+    """The one new language coordinate keeps the original real capsule bindings."""
+    case = _native_method_case(tmp_path / "repository", monkeypatch)
+    assert _dispatch(case) is None
+    if defect == "logical":
+        case.logical = "source/" + _MODELS
+    elif defect == "hash":
+        case.row["sha256"] = "0" * 64
+    elif defect == "group":
+        case.buffer.descriptor.groups[0]["resolved_paths"] = [(case.logical, _MODELS)]
+    else:
+        case.buffer.detached = frozenset()
+    with pytest.raises(ReportRebuildError):
+        _dispatch(case)
+
+
+def test_optimizer_catalog_does_not_authorize_chronology_only_method_asset(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A positive chronology source remains refused by both optimizer entrypoints."""
+    chronology_case = _native_method_case(tmp_path / "chronology", monkeypatch)
+    assert _dispatch(chronology_case) is None
+    optimizer_case = _native_method_case(
+        tmp_path / "optimizer", monkeypatch, _CONTEXTS[0]
+    )
+    assert optimizer_case.buffer.read_source(optimizer_case.logical) == _OLD
+    assert _NATIVE_METHOD_SOURCE not in subject.ATLAS_RELATION_CONTEXT_SOURCES
+    with pytest.raises(ReportRebuildError):
+        optimizer_case.admit()
+    with pytest.raises(ReportRebuildError):
+        _dispatch(optimizer_case)
+
+
+def test_nonpython_current_source_final_read_is_observed_after_positive_baseline(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Changing the final current observation is refused without faking a matcher."""
+    case = _native_method_case(tmp_path / "repository", monkeypatch)
+    assert _dispatch(case) is None
+    read_bytes = Path.read_bytes
+    reads = 0
+
+    def changing(path: Path) -> bytes:
+        nonlocal reads
+        body = read_bytes(path)
+        if path == case.target:
+            reads += 1
+            if reads == 2:
+                return body + b"// changed final observation\n"
+        return body
+
+    monkeypatch.setattr(Path, "read_bytes", changing)
+    with pytest.raises(ReportRebuildError, match="changed during verification"):
+        _dispatch(case)
+    assert reads == 2
+
+
+def test_actual_native_method_asset_two_spans_restore_whole_old_git_module() -> None:
+    """Read actual original/current buffers as data; never execute either script."""
+    repository = Path(__file__).resolve().parents[7]
+    size, digest, prior, spans = subject._RELATION_CONTEXT_CONTRACTS[
+        _NATIVE_METHOD_SOURCE
+    ]
+    originals = []
+    for revision in (
+        "1286cd6b74e3cbe87a2cc94851a11cc8f941375c",
+        "d37a306ccd39ffb853352ec03cd8d8b6dce29483",
+    ):
+        body = subprocess.check_output(
+            [
+                "git",
+                "--no-replace-objects",
+                "show",
+                revision + ":" + _NATIVE_METHOD_SOURCE,
+            ],
+            cwd=repository,
+            timeout=20,
+        )
+        assert len(body) == size == 18936
+        assert _identity(body)["sha256"] == digest
+        originals.append(body)
+    assert originals[0] == originals[1] and prior == "ordinary_original_bytes"
+    current = (repository / _NATIVE_METHOD_SOURCE).read_bytes()
+    assert len(spans) == 2
+    assert subject.atlas_relation_context_extension_matches(
+        _NATIVE_METHOD_SOURCE, originals[0], current
+    )
+    assert not subject.atlas_relation_context_extension_matches(
+        _NATIVE_METHOD_SOURCE, originals[0], current + b"globalThis.unknown = true;\n"
+    )
+    assert not subject.atlas_relation_context_extension_matches(
+        _NATIVE_METHOD_SOURCE, originals[0] + b"// counterfeit old\n", current
+    )
+    for before, after in spans:
+        assert current.count(after) == 1
+        assert not subject.atlas_relation_context_extension_matches(
+            _NATIVE_METHOD_SOURCE, originals[0], current.replace(after, before, 1)
+        )
+
+
+def test_fixed_context_source_sets_are_exactly_five_python_and_six_chronology() -> None:
+    """Current selected scope stays distinct from the broad retained catalogue."""
+    assert frozenset(_SOURCES) == subject.ATLAS_RELATION_CONTEXT_SOURCES
+    assert frozenset((*_SOURCES, _NATIVE_METHOD_SOURCE)) == (
+        subject.CHRONOLOGY_ATLAS_RELATION_CONTEXT_SOURCES
+    )
+    assert all(name.endswith(".py") for name in subject.ATLAS_RELATION_CONTEXT_SOURCES)
