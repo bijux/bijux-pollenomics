@@ -117,6 +117,36 @@ function mountSignedNativeTimeControls(state, changed) {
   return Object.freeze({refresh});
 }
 
+function nativeLraMethodContextHtml(view) {
+  const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
+  const escape = value => String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+  const literal = value => escape(JSON.stringify(value));
+  const method = object(view?.method) ? view.method : {};
+  const profile = typeof method.profile === 'string' && method.profile.trim()
+    ? escape(method.profile) : 'Unavailable: no valid method profile supplied.';
+  function settings(value, label) {
+    if (!object(value)) return `<p>${escape(label)} unavailable: no settings object supplied.</p>`;
+    const rows = [];
+    function append(record, prefix) {
+      Object.entries(record).forEach(([key, item]) => {
+        const path = prefix ? `${prefix}.${key}` : key;
+        if (object(item) && Object.keys(item).length) append(item, path);
+        else rows.push(`<tr><th scope="row">${escape(path)}</th><td>${literal(item)}</td></tr>`);
+      });
+    }
+    append(value, '');
+    return rows.length
+      ? `<div class="focus-detail-table-wrap"><table class="focus-detail-table"><caption>${escape(label)}</caption><thead><tr><th scope="col">Declared field</th><th scope="col">Literal value</th></tr></thead><tbody>${rows.join('')}</tbody></table></div>`
+      : `<p>${escape(label)}: no fields declared.</p>`;
+  }
+  const omissions = view?.uncertainty_omissions;
+  const uncertainty = Array.isArray(omissions) && omissions.every(value => typeof value === 'string' && value.trim())
+    ? omissions.length ? `<ul>${omissions.map(value => `<li>${escape(value)}</li>`).join('')}</ul>`
+      : '<p>No uncertainty omissions were declared. This does not establish complete uncertainty coverage.</p>'
+    : '<p>Declared uncertainty omissions unavailable: no valid list supplied.</p>';
+  return `<h4>Method and declared uncertainty</h4><p>Method profile: ${profile}</p>${settings(method.configuration, 'Declared configuration')}${settings(method.versions, 'Declared versions')}<h5>Declared uncertainty omissions</h5>${uncertainty}<p>These are declarations from the bound result, not validated assumptions or scientific approval. Display filters do not refit the model. Method summaries do not establish total uncertainty or held-out predictive coverage.</p>`;
+}
+
 function createNativeLraController(view, viewSha256, adapters) {
   'use strict';
   const clone = value => JSON.parse(JSON.stringify(value));
@@ -225,6 +255,8 @@ function createNativeLraController(view, viewSha256, adapters) {
   function mount() {
     const host = document.getElementById('lra-controls');
     host.hidden = false;
+    const methodContext = document.getElementById('lra-method-context');
+    if (methodContext) methodContext.innerHTML = nativeLraMethodContextHtml(view);
     Object.entries({roles: 'lra-role', site_ids: 'lra-site', taxa: 'lra-taxon', bin_ids: 'lra-bin'}).forEach(([key, id]) => {
       const control = document.getElementById(id);
       allowed[key].forEach(value => {

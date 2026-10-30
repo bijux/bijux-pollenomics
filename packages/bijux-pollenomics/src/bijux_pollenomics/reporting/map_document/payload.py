@@ -140,6 +140,9 @@ def build_map_document_payload(
             '<div class="inline-actions"><button id="lra-download" '
             'class="inline-button is-primary" type="button">'
             "Download selected estimates</button></div>"
+            '<section id="lra-method-context" aria-label="Native LRA method and declared uncertainty">'
+            '<p class="search-meta">Method and uncertainty context unavailable until the bound model view is loaded.</p>'
+            "</section>"
             '<p class="search-meta"><a href="native-view.json">Complete bound model view</a> · '
             '<a href="index.html">Complete report and original product downloads</a>'
             "</p></div></details>"
