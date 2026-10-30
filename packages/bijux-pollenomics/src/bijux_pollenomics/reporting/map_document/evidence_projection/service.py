@@ -44,6 +44,21 @@ def build_map_evidence_projection(
             neotoma_accounting,
             neotoma_source_layers,
         ) = _project_neotoma(root, neotoma_layer)
+        # Source-site links belong to the map publication, not node identity.
+        source_site_urls: dict[str, str] = {}
+        for feature in _features(neotoma_layer):
+            url = feature.get("source_url")
+            if isinstance(url, str) and url.strip():
+                source_site_urls[
+                    _required_text(feature.get("record_id"), "Neotoma site record ID")
+                ] = url
+        for layer in neotoma_source_layers:
+            for feature in _features(layer):
+                url = source_site_urls.get(
+                    _required_text(feature.get("record_id"), "Neotoma source record ID")
+                )
+                if url is not None:
+                    feature["source_url"] = url
         records.extend(neotoma_records)
         source_accounting["neotoma"] = neotoma_accounting
         projected_point_layers.extend(neotoma_source_layers)
