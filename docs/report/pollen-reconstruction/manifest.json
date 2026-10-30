@@ -76,8 +76,8 @@
     },
     {
       "path": "data/archaeology/raw/hojea_2003_source.json",
-      "sha256": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
-      "bytes": 1227
+      "sha256": "fbe7ce5cd4d796e41d6b0c7d8bb5720f36173b02ab4d250e701a0d09ff8a5a1d",
+      "bytes": 5675
     },
     {
       "path": "data/country_dimension_coverage.json",
@@ -3376,8 +3376,8 @@
     },
     {
       "path": "reports/exports/papers/local-love-theory.pdf",
-      "sha256": "f5e3a2788cb0c4b82f528e3d578feee6389589181709219f839b545946005acc",
-      "bytes": 49056
+      "sha256": "591e37a7661f362d0255464dfc247e39536b481dc70c3eb158e7c1a918c71006",
+      "bytes": 60608
     },
     {
       "path": "reports/exports/papers/love-optimized-local-inference.pdf",
@@ -3386,18 +3386,18 @@
     },
     {
       "path": "reports/exports/papers/manifest.json",
-      "sha256": "d9cf5ac48a812b0b0f84b0b7a195b1f29f08bdcc51efdada3fe98515f76cea4f",
-      "bytes": 20372
+      "sha256": "d4336d9ec79a7b3db9ce6ad2a9f04b6e72c24824d1ca7fa97a51509f3879df6c",
+      "bytes": 25264
     },
     {
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "sha256": "9632a30e89057f6819fe23ec0460f2406474eb7193449e4430231134cb7550ec",
-      "bytes": 104211
+      "sha256": "a46d35e019e3898b378878277f1c84ccc1777aa0df731225f5dfe9ab9c2ffd25",
+      "bytes": 111902
     },
     {
       "path": "reports/exports/papers/regional-reveals-theory.pdf",
-      "sha256": "6c4362e24297a236d980a6d4b45685fc469185aa3edc0a472c47dc903ff476a6",
-      "bytes": 49183
+      "sha256": "8dc37bd6a0575e31ea95ebd71f82bac3b015122dfcafd022ef425175238740a7",
+      "bytes": 59210
     },
     {
       "path": "reports/exports/papers/smaland-historical-map-reference.pdf",
@@ -3406,13 +3406,13 @@
     },
     {
       "path": "reports/exports/papers/southern-sweden-regional-validation.pdf",
-      "sha256": "215a3c2ff7cd498118cdd3225b09216cb4d1c3c741f90c9df7e858e334a99565",
-      "bytes": 51253
+      "sha256": "3db992ad8d093369762ce4e112cafee92e502c5981658c3348c2aa10ac835180",
+      "bytes": 51334
     },
     {
       "path": "reports/exports/papers/southern-sweden-sampling-design.pdf",
-      "sha256": "a7b1ba7215ec2277720680188c71cfe826b0d846a1e996b60a238f18504fe431",
-      "bytes": 51996
+      "sha256": "29c0590e2668a342e8545ca81f3bebcdc46db8d905423eba5108a2feec4eb08b",
+      "bytes": 48468
     },
     {
       "path": "reports/exports/papers/southern-sweden-validation-synthesis.pdf",
@@ -3421,8 +3421,8 @@
     },
     {
       "path": "reports/exports/papers/visual-review.json",
-      "sha256": "d2443a8198cd961a0dbda23a26b2eb0b64188f3831158651ba7d2cf5bf20fc94",
-      "bytes": 51871
+      "sha256": "ae929f89b5cebb8bdf07aea895ab866c8a44aa6959ed6884ec3b323a08e3e18d",
+      "bytes": 56113
     },
     {
       "path": "reports/science/aadr-nordic-entities/decisions.csv",
@@ -3501,8 +3501,8 @@
     },
     {
       "path": "reports/science/paper-accounts.csv",
-      "sha256": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447",
-      "bytes": 6891
+      "sha256": "7eddabdca98385713acc11224abc2f5355567d44f9277da88a526dfedc622eb2",
+      "bytes": 9182
     },
     {
       "path": "reports/science/publication-correspondence/pft-crosswalk/author-name-review/report.json",

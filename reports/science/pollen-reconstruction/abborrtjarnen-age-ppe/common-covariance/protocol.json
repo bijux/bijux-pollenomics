@@ -1,0 +1,115 @@
+{
+  "schema_version": "abborrtjarnen-common-ppe-covariance-protocol.v1",
+  "question": "How much can one common unknown PPE correlation matrix change each of 20 cover-component and 30 temporal-contrast variances across the same qualified source-supported joint-age mixture?",
+  "source_result": "artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/result.json",
+  "source_ledger": "artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/draw-ledger.csv.gz",
+  "source_verification": "artifacts/raa-reconciliation/abborrtjarnen-age-ppe/source-supported-counts/governed-reference-check/independent-check.json",
+  "producer_source_commit": "3c89475195629a8afb7c1cc79752d84aee6d6e3c",
+  "observer_source_commit": "4bc6ab0f211c179aa332dc848f954c6773aeae00",
+  "repository_inputs": {
+    "artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/result.json": {
+      "bytes": 261785,
+      "sha256": "4ff4fb0978144c6e86671bd8a6cc4219f1f28ff8124cc60f6c1a95e268c8fc62"
+    },
+    "artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-run/draw-ledger.csv.gz": {
+      "bytes": 3111265,
+      "sha256": "8f97e8f74072bfcf25bef117f35850cdc4e51b70e1dbbced02179eced8b50f9c"
+    },
+    "artifacts/raa-reconciliation/abborrtjarnen-age-ppe/source-supported-counts/governed-reference-check/independent-check.json": {
+      "bytes": 1054,
+      "sha256": "cb878d5dc2a916eeeba97e8ef674cc353d23f6eb1d8970664c31b84156c4da3d"
+    }
+  },
+  "taxon_axis": [
+    "Betula",
+    "Cyperaceae",
+    "Juniperus communis",
+    "Pinus sylvestris",
+    "Poaceae"
+  ],
+  "native_taxon_ids": [
+    29,
+    74,
+    4416,
+    1287,
+    417
+  ],
+  "free_parameter_taxon_ids": [
+    29,
+    74,
+    4416,
+    1287
+  ],
+  "fixed_reference_taxon_id": 417,
+  "window_ids": [
+    3,
+    4,
+    5,
+    9
+  ],
+  "scalar_population": {
+    "components": 20,
+    "contrasts": 30,
+    "total": 50
+  },
+  "conditioning": "All 32,000 saved seed/native-row identities remain; 31,999 C_source rows define the conditional numerical target, with population denominator 31,999. The one empty-window row and the refused unconditional quantity are unchanged. No raw count table or age array is reopened.",
+  "finite_target": "From each saved binary64 cover use the existing first-order PPE Jacobian. Form each older-minus-younger contrast gradient before multiplying by the four positive SDs and taking its outer product. Compensated binary64 outer sums divided by M_C produce symmetric finite Q. One common R is used over every age state: PPE variance is trace(Q R), R PSD with unit diagonal. Poaceae zero parameter SD removes only its free parameter axis, not its output uncertainty.",
+  "search": {
+    "starts": 8,
+    "angle_modulus": 17,
+    "angle_multipliers": [
+      1,
+      3,
+      7
+    ],
+    "maxiter": 200,
+    "ftol": 1e-13,
+    "circle_dyadic_bits": 40,
+    "padding_exponents": [
+      -44,
+      -40,
+      -36,
+      -32,
+      -28,
+      -24,
+      -20,
+      -16,
+      -12,
+      -8,
+      -4,
+      0,
+      4
+    ],
+    "normalized_gap_threshold": "1/1000000"
+  },
+  "search_law": "For each scalar and sign, retain exact identity and eight rank-one sign Gram candidates, then propose eight rank-two angle candidates with first angle zero and theta_j=2*pi*((k*m_j)%17)/17, k=1..8, m=(1,3,7). Use SLSQP analytic gradient, maxiter 200 and ftol 1e-13, no RNG and no outcome-driven restarts or changes. Normalization by trace(Q) is only for floating candidate search. Candidate feasibility and global certificates use unnormalized serialized Q as exact rationals; optimizer success does not certify global optimality, and no rank theorem is required.",
+  "certificate_law": "Rational signed stereographic circle rows with 40-bit dyadic t make exact feasible Grams. For S=+Q or -Q, derive y_i=sum_j S_ij R_ij, try no padding then the frozen trace(Q)*2^e ladder, and certify Diag(y)-S PSD using all 15 exact principal minors. Keep the first passing padded candidate and the exact Gershgorin fallback y_i=S_ii+sum_j!=i abs(S_ij); choose the smaller certified upper bound. Convert the negative-sign bound into the original minimum. Preserve signed endpoints, attained witness values and gaps separately. Only an exact gap/trace(Q)<=1e-6 qualifies an endpoint as tight; otherwise retain a certified loose enclosure. Exact zero Q has zero endpoints and normalized gap zero with an identity witness. Nonzero nonpositive-trace or nonsymmetric Q is refused, never projected.",
+  "correspondence": {
+    "diagonal_absolute_tolerance": 1e-12,
+    "independent_Q_absolute_tolerance": 1e-18,
+    "independent_Q_relative_tolerance": 1e-11
+  },
+  "total_variance": "Add Fraction.from_float(saved age variance) and Fraction.from_float(saved count variance) separately to each exact PPE endpoint. These fixed binary64 terms do not change with correlation. Different scalar extrema may use different R and do not define one jointly attaining covariance or simultaneous interval.",
+  "square_root_policy": "Preserve signed exact total endpoints and exact order. If the outer lower endpoint is negative, return refused_signed_outer_bound and null SD displays; do not clip or intersect with a physical nonnegative domain. Exact zero is mathematically allowed. Otherwise show finite binary64 square roots explicitly as approximate, non-directed numerical displays. Positive underflow, overflow or an unsupported numeric domain refuses the display without changing the exact bounds.",
+  "precision_and_scope": "Certificates are exact for supplied finite serialized Q, not the ideal unrounded age/PPE moment, the true physical integral or field uncertainty. Floating gradient/moment correspondence is checked separately at the declared tolerances, with no silent symmetrization or PSD clipping. Source-model assumptions, static geometry, parameter transfer, conditional pooled-count law and age/PPE independence are unchanged; a correlation sensitivity class supplies no adopted PPE distribution, ecological accuracy, posterior coverage or source/core/species admission.",
+  "rights_and_use": "Local noncommercial derived analysis of the already qualified pangaea_recorded_zeros_local_nc result, with Thomas Giesecke/EPD/PANGAEA attribution and original CC BY-NC 3.0 limits retained separately from the Neotoma CC BY 4.0 source and LandClimII parameters. Full numerical outputs remain local artifacts. No original count matrix, candidate table, saved-age matrix or publisher attachment is copied or redistributed.",
+  "environment": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "resource_budget": {
+    "wall_seconds": 180,
+    "peak_rss_bytes_posthoc": 805306368,
+    "output_bytes": 10000000
+  },
+  "independent_resource_budget": {
+    "wall_seconds": 180,
+    "peak_rss_bytes_posthoc": 536870912,
+    "output_bytes": 5000000
+  },
+  "model_fits": 0,
+  "new_ppe_draws": 0,
+  "raw_count_or_age_inputs_read": false,
+  "distribution_law_adopted": false,
+  "field_calibration_or_coverage_claim": false
+}

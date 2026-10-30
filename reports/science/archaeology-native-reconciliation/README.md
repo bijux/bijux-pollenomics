@@ -311,3 +311,31 @@ adoption. Historical-density equivalence, chronology admission,
 scientific-event admission, archaeological interpretation, publication admission
 and field permission remain unestablished. No whole science outcome or original
 umbrella clause is closed by these source preparation results alone.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** National native ID/table/category/null/zero/empty reconciliation, complete retained geometry-payload and declared EPSG:3006/XY accounting, and an admitted source-context-only reader that preserves native facts and distinct geometry roles.
+
+**Unsupported claim.** Historical WFS record equivalence or density replacement, independent archaeological corroboration, topological or positional accuracy, per-record country/time assignment, scientific event/publication admission, palaeobasin support or field permission.
+
+**Actual verification performed.** Committed national population execution and independent SQL aggregation agree on all seven native tables, field missingness distinctions and five category distributions. Full geometry execution and independent NumPy traversal agree on all 1,603,446 occurrences and 39,641,674 coordinate pairs. The native-context execution preserved prior populations and legacy refusals; 187 capability audit rows and 198 country cells kept their scientific values. Focused source/schema/geometry controls, configured lint/types and affected product checks passed; no raw national copy or archaeological chronology conversion was made.
+
+**Remaining input or review.** The current retained national GeoPackage is qualified for native source context and complete binary geometry/declared-CRS accounting, but the historical WFS inventory lacks aligned record identities, predicates and source dates. Source classes and geometry structure do not establish archaeological chronology, accuracy or scientific event suitability. Resolver: Source owner for historical WFS identities/query/date provenance; archaeological and spatial analysts for a separately declared interpretation or downstream selection. Reopen when: Supply the source-bound historical WFS feature population and predicates/date correspondence for reconciliation, or define and qualify a narrower native-source archaeological/spatial use without substituting legacy density authority.
+
+**Cause category.** data|comparability|qualified review
+
+**Consequence.** Read the versioned official capture as uninterpreted native source context now; preserve its full populations and geometry roles while keeping historical density and archaeological/time/field conclusions separate.
+
+**Precise next acceptance route.** Continue through the admitted native source-context reader for native facts. Reconcile historical WFS only against a bound historical feature inventory with exact selection/date evidence. A new archaeological or spatial claim must declare its selection and qualify the corresponding chronology/geometry evidence before downstream admission.
+
+**Negative or refused result.** No invalid/orphan geometry or ownership rows occurred in this capture. Historical WFS/density authority remains refused: native minus historical counts are not record-level changes, and the historical 339,412 cell sum remains unreconciled with 318,265 declared Fornlamning hits. General scientific, chronology and field admission remain false despite admitted native source context.
+
+**Matched denominator.** 764,383 distinct remains UUIDs; 3,286,090 rows across seven native tables; 839,063 remains-geometry plus 764,383 positional-uncertainty occurrences; 39,641,674 coordinate pairs. Geometry occurrences, class rows and dependent capability cells are not independent events.
+
+Retained evidence: [reports/science/archaeology-native-reconciliation/report.json](report.json), [reports/science/archaeology-native-reconciliation/geometry.json](geometry.json), [data/raa/raw/national_geopackage_source.json](../../../data/raa/raw/national_geopackage_source.json), [data/raa/normalized/sweden_archaeology_layer.json](../../../data/raa/normalized/sweden_archaeology_layer.json), [docs/report/regions/nordic/source-capability/report.json](../../../docs/report/regions/nordic/source-capability/report.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

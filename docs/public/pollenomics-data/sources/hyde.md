@@ -38,6 +38,18 @@ spatiotemporal registries expose HYDE's pending admission. Unknown native cell
 and country totals remain null; placing JSON files at expected paths cannot
 turn them into accepted source evidence.
 
+## Documented licence reference
+
+The project records the downloaded April snapshot's bundled
+`original/readme_HYDE_3.5.txt:15` **CC BY 3.0** statement as its selected reference,
+following the user's 26 October 2026 instruction. The downloaded root licence
+and local Yoda metadata instead state CC BY-NC 4.0; later provider metadata
+states CC BY 4.0. Preserve each declaration's source and date. The selection
+does not establish alternative licensing granted by the provider or a verified
+change over time. Exact retained-member rights and publication scope remain
+questions for the owning [scientific source account](../../../../reports/science/hyde-cropland-source-account.md#our-source-authority-decision).
+Original source files and qualified local numerical results remain unchanged.
+
 ## Prepare and verify an external inventory
 
 Use the installed host package to prepare a new compact inventory directory:

@@ -209,6 +209,17 @@ reviewed outcomes and a frozen benchmark before test-label access. These
 already exposed 16 leads cannot become that cohort by changing the genus
 rule or calling their basal-area fields newly unopened.
 
+The full [Hellman regional-validation](hellman-regional-validation-paper.md)
+and [sampling-design](hellman-sampling-design-paper.md) articles have now been
+examined. They identify the original ten-lake/50-sample and final eight-lake/
+40-sample populations, printed 26-taxon reference/error tables and six sensitivity
+designs. Seven reference taxa are directly derived; nineteen use generalized
+vegetation-class composition, with a specific calibration-dependence question.
+Four retained historical cores at three matching lake names do not identify the
+winter-2003 surface samples. Original ledger/count/run realizations and source
+label/parameter conflicts remain unresolved. This source review adds no admitted
+independent vegetation pair and leaves the nine-label arithmetic unchanged.
+
 ## What follows
 
 We can use these sources to explain spatial coverage, reject an unsuitable
@@ -221,9 +232,11 @@ figure exists.
 
 To change that decision, we need a source-owner-reviewed set of original
 vegetation fractions and pollen counts, with linked physical cores, dates,
-taxon mapping, landscape support and rights. The full Hellman ten-lake
-source data or another independently matched cohort could meet that need.
-We will freeze the benchmark and predictions before viewing its outcomes.
+taxon mapping, landscape support and rights. The original Hellman 50/final 40 sample/count and numerical run packet could
+support historical replay; the supplied articles and their published outcomes
+have already been examined. Recovering those inputs would not make the study
+untouched. A new confirmatory validation needs a separately justified independent
+cohort, with benchmark and predictions frozen before previously unopened outcomes.
 The open research need records the requested source
 packet and resolver.
 

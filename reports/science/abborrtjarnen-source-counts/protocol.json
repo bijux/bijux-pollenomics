@@ -1,0 +1,61 @@
+{
+  "schema_version": "abborrtjarnen-original-count-correspondence-protocol.v1",
+  "question": "Does the retained original ABBO table explicitly record the five-taxon measurements absent from eight current Neotoma sample panels, after complete exact depth and shared-count correspondence?",
+  "readable_owner": "reports/science/abborrtjarnen-source-method.md",
+  "original_table": "epd/pangaea/abbo-pollen-profile-pangaea-738429.tsv",
+  "current_native": "neotoma/dataset-19913/2026-10-26T185139Z/dataset-19913.download.json",
+  "source_store_files": {
+    "epd/pangaea/abbo-pollen-profile-pangaea-738429.tsv": {
+      "bytes": 43894,
+      "sha256": "ee4671277fc4120c65f6fe4fa19fb1d302167e419d5419a55287d09c226ab154"
+    },
+    "neotoma/dataset-19913/2026-10-26T185139Z/dataset-19913.download.json": {
+      "bytes": 632600,
+      "sha256": "1317496c2e1d04c7f69a2048ee49647350f5abfc0f8e23360211e01f5eb5dd8a"
+    },
+    "neotoma/dataset-19913/2026-10-26T185139Z/dataset-19913.metadata.json": {
+      "bytes": 881,
+      "sha256": "baa42c6510d22e7008ecc2caa2ae935bb0e7b05df909501f090d76b3f9196b98"
+    }
+  },
+  "source_scope": {
+    "original": "Giesecke (2010), doi:10.1594/PANGAEA.738429, archived from EPD on 2010-05-11; event ABBO, original collection date 2002-06-15. The table names sediment depth in metres and count fields in #. No original sample-ID column or missing/zero convention is declared in the header.",
+    "current": "Neotoma dataset 19913, site 13338, collection unit 14910, handle ABBO, European Pollen Database, doi:10.21233/2vzb-bg61, Giesecke. Native pollen count units NISP and canonical JSON integer values are retained; depth units are not explicit in the response.",
+    "metadata_limits": "Shared owner/handle and close site coordinates are leads, not physical-core authority. Preserve PANGAEA elevation start 387 m/end 6.5 m and Neotoma altitude 374 m without equating or correcting those fields. Archival and collection dates are provenance, not sample ages.",
+    "prior_work": "The earlier 107-depth/2183-count Rootsi ABB.xls comparison concerns a separate source. Existing fixed-age/age-mixture five-taxon profiles used only the PANGAEA descriptive area header and leave eight absent current-native cells unresolved. Those results and source scopes remain unchanged."
+  },
+  "axis_fields": [
+    {"taxon": "Betula", "original_column": "Bet [#]", "original_epd_comment": "Betula", "native_taxon_id": 29},
+    {"taxon": "Cyperaceae", "original_column": "Cypae [#]", "original_epd_comment": "Cyperaceae", "native_taxon_id": 74},
+    {"taxon": "Juniperus communis", "original_column": "Jun.c [#]", "original_epd_comment": "Juniperus-type", "native_taxon_id": 4416},
+    {"taxon": "Pinus sylvestris", "original_column": "Pin.s [#]", "original_epd_comment": "Pinus diploxylon-type", "native_taxon_id": 1287},
+    {"taxon": "Poaceae", "original_column": "Poac [#]", "original_epd_comment": "Gramineae", "native_taxon_id": 417}
+  ],
+  "join": {
+    "expected_original_columns": 95,
+    "required_original_rows": 107,
+    "required_native_samples": 107,
+    "original_depth_m_multiplier": "100",
+    "rule": "Exact Decimal arithmetic, without binary floating-point conversion or nearest matching. Require unique complete 107-to-107 depth equality after scaling original metres by 100. Report duplicate/unmatched depths and source ordering; do not silently collapse rows, interpolate or declare a native depth unit.",
+    "identity_limit": "Assign native sample IDs to original rows only after the complete depth bijection. Count agreement supports correspondence of the exported series, not an independent measurement, aliquot/core identity, species-level concept equivalence or historical LandClim selection."
+  },
+  "count_comparison": {
+    "all_slots": 535,
+    "required_reported_pairs": 527,
+    "expected_absent_native_slots": 8,
+    "precondition": "Every one of the 527 explicitly reported current-native measurements must equal a valid nonnegative integer in its uniquely joined original field before eight absent-native cells are presented as support candidates. Any mismatch or wrong reported population withholds candidate conclusions, while recording aggregate failures and up to eight diagnostic examples.",
+    "token_states": ["explicit_zero", "explicit_positive_integer", "blank", "invalid"],
+    "token_rule": "Retain literal cells. Finite nonnegative mathematically integral original decimal tokens, including 0.0, are explicit counts. Empty or whitespace cells remain blank; nonfinite, negative, nonintegral and unparsed tokens remain invalid with reasons. An explicit numeric zero is recorded source-count evidence, not proof of biological absence. No omitted current datum or blank original cell becomes zero.",
+    "morphology": "Retain the exact original parameter names and EPD morphological comments alongside native IDs. Matching exported numbers does not promote Juniperus-type, Pinus diploxylon-type or Gramineae into newly reviewed species concepts or a PPE-transfer decision.",
+    "audit": "Complete depth-pair and 535-slot scientific-data digests use canonical JSON, sorted object keys, UTF-8, no whitespace, in ascending native exact depth/sample ID then declared five-taxon order. Rational native-depth keys preserve exact comparisons. Compact results contain five taxon counters and at most eight absence candidates, not the full original table."
+  },
+  "rights_and_use": {
+    "original": "Retained source declares Creative Commons Attribution-NonCommercial 3.0 Unported. This is a local noncommercial descriptive scientific comparison with attribution to Thomas Giesecke, EPD and PANGAEA. It does not upgrade original terms to the current Neotoma release terms or infer blanket commercial/public redistribution authority.",
+    "outputs": "Native original table/matrix and source files remain external and unchanged. Comparison outputs remain local artifacts. The existing source-method account may describe qualified factual correspondence and refusals; no raw original count-table redistribution is authorized by this protocol.",
+    "future_use": "Any later source-augmented conditional calculation requires its own declared source/profile and preserves prior missing-panel results. This comparison alone imputes nothing, changes no source observation, reruns no age/PPE consumer and admits no physical or historical LRA core."
+  },
+  "resource_budget": {"wall_seconds": 60, "peak_rss_bytes_posthoc": 536870912, "output_bytes": 16384},
+  "model_fits": 0,
+  "age_draws_consumed": 0,
+  "counts_imputed": 0
+}

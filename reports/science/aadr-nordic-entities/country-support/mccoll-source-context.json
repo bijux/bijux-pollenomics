@@ -1,0 +1,1406 @@
+{
+  "schema_version": "mccoll-country-source-account.v1",
+  "status": "source_context_reconciled_country_and_chronology_admission_unresolved",
+  "source_commit": "ac1c3619a9e16c4450f40d945a01d847a060b0e5",
+  "study": {
+    "doi": "10.1101/2024.03.13.584607",
+    "supplied_version": "v2, posted 2025-01-07",
+    "paper_page_1_license": "CC-BY-NC-ND 4.0 International",
+    "archaeological_supplement_label": "S7",
+    "genetics_page_22_section": "S4. Imputation"
+  },
+  "publication_provenance": {
+    "scope": "Historical publication-discovery metadata, separate from the unchanged committed Germanic reader result, AADR annotation literals and museum context. Those remote attempts obtained no Celtic article or specimen table; the later user-supplied v3 package is recorded separately in supplied_celtic_v3.",
+    "aadr_cited_publication": {
+      "doi_literal": "https://doi.org/10.1101/2025.02.28.640770",
+      "metadata_title": "Tracing the Spread of Celtic Languages using Ancient Genomics",
+      "version_in_retained_annotation": null,
+      "version_binding_established": false,
+      "specimen_fields_scope": "Existing AADR fields are annotation assertions; citation alone does not establish original Celtic specimen-table ownership or identify its source version."
+    },
+    "supplied_companion_publication": {
+      "doi": "10.1101/2024.03.13.584607",
+      "version": "2",
+      "date": "2025-01-07",
+      "existing_study_context": "/study",
+      "distinct_doi_study": true,
+      "originals_reused_in_place": true,
+      "scope": "Germanic companion source cells and archaeological paragraphs, not an alternative DOI/version label for the Celtic study or an authorized correction to AADR."
+    },
+    "celtic_biorxiv_metadata_versions": [
+      {
+        "version_literal": "1",
+        "date_literal": "2025-03-01",
+        "license_literal": "cc_by_nc_nd",
+        "published_literal": "NA"
+      },
+      {
+        "version_literal": "2",
+        "date_literal": "2025-05-02",
+        "license_literal": "cc_by_nc_nd",
+        "published_literal": "NA"
+      },
+      {
+        "version_literal": "3",
+        "date_literal": "2025-05-08",
+        "license_literal": "cc_by_nc_nd",
+        "published_literal": "NA"
+      }
+    ],
+    "provider_metadata_limit": "bioRxiv published=NA and empty Crossref relation are provider metadata states, not proof that no journal publication exists. Present Celtic v3 is not proof that AADR used v3.",
+    "europepmc_metadata": {
+      "identifier": "PPR984375",
+      "manuscript_id": "EMS205221",
+      "isOpenAccess_literal": "Y",
+      "hasSuppl_literal": "N",
+      "license_literal": "cc by-nc-nd",
+      "scope": "The metadata advertises a main PDF; actual PDF request failed. It supplies no retrieved specimen attachment or version-to-AADR binding."
+    },
+    "source_manifest_relative_to_shared_store": "adna/celtic-source/2026-10-26/source-manifest.json",
+    "acquisition_gets": [
+      {
+        "file": "biorxiv-version-metadata.json",
+        "requested_url": "https://api.biorxiv.org/details/biorxiv/10.1101/2025.02.28.640770",
+        "final_url": "https://api.biorxiv.org/details/biorxiv/10.1101/2025.02.28.640770",
+        "http_status": 200,
+        "retrieval_started_utc": "2026-10-26T22:27:34.297101+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:27:34.689652+00:00",
+        "bytes": 8027,
+        "sha256": "70c5bc62a36f89ceb638128759e3ff8318e4e9b78605bb82ebd5a7fe76dd0aaa",
+        "completion": "closed"
+      },
+      {
+        "file": "crossref-doi-metadata.json",
+        "requested_url": "https://api.crossref.org/works/10.1101%2F2025.02.28.640770",
+        "final_url": "https://api.crossref.org/works/10.1101%2F2025.02.28.640770",
+        "http_status": 200,
+        "retrieval_started_utc": "2026-10-26T22:27:34.690815+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:27:35.234719+00:00",
+        "bytes": 23630,
+        "sha256": "e043e599cafb1d40c7cfd3bc0eb58303ae8740fcdc73d97557d65390902f7b2b",
+        "completion": "closed"
+      },
+      {
+        "file": "europepmc-doi-metadata.json",
+        "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1101/2025.02.28.640770&format=json&resultType=core",
+        "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.1101/2025.02.28.640770&format=json&resultType=core",
+        "http_status": 200,
+        "retrieval_started_utc": "2026-10-26T22:27:35.236054+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:27:35.595143+00:00",
+        "bytes": 6985,
+        "sha256": "793fea2852ac92aeaf6decc7f34c5c0a6ae3e60014f2e169e873d6fcae0d09b5",
+        "completion": "closed"
+      },
+      {
+        "file": "europepmc-EMS205221-pdf.response",
+        "requested_url": "https://europepmc.org/api/fulltextRepo?pprId=PPR984375&type=FILE&fileName=EMS205221-pdf.pdf&mimeType=application/pdf",
+        "final_url": "https://europepmc.org/api/fulltextRepo?pprId=PPR984375&type=FILE&fileName=EMS205221-pdf.pdf&mimeType=application/pdf",
+        "http_status": 403,
+        "retrieval_started_utc": "2026-10-26T22:28:12.867593+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:28:13.099272+00:00",
+        "bytes": 7617,
+        "sha256": "0c38ab5102d7d4eb89a96719bd50357b7e2d9c6dc2716d813c5ea3c17717e1eb",
+        "completion": "closed"
+      },
+      {
+        "file": "europepmc-PPR984375-fulltext-xml.response",
+        "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PPR984375/fullTextXML",
+        "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PPR984375/fullTextXML",
+        "http_status": 500,
+        "retrieval_started_utc": "2026-10-26T22:28:56.068189+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:28:59.094969+00:00",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "completion": "closed"
+      },
+      {
+        "file": "biorxiv-v1-supplement-page.response",
+        "requested_url": "https://www.biorxiv.org/content/10.1101/2025.02.28.640770v1.supplementary-material",
+        "final_url": "https://www.biorxiv.org/content/10.1101/2025.02.28.640770v1.supplementary-material",
+        "http_status": 403,
+        "retrieval_started_utc": "2026-10-26T22:29:39.738072+00:00",
+        "retrieval_finished_utc": "2026-10-26T22:29:39.880105+00:00",
+        "bytes": 17,
+        "sha256": "2938e9f1284180959e33ab1718d0793a72ff6e4cdb8108c34dcd14e69446de5c",
+        "completion": "closed"
+      }
+    ],
+    "acquisition_summary": {
+      "get_count": 6,
+      "metadata_http_200": 3,
+      "failed_responses": 3,
+      "article_or_specimen_table_successes": 0,
+      "body_bytes": 46276,
+      "retry_or_challenge_bypass_performed": false,
+      "existing_Germanic_originals_copied": false,
+      "genetic_measurements_or_target_outcome_tables_opened": false
+    },
+    "remaining_source_question": "Which Celtic version underlies the unversioned AADR citation, and what sample-owned laboratory/date/coordinate crosswalk explains the AADR representations? Supplied Celtic v3 now provides the Fauskland combined metadata row, but no Aunvollen/105915 row in its S1.1 sheet; the exact museum subrecord and Individual 2-to-laboratory links remain unresolved.",
+    "coordinate_or_date_correction_performed": false,
+    "scientific_or_map_admission": false,
+    "outreach_performed": false,
+    "accepted_record_metadata": {
+      "scope": "Separate two-GET public citation-metadata follow-through. The original six-response acquisition unit and all specimen, coordinate, date and country records remain unchanged.",
+      "source_manifest_relative_to_shared_store": "adna/celtic-source/accepted-record-metadata-2026-10-26/source-manifest.json",
+      "acquisition_gets": [
+        {
+          "file": "cambridge-celtic-record.html",
+          "requested_url": "https://www.repository.cam.ac.uk/items/0f0cbcd9-9d79-4820-8221-1fb254b9b4b9",
+          "final_url": "https://www.repository.cam.ac.uk/items/0f0cbcd9-9d79-4820-8221-1fb254b9b4b9",
+          "http_status": 200,
+          "retrieval_started_utc": "2026-10-26T22:38:47.456830+00:00",
+          "retrieval_finished_utc": "2026-10-26T22:38:49.127607+00:00",
+          "bytes": 479559,
+          "sha256": "f9e4e0defde7aab2eb1080be398164d6ac454f224386f0a29922f4998fe674d4",
+          "completion": "closed"
+        },
+        {
+          "file": "crossref-exact-title-journal-metadata.json",
+          "requested_url": "https://api.crossref.org/works?query.title=Tracing+the+spread+of+Celtic+languages+using+ancient+genomics&filter=type%3Ajournal-article&rows=3",
+          "final_url": "https://api.crossref.org/works?query.title=Tracing+the+spread+of+Celtic+languages+using+ancient+genomics&filter=type%3Ajournal-article&rows=3",
+          "http_status": 200,
+          "retrieval_started_utc": "2026-10-26T22:39:13.282670+00:00",
+          "retrieval_finished_utc": "2026-10-26T22:39:13.931738+00:00",
+          "bytes": 5528,
+          "sha256": "868a70a673409e2b7917b68445fbc4811c2d0b286f7cea80c5f4da2342907726",
+          "completion": "closed"
+        }
+      ],
+      "acquisition_summary": {
+        "get_count": 2,
+        "metadata_http_200": 2,
+        "body_bytes": 485087,
+        "embargoed_article_or_attachment_downloaded": false,
+        "genetic_measurements_or_specimen_tables_opened": false,
+        "retry_or_challenge_bypass_performed": false
+      },
+      "cambridge_record": {
+        "item_url": "https://www.repository.cam.ac.uk/items/0f0cbcd9-9d79-4820-8221-1fb254b9b4b9",
+        "handle": "1810/409414",
+        "repository_doi": "10.17863/CAM.135565",
+        "title_literal": "Tracing the spread of Celtic languages using ancient genomics",
+        "citation_author_literals": [
+          "Willerslev, Eske",
+          "McColl, Hugh",
+          "Kroonen, Guus",
+          "Kristiansen, Kristian",
+          "Sikora, Martin"
+        ],
+        "metadata_literals": {
+          "rioxxterms.version": "AM",
+          "dcterms.dateAccepted": "2026-09-22",
+          "cam.depositDate": "2026-10-08",
+          "dc.date.accessioned": "2026-10-13T23:30:42Z",
+          "prism.publicationName": "Nature",
+          "dc.publisher": "Nature Research",
+          "dc.rights": "Attribution 4.0 International",
+          "dc.rights.uri": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "displayed_version_literal": "Accepted version",
+        "displayed_peer_review_literal": "Peer-reviewed",
+        "access_status_literal": "embargo",
+        "embargo_date_literal": "2029-10-13",
+        "citation_publication_date_literal": "2026-10-13T23:30:42Z",
+        "date_interpretation": "Acceptance, repository deposit and accession are distinct events. The HTML citation_publication_date repeats accession; it is not established as a journal-publication date.",
+        "rights_scope": "CC BY 4.0 is public item metadata, not an inferred grant to fetch or redistribute the embargoed accepted-manuscript file. The separately retained preprint CC BY-NC-ND metadata is unchanged.",
+        "journal_doi_or_version_of_record_identified": false,
+        "celtic_preprint_doi_token_present_in_exposed_metadata": false,
+        "relation_scope": "Matching title and author metadata supports a repository accepted-record counterpart, not an explicit relationship to a particular Celtic preprint version or the AADR annotation."
+      },
+      "crossref_exact_title_journal_query": {
+        "returned_items": 3,
+        "returned_doi_title_pairs": [
+          {
+            "doi": "10.1126/science.acz9883",
+            "title": [
+              "Early migration may have spread Celtic languages"
+            ]
+          },
+          {
+            "doi": "10.2307/20522420",
+            "title": [
+              "Celtic Languages and Celtic Peoples"
+            ]
+          },
+          {
+            "doi": "10.2307/330125",
+            "title": [
+              "The Celtic Languages"
+            ]
+          }
+        ],
+        "scope": "All three returned titles are unrelated to the requested exact title. This bounded query does not establish absence of a journal publication or DOI."
+      },
+      "celtic_preprint_version_to_aadr_binding_established": false,
+      "specimen_laboratory_date_coordinate_crosswalk_established": false,
+      "scientific_or_map_admission": false
+    }
+  },
+  "supplied_celtic_v3": {
+    "doi": "10.1101/2025.02.28.640770",
+    "version": "3",
+    "posted_date_literal": "May 8, 2025",
+    "original_directory": "Tracing the spread of Celtic languages using ancient genomics",
+    "original_inputs": [
+      {
+        "path": "2025.02.28.640770v3.full.pdf",
+        "bytes": 2389126,
+        "sha256": "8659eaed5c47abc218d8d652dd58e9c471672ac4a7b31bda2ceaa4c8d98a56c6",
+        "pdf_nonempty_pages": 38
+      },
+      {
+        "path": "media-1.xlsx",
+        "bytes": 26599060,
+        "sha256": "ea882decc159f2d6d268548f2b1f94a3b08411b145293c7c20e73b302965140b"
+      },
+      {
+        "path": "media-2.pdf",
+        "bytes": 7090453,
+        "sha256": "f6825a96bf93d4046426b9aaa9ad2b4263857edd6176ad83379e2fcb5d9634f1",
+        "pdf_nonempty_pages": 1
+      },
+      {
+        "path": "media-3.pdf",
+        "bytes": 6986089,
+        "sha256": "ce7b39b40c2ec9ac146b5ede55226b52d6b3ba3a078fe16efcd2f80b0f1ca0b0",
+        "pdf_nonempty_pages": 1
+      },
+      {
+        "path": "media-4.pdf",
+        "bytes": 21767546,
+        "sha256": "c6f61524eff5fedf2b60d13c83eab18ceed4688cec92b6d8da3e07d6571f2ec2",
+        "pdf_nonempty_pages": 81
+      }
+    ],
+    "rights_scope": {
+      "main_page_1_license_literal": "CC-BY-NC-ND 4.0 International",
+      "main_page_1_peer_review_statement": "not certified by peer review",
+      "attachment_redistribution_grant_inferred": false,
+      "original_attachments_redistributed": false
+    },
+    "workbook": {
+      "crc_checked": true,
+      "worksheet_names": [
+        "S1.1. Sample metadata",
+        "S1.2. IBD MM Sources",
+        "S1.3 IBD MM Results",
+        "S1.4 Aux metadata",
+        "S1.5. IBD MM Aux Results",
+        "S2.1. qpadm 1pop models",
+        "S2.2. qpadm 2pop models",
+        "S2.3. qpadm 3pop models",
+        "S2.4. qpadm pops",
+        "S3.1 Chromopaint Sources",
+        "S3.2 Chromopaint Results"
+      ],
+      "reviewed_sheet": "S1.1. Sample metadata",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "dimension_literal": "A1:AG4588",
+      "sample_rows": 4587,
+      "other_results_sheets_numerically_validated": false
+    },
+    "fauskland_metadata": {
+      "physical_excel_row": 4237,
+      "descriptive_literals": {
+        "sampleId": "CGG105916_CGG105917_CGG105918.mccoll_230821_ironage",
+        "popId": "CGG105916_CGG105917_CGG105918",
+        "versionID": "CGG105916",
+        "site": "Fauskland",
+        "country": "Norway",
+        "region": "NorthernEurope",
+        "groupLabel": "Norway_LateNeolithicEarlyBronzeAge",
+        "latitude": "63.605789999999999",
+        "longitude": "14.858610000000001",
+        "dataSource": "thisPublication",
+        "age14C": "NA",
+        "ageHigh": "4087",
+        "ageLow": "3934",
+        "ageAverage": "4011",
+        "datingSource": "direct",
+        "ageRaw": "NA"
+      },
+      "native_numeric_tokens": {
+        "H": "63.605789999999999",
+        "I": "14.858610000000001",
+        "L": "4087",
+        "M": "3934",
+        "N": "4011"
+      },
+      "age_scope": "ageHigh, ageLow, ageAverage and datingSource are literal table fields. The selected header/row supplies no explicit age-unit/reference-epoch, calibration-curve or laboratory-code field; age14C and ageRaw are literal NA. No conversion or calibration is performed.",
+      "alias_scope": "The combined popId and versionID match the previously consumed Germanic S5.1 representation. This supports a source representation link, not a new independent individual or an explicit AADR source-version/museum-subrecord binding.",
+      "coordinate_scope": "Numeric degree values agree with the original AADR Fauskland pair and retain its conflict with the Norway locality and museum longitude; no point is selected or transformed.",
+      "date_scope": "4087/3934/4011 reproduce the Germanic summary literals, while AADR date_mean_bp=4503, date_sd_bp=134 and its full-date string remain distinct and unchanged."
+    },
+    "finite_metadata_search": {
+      "scope": "All 4587 S1.1 sample rows, not every auxiliary results sheet or every source release.",
+      "terms_and_physical_rows": {
+        "105915": [],
+        "105916": [
+          "4237"
+        ],
+        "105917": [
+          "4237"
+        ],
+        "105918": [
+          "4237"
+        ],
+        "Aunvollen": [],
+        "Fauskland": [
+          "4237"
+        ],
+        "T11792": [],
+        "A7437": [],
+        "T20248": []
+      },
+      "universal_absence_inferred": false
+    },
+    "pdf_provenance_context": {
+      "main_pages": [
+        1,
+        24,
+        28,
+        29,
+        31
+      ],
+      "main_line_ranges": [
+        "516-518",
+        "607-609",
+        "627-634",
+        "674-677"
+      ],
+      "companion_reference": {
+        "number": 41,
+        "doi": "10.1101/2024.03.13.584607",
+        "scope": "The Celtic main paper explicitly directs sampling/site metadata to the distinct Germanic companion and its data availability to PRJEB87274. The printed companion Note S4 pointer is preserved; the supplied Germanic v2 archaeology section is S7."
+      },
+      "celtic_supplementary_note_s4": "Y-chromosome results, not the Germanic archaeological note",
+      "celtic_supplementary_note_s6": {
+        "pdf_pages": [
+          57,
+          58,
+          59,
+          60,
+          61,
+          62
+        ],
+        "scope": "Read in full: general Urnfield, Hallstatt and La Tene archaeological interpretation, without the named Norwegian specimen catalogue or sample-owned laboratory/date/coordinate crosswalk."
+      },
+      "exact_target_terms_in_main_or_81_page_notes": [],
+      "wide_single_page_figures": "Both oversized single-page sheets render and were previewed; their genetic numerical values were not independently validated."
+    },
+    "literal_verification": {
+      "source_revision": "19feb79bf25917431abfd05b9b5f6b474f358a81",
+      "artifacts_directory": "artifacts/celtic-source-review",
+      "extraction_command": "pdftotext -layout ORIGINAL.pdf artifacts/celtic-source-review/BASENAME.txt",
+      "source_inspection": {
+        "tool_session": 22105,
+        "exit_code": 0,
+        "elapsed_seconds_outer": 6.26,
+        "peak_rss_bytes": 221609984,
+        "wall_bound_seconds": 120,
+        "rss_budget_bytes_posthoc": 536870912
+      },
+      "second_decode_and_original_anno_check": {
+        "tool_session": 37107,
+        "exit_code": 0,
+        "elapsed_seconds_outer": 2.66,
+        "peak_rss_bytes": 318341120,
+        "wall_bound_seconds": 120,
+        "rss_budget_bytes_posthoc": 536870912,
+        "paths": [
+          "Direct original ZIP/XML cell tokens",
+          "Unchanged committed collection.intake.workbooks.read_xlsx_sheet_rows",
+          "Direct original ANNO csv.reader"
+        ],
+        "descriptive_cells_compared": 16,
+        "original_aadr_rows_compared": 4,
+        "originals_unchanged_before_and_after": true,
+        "interpretation_or_admission": false
+      },
+      "previews": {
+        "tool_session": 61706,
+        "exit_code": 0,
+        "elapsed_seconds_outer": 7.68,
+        "peak_rss_bytes": 32620544,
+        "pages_rendered": 6,
+        "command": "pdftoppm -f PAGE -l PAGE -scale-to 1600 -png -singlefile ORIGINAL.pdf artifacts/celtic-source-review/NAME"
+      },
+      "environment": "Shared .venv; python -B and PYTHONDONTWRITEBYTECODE=1; one-thread BLAS settings for workbook and ANNO observations; internal 120-second alarms; /usr/bin/time -l."
+    },
+    "version_to_aadr_binding_established": false,
+    "museum_subrecord_or_individual_laboratory_binding_established": false,
+    "coordinate_or_date_correction_performed": false,
+    "genetic_analysis_performed": false,
+    "scientific_or_map_admission": false,
+    "remaining_source_question": "Bind the unversioned AADR representation to its actual source version and specimen-owned laboratory/date/coordinate statements. Celtic v3 availability and the Fauskland combined row are now established; exact Aunvollen Individual 2 and Fauskland museum subrecord, chronology and datum/precision authority remain unresolved."
+  },
+  "original_inputs": [
+    {
+      "path": "2024.03.13.584607v2.full.pdf",
+      "bytes": 13244027,
+      "sha256": "e00f32c25897bfef313db79521c5bdbd5addee393faee1d2dd7de7be8ff75a7e"
+    },
+    {
+      "path": "media-1.xlsx",
+      "bytes": 2651210,
+      "sha256": "b94c214e2b018c0446d718bab910505df3b4fb7ce4cd128c7f021edea2e75bf3"
+    },
+    {
+      "path": "media-2.pdf",
+      "bytes": 3679221,
+      "sha256": "1ae31ccdd1dc624346a3270d95907580b8cb6c90782a7dd88acf810007eeef97"
+    },
+    {
+      "path": "media-15.pdf",
+      "bytes": 133531740,
+      "sha256": "f263322161ef2617f009d001d247c0c224dde817f8d32128c23c56bb541b26c1"
+    }
+  ],
+  "source_cell_observation": {
+    "worksheet_rows": 6,
+    "descriptive_cells": 162,
+    "aadr_records": 4,
+    "country_conflicts": 2,
+    "formula_cells": 0,
+    "present_blank_cells": 1,
+    "blank_reference": "S5.1 AG2323"
+  },
+  "worksheet_context": [
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 575,
+      "owner_literal": "CGG_2_105915",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A575",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105915"
+        },
+        "B": {
+          "reference": "B575",
+          "header": "Museum inv #",
+          "literal": "A7437/T20248 Individual 2"
+        },
+        "D": {
+          "reference": "D575",
+          "header": "Country",
+          "literal": "Norway"
+        },
+        "E": {
+          "reference": "E575",
+          "header": "Local",
+          "literal": "Central Norway/ Trøndelag"
+        },
+        "F": {
+          "reference": "F575",
+          "header": "Site",
+          "literal": "Aunvollen"
+        },
+        "H": {
+          "reference": "H575",
+          "header": "Latitude",
+          "literal": "63.12322"
+        },
+        "I": {
+          "reference": "I575",
+          "header": "Longitude",
+          "literal": "16.90684"
+        },
+        "K": {
+          "reference": "K575",
+          "header": "Sample Material",
+          "literal": "Tooth"
+        },
+        "L": {
+          "reference": "L575",
+          "header": "Description",
+          "literal": "M1"
+        },
+        "N": {
+          "reference": "N575",
+          "header": "Age",
+          "literal": "35-49"
+        },
+        "O": {
+          "reference": "O575",
+          "header": "context date",
+          "literal": "800-1050AD"
+        },
+        "P": {
+          "reference": "P575",
+          "header": "C14 Lab #",
+          "literal": "NA"
+        },
+        "Q": {
+          "reference": "Q575",
+          "header": "14C age (BP)",
+          "literal": "NA"
+        },
+        "R": {
+          "reference": "R575",
+          "header": "±",
+          "literal": "NA"
+        },
+        "U": {
+          "reference": "U575",
+          "header": "calBP from",
+          "literal": "1150"
+        },
+        "V": {
+          "reference": "V575",
+          "header": "calBP to",
+          "literal": "900"
+        },
+        "W": {
+          "reference": "W575",
+          "header": "cal BP Mean",
+          "literal": "1025"
+        },
+        "X": {
+          "reference": "X575",
+          "header": "BCE/CE from",
+          "literal": "800"
+        },
+        "Y": {
+          "reference": "Y575",
+          "header": "BCE/CE to",
+          "literal": "1050"
+        },
+        "Z": {
+          "reference": "Z575",
+          "header": "BCE/CE mean",
+          "literal": "925"
+        },
+        "AC": {
+          "reference": "AC575",
+          "header": "sampleId",
+          "literal": "CGG105915.mccoll_230817_ironage"
+        },
+        "AD": {
+          "reference": "AD575",
+          "header": "popId",
+          "literal": "CGG105915"
+        },
+        "AG": {
+          "reference": "AG575",
+          "header": "flag",
+          "literal": "low_gpAve_cov"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 588,
+      "owner_literal": "CGG_2_105916",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A588",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105916"
+        },
+        "B": {
+          "reference": "B588",
+          "header": "Museum inv #",
+          "literal": "T11792c"
+        },
+        "D": {
+          "reference": "D588",
+          "header": "Country",
+          "literal": "Norway"
+        },
+        "E": {
+          "reference": "E588",
+          "header": "Local",
+          "literal": "Central Norway/ Hitra, Trøndelag"
+        },
+        "F": {
+          "reference": "F588",
+          "header": "Site",
+          "literal": "Fauskland"
+        },
+        "H": {
+          "reference": "H588",
+          "header": "Latitude",
+          "literal": "63.60579"
+        },
+        "I": {
+          "reference": "I588",
+          "header": "Longitude",
+          "literal": "14.85861"
+        },
+        "K": {
+          "reference": "K588",
+          "header": "Sample Material",
+          "literal": "Tooth"
+        },
+        "L": {
+          "reference": "L588",
+          "header": "Description",
+          "literal": "M1"
+        },
+        "N": {
+          "reference": "N588",
+          "header": "Age",
+          "literal": "NA"
+        },
+        "O": {
+          "reference": "O588",
+          "header": "context date",
+          "literal": "2250-1100BC"
+        },
+        "P": {
+          "reference": "P588",
+          "header": "C14 Lab #",
+          "literal": "TRa-17220 & TRa-17221"
+        },
+        "Q": {
+          "reference": "Q588",
+          "header": "14C age (BP)",
+          "literal": "3680 & 3680"
+        },
+        "R": {
+          "reference": "R588",
+          "header": "±",
+          "literal": "10 & 15"
+        },
+        "U": {
+          "reference": "U588",
+          "header": "calBP from",
+          "literal": "4087"
+        },
+        "V": {
+          "reference": "V588",
+          "header": "calBP to",
+          "literal": "3934"
+        },
+        "W": {
+          "reference": "W588",
+          "header": "cal BP Mean",
+          "literal": "4011"
+        },
+        "X": {
+          "reference": "X588",
+          "header": "BCE/CE from",
+          "literal": "-2137"
+        },
+        "Y": {
+          "reference": "Y588",
+          "header": "BCE/CE to",
+          "literal": "-1984"
+        },
+        "Z": {
+          "reference": "Z588",
+          "header": "BCE/CE mean",
+          "literal": "-2061"
+        },
+        "AC": {
+          "reference": "AC588",
+          "header": "sampleId",
+          "literal": "CGG105916.mccoll_230817_ironage"
+        },
+        "AD": {
+          "reference": "AD588",
+          "header": "popId",
+          "literal": "CGG105916"
+        },
+        "AG": {
+          "reference": "AG588",
+          "header": "flag",
+          "literal": "merged_CGG105916_CGG105917_CGG105918"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 589,
+      "owner_literal": "CGG_2_105918",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A589",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105918"
+        },
+        "B": {
+          "reference": "B589",
+          "header": "Museum inv #",
+          "literal": "T11792c"
+        },
+        "D": {
+          "reference": "D589",
+          "header": "Country",
+          "literal": "Norway"
+        },
+        "E": {
+          "reference": "E589",
+          "header": "Local",
+          "literal": "Central Norway/ Hitra Trøndelag"
+        },
+        "F": {
+          "reference": "F589",
+          "header": "Site",
+          "literal": "Fauskland"
+        },
+        "H": {
+          "reference": "H589",
+          "header": "Latitude",
+          "literal": "63.60579"
+        },
+        "I": {
+          "reference": "I589",
+          "header": "Longitude",
+          "literal": "14.85861"
+        },
+        "K": {
+          "reference": "K589",
+          "header": "Sample Material",
+          "literal": "Tooth"
+        },
+        "L": {
+          "reference": "L589",
+          "header": "Description",
+          "literal": "M3"
+        },
+        "N": {
+          "reference": "N589",
+          "header": "Age",
+          "literal": "NA"
+        },
+        "O": {
+          "reference": "O589",
+          "header": "context date",
+          "literal": "2250-1100BC"
+        },
+        "P": {
+          "reference": "P589",
+          "header": "C14 Lab #",
+          "literal": "TRa-17220 & TRa-17221"
+        },
+        "Q": {
+          "reference": "Q589",
+          "header": "14C age (BP)",
+          "literal": "3680"
+        },
+        "R": {
+          "reference": "R589",
+          "header": "±",
+          "literal": "10"
+        },
+        "U": {
+          "reference": "U589",
+          "header": "calBP from",
+          "literal": "4087"
+        },
+        "V": {
+          "reference": "V589",
+          "header": "calBP to",
+          "literal": "3934"
+        },
+        "W": {
+          "reference": "W589",
+          "header": "cal BP Mean",
+          "literal": "4011"
+        },
+        "X": {
+          "reference": "X589",
+          "header": "BCE/CE from",
+          "literal": "-2137"
+        },
+        "Y": {
+          "reference": "Y589",
+          "header": "BCE/CE to",
+          "literal": "-1984"
+        },
+        "Z": {
+          "reference": "Z589",
+          "header": "BCE/CE mean",
+          "literal": "-2061"
+        },
+        "AC": {
+          "reference": "AC589",
+          "header": "sampleId",
+          "literal": "CGG105918.mccoll_230817_ironage"
+        },
+        "AD": {
+          "reference": "AD589",
+          "header": "popId",
+          "literal": "CGG105918"
+        },
+        "AG": {
+          "reference": "AG589",
+          "header": "flag",
+          "literal": "merged_CGG105916_CGG105917_CGG105918"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 590,
+      "owner_literal": "CGG_2_105917",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A590",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105917"
+        },
+        "B": {
+          "reference": "B590",
+          "header": "Museum inv #",
+          "literal": "T11792c"
+        },
+        "D": {
+          "reference": "D590",
+          "header": "Country",
+          "literal": "Norway"
+        },
+        "E": {
+          "reference": "E590",
+          "header": "Local",
+          "literal": "Central Norway/ Hitra, Trøndelag"
+        },
+        "F": {
+          "reference": "F590",
+          "header": "Site",
+          "literal": "Fauskland"
+        },
+        "H": {
+          "reference": "H590",
+          "header": "Latitude",
+          "literal": "63.60579"
+        },
+        "I": {
+          "reference": "I590",
+          "header": "Longitude",
+          "literal": "14.85861"
+        },
+        "K": {
+          "reference": "K590",
+          "header": "Sample Material",
+          "literal": "Tooth"
+        },
+        "L": {
+          "reference": "L590",
+          "header": "Description",
+          "literal": "M2"
+        },
+        "N": {
+          "reference": "N590",
+          "header": "Age",
+          "literal": "NA"
+        },
+        "O": {
+          "reference": "O590",
+          "header": "context date",
+          "literal": "2250-1100BC"
+        },
+        "P": {
+          "reference": "P590",
+          "header": "C14 Lab #",
+          "literal": "TRa-17220 & TRa-17221"
+        },
+        "Q": {
+          "reference": "Q590",
+          "header": "14C age (BP)",
+          "literal": "3680"
+        },
+        "R": {
+          "reference": "R590",
+          "header": "±",
+          "literal": "10"
+        },
+        "U": {
+          "reference": "U590",
+          "header": "calBP from",
+          "literal": "4087"
+        },
+        "V": {
+          "reference": "V590",
+          "header": "calBP to",
+          "literal": "3934"
+        },
+        "W": {
+          "reference": "W590",
+          "header": "cal BP Mean",
+          "literal": "4011"
+        },
+        "X": {
+          "reference": "X590",
+          "header": "BCE/CE from",
+          "literal": "-2137"
+        },
+        "Y": {
+          "reference": "Y590",
+          "header": "BCE/CE to",
+          "literal": "-1984"
+        },
+        "Z": {
+          "reference": "Z590",
+          "header": "BCE/CE mean",
+          "literal": "-2061"
+        },
+        "AC": {
+          "reference": "AC590",
+          "header": "sampleId",
+          "literal": "CGG105917.mccoll_230817_ironage"
+        },
+        "AD": {
+          "reference": "AD590",
+          "header": "popId",
+          "literal": "CGG105917"
+        },
+        "AG": {
+          "reference": "AG590",
+          "header": "flag",
+          "literal": "merged_CGG105916_CGG105917_CGG105918"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S1.1",
+      "sheet_name": "S1.1. New Ancient Samples metad",
+      "worksheet_part": "xl/worksheets/sheet1.xml",
+      "physical_row": 745,
+      "owner_literal": "CGG_2_105916_CGG_2_105917_CGG_2_105918",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A745",
+          "header": "GeoGenetics_ID",
+          "literal": "CGG_2_105916_CGG_2_105917_CGG_2_105918"
+        },
+        "B": {
+          "reference": "B745",
+          "header": "Museum inv #",
+          "literal": "NA"
+        },
+        "D": {
+          "reference": "D745",
+          "header": "Country",
+          "literal": "NA"
+        },
+        "E": {
+          "reference": "E745",
+          "header": "Local",
+          "literal": "NA"
+        },
+        "F": {
+          "reference": "F745",
+          "header": "Site",
+          "literal": "NA"
+        },
+        "H": {
+          "reference": "H745",
+          "header": "Latitude",
+          "literal": "NA"
+        },
+        "I": {
+          "reference": "I745",
+          "header": "Longitude",
+          "literal": "NA"
+        },
+        "K": {
+          "reference": "K745",
+          "header": "Sample Material",
+          "literal": "NA"
+        },
+        "L": {
+          "reference": "L745",
+          "header": "Description",
+          "literal": "NA"
+        },
+        "N": {
+          "reference": "N745",
+          "header": "Age",
+          "literal": "NA"
+        },
+        "O": {
+          "reference": "O745",
+          "header": "context date",
+          "literal": "NA"
+        },
+        "P": {
+          "reference": "P745",
+          "header": "C14 Lab #",
+          "literal": "NA"
+        },
+        "Q": {
+          "reference": "Q745",
+          "header": "14C age (BP)",
+          "literal": "NA"
+        },
+        "R": {
+          "reference": "R745",
+          "header": "±",
+          "literal": "NA"
+        },
+        "U": {
+          "reference": "U745",
+          "header": "calBP from",
+          "literal": "NA"
+        },
+        "V": {
+          "reference": "V745",
+          "header": "calBP to",
+          "literal": "NA"
+        },
+        "W": {
+          "reference": "W745",
+          "header": "cal BP Mean",
+          "literal": "NA"
+        },
+        "X": {
+          "reference": "X745",
+          "header": "BCE/CE from",
+          "literal": "NA"
+        },
+        "Y": {
+          "reference": "Y745",
+          "header": "BCE/CE to",
+          "literal": "NA"
+        },
+        "Z": {
+          "reference": "Z745",
+          "header": "BCE/CE mean",
+          "literal": "NA"
+        },
+        "AC": {
+          "reference": "AC745",
+          "header": "sampleId",
+          "literal": "CGG105916_CGG105917_CGG105918.mccoll_230821_ironage"
+        },
+        "AD": {
+          "reference": "AD745",
+          "header": "popId",
+          "literal": "CGG105916_CGG105917_CGG105918"
+        },
+        "AG": {
+          "reference": "AG745",
+          "header": "flag",
+          "literal": "0"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": "s",
+        "I": "s"
+      }
+    },
+    {
+      "table": "S5.1",
+      "sheet_name": "S5.1. Clustered Ancient Samples",
+      "worksheet_part": "xl/worksheets/sheet2.xml",
+      "physical_row": 2323,
+      "owner_literal": "CGG105916_CGG105917_CGG105918.mccoll_230821_ironage",
+      "descriptive_literals": {
+        "A": {
+          "reference": "A2323",
+          "header": "sampleId",
+          "literal": "CGG105916_CGG105917_CGG105918.mccoll_230821_ironage"
+        },
+        "B": {
+          "reference": "B2323",
+          "header": "popId",
+          "literal": "CGG105916_CGG105917_CGG105918"
+        },
+        "C": {
+          "reference": "C2323",
+          "header": "versionID",
+          "literal": "CGG105916"
+        },
+        "D": {
+          "reference": "D2323",
+          "header": "site",
+          "literal": "Fauskland"
+        },
+        "E": {
+          "reference": "E2323",
+          "header": "country",
+          "literal": "Norway"
+        },
+        "H": {
+          "reference": "H2323",
+          "header": "latitude",
+          "literal": "63.60579"
+        },
+        "I": {
+          "reference": "I2323",
+          "header": "longitude",
+          "literal": "14.85861"
+        },
+        "K": {
+          "reference": "K2323",
+          "header": "age14C",
+          "literal": "NA"
+        },
+        "L": {
+          "reference": "L2323",
+          "header": "ageHigh",
+          "literal": "4087.0"
+        },
+        "M": {
+          "reference": "M2323",
+          "header": "ageLow",
+          "literal": "3934.0"
+        },
+        "N": {
+          "reference": "N2323",
+          "header": "ageAverage",
+          "literal": "4011.0"
+        },
+        "O": {
+          "reference": "O2323",
+          "header": "datingSource",
+          "literal": "direct"
+        }
+      },
+      "coordinate_cell_types": {
+        "H": null,
+        "I": null
+      }
+    }
+  ],
+  "aadr_context": [
+    {
+      "genetic_id": "CGG_2_105915.SG",
+      "original_panel_physical_lines": [
+        {
+          "panel": "1240k",
+          "physical_line": 20621
+        },
+        {
+          "panel": "ho",
+          "physical_line": 25126
+        }
+      ],
+      "descriptive_literals": {
+        "individual_id": "CGG_2_105915",
+        "skeletal_code": "A7437/T20248 Individual 2",
+        "skeletal_element": "tooth (molar)",
+        "doi": "https://doi.org/10.1101/2025.02.28.640770",
+        "dating_method": "Direct (WARNING: MISSING LAB CODE): IntCal20",
+        "date_mean_bp": "943",
+        "date_sd_bp": "134",
+        "full_date": "800-1050 calCE (1025±125 BP)",
+        "locality": "Aunvollen (Central Norway/ Trøndelag)",
+        "country": "Norway",
+        "latitude": "63.12322",
+        "longitude": "16.90684"
+      }
+    },
+    {
+      "genetic_id": "CGG_2_105916.SG",
+      "original_panel_physical_lines": [
+        {
+          "panel": "1240k",
+          "physical_line": 20622
+        },
+        {
+          "panel": "ho",
+          "physical_line": 25127
+        }
+      ],
+      "descriptive_literals": {
+        "individual_id": "CGG_2_105916",
+        "skeletal_code": "T11792c",
+        "skeletal_element": "tooth (molar)",
+        "doi": "https://doi.org/10.1101/2025.02.28.640770",
+        "dating_method": "Direct: IntCal20",
+        "date_mean_bp": "4503",
+        "date_sd_bp": "134",
+        "full_date": "2137-1984 calBCE (4010±76 BP, TRa-17220 & TRa-17221)",
+        "locality": "Fauskland (Central Norway/ Hitra, Trøndelag)",
+        "country": "Norway",
+        "latitude": "63.60579",
+        "longitude": "14.85861"
+      }
+    }
+  ],
+  "archaeological_context": {
+    "Aunvollen": {
+      "source": "media-2.pdf",
+      "physical_and_printed_page": 161,
+      "lines": [
+        3047,
+        3062
+      ],
+      "coordinate_pair_literals": [
+        "64.1641",
+        "11.8140"
+      ],
+      "coordinate_axis_order_datum_and_correction_qualified": false,
+      "individuals": [
+        {
+          "description": "infant, approximately 1–1.5 years",
+          "date_literal": "Modern",
+          "laboratory_literal": "Tra – 14441"
+        },
+        {
+          "description": "young woman, 19–20 years",
+          "date_literal": "651–759 CE",
+          "laboratory_literal": "Tra14912"
+        },
+        {
+          "description": "older woman, 35–49 years",
+          "date_literal": "649–673 CE",
+          "laboratory_literal": "Tra15329"
+        }
+      ],
+      "explicit_individual_2_laboratory_crosswalk_on_examined_page": false
+    },
+    "Fauskland": {
+      "source": "media-2.pdf",
+      "physical_and_printed_pages": [
+        174,
+        175
+      ],
+      "site": "Fauskland gnr 8/1, Hitra, T11792 c",
+      "coordinate_pair_literals": [
+        "63.6057",
+        "14.8586"
+      ],
+      "coordinate_axis_order_datum_and_correction_qualified": false,
+      "sample_literal_with_trailing_T": "CGG_2_105917T",
+      "same_individual_radiocarbon_entries": [
+        {
+          "material": "skull",
+          "age_literal": "3682+/-12 BP",
+          "laboratory_literal": "Tra 17220"
+        },
+        {
+          "material": "jaw",
+          "age_literal": "3682±13 BP",
+          "laboratory_literal": "TRa 17221"
+        }
+      ],
+      "genetics_source": {
+        "source": "media-15.pdf",
+        "physical_page": 22,
+        "lines": [
+          408,
+          413
+        ],
+        "author_reported_merged_samples": [
+          "CGG105916",
+          "CGG105917",
+          "CGG105918"
+        ],
+        "author_reported_individuals": 1,
+        "worksheet_lines_for_individual": 4,
+        "genotype_reanalysis_performed": false
+      }
+    }
+  },
+  "existing_country_conflicts": [
+    {
+      "genetic_id": "CGG_2_105915.SG",
+      "country": "NO",
+      "decision": "published",
+      "reason": "country_sample_product",
+      "coordinate_status": "admitted",
+      "chronology_status": "review_required",
+      "chronology_reason": "method_specific_policy_required",
+      "source_rows": "ho:25125;1240k:20620",
+      "coordinate_groups": "1",
+      "coordinate_group_statuses": "admitted",
+      "coordinate_reconciliation_status": "exact",
+      "spatial_status": "review",
+      "spatial_method": "strict_boundary_containment",
+      "spatial_country": "Sweden",
+      "spatial_candidates": "Sweden",
+      "spatial_reason": "raw_country_conflict"
+    },
+    {
+      "genetic_id": "CGG_2_105916.SG",
+      "country": "NO",
+      "decision": "published",
+      "reason": "country_sample_product",
+      "coordinate_status": "admitted",
+      "chronology_status": "review_required",
+      "chronology_reason": "method_specific_policy_required",
+      "source_rows": "ho:25126;1240k:20621",
+      "coordinate_groups": "1",
+      "coordinate_group_statuses": "admitted",
+      "coordinate_reconciliation_status": "exact",
+      "spatial_status": "review",
+      "spatial_method": "strict_boundary_containment",
+      "spatial_country": "Sweden",
+      "spatial_candidates": "Sweden",
+      "spatial_reason": "raw_country_conflict"
+    }
+  ],
+  "existing_country_account_unchanged": {
+    "decisions.csv": {
+      "bytes": 260591,
+      "sha256": "2035793d849f9779cc2dad0ea28ca05a71cda581a77a921f8c7edae2ca1235eb"
+    },
+    "report.json": {
+      "bytes": 4382,
+      "sha256": "095a190a33ba421d5c0a0d13fb768b36fe98dcdfc78bb46b3fe8ec4e123f5cb7"
+    }
+  },
+  "execution": {
+    "source_commit": "ac1c3619a9e16c4450f40d945a01d847a060b0e5",
+    "exit_code": 0,
+    "elapsed_seconds": 1.9847346669994295,
+    "peak_rss_bytes": 308019200,
+    "context_output_bytes": 101542,
+    "resource_budget_passed": true
+  },
+  "native_context": {
+    "path": "artifacts/physical-core/mccoll-country-context/native-run/context.json",
+    "bytes": 101542,
+    "sha256": "8a86a900655dfda0e6addba95dcb6c84b5815e9e3456d53ed0478be309766a49"
+  },
+  "independent_observation": {
+    "status": "passed",
+    "prepared_originals": 4,
+    "original_rows": 6,
+    "descriptive_cells": 162,
+    "aadr_source_rows": 4,
+    "country_decisions_unchanged": true,
+    "interpretation_or_admission": false,
+    "source_commit": "ac1c3619a9e16c4450f40d945a01d847a060b0e5",
+    "exit_code": 0,
+    "elapsed_seconds": 1.4500328339636326,
+    "peak_rss_bytes": 284737536,
+    "resource_budget_passed": true,
+    "native_context_unchanged": true,
+    "source_commit_unchanged": true,
+    "output": {
+      "path": "artifacts/physical-core/mccoll-country-context/independent-check/check.json",
+      "bytes": 206,
+      "sha256": "d54765031347f025adc13d6865280573719b5bafc637f7050460a33981157578"
+    }
+  },
+  "unresolved_conditions": [
+    "Sample-owned coordinate meaning, axis/datum, positional accuracy and versioned correction authority.",
+    "Explicit Aunvollen Individual 2 laboratory/date crosswalk before assigning another T20248 individual chronology.",
+    "Qualified treatment of distinct table, archaeological and AADR date representations; no recomputation or substitution."
+  ],
+  "coordinate_correction_performed": false,
+  "date_conversion_or_calibration_performed": false,
+  "merged_samples_counted_as_independent": false,
+  "scientific_or_map_admission": false,
+  "publisher_sources_redistributed": false
+}

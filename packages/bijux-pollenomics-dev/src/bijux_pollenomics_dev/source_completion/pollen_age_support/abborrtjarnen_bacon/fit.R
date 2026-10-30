@@ -8,6 +8,11 @@ suppressPackageStartupMessages(library(coda))
 stopifnot(as.character(packageVersion("rbacon")) == "4.0.2")
 case <- jsonlite::read_json(args[2], simplifyVector = FALSE)
 p <- case$protocol
+retained <- as.integer(p$execution$requested_ssize_per_chain)
+stopifnot(retained %in% c(4000L, 16000L))
+accuracy <- case$sampler_accuracy
+stopifnot((retained == 4000L && is.null(accuracy)) ||
+  (retained == 16000L && !is.null(accuracy)))
 depths <- unlist(case$depths)
 sample.ids <- unlist(case$sample_ids)
 controls <- do.call(rbind, lapply(case$controls, as.data.frame))
@@ -20,6 +25,21 @@ warnings <- character()
 runtime.versions <- list(R = R.version.string, platform = R.version$platform,
   packages = lapply(c("rbacon", "rintcal", "rice", "coda", "Rcpp"),
     function(name) list(package = name, version = as.character(packageVersion(name)))))
+if (!is.null(accuracy)) {
+  original.runtime <- jsonlite::read_json(file.path(case$repository,
+    accuracy$original_directory, "fit-summary.json"), simplifyVector = FALSE)$runtime
+  stopifnot(identical(runtime.versions, original.runtime))
+}
+native.program <- function(path) {
+  bytes <- readBin(path, "raw", file.info(path)$size)
+  first.newline <- match(as.raw(10), bytes)
+  stopifnot(!is.na(first.newline), first.newline > 10L)
+  header <- rawToChar(bytes[seq_len(first.newline - 1L)])
+  stopifnot(startsWith(header, "## Ran on "))
+  # The native parser skips '#' lines before reading model instructions.
+  # Exclude only this recognized generated timestamp; preserve all other bytes.
+  bytes[-seq_len(first.newline)]
+}
 options(digits = 17)
 
 withCallingHandlers({
@@ -45,7 +65,7 @@ withCallingHandlers({
       delta.R = 0, delta.STD = 0, cc = 1, cc1 = "IntCal20", cc.dir = curve.dir,
       postbomb = 0, youngest.age = -202, oldest.age = 1e6,
       hiatus.depths = NA, boundary = NA, slump = numeric(0), BCAD = FALSE,
-      ssize = 4000, burnin = 500, plot.pdf = FALSE, save.elbowages = FALSE,
+      ssize = retained, burnin = 500, plot.pdf = FALSE, save.elbowages = FALSE,
       save.info = FALSE, verbose = FALSE)
     grDevices::dev.off()
     # The source's nonempty th0 formal is not assigned to its returned object.
@@ -65,6 +85,11 @@ withCallingHandlers({
       identical(native[4:5], as.numeric(unlist(p$model$initial_top_age_pairs[[i]]))))
     native.path <- paste0(set$prefix, ".out")
     stopifnot(file.exists(native.path), file.info(native.path)$size == 0)
+    stopifnot(!file.exists(paste0(set$bacon.file, ".init")))
+    if (!is.null(accuracy)) {
+      original.input <- file.path(case$repository, accuracy$prefixes[[i]]$native_input_path)
+      stopifnot(identical(native.program(set$bacon.file), native.program(original.input)))
+    }
     if (prepare.only) {
       jsonlite::write_json(list(sections = native[1], native_top_depth_cm = native[10],
         native_bottom_depth_cm = native[11], native_seed = native[12],
@@ -79,12 +104,13 @@ withCallingHandlers({
     jsonlite::write_json(list(chains = chains, active_seed = seed,
       active_stage = "native_sampling", warnings = warnings, runtime = runtime.versions),
       file.path(args[3], "fit-summary.json"), auto_unbox = TRUE, pretty = TRUE)
-    rbacon:::bacon(set$bacon.file, native.path, 4500L, curve.dir)
+    rbacon:::bacon(set$bacon.file, native.path, retained + 500L, curve.dir)
     raw <- as.matrix(read.table(native.path))
-    stopifnot(ncol(raw) == set$K + 3L, nrow(raw) == 7501L)
-    # Equivalent to source scissors(500) followed by the fixed last-4000
-    # selection. Preserve the entire original native file unchanged.
-    indices <- seq.int(nrow(raw) - 4000L + 1L, nrow(raw))
+    stopifnot(ncol(raw) == set$K + 3L, nrow(raw) == retained + 3501L)
+    # Source scissors(500) and its last-retained selection keep the identical
+    # first retained row for either prespecified length. Never append a replayed
+    # prefix to itself or remove a second burn-in from the extended trajectory.
+    indices <- seq.int(nrow(raw) - retained + 1L, nrow(raw))
     stopifnot(indices[1] == 3502L, min(indices) > 500L)
     states <- raw[indices, seq_len(set$K + 2L), drop = FALSE]
     rates <- states[, 1L + seq_len(set$K), drop = FALSE]
@@ -96,7 +122,7 @@ withCallingHandlers({
     physical$output <- states
     physical$output[, 1L + seq_len(set$K)] <- rates
     ages <- vapply(depths, function(d)
-      Bacon.Age.d(d, set = physical, its = physical$output), numeric(4000))
+      Bacon.Age.d(d, set = physical, its = physical$output), numeric(retained))
     stopifnot(all(is.finite(ages)), all(ages[, -1] >= ages[, -ncol(ages)]))
     connection <- gzfile(file.path(chain.dir, "ages.csv.gz"), "wt")
     write.table(format(ages, digits = 17, trim = TRUE), connection,
@@ -122,6 +148,10 @@ withCallingHandlers({
     jsonlite::write_json(list(chains = chains, active_seed = NULL,
       active_stage = "completed_chain_extraction", warnings = warnings, runtime = runtime.versions),
       file.path(args[3], "fit-summary.json"), auto_unbox = TRUE, pretty = TRUE)
+    if (!is.null(accuracy)) {
+      rm(raw, states, rates, physical, ages, w)
+      invisible(gc())
+    }
   }
 }, warning = function(w) { warnings <<- c(warnings, conditionMessage(w)) })
 

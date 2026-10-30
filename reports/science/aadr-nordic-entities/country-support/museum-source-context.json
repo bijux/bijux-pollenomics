@@ -1,0 +1,249 @@
+{
+  "source_scope": "Human-curated factual museum locality context from supplied screenshots and museum factsheet exports; no direct API capture or scientific admission.",
+  "original_source_inputs": [
+    {
+      "path": "Screenshot 2026-10-26 at 22.44.28.png",
+      "bytes": 2967273,
+      "sha256": "169f9ab0e76c293c1cabfcee83c6c1341f9a8b5144d5918460859c8f7f0d564d"
+    },
+    {
+      "path": "Screenshot 2026-10-26 at 22.44.35.png",
+      "bytes": 871233,
+      "sha256": "3588c484e45a2d73211f8265c9f98f72e7eef9a62ee4bb243181aba535f5fee9"
+    },
+    {
+      "path": "Screenshot 2026-10-26 at 22.44.55.png",
+      "bytes": 1634143,
+      "sha256": "1bbfe06abbf90454cbc9f2f429f3bb515e20ba425be6b0c0326b518713eb630f"
+    },
+    {
+      "path": "factsheet_175301-T20248-L-012.pdf",
+      "bytes": 64663,
+      "sha256": "a9491e4f27dbfd8f946bc384fb9b77ed4f961d964f6f05bfc7575f7d962ed3c5"
+    },
+    {
+      "path": "factsheet_175300-T20248-L-013.pdf",
+      "bytes": 60253,
+      "sha256": "053de532c9e15f0123634a7b191ba518e73eb344eecf066d958cecfc4101ad59"
+    },
+    {
+      "path": "factsheet_175300-T20248-L-013-1.pdf",
+      "bytes": 60253,
+      "sha256": "3a8f3146f3eb0eac3df60822216fecc1ba293704a94eb31834bad187755b813c"
+    }
+  ],
+  "coordinate_label": "Coordinate (EU89 - Lat/Lon)",
+  "coordinate_transform_performed": false,
+  "records": [
+    {
+      "museum_number": "T11792:c.003",
+      "url": "https://collections.vm.ntnu.no/artefacts/13439-T11792-c-003",
+      "evidence_files": [
+        "Screenshot 2026-10-26 at 22.44.28.png",
+        "Screenshot 2026-10-26 at 22.44.35.png",
+        "Screenshot 2026-10-26 at 22.44.55.png"
+      ],
+      "material": "Bone",
+      "form": "ubrent humanosteologisk",
+      "period": "Late Neolithic/bronze Age",
+      "county": "Trøndelag",
+      "municipality": "Hitra",
+      "cadastral": "Fauskland",
+      "cadastral_number": "8",
+      "property_number": "1",
+      "property": "Unknown",
+      "latitude_raw": "63.6058590629654",
+      "longitude_raw": "8.8588817461179",
+      "coordinate_precision": "Funnsted (Lokalitet)",
+      "last_updated_raw": "26 October 2026",
+      "related_paper_museum_token": "T11792c",
+      "related_genetic_ids": [
+        "CGG_2_105916",
+        "CGG_2_105917",
+        "CGG_2_105918"
+      ],
+      "crosswalk_scope": "Same museum root, locality, cadastral 8/1 and human assemblage; exact c.003-to-sampled-tooth subrecord not explicit in inspected paper or capture.",
+      "find_context": "Disturbed gravel/tidal locality in inner Barmfjorden; interpretation alternatives in original catalogue retained, not independently adjudicated."
+    },
+    {
+      "museum_number": "T20248:L.012",
+      "url": "https://collections.vm.ntnu.no/artefacts/175301-T20248-L-012",
+      "evidence_files": [
+        "factsheet_175301-T20248-L-012.pdf"
+      ],
+      "material": "Bone",
+      "form": "ubrent humanosteologisk",
+      "period": "Viking period",
+      "county": "Trøndelag",
+      "municipality": "Steinkjer",
+      "cadastral": "Aunvold",
+      "cadastral_number": "246",
+      "property_number": "1",
+      "property": "Aunvold",
+      "latitude_raw": "64.1635647815224",
+      "longitude_raw": "11.819740680260399",
+      "coordinate_precision": "Bruk",
+      "last_updated_raw": "2026-03-06",
+      "anthropological_number_raw": "A.7437",
+      "related_paper_museum_token": "A7437/T20248 Individual 2",
+      "related_genetic_ids": [
+        "CGG_2_105915"
+      ],
+      "crosswalk_scope": "Explicit A.7437 human collection, comprising two individuals recognized on return in 2022; no explicit Individual 2 or sampled M1-to-laboratory crosswalk.",
+      "initial_description_scope": "Probably female, age 19–20; cannot assign this initial description to both individuals.",
+      "find_context": "Grave described approximately 150 m north of farm buildings; excavation in 1981 and further recovered material in 1982. Property point is not authenticated sampled-tooth or exact grave position."
+    },
+    {
+      "museum_number": "T20248:L.013",
+      "url": "https://collections.vm.ntnu.no/artefacts/175300-T20248-L-013",
+      "evidence_files": [
+        "factsheet_175300-T20248-L-013.pdf",
+        "factsheet_175300-T20248-L-013-1.pdf"
+      ],
+      "material": "Bone",
+      "form": "ubrent animalosteologisk",
+      "period": "Viking period",
+      "county": "Trøndelag",
+      "municipality": "Steinkjer",
+      "cadastral": "Aunvold",
+      "cadastral_number": "246",
+      "property_number": "1",
+      "property": "Aunvold",
+      "latitude_raw": "64.1635647815224",
+      "longitude_raw": "11.819740680260399",
+      "coordinate_precision": "Bruk",
+      "last_updated_raw": "2026-10-26",
+      "description_scope": "Adult dog, size compared with a buhund; two factsheet exports describe the same record, not two dogs.",
+      "related_genetic_ids": [],
+      "crosswalk_scope": "Separate animal material; not an identity or date substitute for the paper human."
+    }
+  ],
+  "locality_precision_is_metric_accuracy": false,
+  "decimal_places_are_positional_accuracy": false,
+  "individual_date_selected": false,
+  "source_coordinate_selected": false,
+  "scientifically_admitted": false,
+  "remaining_questions": [
+    "Museum EU89 label realization/EPSG and intended coordinate semantics; preserve source label separately from nominal boundary-axis comparison.",
+    "Exact Fauskland c.003-to-sampled-tooth crosswalk and chronology representation conflict.",
+    "Exact Aunvollen Individual 2/CGG-to-human/laboratory/date crosswalk and property-versus-grave point meaning."
+  ],
+  "nominal_degree_axis_comparison": {
+    "source_commit": "679389cd413d9e5ef53650668fd08081915994cf",
+    "profile": "literal_source_degrees_on_pinned_boundary_axes_without_datum_or_specimen_admission",
+    "source_label": "Coordinate (EU89 - Lat/Lon)",
+    "boundary_crs": "EPSG:4326",
+    "boundary_version": "5.1.1",
+    "coordinate_transform_performed": false,
+    "records": [
+      {
+        "source": "museum",
+        "identity": "T11792:c.003",
+        "latitude_raw": "63.6058590629654",
+        "longitude_raw": "8.8588817461179",
+        "precision": "Funnsted (Lokalitet)",
+        "degree_axis_country_support": {
+          "spatial_status": "assigned",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Norway",
+          "spatial_candidates": "Norway",
+          "spatial_reason": null
+        }
+      },
+      {
+        "source": "museum",
+        "identity": "T20248:L.012",
+        "latitude_raw": "64.1635647815224",
+        "longitude_raw": "11.819740680260399",
+        "precision": "Bruk",
+        "degree_axis_country_support": {
+          "spatial_status": "assigned",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Norway",
+          "spatial_candidates": "Norway",
+          "spatial_reason": null
+        }
+      },
+      {
+        "source": "museum",
+        "identity": "T20248:L.013",
+        "latitude_raw": "64.1635647815224",
+        "longitude_raw": "11.819740680260399",
+        "precision": "Bruk",
+        "degree_axis_country_support": {
+          "spatial_status": "assigned",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Norway",
+          "spatial_candidates": "Norway",
+          "spatial_reason": null
+        }
+      },
+      {
+        "source": "original_aadr",
+        "identity": "CGG_2_105915.SG",
+        "latitude_raw": "63.12322",
+        "longitude_raw": "16.90684",
+        "precision": null,
+        "degree_axis_country_support": {
+          "spatial_status": "review",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Sweden",
+          "spatial_candidates": "Sweden",
+          "spatial_reason": "raw_country_conflict"
+        }
+      },
+      {
+        "source": "original_aadr",
+        "identity": "CGG_2_105916.SG",
+        "latitude_raw": "63.60579",
+        "longitude_raw": "14.85861",
+        "precision": null,
+        "degree_axis_country_support": {
+          "spatial_status": "review",
+          "spatial_method": "strict_boundary_containment",
+          "spatial_country": "Sweden",
+          "spatial_candidates": "Sweden",
+          "spatial_reason": "raw_country_conflict"
+        }
+      }
+    ],
+    "elapsed_seconds": 0.15355808311142027,
+    "verification_limit": "Unchanged previously qualified country helper; no new independent geometry oracle or source datum/positional qualification.",
+    "execution": {
+      "tool_chunk": "4494a4",
+      "exit_code": 0,
+      "process_elapsed_seconds": 0.88,
+      "peak_rss_bytes": 86065152,
+      "command": [
+        "/usr/bin/time",
+        "-l",
+        ".venv/bin/python",
+        "-B",
+        "-"
+      ],
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1"
+      },
+      "input_selection": "Committed museum-source-context.json three records and mccoll-source-context.json two original AADR contexts; all original file/boundary/country-product identities checked before and after; HEAD unchanged.",
+      "output": "artifacts/source-review/museum-localities/degree-axis-check/result.json",
+      "classification_function": "bijux_pollenomics_dev.source_completion.adna.aadr_country_support.coordinate_country_support",
+      "arguments": {
+        "source_country": "Norway",
+        "boundary_version": "5.1.1",
+        "coordinate_status": "admitted means numerically usable pair only"
+      },
+      "preparation_failure": {
+        "tool_chunk": "19651e",
+        "exit_code": 1,
+        "process_elapsed_seconds": 0.04,
+        "peak_rss_bytes": 19333120,
+        "stage": "Python import, before source input reading",
+        "error": "ModuleNotFoundError: No module named shapely",
+        "output_directory": "artifacts/source-review/museum-localities/spatial-check",
+        "resolution": "Used unchanged existing country helper without proposing a new independent geometry oracle; no package installed, no failed output overwritten."
+      }
+    }
+  }
+}

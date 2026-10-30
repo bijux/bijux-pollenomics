@@ -152,7 +152,7 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Matched denominator.** Eleven families×six partitions×three dimensions=198cells/66family-partition entries;187capability-audit rows; current animal165features/322samples remains separate from eight Nordic locality features/12samples.
 
-- [Current qualification evidence: docs/report/regions/nordic/source-capability/report.json](report.json) (SHA-256 `42eb47abd321c9cf6856ca8e4cf75bbfae1a5fd9c6517a8075692cbba6b50019`).
+- [Retained qualification evidence: docs/report/regions/nordic/source-capability/report.json](report.json) (SHA-256 `42eb47abd321c9cf6856ca8e4cf75bbfae1a5fd9c6517a8075692cbba6b50019`).
 
 - [Retained qualification evidence: docs/report/source-relations/dna-scope/report.json](../../../source-relations/dna-scope/report.json) (SHA-256 `dd88281f34bd1c685b4abda3ba46565c704d9769849d17f83eab97f805ae653d`).
 

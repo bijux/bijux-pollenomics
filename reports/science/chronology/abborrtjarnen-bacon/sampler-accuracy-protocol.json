@@ -1,0 +1,93 @@
+{
+  "schema_version": "abborrtjarnen-fixed-length-sampler-accuracy-protocol.v1",
+  "question": "Can a fixed longer prefix-identical execution of the same two seeded trajectories meet the unchanged conditional sampler diagnostics?",
+  "original_model_protocol": "reports/science/chronology/abborrtjarnen-bacon/physical-rate-protocol.json",
+  "original_failed_source_commit": "0d374ce2190e5e44f70c8b28f18612809688af76",
+  "original_result_path": "artifacts/physical-core/abborrtjarnen-fixed-iteration/report.json",
+  "original_failed_status": "refused_mcmc_diagnostics",
+  "original_directory": "artifacts/physical-core/abborrtjarnen-fixed-iteration",
+  "contract_reason": "The original no_retry_rule forbids extra chains, changed seeds, wider criteria and outcome-tuned priors. This separately prespecified fixed-length sampler-accuracy qualification changes none of those. It does not rewrite, relabel or erase the failed 8000-state experiment, nor claim a new independent replicate. The old prefixes are shared states, not additional draws.",
+  "same_target_and_runtime": "Use the identical original protocol data, likelihood rows, priors, initial top-age pairs, seeds, calibration files, native executable input programs (excluding only the recognized first source-generated ## Ran on timestamp comment), shared native library and fixed-transition save clock. Do not use rounded .last endpoints as .init restarts.",
+  "execution": {
+    "seeds": [
+      314159,
+      271828
+    ],
+    "chains": 2,
+    "retained_rows_per_seed": 16000,
+    "native_ssize_argument": 16500,
+    "raw_rows_per_seed": 19501,
+    "first_retained_native_row": 3502,
+    "last_retained_native_row": 19501,
+    "initial_burn_rows": 500,
+    "additional_source_equivalent_removals": 3001,
+    "saved_proposal_interval": 1325,
+    "proposal_ticks_per_seed": 25837500,
+    "further_length_escalation_permitted": false,
+    "extra_chain_or_new_seed_permitted": false
+  },
+  "prefixes": [
+    {
+      "seed": 314159,
+      "native_output_path": "artifacts/physical-core/abborrtjarnen-fixed-iteration/seed-314159/ABBO/ABBO_51.out",
+      "bytes": 5678254,
+      "sha256": "ad6e64bb62b24e4bc412f698d5476e7eecf819c3e5171b361be494e20be5a4e9",
+      "nonempty_rows": 7501,
+      "native_input_path": "artifacts/physical-core/abborrtjarnen-fixed-iteration/seed-314159/ABBO/ABBO_51.bacon",
+      "native_input_bytes": 829,
+      "native_input_sha256": "44ea917c3a419932f56ff25728ad54a80f917ce11bae56ec9e8f7e7cf61d0cb1"
+    },
+    {
+      "seed": 271828,
+      "native_output_path": "artifacts/physical-core/abborrtjarnen-fixed-iteration/seed-271828/ABBO/ABBO_51.out",
+      "bytes": 5678254,
+      "sha256": "87c2dcfeeda84d305e8a7d535837fc41bb9b2fa057024229a50fb519ac0592eb",
+      "nonempty_rows": 7501,
+      "native_input_path": "artifacts/physical-core/abborrtjarnen-fixed-iteration/seed-271828/ABBO/ABBO_51.bacon",
+      "native_input_bytes": 829,
+      "native_input_sha256": "d941626f81e7f6356f55e9f5422ba82c2f94c5d7375fa598726ce242acadd137"
+    }
+  ],
+  "prefix_rule": "Each new native byte stream must begin with the entire original 5678254 bytes, including the leading blank line and absent trailing newline, then the next byte must be a newline starting the next saved state. No numeric tolerance, row reformatting, rounded comparison or prefix state duplication is allowed.",
+  "qualification_gate": "Both exact prefixes, every original age/memory/free-parameter/energy diagnostic, independent age integration and resource checks must pass. coda Gelman upper95 must remain <1.05 and combinedESS>=400, autoburninFALSE, transformFALSE, all107ages and original free axes. Do not call the frozen score consumer before prefix and diagnostic qualification. A failure retains raw outputs and explicit unscored status; no new score interpretation or further extension follows.",
+  "resources": {
+    "max_total_seconds": 600,
+    "peak_rss_budget_bytes": 1500000000,
+    "max_output_bytes": 100000000,
+    "handling": "Existing bounded executor supplies the 600-second native command deadline; measure native peakRSS and refuse on missing/excess measurement. Check actual output bytes after execution, preserve failed files; no operating-system memory/filesystem quota is claimed.",
+    "storage_estimate": {
+      "original_exact_file_bytes": 20022943,
+      "original_native_bytes": 11356508,
+      "original_gzip_age_bytes": 8236511,
+      "original_gzip_score_bytes": 355571,
+      "original_other_bytes": 74353,
+      "projected_native_bytes": 29524508,
+      "projected_gzip_age_bytes_at_original_rate": 32946044,
+      "projected_gzip_score_bytes_at_original_rate": 1422284,
+      "projected_total_bytes": 63967189,
+      "basis": "Native rows grow by 19501/7501; retained age/score exports grow fourfold. Original compression is a planning estimate, not a guaranteed size. The 100 MB ceiling provides about 56 percent headroom over this 64 MB estimate."
+    }
+  },
+  "runtime_files": [
+    {
+      "root": "library",
+      "path": "rbacon/libs/rbacon.so",
+      "bytes": 278344,
+      "sha256": "f13ec9580d4b195875839d82d182eb8ae770eae7ca6702ea1acefc639765176f"
+    },
+    {
+      "root": "absolute",
+      "path": "/Library/Frameworks/R.framework/Versions/4.6/Resources/bin/Rscript",
+      "bytes": 70848,
+      "sha256": "d918ce5022d859e20c38094bb0b6199186cefd8bb96ffeb58618471c9a65a22d"
+    }
+  ],
+  "exposure": "Already exposed development core, frozen predictors and previously computed failed-run scores. This is numerical accuracy work on the same conditional chronology, not untouched validation or a new ecological model. Score interpretation is withheld until qualification.",
+  "model_fits_executed": 0,
+  "status": "prespecified_not_executed",
+  "native_program_comparison": {
+    "rule": "Preserve both full input files. Require first line to start ## Ran on and compare every byte after its terminating newline exactly; no other comment, whitespace, label, calibration or model token is normalized.",
+    "source_semantics": "Unmodified rbacon 4.0.2 src/input.cpp, lines 93\u2013100 skips leading spaces then ignores any line beginning # or newline before key parsing/calibration/determinations/initialization. The narrower first-header exclusion changes no sampler instructions or RNG state.",
+    "preparation_failure": "The first committed invocation stopped before sampling because full native input bytes differed only in that generated timestamp. Its native output is 0 B and fit-summary has no completed chain. Failed directory/logs retained; no sampler result or diagnostic failure was retried."
+  }
+}

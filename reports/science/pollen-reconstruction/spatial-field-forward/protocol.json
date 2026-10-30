@@ -1,0 +1,336 @@
+{
+  "schema_version": "spatial-field-forward-protocol.v1",
+  "question": "Does integrating a declared spatially varying source-cover field change matched whole-place-excluded pollen predictions relative to direct pollen IDW and homogeneous centre-cover forwarding?",
+  "cores": [
+    {
+      "id": "BOKE",
+      "dataset_id": 54001,
+      "site_id": 28872,
+      "collection_unit_id": 39241,
+      "chronology_id": 38422,
+      "native_samples": 52,
+      "part": "part-008.json",
+      "radius_m": 80,
+      "metadata_code": "BOKE",
+      "metadata_row": 977,
+      "source_axis": [
+        "Betula",
+        "Fraxinus",
+        "Ulmus"
+      ],
+      "analysis_centre_lon_lat": [
+        13.4375,
+        55.57556
+      ],
+      "centre_authority": "Literal native EPSG:4326 site Point; collection-unit GPS is null.",
+      "expected_window_sample_ids": [
+        [
+          552419,
+          552421,
+          552422
+        ],
+        [
+          552424
+        ],
+        [
+          552420,
+          552423
+        ],
+        [
+          552425,
+          552426,
+          552427,
+          552428
+        ],
+        [
+          552429,
+          552430,
+          552431,
+          552432,
+          552433
+        ],
+        [
+          552434,
+          552435,
+          552436,
+          552437,
+          552438
+        ]
+      ]
+    },
+    {
+      "id": "BUS",
+      "dataset_id": 53995,
+      "site_id": 28869,
+      "collection_unit_id": 39238,
+      "chronology_id": 38418,
+      "native_samples": 69,
+      "part": "part-008.json",
+      "radius_m": 69,
+      "metadata_code": "BUS",
+      "metadata_row": 978,
+      "source_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "analysis_centre_lon_lat": [
+        13.81667,
+        55.46667
+      ],
+      "centre_authority": "Literal native EPSG:4326 site Point; collection-unit GPS is null. The separate inventory point is 2.5264km away; no coordinate correction or physical identity resolution is asserted.",
+      "expected_window_sample_ids": [
+        [
+          552124,
+          552125
+        ],
+        [
+          552126,
+          552127,
+          552128,
+          552129
+        ],
+        [
+          552130,
+          552131,
+          552132,
+          552133
+        ],
+        [
+          552134,
+          552135,
+          552136
+        ],
+        [
+          552137,
+          552138,
+          552139
+        ],
+        [
+          552140,
+          552141,
+          552142,
+          552143,
+          552144
+        ]
+      ]
+    },
+    {
+      "id": "SOLSOE83",
+      "dataset_id": 4446,
+      "site_id": 3432,
+      "collection_unit_id": 4304,
+      "chronology_id": 25740,
+      "native_samples": 26,
+      "part": "part-003.json",
+      "radius_m": 89,
+      "metadata_code": "Solsoe",
+      "metadata_row": 95,
+      "source_axis": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "analysis_centre_lon_lat": [
+        8.613409950326526,
+        56.12845967631802
+      ],
+      "centre_authority": "Existing qualified Nordic-cohort analysis centroid of the native EPSG:4326 site Polygon; not a source GPS measurement. Collection-unit GPS is null. SOLSOE81 shares this physical place and is excluded from every SOLSOE83 target fold. The inherited implementation used binary64 planar longitude/latitude shoelace arithmetic, not a geodesic centroid; this study fixes its saved qualified centroid rather than recomputing or correcting it.",
+      "expected_window_sample_ids": [
+        [
+          353283
+        ],
+        [
+          353284,
+          353285,
+          353286
+        ],
+        [
+          353287,
+          353288
+        ],
+        [
+          353289,
+          353290,
+          353291,
+          353292,
+          353293
+        ],
+        [
+          353294,
+          353295,
+          353296,
+          353297,
+          353298
+        ],
+        [
+          353299,
+          353300
+        ]
+      ]
+    }
+  ],
+  "projected_axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "native_taxon_ids": [
+    29,
+    310
+  ],
+  "window_edges_native_bp": [
+    2700,
+    3200,
+    3700,
+    4200,
+    4700,
+    5200,
+    5700
+  ],
+  "population": {
+    "native_samples": 147,
+    "selected_samples": 59,
+    "target_contexts": 18,
+    "physical_places": 3,
+    "families": 3,
+    "requested_family_outcomes": 54,
+    "exposure": "All sources, windows and outcomes were exposed development material. No untouched confirmation or independent vegetation benchmark is created."
+  },
+  "cohort_rule": "Freeze the inherited complete source panels BEFORE projection: BOKE three taxa, BUS two taxa and SOLSOE83 six taxa, all explicit nonnegative integer NISP with positive source/projected totals. This is a fixed comparison subset, not all possible two-taxon-eligible samples. Keep all native samples, exclusions and omitted mass; no absent taxon is filled with zero. Named native point ages are fixed; AD1950 is a declared interpretation and no CE conversion or age-uncertainty propagation is performed.",
+  "field": {
+    "coordinate_frame": "Per target, WGS84 azimuthal-equidistant projection centred on its declared analysis point, metres. Source distances within the field are planar Euclidean distances in that frame, not independently surveyed vegetation distances.",
+    "anchor_order": "Other two core IDs in lexical order; reject duplicate physical places and exclude the complete target place.",
+    "anchor_inversion": "For source s, c_s=closure(n_s/(K_s*PPE)); K_s is its OWN homogeneous receiver response. Source regional summaries become point anchors by an explicit two-stage approximation; this does not jointly fit a self-consistent landscape to source observations.",
+    "interpolation": "Inverse squared Euclidean distance, normalized over the two training anchors; the continuous limiting value at an exact anchor equals its own composition. No smoothing length or score-dependent weight is selected.",
+    "landscape_posture": "The interpolated composition field is a declared hypothesis, not measured vegetation. No plants on the receiving basin, anisotropy, shoreline change or separate regional background is modeled."
+  },
+  "physical": {
+    "wind_speed_m_s": 3.0,
+    "diffusion_coefficient": 0.12,
+    "turbulence_parameter": 0.25,
+    "regional_extent_m": 100000.0,
+    "inner_radius_rule": "Equal to each target receiving radius",
+    "receiver": "Uniform circular disk at the inherited static metadata radius",
+    "source_geometry_authority": "LandClimII metadata workbook rows977/978/95 and readme siteradius definition in metres. These are static circular hypotheses, not authenticated historical shorelines. BOKE modern1.5/1.6ha and BUS0.3/3ha/coordinate disagreements remain separate source facts.",
+    "transport_posture": "Existing stationary isotropic GPM displacement convention; coefficient0.12 is empirical, not SI diffusivity. PPE transfer is literal-label conditional transfer, with the same published means/FSP for every place. No PPE, count, site-selection or field uncertainty law is estimated."
+  },
+  "geometry_qualification": {
+    "primary_absolute_tolerance": 1e-09,
+    "primary_relative_tolerance": 1e-08,
+    "quadrature_limit": 100,
+    "independent_annuli": 8,
+    "annulus_edges": "Fixed logarithmic spacing from receiver radius to100km; no target-driven refinement.",
+    "refusals": [
+      "nonfinite or invalid geometry/domain",
+      "nonpositive coefficient with positive homogeneous response",
+      "IntegrationWarning or failed adaptive convergence",
+      "partition residual exceeds atol+rtol*abs(K)",
+      "primary coefficient outside independent annular step bracket beyond declared numerical tolerance"
+    ],
+    "enclosure_posture": "Independent spatial-discretization step brackets are conditional on computed homogeneous ring factors. Report bracket widths and nonrigorous quadrature estimates separately. Their width does not certify the primary1e-9 setting or bound the true integral rigorously.",
+    "propagation": "Freeze coefficient and normalized prediction ranges before scoring. Propagate conservative two-component positive-normalization ranges through all metrics; these are numerical qualification diagnostics conditional on saved source anchors/nuisance factors, not ecological confidence intervals. The same geometry coefficients are reused across six windows; sums of per-context endpoint scores give conservative aggregate enclosures, not one jointly attaining model. Independent component normalization can enlarge the attainable set; individual probability/score endpoints are conservative and need not arise from one compatible physical coefficient vector.",
+    "homogeneous_baseline": "Compute six standalone old circular_receiver_annulus responses independently of the six new weighted spatial calls. Failure of weighted coefficients or step brackets refuses only spatial predictions; homogeneous baseline availability follows its own receiver responses.",
+    "fixed_calls": {
+      "standalone_homogeneous": 6,
+      "weighted_primary": 6,
+      "step_reference_homogeneous": 48
+    },
+    "wall_seconds": 120,
+    "output_bytes": 1000000,
+    "memory_estimate_bytes": 536870912,
+    "memory_posture": "Geometry memory is a planning estimate; the overall 768MiB posthoc peak RSS budget governs the owned process. No in-run memory cap is claimed."
+  },
+  "families": [
+    "direct_pollen_idw",
+    "centre_cover_idw_forward",
+    "spatial_cover_idw_forward"
+  ],
+  "family_definitions": {
+    "direct_pollen_idw": "IDW at the target centre of the two source projected pollen fractions.",
+    "centre_cover_idw_forward": "Same centre IDW of the two inverse source-cover anchors, then target homogeneousK*PPE forwarding and closure.",
+    "spatial_cover_idw_forward": "For taxon i, close PPE_i*sum_s(B_target,i,s*c_s,i), where B integrates the SAME IDW field over the target land annulus and receiving disk."
+  },
+  "metrics": {
+    "primary": [
+      "signed_taxon_fraction_error",
+      "mean_absolute_fraction_error",
+      "total_variation"
+    ],
+    "secondary": [
+      "hellinger_distance"
+    ],
+    "definitions": "MAE=mean_i abs(pred_i-obs_i); TV=0.5*sum_i abs(pred_i-obs_i); these coincide for two-component closure. Reuse maintained Hellinger stable arithmetic: sqrt(sum_i(sqrt(pred_i)-sqrt(obs_i))^2/2). All three families and all metrics remain reported; no result-driven winner or metric selection.",
+    "aggregation": "Equal mean over the six windows within each physical target, then equal mean across three places. No pooled-count score or source-effort weighting.",
+    "incomplete_population": "Retain all18contexts and54family outcomes. Complete-cohort family/matched comparison summaries refuse if any required prediction/score is missing; retain per-context successes/refusals without renormalizing the primary cohort.",
+    "resolution": "Retain point scores and propagated conservative numerical ranges. Score differences that those ranges do not separate remain numerically unresolved; printed digits do not establish finer accuracy."
+  },
+  "prediction_boundary": "The callable predictor takes only two training anchor count panels and target geometry/window identity. It never receives matching target counts. Parse/validate source inputs as needed, preserving prior exposure; there is no global unread-target claim. Persist/close prediction identities, coefficient certificates and numerical prediction ranges for all18contexts before a separate scorer receives target outcomes. Scorer reads that frozen prediction file and records its identity.",
+  "rights": "Neotoma/EPD current CC BY4.0 policy with Neotoma, EPD, original investigators and all native dataset DOI strings retained. Public LandClim parameter/metadata source PANGAEA.937075 is CC BY4.0. Historical Rootsi access markers/private author copies are not count inputs. Reuse retained qualified publication metadata and policy bytes; original April HTTP wire custody is not recovered and no current value-parity claim is inferred from these old normalized response bodies.",
+  "resource_budget": {
+    "wall_seconds": 180,
+    "peak_rss_bytes_posthoc": 805306368,
+    "output_bytes": 10000000
+  },
+  "repository_files": {
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json": {
+      "bytes": 9449,
+      "sha256": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d"
+    },
+    "data/neotoma/review/relational_baseline.json": {
+      "bytes": 3981,
+      "sha256": "3e1f2c126da5dec9cc0e572ff815760b9d66d41fcffd612142458949e45a18b5"
+    },
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json": {
+      "bytes": 12871994,
+      "sha256": "d7b9f9e0616b71ab74be03e15ae3f81fa856582463d51e0c1559d763bb3552af"
+    },
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json": {
+      "bytes": 24477671,
+      "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    "data/landclim/raw/landclim_ii_site_metadata.xlsx": {
+      "bytes": 264067,
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv": {
+      "bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    "docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz": {
+      "bytes": 2576,
+      "sha256": "2f33131a93644d2c645cbc5cade1f9df75abd70d66386de50cdd8a12d2ed38a9"
+    }
+  },
+  "source_store_files": {
+    "neotoma/publication-links/2026-09-29/capture-manifest.json": {
+      "bytes": 55327,
+      "sha256": "d6dee3065e6fcfae8a7e484406cf37e2b5aa0424bee66d3a6922bbbdc1e867da"
+    },
+    "neotoma/publication-links/2026-09-29/responses/dataset-4446-publications.json": {
+      "bytes": 1709,
+      "sha256": "e259b6247bdc43645ea75c7e6911d62431f3ae89bb7f4c90472ddec9f2c4e189"
+    },
+    "neotoma/publication-links/2026-09-29/responses/dataset-53995-publications.json": {
+      "bytes": 1039,
+      "sha256": "171c2cb6fc797cd22dd86582a7ec752cfbceced23d00a2d0d249afa78af7ad18"
+    },
+    "neotoma/publication-links/2026-09-29/responses/dataset-54001-publications.json": {
+      "bytes": 1553,
+      "sha256": "96fff1a7ca6c3ce76a24e286f3a32a801e0e884c70d5e35eabe505e5c3dc4146"
+    },
+    "neotoma/dataset-19913/2026-10-26T185139Z/capture-manifest.json": {
+      "bytes": 11545,
+      "sha256": "906f7e38d5c32d03f00094136ee89213ea39ea99eb422db233e723b8f4e79269"
+    },
+    "neotoma/dataset-19913/2026-10-26T185139Z/policy-neotoma.response": {
+      "bytes": 48627,
+      "sha256": "fa74d971e9824a6071a6e6a8ea4b7e14f99a906b7aea2643d222e052bfec3497"
+    },
+    "neotoma/dataset-19913/2026-10-26T185139Z/policy-epd.response": {
+      "bytes": 90717,
+      "sha256": "7607d8798afc7ca3dce481456bc85eb4c0cbe67409add110a611bfb8af7fbc26"
+    }
+  }
+}

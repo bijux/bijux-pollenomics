@@ -1,11 +1,18 @@
-# ABBO joint ages: verified arithmetic and failed convergence
+# ABBO joint ages: conditional sampler qualification and retained failures
 
-The new fixed-transition ABBO age model produced all 8,000 requested joint
+The first fixed-transition ABBO age model produced all 8,000 requested joint
 states and scores, but failed its prespecified convergence criteria. An
 independent consumer verified every saved score and retained the refusal.
 These values describe an unsuccessful conditional computation; they do not
 establish a qualified joint posterior, chronology accuracy or field acceptance.
 The [result](result.json) records the numerical population and diagnostics.
+
+A separately prespecified longer replay of the same two seeded trajectories
+passed every unchanged numerical gate. Its [32,000-state result](sampler-accuracy-result.json)
+and independent check qualify the declared conditional sampler calculation,
+with one explicit score-support refusal and a literal raw-report flag defect.
+They establish neither chronology accuracy nor field acceptance. The longer
+replay retains the original short-run failure below.
 
 The separately preserved [archived proposal](protocol.json) was refused
 before fitting. The source-law checks below explain why it was not used for
@@ -321,3 +328,194 @@ rate law, independently of the helper. The script asserts both exact vectors
 and writes the three inspection rows. The failed one-row attempt and corrected
 two-row direct call precede this maintained script; no core fit, convergence
 claim or posterior score follows from this controlled witness.
+
+## Separately fixed sampler-accuracy qualification
+
+The [sampler-accuracy protocol](sampler-accuracy-protocol.json) prespecifies
+16,000 retained states for each original seed, 32,000 in total. It preserves
+the failed 8,000-state experiment above. The original no-retry rule prohibits
+extra chains, changed seeds, wider criteria and outcome-tuned priors; it does
+not prohibit separately declared numerical accuracy work on the same two
+trajectories. This qualification fixes one larger terminal length and permits
+no further escalation, new seed or alternative prior after its outcome.
+
+Stock rbacon writes both terminal walkers to `.last` at six significant
+digits but does not checkpoint its private random-generator state. Loading
+those rounded values through `.init` is a restart, not exact continuation.
+Instead, the unchanged fixed-transition sampler is invoked from its original
+starts and seeds with native size argument 16,500. Its transition kernel does
+not adapt to the requested length; saved states remain 1,325 proposals apart.
+The two newly prepared native executable input programs must match the originals
+before sampling. Only the recognized first `## Ran on` timestamp comment is
+excluded from that comparison; every remaining input byte stays exact. Each complete 19,501-state stream must then begin with its original
+5,678,254-byte stream exactly, including the leading blank line and absent
+final newline. A numerical tolerance or reformatted row comparison cannot
+substitute for that byte check. Original one-based rows 3502–19501 are retained
+once; the old retained prefix is not an independent additional sample.
+
+All data, eight likelihood terms, priors, calibration files, native binary,
+initial pairs and diagnostic thresholds remain fixed. Every original age,
+memory, innovation, top-age and energy criterion must pass. Both prefixes,
+joint-age extraction and resource checks precede the frozen score consumer.
+A failed gate retains native states, ages and diagnostics with an explicit
+unscored refusal. If final storage exceeds the budget after scoring, raw score
+files remain, while interpreted descriptors are withheld and the result is
+labelled `computed_then_refused_final_resources`. Previously exposed predictions
+and failed-run scores do not become untouched validation.
+
+The 600-second native deadline and 1.5 GB measured RSS budget are unchanged.
+The separate output ceiling is 100,000,000 bytes, checked after execution.
+The original layout contains 20,022,943 bytes: about 11.36 MB native states,
+8.24 MB compressed ages and 0.36 MB compressed scores. Native rows increase
+by about 2.6 times, while retained age and score exports increase fourfold;
+the corresponding estimate is 63,967,189 bytes. The ceiling leaves about
+56% headroom over that estimate, without claiming guaranteed compression or
+an operating-system storage quota. The original directory stays untouched.
+
+No native fit for this qualification ran during source preparation.
+Controlled checks cover literal prefix boundaries, source/runtime identity,
+unchanged target inputs, score withholding and resource failures. The first
+author invocation passed its source-binding control but had eight fixture
+setup errors because its artifact basetemp parent was absent; creating the
+parent resolved that setup failure. Separately, the independent observer's
+initial invocation had five setup errors and nine passing arithmetic checks;
+the same output-parent correction allowed all fourteen controls to pass.
+Neither setup correction changed scientific inputs or diagnostic criteria.
+
+The first committed invocation at `39cff6d1c1a345850c1efa1c190d26e690ff01c4`
+(owned session 54342) terminated with exit 1 before the first sampler call.
+Its guard compared the entire native input including a generated timestamp;
+only that first comment differed. Native output was zero bytes and the saved
+chain list was empty. The process took 2.59 s, with peak RSS 175,374,336 bytes;
+the R preparation command took 1.281334 s with peak RSS 173,424,640 bytes.
+That failed attempt remains in `abborrtjarnen-sampler-accuracy/native-run` and
+its adjacent execution account. The native parser ignores `#` comment lines
+before any model or random-generator operation (`rbacon 4.0.2 src/input.cpp`,
+lines 93–100). The repaired guard excludes only the recognized first generated
+timestamp and compares all remaining bytes exactly. No scientific observation,
+prior, seed, sampler length or diagnostic threshold changed. Nineteen independent controls, configured lint/types and a precommit direct R
+input-guard check pass; the latter evaluated only the repaired function against
+the original and failed-preparation inputs, with zero sampler calls. A fresh
+`native-replay` destination preserves the zero-fit preparation failure.
+
+After source review and commit, the existing command selects this protocol
+with `--sampler-accuracy` and a separate absent output directory:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
+  bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarnen_bacon \
+  --repository "$PWD" --source-root "$PWD/../-bijux-pollenomics-data" \
+  --library "$PWD/artifacts/qualification/native-reference/library" \
+  --oracle-summary "$PWD/artifacts/physical-core/native-likelihood-oracle/summary.json" \
+  --output "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay" \
+  --sampler-accuracy
+```
+
+The committed replay at `8628c543483fcb87586430c6585ee2a2834f4fbc` (session
+60038) terminated with exit 0 in 87.14 s process time; the native command took
+83.843243 s and measured peak RSS was 1,124,958,208 bytes. Both original byte
+prefixes matched. The recorded age/memory diagnostics have maximum upper
+Gelman 1.025681215 and minimum ESS 1467.479769; free-parameter/energy values
+are 1.024460519 and 1249.472597. All unchanged scalar gates pass. Of 32,000
+requested draws, 31,999 have complete four-bin support; the remaining draw
+stays refused and remains in the all-draw denominator. The original failed
+8,000-state result is unchanged. Independent consumer verification passed with
+the explicit report-metadata conflict below.
+
+The replay exposed a writer-field defect: the computed value was written as
+`diagnostics_pass: true`, leaving initialized `diagnostics_passed: false`.
+Scoring used the computed diagnostic booleans, not that unused default. The
+strict saved-result observer (session 33940) correctly refused the contradictory
+flags after its native/age checks: exit 1, 2.03 s, RSS 207,192,064 bytes. Its
+literal failure remains in `independent-check/strict-stderr.txt`; no result
+JSON was fabricated. The original 23,070-byte report remains unchanged, SHA-256
+`1aa7cd9482192fb8acb6a903627a3bb9d3830f8d85796ce3fb2f10d6d609e7cf`.
+The maintained writer now populates the intended key. The observer explicitly
+records the conflict for this exact producing revision while independently
+enforcing every original prefix, diagnostic CSV, resource and score condition;
+it does not silently treat the contradictory metadata as a clean report. No
+model rerun, change of scientific criteria or rewrite of saved results follows.
+
+The corrected observer consumed committed source
+`e5d8e109eb7a021c09501c4ed93a2794fc092202` (session 95895), returned exit 0
+in **3.81 s**, and measured **238,288,896 bytes** peak RSS. Its explicit status
+is `native_and_consumer_verified_with_report_flag_conflict`. It checked all
+**39,002 raw native rows**, **32,000 joint age rows at 107 sample depths**, and
+all **32,000 score-ledger rows**, including the refusal. Closed innovation
+polynomials, independently derived from the production backwards recurrence,
+agree with saved ages to a maximum **1.0913936421275139e-11 years**, below
+the unchanged absolute `1e-8` tolerance. Independent rational count/score
+helpers verify the frozen consumer. Diagnostic CSV gates were checked;
+Coda's statistical estimates were not independently re-estimated.
+
+The raw report occupies 23,070 bytes and the remaining native outputs
+63,923,974 bytes, within the 100 MB budget. Both original 5,678,254-byte
+trajectory prefixes match exactly. All 108 age/memory and 54 free/energy
+diagnostic rows pass. Seed 314159 has 16,000 complete scoring draws; seed
+271828 has 15,999, with one empty bin 4. There are no nonempty zero-mass
+bins and no retained ages above 50,000 BP. Negative age cells number
+27,698 and 27,555; their signs are preserved.
+
+| Frozen predictor | Mean MAE conditional on 31,999 complete draws | Strict lowest score / all 32,000 draws |
+| --- | ---: | ---: |
+| training_mean | 0.077614769 | 0 / 32000 |
+| nearest_site | 0.067714620 | 31999 / 32000 |
+| inverse_distance_squared | 0.077477830 | 0 / 32000 |
+| clr_rbf_ridge | 0.075164340 | 0 / 32000 |
+
+The [compact result](sampler-accuracy-result.json) retains full-precision
+descriptors, quantiles, diagnostic summaries, per-chain populations, exact
+source/commands and the independent result. Means and quantiles condition on
+complete scoring support; the undefined draw retains probability **1/32,000**.
+All four predictors remain exposed development comparisons on fixed counts,
+training fits, sixteen labels and four equally weighted windows. The rows are
+dependent states from two trajectories, not 32,000 independent observations;
+their score quantiles are not field confidence intervals. Passing numerical
+diagnostics supports only this declared sampler/profile and saved precision.
+No true age, independent vegetation, untouched confirmation, shared
+calibration-curve uncertainty or additional basin/taxon admission is supplied.
+
+The independent command reads the existing outputs and fits no model:
+
+```sh
+PYTHONPATH=packages/bijux-pollenomics-dev PYTHONDONTWRITEBYTECODE=1 \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /usr/bin/time -l .venv/bin/python -B -m \
+  tests.source_completion.pollen_age_support.abborrtjarnen_bacon.test_sampler_accuracy_result \
+  --repository "$PWD" \
+  --directory "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/native-replay" \
+  --output "$PWD/artifacts/physical-core/abborrtjarnen-sampler-accuracy/independent-check/verified-result.json"
+```
+
+That output path already exists in the retained execution; a deliberate fresh
+observer check must use an absent destination. Actual stdout, stderr and
+execution facts stay beside the native and independent outputs, including both
+failed attempts. The source fix also passed 33 affected controls, configured
+Ruff and strict mypy. This result required no additional fit to repair metadata.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Source-law refusal of the archived route, retained failed short experiment and independently checked numerical qualification of the separately prespecified 32,000-state conditional fixed-transition physical-rate sampler and frozen pollen-score consumer.
+
+**Unsupported claim.** Qualified interpretation of the original failed 8,000-state ensemble, correction of published historical results, true sample ages, shared calibration-curve uncertainty, untouched prediction validation, field chronology calibration or core/LRA admission.
+
+**Actual verification performed.** The historical 2.5.3 helper witness and native likelihood oracle expose the saved-column distinction without field inference. The first 8,000-state run failed unchanged convergence gates and its independent checker retained that refusal. The fixed-length replay at 8628c5434 matched both original byte prefixes and all 108 age/memory plus 54 free/energy gates. Committed independent observer e5d8e109 checked 39,002 native rows, 32,000 joint age/score rows at 107 depths and all bin masses/refusals; polynomial age residual was at most 1.0913936421275139e-11 years. The raw flag conflict was explicitly retained rather than rewritten; diagnostic CSV thresholds were checked, not independently re-estimated by Coda.
+
+**Remaining input or review.** The archived 2.5.3 saved-column and accepted-transition laws do not support the proposed equal-weight posterior interpretation. A separately declared 4.0.2 fixed-transition physical-rate profile passes its longer-run numerical gates, but retains quantized states, model/control assumptions and an explicitly reconciled raw-report flag conflict; this is not chronology accuracy. Resolver: Analyst using the exact declared conditional sampler/profile; independent chronology or source-control expertise only for a new field-age or historical-realization claim. Reopen when: A newly declared scientific chronology question supplies independent source-bound age/control evidence or a distinct justified model protocol; the current fixed-length protocol permits no further seed, prior or length escalation.
+
+**Cause category.** algorithm/numerical|assumption|comparability
+
+**Consequence.** Permit only the explicitly qualified conditional sampler and saved-consumer interpretation at its original precision; keep old failures, undefined mass, warning meaning and the raw metadata conflict visible.
+
+**Precise next acceptance route.** Reuse the qualified saved rows through the committed physical-rate and source-identity guards. Any new chronology or field claim requires its own predeclared evidence/model question; do not repair the original result by clipping, reweighting accepted-only rows, changing thresholds or extending this protocol again.
+
+**Negative or refused result.** The archived proposal remains unfit/refused; preparation failures and the original refused_mcmc_diagnostics 8,000-state result remain. The longer replay has one empty-bin score refusal and literal diagnostics_passed=false versus diagnostics_pass=true in its unchanged raw report. The first strict observer correctly failed on that contradiction; scoped reconciliation did not rerun or retune the model.
+
+**Matched denominator.** One core, 107 jointly aged samples, two original seeds, four frozen bins, 16 labels and four fixed predictors. Original run: 8,000 dependent states, diagnostic refusal. Qualified longer replay: 32,000 retained states, 31,999 complete scoring states plus one refusal; old prefixes occur once, not as additional draws.
+
+Retained evidence: [reports/science/chronology/abborrtjarnen-bacon/result.json](result.json), [reports/science/chronology/abborrtjarnen-bacon/sampler-accuracy-result.json](sampler-accuracy-result.json), [reports/science/chronology/legacyage-run-inputs.json](../legacyage-run-inputs.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

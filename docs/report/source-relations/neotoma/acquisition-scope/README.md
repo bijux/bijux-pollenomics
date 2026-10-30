@@ -216,6 +216,8 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 - [Retained qualification evidence: docs/report/source-relations/neotoma/acquisition-scope/report.json](report.json) (SHA-256 `0468b53b29c5892151c1533d487994f63617c7df7c40e6b167637d1657e2f5fd`).
 
+- [Retained qualification evidence: docs/report/source-relations/neotoma/acquisition-scope/current-abbo-comparison.json](current-abbo-comparison.json) (SHA-256 `a79b251bda679f0f56a4aad57f217e65f30b2ff5b43cd5d055c8b95cfdcfc8cc`).
+
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 
 JSON and CSV retain their domain source and numerical manifests; a reading route does not rerun those producers. PDF exports retain their export inventory and source pins and must be regenerated when their canonical account changes.

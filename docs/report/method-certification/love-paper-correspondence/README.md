@@ -110,6 +110,15 @@ figure would not establish a simulation replay. This paper-example obligation
 remains open with that exact source input requirement.
 
 
+On 26 October 2026 the user confirmed sending the original eight-pond
+simulation-input request to Martin Theuerkauf, with Anneli Poska copied.
+The request concerns original landscape/ring/count inputs, scripts, stochastic
+settings and historical software versions. No reply was reported, and exact
+dispatch time/message identifiers were not inspected. This supersedes the
+prepared-unsent outreach state for this request; it supplies no missing input
+or qualified decision. No agent sent email. Await the source response without
+resending the request.
+
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 

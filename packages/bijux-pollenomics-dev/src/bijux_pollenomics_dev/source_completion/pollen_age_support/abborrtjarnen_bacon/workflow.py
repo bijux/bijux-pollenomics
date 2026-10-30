@@ -24,12 +24,18 @@ from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
 from ..depth_order import abborrtjarne_prediction_sensitivity as frozen
 from .inputs import CURVE_SHA256, FULL_CURVE_SHA256, PROTOCOL, read_inputs
 from .posterior import physical_ages, score_draws
+from .sampler_accuracy import ACCURACY_PROTOCOL, account, prefix_checks, prepare_case
+
+
+def _output_bytes(destination: Path) -> int:
+    return sum(path.stat().st_size for path in destination.rglob("*") if path.is_file())
 
 
 def _revision(repository: Path) -> str:
     revision = frozen._revision(repository)
     files = [
         PROTOCOL,
+        ACCURACY_PROTOCOL,
         *[
             path.relative_to(repository)
             for path in Path(__file__).parent.iterdir()
@@ -56,6 +62,8 @@ def run(
     library: Path,
     oracle_summary: Path,
     output: Path,
+    *,
+    sampler_accuracy: bool = False,
 ) -> dict[str, Any]:
     """Retain native rows, exact selection, independent ages and all score refusals."""
     revision = _revision(repository)
@@ -79,6 +87,15 @@ def run(
             "The independently qualified native likelihood oracle is required"
         )
     case = read_inputs(repository, source_root)
+    qualification = None
+    if sampler_accuracy:
+        case, qualification = prepare_case(repository, library, case)
+        baseline = (repository / qualification["original_directory"]).resolve()
+        if destination.resolve().is_relative_to(baseline):
+            raise ValueError(
+                "Sampler accuracy output must not modify the old directory"
+            )
+    retained = case.protocol["execution"].get("requested_ssize_per_chain", 4000)
     curve = library / "rintcal/extdata/3Col_intcal20.14C"
     full_curve = library / "rintcal/extdata/intcal20.14c"
     if (
@@ -97,6 +114,11 @@ def run(
                 "controls": case.controls,
                 "sample_ids": case.sample_ids,
                 "depths": case.depths.tolist(),
+                **(
+                    {"sampler_accuracy": qualification, "repository": str(repository)}
+                    if qualification is not None
+                    else {}
+                ),
             },
             indent=2,
         )
@@ -152,6 +174,15 @@ def run(
         "scientific_status": "refused_native_execution",
         "requested_chain_seeds": case.protocol["execution"]["seeds"],
     }
+    if qualification is not None:
+        result.update(
+            protocol=str(ACCURACY_PROTOCOL),
+            original_model_protocol=str(PROTOCOL),
+            sampler_accuracy_qualification=account(qualification),
+            requested_draws=32000,
+            conditional_sampler_diagnostics_passed=False,
+            consumer_status="not_run_native_execution",
+        )
     measured = re.search(rb"([0-9]+)\s+maximum resident set size", completed.stderr)
     result["measured_peak_rss_bytes"] = int(measured[1]) if measured else None
     if completed.returncode != 0 or completed.timed_out:
@@ -177,6 +208,11 @@ def run(
         (destination / "report.json").write_text(json.dumps(result, indent=2) + "\n")
         return result
     fit = json.loads((destination / "fit-summary.json").read_text())
+    if [chain["seed"] for chain in fit["chains"]] != case.protocol["execution"][
+        "seeds"
+    ]:
+        raise ValueError("Exact original two-seed complete chain axis differs")
+    prepared = []
     chains = []
     all_scores = []
     for chain in fit["chains"]:
@@ -184,18 +220,24 @@ def run(
         if not native_path.is_relative_to(destination):
             raise ValueError("Native model output escaped its owned run")
         raw = np.loadtxt(native_path)
-        if raw.shape != (7501, chain["sections"] + 3) or (
-            chain["first_native_row"],
-            chain["last_native_row"],
-            chain["retained_rows"],
-        ) != (3502, 7501, 4000):
+        if (
+            chain["sections"] != 51
+            or (qualification is not None and chain.get("raw_rows") != 19501)
+            or raw.shape != (retained + 3501, chain["sections"] + 3)
+            or (
+                chain["first_native_row"],
+                chain["last_native_row"],
+                chain["retained_rows"],
+            )
+            != (3502, retained + 3501, retained)
+        ):
             raise ValueError("Native state population or frozen row selection differs")
         first, stop = chain["first_native_row"] - 1, chain["last_native_row"]
         states = raw[first:stop, :-1]
         with gzip.open(native_path.parents[1] / "ages.csv.gz", "rt") as stream:
             header = stream.readline().strip().split(",")
             ages = np.loadtxt(stream, delimiter=",")
-        if header != list(case.sample_ids) or ages.shape != (4000, 107):
+        if header != list(case.sample_ids) or ages.shape != (retained, 107):
             raise ValueError("Joint chronology sample/iteration axes differ")
         if not np.all(np.isfinite(ages)) or np.any(np.diff(ages, axis=1) < 0):
             raise ValueError("Joint chronology ages are nonfinite or nonmonotone")
@@ -207,6 +249,67 @@ def run(
             raise ValueError(
                 "Independent physical-age integration exceeds frozen tolerance"
             )
+        prepared.append((chain, ages, residual, first))
+    diagnostics_pass = bool(
+        fit["age_diagnostics"]["qualified"]
+        and fit["free_parameter_diagnostics"]["qualified"]
+    )
+    if qualification is not None:
+        checks = prefix_checks(repository, destination, qualification)
+        prefixes_passed = all(row["matched"] for row in checks)
+        peak = result["measured_peak_rss_bytes"]
+        resource_pass = (
+            peak is not None
+            and peak <= 1_500_000_000
+            and completed.duration_seconds <= 600
+        )
+        output_bytes = _output_bytes(destination)
+        resource_pass = resource_pass and output_bytes <= 100_000_000
+        qualified = prefixes_passed and diagnostics_pass and resource_pass
+        result["sampler_accuracy_qualification"].update(
+            prefix_checks=checks,
+            prefixes_passed=prefixes_passed,
+            diagnostics_passed=diagnostics_pass,
+            qualified=qualified,
+            score_interpretation_permitted=qualified,
+        )
+        result.update(
+            fit=fit,
+            conditional_sampler_diagnostics_passed=qualified,
+            output_bytes_before_report=output_bytes,
+        )
+        if not qualified:
+            result.update(
+                scientific_status="refused_sampler_prefix"
+                if not prefixes_passed
+                else "refused_mcmc_diagnostics"
+                if not diagnostics_pass
+                else "refused_sampler_resources",
+                consumer_status="not_run_prefix_qualification"
+                if not prefixes_passed
+                else "not_run_sampler_qualification",
+                chains=[
+                    {**chain, "independent_maximum_absolute_age_residual": residual}
+                    for chain, _, residual, _ in prepared
+                ],
+                chain_accounting=[
+                    {
+                        "seed": chain["seed"],
+                        "status": "saved_states_and_ages_produced_consumer_withheld",
+                    }
+                    for chain, _, _, _ in prepared
+                ],
+            )
+            if _revision(repository) != revision:
+                raise ValueError("Sampler accuracy source changed during execution")
+            prepare_case(repository, library, read_inputs(repository, source_root))
+            (destination / "report.json").write_text(
+                json.dumps(result, indent=2, allow_nan=False) + "\n"
+            )
+            return result
+        result["consumer_status"] = "computed_after_sampler_qualification"
+    for chain, ages, residual, first in prepared:
+        native_path = Path(chain["native_output"])
         scores, population, support = score_draws(
             ages, case.counts, case.predictions, frozen.BINS
         )
@@ -279,10 +382,6 @@ def run(
             if len(eligible)
             else 0.0,
         }
-    diagnostics_pass = bool(
-        fit["age_diagnostics"]["qualified"]
-        and fit["free_parameter_diagnostics"]["qualified"]
-    )
     result.update(
         scientific_status="conditional_model_diagnostics_passed"
         if diagnostics_pass
@@ -315,14 +414,20 @@ def run(
     ):
         raise ValueError("Consumed source or curve changed during execution")
     read_inputs(repository, source_root)
-    total_bytes = sum(
-        path.stat().st_size for path in destination.rglob("*") if path.is_file()
-    )
-    if total_bytes > 30_000_000:
+    total_bytes = _output_bytes(destination)
+    if total_bytes > (100_000_000 if qualification is not None else 30_000_000):
         result.update(
             scientific_status="refused_output_budget",
             conditional_sampler_diagnostics_passed=False,
         )
+    if qualification is not None:
+        prepare_case(repository, library, read_inputs(repository, source_root))
+        if not result["conditional_sampler_diagnostics_passed"]:
+            result["sampler_accuracy_qualification"].update(
+                qualified=False, score_interpretation_permitted=False
+            )
+            result["consumer_status"] = "computed_then_refused_final_resources"
+            result.pop("saved_ensemble_descriptors", None)
     result["output_bytes_before_report"] = total_bytes
     (destination / "report.json").write_text(
         json.dumps(result, indent=2, allow_nan=False) + "\n"
@@ -338,6 +443,11 @@ def main() -> int:
     parser.add_argument("--library", required=True, type=Path)
     parser.add_argument("--oracle-summary", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument(
+        "--sampler-accuracy",
+        action="store_true",
+        help="Run only the separately frozen 16000-row-per-seed prefix qualification",
+    )
     args = parser.parse_args()
     result = run(
         args.repository.absolute(),
@@ -345,6 +455,7 @@ def main() -> int:
         args.library.absolute(),
         args.oracle_summary,
         args.output.absolute(),
+        sampler_accuracy=args.sampler_accuracy,
     )
     print(
         json.dumps(

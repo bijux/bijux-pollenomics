@@ -152,3 +152,31 @@ The actual bounded invocation, stdout, stderr and resource facts remain under
 `artifacts/physical-core/abborrtjarnen-ppe-dependence/`. No model was fitted,
 no measured vegetation target was opened, and no calibrated accuracy,
 whole-vegetation, original-method or original-core-admission claim follows.
+
+
+<!-- scientific-verification-and-limits:begin -->
+## Scientific verification and limits
+
+**Supported claim.** Conditional five-taxon physical reconstruction and exact sharp linearized PPE-variance bounds over all PSD covariances with the declared marginal SDs, sharing PPE across four windows and preserving all 30 scalar temporal contrasts.
+
+**Unsupported claim.** One globally attaining covariance for all extrema, adopted four-point probability law, nonlinear cover/confidence bounds, empirical interval coverage, age uncertainty, whole vegetation, original LandClim reproduction or core admission.
+
+**Actual verification performed.** Producer ccf316e22 made five receiver and 64 fixed-site covariance calls and exited zero. Independent scalar/Fraction checks compared 107 accounts, 29 selected samples, four windows, 30 contrasts and 400 joint cells, with maximum scalar/covariance gap 1.4224732503009818e-16. Sixty Gram extrema and positive four-point moment witnesses passed, minimum positive PPE support 0.8912936765254621. Twelve focused controls and configured lint/types passed; saved response factors were held fixed by the observer, not independently re-integrated.
+
+**Remaining input or review.** The completed delta calculation holds native point ages, a static 3 ha receiver and literal five-taxon transfer fixed; unknown fixed-marginal PPE correlations are bounded mathematically but do not identify a joint ecological probability law, whole-vegetation denominator or field coverage. Resolver: Analyst declaring any different covariance/age/physical model; independent vegetation and palynological expertise only for a broader field interpretation or admission claim. Reopen when: A broader claim supplies source-bound physical/taxon support and independent vegetation/error evidence or a separately prespecified uncertainty law; it must not reinterpret the per-contrast extrema as one simultaneous distribution.
+
+**Cause category.** assumption|comparability
+
+**Consequence.** Use the reconstruction and dependence bounds only within the explicitly closed panel and fixed nuisance profile, with source SD/SEM wording and relative-reference limits visible.
+
+**Precise next acceptance route.** Retain the completed mathematical bounds as scoped results. A new age, field or whole-vegetation question needs its own declared source support and estimand; do not promote moment feasibility to an adopted sampling law or require an umbrella approval to reuse the present conditional arithmetic.
+
+**Negative or refused result.** No selected sample was dropped or absent taxon zero-filled. Eleven PPE lower variance bounds are zero and nineteen positive; each scalar extremum has its own witness, not one jointly attaining law. Original point-age/core decisions and omitted native pollen remain unchanged; no field significance or direction was accepted.
+
+**Matched denominator.** 107 original sample accounts; 29 selected and 78 outside four frozen windows, with 7/9/8/5 members. Five literal taxa contribute 28,016 panel counts of 34,085 reported pollen NISP, leaving 6,069 reported counts outside the panel; 20 joint components and 30 prespecified contrasts.
+
+Retained evidence: [reports/science/pollen-reconstruction/abborrtjarnen-ppe-dependence/result.json](result.json).
+
+This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
+
+<!-- scientific-verification-and-limits:end -->

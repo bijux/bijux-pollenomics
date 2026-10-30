@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 from pathlib import Path
@@ -49,6 +50,7 @@ CORRECTION_WITNESS_SHA256 = (
 REPORT: Any = (
     "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
 )
+SOURCE_DECLARATION = str(Path(REPORT).with_name("sources.json"))
 ORIGINAL_CANDIDATE: Any = "c292dafa60f9d992f162c92dd327207d9aefd76b"
 EXPECTED_MEMBERS: Any = {
     "execution/original/independent-swedish-cohort-metadata-observer.stderr": {
@@ -446,7 +448,7 @@ def _same(left: object, right: object) -> bool:
 
 
 def validate_report(report: dict[str, Any]) -> None:
-    """Check the retained Swedish cohort metadata and its identity refusals."""
+    """Validate the historical metadata result retained by the original capture."""
     _require(
         report["schema_version"] == "swedish-cohort-availability.v1",
         "Report schema differs",
@@ -527,6 +529,131 @@ def validate_report(report: dict[str, Any]) -> None:
         is False,
         "Chronology reference promoted to sample ages",
     )
+
+
+def _garasel_exposure(repository: Path) -> dict[str, Any]:
+    """Read completed-processing metadata without reopening workbook observations."""
+    declared = _json(_file(repository, SOURCE_DECLARATION))
+    evidence = _object(declared.get("prior_processing_evidence"))
+    paths = {
+        "crosswalk": "data/landclim/review/rootsi-candidate-inputs/rootsi-crosswalk.csv",
+        "census": "reports/science/publication-correspondence/rootsi-feature-census/report.json",
+    }
+    _exact(set(evidence), set(paths))
+    sources = {}
+    for role, relative in paths.items():
+        pin = _object(evidence[role])
+        _exact(set(pin), {"path", "sha256"})
+        _exact(pin["path"], relative)
+        source = _file(repository, relative)
+        _exact(hashlib.sha256(source.read_bytes()).hexdigest(), pin["sha256"])
+        sources[role] = source
+    with sources["crosswalk"].open(encoding="utf-8", newline="") as stream:
+        identities = [
+            row
+            for row in csv.DictReader(stream)
+            if row.get("rootsi_sequence_label_raw", "").upper() == "GARASEL"
+        ]
+    _require(len(identities) == 1, "One GARASEL crosswalk identity required")
+    identity = identities[0]
+    census = _json(sources["census"])
+    _exact(census.get("canonical_crosswalk"), evidence["crosswalk"])
+    _exact(census.get("schema_version"), "rootsi-cached-feature-census.v1")
+    _exact(census.get("source_commit"), "6bc07eb8e6b1599739473ff1478f45cb68fa9333")
+    workbooks = census.get("workbooks")
+    _require(isinstance(workbooks, list), "Completed workbook metadata required")
+    assert isinstance(workbooks, list)
+    entries = [
+        _object(row)
+        for row in workbooks
+        if _object(row).get("archive_member") == "rootsi/GARASEL.xls"
+    ]
+    _require(len(entries) == 1, "One completed GARASEL workbook required")
+    entry = entries[0]
+    origin = "decoded cached values; literal/formula origin unavailable"
+    for key, expected in {
+        "archive_member": "rootsi/GARASEL.xls",
+        "bytes": 19968,
+        "metadata_source_locator": "rootsi/Metadata table_SWE_climate.xlsx!25",
+        "status": "computed",
+        "sheet": "Sheet1",
+        "value_origin": origin,
+    }.items():
+        _exact(entry.get(key), expected)
+    _exact(identity.get("typed_workbook_member"), entry["archive_member"])
+    _exact(identity.get("typed_workbook_bytes"), str(entry["bytes"]))
+    _exact(identity.get("typed_workbook_sha256"), entry.get("sha256"))
+    _exact(identity.get("rootsi_source_locator"), entry["metadata_source_locator"])
+    workbook_sha = entry.get("sha256")
+    _require(
+        isinstance(workbook_sha, str)
+        and len(workbook_sha) == 64
+        and all(char in "0123456789abcdef" for char in workbook_sha),
+        "Workbook data identity required",
+    )
+    return {
+        "status": "prior_numeric_source_processing_recorded",
+        "workbook_member": entry["archive_member"],
+        "workbook_sha256": workbook_sha,
+        "workbook_bytes": entry["bytes"],
+        "sheet": entry["sheet"],
+        "metadata_source_locator": entry["metadata_source_locator"],
+        "site_name_raw": identity.get("rootsi_site_name_raw"),
+        "latitude_raw": identity.get("rootsi_latitude_raw"),
+        "longitude_raw": identity.get("rootsi_longitude_raw"),
+        "completed_census_source_commit": census["source_commit"],
+        "evidence_inputs": evidence,
+        "processing_scope": origin,
+        "fitting_or_tuning_exposure": "not_established_by_these_records",
+        "target_measurement_values_opened_by_this_check": False,
+    }
+
+
+def validate_current_report(
+    repository: Path, historical: dict[str, Any], current: dict[str, Any]
+) -> None:
+    """Permit only the metadata-supported stricter refusal beyond captured history."""
+    validate_report(historical)
+    _exact(set(current), set(historical))
+    _require(
+        isinstance(current["scope"], str) and bool(current["scope"].strip()),
+        "Current scope wording required",
+    )
+    historical_screen = _object(historical["epd_metadata_screen"])
+    current_screen = _object(current["epd_metadata_screen"])
+    _exact(set(current_screen), set(historical_screen))
+    old_leads, new_leads = (
+        historical_screen["named_leads"],
+        current_screen["named_leads"],
+    )
+    _require(isinstance(new_leads, list), "Current lead population required")
+    assert isinstance(new_leads, list)
+    _exact(len(new_leads), len(old_leads))
+    normalized_leads = []
+    exposure = _garasel_exposure(repository)
+    for old, new in zip(old_leads, new_leads, strict=True):
+        new = _object(new)
+        if old["core_handle"] == "GARASEL":
+            expected = {
+                **old,
+                "decision": "refused_as_untouched_prior_numeric_source_processing",
+                "prior_source_processing": exposure,
+                "untouched_confirmation_eligible": False,
+                "untouched_status_restored_by_age_or_rights_repair": False,
+            }
+            _exact(new, expected)
+        else:
+            _exact(new, old)
+        normalized_leads.append(old)
+    normalized = {
+        **current,
+        "scope": historical["scope"],
+        "epd_metadata_screen": {
+            **current_screen,
+            "named_leads": normalized_leads,
+        },
+    }
+    _exact(normalized, historical)
 
 
 def _stages(plan: dict[str, Any], common: dict[str, Any], exits: list[int]) -> None:
@@ -875,10 +1002,23 @@ def validated_swedish_cohort_capture(
                 .as_posix()
             )
             source = _file(repository, relative)
+            payload = source.read_bytes()
+            if relative == SOURCE_DECLARATION:
+                # Only the independently checked exposure addendum may extend
+                # this historical declaration of original metadata identities.
+                declared = _json(source)
+                _require(
+                    "prior_processing_evidence" in declared,
+                    "Current exposure declaration required",
+                )
+                del declared["prior_processing_evidence"]
+                payload = (
+                    json.dumps(declared, ensure_ascii=False, indent=2) + "\n"
+                ).encode("utf-8")
             _exact(
                 {
-                    "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
-                    "bytes": source.stat().st_size,
+                    "sha256": hashlib.sha256(payload).hexdigest(),
+                    "bytes": len(payload),
                 },
                 {k: row["original"][k] for k in ("sha256", "bytes")},
             )
@@ -896,12 +1036,17 @@ def validated_swedish_cohort_capture(
             )
     _exact(count, INPUT_SCOPE_COUNTS)
     publication = _file(repository, REPORT)
-    _exact(
-        publication.read_bytes(),
-        _file(repository, prefix + "/publication/report.json").read_bytes(),
+    historical = _file(repository, prefix + "/publication/report.json")
+    validate_current_report(
+        repository,
+        _json(historical),
+        _json(publication),
     )
-    validate_report(_json(publication))
-    wanted = EXPECTED_MEMBERS["publication/report.json"]
+    current_bytes = publication.read_bytes()
+    wanted = {
+        "sha256": hashlib.sha256(current_bytes).hexdigest(),
+        "bytes": len(current_bytes),
+    }
     entry = tracked_by_path.get(REPORT)
     _require(entry is not None, "Tracked report required")
     assert entry is not None
@@ -909,6 +1054,7 @@ def validated_swedish_cohort_capture(
         (entry.path, REPORT.removeprefix("docs/report/")),
         (entry.kind, "file"),
         (entry.sha256, wanted["sha256"]),
+        (entry.canonical_sha256, wanted["sha256"]),
         (entry.size, wanted["bytes"]),
     ):
         _exact(actual, expected)
