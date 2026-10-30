@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "7ab16cf5333ff742b7dabec0ec95877f668458a6e52f7e06ab47dda66604e8b0",
-      "bytes": 7390146
+      "sha256": "f2e119f1e93f0e5ce86d7de344a5f6e242f6755fd2695fecf62202c13eebf47d",
+      "bytes": 7390248
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5363,6 +5363,16 @@
       "path": "reports/science/method-certification/love-wrapper-values.csv",
       "sha256": "ba0d578a6743ad66c82a64fdc37d2844fff708bd4d9d9335782e973d6cf7ef35",
       "bytes": 29156
+    },
+    {
+      "path": "reports/science/method-certification/kernel-branch-comparisons.csv",
+      "sha256": "87ff8bc7fb9975b2577663145a1ecd5c29cd84a0e0da7f8762becd3746d7184d",
+      "bytes": 6065
+    },
+    {
+      "path": "reports/science/method-certification/minimum-lake-comparisons.csv",
+      "sha256": "51963e6fef262f81c1bbe4f5a1c004e7479ca9cd8197f18b0a79a111e12b4fdb",
+      "bytes": 969
     }
   ],
   "maintained_paths": [
@@ -5674,6 +5684,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/development_cohort.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/development_evidence.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/experiment_ledger.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/kernel_branches.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/capture_selection.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/count_domain_capture.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reference_replay.py",
