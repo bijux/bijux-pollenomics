@@ -13,6 +13,7 @@ from ..abborrtjarnen_ppe_dependence.sources import TAXA, TAXON_IDS, WINDOWS, req
 
 
 def scalar_axes() -> list[dict[str, Any]]:
+    """List component and temporal-contrast identities in fixed taxon order."""
     return [
         {"kind": "component", "window_id": b, "taxon": name, "native_taxon_id": taxon}
         for b in WINDOWS

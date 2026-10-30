@@ -11,6 +11,11 @@ from unittest.mock import create_autospec
 
 import pytest
 
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.lra_validation.native_reference import (
+    source_layout_adoption as layout,
+)
+
 ROOT = Path(__file__).resolve().parents[4]
 
 
@@ -267,14 +272,13 @@ def test_named_historical_api_inventory_uses_existing_git_owner(
     tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     preimage = create_autospec(
-        verifier.api_adoption_preimage, return_value=b"# Own historical API body\n"
+        verifier.read_historical_api_preimage,
+        return_value=b"# Own historical API body\n",
     )
-    monkeypatch.setattr(verifier, "api_adoption_preimage", preimage)
+    monkeypatch.setattr(verifier, "read_historical_api_preimage", preimage)
     relative = "data/source-custody/lra-uncertainty-layout/api-before-relocation.py"
     assert verifier._source_bytes(tmp_path, relative) == b"# Own historical API body\n"
-    preimage.assert_called_once_with(
-        tmp_path, tmp_path / verifier.SOURCE_LAYOUT_API_PATH
-    )
+    preimage.assert_called_once_with(tmp_path)
     assert not (tmp_path / relative).exists()
 
 
@@ -282,12 +286,12 @@ def test_other_missing_api_paths_cannot_borrow_historical_transport(
     tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     preimage = create_autospec(
-        verifier.api_adoption_preimage,
+        verifier.read_historical_api_preimage,
         side_effect=AssertionError(
             "Only the exact historical member may use API transport"
         ),
     )
-    monkeypatch.setattr(verifier, "api_adoption_preimage", preimage)
+    monkeypatch.setattr(verifier, "read_historical_api_preimage", preimage)
     with pytest.raises(ValueError, match="unavailable or unsafe"):
         verifier._source_bytes(
             tmp_path, "data/source-custody/lra-uncertainty-layout/other.py"
@@ -299,20 +303,18 @@ def test_historical_api_member_keeps_missing_git_witness_refusal(
     tmp_path: Path, verifier: ModuleType, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     preimage = create_autospec(
-        verifier.api_adoption_preimage,
+        verifier.read_historical_api_preimage,
         side_effect=verifier.ReportRebuildError(
             "Original API Git witness is unavailable"
         ),
     )
-    monkeypatch.setattr(verifier, "api_adoption_preimage", preimage)
+    monkeypatch.setattr(verifier, "read_historical_api_preimage", preimage)
     with pytest.raises(ValueError, match="unavailable or unsafe"):
         verifier._source_bytes(
             tmp_path,
             "data/source-custody/lra-uncertainty-layout/api-before-relocation.py",
         )
-    preimage.assert_called_once_with(
-        tmp_path, tmp_path / verifier.SOURCE_LAYOUT_API_PATH
-    )
+    preimage.assert_called_once_with(tmp_path)
 
 
 @pytest.mark.parametrize(
@@ -342,3 +344,16 @@ def test_named_maintained_inputs_preserve_evidence_identities(
     path.write_text("Edited reader bookkeeping\n")
     assert verifier.verify_source_lock(tmp_path, lock) == expected
     assert lock["sources"] == sources
+
+
+def test_named_historical_api_raw_inventory_preserves_current_refusal(
+    verifier: ModuleType,
+) -> None:
+    # This is an in-memory normal-Git read of one fixed accepted ancestor.
+    historical = verifier._source_bytes(ROOT, layout.PREIMAGE_PATH)
+    assert len(historical) == 6049
+    assert hashlib.sha256(historical).hexdigest() == layout.PREIMAGE_SHA256
+    assert not (ROOT / layout.PREIMAGE_PATH).exists()
+    # Existing masked-input additions remain outside the old source certificate.
+    with pytest.raises(ReportRebuildError, match="operation source bytes"):
+        layout.validated_source_layout(ROOT)

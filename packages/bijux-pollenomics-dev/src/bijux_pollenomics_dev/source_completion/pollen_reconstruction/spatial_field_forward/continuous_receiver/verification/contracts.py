@@ -80,16 +80,19 @@ class VerificationError(ValueError):
 
 
 def require(condition: bool, message: str) -> None:
+    """Raise a verification refusal when a required condition fails."""
     if not condition:
         raise VerificationError(message)
 
 
 def integer(value: object, label: str, maximum: int = 2**53 - 1) -> int:
+    """Read a bounded nonnegative integer without accepting booleans."""
     require(type(value) is int and 0 <= value <= maximum, f"Invalid {label}")
     return cast(int, value)
 
 
 def rational(value: object) -> Fraction:
+    """Read a canonical rational string with a positive denominator."""
     require(type(value) is str, "Exact rational string required")
     try:
         result = Fraction(cast(str, value))
@@ -100,6 +103,7 @@ def rational(value: object) -> Fraction:
 
 
 def finite(value: object) -> Fraction:
+    """Convert a finite native numeric token to its rational value."""
     require(
         type(value) in (int, float) and math.isfinite(cast(float, value)),
         "Finite native number required",
@@ -108,10 +112,12 @@ def finite(value: object) -> Fraction:
 
 
 def encoded(value: Interval) -> list[str]:
+    """Serialize the two rational interval endpoints as strings."""
     return [str(value.lower), str(value.upper)]
 
 
 def bounds(value: object) -> Interval:
+    """Read an ordered interval on the fixed 96-bit binary lattice."""
     require(
         isinstance(value, list) and len(value) == 2, "Two interval endpoints required"
     )
@@ -124,6 +130,7 @@ def bounds(value: object) -> Interval:
 
 
 def overlaps(first: Interval, second: Interval, label: str) -> None:
+    """Require two independently obtained enclosures to overlap."""
     require(
         max(first.lower, second.lower) <= min(first.upper, second.upper),
         f"Independent enclosure disagrees: {label}",
@@ -139,6 +146,7 @@ def _unique(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
 
 
 def parse(raw: bytes) -> dict[str, Any]:
+    """Parse a JSON object with unique keys and finite constants."""
     result = json.loads(
         raw,
         object_pairs_hook=_unique,
@@ -151,6 +159,7 @@ def parse(raw: bytes) -> dict[str, Any]:
 
 
 def identity(raw: bytes) -> dict[str, Any]:
+    """Return the exact byte count and SHA-256 digest of a body."""
     return {"bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
 
 
@@ -161,6 +170,7 @@ def _same_json(first: object, second: object) -> bool:
 
 
 def bound_file(path: Path, pin: Mapping[str, Any]) -> bytes:
+    """Read a bounded regular input and require its exact declared identity."""
     require(
         not path.is_symlink() and path.is_file(), "Regular nonsymlink input required"
     )
@@ -172,6 +182,8 @@ def bound_file(path: Path, pin: Mapping[str, Any]) -> bytes:
 
 @dataclass
 class Clock:
+    """Track the independent observer's time and current case."""
+
     seconds: float = 160
     started: float = 0
     current_case: tuple[str, str] | None = None
@@ -179,6 +191,7 @@ class Clock:
     completed_leaves: int = 0
 
     def __post_init__(self) -> None:
+        """Require a bounded observer time limit and initialize its clock."""
         require(
             type(self.seconds) in (int, float) and 0 < self.seconds <= 160,
             "Observer work budget exceeds160s",
@@ -187,6 +200,7 @@ class Clock:
             self.started = time.monotonic()
 
     def check(self) -> None:
+        """Refuse exhausted observer time or resident-memory budgets."""
         require(
             time.monotonic() - self.started < self.seconds,
             "Independent fixed-leaf work budget exhausted",

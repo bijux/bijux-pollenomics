@@ -136,6 +136,8 @@ def _weighted_mass(
 
 @dataclass(frozen=True)
 class RingBounds:
+    """Store endpoint survival bounds and complementary ring coefficients."""
+
     geometry: Geometry
     edges: tuple[Fraction, ...]
     raw_q_bounds: tuple[Interval, ...]
@@ -147,6 +149,7 @@ class RingBounds:
 
     @property
     def coefficient_epsilon_pass(self) -> tuple[bool, bool, bool]:
+        """Report the final width test for each of the three coefficients."""
         return (
             self.homogeneous.width <= EPSILON,
             self.first.width <= EPSILON,
@@ -155,6 +158,7 @@ class RingBounds:
 
     @property
     def positive_bounds(self) -> tuple[bool, bool, bool]:
+        """Report strict positivity of the three coefficient lower bounds."""
         return (self.homogeneous.lower > 0, self.first.lower > 0, self.second.lower > 0)
 
 
@@ -281,6 +285,8 @@ def deposition_bounds(
 
 @dataclass(frozen=True)
 class RingCaseResult:
+    """Retain all endpoint outcomes, coefficient bounds and case refusal."""
+
     endpoints: tuple[IntegralResult | None, ...]
     refusals: tuple[str | None, ...]
     bounds: RingBounds | None
@@ -289,6 +295,8 @@ class RingCaseResult:
 
 @dataclass(frozen=True)
 class RingPopulationResult:
+    """Retain every ring case with shared budgets and elapsed time."""
+
     results: tuple[RingCaseResult, ...]
     budgets: tuple[WorkBudget, ...]
     elapsed_seconds: float

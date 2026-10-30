@@ -10,6 +10,7 @@ Pair = tuple[float, float]
 
 
 def close(values: Sequence[float]) -> Pair:
+    """Normalize two finite nonnegative masses with a positive total."""
     if len(values) != 2:
         raise ValueError("Independent composition requires exactly two taxa")
     total = math.fsum(values)
@@ -19,6 +20,7 @@ def close(values: Sequence[float]) -> Pair:
 
 
 def source_cover(counts: Pair, own_factors: Pair, ppe: Pair) -> Pair:
+    """Invert two fixed response and PPE factors and close the resulting cover."""
     return close(tuple(counts[i] / (own_factors[i] * ppe[i]) for i in range(2)))
 
 
@@ -63,12 +65,15 @@ def reconstruct_predictions(
 
 @dataclass(frozen=True)
 class Scores:
+    """Store signed component errors and three composition-distance scores."""
+
     signed_fraction_errors: Pair
     mae: float
     total_variation: float
     hellinger: float
 
     def metrics(self) -> dict[str, float]:
+        """Return the three named composition-distance metrics."""
         return {
             "mae": self.mae,
             "total_variation": self.total_variation,

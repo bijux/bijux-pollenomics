@@ -19,10 +19,12 @@ SMALL = ("BOKE", "BUS", "SOLSOE83")
 
 
 def integer(value: object, *, positive: bool = False) -> bool:
+    """Recognize a literal integer in the selected positive or nonnegative domain."""
     return type(value) is int and (value > 0 if positive else value >= 0)
 
 
 def checked_krag(audit: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Check Krageholm source owners and pooled age-window support."""
     require(
         audit["schema_version"] == "krageholm-regional-source-support.v1"
         and audit["status"] == "literal_source_support_accounted"

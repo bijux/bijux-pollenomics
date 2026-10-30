@@ -135,7 +135,7 @@ def test_actual_degree_seven_primitive_and_native_constant_anchor_symmetry(
         )
         assert budget.attempts == 4 and budget.nodes == budget.completed_nodes == 112
     with pytest.raises(FrozenInstanceError):
-        setattr(result, "results", ())
+        result.__setattr__("results", ())
 
 
 def test_exact_zero_attenuation_symmetry_has_zero_coefficients() -> None:

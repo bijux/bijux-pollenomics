@@ -14,6 +14,13 @@ from ...presentation_source_roles import (
     HISTORICAL_RENDERING_SOURCES,
     atlas_extension_matches,
 )
+from ...source_roles.atlas_context import atlas_context_extension_matches
+from ...source_roles.atlas_evidence_selection import (
+    atlas_evidence_selection_extension_matches,
+)
+from ...source_roles.atlas_relation_context import (
+    atlas_relation_context_extension_matches,
+)
 from ...source_roles.documentation import _documented_source_matches
 from .contracts import require, strict_equal
 
@@ -648,6 +655,30 @@ def qualify_retention(
     }
 
 
+def _composed_atlas_source_role(
+    name: str, captured: bytes, current: bytes
+) -> str | None:
+    """Keep three existing whole-source laws distinct from current native equality."""
+    if (
+        name == "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py"
+        and atlas_context_extension_matches(name, captured, current)
+    ):
+        return "source_view_context_extension"
+    if (
+        name
+        == "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py"
+        and atlas_evidence_selection_extension_matches(name, captured, current)
+    ):
+        return "atlas_evidence_selection_extension"
+    if (
+        name
+        == "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py"
+        and atlas_relation_context_extension_matches(name, captured, current)
+    ):
+        return "atlas_relation_context_extension"
+    return None
+
+
 def validate_recorded_source_contracts(
     repository: Path, rows: list[dict[str, Any]], resolver: SourceCapsule
 ) -> dict[str, Any]:
@@ -671,6 +702,7 @@ def validate_recorded_source_contracts(
     documented: list[str] = []
     rendered: list[str] = []
     extended: list[str] = []
+    composed: list[dict[str, Any]] = []
     resolver.fresh()
     for row in rows:
         name = row["path"]
@@ -726,12 +758,24 @@ def validate_recorded_source_contracts(
             name, captured, value
         ):
             extended.append(name)
+        elif (
+            logical in resolver.detached
+            and (role := _composed_atlas_source_role(name, captured, value)) is not None
+        ):
+            composed.append(
+                {
+                    "path": name,
+                    "classification": role,
+                    "whole_original_source_reconstructed": True,
+                    "current_browser_or_native_equivalence_claimed": False,
+                }
+            )
         else:
             require(
                 False, "Current Sweden scientific contract differs without a named role"
             )
     resolver.fresh()
-    return {
+    result: dict[str, Any] = {
         "original_source_contracts_authenticated": 51,
         "current_default_exact_sources": exact,
         "exact_named_documentation_sources": documented,
@@ -739,6 +783,9 @@ def validate_recorded_source_contracts(
         "finite_atlas_asset_extension_sources": extended,
         "current_browser_or_native_equivalence_claimed": False,
     }
+    if composed:
+        result["finite_composed_atlas_source_correspondences"] = composed
+    return result
 
 
 HISTORICAL_READER_PATH = "docs/report/countries/sweden/land-use-replay/README.md"

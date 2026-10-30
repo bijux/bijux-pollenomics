@@ -113,7 +113,7 @@ _GATE_FIXED_INPUTS: dict[str, tuple[str, ...]] = {
         "configs/scientific-contracts",
         "data/neotoma/relational",
         "artifacts/release-verification/classification/neotoma-audit-112827bb",
-        "artifacts/release-verification/propagation/neotoma-audit-a82a5852",
+        "artifacts/release-verification/propagation/neotoma-audit-2072b072",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py",
     ),
     "doc-counts": (

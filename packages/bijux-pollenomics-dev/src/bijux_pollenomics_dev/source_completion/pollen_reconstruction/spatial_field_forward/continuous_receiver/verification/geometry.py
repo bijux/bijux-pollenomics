@@ -12,6 +12,8 @@ from .contracts import Function, require
 
 @dataclass(frozen=True)
 class Geometry:
+    """Exact geometry for independently evaluating transformed receiver domains."""
+
     coefficient: Fraction
     receiver: Fraction
     outer: Fraction
@@ -19,6 +21,7 @@ class Geometry:
     second: tuple[Fraction, Fraction]
 
     def __post_init__(self) -> None:
+        """Require exact positive scales and distinct declared anchors."""
         require(
             all(
                 type(x) is Fraction
@@ -40,6 +43,7 @@ class Geometry:
         )
 
     def encoded(self) -> dict[str, Any]:
+        """Serialize exact geometry fields as rational strings."""
         return {
             "coefficient_A": str(self.coefficient),
             "receiver_radius_m": str(self.receiver),
@@ -49,6 +53,7 @@ class Geometry:
         }
 
     def anchors(self) -> tuple[Fraction, Fraction, Fraction, Fraction, Fraction]:
+        """Compute anchor norms, dot product and squared sum/difference norms."""
         aa = sum((x * x for x in self.first), Fraction(0))
         bb = sum((x * x for x in self.second), Fraction(0))
         dot = sum(
@@ -57,6 +62,7 @@ class Geometry:
         return aa, bb, dot, aa + bb + 2 * dot, aa + bb - 2 * dot
 
     def distance_polynomial(self, radius: Jet) -> Jet:
+        """Bound the angular denominator polynomial with its positive anchor floor."""
         aa, bb, dot, s, t = self.anchors()
         result = 4 * radius**4 - 8 * dot * radius**2 + (aa + bb) ** 2
         lower = max(s * t, result.value.lower)
@@ -67,6 +73,7 @@ class Geometry:
         return Jet((Interval(lower, result.value.upper),) + result.coefficients[1:])
 
     def mean(self, radius: Fraction) -> Interval:
+        """Enclose the two-anchor angular mean at a rational radius."""
         aa, bb, dot, s, t = self.anchors()
         if aa == bb:
             return Interval.point(Fraction(1, 2))
@@ -79,6 +86,7 @@ class Geometry:
         return Fraction(1, 2) + (bb - aa) / (2 * s) * (1 - u / denominator)
 
     def derivative(self, radius: Jet) -> Jet:
+        """Evaluate the angular-mean derivative using interval Taylor arithmetic."""
         aa, bb, _, _, t = self.anchors()
         if aa == bb:
             return Jet.constant(0, radius.order)
@@ -87,6 +95,7 @@ class Geometry:
         )
 
     def bands(self) -> tuple[tuple[Fraction, Fraction], ...]:
+        """Return complete dyadic bands up to the original outer radius."""
         result: list[tuple[Fraction, Fraction]] = []
         a = self.receiver
         while a < self.outer:
@@ -97,6 +106,7 @@ class Geometry:
         return tuple(result)
 
     def function(self, index: int) -> Function:
+        """Build the selected transformed integrand on its declared domain."""
         if index == 0:
 
             def contact(arguments: tuple[Jet, ...]) -> Jet:
