@@ -166,6 +166,7 @@ def scan(
 
 
 def main() -> int:
+    """Account for retained national geometry payloads and runtime bindings."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source", type=Path, required=True)

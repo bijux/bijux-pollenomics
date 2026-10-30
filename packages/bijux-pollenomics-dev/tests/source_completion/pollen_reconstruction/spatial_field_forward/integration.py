@@ -56,6 +56,7 @@ class StepEnclosure:
 
     @property
     def numerical_margin(self) -> float:
+        """Combine mass-error and angular-resolution estimates for the ring."""
         return self.mass_error_estimate + self.mass * self.angular_resolution_estimate
 
 

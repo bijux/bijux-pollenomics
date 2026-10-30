@@ -16,6 +16,7 @@ TAXON_IDS = (29, 74, 4416, 1287, 417)
 
 
 def scalar_axes() -> list[dict[str, Any]]:
+    """List the twenty components and thirty ordered temporal contrasts."""
     return [
         {"kind": "component", "window_id": b, "taxon": name, "native_taxon_id": taxon}
         for b in BINS
@@ -34,6 +35,7 @@ def scalar_axes() -> list[dict[str, Any]]:
 
 
 def conditional_mean(rows: Rows) -> tuple[float, Vector]:
+    """Compute the complete-row fraction and mean of the defined vectors."""
     complete = [row for row in rows if row is not None]
     if not rows or not complete:
         raise ValueError("No complete conditional mean is available")
@@ -49,6 +51,7 @@ def conditional_mean(rows: Rows) -> tuple[float, Vector]:
 
 
 def sample_crossproducts(vectors: Sequence[Vector], factor: float) -> Matrix:
+    """Compute centered scaled batch crossproducts and refuse lost variation."""
     if len(vectors) < 2 or not math.isfinite(factor) or factor <= 0:
         raise ValueError("Batch covariance needs positive scale and multiple batches")
     d = len(vectors[0])
@@ -105,11 +108,13 @@ def residual_batches(
 
 
 def mean_covariance(rows: Rows, mean: Vector, probability: float, size: int) -> Matrix:
+    """Compute mean covariance from centered residual batch influences."""
     batches = residual_batches(rows, mean, probability, size)
     return sample_crossproducts(batches, size / ((len(batches) - 1) * len(rows)))
 
 
 def indicator_variance(rows: Rows, size: int) -> tuple[float, str]:
+    """Estimate complete-row indicator variance on the declared batch partition."""
     conditional_mean(rows)
     if type(size) is not int or size < 1 or len(rows) % size or len(rows) // size < 2:
         raise ValueError("Indicator native batch partition differs")
@@ -152,6 +157,7 @@ def pooled_covariance(
 
 
 def scalar_projection(mean: Vector, covariance: Matrix) -> list[tuple[float, float]]:
+    """Project twenty means and covariances to components and time contrasts."""
     if (
         len(mean) != 20
         or len(covariance) != 20
@@ -174,6 +180,7 @@ def scalar_projection(mean: Vector, covariance: Matrix) -> list[tuple[float, flo
 
 
 def variance_display(value: float) -> tuple[str, float | None]:
+    """Classify a variance and return its permitted square-root display."""
     if not math.isfinite(value) or value < 0:
         return "refused_signed_or_nonfinite_variance", None
     if value == 0:

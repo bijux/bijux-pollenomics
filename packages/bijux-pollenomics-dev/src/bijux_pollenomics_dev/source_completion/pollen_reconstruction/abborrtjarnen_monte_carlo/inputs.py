@@ -119,6 +119,7 @@ def validate_metadata(
 
 
 def load(repository: Path) -> dict[str, Any]:
+    """Read pinned precision inputs and validate their declared metadata."""
     protocol = json.loads((repository / PROTOCOL).read_bytes())
     bodies = bound_files(repository, protocol["repository_inputs"])
     source = json.loads(bodies[protocol["source_result"]])

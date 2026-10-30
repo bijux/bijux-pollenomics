@@ -11,6 +11,7 @@ from .producer import publish
 
 
 def main() -> int:
+    """Parse saved-age moment arguments and publish the selected count profile."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source-root", type=Path, required=True)

@@ -27,6 +27,7 @@ STATUS = {
 
 
 def close(actual: Any, expected: Any, label: str) -> float:
+    """Compare finite arrays at absolute tolerance and return the maximum gap."""
     left, right = np.asarray(actual, dtype=float), np.asarray(expected, dtype=float)
     if (
         left.shape != right.shape
@@ -64,6 +65,8 @@ def check_support(row: dict[str, str], window: int, expected: Membership) -> Non
 
 @dataclass
 class Observation:
+    """Collect ledger counts, support states and independent population moments."""
+
     rows: int
     complete: int
     support: dict[int, Counter[str]]

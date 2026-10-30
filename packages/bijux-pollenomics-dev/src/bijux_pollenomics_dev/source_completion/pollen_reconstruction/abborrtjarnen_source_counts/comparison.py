@@ -24,6 +24,7 @@ PROTOCOL = Path("reports/science/abborrtjarnen-source-counts/protocol.json")
 
 
 def digest_records(records: list[dict[str, Any]]) -> str:
+    """Hash canonical JSON for the ordered source-comparison records."""
     return hashlib.sha256(
         json.dumps(
             records,
@@ -36,6 +37,7 @@ def digest_records(records: list[dict[str, Any]]) -> str:
 
 
 def depth_key(depth: Decimal) -> str:
+    """Encode a decimal depth as an exact rational key."""
     value = Fraction(depth)
     return f"{value.numerator}/{value.denominator}"
 
