@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Retain depth-order support, numerical reference contracts and scoped Linux source custody ([#290](https://github.com/bijux/bijux-pollenomics/pull/290)).
+- **Pending review:** Retire duplicated native programme sources through accepted Git custody and closed evidence controls ([#291](https://github.com/bijux/bijux-pollenomics/pull/291)).
+- **Verified merge (2026-10-30 00:36:51 UTC):** Retain depth-order support, numerical reference contracts and scoped Linux source custody ([#290](https://github.com/bijux/bijux-pollenomics/pull/290)).
 - **Verified merge (2026-10-29 23:27:49 UTC):** Retain reference source qualifiers, saved Python comparison evidence and explicit report partition contracts ([#289](https://github.com/bijux/bijux-pollenomics/pull/289)).
 - **Verified merge (2026-10-29 22:53:20 UTC):** Expose source-bound predictive examples and preserve unresolved report-execution boundaries with dated presentation custody ([#288](https://github.com/bijux/bijux-pollenomics/pull/288)).
 - **Verified merge (2026-10-29 22:34:00 UTC):** Retain keyed categorical, integer and Boolean SEAD source components and their dated publications ([#287](https://github.com/bijux/bijux-pollenomics/pull/287)).
