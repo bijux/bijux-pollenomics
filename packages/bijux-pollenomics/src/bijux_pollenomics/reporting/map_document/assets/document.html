@@ -2283,6 +2283,9 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                   <select id="country-pair-filter" class="search-input" aria-label="Filter candidate relations by country pair"></select>
                   <label class="field-label" for="relation-scenario-filter">Retained scenario</label>
                   <select id="relation-scenario-filter" class="search-input"></select>
+                  <label class="field-label" for="relation-event-definition-filter">Supplied event definition</label>
+                  <select id="relation-event-definition-filter" class="search-input" aria-describedby="relation-event-definition-status"></select>
+                  <p id="relation-event-definition-status" role="status" aria-live="polite" class="search-meta"></p>
                   <label class="field-label" for="relation-status-filter">Native candidate status</label>
                   <select id="relation-status-filter" class="search-input"></select>
                   <label class="field-label" for="relation-source-country-filter">Stored source endpoint country</label>
@@ -3379,6 +3382,8 @@ __URL_STATE_CONTROLLER__
       const crossBorderOnlyCheckbox = document.getElementById('cross-border-only');
       const relationSummary = document.getElementById('relation-summary');
       const relationFilterStatus = document.getElementById('relation-filter-status');
+      const relationEventDefinitionControl = document.getElementById('relation-event-definition-filter');
+      const relationEventDefinitionStatus = document.getElementById('relation-event-definition-status');
       const relationFilterControls = {
         scenario: document.getElementById('relation-scenario-filter'),
         status: document.getElementById('relation-status-filter'),
@@ -3486,6 +3491,7 @@ __URL_STATE_CONTROLLER__
           scientificSignals: params.get('scientific_signals'),
           countryPair: params.get('country_pair'),
           relationFilters: relationFiltersFromHash(params),
+          relationEventDefinition: relationEventDefinitionFromHash(params),
           evidenceDisplay: evidenceDisplayFromHash(params),
           crossBorder: params.get('cross_border'),
           animalSpecies: params.get('animal_species'),
@@ -5292,6 +5298,7 @@ __URL_STATE_CONTROLLER__
         if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) params.set('scientific_signals', activeScientificSignalIds.size ? [...activeScientificSignalIds].join(',') : 'none');
         if (activeCountryPair !== 'all') params.set('country_pair', activeCountryPair);
         writeRelationFilterHash(params, activeRelationFilters);
+        writeRelationEventDefinitionHash(params, activeRelationEventDefinition);
         writeEvidenceDisplayHash(params, activeEvidenceDisplay);
         if (crossBorderOnly) params.set('cross_border', 'only');
         if (activeAnimalSpecies !== 'all') params.set('animal_species', activeAnimalSpecies);
@@ -5831,6 +5838,7 @@ __URL_STATE_CONTROLLER__
         if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) count += 1;
         if (activeCountryPair !== 'all') count += 1;
         count += relationFilterFields().filter(([key]) => activeRelationFilters[key] !== null || activeRelationFilters.invalid.includes(key)).length;
+        if (activeRelationEventDefinition.value !== null || activeRelationEventDefinition.invalid) count += 1;
         if (crossBorderOnly) count += 1;
         if (activeAnimalSpecies !== 'all') count += 1;
         if (activeAnimalScope !== 'all') count += 1;
@@ -5906,8 +5914,9 @@ __URL_STATE_CONTROLLER__
         });
       }
       function visibleGovernedEdges() {
+        const definitions = new Set(relationEventDefinitionSelection(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition).selected);
         return relationFilterSelection(GOVERNED_EDGE_RECORDS, activeRelationFilters).selected
-          .filter((edge) => atlasEdgeVisible(edge, activeCountries, activeCountryPair, crossBorderOnly, activeScientificSignalIds));
+          .filter((edge) => definitions.has(edge) && atlasEdgeVisible(edge, activeCountries, activeCountryPair, crossBorderOnly, activeScientificSignalIds));
       }
       function isRetainedNeighborContext(layer, feature) {
         return Boolean(
@@ -5918,6 +5927,9 @@ __URL_STATE_CONTROLLER__
       }
       function renderRelationControls() {
         const selection = relationFilterSelection(GOVERNED_EDGE_RECORDS, activeRelationFilters);
+        const definitions = relationEventDefinitionSelection(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition);
+        const definitionRows = new Set(definitions.selected);
+        const matchedCount = selection.selected.filter(row => definitionRows.has(row)).length;
         const available = !STATIC_ATLAS_INLINE && STATIC_ATLAS_CHUNKS.edges.status === 'available';
         const sequencePosture = STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.sequences.status === 'unavailable'
           ? `sequences unavailable: ${STATIC_ATLAS_INLINE ? 'governed_sequence_detail_model_not_available' : STATIC_ATLAS_CHUNKS.sequences.reason_code}`
@@ -5930,9 +5942,12 @@ __URL_STATE_CONTROLLER__
           control.disabled = !available;
           control.innerHTML = relationFilterOptions(selection.catalog[key], activeRelationFilters[key], selection.unavailable.includes(key), label);
         });
+        relationEventDefinitionControl.disabled = !available;
+        relationEventDefinitionControl.innerHTML = renderRelationEventDefinitionOptions(definitions, activeRelationEventDefinition);
+        relationEventDefinitionStatus.textContent = `${definitions.availableCount} rows with supplied definitions; ${definitions.missingCount} missing; ${definitions.conflictingCount} conflicting of ${definitions.retainedCount} retained rows. ${definitions.unavailable ? 'Shared event definition unavailable; no fallback.' : 'All retained keeps unavailable rows; a specific definition excludes them.'} This selects supplied events, without reclassification.`;
         relationFilterStatus.innerHTML = (selection.unavailable.length
           ? '<p>Shared relation filter unavailable: no retained native value matches the selection. No fallback selection is applied.</p>' : '')
-          + `<p>${selection.selected.length} of ${GOVERNED_EDGE_RECORDS.length} retained relations match the scenario, status and stored endpoint-country selections. Nonselected records, including any refusal context, remain retained.</p>`
+          + `<p>${matchedCount} of ${GOVERNED_EDGE_RECORDS.length} retained relations match the event definition, scenario, status and stored endpoint-country selections. Nonselected records, including any refusal context, remain retained.</p>`
           + relationScenarioThresholds(GOVERNED_EDGE_RECORDS, activeRelationFilters.scenario);
         countryPairFilter.innerHTML = '<option value="all">All country pairs</option>' + COUNTRY_PAIR_KEYS.map((key) => `<option value="${escapeHtml(key)}" ${activeCountryPair === key ? 'selected' : ''}>${escapeHtml(key.replace('|', ' ↔ '))}</option>`).join('');
         relationSummary.textContent = available
@@ -6950,6 +6965,7 @@ __URL_STATE_CONTROLLER__
       }
       let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
       __EDGE_DISPLAY_CONTROLLER__
+      __RELATION_EVENT_DEFINITION_CONTROLLER__
       __EVIDENCE_DISPLAY_CONTROLLER__
       function renderEvidenceDisplayPanel() {
         const container = document.getElementById('evidence-display-controls');
@@ -7615,6 +7631,7 @@ __URL_STATE_CONTROLLER__
           build_id: STATIC_ATLAS_BOOTSTRAP.build_id,
           scope_slug: STATIC_ATLAS_BOOTSTRAP.scope_slug,
           relation_filters: relationFilterMetadata(GOVERNED_EDGE_RECORDS, activeRelationFilters),
+          relation_event_definition: relationEventDefinitionMetadata(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition),
           evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
           version: STATIC_ATLAS_BOOTSTRAP.version,
           ready: document.getElementById('map').getAttribute('aria-busy') !== 'true',
@@ -7941,6 +7958,7 @@ __URL_STATE_CONTROLLER__
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
         activeCountryPair = 'all';
         resetRelationFilters();
+        resetRelationEventDefinition();
         activeEvidenceDisplay = resetEvidenceDisplay();
         crossBorderOnly = false;
         crossBorderOnlyCheckbox.checked = false;
@@ -8039,6 +8057,12 @@ __URL_STATE_CONTROLLER__
           activeRelationFilters.invalid = activeRelationFilters.invalid.filter(field => field !== key);
           renderMapState();
         });
+      });
+      relationEventDefinitionControl.addEventListener('change', () => {
+        Object.assign(activeRelationEventDefinition, relationEventDefinitionFromHash(new URLSearchParams(
+          relationEventDefinitionControl.value ? {relation_event_definition: relationEventDefinitionControl.value} : {}
+        )));
+        renderMapState();
       });
       countryPairFilter.addEventListener('change', () => {
         activeCountryPair = normalizedSingleValue(countryPairFilter.value, ['all', ...COUNTRY_PAIR_KEYS], 'all');
@@ -8313,6 +8337,7 @@ __URL_STATE_CONTROLLER__
             layers: [...activeLayerKeys].sort(),
             scientific_signals: [...activeScientificSignalIds].sort(),
             relation_filters: relationFilterMetadata(GOVERNED_EDGE_RECORDS, activeRelationFilters),
+            relation_event_definition: relationEventDefinitionMetadata(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition),
             evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
             map_window_bp: TIME_HAS_DATA ? [timeStartBp, timeWindowEndBp()] : null,
             selected_detail_section: activeFocusTab,
@@ -8440,6 +8465,7 @@ __URL_STATE_CONTROLLER__
       legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       Object.assign(activeRelationFilters, initialState.relationFilters);
+      Object.assign(activeRelationEventDefinition, initialState.relationEventDefinition);
       if (NATIVE_LRA_BINDING !== null) {
         if (await staticAtlasSha256(NATIVE_LRA_BINDING.bytes) !== NATIVE_LRA_BINDING.sha256) throw Error('Native LRA view byte identity mismatch.');
         const nativeView = JSON.parse(NATIVE_LRA_BINDING.bytes);

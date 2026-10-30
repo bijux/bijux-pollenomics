@@ -325,6 +325,7 @@ def test_actual_control_mount_and_change_handlers_use_one_selected_set(
     setup = r"""
 const relationSummary={dataset:{}},countryPairFilter={},crossBorderOnlyCheckbox={};
 const relationFilterStatus={innerHTML:''},handlers={};
+const relationEventDefinitionControl={addEventListener(){}},relationEventDefinitionStatus={};
 const relationFilterControls=Object.fromEntries(relationFilterFields().map(([key])=>[key,{value:'',addEventListener(type,callback){handlers[key]=callback}}]));
 const COUNTRY_PAIR_KEYS=['Norway|Sweden'],GOVERNED_EDGE_ELIGIBILITY_COUNT=GOVERNED_EDGE_RECORDS.length,GOVERNED_SEQUENCE_RECORDS=[];
 STATIC_ATLAS_CHUNKS.sequences={status:'unavailable',reason_code:'fixture_no_sequence'};

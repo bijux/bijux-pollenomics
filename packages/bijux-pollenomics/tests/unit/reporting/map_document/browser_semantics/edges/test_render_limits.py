@@ -64,6 +64,7 @@ const original=JSON.stringify({edges,visiblePointEntries});
 const STATIC_ATLAS_INLINE=false, STATIC_ATLAS_CHUNKS={edges:{status:'available'},sequences:{status:'available'}};
 const GOVERNED_SEQUENCE_RECORDS=[],GOVERNED_EDGE_ELIGIBILITY_COUNT=600,SCIENTIFIC_SIGNALS=[],COUNTRY_PAIR_KEYS=[];
 const countryPairFilter={},crossBorderOnlyCheckbox={},relationSummary={dataset:{}};
+const relationEventDefinitionControl={},relationEventDefinitionStatus={};
 const GOVERNED_EDGE_RECORDS=edges,relationFilterStatus={},relationFilterControls=Object.fromEntries(relationFilterFields().map(([key])=>[key,{}]));
 let activeEvidenceDisplay=resetEvidenceDisplay();
 let crossBorderOnly=false,activeCountryPair='all',offset=0,zoom=0;

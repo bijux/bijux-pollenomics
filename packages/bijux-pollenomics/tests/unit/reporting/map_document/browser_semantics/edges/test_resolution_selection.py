@@ -125,7 +125,10 @@ const STATIC_ATLAS_INLINE=false,STATIC_ATLAS_CHUNKS={edges:{status:'available'},
 const GOVERNED_SEQUENCE_RECORDS=[],COUNTRY_PAIR_KEYS=['Sweden|Sweden'];
 const activeCountries=new Set(['Sweden']),activeCountryPair='all',crossBorderOnly=false;
 const activeScientificSignalIds=new Set();
+let activeEvidenceDisplay=resetEvidenceDisplay(),pendingEdgeFocus=null;
 const countryPairFilter={},crossBorderOnlyCheckbox={},relationSummary={dataset:{}};
+const relationFilterStatus={},relationFilterControls=Object.fromEntries(relationFilterFields().map(([key])=>[key,{}]));
+const relationEventDefinitionControl={},relationEventDefinitionStatus={};
 const visiblePointEntries=[
  {feature:{record_id:'record-source',latitude:55.605,longitude:13.0038,scientific_signal_ids:['group:cereals','taxon:secale_cereale']},layer:{key:'points',scientific_selection_enabled:true}},
  {feature:{record_id:'record-target',latitude:55.605,longitude:13.0038,scientific_signal_ids:['group:cereals','taxon:secale_cereale']},layer:{key:'points',scientific_selection_enabled:true}},
@@ -188,7 +191,11 @@ inspect();
         assert state["edges"] == expected
         assert len(state["rendered"]) == len(expected)
         assert state["summary"].startswith(
-            f"{len(expected)} of 2 governed candidates visible"
+            f"{len(expected)} of 2 retained rows matched by country/signal/relation filters"
+        )
+        assert (
+            "before endpoint time/layer/viewport display eligibility"
+            in state["summary"]
         )
         assert state["points"] == (
             ["record-source", "record-target"] if expected else []
