@@ -207,7 +207,11 @@ def consumer(
             monkeypatch.setattr(cohort, "EXPECTED_MEMBERS", members)
         elif family == "slu_guide":
             monkeypatch.setattr(slu, "EXPECTED_MEMBERS", members)
-    capture = _encoded(document)
+    capture = (
+        (json.dumps(document, separators=(",", ":")) + "\n").encode()
+        if family == "sweden"
+        else _encoded(document)
+    )
     _write(repository / prefix / capture_name, capture)
     if family == "sweden":
         monkeypatch.setattr(sweden, "RETENTION_SOURCE_MEMBERS", _identity(capture))
@@ -278,6 +282,9 @@ def test_execution_helper_correspondence_refusals(
     consumer: Consumer, monkeypatch: pytest.MonkeyPatch, damage: str
 ) -> None:
     """Preserve the original cohort correspondence refusals for every maintained helper."""
+    consumer.invoke()
+    assert consumer.batch_reads == [set(consumer.detached)]
+    consumer.batch_reads.clear()
     group = consumer.descriptor["git_groups"][0]
     if damage == "missing":
         group["paths"].pop()
@@ -294,3 +301,4 @@ def test_execution_helper_correspondence_refusals(
     consumer.repin(monkeypatch)
     with pytest.raises(ReportRebuildError):
         consumer.invoke()
+    assert consumer.batch_reads == []
