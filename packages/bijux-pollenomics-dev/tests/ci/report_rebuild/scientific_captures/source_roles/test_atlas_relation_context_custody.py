@@ -677,7 +677,7 @@ def test_chronology_method_binding_refuses_after_positive_nonpython_baseline(
     elif defect == "group":
         case.buffer.descriptor.groups[0]["resolved_paths"] = [(case.logical, _MODELS)]
     else:
-        case.buffer.detached = frozenset()
+        case.buffer.descriptor = replace(case.buffer.descriptor, detached=frozenset())
     with pytest.raises(ReportRebuildError):
         _dispatch(case)
 
