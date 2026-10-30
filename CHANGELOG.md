@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Publish conditional coupled pollen evidence, counting uncertainty and exact API source custody ([#292](https://github.com/bijux/bijux-pollenomics/pull/292)).
+- **Pending review:** Publish ordered-age bounds, conditional counting evidence and explicit historical Hellinger arithmetic ([#293](https://github.com/bijux/bijux-pollenomics/pull/293)).
+- **Verified merge (2026-10-30 01:53:18 UTC):** Publish conditional coupled pollen evidence, counting uncertainty and exact API source custody ([#292](https://github.com/bijux/bijux-pollenomics/pull/292)).
 - **Verified merge (2026-10-30 01:25:11 UTC):** Retire duplicated native programme sources through accepted Git custody and closed evidence controls ([#291](https://github.com/bijux/bijux-pollenomics/pull/291)).
 - **Verified merge (2026-10-30 00:36:51 UTC):** Retain depth-order support, numerical reference contracts and scoped Linux source custody ([#290](https://github.com/bijux/bijux-pollenomics/pull/290)).
 - **Verified merge (2026-10-29 23:27:49 UTC):** Retain reference source qualifiers, saved Python comparison evidence and explicit report partition contracts ([#289](https://github.com/bijux/bijux-pollenomics/pull/289)).
