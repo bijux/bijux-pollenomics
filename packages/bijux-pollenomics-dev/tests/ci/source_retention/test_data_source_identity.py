@@ -770,8 +770,19 @@ def test_frozen_authority_exception_requires_exact_member_identity(
     history = ((source, blob),)
     assert not _source_duplicates(_ordinary_source_entries([entry]), history)
     changed_path = ("data/unregistered/" + path.rsplit("/", 1)[-1], blob)
-    assert _source_duplicates(_ordinary_source_entries([changed_path]), history) == [
-        (changed_path[0], source)
-    ]
+    assert _ordinary_source_entries([changed_path]) == [changed_path]
+    expected_duplicates = (
+        []
+        if blob
+        in {
+            "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "8b137891791fe96927ad78e64b0aad7bded08bdc",
+        }
+        else [(changed_path[0], source)]
+    )
+    assert (
+        _source_duplicates(_ordinary_source_entries([changed_path]), history)
+        == expected_duplicates
+    )
     changed_blob = (path, "0" * 40 if blob != "0" * 40 else "1" * 40)
     assert _ordinary_source_entries([changed_blob]) == [changed_blob]

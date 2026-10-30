@@ -19,6 +19,7 @@ def install_native_transport(
     repository: Path, subject: ModuleType, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """Mock only registered lookup/ref context; validate all invented physical bytes."""
+    (repository / ".git").mkdir()
     prefix = subject.CAPTURE_ROOT
     directory = repository / prefix
     descriptor_path = directory / "source-transport.json"
