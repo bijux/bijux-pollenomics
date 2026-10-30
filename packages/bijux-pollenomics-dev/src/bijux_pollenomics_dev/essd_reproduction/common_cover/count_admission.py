@@ -7,7 +7,9 @@ from collections.abc import Iterator
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.reconstruction.likelihood import multisite_likelihood
+from bijux_pollenomics_lra.reconstruction.likelihood import (
+    multisite_likelihood as multisite_likelihood,
+)
 
 
 def require_unmasked(value: object, name: str) -> None:
