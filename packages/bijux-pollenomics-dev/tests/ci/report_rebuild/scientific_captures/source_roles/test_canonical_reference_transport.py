@@ -18,6 +18,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles import (
     native_reference_transport as source,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles import (
+    reference_vector_precision as precision,
+)
 
 _CANONICAL_PATHS = (
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/certification.py",
@@ -99,6 +102,8 @@ def test_canonical_source_roles_use_the_existing_bounded_dispatch(
     row, logical, capsule, _ = _own_case(
         tmp_path / "repository", monkeypatch, name, prefix
     )
+    # Isolate the existing IO branch; parser dispatch is qualified below.
+    monkeypatch.setattr(router, "REFERENCE_VECTOR_PRECISION_SOURCES", frozenset())
     role = router.validated_current_scientific_source(
         capsule.repository, row, logical, capsule
     )
@@ -241,3 +246,38 @@ def test_canonical_io_does_not_create_an_unlisted_source_namespace() -> None:
     assert not source.native_reference_transport_extension_matches(
         "packages/own/unlisted.py", _OLD, _CURRENT
     )
+
+
+@pytest.mark.parametrize("prefix", tuple(source._NATIVE_REFERENCE_TRANSPORT_CAPTURES))
+def test_live_reference_parser_dispatch_retains_its_separate_precision_role(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, prefix: str
+) -> None:
+    """Keep the new parser priority distinct from the existing IO-only branch."""
+    name = _CANONICAL_PATHS[5]
+    row, logical, capsule, _ = _own_case(
+        tmp_path / "repository", monkeypatch, name, prefix
+    )
+    monkeypatch.setattr(
+        precision,
+        "_REFERENCE_VECTOR_IDENTITIES",
+        {name: (len(_OLD), hashlib.sha256(_OLD).hexdigest())},
+    )
+    monkeypatch.setattr(
+        precision,
+        "_REFERENCE_VECTOR_SPANS",
+        {
+            name: (
+                (b"source = physical()", b"source = canonical()"),
+                (b'bound_scope = "retained"', b'bound_scope = "canonical"'),
+            )
+        },
+    )
+    role = router.validated_current_scientific_source(
+        capsule.repository, row, logical, capsule
+    )
+    assert role is not None
+    assert role["classification"] == "finite_reference_vector_precision_extension"
+    assert role["whole_old_module_reconstructed"] is True
+    assert role["current_numeric_parser_changes_binary64_coordinates"] is True
+    assert role["historical_native_outputs_equal_current_claimed"] is False
+    assert role["historical_outputs_regenerated"] is False
