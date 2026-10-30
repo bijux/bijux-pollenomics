@@ -7,6 +7,7 @@ from dataclasses import dataclass
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 
 PROFILE = "reveals-fixed-site-delta-covariance-v1"
 
@@ -50,6 +51,14 @@ def fixed_site_cover_covariance(
     dimensionless tolerance after scaling by the largest covariance entry,
     so changing common PPE units cannot admit an invalid covariance.
     """
+    for value, name in (
+        (counts, "counts"),
+        (deposition, "deposition"),
+        (ppe, "ppe"),
+        (ppe_covariance, "ppe_covariance"),
+        (taxon_measured, "taxon_measured"),
+    ):
+        _reject_masked_values(value, name)
     raw_counts = np.asarray(counts)
     if raw_counts.dtype.kind not in "iuf" or (
         raw_counts.dtype.kind in "iu"

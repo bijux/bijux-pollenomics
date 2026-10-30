@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+from dataclasses import fields
 import inspect
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
@@ -219,3 +221,44 @@ def test_explicit_zero_regional_support() -> None:
         params, rings, [0.6, 0.1, 0.3], ForwardConfig(2, 20)
     )
     np.testing.assert_array_equal(result.regional_deposition, np.zeros(3))
+
+
+@pytest.mark.parametrize("container", ["array", "list", "tuple"])
+def test_unresolved_regional_cover_refuses_before_deposition(container: str) -> None:
+    values = np.array([0.6, 0.1, 0.3])
+    cover: object = np.ma.array(values, mask=[True, False, False])
+    if container != "array":
+        nested = [np.ma.array(values[0], mask=True), values[1], values[2]]
+        cover = nested if container == "list" else tuple(nested)
+    with patch("bijux_pollenomics_lra.workflows.forward.calK") as kernel:
+        with pytest.raises(ValidationError, match="regional_cover contains masked"):
+            prepare_forward_inputs(*_inputs(), cover, ForwardConfig(2, 20))
+        kernel.assert_not_called()
+
+
+@pytest.mark.parametrize("object_values", [False, True])
+def test_false_regional_cover_mask_preserves_complete_preparation(
+    object_values: bool,
+) -> None:
+    cover = np.array([0.6, 0.1, 0.3], dtype=object if object_values else float)
+    masked = np.ma.array(cover, mask=[False, False, False])
+    # Fixed deposition isolates admission and preserves the complete public
+    # preparation path without repeating source-kernel numerical comparisons.
+    with patch(
+        "bijux_pollenomics_lra.workflows.forward.calK",
+        return_value=pd.DataFrame(np.ones((4, 3))),
+    ):
+        expected = prepare_forward_inputs(*_inputs(), cover, ForwardConfig(2, 20))
+        actual = prepare_forward_inputs(*_inputs(), masked, ForwardConfig(2, 20))
+    for descriptor in fields(expected):
+        baseline = getattr(expected, descriptor.name)
+        observed = getattr(actual, descriptor.name)
+        if isinstance(baseline, np.ndarray):
+            np.testing.assert_array_equal(observed, baseline)
+            assert observed.dtype == baseline.dtype
+            assert observed.tobytes() == baseline.tobytes()
+            assert not observed.flags.writeable
+            with pytest.raises(ValueError):
+                observed.setflags(write=True)
+        else:
+            assert observed == baseline

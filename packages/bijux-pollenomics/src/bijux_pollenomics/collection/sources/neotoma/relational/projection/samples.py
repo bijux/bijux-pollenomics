@@ -7,11 +7,12 @@ from collections.abc import Mapping
 import copy
 
 from ..chronology import build_age_claim
-from ..diagnostics import add_orphan, register_record, required_source_id
+from ..diagnostics import add_orphan, register_record
 from ..identifiers import digest
 from ..source_payloads import copy_source_payload_excluding
 from ..state import RelationalBuildState
 from .observations import project_observations
+from .parent_refusals import native_rows, required_parent_id
 
 
 def project_samples(
@@ -25,9 +26,9 @@ def project_samples(
     default_source_id: str | None,
     chronology_ids_by_source: Mapping[str, str],
 ) -> None:
-    samples = dataset.get("samples")
-    if not isinstance(samples, list):
-        samples = []
+    samples = native_rows(
+        state, dataset, "samples", entity_type="dataset", parent_id=dataset_id
+    )
     state.source_counts["sample_rows"] += len(samples)
     state.country_counts[country_code]["sample_rows"] += len(samples)
     for sample in samples:
@@ -38,10 +39,16 @@ def project_samples(
                 dataset_id,
                 "invalid_sample_row",
                 source_value=sample,
+                excluded_source_row_counts={"sample_rows": 1},
             )
             continue
-        sample_source_id = required_source_id(
-            sample.get("sampleid"), "sample", state.orphans, parent_id=dataset_id
+        sample_source_id = required_parent_id(
+            state,
+            sample,
+            level="sample",
+            id_field="sampleid",
+            parent_id=dataset_id,
+            own_counter="sample_rows",
         )
         if sample_source_id is None:
             continue
@@ -73,6 +80,7 @@ def project_samples(
             id_field="sample_id",
             conflicts=state.conflicts,
             conflict_kind="sample_payload_conflict",
+            occurrence_counts=state.registered_occurrences,
         )
         project_age_claims(
             state,
@@ -109,16 +117,19 @@ def project_age_claims(
     default_source_id: str | None,
     chronology_ids_by_source: Mapping[str, str],
 ) -> None:
-    ages = sample.get("ages")
-    if not isinstance(ages, list):
-        ages = []
+    ages = native_rows(state, sample, "ages", entity_type="sample", parent_id=sample_id)
     state.source_counts["age_claim_rows"] += len(ages)
     state.country_counts[country_code]["age_claim_rows"] += len(ages)
     age_occurrence_counts: Counter[str] = Counter()
     for age in ages:
         if not isinstance(age, Mapping):
             add_orphan(
-                state.orphans, "sample", sample_id, "invalid_age_row", source_value=age
+                state.orphans,
+                "sample",
+                sample_id,
+                "invalid_age_row",
+                source_value=age,
+                excluded_source_row_counts={"age_claim_rows": 1},
             )
             continue
         age_digest = digest(dict(age))
@@ -150,4 +161,5 @@ def project_age_claims(
             id_field="chronology_claim_id",
             conflicts=state.conflicts,
             conflict_kind="age_claim_identity_conflict",
+            occurrence_counts=state.registered_occurrences,
         )

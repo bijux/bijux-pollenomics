@@ -239,3 +239,34 @@ def test_fixed_background_is_not_an_uncertainty_draw_or_independent_error_bar() 
         out.numerical_certification == "directed-decimal-binomial-and-rational-inverse"
     )
     assert not hasattr(out, "regional_background_uncertainty")
+
+
+@pytest.mark.parametrize(
+    ("local", "background"),
+    [
+        (np.ma.array([1.0, 2.0], mask=[True, False]), [0.0, 0.25]),
+        ([1.0, 2.0], np.ma.array([0.0, 0.25], mask=[True, False])),
+    ],
+)
+def test_unknown_coefficient_cannot_be_used_as_fixed_background(
+    local: Any, background: Any
+) -> None:
+    with pytest.raises(ValidationError, match="masked, unresolved missing"):
+        homogeneous_two_taxon_counting_set(
+            [4, 6], local, background, taxon_measured=[True, True]
+        )
+
+
+def test_fully_observed_masks_preserve_homogeneous_set_exactly() -> None:
+    expected = homogeneous_two_taxon_counting_set(
+        [4, 6], [1.0, 2.0], [0.0, 0.25], taxon_measured=[True, True]
+    )
+    confidence: Any = np.ma.array(0.95, mask=False)
+    observed = homogeneous_two_taxon_counting_set(
+        np.ma.array([4, 6], mask=False),
+        np.ma.array([1.0, 2.0], mask=False),
+        np.ma.array([0.0, 0.25], mask=False),
+        taxon_measured=np.ma.array([True, True], mask=False),
+        confidence_level=confidence,
+    )
+    assert observed == expected

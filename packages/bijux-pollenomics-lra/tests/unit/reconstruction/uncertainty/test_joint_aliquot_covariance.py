@@ -47,6 +47,69 @@ def evaluate(
     )
 
 
+@pytest.mark.parametrize(
+    "field", ["ppe", "ppe_covariance", "counts", "taxon_measured", "deposition"]
+)
+@pytest.mark.parametrize("unresolved", [True, False])
+def test_unresolved_native_masks_refuse_and_all_false_masks_preserve_covariance(
+    field: str, unresolved: bool
+) -> None:
+    observation, response = sample(), result()
+    ppe = np.array([1.4, 2.3])
+    covariance = np.array([[0.01, 0.005], [0.005, 0.04]])
+
+    def calculate() -> api.JointAliquotCovariance:
+        return api.joint_aliquot_covariance(
+            (observation,),
+            (response,),
+            parameter_ids=AXIS,
+            ppe=ppe,
+            ppe_covariance=covariance,
+            assume_distinct_aliquot_count_independence=True,
+            assume_count_ppe_independence=True,
+        )
+
+    expected = calculate()
+    value = (
+        ppe
+        if field == "ppe"
+        else covariance
+        if field == "ppe_covariance"
+        else getattr(
+            observation if field in {"counts", "taxon_measured"} else response, field
+        )
+    )
+    mask = np.zeros(value.shape, dtype=bool)
+    mask.flat[0] = unresolved
+    masked = np.ma.array(value, mask=mask)
+    if field == "ppe":
+        ppe = masked
+    elif field == "ppe_covariance":
+        covariance = masked
+    elif field == "counts":
+        observation = replace(observation, counts=masked)
+    elif field == "taxon_measured":
+        observation = replace(observation, taxon_measured=masked)
+    else:
+        response = replace(response, deposition=masked)
+    if unresolved:
+        with pytest.raises(ValidationError, match=field + " contains masked"):
+            calculate()
+    else:
+        actual = calculate()
+        for name in (
+            "cover",
+            "count_jacobian",
+            "ppe_jacobian",
+            "counting_covariance",
+            "ppe_covariance",
+            "total_covariance",
+        ):
+            np.testing.assert_array_equal(
+                getattr(actual, name), getattr(expected, name)
+            )
+
+
 def test_reused_sample_identical_response_zero_contrast() -> None:
     out = evaluate((sample(),), (result(), result("y")))
     D = np.concatenate([-np.eye(2), np.eye(2)], axis=1)

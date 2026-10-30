@@ -198,8 +198,8 @@
     },
     "data/method-certification/source-locked-linux-r/reference-bundle": {
       "descriptor": "source-transport.json",
-      "sha256": "3e4a690e1a55f84ce62432c1efa29f93dfd3a29f93a1070a7960e657faaade29",
-      "bytes": 2565
+      "sha256": "d85639f74d24b00c9a78ad492edba6cbbb4b461c3990531837658bc51d377a48",
+      "bytes": 2301
     }
   },
   "source_revisions": {

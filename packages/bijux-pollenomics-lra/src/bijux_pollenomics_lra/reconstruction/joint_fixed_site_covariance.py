@@ -8,6 +8,7 @@ import re
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 
 PROFILE = "reveals-joint-fixed-site-delta-covariance"
 
@@ -71,6 +72,7 @@ def _support(value: CountSupport) -> None:
 
 
 def _covariance(value: np.ndarray, size: int) -> np.ndarray:
+    _reject_masked_values(value, "ppe_covariance")
     raw = np.asarray(value)
     if raw.dtype.kind not in "iuf" or raw.shape != (size, size):
         raise ValidationError("Joint PPE covariance axes/type differ")
@@ -137,6 +139,7 @@ def joint_fixed_site_covariance(
     ):
         raise ValidationError("Joint result/parameter identities or assumptions differ")
     parameter_ids = tuple(parameter_ids)
+    _reject_masked_values(ppe, "ppe")
     raw_p = np.asarray(ppe)
     if raw_p.dtype.kind not in "iuf" or raw_p.shape != (len(parameter_ids),):
         raise ValidationError("Joint PPE values do not bind the global parameter axis")
@@ -158,6 +161,9 @@ def joint_fixed_site_covariance(
             or any(key not in index for key in item.parameter_ids)
         ):
             raise ValidationError("Joint literal panel parameter axis differs")
+        _reject_masked_values(item.counts, "counts")
+        _reject_masked_values(item.deposition, "deposition")
+        _reject_masked_values(item.taxon_measured, "taxon_measured")
         raw_n = np.asarray(item.counts)
         raw_k = np.asarray(item.deposition)
         mask = np.asarray(item.taxon_measured)

@@ -324,3 +324,32 @@ def test_named_landclim_regional_profile_keeps_source_fall_speed() -> None:
 def test_reveals_config_validation(kwargs: dict[str, object]) -> None:
     with pytest.raises(ValidationError):
         RevealsConfig(**kwargs)  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize("field", ["mean", "sds"])
+@pytest.mark.parametrize("scalar", [False, True])
+@pytest.mark.parametrize("unresolved", [True, False])
+def test_normal_ppe_masks_refuse_without_changing_seeded_broadcast_draws(
+    field: str, scalar: bool, unresolved: bool
+) -> None:
+    values = {"mean": np.array([-0.1, 0.2]), "sds": np.array([2.0, 3.0])}
+    original = values[field][0] if scalar else values[field]
+    values[field] = np.asarray(original)
+    expected_rng = np.random.default_rng(7)
+    actual_rng = np.random.default_rng(7)
+    expected = rnorm_reveals(
+        2, mean=values["mean"], sds=values["sds"], rng=expected_rng
+    )
+    values[field] = np.ma.array(original, mask=unresolved)
+    if unresolved:
+        before = actual_rng.bit_generator.state
+        with pytest.raises(ValidationError, match=field + " contains masked"):
+            rnorm_reveals(2, mean=values["mean"], sds=values["sds"], rng=actual_rng)
+        assert actual_rng.bit_generator.state == before
+    else:
+        actual = rnorm_reveals(
+            2, mean=values["mean"], sds=values["sds"], rng=actual_rng
+        )
+        np.testing.assert_array_equal(actual, expected)
+        assert actual.tobytes() == expected.tobytes()
+        assert actual_rng.bit_generator.state == expected_rng.bit_generator.state

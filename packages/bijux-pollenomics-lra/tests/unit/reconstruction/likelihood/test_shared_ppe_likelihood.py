@@ -290,3 +290,122 @@ def test_genuine_zero_sd_and_zero_covariance_remain_deterministic() -> None:
     result = fit_shared_ppe_likelihood(**parameters)
     np.testing.assert_array_equal(result.ppe_draws[0], result.ppe_draws[1])
     np.testing.assert_array_equal(result.local_cover[0], result.local_cover[1])
+
+
+NUMERIC_INPUTS = (
+    "regional_counts",
+    "local_counts",
+    "ppe_mean",
+    "ppe_sd",
+    "ppe_covariance",
+    "regional_kernel",
+    "local_kernels",
+    "terrestrial_fractions",
+)
+
+
+def _sampling_must_not_start(*args: object, **kwargs: object) -> None:
+    raise AssertionError("Unresolved inputs must refuse before sampling or fitting")
+
+
+@pytest.mark.parametrize("field", NUMERIC_INPUTS)
+def test_masked_scientific_inputs_refuse_before_sampling(
+    field: str, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    parameters = dict(_inputs())
+    values = np.asarray(parameters[field], dtype=float)
+    mask = np.zeros(values.shape, dtype=bool)
+    # A masked zero covariance or background coefficient is still unknown,
+    # even when its hidden backing value would pass the numerical checks.
+    mask.flat[1 if field in ("ppe_sd", "ppe_covariance") else 0] = True
+    parameters[field] = np.ma.array(values, mask=mask)
+    monkeypatch.setattr(np.random, "default_rng", _sampling_must_not_start)
+    with pytest.raises(ValidationError, match="masked, unresolved missing"):
+        _invalid_fit(parameters)
+
+
+@pytest.mark.parametrize("object_array", [False, True], ids=["mixed", "object"])
+@pytest.mark.parametrize(
+    ("field", "values"),
+    [
+        ("regional_counts", [True, 6]),
+        ("local_counts", [8, True]),
+        ("ppe_mean", [True, 3.0]),
+        ("ppe_sd", [0.2, False]),
+        ("ppe_covariance", [[0.04, False], [0.0, 0.0]]),
+        ("regional_kernel", [True, 0.6]),
+        ("local_kernels", [[True, 0.7], [0.0, 0.0], [0.2, 0.3]]),
+        ("terrestrial_fractions", [True, 1.0, 1.0]),
+    ],
+)
+def test_boolean_scientific_inputs_refuse_before_sampling(
+    field: str,
+    values: object,
+    object_array: bool,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    parameters = dict(_inputs())
+    parameters[field] = np.asarray(values, dtype=object) if object_array else values
+    monkeypatch.setattr(np.random, "default_rng", _sampling_must_not_start)
+    with pytest.raises(ValidationError, match="excluding booleans"):
+        _invalid_fit(parameters)
+
+
+def test_fully_observed_masked_arrays_preserve_seeded_numerical_results() -> None:
+    parameters = dict(_inputs())
+    original = _invalid_fit(parameters)
+    for field in NUMERIC_INPUTS:
+        parameters[field] = np.ma.array(parameters[field], mask=False)
+    observed = _invalid_fit(parameters)
+    for field in ("ppe_draws", "regional_cover", "local_cover", "forward_max_abs"):
+        np.testing.assert_array_equal(
+            getattr(observed, field), getattr(original, field)
+        )
+    for actual, expected in zip(observed.fits, original.fits, strict=True):
+        np.testing.assert_array_equal(actual.predicted, expected.predicted)
+        assert (
+            actual.mean_negative_log_likelihood == expected.mean_negative_log_likelihood
+        )
+        assert actual.optimality_gap == expected.optimality_gap
+        assert actual.steps == expected.steps
+        assert actual.stop_reason == expected.stop_reason
+
+
+@pytest.mark.parametrize("field", ["regional_counts", "local_counts"])
+@pytest.mark.parametrize(
+    "counts",
+    [
+        [2**53 + 1, 0],
+        [2**53, 0],
+        [2**52, 2**52],
+        [2**52, 2**52 + 1],
+    ],
+    ids=["rounded-cell", "cell-boundary", "total-boundary", "rounded-total"],
+)
+def test_count_precision_refuses_before_sampling(
+    field: str, counts: list[int], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    parameters = dict(_inputs())
+    parameters[field] = counts
+    monkeypatch.setattr(np.random, "default_rng", _sampling_must_not_start)
+    with pytest.raises(ValidationError, match="below 2\\*\\*53") as error:
+        _invalid_fit(parameters)
+    assert error.value.reason_code == "count_precision_exceeded"
+
+
+@pytest.mark.parametrize("field", ["regional_counts", "local_counts"])
+def test_largest_admitted_count_total_preserves_integer_denominator(field: str) -> None:
+    counts = [2**52, 2**52 - 1]
+    assert sum(counts) == 2**53 - 1
+    parameters = dict(_inputs())
+    parameters[field] = counts
+    result = _invalid_fit(parameters)
+    assert all(fit.converged for fit in result.fits)
+    if field == "local_counts":
+        assert all(fit.observed_mass == 2**53 - 1 for fit in result.fits)
+    else:
+        raw = np.asarray(counts)[None, :] / (result.ppe_draws * [0.4, 0.6])
+        np.testing.assert_array_equal(
+            result.regional_cover,
+            r_round(100 * raw / raw.sum(axis=1)[:, None], 3) / 100,
+        )

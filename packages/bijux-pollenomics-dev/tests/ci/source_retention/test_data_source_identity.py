@@ -311,17 +311,9 @@ def test_tracked_data_does_not_vendor_package_trees() -> None:
 
 
 def _package_snapshot_paths(entries: list[tuple[str, str, str]]) -> list[str]:
-    """Admit only the exact published regular build fixture inside data package paths."""
+    """Reject every physical package snapshot, including generated metadata."""
     return [
-        name
-        for name, mode, blob in entries
-        if "packages" in PurePosixPath(name).parts
-        and (name, mode, blob)
-        != (
-            HISTORICAL_BUILD_RESOURCE,
-            "100644",
-            "05d6713c0658290c2e88e7cf8c86fe547aba9d1e",
-        )
+        name for name, mode, blob in entries if "packages" in PurePosixPath(name).parts
     ]
 
 
@@ -496,10 +488,7 @@ def _source_duplicates(
     return [
         (name, modules[blob])
         for name, blob in entries
-        if name.startswith("data/")
-        and blob in modules
-        and (name, blob)
-        != (HISTORICAL_BUILD_RESOURCE, "05d6713c0658290c2e88e7cf8c86fe547aba9d1e")
+        if name.startswith("data/") and blob in modules
     ]
 
 
@@ -599,14 +588,14 @@ def test_captured_products_and_legal_inputs_are_not_implementation_source(
     assert not _source_duplicates([("data/input", "1" * 40)], ((source, "1" * 40),))
 
 
-def test_generated_fixture_exception_is_exact_path_and_body() -> None:
+def test_generated_version_bytes_do_not_exempt_a_data_source_copy() -> None:
     historical = (
         (
             "packages/sample/src/_build_version.py",
             "05d6713c0658290c2e88e7cf8c86fe547aba9d1e",
         ),
     )
-    assert not _source_duplicates(
+    assert _source_duplicates(
         [(HISTORICAL_BUILD_RESOURCE, historical[0][1])], historical
     )
     assert _source_duplicates([("data/other.py", historical[0][1])], historical)
@@ -653,9 +642,9 @@ def test_inline_scientific_oracle_product_is_exact_body_and_authority() -> None:
     )
 
 
-def test_package_fixture_exception_requires_exact_regular_index_identity() -> None:
+def test_package_version_resource_is_always_refused_in_data() -> None:
     blob = "05d6713c0658290c2e88e7cf8c86fe547aba9d1e"
-    assert not _package_snapshot_paths([(HISTORICAL_BUILD_RESOURCE, "100644", blob)])
+    assert _package_snapshot_paths([(HISTORICAL_BUILD_RESOURCE, "100644", blob)])
     assert _package_snapshot_paths([(HISTORICAL_BUILD_RESOURCE, "100644", "1" * 40)])
     assert _package_snapshot_paths([(HISTORICAL_BUILD_RESOURCE, "120000", blob)])
     assert _package_snapshot_paths([(HISTORICAL_BUILD_RESOURCE, "100755", blob)])

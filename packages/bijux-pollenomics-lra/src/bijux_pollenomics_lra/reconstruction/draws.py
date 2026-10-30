@@ -6,6 +6,7 @@ import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    _reject_masked_values,
     integer,
     rng_from,
     vector,
@@ -27,6 +28,8 @@ def rnorm_reveals(
     """
     n = integer(n, "n")
     generator = rng_from(rng)
+    _reject_masked_values(mean, "mean")
+    _reject_masked_values(sds, "sds")
     means = np.broadcast_to(
         np.asarray(np.ones(n) if mean is None else mean, dtype=float),
         (n,),

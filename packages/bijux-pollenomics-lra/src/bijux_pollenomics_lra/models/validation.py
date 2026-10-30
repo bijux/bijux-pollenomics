@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
+from collections.abc import Iterable, Mapping, Sequence
 from typing import Any
 
 import numpy as np
@@ -42,8 +42,25 @@ def validate_fall_speeds(
 
 def _reject_masked_values(value: Any, name: str) -> None:
     """An unresolved mask cannot become an observed backing value during coercion."""
-    if np.ma.isMaskedArray(value) and np.ma.is_masked(value):
-        raise ValidationError(f"{name} contains masked, unresolved missing values")
+    pending = [value]
+    visited: set[int] = set()
+    while pending:
+        item = pending.pop()
+        if np.ma.isMaskedArray(item) and np.ma.is_masked(item):
+            raise ValidationError(f"{name} contains masked, unresolved missing values")
+        children: Iterable[Any]
+        if isinstance(item, np.ndarray):
+            if item.dtype.kind != "O":
+                continue
+            children = item.flat
+        elif isinstance(item, (list, tuple)):
+            children = iter(item)
+        else:
+            continue
+        identity = id(item)
+        if identity not in visited:
+            visited.add(identity)
+            pending.extend(children)
 
 
 def scalar(value: Any, name: str = "value") -> Any:

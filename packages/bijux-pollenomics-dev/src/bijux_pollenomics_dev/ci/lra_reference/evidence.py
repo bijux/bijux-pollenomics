@@ -90,6 +90,8 @@ def file_inventory(
                 "source-domains/run_source_domains.py",
                 "source-domains/source_domains.R",
                 "source-lock.json",
+                "generated-sources/packages/bijux-pollenomics-lra/src/"
+                "bijux_pollenomics_lra/_build_version.py",
             }
         )
         if (
@@ -280,7 +282,13 @@ def validate_bundle(
             raise ReferenceRefusal("Certification bundle file inventory differs")
         from .source_identity import validate_generated_evidence
 
-        validate_generated_evidence(root, certificate)
+        validate_generated_evidence(
+            root,
+            certificate,
+            read_source=None
+            if source_transport is None
+            else source_transport.read_source,
+        )
         lock_path = root / "source-lock.json"
         lock_raw = (
             lock_path.read_bytes()

@@ -11,6 +11,7 @@ import numpy as np
 import numpy.typing as npt
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 from bijux_pollenomics_lra.reconstruction.uncertainty.homogeneous_counting import _pair
 from bijux_pollenomics_lra.reconstruction.uncertainty.two_taxon_counting import (
     TwoTaxonCountingInterval,
@@ -85,6 +86,7 @@ class RegionalCountingSet:
 
 
 def _confidence(value: float) -> tuple[float, float, Fraction]:
+    _reject_masked_values(value, "confidence_level")
     raw = np.asarray(value)
     if raw.shape != () or raw.dtype.kind not in "iuf":
         raise ValidationError("Confidence level must be one finite number")

@@ -54,6 +54,54 @@ LandClim I/II, PANGAEA and Neotoma sample selection; its 69 m
 LandClim-II-to-Neotoma point distance does not erase the distinct 1.352 km
 PANGAEA-event-to-Neotoma point discrepancy described here.
 
+## Replayed source visits preserve normalized observations
+
+We checked one authentic Bökesjön (`BOKE`) download, dataset **54001**, site
+**28872**, collection unit **39241**, through the maintained relational builder.
+The [existing native correspondence](../../docs/report/source-relations/neotoma/boke-native-correspondence/report.json)
+authenticates its original Neotoma part. We selected that complete download
+once, then supplied the same native record twice in memory. We neither copied
+nor redownloaded source data, and used all **52** samples rather than the
+50-sample modeling subset.
+
+All nine normalized tables remain exactly equal: one site, collection unit,
+dataset and chronology; 29 chronology controls; 52 samples and 52 age claims;
+1,885 observations and 142 derived variables. Native identities, observation
+values and units, complete age claims and chronology/control payloads survive.
+The [eight-row occurrence table](source-lineage/neotoma-occurrence-accounting.csv)
+keeps source visits separate: replay doubles registered visits, while one
+additional copy of each native entity enters the identical-repeat exclusion
+count. There are no unregistered visits or conflicting entity variants in
+this comparison. Variables remain a derived lookup, outside those eight
+native occurrence partitions. The repeated snapshot passes the public
+materialization, validator and exact read-back of every published part,
+including diagnostics.
+
+The country bins retain **50 comparable and two refused age claims**, with
+1,885 normalized observations. Without a boundary decision, the site stays
+**UNASSIGNED**, with zero propagation eligibility; a raw country label is not
+substituted for qualified attribution. Replaying one download supplies no new
+independent samples, chronology approval, source rights, ecological mapping
+or LRA admission. This is a source-structure and accounting result for one
+dataset, not a new full-archive or scientific validation claim.
+
+The native check passed at source `5aa3c58cec6ded98454d09875ad6c81ccd87a675`
+in **1.396 s**, with **160,743,424 bytes** maximum sampled RSS. The original
+attempt at `c7d7cfc56` failed because the test used `sample_id` for age claims;
+the corrected test uses their actual `subject_id` parent. That failed attempt
+remains preserved; the correction did not change the normalizer or raw input.
+The [maintained test](../../packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_occurrence_accounting.py)
+is opt-in and reproducible from the repository root:
+
+```sh
+BIJUX_POLLENOMICS_NEOTOMA_BOKE_OCCURRENCE_CHECK=1 \
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python3 -B -m pytest \
+  --rootdir=. -c configs/pytest.ini \
+  packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_occurrence_accounting.py::test_native_boke_repeated_download_preserves_all_source_entities \
+  -q -s -o cache_dir="$PWD/artifacts/neotoma-occurrences/pytest-cache" \
+  --basetemp="$PWD/artifacts/neotoma-occurrences/native"
+```
+
 ## Classification and propagation refuse unreviewed mappings
 
 At committed source `a0dce0304`, we ran the maintained
@@ -317,11 +365,11 @@ of the full Nordic LRA and vegetation-validation objective.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Broad Nordic evidence account retains bounded author example, observed-pollen and source-admission results. A distinct saved-metadata-geometry physical inverse-to-forward consumer now supplies conditional restricted-panel point-pollen results at Swedish targets.
+**Supported claim.** Broad Nordic evidence account retains bounded author example, observed-pollen and source-admission results. A distinct saved-metadata-geometry physical inverse-to-forward consumer now supplies conditional restricted-panel point-pollen results at Swedish targets. One authentic BOKE download replayed twice preserves all nine normalized tables while separately counting repeated native entity visits.
 
 **Unsupported claim.** Full historical LandClim reproduction, independently validated Nordic LRA/vegetation accuracy, untouched generalization or causal multi-evidence history.
 
-**Actual verification performed.** Retained linked source, prediction, publication and reference receipts are synthesized; index did not rerun them. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring. At committed source a0dce0304, the maintained scientific-evidence consumer also reproduced the unchanged Neotoma source audit: 1351 concepts and 370936 memberships, zero accepted mappings, zero eligible propagation events and zero directed candidates. Independent historical comparison isolates only a retained cf marker for one concept with two observations; all scientific partitions and all 16 scenario records remain identical. The release refusal and absence of human approval are preserved.
+**Actual verification performed.** Retained linked source, prediction, publication and reference receipts are synthesized; index did not rerun them. The distinct conditional physical-forward producer completed at a890b5e433fd2679768b588bae2774aa3d382e17 with native/collector exit zero and all 6,668 pins unchanged. Its independent Decimal50 check matched 1,424 values at absolute tolerance 1e-12, maximum residual 1.9653480873864026090362878350698437E-16. These saved results are synthesized without repeating prediction or scoring. At committed source a0dce0304, the maintained scientific-evidence consumer also reproduced the unchanged Neotoma source audit: 1351 concepts and 370936 memberships, zero accepted mappings, zero eligible propagation events and zero directed candidates. Independent historical comparison isolates only a retained cf marker for one concept with two observations; all scientific partitions and all 16 scenario records remain identical. The release refusal and absence of human approval are preserved. The opt-in native check passed at 5aa3c58cec6ded98454d09875ad6c81ccd87a675 in 1.395913625 s, maximum sampled RSS 160743424 bytes. Exact source-payload/ID/unit/age checks, eight occurrence partitions and public materialization/read-back passed. The initial test at c7d7cfc56 failed on its incorrect age-claim parent selector; correcting the test to subject_id preserved the original failure and changed no normalizer or raw input.
 
 **Remaining input or review.** The synthesis retains no source-complete historical Nordic LRA reconstruction, independent Nordic vegetation pairs or fully authenticated historical LandClim input cohort. Completed conditional physical-forward point-pollen predictions use saved metadata geometry and previously exposed panels; source rights and qualified review remain open. Resolver: Country core/archive/reference custodians and qualified scientific reviewers Reopen when: Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation.
 
@@ -331,11 +379,11 @@ of the full Nordic LRA and vegetation-validation objective.
 
 **Precise next acceptance route.** Versioned same-core/window inputs and matched vegetation pairs pass source admission and new frozen evaluation. Then update reports/science/model-use.md.
 
-**Negative or refused result.** Zero historical authenticated primary inputs, zero historically qualified Nordic LRA cores and zero measured-cover pairs; country bins include refusals. The conditional physical-forward comparison retains 108 no-eligible-source family refusals; pooled BUS MAE/TV is poorer than direct (0.154732 versus 0.154539).
+**Negative or refused result.** Zero historical authenticated primary inputs, zero historically qualified Nordic LRA cores and zero measured-cover pairs; country bins include refusals. The conditional physical-forward comparison retains 108 no-eligible-source family refusals; pooled BUS MAE/TV is poorer than direct (0.154732 versus 0.154539). The BOKE check preserves two refused age claims, UNASSIGNED country and zero propagation eligibility; replayed visits are not new independent observations.
 
-**Matched denominator.** Four country 31-target cohorts: DK 1/24, FI 28/435, NO 52/1,084, SE 3/51 scored site/bins. Separate conditional physical-forward support: eight source cores/seven places, four Swedish targets/77 windows, 154 contexts/308 family outcomes, 200 scored/108 refused; only 26 jointly matched windows at BOKE/BUS, 13 each, enter the two-target comparison. All scored panels have two taxa. SOLSOE83 adds source support on 12 joint pooled contexts; no DK/FI/NO target score.
+**Matched denominator.** Four country 31-target cohorts: DK 1/24, FI 28/435, NO 52/1,084, SE 3/51 scored site/bins. Separate conditional physical-forward support: eight source cores/seven places, four Swedish targets/77 windows, 154 contexts/308 family outcomes, 200 scored/108 refused; only 26 jointly matched windows at BOKE/BUS, 13 each, enter the two-target comparison. All scored panels have two taxa. SOLSOE83 adds source support on 12 joint pooled contexts; no DK/FI/NO target score. Separate native structure check: one BOKE dataset54001/site28872/unit39241, 52 samples and age claims, 29 controls, 1885 observations and 142 derived variables; all nine tables are identical after replay, with eight native registered populations doubled and one-copy repeat exclusions.
 
-Retained evidence: [reports/science/source-cohorts.md](source-cohorts.md), [reports/science/publication-correspondence.md](publication-correspondence.md), [reports/science/pollen-reconstruction/matched-pollen-forward/README.md](pollen-reconstruction/matched-pollen-forward/README.md), [reports/science/pollen-reconstruction/matched-pollen-forward/report.json](pollen-reconstruction/matched-pollen-forward/report.json), [reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json](pollen-reconstruction/matched-pollen-forward/decimal-comparison.json), [reports/science/pollen-reconstruction/matched-pollen-forward/publication.json](pollen-reconstruction/matched-pollen-forward/publication.json).
+Retained evidence: [reports/science/source-cohorts.md](source-cohorts.md), [reports/science/publication-correspondence.md](publication-correspondence.md), [reports/science/pollen-reconstruction/matched-pollen-forward/README.md](pollen-reconstruction/matched-pollen-forward/README.md), [reports/science/pollen-reconstruction/matched-pollen-forward/report.json](pollen-reconstruction/matched-pollen-forward/report.json), [reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json](pollen-reconstruction/matched-pollen-forward/decimal-comparison.json), [reports/science/pollen-reconstruction/matched-pollen-forward/publication.json](pollen-reconstruction/matched-pollen-forward/publication.json), [reports/science/source-lineage/neotoma-occurrence-accounting.csv](source-lineage/neotoma-occurrence-accounting.csv), [docs/report/source-relations/neotoma/boke-native-correspondence/report.json](../../docs/report/source-relations/neotoma/boke-native-correspondence/report.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

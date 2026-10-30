@@ -1436,8 +1436,90 @@ def canonical_domain_source_reader(
 }
 
 
+_GENERATED_REFERENCE_METADATA_IO_SPANS: dict[str, tuple[tuple[bytes, bytes], ...]] = {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/evidence.py": (
+        (
+            b"""                "source-domains/run_source_domains.py",
+                "source-domains/source_domains.R",
+                "source-lock.json",
+            }
+        )
+        if (
+""",
+            b"""                "source-domains/run_source_domains.py",
+                "source-domains/source_domains.R",
+                "source-lock.json",
+                "generated-sources/packages/bijux-pollenomics-lra/src/"
+                "bijux_pollenomics_lra/_build_version.py",
+            }
+        )
+        if (
+""",
+        ),
+        (
+            b"""            raise ReferenceRefusal("Certification bundle file inventory differs")
+        from .source_identity import validate_generated_evidence
+
+        validate_generated_evidence(root, certificate)
+        lock_path = root / "source-lock.json"
+        lock_raw = (
+            lock_path.read_bytes()
+""",
+            b"""            raise ReferenceRefusal("Certification bundle file inventory differs")
+        from .source_identity import validate_generated_evidence
+
+        validate_generated_evidence(
+            root,
+            certificate,
+            read_source=None
+            if source_transport is None
+            else source_transport.read_source,
+        )
+        lock_path = root / "source-lock.json"
+        lock_raw = (
+            lock_path.read_bytes()
+""",
+        ),
+    ),
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/retained_reference/identity.py": (
+        (
+            b"""            "source-domains/run_source_domains.py",
+            "source-domains/source_domains.R",
+            "source-lock.json",
+        }
+    ):
+        raise ValueError("Retained reference source transport population differs")
+""",
+            b"""            "source-domains/run_source_domains.py",
+            "source-domains/source_domains.R",
+            "source-lock.json",
+            "generated-sources/packages/bijux-pollenomics-lra/src/"
+            "bijux_pollenomics_lra/_build_version.py",
+        }
+    ):
+        raise ValueError("Retained reference source transport population differs")
+""",
+        ),
+    ),
+}
+
+
+def _generated_reference_metadata_basis(name: str, current: bytes) -> bytes:
+    """Reverse only the fixed literal-metadata retrieval layer when complete."""
+    spans = _GENERATED_REFERENCE_METADATA_IO_SPANS.get(name)
+    if spans is None:
+        return current
+    body = current
+    for previous, inserted in spans:
+        if body.count(inserted) != 1:
+            return current
+        body = body.replace(inserted, previous, 1)
+    return body
+
+
 def _canonical_reference_reader_basis(name: str, current: bytes) -> bytes:
     """Reverse only the declared canonical IO layer before the existing byte law."""
+    current = _generated_reference_metadata_basis(name, current)
     spans = _CANONICAL_REFERENCE_IO_SPANS.get(name)
     if spans is None:
         return current

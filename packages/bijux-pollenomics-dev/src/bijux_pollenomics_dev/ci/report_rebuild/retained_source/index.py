@@ -29,7 +29,7 @@ from .objects import (
 )
 
 INDEX_PATH = "configs/ci/source-retention/index.json"
-INDEX_SHA256 = "59dd973b0be36303546d399bf08c814d3349144f9aa08f78b88babfca57a7d95"
+INDEX_SHA256 = "fce6106a91615740ac8ee850fa12d702afbd75893ea8483a9ba91d49a414383a"
 INDEX_BYTES = 9591
 
 

@@ -10,10 +10,15 @@ from ..country import (
     missing_country_attribution,
     with_source_country,
 )
-from ..diagnostics import add_orphan, register_record, required_source_id
+from ..diagnostics import add_orphan, register_record
 from ..source_payloads import copy_source_payload_excluding
 from ..state import RelationalBuildState
 from .chronologies import project_chronologies
+from .parent_refusals import (
+    refuse_chronology_sibling,
+    refuse_dataset_context,
+    required_parent_id,
+)
 from .samples import project_samples
 
 
@@ -26,10 +31,24 @@ def project_download_row(
     state.source_counts["download_rows"] += 1
     site = download_row.get("site")
     if not isinstance(site, Mapping):
-        add_orphan(state.orphans, "download_row", None, "missing_site")
+        add_orphan(
+            state.orphans,
+            "download_row",
+            None,
+            "missing_site",
+            source_value=site,
+            source_field_present="site" in download_row,
+            excluded_source_row_counts={},
+        )
         return
-    site_source_id = required_source_id(
-        site.get("siteid"), "site", state.orphans, parent_id=None
+    state.source_counts["site_rows"] += 1
+    site_source_id = required_parent_id(
+        state,
+        site,
+        level="site",
+        id_field="siteid",
+        parent_id=None,
+        own_counter="site_rows",
     )
     if site_source_id is None:
         return
@@ -40,7 +59,6 @@ def project_download_row(
     else:
         attribution = with_source_country(attribution, site)
     country_code = attribution.final_country_code
-    state.source_counts["site_rows"] += 1
     state.country_counts[country_code]["site_rows"] += 1
     register_record(
         state.tables["sites"],
@@ -69,22 +87,35 @@ def project_download_row(
         id_field="site_id",
         conflicts=state.conflicts,
         conflict_kind="site_payload_conflict",
+        occurrence_counts=state.registered_occurrences,
     )
 
     unit = site.get("collectionunit")
     if not isinstance(unit, Mapping):
-        add_orphan(state.orphans, "site", site_id, "missing_collection_unit")
+        add_orphan(
+            state.orphans,
+            "site",
+            site_id,
+            "missing_collection_unit",
+            source_value=unit,
+            source_field_present="collectionunit" in site,
+            excluded_source_row_counts={},
+        )
+        refuse_dataset_context(state, site, site_id)
         return
-    unit_source_id = required_source_id(
-        unit.get("collectionunitid"),
-        "collection_unit",
-        state.orphans,
+    state.source_counts["collection_unit_rows"] += 1
+    unit_source_id = required_parent_id(
+        state,
+        unit,
+        level="collection_unit",
+        id_field="collectionunitid",
         parent_id=site_id,
+        own_counter="collection_unit_rows",
     )
     if unit_source_id is None:
+        refuse_dataset_context(state, site, site_id)
         return
     unit_id = f"neotoma:collection-unit:{unit_source_id}"
-    state.source_counts["collection_unit_rows"] += 1
     state.country_counts[country_code]["collection_unit_rows"] += 1
     register_record(
         state.tables["collection_units"],
@@ -102,19 +133,37 @@ def project_download_row(
         id_field="collection_unit_id",
         conflicts=state.conflicts,
         conflict_kind="collection_unit_payload_conflict",
+        occurrence_counts=state.registered_occurrences,
     )
 
     dataset = unit.get("dataset")
     if not isinstance(dataset, Mapping):
-        add_orphan(state.orphans, "collection_unit", unit_id, "missing_dataset")
+        add_orphan(
+            state.orphans,
+            "collection_unit",
+            unit_id,
+            "missing_dataset",
+            source_value=dataset,
+            source_field_present="dataset" in unit,
+            excluded_source_row_counts={},
+        )
+        refuse_chronology_sibling(state, unit, unit_id)
+        refuse_dataset_context(state, site, site_id)
         return
-    dataset_source_id = required_source_id(
-        dataset.get("datasetid"), "dataset", state.orphans, parent_id=unit_id
+    state.source_counts["dataset_rows"] += 1
+    dataset_source_id = required_parent_id(
+        state,
+        dataset,
+        level="dataset",
+        id_field="datasetid",
+        parent_id=unit_id,
+        own_counter="dataset_rows",
     )
     if dataset_source_id is None:
+        refuse_chronology_sibling(state, unit, unit_id)
+        refuse_dataset_context(state, site, site_id)
         return
     dataset_id = f"neotoma:dataset:{dataset_source_id}"
-    state.source_counts["dataset_rows"] += 1
     state.country_counts[country_code]["dataset_rows"] += 1
     site_dataset = site.get("dataset")
     register_record(
@@ -135,6 +184,7 @@ def project_download_row(
         id_field="dataset_id",
         conflicts=state.conflicts,
         conflict_kind="dataset_payload_conflict",
+        occurrence_counts=state.registered_occurrences,
     )
 
     default_source_id, chronology_ids_by_source = project_chronologies(

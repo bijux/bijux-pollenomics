@@ -200,3 +200,85 @@ def test_ignored_directory_symlink_cannot_hide_external_code(tmp_path: Path) -> 
     )
     with pytest.raises(ReferenceRefusal, match="symlinks"):
         identity.inspect_source_identity(tmp_path, tree)
+
+
+def generated_certificate(data: bytes = TEMPLATE) -> dict[str, Any]:
+    literals = identity.generated_literals(data)
+    checksum = hashlib.sha256(data).hexdigest()
+    return {
+        "source_files": {identity.DECLARATION_PATH: "a" * 64},
+        "tracked_git_blobs": {identity.DECLARATION_PATH: "b" * 40},
+        "generated_source_files": {
+            identity.GENERATED_PATH: {
+                "sha256": checksum,
+                "declaration_path": identity.DECLARATION_PATH,
+                "declaration_sha256": "a" * 64,
+                "profile": "hatch-vcs-literal-version-metadata-v1",
+                "literals": literals,
+                "committed_source": False,
+            }
+        },
+        "engine_version_identity": {
+            "origin": "governed-generated-fallback",
+            "version": literals["version"],
+            "generated_sha256": checksum,
+        },
+    }
+
+
+def test_detached_generated_evidence_uses_only_the_declared_logical_member(
+    tmp_path: Path,
+) -> None:
+    selected: list[str] = []
+
+    def read_source(name: str) -> bytes:
+        selected.append(name)
+        assert name == "generated-sources/" + identity.GENERATED_PATH
+        return TEMPLATE
+
+    identity.validate_generated_evidence(
+        tmp_path, generated_certificate(), read_source=read_source
+    )
+    assert selected == ["generated-sources/" + identity.GENERATED_PATH]
+    assert not (tmp_path / "generated-sources").exists()
+
+
+@pytest.mark.parametrize("changed", ["missing", "body", "literal", "physical-copy"])
+def test_detached_generated_evidence_preserves_original_checks(
+    tmp_path: Path, changed: str
+) -> None:
+    certificate = generated_certificate()
+    if changed == "literal":
+        certificate["generated_source_files"][identity.GENERATED_PATH]["literals"][
+            "version"
+        ] = "0.2.0"
+    if changed == "physical-copy":
+        retained = tmp_path / "generated-sources" / identity.GENERATED_PATH
+        retained.parent.mkdir(parents=True)
+        retained.write_bytes(TEMPLATE)
+
+    def read_source(name: str) -> bytes:
+        assert name == "generated-sources/" + identity.GENERATED_PATH
+        if changed == "missing":
+            raise FileNotFoundError(name)
+        return TEMPLATE + b"\n" if changed == "body" else TEMPLATE
+
+    with pytest.raises((ReferenceRefusal, FileNotFoundError)):
+        identity.validate_generated_evidence(
+            tmp_path, certificate, read_source=read_source
+        )
+
+
+def test_self_contained_generated_evidence_still_requires_physical_bytes(
+    tmp_path: Path,
+) -> None:
+    certificate = generated_certificate()
+    with pytest.raises(FileNotFoundError):
+        identity.validate_generated_evidence(tmp_path, certificate)
+    retained = tmp_path / "generated-sources" / identity.GENERATED_PATH
+    retained.parent.mkdir(parents=True)
+    retained.write_bytes(TEMPLATE)
+    identity.validate_generated_evidence(tmp_path, certificate)
+    retained.write_bytes(TEMPLATE + b"\n")
+    with pytest.raises(ReferenceRefusal, match="metadata differs"):
+        identity.validate_generated_evidence(tmp_path, certificate)

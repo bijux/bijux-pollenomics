@@ -101,3 +101,37 @@ def test_unmeasured_taxon_is_refused_before_joint_resampling() -> None:
             counts, deposition, indices, count_draws, ppe_draws, taxon_measured=measured
         )
     assert error.value.reason_code == "taxon_measurement_unresolved"
+
+
+@pytest.mark.parametrize(
+    "field",
+    [
+        "counts",
+        "deposition",
+        "site_indices",
+        "count_draws",
+        "ppe_draws",
+        "taxon_measured",
+    ],
+)
+@pytest.mark.parametrize("unresolved", [True, False])
+def test_source_masks_are_checked_before_numeric_or_measurement_coercion(
+    field: str, unresolved: bool
+) -> None:
+    names = ("counts", "deposition", "site_indices", "count_draws", "ppe_draws")
+    values = dict(zip(names, _inputs(), strict=True))
+    values["taxon_measured"] = np.ones_like(values["counts"], dtype=bool)
+    expected = joint_site_cover_draws(**values)
+    original = values[field]
+    mask = np.zeros(original.shape, dtype=bool)
+    mask.flat[0] = unresolved
+    values[field] = np.ma.array(original, mask=mask)
+    if unresolved:
+        with pytest.raises(ValidationError, match=field + " contains masked"):
+            joint_site_cover_draws(**values)
+    else:
+        actual = joint_site_cover_draws(**values)
+        for name in ("cover_draws", "mean_cover", "covariance", "standard_error"):
+            np.testing.assert_array_equal(
+                getattr(actual, name), getattr(expected, name)
+            )

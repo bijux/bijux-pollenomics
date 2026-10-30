@@ -8,7 +8,12 @@ import numpy as np
 from scipy.special import logsumexp
 
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.models.validation import finite_number, integer, matrix
+from bijux_pollenomics_lra.models.validation import (
+    _reject_masked_values,
+    finite_number,
+    integer,
+    matrix,
+)
 
 PROFILE = "heterogeneous-fixed-response-multinomial-likelihood-v1"
 
@@ -70,8 +75,7 @@ def _input_matrix(value: object, name: str, *, nonnegative: bool = False) -> np.
 
 
 def _measured(value: object, shape: tuple[int, ...]) -> None:
-    if np.ma.isMaskedArray(value) and np.ma.is_masked(value):
-        raise ValidationError("taxon_measured contains unresolved missing metadata")
+    _reject_masked_values(value, "taxon_measured")
     try:
         mask = np.asarray(value)
     except (TypeError, ValueError, OverflowError) as exc:

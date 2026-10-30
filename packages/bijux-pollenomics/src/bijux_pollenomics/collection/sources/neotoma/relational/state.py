@@ -16,6 +16,7 @@ class RelationalBuildState:
     conflicts: list[dict[str, object]]
     orphans: list[dict[str, object]]
     source_counts: Counter[str]
+    registered_occurrences: Counter[str]
     age_postures: Counter[str]
     age_reasons: Counter[str]
     unit_counts: Counter[str]
@@ -30,6 +31,7 @@ class RelationalBuildState:
             conflicts=[],
             orphans=[],
             source_counts=Counter(),
+            registered_occurrences=Counter(),
             age_postures=Counter(),
             age_reasons=Counter(),
             unit_counts=Counter(),

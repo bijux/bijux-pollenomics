@@ -14,6 +14,7 @@ from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.configuration import OptimizedLoveProfile
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    _reject_masked_values,
     frame,
     parameter_value,
     rng_from,
@@ -68,6 +69,7 @@ def love_pollen(
     """Forward-model local plus regional pollen deposition."""
     cover = vector(a, "a", nonnegative=True)
     regional = vector(vPoldepRegio, "vPoldepRegio", finite=False)
+    _reject_masked_values(mKlocal, "mKlocal")
     local_k = np.atleast_2d(np.asarray(mKlocal, dtype=float))
     local_fraction = vector(vFlocal, "vFlocal", finite=False)
     productivity = vector(ppes, "ppes", positive=True)
@@ -100,6 +102,7 @@ def tf(
 ) -> float:
     """LOVEoptim objective function."""
     predicted = love_pollen(a, vPoldepRegio, mKlocal, vFlocal, ppes)
+    _reject_masked_values(vSampleLocPro, "vSampleLocPro")
     observed = np.asarray(vSampleLocPro, dtype=float) + 0.001
     return logeuclidean(predicted, observed)
 
@@ -234,6 +237,7 @@ def LOVEoptim(
     )
     pollen_samples = np.full_like(cover_samples, np.nan)
     best_values = np.full((maximum_ring, repeat_count), np.nan, dtype=float)
+    _reject_masked_values(local_count_draws, "local_count_draws")
     if local_count_draws is not None and np.asarray(local_count_draws).shape != (
         repeat_count,
         len(taxa),
