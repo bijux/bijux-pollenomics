@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "beb98c2c2bf992872b28c15a57268f30a9793ebe7de66eeebae4aa4d43e46763",
-      "bytes": 7386800
+      "sha256": "581e3baa5b97f53d20298da3d3c854611eb01ce222225af8d5ecc7ff10e2419e",
+      "bytes": 7387119
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5536,9 +5536,12 @@
     "packages/bijux-pollenomics-dev/pyproject.toml",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/browser-transport.mjs",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/reconcile.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/probe.mjs",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/selection-runtime.mjs",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/wrapper-runtime.mjs",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/dependency_audit.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/dependency_audit_runtime.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/source_identity.py",
