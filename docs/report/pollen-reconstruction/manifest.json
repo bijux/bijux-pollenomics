@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "a92da1855f03ad599a4ed587bb74e7e6d9ab25f7bd263fc3f14dd78e6233be6f",
-      "bytes": 7393831
+      "sha256": "85981a24c44802b46d46150b391d1ebccbd56c7d6d0779f6a0480a76bc11ccb9",
+      "bytes": 7393761
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -373,11 +373,6 @@
       "path": "data/method-certification/native-r-count-domain/capture/oracle/case_manifest.json",
       "sha256": "3e73e9fddb37f2ede421a9db905bd205e1d252c03e27455da45a6aefd0b01001",
       "bytes": 17910
-    },
-    {
-      "path": "data/method-certification/native-r-count-domain/capture/oracle/oracle.R",
-      "sha256": "e51d05c90607da902e9d046d69f29b2737d56aad5ae31327f8c944c531e56ddf",
-      "bytes": 26605
     },
     {
       "path": "data/method-certification/native-r-count-domain/capture/oracle/python_expected_not_R_goldens.npz",
@@ -4836,23 +4831,23 @@
     },
     {
       "path": "data/method-certification/native-r/source-transport.json",
-      "sha256": "6a9217520e99eaadae848d35fdf9c23d1fa01fe62005f5d6d7a38d3163eda6aa",
-      "bytes": 1105
+      "sha256": "b07eba54d379b5e2abf7b0fb8f864a7530d1a36f51de29a9154f0f2998a91ebc",
+      "bytes": 2014
     },
     {
       "path": "data/method-certification/native-r-annulus/source-transport.json",
-      "sha256": "8b4d236f095598f7358ec224a3f309aaaa132b509e9360256f354a49048c0974",
-      "bytes": 1105
+      "sha256": "afb6b0e6387a5c6bbe7e2b3d286b03603d9ae94a23b42687911279d6dfa62032",
+      "bytes": 2022
     },
     {
       "path": "data/method-certification/native-r-count-domain/source-transport.json",
-      "sha256": "7787054870cff0c2f4dcc8223fd2159a7163b128d466d5d42a425ee658644010",
-      "bytes": 1105
+      "sha256": "9086d2b639fc6d2629ae7912a9e537be958b0017881d890a8b3c20cbc9ae634f",
+      "bytes": 2027
     },
     {
       "path": "data/method-certification/source-locked-linux-r/reference-bundle/source-transport.json",
-      "sha256": "7210b25d2c53192c5e5b0e1aaf2781c5ef9f46adbad0b0da568f6460362cc138",
-      "bytes": 1519
+      "sha256": "3e4a690e1a55f84ce62432c1efa29f93dfd3a29f93a1070a7960e657faaade29",
+      "bytes": 2565
     },
     {
       "path": "docs/report/pollen-reconstruction/matched-pollen-forward/assumptions/protocol.json",
@@ -6214,18 +6209,18 @@
     "packages/bijux-pollenomics-lra/tests/unit/dispersal/test_dispersal.py",
     "packages/bijux-pollenomics-lra/tests/unit/dispersal/test_receiver_annulus.py",
     "packages/bijux-pollenomics-lra/tests/unit/models/test_publication.py",
+    "packages/bijux-pollenomics-lra/tests/unit/reconstruction/likelihood/test_homogeneous_likelihood.py",
+    "packages/bijux-pollenomics-lra/tests/unit/reconstruction/likelihood/test_shared_ppe_likelihood.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/normalization/__init__.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/normalization/test_analytical_love_normalization.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/normalization/test_forward_normalization.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/normalization/test_joint_site_normalization.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/normalization/test_reveals_normalization.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_analytical_preparation.py",
-    "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_homogeneous_likelihood.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_love.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_love_draws.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_reveals.py",
-    "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_shared_ppe_likelihood.py",
     "packages/bijux-pollenomics-lra/tests/unit/reconstruction/uncertainty/test_fixed_site_covariance.py",
     "packages/bijux-pollenomics-lra/tests/unit/workflows/test_multisite.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/contracts.py",

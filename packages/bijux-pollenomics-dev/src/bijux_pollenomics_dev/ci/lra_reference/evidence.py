@@ -85,6 +85,7 @@ def file_inventory(
     if source_transport is not None:
         detached = frozenset(
             {
+                "oracle/oracle.R",
                 "source-domains/r_support.R",
                 "source-domains/run_source_domains.py",
                 "source-domains/source_domains.R",

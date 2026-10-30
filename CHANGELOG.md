@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Retain Namibia solver comparison evidence and stable likelihood steps ([#311](https://github.com/bijux/bijux-pollenomics/pull/311)).
+- **Pending review:** Retain historical programme sources and likelihood verification ([#312](https://github.com/bijux/bijux-pollenomics/pull/312)).
+- **Verified merge (2026-10-30 15:58:25 UTC):** Retain Namibia solver comparison evidence and stable likelihood steps ([#311](https://github.com/bijux/bijux-pollenomics/pull/311)).
 - **Verified merge (2026-10-30 14:31:27 UTC):** Bound evidence selection and deferred map controls ([#310](https://github.com/bijux/bijux-pollenomics/pull/310)).
 - **Verified merge (2026-10-30 13:41:52 UTC):** Explain relation evidence and governed projection rules ([#309](https://github.com/bijux/bijux-pollenomics/pull/309)).
 - **Verified merge (2026-10-30 12:17:31 UTC):** Display retained source-record context and publication provenance ([#308](https://github.com/bijux/bijux-pollenomics/pull/308)).

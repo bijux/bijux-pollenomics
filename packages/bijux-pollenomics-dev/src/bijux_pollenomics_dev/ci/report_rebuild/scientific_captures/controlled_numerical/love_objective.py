@@ -665,6 +665,8 @@ def validated_love_objective_capture(
             "source_candidate": SOURCE_CANDIDATE,
             "original_whole_actual_exits": [1, 1],
             "saved_observer_actual_exit": 0,
+            "original_execution_only": True,
+            "current_numerical_reuse": False,
             "scope": expected_report["scope"],
         }
     except (KeyError, TypeError, ValueError, OSError) as error:

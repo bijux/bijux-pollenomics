@@ -352,6 +352,10 @@
     {
       "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
       "source_revision": "188f559becc122bf04830f55341f0e93d6a21c9b"
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd"
     }
   ],
   "git_groups": [
@@ -9728,6 +9732,151 @@
         [
           "payloads/9062395231bd7a4ec19bfe41df1587281c06e143b146119fe445a6eb0ce7ce8a",
           "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/execution/report_consumer.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd",
+      "storage_role": "historical_code_witness",
+      "member_count": 34,
+      "git_entries_sha256": "0ed81019b91b5439fed8b6f57e8a47e407b690b2d4ea1ce126c436f7fe28e790",
+      "paths": [
+        [
+          "payloads/06fb280dcc5bccaa7b767f13ccbdd44aa77b1a5f6c1bf86f61b93d783109814c",
+          "data/method-certification/love-objective-parity-source-capture/payloads/06fb280dcc5bccaa7b767f13ccbdd44aa77b1a5f6c1bf86f61b93d783109814c"
+        ],
+        [
+          "payloads/11927691add4287cf1e6b9b25b1acd27ce8fa5150a3778c178afb2b93a3df865",
+          "data/method-certification/love-objective-parity-source-capture/payloads/11927691add4287cf1e6b9b25b1acd27ce8fa5150a3778c178afb2b93a3df865"
+        ],
+        [
+          "payloads/14eaa0f5a8750bd0ea10b260c3fd992fb552f9c63dfa7a0006dc050e5830b5f8",
+          "data/method-certification/love-objective-parity-source-capture/payloads/14eaa0f5a8750bd0ea10b260c3fd992fb552f9c63dfa7a0006dc050e5830b5f8"
+        ],
+        [
+          "payloads/1dd00b9bde18ee1e69fb04df6e7c4888a2088ac955b147d46fcc9c8def488ad2",
+          "data/method-certification/love-objective-parity-source-capture/payloads/1dd00b9bde18ee1e69fb04df6e7c4888a2088ac955b147d46fcc9c8def488ad2"
+        ],
+        [
+          "payloads/42de67169976495b2404489a8603111b0581dc07aa0dd08036729f06c99a3781",
+          "data/method-certification/love-objective-parity-source-capture/payloads/42de67169976495b2404489a8603111b0581dc07aa0dd08036729f06c99a3781"
+        ],
+        [
+          "payloads/440b6286c6de10622141ac711679302f3f8b1ece9c6f844112f61b8a8d87b8bc",
+          "data/method-certification/love-objective-parity-source-capture/payloads/440b6286c6de10622141ac711679302f3f8b1ece9c6f844112f61b8a8d87b8bc"
+        ],
+        [
+          "payloads/468380be06d7e852e84aeb541afac215954f4633eea640927f0ec4b584ea6211",
+          "data/method-certification/love-objective-parity-source-capture/payloads/468380be06d7e852e84aeb541afac215954f4633eea640927f0ec4b584ea6211"
+        ],
+        [
+          "payloads/52ad231c7b78afe8d4e8dac87bc849cd4a9376f3254d5507d5ee12466f17bceb",
+          "data/method-certification/love-objective-parity-source-capture/payloads/52ad231c7b78afe8d4e8dac87bc849cd4a9376f3254d5507d5ee12466f17bceb"
+        ],
+        [
+          "payloads/5a7a2521393c6649b1a7d3ee5fe23dcd49e809c5c863ec6f4c1921d01db33db9",
+          "data/method-certification/love-objective-parity-source-capture/payloads/5a7a2521393c6649b1a7d3ee5fe23dcd49e809c5c863ec6f4c1921d01db33db9"
+        ],
+        [
+          "payloads/62c93270d5ec0c4d7f4fa1f5e61abc2caae68fa96232b4d9175cd4fbed21073d",
+          "data/method-certification/love-objective-parity-source-capture/payloads/62c93270d5ec0c4d7f4fa1f5e61abc2caae68fa96232b4d9175cd4fbed21073d"
+        ],
+        [
+          "payloads/720a06f263571240c7852a8fce32cf64a0b60f17a71d6864d57957800d408d80",
+          "data/method-certification/love-objective-parity-source-capture/payloads/720a06f263571240c7852a8fce32cf64a0b60f17a71d6864d57957800d408d80"
+        ],
+        [
+          "payloads/7fe9f59bcdc36dbc134355377d78dead23d0aece53607f917c70b966ca96bdc1",
+          "data/method-certification/love-objective-parity-source-capture/payloads/7fe9f59bcdc36dbc134355377d78dead23d0aece53607f917c70b966ca96bdc1"
+        ],
+        [
+          "payloads/84040f998392398c91779befcbac6807d107b3d1c62a57e4b440dbf1fcc680c5",
+          "data/method-certification/love-objective-parity-source-capture/payloads/84040f998392398c91779befcbac6807d107b3d1c62a57e4b440dbf1fcc680c5"
+        ],
+        [
+          "payloads/8540e49ff94f06bfa28bd52287b334a88d480958ae300918be07c6cfddc2aaa0",
+          "data/method-certification/love-objective-parity-source-capture/payloads/8540e49ff94f06bfa28bd52287b334a88d480958ae300918be07c6cfddc2aaa0"
+        ],
+        [
+          "payloads/8f9cbe05b5cf37fbd921de748f993a188f6567ab40d0ef4483009a88592f3206",
+          "data/method-certification/love-objective-parity-source-capture/payloads/8f9cbe05b5cf37fbd921de748f993a188f6567ab40d0ef4483009a88592f3206"
+        ],
+        [
+          "payloads/933b163ca239600bfe9e7e86736eb53f9d152b16809a2bff2e1a89e37a252ed2",
+          "data/method-certification/love-objective-parity-source-capture/payloads/933b163ca239600bfe9e7e86736eb53f9d152b16809a2bff2e1a89e37a252ed2"
+        ],
+        [
+          "payloads/941cfd5617ad0ab3d79155601656361c6ed72a00397aa32b3b51bb340cd44aa3",
+          "data/method-certification/love-objective-parity-source-capture/payloads/941cfd5617ad0ab3d79155601656361c6ed72a00397aa32b3b51bb340cd44aa3"
+        ],
+        [
+          "payloads/99795cfaf6c2003dc04bbbfbbea70412c12db6d858c0409cfed754ea21f423b2",
+          "data/method-certification/love-objective-parity-source-capture/payloads/99795cfaf6c2003dc04bbbfbbea70412c12db6d858c0409cfed754ea21f423b2"
+        ],
+        [
+          "payloads/9eb15a9bc31219cdbb76e6cd1f9f68e82b9e9988e27e68d0bd4a22849bdba31e",
+          "data/method-certification/love-objective-parity-source-capture/payloads/9eb15a9bc31219cdbb76e6cd1f9f68e82b9e9988e27e68d0bd4a22849bdba31e"
+        ],
+        [
+          "payloads/b723a39c6673816ae27f14ed3ebf36b4af9ecebb405a001536601f108b81b927",
+          "data/method-certification/love-objective-parity-source-capture/payloads/b723a39c6673816ae27f14ed3ebf36b4af9ecebb405a001536601f108b81b927"
+        ],
+        [
+          "payloads/bf54fdfdeed0aef92aff5b558e187a5959fad758ba58f840a2bfacd32aed1634",
+          "data/method-certification/love-objective-parity-source-capture/payloads/bf54fdfdeed0aef92aff5b558e187a5959fad758ba58f840a2bfacd32aed1634"
+        ],
+        [
+          "payloads/bf9166151e2a2b9f4bad9c1ed91409660b5c3247f7533f634ed890acb96c6a2c",
+          "data/method-certification/love-objective-parity-source-capture/payloads/bf9166151e2a2b9f4bad9c1ed91409660b5c3247f7533f634ed890acb96c6a2c"
+        ],
+        [
+          "payloads/cd812e5cd1551a94249ed73e27763356f18ce27dc91083eccb9a8dd9ad7e9d50",
+          "data/method-certification/love-objective-parity-source-capture/payloads/cd812e5cd1551a94249ed73e27763356f18ce27dc91083eccb9a8dd9ad7e9d50"
+        ],
+        [
+          "payloads/d456c45b1445281c83aa501eaa1b1fc4c0cd1029a10fa54c061e02197b0aaf80",
+          "data/method-certification/love-objective-parity-source-capture/payloads/d456c45b1445281c83aa501eaa1b1fc4c0cd1029a10fa54c061e02197b0aaf80"
+        ],
+        [
+          "payloads/d46ecfbe5f58270d8bfd5c959fcb39b67de777a796c79567e4df217fae063ed5",
+          "data/method-certification/love-objective-parity-source-capture/payloads/d46ecfbe5f58270d8bfd5c959fcb39b67de777a796c79567e4df217fae063ed5"
+        ],
+        [
+          "payloads/d6b7332c4060527671394f50093beafac5d2e51ddd80f4539d84dbc008876541",
+          "data/method-certification/love-objective-parity-source-capture/payloads/d6b7332c4060527671394f50093beafac5d2e51ddd80f4539d84dbc008876541"
+        ],
+        [
+          "payloads/de876dbf205d539d430d94edd0756e62fb52e56016a7c0c8004b473764b31b1b",
+          "data/method-certification/love-objective-parity-source-capture/payloads/de876dbf205d539d430d94edd0756e62fb52e56016a7c0c8004b473764b31b1b"
+        ],
+        [
+          "payloads/e4a0a8c08417a31aae1ad5474dcb52408ca59e8042d5d0e3ea4e5077b1235d9f",
+          "data/method-certification/love-objective-parity-source-capture/payloads/e4a0a8c08417a31aae1ad5474dcb52408ca59e8042d5d0e3ea4e5077b1235d9f"
+        ],
+        [
+          "payloads/f084f917d5e50cc52e2c279a180303a097851878efd099ee8cff7e8c58cb80eb",
+          "data/method-certification/love-objective-parity-source-capture/payloads/f084f917d5e50cc52e2c279a180303a097851878efd099ee8cff7e8c58cb80eb"
+        ],
+        [
+          "payloads/f08bfe49000632441bf3a84a2893d68610f3b88cd7897ae688b946dda730535e",
+          "data/method-certification/love-objective-parity-source-capture/payloads/f08bfe49000632441bf3a84a2893d68610f3b88cd7897ae688b946dda730535e"
+        ],
+        [
+          "payloads/f424405bc56624c191b1d54919278dbba0f9970a45c63fe444e75fa00f9777f5",
+          "data/method-certification/love-objective-parity-source-capture/payloads/f424405bc56624c191b1d54919278dbba0f9970a45c63fe444e75fa00f9777f5"
+        ],
+        [
+          "payloads/fbb9f0098afd3d8a9c991b9b0a252024f60432ad3a9815ea620049452de31f34",
+          "data/method-certification/love-objective-parity-source-capture/payloads/fbb9f0098afd3d8a9c991b9b0a252024f60432ad3a9815ea620049452de31f34"
+        ],
+        [
+          "payloads/fd829f11ce27c2e7883e4178ca572d9198622f141953bc13a0aca0a76a384424",
+          "data/method-certification/love-objective-parity-source-capture/payloads/fd829f11ce27c2e7883e4178ca572d9198622f141953bc13a0aca0a76a384424"
+        ],
+        [
+          "payloads/ffd0181f09571947dc53b4cc3fb88e9b94b924a814669799e2b99af56c2d7fbd",
+          "data/method-certification/love-objective-parity-source-capture/payloads/ffd0181f09571947dc53b4cc3fb88e9b94b924a814669799e2b99af56c2d7fbd"
         ]
       ]
     }

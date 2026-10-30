@@ -370,6 +370,10 @@
     {
       "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
       "source_revision": "8ded3ec583cf54883c9dc59bda659837a2e61433"
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd"
     }
   ],
   "git_groups": [
@@ -9842,6 +9846,103 @@
         [
           "payloads/fc94f84dd02447d2590738a7e2eca8e6f36db917dae99b20054e317b060e4edf",
           "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/swedish_country_retention/inputs/source_projection.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd",
+      "storage_role": "historical_code_witness",
+      "member_count": 22,
+      "git_entries_sha256": "523933271c92880e7deebbe8f05950bad6c803ce95ab647d287340fe119e9e0c",
+      "paths": [
+        [
+          "payloads/06d00dcbfd2c5b3db83f601acfb9a5cb3722503ac68e050cbd8613365cf7de5c",
+          "data/source-custody/neotoma/selected-counts/payloads/06d00dcbfd2c5b3db83f601acfb9a5cb3722503ac68e050cbd8613365cf7de5c"
+        ],
+        [
+          "payloads/219308f6bda1e5aa9746dd564bc1f162f9eb4f367051c054e27fb603bf8e1ecc",
+          "data/source-custody/neotoma/selected-counts/payloads/219308f6bda1e5aa9746dd564bc1f162f9eb4f367051c054e27fb603bf8e1ecc"
+        ],
+        [
+          "payloads/22695c2afb589a5f4ae4f7a2bc0998ac489fbb7e19e39e3ae116bd23181790a4",
+          "data/source-custody/neotoma/selected-counts/payloads/22695c2afb589a5f4ae4f7a2bc0998ac489fbb7e19e39e3ae116bd23181790a4"
+        ],
+        [
+          "payloads/3ec015e20d886266cd0b5cb04ae0788bcfd99666ccd32e4beb8985d87b2be1f5",
+          "data/source-custody/neotoma/selected-counts/payloads/3ec015e20d886266cd0b5cb04ae0788bcfd99666ccd32e4beb8985d87b2be1f5"
+        ],
+        [
+          "payloads/3f68d37649df76d79deaf9b316eb6e7eb4883c4e10a440dd5fd1c34d8964614e",
+          "data/source-custody/neotoma/selected-counts/payloads/3f68d37649df76d79deaf9b316eb6e7eb4883c4e10a440dd5fd1c34d8964614e"
+        ],
+        [
+          "payloads/42c95b9e537a326bc9f80edc9703be9f0c72ac07bf5eb6cb2025b6fff35fb1dc",
+          "data/source-custody/neotoma/selected-counts/payloads/42c95b9e537a326bc9f80edc9703be9f0c72ac07bf5eb6cb2025b6fff35fb1dc"
+        ],
+        [
+          "payloads/64b1bb84581aad7bdc46a600736171423794ffa6343b0f7df1794804ed8fd844",
+          "data/source-custody/neotoma/selected-counts/payloads/64b1bb84581aad7bdc46a600736171423794ffa6343b0f7df1794804ed8fd844"
+        ],
+        [
+          "payloads/67d5c443ac187aba8f260b12ea1842500c7475d722373184fae1f175667e3424",
+          "data/source-custody/neotoma/selected-counts/payloads/67d5c443ac187aba8f260b12ea1842500c7475d722373184fae1f175667e3424"
+        ],
+        [
+          "payloads/6d20cd397f9a9b628089154b252bdac2ca040d926bb24c18958dc6a892baf79b",
+          "data/source-custody/neotoma/selected-counts/payloads/6d20cd397f9a9b628089154b252bdac2ca040d926bb24c18958dc6a892baf79b"
+        ],
+        [
+          "payloads/700d2ae941755789de39f2044cc70daf94aae946027705b2d839cecef991cd4e",
+          "data/source-custody/neotoma/selected-counts/payloads/700d2ae941755789de39f2044cc70daf94aae946027705b2d839cecef991cd4e"
+        ],
+        [
+          "payloads/7a986ad244bb32f7f228af6907fda97f5ac251815371f67f4265975333b67193",
+          "data/source-custody/neotoma/selected-counts/payloads/7a986ad244bb32f7f228af6907fda97f5ac251815371f67f4265975333b67193"
+        ],
+        [
+          "payloads/7c61f7b5b1e0c296c75b85d69784820864df1666172526212530157911fb4086",
+          "data/source-custody/neotoma/selected-counts/payloads/7c61f7b5b1e0c296c75b85d69784820864df1666172526212530157911fb4086"
+        ],
+        [
+          "payloads/844317097561e7a55c52902c5cdf0eee36adec338c083d1cb073811c56f707f2",
+          "data/source-custody/neotoma/selected-counts/payloads/844317097561e7a55c52902c5cdf0eee36adec338c083d1cb073811c56f707f2"
+        ],
+        [
+          "payloads/986e88a65009ace753c657cdd58e4b2db43123a21776d5f49c8f6801851acd1f",
+          "data/source-custody/neotoma/selected-counts/payloads/986e88a65009ace753c657cdd58e4b2db43123a21776d5f49c8f6801851acd1f"
+        ],
+        [
+          "payloads/9cbbcb5b9a8376a0316fe38bae9f87e67603272d6bf07991294148a2f5a17490",
+          "data/source-custody/neotoma/selected-counts/payloads/9cbbcb5b9a8376a0316fe38bae9f87e67603272d6bf07991294148a2f5a17490"
+        ],
+        [
+          "payloads/a995608434889513da6d4b86314e63b0b800530dcbd8d7fb75a8950593735fb1",
+          "data/source-custody/neotoma/selected-counts/payloads/a995608434889513da6d4b86314e63b0b800530dcbd8d7fb75a8950593735fb1"
+        ],
+        [
+          "payloads/ab0a2646a6a44c091c5ffd2b48b444cd0dcebbfdf236bb4a9ad0b4ade5ad7a40",
+          "data/source-custody/neotoma/selected-counts/payloads/ab0a2646a6a44c091c5ffd2b48b444cd0dcebbfdf236bb4a9ad0b4ade5ad7a40"
+        ],
+        [
+          "payloads/b5807a87b70f48bf03321d24eb7c854c024cfa01208fbc2240e060fb68473e61",
+          "data/source-custody/neotoma/selected-counts/payloads/b5807a87b70f48bf03321d24eb7c854c024cfa01208fbc2240e060fb68473e61"
+        ],
+        [
+          "payloads/beb6987cc9c4f021c031fac646d4218bd296231cc78e2f621d40337be1faaa85",
+          "data/source-custody/neotoma/selected-counts/payloads/beb6987cc9c4f021c031fac646d4218bd296231cc78e2f621d40337be1faaa85"
+        ],
+        [
+          "payloads/c400138cb7e5dadd45180e012f75345ef8ec2ff50e973f01584880e12007586f",
+          "data/source-custody/neotoma/selected-counts/payloads/c400138cb7e5dadd45180e012f75345ef8ec2ff50e973f01584880e12007586f"
+        ],
+        [
+          "payloads/e99ee5193c431fde5caac79957fc7df92a3f4706097adc097503abc74b23ae71",
+          "data/source-custody/neotoma/selected-counts/payloads/e99ee5193c431fde5caac79957fc7df92a3f4706097adc097503abc74b23ae71"
+        ],
+        [
+          "payloads/ff46894cceaf43a2167c29066c6878e03d6c7e65d38aa4a0381bc8bf1dc99f4d",
+          "data/source-custody/neotoma/selected-counts/payloads/ff46894cceaf43a2167c29066c6878e03d6c7e65d38aa4a0381bc8bf1dc99f4d"
         ]
       ]
     }

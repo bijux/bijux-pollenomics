@@ -382,6 +382,10 @@
     {
       "historical_source_commit": "0fbedcb60d7771b5b3ef849a214e45fb5b665095",
       "source_revision": "0fbedcb60d7771b5b3ef849a214e45fb5b665095"
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd"
     }
   ],
   "git_groups": [
@@ -10019,6 +10023,19 @@
         [
           "payloads/f62c24c58f212fe1514bf52add92e231e034c6d91a936868fc7127480ca5d6fc",
           "data/source-custody/adna/animal-current-exports/payloads/f62c24c58f212fe1514bf52add92e231e034c6d91a936868fc7127480ca5d6fc"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd",
+      "storage_role": "historical_code_witness",
+      "member_count": 1,
+      "git_entries_sha256": "db75f25b54ca40bd71141a04589787af499f09975f21b5f25e0b0f0eb3698f92",
+      "paths": [
+        [
+          "payloads/0c80f4083b43866950b122aedf7f444d084d2829d2ecd7068ea15b62f5346e34",
+          "data/source-custody/adna/animal-current-exports/payloads/0c80f4083b43866950b122aedf7f444d084d2829d2ecd7068ea15b62f5346e34"
         ]
       ]
     }
