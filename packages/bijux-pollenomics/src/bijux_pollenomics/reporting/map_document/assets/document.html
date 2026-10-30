@@ -3488,13 +3488,15 @@ __URL_STATE_CONTROLLER__
       function atlasEdgeVisible(edge, countries, countryPair, crossBorder, signalIds) {
         if (!edge || (!countries.has(edge.source_country) && !countries.has(edge.target_country))) return false;
         if (countryPair !== 'all' && atlasCountryPairKey(edge.source_country, edge.target_country) !== countryPair) return false;
-        if (crossBorder && edge.source_country === edge.target_country) return false;
+        if (crossBorder && (Object.prototype.hasOwnProperty.call(edge, 'candidate_status')
+          ? edge.cross_border !== true : edge.source_country === edge.target_country)) return false;
         return signalIds.has(edge.signal_id);
       }
       function atlasRetainedNeighborRecordCountries(edges, countries) {
         const retained = new Map();
         edges.forEach((edge) => {
-          if (edge.source_country === edge.target_country) return;
+          if (Object.prototype.hasOwnProperty.call(edge, 'candidate_status')
+            ? edge.cross_border !== true : edge.source_country === edge.target_country) return;
           if (countries.has(edge.source_country) && !countries.has(edge.target_country)) {
             retained.set(String(edge.target_record_id), edge.target_country);
           } else if (countries.has(edge.target_country) && !countries.has(edge.source_country)) {
@@ -6902,8 +6904,8 @@ __URL_STATE_CONTROLLER__
               dashArray: presentation.dashArray,
             }
           );
-          line.bindPopup(`<div class="popup-grid"><div><strong>${escapeHtml(presentation.relationLabel)}</strong> ${escapeHtml(edge.edge_id)}</div><div><strong>Signal</strong> ${escapeHtml(signal ? signal.label : edge.signal_id)}</div><div><strong>Countries</strong> ${escapeHtml(edge.source_country)}${presentation.separator}${escapeHtml(edge.target_country)}</div><div><strong>Status</strong> ${escapeHtml(presentation.label)}</div><div><strong>Interpretation</strong> ${escapeHtml(presentation.interpretation)}</div></div>`);
-          line.on('click', async () => {
+          line.bindPopup(edgeEvidencePopupHtml(edge, signal, presentation));
+          const openEdgeDetail = async (compare = false) => {
             const loadedTabs = await detailTabsForRecordId(String(edge.edge_id));
             const tabs = loadedTabs.overview?.reason_code === 'detail_record_not_indexed'
               ? unavailableDetailTabs('edge_detail_evidence_not_available')
@@ -6951,6 +6953,21 @@ __URL_STATE_CONTROLLER__
               sourceUrl: '',
               detailTabs: tabs,
             });
+            if (compare) {
+              activeFocusTab = 'relation';
+              renderFocusDetail();
+              document.getElementById('focus-tab-relation')?.focus({ preventScroll: true });
+            }
+          };
+          line.on('click', () => openEdgeDetail());
+          line.on('popupopen', ({ popup }) => {
+            const button = popup.getElement()?.querySelector('[data-compare-edge]');
+            if (!button || button.dataset.compareEdge !== edge.edge_id) return;
+            button.onclick = async (event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              await openEdgeDetail(true);
+            };
           });
           line.addTo(map);
           renderedEdgeLayers.push(line);

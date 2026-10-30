@@ -45,14 +45,42 @@ function atlasEdgeRenderSelection(edges, entriesByRecordId, zoom, coordinatePair
   return { rows: ordered.slice(0, limit), viewport_count: eligible.length, limit };
 }
 
+function edgeEvidencePopupHtml(edge, signal, presentation) {
+  const text = value => escapeHtml(typeof value === 'string' && value.trim() ? value : 'Unavailable');
+  const number = value => typeof value === 'number' && Number.isFinite(value);
+  const pair = relationEndpointPair(edge);
+  function age(event) {
+    if (!event || event.comparability_status !== 'comparable') return 'Unavailable (no comparable canonical event age)';
+    const [younger, older] = [event.younger_bp, event.older_bp];
+    if (![younger, older].every(value => number(value) && value >= 0) || younger > older) return 'Unavailable (invalid canonical event interval)';
+    return `${younger === older ? younger : `${younger}–${older}`} BP`;
+  }
+  const directional = presentation.separator === ' → ';
+  const countryPosture = Object.prototype.hasOwnProperty.call(edge, 'candidate_status') && typeof edge.cross_border === 'boolean'
+    ? edge.cross_border ? 'Cross-border' : 'Domestic' : 'Country-pair posture unavailable';
+  const endpoints = ['source', 'target'].map((prefix, index) => {
+    const event = pair?.[index];
+    const label = directional ? index === 0 ? 'Older endpoint' : 'Younger endpoint' : index === 0 ? 'Source endpoint' : 'Target endpoint';
+    return `<div><strong>${label}</strong> ${text(event?.site_id)} · ${escapeHtml(age(event))}</div>`;
+  }).join('');
+  const distance = number(edge.distance_km_unrounded) && edge.distance_km_unrounded >= 0
+    ? `${edge.distance_km_unrounded} km` : 'Unavailable';
+  const [minimum, maximum] = [edge.minimum_lag_years, edge.maximum_lag_years];
+  const lag = [minimum, maximum].every(number) && minimum <= maximum
+    ? `${minimum} to ${maximum} years` : 'Unavailable';
+  const details = edge.relation_details;
+  const thresholds = details?.basis === 'derived_governed_evaluator_branch_explanation'
+    && details.scenario_id === edge.scenario_id
+    && [details.maximum_distance_km, details.maximum_lag_years].every(value => number(value) && value >= 0)
+    ? ` · maximum distance ${details.maximum_distance_km} km; maximum lag ${details.maximum_lag_years} years` : '';
+  return `<div class="popup-grid"><div><strong>${directional ? 'Candidate spatiotemporal succession' : escapeHtml(presentation.relationLabel)}</strong> ${escapeHtml(edge.edge_id)}</div><div><strong>Signal and resolution</strong> ${text(signal?.label || edge.signal_id)} · ${text(edge.resolution)}</div>${endpoints}<div><strong>Countries</strong> ${escapeHtml(countryPosture)} · ${text(edge.source_country)}${presentation.separator}${text(edge.target_country)}</div><div><strong>Distance</strong> ${escapeHtml(distance)}</div><div><strong>Directional lag bounds</strong> ${escapeHtml(lag)}</div><div><strong>Scenario</strong> ${text(edge.scenario_id)}${escapeHtml(thresholds)}</div><div><strong>Certainty / interval status</strong> ${escapeHtml(presentation.label)}</div><div><strong>Interpretation</strong> ${escapeHtml(presentation.interpretation)}</div><button type="button" class="inline-button" data-compare-edge="${escapeHtml(edge.edge_id)}">Compare evidence</button></div>`;
+}
+
 function renderRelationDetails(tab) {
   const object = (value) => value && typeof value === 'object' && !Array.isArray(value);
   const text = (value) => escapeHtml(value === undefined ? 'Unavailable (not supplied)' : value === null ? 'null (no numeric value)' : typeof value === 'object' ? JSON.stringify(value) : String(value));
-  const source = tab?.source_event, target = tab?.target_event;
-  const joined = (event, prefix) => object(event)
-    && ['event_id', 'source_record_id', 'site_id'].every((key) => typeof event[key] === 'string' && event[key].trim()
-      && event[key] === tab[`${prefix}_${key === 'source_record_id' ? 'record_id' : key}`]);
-  const endpoints = joined(source, 'source') && joined(target, 'target');
+  const pair = relationEndpointPair(tab), [source, target] = pair || [];
+  const endpoints = pair !== null;
   const fields = [
     ['Event ID', 'event_id'], ['Source record ID', 'source_record_id'],
     ['Site ID', 'site_id'], ['Source family', 'source_family'],
@@ -81,4 +109,13 @@ function renderRelationDetails(tab) {
     ? `<p>Scenario ${text(details.scenario_id)}: maximum distance ${text(details.maximum_distance_km)} km; maximum lag ${text(details.maximum_lag_years)} years. Derived governed evaluator branch explanation, not recorded execution telemetry. These supplied statuses do not confer scientific admission.</p><div class="focus-detail-table-wrap"><table class="focus-detail-table"><caption>Scenario predicates</caption><thead><tr><th scope="col">Predicate</th><th scope="col">Status</th><th scope="col">Observed value</th><th scope="col">Threshold</th></tr></thead><tbody>${details.predicates.map((row) => `<tr><th scope="row">${text(row.label)}</th><td>${text(row.status)}</td><td>${text(row.observed)}</td><td>${text(row.threshold)}</td></tr>`).join('')}</tbody></table></div><p>not_evaluated denotes a later check skipped by the evaluator branch; unavailable denotes missing evidence. Neither means pass. Endpoint lines are not reconstructed movement paths.</p>`
     : '<p>Scenario predicate explanation unavailable: this record has no complete, matching governed explanation. Legacy or missing checks are not inferred from a candidate label.</p>';
   return `<section aria-label="Relation endpoint and predicate comparison">${endpointHtml}${predicateHtml}</section>`;
+}
+
+function relationEndpointPair(tab) {
+  const object = value => value && typeof value === 'object' && !Array.isArray(value);
+  const source = tab?.source_event, target = tab?.target_event;
+  const joined = (event, prefix) => object(event)
+    && ['event_id', 'source_record_id', 'site_id'].every((key) => typeof event[key] === 'string' && event[key].trim()
+      && event[key] === tab[`${prefix}_${key === 'source_record_id' ? 'record_id' : key}`]);
+  return joined(source, 'source') && joined(target, 'target') ? [source, target] : null;
 }
