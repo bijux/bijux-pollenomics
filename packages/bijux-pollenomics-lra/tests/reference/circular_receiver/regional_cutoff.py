@@ -93,7 +93,114 @@ MAX_TSV = 256 * 1024
 MAX_RESULT = 512 * 1024
 
 
-# Load only the authenticated unchanged sibling source, never a cached code object.
+_SCALAR_HELPER_DOCUMENTATION: tuple[tuple[str, bytes, bytes], ...] = (
+    (
+        "digest",
+        b"def digest(raw: bytes) -> str:\n",
+        b'    """Return the exact byte digest of a declared reference input."""\n',
+    ),
+    (
+        "identity",
+        b"def identity(value: str, size: int) -> str:\n",
+        b'    """Require an exact lowercase hexadecimal identity of the declared width."""\n',
+    ),
+    (
+        "physical",
+        b"def physical(path: Path) -> Path:\n",
+        b'    """Require an absolute normalized path without linked ancestors."""\n',
+    ),
+    (
+        "read",
+        b"def read(\n    path: Path, limit: int, expected: str | None = None\n) -> tuple[bytes, dict[str, Any]]:\n",
+        b'    """Read one bounded regular input and verify any declared byte identity."""\n',
+    ),
+    (
+        "pairs",
+        b"def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:\n",
+        b'    """Preserve JSON key order while refusing duplicate keys."""\n',
+    ),
+    (
+        "load",
+        b"def load(raw: bytes) -> Any:\n",
+        b'    """Decode ordered JSON while refusing duplicate keys and nonfinite constants."""\n\n',
+    ),
+    (
+        "number",
+        b"def number(value: Any, lower: float = 0, upper: float = math.inf) -> float:\n",
+        b'    """Require a finite native number within its declared domain."""\n',
+    ),
+    (
+        "decimal",
+        b"def decimal(value: str, lower: float = 0, upper: float = math.inf) -> float:\n",
+        b'    """Parse one strict decimal table cell within the declared bounds."""\n',
+    ),
+    (
+        "encoded",
+        b"def encoded(value: Any) -> bytes:\n",
+        b'    """Encode finite reference metadata with deterministic key order."""\n',
+    ),
+    (
+        "table",
+        b"def table(columns: tuple[str, ...], rows: list[list[Any]]) -> bytes:\n",
+        b'    """Write declared tab-separated columns and ordered scalar rows."""\n',
+    ),
+    (
+        "parse_table",
+        b"def parse_table(raw: bytes, columns: tuple[str, ...]) -> list[dict[str, str]]:\n",
+        b'    """Require exact table columns and consistent row widths."""\n',
+    ),
+    (
+        "source",
+        b"def source(\n    args: argparse.Namespace,\n) -> tuple[list[dict[str, Any]], dict[str, Any], bytes]:\n",
+        b'    """Validate reference inputs and preserve original response tuple support."""\n',
+    ),
+    (
+        "destination",
+        b"def destination(args: argparse.Namespace) -> Path:\n",
+        b'    """Require an absent output beneath the physical repository artifact root."""\n',
+    ),
+    (
+        "export",
+        b"def export(args: argparse.Namespace) -> int:\n",
+        b'    """Export admitted reference tuples with their original source identities."""\n',
+    ),
+    (
+        "compare",
+        b"def compare(args: argparse.Namespace) -> int:\n",
+        b'    """Compare admitted responses with exact independent numerical outputs."""\n',
+    ),
+    (
+        "main",
+        b"def main(argv: list[str] | None = None) -> int:\n",
+        b'    """Dispatch the declared reference export or comparison."""\n',
+    ),
+)
+
+
+def _scalar_helper_historical_basis(current: bytes) -> bytes:
+    """Invert only the declared literal documentation at its original header."""
+    if (
+        len(current) == 18897
+        and hashlib.sha256(current).hexdigest()
+        == "af2c288baefddd267e0a481a1fb6afbaba8dd94b5150a397ce1174ff0f902b56"
+    ):
+        return current
+    body = current
+    for _, header, documentation in _SCALAR_HELPER_DOCUMENTATION:
+        marked = header + documentation
+        if body.count(marked) != 1:
+            raise ValueError("Unknown nordic_wind.py documentation or definition")
+        body = body.replace(marked, header, 1)
+    if (
+        len(body) != 18897
+        or hashlib.sha256(body).hexdigest()
+        != "af2c288baefddd267e0a481a1fb6afbaba8dd94b5150a397ce1174ff0f902b56"
+    ):
+        raise ValueError("nordic_wind.py differs beyond its named documentation")
+    return body
+
+
+# Load only the authenticated current sibling; historical bytes are a comparison basis.
 _HELPER = Path(__file__).absolute().with_name("nordic_wind.py")
 if (
     ".." in _HELPER.parts
@@ -105,17 +212,44 @@ _helper_info = _HELPER.lstat()
 if (
     not stat.S_ISREG(_helper_info.st_mode)
     or _helper_info.st_nlink != 1
-    or _helper_info.st_size != 18897
+    or not 0 < _helper_info.st_size <= 128 * 1024
 ):
     raise ValueError("Single-link regular scalar helper required")
 _helper_buffer = _HELPER.read_bytes()
+if len(_helper_buffer) != _helper_info.st_size:
+    raise ValueError("Sibling scalar helper changed during read")
+_helper_basis = _scalar_helper_historical_basis(_helper_buffer)
+_helper_after = _HELPER.lstat()
+_helper_stat_fields = (
+    "st_dev",
+    "st_ino",
+    "st_mode",
+    "st_nlink",
+    "st_size",
+    "st_mtime_ns",
+    "st_ctime_ns",
+)
 if (
-    len(_helper_buffer) != _helper_info.st_size
-    or len(_helper_buffer) != 18897
-    or hashlib.sha256(_helper_buffer).hexdigest()
-    != "af2c288baefddd267e0a481a1fb6afbaba8dd94b5150a397ce1174ff0f902b56"
+    any(
+        getattr(_helper_info, field) != getattr(_helper_after, field)
+        for field in _helper_stat_fields
+    )
+    or any(path.is_symlink() for path in (_HELPER, *_HELPER.parents))
+    or _HELPER.read_bytes() != _helper_buffer
 ):
-    raise ValueError("Sibling scalar helper identity differs")
+    raise ValueError("Sibling scalar helper changed during correspondence")
+_HELPER_EXECUTION_IDENTITY = {
+    "path": str(_HELPER),
+    "sha256": hashlib.sha256(_helper_buffer).hexdigest(),
+    "bytes": len(_helper_buffer),
+    "historical_basis": {
+        "sha256": hashlib.sha256(_helper_basis).hexdigest(),
+        "bytes": len(_helper_basis),
+    },
+    "correspondence": "exact_named_documentation"
+    if _helper_buffer != _helper_basis
+    else "exact_original_bytes",
+}
 _helper_module = types.ModuleType("nordic_scalar_helpers")
 _helper_module.__file__ = str(_HELPER)
 exec(compile(_helper_buffer, str(_HELPER), "exec"), _helper_module.__dict__)
@@ -286,6 +420,7 @@ def source(
         "saved_source_epoch": report["baseline_source_epoch"],
         "saved_execution_epoch": report["execution_epoch"],
         "tuple_bindings": bindings,
+        "execution_helpers": {"scalar": _HELPER_EXECUTION_IDENTITY},
     }
     tsv = table(
         COLUMNS,
@@ -464,6 +599,7 @@ def compare(args: argparse.Namespace) -> int:
         "saved_source_epoch": meta["saved_source_epoch"],
         "saved_execution_epoch": meta["saved_execution_epoch"],
         "reference_execution_epoch": args.execution_epoch,
+        "execution_helpers": {"scalar": _HELPER_EXECUTION_IDENTITY},
         "manifest": mp,
         "r_outputs": [outcomes_pin, detail_pin, summary_pin, scope_pin],
         "absolute_tolerance": TOLERANCE,

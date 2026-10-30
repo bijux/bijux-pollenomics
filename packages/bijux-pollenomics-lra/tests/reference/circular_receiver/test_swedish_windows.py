@@ -411,3 +411,64 @@ def test_retained_export_compare_cli_requires_explicit_bindings(tmp_path: Path) 
             ]
         )
     assert refused.value.code == 2
+
+
+def test_documented_helper_identity_is_current_with_historical_basis(
+    tmp_path: Path,
+) -> None:
+    a = args(tmp_path)
+    assert reference.export(a) == 0
+    manifest = json.loads((a.output / "manifest.json").read_bytes())
+    current = Path(population.__file__).read_bytes()
+    identity = manifest["execution_helpers"]["population"]
+    assert identity["sha256"] == hashlib.sha256(current).hexdigest()
+    assert identity["bytes"] == len(current)
+    assert identity["historical_basis"] == {
+        "sha256": "3d1769d49d07fc65c3b67a68eca99c89560383111958fe15a2f5f641cd841c12",
+        "bytes": 15203,
+    }
+    assert len(reference._population_helper_historical_basis(current)) == 15203
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "comment",
+        "import",
+        "doc-text",
+        "doc-scope",
+        "inline-comment",
+        "header",
+        "partial-docs",
+        "export",
+        "number-or-type",
+    ],
+)
+def test_only_exact_named_helper_documentation_is_admitted(mutation: str) -> None:
+    current = Path(population.__file__).read_bytes()
+    _, header, documentation = reference._POPULATION_HELPER_DOCUMENTATION[0]
+    if mutation == "comment":
+        changed = current + b"\n# unknown comment\n"
+    elif mutation == "import":
+        changed = current + b"\nimport math as unrelated\n"
+    elif mutation == "doc-text":
+        changed = current.replace(
+            documentation, documentation.replace(b'"""', b'"""Altered ', 1), 1
+        )
+    elif mutation == "doc-scope":
+        changed = current.replace(header + documentation, header, 1) + documentation
+    elif mutation == "inline-comment":
+        changed = current.replace(
+            documentation, documentation.rstrip(b"\n") + b" # unknown\n", 1
+        )
+    elif mutation == "header":
+        changed = current.replace(header, header.replace(b":", b" : ", 1), 1)
+    elif mutation == "partial-docs":
+        changed = current.replace(header + documentation, header, 1)
+    elif mutation == "export":
+        changed = current + b'\n__all__ = ["unknown"]\n'
+    else:
+        changed = current + b"\nUNKNOWN_NUMBER = 2\n"
+    assert changed != current
+    with pytest.raises(ValueError):
+        reference._population_helper_historical_basis(changed)

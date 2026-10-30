@@ -12,9 +12,46 @@ import math
 import os
 from pathlib import Path
 import re
-import runpy
 import stat
 from typing import Any
+
+_POPULATION_HELPER_DOCUMENTATION: tuple[tuple[str, bytes, bytes], ...] = (
+    (
+        "CoreSpec",
+        b"class CoreSpec(TypedDict):\n",
+        b'    """Retain native core, chronology, radius, membership and taxon support."""\n\n',
+    ),
+    (
+        "TransportProfile",
+        b"class TransportProfile(TypedDict):\n",
+        b'    """Declare the conditional radius multiplier and wind-speed profile."""\n\n',
+    ),
+)
+
+
+def _population_helper_historical_basis(current: bytes) -> bytes:
+    """Invert only the declared literal documentation at its original header."""
+    if (
+        len(current) == 15203
+        and hashlib.sha256(current).hexdigest()
+        == "3d1769d49d07fc65c3b67a68eca99c89560383111958fe15a2f5f641cd841c12"
+    ):
+        return current
+    body = current
+    for _, header, documentation in _POPULATION_HELPER_DOCUMENTATION:
+        marked = header + documentation
+        if body.count(marked) != 1:
+            raise ValueError(
+                "Unknown swedish_population.py documentation or definition"
+            )
+        body = body.replace(marked, header, 1)
+    if (
+        len(body) != 15203
+        or hashlib.sha256(body).hexdigest()
+        != "3d1769d49d07fc65c3b67a68eca99c89560383111958fe15a2f5f641cd841c12"
+    ):
+        raise ValueError("swedish_population.py differs beyond its named documentation")
+    return body
 
 
 def _columns(names: str) -> tuple[str, ...]:
@@ -112,10 +149,51 @@ def _load(
     if report["schema_version"] != "swedish-static-basin-maintained-producer.v1":
         raise ValueError("Expected exact maintained Swedish report schema")
     support = Path(__file__).with_name("swedish_population.py")
-    _read(support, POPULATION_SHA256)
-    # Qualified adjacent reference source; no package or script-parent import is needed.
-    api = runpy.run_path(str(support))
-    return api["population"](report), [identity], report
+    support_before = support.lstat()
+    current_support, helper_identity = _read(support)
+    historical_basis = _population_helper_historical_basis(current_support)
+    support_after = support.lstat()
+    stat_fields = (
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_size",
+        "st_mtime_ns",
+        "st_ctime_ns",
+    )
+    if (
+        any(
+            getattr(support_before, field) != getattr(support_after, field)
+            for field in stat_fields
+        )
+        or _read(support)[0] != current_support
+    ):
+        raise ValueError("Population helper changed during correspondence")
+    # Execute only the exact authenticated current bytes, never historical basis.
+    api: dict[str, Any] = {
+        "__name__": "<run_path>",
+        "__file__": str(support),
+        "__package__": "",
+        "__spec__": None,
+        "__loader__": None,
+        "__cached__": None,
+    }
+    exec(compile(current_support, str(support), "exec"), api)
+    data = api["population"](report)
+    data["execution_helpers"] = {
+        "population": {
+            **helper_identity,
+            "historical_basis": {
+                "sha256": POPULATION_SHA256,
+                "bytes": len(historical_basis),
+            },
+            "correspondence": "exact_named_documentation"
+            if current_support != historical_basis
+            else "exact_original_bytes",
+        }
+    }
+    return data, [identity], report
 
 
 def _write(path: Path, body: bytes) -> None:
@@ -166,6 +244,7 @@ def export(args: argparse.Namespace) -> int:
     manifest = {
         "schema": "swedish-physical-window-inputs.v1",
         "sources": sources,
+        "execution_helpers": data["execution_helpers"],
         "source_epoch": report["producer_candidate"],
         "execution_epoch": _identity(args.execution_epoch, 40),
         "python_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
@@ -242,6 +321,11 @@ def compare(args: argparse.Namespace) -> int:
         or manifest["python_source_sha256"] != exporter_source["sha256"]
     ):
         raise ValueError("Export manifest identity differs")
+    if (
+        "execution_helpers" in manifest
+        and manifest["execution_helpers"] != data["execution_helpers"]
+    ):
+        raise ValueError("Export helper execution identity differs")
     rd = _directory(args.r_directory, {"factors.tsv", "values.tsv"})
     fb, fp = _read(rd / "factors.tsv")
     vb, vp = _read(rd / "values.tsv")
@@ -361,6 +445,8 @@ def compare(args: argparse.Namespace) -> int:
         "passed": not mismatches,
         "sources": sources,
         "export_manifest": mp,
+        "current_execution_helpers": data["execution_helpers"],
+        "input_execution_helpers": manifest.get("execution_helpers"),
         "input_export_execution_epoch": export_epoch,
         "input_exporter_source": exporter_source,
         "r_outputs": [fp, vp],

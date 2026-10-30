@@ -410,3 +410,59 @@ def test_cutoff_axis_and_original_context_refuse(tmp_path: Path, mutation: str) 
     target = f["output_root"] / "inputs"
     assert API["main"](arguments(f, "export", target)) == 2
     assert not target.exists()
+
+
+def test_documented_helper_identity_is_current_with_historical_basis() -> None:
+    current = API["_HELPER"].read_bytes()
+    identity = API["_HELPER_EXECUTION_IDENTITY"]
+    assert identity["sha256"] == hashlib.sha256(current).hexdigest()
+    assert identity["bytes"] == len(current)
+    assert identity["historical_basis"] == {
+        "sha256": "af2c288baefddd267e0a481a1fb6afbaba8dd94b5150a397ce1174ff0f902b56",
+        "bytes": 18897,
+    }
+    assert len(API["_scalar_helper_historical_basis"](current)) == 18897
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "comment",
+        "import",
+        "doc-text",
+        "doc-scope",
+        "inline-comment",
+        "header",
+        "partial-docs",
+        "export",
+        "number-or-type",
+    ],
+)
+def test_only_exact_named_helper_documentation_is_admitted(mutation: str) -> None:
+    current = API["_HELPER"].read_bytes()
+    _, header, documentation = API["_SCALAR_HELPER_DOCUMENTATION"][0]
+    if mutation == "comment":
+        changed = current + b"\n# unknown comment\n"
+    elif mutation == "import":
+        changed = current + b"\nimport math as unrelated\n"
+    elif mutation == "doc-text":
+        changed = current.replace(
+            documentation, documentation.replace(b'"""', b'"""Altered ', 1), 1
+        )
+    elif mutation == "doc-scope":
+        changed = current.replace(header + documentation, header, 1) + documentation
+    elif mutation == "inline-comment":
+        changed = current.replace(
+            documentation, documentation.rstrip(b"\n") + b" # unknown\n", 1
+        )
+    elif mutation == "header":
+        changed = current.replace(header, header.replace(b":", b" : ", 1), 1)
+    elif mutation == "partial-docs":
+        changed = current.replace(header + documentation, header, 1)
+    elif mutation == "export":
+        changed = current + b'\n__all__ = ["unknown"]\n'
+    else:
+        changed = current + b"\nUNKNOWN_NUMBER = 2\n"
+    assert changed != current
+    with pytest.raises(ValueError):
+        API["_scalar_helper_historical_basis"](changed)
