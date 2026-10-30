@@ -104,7 +104,11 @@ def _current_numerical_source_role(
         and (retained["sha256"], retained["bytes"]) == (row["sha256"], row["bytes"]),
         "Author-grid retained numerical source is unbound",
     )
-    if name == VERSION_SOURCE:
+    if name in {
+        VERSION_SOURCE,
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+    }:
         return validated_current_scientific_source(
             repository,
             {key: row[key] for key in ("path", "bytes", "sha256")},
@@ -368,7 +372,16 @@ def _admit(
         "report_outputs": 5,
         "current_numerical_source_projection": 59,
         "current_byteequal_numerical_sources": 59 - len(numerical_roles),
-        "historical_generated_version_metadata": list(numerical_roles),
+        "historical_generated_version_metadata": [
+            role
+            for role in numerical_roles
+            if role["classification"] == "historical_generated_version_metadata"
+        ],
+        "counting_api_source_correspondences": [
+            role
+            for role in numerical_roles
+            if role["classification"] == "finite_counting_api_addition"
+        ],
         "original_first_party_source_rows_retained": 15759,
         "source_supported_ledger_cells": 14074,
         "original_R_zero_placeholder_cells_excluded": 15376,
