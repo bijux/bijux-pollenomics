@@ -79,6 +79,12 @@ MODEL = {
         "no_midpoint_shortcut": True,
         "same_point_age_directional": False,
     },
+    "pair_compatibility": {
+        "whole_pollen_resolution": {
+            "heterogeneous_taxa_warning_required": True,
+            "interpretive_strength_cap": "exploratory_aggregate",
+        },
+    },
     "output_edge_contract": {
         "map_geometry": (
             "straight geodesic endpoint connection for visualization only"

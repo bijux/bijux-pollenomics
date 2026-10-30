@@ -90,6 +90,10 @@ def _validate_propagation_contract_identity(
     output_edge_contract = _required_contract_section(output_edge_contract)
     map_contract = _required_contract_section(map_contract)
     denominators = _required_contract_section(denominators)
+    pair_compatibility = _required_contract_section(contract.get("pair_compatibility"))
+    whole_pollen = _required_contract_section(
+        pair_compatibility.get("whole_pollen_resolution")
+    )
     spatial = default.get("spatial")
     temporal = default.get("temporal")
     required_metrics = sensitivity.get("required_metrics")
@@ -198,6 +202,8 @@ def _validate_propagation_contract_identity(
         or candidate_logic.get("no_midpoint_shortcut") is not True
         or candidate_logic.get("same_point_age_directional") is not False
         or output_edge_contract.get("route_interpretation_allowed") is not False
+        or whole_pollen.get("heterogeneous_taxa_warning_required") is not True
+        or whole_pollen.get("interpretive_strength_cap") != "exploratory_aggregate"
         or output_edge_contract.get("map_geometry")
         != "straight geodesic endpoint connection for visualization only"
         or map_contract.get("merge_selected_features") is not False

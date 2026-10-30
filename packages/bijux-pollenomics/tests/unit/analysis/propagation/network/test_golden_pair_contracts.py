@@ -238,6 +238,32 @@ def test_refusal_configuration_digest_tracks_both_event_configurations() -> None
     assert original.producer_version == "propagation-network.v1"
 
 
+@pytest.mark.parametrize("_fixture_id", ["PROP-013"])
+def test_shared_observations_refuse_each_oriented_pair_once(_fixture_id: str) -> None:
+    source = event("source", observation_ids=("shared-first", "shared-second"))
+    target = event(
+        "target",
+        observation_ids=("shared-second", "shared-first"),
+        latitude=55.7047,
+        longitude=13.191,
+        younger_bp=5500,
+        older_bp=5500,
+    )
+    forward = generate_propagation_network((source, target)).scenario_results[0]
+    reverse = generate_propagation_network((target, source)).scenario_results[0]
+    assert forward.as_dict() == reverse.as_dict()
+    assert not forward.evaluated_pairs and not forward.directed_candidates
+    assert forward.reconciliation.refused_pair_count == len(forward.refusals) == 2
+    assert len({row.pair_id for row in forward.refusals}) == 2
+    assert {row.reason_code for row in forward.refusals} == {
+        "duplicate_underlying_observation"
+    }
+    assert {(row.source_event_id, row.target_event_id) for row in forward.refusals} == {
+        (source.event_id, target.event_id),
+        (target.event_id, source.event_id),
+    }
+
+
 def test_millimetre_distance_difference_and_pinned_library_survive_json() -> None:
     geod = Geod(ellps="WGS84")
     source = event("source", latitude=60, longitude=15)

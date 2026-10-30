@@ -6801,16 +6801,24 @@ __URL_STATE_CONTROLLER__
         const directional = directionalStatus && (native ? edge.directional_arrow_allowed === true : edge.directional_arrow_allowed !== false);
         const indeterminate = status === 'indeterminate_order';
         const refused = ['unresolved', 'excluded_spatial', 'excluded_temporal_nonpositive', 'excluded_temporal_too_large'].includes(status);
+        const scenario = typeof edge.scenario_id === 'string' && edge.scenario_id.trim() ? edge.scenario_id : null;
+        const candidateInterpretation = native && directional && scenario
+          ? `Under scenario ${scenario}, these governed observations form a candidate propagation link. This relation is consistent with spatiotemporal succession; it does not demonstrate a migration route, transport mechanism, local establishment, cultivation, or causation.`
+          : 'Candidate succession under the governed rule; not proof of migration or causation.';
+        const interpretation = indeterminate
+          ? 'Order is indeterminate; this endpoint connection has no direction and is not a migration route.'
+          : refused ? `No candidate succession is admitted for ${status}; this endpoint connection is not proof of migration or causation.`
+          : candidateInterpretation;
+        const wholePollenLimit = native && edge.resolution === 'whole_pollen'
+          ? ' Whole-pollen comparison is an exploratory aggregate of heterogeneous taxa; it does not establish taxon-level equivalence.'
+          : '';
         return {
           status,
           dashArray: indeterminate ? '2 7' : status === 'possible_candidate' ? '10 7' : null,
           separator: directional ? ' → ' : ' — ',
           label: indeterminate ? 'Indeterminate order (no direction)' : status,
           relationLabel: directional ? 'Candidate relation' : 'Endpoint connection',
-          interpretation: indeterminate
-            ? 'Order is indeterminate; this endpoint connection has no direction and is not a migration route.'
-            : refused ? `No candidate succession is admitted for ${status}; this endpoint connection is not proof of migration or causation.`
-            : 'Candidate succession under the governed rule; not proof of migration or causation.',
+          interpretation: interpretation + wholePollenLimit,
         };
       }
       function providedEdgeFields(edge, keys) {
