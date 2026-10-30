@@ -103,6 +103,7 @@ class _IntegerExtrema:
     positive: bool = False
 
     def add(self, value: int, path: tuple[int, ...]) -> None:
+        """Retain exact score extrema and their attaining shared allocations."""
         if self.lower is None or value < self.lower[0]:
             self.lower = value, path
         if self.upper is None or value > self.upper[0]:
