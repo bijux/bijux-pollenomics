@@ -140,6 +140,11 @@ def current_fixture(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> SimpleNa
             + b"\0"
         )
 
+    def source_revision(repository: Path, historical: str) -> str:
+        assert repository == root and historical == REVISION
+        return historical
+
+    monkeypatch.setattr(HOOK, "source_revision", source_revision)
     monkeypatch.setattr(HOOK, "_git", git)
     monkeypatch.setattr(HOOK, "_committed_inputs", committed)
     original_read = HOOK._read
