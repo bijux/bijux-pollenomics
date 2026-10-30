@@ -193,6 +193,7 @@ def build_modeled_context_manifest(
         "default_metric_family_key": "source_land_cover_types",
         "metric_family_count": len(METRIC_FAMILIES),
         "metric_count": len(PANGAEA_METRIC_KEYS),
+        # Source-schema denominators include unavailable publication rows.
         "estimate_standard_error_pair_count": len(features) * len(PANGAEA_METRIC_KEYS),
         "land_cover_pft_reconciliation_count": len(features) * 3,
         "metric_families": [family.as_dict() for family in METRIC_FAMILIES],

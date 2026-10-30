@@ -1498,7 +1498,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** A coordinate basis called exact does not prove a specimen findspot; approximate and geocoded coordinates cannot become precise ecological sites through traceability.
 
-**Actual verification performed.** Read the machine 165 feature ledger and entity account; checked unique feature identities and current sample support. No coordinate extraction, geocoding or map rendering was run.
+**Actual verification performed.** The current entity replay verifies 161 locality features and 318 mapped IDs against the normalized source and unchanged exclusions. The retained point-evidence capture describes the earlier 165-feature epoch; its source decisions were not rerun or relabeled.
 
 **Remaining input or review.** Each point needs qualified geographic/chronological interpretation, taxon scope and primary-source review before a biological or historical join.
 
@@ -1510,11 +1510,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Negative or refused result.** Named-site geocoding and approximate proximal coordinates remain explicit; five unqualified horse features/nine memberships were removed without assigning a default BP epoch.
 
-**Matched denominator.** Current 165 locality features represent 322 mapped sample IDs; historical 170 features/331 memberships are superseded. The global 165 does not substitute for 8 Nordic features/12 samples.
+**Matched denominator.** Current 161 locality features represent 318 mapped sample IDs; historical 170 features/331 memberships are superseded. The global 161 does not substitute for 8 Nordic features/12 samples.
 
 - [Retained qualification evidence: docs/report/animal_point_evidence_review.json](animal_point_evidence_review.json) (SHA-256 `38c98f138fd2e8fc1cd3caa53b5fc6337d0e513ad4f1a1ee7cab848bf48236f4`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

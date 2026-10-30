@@ -7441,7 +7441,7 @@
       "records": [
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
-          "title": "Hj\u00f8rring, Tofte B\u00e6k",
+          "title": "Hjørring, Tofte Bæk",
           "country": "Denmark",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7459,7 +7459,7 @@
         },
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-nevishg-sweden",
-          "title": "Nevish\u00f6g",
+          "title": "Nevishög",
           "country": "Sweden",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7468,7 +7468,7 @@
         },
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-skne-sweden",
-          "title": "Sk\u00e5ne",
+          "title": "Skåne",
           "country": "Sweden",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7505,7 +7505,7 @@
         },
         {
           "record_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
-          "title": "Stora F\u00f6rvar",
+          "title": "Stora Förvar",
           "country": "Sweden",
           "source_url": "https://doi.org/10.1093/gbe/evae114",
           "species_latin_name": "Ovis aries",
@@ -7736,7 +7736,7 @@
       "records": [
         {
           "record_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
-          "title": "Bunds\u00f8",
+          "title": "Bundsø",
           "country": "Denmark",
           "source_url": "https://doi.org/10.1073/pnas.1901169116",
           "species_latin_name": "Sus scrofa domesticus",

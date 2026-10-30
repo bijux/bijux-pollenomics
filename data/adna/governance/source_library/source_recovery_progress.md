@@ -1,20 +1,20 @@
 # Source recovery progress
 
 - Tracked projects: `40`
-- Sample identity rows present: `22`
-- Defensible site rows present: `15`
-- Sample-owned chronology present: `11`
+- Sample identity rows present: `21`
+- Defensible site rows present: `14`
+- Sample-owned chronology present: `10`
 - Mappable coordinate projects: `11`
-- Ready for publication review: `11`
+- Ready for publication review: `10`
 
 ## Sample Evidence Depth
 
-The four mutually exclusive buckets partition `1468` species-normalized sample rows. The project source master has `1468` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
+The four mutually exclusive buckets partition `1464` species-normalized sample rows. The project source master has `1464` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
-- sample with site: `539`
-- sample with site and chronology: `372`
-- sample with site chronology and coordinates: `557`
+- sample with site: `789`
+- sample with site and chronology: `356`
+- sample with site chronology and coordinates: `319`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |
 | --- | --- | ---: | ---: | ---: |
@@ -26,7 +26,7 @@ The four mutually exclusive buckets partition `1468` species-normalized sample r
 | `KX379528-KX379529` | `Canis lupus familiaris` | `7` | `8` | `0.875` |
 | `SRS1407451` | `Canis lupus familiaris` | `4` | `8` | `0.5` |
 | `SRS1407453` | `Canis lupus familiaris` | `7` | `8` | `0.875` |
-| `PRJEB90141` | `Capra hircus` | `7` | `8` | `0.875` |
+| `PRJEB90141` | `Capra hircus` | `2` | `8` | `0.25` |
 | `PRJEB90261` | `Capra hircus` | `8` | `8` | `1.0` |
 | `PRJNA1328209` | `Capra hircus` | `8` | `8` | `1.0` |
 | `PRJEB43564` | `Equus asinus` | `1` | `7` | `0.1429` |

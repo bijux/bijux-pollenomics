@@ -7,8 +7,8 @@
     "projects_with_minimum_expected_floor": 22,
     "projects_with_implausibly_low_recovery": 0,
     "exact_expected_sample_total": 37,
-    "recovered_final_sample_total": 1468,
-    "minimum_gap_total": 0
+    "recovered_final_sample_total": 1464,
+    "minimum_gap_total": 1
   },
   "rows": [
     {
@@ -687,9 +687,9 @@
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
       "recovered_sample_count": 4,
-      "final_sample_count": 4,
+      "final_sample_count": 0,
       "unresolved_sample_count": null,
-      "minimum_gap_count": 0,
+      "minimum_gap_count": 1,
       "sample_identifier_status": "paper_or_supplement_targets_curated",
       "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "partial",
@@ -719,22 +719,27 @@
         "project_admission": "complete",
         "paper_capture": "blocked",
         "supplement_capture": "complete",
-        "sample_identity_recovery": "complete",
-        "site_recovery": "complete",
-        "chronology_recovery": "complete",
-        "coordinate_derivation": "complete",
-        "publication_readiness": "complete"
+        "sample_identity_recovery": "blocked",
+        "site_recovery": "blocked",
+        "chronology_recovery": "blocked",
+        "coordinate_derivation": "blocked",
+        "publication_readiness": "blocked"
       },
       "blocking_stages": [
-        "paper_capture"
+        "paper_capture",
+        "sample_identity_recovery",
+        "site_recovery",
+        "chronology_recovery",
+        "coordinate_derivation",
+        "publication_readiness"
       ],
       "next_required_stage": "paper_capture",
-      "publication_readiness_status": "complete",
-      "overall_recovery_status": "ready_for_publication_review",
-      "completed_stage_count": 7,
+      "publication_readiness_status": "blocked",
+      "overall_recovery_status": "blocked_projects",
+      "completed_stage_count": 2,
       "required_stage_count": 8,
-      "recovery_depth_score": 0.875,
-      "recovery_gap_status": "minimum_expected_floor_met",
+      "recovery_depth_score": 0.25,
+      "recovery_gap_status": "paper_or_capture_gap_blocks_estimate",
       "implausibly_low_recovery": false,
       "implausibly_low_recovery_reason": "",
       "known_assets": [
@@ -748,9 +753,12 @@
         "data/adna/governance/source_library/projects/PRJEB90141/sample_locality_evidence.json"
       ],
       "missing_assets": [
-        "Readable repository paper capture is still missing."
+        "Readable repository paper capture is still missing.",
+        "No final governed sample rows are published yet."
       ],
-      "major_deficit_reasons": []
+      "major_deficit_reasons": [
+        "sample_recovery_gap"
+      ]
     },
     {
       "project_accession": "PRJEB90261",

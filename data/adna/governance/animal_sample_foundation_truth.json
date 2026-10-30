@@ -2,9 +2,9 @@
   "schema_version": "animal-sample-foundation-truth.v1",
   "summary": {
     "tracked_species_count": 10,
-    "tracked_project_count": 22,
-    "sample_row_count": 1468,
-    "fully_grounded_count": 323,
+    "tracked_project_count": 21,
+    "sample_row_count": 1464,
+    "fully_grounded_count": 319,
     "partially_grounded_count": 355,
     "blocked_missing_metadata_count": 11,
     "blocked_missing_location_detail_count": 367,
@@ -66,14 +66,14 @@
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
-      "sample_row_count": 82,
-      "fully_grounded_count": 9,
+      "sample_row_count": 78,
+      "fully_grounded_count": 5,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 73,
-      "project_count": 3,
-      "reported_curated_sample_count": 82,
+      "project_count": 2,
+      "reported_curated_sample_count": 78,
       "uses_project_level_sample_anchor": false
     },
     {
@@ -330,23 +330,6 @@
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "archive_project_sample_accession_anchor"
-      ]
-    },
-    {
-      "species_latin_name": "Capra hircus",
-      "species_common_name": "goat",
-      "project_accession": "PRJEB90141",
-      "sample_row_count": 4,
-      "fully_grounded_count": 4,
-      "partially_grounded_count": 0,
-      "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 0,
-      "sample_backed_site_count": 4,
-      "project_locality_summary_count": 4,
-      "uses_project_level_sample_anchor": false,
-      "sample_basis_values": [
-        "supplementary_table_sample_label_anchor"
       ]
     },
     {

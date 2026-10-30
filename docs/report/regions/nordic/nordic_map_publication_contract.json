@@ -86,7 +86,7 @@
       "key": "fieldwork-documentation",
       "label": "Fieldwork documentation",
       "source_name": "Bijux fieldwork",
-      "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsj\u00f6n Lake.",
+      "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsjön Lake.",
       "count": 1,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
@@ -137,7 +137,7 @@
     {
       "key": "sweden-archaeology-site-discovery",
       "label": "Sweden archaeology site discovery",
-      "source_name": "SEAD with RA\u00c4 density context",
+      "source_name": "SEAD with RAÄ density context",
       "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
       "count": 8799,
       "publication_role": "scope_specific_overlay",
@@ -409,9 +409,9 @@
     },
     {
       "key": "raa-archaeology",
-      "label": "RA\u00c4 archaeology density",
-      "source_name": "RA\u00c4 Forns\u00f6k",
-      "coverage_label": "Sweden only. Density cells summarize `Fornl\u00e4mning` counts.",
+      "label": "RAÄ archaeology density",
+      "source_name": "RAÄ Fornsök",
+      "coverage_label": "Sweden only. Density cells summarize `Fornlämning` counts.",
       "count": 106,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
@@ -440,15 +440,15 @@
       ],
       "retained_surface_status": "retained_historical_context",
       "density_count_accounting": {
-        "status": "observed_retained_normalized_pair",
-        "density_feature_count": 106,
         "density_cell_count_sum": 339412,
-        "metadata_fornlamning_count": 318265,
+        "density_feature_count": 106,
         "difference": 21147,
-        "reconciled": false
+        "metadata_fornlamning_count": 318265,
+        "reconciled": false,
+        "status": "observed_retained_normalized_pair"
       },
       "density_value_label": "Retained cell count (unreconciled)",
-      "density_count_label": "Retained Swedish one-degree cell values: 339,412 summed cell counts versus 318,265 metadata Fornl\u00e4mning; display only, source authority refused."
+      "density_count_label": "Retained Swedish one-degree cell values: 339,412 summed cell counts versus 318,265 metadata Fornlämning; display only, source authority refused."
     }
   ],
   "static_assets": {
@@ -504,9 +504,9 @@
   },
   "animal_sample_chronology_context": {
     "artifact": "nordic_animal_sample_chronology_context.json",
-    "content_sha256": "14074f49c97a1ee61cfffe1cf058318e9cda8d8ebe438499610c2e05dbe1224c",
-    "input_identity_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
-    "corpus_identity_sha256": "17400297ebea9df465e862e2a322e729f6b4c7592c51500d7e2b6f7dd6e84834",
+    "content_sha256": "53408aad04e30d7c9edd15ec5df021c4bc1a36944b4ff0461525186b7c3dbbc7",
+    "input_identity_sha256": "dca77b0cb14aecb1ff67b580aa8f8bc9485a41f520aac758e4302292d1b16c62",
+    "corpus_identity_sha256": "2a4c71ade9cb4ced0471b7e29f8f609f9cfc22c6b5c15a8b462f7a6ef8b513e4",
     "scope": {
       "key": "nordic",
       "kind": "region",
@@ -517,10 +517,10 @@
         "Denmark"
       ]
     },
-    "global_admitted_node_count": 323,
+    "global_admitted_node_count": 319,
     "projected_node_count": 13,
-    "excluded_by_scope_count": 310,
-    "refusal_count": 1152,
+    "excluded_by_scope_count": 306,
+    "refusal_count": 1156,
     "governed_country_rows": [
       {
         "country_name": "Denmark",

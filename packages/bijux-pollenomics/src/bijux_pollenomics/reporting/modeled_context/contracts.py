@@ -16,6 +16,9 @@ OPEN_LAND_METRIC_KEY: Final = "OL"
 OPEN_LAND_METRIC_LABEL: Final = "Open land"
 OPEN_LAND_VALUE_UNIT: Final = "percentage_cover"
 PANGAEA_QUALITY_CLASSES: Final = ("high", "low", "no_pollen_data")
+PANGAEA_UNAVAILABLE_PUBLICATION_POSTURE: Final = (
+    "unavailable_source_placeholders_replaced_with_null"
+)
 PANGAEA_QUALITY_CLASS_COUNTS: Final = {
     "high": 628,
     "low": 940,
@@ -82,5 +85,6 @@ __all__ = [
     "PANGAEA_DATASET_ID",
     "PANGAEA_QUALITY_CLASSES",
     "PANGAEA_QUALITY_CLASS_COUNTS",
+    "PANGAEA_UNAVAILABLE_PUBLICATION_POSTURE",
     "PANGAEA_WINDOWS_PRESENT_TO_OLDEST",
 ]

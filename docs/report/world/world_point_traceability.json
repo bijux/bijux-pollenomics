@@ -3,19 +3,18 @@
   "title": "World Evidence Surface",
   "scope_key": "world",
   "scope_label": "World",
-  "row_count": 1719,
+  "row_count": 1711,
   "layer_counts": {
     "aadr": 1231,
     "animal-bos-taurus-wild-or-progenitor-context": 22,
-    "animal-capra-hircus": 26,
-    "animal-capra-hircus-wild-or-progenitor-context": 1,
+    "animal-capra-hircus": 23,
     "animal-equus-caballus": 63,
     "animal-equus-caballus-wild-or-progenitor-context": 10,
     "animal-felis-catus": 24,
     "animal-felis-catus-wild-or-progenitor-context": 15,
     "animal-ovis-aries": 2,
     "animal-source-chronology-bos-taurus": 31,
-    "animal-source-chronology-capra-hircus": 9,
+    "animal-source-chronology-capra-hircus": 5,
     "animal-source-chronology-equus-caballus": 242,
     "animal-source-chronology-felis-catus": 35,
     "animal-source-chronology-ovis-aries": 4,
@@ -7447,7 +7446,7 @@
       "records": [
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
-          "title": "Hj\u00f8rring, Tofte B\u00e6k",
+          "title": "Hjørring, Tofte Bæk",
           "country": "Denmark",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7465,7 +7464,7 @@
         },
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-nevishg-sweden",
-          "title": "Nevish\u00f6g",
+          "title": "Nevishög",
           "country": "Sweden",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7474,7 +7473,7 @@
         },
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-skne-sweden",
-          "title": "Sk\u00e5ne",
+          "title": "Skåne",
           "country": "Sweden",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7501,7 +7500,7 @@
         },
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-bedburgknigshoven-germany",
-          "title": "Bedburg-K\u00f6nigshoven",
+          "title": "Bedburg-Königshoven",
           "country": "Germany",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7546,7 +7545,7 @@
         },
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-novoilinkavivi-russia",
-          "title": "Novoil`inka-VI (\u041d\u043e\u0432\u043e\u0438\u043b\u044c\u0438\u043d\u043a\u0430-VI)",
+          "title": "Novoil`inka-VI (Новоильинка-VI)",
           "country": "Russia",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7591,7 +7590,7 @@
         },
         {
           "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-trierbrderkrankenhaus-germany",
-          "title": "Trier-Br\u00fcderkrankenhaus",
+          "title": "Trier-Brüderkrankenhaus",
           "country": "Germany",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "species_latin_name": "Bos taurus",
@@ -7652,25 +7651,16 @@
       "source_name": "Tracked animal aDNA localities",
       "source_artifact": "world_animal_point_traceability.json",
       "source_reference": "",
-      "row_count": 26,
+      "row_count": 23,
       "field_counts": {
-        "title": 26,
-        "country": 26,
-        "source_url": 26,
-        "species_latin_name": 26,
-        "animal_scope": 26,
-        "coordinate_confidence": 26
+        "title": 23,
+        "country": 23,
+        "source_url": 23,
+        "species_latin_name": 23,
+        "animal_scope": 23,
+        "coordinate_confidence": 23
       },
       "records": [
-        {
-          "record_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
-          "title": "Acemh\u00f6y\u00fck",
-          "country": "Aksaray Plain, Turkey",
-          "source_url": "https://doi.org/10.1093/gbe/evaf181",
-          "species_latin_name": "Capra hircus",
-          "animal_scope": "domesticated_core",
-          "coordinate_confidence": "exact"
-        },
         {
           "record_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-aguadulce-grancanaria",
           "title": "Aguadulce",
@@ -7685,15 +7675,6 @@
           "title": "Belmaco",
           "country": "La Palma",
           "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
-          "species_latin_name": "Capra hircus",
-          "animal_scope": "domesticated_core",
-          "coordinate_confidence": "exact"
-        },
-        {
-          "record_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-blagotinpoljna-trstenikserbia",
-          "title": "Blagotin-Poljna",
-          "country": "Trstenik, Serbia",
-          "source_url": "https://doi.org/10.1093/gbe/evaf181",
           "species_latin_name": "Capra hircus",
           "animal_scope": "domesticated_core",
           "coordinate_confidence": "exact"
@@ -7745,7 +7726,7 @@
         },
         {
           "record_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-cuevasdeherreragonzlez-lagomera",
-          "title": "Cuevas de Herrera Gonz\u00e1lez",
+          "title": "Cuevas de Herrera González",
           "country": "La Gomera",
           "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
           "species_latin_name": "Capra hircus",
@@ -7772,7 +7753,7 @@
         },
         {
           "record_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-elportaln-burgos",
-          "title": "El Portal\u00f3n",
+          "title": "El Portalón",
           "country": "Burgos",
           "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
           "species_latin_name": "Capra hircus",
@@ -7808,7 +7789,7 @@
         },
         {
           "record_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-lacaadadelagurona-lagomera",
-          "title": "La Ca\u00f1ada de la Gurona",
+          "title": "La Cañada de la Gurona",
           "country": "La Gomera",
           "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
           "species_latin_name": "Capra hircus",
@@ -7871,18 +7852,9 @@
         },
         {
           "record_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-puntadelmallorqun-fuerteventura",
-          "title": "Punta del Mallorqu\u00edn",
+          "title": "Punta del Mallorquín",
           "country": "Fuerteventura",
           "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
-          "species_latin_name": "Capra hircus",
-          "animal_scope": "domesticated_core",
-          "coordinate_confidence": "exact"
-        },
-        {
-          "record_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-sangechakhmaq-semnaniran",
-          "title": "Sang-e Chakhmaq",
-          "country": "Semnan, Iran",
-          "source_url": "https://doi.org/10.1093/gbe/evaf181",
           "species_latin_name": "Capra hircus",
           "animal_scope": "domesticated_core",
           "coordinate_confidence": "exact"
@@ -7894,34 +7866,6 @@
           "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
           "species_latin_name": "Capra hircus",
           "animal_scope": "domesticated_core",
-          "coordinate_confidence": "exact"
-        }
-      ]
-    },
-    {
-      "layer_key": "animal-capra-hircus-wild-or-progenitor-context",
-      "layer_label": "Goat aDNA site evidence (wild or progenitor context)",
-      "group": "animal-progenitor-evidence",
-      "source_name": "Tracked animal aDNA localities",
-      "source_artifact": "world_animal_point_traceability.json",
-      "source_reference": "",
-      "row_count": 1,
-      "field_counts": {
-        "title": 1,
-        "country": 1,
-        "source_url": 1,
-        "species_latin_name": 1,
-        "animal_scope": 1,
-        "coordinate_confidence": 1
-      },
-      "records": [
-        {
-          "record_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-direklicave-taurusmountainsturkey",
-          "title": "Direkli Cave",
-          "country": "Taurus Mountains, Turkey",
-          "source_url": "https://doi.org/10.1093/gbe/evaf181",
-          "species_latin_name": "Capra hircus",
-          "animal_scope": "wild_or_progenitor_context",
           "coordinate_confidence": "exact"
         }
       ]
@@ -8053,7 +7997,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-bezno-czechrepublic",
-          "title": "B\u0159ezno",
+          "title": "Březno",
           "country": "Czech Republic",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8089,7 +8033,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-elturuuelo-spain",
-          "title": "El Turu\u00f1uelo",
+          "title": "El Turuñuelo",
           "country": "Spain",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8197,7 +8141,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-lamondire-france",
-          "title": "La Mon\u00e9di\u00e8re",
+          "title": "La Monédière",
           "country": "France",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8224,7 +8168,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-miechw3-poland",
-          "title": "Miech\u00f3w 3",
+          "title": "Miechów 3",
           "country": "Poland",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8251,7 +8195,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-nitrianskyhrdok-slovakia",
-          "title": "Nitriansky Hr\u00e1dok",
+          "title": "Nitriansky Hrádok",
           "country": "Slovakia",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8269,7 +8213,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-novoilinovskiy2-kazakhstan",
-          "title": "Novoil\u2019inovskiy 2",
+          "title": "Novoil’inovskiy 2",
           "country": "Kazakhstan",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8377,7 +8321,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-titn-czechrepublic",
-          "title": "Ti\u0161t\u00edn",
+          "title": "Tištín",
           "country": "Czech Republic",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8386,7 +8330,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-touehradiko-czechrepublic",
-          "title": "Tou\u0161e\u0148 \u2013 Hradi\u0161\u0165ko",
+          "title": "Toušeň – Hradišťko",
           "country": "Czech Republic",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8395,7 +8339,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-tuchomice-czechrepublic",
-          "title": "Tuchom\u011b\u0159ice",
+          "title": "Tuchoměřice",
           "country": "Czech Republic",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8404,7 +8348,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-tuchomiceknvka-czechrepublic",
-          "title": "Tuchom\u011b\u0159ice \u2013 Kn\u011b\u017e\u00edvka",
+          "title": "Tuchoměřice – Kněžívka",
           "country": "Czech Republic",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8458,7 +8402,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-vlinves-czechrepublic",
-          "title": "Vlin\u011bves",
+          "title": "Vliněves",
           "country": "Czech Republic",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8503,7 +8447,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-ernvl-czechrepublic",
-          "title": "\u010cern\u00fd V\u016fl",
+          "title": "Černý Vůl",
           "country": "Czech Republic",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8576,7 +8520,7 @@
         },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-nandrupeteracurat-romania",
-          "title": "Nandru Pe\u0219tera Curat\u0103",
+          "title": "Nandru Peștera Curată",
           "country": "Romania",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
@@ -8685,7 +8629,7 @@
         },
         {
           "record_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-demircihyk-turkey",
-          "title": "Demircih\u00fcy\u00fck",
+          "title": "Demircihüyük",
           "country": "Turkey",
           "source_url": "https://doi.org/10.1126/science.adt2642",
           "species_latin_name": "Felis catus",
@@ -8730,7 +8674,7 @@
         },
         {
           "record_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-nardtorresantacaterina-italy",
-          "title": "Nard\u00f2 \u201ctorre santa Caterina\u201d",
+          "title": "Nardò “torre santa Caterina”",
           "country": "Italy",
           "source_url": "https://doi.org/10.1126/science.adt2642",
           "species_latin_name": "Felis catus",
@@ -8847,7 +8791,7 @@
         },
         {
           "record_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-yenikapmarmarayexc-turkey",
-          "title": "Yenikap\u0131, Marmaray exc.",
+          "title": "Yenikapı, Marmaray exc.",
           "country": "Turkey",
           "source_url": "https://doi.org/10.1126/science.adt2642",
           "species_latin_name": "Felis catus",
@@ -8884,7 +8828,7 @@
         },
         {
           "record_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-aklhyk-turkey",
-          "title": "A\u015f\u0131kl\u0131 H\u00f6y\u00fck",
+          "title": "Aşıklı Höyük",
           "country": "Turkey",
           "source_url": "https://doi.org/10.1126/science.adt2642",
           "species_latin_name": "Felis catus",
@@ -8893,7 +8837,7 @@
         },
         {
           "record_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bademaac-turkey",
-          "title": "Badema\u011fac\u0131",
+          "title": "Bademağacı",
           "country": "Turkey",
           "source_url": "https://doi.org/10.1126/science.adt2642",
           "species_latin_name": "Felis catus",
@@ -8956,7 +8900,7 @@
         },
         {
           "record_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-mentee-turkey",
-          "title": "Mente\u015fe",
+          "title": "Menteşe",
           "country": "Turkey",
           "source_url": "https://doi.org/10.1126/science.adt2642",
           "species_latin_name": "Felis catus",
@@ -9001,7 +8945,7 @@
         },
         {
           "record_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-viminaciumnadklepakom-serbia",
-          "title": "Viminacium-Nad Klepa\u010dkom",
+          "title": "Viminacium-Nad Klepačkom",
           "country": "Serbia",
           "source_url": "https://doi.org/10.1126/science.adt2642",
           "species_latin_name": "Felis catus",
@@ -9038,7 +8982,7 @@
         },
         {
           "record_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
-          "title": "Stora F\u00f6rvar",
+          "title": "Stora Förvar",
           "country": "Sweden",
           "source_url": "https://doi.org/10.1093/gbe/evae114",
           "species_latin_name": "Ovis aries",
@@ -9290,40 +9234,16 @@
       "source_name": "Governed animal project sample chronology",
       "source_artifact": "world_animal_sample_chronology_context.json",
       "source_reference": "",
-      "row_count": 9,
+      "row_count": 5,
       "field_counts": {
-        "title": 9,
+        "title": 5,
         "country": 5,
-        "source_url": 9,
+        "source_url": 5,
         "species_latin_name": 0,
         "animal_scope": 0,
-        "coordinate_confidence": 9
+        "coordinate_confidence": 5
       },
       "records": [
-        {
-          "record_id": "animal-source-chronology:PRJEB90141:prjeb90141:samea4453841",
-          "title": "Direkli1-2",
-          "source_url": "https://doi.org/10.1093/gbe/evaf181",
-          "coordinate_confidence": "exact"
-        },
-        {
-          "record_id": "animal-source-chronology:PRJEB90141:prjeb90141:samea4588077",
-          "title": "Blagotin3",
-          "source_url": "https://doi.org/10.1093/gbe/evaf181",
-          "coordinate_confidence": "exact"
-        },
-        {
-          "record_id": "animal-source-chronology:PRJEB90141:prjeb90141:samea4591758",
-          "title": "Semnan3",
-          "source_url": "https://doi.org/10.1093/gbe/evaf181",
-          "coordinate_confidence": "exact"
-        },
-        {
-          "record_id": "animal-source-chronology:PRJEB90141:prjeb90141:samea4591761",
-          "title": "Acem2",
-          "source_url": "https://doi.org/10.1093/gbe/evaf181",
-          "coordinate_confidence": "exact"
-        },
         {
           "record_id": "animal-source-chronology:PRJNA1328209:prjna1328209:dc23",
           "title": "DC23",
@@ -11437,7 +11357,7 @@
       "records": [
         {
           "record_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
-          "title": "Bunds\u00f8",
+          "title": "Bundsø",
           "country": "Denmark",
           "source_url": "https://doi.org/10.1073/pnas.1901169116",
           "species_latin_name": "Sus scrofa domesticus",

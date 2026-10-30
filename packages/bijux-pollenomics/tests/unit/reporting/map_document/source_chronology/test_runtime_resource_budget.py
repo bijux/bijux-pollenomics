@@ -35,7 +35,10 @@ def test_optional_bytes_only_charge_total_at_exact_boundaries(
         for row in rows
         if scope == "total" or row["initial_load"] is True
     )
-    inline = len(subject._NATIVE_BINDING.findall(document)[0].encode())
+    inline = sum(
+        len(pattern.findall(document)[0].encode())
+        for pattern in (subject._NATIVE_BINDING, subject._MODELED_BINDING)
+    )
     limit = (
         "ATLAS_INITIAL_MAX_BYTES"
         if scope == "initial"
@@ -82,7 +85,7 @@ def test_bundle_inventory_authenticates_exact_optional_transport_reference(
     tmp_path: Path, request_args: dict[str, Any], defect: str
 ) -> None:
     html, _ = subject.write_static_map_document(tmp_path / "atlas.html", **request_args)
-    (evidence,) = subject.static_map_optional_controller_paths(html)
+    evidence = subject.static_map_optional_controller_paths(html)[0]
     if defect == "bytes":
         evidence.write_bytes(b"altered code")
     else:
@@ -125,10 +128,17 @@ def test_real_bootstrap_accounts_for_runtime_requests_bytes_and_transport_identi
     constants = template_block(
         "const STATIC_ATLAS_ASSET_TABLE_FIELDS", "const STATIC_ATLAS_BOOTSTRAP"
     )
-    helpers = template_block(
-        "const STATIC_ATLAS_SCHEMAS", "async function staticAtlasSha256"
-    ).replace("__VERSION_JSON__", '"v66"') + template_block(
-        "function evidenceToolsDescriptor", "function loadEvidenceTools"
+    helpers = (
+        template_block(
+            "const STATIC_ATLAS_SCHEMAS", "async function staticAtlasSha256"
+        ).replace("__VERSION_JSON__", '"v66"')
+        + template_block(
+            "function evidenceToolsDescriptor", "function loadEvidenceTools"
+        )
+        + template_block(
+            "function indexTransportDescriptor",
+            "function validateStaticAtlasEdgeAssets",
+        )
     )
     observed = cast(
         dict[str, Any],
@@ -139,9 +149,11 @@ def test_real_bootstrap_accounts_for_runtime_requests_bytes_and_transport_identi
             + ");"
             + helpers
             + r"""
-let binding={textContent:JSON.stringify({source_text:'🌿'.repeat(100)})};
-const document={getElementById(id){if(id!=='atlas-native-lra-binding')throw Error(id);return binding;}};
-const inlineBytes=new TextEncoder().encode(binding.textContent).byteLength;
+let binding={tagName:'SCRIPT',type:'application/json',textContent:JSON.stringify({source_text:'🌿'.repeat(100)})};
+let modeledBinding={tagName:'SCRIPT',type:'application/json',textContent:JSON.stringify({source_text:'🌿'.repeat(50)})};
+let duplicateBinding=false;
+const document={querySelectorAll(selector){const value=selector.includes('atlas-native-lra-binding')?binding:modeledBinding;return value?(duplicateBinding?[value,value]:[value]):[];}};
+const inlineBytes=new TextEncoder().encode(binding.textContent).byteLength+new TextEncoder().encode(modeledBinding.textContent).byteLength;
 const base=structuredClone(STATIC_ATLAS_BOOTSTRAP);
 const runtime={path:'nordic.atlas-runtime.'+'a'.repeat(16)+'.js',byte_count:64000,integrity:'sha256-'+'A'.repeat(43)+'='};
 const tools={path:'nordic.atlas-evidence-tools.'+'b'.repeat(16)+'.js',byte_count:20000,integrity:'sha256-'+'B'.repeat(43)+'='};
@@ -182,6 +194,13 @@ const result={
   optionalExtra:outcome(b=>{b.runtime=optional();b.runtime.optional_controllers.evidence_tools.extra=true;}),
   optionalNull:outcome(b=>{b.runtime=optional();b.runtime.optional_controllers=null;}),
 };
+duplicateBinding=true;
+result.duplicateBinding=outcome(()=>{});
+duplicateBinding=false;
+const oldModeled=modeledBinding;
+modeledBinding={...oldModeled,textContent:'{'};
+result.invalidModeled=outcome(()=>{});
+modeledBinding=oldModeled;
 binding=null;
 result.missingBinding=outcome(()=>{});
 console.log(JSON.stringify(result));
@@ -201,7 +220,10 @@ console.log(JSON.stringify(result));
     assert "initial byte budget exceeded" in observed["omittedInlineInitial"]
     assert "total asset byte budget exceeded" in observed["omittedInlineTotal"]
     assert "total asset byte budget exceeded" in observed["totalOverflow"]
-    assert "native binding payload is unavailable" in observed["missingBinding"]
+    assert (
+        "atlas-native-lra-binding binding payload is unavailable"
+        in observed["missingBinding"]
+    )
     for field in ("unsafePath", "wrongPathType", "wrongIntegrity", "nullRuntime"):
         assert "runtime transport identity is invalid" in observed[field]
     assert "runtime byte budget exceeded" in observed["zeroBytes"]
@@ -218,3 +240,69 @@ console.log(JSON.stringify(result));
         "optionalExtra",
     ):
         assert "Evidence tools transport identity is unavailable" in observed[key]
+
+
+@pytest.mark.parametrize("scope", ["initial", "total"])
+def test_both_json_bindings_and_both_controllers_use_exact_byte_limits(
+    request_args: dict[str, Any], monkeypatch: pytest.MonkeyPatch, scope: str
+) -> None:
+    document = subject._compose_map_document(**request_args)
+    assets = request_args["static_assets"]
+    rows = normalize_asset_inventory(assets.manifest["assets"])
+    inline = sum(
+        len(pattern.findall(document)[0].encode())
+        for pattern in (subject._NATIVE_BINDING, subject._MODELED_BINDING)
+    )
+    count = sum(
+        cast(int, row["byte_count"])
+        for row in rows
+        if scope == "total" or row["initial_load"] is True
+    )
+    limit = (
+        "ATLAS_INITIAL_MAX_BYTES"
+        if scope == "initial"
+        else "ATLAS_STATIC_ASSETS_MAX_BYTES"
+    )
+    exact = count + inline + 100 + (500 if scope == "total" else 0)
+    monkeypatch.setattr(subject, limit, exact)
+    subject._runtime_resources(assets, 100, document, (200, 300))
+    monkeypatch.setattr(subject, limit, exact - 1)
+    with pytest.raises(ValueError, match=f"{scope}.*byte budget"):
+        subject._runtime_resources(assets, 100, document, (200, 300))
+
+
+@pytest.mark.parametrize("binding", ["_NATIVE_BINDING", "_MODELED_BINDING"])
+@pytest.mark.parametrize(
+    "defect",
+    ["missing", "duplicate", "reordered_duplicate", "invalid_json", "wrong_tag"],
+)
+def test_each_fixed_binding_has_exactly_one_owner(
+    request_args: dict[str, Any], binding: str, defect: str
+) -> None:
+    document = subject._compose_map_document(**request_args)
+    pattern = getattr(subject, binding)
+    match = pattern.search(document)
+    assert match is not None
+    if defect == "missing":
+        document = document[: match.start()] + document[match.end() :]
+    elif defect == "reordered_duplicate":
+        identity = (
+            "atlas-native-lra-binding"
+            if binding == "_NATIVE_BINDING"
+            else "atlas-modeled-context-binding"
+        )
+        document += f"<script type='application/json' id='{identity}'>null</script>"
+    elif defect == "invalid_json":
+        document = document[: match.start(1)] + "{" + document[match.end(1) :]
+    elif defect == "wrong_tag":
+        document = (
+            document[: match.start()]
+            + match.group(0).replace("script", "div")
+            + document[match.end() :]
+        )
+    else:
+        document += match.group(0)
+    with pytest.raises(ValueError):
+        subject._runtime_resources(
+            request_args["static_assets"], 100, document, (200, 300)
+        )

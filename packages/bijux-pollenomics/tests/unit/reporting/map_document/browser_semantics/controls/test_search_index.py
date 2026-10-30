@@ -31,7 +31,7 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
 )
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
-from ..support import run_node_json, template_block
+from ..support import index_transport_helpers, run_node_json, template_block
 
 
 def layers() -> list[dict[str, Any]]:
@@ -180,9 +180,10 @@ function featureTimeDescriptor(feature){return {label:'Chronology context',value
 function escapeHtml(value){return String(value)}
 function featureCoordinatePair(feature){return feature}
 function focusPointAtVisibleIndex(index){focused=index};function setSearchOpen(){};
-const map={flyTo(){},getZoom(){return 5}},window={setTimeout(){}};
+const map={flyTo(){},getZoom(){return 5}},window={setTimeout(){}},reducedMotionQuery={matches:false};
 """
         + decoder
+        + index_transport_helpers(common=False)
         + selection
         + helper
         + renderer
@@ -194,8 +195,8 @@ function oracle(q){return visiblePointEntries.filter(({layer,feature})=>`${featu
 const originalAssets=STATIC_ATLAS_BOOTSTRAP.assets;STATIC_ATLAS_BOOTSTRAP.assets=data.assetRows;
 assert.deepEqual(requiredStaticAtlasNodeAssets().map(row=>row.asset_key),[data.indexRow.asset_key]);
 staticAtlasLoadedAssets.add(data.indexRow.asset_key);assert.equal(requiredStaticAtlasNodeAssets().length,0);staticAtlasLoadedAssets.clear();
-STATIC_ATLAS_BOOTSTRAP.assets=data.assetRows.filter(row=>row.domain!=='indexes');assert.throws(()=>requiredStaticAtlasNodeAssets(),/missing or duplicated/);
-STATIC_ATLAS_BOOTSTRAP.assets=[...data.assetRows,data.indexRow];assert.throws(()=>requiredStaticAtlasNodeAssets(),/missing or duplicated/);
+STATIC_ATLAS_BOOTSTRAP.assets=data.assetRows.filter(row=>row.domain!=='indexes');assert.throws(()=>requiredStaticAtlasNodeAssets(),/missing|duplicated/);
+STATIC_ATLAS_BOOTSTRAP.assets=[...data.assetRows,data.indexRow];assert.throws(()=>requiredStaticAtlasNodeAssets(),/missing|duplicated/);
 STATIC_ATLAS_BOOTSTRAP.assets=data.assetRows;const budget=STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes;STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes=0;assert.throws(()=>requiredStaticAtlasNodeAssets(),/interaction budget/);STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes=budget;
 STATIC_ATLAS_BOOTSTRAP.assets=originalAssets;
 const completeVisible=visiblePointEntries;visiblePointEntries=[];assert.deepEqual(publishedSearchCounts(),{focalCount:0,neighborCount:0});assert.deepEqual(publishedSearchResults('early'),[]);visiblePointEntries=completeVisible;

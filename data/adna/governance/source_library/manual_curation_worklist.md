@@ -1,6 +1,6 @@
 # Manual curation worklist
 
-- Work units: `28`
+- Work units: `29`
 
 | Project | Species | Work unit | State | Open items | Impact |
 | --- | --- | --- | --- | ---: | --- |
@@ -18,6 +18,7 @@
 | `SRS1407451` | `Canis lupus familiaris` | `chronology_recovery` | `pending_source_recovery` | `2` | blocks chronology honesty and publication precision |
 | `SRS1407451` | `Canis lupus familiaris` | `locality_string_resolution` | `pending_manual_curation` | `1` | blocks coordinate derivation and exact locality publication |
 | `SRS1407451` | `Canis lupus familiaris` | `site_resolution` | `pending_manual_curation` | `1` | blocks exact site, coordinate, and publication recovery |
+| `PRJEB90141` | `Capra hircus` | `sample_identity_resolution` | `pending_manual_curation` | `4` | blocks trustworthy project-level sample recovery counts |
 | `PRJEB19970` | `Equus caballus` | `chronology_recovery` | `pending_source_recovery` | `4` | blocks chronology honesty and publication precision |
 | `PRJEB19970` | `Equus caballus` | `locality_string_resolution` | `pending_manual_curation` | `2` | blocks coordinate derivation and exact locality publication |
 | `PRJEB19970` | `Equus caballus` | `site_resolution` | `pending_manual_curation` | `2` | blocks exact site, coordinate, and publication recovery |

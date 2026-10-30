@@ -18,8 +18,8 @@
     },
     {
       "path": "data/adna/species/capra_hircus/normalized/sample_records.csv",
-      "bytes": 86483,
-      "sha256": "cc20dbac3546f4ccd783bdbe43cfa9a4a74e7931796ae7d359bc12cacc27b7e9"
+      "bytes": 82203,
+      "sha256": "cff69afe2e05cfdd05fb0fd9ac662370812285cd889663eb437002f37608e070"
     },
     {
       "path": "data/adna/species/equus_asinus/normalized/sample_records.csv",
@@ -53,13 +53,13 @@
     },
     {
       "path": "data/adna/governance/animal_sample_foundation_truth.json",
-      "bytes": 18127,
-      "sha256": "85ddf19e37d3fc8f17293bafb6a1c34f3c00623526d67c1d6ba537741aca9099"
+      "bytes": 17540,
+      "sha256": "833029f796f6bc9f518db1e48c676467f39a880a1cc86cac80abab89acc8dd7e"
     },
     {
       "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-      "bytes": 681283,
-      "sha256": "5ac86192cba15b5a9ac494a74140b2ddf3b3e473b08920254e3a582f9d1bcbc6"
+      "bytes": 1220950,
+      "sha256": "822a03706aace1e7b60ca0c2a9623b048c9bbb16484a3a01ef472e5bc3f1b684"
     },
     {
       "path": "docs/report/animal_atlas_exclusion_report.json",
@@ -67,9 +67,9 @@
       "sha256": "7c7a5883a61d8ca1707262777f70f76e2cb5209b5a295975aa85c6009a1baceb"
     }
   ],
-  "normalized_sample_ids": 1468,
-  "map_feature_count": 165,
-  "mapped_sample_ids": 322,
+  "normalized_sample_ids": 1464,
+  "map_feature_count": 161,
+  "mapped_sample_ids": 318,
   "excluded_sample_ids": 1146,
   "map_exclusion_reasons": {
     "chronology remains unresolved enough that the sample stays out of the public map": 26,

@@ -7,8 +7,8 @@ for deeper source-family review files.
 ## Summary
 
 - Scope key: `world`
-- Visible point rows: `1719`
-- Visible point layers: `16`
+- Visible point rows: `1711`
+- Visible point layers: `15`
 
 ## Example Rows
 
@@ -65,7 +65,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A traceable marker is not a unique independent sample, precise findspot, validated source chronology or qualified ecological event.
 
-**Actual verification performed.** Read the 16 layer ledger and 1719 row total; distinguished source family and repeated chronology-overlay membership. No map or browser traceability consumer was rerun.
+**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. World retains 16 layer rows, including 15 point layers with 1711 record uses. No full browser or query-latency acceptance is claimed.
 
 **Remaining input or review.** Primary source-family interpretation, identity/time/geographic admission and current browser behavior still require their own qualified checks.
 
@@ -77,9 +77,9 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Negative or refused result.** Marker traceability leaves existing source refusals intact; unqualified horse elapsed ages cannot appear as BP events merely because a source row is addressable.
 
-**Matched denominator.** 1719 visible point-layer rows across 16 layers; 1231 human metadata+165 animal locality+323 sample chronology record uses. These include overlapping memberships and are not 1719 independent specimens.
+**Matched denominator.** 1711 visible point-layer rows across 15 layers; 1231 human metadata+161 animal locality+319 sample chronology record uses. These include overlapping memberships and are not 1711 independent specimens.
 
-- [Retained qualification evidence: docs/report/world/world_point_traceability.json](world_point_traceability.json) (SHA-256 `5cdae6172126ab2f96ab62abaab5799c4cdec3899871c0b95b9caaaac862f7b4`).
+- [Retained qualification evidence: docs/report/world/world_point_traceability.json](world_point_traceability.json) (SHA-256 `9ff2806a674906666a9a9cb089beac90ce22a9c6ca7ea92322753373b5f792e5`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

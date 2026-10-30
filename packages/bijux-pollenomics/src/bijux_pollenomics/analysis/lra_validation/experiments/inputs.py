@@ -24,6 +24,7 @@ from .configuration import (
     ExperimentSite,
     InputReference,
     LocalPollenSpec,
+    SourceExperimentSpec,
     SpatialBlockLocalPollenSpec,
     identity,
     object_list,
@@ -88,14 +89,20 @@ def read_geometry(
 ) -> dict[str, object]:
     """Geometry has a closed metadata schema with no pollen fields."""
     data = read_reference(root, site.geometry)
-    if set(data) != {
+    regional_only = (
+        isinstance(spec, SourceExperimentSpec)
+        and spec.target_record_ids is not None
+        and site.record.record_id not in spec.target_record_ids
+    )
+    expected = {
         "basin",
-        "inversion_rings",
-        "forward_rings",
         "sample_metadata",
         "longitude",
         "latitude",
-    }:
+    }
+    if not regional_only:
+        expected.update(("inversion_rings", "forward_rings"))
+    if set(data) != expected:
         raise ValidationRefusal(
             "invalid_target_geometry", "Unexpected or missing geometry fields"
         )
@@ -128,6 +135,22 @@ def read_geometry(
         raise ValidationRefusal(
             "invalid_target_geometry", "Basin type and measured diameter are required"
         )
+    if regional_only:
+        if basin["site_type"] != "lake" or finite_number(basin["diameter_m"]) <= 0:
+            raise ValidationRefusal(
+                "invalid_regional_geometry", "Positive declared lake basin required"
+            )
+        longitude, latitude = (
+            finite_number(data["longitude"]),
+            finite_number(data["latitude"]),
+        )
+        if not -180 <= longitude <= 180 or not -90 <= latitude <= 90:
+            raise ValidationRefusal(
+                "invalid_regional_geometry", "Coordinates must be WGS84 degrees"
+            )
+        if consumed_geometry is not None:
+            consumed_geometry.add(site.record.record_id)
+        return data
     inversion = object_list(data["inversion_rings"], "inversion_rings")
     forward = object_list(data["forward_rings"], "forward_rings")
     if len(inversion) < spec.local_ring_count or len(forward) <= spec.local_ring_count:
@@ -248,6 +271,17 @@ def make_request(
     consumed_geometry: set[str] | None = None,
 ) -> dict[str, object]:
     """Materialize one actual local/regional observation pair, without pooling."""
+    if isinstance(spec, SourceExperimentSpec) and spec.target_record_ids is not None:
+        if local.record.record_id not in spec.target_record_ids:
+            raise ValidationRefusal(
+                "regional_only_local_source", local.record.record_id
+            )
+        if anchor.record.record_id in spec.target_record_ids and set(
+            spec.target_record_ids
+        ) != {site.record.record_id for site in spec.sites}:
+            raise ValidationRefusal(
+                "overlapping_source_target_roles", anchor.record.record_id
+            )
     if isinstance(spec, SpatialBlockLocalPollenSpec):
         if training_admission is None:
             raise ValidationRefusal("missing_training_admission", fold.fold_id)

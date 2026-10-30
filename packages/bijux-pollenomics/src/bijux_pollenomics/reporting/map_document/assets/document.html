@@ -2554,6 +2554,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
 __STATIC_CHUNK_SCRIPT_TAGS__
 __NATIVE_LRA_SCRIPT_TAG__
     <script id="atlas-native-lra-binding" type="application/json">__NATIVE_LRA_BINDING__</script>
+    <script id="atlas-modeled-context-binding" type="application/json">__MODELED_CONTEXT_JSON__</script>
     <!-- atlas-runtime:begin -->
     <script>
       (async () => {
@@ -2596,6 +2597,8 @@ __NATIVE_LRA_SCRIPT_TAG__
       const STATIC_ATLAS_CHUNKS = { nodes: [], details: [] };
       const staticAtlasLoadedAssets = new Set();
       const staticAtlasInFlightAssets = new Map();
+      let staticAtlasIndexTransport = null;
+      let staticAtlasIndexTransportRequest = null;
       const staticAtlasSearchFeatureKeys = new WeakMap();
       const STATIC_ATLAS_SCHEMAS = {
         provenance: ['atlas-provenance-chunk.v2', 'atlas-provenance-chunk.v3'],
@@ -2787,15 +2790,20 @@ __NATIVE_LRA_SCRIPT_TAG__
           if (runtimeBytes <= 0 || runtimeBytes > 524288) staticAtlasFailure('runtime byte budget exceeded');
           runtimeRequests = 1;
         }
-        const binding = document.getElementById('atlas-native-lra-binding');
-        if (!binding || typeof binding.textContent !== 'string') staticAtlasFailure('native binding payload is unavailable');
-        const inlineBytes = new TextEncoder().encode(binding.textContent).byteLength;
+        const inlineBytes = ['atlas-native-lra-binding', 'atlas-modeled-context-binding'].reduce((total, id) => {
+          const bindings = document.querySelectorAll(`[id="${id}"]`);
+          if (bindings.length !== 1 || bindings[0].tagName !== 'SCRIPT' || bindings[0].type !== 'application/json' || typeof bindings[0].textContent !== 'string') staticAtlasFailure(`${id} binding payload is unavailable`);
+          try { JSON.parse(bindings[0].textContent); } catch (error) { staticAtlasFailure(`${id} binding JSON is invalid`); }
+          return total + new TextEncoder().encode(bindings[0].textContent).byteLength;
+        }, 0);
         const optionalControllers = runtime?.optional_controllers;
-        if (optionalControllers !== undefined && (!optionalControllers || Object.keys(optionalControllers).join('|') !== 'evidence_tools')) staticAtlasFailure('optional runtime controllers are invalid');
-        const optionalTools = optionalControllers === undefined ? null : evidenceToolsDescriptor();
-        if (optionalTools && (optionalTools.path === runtime.path || paths.includes(optionalTools.path))) staticAtlasFailure('optional runtime path is duplicated');
-        if (STATIC_ATLAS_BOOTSTRAP.assets.length + runtimeRequests + Number(Boolean(optionalTools)) > 512) staticAtlasFailure('total asset file budget exceeded');
-        const totalBytes = runtimeBytes + (optionalTools?.byte_count || 0) + inlineBytes + STATIC_ATLAS_BOOTSTRAP.assets.reduce((total, row) => total + row.byte_count, 0);
+        const controllerKeys = optionalControllers && Object.keys(optionalControllers).sort().join('|');
+        if (optionalControllers !== undefined && (!optionalControllers || !['evidence_tools','evidence_tools|index_transport'].includes(controllerKeys))) staticAtlasFailure('optional runtime controllers are invalid');
+        const optionalTools = optionalControllers === undefined ? [] : [evidenceToolsDescriptor(), ...(Object.hasOwn(optionalControllers, 'index_transport') ? [indexTransportDescriptor()] : [])];
+        const controllerPaths = optionalTools.map(row => row.path);
+        if (new Set(controllerPaths).size !== controllerPaths.length || controllerPaths.some(path => path === runtime.path || paths.includes(path))) staticAtlasFailure('optional runtime path is duplicated');
+        if (STATIC_ATLAS_BOOTSTRAP.assets.length + runtimeRequests + optionalTools.length > 512) staticAtlasFailure('total asset file budget exceeded');
+        const totalBytes = runtimeBytes + optionalTools.reduce((total, row) => total + row.byte_count, 0) + inlineBytes + STATIC_ATLAS_BOOTSTRAP.assets.reduce((total, row) => total + row.byte_count, 0);
         const totalByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.static_assets_max_bytes, 'total asset byte budget');
         if (totalBytes > totalByteBudget) staticAtlasFailure('total asset byte budget exceeded');
         const initialBytes = runtimeBytes + inlineBytes + initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
@@ -2807,26 +2815,12 @@ __NATIVE_LRA_SCRIPT_TAG__
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.filter_main_thread_max_ms, 'filter main-thread budget');
         if (initial.length + runtimeRequests > initialRequestBudget) staticAtlasFailure('initial request budget exceeded');
         if (initialBytes > initialByteBudget) staticAtlasFailure('initial byte budget exceeded');
+        staticAtlasIndexRows();
       }
       async function staticAtlasSha256(text) {
         if (!globalThis.crypto || !globalThis.crypto.subtle || typeof TextEncoder === 'undefined') staticAtlasFailure('browser integrity support is unavailable');
         const digest = await globalThis.crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
         return Array.from(new Uint8Array(digest)).map((value) => value.toString(16).padStart(2, '0')).join('');
-      }
-      const STATIC_ATLAS_INDEX_KINDS = Object.freeze([
-        'country_feature_indexes',
-        'spatial_degree_feature_indexes',
-        'time_interval_feature_indexes',
-        'signal_layer_indexes',
-        'detail_record_asset_keys',
-      ]);
-      function staticAtlasSearchKinds(payload) {
-        if (!Object.hasOwn(payload, 'search_index_abi')) {
-          if (Object.hasOwn(payload, 'text_search_index')) staticAtlasFailure('undeclared search index');
-          return STATIC_ATLAS_INDEX_KINDS;
-        }
-        if (payload.search_index_abi !== 'atlas-substring-postings.v1') staticAtlasFailure('unsupported search ABI');
-        return [...STATIC_ATLAS_INDEX_KINDS, 'text_search_index'];
       }
       async function staticAtlasBoundedGunzip(encoded, expectedByteCount, label, signal = null) {
         signal?.throwIfAborted();
@@ -2892,154 +2886,63 @@ __NATIVE_LRA_SCRIPT_TAG__
           staticAtlasFailure(`${label} decoded payload is not valid UTF-8`);
         }
       }
-      function staticAtlasIndexShardEnvelopes(row, payload) {
-        const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
-        staticAtlasTemporalIdentity(payload, signed);
-        const components = payload.schema_version === 'atlas-static-indexes.v5';
-        if (components ? signed || payload.component_time_support !== true : Object.hasOwn(payload, 'component_time_support')) staticAtlasFailure(`${row.asset_key} component time declaration is invalid`);
-        if (payload.shard_schema !== (signed ? 'atlas-static-index-shard.v2' : components ? 'atlas-static-index-shard.v3' : 'atlas-static-index-shard.v1') || !Array.isArray(payload.shards)) staticAtlasFailure(`${row.asset_key} index shard declaration is invalid`);
-        if (!Number.isSafeInteger(payload.shard_count) || payload.shard_count <= 0) staticAtlasFailure(`${row.asset_key} shard count is invalid`);
-        if (!Number.isSafeInteger(payload.reference_count) || payload.reference_count < 0) staticAtlasFailure(`${row.asset_key} reference count is invalid`);
-        const shardCount = payload.shard_count;
-        const referenceCount = payload.reference_count;
-        if (!shardCount || payload.shards.length !== shardCount) staticAtlasFailure(`${row.asset_key} shard count mismatch`);
-        if (referenceCount !== staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`)) staticAtlasFailure(`${row.asset_key} reference count mismatch`);
-        const kinds = staticAtlasSearchKinds(payload);
-        let previousKindIndex = -1;
-        const seenKinds = new Set();
-        payload.shards.forEach((shard, index) => {
-          const label = `${row.asset_key} shard ${index + 1}`;
-          if (!shard || typeof shard !== 'object' || shard.shard_number !== index + 1) staticAtlasFailure(`${label} sequence is invalid`);
-          const kindIndex = kinds.indexOf(shard.index_kind);
-          if (kindIndex < 0 || kindIndex < previousKindIndex) staticAtlasFailure(`${label} kind ordering is invalid`);
-          previousKindIndex = kindIndex;
-          seenKinds.add(shard.index_kind);
-          if (shard.payload_encoding !== 'gzip_base64') staticAtlasFailure(`${label} payload encoding is invalid`);
-          if (!Number.isSafeInteger(shard.record_count) || shard.record_count < 0) staticAtlasFailure(`${label} record count is invalid`);
-          if (!Number.isSafeInteger(shard.decoded_byte_count) || shard.decoded_byte_count <= 0 || shard.decoded_byte_count > Number(STATIC_ATLAS_BOOTSTRAP.budgets.chunk_max_bytes)) staticAtlasFailure(`${label} decoded byte count exceeds its byte budget`);
-          if (!/^[a-f0-9]{64}$/.test(String(shard.payload_sha256 || ''))) staticAtlasFailure(`${label} payload digest is invalid`);
-          if (typeof shard.payload_gzip_base64 !== 'string' || !shard.payload_gzip_base64) staticAtlasFailure(`${label} compressed payload is missing`);
-        });
-        if (kinds.some((kind) => !seenKinds.has(kind))) staticAtlasFailure(`${row.asset_key} index shard kind is missing`);
-        return payload.shards;
+      function indexTransportDescriptor() {
+        const row = STATIC_ATLAS_BOOTSTRAP.runtime?.optional_controllers?.index_transport;
+        if (!row || typeof row !== 'object' || Array.isArray(row)
+          || Object.keys(row).sort().join('|') !== 'byte_count|integrity|path'
+          || typeof row.path !== 'string' || typeof row.integrity !== 'string'
+          || !/^[A-Za-z0-9][A-Za-z0-9._-]*[.]atlas-index-transport[.][a-f0-9]{16}[.]js$/.test(row.path)
+          || !/^sha256-[A-Za-z0-9+/]{43}=$/.test(row.integrity)
+          || !Number.isSafeInteger(row.byte_count) || row.byte_count <= 0 || row.byte_count > 524288) staticAtlasFailure('Index transport identity is unavailable');
+        return row;
       }
-      async function staticAtlasDecodeIndexShard(row, shard, components = false) {
-        const label = `${row.asset_key} shard ${shard.shard_number}`;
-        const payloadJson = await staticAtlasBoundedGunzip(shard.payload_gzip_base64, shard.decoded_byte_count, label);
-        if (await staticAtlasSha256(payloadJson) !== shard.payload_sha256) staticAtlasFailure(`${label} payload integrity mismatch`);
-        let decoded;
-        try {
-          decoded = JSON.parse(payloadJson);
-        } catch (error) {
-          staticAtlasFailure(`${label} payload JSON is invalid`);
-        }
-        const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
-        if (!decoded || decoded.schema_version !== (signed ? 'atlas-static-index-shard.v2' : components ? 'atlas-static-index-shard.v3' : 'atlas-static-index-shard.v1') || decoded.index_kind !== shard.index_kind || !Array.isArray(decoded.entries)) staticAtlasFailure(`${label} decoded contract is invalid`);
-        if (components ? decoded.component_time_support !== true : Object.hasOwn(decoded, 'component_time_support')) staticAtlasFailure(`${label} component time declaration is invalid`);
-        staticAtlasTemporalIdentity(decoded, signed);
-        if (decoded.entries.length !== shard.record_count) staticAtlasFailure(`${label} record count mismatch`);
-        return decoded;
-      }
-      function staticAtlasIndexTupleCompare(left, right) {
-        for (let index = 0; index < Math.max(left.length, right.length); index += 1) {
-          if (left[index] === right[index]) continue;
-          return left[index] < right[index] ? -1 : 1;
-        }
-        return 0;
-      }
-      function staticAtlasValidateFeatureIndexes(value, label) {
-        if (!Array.isArray(value) || !value.length) staticAtlasFailure(`${label} feature indexes are invalid`);
-        let previous = -1;
-        value.forEach((featureIndex) => {
-          if (!Number.isSafeInteger(featureIndex) || featureIndex < 0 || featureIndex <= previous) staticAtlasFailure(`${label} feature indexes are invalid`);
-          previous = featureIndex;
-        });
-        return [...value];
-      }
-      async function staticAtlasMergeIndexShards(row, payload) {
-        const envelopes = staticAtlasIndexShardEnvelopes(row, payload);
-        const components = payload.schema_version === 'atlas-static-indexes.v5';
-        const decodedShards = [];
-        for (const shard of envelopes) {
-          decodedShards.push(await staticAtlasDecodeIndexShard(row, shard, components));
-        }
-        const merged = {
-          schema_version: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? 'atlas-static-signed-indexes.v1' : 'atlas-static-indexes.v2',
-          ...(STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? {temporal_profile:payload.temporal_profile,temporal_axis:payload.temporal_axis} : {}),
-          ...(components ? {component_time_support:true} : {}),
-          scope_slug: payload.scope_slug,
-          version: payload.version,
-          build_id: payload.build_id,
-          asset_key: payload.asset_key,
-          reference_count: payload.reference_count,
-          country_feature_indexes: Object.create(null),
-          spatial_degree_feature_indexes: Object.create(null),
-          time_interval_feature_indexes: [],
-          signal_layer_indexes: Object.create(null),
-          detail_record_asset_keys: Object.create(null),
-          ...(payload.search_index_abi ? {search_index_abi:payload.search_index_abi,text_search_index:Object.create(null)} : {}),
-        };
-        const previousKeys = new Map();
-        const componentEnds = new Map();
-        const featureReferences = new Map([
-          ['country_feature_indexes', new Set()],
-          ['spatial_degree_feature_indexes', new Set()],
-          ['time_interval_feature_indexes', new Set()],
-        ]);
-        const assertOrderedUnique = (kind, key, label) => {
-          const previous = previousKeys.get(kind);
-          if (previous && staticAtlasIndexTupleCompare(previous, key) >= 0) staticAtlasFailure(`${label} entries are duplicated or out of order`);
-          previousKeys.set(kind, key);
-        };
-        decodedShards.forEach((shard, shardIndex) => {
-          const kind = shard.index_kind;
-          shard.entries.forEach((entry, entryIndex) => {
-            const label = `${row.asset_key} shard ${shardIndex + 1} entry ${entryIndex + 1}`;
-            if (!Array.isArray(entry)) staticAtlasFailure(`${label} is malformed`);
-            if (kind === 'country_feature_indexes' || kind === 'spatial_degree_feature_indexes') {
-              if (entry.length !== 3 || typeof entry[0] !== 'string' || !entry[0] || typeof entry[1] !== 'string' || !entry[1]) staticAtlasFailure(`${label} is malformed`);
-              assertOrderedUnique(kind, [entry[0], entry[1]], label);
-              const outer = merged[kind][entry[0]] || Object.create(null);
-              const indexes = staticAtlasValidateFeatureIndexes(entry[2], label);
-              indexes.forEach((featureIndex) => {
-                const reference = `${entry[1]}\u0000${featureIndex}`;
-                if (featureReferences.get(kind).has(reference)) staticAtlasFailure(`${label} feature reference overlaps another shard`);
-                featureReferences.get(kind).add(reference);
-              });
-              outer[entry[1]] = indexes;
-              merged[kind][entry[0]] = outer;
-            } else if (kind === 'time_interval_feature_indexes') {
-              const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
-              if (entry.length !== 4 || (signed ? !nativeCalendarNumber(entry[0]) || !nativeCalendarNumber(entry[1]) : !Number.isFinite(entry[0]) || entry[0] < 0 || !Number.isFinite(entry[1])) || entry[1] < entry[0] || typeof entry[2] !== 'string' || !entry[2] || !Number.isSafeInteger(entry[3]) || entry[3] < 0) staticAtlasFailure(`${label} is malformed`);
-              assertOrderedUnique(kind, entry, label);
-              const reference = `${entry[2]}\u0000${entry[3]}`;
-              if (featureReferences.get(kind).has(reference) && (!components || entry[0] <= componentEnds.get(reference))) staticAtlasFailure(`${label} feature reference overlaps another shard`);
-              componentEnds.set(reference, entry[1]);
-              featureReferences.get(kind).add(reference);
-              merged.time_interval_feature_indexes.push([...entry]);
-            } else if (kind === 'signal_layer_indexes') {
-              if (entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0] || !Array.isArray(entry[1]) || !entry[1].length) staticAtlasFailure(`${label} is malformed`);
-              assertOrderedUnique(kind, [entry[0]], label);
-              const layers = entry[1];
-              if (layers.some((layerKey, index) => typeof layerKey !== 'string' || !layerKey || (index > 0 && layers[index - 1] >= layerKey))) staticAtlasFailure(`${label} layer keys are invalid`);
-              merged.signal_layer_indexes[entry[0]] = [...layers];
-            } else if (kind === 'detail_record_asset_keys') {
-              if (entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0] || typeof entry[1] !== 'string' || !entry[1]) staticAtlasFailure(`${label} is malformed`);
-              assertOrderedUnique(kind, [entry[0]], label);
-              merged.detail_record_asset_keys[entry[0]] = entry[1];
-            } else if (kind === 'text_search_index') {
-              if (entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0]) staticAtlasFailure(`${label} search entry is invalid`);
-              assertOrderedUnique(kind, [entry[0]], label);
-              merged.text_search_index[entry[0]] = entry[1];
-            } else staticAtlasFailure(`${label} kind is unsupported`);
+      function loadIndexTransport() {
+        if (staticAtlasIndexTransport) return Promise.resolve(staticAtlasIndexTransport);
+        if (staticAtlasIndexTransportRequest) return staticAtlasIndexTransportRequest;
+        staticAtlasIndexTransportRequest = Promise.resolve().then(() => {
+          const row = indexTransportDescriptor();
+          if (!['http:', 'https:', 'file:'].includes(window.location.protocol)) staticAtlasFailure('Index transport requires HTTP, HTTPS or a local file');
+          return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = `./${row.path}`;
+            if (['http:', 'https:'].includes(window.location.protocol)) {
+              script.integrity = row.integrity;
+              script.crossOrigin = 'anonymous';
+            }
+            script.addEventListener('load', () => {
+              try {
+                const factory = globalThis.BijuxPollenomicsIndexTransport;
+                if (!factory || typeof factory.create !== 'function') staticAtlasFailure('Index transport did not register');
+                const controller = factory.create({bootstrap: STATIC_ATLAS_BOOTSTRAP, failure: staticAtlasFailure,
+                  temporalIdentity: staticAtlasTemporalIdentity, nonnegativeInteger: staticAtlasNonnegativeInteger,
+                  nativeCalendarNumber: value => typeof nativeCalendarNumber === 'function' && nativeCalendarNumber(value),
+                  boundedGunzip: staticAtlasBoundedGunzip, sha256: staticAtlasSha256,
+                  searchGrams: text => atlasSearchGrams(text)});
+                if (!controller || !['validatePayload', 'consume'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
+                staticAtlasIndexTransport = controller;
+                resolve(controller);
+              } catch (error) { reject(error); }
+            }, {once: true});
+            script.addEventListener('error', () => reject(new Error('Index transport could not be loaded. Keep all atlas files together and reload.')), {once: true});
+            document.head.appendChild(script);
           });
         });
-        const referenceCount = Object.values(merged.country_feature_indexes).reduce(
-          (total, layers) => total + Object.values(layers).reduce((subtotal, indexes) => subtotal + indexes.length, 0),
-          0
-        ) + Object.keys(merged.detail_record_asset_keys).length;
-        if (referenceCount !== payload.reference_count) staticAtlasFailure(`${row.asset_key} merged reference count mismatch`);
-        return merged;
+        return staticAtlasIndexTransportRequest;
+      }
+      function staticAtlasIndexRows() {
+        const rows = STATIC_ATLAS_BOOTSTRAP.assets.filter(row => row.domain === 'indexes');
+        const declared = STATIC_ATLAS_BOOTSTRAP.compatibility || {};
+        if (Object.hasOwn(declared, 'search_transport_counts')) staticAtlasFailure('search transport counts belong to the bundle header');
+        if (Object.hasOwn(declared, 'search_transport_schema') && (declared.search_transport_schema !== 'atlas-search-documents.v1' || declared.search_index_abi !== 'atlas-substring-postings.v1' || !['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(declared.index_schema))) staticAtlasFailure('search documents transport declaration is invalid');
+        if (Object.hasOwn(declared, 'index_transport_schema')) {
+          if (declared.index_transport_schema !== 'atlas-static-index-part.v1' || rows.length < 2 || !['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(declared.index_schema)) staticAtlasFailure('index part transport declaration is invalid');
+        } else if (rows.length > 1) staticAtlasFailure('singleton index transport is duplicated');
+        return rows;
+      }
+      function staticAtlasIndexOverhead(rows) {
+        return rows.length && !staticAtlasIndexTransport
+          ? {request_count: 1, byte_count: indexTransportDescriptor().byte_count}
+          : {request_count: 0, byte_count: 0};
       }
       function validateStaticAtlasEdgeAssets(payload) {
         if (payload.schema_version !== STATIC_ATLAS_BOOTSTRAP.compatibility?.edge_schema) staticAtlasFailure('edge compatibility schema mismatch');
@@ -3098,7 +3001,10 @@ __NATIVE_LRA_SCRIPT_TAG__
         if (payload.build_id !== STATIC_ATLAS_BOOTSTRAP.build_id) staticAtlasFailure(`${row.asset_key} build mismatch`);
         if (payload.scope_slug !== STATIC_ATLAS_BOOTSTRAP.scope_slug) staticAtlasFailure(`${row.asset_key} scope mismatch`);
         if (payload.version !== STATIC_ATLAS_BOOTSTRAP.version) staticAtlasFailure(`${row.asset_key} version mismatch`);
-        if (!STATIC_ATLAS_SCHEMAS[row.domain]?.includes(payload.schema_version)) staticAtlasFailure(`${row.asset_key} schema mismatch`);
+        if (row.domain === 'indexes') {
+          if (!staticAtlasIndexTransport) staticAtlasFailure('index transport was not admitted before payload validation');
+          staticAtlasIndexTransport.validatePayload(row, payload);
+        } else if (!STATIC_ATLAS_SCHEMAS[row.domain]?.includes(payload.schema_version)) staticAtlasFailure(`${row.asset_key} schema mismatch`);
         if (row.domain === 'nodes') {
           if (!Array.isArray(payload.features) || !Array.isArray(payload.feature_indexes) || payload.features.length !== payload.feature_indexes.length) staticAtlasFailure(`${row.asset_key} feature accounting is invalid`);
           if (payload.features.length !== row.record_count || payload.layer_key !== row.layer_key || payload.layer_index !== row.layer_index || payload.layer_kind !== row.layer_kind) staticAtlasFailure(`${row.asset_key} layer accounting mismatch`);
@@ -3109,7 +3015,6 @@ __NATIVE_LRA_SCRIPT_TAG__
         if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.scientific_signals) || (payload.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(payload.detail_records)))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
         staticAtlasTemporalIdentity(payload, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
         if (row.domain === 'indexes' && payload.search_index_abi !== STATIC_ATLAS_BOOTSTRAP.compatibility?.search_index_abi) staticAtlasFailure('search compatibility ABI mismatch');
-        if (row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)) staticAtlasIndexShardEnvelopes(row, payload);
       }
       async function consumeStaticAtlasAsset(row, signal = null, fetchedEnvelope = null) {
         signal?.throwIfAborted();
@@ -3145,14 +3050,13 @@ __NATIVE_LRA_SCRIPT_TAG__
         } catch (error) {
           staticAtlasFailure(`${row.asset_key} payload JSON is invalid`);
         }
+        if (row.domain === 'indexes') await loadIndexTransport();
         validateStaticAtlasPayload(row, payload);
-        const acceptedPayload = row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(payload.schema_version)
-          ? await staticAtlasMergeIndexShards(row, payload)
-          : payload;
+        const acceptedPayload = row.domain === 'indexes' ? await staticAtlasIndexTransport.consume(row, payload, staticAtlasIndexRows()) : payload;
         signal?.throwIfAborted();
         if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
         else if (row.domain === 'details') STATIC_ATLAS_CHUNKS.details.push(payload);
-        else STATIC_ATLAS_CHUNKS[row.domain] = acceptedPayload;
+        else if (acceptedPayload !== null) STATIC_ATLAS_CHUNKS[row.domain] = acceptedPayload;
         staticAtlasLoadedAssets.add(row.asset_key);
       }
       function loadStaticAtlasAsset(row, selectionOwned = false) {
@@ -3237,7 +3141,7 @@ __URL_STATE_CONTROLLER__
       let signedNativeTimeControls = null;
       const POINT_LAYERS = __POINT_LAYERS_JSON__;
       const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;
-      const MODELED_CONTEXT = __MODELED_CONTEXT_JSON__;
+      const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);
       const INITIAL_BOUNDS = __BOUNDS_JSON__;
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const ATLAS_EVIDENCE = STATIC_ATLAS_INLINE
@@ -4960,13 +4864,14 @@ __URL_STATE_CONTROLLER__
         });
         if (Object.hasOwn(STATIC_ATLAS_BOOTSTRAP.compatibility || {}, 'search_index_abi')) {
           if (STATIC_ATLAS_BOOTSTRAP.compatibility.search_index_abi !== 'atlas-substring-postings.v1') staticAtlasFailure('unsupported search ABI');
-          const indexes = STATIC_ATLAS_BOOTSTRAP.assets.filter(row => row.domain === 'indexes');
-          if (indexes.length !== 1) staticAtlasFailure('published search index is missing or duplicated');
-          if (!staticAtlasLoadedAssets.has(indexes[0].asset_key)) required.push(indexes[0]);
+          const indexes = staticAtlasIndexRows();
+          if (!indexes.length) staticAtlasFailure('published search index is missing');
+          required.push(...indexes.filter(row => !staticAtlasLoadedAssets.has(row.asset_key)));
         }
+        const overhead = staticAtlasIndexOverhead(required.filter(row => row.domain === 'indexes'));
         const interactionRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget');
-        if (required.length > interactionRequestBudget) staticAtlasFailure(`selection requires ${required.length} requests, above the interaction budget`);
-        const requiredBytes = required.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        if (required.length + overhead.request_count > interactionRequestBudget) staticAtlasFailure(`selection requires ${required.length + overhead.request_count} requests, above the interaction budget`);
+        const requiredBytes = overhead.byte_count + required.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
         const interactionByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget');
         if (requiredBytes > interactionByteBudget) staticAtlasFailure(`selection requires ${requiredBytes} bytes, above the interaction budget`);
         return required;
@@ -4993,6 +4898,8 @@ __URL_STATE_CONTROLLER__
           throw error;
         }
         const signal = beginStaticAtlasSelection(required);
+        if (required.some(row => row.domain === 'indexes')) await waitForStaticAtlasSelection(loadIndexTransport(), signal);
+        signal.throwIfAborted();
         await waitForStaticAtlasSelection(Promise.all(required.map((row) => loadStaticAtlasAsset(row, true))), signal);
         signal.throwIfAborted();
         validateLoadedStaticAtlasEdgeAssets();
@@ -5456,13 +5363,16 @@ __URL_STATE_CONTROLLER__
       }
       async function ensureStaticAtlasIndexesLoaded() {
         if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.indexes) return true;
-        const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.domain === 'indexes');
-        if (candidates.length !== 1) return false;
-        const row = candidates[0];
-        const interactionBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget');
-        if (staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`) > interactionBudget) return false;
         try {
-          await loadStaticAtlasAsset(row);
+          const candidates = staticAtlasIndexRows();
+          if (!candidates.length) return false;
+          const missing = candidates.filter(row => !staticAtlasLoadedAssets.has(row.asset_key));
+          const overhead = staticAtlasIndexOverhead(missing);
+          const requests = missing.length + overhead.request_count;
+          const bytes = missing.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), overhead.byte_count);
+          if (requests > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget') || bytes > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget')) return false;
+          await loadIndexTransport();
+          await Promise.all(missing.map(row => loadStaticAtlasAsset(row)));
         } catch (error) {
           return false;
         }
@@ -5475,13 +5385,25 @@ __URL_STATE_CONTROLLER__
         if (STATIC_ATLAS_INLINE || ATLAS_EVIDENCE.details_status !== 'available') {
           return unavailableDetailTabs(ATLAS_EVIDENCE.details_reason_code || 'record_level_evidence_not_available');
         }
+        let indexRequests = 0, indexBytes = 0;
+        if (!STATIC_ATLAS_CHUNKS.indexes) {
+          try {
+            const missing = staticAtlasIndexRows().filter(row => !staticAtlasLoadedAssets.has(row.asset_key));
+            const overhead = staticAtlasIndexOverhead(missing);
+            indexRequests = missing.length + overhead.request_count;
+            indexBytes = missing.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), overhead.byte_count);
+          } catch (error) { return unavailableDetailTabs('detail_index_load_failed'); }
+        }
         if (!(await ensureStaticAtlasIndexesLoaded())) return unavailableDetailTabs('detail_index_load_failed');
         const assetKey = STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys?.[recordId];
         if (!assetKey) return unavailableDetailTabs('detail_record_not_indexed');
         const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.asset_key === assetKey && row.domain === 'details');
         if (candidates.length !== 1) return unavailableDetailTabs('detail_chunk_index_invalid');
         const row = candidates[0];
-        if (staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`) > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget')) return unavailableDetailTabs('detail_chunk_interaction_budget_exceeded');
+        const missingDetail = !staticAtlasLoadedAssets.has(row.asset_key);
+        const requests = indexRequests + (missingDetail ? 1 : 0);
+        const bytes = indexBytes + (missingDetail ? staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`) : 0);
+        if (requests > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget') || bytes > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget')) return unavailableDetailTabs('detail_chunk_interaction_budget_exceeded');
         try {
           await loadStaticAtlasAsset(row);
         } catch (error) {

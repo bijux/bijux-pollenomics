@@ -4,12 +4,12 @@
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
 - Paper DOI: `10.1093/gbe/evaf181`
-- Publication readiness: `complete`
+- Publication readiness: `blocked`
 - Next required stage: `paper_capture`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
-- Final recovered sample rows: `4`
-- Minimum recovery gap: `0`
+- Final recovered sample rows: `0`
+- Minimum recovery gap: `1`
 - Implausibly low recovery: `false`
 
 ## Stage Statuses
@@ -17,11 +17,11 @@
 - `project_admission`: `complete`
 - `paper_capture`: `blocked`
 - `supplement_capture`: `complete`
-- `sample_identity_recovery`: `complete`
-- `site_recovery`: `complete`
-- `chronology_recovery`: `complete`
-- `coordinate_derivation`: `complete`
-- `publication_readiness`: `complete`
+- `sample_identity_recovery`: `blocked`
+- `site_recovery`: `blocked`
+- `chronology_recovery`: `blocked`
+- `coordinate_derivation`: `blocked`
+- `publication_readiness`: `blocked`
 
 ## Expected Contributions
 
@@ -42,3 +42,8 @@
 ## Missing Assets
 
 - Readable repository paper capture is still missing.
+- No final governed sample rows are published yet.
+
+## Manual Curation Work Units
+
+- `sample_identity_resolution`: 4 item(s), blocks trustworthy project-level sample recovery counts

@@ -9,6 +9,9 @@ from typing import cast
 import pytest
 
 from bijux_pollenomics.adna.projects.evidence.chronology import audits
+from bijux_pollenomics.adna.projects.evidence.chronology.audits.provenance import (
+    _build_sample_chronology_provenance_rows,
+)
 
 from .support import project_catalog, rows_for_project
 
@@ -59,6 +62,45 @@ def test_provenance_preserves_bp_direction_and_nulls(
         unresolved["time_mean_bp"],
     ) == (None, None, None)
     assert unresolved["temporal_semantics"] == {"interval_convention": None}
+
+
+def test_provenance_selection_never_opens_sibling_project_sources(
+    tmp_path: Path,
+    representative_audits: None,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    full = audits.build_sample_chronology_provenance_rows(tmp_path)
+    calls: list[str] = []
+
+    def selected_rows(_root: Path, accession: str) -> object:
+        calls.append(accession)
+        assert accession == "P1"
+        return rows_for_project(accession)
+
+    monkeypatch.setattr(audits, "build_project_sample_chronology_rows", selected_rows)
+    selected = _build_sample_chronology_provenance_rows(
+        tmp_path, project_accessions=("P1",)
+    )
+
+    assert calls == ["P1"]
+    assert selected == tuple(row for row in full if row["project_accession"] == "P1")
+
+
+@pytest.mark.parametrize(
+    "selection", [(), ("P1", "P1"), ("UNKNOWN",), ("P1", "UNKNOWN")]
+)
+def test_invalid_provenance_selection_refuses_before_project_sources(
+    tmp_path: Path,
+    representative_audits: None,
+    monkeypatch: pytest.MonkeyPatch,
+    selection: tuple[str, ...],
+) -> None:
+    def unopened_rows(_root: Path, _accession: str) -> object:
+        raise AssertionError("invalid selection opened a project source")
+
+    monkeypatch.setattr(audits, "build_project_sample_chronology_rows", unopened_rows)
+    with pytest.raises(ValueError, match="Chronology provenance selection"):
+        _build_sample_chronology_provenance_rows(tmp_path, project_accessions=selection)
 
 
 def test_comparability_requires_numeric_endpoints_and_preserves_bp_zero() -> None:

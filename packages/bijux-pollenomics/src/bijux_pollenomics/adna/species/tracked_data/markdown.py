@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 from bijux_pollenomics.adna.governance.admission import build_species_dataset_review
 from bijux_pollenomics.adna.governance.curation import build_species_curation_manifest
@@ -9,6 +10,7 @@ from bijux_pollenomics.adna.governance.reviews import (
     build_species_review_dossier,
 )
 from bijux_pollenomics.adna.workflow.normalization import (
+    AdnaSpeciesNormalizationBundle,
     build_species_normalization_bundle,
 )
 
@@ -16,11 +18,28 @@ from ..definitions import resolve_species_definition
 from .payloads import _species_project_recovery_deficits_payload
 
 
-def _render_species_root_readme(output_root: Path, species_name: str) -> str:
+def _render_species_root_readme(
+    output_root: Path,
+    species_name: str,
+    *,
+    normalization_bundle: AdnaSpeciesNormalizationBundle | None = None,
+    recovery_deficits_payload: dict[str, Any] | None = None,
+) -> str:
     species = resolve_species_definition(species_name)
+    if (
+        normalization_bundle is not None
+        and normalization_bundle.species.latin_name != species.latin_name
+    ):
+        raise ValueError("Supplied normalization bundle has a different species owner")
+    if (
+        recovery_deficits_payload is not None
+        and recovery_deficits_payload.get("species_latin_name") != species.latin_name
+    ):
+        raise ValueError("Supplied recovery deficits have a different species owner")
     review = build_species_dataset_review(species_name)
     curation = build_species_curation_manifest(species_name)
-    normalization_bundle = build_species_normalization_bundle(species_name)
+    if normalization_bundle is None:
+        normalization_bundle = build_species_normalization_bundle(species_name)
     sample_rows = normalization_bundle.sample_records
     site_rows = normalization_bundle.site_evidence_records
     coordinate_rows = normalization_bundle.coordinate_provenance_records
@@ -54,8 +73,10 @@ def _render_species_root_readme(output_root: Path, species_name: str) -> str:
         for row in normalization_bundle.locality_records
         if row.nordic_inclusion and row.coordinate_confidence != "withheld"
     )
-    deficit_payload = _species_project_recovery_deficits_payload(
-        output_root, species_name
+    deficit_payload = (
+        _species_project_recovery_deficits_payload(output_root, species_name)
+        if recovery_deficits_payload is None
+        else recovery_deficits_payload
     )
     lines = [
         f"# {species.common_name.title()} Evidence View",
@@ -171,12 +192,24 @@ def _render_species_root_readme(output_root: Path, species_name: str) -> str:
     return "\n".join(lines) + "\n"
 
 
-def _render_support_summary_markdown(output_root: Path, species_name: str) -> str:
+def _render_support_summary_markdown(
+    output_root: Path,
+    species_name: str,
+    *,
+    recovery_deficits_payload: dict[str, Any] | None = None,
+) -> str:
     species = resolve_species_definition(species_name)
+    if (
+        recovery_deficits_payload is not None
+        and recovery_deficits_payload.get("species_latin_name") != species.latin_name
+    ):
+        raise ValueError("Supplied recovery deficits have a different species owner")
     review = build_species_dataset_review(species_name)
     curation = build_species_curation_manifest(species_name)
-    deficit_payload = _species_project_recovery_deficits_payload(
-        output_root, species_name
+    deficit_payload = (
+        _species_project_recovery_deficits_payload(output_root, species_name)
+        if recovery_deficits_payload is None
+        else recovery_deficits_payload
     )
     return (
         f"# {species.common_name} support summary\n\n"
@@ -205,8 +238,20 @@ def _render_support_summary_markdown(output_root: Path, species_name: str) -> st
 def _render_species_project_recovery_deficits_markdown(
     output_root: Path,
     species_name: str,
+    *,
+    recovery_deficits_payload: dict[str, Any] | None = None,
 ) -> str:
-    payload = _species_project_recovery_deficits_payload(output_root, species_name)
+    if (
+        recovery_deficits_payload is not None
+        and recovery_deficits_payload.get("species_latin_name")
+        != resolve_species_definition(species_name).latin_name
+    ):
+        raise ValueError("Supplied recovery deficits have a different species owner")
+    payload = (
+        _species_project_recovery_deficits_payload(output_root, species_name)
+        if recovery_deficits_payload is None
+        else recovery_deficits_payload
+    )
     lines = [
         f"# {species_name} project recovery deficits",
         "",

@@ -50,6 +50,9 @@ def validate_singleton_metadata(
         if fitted
         else {"local_ring_count", "local_support_radius_m", "support_profile"}
     )
+    targeted = profile == SOURCE_PROFILE and "target_record_ids" in metadata
+    if targeted:
+        expected.add("target_record_ids")
     if (
         set(metadata) != expected
         or metadata["profile"] != profile
@@ -100,7 +103,15 @@ def validate_singleton_metadata(
         raise ValidationRefusal(
             "invalid_singleton_catalogue", "Unique complete record inventory required"
         )
-    originals = grouped_leave_one_out(records)
+    selected_targets = (
+        tuple(
+            identity(value)
+            for value in object_list(metadata["target_record_ids"], "target_record_ids")
+        )
+        if targeted
+        else None
+    )
+    originals = grouped_leave_one_out(records, target_record_ids=selected_targets)
     _same(
         [fold.as_dict() for fold in originals],
         scientific["folds"],
@@ -127,6 +138,15 @@ def validate_singleton_metadata(
     ):
         raise ValidationRefusal(
             "invalid_singleton_catalogue", "Regional priority differs from catalogue"
+        )
+    if (
+        selected_targets is not None
+        and set(selected_targets) != record_ids
+        and set(selected_targets) & set(priority)
+    ):
+        raise ValidationRefusal(
+            "overlapping_source_target_roles",
+            "Retained regional-only anchors cannot be target eligible",
         )
     if (
         scientific["experiment"]

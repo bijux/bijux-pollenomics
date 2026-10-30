@@ -1,8 +1,8 @@
 # Project recovery stage review
 
 - Tracked projects: `40`
-- Ready for publication review: `11`
-- Blocked projects: `23`
+- Ready for publication review: `10`
+- Blocked projects: `24`
 
 | Project | Species | Recovery status | Next required stage | Blocking stages |
 | --- | --- | --- | --- | --- |
@@ -14,7 +14,7 @@
 | `KX379528-KX379529` | `Canis lupus familiaris` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `SRS1407451` | `Canis lupus familiaris` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
 | `SRS1407453` | `Canis lupus familiaris` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
-| `PRJEB90141` | `Capra hircus` | `ready_for_publication_review` | `paper_capture` | `paper_capture` |
+| `PRJEB90141` | `Capra hircus` | `blocked_projects` | `paper_capture` | `paper_capture; sample_identity_recovery; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJEB90261` | `Capra hircus` | `ready_for_publication_review` | `none` | `none` |
 | `PRJNA1328209` | `Capra hircus` | `ready_for_publication_review` | `none` | `none` |
 | `PRJEB43564` | `Equus asinus` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |

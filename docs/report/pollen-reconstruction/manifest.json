@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "e7ed975d68da375d0bc37f24689a846651e18c4012631ef1d57da2d1efc3981b",
-      "bytes": 7397833
+      "sha256": "6fd01b841b3e0aefc6c58aabcdd83f595f9c7c86942b188d2b414e5eeda11205",
+      "bytes": 7399706
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -2176,8 +2176,8 @@
     },
     {
       "path": "docs/report/regions/europe-plus/europe-plus_map.html",
-      "sha256": "c8078b9c5e81921108d3b15b3a5626fe3ba43821aea8e3ab3bd30c0b35f4000a",
-      "bytes": 442621
+      "sha256": "698cfd52bcda7e133291d0715e11555e2f25d042bdafd9dad382f2f780a54c23",
+      "bytes": 86193
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/coverage.csv",
@@ -2476,8 +2476,8 @@
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.html",
-      "sha256": "aaa96b85ad38b8e33ac2f5689f356b85dde857b1704a3ca8cf81adfe120d16f7",
-      "bytes": 523944
+      "sha256": "2f9df5a393254311b8aad1a1d0e525fc113553ec57fdb4ecaef61b1b3af95312",
+      "bytes": 168069
     },
     {
       "path": "docs/report/regions/nordic/pollen-development/report.json",
@@ -3281,8 +3281,8 @@
     },
     {
       "path": "docs/report/world/world_map.html",
-      "sha256": "511364f310abf83732d7b1aa0813a59ea387ac3a648772dfd9ad0af9203c7169",
-      "bytes": 469984
+      "sha256": "b635e0db59949bd829beb12dc16f161a7b0b273144e92e3516097101bfbfbf91",
+      "bytes": 112114
     },
     {
       "path": "makes/README.md",
@@ -3436,8 +3436,8 @@
     },
     {
       "path": "reports/science/animal-entity-capability/report.json",
-      "sha256": "fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780",
-      "bytes": 3542
+      "sha256": "713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b",
+      "bytes": 3543
     },
     {
       "path": "reports/science/bjaresjo-context/nearby-sead.csv",
@@ -3503,6 +3503,16 @@
       "path": "reports/science/paper-accounts.csv",
       "sha256": "7eddabdca98385713acc11224abc2f5355567d44f9277da88a526dfedc622eb2",
       "bytes": 9182
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json",
+      "sha256": "a43df56a533efda3f97acc7027aeb65bfb1540ed422941dabe271e3ffc9d498e",
+      "bytes": 12274
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/result.json",
+      "sha256": "2c1434eb992512a4d80079fb3302056d52cadce805a1c7ebc4ade0ba886d724b",
+      "bytes": 5989
     },
     {
       "path": "reports/science/pollen-reconstruction/krageholm-regional-source-support/protocol.json",

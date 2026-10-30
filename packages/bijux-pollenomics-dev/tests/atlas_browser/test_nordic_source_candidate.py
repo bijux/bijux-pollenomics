@@ -9,7 +9,11 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics.reporting.map_document.static_assets import (
+    index_transport,
     write_static_atlas_assets,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    normalize_asset_inventory,
 )
 from bijux_pollenomics_dev.ci.atlas_browser import nordic_source_candidate
 from bijux_pollenomics_dev.ci.atlas_browser.nordic_source_candidate import (
@@ -97,10 +101,23 @@ def nordic_repository(root: Path) -> Path:
     return retained
 
 
+@pytest.mark.parametrize("multipart", [False, True])
 def test_nordic_replay_retains_exact_eight_country_source_records(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    multipart: bool,
 ) -> None:
-    nordic_repository(tmp_path)
+    with monkeypatch.context() as transport:
+        if multipart:
+            transport.setattr(index_transport, "ATLAS_CHUNK_MAX_BYTES", 3000)
+        retained = nordic_repository(tmp_path)
+    manifest = json.loads((retained / "nordic_map_assets.json").read_text())
+    index_rows = [
+        row
+        for row in normalize_asset_inventory(manifest["assets"])
+        if row["domain"] == "indexes"
+    ]
+    assert (len(index_rows) > 1) is multipart
     receipt = generate_fixture_candidate(
         tmp_path, tmp_path / "artifacts/candidate", "nordic_source_candidate"
     )
@@ -151,10 +168,14 @@ def test_nordic_replay_rejects_malformed_detail_index(
 ) -> None:
     nordic_repository(tmp_path)
 
-    def malformed_index(_payload: object) -> dict[str, object]:
+    def malformed_index(
+        _rows: object, _payloads: object, *, manifest: object
+    ) -> dict[str, object]:
         return {"detail_record_asset_keys": asset_keys}
 
-    monkeypatch.setattr(nordic_source_candidate, "decode_index_bundle", malformed_index)
+    monkeypatch.setattr(
+        nordic_source_candidate, "decode_index_payloads", malformed_index
+    )
     destination = tmp_path / "artifacts/candidate"
     with pytest.raises(ValueError, match="source detail asset index"):
         generate_nordic_source_candidate(tmp_path, destination)

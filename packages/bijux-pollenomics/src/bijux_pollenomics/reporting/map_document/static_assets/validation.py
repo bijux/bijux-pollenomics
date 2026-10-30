@@ -17,7 +17,7 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
 from .edges import validate_edge_endpoint_assets
-from .index_bundles import decode_index_bundle
+from .index_transport import decode_index_payloads
 from .indexes import build_indexes
 from .models import StaticAtlasAssets
 from .nodes import node_asset_selection
@@ -192,7 +192,9 @@ def _validate_static_payloads(
         "details": compatibility.get("detail_schema"),
         "edges": compatibility.get("edge_schema"),
         "sequences": compatibility.get("sequence_schema"),
-        "indexes": compatibility.get("index_schema"),
+        "indexes": compatibility.get(
+            "index_transport_schema", compatibility.get("index_schema")
+        ),
     }
     node_payloads = {
         str(row["asset_key"]): payloads[str(row["asset_key"])]
@@ -201,7 +203,8 @@ def _validate_static_payloads(
     }
     detail_record_assets: dict[str, str] = {}
     detail_record_order: list[str] = []
-    index_payload: Mapping[str, object] | None = None
+    index_rows: list[Mapping[str, object]] = []
+    index_payloads: dict[str, Mapping[str, object]] = {}
     for row in asset_rows:
         asset_key = row.get("asset_key")
         domain = row.get("domain")
@@ -240,13 +243,11 @@ def _validate_static_payloads(
                 detail_record_assets[record_id] = asset_key
                 detail_record_order.append(record_id)
         elif domain == "indexes":
-            if index_payload is not None:
-                raise ValueError("static atlas index payload is duplicated")
-            index_payload = decode_index_bundle(payload)
+            index_rows.append(row)
+            index_payloads[asset_key] = payload
     if detail_record_order != sorted(detail_record_order):
         raise ValueError("static atlas detail records are not stably ordered")
-    if index_payload is None:
-        raise ValueError("static atlas index payload is missing")
+    index_payload = decode_index_payloads(index_rows, index_payloads, manifest=manifest)
     if index_payload.get("search_index_abi") != compatibility.get("search_index_abi"):
         raise ValueError("Search compatibility ABI differs")
     validate_search_membership(payloads, index_payload, profile)

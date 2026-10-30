@@ -12,7 +12,7 @@
 | `Canis lupus familiaris` | `KX379528-KX379529` | `0` | `0` | `0` | `complete` |
 | `Canis lupus familiaris` | `SRS1407451` | `0` | `1` | `1` | `blocked` |
 | `Canis lupus familiaris` | `SRS1407453` | `0` | `0` | `0` | `complete` |
-| `Capra hircus` | `PRJEB90141` | `0` | `0` | `0` | `complete` |
+| `Capra hircus` | `PRJEB90141` | `1` | `0` | `0` | `blocked` |
 | `Capra hircus` | `PRJEB90261` | `0` | `0` | `0` | `complete` |
 | `Capra hircus` | `PRJNA1328209` | `0` | `0` | `0` | `complete` |
 | `Equus asinus` | `PRJEB43564` | `0` | `0` | `0` | `blocked` |

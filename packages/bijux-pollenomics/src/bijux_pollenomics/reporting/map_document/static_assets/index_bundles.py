@@ -14,6 +14,13 @@ from ..temporal_admission import calendar_profile_metadata, read_calendar_profil
 from .budgets import ATLAS_CHUNK_MAX_BYTES, ATLAS_CHUNK_TARGET_BYTES
 from .indexes import index_reference_count
 from .search import SEARCH_ABI, SEARCH_KIND, validate_search_index
+from .search.transport import (
+    SEARCH_DOCUMENTS_SCHEMA,
+    encode_search_documents,
+    read_search_transport,
+    restore_search_documents,
+    search_document_utf16_units,
+)
 from .serialization import canonical_gzip_compress, canonical_json
 
 INDEX_BUNDLE_SCHEMA = "atlas-static-indexes.v3"
@@ -41,23 +48,48 @@ def _kinds(payload: Mapping[str, object]) -> tuple[str, ...]:
     return (*INDEX_KINDS, SEARCH_KIND)
 
 
-def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
+def build_index_bundle(
+    indexes: Mapping[str, object], *, search_transport_schema: str | None = None
+) -> dict[str, object]:
     """Encode the exact v2 logical indexes as bounded deterministic shards."""
     profile = read_calendar_profile(indexes)
     profile_fields = calendar_profile_metadata(profile)
     component_fields = _component_fields(indexes, profile)
+    search_documents: dict[str, object] | None = None
+    search_fields: dict[str, object] = {}
+    if search_transport_schema is not None:
+        if (
+            search_transport_schema != SEARCH_DOCUMENTS_SCHEMA
+            or SEARCH_KIND not in _kinds(indexes)
+        ):
+            raise ValueError("Unsupported search transport encoder")
+        search_documents, search_counts = encode_search_documents(
+            indexes.get(SEARCH_KIND)
+        )
+        search_fields = {
+            "search_transport_schema": SEARCH_DOCUMENTS_SCHEMA,
+            "search_transport_counts": search_counts,
+        }
     identities = {
         field: _required_text(indexes.get(field), field)
         for field in ("scope_slug", "version", "build_id")
     }
     encoded_shards: list[dict[str, object]] = []
     for kind in _kinds(indexes):
-        entries = _index_entries(kind, indexes.get(kind))
+        entries = _index_entries(
+            kind,
+            search_documents
+            if kind == SEARCH_KIND and search_documents is not None
+            else indexes.get(kind),
+        )
         for part in _partition_entries(
             kind,
             entries,
             temporal_profile=profile,
             component_time_support=bool(component_fields),
+            search_transport_schema=search_transport_schema
+            if kind == SEARCH_KIND
+            else None,
         ):
             shard = {
                 "schema_version": SIGNED_INDEX_SHARD_SCHEMA
@@ -68,6 +100,11 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
                 **profile_fields,
                 **component_fields,
                 "index_kind": kind,
+                **(
+                    {"search_transport_schema": SEARCH_DOCUMENTS_SCHEMA}
+                    if kind == SEARCH_KIND and search_documents is not None
+                    else {}
+                ),
                 "entries": part,
             }
             payload = canonical_json(shard).encode("utf-8")
@@ -101,6 +138,7 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
         else INDEX_SHARD_SCHEMA,
         **profile_fields,
         **component_fields,
+        **search_fields,
         "shard_count": len(encoded_shards),
         "reference_count": index_reference_count(dict(indexes)),
         "shards": encoded_shards,
@@ -110,6 +148,7 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
 def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
     """Authenticate and losslessly restore v3, while accepting legacy v1/v2."""
     _kinds(payload)
+    search_counts = read_search_transport(payload)
     profile = read_calendar_profile(payload)
     profile_fields = calendar_profile_metadata(profile)
     schema = payload.get("schema_version")
@@ -120,6 +159,10 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
         "atlas-static-indexes.v1",
         "atlas-static-indexes.v2",
     }:
+        if search_counts is not None:
+            raise ValueError(
+                "Document search transport requires authenticated logical shards"
+            )
         if "search_index_abi" in payload:
             validate_search_index(payload.get(SEARCH_KIND))
         return dict(payload)
@@ -163,6 +206,8 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
     prior_kind_rank = -1
     observed_kinds: list[str] = []
     observed_digests: set[str] = set()
+    accepted_documents = 0
+    accepted_utf16_units = 0
     for expected_number, raw_envelope in enumerate(raw_shards, start=1):
         if not isinstance(raw_envelope, Mapping):
             raise ValueError("static atlas index shard envelope is invalid")
@@ -186,15 +231,35 @@ def decode_index_bundle(payload: Mapping[str, object]) -> dict[str, object]:
             kind,
             temporal_profile=profile,
             component_time_support=bool(component_fields),
+            search_transport_schema=SEARCH_DOCUMENTS_SCHEMA
+            if search_counts is not None
+            else None,
         )
         entries = shard["entries"]
         if not isinstance(entries, list):
             raise AssertionError("decoded index shard lost validated entries")
         if raw_envelope.get("record_count") != len(entries):
             raise ValueError("static atlas index shard record count changed")
+        if kind == SEARCH_KIND and search_counts is not None:
+            for entry in entries:
+                if not isinstance(entry, list) or len(entry) != 2:
+                    raise ValueError("search transport document entry is malformed")
+                accepted_documents += 1
+                accepted_utf16_units += search_document_utf16_units(entry[0], entry[1])
+                if (
+                    accepted_documents > search_counts["document_count"]
+                    or accepted_utf16_units > search_counts["utf16_unit_count"]
+                ):
+                    raise ValueError(
+                        "search transport document resource declaration exceeded"
+                    )
         _merge_entries(merged, kind, entries)
     if tuple(observed_kinds) != kinds:
         raise ValueError("static atlas index shard kinds are incomplete")
+    if search_counts is not None:
+        merged[SEARCH_KIND] = restore_search_documents(
+            merged[SEARCH_KIND], search_counts
+        )
     for field in ("scope_slug", "version", "build_id"):
         merged[field] = _required_text(payload.get(field), field)
     _validate_merged_indexes(merged)
@@ -247,6 +312,7 @@ def _partition_entries(
     *,
     temporal_profile: str | None = None,
     component_time_support: bool = False,
+    search_transport_schema: str | None = None,
 ) -> list[list[object]]:
     empty_size = len(
         canonical_json(
@@ -259,6 +325,11 @@ def _partition_entries(
                 **({"component_time_support": True} if component_time_support else {}),
                 **calendar_profile_metadata(temporal_profile),
                 "index_kind": kind,
+                **(
+                    {"search_transport_schema": search_transport_schema}
+                    if search_transport_schema is not None
+                    else {}
+                ),
                 "entries": [],
             }
         ).encode("utf-8")
@@ -289,6 +360,7 @@ def _decode_shard(
     *,
     temporal_profile: str | None = None,
     component_time_support: bool = False,
+    search_transport_schema: str | None = None,
 ) -> dict[str, object]:
     if envelope.get("payload_encoding") != "gzip_base64":
         raise ValueError("static atlas index shard encoding is invalid")
@@ -321,6 +393,15 @@ def _decode_shard(
         raise ValueError("static atlas index shard JSON is invalid") from exc
     if not isinstance(shard, dict):
         raise ValueError("static atlas index shard must be an object")
+    if "search_transport_counts" in shard:
+        raise ValueError(
+            "search transport counts belong only in the index bundle header"
+        )
+    if kind == SEARCH_KIND and search_transport_schema is not None:
+        if shard.get("search_transport_schema") != search_transport_schema:
+            raise ValueError("search shard transport marker differs")
+    elif "search_transport_schema" in shard:
+        raise ValueError("search shard transport marker is undeclared or foreign")
     if (
         shard.get("schema_version")
         != (

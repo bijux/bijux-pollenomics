@@ -36,12 +36,12 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
         "sample_master_row_count": 1475,
         "sample_chronology_row_count": 1475,
         "sample_site_row_count": 1475,
-        "admitted_node_count": 323,
-        "refused_master_row_count": 1152,
+        "admitted_node_count": 319,
+        "refused_master_row_count": 1156,
     }
     assert dict(corpus.refusal_counts) == {
         "sequencing_experiment_identity": 0,
-        "sample_identity_not_final": 7,
+        "sample_identity_not_final": 11,
         "source_chronology_not_comparable": 789,
         "source_coordinate_not_mappable": 356,
         "sample_provenance_unavailable": 0,
@@ -57,9 +57,22 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
         ("SRP073444", "srp073444:samn04631877"),
         ("SRP073444", "srp073444:samn04631967"),
     }
+    assert {
+        (refusal.repo_stable_sample_id, refusal.reason_code)
+        for refusal in corpus.refusals
+        if refusal.project_accession == "PRJEB90141"
+    } == {
+        (f"prjeb90141:{accession}", "sample_identity_not_final")
+        for accession in (
+            "samea4453841",
+            "samea4588077",
+            "samea4591758",
+            "samea4591761",
+        )
+    }
     assert Counter(node.project_species_latin_name for node in corpus.nodes) == {
         "Bos taurus": 31,
-        "Capra hircus": 9,
+        "Capra hircus": 5,
         "Equus caballus": 242,
         "Felis catus": 35,
         "Ovis aries": 4,
@@ -71,7 +84,6 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
         "PRJEB59481": 4,
         "PRJEB75467": 31,
         "PRJEB81815": 35,
-        "PRJEB90141": 4,
         "PRJNA1328209": 5,
     }
     assert (
@@ -81,23 +93,23 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
     assert Counter(node.chronology_precision_posture for node in corpus.nodes) == {
         "contextual_interval": 5,
         "sample_approximate_or_modeled": 39,
-        "sample_precise_interval": 37,
+        "sample_precise_interval": 33,
         "sample_precise_point": 242,
     }
     assert Counter(node.coordinate_basis for node in corpus.nodes) == {
         "archive_coordinates": 4,
         "named_site_geocoding": 2,
         "supplementary_proximal_site_coordinates": 31,
-        "supplementary_table_coordinates": 286,
+        "supplementary_table_coordinates": 282,
     }
     assert Counter(node.coordinate_confidence for node in corpus.nodes) == {
         "approximate": 33,
-        "exact": 286,
+        "exact": 282,
         "source_reported_two_decimal_degrees": 4,
     }
     assert Counter(node.source_native_taxonomy_status for node in corpus.nodes) == {
         "available": 72,
-        "unavailable": 251,
+        "unavailable": 247,
     }
 
 
@@ -166,7 +178,8 @@ def test_real_admitted_identity_set_equals_curated_fully_grounded_set() -> None:
             if fully_grounded:
                 curated_ids.add((row["project_accession"], row["master_id"]))
 
-    assert len(curated_ids) == 323
+    assert len(curated_ids) == 319
+    assert not any(project == "PRJEB90141" for project, _ in curated_ids)
     assert source_ids == curated_ids
 
 

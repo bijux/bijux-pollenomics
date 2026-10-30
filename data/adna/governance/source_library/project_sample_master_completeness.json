@@ -305,8 +305,8 @@
       "expected_sample_count_artifact_path": "",
       "recovered_sample_count": 4,
       "unresolved_sample_count": null,
-      "final_sample_count": 4,
-      "ambiguity_row_count": 0,
+      "final_sample_count": 0,
+      "ambiguity_row_count": 4,
       "sample_identifier_status": "paper_or_supplement_targets_curated"
     },
     {

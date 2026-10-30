@@ -45,7 +45,9 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
   --repository "$PWD" --output "$PWD/artifacts/krageholm-regional-source-support"
 ```
 
-No measured vegetation, historical shoreline, basin/core equivalence or regional representativeness has been established. The existing 837 m static-circle profile can only be a declared hypothesis in a new experiment. A regional-only source must remain in training while target-eligible small sites have their complete transitive families excluded; the present all-sites fold factory needs that distinction before such a study. Counts and source ages do not supply missing geometry, rights or qualified field decisions.
+The separately declared [fixed regional-source study](../krageholm-regional-coupled/README.md) has now consumed this exact nineteen-owner panel. It keeps Krageholm regional-only while excluding complete transitive families of held-out small sites. All eighteen target folds and fifty-four method dispositions remain visible: nine method slots score in 2700–3200 cal BP and forty-five refuse because required local compositions fail. Its independent check qualifies the declared calculation conditional on saved kernels and distances; this source-support audit itself remains unchanged.
+
+No measured vegetation, historical shoreline, basin/core equivalence or regional representativeness has been established. The study's 837 m static-circle profile remains a declared hypothesis. Counts and source ages do not supply missing geometry, rights or qualified field decisions; the completed calculation must not be repeated merely because this source account previously described it as prospective.
 
 
 <!-- scientific-verification-and-limits:begin -->
@@ -57,13 +59,13 @@ No measured vegetation, historical shoreline, basin/core equivalence or regional
 
 **Actual verification performed.** Producer and independent observer at frozen bb7ea494d both exited zero: all 96 owners, 192 panel slots, 2803 valid pollen cells, 622 non-pollen rows and six windows reconciled. Ninety controlled checks, configured lint/format and strict types pass. Producer .35s/RSS137560064B; observer .295s/RSS134660096B.
 
-**Remaining input or review.** The full 96-owner two-axis aggregate remains unavailable because five older Ulmus literals are missing. Six fixed windows have complete support, while static basin geometry, regional representativeness and model/field admission remain separate. Resolver: Analyst for a separately declared conditional regional-source experiment; source and field experts for historical geometry, rights or ecological interpretation Reopen when: Use the exact six-window nineteen-owner panel in a predeclared regional-only-source profile with explicit geometry, roles and limits; independent field evidence is needed for broader acceptance.
+**Remaining input or review.** The full 96-owner two-axis aggregate remains unavailable because five older Ulmus literals are missing. The six-window source panel has now been consumed by the separately qualified fixed-regional study; static basin geometry, regional representativeness, physical/parameter applicability and field admission remain separate. Resolver: Source and field experts for historical geometry, rights, parameter applicability or ecological interpretation Reopen when: New source-owned geometry, parameter or independent measured evidence permits a prospectively justified analysis; unchanged source support and the completed fixed-regional study need no rerun.
 
 **Cause category.** data|assumption|comparability
 
 **Consequence.** Complete source-count support permits assessment of a distinct conditional regional-source profile; it supplies no historical geometry, independent observations or field acceptance.
 
-**Precise next acceptance route.** Retain all six bins and their exact memberships, declare permanent regional versus target-eligible roles before fitting, preserve whole-family exclusions and original assumptions, then qualify any conditional reconstruction separately.
+**Precise next acceptance route.** Reuse the independently qualified fixed-regional calculation in reports/science/pollen-reconstruction/krageholm-regional-coupled/README.md, preserving all eighteen folds and fifty-four method dispositions. Qualify physical/parameter assumptions and obtain matched measured vegetation or genuinely untouched evidence for broader acceptance.
 
 **Negative or refused result.** The all-96 Betula/Ulmus aggregate is suppressed for five missing Ulmus entries outside the requested windows. Both source default flags and the different native collection reference remain explicit; no data, age or geometry was repaired.
 

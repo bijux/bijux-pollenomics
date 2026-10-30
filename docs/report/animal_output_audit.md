@@ -38,7 +38,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** Bundle presence, full traceability and country output hits are not reference-grade readiness, scientific country approval or worldwide completeness.
 
-**Actual verification performed.** Read the retained output audit and entity-capability account; reconciled 165 candidate/traceable features, 322 mapped and 1146 blocked sample IDs. No output publisher or browser was rerun.
+**Actual verification performed.** The current entity replay proves 1464=318 mapped+1146 excluded IDs in 161 locality features. The separate retained output-audit capture predates the four ambiguous goat identity refusals and describes 165 features/322 mapped IDs; it was not rerun or relabeled as current.
 
 **Remaining input or review.** Blocked/unresolved samples and mixed coordinate/taxon scopes require source-owner review; current browser/map behavior needs separate native execution.
 
@@ -50,11 +50,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Negative or refused result.** 1146 blocked and 378 unresolved samples remain; zero country outputs for mapped horses do not erase the 73 global horse locality features.
 
-**Matched denominator.** 1468 tracked=322 mapped+1146 blocked; 165 traceable locality features; 12 country sample rows across 4 country bundles and 5 species/country output hits. Historical 170/331 is superseded by 165/322.
+**Matched denominator.** 1464 tracked=318 mapped+1146 blocked; 161 traceable locality features; 12 country sample rows across 4 country bundles and 5 species/country output hits. Historical 170/331 is superseded by 161/318.
 
 - [Retained qualification evidence: docs/report/animal_output_audit.json](animal_output_audit.json) (SHA-256 `32b6ac488b84fecd80020ba61894a50b8cad63b7f34546b262636043440e01f7`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `fe56d60f131e53eeca7e39b512188e23a701f69539be09c42770f7ed70379780`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

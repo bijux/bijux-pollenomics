@@ -76,95 +76,95 @@
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-provenance.0000.970ca6ca91a7d40a.js"
+        "filename": "europe-plus.atlas-provenance.0000.2066a3c80599d4bc.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0001.ecd797d42b575241.js"
+        "filename": "europe-plus.atlas-nodes.0001.556729fb9d14463f.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0002.020613a9b6ea823c.js"
+        "filename": "europe-plus.atlas-nodes.0002.cd881a84c336da31.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0003.37bc35e401239b65.js"
+        "filename": "europe-plus.atlas-nodes.0003.47cafd72834c618f.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0004.e9ea64a044615e2b.js"
+        "filename": "europe-plus.atlas-nodes.0004.a5b39d7c34a145ca.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0005.2881b0f258432c5c.js"
+        "filename": "europe-plus.atlas-nodes.0005.e730ab7fca32b7c4.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0006.377855f66dfd667d.js"
+        "filename": "europe-plus.atlas-nodes.0006.ded44026762186a6.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0007.9b7ed768012f605a.js"
+        "filename": "europe-plus.atlas-nodes.0007.654aba744ba20208.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0008.6b68d484404ccff4.js"
+        "filename": "europe-plus.atlas-nodes.0008.0fae62735f5cd2da.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0009.efdd550ba96a1301.js"
+        "filename": "europe-plus.atlas-nodes.0009.c5644587fea76ea8.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0010.ae24d54f842c8c0c.js"
+        "filename": "europe-plus.atlas-nodes.0010.47d00af47cc8dfd4.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0011.69b08d5486367209.js"
+        "filename": "europe-plus.atlas-nodes.0011.85ba744e69dfb9a3.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0012.7a1c73fed18ac080.js"
+        "filename": "europe-plus.atlas-nodes.0012.8d6c0c8f4c741f4d.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0013.804429addb55d2ae.js"
+        "filename": "europe-plus.atlas-nodes.0013.ea8346a43446258f.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0014.229a8d862b0807ec.js"
+        "filename": "europe-plus.atlas-nodes.0014.e02a39a1e5d6309c.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0015.e5c9eb590acf03ab.js"
+        "filename": "europe-plus.atlas-nodes.0015.5ddd0661cc03b0de.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0016.d038332c0fb02c64.js"
+        "filename": "europe-plus.atlas-nodes.0016.22e656b8829036ea.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0017.d6c7e84645ade4f1.js"
+        "filename": "europe-plus.atlas-nodes.0017.436faf127b3df124.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0018.c811a199b70c8df0.js"
+        "filename": "europe-plus.atlas-nodes.0018.40c116297fb15de1.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0019.97f07e057ec452c7.js"
+        "filename": "europe-plus.atlas-nodes.0019.c134b2de1a85baa0.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-edges.0020.3c7dddf228dcfa2f.js"
+        "filename": "europe-plus.atlas-edges.0020.635a0b26be0e13ec.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-sequences.0021.1618b08ee8018872.js"
+        "filename": "europe-plus.atlas-sequences.0021.3b246f7815180eb5.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-indexes.0022.140f30b6221a77e7.js"
+        "filename": "europe-plus.atlas-indexes.0022.d4b06a326e0d3cf8.js"
       },
       {
         "label": "Animal source-sample chronology accountability",
@@ -209,6 +209,18 @@
       {
         "label": "Atlas scientific review markdown",
         "filename": "europe-plus_scientific_review.md"
+      },
+      {
+        "label": "Static atlas runtime",
+        "filename": "europe-plus_map.atlas-runtime.6fe0692bc39a6d95.js"
+      },
+      {
+        "label": "Interactive evidence tools",
+        "filename": "europe-plus_map.atlas-evidence-tools.bac3f9295a5c95bb.js"
+      },
+      {
+        "label": "Static atlas index transport",
+        "filename": "europe-plus_map.atlas-index-transport.2168d29af8354bcb.js"
       }
     ],
     "animal_localities_geojson": "europe-plus_animal_localities.geojson",
@@ -551,9 +563,9 @@
     },
     "animal_sample_chronology_context": {
       "artifact": "europe-plus_animal_sample_chronology_context.json",
-      "content_sha256": "1065fa00dbfb9ce89ce4760b15ca32f92ac6724d6fc4329bb9e9ca9d3a99bdb9",
-      "input_identity_sha256": "80438e010df33373b883ae6871526dc04fae784b8f32a6b8bcac085f70f0479d",
-      "corpus_identity_sha256": "17400297ebea9df465e862e2a322e729f6b4c7592c51500d7e2b6f7dd6e84834",
+      "content_sha256": "fc6aa4a6ff0cfb6c30d124318c779ed4b14cda0902ca75ac3cb489b104098de2",
+      "input_identity_sha256": "dca77b0cb14aecb1ff67b580aa8f8bc9485a41f520aac758e4302292d1b16c62",
+      "corpus_identity_sha256": "2a4c71ade9cb4ced0471b7e29f8f609f9cfc22c6b5c15a8b462f7a6ef8b513e4",
       "scope": {
         "key": "europe_plus",
         "kind": "region",
@@ -564,10 +576,10 @@
           "Denmark"
         ]
       },
-      "global_admitted_node_count": 323,
+      "global_admitted_node_count": 319,
       "projected_node_count": 13,
-      "excluded_by_scope_count": 310,
-      "refusal_count": 1152,
+      "excluded_by_scope_count": 306,
+      "refusal_count": 1156,
       "governed_country_rows": [
         {
           "country_name": "Denmark",

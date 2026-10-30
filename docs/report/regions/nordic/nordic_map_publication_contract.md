@@ -87,7 +87,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A display circle, layer visibility rule or software contract is not a pollen basin radius, physical dispersal support, scientific source admission or an observed ecological boundary.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. Regional chronology retains 13 nodes and its original source fields. The independent actual Nordic JavaScript index observer recovered every original logical search entry in 30.51 s; this is not full browser or query-latency acceptance.
 
 **Remaining input or review.** Actual provider/browser/export behavior and each layer's scientific/source rights decisions remain separate requirements.
 
@@ -101,7 +101,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four represented countries and 21 declared layer rows, including the separate Neotoma literal ecological-code and exact source-taxon display layers. The 20 km circle is a display diameter, not a scientific sampling denominator.
 
-- [Retained qualification evidence: docs/report/regions/nordic/nordic_map_publication_contract.json](nordic_map_publication_contract.json) (SHA-256 `36ddd169b00254bee39d3d30fba627e49754a4ebf8d6a0df4376428a20908a8d`).
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_map_publication_contract.json](nordic_map_publication_contract.json) (SHA-256 `d13e319c7986452f3f375249ab653032d40cc7e54cbf7feb7c463b404e2716dd`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

@@ -1507,13 +1507,13 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** A parsed numeric date is not automatically direct radiocarbon or a qualified sample date; unqualified elapsed ages cannot acquire a 1950 BPepoch by default.
 
-**Actual verification performed.** Read the complete machine class counts and source-level chronology identities; checked 315+368+386+406=1475 and separate comparability partition. No date parser, calibration or chronology review was rerun.
+**Actual verification performed.** The supplied matched chronology/provenance consumer at 6e68f1a9d reconciled all 1475 owners and changed only six identity/provenance fields on four goat rows. All 1471 other rows, dates and class partitions are unchanged: 315+368+386+406=1475. No original-project builder or date parser was rerun.
 
 **Remaining input or review.** Source epoch, type, unit, calibration, ownership and uncertainty need explicit qualified decisions for each context/unresolved row before scientific interval comparison.
 
 **Cause category.** Heterogeneous source chronology with explicit epoch and precision refusals.
 
-**Consequence.** 1475 chronology review rows are not 1468 unique normalized sample IDs; multiple source/native row views and taxonomic normalization must retain their own identity units.
+**Consequence.** 1475 chronology review rows are not 1464 unique normalized sample IDs; multiple source/native row views and taxonomic normalization must retain their own identity units.
 
 **Precise next acceptance route.** Resolve source-native chronology/epoch and precision without invented aging defaults, replay normalization and sample publication guards, then qualify comparable sample-owned intervals for analysis.
 
@@ -1521,7 +1521,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Matched denominator.** 1475 rows=315 normalized intervals+368 normalized points+386 text-only+406 unresolved. Comparability: 547 numeric+136 numeric-with-caveat+386 context+406 unresolved. These partitions must not be summed together.
 
-- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `1102dfcfe19a93269a6271744b4cc9fd5e48edb52ad29874652e4955b25fce9a`).
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `4cb3827cae92baddb2a37913ba4932272b313f2b3d3c19d76b793fbd0715b4ef`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

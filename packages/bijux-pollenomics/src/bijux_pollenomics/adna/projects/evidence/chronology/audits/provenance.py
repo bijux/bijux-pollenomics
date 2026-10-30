@@ -17,6 +17,8 @@ from bijux_pollenomics.adna.projects.sample_master.tables.horse_source_fields.al
 
 def _build_sample_chronology_provenance_rows(
     output_root: Path,
+    *,
+    project_accessions: tuple[str, ...] | None = None,
 ) -> tuple[dict[str, object], ...]:
     from . import (
         _normalization_rule_for,
@@ -26,8 +28,27 @@ def _build_sample_chronology_provenance_rows(
         build_project_sample_chronology_rows,
     )
 
+    projects = build_archive_project_catalog()
+    if project_accessions is not None:
+        if not project_accessions or len(set(project_accessions)) != len(
+            project_accessions
+        ):
+            raise ValueError(
+                "Chronology provenance selection must be nonempty and unique"
+            )
+        available = {project.project_accession for project in projects}
+        if not set(project_accessions) <= available:
+            raise ValueError(
+                "Chronology provenance selection contains an unknown project"
+            )
+        projects = tuple(
+            project
+            for project in projects
+            if project.project_accession in project_accessions
+        )
+
     rows: list[dict[str, object]] = []
-    for project in build_archive_project_catalog():
+    for project in projects:
         project_rows = build_project_sample_chronology_rows(
             output_root, project.project_accession
         )

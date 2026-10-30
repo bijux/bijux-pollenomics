@@ -1,7 +1,7 @@
 {
   "schema_version": "animal-atlas-candidate-accountability.v1",
-  "candidate_row_count": 165,
-  "passed_row_count": 165,
+  "candidate_row_count": 161,
+  "passed_row_count": 161,
   "overall_ok": true,
   "rows": [
     {
@@ -583,110 +583,6 @@
       ],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
       "coordinate_provenance_locator": "Supplementary Data 1!A8:Y8",
-      "fully_accountable": true
-    },
-    {
-      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
-      "species_latin_name": "Capra hircus",
-      "project_accession": "PRJEB90141",
-      "site_record_id": "capra_hircus:locality:prjeb90141:acemhyk:aksarayplainturkey",
-      "sample_record_ids": [
-        "capra_hircus:sample:prjeb90141:samea4591761"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": true,
-      "site_evidence_present": true,
-      "chronology_evidence_present": true,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [
-        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
-      ],
-      "site_evidence_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
-      "site_evidence_locator": "Table S2 downsampled samples!row4",
-      "chronology_provenance_paths": [
-        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
-      ],
-      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
-      "coordinate_provenance_locator": "Table S2 downsampled samples!row4",
-      "fully_accountable": true
-    },
-    {
-      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-blagotinpoljna-trstenikserbia",
-      "species_latin_name": "Capra hircus",
-      "project_accession": "PRJEB90141",
-      "site_record_id": "capra_hircus:locality:prjeb90141:blagotinpoljna:trstenikserbia",
-      "sample_record_ids": [
-        "capra_hircus:sample:prjeb90141:samea4588077"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": true,
-      "site_evidence_present": true,
-      "chronology_evidence_present": true,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [
-        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
-      ],
-      "site_evidence_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
-      "site_evidence_locator": "Table S2 downsampled samples!row3",
-      "chronology_provenance_paths": [
-        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
-      ],
-      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
-      "coordinate_provenance_locator": "Table S2 downsampled samples!row3",
-      "fully_accountable": true
-    },
-    {
-      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-direklicave-taurusmountainsturkey",
-      "species_latin_name": "Capra hircus",
-      "project_accession": "PRJEB90141",
-      "site_record_id": "capra_hircus:locality:prjeb90141:direklicave:taurusmountainsturkey",
-      "sample_record_ids": [
-        "capra_hircus:sample:prjeb90141:samea4453841"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": true,
-      "site_evidence_present": true,
-      "chronology_evidence_present": true,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [
-        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
-      ],
-      "site_evidence_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
-      "site_evidence_locator": "Table S2 downsampled samples!row2",
-      "chronology_provenance_paths": [
-        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
-      ],
-      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
-      "coordinate_provenance_locator": "Table S2 downsampled samples!row2",
-      "fully_accountable": true
-    },
-    {
-      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-sangechakhmaq-semnaniran",
-      "species_latin_name": "Capra hircus",
-      "project_accession": "PRJEB90141",
-      "site_record_id": "capra_hircus:locality:prjeb90141:sangechakhmaq:semnaniran",
-      "sample_record_ids": [
-        "capra_hircus:sample:prjeb90141:samea4591758"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": true,
-      "site_evidence_present": true,
-      "chronology_evidence_present": true,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [
-        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
-      ],
-      "site_evidence_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
-      "site_evidence_locator": "Table S2 downsampled samples!row5",
-      "chronology_provenance_paths": [
-        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx"
-      ],
-      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
-      "coordinate_provenance_locator": "Table S2 downsampled samples!row5",
       "fully_accountable": true
     },
     {

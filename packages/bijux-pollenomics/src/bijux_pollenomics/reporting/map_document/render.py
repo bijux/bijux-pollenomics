@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import base64
 import hashlib
+from html.parser import HTMLParser
+from importlib.resources import files
 import json
 from pathlib import Path
 import re
@@ -121,6 +123,14 @@ _NATIVE_BINDING = re.compile(
     r'<script id="atlas-native-lra-binding" type="application/json">(.*?)</script>',
     re.DOTALL,
 )
+_MODELED_BINDING = re.compile(
+    r'<script id="atlas-modeled-context-binding" type="application/json">(.*?)</script>',
+    re.DOTALL,
+)
+_OPTIONAL_CONTROLLERS = {
+    "evidence_tools": "atlas-evidence-tools",
+    "index_transport": "atlas-index-transport",
+}
 _RUNTIME_LOADER = """<script>
 (() => {
   const fail = () => {
@@ -146,23 +156,76 @@ _RUNTIME_LOADER = """<script>
 </script>"""
 
 
+class _FixedJsonBindings(HTMLParser):
+    """Read the two document-owned JSON nodes without treating tag order as identity."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=False)
+        self.bindings: dict[str, list[list[str] | None]] = {
+            "atlas-native-lra-binding": [],
+            "atlas-modeled-context-binding": [],
+        }
+        self.active: list[str] | None = None
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        identities = [value for key, value in attrs if key == "id"]
+        for identity in identities:
+            if identity is None or identity not in self.bindings:
+                continue
+            value: list[str] | None = (
+                []
+                if tag == "script"
+                and len(identities) == 1
+                and [value for key, value in attrs if key == "type"]
+                == ["application/json"]
+                else None
+            )
+            self.bindings[identity].append(value)
+            if value is not None:
+                self.active = value
+
+    def handle_data(self, data: str) -> None:
+        if self.active is not None:
+            self.active.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag == "script":
+            self.active = None
+
+
 def _runtime_resources(
     assets: StaticAtlasAssets,
     runtime_bytes: int,
     document: str,
-    optional_bytes: int = 0,
+    optional_bytes: int | tuple[int, ...] = 0,
 ) -> None:
     """Charge executable transport and the actual inline binding to both budgets."""
-    bindings = _NATIVE_BINDING.findall(document)
-    if len(bindings) != 1:
-        raise ValueError("static map document requires one native binding payload")
-    json.loads(bindings[0])
-    inline_bytes = len(bindings[0].encode("utf-8"))
+    parser = _FixedJsonBindings()
+    parser.feed(document)
+    parser.close()
+    inline_bytes = 0
+    for bindings in parser.bindings.values():
+        if len(bindings) != 1 or bindings[0] is None:
+            raise ValueError(
+                "static map document requires one of each fixed JSON binding"
+            )
+        body = "".join(bindings[0])
+        json.loads(body)
+        inline_bytes += len(body.encode("utf-8"))
     if not 0 < runtime_bytes <= ATLAS_DOCUMENT_MAX_BYTES:
         raise ValueError("static atlas runtime exceeds its byte budget")
+    controllers = (
+        (() if optional_bytes == 0 else (optional_bytes,))
+        if type(optional_bytes) is int
+        else optional_bytes
+    )
     if (
-        type(optional_bytes) is not int
-        or not 0 <= optional_bytes <= ATLAS_DOCUMENT_MAX_BYTES
+        type(controllers) is not tuple
+        or len(controllers) > len(_OPTIONAL_CONTROLLERS)
+        or any(
+            type(size) is not int or not 0 < size <= ATLAS_DOCUMENT_MAX_BYTES
+            for size in controllers
+        )
     ):
         raise ValueError("static atlas optional controller exceeds its byte budget")
     rows = normalize_asset_inventory(assets.manifest["assets"])
@@ -179,10 +242,10 @@ def _runtime_resources(
         raise ValueError("static atlas runtime exceeds initial request budget")
     if sum(initial) + runtime_bytes + inline_bytes > ATLAS_INITIAL_MAX_BYTES:
         raise ValueError("static atlas runtime exceeds initial byte budget")
-    if len(rows) + 1 + bool(optional_bytes) > ATLAS_STATIC_ASSETS_MAX_FILES:
+    if len(rows) + 1 + len(controllers) > ATLAS_STATIC_ASSETS_MAX_FILES:
         raise ValueError("static atlas runtime exceeds total asset count budget")
     if (
-        sum(counts) + runtime_bytes + inline_bytes + optional_bytes
+        sum(counts) + runtime_bytes + inline_bytes + sum(controllers)
         > ATLAS_STATIC_ASSETS_MAX_BYTES
     ):
         raise ValueError("static atlas runtime exceeds total asset byte budget")
@@ -258,27 +321,42 @@ def static_map_optional_controller_paths(document_path: Path) -> tuple[Path, ...
     if "optional_controllers" not in runtime:
         return ()
     optional = runtime["optional_controllers"]
-    if not isinstance(optional, dict) or set(optional) != {"evidence_tools"}:
-        raise ValueError("static map optional controller identity is invalid")
-    reference = optional["evidence_tools"]
-    if not isinstance(reference, dict) or not isinstance(reference.get("path"), str):
-        raise ValueError("static map optional controller identity is invalid")
-    name = reference["path"]
-    if not re.fullmatch(
-        re.escape(document_path.stem) + r"\.atlas-evidence-tools\.[a-f0-9]{16}\.js",
-        name,
+    if not isinstance(optional, dict) or set(optional) not in (
+        {"evidence_tools"},
+        set(_OPTIONAL_CONTROLLERS),
     ):
-        raise ValueError("static map optional controller path is invalid")
-    path = document_path.parent / name
-    if path.is_symlink() or not path.is_file() or path.stat().st_nlink != 1:
-        raise ValueError("static map optional controller must be an unaliased file")
-    payload = path.read_bytes()
-    _, actual = _code_reference(
-        path.parent, document_path.stem, "atlas-evidence-tools", payload
-    )
-    if reference != actual or not 0 < len(payload) <= ATLAS_DOCUMENT_MAX_BYTES:
-        raise ValueError("static map optional controller bytes differ")
-    return (path,)
+        raise ValueError("static map optional controller identity is invalid")
+    result = []
+    for key, kind in _OPTIONAL_CONTROLLERS.items():
+        if key not in optional:
+            continue
+        reference = optional[key]
+        if not isinstance(reference, dict) or not isinstance(
+            reference.get("path"), str
+        ):
+            raise ValueError("static map optional controller identity is invalid")
+        name = reference["path"]
+        if not re.fullmatch(
+            re.escape(document_path.stem)
+            + r"\."
+            + re.escape(kind)
+            + r"\.[a-f0-9]{16}\.js",
+            name,
+        ):
+            raise ValueError("static map optional controller path is invalid")
+        path = document_path.parent / name
+        if path.is_symlink() or not path.is_file() or path.stat().st_nlink != 1:
+            raise ValueError("static map optional controller must be an unaliased file")
+        payload = path.read_bytes()
+        _, actual = _code_reference(path.parent, document_path.stem, kind, payload)
+        if (
+            reference != actual
+            or not 0 < len(payload) <= ATLAS_DOCUMENT_MAX_BYTES
+            or path in result
+        ):
+            raise ValueError("static map optional controller bytes differ")
+        result.append(path)
+    return tuple(result)
 
 
 def write_static_map_document(
@@ -333,12 +411,21 @@ def write_static_map_document(
     if match is None:
         raise ValueError("static map runtime boundary is invalid")
     body, evidence_body = _separate_evidence_tools(match.group(1))
-    _runtime_resources(static_assets, len(body), document, len(evidence_body))
+    index_body = files(__package__).joinpath("assets/index-transport.js").read_bytes()
+    _runtime_resources(
+        static_assets, len(body), document, (len(evidence_body), len(index_body))
+    )
     runtime, reference = _code_reference(parent, output.stem, "atlas-runtime", body)
     evidence, evidence_reference = _code_reference(
         parent, output.stem, "atlas-evidence-tools", evidence_body
     )
-    reference["optional_controllers"] = {"evidence_tools": evidence_reference}
+    indexes, index_reference = _code_reference(
+        parent, output.stem, "atlas-index-transport", index_body
+    )
+    reference["optional_controllers"] = {
+        "evidence_tools": evidence_reference,
+        "index_transport": index_reference,
+    }
     document = before + _RUNTIME_LOADER + after
     bootstraps = list(_BOOTSTRAP.finditer(document))
     if (
@@ -356,7 +443,9 @@ def write_static_map_document(
     validate_static_atlas_document(document)
     _check_code_target(runtime, body)
     _check_code_target(evidence, evidence_body)
+    _check_code_target(indexes, index_body)
     write_immutable(runtime, body)
     write_immutable(evidence, evidence_body)
+    write_immutable(indexes, index_body)
     output.write_text(document, encoding="utf-8")
     return output, runtime

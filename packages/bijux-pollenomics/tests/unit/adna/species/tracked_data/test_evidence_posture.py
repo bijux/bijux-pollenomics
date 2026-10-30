@@ -4,14 +4,112 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from types import SimpleNamespace
+from typing import Any, cast
 
 import pytest
 
 from bijux_pollenomics.adna.governance.atlas_candidates.sample_support import (
     _atlas_admitted_sample_rows,
 )
+from bijux_pollenomics.adna.species.tracked_data import markdown
+from bijux_pollenomics.adna.workflow.normalization import AdnaSpeciesNormalizationBundle
 
 pytestmark = pytest.mark.generated_artifacts
+
+
+def test_supplied_species_projection_avoids_global_recovery_and_bundle_builders(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def unexpected_global_builder(*_args: object, **_kwargs: object) -> object:
+        raise AssertionError("supplied species view called a global builder")
+
+    monkeypatch.setattr(
+        markdown, "build_species_normalization_bundle", unexpected_global_builder
+    )
+    monkeypatch.setattr(
+        markdown,
+        "_species_project_recovery_deficits_payload",
+        unexpected_global_builder,
+    )
+    bundle = cast(
+        AdnaSpeciesNormalizationBundle,
+        SimpleNamespace(
+            species=SimpleNamespace(latin_name="Capra hircus"),
+            sample_records=(SimpleNamespace(inclusion_status="site_curated"),) * 2,
+            site_evidence_records=(object(),),
+            coordinate_provenance_records=(
+                SimpleNamespace(
+                    mapping_posture="mappable_point",
+                    coordinate_basis="supplementary_table_coordinates",
+                ),
+            ),
+            locality_records=(
+                SimpleNamespace(nordic_inclusion=False, coordinate_confidence="exact"),
+            ),
+        ),
+    )
+    deficits: dict[str, Any] = {
+        "species_latin_name": "Capra hircus",
+        "counts": {
+            "project_count": 1,
+            "projects_with_sample_gap": 1,
+            "projects_with_site_gap": 0,
+            "projects_with_chronology_gap": 0,
+            "projects_blocked_before_publication": 1,
+        },
+        "rows": [
+            {
+                "project_accession": "source-project",
+                "minimum_gap_count": 1,
+                "lacking_defensible_site_assignment_count": 0,
+                "missing_chronology_count": 0,
+                "publication_readiness_status": "blocked",
+            }
+        ],
+    }
+    readme = markdown._render_species_root_readme(
+        tmp_path,
+        "Capra hircus",
+        normalization_bundle=bundle,
+        recovery_deficits_payload=deficits,
+    )
+    assert "- Curated sample rows: `2`" in readme
+    assert "- Curated site rows: `1`" in readme
+    assert "- Direct-coordinate rows: `1`" in readme
+    assert "- Projects with sample recovery gaps: `1`" in readme
+    assert "- Projects blocked before publication review: `1`" in readme
+    support = markdown._render_support_summary_markdown(
+        tmp_path, "Capra hircus", recovery_deficits_payload=deficits
+    )
+    assert "- Projects with sample recovery gaps: `1`" in support
+    assert "- Projects blocked before publication review: `1`" in support
+    deficit_report = markdown._render_species_project_recovery_deficits_markdown(
+        tmp_path, "Capra hircus", recovery_deficits_payload=deficits
+    )
+    assert "| `source-project` | `1` | `0` | `0` | `blocked` |" in deficit_report
+
+
+def test_supplied_species_renderers_reject_another_owner(tmp_path: Path) -> None:
+    wrong_bundle = cast(
+        AdnaSpeciesNormalizationBundle,
+        SimpleNamespace(species=SimpleNamespace(latin_name="Ovis aries")),
+    )
+    with pytest.raises(ValueError, match="different species owner"):
+        markdown._render_species_root_readme(
+            tmp_path, "Capra hircus", normalization_bundle=wrong_bundle
+        )
+    for render in (
+        markdown._render_species_root_readme,
+        markdown._render_support_summary_markdown,
+        markdown._render_species_project_recovery_deficits_markdown,
+    ):
+        with pytest.raises(ValueError, match="different species owner"):
+            render(
+                tmp_path,
+                "Capra hircus",
+                recovery_deficits_payload={"species_latin_name": "Ovis aries"},
+            )
 
 
 def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
@@ -42,6 +140,27 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
         assert sample_payload["refused_sample_count"] == len(
             sample_payload["sample_refusals"]
         )
+        if species_root.name == "capra_hircus":
+            assert not any(
+                row["project_accession"] == "PRJEB90141"
+                for row in sample_payload["samples"]
+            )
+            assert {
+                (row["source_token"], row["reason"])
+                for row in sample_payload["sample_refusals"]
+                if row["source_token"].startswith("PRJEB90141:")
+            } == {
+                (
+                    f"PRJEB90141:prjeb90141:{accession}",
+                    "sample_evidence_not_yet_recoverable",
+                )
+                for accession in (
+                    "samea4453841",
+                    "samea4588077",
+                    "samea4591758",
+                    "samea4591761",
+                )
+            }
         provenance_payload = json.loads(
             (species_root / "normalized" / "coordinate_provenance.json").read_text(
                 encoding="utf-8"
@@ -72,5 +191,5 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
                 assert coordinates["confidence"]
             if provenance and provenance["mapping_posture"] == "refused_region_only":
                 assert not has_coordinates
-    assert admitted_sample_count == 1468
-    assert refused_sample_count == 25
+    assert admitted_sample_count == 1464
+    assert refused_sample_count == 29
