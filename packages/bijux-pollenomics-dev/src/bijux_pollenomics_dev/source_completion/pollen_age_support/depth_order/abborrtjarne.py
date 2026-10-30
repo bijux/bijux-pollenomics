@@ -12,7 +12,10 @@ import os
 from pathlib import Path
 import shutil
 import stat
+import subprocess
+import sys
 import tempfile
+from types import ModuleType
 from typing import Any
 
 from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
@@ -34,6 +37,7 @@ from bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarne_mem
     SUPPORT_FIELDS,
 )
 from bijux_pollenomics_dev.source_completion.pollen_age_support.depth_order import (
+    count_fraction,
     domains,
     extrema,
 )
@@ -152,7 +156,91 @@ def derive(support: bytes, memberships: bytes, report_bytes: bytes) -> dict[str,
     }
 
 
-def _buffers(repository: Path) -> tuple[dict[Path, bytes], dict[str, Any]]:
+def derive_count_fraction_bounds(
+    support: bytes, memberships: bytes, report_bytes: bytes
+) -> dict[str, Any]:
+    """Compute new single-bin extrema without replacing historical corners."""
+    prior: dict[str, Any] = dict(independent.derive(support, memberships, report_bytes))
+    reader = csv.DictReader(io.StringIO(support.decode("utf-8")))
+    if tuple(reader.fieldnames or ()) != SUPPORT_FIELDS:
+        raise ValueError("Original ABBO support columns differ")
+    rows = list(reader)
+    samples = [
+        DepthCountSample(
+            MarginalAgeCountSample(
+                row["sample_id"],
+                Decimal(row["legacyage_min_cal_bp"]),
+                Decimal(row["legacyage_max_cal_bp"]),
+                int(row["closed_nisp_count"]),
+                int(row["all_nisp_count"]),
+            ),
+            Decimal(row["depth_cm"]),
+        )
+        for row in rows
+    ]
+    if len(rows) != 107:
+        raise ValueError("Original ABBO sample population differs")
+
+    def wire(
+        witness: count_fraction.CountFractionWitness | None,
+    ) -> dict[str, Any] | None:
+        if witness is None:
+            return None
+        return {
+            "fraction": {
+                "numerator": witness.value.numerator,
+                "denominator": witness.value.denominator,
+            },
+            "pooled_numerator_count": witness.numerator_count,
+            "pooled_denominator_count": witness.denominator_count,
+            "selected_sample_ids": list(witness.selected_sample_ids),
+            "age_order": _wire(witness.age_order),
+        }
+
+    bounds = []
+    for original in prior["marginal_bounds"]:
+        bin_ = AgeBin(
+            original["bin_id"],
+            Decimal(original["bin_id"]) * 500,
+            (Decimal(original["bin_id"]) + 1) * 500,
+        )
+        result = count_fraction.ordered_count_fraction_bounds(
+            samples, bin_, core_id=CORE
+        )
+        bounds.append(
+            {
+                "bin_id": bin_.bin_id,
+                "younger_cal_bp_inclusive": str(bin_.younger_cal_bp),
+                "older_cal_bp_exclusive": str(bin_.older_cal_bp_exclusive),
+                "depth_group_count": result.depth_group_count,
+                "candidate_block_count": result.candidate_block_count,
+                "tested_block_count": result.tested_block_count,
+                "feasible_block_count": result.feasible_block_count,
+                "native_age_order": _wire(result.native_age_order),
+                "empty_selection_age_order": _wire(result.empty_selection_age_order),
+                "lower": wire(result.lower),
+                "upper": wire(result.upper),
+                "refusal": result.refusal,
+            }
+        )
+    return {
+        "schema_version": "abbo-ordered-count-fraction-bounds.v1",
+        "sample_count": len(rows),
+        "source_native_negative_younger_bound_count": prior[
+            "source_native_negative_younger_bound_count"
+        ],
+        "quantity": prior["quantity"],
+        "original_independent_marginal_bounds": prior["marginal_bounds"],
+        "bounds": bounds,
+        "assumption": "One nondecreasing age function of native depth; equal depths share one age. This is a declared conditional model, not source-verified sediment history.",
+        "age_scope": "Literal closed LegacyAge marginal intervals and native signed ages; no newly qualified reference epoch, calibration model, confidence level or joint probability law.",
+        "interpretation": "Sharp single-bin closed16/all-NISP count fractions over feasible nonempty contiguous depth-group blocks. Complete witnesses include every source sample. Empty selections have no fraction. Extrema for different bins need not be jointly attainable; historical corners, negative values, predictions and refusals remain unchanged. No calibrated uncertainty, chronology confirmation, vegetation accuracy or untouched evaluation follows.",
+    }
+
+
+def _buffers(
+    repository: Path, *, include_code_identities: bool = True
+) -> tuple[dict[Path, bytes], dict[str, Any]]:
     if not repository.is_absolute() or repository.resolve(strict=True) != repository:
         raise ValueError("A physical absolute repository is required")
     buffers: dict[Path, bytes] = {}
@@ -172,16 +260,23 @@ def _buffers(repository: Path) -> tuple[dict[Path, bytes], dict[str, Any]]:
             raise ValueError("Retained ledger identity differs")
         buffers[name] = raw
         identities[str(name)] = {"sha256": expected, "bytes": len(raw)}
-    for module in (
+    modules: tuple[ModuleType, ...] = (
         independent,
         joint_membership,
         abborrtjarne_membership,
         interval_fraction,
         domains,
         extrema,
-    ):
+    )
+    if not include_code_identities:
+        modules += (count_fraction,)
+    for module in modules:
         path = Path(module.__file__ or "").absolute()
-        suffix = Path("depth_order") if module in (domains, extrema) else Path()
+        suffix = (
+            Path("depth_order")
+            if module in (domains, extrema, count_fraction)
+            else Path()
+        )
         expected_origin = (
             repository
             / independent.MODULE_ROOT
@@ -192,34 +287,47 @@ def _buffers(repository: Path) -> tuple[dict[Path, bytes], dict[str, Any]]:
             raise ValueError(
                 "Scientific module origin differs from selected repository"
             )
-        raw = path.read_bytes()
-        identities[str(path.relative_to(repository))] = {
-            "sha256": hashlib.sha256(raw).hexdigest(),
-            "bytes": len(raw),
-        }
+        if include_code_identities:
+            raw = path.read_bytes()
+            identities[str(path.relative_to(repository))] = {
+                "sha256": hashlib.sha256(raw).hexdigest(),
+                "bytes": len(raw),
+            }
     own = Path(__file__).absolute()
     if (
         own.resolve(strict=True) != own
         or own != repository / independent.MODULE_ROOT / "depth_order/abborrtjarne.py"
     ):
         raise ValueError("Adapter origin differs from selected repository")
-    raw = own.read_bytes()
-    identities[str(own.relative_to(repository))] = {
-        "sha256": hashlib.sha256(raw).hexdigest(),
-        "bytes": len(raw),
-    }
+    if include_code_identities:
+        raw = own.read_bytes()
+        identities[str(own.relative_to(repository))] = {
+            "sha256": hashlib.sha256(raw).hexdigest(),
+            "bytes": len(raw),
+        }
     return buffers, identities
 
 
-def run(repository: Path, output: Path) -> dict[str, Any]:
+def run(
+    repository: Path, output: Path, *, count_fraction_bounds: bool = False
+) -> dict[str, Any]:
     """Write one new source-bound diagnostic; all historical products stay literal."""
     repository = repository.absolute()
     destination = require_absent_artifact_output(repository, output)
-    buffers, identities = _buffers(repository)
-    result = derive(
+    source_revision = _source_revision(repository) if count_fraction_bounds else None
+    buffers, identities = _buffers(
+        repository, include_code_identities=not count_fraction_bounds
+    )
+    producer = derive_count_fraction_bounds if count_fraction_bounds else derive
+    result = producer(
         buffers[SUPPORT], buffers[independent.MEMBERSHIP], buffers[independent.REPORT]
     )
-    result["input_and_source_identities"] = identities
+    if count_fraction_bounds:
+        result["input_identities"] = identities
+        result["source_git_revision"] = source_revision
+        result["command"] = sys.orig_argv
+    else:
+        result["input_and_source_identities"] = identities
     raw = (
         json.dumps(result, sort_keys=True, indent=2, allow_nan=False) + "\n"
     ).encode()
@@ -228,8 +336,13 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
     stage = Path(tempfile.mkdtemp(prefix=".depth-order-", dir=destination.parent))
     try:
         (stage / "report.json").write_bytes(raw)
-        if _buffers(repository) != (buffers, identities):
+        if _buffers(repository, include_code_identities=not count_fraction_bounds) != (
+            buffers,
+            identities,
+        ):
             raise ValueError("Input or source changed before publication")
+        if count_fraction_bounds and _source_revision(repository) != source_revision:
+            raise ValueError("Source Git revision changed before publication")
         require_absent_artifact_output(repository, destination)
         os.replace(stage, destination)
     except BaseException:
@@ -238,13 +351,51 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
     return result
 
 
+def _source_revision(repository: Path) -> str:
+    """Identify committed scientific code without generating code checksum pins."""
+    command = ["git", "-C", str(repository)]
+    revision = subprocess.run(
+        [*command, "rev-parse", "HEAD"],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    ).stdout.strip()
+    paths = [
+        str(Path(module.__file__ or "").relative_to(repository))
+        for module in (
+            independent,
+            joint_membership,
+            abborrtjarne_membership,
+            interval_fraction,
+            domains,
+            extrema,
+            count_fraction,
+        )
+    ] + [str(Path(__file__).relative_to(repository))]
+    subprocess.run(
+        [*command, "ls-files", "--error-unmatch", "--", *paths],
+        check=True,
+        capture_output=True,
+        timeout=30,
+    )
+    subprocess.run(
+        [*command, "diff", "--exit-code", revision, "--", *paths],
+        check=True,
+        capture_output=True,
+        timeout=30,
+    )
+    return revision
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run only when the caller has admitted this explicitly conditional analysis."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--count-fraction-bounds", action="store_true")
     args = parser.parse_args(argv)
-    run(args.repository, args.output)
+    run(args.repository, args.output, count_fraction_bounds=args.count_fraction_bounds)
     return 0
 
 
