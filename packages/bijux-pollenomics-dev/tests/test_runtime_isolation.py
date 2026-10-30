@@ -142,8 +142,8 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/candidate.py": {
-        "bijux_pollenomics.reporting.map_document": frozenset(
-            {"render_multi_country_map_html"}
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"write_static_map_document"}
         ),
         "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
             {"write_static_atlas_assets"}
@@ -797,8 +797,8 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.reporting.lra_products.api": frozenset(
             {"render_lra_report"}
         ),
-        "bijux_pollenomics.reporting.map_document": frozenset(
-            {"render_multi_country_map_html"}
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"write_static_map_document"}
         ),
         "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
             {"write_static_atlas_assets"}
@@ -824,8 +824,8 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"wgs84_inverse_geodesic"}
         ),
         "bijux_pollenomics.core.geospatial.geojson": frozenset({"JsonObject"}),
-        "bijux_pollenomics.reporting.map_document": frozenset(
-            {"render_multi_country_map_html"}
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"write_static_map_document"}
         ),
         "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
             {"write_static_atlas_assets"}
@@ -836,8 +836,8 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.reporting.geography": frozenset(
             {"build_published_geography_plan"}
         ),
-        "bijux_pollenomics.reporting.map_document": frozenset(
-            {"render_multi_country_map_html"}
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"write_static_map_document"}
         ),
         "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
             {"write_static_atlas_assets"}
@@ -863,8 +863,8 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.reporting.geography": frozenset(
             {"build_published_geography_plan"}
         ),
-        "bijux_pollenomics.reporting.map_document": frozenset(
-            {"render_multi_country_map_html"}
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"write_static_map_document"}
         ),
         "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
             {"write_static_atlas_assets"}
@@ -893,8 +893,8 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.reporting.geography": frozenset(
             {"build_published_geography_plan"}
         ),
-        "bijux_pollenomics.reporting.map_document": frozenset(
-            {"render_multi_country_map_html"}
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"write_static_map_document"}
         ),
         "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
             {"write_static_atlas_assets"}
@@ -1312,8 +1312,8 @@ def test_new_host_bindings_remain_file_and_symbol_specific() -> None:
     """An admitted source import must not authorize sibling files or symbols."""
     approved = {
         "bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/candidate.py": (
-            "bijux_pollenomics.reporting.map_document",
-            "render_multi_country_map_html",
+            "bijux_pollenomics.reporting.map_document.render",
+            "write_static_map_document",
         ),
         "bijux_pollenomics_dev/ci/atlas_browser/sample_chronology/source_rows.py": (
             "bijux_pollenomics.adna.species.homo_sapiens.records",

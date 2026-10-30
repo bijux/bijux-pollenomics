@@ -12,7 +12,7 @@ from typing import Any, Literal, cast
 
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.lra_products.api import render_lra_report
-from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
@@ -206,7 +206,8 @@ def generate_context_frame_candidates(
             if scope.key == "nordic"
         )
     )
-    document = render_multi_country_map_html(
+    write_static_map_document(
+        modeled_root / "index.html",
         "Retained PANGAEA modeled context",
         "retained-pangaea-context",
         "2026-09-28",
@@ -217,7 +218,6 @@ def generate_context_frame_candidates(
         "./_map_assets",
         static_assets=assets,
     )
-    (modeled_root / "index.html").write_text(document)
     map_assets = package / "reporting/assets/map"
     for path in sorted(map_assets.rglob("*")):
         if path.is_file():

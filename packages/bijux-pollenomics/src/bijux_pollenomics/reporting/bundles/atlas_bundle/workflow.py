@@ -30,7 +30,7 @@ def publish_bundle(
     build_multi_country_map_summary_fn: Any,
     build_samples_geojson_fn: Any,
     copy_map_assets_fn: Any,
-    render_multi_country_map_html_fn: Any,
+    write_static_map_document_fn: Any,
     render_multi_country_map_markdown_fn: Any,
     write_summary_json_fn: Any,
     atlas_detail_records: Any,
@@ -39,6 +39,7 @@ def publish_bundle(
     atlas_sequence_records: Any,
     surface: Any,
 ) -> None:
+    """Publish atlas layers, evidence, playback, and inventoried static documents."""
     (
         bundle_paths,
         point_layers,
@@ -125,7 +126,7 @@ def publish_bundle(
         static_assets=static_assets,
         build_multi_country_map_summary_fn=build_multi_country_map_summary_fn,
         copy_map_assets_fn=copy_map_assets_fn,
-        render_multi_country_map_html_fn=render_multi_country_map_html_fn,
+        write_static_map_document_fn=write_static_map_document_fn,
         render_multi_country_map_markdown_fn=render_multi_country_map_markdown_fn,
         write_summary_json_fn=write_summary_json_fn,
         surface=surface,

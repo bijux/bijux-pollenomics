@@ -1,3 +1,5 @@
+"""Coordinate country reports, Atlas bundles, and published report outputs."""
+
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable
@@ -37,6 +39,7 @@ from .bundles.summary_builders import (
 )
 from .context import build_context_layers
 from .geography import GeographicScope, infer_publication_scope
+from .map_document.render import write_static_map_document
 from .models import (
     AnimalFoundationRefreshReport,
     CountryReport,
@@ -48,7 +51,6 @@ from .presentation.text import slugify
 from .rendering import (
     build_samples_geojson,
     copy_map_assets,
-    render_multi_country_map_html,
     render_multi_country_map_markdown,
     render_sample_markdown,
     render_summary_markdown,
@@ -192,7 +194,7 @@ def generate_multi_country_map(
             build_multi_country_map_summary_fn=build_multi_country_map_summary,
             build_samples_geojson_fn=build_samples_geojson,
             copy_map_assets_fn=copy_map_assets,
-            render_multi_country_map_html_fn=render_multi_country_map_html,
+            write_static_map_document_fn=write_static_map_document,
             render_multi_country_map_markdown_fn=render_multi_country_map_markdown,
             write_summary_json_fn=write_summary_json,
         )

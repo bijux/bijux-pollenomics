@@ -9,7 +9,7 @@ from xml.etree import ElementTree as ET
 import pytest
 
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
-from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
@@ -194,19 +194,17 @@ def build_detail_focus_candidate(directory: Path) -> Path:
         )
     )
     document = directory / "index.html"
-    document.write_text(
-        render_multi_country_map_html(
-            "Synthetic detail keyboard contract",
-            "keyboard-contract",
-            "2026-09-27",
-            ("Sweden", "Norway"),
-            policy,
-            layers,
-            [],
-            "./_map_assets",
-            static_assets=assets,
-        ),
-        encoding="utf-8",
+    write_static_map_document(
+        document,
+        "Synthetic detail keyboard contract",
+        "keyboard-contract",
+        "2026-09-27",
+        ("Sweden", "Norway"),
+        policy,
+        layers,
+        [],
+        "./_map_assets",
+        static_assets=assets,
     )
     return document
 
@@ -250,14 +248,17 @@ def test_detail_focus_candidate_exposes_labelled_panel_and_loaded_sample_pages(
 ) -> None:
     document = build_detail_focus_candidate(tmp_path)
     html = document.read_text(encoding="utf-8")
+    runtime_files = list(document.parent.glob("*.atlas-runtime.*.js"))
+    assert len(runtime_files) == 1
+    runtime = runtime_files[0].read_text(encoding="utf-8")
     assert 'role="tabpanel" tabindex="0"' in html
-    assert 'aria-controls="focus-detail" tabindex="${activeFocusTab === key' in html
+    assert 'aria-controls="focus-detail" tabindex="${activeFocusTab === key' in runtime
     assert (
         "focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`)"
-        in html
+        in runtime
     )
-    assert "focusedTable" in html
-    assert "restoreFocusFromCard()" in html
+    assert "focusedTable" in runtime
+    assert "restoreFocusFromCard()" in runtime
     assert "./_map_assets/leaflet/leaflet.js" in html
 
 

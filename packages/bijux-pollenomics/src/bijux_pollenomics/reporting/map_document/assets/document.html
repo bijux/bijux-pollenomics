@@ -2528,6 +2528,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
     <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
 __STATIC_CHUNK_SCRIPT_TAGS__
 __NATIVE_LRA_SCRIPT_TAG__
+    <!-- atlas-runtime:begin -->
     <script>
       (async () => {
       const STATIC_ATLAS_ASSET_TABLE_FIELDS = Object.freeze([
@@ -2749,14 +2750,25 @@ __NATIVE_LRA_SCRIPT_TAG__
         const sequences = STATIC_ATLAS_BOOTSTRAP.assets.map((row) => row.sequence);
         if (sequences.some((sequence, index) => !Number.isSafeInteger(sequence) || sequence !== index) || new Set(sequences).size !== sequences.length) staticAtlasFailure('bootstrap asset sequences are invalid');
         const initial = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.initial_load === true);
-        const initialBytes = initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        const runtime = STATIC_ATLAS_BOOTSTRAP.runtime;
+        let runtimeBytes = 0, runtimeRequests = 0;
+        if (runtime !== undefined) {
+          if (!runtime || typeof runtime !== 'object'
+            || typeof runtime.path !== 'string' || typeof runtime.integrity !== 'string'
+            || !/^[A-Za-z0-9][A-Za-z0-9._-]*[.]atlas-runtime[.][a-f0-9]{16}[.]js$/.test(runtime.path)
+            || !/^sha256-[A-Za-z0-9+/]{43}=$/.test(runtime.integrity)) staticAtlasFailure('runtime transport identity is invalid');
+          runtimeBytes = staticAtlasNonnegativeInteger(runtime.byte_count, 'runtime byte count');
+          if (runtimeBytes <= 0 || runtimeBytes > 524288) staticAtlasFailure('runtime byte budget exceeded');
+          runtimeRequests = 1;
+        }
+        const initialBytes = runtimeBytes + initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
         const initialRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_requests, 'initial request budget');
         const initialByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_bytes, 'initial byte budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_requests, 'interaction request budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_bytes, 'interaction byte budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.chunk_max_bytes, 'chunk byte budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.filter_main_thread_max_ms, 'filter main-thread budget');
-        if (initial.length > initialRequestBudget) staticAtlasFailure('initial request budget exceeded');
+        if (initial.length + runtimeRequests > initialRequestBudget) staticAtlasFailure('initial request budget exceeded');
         if (initialBytes > initialByteBudget) staticAtlasFailure('initial byte budget exceeded');
       }
       async function staticAtlasSha256(text) {
@@ -8178,5 +8190,6 @@ __URL_STATE_CONTROLLER__
         console.error(error);
       });
     </script>
+    <!-- atlas-runtime:end -->
   </body>
 </html>

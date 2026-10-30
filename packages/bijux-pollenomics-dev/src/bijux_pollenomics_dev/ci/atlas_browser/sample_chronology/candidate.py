@@ -9,7 +9,7 @@ from pathlib import Path
 import shutil
 from typing import Any, cast
 
-from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
@@ -101,7 +101,8 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
         point_layers=[layer],
         polygon_layers=[],
     )
-    document = render_multi_country_map_html(
+    html_path, _ = write_static_map_document(
+        destination / "index.html",
         "Sample-owned chronology",
         "published-v66",
         "2026-10-14",
@@ -112,7 +113,6 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
         "./_map_assets",
         static_assets=assets,
     )
-    (destination / "index.html").write_text(document, encoding="utf-8")
     map_assets = (
         repository
         / "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map"
@@ -157,7 +157,7 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
         "dated_feature_count": 1,
         "undated_feature_count": 1,
         "candidate_build_id": assets.manifest["build_id"],
-        "candidate_document_sha256": hashlib.sha256(document.encode()).hexdigest(),
+        "candidate_document_sha256": hashlib.sha256(html_path.read_bytes()).hexdigest(),
         "component_index_schema": cast(
             dict[str, Any], assets.manifest["compatibility"]
         )["index_schema"],
