@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "d107f1aeed6b9192801cca0079424abde09ef53df20e307656fd01bdbcdb2668",
-      "bytes": 7377643
+      "sha256": "d06c9bba4b850f663be3aa4b42d2a18241b04be19fb66115247e9c2724613135",
+      "bytes": 7382357
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -3456,8 +3456,8 @@
     },
     {
       "path": "reports/science/country-evidence-status.csv",
-      "sha256": "bc57eac37171bb04d4a8a72c275fe8dfb9f66da1558e36a2c1975f27a064d8ed",
-      "bytes": 3108
+      "sha256": "26be14a4cae37e660e540a90929b5662712a27283b231aaa456c06e1c098dbc3",
+      "bytes": 4465
     },
     {
       "path": "reports/science/dalmutladdo-lra-input/controls.csv",
@@ -4853,6 +4853,386 @@
       "path": "data/method-certification/source-locked-linux-r/reference-bundle/source-transport.json",
       "sha256": "7210b25d2c53192c5e5b0e1aaf2781c5ef9f46adbad0b0da568f6460362cc138",
       "bytes": 1519
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/matched-pollen-forward/assumptions/protocol.json",
+      "sha256": "22355c28b91af19e23240ce8060761fc0f1f45d6be212d04f5432127eb2e7249",
+      "bytes": 17806
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-source-projection.json",
+      "sha256": "65c1fc6d93db27d59eba1301e1d651e6ba79161c9a9971e00bc6080a1655f982",
+      "bytes": 3003
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/ppe-sensitivity.json",
+      "sha256": "493ab9987843957ac458c44bc8a0d654e3766592aae9e2ff98f0bf921b8c668f",
+      "bytes": 3114
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/protocol.json",
+      "sha256": "835a1c9342ee086cdf6a755c6e6b450c1933d9f3b50625f9895349d9636990a6",
+      "bytes": 6527
+    },
+    {
+      "path": "reports/science/method-certification/constrained-current-hellinger-characterization.json",
+      "sha256": "e129bf6d3b90987937ddc87aadd9c30dcccfae195cde11539d70acf3383defc5",
+      "bytes": 90947
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/matched-pollen-forward/decimal-comparison.json",
+      "sha256": "cd91126b5530ccef653f600e14397cee30296e356473099c58a42ffece2d2434",
+      "bytes": 917691
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/matched-pollen-forward/prediction-freeze.json",
+      "sha256": "2591edeb9ebc73168ea278f422e7ccb0963e592b1db1961783079a068653c24b",
+      "bytes": 382695
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/matched-pollen-forward/publication.json",
+      "sha256": "83086a88dcdf3483599afa642d9add18d3820d425049c48e680aa899b610ef1b",
+      "bytes": 6306
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/matched-pollen-forward/report.json",
+      "sha256": "13092254c2c1f96a998a03689b7bdf2f2df1adc2fbaa096395de3bc7d3052d67",
+      "bytes": 3926
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/matched-pollen-forward/scores.json",
+      "sha256": "dc8881e216aa1bc27d4eb2c46307b9501d6ffd0a0c0d06be4b15191dd55e6dc5",
+      "bytes": 224365
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/admissibility-publication.json",
+      "sha256": "e75e00ed6e8ead0eedccbc1e5780342985edf9c8c933dcf38f59cdee8c3a70ed",
+      "bytes": 5593
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/admissibility.json",
+      "sha256": "92f9c3ea9328b9945a430b5e734350cab2bf2115db1a3854b91bd63f2b8fee99",
+      "bytes": 47876
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/failures.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/folds.json",
+      "sha256": "af8b2c13412ebec63ed5105234730eb39771eb82c9985e7f4365e5b24bd48e08",
+      "bytes": 1559
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/operations.json",
+      "sha256": "cfc4b04fb3a1b84888d24fb59d4f840393c0f10daf3d1fdc862dfdd62b4de1ac",
+      "bytes": 3551
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/predictions.json",
+      "sha256": "f60e3e299220669723684f4ca98f52ec194bb1de1d602a103c06e2efe1ab0a1b",
+      "bytes": 31886
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/preparations.json",
+      "sha256": "5ea3c8144c2846688f8f2b4d9b2cf2898591b594813fbef647f017588509d037",
+      "bytes": 10901
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/projection.json",
+      "sha256": "ecf2047c47844997f18698b04f5a6b3a3242ef9619063b37d2c69863cae0dbeb",
+      "bytes": 1294
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/scores.json",
+      "sha256": "9d913714854d12521e28e4952521c192738fbc3e4f9dc81d2e8f7b46c82b028d",
+      "bytes": 15026
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/summaries.json",
+      "sha256": "83eebaf1a873055e7a24be95cf412cbf8bc4dcb7898f7cab47106336ff4563e1",
+      "bytes": 1098
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/training.json",
+      "sha256": "88d761080fadbbc6af90ca5296d245e8b0957f9cc490adaa4c9def884a4b6325",
+      "bytes": 4565
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/failures.json",
+      "sha256": "2d8581bed0c3cc855bb300ada94dd8275bed76b0b2d21e9a7c48b92802827b15",
+      "bytes": 598
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/folds.json",
+      "sha256": "bd6767e7730aacaf92cf79dd100aac075580faf222b51de09d1e06fc58712b43",
+      "bytes": 1559
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/operations.json",
+      "sha256": "8d980afe8eba499620c5d37d53eb4f8a01f8b9af3741c39d31e2e227d18829a2",
+      "bytes": 1185
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/predictions.json",
+      "sha256": "efdaaab80a07818997ca1cc2fdcfcdfed752d4131368bf782941c99047ab577a",
+      "bytes": 10606
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/preparations.json",
+      "sha256": "3bda0b041226854d81e205120466b83bab7b606d49c62d731204995549495211",
+      "bytes": 3619
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/projection.json",
+      "sha256": "e413ad15f26b0cbcdf6c9fcc29d30f0fffb840eda68e6fa887c9d3e480d3f1ca",
+      "bytes": 1296
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/scores.json",
+      "sha256": "b17c2de32f76eb057dbce1f480bf3473ecb3fc746b6c63ddf87b70910fbdc363",
+      "bytes": 7943
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/summaries.json",
+      "sha256": "5a91627cecd914911fe2e1b77467b12145702338900eab2ef0e051d87ffee370",
+      "bytes": 1164
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/training.json",
+      "sha256": "52a573ccc0d7ea2d92e3c1e9a53302cf343db738dffa4608d34aee708cfebd73",
+      "bytes": 1521
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/failures.json",
+      "sha256": "5e7c2f8266727206d4dab29b992abde5631c865e554907c63be30fe964fc0209",
+      "bytes": 598
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/folds.json",
+      "sha256": "d39e7d853d1b7b6032ad6ac9531c09c5945765f62a6834daefec131cea9bc1f6",
+      "bytes": 1559
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/operations.json",
+      "sha256": "43493b95ac2f77b2b00f7b53f81f46f4b6e1328ea75b0a4003a4f96e6b6a7a47",
+      "bytes": 1185
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/predictions.json",
+      "sha256": "252ea7672cce0aac9a52c8c58c67dc04b33e2eaa330ca4f60ff23b95568015e4",
+      "bytes": 10618
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/preparations.json",
+      "sha256": "6e5be19719a6ed6d2f7ba396435ccc75ca7f5390caaf1af0555eb53620f66fcb",
+      "bytes": 3617
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/projection.json",
+      "sha256": "98e05fbc970a2daa9002e6d4e0d5609964b41bb6e01bec6bbc46db3bdb6caa50",
+      "bytes": 1296
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/scores.json",
+      "sha256": "702f09ac016b25c25c87b137408b3ed691c259c31a5245060f62faa38abd1498",
+      "bytes": 7946
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/summaries.json",
+      "sha256": "3db678be703be07910ce117fd8335544bedf419722857efb02b52767c0d68f5b",
+      "bytes": 1161
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/training.json",
+      "sha256": "cfa11541d6fda0a673d71a3306912bfd586680c71574ca6c217aef1c5baaee5d",
+      "bytes": 1522
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/failures.json",
+      "sha256": "1d60043d15d34d93ec06d740a757fa0c5a1b1ef6d7f7e90b507b5269039259ce",
+      "bytes": 598
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/folds.json",
+      "sha256": "7f7caadc7d08835b853f57f3f592071c85c662764432c816ebd683688cb27108",
+      "bytes": 1559
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/operations.json",
+      "sha256": "8e76582b73c05a93311076cdbb01a59efcda937477efffa51c29eb37d5106f0e",
+      "bytes": 1185
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/predictions.json",
+      "sha256": "0470bdb63f94ccc31b1f4cc7cc6a9ab46c7bcc49dbc59a18f3ad8e54f34ac9c1",
+      "bytes": 10624
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/preparations.json",
+      "sha256": "ec6c47e11b7c78ed20e06602fc53738f151f37ea03b739e7e1294185e88a25cd",
+      "bytes": 3621
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/projection.json",
+      "sha256": "50647b9f26d6efd09ac0856cb7d690b162e3a7ab0d9663f6945db9b7f853de0d",
+      "bytes": 1299
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/scores.json",
+      "sha256": "10500fc1638eeafa63704530a69077af7145e71ebb709b74af27aaee0b6cff25",
+      "bytes": 7940
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/summaries.json",
+      "sha256": "39c1b7079121166b05ec93071ccb7ab86f6f73f0102f081258a56e4e8af3046a",
+      "bytes": 1161
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/training.json",
+      "sha256": "ba09ca058c3a63fb958bce5b55b3c2c329ed6135d24f2b34ae1f264603b61920",
+      "bytes": 1522
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/failures.json",
+      "sha256": "2488c46105d75c738d06682d4984281341e1de34d0a8a977b103fd673eb32cf9",
+      "bytes": 598
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/folds.json",
+      "sha256": "09d2caec1db95eecbf53913e24d55d979962f72ee9474a83603edffbf9ecc385",
+      "bytes": 1559
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/operations.json",
+      "sha256": "d3dce099a71bc5bf374b9cd17dd41a79865d21908f3884a5b50f22b903b15aad",
+      "bytes": 1185
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/predictions.json",
+      "sha256": "31290995790aa275ab10b299c6cc4a09e53ac8889eae915da12743827effc281",
+      "bytes": 10624
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/preparations.json",
+      "sha256": "1de67aef9fc55eda601a5adffd205bf6b270b710851a5ad54f076c00a27e211e",
+      "bytes": 3621
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/projection.json",
+      "sha256": "98aeeefecb1dd8a1f64b7ce73d0eca6b135b9f3a8902bdc2bdc8f2db4984362c",
+      "bytes": 1300
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/scores.json",
+      "sha256": "b1b85ca0762cd8167f659384c3dd10beea2ab793701e2f145815ee50cdd9ced5",
+      "bytes": 7877
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/summaries.json",
+      "sha256": "f7d1c218bd9d4335440ad00098072408d67f077487c3e42cea1a287bffa34d0b",
+      "bytes": 1161
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/training.json",
+      "sha256": "1cd2bc32a18104c214245f643f0626d4f722e7753ea9a170c94fd96804811fd1",
+      "bytes": 1522
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/failures.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "bytes": 3
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/folds.json",
+      "sha256": "50d402cfdbbdd4cf4601ea4bea7464f627a2225384aed1f0c07d859156bd94e1",
+      "bytes": 1559
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/operations.json",
+      "sha256": "16602b4efd50f72b51cf59415c5356f8867b303bd059b8e431e248cf5c0a6031",
+      "bytes": 3551
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/predictions.json",
+      "sha256": "6a5dd9a4538e80eb7902779b665e90aea70d4c21fca5001641996ac8e9908094",
+      "bytes": 31868
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/preparations.json",
+      "sha256": "a27b8df81dfb24eb6ebb2d2ae19152fa49d9d82ed42e6e4b027abbc551ecafe3",
+      "bytes": 10897
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/projection.json",
+      "sha256": "76f1a4f1116ce29d0115ece21558106bd3801c287929a8fd7158c16b466f1a20",
+      "bytes": 1298
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/scores.json",
+      "sha256": "2c66ab4896740a5af4ff645c1466608aecb74581b2817639ae93072ffa7665be",
+      "bytes": 15149
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/summaries.json",
+      "sha256": "5980bc90662bba7f62a9bb709c64a6ca36f47311ffd3a6af4f3d4a9475813bfa",
+      "bytes": 1101
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/training.json",
+      "sha256": "d0a24f64b5fd376aec9643118174dd7dea8bcfc19aa3298bd0c65e7208506bef",
+      "bytes": 4561
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/comparison-publication.json",
+      "sha256": "0631c886b8883aa6fd5ea244649006eac7a116eab6291cf21def993ff9a1670a",
+      "bytes": 2596
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/comparison.json",
+      "sha256": "1dc01ca8b057024206a9631b2261c8b9ba15a1ecbbd694dd2e298a737cbfc0e1",
+      "bytes": 66626
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/composition-refusals.json",
+      "sha256": "9d9aaab871d73a6c52edcd9470e35c61149253758ef99222afe0d4d9eebe613f",
+      "bytes": 5807
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/flink-source-panels.json",
+      "sha256": "0faa39b3fef1a1dc72aa216490580b72ebfb8dd3611ee170583b8f261103be1a",
+      "bytes": 518742
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/flink-source-publication.json",
+      "sha256": "0746e0af516d71dcaf9fbe4288c423c10e3b76971834d1d6b18ffbfd8eef6d1c",
+      "bytes": 10121
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/ppe-sensitivity-publication.json",
+      "sha256": "55d34ebea28938b4380cd45e3c395f907335e385404455d2b20789f9f053e065",
+      "bytes": 17581
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/ppe-sensitivity.json",
+      "sha256": "4eb85762bef91c5bf327a4bf1a458f56213cc2a53d84327c15319870ea43d2ac",
+      "bytes": 802405
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/prediction-batch.json",
+      "sha256": "53a3590ac2cca5f2770ec46910823216a4947ea2826635ae6ddb5ce6d4db2180",
+      "bytes": 26261
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/publication.json",
+      "sha256": "05c8a1142d1ecaf83818204a16b2e0b7977265a42890084eda175b30e46bd76c",
+      "bytes": 27951
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/score-batch.json",
+      "sha256": "d9b5bb3df4e52f85f4ce73337166faff26f66d044f7feae995af551bfc15378e",
+      "bytes": 4606
     }
   ],
   "maintained_paths": [
@@ -5112,9 +5492,24 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_preparation_audit.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__main__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/admissibility.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/comparison.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/inputs.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_rows.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_source.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panels.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/sensitivity.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/workflow.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_crosswalk.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_uncertainty_bounds.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/__main__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/inputs.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/prediction.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/producer.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_contract.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
@@ -5611,6 +6006,7 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/homogeneous_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",

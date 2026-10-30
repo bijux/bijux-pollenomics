@@ -1,0 +1,327 @@
+{
+  "schema_version": "nordic-coupled-ppe-publication-map.v1",
+  "input_contract": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-result-binding-preparation/input-contract.json",
+    "sha256": "efad6cbeaa81a8bd5897e974995668b36d749f147e06bb7825de24e1fb2bcdee",
+    "bytes": 16296
+  },
+  "input_evidence": {
+    "schema_version": "nordic-coupled-ppe-publication-inputs.v1",
+    "protocol": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/ppe-sensitivity.json",
+      "sha256": "493ab9987843957ac458c44bc8a0d654e3766592aae9e2ff98f0bf921b8c668f",
+      "bytes": 3114
+    },
+    "scenario_admissions": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-input-execution/scenario-admissions.json",
+      "sha256": "d88df0be71202a1e21850f675c9564958dd9b0f2c82b95ec3a33b602727abda1",
+      "bytes": 3740
+    },
+    "nominal_publication": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/publication.json",
+      "sha256": "1f093b18c86f832ebfd9b9282e71428bbd6d2be007a402b7e51b5343117afca8",
+      "bytes": 27951
+    },
+    "nominal_scores": {
+      "cal-bp-2700-3200": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/scores.json",
+        "sha256": "9d913714854d12521e28e4952521c192738fbc3e4f9dc81d2e8f7b46c82b028d",
+        "bytes": 15026
+      },
+      "cal-bp-3200-3700": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/scores.json",
+        "sha256": "b17c2de32f76eb057dbce1f480bf3473ecb3fc746b6c63ddf87b70910fbdc363",
+        "bytes": 7943
+      },
+      "cal-bp-3700-4200": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/scores.json",
+        "sha256": "702f09ac016b25c25c87b137408b3ed691c259c31a5245060f62faa38abd1498",
+        "bytes": 7946
+      },
+      "cal-bp-4200-4700": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/scores.json",
+        "sha256": "10500fc1638eeafa63704530a69077af7145e71ebb709b74af27aaee0b6cff25",
+        "bytes": 7940
+      },
+      "cal-bp-4700-5200": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/scores.json",
+        "sha256": "b1b85ca0762cd8167f659384c3dd10beea2ab793701e2f145815ee50cdd9ced5",
+        "bytes": 7877
+      },
+      "cal-bp-5200-5700": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/scores.json",
+        "sha256": "2c66ab4896740a5af4ff645c1466608aecb74581b2817639ae93072ffa7665be",
+        "bytes": 15149
+      }
+    },
+    "nominal_training": {
+      "cal-bp-2700-3200": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-2700-3200/training.json",
+        "sha256": "88d761080fadbbc6af90ca5296d245e8b0957f9cc490adaa4c9def884a4b6325",
+        "bytes": 4565
+      },
+      "cal-bp-3200-3700": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3200-3700/training.json",
+        "sha256": "52a573ccc0d7ea2d92e3c1e9a53302cf343db738dffa4608d34aee708cfebd73",
+        "bytes": 1521
+      },
+      "cal-bp-3700-4200": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-3700-4200/training.json",
+        "sha256": "cfa11541d6fda0a673d71a3306912bfd586680c71574ca6c217aef1c5baaee5d",
+        "bytes": 1522
+      },
+      "cal-bp-4200-4700": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4200-4700/training.json",
+        "sha256": "ba09ca058c3a63fb958bce5b55b3c2c329ed6135d24f2b34ae1f264603b61920",
+        "bytes": 1522
+      },
+      "cal-bp-4700-5200": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-4700-5200/training.json",
+        "sha256": "1cd2bc32a18104c214245f643f0626d4f722e7753ea9a170c94fd96804811fd1",
+        "bytes": 1522
+      },
+      "cal-bp-5200-5700": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/cal-bp-5200-5700/training.json",
+        "sha256": "d0a24f64b5fd376aec9643118174dd7dea8bcfc19aa3298bd0c65e7208506bef",
+        "bytes": 4561
+      }
+    },
+    "scenarios": [
+      {
+        "scenario_id": "betula-lower",
+        "prediction": {
+          "batch": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-lower/native/analysis/batch.json",
+            "sha256": "c29540f20753733274b81a64c6ca27080ea1814e6ad613febc55a4f522966a25",
+            "bytes": 26569
+          },
+          "terminal": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-lower/native/terminal.json",
+            "sha256": "47c0cc0f2d26ebf7d0d939b4d549e37118190c860d57e5b596f573415c1a97f7",
+            "bytes": 195063
+          },
+          "execution": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-lower/execution.json",
+            "sha256": "6b8a1ad935cb6d4f91a7a58f9e0f121267aec81be6b358985809cf7464e73f50",
+            "bytes": 1341
+          },
+          "plan": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-lower/plan.json",
+            "sha256": "3fdd34953961773698e83ab89d6be5ee6ebc84ac23c309cc3641a8d7d22fcc99",
+            "bytes": 1947457
+          },
+          "admission": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-lower/admission.json",
+            "sha256": "7d8267cf8c26c6aa580a18fad82360807b3c13fb2cf3ffe97ba5d3ac860d04d2",
+            "bytes": 2682
+          }
+        },
+        "scoring": {
+          "batch": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-lower/native/analysis/batch.json",
+            "sha256": "45d0e732bed1116cbb11145ea5a0e56f2868ae21e05d2ce33735a8bb6c236a02",
+            "bytes": 4938
+          },
+          "terminal": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-lower/native/terminal.json",
+            "sha256": "ef064b58fc88f161283a29002a45d727d5ca5715324fa7a0c489fff9d704052c",
+            "bytes": 17123
+          },
+          "execution": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-lower/execution.json",
+            "sha256": "1a18192c7d6bbabe14ec2673b01cefcac4baa195d1aabe1685c5253a21078e5d",
+            "bytes": 1392
+          },
+          "plan": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-lower/plan.json",
+            "sha256": "296f8dd2b45597b11cf4c60f99036ac24041e845f8e68f9997d1939587a86934",
+            "bytes": 1974444
+          },
+          "admission": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-lower/admission.json",
+            "sha256": "fbe52b0a08784bb34ec8348464c94f7cfcadf5f9fcf7afab02d6473ffc1cc24a",
+            "bytes": 2674
+          }
+        }
+      },
+      {
+        "scenario_id": "betula-upper",
+        "prediction": {
+          "batch": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-upper/native/analysis/batch.json",
+            "sha256": "94f237af325ab165184569b590d9834537ad85d95756c56ae01aacbc3f574e80",
+            "bytes": 26569
+          },
+          "terminal": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-upper/native/terminal.json",
+            "sha256": "9a81bc12b8e3e64d411fc45980856ca90adf3fcefb53aa1d171d2adb38e759a6",
+            "bytes": 195063
+          },
+          "execution": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-upper/execution.json",
+            "sha256": "7dfeed77f6685cd3a831e0029eca435a9a15981e7c916b375e19187db86d3de6",
+            "bytes": 1341
+          },
+          "plan": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-upper/plan.json",
+            "sha256": "c95092849e81973bff31f159cb8087892b1e2497518fb2a41f253b0aeacf0ecf",
+            "bytes": 1947457
+          },
+          "admission": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/betula-upper/admission.json",
+            "sha256": "a6fdc3667b99f04b803be435ab97f81ed17bc345fd460bf8cdc8a62070542f92",
+            "bytes": 2682
+          }
+        },
+        "scoring": {
+          "batch": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-upper/native/analysis/batch.json",
+            "sha256": "29fa6203f4a23ab40c37370efa438004d92698b65c5d3358ede66348e11619b1",
+            "bytes": 4938
+          },
+          "terminal": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-upper/native/terminal.json",
+            "sha256": "b105d6e4ed4f36e79b97f2fe1a3b5aad898936de03d453844f7217b3db199adf",
+            "bytes": 17122
+          },
+          "execution": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-upper/execution.json",
+            "sha256": "9d220acdc73768e4e3875f5534231ddaf9cb03606fc8bf221e341df85c72d73c",
+            "bytes": 1394
+          },
+          "plan": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-upper/plan.json",
+            "sha256": "98345d9997a8bdb67f0330c83c8f3498a85a8bce25c3a1de44d6d412aef8cfff",
+            "bytes": 1974444
+          },
+          "admission": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/betula-upper/admission.json",
+            "sha256": "c5cfcdb96b62720307348726705eff62c65a31eb32807a0e20713629a0201944",
+            "bytes": 2674
+          }
+        }
+      },
+      {
+        "scenario_id": "ulmus-lower",
+        "prediction": {
+          "batch": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-lower/native/analysis/batch.json",
+            "sha256": "7b743c3a8a6c765b6b518ef26080a731508e5e0274f6e642b405dafdfa06a828",
+            "bytes": 26563
+          },
+          "terminal": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-lower/native/terminal.json",
+            "sha256": "e29cd2779227fdd1a9922b1329d0517f92caa4bc87bdda705c124faad9e16e5e",
+            "bytes": 194530
+          },
+          "execution": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-lower/execution.json",
+            "sha256": "3d7d888913759497871c17fe062f2f9ebac989b01d8e73a73c49ebe7eed69293",
+            "bytes": 1339
+          },
+          "plan": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-lower/plan.json",
+            "sha256": "f734d2825f31026695b18fb2cd7d18ba0d3ec93de9481b247e1c0e1201fbc41c",
+            "bytes": 1947356
+          },
+          "admission": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-lower/admission.json",
+            "sha256": "4450f124cc919e163242dd67e81b0f1738df68c7d454e37668af149e9f874885",
+            "bytes": 2675
+          }
+        },
+        "scoring": {
+          "batch": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-lower/native/analysis/batch.json",
+            "sha256": "b6a612d427c5fb6dc3f6da30d7f5cfbbf564a6cc785d6c9ea1a7c32270e0d00e",
+            "bytes": 4932
+          },
+          "terminal": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-lower/native/terminal.json",
+            "sha256": "360a21ff7464674ca27a310be0a8776fd2416f890e495fc11ff5a3adbd143e73",
+            "bytes": 17074
+          },
+          "execution": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-lower/execution.json",
+            "sha256": "507107f5455f25a11e1795e6942daeb584083abca7810c09f733386cba5a152c",
+            "bytes": 1393
+          },
+          "plan": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-lower/plan.json",
+            "sha256": "86d3b2762f5f15f0527932b4e2bee6a876e00eee8b9eef65ccd8f37043aeb65b",
+            "bytes": 1974233
+          },
+          "admission": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-lower/admission.json",
+            "sha256": "2029a3c6ceedc2b018838640300aacd142ad4919c9e5f5888f4af080ce7f4d9c",
+            "bytes": 2667
+          }
+        }
+      },
+      {
+        "scenario_id": "ulmus-upper",
+        "prediction": {
+          "batch": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-upper/native/analysis/batch.json",
+            "sha256": "6f87502bff2f6cd94808a85de90f4b994518f0d88e0340b5839b1dd261aa0e49",
+            "bytes": 26563
+          },
+          "terminal": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-upper/native/terminal.json",
+            "sha256": "97d6e481b594ca0a5bfa754c3690f5ad76c5fffe06bf9808de46b55c38c78bf6",
+            "bytes": 194530
+          },
+          "execution": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-upper/execution.json",
+            "sha256": "6b435c462befa0e35305d3c1214be7a28111413085290c6da2011800b3ee0b1d",
+            "bytes": 1340
+          },
+          "plan": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-upper/plan.json",
+            "sha256": "dc9a6e5cb8f31e83a786393149ca07b9bdd11ca92e6d39f12aef8a6c4d466180",
+            "bytes": 1947356
+          },
+          "admission": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-prediction-execution/ulmus-upper/admission.json",
+            "sha256": "0fa003a6c9ec65dba508b8de9341891995cb255ccc61a243e9348b6b5b98107c",
+            "bytes": 2675
+          }
+        },
+        "scoring": {
+          "batch": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-upper/native/analysis/batch.json",
+            "sha256": "f48f4ebbf79426fadbc41952014da83987f1a800503888e56426aa9b9eb574d7",
+            "bytes": 4932
+          },
+          "terminal": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-upper/native/terminal.json",
+            "sha256": "d9a80a9058863f57d8c9bfbca3b5b742a9c1321bd4481070c940ef0067aae1d4",
+            "bytes": 17072
+          },
+          "execution": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-upper/execution.json",
+            "sha256": "9c08b8d8f05205c1bb07e14bed3b592524c88529a54b74dcbd49d241dea26da3",
+            "bytes": 1392
+          },
+          "plan": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-upper/plan.json",
+            "sha256": "62c448f162957030d08060f1726af0538cc3cb340304cc5fd9e9c40af80f3772",
+            "bytes": 1974233
+          },
+          "admission": {
+            "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-ppe-score-execution/ulmus-upper/admission.json",
+            "sha256": "8cca8f3c2650bbe657c872d0ce3a22ef2a16533b134b4b64c4c63c391bdf08a9",
+            "bytes": 2667
+          }
+        }
+      }
+    ]
+  },
+  "public_aggregate": {
+    "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/ppe-sensitivity.json",
+    "sha256": "4eb85762bef91c5bf327a4bf1a458f56213cc2a53d84327c15319870ea43d2ac",
+    "bytes": 802405
+  },
+  "source_body_and_native_epochs_preserved": true,
+  "new_metric_or_model_calls": 0
+}

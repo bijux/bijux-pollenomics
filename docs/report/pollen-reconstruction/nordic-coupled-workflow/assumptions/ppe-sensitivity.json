@@ -1,0 +1,48 @@
+{
+  "schema_version": "nordic-coupled-ppe-sensitivity.v1",
+  "baseline_protocol_sha256": "835a1c9342ee086cdf6a755c6e6b450c1933d9f3b50625f9895349d9636990a6",
+  "axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "nominal_ppe": {
+    "Betula": "5.106",
+    "Ulmus": "1.27"
+  },
+  "ppe_sd": {
+    "Betula": "0.303",
+    "Ulmus": "0.05"
+  },
+  "decimal_convention": "Endpoints are the literal decimal nominal mean minus/plus its retained SD, converted once to native finite JSON numbers for existing requests. No floating subtraction, clipping or fitted endpoint selection.",
+  "scenarios": [
+    {
+      "id": "betula-lower",
+      "taxon": "Betula",
+      "ppe": "4.803"
+    },
+    {
+      "id": "betula-upper",
+      "taxon": "Betula",
+      "ppe": "5.409"
+    },
+    {
+      "id": "ulmus-lower",
+      "taxon": "Ulmus",
+      "ppe": "1.22"
+    },
+    {
+      "id": "ulmus-upper",
+      "taxon": "Ulmus",
+      "ppe": "1.32"
+    }
+  ],
+  "parameter_policy": "One taxon PPE mean changes at a time, shared by regional REVEALS, local LOVE and target forward context. PPE_SD, fall speeds, taxonomy, count vectors, regional source selection, bin support, rings and geometry stay nominal. Existing engine uncertainty omissions remain truthful.",
+  "population": "Each scenario requests all3existing physicalplaces and all6bins/18folds. Four scenarios request72folds. Three methods have one local predictor and are dependent, not independent validation. Existing nominal results/epochs remain immutable.",
+  "source_use": "Reuse original source epochs, source_window_authority and admitted conditional Neotoma inputs only; no additional source-use or ecological approval. Small-lake regional proxies remain conditional.",
+  "exposure": "Prior-exposed development design; baseline predictions, scores and direct comparison were available before declaration. Freeze this protocol before alternative outcomes. No untouched confirmation or tuning by score.",
+  "estimand": "Same Betula/Ulmus panel and exact half-open native pooled windows. Compare only matched target/support/parameter scenario rows; preserve all predicted/refused/fatal/not-run and failed eligible mass.",
+  "interpretation": "Deterministic one-axis domain sensitivity only. No probability weights, confidence interval, coverage, covariance law, calibrated ecological uncertainty, vegetation accuracy, field/rights approval or superiority claim.",
+  "omitted": "Joint PPE uncertainty, count/regional-background uncertainty, chronology/geometry/spatial-model uncertainty, correlated parameter domains and independent measured-vegetation validation remain open.",
+  "failure_policy": "No clipping analytical LOVE. All requested folds/methods retained, including invalid_composition. Known scientific refusals remain refused; unknown exceptions fatal with later bins not_run. Scoring occurs only after complete prediction products are frozen/reopened.",
+  "source_parameters": "Original Swedish/Nordic protocol and parameters evidence supplies nominal PPE and SD; these are conditional published parameter assumptions rather than measured site-specific calibration."
+}

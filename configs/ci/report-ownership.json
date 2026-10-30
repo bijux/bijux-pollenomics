@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2237,
-  "paths_sha256": "38d11cb1fd8dd4ca447f62bfc718835ad05ae8c3fc97d8a9565b3df6a909a97d",
+  "path_count": 2241,
+  "paths_sha256": "1900911b34a608af8a746ef68345429b520b90bdfa42441079d56fa4a0a2eedc",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -24127,10 +24127,25 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/comparison.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/example_reexecution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/method_profile.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__main__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/admissibility.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/inputs.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_rows.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_source.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panels.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/sensitivity.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/workflow.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/one_site.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_crosswalk.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_uncertainty_bounds.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/__main__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/inputs.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/prediction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/physical_forward/producer.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_contract.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
@@ -24620,6 +24635,7 @@
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/homogeneous_counting.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_aliquot_covariance.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/two_taxon_counting.py",
@@ -68315,6 +68331,37 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Retain the exact compact actual independent R scalar correspondence for all 46 saved regional-cutoff factors, including every status, residual and diagnostic and the original native, collector, export and source identities. The unchanged cutoff account retains the 18 case/58 tuple-use mappings and 364 ordered window references; all original source counts, age bounds, panels and owners remain unchanged. The maintained scientific reader qualification binds this whole public JSON as evidence, and the dedicated maintained source-admission handler authenticates exact product and ownership bytes without numerical replay. The 1e-8 factor threshold and separate baseline, saved cutoff, reference execution and later source-adoption epochs remain literal. No new window or covariance calculation, repeated Decimal proof, measured or source-supported extent range, asymptotic convergence, author/historical parity, field accuracy, calibrated coverage, source-use permission, human review or whole scientific acceptance follows."
+    },
+    {
+      "owner_id": "pollen-reconstruction/matched-pollen-forward/protocol",
+      "role": "maintained_configuration",
+      "paths": [
+        "docs/report/pollen-reconstruction/matched-pollen-forward/assumptions/protocol.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the declared conditional matched physical inverse-to-forward point-pollen comparison protocol and its exact retained input identities, explicit Betula/Ulmus projection, whole-place exclusions, common baseline eligibility and refusal accounting. This authored protocol preserves the previously exposed development setting and all historical source epochs. It declares no executed numerical result, independent vegetation truth, calibrated uncertainty, untouched validation, four-country generalization or complete scientific acceptance. Maintained configuration admission authenticates reviewed Git bytes and a finite JSON object; scientific results and source-use permissions remain separate."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-coupled-workflow/protocol",
+      "role": "maintained_configuration",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-source-projection.json",
+        "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/protocol.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the reviewed conditional Nordic coupled-workflow input protocol, exact source memberships, separate bin experiments, declared geometry and parameter assumptions, measured taxon support and refusal accounting. This authored configuration declares no executed model result, qualified regional-background proxy, independent vegetation target, rights decision or whole scientific acceptance. Original source epochs and previously exposed development inputs remain explicit; configured-source admission authenticates reviewed Git bytes and a finite JSON object only."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-coupled-workflow/ppe-sensitivity-protocol",
+      "role": "maintained_configuration",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/ppe-sensitivity.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the declared deterministic one-taxon PPE domain alternatives, exact decimal endpoint convention, same three-place/six-bin source inputs, shared regional/local/forward parameter bindings, complete fold/refusal accounting and previously exposed conditional scope. This authored protocol is not a probability law, confidence interval, covariance/coverage claim, source-rights approval, independent vegetation validation or executed scientific result."
     }
   ]
 }

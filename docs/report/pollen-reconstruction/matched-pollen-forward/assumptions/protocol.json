@@ -1,0 +1,889 @@
+{
+  "schema_version": "matched-pollen-forward.protocol.v1",
+  "inputs": {
+    "swedish_report": {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "sha256": "8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd",
+      "bytes": 726215
+    },
+    "swedish_protocol": {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "d9a12af1e1f7a39e690c35de19b87fc487311756a75b39318de9acba7ffe3399",
+      "bytes": 4359
+    },
+    "swedish_identity": {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json",
+      "sha256": "0391384f85500555a554b744b56598f4cca6ae5b91fa2ba323f9de45fb4af4b8",
+      "bytes": 3247
+    },
+    "nordic_report": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+      "bytes": 604997
+    },
+    "nordic_identity": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/retained-source-identities.json",
+      "sha256": "f903051acee72613bad110c2539f37c082d52a340966ddd79bbc03253e5453cc",
+      "bytes": 8027
+    },
+    "nordic_protocol": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
+      "bytes": 13224
+    }
+  },
+  "source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "source_cores": [
+    {
+      "id": "ABB",
+      "country": "SE",
+      "native_site_id": 13338,
+      "native_dataset_id": 19913,
+      "native_collection_unit_id": 14910,
+      "axis": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "windows": [
+        [
+          0.0,
+          100.0
+        ],
+        [
+          100.0,
+          350.0
+        ],
+        [
+          350.0,
+          700.0
+        ],
+        [
+          700.0,
+          1200.0
+        ],
+        [
+          1200.0,
+          1700.0
+        ],
+        [
+          1700.0,
+          2200.0
+        ],
+        [
+          2200.0,
+          2700.0
+        ],
+        [
+          2700.0,
+          3200.0
+        ],
+        [
+          3200.0,
+          3700.0
+        ],
+        [
+          3700.0,
+          4200.0
+        ],
+        [
+          4200.0,
+          4700.0
+        ],
+        [
+          4700.0,
+          5200.0
+        ],
+        [
+          5200.0,
+          5700.0
+        ],
+        [
+          5700.0,
+          6200.0
+        ],
+        [
+          6200.0,
+          6700.0
+        ],
+        [
+          6700.0,
+          7200.0
+        ],
+        [
+          7200.0,
+          7700.0
+        ],
+        [
+          7700.0,
+          8200.0
+        ],
+        [
+          8200.0,
+          8700.0
+        ],
+        [
+          8700.0,
+          9200.0
+        ],
+        [
+          9200.0,
+          9700.0
+        ],
+        [
+          9700.0,
+          10200.0
+        ]
+      ],
+      "source_report": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "source_profile": "metadata_radius_wind_3"
+    },
+    {
+      "id": "BOKE",
+      "country": "SE",
+      "native_site_id": 28872,
+      "native_dataset_id": 54001,
+      "native_collection_unit_id": 39241,
+      "axis": [
+        "Betula",
+        "Fraxinus",
+        "Ulmus"
+      ],
+      "windows": [
+        [
+          0.0,
+          100.0
+        ],
+        [
+          100.0,
+          350.0
+        ],
+        [
+          350.0,
+          700.0
+        ],
+        [
+          700.0,
+          1200.0
+        ],
+        [
+          1200.0,
+          1700.0
+        ],
+        [
+          1700.0,
+          2200.0
+        ],
+        [
+          2200.0,
+          2700.0
+        ],
+        [
+          2700.0,
+          3200.0
+        ],
+        [
+          3200.0,
+          3700.0
+        ],
+        [
+          3700.0,
+          4200.0
+        ],
+        [
+          4200.0,
+          4700.0
+        ],
+        [
+          4700.0,
+          5200.0
+        ],
+        [
+          5200.0,
+          5700.0
+        ]
+      ],
+      "source_report": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "source_profile": "metadata_radius_wind_3"
+    },
+    {
+      "id": "BUS",
+      "country": "SE",
+      "native_site_id": 28869,
+      "native_dataset_id": 53995,
+      "native_collection_unit_id": 39238,
+      "axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "windows": [
+        [
+          0.0,
+          100.0
+        ],
+        [
+          100.0,
+          350.0
+        ],
+        [
+          350.0,
+          700.0
+        ],
+        [
+          700.0,
+          1200.0
+        ],
+        [
+          1200.0,
+          1700.0
+        ],
+        [
+          1700.0,
+          2200.0
+        ],
+        [
+          2200.0,
+          2700.0
+        ],
+        [
+          2700.0,
+          3200.0
+        ],
+        [
+          3200.0,
+          3700.0
+        ],
+        [
+          3700.0,
+          4200.0
+        ],
+        [
+          4200.0,
+          4700.0
+        ],
+        [
+          4700.0,
+          5200.0
+        ],
+        [
+          5200.0,
+          5700.0
+        ],
+        [
+          5700.0,
+          6200.0
+        ],
+        [
+          6200.0,
+          6700.0
+        ],
+        [
+          6700.0,
+          7200.0
+        ],
+        [
+          7200.0,
+          7700.0
+        ],
+        [
+          7700.0,
+          8200.0
+        ],
+        [
+          8200.0,
+          8700.0
+        ]
+      ],
+      "source_report": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "source_profile": "metadata_radius_wind_3"
+    },
+    {
+      "id": "TIB",
+      "country": "SE",
+      "native_site_id": 28860,
+      "native_dataset_id": 53980,
+      "native_collection_unit_id": 39229,
+      "axis": [
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "windows": [
+        [
+          0.0,
+          100.0
+        ],
+        [
+          100.0,
+          350.0
+        ],
+        [
+          350.0,
+          700.0
+        ],
+        [
+          700.0,
+          1200.0
+        ],
+        [
+          1200.0,
+          1700.0
+        ],
+        [
+          1700.0,
+          2200.0
+        ],
+        [
+          2200.0,
+          2700.0
+        ],
+        [
+          2700.0,
+          3200.0
+        ],
+        [
+          3200.0,
+          3700.0
+        ],
+        [
+          3700.0,
+          4200.0
+        ],
+        [
+          4200.0,
+          4700.0
+        ],
+        [
+          4700.0,
+          5200.0
+        ],
+        [
+          5200.0,
+          5700.0
+        ],
+        [
+          5700.0,
+          6200.0
+        ],
+        [
+          6200.0,
+          6700.0
+        ],
+        [
+          6700.0,
+          7200.0
+        ],
+        [
+          7200.0,
+          7700.0
+        ],
+        [
+          7700.0,
+          8200.0
+        ],
+        [
+          8200.0,
+          8700.0
+        ],
+        [
+          8700.0,
+          9200.0
+        ],
+        [
+          9200.0,
+          9700.0
+        ],
+        [
+          9700.0,
+          10200.0
+        ],
+        [
+          10200.0,
+          10700.0
+        ]
+      ],
+      "source_report": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "source_profile": "metadata_radius_wind_3"
+    },
+    {
+      "id": "LAIH",
+      "country": "Finland",
+      "native_site_id": 28072,
+      "native_dataset_id": 52082,
+      "native_collection_unit_id": 37925,
+      "axis": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "windows": [
+        [
+          0.0,
+          100.0
+        ],
+        [
+          100.0,
+          350.0
+        ],
+        [
+          350.0,
+          700.0
+        ],
+        [
+          700.0,
+          1200.0
+        ],
+        [
+          1200.0,
+          1700.0
+        ],
+        [
+          1700.0,
+          2200.0
+        ],
+        [
+          2200.0,
+          2700.0
+        ],
+        [
+          2700.0,
+          3200.0
+        ],
+        [
+          3200.0,
+          3700.0
+        ],
+        [
+          3700.0,
+          4200.0
+        ],
+        [
+          4200.0,
+          4700.0
+        ],
+        [
+          4700.0,
+          5200.0
+        ],
+        [
+          5200.0,
+          5700.0
+        ],
+        [
+          5700.0,
+          6200.0
+        ],
+        [
+          6200.0,
+          6700.0
+        ],
+        [
+          6700.0,
+          7200.0
+        ],
+        [
+          7200.0,
+          7700.0
+        ],
+        [
+          7700.0,
+          8200.0
+        ],
+        [
+          8200.0,
+          8700.0
+        ],
+        [
+          8700.0,
+          9200.0
+        ],
+        [
+          9200.0,
+          9700.0
+        ],
+        [
+          9700.0,
+          10200.0
+        ],
+        [
+          10200.0,
+          10700.0
+        ],
+        [
+          10700.0,
+          11200.0
+        ]
+      ],
+      "source_report": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "source_profile": "52082.metadata_static_radius"
+    },
+    {
+      "id": "DALMUT",
+      "country": "Norway",
+      "native_site_id": 13388,
+      "native_dataset_id": 20034,
+      "native_collection_unit_id": 14989,
+      "axis": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "windows": [
+        [
+          0.0,
+          100.0
+        ],
+        [
+          350.0,
+          700.0
+        ],
+        [
+          700.0,
+          1200.0
+        ],
+        [
+          1200.0,
+          1700.0
+        ],
+        [
+          1700.0,
+          2200.0
+        ],
+        [
+          2200.0,
+          2700.0
+        ],
+        [
+          2700.0,
+          3200.0
+        ],
+        [
+          3200.0,
+          3700.0
+        ],
+        [
+          3700.0,
+          4200.0
+        ],
+        [
+          4200.0,
+          4700.0
+        ],
+        [
+          4700.0,
+          5200.0
+        ],
+        [
+          5200.0,
+          5700.0
+        ],
+        [
+          5700.0,
+          6200.0
+        ],
+        [
+          6200.0,
+          6700.0
+        ],
+        [
+          6700.0,
+          7200.0
+        ],
+        [
+          7200.0,
+          7700.0
+        ],
+        [
+          7700.0,
+          8200.0
+        ],
+        [
+          8200.0,
+          8700.0
+        ],
+        [
+          8700.0,
+          9200.0
+        ],
+        [
+          9200.0,
+          9700.0
+        ],
+        [
+          9700.0,
+          10200.0
+        ],
+        [
+          10200.0,
+          10700.0
+        ]
+      ],
+      "source_report": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "source_profile": "20034.metadata_static_radius"
+    },
+    {
+      "id": "SOLSOE81",
+      "country": "Denmark",
+      "native_site_id": 3432,
+      "native_dataset_id": 4445,
+      "native_collection_unit_id": 4303,
+      "axis": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "windows": [
+        [
+          0.0,
+          100.0
+        ],
+        [
+          100.0,
+          350.0
+        ],
+        [
+          350.0,
+          700.0
+        ],
+        [
+          700.0,
+          1200.0
+        ],
+        [
+          1200.0,
+          1700.0
+        ],
+        [
+          1700.0,
+          2200.0
+        ],
+        [
+          2200.0,
+          2700.0
+        ],
+        [
+          2700.0,
+          3200.0
+        ],
+        [
+          3200.0,
+          3700.0
+        ],
+        [
+          3700.0,
+          4200.0
+        ],
+        [
+          4200.0,
+          4700.0
+        ],
+        [
+          5200.0,
+          5700.0
+        ],
+        [
+          6200.0,
+          6700.0
+        ],
+        [
+          6700.0,
+          7200.0
+        ],
+        [
+          7200.0,
+          7700.0
+        ],
+        [
+          7700.0,
+          8200.0
+        ],
+        [
+          8200.0,
+          8700.0
+        ],
+        [
+          8700.0,
+          9200.0
+        ],
+        [
+          9200.0,
+          9700.0
+        ],
+        [
+          9700.0,
+          10200.0
+        ],
+        [
+          10200.0,
+          10700.0
+        ],
+        [
+          10700.0,
+          11200.0
+        ],
+        [
+          11200.0,
+          11700.0
+        ]
+      ],
+      "source_report": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "source_profile": "4445.metadata_static_radius"
+    },
+    {
+      "id": "SOLSOE83",
+      "country": "Denmark",
+      "native_site_id": 3432,
+      "native_dataset_id": 4446,
+      "native_collection_unit_id": 4304,
+      "axis": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "windows": [
+        [
+          2700.0,
+          3200.0
+        ],
+        [
+          3200.0,
+          3700.0
+        ],
+        [
+          3700.0,
+          4200.0
+        ],
+        [
+          4200.0,
+          4700.0
+        ],
+        [
+          4700.0,
+          5200.0
+        ],
+        [
+          5200.0,
+          5700.0
+        ],
+        [
+          5700.0,
+          6200.0
+        ],
+        [
+          6200.0,
+          6700.0
+        ],
+        [
+          6700.0,
+          7200.0
+        ],
+        [
+          7700.0,
+          8200.0
+        ],
+        [
+          9700.0,
+          10200.0
+        ]
+      ],
+      "source_report": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "source_profile": "4446.metadata_static_radius"
+    }
+  ],
+  "target_axes": {
+    "ABB": [
+      "Betula",
+      "Pinus sylvestris"
+    ],
+    "BOKE": [
+      "Betula",
+      "Ulmus"
+    ],
+    "BUS": [
+      "Betula",
+      "Ulmus"
+    ],
+    "TIB": [
+      "Pinus sylvestris",
+      "Poaceae"
+    ]
+  },
+  "scopes": [
+    "swedish_only",
+    "pooled_eligible_nordic"
+  ],
+  "expected_contexts": 154,
+  "structural_counts": {
+    "ABB": {
+      "swedish_only": {
+        "structural_candidates": 0,
+        "no_structural_source": 22,
+        "target_windows": 22
+      },
+      "pooled_eligible_nordic": {
+        "structural_candidates": 22,
+        "no_structural_source": 0,
+        "target_windows": 22
+      }
+    },
+    "BOKE": {
+      "swedish_only": {
+        "structural_candidates": 13,
+        "no_structural_source": 0,
+        "target_windows": 13
+      },
+      "pooled_eligible_nordic": {
+        "structural_candidates": 13,
+        "no_structural_source": 0,
+        "target_windows": 13
+      }
+    },
+    "BUS": {
+      "swedish_only": {
+        "structural_candidates": 13,
+        "no_structural_source": 6,
+        "target_windows": 19
+      },
+      "pooled_eligible_nordic": {
+        "structural_candidates": 17,
+        "no_structural_source": 2,
+        "target_windows": 19
+      }
+    },
+    "TIB": {
+      "swedish_only": {
+        "structural_candidates": 0,
+        "no_structural_source": 23,
+        "target_windows": 23
+      },
+      "pooled_eligible_nordic": {
+        "structural_candidates": 22,
+        "no_structural_source": 1,
+        "target_windows": 23
+      }
+    }
+  },
+  "baseline": "Only saved metadata-radius/wind3/D0.12/gamma0.25/100km land-annulus factors; no new kernel or parameter search.",
+  "panel_projection": "BOKE and all Betula/Ulmus predictors use an explicitly closed two-taxon subcomposition. Omitted Fraxinus is outside this new estimand, never imputed zero. Source-absent taxa refuse; reported zero retained.",
+  "physical_groups": "Exclude whole target physical site. At most one eligible core per physical place/window; ambiguity refuses both families. Solsoe81/83 share site3432, never independent places.",
+  "source_weights": "One equal weight per eligible physical place after each source conditional inverse; same source set for direct count-fraction baseline. If any inverse refuses, retain direct baseline and refuse physical family rather than silently dropping source.",
+  "prediction": "Fixed training-site mean conditional composition through target saved K/PPE single homogeneous annulus with zero separate background. Direct comparator averages source closed count panels.",
+  "point_estimates_only": true,
+  "uncertainty_claimed": false,
+  "response": "Closed restricted-panel pollen; MAE/TV and signed per-taxon errors. No measured vegetation score.",
+  "outcome_access": "Retained input JSON/count values are parsed and validated before prediction; source outcomes were previously exposed. Target counts excluded from predictor interface and whole-site training; prediction freeze precedes score_pollen, not input-byte access. No untouched or unread-outcome claim.",
+  "matched_aggregation": "Require both families and both scopes on identical target/window panel counts. Average windows equally within each physical target, then physical targets equally; retain unpaired coverage/refusals.",
+  "bounds": {
+    "cores": 8,
+    "places": 7,
+    "targets": 4,
+    "target_windows": 77,
+    "contexts": 154,
+    "families": 2,
+    "max_input_bytes": 4194304,
+    "max_output_bytes": 8388608
+  },
+  "limits": "New conditional partial-support development only. Paired structural maximum26BOKE/BUS windows; pooled may add only Danish support there. No four-country matched performance, full31taxon/wholevegetation, historical reproduction, calibrated uncertainty, independent field accuracy, source rights or complete scientific acceptance. Existing native epochs and assumptions preserved."
+}
