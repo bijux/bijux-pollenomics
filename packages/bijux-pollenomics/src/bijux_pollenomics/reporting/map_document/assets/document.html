@@ -5582,13 +5582,26 @@ __URL_STATE_CONTROLLER__
       __POLLEN_DIAGRAM_CONTROLLER__
       __POLLEN_AGE_AXIS_CONTROLLER__
       __POLLEN_SMALL_MULTIPLES_CONTROLLER__
+      __POLLEN_FOCUSED_SIGNAL_CONTROLLER__
       const pollenDepthSelections = new WeakMap();
       const pollenAgeSelections = new WeakMap();
+      function pollenDisplaySelection(tabs) {
+        const signal = focusState?.sourceSignal;
+        const owner = signal || tabs;
+        const focused = pollenFocusedSignalData(tabs, signal);
+        const key = pollenDepthSelections.get(owner) ?? focused.defaultAnchorKey;
+        const requireExplicitAnchor = Boolean(signal?.semantic_role === 'source_chronology_context'
+          && ['source_taxon','source_ecological_code'].includes(signal.node_level));
+        return {owner,signal,focused,key,requireExplicitAnchor};
+      }
       function renderPollenObservationDiagram(tabs) {
-        const ageKey = pollenAgeSelections.get(tabs) ?? null;
-        return renderPollenDepthDiagram(tabs, pollenDepthSelections.get(tabs) ?? null,
-          group => renderPollenAgeDiagram(tabs, group.key, ageKey, false)
-            + renderPollenSmallMultiples(tabs, group.key, ageKey));
+        const selected = pollenDisplaySelection(tabs);
+        const ageKey = pollenAgeSelections.get(selected.owner) ?? null;
+        return (selected.signal ? renderPollenFocusedSignal(tabs, selected.signal, selected.focused) : '')
+          + renderPollenDepthDiagram(tabs, selected.key,
+            (group, ids) => renderPollenAgeDiagram(tabs, group.key, ageKey, false, ids)
+              + renderPollenSmallMultiples(tabs, group.key, ageKey, ids),
+            {selectedObservationIds:selected.focused.observationIds,requireExplicitAnchor:selected.requireExplicitAnchor});
       }
       function renderFocusDetail() {
         const focused = document.activeElement;
@@ -5625,11 +5638,12 @@ __URL_STATE_CONTROLLER__
         });
         focusDetail.querySelectorAll('[data-pollen-depth-group]').forEach((select) => {
           select.addEventListener('change', () => {
-            pollenAgeSelections.delete(tabs);
+            const {owner} = pollenDisplaySelection(tabs);
+            pollenAgeSelections.delete(owner);
             if (pollenDepthDiagramData(tabs).groups.some(group => group.key === select.value)) {
-              pollenDepthSelections.set(tabs, select.value);
+              pollenDepthSelections.set(owner, select.value);
             } else {
-              pollenDepthSelections.delete(tabs);
+              pollenDepthSelections.delete(owner);
             }
             renderFocusDetail();
             focusDetail.querySelectorAll('[data-pollen-depth-group]')[0]?.focus({ preventScroll: true });
@@ -5638,12 +5652,13 @@ __URL_STATE_CONTROLLER__
         focusDetail.querySelectorAll('[data-pollen-age-group]').forEach((select) => {
           select.addEventListener('change', () => {
             const native = pollenDepthDiagramData(tabs);
-            const nativeKey = pollenDepthSelections.get(tabs) ?? native.groups[0]?.key;
-            const choices = pollenAgeAxisData(tabs, nativeKey).options;
+            const selected = pollenDisplaySelection(tabs);
+            const nativeKey = selected.key ?? (selected.requireExplicitAnchor ? null : native.groups[0]?.key);
+            const choices = nativeKey ? pollenAgeAxisData(tabs, nativeKey).options : [];
             if (select.value && choices.some(option => option.key === select.value)) {
-              pollenAgeSelections.set(tabs, select.value);
+              pollenAgeSelections.set(selected.owner, select.value);
             } else {
-              pollenAgeSelections.delete(tabs);
+              pollenAgeSelections.delete(selected.owner);
             }
             renderFocusDetail();
             focusDetail.querySelectorAll('[data-pollen-age-group]')[0]?.focus({ preventScroll: true });
@@ -5719,6 +5734,7 @@ __URL_STATE_CONTROLLER__
           sourceLabel: primaryAction ? primaryAction.label : 'Open source',
           latitude: coordinates.latitude,
           longitude: coordinates.longitude,
+          sourceSignal: entry.feature,
           detailTabs: unavailableDetailTabs('detail_record_loading'),
         };
         setFocusState(nextFocus);

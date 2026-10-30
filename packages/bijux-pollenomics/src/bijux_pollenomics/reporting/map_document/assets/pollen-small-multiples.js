@@ -22,7 +22,7 @@ function pollenSmallMultiplesReason(reason) {
     ambiguous_sample_age_assignment:'sample has multiple assignments in the selected source age group'})[reason]
     || pollenDepthReasonText(reason);
 }
-function renderPollenSmallMultiples(tabs, anchorNativeGroupKey, selectedAgeGroupKey = null) {
+function renderPollenSmallMultiples(tabs, anchorNativeGroupKey, selectedAgeGroupKey = null, selectedObservationIds = []) {
   const data = pollenSmallMultiplesData(tabs, anchorNativeGroupKey, selectedAgeGroupKey);
   const text = value => escapeHtml(pollenDepthText(value));
   if (data.status === 'unavailable') return `<section aria-label="Compatible native variable panels"><p>Compatible native panels unavailable: ${text(pollenSmallMultiplesReason(data.reason))}. Original source tables remain below.</p></section>`;
@@ -49,8 +49,8 @@ function renderPollenSmallMultiples(tabs, anchorNativeGroupKey, selectedAgeGroup
     const heading = `${panel.anchor ? 'Selected anchor: ' : ''}${pollenDepthText(panel.group.variable.source_reported_name)}`;
     const omitted = Object.entries(panel.alignment.omitted).sort().map(([reason,count]) => `${text(pollenSmallMultiplesReason(reason))}: ${count}`).join('; ') || 'none';
     const figure = !panel.alignment.rows.length ? `<p>${text(pollenDepthGroupLabel(panel.group))}</p><p>No observations align with this selected source age group.</p>`
-      : data.status === 'age' ? pollenAgeFigureHtml(panel.alignment, panel.group, index, scales)
-        : pollenDepthGroupHtml(panel.group, index, scales);
+      : data.status === 'age' ? pollenAgeFigureHtml(panel.alignment, panel.group, index, scales, selectedObservationIds)
+        : pollenDepthGroupHtml(panel.group, index, scales, selectedObservationIds);
     return `<article data-native-panel="${text(panel.group.key)}" style="margin:1rem 0;padding:0.5rem;border:${panel.anchor ? '3px double' : '1px solid'} #475569"><h4>${text(heading)}</h4><p>${Math.min(500,panel.alignment.rows.length)} of ${panel.alignment.rows.length} aligned observations drawn; ${panel.alignment.total} source observations; not aligned: ${omitted}.</p>${figure}</article>`;
   }).join('');
   return `<section aria-label="Compatible native variable panels">${summary}${figures}</section>`;
