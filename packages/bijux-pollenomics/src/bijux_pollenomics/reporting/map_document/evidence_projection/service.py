@@ -13,6 +13,7 @@ from .constants import _NEOTOMA_LAYER_KEY, _SEAD_LAYER_KEYS, PROJECTION_SCHEMA_V
 from .io import _regular_absolute_directory, _required_text
 from .models import MapEvidenceProjection
 from .neotoma import _project_neotoma
+from .neotoma_publications import attach_publication_capture
 from .records import _features, _is_unavailable, _tabs
 from .sead import _project_sead
 
@@ -20,6 +21,8 @@ from .sead import _project_sead
 def build_map_evidence_projection(
     context_root: Path,
     point_layers: Sequence[MutableMapping[str, object]],
+    *,
+    publication_capture_root: Path | None = None,
 ) -> MapEvidenceProjection:
     """Bind governed source evidence to map features through stable record IDs.
 
@@ -44,6 +47,8 @@ def build_map_evidence_projection(
             neotoma_accounting,
             neotoma_source_layers,
         ) = _project_neotoma(root, neotoma_layer)
+        if publication_capture_root is not None:
+            attach_publication_capture(neotoma_records, publication_capture_root)
         # Source-site links belong to the map publication, not node identity.
         source_site_urls: dict[str, str] = {}
         for feature in _features(neotoma_layer):

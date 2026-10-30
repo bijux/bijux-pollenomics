@@ -57,6 +57,7 @@ def publish_multi_country_map_bundle(
     atlas_scientific_signals: Sequence[JsonObject] | None = None,
     atlas_edge_records: Sequence[JsonObject] | None = None,
     atlas_sequence_records: Sequence[JsonObject] | None = None,
+    publication_capture_root: Path | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
     publish_bundle(
@@ -84,6 +85,7 @@ def publish_multi_country_map_bundle(
         atlas_edge_records=atlas_edge_records,
         atlas_sequence_records=atlas_sequence_records,
         surface=_surface(),
+        publication_capture_root=publication_capture_root,
     )
 
 

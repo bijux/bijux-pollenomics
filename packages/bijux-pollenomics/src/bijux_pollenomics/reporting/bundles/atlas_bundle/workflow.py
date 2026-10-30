@@ -38,6 +38,7 @@ def publish_bundle(
     atlas_edge_records: Any,
     atlas_sequence_records: Any,
     surface: Any,
+    publication_capture_root: Path | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
     (
@@ -65,6 +66,7 @@ def publish_bundle(
         atlas_edge_records=atlas_edge_records,
         atlas_sequence_records=atlas_sequence_records,
         surface=surface,
+        publication_capture_root=publication_capture_root,
     )
     animal_atlas_summary = surface._build_animal_atlas_summary(
         point_layers,
