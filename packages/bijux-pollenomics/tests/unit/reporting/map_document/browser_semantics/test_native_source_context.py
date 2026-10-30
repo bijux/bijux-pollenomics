@@ -163,7 +163,8 @@ def test_provenance_keeps_doi_alternatives_investigators_and_raw_payload(
         in output["provenance"]
     )
     assert "separate qualified join" in output["provenance"]
-    assert not parse_html(output["provenance"]).findall(".//a")
+    links = parse_html(output["provenance"]).findall(".//a")
+    assert len(links) == 1 and links[0].text == "Current provider dataset JSON"
     assert "observation locator contract" in output["identity"]
     assert output["unchanged"]
 
@@ -298,7 +299,125 @@ def test_source_metadata_is_escaped_and_cannot_create_a_citation_link(
     )
     output = observe(neotoma_tabs)
     assert not parse_html(output["provenance"]).findall(".//img")
-    assert not parse_html(output["provenance"]).findall(".//a")
+    links = parse_html(output["provenance"]).findall(".//a")
+    assert len(links) == 1
+    assert (
+        links[0]
+        .attrib["href"]
+        .startswith("https://api.neotomadb.org/v2.0/data/downloads/")
+    )
     assert "&lt;native taxon&gt;" in output["native"]
     assert "&lt;img" in output["provenance"] and output["unchanged"]
     check_javascript_syntax(diagram_script(), tmp_path / "native-source-context.js")
+
+
+def test_native_dataset_navigation_uses_decoded_identity_and_preserves_snapshot(
+    neotoma_tabs: dict[str, Any], tmp_path: Path
+) -> None:
+    output = observe(neotoma_tabs)
+    document = parse_html(output["provenance"])
+    links = document.findall(".//a")
+    assert len(links) == 1
+    assert links[0].attrib == {
+        "href": "https://api.neotomadb.org/v2.0/data/downloads/201",
+        "target": "_blank",
+        "rel": "noopener noreferrer",
+    }
+    assert links[0].text == "Current provider dataset JSON"
+    assert "for neotoma:dataset:201" in "".join(document.itertext())
+    assert "may differ from the retained source snapshot" in output["provenance"]
+    assert "not the original HTTP response bytes" in output["provenance"]
+    assert output["unchanged"]
+    check_javascript_syntax(diagram_script(), tmp_path / "provider-navigation.js")
+
+
+@pytest.mark.parametrize(
+    "value", [None, True, False, 0, -1, 1.5, 2**53, "201", '<a href="bad">']
+)
+def test_invalid_native_ids_do_not_create_a_provider_link(
+    neotoma_tabs: dict[str, Any], value: object
+) -> None:
+    table = neotoma_tabs["samples"]["datasets"]
+    row = table["records"][0]
+    row[table["fields"].index("source_dataset_id")] = value
+    row[table["fields"].index("source_payload")]["datasetid"] = value
+    output = observe(neotoma_tabs)
+    assert not parse_html(output["provenance"]).findall(".//a")
+    assert "Current provider dataset JSON link is unavailable" in output["provenance"]
+    assert 'data-detail-table-page="provenance.datasets"' in output["provenance"]
+    assert output["unchanged"]
+
+
+@pytest.mark.parametrize(
+    "state",
+    [
+        "missing_source_id",
+        "missing_payload_id",
+        "source_null",
+        "payload_mismatch",
+        "namespace_mismatch",
+    ],
+)
+def test_missing_or_inconsistent_dataset_identity_is_not_inferred(
+    neotoma_tabs: dict[str, Any], state: str
+) -> None:
+    table = neotoma_tabs["samples"]["datasets"]
+    row = table["records"][0]
+    if state == "missing_source_id":
+        index = table["fields"].index("source_dataset_id")
+        table["fields"].pop(index)
+        for record in table["records"]:
+            record.pop(index)
+    elif state == "missing_payload_id":
+        row[table["fields"].index("source_payload")].pop("datasetid")
+    elif state == "source_null":
+        row[table["fields"].index("source_payload")] = None
+    elif state == "payload_mismatch":
+        row[table["fields"].index("source_payload")]["datasetid"] = 202
+    else:
+        row[table["fields"].index("dataset_id")] = "neotoma:dataset:202"
+    output = observe(neotoma_tabs)
+    assert not parse_html(output["provenance"]).findall(".//a")
+    assert "link is unavailable" in output["provenance"]
+    assert output["unchanged"]
+
+
+@pytest.mark.parametrize("duplicate", ["both", "native_only", "namespace_only"])
+def test_duplicate_dataset_identities_cannot_select_a_navigation_target(
+    neotoma_tabs: dict[str, Any], duplicate: str
+) -> None:
+    table = neotoma_tabs["samples"]["datasets"]
+    second = deepcopy(table["records"][0])
+    if duplicate == "native_only":
+        second[table["fields"].index("dataset_id")] = "neotoma:dataset:202"
+    elif duplicate == "namespace_only":
+        second[table["fields"].index("source_dataset_id")] = 202
+        second[table["fields"].index("source_payload")]["datasetid"] = 202
+    table["records"].append(second)
+    table["record_count"] += 1
+    output = observe(neotoma_tabs)
+    assert not parse_html(output["provenance"]).findall(".//a")
+    assert output["provenance"].count("link is unavailable") == 2
+    assert "Showing 1–2 of 2" in output["provenance"]
+    assert output["unchanged"]
+
+
+def test_multiple_valid_datasets_have_separate_contextual_provider_links(
+    neotoma_tabs: dict[str, Any],
+) -> None:
+    table = neotoma_tabs["samples"]["datasets"]
+    second = deepcopy(table["records"][0])
+    second[table["fields"].index("dataset_id")] = "neotoma:dataset:202"
+    second[table["fields"].index("source_dataset_id")] = 202
+    second[table["fields"].index("source_payload")]["datasetid"] = 202
+    table["records"].append(second)
+    table["record_count"] += 1
+    output = observe(neotoma_tabs)
+    document = parse_html(output["provenance"])
+    assert [link.attrib["href"] for link in document.findall(".//a")] == [
+        f"https://api.neotomadb.org/v2.0/data/downloads/{identifier}"
+        for identifier in (201, 202)
+    ]
+    assert "for neotoma:dataset:201" in "".join(document.itertext())
+    assert "for neotoma:dataset:202" in "".join(document.itertext())
+    assert output["unchanged"]

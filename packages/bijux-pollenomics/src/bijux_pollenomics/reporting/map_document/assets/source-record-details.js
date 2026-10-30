@@ -98,15 +98,25 @@ function renderSourceProvenanceContext(tabs) {
   try {
     if (!['neotoma','sead'].includes(family)) throw Error('unsupported source');
     const datasets = sourceRecordRows(table,family === 'neotoma' ? ['dataset_id','source_payload'] : ['dataset_id']);
+    const providerLink = row => {
+      const id = row.source_dataset_id;
+      if (!Number.isSafeInteger(id) || id <= 0 || row.source_payload?.datasetid !== id
+        || row.dataset_id !== `neotoma:dataset:${id}`
+        || datasets.filter(candidate => candidate.source_dataset_id === id).length !== 1
+        || datasets.filter(candidate => candidate.dataset_id === row.dataset_id).length !== 1) return '<p>Current provider dataset JSON link is unavailable: native dataset identities are missing, unsafe, inconsistent or ambiguous.</p>';
+      const url = `https://api.neotomadb.org/v2.0/data/downloads/${id}`;
+      return `<p><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Current provider dataset JSON</a> for ${escapeHtml(row.dataset_id)}.</p>`;
+    };
     const citations = family === 'neotoma' ? datasets.map(row => {
       const payload = row.source_payload;
       const native = key => payload && typeof payload === 'object' && !Array.isArray(payload) && Object.hasOwn(payload,key) ? payload[key] : undefined;
       return `<article><h4>Native dataset ${escapeHtml(detailTableText(row.dataset_id))}</h4>${sourceRecordFields([
         ['Dataset DOI values as reported',native('doi')],['Dataset investigators as reported',native('datasetpi')],
         ['Constituent database',native('database')],['Dataset notes',native('datasetnotes')],
-      ])}</article>`;
+      ])}${providerLink(row)}</article>`;
     }).join('') : '<p>SEAD dataset semantics are available below; primary publication citations are not exposed by this dataset table.</p>';
-    return `<section aria-label="Source dataset metadata">${heading}${citations}<p>Native metadata and the original dataset table are retained without selecting, merging or normalizing citation alternatives. A dataset DOI alone is not a full primary publication citation or a rights decision. Missing, source-null and empty citation values remain distinct; captured publication records require a separate qualified join before display.</p>${renderDetailTable(table,'provenance.datasets')}<p>Source identities, digests, schema tags and record locators are retained in this tab where supplied. Record and part locators identify the preserved evidence named there; they do not establish a complete original-acquisition or transformation chain. No transformation history is invented here. Source-specific transformation fields remain in Chronology where supplied.</p></section>`;
+    const navigation = family === 'neotoma' ? '<p>Current provider data may differ from the retained source snapshot. These links do not retrieve the retained serialized archive; that archive is not the original HTTP response bytes.</p>' : '';
+    return `<section aria-label="Source dataset metadata">${heading}${citations}${navigation}<p>Native metadata and the original dataset table are retained without selecting, merging or normalizing citation alternatives. A dataset DOI alone is not a full primary publication citation or a rights decision. Missing, source-null and empty citation values remain distinct; captured publication records require a separate qualified join before display.</p>${renderDetailTable(table,'provenance.datasets')}<p>Source identities, digests, schema tags and record locators are retained in this tab where supplied. Record and part locators identify the preserved evidence named there; they do not establish a complete original-acquisition or transformation chain. No transformation history is invented here. Source-specific transformation fields remain in Chronology where supplied.</p></section>`;
   } catch (error) {
     return `<section aria-label="Source dataset metadata">${heading}<p>Dataset citation context is unavailable for source family ${escapeHtml(detailTableText(family))}. Existing provenance remains available; missing citation metadata is not a claim that the original source is externally unavailable.</p></section>`;
   }
