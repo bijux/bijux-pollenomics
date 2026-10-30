@@ -43,7 +43,8 @@ def test_source_native_evidence_preserves_every_row_and_is_fixed_point(
     tmp_path: Path,
 ) -> None:
     result = _acquire(
-        tmp_path / "capture", _FullEvidencePostgrestFixture(null_dataset=True)
+        tmp_path / "capture",
+        _FullEvidencePostgrestFixture(null_dataset=True, broad_labels=True),
     )
     snapshot = result.manifest_path.parent.resolve()
     decisions, parent, expected = _full_admission_inputs(snapshot, tmp_path)
@@ -204,7 +205,44 @@ def test_source_native_evidence_preserves_every_row_and_is_fixed_point(
         assert events["observation_denominator"] == 4
         assert events["eligible_event_count"] == 0
         assert events["refused_event_count"] == 4
+        assert events["events"] == []
+        by_table = {row["source_table"]: row for row in rows}
+        raw_refusals = events["refusals"]
+        assert isinstance(raw_refusals, list)
+        refusals = {row["observation_id"]: row for row in raw_refusals}
+        for table in ("tbl_analysis_values", "tbl_measured_values"):
+            observation = by_table[table]
+            assert observation["taxon_status"] == "not_exposed_for_observation_type"
+            assert observation["taxon_relation_id"] is None
+            assert observation["event_eligibility"] == "refused"
+            assert (
+                "source_taxon_unavailable" in observation["event_refusal_reason_codes"]
+            )
+            assert (
+                "source_taxon_unavailable"
+                in refusals[observation["observation_id"]]["reason_codes"]
+            )
         relation_index = bundle["observation_relation_index.json"]
+        assert relation_index["taxon_relation_count"] == 1
+        taxon_relations = relation_index["taxon_relations"]
+        assert isinstance(taxon_relations, list)
+        assert [row["taxon_relation_id"] for row in taxon_relations] == ["sead-taxon:1"]
+        value_rows = relation_index["value_semantics"]
+        assert isinstance(value_rows, list)
+        value_semantics = value_rows[0]
+        assert value_semantics["value_class"]["name"] == "Pollen"
+        assert (
+            by_table["tbl_analysis_values"]["source_semantics"]["value_semantics_id"]
+            == (value_semantics["value_semantics_id"])
+        )
+        method = admitted_tables["tbl_methods"][0]
+        assert value_semantics["value_class"]["method_id"] == method["method_id"]
+        assert method["method_name"] == "Pollen analysis"
+        dimension_rows = relation_index["dimension_semantics"]
+        assert isinstance(dimension_rows, list)
+        assert (
+            dimension_rows[0]["source_dimension"]["dimension_name"] == "Pollen context"
+        )
         entity_relations = relation_index["entity_relations"]
         assert isinstance(entity_relations, list)
         assert entity_relations[0]["dataset_id"] is None

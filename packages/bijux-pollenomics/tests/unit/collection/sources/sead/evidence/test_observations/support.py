@@ -27,10 +27,15 @@ _SITE_FIELDS = (
 
 class _FullEvidencePostgrestFixture:
     def __init__(
-        self, *, corrupt_table: str | None = None, null_dataset: bool = False
+        self,
+        *,
+        corrupt_table: str | None = None,
+        null_dataset: bool = False,
+        broad_labels: bool = False,
     ) -> None:
         self.corrupt_table = corrupt_table
         self.null_dataset = null_dataset
+        self.broad_labels = broad_labels
         self.calls: list[tuple[str, list[tuple[str, str]]]] = []
 
     def __call__(
@@ -68,6 +73,14 @@ class _FullEvidencePostgrestFixture:
             row["analysis_value"] = "0"
         elif table == "tbl_analysis_entities" and self.null_dataset:
             row["dataset_id"] = None
+        if self.broad_labels:
+            for owner, field, label in (
+                ("tbl_value_classes", "name", "Pollen"),
+                ("tbl_methods", "method_name", "Pollen analysis"),
+                ("tbl_dimensions", "dimension_name", "Pollen context"),
+            ):
+                if table == owner:
+                    row[field] = label
 
         dependency_filter = next(
             ((field, value) for field, value in params if value.startswith("in.(")),
