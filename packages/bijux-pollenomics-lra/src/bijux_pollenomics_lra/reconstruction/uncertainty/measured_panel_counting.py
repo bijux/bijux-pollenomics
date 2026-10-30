@@ -10,9 +10,11 @@ from typing import Literal
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.models.validation import _reject_masked_values, vector
+from bijux_pollenomics_lra.models.validation import vector
 from bijux_pollenomics_lra.reconstruction.likelihood.multisite_likelihood import (
     _measured,
+    _require_numeric_measurements,
+    _require_unmasked,
 )
 from bijux_pollenomics_lra.reconstruction.uncertainty.multisite_counting import (
     SiteCountingSet,
@@ -76,7 +78,7 @@ class MeasuredPanelCountingRegion:
 
 
 def _confidence(value: object) -> tuple[float, float, Fraction]:
-    _reject_masked_values(value, "confidence_level")
+    _require_unmasked(value, "confidence_level")
     raw = np.asarray(value)
     if raw.shape != () or raw.dtype.kind not in "iuf":
         raise ValidationError("Confidence level must be one finite number")
@@ -194,7 +196,7 @@ def measured_panel_counting_region(
         (complete_responses, "complete_responses"),
         (partial_responses, "partial_responses"),
     ):
-        _reject_masked_values(value, label)
+        _require_numeric_measurements(value, label)
         try:
             raw = np.asarray(value)
         except (TypeError, ValueError, OverflowError) as error:

@@ -158,6 +158,7 @@ def _revision(repository: Path) -> str:
 
 
 def main() -> None:
+    """Validate canonical sources and write the declared measured-panel account."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
