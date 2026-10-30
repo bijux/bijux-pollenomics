@@ -1,6 +1,6 @@
 # Animal atlas exclusion report
 
-- Excluded tracked sample rows: `1146`
+- Excluded tracked sample rows: `1147`
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -156,6 +156,7 @@
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_017079 | Arzhan I | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_017088 | Arzhan I | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:connemara_0004a | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:samea103910520 | Berel' | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:somali_0226a | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_017139 | Haunstetten | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_018064 | GolModII | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -1157,11 +1158,11 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** All 1,481 current normalized animal source records have exactly one source-bound map disposition: 335 mapped records in 167 locality features and 1,146 explicitly reason-coded exclusions.
+**Supported claim.** The current savedatlas partitions1482normalized source records into335mapped owners and1147explicit exclusions across167unchangedlocalityfeatures. OnlyBER11_L is added as an exclusion; allprior1146exclusions/mappedidentities areexact.
 
 **Unsupported claim.** An excluded row is not a biological absence, unrecoverable source or permission to infer location or chronology from a project average.
 
-**Actual verification performed.** The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay. The current thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun.
+**Actual verification performed.** Unchanged savedatlasproducer at7e1f7bd8a38283decbf76401092fb64b8bf74c5b emits40files in4.514s/RSS155942912B/16729101B. Independent2.645s/RSS107331584B source/child/support/CSV/output comparisonPASS. HEAD/index/trackedresources/saveddata/reads stable; all21scopedlocalityoutputs andmappedcandidateJSON/CSV exact. No newsource/date/model/map/index generation. Current entity reconciliation at a1801f5be43845a9d34b0cd09be4607958ba09ac completes in0.127s/RSS43696128B,13inputs+producer/HEAD/indexstable:1482source IDs=335mapped+1147excluded/167features. OnlyBER11_L is added asoneexcluded source; alloldmappedIDs/Nordic12IDs8features/falseadmissions unchanged. No originalcountry, map, source, chronology or model producer is rerun; previous actuals retain their sourceepochs.
 
 **Remaining input or review.** Each excluded native sample needs its named locality, coordinate provenance, dating or source-lineage gap resolved with exact source evidence and qualified review.
 
@@ -1171,13 +1172,13 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Precise next acceptance route.** Resolve each explicit sample-level reason, retain source text and uncertainty, then pass the maintained atlas/publication contract before changing the published population.
 
-**Negative or refused result.** The 1,146 exclusions remain explicit. Seventeen recovered source owners add eleven mapped records and six exclusions; no ambiguous identity, unsupported locality or chronology is made acceptable to increase coverage.
+**Negative or refused result.** The current1,147 exclusions remain explicit. The earlier seventeen-owner source recovery remains historical: Seventeen recovered source owners add eleven mapped records and six exclusions; no ambiguous identity, unsupported locality or chronology is made acceptable to increase coverage.
 
-**Matched denominator.** 1,481 normalized source records = 335 mapped + 1,146 excluded; 167 locality features. Source taxonomy can differ from the owning normalization bundle, including the existing Obishir Capra/Ovis mismatch. These are not independent biological observations.
+**Matched denominator.** 1482normalized source records=335mapped+1147excluded;167localityfeatures. World236individualintervals/67gaps and regional8features/12owners/11intervals unchanged. Existingtaxonomic disagreements and scientific/field/biological refusals remain; these are not independentanimals.
 
-- [Retained qualification evidence: docs/report/animal_atlas_exclusion_report.json](animal_atlas_exclusion_report.json) (SHA-256 `8e42c52bf97742536a1b7b07295516e23e73c2798ba8dea208b81f40b7703cdc`).
+- [Retained qualification evidence: docs/report/animal_atlas_exclusion_report.json](animal_atlas_exclusion_report.json) (SHA-256 `0dfe52030955bdd0988117e8e73947b521f946742f9128e435b5ad1c2024eada`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `2c7807f58aa96ce33426817d9907fb89ea1b4c5f96854175fdf0ee75a070bc60`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

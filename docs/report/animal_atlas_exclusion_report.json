@@ -1,6 +1,6 @@
 {
   "schema_version": "animal-atlas-exclusion-report.v1",
-  "row_count": 1146,
+  "row_count": 1147,
   "rows": [
     {
       "species_latin_name": "Bos primigenius",
@@ -3038,6 +3038,26 @@
       "coordinate_confidence": "",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx",
       "chronology_provenance_path": "",
+      "coordinate_provenance_path": "",
+      "coordinate_provenance_locator": "",
+      "exclusion_reason": "sample locality remains unresolved and cannot be mapped honestly"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB19970",
+      "sample_record_id": "equus_caballus:sample:prjeb19970:samea103910520",
+      "locality": "Berel'",
+      "political_entity": "Kazakhstan",
+      "inclusion_status": "sample_context_blocked",
+      "inclusion_note": "Primary-table and archive evidence establish this source identity and its literal sample-owned context. Missing country, coordinates and precise chronology are not filled from project locality leads.",
+      "chronology_normalization_status": "text_only_unparsed",
+      "chronology_precision_posture": "unresolved",
+      "coordinate_basis": "",
+      "mapping_posture": "",
+      "coordinate_confidence": "",
+      "sample_lineage_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
       "coordinate_provenance_path": "",
       "coordinate_provenance_locator": "",
       "exclusion_reason": "sample locality remains unresolved and cannot be mapped honestly"

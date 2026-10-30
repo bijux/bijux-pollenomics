@@ -312,7 +312,7 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
 
         self.assertEqual(len(time_series_rows), 245)
         self.assertEqual(len(dom2_rows), 264)
-        self.assertEqual(len(domestication_rows), 15)
+        self.assertEqual(len(domestication_rows), 16)
 
         uppsala = next(
             row

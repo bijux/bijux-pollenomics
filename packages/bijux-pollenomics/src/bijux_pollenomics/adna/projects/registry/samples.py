@@ -158,10 +158,17 @@ def build_species_curated_sample_rows(
         )
         if master_rows:
             for master_row in master_rows:
-                lead = _matching_locality_lead(
-                    leads,
-                    master_row.locality_text,
-                    master_row.political_entity,
+                # A direct primary-source join owns its missing context fields;
+                # a matching project locality cannot fill them.
+                lead = (
+                    None
+                    if master_row.sample_basis
+                    == "primary_supplement_archive_filename_join"
+                    else _matching_locality_lead(
+                        leads,
+                        master_row.locality_text,
+                        master_row.political_entity,
+                    )
                 )
                 (
                     site_label,
@@ -450,6 +457,12 @@ def _resolve_row_context(
             inclusion_note = (
                 f"{inclusion_note} Sample identity remains ambiguous across source surfaces."
             ).strip()
+        if master_row.sample_basis == "primary_supplement_archive_filename_join":
+            inclusion_note = (
+                "Primary-table and archive evidence establish this source identity "
+                "and its literal sample-owned context. Missing country, coordinates "
+                "and precise chronology are not filled from project locality leads."
+            )
         if project.project_accession == "PRJEB81815" and (
             not master_row.latitude_text or not master_row.longitude_text
         ):

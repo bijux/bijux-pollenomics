@@ -563,9 +563,9 @@
     },
     "animal_sample_chronology_context": {
       "artifact": "europe-plus_animal_sample_chronology_context.json",
-      "content_sha256": "ddb5c4173bf4d8cd96af7c7e379e98177d1a1aec247e5e50101539d7485a9b2b",
-      "input_identity_sha256": "999af69ef888e253e1ae46082faae1834b345c744b0577abf5431c3a470becc1",
-      "corpus_identity_sha256": "38bee7ebe060bfb893817e7bfb497abe9438c4e8f3c4ff6a67946ca3bb2e3b73",
+      "content_sha256": "bc7f12a00527dacf6b1b53d4a31526c14117862b18a53e1742111a05e1d58ed6",
+      "input_identity_sha256": "8c9ac060d060990b9b7a34c5d10a91e1a73211ebaad0656013445e64adeafa72",
+      "corpus_identity_sha256": "d7743c568c30f8d03571817aff8f5211773574d85c1369e56625c1361307806b",
       "scope": {
         "key": "europe_plus",
         "kind": "region",
@@ -579,7 +579,7 @@
       "global_admitted_node_count": 335,
       "projected_node_count": 13,
       "excluded_by_scope_count": 322,
-      "refusal_count": 1157,
+      "refusal_count": 1158,
       "governed_country_rows": [
         {
           "country_name": "Denmark",

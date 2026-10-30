@@ -50,9 +50,9 @@
 | Equus asinus | PRJEB52849 | comparator_only | tracked_intake_candidate | - | not_yet_curated | - |
 | Equus asinus | PRJEB55549 | reject_or_out_of_scope | retained_rejected_reference | - | not_yet_curated | - |
 | Equus caballus | PRJEB10854 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
-| Equus caballus | PRJEB19970 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1126/science.aam5298 |
-| Equus caballus | PRJEB22390 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1126/science.aao3297 |
-| Equus caballus | PRJEB31613 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1016/j.cell.2019.03.049 |
+| Equus caballus | PRJEB19970 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1126/science.aam5298 |
+| Equus caballus | PRJEB22390 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1126/science.aao3297 |
+| Equus caballus | PRJEB31613 | paper_pinned_core | tracked_intake_candidate | - | source_population_unresolved | 10.1016/j.cell.2019.03.049 |
 | Equus caballus | PRJEB44430 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1038/s41586-021-04018-9 |
 | Equus caballus | PRJEB56293 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
 | Equus caballus | PRJEB7537 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |

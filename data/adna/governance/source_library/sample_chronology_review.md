@@ -1,6 +1,6 @@
 # Sample chronology review
 
-- Sample chronology rows: `1492`
+- Sample chronology rows: `1493`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology | Provenance |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -273,6 +273,7 @@
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017079 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 | data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx |
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017088 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 | data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx |
 | Equus caballus | PRJEB19970 | prjeb19970:connemara_0004a | unresolved | unresolved | unresolved | unresolved |  |  |
+| Equus caballus | PRJEB19970 | prjeb19970:samea103910520 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | 2,300 yBP | data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html |
 | Equus caballus | PRJEB19970 | prjeb19970:somali_0226a | unresolved | unresolved | unresolved | unresolved |  |  |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_017139 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1979 BP | data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx || data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_018064 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3101 BP | data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables15.xlsx || data/adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables11.xlsx |

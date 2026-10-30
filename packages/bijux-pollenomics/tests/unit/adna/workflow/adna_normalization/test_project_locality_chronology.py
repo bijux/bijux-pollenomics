@@ -111,6 +111,7 @@ def _construct(
             stable_sample_id=sample.master_id,
             project_accession="PRJEB41594",
             site_label="Test locality",
+            political_entity="Sweden",
             sample_evidence_status="archive_native",
             sample_identity_resolution="final",
             time_start_bp=sample.time_start_bp,

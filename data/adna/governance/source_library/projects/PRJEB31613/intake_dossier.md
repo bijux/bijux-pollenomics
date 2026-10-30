@@ -52,4 +52,4 @@
 
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 16 item(s), blocks chronology honesty and publication precision
+- `chronology_recovery`: 490 item(s), blocks chronology honesty and publication precision
