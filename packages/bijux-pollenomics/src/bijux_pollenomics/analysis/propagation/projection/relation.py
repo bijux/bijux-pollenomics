@@ -140,6 +140,7 @@ def candidate_relation_details(
     return {
         "basis": "derived_governed_evaluator_branch_explanation",
         "scenario_id": scenario.scenario_id,
+        "rule_type": "rectangular",
         "maximum_distance_km": scenario.maximum_distance_km,
         "maximum_lag_years": scenario.maximum_lag_years,
         "predicates": checks,

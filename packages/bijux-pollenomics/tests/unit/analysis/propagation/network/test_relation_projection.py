@@ -121,6 +121,9 @@ def test_all_candidate_statuses_explain_only_reached_checks(
     details = candidate_relation_details(row, source, target, scenario)
     assert details["basis"] == "derived_governed_evaluator_branch_explanation"
     assert details["scenario_id"] == scenario.scenario_id
+    assert details["rule_type"] == "rectangular"
+    assert details["maximum_distance_km"] == scenario.maximum_distance_km
+    assert details["maximum_lag_years"] == scenario.maximum_lag_years
     predicates = details["predicates"]
     assert isinstance(predicates, list)
     assert [item["predicate_id"] for item in predicates] == list(IDS)
@@ -228,6 +231,7 @@ def test_current_network_projection_retains_endpoints_and_transport_without_read
     assert all(properties[key] == value for key, value in row.as_dict().items())
     assert properties["source_event"] == source.as_dict()
     assert properties["target_event"] == target.as_dict()
+    assert properties["relation_details"]["rule_type"] == "rectangular"
     edge = {
         **properties,
         "signal_id": "selected-signal",
