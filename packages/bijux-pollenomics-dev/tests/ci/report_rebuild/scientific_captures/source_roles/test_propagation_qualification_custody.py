@@ -155,7 +155,7 @@ def _dispatch(case: QualificationCase) -> object:
         return router.validated_current_scientific_source(
             case.consumer.repository, case.row, case.logical, case.buffer
         )
-    return chronology._validate_current_source(
+    chronology._validate_current_source(
         case.consumer.repository,
         _SOURCE,
         case.logical,
@@ -164,6 +164,7 @@ def _dispatch(case: QualificationCase) -> object:
         case.buffer.detached,
         source_buffer=case.buffer,
     )
+    return None
 
 
 @pytest.mark.parametrize("prefix", _CONTEXTS)
