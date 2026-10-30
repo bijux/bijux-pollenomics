@@ -15,6 +15,10 @@ from .presentation_source_roles import (
     HISTORICAL_RENDERING_SOURCES,
     atlas_extension_matches,
 )
+from .source_roles.atlas_context import (
+    ATLAS_CONTEXT_SOURCES,
+    validated_atlas_context_source,
+)
 from .source_roles.atlas_runtime_transport import (
     ATLAS_RUNTIME_TRANSPORT_SOURCES,
     validated_atlas_runtime_transport_source,
@@ -541,6 +545,10 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if name in ATLAS_CONTEXT_SOURCES:
+        return validated_atlas_context_source(
+            repository, historical, logical, source_buffer
+        )
     if name in ATLAS_RUNTIME_TRANSPORT_SOURCES:
         return validated_atlas_runtime_transport_source(
             repository, historical, logical, source_buffer
