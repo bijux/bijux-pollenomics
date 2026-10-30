@@ -321,6 +321,7 @@ def census(
 
 
 def revision(repository: Path) -> str:
+    """Require a stable committed repository source identity for the census."""
     prefix = (
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi"
     )
@@ -362,6 +363,7 @@ def revision(repository: Path) -> str:
 
 
 def main() -> None:
+    """Parse arguments for the declared source-bound evidence writer."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source-store", type=Path, required=True)

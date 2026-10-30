@@ -32,6 +32,7 @@ Evaluator = Callable[[dict[str, Any]], dict[str, Any]]
 
 
 def require(condition: object, message: str) -> None:
+    """Refuse saved inputs outside the declared regional-counting contract."""
     if not condition:
         raise ValueError(message)
 
@@ -58,6 +59,7 @@ def asset(archive: Path, digest: str, size: int | None = None) -> bytes:
 
 
 def table(raw: bytes, columns: list[str]) -> list[dict[str, str]]:
+    """Decode the declared saved CSV table without altering its source fields."""
     reader = csv.DictReader(io.StringIO(raw.decode()))
     require(reader.fieldnames == columns, "Native table axis differs")
     rows = list(reader)
@@ -74,6 +76,7 @@ def table(raw: bytes, columns: list[str]) -> list[dict[str, str]]:
 
 
 def finite(value: object, *, positive: bool = False) -> float:
+    """Require a finite numeric vector on the declared source axis."""
     require(type(value) in (int, float, str), "Numeric source cell required")
     number = float(str(value))
     require(
@@ -84,6 +87,7 @@ def finite(value: object, *, positive: bool = False) -> float:
 
 
 def counts(sample: dict[str, Any]) -> list[int]:
+    """Validate the exact nonnegative integral two-taxon count panel."""
     values: list[int] = sample["counts"]
     require(
         isinstance(values, list)
@@ -149,6 +153,7 @@ def load_case(
     used: dict[str, str] = {}
 
     def member(name: str) -> bytes:
+        """Read one hash-bound member of the saved experiment product."""
         digest = manifest["files"][name]
         if name in declared["members"]:
             require(
@@ -243,6 +248,7 @@ def load_case(
 
 
 def maintained(case: dict[str, Any]) -> dict[str, Any]:
+    """Load the maintained local and regional counting-set evaluator."""
     from bijux_pollenomics_lra.reconstruction.uncertainty.regional_counting import (
         regional_two_taxon_counting_set,
     )
@@ -393,6 +399,7 @@ def _revision(repository: Path) -> str:
 
 
 def main() -> None:
+    """Parse arguments for the declared source-bound evidence writer."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--archive", type=Path, required=True)
