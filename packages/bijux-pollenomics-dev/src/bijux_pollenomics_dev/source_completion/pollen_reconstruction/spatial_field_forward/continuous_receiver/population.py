@@ -32,12 +32,15 @@ from .radial_partition import RadialPartition
 
 @dataclass(frozen=True)
 class PopulationResult:
+    """Keep all case results, refusals, work budgets and elapsed time."""
+
     results: tuple[CoefficientResult | None, ...]
     refusals: tuple[str | None, ...]
     budgets: tuple[WorkBudget, ...]
     elapsed_seconds: float
 
     def __post_init__(self) -> None:
+        """Require complete tuple-owned dispositions and finite elapsed time."""
         if not (
             type(self.results) is tuple
             and type(self.refusals) is tuple

@@ -45,6 +45,8 @@ CERTIFICATE_BYTE_LIMIT = 4_500_000
 
 @dataclass(frozen=True)
 class SourceGuard:
+    """Record HEAD, the index digest and consumed source identities."""
+
     head: str
     index_digest: str
     consumed: tuple[tuple[str, str], ...]
@@ -116,6 +118,7 @@ def _identity(path: Path, owner: Path) -> dict[str, str | int]:
 def compare_references(
     case: StudyCase, result: CoefficientResult
 ) -> list[dict[str, Any]]:
+    """Record endpoint differences against named saved references."""
     bounds = {"K": result.homogeneous, "B1": result.first, "B2": result.second}
     rows = []
     for reference in case.references:
@@ -145,6 +148,7 @@ def _peak_rss() -> int:
 
 
 def run_study(repository: Path, protocol_path: Path, output: Path) -> dict[str, Any]:
+    """Publish the complete declared receiver population and refusal records."""
     started = time.monotonic()
     repository = repository.resolve()
     protocol_path = protocol_path.resolve()
@@ -408,6 +412,7 @@ def run_study(repository: Path, protocol_path: Path, output: Path) -> dict[str, 
 
 
 def main() -> None:
+    """Run the declared receiver study and print its outcome summary."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--protocol", required=True, type=Path)

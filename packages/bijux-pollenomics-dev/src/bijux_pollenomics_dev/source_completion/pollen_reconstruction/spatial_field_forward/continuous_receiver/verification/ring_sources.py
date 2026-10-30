@@ -29,6 +29,7 @@ AXIS = ("Betula", "Ulmus")
 
 
 def validate_protocol(protocol: Mapping[str, Any]) -> None:
+    """Require the named ring-source, numerical and resource contract."""
     require(
         protocol.get("schema_version") == "continuous-receiver-monotone-rings.v1"
         and protocol.get("cases") == [{"core": c, "taxon": t} for c, t in OWNERS],
@@ -249,6 +250,7 @@ def select_sources(
     freeze: Mapping[str, Any],
     prediction: Mapping[str, Any],
 ) -> tuple[tuple[Geometry, ...], tuple[tuple[Fraction, ...], ...]]:
+    """Bind exact case geometry and edges to the saved input freeze."""
     validate_protocol(protocol)
     require(
         public.get("schema_version") == "spatial-field-forward-account.v1"

@@ -51,11 +51,13 @@ RESOURCE_LIMITS = {
 
 
 def require(condition: bool, reason: str) -> None:
+    """Refuse an input when its required study condition fails."""
     if not condition:
         raise ValueError(reason)
 
 
 def finite(value: object) -> Fraction:
+    """Convert a finite native integer or binary64 value to a fraction."""
     if type(value) not in (int, float):
         raise ValueError("Finite native int or binary64 required")
     assert isinstance(value, (int, float))
@@ -76,12 +78,14 @@ def _nonfinite(value: str) -> None:
 
 
 def decode_json(value: bytes) -> dict[str, Any]:
+    """Decode a JSON object while rejecting duplicate and nonfinite members."""
     result = json.loads(value, object_pairs_hook=_object, parse_constant=_nonfinite)
     require(type(result) is dict, "JSON object required")
     return result  # type: ignore[no-any-return]
 
 
 def validate_protocol(protocol: dict[str, Any]) -> None:
+    """Require the fixed population, arithmetic, method and resource contract."""
     require(
         protocol["schema_version"] == "continuous-receiver-study.v1",
         "Unknown study protocol",
@@ -163,6 +167,7 @@ def validate_protocol(protocol: dict[str, Any]) -> None:
 def read_inputs(
     repository: Path, protocol: dict[str, Any]
 ) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Read the two declared public input receipts with exact byte identities."""
     validate_protocol(protocol)
     values = []
     for name in INPUT_PATHS:
@@ -186,6 +191,8 @@ def read_inputs(
 
 @dataclass(frozen=True)
 class Reference:
+    """Store one saved-reference target and its exact rational value."""
+
     name: str
     target: str
     value: Fraction
@@ -193,6 +200,8 @@ class Reference:
 
 @dataclass(frozen=True)
 class StudyCase:
+    """Bind a core and taxon to geometry, anchor order and references."""
+
     core: str
     taxon: str
     anchor_order: tuple[str, str]
@@ -202,12 +211,15 @@ class StudyCase:
 
 @dataclass(frozen=True)
 class StudyInputs:
+    """Group source-owned cases, native-prefix records and environment metadata."""
+
     cases: tuple[StudyCase, ...]
     native_prefix: tuple[dict[str, Any], ...]
     environment: dict[str, str]
 
     @property
     def geometries(self) -> tuple[Geometry, ...]:
+        """Return the ordered geometry population from the declared cases."""
         return tuple(case.geometry for case in self.cases)
 
 
@@ -391,6 +403,7 @@ def prepare_inputs(
 
 
 def geometry_record(geometry: Geometry) -> dict[str, Any]:
+    """Serialize exact geometry fields as rational strings."""
     return {
         "coefficient_A": str(geometry.coefficient),
         "receiver_radius_m": str(geometry.receiver),

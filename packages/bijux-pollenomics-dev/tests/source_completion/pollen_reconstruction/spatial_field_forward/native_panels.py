@@ -10,6 +10,7 @@ from .sources import AXIS, WINDOWS
 
 
 def native_counts(raw: dict[str, Any]) -> dict[str, int]:
+    """Read unique nonnegative integer pollen measurements by native name."""
     counts: dict[str, int] = {}
     seen: set[tuple[int, str]] = set()
     concepts = {"Betula": 29, "Ulmus": 310}
@@ -35,6 +36,7 @@ def native_counts(raw: dict[str, Any]) -> dict[str, int]:
 def core_panels(
     spec: dict[str, Any], site: dict[str, Any]
 ) -> tuple[list[dict[str, Any]], dict[tuple[int, int], dict[str, Any]]]:
+    """Account for native samples and pool the declared age-window subsets."""
     samples = site["collectionunit"]["dataset"]["samples"]
     assert (
         len(samples)

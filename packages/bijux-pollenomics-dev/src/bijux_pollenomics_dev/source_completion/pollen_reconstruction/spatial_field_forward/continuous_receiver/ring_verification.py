@@ -33,6 +33,7 @@ def _bound_output(path: Path, pin: object) -> bytes:
 def run_verification(
     repository: Path, protocol_path: Path, study_output: Path, output: Path
 ) -> dict[str, Any]:
+    """Check saved ring predictions, certificates and original input bindings."""
     started = time.monotonic()
     repository = repository.resolve()
     protocol_path = _owned(repository, protocol_path)
@@ -147,6 +148,7 @@ def run_verification(
 
 
 def main() -> None:
+    """Run the ring-result verifier and report its terminal status."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)

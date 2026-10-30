@@ -73,6 +73,7 @@ def load_packet(
     dict[str, Any],
     list[dict[str, Any]],
 ]:
+    """Read an owned study packet and authenticate its declared inputs."""
     repository = repository.resolve()
     protocol_path = _owned(repository, protocol_path)
     study_output = _owned(repository, study_output)
@@ -212,6 +213,7 @@ def _guard(
 def run_verification(
     repository: Path, protocol_path: Path, study_output: Path, output: Path
 ) -> dict[str, Any]:
+    """Check saved certificate leaves and publish an independent verification."""
     started = time.monotonic()
     repository = repository.resolve()
     protocol_path = _owned(repository, protocol_path)
@@ -299,6 +301,7 @@ def run_verification(
 
 
 def main() -> None:
+    """Run the fixed-leaf verifier and report its terminal status."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)

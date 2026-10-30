@@ -14,11 +14,13 @@ AGE_TYPE = "Calibrated radiocarbon years BP"
 
 
 def require(condition: object, message: str) -> None:
+    """Raise a literal-source refusal when a required condition fails."""
     if not condition:
         raise ValueError("Independent KRAG source support: " + message)
 
 
 def rows(value: Any) -> list[dict[str, Any]]:
+    """Read a list of native objects without coercing row types."""
     require(
         type(value) is list and all(type(row) is dict for row in value),
         "native object array required",
@@ -27,6 +29,7 @@ def rows(value: Any) -> list[dict[str, Any]]:
 
 
 def source_integer(value: object) -> bool:
+    """Identify nonnegative integer counts while excluding booleans."""
     return isinstance(value, int) and not isinstance(value, bool) and value >= 0
 
 
@@ -45,6 +48,7 @@ def source_number(value: object) -> int | float | None:
 
 
 def count_value(row: dict[str, Any]) -> str:
+    """Classify native count presence, type, zero and positive values."""
     if "value" not in row:
         return "missing_native_value"
     if row["value"] is None:
@@ -55,6 +59,7 @@ def count_value(row: dict[str, Any]) -> str:
 
 
 def pollen_metadata(row: dict[str, Any]) -> bool:
+    """Check literal pollen metadata and an explicitly null context."""
     return (
         all(
             row.get(key) == value
@@ -70,6 +75,7 @@ def pollen_metadata(row: dict[str, Any]) -> bool:
 
 
 def literal_axes(datum: list[dict[str, Any]]) -> dict[str, Any]:
+    """Account independently for the two named taxon axes and their counts."""
     axes = []
     values: list[int | None] = []
     for label, identifier in TAXA:
@@ -118,6 +124,7 @@ def literal_axes(datum: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def full_pollen_mass(datum: list[dict[str, Any]]) -> dict[str, Any]:
+    """Retain all pollen cells and refuse invalid or duplicate denominator rows."""
     candidates = {
         i
         for i, cell in enumerate(datum)
@@ -176,6 +183,7 @@ def full_pollen_mass(datum: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def age_selection(claims: list[dict[str, Any]]) -> tuple[str, dict[str, Any] | None]:
+    """Inspect only the selected chronology and preserve unresolved age states."""
     named = [
         claim
         for claim in claims
@@ -212,6 +220,7 @@ def age_selection(claims: list[dict[str, Any]]) -> tuple[str, dict[str, Any] | N
 
 
 def sample_row(source: dict[str, Any], index: int) -> dict[str, Any]:
+    """Build an independent sample account with selected-age window membership."""
     datum, ages = rows(source["datum"]), rows(source["ages"])
     state, selected = age_selection(ages)
     window = None

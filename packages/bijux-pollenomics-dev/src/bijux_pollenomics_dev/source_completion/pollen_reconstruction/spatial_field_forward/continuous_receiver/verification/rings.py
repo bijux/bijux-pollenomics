@@ -413,6 +413,7 @@ def verify_ring_case(
 
 
 def width_account(values: Mapping[str, Interval]) -> dict[str, Any]:
+    """Record coefficient intervals, widths and positivity diagnostics."""
     require(set(values) == {"K", "B1", "B2"}, "Coefficient axis differs")
     return {
         "coefficient_bounds": {name: encoded(value) for name, value in values.items()},

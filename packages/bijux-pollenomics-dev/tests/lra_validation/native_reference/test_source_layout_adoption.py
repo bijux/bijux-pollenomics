@@ -373,3 +373,81 @@ def test_counting_api_must_remain_stable_during_correspondence(
     monkeypatch.setattr(Path, "read_bytes", changing)
     with pytest.raises(ReportRebuildError, match="changed during"):
         layout.validated_source_layout(repository)
+
+
+@pytest.mark.parametrize("name", list(layout.RELOCATIONS))
+def test_historical_api_inventory_does_not_qualify_changed_operations(
+    repository: Path, name: str
+) -> None:
+    original = layout.read_historical_api_preimage(repository)
+    assert hashlib.sha256(original).hexdigest() == layout.PREIMAGE_SHA256
+    layout.validated_source_layout(repository)
+    target = repository / layout.RELOCATIONS[name]
+    target.write_bytes(target.read_bytes() + b"# invented refusal extension\n")
+    assert layout.read_historical_api_preimage(repository) == original
+    with pytest.raises(ReportRebuildError, match="operation source bytes"):
+        layout.validated_source_layout(repository)
+    with pytest.raises(ReportRebuildError, match="operation source bytes"):
+        layout.api_adoption_preimage(repository, repository / layout.API_PATH)
+    assert not (repository / layout.PREIMAGE_PATH).exists()
+
+
+@pytest.mark.parametrize("defect", ["changed", "symlink", "hardlink"])
+def test_historical_api_inventory_refuses_changed_or_aliased_proof(
+    repository: Path, defect: str
+) -> None:
+    import os
+
+    assert len(layout.read_historical_api_preimage(repository)) == 6049
+    target = repository / layout.PROOF_PATH
+    if defect == "changed":
+        target.write_bytes(target.read_bytes() + b"\n")
+    else:
+        backing = repository / "invented-proof.json"
+        target.rename(backing)
+        if defect == "symlink":
+            target.symlink_to(backing)
+        else:
+            os.link(backing, target)
+    with pytest.raises((ReportRebuildError, ReportOwnershipError)):
+        layout.read_historical_api_preimage(repository)
+
+
+@pytest.mark.parametrize("defect", ["wrong_body", "missing_ancestor"])
+def test_historical_api_inventory_keeps_original_git_authentication(
+    repository: Path, monkeypatch: pytest.MonkeyPatch, defect: str
+) -> None:
+    assert len(layout.read_historical_api_preimage(repository)) == 6049
+
+    def unavailable(*args: object) -> bytes:
+        if defect == "missing_ancestor":
+            raise ReportRebuildError("invented historical ancestor absent")
+        return b"wrong historical source"
+
+    monkeypatch.setattr(layout, "read_blob", unavailable)
+    with pytest.raises(ReportRebuildError):
+        layout.read_historical_api_preimage(repository)
+    assert not (repository / layout.PREIMAGE_PATH).exists()
+
+
+def test_historical_api_inventory_observes_final_proof_bytes(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    assert len(layout.read_historical_api_preimage(repository)) == 6049
+    target = repository / layout.PROOF_PATH
+    original_read = Path.read_bytes
+    observations = 0
+
+    def read(path: Path) -> bytes:
+        nonlocal observations
+        raw = original_read(path)
+        if path == target:
+            observations += 1
+            if observations == 2:
+                return raw + b"\n"
+        return raw
+
+    monkeypatch.setattr(Path, "read_bytes", read)
+    with pytest.raises(ReportRebuildError, match="changed during read"):
+        layout.read_historical_api_preimage(repository)
+    assert observations == 2

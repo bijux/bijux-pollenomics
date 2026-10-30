@@ -557,7 +557,8 @@ def verify(repository: Path, result: Path) -> dict[str, Any]:
     _require(report["country_accounts"] == accounts, "Country/scope accounting differs")
     for input_name, digest in inputs.items():
         _require(
-            hashlib.sha256((repository / input_name).read_bytes()).hexdigest() == digest,
+            hashlib.sha256((repository / input_name).read_bytes()).hexdigest()
+            == digest,
             "Native input changed during independent check",
         )
     return {

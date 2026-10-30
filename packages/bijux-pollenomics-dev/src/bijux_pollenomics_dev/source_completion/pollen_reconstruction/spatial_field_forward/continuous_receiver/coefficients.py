@@ -27,6 +27,8 @@ TRIANGLE_WIDTH = EPSILON / 16
 
 @dataclass(frozen=True)
 class CoefficientResult:
+    """Store receiver coefficients and their complete integral outcomes."""
+
     integrals: tuple[IntegralResult, ...]
     homogeneous: Interval
     first: Interval
@@ -38,6 +40,7 @@ class CoefficientResult:
     radial_sum: Interval | None = None
 
     def __post_init__(self) -> None:
+        """Require consistent rule, integral population and conditioned radial sum."""
         rule_definition(self.rule)
         if any(integral.rule != self.rule for integral in self.integrals):
             raise ValueError("Mixed quadrature rules in coefficient certificate")

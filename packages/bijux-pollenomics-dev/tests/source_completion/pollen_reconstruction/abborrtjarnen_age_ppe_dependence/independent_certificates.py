@@ -20,6 +20,7 @@ def rational(value: Any) -> Fraction:
 
 
 def matrix(value: Any, size: int = 4) -> Matrix:
+    """Convert a square symmetric matrix to exact rational entries."""
     if len(value) != size or any(len(row) != size for row in value):
         raise ValueError("Exact matrix axes differ")
     result = tuple(tuple(rational(x) for x in row) for row in value)
@@ -29,6 +30,7 @@ def matrix(value: Any, size: int = 4) -> Matrix:
 
 
 def determinant(value: Matrix) -> Fraction:
+    """Compute a rational determinant by recursive cofactor expansion."""
     if not value:
         return Fraction(1)
     return sum(
@@ -48,6 +50,7 @@ def determinant(value: Matrix) -> Fraction:
 
 
 def principal_minors(value: Matrix) -> dict[tuple[int, ...], Fraction]:
+    """Compute every nonempty principal minor using exact arithmetic."""
     return {
         indices: determinant(
             tuple(tuple(value[i][j] for j in indices) for i in indices)
@@ -58,6 +61,7 @@ def principal_minors(value: Matrix) -> dict[tuple[int, ...], Fraction]:
 
 
 def require_psd(value: Matrix) -> dict[tuple[int, ...], Fraction]:
+    """Require nonnegative exact principal minors and return their values."""
     minors = principal_minors(value)
     if any(x < 0 for x in minors.values()):
         raise ValueError("Exact nonnegative principal-minor certificate failed")
@@ -65,6 +69,7 @@ def require_psd(value: Matrix) -> dict[tuple[int, ...], Fraction]:
 
 
 def gram(rows: Any) -> Matrix:
+    """Construct a rational Gram matrix from four exact unit vectors."""
     if (
         len(rows) != 4
         or not 1 <= len(rows[0]) <= 4
@@ -86,6 +91,7 @@ def gram(rows: Any) -> Matrix:
 
 
 def objective(q: Matrix, r: Matrix) -> Fraction:
+    """Evaluate the exact four-axis trace objective."""
     return sum((q[i][j] * r[j][i] for i in range(4) for j in range(4)), Fraction(0))
 
 

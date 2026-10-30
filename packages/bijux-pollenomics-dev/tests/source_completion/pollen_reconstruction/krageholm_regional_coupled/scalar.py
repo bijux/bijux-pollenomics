@@ -12,6 +12,7 @@ METHODS = ("training_mean", "nearest_site", "inverse_distance_squared")
 
 
 def require(condition: object, message: str) -> None:
+    """Raise a prefixed refusal when an independent-check condition fails."""
     if not condition:
         raise ValueError("Independent KRAG coupled: " + message)
 
@@ -31,6 +32,7 @@ def number(value: object) -> Fraction:
 def pair(
     values: Sequence[object], *, positive: bool = False
 ) -> tuple[Fraction, Fraction]:
+    """Read two rational values in the required nonnegative or positive domain."""
     require(len(values) == 2, "literal two-taxon axis required")
     first, second = map(number, values)
     require(
@@ -41,6 +43,7 @@ def pair(
 
 
 def close(values: Sequence[Fraction]) -> tuple[Fraction, Fraction]:
+    """Normalize a positive-mass nonnegative two-taxon composition."""
     require(
         len(values) == 2 and min(values) >= 0 and sum(values) > 0,
         "positive nonnegative composition required",
@@ -63,6 +66,7 @@ def percent_round(value: Fraction) -> float:
 def reveals(
     counts: Sequence[object], ppe: Sequence[object], kernel: Sequence[object]
 ) -> tuple[Fraction, Fraction]:
+    """Apply fixed-coefficient REVEALS and its percentage rounding."""
     n, alpha, k = pair(counts), pair(ppe, positive=True), pair(kernel, positive=True)
     raw = close([n[i] / (alpha[i] * k[i]) for i in range(2)])
     rounded = [Fraction.from_float(percent_round(100 * value)) / 100 for value in raw]
@@ -76,6 +80,7 @@ def signed_love(
     local_kernel: Sequence[object],
     distant_kernel: Sequence[object],
 ) -> tuple[Fraction, Fraction]:
+    """Evaluate signed two-taxon LOVE cover without clipping its outputs."""
     n, alpha = pair(counts), pair(ppe, positive=True)
     c, local, distant = pair(regional), pair(local_kernel), pair(distant_kernel)
     relative = close([n[i] / alpha[i] for i in range(2)])
@@ -101,6 +106,7 @@ def admitted_cover(values: Sequence[Fraction]) -> tuple[Fraction, Fraction]:
 def spatial_weights(
     method: str, distances: Sequence[object]
 ) -> tuple[Fraction, Fraction]:
+    """Return the declared two-predictor weights while preserving distance ties."""
     require(method in METHODS, "unknown fixed spatial baseline")
     d = pair(distances)
     if method == "training_mean":
@@ -114,6 +120,7 @@ def spatial_weights(
 def spatial_cover(
     compositions: Sequence[Sequence[Fraction]], weights: Sequence[Fraction]
 ) -> tuple[Fraction, Fraction]:
+    """Combine two admitted local covers using nonnegative declared weights."""
     require(
         len(compositions) == 2
         and len(weights) == 2
@@ -134,6 +141,7 @@ def forward(
     terrestrial_fraction: Sequence[object],
     ppe: Sequence[object],
 ) -> tuple[Fraction, Fraction]:
+    """Project local cover and regional deposition to closed pollen fractions."""
     admitted_cover(cover)
     require(abs(float(sum(cover) - 1)) <= 1e-12, "forward local cover closure differs")
     regional, alpha = pair(regional_deposition), pair(ppe, positive=True)
@@ -160,6 +168,7 @@ def forward(
 def metrics(
     predicted: Sequence[Fraction], observed_counts: Sequence[object]
 ) -> dict[str, Fraction]:
+    """Compute two-taxon absolute-error and total-variation scores."""
     admitted_cover(predicted)
     truth = close(pair(observed_counts))
     error = sum((abs(predicted[i] - truth[i]) for i in range(2)), Fraction())

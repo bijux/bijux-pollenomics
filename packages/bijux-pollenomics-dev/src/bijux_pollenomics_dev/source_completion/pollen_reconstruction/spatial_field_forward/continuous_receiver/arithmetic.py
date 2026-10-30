@@ -23,10 +23,13 @@ SERIES_DEGREE = 64
 
 @dataclass(frozen=True)
 class Interval:
+    """Rational interval supporting outward-rounded arithmetic."""
+
     lower: Fraction
     upper: Fraction
 
     def __post_init__(self) -> None:
+        """Require ordered rational endpoints and store them as fractions."""
         if type(self.lower) not in (int, Fraction) or type(self.upper) not in (
             int,
             Fraction,
@@ -39,38 +42,47 @@ class Interval:
 
     @classmethod
     def point(cls, value: Scalar) -> Interval:
+        """Construct a point interval from an exact rational scalar."""
         if type(value) not in (int, Fraction):
             raise TypeError("Exact rational input required")
         return cls(Fraction(value), Fraction(value))
 
     @classmethod
     def outward(cls, lower: Fraction, upper: Fraction) -> Interval:
+        """Round both interval endpoints outward to the fixed binary lattice."""
         return cls(*lattice_bounds((lower, upper)))
 
     @property
     def width(self) -> Fraction:
+        """Return the full interval width."""
         return self.upper - self.lower
 
     @property
     def magnitude(self) -> Fraction:
+        """Return the largest absolute endpoint."""
         return max(abs(self.lower), abs(self.upper))
 
     def __add__(self, other: Interval | Scalar) -> Interval:
+        """Add two intervals with outward rounding."""
         rhs = interval(other)
         return self.outward(self.lower + rhs.lower, self.upper + rhs.upper)
 
     __radd__ = __add__
 
     def __neg__(self) -> Interval:
+        """Negate and reverse the interval endpoints."""
         return Interval(-self.upper, -self.lower)
 
     def __sub__(self, other: Interval | Scalar) -> Interval:
+        """Subtract an interval or exact scalar with outward rounding."""
         return self + -interval(other)
 
     def __rsub__(self, other: Interval | Scalar) -> Interval:
+        """Subtract this interval from the supplied interval or scalar."""
         return interval(other) + -self
 
     def __mul__(self, other: Interval | Scalar) -> Interval:
+        """Enclose all endpoint products with outward rounding."""
         rhs = interval(other)
         products = [
             a * b for a in (self.lower, self.upper) for b in (rhs.lower, rhs.upper)
@@ -80,17 +92,21 @@ class Interval:
     __rmul__ = __mul__
 
     def reciprocal(self) -> Interval:
+        """Enclose reciprocal values while refusing intervals containing zero."""
         if self.lower <= 0 <= self.upper:
             raise ValueError("Reciprocal interval includes zero")
         return self.outward(1 / self.upper, 1 / self.lower)
 
     def __truediv__(self, other: Interval | Scalar) -> Interval:
+        """Divide by an interval or scalar through its reciprocal."""
         return self * interval(other).reciprocal()
 
     def __rtruediv__(self, other: Interval | Scalar) -> Interval:
+        """Divide the supplied interval or scalar by this interval."""
         return interval(other) / self
 
     def __pow__(self, exponent: int) -> Interval:
+        """Enclose an integer power while retaining even-power zero crossings."""
         if type(exponent) is not int:
             raise TypeError("Exact integer exponent required")
         if exponent < 0:
@@ -106,6 +122,7 @@ class Interval:
         return self.outward(self.lower**exponent, self.upper**exponent)
 
     def root(self, degree: int) -> Interval:
+        """Enclose a supported power-of-two root on the nonnegative domain."""
         if type(degree) is not int or degree not in (2, 8, 16) or self.lower < 0:
             raise ValueError("Nonnegative power-of-two root domain required")
         result = self
@@ -116,15 +133,18 @@ class Interval:
         return result
 
     def expanded(self, radius: Fraction) -> Interval:
+        """Expand both endpoints by a nonnegative error radius."""
         if radius < 0:
             raise ValueError("Nonnegative error radius required")
         return self.outward(self.lower - radius, self.upper + radius)
 
     def encoded(self) -> list[str]:
+        """Serialize rational lower and upper endpoints as strings."""
         return [str(self.lower), str(self.upper)]
 
 
 def interval(value: Interval | Scalar) -> Interval:
+    """Retain an interval or construct an exact scalar point interval."""
     return value if isinstance(value, Interval) else Interval.point(value)
 
 
@@ -160,10 +180,12 @@ def _trigonometric_derivative(value: Interval, derivative: int) -> Interval:
 
 
 def sin_bounds(value: Interval) -> Interval:
+    """Enclose sine values over the declared interval."""
     return _trigonometric_derivative(value, 0)
 
 
 def cos_bounds(value: Interval) -> Interval:
+    """Enclose cosine values over the declared interval."""
     return _trigonometric_derivative(value, 1)
 
 
@@ -192,6 +214,8 @@ def sinc_derivative(value: Interval, derivative: int) -> Interval:
 
 
 def exp_bounds(value: Interval) -> Interval:
+    """Enclose endpoint exponentials using the bounded series calculation."""
+
     def at_point(x: Fraction) -> Interval:
         if abs(x) > 1024:
             raise ValueError(
@@ -214,9 +238,12 @@ def exp_bounds(value: Interval) -> Interval:
 
 @dataclass(frozen=True)
 class Jet:
+    """Truncated interval Taylor coefficients for derivative arithmetic."""
+
     coefficients: tuple[Interval, ...]
 
     def __post_init__(self) -> None:
+        """Require a bounded tuple of interval Taylor coefficients."""
         if (
             type(self.coefficients) is not tuple
             or not 1 <= len(self.coefficients) <= MAX_ORDER + 1
@@ -228,12 +255,14 @@ class Jet:
 
     @classmethod
     def constant(cls, value: Interval | Scalar, order: int = ORDER) -> Jet:
+        """Construct a constant Taylor jet at the requested supported order."""
         if type(order) is not int or not 0 <= order <= MAX_ORDER:
             raise ValueError("Invalid Taylor order")
         return cls((interval(value),) + (Interval.point(0),) * order)
 
     @classmethod
     def variable(cls, value: Interval, order: int = ORDER) -> Jet:
+        """Construct a Taylor variable with unit first derivative."""
         if type(order) is not int or not 0 <= order <= MAX_ORDER:
             raise ValueError("Invalid Taylor order")
         if order == 0:
@@ -242,10 +271,12 @@ class Jet:
 
     @property
     def order(self) -> int:
+        """Return the highest retained Taylor coefficient order."""
         return len(self.coefficients) - 1
 
     @property
     def value(self) -> Interval:
+        """Return the zeroth Taylor coefficient interval."""
         return self.coefficients[0]
 
     def _other(self, value: Jet | Interval | Scalar) -> Jet:
@@ -255,6 +286,7 @@ class Jet:
         return result
 
     def __add__(self, other: Jet | Interval | Scalar) -> Jet:
+        """Add aligned Taylor coefficients with interval arithmetic."""
         rhs = self._other(other)
         return Jet(
             tuple(
@@ -265,15 +297,19 @@ class Jet:
     __radd__ = __add__
 
     def __neg__(self) -> Jet:
+        """Negate every retained Taylor coefficient."""
         return Jet(tuple(-value for value in self.coefficients))
 
     def __sub__(self, other: Jet | Interval | Scalar) -> Jet:
+        """Subtract aligned Taylor coefficients."""
         return self + -self._other(other)
 
     def __rsub__(self, other: Jet | Interval | Scalar) -> Jet:
+        """Subtract this jet from an aligned jet, interval or scalar."""
         return self._other(other) + -self
 
     def __mul__(self, other: Jet | Interval | Scalar) -> Jet:
+        """Multiply jets by truncated coefficient convolution."""
         rhs = self._other(other)
         return Jet(
             tuple(
@@ -291,6 +327,7 @@ class Jet:
     __rmul__ = __mul__
 
     def reciprocal(self) -> Jet:
+        """Construct reciprocal Taylor coefficients from the base reciprocal."""
         coefficients = [self.value.reciprocal()]
         for n in range(1, self.order + 1):
             coefficients.append(
@@ -306,12 +343,15 @@ class Jet:
         return Jet(tuple(coefficients))
 
     def __truediv__(self, other: Jet | Interval | Scalar) -> Jet:
+        """Divide by the reciprocal jet of the supplied value."""
         return self * self._other(other).reciprocal()
 
     def __rtruediv__(self, other: Jet | Interval | Scalar) -> Jet:
+        """Divide the supplied value by this jet."""
         return self._other(other) / self
 
     def __pow__(self, exponent: int) -> Jet:
+        """Compute an integer jet power while preserving the direct base bound."""
         if type(exponent) is not int:
             raise TypeError("Exact integer exponent required")
         if exponent < 0:
@@ -329,6 +369,7 @@ class Jet:
         return Jet((self.value**original_exponent,) + result.coefficients[1:])
 
     def root(self, degree: int) -> Jet:
+        """Construct root coefficients around a strictly positive base interval."""
         if self.value.lower <= 0:
             raise ValueError("Taylor root requires strictly positive base interval")
         alpha = Fraction(1, degree)
@@ -352,6 +393,7 @@ class Jet:
         return Jet(tuple(coefficients))
 
     def exp(self) -> Jet:
+        """Construct exponential coefficients from the interval base exponential."""
         coefficients = [exp_bounds(self.value)]
         for n in range(self.order):
             coefficients.append(
@@ -367,6 +409,7 @@ class Jet:
         return Jet(tuple(coefficients))
 
     def sin_cos(self) -> tuple[Jet, Jet]:
+        """Construct coupled sine and cosine Taylor coefficient sequences."""
         sine, cosine = [sin_bounds(self.value)], [cos_bounds(self.value)]
         for n in range(self.order):
             sine.append(
@@ -392,6 +435,7 @@ class Jet:
         return Jet(tuple(sine)), Jet(tuple(cosine))
 
     def sinc(self) -> Jet:
+        """Construct sinc coefficients using its entire derivative expansion."""
         difference = Jet((Interval.point(0),) + self.coefficients[1:])
         result = Jet.constant(0, self.order)
         power = Jet.constant(1, self.order)

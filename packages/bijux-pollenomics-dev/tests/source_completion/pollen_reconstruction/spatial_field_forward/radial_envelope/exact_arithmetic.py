@@ -11,6 +11,7 @@ BITS = 96
 
 
 def require(condition: object, message: str) -> None:
+    """Raise an independent-envelope refusal when a required condition fails."""
     if not condition:
         raise ValueError("Independent radial envelope: " + message)
 
@@ -25,6 +26,7 @@ def finite(value: object) -> Fraction:
 
 
 def rational(value: Any) -> Fraction:
+    """Read a reduced rational string with a positive denominator."""
     require(type(value) is str, "canonical rational string required")
     result = Fraction(value)
     require(
@@ -34,6 +36,7 @@ def rational(value: Any) -> Fraction:
 
 
 def interval(value: Any) -> Interval:
+    """Decode two ordered canonical rational endpoints."""
     require(
         isinstance(value, list) and len(value) == 2, "two interval endpoints required"
     )
@@ -54,6 +57,7 @@ def sqrt_bounds(value: Fraction, bits: int = BITS) -> Interval:
 
 
 def outward(bounds: Interval, bits: int = BITS) -> Interval:
+    """Round an interval outward to the requested binary lattice."""
     scale = 1 << bits
     low, high = bounds
     require(low <= high, "reversed outward interval")
@@ -63,10 +67,12 @@ def outward(bounds: Interval, bits: int = BITS) -> Interval:
 
 
 def add(first: Interval, second: Interval) -> Interval:
+    """Add corresponding lower and upper interval endpoints."""
     return first[0] + second[0], first[1] + second[1]
 
 
 def squared(bounds: Interval) -> Interval:
+    """Bound an interval square while retaining any zero crossing."""
     low, high = bounds
     require(low <= high, "reversed square interval")
     ends = low * low, high * high
@@ -74,10 +80,12 @@ def squared(bounds: Interval) -> Interval:
 
 
 def root_interval(bounds: Interval) -> Interval:
+    """Enclose the square roots of a nonnegative interval."""
     require(0 <= bounds[0] <= bounds[1], "nonnegative root interval required")
     return sqrt_bounds(bounds[0])[0], sqrt_bounds(bounds[1])[1]
 
 
 def root_difference_square(first: Fraction, second: Fraction) -> Interval:
+    """Bound the squared difference of two rational square roots."""
     a, b = sqrt_bounds(first), sqrt_bounds(second)
     return squared((a[0] - b[1], a[1] - b[0]))

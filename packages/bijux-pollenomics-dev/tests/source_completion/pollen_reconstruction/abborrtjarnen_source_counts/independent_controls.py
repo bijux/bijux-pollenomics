@@ -13,6 +13,7 @@ COLUMNS = ("Bet [#]", "Cypae [#]", "Jun.c [#]", "Pin.s [#]", "Poac [#]")
 
 
 def original_control(second: str = "0") -> bytes:
+    """Build a two-depth source-text fixture with an adjustable count token."""
     return (
         "/* DATA DESCRIPTION:\n"
         "Citation: Giesecke, Thomas (2010): Pollen profile ABBO, Abborrtjärnen, Sweden; PANGAEA.738429\n"
@@ -33,6 +34,7 @@ def original_control(second: str = "0") -> bytes:
 
 
 def native_control() -> dict[str, Any]:
+    """Build a reordered two-sample native fixture with one absent count."""
     samples = []
     for sample_id, depth, values in [
         (20, 102, (6, None, 8, 9, 10)),

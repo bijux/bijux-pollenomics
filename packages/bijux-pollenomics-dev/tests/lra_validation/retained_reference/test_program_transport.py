@@ -30,6 +30,8 @@ DOMAIN = {
     "source-domains/run_source_domains.py",
     "source-domains/source_domains.R",
     "source-lock.json",
+    "generated-sources/packages/bijux-pollenomics-lra/src/"
+    "bijux_pollenomics_lra/_build_version.py",
 }
 
 
@@ -163,7 +165,7 @@ def test_original_oracle_is_read_through_real_source_capsule_inventory(
 
 @pytest.mark.parametrize("kind", ["legacy", "extra"])
 @pytest.mark.parametrize("boundary", ["inventory", "identity"])
-def test_only_exact_five_historical_members_can_use_bundle_transport(
+def test_only_exact_six_historical_members_can_use_bundle_transport(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, kind: str, boundary: str
 ) -> None:
     # Validate the real accepted oracle fixture before constructing each refusal.

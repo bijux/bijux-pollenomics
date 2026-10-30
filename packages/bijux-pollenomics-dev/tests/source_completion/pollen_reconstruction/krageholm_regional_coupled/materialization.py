@@ -20,6 +20,7 @@ NAMES = tuple(f"cal-bp-{low}-{high}" for low, high in WINDOWS)
 
 
 def support_totals(rows: dict[tuple[str, str], dict[str, Any]]) -> dict[str, int]:
+    """Sum the complete set of pinned positive-integer small-core supports."""
     require(
         set(rows) == {(name, code) for name in NAMES for code in SMALL},
         "all18 qualified small-source supports required",
@@ -39,6 +40,7 @@ def support_totals(rows: dict[tuple[str, str], dict[str, Any]]) -> dict[str, int
 
 
 def record_ids(protocol: dict[str, Any], name: str) -> dict[str, str]:
+    """Build source record identifiers for the declared cores and bin."""
     rows = [
         *protocol["small_cores"],
         {"id": "KRAGMJNY", "dataset": 23013, "collection_unit": 16622},
@@ -52,6 +54,7 @@ def record_ids(protocol: dict[str, Any], name: str) -> dict[str, str]:
 def retained_small(
     repository: Path, inputs: dict[str, Any], protocol: dict[str, Any]
 ) -> dict[tuple[str, str], dict[str, Any]]:
+    """Check pinned small-core sources and recover their window support."""
     pins = inputs["qualified_source_inputs"]
     first = dict(pins[0])
     require(
@@ -202,6 +205,7 @@ def retained_small(
 def geometry(
     declaration: dict[str, Any], metadata: dict[str, Any], *, regional: bool
 ) -> dict[str, Any]:
+    """Build basin metadata and local-only reconstruction ring geometry."""
     radius = declaration["radius_m"]
     value = {
         "basin": {"diameter_m": 2 * radius, "site_type": "lake"},
@@ -230,6 +234,7 @@ def geometry(
 def check_materialization(
     repository: Path, input_path: Path, inputs: dict[str, Any], protocol: dict[str, Any]
 ) -> dict[str, dict[str, Any]]:
+    """Check the input inventory against pinned source and geometry declarations."""
     _, audit = pinned(repository, protocol["krag_audit"], 2 * 1024**2)
     krag = checked_krag(audit)
     _, prior = pinned(repository, protocol["small_protocol"], 1024**2)

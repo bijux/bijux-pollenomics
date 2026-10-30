@@ -19,10 +19,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
     read_historical_python_correspondence,
 )
 from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
-    API_PATH as SOURCE_LAYOUT_API_PATH,
-)
-from bijux_pollenomics_dev.lra_validation.native_reference.source_layout_adoption import (
-    api_adoption_preimage,
+    read_historical_api_preimage,
 )
 from bijux_pollenomics_dev.reader_reports.source import (
     MAINTAINED_PRESENTATION_INPUTS,
@@ -549,7 +546,7 @@ def _source_bytes(root: Path, relative: str) -> bytes:
         == "data/source-custody/lra-uncertainty-layout/api-before-relocation.py"
     ):
         try:
-            return api_adoption_preimage(root, root / SOURCE_LAYOUT_API_PATH)
+            return read_historical_api_preimage(root)
         except (OSError, ReportRebuildError) as error:
             raise ValueError(
                 f"Research source is unavailable or unsafe: {relative}"

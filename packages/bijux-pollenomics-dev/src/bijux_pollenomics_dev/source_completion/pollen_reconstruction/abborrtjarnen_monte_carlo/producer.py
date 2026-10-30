@@ -25,6 +25,7 @@ from .batch_means import Array, require
 
 
 def source_revision(repository: Path) -> str:
+    """Return HEAD after checking that consumed sources are tracked and unchanged."""
     files = [*Path(__file__).parent.glob("*.py"), repository / inputs.PROTOCOL]
     files.extend(
         Path(inspect.getfile(function))
@@ -47,6 +48,7 @@ def source_revision(repository: Path) -> str:
 
 
 def square_root(value: float) -> float:
+    """Return a finite standard-error display without clipping invalid variance."""
     require(math.isfinite(value) and value >= 0, "Invalid MC variance; no clipping")
     root = math.sqrt(value)
     require(
@@ -59,6 +61,7 @@ def square_root(value: float) -> float:
 def scalar_records(
     mean: Array, variances: Array, mapping: Array
 ) -> list[dict[str, Any]]:
+    """Project twenty means into fifty scalar precision records."""
     require(
         mean.shape == (20,)
         and variances.shape == (50,)
@@ -88,6 +91,7 @@ def scalar_records(
 
 
 def probability_fields(rows: int, complete: int, variance: float) -> dict[str, Any]:
+    """Describe complete-row probability, error estimates and indicator variation."""
     return {
         "rows": rows,
         "complete": complete,
@@ -231,6 +235,7 @@ def summarize(
 
 
 def publish(repository: Path, output: Path) -> dict[str, Any]:
+    """Publish a saved-chain mean-precision diagnostic with input rechecks."""
     started = time.monotonic()
     repository = repository.resolve()
     destination = require_absent_artifact_output(repository, output)
