@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+import json
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -23,7 +24,6 @@ def validate_reader_routes(
     claims: list[dict[str, str]],
     routes: Mapping[str, Route] | None = None,
     *,
-    reader_dispositions: Mapping[str, Any],
     require_individual_qualifications: bool = False,
 ) -> dict[str, int]:
     """Refuse missing dispositions, unknown accounts and altered generated routes."""
@@ -33,9 +33,10 @@ def validate_reader_routes(
     ):
         raise ValueError("Scientific wrappers still lack individual qualifications")
     primary = {row["report_path"] for row in claims}
-    authority = reader_dispositions
+    path = repository_file(root, "reports/needed/scientific-reader-sources.json")
+    authority: Any = json.loads(path.read_text())
     if (
-        not isinstance(authority, Mapping)
+        not isinstance(authority, dict)
         or authority.get("schema_version") != 1
         or not isinstance(authority.get("non_scientific_readers"), list)
     ):

@@ -24,16 +24,10 @@ MAINTAINED_PRESENTATION_INPUTS = frozenset(
 )
 MAINTAINED_READER_BOOKKEEPING = frozenset(
     {
-        ".github/workflows/scientific-verification.yml",
-        "mkdocs.yml",
-        "packages/bijux-pollenomics-dev/pyproject.toml",
-        "packages/bijux-pollenomics-lra/pyproject.toml",
-        "presentation/source-lock.json",
-        "pyproject.toml",
-        "reports/exports/site-downloads.json",
-        "uv.lock",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/"
         "report_portal/scientific_accounts.json",
+        "reports/needed/report-claims.csv",
+        "reports/needed/scientific-review.csv",
         "docs/report/report_surface_registry.json",
         "docs/report/report_narrative_quality_review.json",
     }
