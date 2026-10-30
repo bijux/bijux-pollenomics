@@ -2104,7 +2104,7 @@
           <div id="atlas-capture-key" class="atlas-capture-key"></div>
           <p id="atlas-capture-caveat" class="atlas-capture-caveat">Evidence role is being resolved.</p>
         </section>
-        <div id="empty-state" class="empty-state" hidden>
+        <div id="empty-state" class="empty-state" role="status" aria-live="polite" hidden>
           <strong>No visible records</strong>
           <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
         </div>
@@ -7009,6 +7009,7 @@ __URL_STATE_CONTROLLER__
       __EDGE_DISPLAY_CONTROLLER__
       __RELATION_EVENT_DEFINITION_CONTROLLER__
       __EVIDENCE_DISPLAY_CONTROLLER__
+      __SELECTION_EMPTY_STATE_CONTROLLER__
       function renderEvidenceDisplayPanel() {
         const container = document.getElementById('evidence-display-controls');
         const decision = evidenceDisplayDecision(activeEvidenceDisplay);
@@ -7449,6 +7450,24 @@ __URL_STATE_CONTROLLER__
           });
         });
       }
+      function renderSelectionEmptyStatePanel(loadStatus = 'ready') {
+        let input = {loadStatus};
+        if (loadStatus === 'ready') {
+          const decision = evidenceDisplayDecision(activeEvidenceDisplay);
+          const narrowedTime = TIME_HAS_DATA && !timeFilterUsesFullExtent();
+          input = {loadStatus, countryCount: activeCountries.size,
+            selectedLayers: ALL_LAYERS.filter(layer => activeLayerKeys.has(layer.key)),
+            scientificSignalCount: SCIENTIFIC_SIGNALS.length, selectedScientificSignalCount: activeScientificSignalIds.size,
+            pointCount: visiblePointEntries.length, polygonLayerCount: renderedPolygonLayers.length,
+            retainedRelationCount: visibleGovernedEdges().length, relationViewportCount: edgeRenderSummary.viewport_count,
+            drawnRelationCount: edgeRenderSummary.shown, drawNodes: decision.drawNodes, drawEdges: decision.drawEdges,
+            timeFilterActive: narrowedTime, untimedExclusion: narrowedTime ? genericUntimedExclusion() : null};
+        }
+        const summary = selectionEmptyState(input);
+        emptyState.hidden = summary.hidden;
+        emptyState.dataset.reason = summary.reason;
+        emptyState.innerHTML = renderSelectionEmptyState(summary);
+      }
       async function renderMapState() {
         const generation = ++staticAtlasLoadGeneration;
         edgeFocusLoadState.generation = generation;
@@ -7456,6 +7475,7 @@ __URL_STATE_CONTROLLER__
         topbarStatePill.textContent = 'Loading selected evidence…';
         topbarStatePill.setAttribute('aria-live', 'polite');
         document.getElementById('map').setAttribute('aria-busy', 'true');
+        renderSelectionEmptyStatePanel('loading');
         try {
           const requested = await ensureStaticAtlasSelectionLoaded();
           if (generation !== staticAtlasLoadGeneration) return;
@@ -7478,6 +7498,7 @@ __URL_STATE_CONTROLLER__
           if (generation !== staticAtlasLoadGeneration) return;
           topbarStatePill.textContent = error instanceof Error ? error.message : 'Static atlas selection failed to load.';
           topbarStatePill.setAttribute('role', 'alert');
+          renderSelectionEmptyStatePanel('unavailable');
           console.error(error);
         } finally {
           if (generation === staticAtlasLoadGeneration) document.getElementById('map').setAttribute('aria-busy', 'false');
@@ -7509,7 +7530,7 @@ __URL_STATE_CONTROLLER__
         diameterValue.textContent = `${Number(slider.value)} km diameter`;
         radiusValue.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
-        emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
+        renderSelectionEmptyStatePanel();
         syncHashState();
         renderEvidenceToolPanels();
         if (document.documentElement.classList.contains('atlas-capture-mode') && atlasCapturePresentation !== null) {

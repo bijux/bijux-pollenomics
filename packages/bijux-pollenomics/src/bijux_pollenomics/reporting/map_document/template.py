@@ -32,6 +32,12 @@ def load_map_document_template() -> str:
             ),
         )
         .replace(
+            "__SELECTION_EMPTY_STATE_CONTROLLER__",
+            package_root.joinpath("assets/selection-empty-state.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
             "__RELATION_SUMMARY_CONTROLLER__",
             package_root.joinpath("assets/relation-summary.js").read_text(
                 encoding="utf-8"

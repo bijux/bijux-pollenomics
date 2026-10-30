@@ -78,7 +78,7 @@ def browser(published: dict[str, Any], action: str) -> dict[str, Any]:
         + template_block("function parseHashState", "function normalizedSetFromList")
         + template_block("function syncHashState()", "function clearHighlightedPoint")
         + template_block(
-            "async function renderMapState()", "function renderLoadedMapState"
+            "function renderSelectionEmptyStatePanel", "function renderLoadedMapState"
         )
         + template_block(
             "function visibleGovernedEdges", "function isRetainedNeighborContext"
@@ -124,6 +124,7 @@ function renderFocusCard(){focusCard.hidden=!focusState}
 let staticAtlasLoadGeneration=0;const ALL_LAYERS=[],selectionReadout={dataset:{}};
 const topbarStatePill={textContent:'',setAttribute(key,value){this[key]=value}};
 const mapElement={setAttribute(key,value){this[key]=value},getAttribute(key){return this[key]}};
+const emptyState={hidden:true,dataset:{},innerHTML:''};
 const document={activeElement:null,getElementById(id){return id==='map'?mapElement:{focus(){}}}};
 const renderedEdgeLayers=[],callbacks=[],map={};
 const L={polyline(){const events={};callbacks.push(events);return {bindPopup(){},on(key,callback){events[key]=callback},addTo(){}}}};

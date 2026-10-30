@@ -241,10 +241,9 @@ def test_empty_and_provider_failure_modes_are_explicit() -> None:
     assert "return 'none'" in MAP_DOCUMENT_TEMPLATE
     assert 'data-basemap="none"' in MAP_DOCUMENT_TEMPLATE
     assert "Evidence data unaffected." in MAP_DOCUMENT_TEMPLATE
-    assert (
-        "emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0"
-        in MAP_DOCUMENT_TEMPLATE
-    )
+    assert "renderSelectionEmptyStatePanel();" in MAP_DOCUMENT_TEMPLATE
+    assert "pointCount: visiblePointEntries.length" in MAP_DOCUMENT_TEMPLATE
+    assert "polygonLayerCount: renderedPolygonLayers.length" in MAP_DOCUMENT_TEMPLATE
     assert "failure.setAttribute('role', 'alert')" in MAP_DOCUMENT_TEMPLATE
 
 
