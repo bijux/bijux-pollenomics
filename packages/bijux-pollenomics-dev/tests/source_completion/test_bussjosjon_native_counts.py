@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import pytest
@@ -15,8 +16,13 @@ from bijux_pollenomics_dev.source_completion.bussjosjon_native_counts import (
 
 REPOSITORY = Path(__file__).resolve().parents[4]
 SOURCE = (
-    REPOSITORY.parent
-    / "bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/BUS.xls"
+    Path(
+        os.environ.get(
+            "BIJUX_POLLENOMICS_SOURCE_ROOT",
+            REPOSITORY.parent / "-bijux-pollenomics-data",
+        )
+    )
+    / "landclim/rootsi-workbooks/rootsi/BUS.xls"
 )
 GOVERNED = REPOSITORY / "docs/report/source-relations/neotoma/bus-native-correspondence"
 
@@ -92,3 +98,10 @@ def test_source_unit_and_sample_axis_refuse() -> None:
     rows[0]["sample_label"] = 1.0
     with pytest.raises(ValueError, match="sample-label axes differ"):
         compare_casefold_counts(headers, rows, samples)
+
+
+def test_repository_root_exposes_the_retained_correspondence_report() -> None:
+    """Verify the actual repository locator without reading a private workbook."""
+    assert (REPOSITORY / "configs/ci/report-ownership.json").is_file()
+    assert GOVERNED.is_relative_to(REPOSITORY / "docs/report")
+    assert (GOVERNED / "report.json").is_file()

@@ -8,6 +8,7 @@ from typing import cast
 
 import pytest
 
+from bijux_pollenomics.analysis.lra_validation.metrics import hellinger_distance
 from bijux_pollenomics_dev.lra_validation.site_leakage_challenge import (
     build_site_leakage_challenge,
 )
@@ -130,6 +131,7 @@ def test_changing_scoring_store_cannot_change_frozen_predictions(
 def test_retained_site_result_replays_exact_inputs_and_outputs(
     report: JsonObject,
 ) -> None:
+    """Retain original scores; the general stable metric is a distinct arithmetic."""
     repository = Path(__file__).resolve().parents[4]
     saved = json.loads(
         (
@@ -137,5 +139,14 @@ def test_retained_site_result_replays_exact_inputs_and_outputs(
         ).read_text()
     )
     assert saved == json.loads(json.dumps(report))
+    assert any(
+        hellinger_distance(
+            cast(dict[str, float], case["predicted_pollen_fraction"]),
+            cast(dict[str, float], case["synthetic_pollen_truth_fraction"]),
+        )
+        != case["pollen_hellinger"]
+        for case in _cases(report)
+        if case["status"] == "scored"
+    )
     assert cast(JsonObject, report["claims"])["empirical_ecological_accuracy"] is False
     assert cast(JsonObject, report["claims"])["reviewed_source_crosswalk"] is False

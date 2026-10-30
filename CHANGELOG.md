@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Authenticate canonical reference context, historical finite evidence and strict controller source custody ([#298](https://github.com/bijux/bijux-pollenomics/pull/298)).
+- **Pending review:** Preserve historical scoring and authenticate Atlas wrapper transport ([#299](https://github.com/bijux/bijux-pollenomics/pull/299)).
+- **Verified merge (2026-10-30 05:34:50 UTC):** Authenticate canonical reference context, historical finite evidence and strict controller source custody ([#298](https://github.com/bijux/bijux-pollenomics/pull/298)).
 - **Verified merge (2026-10-30 04:46:07 UTC):** Retain measured-panel shared-cover and nested counting evidence with qualified report provenance ([#297](https://github.com/bijux/bijux-pollenomics/pull/297)).
 - **Verified merge (2026-10-30 04:07:53 UTC):** Retain heterogeneous common-cover likelihood and exact conditional two-site counting evidence ([#296](https://github.com/bijux/bijux-pollenomics/pull/296)).
 - **Verified merge (2026-10-30 03:51:24 UTC):** Publish shared-age sensitivity bounds, covariance refusals and authenticated historical evidence readers ([#295](https://github.com/bijux/bijux-pollenomics/pull/295)).

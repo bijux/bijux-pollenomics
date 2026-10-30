@@ -26,12 +26,12 @@ def _run_browser_identity(
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
     )
     match = re.search(
-        r"function browserIdentity.*?\n}\n\nfunction debuggerEndpoint",
+        r"function browserIdentity.*?\n}",
         probe,
         re.DOTALL,
     )
     assert match is not None
-    function_source = match.group(0).removesuffix("\n\nfunction debuggerEndpoint")
+    function_source = match.group(0)
     script = (
         f"{function_source}\n"
         f"const version = {json.dumps(version)};\n"
