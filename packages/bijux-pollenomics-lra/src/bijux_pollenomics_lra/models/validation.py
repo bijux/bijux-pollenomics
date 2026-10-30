@@ -40,13 +40,21 @@ def validate_fall_speeds(
     return speeds
 
 
+def _reject_masked_values(value: Any, name: str) -> None:
+    """An unresolved mask cannot become an observed backing value during coercion."""
+    if np.ma.isMaskedArray(value) and np.ma.is_masked(value):
+        raise ValidationError(f"{name} contains masked, unresolved missing values")
+
+
 def scalar(value: Any, name: str = "value") -> Any:
     """Return a scalar, rejecting multi-element containers."""
+    _reject_masked_values(value, name)
     if isinstance(value, (list, tuple, np.ndarray, pd.Series)):
         array = np.asarray(value)
         if array.size != 1:
             raise ValidationError(f"{name} must be scalar")
-        return array.reshape(-1)[0].item()
+        item = array.reshape(-1)[0]
+        return item.item() if isinstance(item, np.generic) else item
     return value
 
 
@@ -62,7 +70,7 @@ def integer(value: Any, name: str, minimum: int = 1) -> int:
         raise ValidationError(f"{name} must be an integer >= {minimum}")
     try:
         numeric = float(value)
-    except (TypeError, ValueError) as exc:
+    except (TypeError, ValueError, OverflowError) as exc:
         raise ValidationError(f"{name} must be an integer >= {minimum}") from exc
     if not np.isfinite(numeric) or numeric != int(numeric) or numeric < minimum:
         raise ValidationError(f"{name} must be an integer >= {minimum}")
@@ -79,9 +87,11 @@ def finite_number(
 ) -> float:
     """Validate a finite numeric scalar and optional bounds."""
     value = scalar(value, name)
+    if isinstance(value, (bool, np.bool_)):
+        raise ValidationError(f"{name} must be a finite number, excluding booleans")
     try:
         numeric = float(value)
-    except (TypeError, ValueError) as exc:
+    except (TypeError, ValueError, OverflowError) as exc:
         raise ValidationError(f"{name} must be a finite number") from exc
     if not np.isfinite(numeric):
         raise ValidationError(f"{name} must be a finite number")
@@ -95,6 +105,34 @@ def finite_number(
     return numeric
 
 
+def _float_array(value: Any, name: str) -> np.ndarray:
+    """Refuse masked or boolean values before coercion; retain native numeric arrays."""
+    _reject_masked_values(value, name)
+    try:
+        raw = np.asarray(value)
+        if raw.dtype.kind == "b":
+            raise ValidationError(f"{name} must contain numbers, excluding booleans")
+        # A native non-object array has already declared its scalar types.
+        # Python sequences need object inspection before NumPy promotes a
+        # mixed boolean/numeric sequence into an indistinguishable numeric one.
+        original = (
+            raw
+            if isinstance(value, (np.ndarray, pd.Series, pd.DataFrame))
+            else np.asarray(value, dtype=object)
+        )
+        if original.dtype.kind == "O" and any(
+            isinstance(item, (bool, np.bool_)) for item in original.flat
+        ):
+            raise ValidationError(f"{name} must contain numbers, excluding booleans")
+        return np.asarray(raw, dtype=float)
+    except (TypeError, ValueError, OverflowError) as error:
+        if isinstance(error, ValidationError):
+            raise
+        raise ValidationError(
+            f"{name} must contain numeric values representable as floats"
+        ) from error
+
+
 def vector(
     value: Any,
     name: str,
@@ -104,7 +142,7 @@ def vector(
     positive: bool = False,
 ) -> np.ndarray:
     """Return a validated non-empty one-dimensional float vector."""
-    array = np.asarray(value, dtype=float)
+    array = _float_array(value, name)
     if array.ndim != 1 or array.size == 0:
         raise ValidationError(f"{name} must be a non-empty one-dimensional vector")
     if finite and not np.isfinite(array).all():
@@ -124,7 +162,7 @@ def matrix(
     nonnegative: bool = False,
 ) -> np.ndarray:
     """Return a validated non-empty two-dimensional float matrix."""
-    array = np.asarray(value, dtype=float)
+    array = _float_array(value, name)
     if array.ndim != 2 or 0 in array.shape:
         raise ValidationError(f"{name} must be a non-empty two-dimensional matrix")
     if finite and not np.isfinite(array).all():
@@ -187,7 +225,7 @@ def normalise_parameters(
         table = table.loc[requested]
 
     validate_fall_speeds(
-        table["fallspeed"].to_numpy(dtype=float),
+        table["fallspeed"].to_numpy(),
         fall_speed_profile,
         distance_weighting,
     )
@@ -213,7 +251,7 @@ def sample_counts(
             )
         coordinate = finite_number(table.iloc[0, 0], f"{name} coordinate")
         taxa = list(map(str, table.columns[1:]))
-        counts = vector(table.iloc[0, 1:].to_numpy(dtype=float), name, nonnegative=True)
+        counts = vector(table.iloc[0, 1:].to_numpy(), name, nonnegative=True)
     else:
         values = vector(frame_or_vector, name)
         if len(values) < 2:

@@ -11,6 +11,7 @@ import pandas as pd
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
     DEFAULT_FALL_SPEED_PROFILE,
+    _float_array,
     fall_speed_bounds,
     frame,
     integer,
@@ -154,9 +155,9 @@ def _prepare_inputs(
     missing = required - set(radii.columns)
     if missing:
         raise ValidationError(f"Ring table is missing columns: {sorted(missing)}")
-    inner = radii["inner"].to_numpy(dtype=float)
-    outer = radii["outer"].to_numpy(dtype=float)
-    mean = radii["mean"].to_numpy(dtype=float)
+    inner = _float_array(radii["inner"], "inner")
+    outer = _float_array(radii["outer"], "outer")
+    mean = _float_array(radii["mean"], "mean")
     if not (
         np.isfinite(inner).all()
         and np.isfinite(outer).all()
@@ -207,7 +208,7 @@ def _regional_cover(
     The REVEALS path converts its percent means to fractions for the LOVE step.
     """
     if draws is not None:
-        values = np.asarray(draws, dtype=float)
+        values = _float_array(draws, "regional_cover_draws")
         if values.ndim == 1:
             values = values[None, :]
         if repeat_index >= len(values) or values.shape[1] != len(ppe_table):
