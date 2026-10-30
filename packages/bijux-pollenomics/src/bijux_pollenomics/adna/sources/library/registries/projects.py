@@ -28,6 +28,7 @@ from .paper_evidence import (
     _project_sample_table_extraction_status,
 )
 from .papers import build_paper_registry
+from .population_expectations import population_expectation
 
 
 def _accession_range_sample_count(project_accession: str) -> int | None:
@@ -107,50 +108,9 @@ def _project_intake_expectation(
             ),
         )
 
-    if project.project_accession == "PRJEB59481":
-        return _ProjectIntakeExpectation(
-            expected_sample_count=5,
-            expected_sample_count_status="known_from_source_table",
-            expected_sample_count_provenance=(
-                "The retained Genome Biology and Evolution article Data Availability "
-                "explicitly assigns five new ancient individuals to PRJEB59481. "
-                "All five Table 1 sample labels join distinct official ENA BioSamples; "
-                "reused comparison genomes are outside this project-owned population."
-            ),
-            expected_sample_count_artifact_path=(
-                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1093-gbe-evae114/"
-                "article_full_text.xml"
-            ),
-            sample_identifier_status="paper_or_supplement_targets_curated",
-            inventory_disposition="tracked_intake_candidate",
-            rejection_reason="",
-            extraction_plan=(
-                "Preserve the five Table 1 to ENA identity bindings and keep "
-                "material disagreements and chronology evidence separate."
-            ),
-        )
-
-    if project.project_accession == "PRJEB60484":
-        return _ProjectIntakeExpectation(
-            expected_sample_count=20,
-            expected_sample_count_status="known_from_source_table",
-            expected_sample_count_provenance=(
-                "The retained Molecular Ecology Appendix S1 Table S3 lists 20 "
-                "ancient specimens with PRJEB60484 in the project column; all "
-                "20 join distinct ENA BioSample aliases."
-            ),
-            expected_sample_count_artifact_path=(
-                f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/"
-                "supplementary/mec17274-sup-0003-Table S3.xlsx"
-            ),
-            sample_identifier_status="paper_or_supplement_targets_curated",
-            inventory_disposition="tracked_intake_candidate",
-            rejection_reason="",
-            extraction_plan=(
-                "Preserve the exact Table S3 to ENA alias join and source-specific "
-                "chronology alternatives in the generated sample master."
-            ),
-        )
+    population = population_expectation(project.project_accession)
+    if population is not None:
+        return population
 
     if paper_spec is not None and _paper_sample_extractability(
         paper_spec,
