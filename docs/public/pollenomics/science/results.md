@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-10-01
+last_reviewed: 2026-10-28
 ---
 
 # Results and model use
@@ -159,6 +159,28 @@ retain the exact common support. These three Swedish sites and their outcomes
 were previously explored, and most of the mean improvement comes from one
 site. The comparison does not establish independent prediction skill or LRA
 vegetation accuracy.
+
+## Conditional physical transfer on matched Nordic panels
+
+A separate [six-place Betula/Pinus experiment](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/nordic-pollen-study.md#matched-six-place-physical-pollen-transfer)
+compares a fixed inverse-to-forward physical predictor with a direct-pollen
+mean. On the same three Swedish targets, 18 windows and 78 native owners,
+adding the Danish, Finnish and Norwegian training places lowers site-macro
+MAE for physical forwarding from 0.242912 to 0.198419, and for direct pollen
+from 0.242412 to 0.197962. These fractional scores concern a two-taxon panel;
+they cannot be compared with the older 31-target scores above.
+
+The [complete derived summary](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-reconstruction/nordic-physical-transfer/summary.json)
+retains separate country holdouts and country-weighting/core-substitution
+sensitivities. Across three profiles, all 432 method outcomes remain visible:
+414 scored, 16 prediction refusals and two unavailable target observations.
+The core substitution uses 15 common Swedish windows, rather than all 18.
+Method rankings differ by site and weighting rule. Predictions were saved
+before scoring, and independent Decimal arithmetic and R transport checks
+passed. Static geometry, fixed parameters and previously exposed counts make
+this a conditional development comparison. It supplies no local LOVE fit,
+dated basin admission, calibrated uncertainty, measured-vegetation score or
+untouched confirmation.
 
 ## Swedish age and distance sensitivity
 

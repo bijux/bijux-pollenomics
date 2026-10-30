@@ -1,0 +1,772 @@
+{
+  "schema_version": "nordic-physical-transfer-protocol.v1",
+  "question": "On the identical exposed Swedish Betula/Pinus targets and six calibrated-BP windows, how do Swedish-only versus four-country training and source-inverse/receiver-forward versus direct-pollen transfer compare, with separate whole-country holdouts and declared density/core sensitivity?",
+  "claim": "New conditional fixed-response point-pollen comparison. No full regional/local LOVE, historical reconstruction, independent vegetation accuracy, source/field approval, calibrated uncertainty or untouched generalization.",
+  "upstream_protocol": {
+    "path": "reports/science/pollen-reconstruction/nordic-author-window-support/protocol.json",
+    "bytes": 17424,
+    "sha256": "a2badb22f0989547131077d367c647dc07710d722b613ced9a182610e2ee38e2"
+  },
+  "upstream_source_commit": "352d7bce7275fa2b9451e058a213494201b237c0",
+  "qualified_products": {
+    "abborrtjarnen": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/abborrtjarnen.json",
+      "bytes": 1213617,
+      "sha256": "fda048bd14ec6901a2d5554375d1f5768f45242976d048ae4921e9cb03c9de18"
+    },
+    "bokesjon": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/bokesjon.json",
+      "bytes": 778317,
+      "sha256": "2b03b7f8b4cbf0901340d0054c2adb27b1cb486219f0278117fc46b257b5789d"
+    },
+    "bussjosjon": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/bussjosjon.json",
+      "bytes": 923127,
+      "sha256": "87091f6da277428e1a22637598c886834abb70e5075e1652b4c5a4b49ad9b3ac"
+    },
+    "dalmutladdo": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/dalmutladdo.json",
+      "bytes": 995803,
+      "sha256": "4dc2f2b37c73d8e7ae416f713fdb10c7f09870639a70804cd315986d654a4a93"
+    },
+    "input_manifest": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/input-manifest.json",
+      "bytes": 3370,
+      "sha256": "e5a3c4a7a0db7eea0c1004bf0406ebd907b16e1a754c1320ed64851f44bc5453"
+    },
+    "laihalampi": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/laihalampi.json",
+      "bytes": 1567210,
+      "sha256": "9e9e6e565c0cd8b5205b852b29db9e25fa1f6120d8250c9b1339b21590d1b69f"
+    },
+    "parameters": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/parameters.json",
+      "bytes": 22451,
+      "sha256": "a1a6e4f57aaacecb90d032651442704479155da64dcea3636e80b0e5adc1edfc"
+    },
+    "solsoe81": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/solsoe81.json",
+      "bytes": 1187511,
+      "sha256": "0fa1025d5d4518c70e94fde965bea776b72376fc3fa48b7ee8f1c57aadbe245e"
+    },
+    "solsoe83": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/solsoe83.json",
+      "bytes": 443016,
+      "sha256": "657a9e45c8c432c3b877a8bd01ec9895bad15facdcded1df70cab87d435bde58"
+    },
+    "result": {
+      "path": "artifacts/root/nordic-author-window-support/pollen-element-study/result.json",
+      "bytes": 9607,
+      "sha256": "15c65ede7fdd1d39e7d0383ff07beb4f928855846c0f0697fb837c76460a40c4"
+    },
+    "verification": {
+      "path": "artifacts/verification/nordic-author-window-pollen-elements/verification.json",
+      "bytes": 8074,
+      "sha256": "c2614d70a60607647dc1993ed7791676f1806132329b1848b11c03a93f4d70c6"
+    }
+  },
+  "scientific_sources": {
+    "metadata_records": {
+      "path": "docs/report/publication-replay/landclim-study-inputs/records.jsonl",
+      "bytes": 3664403,
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a"
+    },
+    "metadata_workbook": {
+      "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+      "bytes": 264067,
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    "swedish_response": {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "bytes": 726215,
+      "sha256": "8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd"
+    },
+    "nordic_response": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/physical-response-tuples.json",
+      "bytes": 12504,
+      "sha256": "675e7ae2107829fd575255249f2643bde31951945b15690e46631455137be8e3"
+    },
+    "nordic_original_report": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "bytes": 604997,
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe"
+    },
+    "swedish_imports": {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/observed-imports.json",
+      "bytes": 334670,
+      "sha256": "e59d28594db8344907777ed3567c83773c1f3afe868835bc534afb04ad79256d"
+    },
+    "nordic_imports": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/actual-first-party-import-closure.json",
+      "bytes": 14321,
+      "sha256": "42c519627404030a6a2706fbb034f9dfea3694778046f745a7a24baefc34c322"
+    },
+    "swedish_independent_response": {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-math-review.json",
+      "bytes": 27520,
+      "sha256": "bbe0fa0fb324ff7eaa4b2a295d6624c31ab58cdc364720887e5d2064f3e3fc8a"
+    },
+    "nordic_independent_response": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-physical-review.json",
+      "bytes": 22245,
+      "sha256": "ce27a738d2673396daf9555537671f6c06560ffe3501413c0f27d6e76938ec78"
+    },
+    "receiver_numerical_source": {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py",
+      "bytes": 7383,
+      "sha256": "9aeae845a11540abcddf77dd9f09a418aed8838e52ba516a7eb058efbeff5563"
+    },
+    "gpm_numerical_source": {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+      "bytes": 9757,
+      "sha256": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d"
+    },
+    "independent_receiver_reference": {
+      "path": "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/receiver_reference.R",
+      "bytes": 9516,
+      "sha256": "5855ed5f39a41199e43276735e85882861c83511d8e242c151fe4231905e230d"
+    },
+    "dependency_lock": {
+      "path": "uv.lock",
+      "bytes": 558716,
+      "sha256": "7e6aed78b77afa8116d4e9b2e084d11a1d6c4bcb25721475fd0ec4ac3f6fac9d"
+    },
+    "swedish_transport_protocol": {
+      "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
+      "bytes": 4359,
+      "sha256": "d9a12af1e1f7a39e690c35de19b87fc487311756a75b39318de9acba7ffe3399"
+    },
+    "nordic_transport_protocol": {
+      "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json",
+      "bytes": 13224,
+      "sha256": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c"
+    }
+  },
+  "taxa": [
+    "Betula",
+    "Pinus"
+  ],
+  "parameters": {
+    "targets": [
+      "Betula",
+      "Pinus"
+    ],
+    "alpha_text": [
+      "5.10571",
+      "6.05833"
+    ],
+    "fall_speed_m_s_text": [
+      "0.024",
+      "0.031"
+    ],
+    "covariance_text": [
+      [
+        "0.092006056",
+        "0"
+      ],
+      [
+        "0",
+        "0.056016002"
+      ]
+    ],
+    "literal_file_line_numbers": [
+      6,
+      22
+    ],
+    "binding": "Bind all31 unique ordered A.series labels in mean and covariance files, with matching row/column axes, finite positive means/fall speeds and a symmetric nonnegative covariance diagonal. Preserve source strings and the selected exact2x2 block; line6/22 include the header. Do not substitute rounded published-table values or interpret the profile as an approved local PPE."
+  },
+  "windows": [
+    [
+      2700,
+      3200
+    ],
+    [
+      3200,
+      3700
+    ],
+    [
+      3700,
+      4200
+    ],
+    [
+      4200,
+      4700
+    ],
+    [
+      4700,
+      5200
+    ],
+    [
+      5200,
+      5700
+    ]
+  ],
+  "cores": [
+    {
+      "key": "abborrtjarnen",
+      "country": "SE",
+      "physical_family": "neotoma:site:13338",
+      "identity": {
+        "site_id": 13338,
+        "dataset_id": 19913,
+        "collection_unit_id": 14910,
+        "handle": "ABBO",
+        "source_sample_count": 107
+      },
+      "chronology": {
+        "selected_id": 11516,
+        "selected_name": "EPD 1",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 11516,
+        "source_default_flags": {
+          "11516": true
+        }
+      },
+      "source_ledger": "abborrtjarnen",
+      "metadata_source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!968",
+      "metadata_inventory_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+      "metadata_raw": {
+        "SiteName": "Abborrtjärnen",
+        "csvfilename": "ABB",
+        "siteType": "lake",
+        "siteradius": "98",
+        "londd": "14.45",
+        "latdd": "63.883333",
+        "Country": "Sweden",
+        "DataRestricted/NotRestriced": "NR"
+      },
+      "radius_m": 98.0,
+      "longitude": 14.45,
+      "latitude": 63.883333
+    },
+    {
+      "key": "bokesjon",
+      "country": "SE",
+      "physical_family": "neotoma:site:28872",
+      "identity": {
+        "site_id": 28872,
+        "dataset_id": 54001,
+        "collection_unit_id": 39241,
+        "handle": "BOKE",
+        "source_sample_count": 52
+      },
+      "chronology": {
+        "selected_id": 38422,
+        "selected_name": "LANDCLIM",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 38422,
+        "source_default_flags": {
+          "38422": true
+        }
+      },
+      "source_ledger": "bokesjon",
+      "metadata_source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!977",
+      "metadata_inventory_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+      "metadata_raw": {
+        "SiteName": "Bökesjön",
+        "csvfilename": "BOKE",
+        "siteType": "lake",
+        "siteradius": "80",
+        "londd": "13.4375",
+        "latdd": "55.575555999999999",
+        "Country": "Sweden",
+        "DataRestricted/NotRestriced": "NR"
+      },
+      "radius_m": 80.0,
+      "longitude": 13.4375,
+      "latitude": 55.575556
+    },
+    {
+      "key": "bussjosjon",
+      "country": "SE",
+      "physical_family": "neotoma:site:28869",
+      "identity": {
+        "site_id": 28869,
+        "dataset_id": 53995,
+        "collection_unit_id": 39238,
+        "handle": "BUS",
+        "source_sample_count": 69
+      },
+      "chronology": {
+        "selected_id": 38418,
+        "selected_name": "LANDCLIM",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 38418,
+        "source_default_flags": {
+          "38418": true
+        }
+      },
+      "source_ledger": "bussjosjon",
+      "metadata_source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!978",
+      "metadata_inventory_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+      "metadata_raw": {
+        "SiteName": "Bussjösjön",
+        "csvfilename": "BUS",
+        "siteType": "lake",
+        "siteradius": "69",
+        "londd": "13.816667000000001",
+        "latdd": "55.466667000000001",
+        "Country": "Sweden",
+        "DataRestricted/NotRestriced": "NR"
+      },
+      "radius_m": 69.0,
+      "longitude": 13.816667,
+      "latitude": 55.466667
+    },
+    {
+      "key": "solsoe81",
+      "country": "DK",
+      "physical_family": "neotoma:site:3432",
+      "identity": {
+        "site_id": 3432,
+        "dataset_id": 4445,
+        "collection_unit_id": 4303,
+        "handle": "SOLSOE81",
+        "source_sample_count": 66
+      },
+      "chronology": {
+        "selected_id": 25732,
+        "selected_name": "Giesecke et al. 2014 (MADCAP)",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 25731,
+        "source_default_flags": {
+          "25732": true,
+          "25731": true
+        }
+      },
+      "source_ledger": "solsoe81",
+      "metadata_source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "metadata_inventory_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+      "metadata_raw": {
+        "SiteName": "Solsø",
+        "csvfilename": "Solsoe",
+        "siteType": "lake",
+        "siteradius": "89",
+        "londd": "8.6145224999999996",
+        "latdd": "56.128432779999997",
+        "Country": "Denmark",
+        "DataRestricted/NotRestriced": "R"
+      },
+      "radius_m": 89.0,
+      "longitude": 8.6145225,
+      "latitude": 56.12843278
+    },
+    {
+      "key": "solsoe83",
+      "country": "DK",
+      "physical_family": "neotoma:site:3432",
+      "identity": {
+        "site_id": 3432,
+        "dataset_id": 4446,
+        "collection_unit_id": 4304,
+        "handle": "SOLSOE83",
+        "source_sample_count": 26
+      },
+      "chronology": {
+        "selected_id": 25740,
+        "selected_name": "Giesecke et al. 2014 (MADCAP)",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 25739,
+        "source_default_flags": {
+          "25740": true,
+          "25739": true
+        }
+      },
+      "source_ledger": "solsoe83",
+      "metadata_source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "metadata_inventory_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+      "metadata_raw": {
+        "SiteName": "Solsø",
+        "csvfilename": "Solsoe",
+        "siteType": "lake",
+        "siteradius": "89",
+        "londd": "8.6145224999999996",
+        "latdd": "56.128432779999997",
+        "Country": "Denmark",
+        "DataRestricted/NotRestriced": "R"
+      },
+      "radius_m": 89.0,
+      "longitude": 8.6145225,
+      "latitude": 56.12843278
+    },
+    {
+      "key": "laihalampi",
+      "country": "FI",
+      "physical_family": "neotoma:site:28072",
+      "identity": {
+        "site_id": 28072,
+        "dataset_id": 52082,
+        "collection_unit_id": 37925,
+        "handle": "LAIH",
+        "source_sample_count": 150
+      },
+      "chronology": {
+        "selected_id": 37160,
+        "selected_name": "cal yr BP",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 37159,
+        "source_default_flags": {
+          "37160": true,
+          "37159": true
+        }
+      },
+      "source_ledger": "laihalampi",
+      "metadata_source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!155",
+      "metadata_inventory_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+      "metadata_raw": {
+        "SiteName": "Laihalampi",
+        "csvfilename": "LAIH",
+        "siteType": "lake",
+        "siteradius": "285",
+        "londd": "26.080832999999998",
+        "latdd": "61.488332999999997",
+        "Country": "Finland",
+        "DataRestricted/NotRestriced": "R"
+      },
+      "radius_m": 285.0,
+      "longitude": 26.080833,
+      "latitude": 61.488333
+    },
+    {
+      "key": "dalmutladdo",
+      "country": "NO",
+      "physical_family": "neotoma:site:13388",
+      "identity": {
+        "site_id": 13388,
+        "dataset_id": 20034,
+        "collection_unit_id": 14989,
+        "handle": "DALMUT",
+        "source_sample_count": 72
+      },
+      "chronology": {
+        "selected_id": 11601,
+        "selected_name": "author preferred",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 11600,
+        "source_default_flags": {
+          "11601": true,
+          "11600": true,
+          "11602": false
+        }
+      },
+      "source_ledger": "dalmutladdo",
+      "metadata_source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!801",
+      "metadata_inventory_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+      "metadata_raw": {
+        "SiteName": "Dalmutladdo",
+        "csvfilename": "dalmutladdo",
+        "siteType": "lake",
+        "siteradius": "160",
+        "londd": "20.716667000000001",
+        "latdd": "69.166667000000004",
+        "Country": "Norway",
+        "DataRestricted/NotRestriced": "NR"
+      },
+      "radius_m": 160.0,
+      "longitude": 20.716667,
+      "latitude": 69.166667
+    }
+  ],
+  "profiles": [
+    {
+      "id": "equal_place_solsoe83",
+      "cores": [
+        "abborrtjarnen",
+        "bokesjon",
+        "bussjosjon",
+        "solsoe83",
+        "laihalampi",
+        "dalmutladdo"
+      ],
+      "weighting": "equal_physical_place",
+      "role": "primary"
+    },
+    {
+      "id": "equal_country_solsoe83",
+      "cores": [
+        "abborrtjarnen",
+        "bokesjon",
+        "bussjosjon",
+        "solsoe83",
+        "laihalampi",
+        "dalmutladdo"
+      ],
+      "weighting": "equal_country_then_place",
+      "role": "density_sensitivity"
+    },
+    {
+      "id": "equal_place_solsoe81",
+      "cores": [
+        "abborrtjarnen",
+        "bokesjon",
+        "bussjosjon",
+        "solsoe81",
+        "laihalampi",
+        "dalmutladdo"
+      ],
+      "weighting": "equal_physical_place",
+      "role": "same_physical_site_core_sensitivity"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "swedish_training_scope",
+      "targets": [
+        "abborrtjarnen",
+        "bokesjon",
+        "bussjosjon"
+      ],
+      "scopes": [
+        "swedish_only",
+        "pooled_nordic"
+      ],
+      "exclusion": "whole_target_physical_family"
+    },
+    {
+      "id": "country_holdout",
+      "targets": [
+        "abborrtjarnen",
+        "bokesjon",
+        "bussjosjon",
+        "solsoe83",
+        "laihalampi",
+        "dalmutladdo"
+      ],
+      "scopes": [
+        "outside_target_country"
+      ],
+      "exclusion": "whole_target_country_and_physical_family"
+    }
+  ],
+  "population": {
+    "profiles": 3,
+    "primary_physical_places": 6,
+    "primary_countries": 4,
+    "windows_per_place": 6,
+    "swedish_contexts_per_profile": 36,
+    "country_contexts_per_profile": 36,
+    "contexts": 216,
+    "methods_per_context": 2,
+    "method_dispositions": 432,
+    "upstream_owners": 542,
+    "upstream_sequences": 7,
+    "primary_window_native_owners": 155,
+    "alternate_window_native_owners": 157
+  },
+  "context_identity": "profile/experiment/target core/physical family/country/window/scope; use profile-selected Solsoe key when enumerating Denmark country targets. Enumerate every declared window regardless of target observation availability. No pooling or joint quantitative ancestry of SOLSOE81/83 in one profile.",
+  "exclusion_policy": "Build the structural allowed training set from the six profile places after whole native physical-family and, for country folds, whole target-country exclusion. Swedish-only additionally excludes every non-SE source. Every excluded source receives its exact reason. Native source-country labels define declared grouping, not qualified geographic decisions or coordinate corrections.",
+  "required_training_policy": "Every structurally allowed place must have a supported positive same-window source panel. If any required source window is empty/refused/zero/invalid, retain all required owners and refuse BOTH prediction methods for that context. No dropping, renormalizing over available sources, window substitution, zero imputation or fallback. Other contexts continue. Fixed complete cohorts make changes in training support explicit.",
+  "weight_policy": "After structural exclusions, equal-place assigns1/n places. Equal-country assigns1/C allowed countries and then1/n_country within each. Construct weights before source availability/refusal; never from full/global country totals or target counts. Both methods use the identical required places and weights.",
+  "formulas": {
+    "source_inverse": "v_si=closure(n_si/(K_si*PPE_i)); call maintained fixed_site_cover_covariance with exact selected2x2 author covariance and discard its uncertainty outputs; no rounded SD reconstruction.",
+    "physical_forward": "v_target=sum_s w_s*v_s; p_i=closure(K_target_i*PPE_i*v_target_i), via maintained forward_deposition with one homogeneous annulus, ring area weight1 because K already integrates that source annulus, and zero separate regional deposition.",
+    "direct_panel_mean": "p_i=sum_s w_s*n_si/sum_j(n_sj), same source set and weights.",
+    "closure": "Normalize a defined finite nonnegative positive-total vector only at the stated model closure; never normalize malformed inputs, round counts, clip negative covers or alter source fractions."
+  },
+  "transport": {
+    "receiver": "uniformly weighted circular disk",
+    "source_inner_radius": "equal declared static metadata receiver radius",
+    "outer_radius_m": 100000,
+    "wind_speed_m_s": 3,
+    "diffusion_coefficient": 0.12,
+    "diffusion_units": "Empirical metre-based GPM coefficient, not an SI diffusivity assertion.",
+    "turbulence_parameter": 0.25,
+    "python_absolute_tolerance": 1e-09,
+    "python_relative_tolerance": 1e-08,
+    "python_quadrature_limit": 100,
+    "estimated_errors_rigorous": false
+  },
+  "retained_responses": [
+    {
+      "receiver_radius_m": 98.0,
+      "source_inner_radius_m": 98.0,
+      "outer_radius_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "factor": 0.2876117408446557,
+      "estimated_absolute_error": 1.9893148456472072e-09,
+      "rigorous_error_bound": false,
+      "source": "swedish_response",
+      "factor_pointer": "/cores/0/quadrature/0/factors/0/0",
+      "error_pointer": "/cores/0/quadrature/0/estimated_absolute_error/0"
+    },
+    {
+      "receiver_radius_m": 98.0,
+      "source_inner_radius_m": 98.0,
+      "outer_radius_m": 100000,
+      "fall_speed_m_s": 0.031,
+      "factor": 0.23672714705607267,
+      "estimated_absolute_error": 2.2800123762688543e-09,
+      "rigorous_error_bound": false,
+      "source": "swedish_response",
+      "factor_pointer": "/cores/0/quadrature/0/factors/0/1",
+      "error_pointer": "/cores/0/quadrature/0/estimated_absolute_error/1"
+    },
+    {
+      "receiver_radius_m": 80.0,
+      "source_inner_radius_m": 80.0,
+      "outer_radius_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "factor": 0.2968731304200054,
+      "estimated_absolute_error": 2.362920920853322e-09,
+      "rigorous_error_bound": false,
+      "source": "swedish_response",
+      "factor_pointer": "/cores/1/quadrature/0/factors/0/0",
+      "error_pointer": "/cores/1/quadrature/0/estimated_absolute_error/0"
+    },
+    {
+      "receiver_radius_m": 69.0,
+      "source_inner_radius_m": 69.0,
+      "outer_radius_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "factor": 0.3036219855575824,
+      "estimated_absolute_error": 2.3198442062977365e-09,
+      "rigorous_error_bound": false,
+      "source": "swedish_response",
+      "factor_pointer": "/cores/2/quadrature/0/factors/0/0",
+      "error_pointer": "/cores/2/quadrature/0/estimated_absolute_error/0"
+    },
+    {
+      "receiver_radius_m": 89,
+      "source_inner_radius_m": 89,
+      "outer_radius_m": 100000.0,
+      "fall_speed_m_s": 0.024,
+      "factor": 0.292007913782744,
+      "estimated_absolute_error": 2.394540116391155e-09,
+      "rigorous_error_bound": false,
+      "source": "nordic_response",
+      "factor_pointer": "/1/factor",
+      "error_pointer": "/1/estimated_absolute_error"
+    },
+    {
+      "receiver_radius_m": 285,
+      "source_inner_radius_m": 285,
+      "outer_radius_m": 100000.0,
+      "fall_speed_m_s": 0.024,
+      "factor": 0.2390835395925667,
+      "estimated_absolute_error": 2.3062602612499036e-09,
+      "rigorous_error_bound": false,
+      "source": "nordic_response",
+      "factor_pointer": "/21/factor",
+      "error_pointer": "/21/estimated_absolute_error"
+    },
+    {
+      "receiver_radius_m": 285,
+      "source_inner_radius_m": 285,
+      "outer_radius_m": 100000.0,
+      "fall_speed_m_s": 0.031,
+      "factor": 0.19096584468494196,
+      "estimated_absolute_error": 2.432584045326895e-09,
+      "rigorous_error_bound": false,
+      "source": "nordic_response",
+      "factor_pointer": "/22/factor",
+      "error_pointer": "/22/estimated_absolute_error"
+    },
+    {
+      "receiver_radius_m": 160,
+      "source_inner_radius_m": 160,
+      "outer_radius_m": 100000.0,
+      "fall_speed_m_s": 0.024,
+      "factor": 0.26526398916936,
+      "estimated_absolute_error": 2.120292625842446e-09,
+      "rigorous_error_bound": false,
+      "source": "nordic_response",
+      "factor_pointer": "/16/factor",
+      "error_pointer": "/16/estimated_absolute_error"
+    },
+    {
+      "receiver_radius_m": 160,
+      "source_inner_radius_m": 160,
+      "outer_radius_m": 100000.0,
+      "fall_speed_m_s": 0.031,
+      "factor": 0.21541938103669986,
+      "estimated_absolute_error": 2.4301694308890403e-09,
+      "rigorous_error_bound": false,
+      "source": "nordic_response",
+      "factor_pointer": "/17/factor",
+      "error_pointer": "/17/estimated_absolute_error"
+    }
+  ],
+  "new_response_requests": [
+    {
+      "receiver_radius_m": 80,
+      "inner_radius_m": 80,
+      "outer_radius_m": 100000,
+      "fall_speed_m_s": 0.031
+    },
+    {
+      "receiver_radius_m": 69,
+      "inner_radius_m": 69,
+      "outer_radius_m": 100000,
+      "fall_speed_m_s": 0.031
+    },
+    {
+      "receiver_radius_m": 89,
+      "inner_radius_m": 89,
+      "outer_radius_m": 100000,
+      "fall_speed_m_s": 0.031
+    }
+  ],
+  "response_custody": "Reuse nine pinned previously qualified fixed K coefficients, with exact radius/fall/transport/integration profile and pointer checks. Numerical receiver/kernel files are byte-identical to their recorded origins; the full current engine/runtime is NOT identical (including changed models/validation.py). Do not retag old runs as current. Compute only three missing Pinus tuples with the maintained current receiver API; preserve factors, nonrigorous estimated errors and every refusal. One shared R89 tuple serves either Solsoe core.",
+  "independent_kernel_check": {
+    "required_new_tuple_count": 3,
+    "reference_function": "circular_receiver_annulus_reference",
+    "source_role": "independent_receiver_reference",
+    "absolute_tolerance": 1e-11,
+    "relative_tolerance": 1e-10,
+    "quadrature_limit": 1000,
+    "factor_agreement_absolute_tolerance": 1e-08,
+    "max_wall_seconds": 60,
+    "max_rss_bytes": 536870912,
+    "max_output_bytes": 1048576,
+    "scope": "Existing independent R circle-overlap operator for the three new tuples only, no old model/reference population replay. Preserve raw/clipped factor, errors, tail mass and refusals. Agreement is nonrigorous numerical correspondence, not true-integral certification or ecological accuracy.",
+    "arithmetic_note": "R uses a=4v/(gamma*u*sqrt(pi)*D) directly; Python uses a=-log(float(gpm_values(1))). Preserve distinct floating arithmetic, raw R factor and canonical clipped diagnostic; never modify either implementation to force agreement."
+  },
+  "forecast_freeze": "A forecast target contains only identity, declared window, axis, PPE and receiver geometry/response, never held-out counts or source-derived cover. Call native inverse only on required allowed training owners; record complete ancestry. Persist and authenticate ALL216 contexts/432 method dispositions before any target score call. Reopen exact closed prediction bytes for scoring. Prior count exposure is explicit; this is not untouched information isolation.",
+  "scoring": {
+    "primary": "mae_fraction",
+    "secondary": [
+      "hellinger_stable",
+      "total_variation",
+      "signed_error_by_taxon"
+    ],
+    "metric_note": "Use maintained score_pollen and stable hellinger_distance. Two-component MAE equals total variation; these are not independent findings. No arbitrary pseudocount/clipping.",
+    "target_counts": "Exact same source-qualified Betula/Pinus window vector/panel N across Swedish scopes, methods and matched sensitivity contexts. Never full source NISP in place of panel N. Empty target support produces unavailable_target_observation, preserving the prediction and slot.",
+    "aggregation": "Per profile/experiment/scope/method/country: equal windows within each physical target, then equal physical targets; report full requested/predicted/refused/scored populations. Separately report native-target-owner-weighted loss with exact denominator; do not call that grain weighting or independent sample accuracy.",
+    "matched": "Pair only same target core/physical family/window/axis/native vector/panel N. Primary Swedish four-way scope/method comparison uses complete common support; retain all unpaired/refused rows. Compare density and alternate-core profiles on their own explicitly common Swedish support. DK81 versus DK83 are different target observations and cannot be paired.",
+    "coverage": "Separate SE/DK/FI/NO country holdouts; DK/FI/NO each one physical target, repeated windows not independent sites. No confidence interval, causal-country effect or generalization-precision claim."
+  },
+  "independent_algebra": {
+    "decimal_precision": 80,
+    "absolute_tolerance": 1e-12,
+    "scope": "Independent test-side source binding, tuple/metadata checks, cohort/exclusion/weight derivation and Decimal inverse/forward/preclosure/prediction/score/common-support arithmetic, no producer numerical imports. Verify all216 contexts/432slots including failures. K conditioning and R agreement remain distinct."
+  },
+  "source_max_bytes": 8388608,
+  "limits": {
+    "producer_wall_seconds": 180,
+    "observer_wall_seconds": 180,
+    "max_rss_bytes": 805306368,
+    "max_output_bytes": 16777216
+  },
+  "synthetic_limits": {
+    "wall_seconds": 60,
+    "max_rss_bytes": 536870912,
+    "max_output_bytes": 67108864
+  },
+  "guards": "Committed consumed code before actuals; parent full tracked Python/R plus protocol/HEAD/index and all consumed/upstream scientific pins stable before/after each producer/R/algebra observer. No source writes/network/acquisition, dataset/package/environment copies or old model rerun. Closed exclusive artifact outputs; preserve first failures.",
+  "source_use": "Existing local derived Neotoma analytical scope and constituent attribution. Retain historical metadata R/NR and unresolved rights; no raw redistribution, new source-use endorsement or historical-input equivalence. Static coordinates/radii are declared analysis hypotheses; source ages remain selected old point chronologies, not joint uncertainty distributions.",
+  "previously_exposed_development": true,
+  "historical_reproduction": false,
+  "local_love_reconstruction": false,
+  "uncertainty_evaluated": false,
+  "measured_vegetation_pairs": 0,
+  "untouched_confirmation": false,
+  "source_acquisition": false,
+  "scientific_or_field_admission": false
+}

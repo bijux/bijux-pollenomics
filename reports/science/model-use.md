@@ -82,6 +82,20 @@ each lake's native pollen counts, and earlier source-validation exposure
 limits independence. We retain the fixed methods and report all three;
 these two sites do not justify retuning or a universal preferred method.
 
+## Conditional Nordic physical transfer
+
+The [matched six-place study](nordic-pollen-study.md#matched-six-place-physical-pollen-transfer)
+uses the declared author Betula/Pinus panel and fixed metadata geometry.
+On identical 18 Swedish target windows, Nordic pooling lowers physical/direct
+site-macro MAE to 0.198419/0.197962 from Sweden-only 0.242912/0.242412.
+Physical forwarding is slightly better at two targets and poorer at Bökesjön;
+country holdouts and native-owner weighting also yield different rankings.
+We retain all 432 outcomes and the matched density/core sensitivities. The
+fixed-site inverse and target forward response do not fit local LOVE or
+calibrate prediction uncertainty. This conditional development result selects
+no universal method, geometry or parameter profile, and leaves full LRA and
+measured-vegetation admission open.
+
 ## The real English LRA profile
 
 In our [constrained LOVE study](english-lra-pollen-prediction.md), we used the
