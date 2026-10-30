@@ -315,9 +315,8 @@ def test_ambiguous_context_concepts_for_one_native_identity_are_refused() -> Non
     )
 
 
-def test_crop_and_indicator_display_retains_separate_counts_and_qualified_wording() -> (
-    None
-):
+def _crop_indicator_payload() -> dict[str, object]:
+    """Export the reviewed three-observation example through the real producer."""
     direct = _mapping("direct", "fixture:secale", roles=("direct_crop_confirmed",))
     qualified = _mapping(
         "qualified",
@@ -342,7 +341,13 @@ def test_crop_and_indicator_display_retains_separate_counts_and_qualified_wordin
         for mapping in mappings
     ]
     with _fixture_authority(mappings):
-        payload = _assess(mappings, observations)
+        return _assess(mappings, observations)
+
+
+def test_crop_and_indicator_display_retains_separate_counts_and_qualified_wording() -> (
+    None
+):
+    payload = _crop_indicator_payload()
     totals = cast(list[dict[str, object]], payload["crop_indicator_totals"])
     assert [
         (row["role_id"], row["label"], row["unique_observation_count"])
