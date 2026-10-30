@@ -322,8 +322,11 @@ def _score_records(
                         row["reason"] = result.status
                     else:
                         row["mae_fraction"] = result.mae_fraction
+                        # Replay the arithmetic used for this committed scoring protocol.
                         row["hellinger_distance"] = hellinger_distance(
-                            prediction["fractions"], observed
+                            prediction["fractions"],
+                            observed,
+                            arithmetic_profile="source-compatible-22c6e480",
                         )
                 except ValidationRefusal as exc:
                     row["status"] = "failed_scoring"

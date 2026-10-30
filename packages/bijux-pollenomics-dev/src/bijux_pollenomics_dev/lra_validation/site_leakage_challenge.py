@@ -87,6 +87,7 @@ def build_site_leakage_challenge(
 
     The optional scoring store is used only after predictions are frozen. It
     never supplies training compositions, distances or forward model inputs.
+    Hellinger scores retain the original arithmetic of this fixed challenge.
     """
     records = _records()
     folds = grouped_leave_one_out(records)
@@ -257,7 +258,11 @@ def build_site_leakage_challenge(
                 synthetic_pollen_truth_fraction=truth_pollen,
                 vegetation_score=vegetation_score.as_dict(),
                 pollen_mae_fraction=pollen_mae,
-                pollen_hellinger=hellinger_distance(pollen, truth_pollen),
+                pollen_hellinger=hellinger_distance(
+                    pollen,
+                    truth_pollen,
+                    arithmetic_profile="source-compatible-22c6e480",
+                ),
             )
             cases.append(row)
     scored = [case for case in cases if case["status"] == "scored"]

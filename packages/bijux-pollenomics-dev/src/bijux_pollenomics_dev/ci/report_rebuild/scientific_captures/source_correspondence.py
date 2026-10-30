@@ -37,6 +37,10 @@ from .source_roles.readers import (
     _unique_function,
     validated_swedish_reference_reader_source,
 )
+from .source_roles.scoring_protocols import (
+    SCORING_PROTOCOL_SOURCES,
+    validated_scoring_protocol_source,
+)
 from .spatial_source_exports import spatial_export_extension_matches
 
 HISTORICAL_PRESENTATION_SOURCES = frozenset(
@@ -521,6 +525,10 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if name in SCORING_PROTOCOL_SOURCES:
+        return validated_scoring_protocol_source(
+            repository, historical, logical, source_buffer
+        )
     if name == GALICIAN_REVIEW_SOURCE:
         return validated_galician_literal_context_source(
             repository, historical, logical, source_buffer

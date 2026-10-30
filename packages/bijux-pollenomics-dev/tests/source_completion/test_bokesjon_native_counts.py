@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import pytest
@@ -15,8 +16,13 @@ from bijux_pollenomics_dev.source_completion.bokesjon_native_counts import (
 
 REPOSITORY = Path(__file__).resolve().parents[4]
 SOURCE = (
-    REPOSITORY.parent
-    / "bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/BOKE.xls"
+    Path(
+        os.environ.get(
+            "BIJUX_POLLENOMICS_SOURCE_ROOT",
+            REPOSITORY.parent / "-bijux-pollenomics-data",
+        )
+    )
+    / "landclim/rootsi-workbooks/rootsi/BOKE.xls"
 )
 GOVERNED = (
     REPOSITORY / "docs/report/source-relations/neotoma/boke-native-correspondence"
@@ -146,3 +152,10 @@ def test_repeated_source_name_keeps_distinct_elements() -> None:
     statuses = report["cell_status_counts"]
     assert isinstance(statuses, dict)
     assert statuses["ambiguous_source_duplicate"] == 1
+
+
+def test_repository_root_exposes_the_retained_correspondence_report() -> None:
+    """Verify the actual repository locator without reading a private workbook."""
+    assert (REPOSITORY / "configs/ci/report-ownership.json").is_file()
+    assert GOVERNED.is_relative_to(REPOSITORY / "docs/report")
+    assert (GOVERNED / "report.json").is_file()
