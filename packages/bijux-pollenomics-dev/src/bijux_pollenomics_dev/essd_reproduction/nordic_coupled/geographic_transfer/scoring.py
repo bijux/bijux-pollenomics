@@ -21,6 +21,7 @@ METHODS = ("training_mean", "nearest_site", "inverse_distance_squared")
 
 
 def loss(pollen: list[float], counts: dict[str, int]) -> dict[str, Any]:
+    """Score a two-taxon prediction against its matching source count denominator."""
     require(
         set(counts) == set(AXIS) and len(pollen) == 2,
         "Same two-taxon scoring denominator required",

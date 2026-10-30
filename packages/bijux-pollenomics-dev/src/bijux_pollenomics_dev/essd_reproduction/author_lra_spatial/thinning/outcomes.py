@@ -16,6 +16,7 @@ class OutcomeReader:
     def __init__(
         self, archive: Path, packet: dict[str, Any], prediction_freeze_sha256: str
     ) -> None:
+        """Bind ten selected outcome owners to the prediction-freeze digest."""
         require(
             type(prediction_freeze_sha256) is str
             and re.fullmatch("[0-9a-f]{64}", prediction_freeze_sha256) is not None,
