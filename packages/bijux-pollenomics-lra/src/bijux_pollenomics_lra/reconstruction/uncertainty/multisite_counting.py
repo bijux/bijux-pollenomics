@@ -9,9 +9,10 @@ from typing import Literal
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.models.validation import _reject_masked_values, matrix
 from bijux_pollenomics_lra.reconstruction.likelihood.multisite_likelihood import (
+    _input_matrix,
     _measured,
+    _require_unmasked,
 )
 from bijux_pollenomics_lra.reconstruction.uncertainty.regional_counting import (
     _confidence,
@@ -98,8 +99,8 @@ def multisite_two_taxon_counting_set(
     be silently replaced by an exact product of its unrounded factors.
     No point estimate, convergence claim or MLE-containment rule is supplied.
     """
-    n = matrix(counts, "counts", nonnegative=True)
-    a = matrix(responses, "responses")
+    n = _input_matrix(counts, "counts", nonnegative=True)
+    a = _input_matrix(responses, "responses")
     if n.shape != (2, 2) or a.shape != n.shape:
         raise ValidationError("Exactly two sites on one common two-taxon axis required")
     _measured(taxon_measured, n.shape)
@@ -114,7 +115,7 @@ def multisite_two_taxon_counting_set(
         raise ValidationError(
             "No positive-count site is available", reason_code="no_positive_count_site"
         )
-    _reject_masked_values(confidence_level, "confidence_level")
+    _require_unmasked(confidence_level, "confidence_level")
     requested, marginal, guarantee = _confidence(confidence_level)
     sites: list[SiteCountingSet] = []
     limits: list[tuple[Fraction, Fraction]] = []

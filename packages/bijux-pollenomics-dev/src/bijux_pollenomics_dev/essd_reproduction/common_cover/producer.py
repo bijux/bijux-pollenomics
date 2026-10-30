@@ -151,6 +151,7 @@ def compare_group(
 def evaluate(
     loaded: dict[str, Any], fit: Fit = solver.fit_multisite_likelihood
 ) -> list[dict[str, Any]]:
+    """Retain every declared common-cover fit outcome and its source support."""
     responses = [c["response_PPE_times_K"] for c in loaded["cores"]]
     rows = []
     fatal = False
@@ -215,6 +216,7 @@ def _revision(repository: Path) -> str:
 
 
 def main() -> None:
+    """Validate canonical inputs and write the declared conditional account."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

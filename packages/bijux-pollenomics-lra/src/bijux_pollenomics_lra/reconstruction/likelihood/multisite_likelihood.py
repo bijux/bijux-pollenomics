@@ -39,6 +39,36 @@ class MultisiteLikelihoodFit:
     profile: str = PROFILE
 
 
+def _require_unmasked(value: object, name: str) -> None:
+    """Keep unresolved masks visible before common-cover numeric conversion."""
+    if np.ma.isMaskedArray(value) and np.ma.is_masked(value):
+        raise ValidationError(f"{name} contains masked values")
+
+
+def _require_numeric_measurements(value: object, name: str) -> None:
+    """Preserve raw Boolean provenance before common-cover numeric coercion."""
+    _require_unmasked(value, name)
+    try:
+        original = np.asarray(value, dtype=object)
+    except (TypeError, ValueError, OverflowError) as exc:
+        raise ValidationError(f"{name} must contain numerical measurements") from exc
+    if any(isinstance(item, (bool, np.bool_)) for item in original.flat):
+        raise ValidationError(f"{name} cannot contain Boolean measurements")
+    if any(isinstance(item, (complex, np.complexfloating)) for item in original.flat):
+        raise ValidationError(f"{name} cannot contain complex measurements")
+
+
+def _input_matrix(value: object, name: str, *, nonnegative: bool = False) -> np.ndarray:
+    """Refuse Boolean or unresolved masked common-cover matrices before conversion."""
+    _require_numeric_measurements(value, name)
+    try:
+        return matrix(value, name, nonnegative=nonnegative)
+    except ValidationError:
+        raise
+    except (TypeError, ValueError, OverflowError) as exc:
+        raise ValidationError(f"{name} must be a numerical matrix") from exc
+
+
 def _measured(value: object, shape: tuple[int, ...]) -> None:
     if np.ma.isMaskedArray(value) and np.ma.is_masked(value):
         raise ValidationError("taxon_measured contains unresolved missing metadata")
@@ -109,8 +139,8 @@ def fit_multisite_likelihood(
     differences; it neither removes exact identifiability nor certifies cover
     error. Information and stationarity are rechecked on the returned cover.
     """
-    n = matrix(counts, "counts", nonnegative=True).copy()
-    a = matrix(responses, "responses").copy()
+    n = _input_matrix(counts, "counts", nonnegative=True).copy()
+    a = _input_matrix(responses, "responses").copy()
     _measured(taxon_measured, n.shape)
     if a.shape != n.shape or np.any(a <= 0):
         raise ValidationError(
@@ -125,6 +155,9 @@ def fit_multisite_likelihood(
         raise ValidationError(
             "No positive-count site is available", reason_code="no_positive_count_site"
         )
+    _require_numeric_measurements(score_tolerance, "score_tolerance")
+    _require_numeric_measurements(relative_count_tolerance, "relative_count_tolerance")
+    _require_unmasked(max_steps, "max_steps")
     tolerance = finite_number(
         score_tolerance, "score_tolerance", minimum=0, strict_minimum=True
     )

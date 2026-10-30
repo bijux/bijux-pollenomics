@@ -192,6 +192,7 @@ def project_core(
 
 
 def load_groups(repository: Path) -> dict[str, Any]:
+    """Admit the original matched native windows without fitting new cover."""
     cores, protocol, pins = inputs.load(repository)
     selected = tuple(c for name in CORES for c in cores if c.id == name)
     require(
