@@ -92,7 +92,7 @@
           "enable-cache": false
       - "name": "Provision action reference parser"
         "if": "${{ matrix.check == 'standard' }}"
-        "uses": "ruby/setup-ruby@26e5b7d197ebf60545ee9667bcbace0be11ccaec"
+        "uses": "ruby/setup-ruby@7f797815d8adceb1c412e7abefdd1ab4abc47a5f"
         "with":
           "ruby-version": "3.3.12"
       - "name": "Admit action reference parser runtime"
