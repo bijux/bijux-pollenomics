@@ -37,6 +37,10 @@ from .source_roles.readers import (
     _unique_function,
     validated_swedish_reference_reader_source,
 )
+from .source_roles.reference_vector_precision import (
+    REFERENCE_VECTOR_PRECISION_SOURCES,
+    validated_reference_vector_precision_source,
+)
 from .source_roles.scoring_protocols import (
     SCORING_PROTOCOL_SOURCES,
     validated_scoring_protocol_source,
@@ -539,6 +543,10 @@ def validated_current_scientific_source(
         )
     if name == GALICIAN_REVIEW_SOURCE:
         return validated_galician_literal_context_source(
+            repository, historical, logical, source_buffer
+        )
+    if name in REFERENCE_VECTOR_PRECISION_SOURCES:
+        return validated_reference_vector_precision_source(
             repository, historical, logical, source_buffer
         )
     if name in NATIVE_REFERENCE_TRANSPORT_SOURCES:

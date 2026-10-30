@@ -18,6 +18,7 @@ from bijux_pollenomics_dev.ci.lra_reference.evidence import validate_bundle
 from bijux_pollenomics_dev.lra_validation.reference_replay import (
     CERTIFICATE_SHA256,
     compare_vectors,
+    numeric_vector_values,
 )
 
 from .native_reference.finite_covariance_capture import (
@@ -53,9 +54,7 @@ def _read_vector(path: Path) -> np.ndarray:
         raise ValueError("R vector has no value column")
     if "kind" in data and set(data["kind"]) == {"character"}:
         return data["value"].to_numpy()
-    return pd.to_numeric(
-        data["value"].replace({"NaN": np.nan, "NA": np.nan}), errors="raise"
-    ).to_numpy(float)
+    return numeric_vector_values(data["value"])
 
 
 def _require_current_inputs(

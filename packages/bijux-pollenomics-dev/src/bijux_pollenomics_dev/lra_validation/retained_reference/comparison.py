@@ -18,6 +18,7 @@ import pandas as pd
 from bijux_pollenomics_dev.lra_validation.reference_replay import (
     comparison_outcome,
     normalize_r_numbers,
+    numeric_vector_values,
 )
 from bijux_pollenomics_dev.source_completion.publication.json_outputs import (
     publish_json_outputs,
@@ -46,9 +47,7 @@ def read_vector(
         raise ValueError("Retained vector value kind differs")
     if not numeric:
         return raw["value"].to_numpy(str)
-    return pd.to_numeric(
-        raw["value"].replace({"NaN": np.nan, "NA": np.nan}), errors="raise"
-    ).to_numpy(float)
+    return numeric_vector_values(raw["value"])
 
 
 def compare_core_case(

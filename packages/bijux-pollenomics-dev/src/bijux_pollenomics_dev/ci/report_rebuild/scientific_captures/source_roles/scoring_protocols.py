@@ -67,6 +67,13 @@ SCORING_PROTOCOL_SOURCES = frozenset(_SCORING_PROTOCOL_CONTRACTS)
 _OPTIMIZER_CAPTURE_SHA256 = (
     "f865795aac7585e56c4cf44faac84496d339e1c176fc6ee111cba3cbc9b4ce93"
 )
+LINUX_SCORING_SOURCE = (
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+    "lra_validation/site_leakage_challenge.py"
+)
+_LINUX_CAPTURE_SHA256 = (
+    "fa6e9a4fa9c12013a04cc461fef52d0fd54044d517e132e802a9c176def2a913"
+)
 
 
 def scoring_protocol_extension_matches(
@@ -94,23 +101,32 @@ def scoring_protocol_extension_matches(
 def validated_scoring_protocol_source(
     repository: Path, historical: JsonObject, logical: str, source_buffer: SourceCapsule
 ) -> JsonObject:
-    """Bind three original optimizer source members to their explicit reader changes."""
+    """Bind fixed optimizer members or one Linux challenge to their original seams."""
     name = historical.get("path")
     contract = _SCORING_PROTOCOL_CONTRACTS.get(name) if isinstance(name, str) else None
     if contract is None or not isinstance(name, str):
         raise ReportRebuildError("Scoring protocol source is outside its fixed scope")
     size, checksum, _ = contract
     expected = {"bytes": size, "sha256": checksum}
+    optimizer_context = (
+        source_buffer.prefix
+        == "data/method-certification/author-optimizer-diagnostic-source-capture"
+        and source_buffer.descriptor.capture.get("sha256") == _OPTIMIZER_CAPTURE_SHA256
+        and logical == "executions/optimizer-diagnostics/first-party-inputs/" + name
+    )
+    linux_context = (
+        name == LINUX_SCORING_SOURCE
+        and source_buffer.prefix == "data/method-certification/linux-r-source-capture"
+        and source_buffer.descriptor.capture.get("sha256") == _LINUX_CAPTURE_SHA256
+        and logical == "source/" + name
+    )
     if (
         repository != repository.resolve()
         or source_buffer.repository != repository
-        or source_buffer.prefix
-        != "data/method-certification/author-optimizer-diagnostic-source-capture"
-        or source_buffer.descriptor.capture.get("sha256") != _OPTIMIZER_CAPTURE_SHA256
+        or not (optimizer_context or linux_context)
         or set(historical) != {"path", "bytes", "sha256"}
         or type(historical.get("bytes")) is not int
         or historical != {"path": name, **expected}
-        or logical != "executions/optimizer-diagnostics/first-party-inputs/" + name
         or logical not in source_buffer.detached
         or source_buffer.descriptor.members.get(logical) != expected
         or [

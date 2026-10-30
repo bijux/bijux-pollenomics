@@ -21,6 +21,20 @@ from bijux_pollenomics_dev.ci.lra_reference.evidence import validate_bundle
 CERTIFICATE_SHA256 = "881c1f65b62c890fbb583c499493c21318f21857960998ca662fbb1cf2b94ae3"
 
 
+def numeric_vector_values(values: pd.Series) -> np.ndarray:
+    """Validate the established R lexical contract, then round original decimals."""
+    # Pandas' numeric conversion can lose binary64 precision. Retain its
+    # existing refusals (including underscores and overflow) as validation,
+    # and obtain correctly rounded values from the original CSV tokens.
+    normalized = values.mask(values.isin(["NaN", "NA"]), np.nan)
+    pd.to_numeric(normalized, errors="raise")
+    return np.fromiter(
+        (np.nan if value in ("NaN", "NA", "") else float(value) for value in values),
+        dtype=float,
+        count=len(values),
+    )
+
+
 def normalize_r_numbers(expression: str) -> str:
     """Compare decimal and hexadecimal binary64 literals without changing strings."""
     tokens = re.compile(
@@ -205,9 +219,7 @@ def replay(repository: Path, bundle: Path, output: Path) -> dict[str, Any]:
             actual = (
                 raw["value"].to_numpy()
                 if case.expected.dtype.kind in "USO"
-                else pd.to_numeric(
-                    raw["value"].replace({"NaN": np.nan, "NA": np.nan}), errors="raise"
-                ).to_numpy(float)
+                else numeric_vector_values(raw["value"])
             )
             results.append(
                 {
@@ -239,9 +251,12 @@ def replay(repository: Path, bundle: Path, output: Path) -> dict[str, Any]:
                 rtol=1e-14,
                 atol=1e-10,
             )
-            actual = pd.read_csv(bundle / "source-domains" / f"{case.id}-R.csv")[
-                "value"
-            ].to_numpy(float)
+            raw = pd.read_csv(
+                bundle / "source-domains" / f"{case.id}-R.csv",
+                dtype=str,
+                keep_default_na=False,
+            )
+            actual = numeric_vector_values(raw["value"])
             results.append(
                 {
                     "profile": "source-domains-and-corrected-forward",

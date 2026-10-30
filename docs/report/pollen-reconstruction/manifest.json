@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "2cffac54dba5c23059389b6581bde8fc782d740c330e2ac4dbd4b2ebebf68aaf",
-      "bytes": 7388625
+      "sha256": "a60a8c02c1711ccb0e71aa775d46a23279b262a4ba98f93b0058af6edc1d24b9",
+      "bytes": 7389553
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5358,6 +5358,11 @@
       "path": "reports/science/pollen-reconstruction/common-cover/sample-dependence-bounds.csv",
       "bytes": 5266,
       "sha256": "bee51332fa9cc442a999384744fc54867f2243bf9b36efbc1369d9439ec013e9"
+    },
+    {
+      "path": "reports/science/method-certification/love-wrapper-values.csv",
+      "sha256": "ba0d578a6743ad66c82a64fdc37d2844fff708bd4d9d9335782e973d6cf7ef35",
+      "bytes": 29156
     }
   ],
   "maintained_paths": [
@@ -5603,6 +5608,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/galician_context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/numerical_precision.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/reference_vector_precision.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/scoring_protocols.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sead_join_identity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
@@ -5676,6 +5682,12 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/retained_reference/comparison.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/retained_reference/identity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/retained_reference/sources.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/love_comparison/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/love_comparison/__main__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/love_comparison/comparison.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/love_comparison/execution.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/love_comparison/inputs.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/love_comparison/worker.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/README.md",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py",
