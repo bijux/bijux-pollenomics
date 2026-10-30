@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+from collections.abc import Iterator, Sequence
 from dataclasses import dataclass
 from fractions import Fraction
 from itertools import groupby
@@ -37,6 +37,47 @@ class OrderedCountFractionBounds:
     lower: CountFractionWitness | None
     upper: CountFractionWitness | None
     refusal: str | None
+
+
+@dataclass(frozen=True, slots=True)
+class FeasibleCountBlocks:
+    """One reusable enumeration of supported nonempty bin selections."""
+
+    bin_id: str
+    depth_group_count: int
+    candidate_block_count: int
+    native_age_order: AgeOrderAssessment
+    empty_selection_age_order: AgeOrderAssessment | None
+    _groups: tuple[tuple[DepthCountSample, ...], ...]
+    _bin: AgeBin
+    _core_id: str
+
+    @property
+    def tested_block_count(self) -> int:
+        """A contradictory native core needs no constrained block search."""
+        return self.candidate_block_count if self.native_age_order.attainable else 0
+
+    def __iter__(self) -> Iterator[CountFractionWitness]:
+        """Yield exact fractions and full witnesses in stable depth-block order."""
+        if not self.native_age_order.attainable:
+            return
+        for start in range(self.depth_group_count):
+            numerator = denominator = 0
+            selected: list[str] = []
+            for stop in range(start + 1, self.depth_group_count + 1):
+                for row in self._groups[stop - 1]:
+                    numerator += row.sample.numerator_count
+                    denominator += row.sample.denominator_count
+                    selected.append(row.sample.sample_id)
+                order = _allocation(self._groups, self._bin, start, stop, self._core_id)
+                if order is not None and order.attainable:
+                    yield CountFractionWitness(
+                        Fraction(numerator, denominator),
+                        numerator,
+                        denominator,
+                        tuple(selected),
+                        order,
+                    )
 
 
 def _allocation(
@@ -79,9 +120,9 @@ def _allocation(
     return assess_age_order(domains, core_id=core_id)
 
 
-def ordered_count_fraction_bounds(
+def feasible_count_blocks(
     samples: Sequence[DepthCountSample], bin_: AgeBin, *, core_id: str
-) -> OrderedCountFractionBounds:
+) -> FeasibleCountBlocks:
     """Enumerate every possible nonempty bin block and certify its full core.
 
     Nondecreasing ages imply that membership in [younger, older) is one
@@ -121,57 +162,43 @@ def ordered_count_fraction_bounds(
     )
     count = len(groups)
     candidates = count * (count + 1) // 2
-    if not native.attainable:
-        return OrderedCountFractionBounds(
-            bin_.bin_id,
-            count,
-            candidates,
-            0,
-            0,
-            native,
-            None,
-            None,
-            None,
-            "native_age_order_infeasible",
-        )
+    empty = None
+    if native.attainable:
+        for cut in range(count + 1):
+            order = _allocation(groups, bin_, cut, cut, core_id)
+            if order is not None and order.attainable:
+                empty = order
+                break
+    return FeasibleCountBlocks(
+        bin_.bin_id, count, candidates, native, empty, groups, bin_, core_id
+    )
+
+
+def ordered_count_fraction_bounds(
+    samples: Sequence[DepthCountSample], bin_: AgeBin, *, core_id: str
+) -> OrderedCountFractionBounds:
+    """Find sharp single-bin fractions using the shared feasible-block iterator."""
+    blocks = feasible_count_blocks(samples, bin_, core_id=core_id)
     lower: CountFractionWitness | None = None
     upper: CountFractionWitness | None = None
     feasible = 0
-    for start in range(count):
-        numerator = denominator = 0
-        selected: list[str] = []
-        for stop in range(start + 1, count + 1):
-            for row in groups[stop - 1]:
-                numerator += row.sample.numerator_count
-                denominator += row.sample.denominator_count
-                selected.append(row.sample.sample_id)
-            order = _allocation(groups, bin_, start, stop, core_id)
-            if order is None or not order.attainable:
-                continue
-            feasible += 1
-            value = Fraction(numerator, denominator)
-            witness = CountFractionWitness(
-                value, numerator, denominator, tuple(selected), order
-            )
-            if lower is None or value < lower.value:
-                lower = witness
-            if upper is None or value > upper.value:
-                upper = witness
-    empty = None
-    for cut in range(count + 1):
-        order = _allocation(groups, bin_, cut, cut, core_id)
-        if order is not None and order.attainable:
-            empty = order
-            break
+    for witness in blocks:
+        feasible += 1
+        if lower is None or witness.value < lower.value:
+            lower = witness
+        if upper is None or witness.value > upper.value:
+            upper = witness
     return OrderedCountFractionBounds(
-        bin_.bin_id,
-        count,
-        candidates,
-        candidates,
+        blocks.bin_id,
+        blocks.depth_group_count,
+        blocks.candidate_block_count,
+        blocks.tested_block_count,
         feasible,
-        native,
-        empty,
+        blocks.native_age_order,
+        blocks.empty_selection_age_order,
         lower,
         upper,
-        None if lower is not None else "no_feasible_nonempty_selection",
+        "native_age_order_infeasible"
+        if not blocks.native_age_order.attainable
+        else (None if lower is not None else "no_feasible_nonempty_selection"),
     )
