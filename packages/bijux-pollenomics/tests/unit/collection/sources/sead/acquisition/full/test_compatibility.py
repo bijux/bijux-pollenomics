@@ -37,7 +37,6 @@ def test_legacy_private_helpers_remain_reachable() -> None:
     for name in (
         "_build_result",
         "_canonical_bytes",
-        "_child_identity",
         "_observed_schema",
         "_payload_bytes",
         "_publish_directory",

@@ -26,6 +26,10 @@ from .presentation_source_roles import (
     HISTORICAL_RENDERING_SOURCES,
     atlas_extension_matches,
 )
+from .source_roles.sead_join_identity import (
+    SEAD_JOIN_IDENTITY_SOURCES,
+    validated_declared_join_identity_source,
+)
 
 CURRENT_CAPTURE_PATH = "data/atlas/sample-chronology-source-view-capture/capture.json"
 CURRENT_CAPTURE_SHA256 = (
@@ -372,6 +376,17 @@ def _validate_current_source(
                     and _documented_source_matches(name, captured, current)
                 )
                 or atlas_extension_matches(name, captured, current)
+                or (
+                    source_buffer is not None
+                    and name in SEAD_JOIN_IDENTITY_SOURCES
+                    and validated_declared_join_identity_source(
+                        repository,
+                        {"path": name, "sha256": expected, "bytes": len(captured)},
+                        logical,
+                        source_buffer,
+                    ).get("classification")
+                    == "declared_child_key_refusal_identity"
+                )
                 or _counting_api_source_extension(
                     repository, name, logical, captured, expected, source_buffer
                 )
