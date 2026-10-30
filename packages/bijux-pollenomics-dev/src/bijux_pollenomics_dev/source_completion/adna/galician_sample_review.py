@@ -20,6 +20,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.contracts import load_json
 from bijux_pollenomics_dev.ci.report_rebuild.evidence import producer_input_identity
 from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import _regular_path
 
+from .galician_literal_context import SCHEMA, TABLE, write_literal_context
 from .galician_sample_inputs import REPOSITORY_INPUTS
 
 CORE = "bijux_pollenomics.adna.projects.sample_master.tables.galician_cattle.species"
@@ -53,7 +54,7 @@ def _producer(repository: Path) -> Path:
     return core
 
 
-def run(repository: Path, output: Path) -> None:
+def run(repository: Path, output: Path, *, literal_context: bool = False) -> None:
     """Preserve original sample taxonomy and publish only a complete immutable account."""
     repository = _regular_path(repository, directory=True)
     destination = require_absent_artifact_output(repository, output)
@@ -68,9 +69,12 @@ def run(repository: Path, output: Path) -> None:
     ) as staging:
         produced = Path(staging) / "products"
         write_galician_sample_species_review(repository, produced)
-        if {path.name for path in produced.iterdir()} != set(OUTPUTS):
+        if literal_context:
+            write_literal_context(repository, produced)
+        expected_outputs = OUTPUTS | {TABLE} if literal_context else OUTPUTS
+        if {path.name for path in produced.iterdir()} != set(expected_outputs):
             raise ValueError("Galician review output population differs")
-        for name in OUTPUTS:
+        for name in expected_outputs:
             _regular_path(produced / name)
         report = load_json(produced / "report.json", "Galician sample review")
         if (
@@ -83,6 +87,27 @@ def run(repository: Path, output: Path) -> None:
             or report.get("admission_posture") != ADMISSION
         ):
             raise ValueError("Galician review sample accounting or admission differs")
+        if literal_context:
+            context = report.get("literal_context", {})
+            if (
+                not isinstance(context, dict)
+                or context.get("schema_version") != SCHEMA
+                or context.get("table") != TABLE
+                or context.get("biosample_count") != 11
+                or context.get("selected_cell_count") != 110
+                or any(
+                    context.get(key) is not False
+                    for key in (
+                        "date_conversion_performed",
+                        "site_assignment_performed",
+                        "scientific_admission",
+                        "atlas_point_admitted",
+                    )
+                )
+            ):
+                raise ValueError(
+                    "Galician literal context accounting or admission differs"
+                )
         for path in inputs.values():
             _regular_path(path)
         if (
@@ -99,8 +124,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--literal-context", action="store_true")
     args = parser.parse_args()
-    run(args.repository, args.output)
+    if args.literal_context:
+        run(args.repository, args.output, literal_context=True)
+    else:
+        run(args.repository, args.output)
     return 0
 
 
