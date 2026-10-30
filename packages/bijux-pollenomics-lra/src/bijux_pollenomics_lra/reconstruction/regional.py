@@ -18,7 +18,6 @@ from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
     DEFAULT_FALL_SPEED_PROFILE,
-    _float_array,
     frame,
     integer,
     matrix,
@@ -82,7 +81,7 @@ def reveals_cover(
     pollen_values = vector(pollen, "pollen", nonnegative=True)
     ppe_values = vector(ppe, "ppe", nonnegative=True)
     deposition_values = vector(
-        _float_array(deposition, "deposition").reshape(-1),
+        np.asarray(deposition, dtype=float).reshape(-1),
         "deposition",
     )
     if not (pollen_values.shape == ppe_values.shape == deposition_values.shape):
@@ -166,7 +165,7 @@ def REVEALS(
     """
     n = integer(n, "n")
     generator = rng_from(rng)
-    row = _float_array(pollen, "pollen").reshape(-1)
+    row = np.asarray(pollen, dtype=float).reshape(-1)
     if len(row) < 2 or not np.isfinite(row).all():
         raise ValidationError(
             "pollen must be a finite coordinate followed by taxon counts"
@@ -176,7 +175,7 @@ def REVEALS(
         raise ValidationError("Pollen total must be positive")
     ppe_table = _normalise_ppe_table(ppes, len(counts))
     deposition_values = vector(
-        _float_array(deposition, "deposition").reshape(-1),
+        np.asarray(deposition, dtype=float).reshape(-1),
         "deposition",
         positive=True,
     )
@@ -184,28 +183,29 @@ def REVEALS(
         raise ValidationError("Deposition and pollen taxon dimensions disagree")
 
     expected_shape = (n, len(counts))
+    if ppe_draws is not None and np.asarray(ppe_draws).shape != expected_shape:
+        raise ValidationError(f"ppe_draws must have shape {expected_shape}")
+    if pollen_draws is not None and np.asarray(pollen_draws).shape != expected_shape:
+        raise ValidationError(f"pollen_draws must have shape {expected_shape}")
+
     means = ppe_table["ppe"].to_numpy(dtype=float)
     errors = ppe_table["ppe.error"].to_numpy(dtype=float)
     sampled_ppe = (
-        _float_array(ppe_draws, "ppe_draws")
+        np.asarray(ppe_draws, dtype=float)
         if ppe_draws is not None
         else np.empty(expected_shape, dtype=float)
     )
     sampled_pollen = (
-        _float_array(pollen_draws, "pollen_draws")
+        np.asarray(pollen_draws, dtype=float)
         if pollen_draws is not None
         else np.empty(expected_shape, dtype=float)
     )
-    if sampled_ppe.shape != expected_shape:
-        raise ValidationError(f"ppe_draws must have shape {expected_shape}")
-    if sampled_pollen.shape != expected_shape:
-        raise ValidationError(f"pollen_draws must have shape {expected_shape}")
 
     for iteration in range(n):
         if ppe_draws is None and ppefun is not None:
             alpha = vector(
-                _float_array(
-                    ppefun(len(means), means.copy(), errors.copy()), "ppe"
+                np.asarray(
+                    ppefun(len(means), means.copy(), errors.copy()), dtype=float
                 ).reshape(-1),
                 "ppe",
                 nonnegative=True,
@@ -224,7 +224,7 @@ def REVEALS(
 
         if pollen_draws is None and pollenfun is not None:
             pollen_values = vector(
-                _float_array(pollenfun(n=1, pollen=counts.copy()), "pollen").reshape(
+                np.asarray(pollenfun(n=1, pollen=counts.copy()), dtype=float).reshape(
                     -1
                 ),
                 "pollen",
@@ -294,10 +294,9 @@ def checkREVEALS(
             "result dimension; this profile requires at least two taxa",
             reason_code="unsupported_source_taxon_dimensions",
         )
-    _float_array(pollen_table, "pollen")
     try:
         numeric = pollen_table.apply(pd.to_numeric, errors="raise").to_numpy(float)
-    except (TypeError, ValueError, OverflowError) as exc:
+    except (TypeError, ValueError) as exc:
         raise ValidationError("pollen must contain only numeric values") from exc
     if not np.isfinite(numeric).all():
         raise ValidationError("pollen must contain only finite values")
@@ -400,13 +399,9 @@ def _reconstruct_frame(
         )
 
     full_shape = (len(pollen_table), n, len(taxa))
-    ppe_values = None if ppe_draws is None else _float_array(ppe_draws, "ppe_draws")
-    pollen_values = (
-        None if pollen_draws is None else _float_array(pollen_draws, "pollen_draws")
-    )
-    if ppe_values is not None and ppe_values.shape != full_shape:
+    if ppe_draws is not None and np.asarray(ppe_draws).shape != full_shape:
         raise ValidationError(f"ppe_draws must have shape {full_shape}")
-    if pollen_values is not None and pollen_values.shape != full_shape:
+    if pollen_draws is not None and np.asarray(pollen_draws).shape != full_shape:
         raise ValidationError(f"pollen_draws must have shape {full_shape}")
 
     rows: list[list[object]] = []
@@ -431,9 +426,11 @@ def _reconstruct_frame(
             verbose,
             rng=generator,
             stochastic=stochastic,
-            ppe_draws=(None if ppe_values is None else ppe_values[sample_index]),
+            ppe_draws=(
+                None if ppe_draws is None else np.asarray(ppe_draws)[sample_index]
+            ),
             pollen_draws=(
-                None if pollen_values is None else pollen_values[sample_index]
+                None if pollen_draws is None else np.asarray(pollen_draws)[sample_index]
             ),
             return_samples=collect_samples,
             output_dir=output_dir,
