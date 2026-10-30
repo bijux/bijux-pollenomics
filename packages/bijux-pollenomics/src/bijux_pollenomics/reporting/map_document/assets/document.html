@@ -5546,6 +5546,7 @@ __URL_STATE_CONTROLLER__
         }
         return `<span>${escapeHtml(String(value))}</span>`;
       }
+      __CHRONOLOGY_DIAGRAM_CONTROLLER__
       function renderFocusDetail() {
         const focused = document.activeElement;
         const focusedTab = focusTabs.contains(focused) ? focused.dataset.focusTab : null;
@@ -5555,7 +5556,7 @@ __URL_STATE_CONTROLLER__
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
         focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
-        focusDetail.innerHTML = renderDetailValue(tabs[activeFocusTab], activeFocusTab);
+        focusDetail.innerHTML = (activeFocusTab === 'chronology' ? renderAgeDepthDiagram(tabs) : '') + renderDetailValue(tabs[activeFocusTab], activeFocusTab);
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
         focusCopyLinkButton.disabled = focusState?.kind !== 'point';
