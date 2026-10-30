@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "347ad595df977920f816bb4007321c5ac88ac912382c809916eda5442ad17c8f",
-      "bytes": 7392438
+      "sha256": "a92da1855f03ad599a4ed587bb74e7e6d9ab25f7bd263fc3f14dd78e6233be6f",
+      "bytes": 7393831
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -3386,13 +3386,13 @@
     },
     {
       "path": "reports/exports/papers/manifest.json",
-      "sha256": "0c22f93d47b0b3981b2d0662fcb6903ca3fb7d5ccad9a28b33720c5eb798710f",
-      "bytes": 20047
+      "sha256": "d9cf5ac48a812b0b0f84b0b7a195b1f29f08bdcc51efdada3fe98515f76cea4f",
+      "bytes": 20372
     },
     {
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "sha256": "e783c376cb54c722a976431ea909fe0a19cfd0ab7c4d30520bd56b436c5a09e9",
-      "bytes": 73987
+      "sha256": "9632a30e89057f6819fe23ec0460f2406474eb7193449e4430231134cb7550ec",
+      "bytes": 104211
     },
     {
       "path": "reports/exports/papers/regional-reveals-theory.pdf",
@@ -3421,8 +3421,8 @@
     },
     {
       "path": "reports/exports/papers/visual-review.json",
-      "sha256": "75daac87ad3c30c2700ebed03b438029672662c6470da40eb166a86c7cd13da4",
-      "bytes": 49578
+      "sha256": "d2443a8198cd961a0dbda23a26b2eb0b64188f3831158651ba7d2cf5bf20fc94",
+      "bytes": 51871
     },
     {
       "path": "reports/science/aadr-nordic-entities/decisions.csv",

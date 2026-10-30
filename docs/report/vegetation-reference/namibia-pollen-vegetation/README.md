@@ -22,9 +22,12 @@ ring-radius labels without assuming that the 100 m subset is the right
 pollen-source radius. The tables do not state exact
 soil-sampling or satellite-image dates.
 
-This is a source-row join for an out-of-domain modern development cohort. We
-have not fitted a model, scored predictions, or validated Nordic vegetation
-reconstruction with these rows.
+This producer performs a source-row join for an out-of-domain modern
+development cohort. Separate experiments predict
+[mapped composition from pollen](../namibia-grouped-mapped-area/README.md) and
+[pollen from deposited areas](../../../../reports/science/namibia-pollen-vegetation-paper.md#forward-pollen-results-and-independent-confirmation).
+Their fits, scores and failures remain separate from this descriptive join;
+none validates Nordic vegetation reconstruction.
 
 ## Descriptive radius sensitivity
 
@@ -38,7 +41,7 @@ areas. Zero means identical conditional compositions; one is the maximum
 distance. This is a descriptive composition mismatch, not a model prediction
 score.
 
-There are ten independent sites at each of the 15 labels; the same site pollen
+There are ten source sites at each of the 15 labels; the same site pollen
 sample repeats across labels. Mean distance across those ten sites is **0.3664**
 at the 100 m label, **0.3427** at 400 m and **0.3777** at 1,500 m. The full
 report gives all 15 mean, median and site-range values, and the CSV preserves

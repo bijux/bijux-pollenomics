@@ -14,7 +14,7 @@
     "reports/science/southern-sweden-validation-paper.md": "7f21016c60627940a1d1eec37f6809e38cd39d9a19667859509da13b63bd7eed"
   },
   "inventory_sha256": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447",
-  "library_scope": "Nine canonical paper accounts expose the current scientific verification and limits blocks. Six PDFs retain their actual unchanged source/producer/build/page-review identities; three separately rebuilt PDFs correct margin protrusions through safe delimiter breaks, preserving all scientific text and numeric operands.",
+  "library_scope": "Nine canonical paper accounts expose the current scientific verification and limits blocks. Six PDFs retain their actual unchanged source/producer/build/page-review identities; LandClim and REVEALS theory retain their margin-correction rebuilds; Namibia's separately retained PDF includes the original forward-pollen study and later two-problem numerical follow-through, with both original failed-study outcomes preserved. Per-paper records retain actual source/producer/build/page-review identities.",
   "papers": [
     {
       "account_status": "full_paper_account_scientific_gates_open",
@@ -37,7 +37,7 @@
       ],
       "build_receipt_sha256": "d5e820696cdcdd4bdaa12ffc39e122b01997d8e8edc844d4a9be6d0d432ec1cb",
       "canonical_report": "reports/science/landclim-paper.md",
-      "citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene: methodology, mapping and potentials, ESSD 14, 1581\u20131619",
+      "citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene: methodology, mapping and potentials, ESSD 14, 1581–1619",
       "code_blocks": 1,
       "diagrams": 1,
       "external_links": 11,
@@ -81,7 +81,7 @@
         }
       ],
       "canonical_report": "reports/science/loveoptim-paper.md",
-      "citation": "Theuerkauf and Couwenberg (2024), LOVE Is in the R\u2014Two R Tools for Local Vegetation Reconstruction, Quaternary 7(2), 18",
+      "citation": "Theuerkauf and Couwenberg (2024), LOVE Is in the R—Two R Tools for Local Vegetation Reconstruction, Quaternary 7(2), 18",
       "code_blocks": 1,
       "diagrams": 1,
       "external_links": 10,
@@ -109,7 +109,7 @@
       ],
       "build_receipt_sha256": "0579a7c8d6e0c5622f18c3eab3be72458a3280f954b6ac854b05eed99f3fe95f",
       "canonical_report": "reports/science/reveals-theory-paper.md",
-      "citation": "Sugita (2007a), Theory of quantitative reconstruction of vegetation I: pollen from large sites REVEALS regional vegetation composition, The Holocene 17(2), 229\u2013241",
+      "citation": "Sugita (2007a), Theory of quantitative reconstruction of vegetation I: pollen from large sites REVEALS regional vegetation composition, The Holocene 17(2), 229–241",
       "code_blocks": 2,
       "diagrams": 0,
       "external_links": 5,
@@ -148,7 +148,7 @@
         }
       ],
       "canonical_report": "reports/science/love-theory-paper.md",
-      "citation": "Sugita (2007b), Theory of quantitative reconstruction of vegetation II: all you need is LOVE, The Holocene 17(2), 243\u2013257",
+      "citation": "Sugita (2007b), Theory of quantitative reconstruction of vegetation II: all you need is LOVE, The Holocene 17(2), 243–257",
       "code_blocks": 2,
       "diagrams": 0,
       "external_links": 5,
@@ -175,7 +175,7 @@
         }
       ],
       "canonical_report": "reports/science/hellman-regional-validation-paper.md",
-      "citation": "Hellman et al. (2008a), The REVEALS model, a new tool to estimate past regional plant abundance from pollen data in large lakes: validation in southern Sweden, Journal of Quaternary Science 23(1), 21\u201342",
+      "citation": "Hellman et al. (2008a), The REVEALS model, a new tool to estimate past regional plant abundance from pollen data in large lakes: validation in southern Sweden, Journal of Quaternary Science 23(1), 21–42",
       "code_blocks": 2,
       "diagrams": 0,
       "external_links": 6,
@@ -202,7 +202,7 @@
         }
       ],
       "canonical_report": "reports/science/hellman-sampling-design-paper.md",
-      "citation": "Hellman et al. (2008b), Effects of the sampling design and selection of parameter values on pollen-based quantitative reconstructions of regional vegetation: a case study in southern Sweden using the REVEALS model, Vegetation History and Archaeobotany 17(5), 445\u2013459",
+      "citation": "Hellman et al. (2008b), Effects of the sampling design and selection of parameter values on pollen-based quantitative reconstructions of regional vegetation: a case study in southern Sweden using the REVEALS model, Vegetation History and Archaeobotany 17(5), 445–459",
       "code_blocks": 2,
       "diagrams": 0,
       "external_links": 10,
@@ -224,7 +224,7 @@
         }
       ],
       "canonical_report": "reports/science/southern-sweden-validation-paper.md",
-      "citation": "Gaillard et al. (2010), Holocene land-cover reconstructions for studies on land cover-climate feedbacks, Climate of the Past 6, 483\u2013499",
+      "citation": "Gaillard et al. (2010), Holocene land-cover reconstructions for studies on land cover-climate feedbacks, Climate of the Past 6, 483–499",
       "code_blocks": 1,
       "diagrams": 0,
       "external_links": 5,
@@ -256,7 +256,7 @@
         }
       ],
       "canonical_report": "reports/science/smaland-historical-maps-paper.md",
-      "citation": "Cui et al. (2014), Historical land-use and landscape change in southern Sweden and implications for present and future biodiversity, Ecology and Evolution 4(18), 3555\u20133570",
+      "citation": "Cui et al. (2014), Historical land-use and landscape change in southern Sweden and implications for present and future biodiversity, Ecology and Evolution 4(18), 3555–3570",
       "code_blocks": 1,
       "diagrams": 1,
       "external_links": 14,
@@ -280,33 +280,38 @@
           "kind": "diagram_pdf",
           "path": "diagram-001.pdf",
           "sha256": "52636ab09a7987fc61b7453bb74eaa50b7899669c9f722466b328118158fe1fe"
+        },
+        {
+          "kind": "code",
+          "path": "code-001.txt",
+          "sha256": "ac3e07e2aaac9d4c8abf8ba15552812305aefcd6222d4fb554bde7fcda59178c"
         }
       ],
-      "build_receipt_sha256": "a967f4e0c343033ebfbf44dfe5732efc7633f827dc4b3b3c0de8fbe408cfdbf4",
+      "build_receipt_sha256": "834f05ce682ce93d5e2b6a78b8d883f62fc257543c86aa4b1b5f4329d83abd92",
       "canonical_report": "reports/science/namibia-pollen-vegetation-paper.md",
-      "citation": "Tabares et al. (2021), Relative pollen productivity estimates of savanna taxa from southern Africa and their application to reconstruct shrub encroachment during the last century, The Holocene 31(7), 1100\u20131111",
-      "code_blocks": 0,
+      "citation": "Tabares et al. (2021), Relative pollen productivity estimates of savanna taxa from southern Africa and their application to reconstruct shrub encroachment during the last century, The Holocene 31(7), 1100–1111",
+      "code_blocks": 1,
       "diagrams": 1,
       "external_links": 8,
-      "latex_sha256": "8c6366e302a1130389dac0bf0a6b0450cf941831a0ddadd921833513f61da8ee",
-      "local_repository_links": 26,
+      "latex_sha256": "18089eef610cab6d103bfff1f4b64e88548679689f08cb25408077fb40de3085",
+      "local_repository_links": 35,
       "paper_id": "namibia-modern-pollen-vegetation-reference",
       "pdf": "namibia-modern-pollen-vegetation-reference.pdf",
-      "pdf_bytes": 73987,
-      "pdf_sha256": "e783c376cb54c722a976431ea909fe0a19cfd0ab7c4d30520bd56b436c5a09e9",
-      "producer_revision": "2f526aee907574df061318ef2982af11012626e4",
+      "pdf_bytes": 104211,
+      "pdf_sha256": "9632a30e89057f6819fe23ec0460f2406474eb7193449e4430231134cb7550ec",
+      "producer_revision": "b3e76cbca84a353dc8dfab6314e3a7d2c63eee91",
       "producer_sha256": {
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "95a4d4c048fa94e0dcbba1d89bfb8a8782dcf81b74c443240f962f0311e76eef",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "5b089e9318f726bb0689b5677e97bd41919053bdc4125ba24e076865948319d4",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "f04da19ae799fd5dc41721fb53b431223786a44e8a90e93c9387d40b54402c1d",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "6e4f6f38cb7d3d11a2fcdf0ac114d7b34df385c592901c4154281a22dc7165bb",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_limits.py": "ba22e82b41ca073fe0fb6b017bf550e1db908cf03730ae31c0ba510d1d56e6d2",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py": "ceb3fa86ad9bd1bf1337e7cd094a7a6b13acf25ddb6df451f5bd5f5d132158dc",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "6fe3b0dd6330f715f6abbc21ab785753e0223a070d5ea1d34cf3debcf4a196f1"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "22b93dc23c15d451758cce3824e7f17f07c82c27ce49bae3679c29d14d5217aa",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "ca4d5f0504114b48d5007274648f9d41352722a14f6cb9c0b5b3c7909f4d0a5c",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_limits.py": "8b727d80101245494d9afb6527f507eb756ce9b3e9ae32f98f0060fc6b1d6862",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py": "bdce29be68c0de477887e53c7c30eeb9bbf5dea63fd287574001b0974c4830d4",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "73410a8c750aa925024bf62d730925237d847b455be43cd604cf16f93f02c440"
       },
-      "source_revision": "2f526aee907574df061318ef2982af11012626e4",
-      "source_sha256": "a8c92d02c7e7a9d2155f193b5e59451d741184afbfdd626eb5d8c4c3ae8e4bcc"
+      "source_revision": "b3e76cbca84a353dc8dfab6314e3a7d2c63eee91",
+      "source_sha256": "3805db896be578a4ef2a24b25c57dc85d5ef5a2f26657293729eb7578dc9e33d"
     }
   ],
   "producer_revision": "f02670c3e123effe1a277b3de422247e575d0ded",
