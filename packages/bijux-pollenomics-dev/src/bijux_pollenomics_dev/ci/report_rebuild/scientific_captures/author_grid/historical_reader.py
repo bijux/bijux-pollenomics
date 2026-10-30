@@ -123,7 +123,8 @@ def historical_reader_scope(
         published == raw + (BEGIN + "\n".join(lines) + "\n" + END).encode(),
         "Author-grid original managed REPORT footer differs",
     )
-    return route.scope_reason
+    scope_reason: str = route.scope_reason
+    return scope_reason
 
 
 def _captured_reading_routes(raw: str) -> dict[str, Any]:
