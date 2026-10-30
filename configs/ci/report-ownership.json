@@ -24251,6 +24251,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abborrtjarne_core.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abborrtjarne_native_counts.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_literal_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_sample_inputs.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_sample_review.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",

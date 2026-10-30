@@ -57,6 +57,47 @@ map writers regenerate provenance, source-site labels, horse normalization,
 map contracts and hashed display chunks together. The existing bundle dates
 remain publication provenance, not a new source age or source capture date.
 
+## Literal Galician sample context
+
+The [Galician cell table](source-cohorts/galician-sample-context.csv) joins the
+existing eleven-BioSample/specimen crosswalk to 110 original supplement cells
+in rows 16–25 and 27. The dating table contains eighteen paper specimens; that
+is a separate population from the eleven sequenced BioSamples. Each exported
+cell retains its worksheet part, native coordinate, header and units, original
+type/style attributes, stored value, resolved text and formula/cache presence.
+Headers and strings are not trimmed, dates are not converted and formulas are
+not evaluated. All 109 populated cells are shared strings; `G27` is a present
+blank cell, distinct from both a missing cell and numeric zero. No selected cell
+contains a formula.
+
+For `SAMN18106837`, the label `Bt_CO_(60BP)` must not supply locality or age.
+The exact row for specimen `UK-LU-01` reports `Chan do Lindeiro (entrance)`,
+`100% modern C` under `Age 14C BP`, a blank `Age cal BP (2-sigma)` cell and
+`last 60 years` under `Age cal BC/AD `. These source statements remain separate;
+we infer neither 60 BP nor a Cobas site from the label. Other rows likewise keep
+radiocarbon, calibrated-BP, calendar and contextual fields apart.
+
+The opted-in maintained consumer ran at `85de3133f` with exit zero in 2.30 s.
+An independent DOM reader of the original workbook ZIP/XML checked all 110
+cells, header/row identities, types, styles, values and blank/formula states
+against the exported table. Fifty controlled tests and the separate native
+original-writer test pass, with configured lint, formatting and strict types.
+The [original species report and CSV](../../docs/report/source-relations/dna-scope/galician-cattle-samples/README.md)
+remain byte-identical under the default command. The opted-in report adds only
+a literal-context summary; its species CSV is also unchanged. All eleven
+sample-master site, chronology and atlas-point decisions remain unresolved or
+refused. This makes original context reviewable; it does not approve a date,
+site assignment, project-paper promotion, source permission or scientific use.
+
+Reproduce the optional table from the repository root with an absent output:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
+  bijux_pollenomics_dev.source_completion.adna.galician_sample_review \
+  --repository "$PWD" \
+  --output "$PWD/artifacts/galician-sample-context" --literal-context
+```
+
 ## What the result permits
 
 These layers provide source-sample chronology context for display. They do
@@ -70,11 +111,11 @@ accession requires source evidence that resolves its physical specimen identity.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** All 260 horse source identities and native elapsed-age tokens are preserved; 250 unsupported BP intervals are refused. Generic direct radiocarbon evidence and precision are refused; Palm143 identity refusal is retained.
+**Supported claim.** All 260 horse source identities and native elapsed-age tokens are preserved; 250 unsupported BP intervals are refused. Generic direct radiocarbon evidence and precision are refused; Palm143 identity refusal is retained. Separate Galician curation exposes eleven sample-owned supplement rows as 110 literal typed cells, with radiocarbon, calibrated-BP, calendar and locality fields kept distinct.
 
 **Unsupported claim.** A universal 67-year shift, calibrated BP, or per-row direct radiocarbon support from the imported mixed elapsed-age field; distinct physical identity for both Palm143 BioSamples; ecological events.
 
-**Actual verification performed.** Actual owned source and dependent-data consumers, three qualified map surfaces and five paired final/public/governance owners returned; baseline drift was zero and immutable source/country/map inputs were preserved. World/Europe actual returned predecessor stages were retained with the CSS-only renderer; Nordic was freshly published. The index did not rerun.
+**Actual verification performed.** Actual owned source and dependent-data consumers, three qualified map surfaces and five paired final/public/governance owners returned; baseline drift was zero and immutable source/country/map inputs were preserved. World/Europe actual returned predecessor stages were retained with the CSS-only renderer; Nordic was freshly published. The index did not rerun. The Galician optional consumer ran at 85de3133f, exit 0 in 2.30 s, producing a 19905-byte context table. An independent DOM source check confirms all 110 cells, original header/unit/type/style/value/blank/formula states and exact eleven crosswalk rows.Fifty controlled tests plus the native default-writer exact-byte test pass, with configured lint/types. Original default report/species CSV remain unchanged.
 
 **Remaining input or review.** The Cell 2019 native Age (years ago) field has no established field-specific epoch and scale mapping; a mixed project dating basis cannot classify every row as direct radiocarbon. Two Palm143 BioSamples also retain unresolved physical specimen identity. Resolver: Horse source chronology reviewer and SRP073444 specimen/source owner Reopen when: Source-backed field epoch and scale or independently dated per-row evidence permits horse chronology; citable accession-to-physical-specimen evidence resolves Palm143.
 
@@ -84,11 +125,11 @@ accession requires source evidence that resolves its physical specimen identity.
 
 **Precise next acceptance route.** Bind source-field epoch and scale and per-row date evidence before re-admitting horse chronology. Resolve Palm143 physical specimen identity from citable source evidence before revising its source-sample publication decision.
 
-**Negative or refused result.** 250 previously inferred BP intervals are refused; all 260 horse dating-evidence and precision classifications are unresolved. The global refusal waterfall has 7 identity, 789 chronology and 356 coordinate refusals. Both Palm143 accessions remain identity-refused.
+**Negative or refused result.** 250 previously inferred BP intervals are refused; all 260 horse dating-evidence and precision classifications are unresolved. The global refusal waterfall has 7 identity, 789 chronology and 356 coordinate refusals. Both Palm143 accessions remain identity-refused. Galician sample SAMN18106837 keeps modern-carbon text, a blank calibrated-BP cell and last-60-years calendar text; its label establishes neither 60 BP nor Cobas locality. All eleven retain unresolved site/date and refused atlas-point posture.
 
-**Matched denominator.** 1,475 source rows = 323 temporal nodes + 1,152 refusals; 13 temporal nodes each in Europe-plus/Nordic. Separate normalized foundation: 1,468 rows; locality atlas: 165 features/322 mapped samples; 12 Nordic mapped IDs.
+**Matched denominator.** 1,475 source rows = 323 temporal nodes + 1,152 refusals; 13 temporal nodes each in Europe-plus/Nordic. Separate normalized foundation: 1,468 rows; locality atlas: 165 features/322 mapped samples; 12 Nordic mapped IDs. Separate Galician context:11 BioSamples versus 18 paper specimens;110 exact cells: 109 shared strings, one present blank, zero formulas.
 
-Retained evidence: [data/adna/governance/source_library/projects/PRJEB31613/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB31613/sample_master.json), [data/adna/governance/source_library/projects/PRJEB19970/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB19970/sample_master.json), [data/adna/governance/source_library/projects/SRP073444/sample_master.json](../../data/adna/governance/source_library/projects/SRP073444/sample_master.json), [docs/report/animal_sample_chronology_review.json](../../docs/report/animal_sample_chronology_review.json).
+Retained evidence: [data/adna/governance/source_library/projects/PRJEB31613/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB31613/sample_master.json), [data/adna/governance/source_library/projects/PRJEB19970/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB19970/sample_master.json), [data/adna/governance/source_library/projects/SRP073444/sample_master.json](../../data/adna/governance/source_library/projects/SRP073444/sample_master.json), [docs/report/animal_sample_chronology_review.json](../../docs/report/animal_sample_chronology_review.json), [reports/science/source-cohorts/galician-sample-context.csv](source-cohorts/galician-sample-context.csv).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "beb98c2c2bf992872b28c15a57268f30a9793ebe7de66eeebae4aa4d43e46763",
-      "bytes": 7386800
+      "sha256": "0c7c739fd68d3e161aa889542d3bc0ca6ec7d039c148a9d6da968245ed145d7e",
+      "bytes": 7386919
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5328,6 +5328,11 @@
       "path": "reports/science/pollen-reconstruction/common-cover/measured-panel-counting-regions.json",
       "sha256": "054adbcfeaa9703bdd838597d180775165cd0ab8932618f5698877b56319ce05",
       "bytes": 163181
+    },
+    {
+      "path": "reports/science/source-cohorts/galician-sample-context.csv",
+      "sha256": "fb8d552cd807198397766459e6475de3ff085b20d9d32fe0e8c281994cd935d9",
+      "bytes": 19905
     }
   ],
   "maintained_paths": [
@@ -5650,6 +5655,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__main__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_profile_lineage.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_literal_context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_sample_inputs.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/adna/galician_sample_review.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
