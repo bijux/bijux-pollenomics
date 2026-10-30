@@ -78,7 +78,7 @@ def browser(published: dict[str, Any], action: str) -> dict[str, Any]:
         + template_block("function parseHashState", "function normalizedSetFromList")
         + template_block("function syncHashState()", "function clearHighlightedPoint")
         + template_block(
-            "async function renderMapState()", "function renderLoadedMapState"
+            "function renderSelectionEmptyStatePanel", "function renderLoadedMapState"
         )
         + template_block(
             "function visibleGovernedEdges", "function isRetainedNeighborContext"
@@ -96,9 +96,12 @@ let GOVERNED_EDGE_RECORDS=[supplied.edge];
 const STATIC_ATLAS_INLINE=false,STATIC_ATLAS_CHUNKS={edges:{status:'available'}};
 const SCIENTIFIC_SIGNALS=[{signal_id:supplied.edge.signal_id,label:'Native fixture',non_color_cue:'circle'}];
 let visiblePointEntries=supplied.features.map(feature=>({layer:{key:'points'},feature}));
+let scientificPinValues=[];
+function resetScientificPins(){scientificPinValues=[]}
 const COUNTRIES=['Norway','Sweden'],DEFAULT_LAYER_KEYS=['points'],DEFAULT_SCIENTIFIC_SIGNAL_IDS=[supplied.edge.signal_id];
 const activeCountries=new Set(['Norway']),activeScientificSignalIds=new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
 let activeLayerKeys=new Set(DEFAULT_LAYER_KEYS),activeCountryPair='all',crossBorderOnly=true;
+let activeEvidenceDisplay=resetEvidenceDisplay();
 const activeAnimalSpecies='all',activeAnimalScope='all',activeAnimalConfidence='all',activeAnimalTemporalWindow='all',animalNordicOnly=false;
 const activeSourceChronologyLevel='none',sourceRecordConcentrationActive=false;
 function sourceChronologyLayerForLevel(){return null}
@@ -121,6 +124,7 @@ function renderFocusCard(){focusCard.hidden=!focusState}
 let staticAtlasLoadGeneration=0;const ALL_LAYERS=[],selectionReadout={dataset:{}};
 const topbarStatePill={textContent:'',setAttribute(key,value){this[key]=value}};
 const mapElement={setAttribute(key,value){this[key]=value},getAttribute(key){return this[key]}};
+const emptyState={hidden:true,dataset:{},innerHTML:''};
 const document={activeElement:null,getElementById(id){return id==='map'?mapElement:{focus(){}}}};
 const renderedEdgeLayers=[],callbacks=[],map={};
 const L={polyline(){const events={};callbacks.push(events);return {bindPopup(){},on(key,callback){events[key]=callback},addTo(){}}}};

@@ -5,6 +5,7 @@ from __future__ import annotations
 import base64
 from copy import deepcopy
 import hashlib
+from importlib.resources import files
 import json
 from pathlib import Path
 import re
@@ -61,7 +62,7 @@ def bootstrap(document: str) -> dict[str, Any]:
     return cast(dict[str, Any], json.loads(match.group(1)))
 
 
-def test_runtime_is_exact_original_iife_and_scientific_inventory_stays_unchanged(
+def test_runtime_separates_exact_helpers_without_changing_scientific_inventory(
     tmp_path: Path, request_args: dict[str, Any]
 ) -> None:
     assets = request_args["static_assets"]
@@ -77,18 +78,44 @@ def test_runtime_is_exact_original_iife_and_scientific_inventory_stays_unchanged
     )
     document = html.read_text()
     raw = runtime.read_bytes()
-    assert raw == body.group(1).encode()
+    source = body.group(1)
+    boundaries = re.search(
+        r"(?m)^[ \t]*/\* atlas-evidence-tools:begin \*/[ \t]*$(.*?)^[ \t]*/\* atlas-evidence-tools:end \*/[ \t]*$",
+        source,
+        re.DOTALL,
+    )
+    assert boundaries is not None
+    assert raw == (source[: boundaries.start()] + source[boundaries.end() :]).encode()
     assert b"BijuxPollenomicsAtlasCapture" in raw
     assert "(async () => {" not in document
     assert len(document.encode()) <= 524288 and len(raw) <= 524288
     reference = bootstrap(document).pop("runtime")
     assert bootstrap(document) == {**original, "runtime": reference}
+    optional = reference.pop("optional_controllers")
     assert reference == {
         "path": runtime.name,
         "byte_count": len(raw),
         "integrity": "sha256-"
         + base64.b64encode(hashlib.sha256(raw).digest()).decode(),
     }
+    (evidence,) = subject.static_map_optional_controller_paths(html)
+    evidence_raw = evidence.read_bytes()
+    assert optional == {
+        "evidence_tools": {
+            "path": evidence.name,
+            "byte_count": len(evidence_raw),
+            "integrity": "sha256-"
+            + base64.b64encode(hashlib.sha256(evidence_raw).digest()).decode(),
+        }
+    }
+    assert re.fullmatch(r"atlas\.atlas-evidence-tools\.[a-f0-9]{16}\.js", evidence.name)
+    package = files("bijux_pollenomics.reporting.map_document")
+    for name in (
+        "relation-summary.js",
+        "relation-time-summary.js",
+        "scientific-picker.js",
+    ):
+        assert package.joinpath("assets", name).read_bytes() in evidence_raw
     assert re.fullmatch(r"atlas\.atlas-runtime\.[a-f0-9]{16}\.js", runtime.name)
     assert (
         assets.manifest == original
@@ -104,9 +131,11 @@ def test_runtime_is_exact_original_iife_and_scientific_inventory_stays_unchanged
     assert (
         sum(cast(int, row["byte_count"]) for row in rows if row["initial_load"] is True)
         + len(raw)
+        + len(subject._NATIVE_BINDING.findall(document)[0].encode())
         <= 1048576
     )
     check_javascript_syntax(raw.decode(), tmp_path / "checked-runtime.js")
+    check_javascript_syntax(evidence_raw.decode(), tmp_path / "checked-tools.js")
 
 
 def test_pure_renderer_does_not_materialize_and_keeps_static_size_guard(
@@ -136,9 +165,31 @@ def test_identical_runtime_is_reused_and_changed_existing_bytes_refuse(
     assert html.read_bytes() == body
 
 
+def test_optional_code_collision_refuses_before_main_runtime_or_html_write(
+    tmp_path: Path, request_args: dict[str, Any]
+) -> None:
+    html, runtime = subject.write_static_map_document(
+        tmp_path / "atlas.html", **request_args
+    )
+    (evidence,) = subject.static_map_optional_controller_paths(html)
+    evidence.write_bytes(b"changed optional code")
+    html.unlink()
+    runtime.unlink()
+    with pytest.raises(ValueError, match="collision"):
+        subject.write_static_map_document(html, **request_args)
+    assert not html.exists() and not runtime.exists()
+
+
 @pytest.mark.parametrize(
     "alias",
-    ["runtime_symlink", "runtime_hardlink", "html_symlink", "directory_symlink"],
+    [
+        "runtime_symlink",
+        "runtime_hardlink",
+        "evidence_symlink",
+        "evidence_hardlink",
+        "html_symlink",
+        "directory_symlink",
+    ],
 )
 def test_distribution_paths_cannot_escape_through_aliases(
     tmp_path: Path, request_args: dict[str, Any], alias: str
@@ -146,10 +197,12 @@ def test_distribution_paths_cannot_escape_through_aliases(
     html, runtime = subject.write_static_map_document(
         tmp_path / "atlas.html", **request_args
     )
-    if alias.startswith("runtime"):
+    if alias.startswith(("runtime", "evidence")):
+        if alias.startswith("evidence"):
+            (runtime,) = subject.static_map_optional_controller_paths(html)
         target = tmp_path / "original.js"
         runtime.rename(target)
-        if alias == "runtime_symlink":
+        if alias.endswith("symlink"):
             runtime.symlink_to(target)
         else:
             runtime.hardlink_to(target)
@@ -189,6 +242,105 @@ def test_runtime_is_included_in_existing_resource_limits_before_any_write(
     with pytest.raises(ValueError, match=reason):
         subject.write_static_map_document(tmp_path / "atlas.html", **request_args)
     assert set(tmp_path.iterdir()) == before
+
+
+@pytest.mark.parametrize(
+    "defect", ["missing", "duplicate", "reversed", "inline", "empty", "outside"]
+)
+def test_evidence_tools_boundary_refuses_before_any_publication(
+    tmp_path: Path,
+    request_args: dict[str, Any],
+    monkeypatch: pytest.MonkeyPatch,
+    defect: str,
+) -> None:
+    document = subject._compose_map_document(**request_args)
+    begin, end = subject._EVIDENCE_BEGIN, subject._EVIDENCE_END
+    if defect == "missing":
+        document = document.replace(begin, "")
+    elif defect == "duplicate":
+        document = document.replace(begin, begin + begin)
+    elif defect == "reversed":
+        document = (
+            document.replace(begin, "SWAP").replace(end, begin).replace("SWAP", end)
+        )
+    elif defect == "inline":
+        document = document.replace(begin, "invalid " + begin)
+    elif defect == "empty":
+        prefix, tail = document.split(begin)
+        _, suffix = tail.split(end)
+        document = prefix + begin + "\n" + end + suffix
+    else:
+        document = document.replace(begin, "").replace(end, "")
+        document = document.replace(
+            "(async () => {", begin + "\n" + end + "\n(async () => {", 1
+        )
+    monkeypatch.setattr(subject, "_compose_map_document", lambda *a, **k: document)
+    before = set(tmp_path.iterdir())
+    with pytest.raises(ValueError, match="evidence tools"):
+        subject.write_static_map_document(tmp_path / "atlas.html", **request_args)
+    assert set(tmp_path.iterdir()) == before
+
+
+@pytest.mark.parametrize("scope", ["initial", "total"])
+def test_actual_inline_binding_utf8_bytes_are_charged_at_exact_resource_boundary(
+    request_args: dict[str, Any], monkeypatch: pytest.MonkeyPatch, scope: str
+) -> None:
+    document = subject._compose_map_document(**request_args)
+    inline = json.dumps({"source_text": "🌿" * 100}, ensure_ascii=False)
+    document = document.replace(
+        'id="atlas-native-lra-binding" type="application/json">null</script>',
+        f'id="atlas-native-lra-binding" type="application/json">{inline}</script>',
+    )
+    runtime = document.split("<!-- atlas-runtime:begin -->")[1].split(
+        "<!-- atlas-runtime:end -->"
+    )[0]
+    body = re.fullmatch(r"\s*<script>(.*)</script>\s*", runtime, re.DOTALL)
+    assert body is not None
+    main, optional = subject._separate_evidence_tools(body.group(1))
+    runtime_bytes = len(main)
+    rows = normalize_asset_inventory(request_args["static_assets"].manifest["assets"])
+    count = sum(
+        cast(int, row["byte_count"])
+        for row in rows
+        if scope == "total" or row["initial_load"] is True
+    )
+    limit = (
+        "ATLAS_INITIAL_MAX_BYTES"
+        if scope == "initial"
+        else "ATLAS_STATIC_ASSETS_MAX_BYTES"
+    )
+    exact = (
+        count
+        + runtime_bytes
+        + len(inline.encode())
+        + (len(optional) if scope == "total" else 0)
+    )
+    monkeypatch.setattr(subject, limit, exact)
+    subject._runtime_resources(
+        request_args["static_assets"], runtime_bytes, document, len(optional)
+    )
+    monkeypatch.setattr(subject, limit, exact - 1)
+    with pytest.raises(ValueError, match=f"{scope}.*byte budget"):
+        subject._runtime_resources(
+            request_args["static_assets"], runtime_bytes, document, len(optional)
+        )
+
+
+@pytest.mark.parametrize("defect", ["missing", "duplicate", "invalid_json"])
+def test_inline_binding_boundary_requires_one_literal_json_payload(
+    request_args: dict[str, Any], defect: str
+) -> None:
+    document = subject._compose_map_document(**request_args)
+    node = '<script id="atlas-native-lra-binding" type="application/json">null</script>'
+    assert document.count(node) == 1
+    if defect == "missing":
+        document = document.replace(node, "")
+    elif defect == "duplicate":
+        document += node
+    else:
+        document = document.replace(node, node.replace(">null<", ">invalid<"))
+    with pytest.raises(ValueError):
+        subject._runtime_resources(request_args["static_assets"], 100, document)
 
 
 @pytest.mark.parametrize("defect", ["missing", "duplicate", "malformed", "bootstrap"])
@@ -271,6 +423,12 @@ def test_atlas_bundle_inventories_runtime_before_manifest_and_summary(
             name for label, name in artifacts if label == "Static atlas runtime"
         )
         assert (tmp_path / name).is_file() and paths.map_html_path.is_file()
+        optional_name = next(
+            name for label, name in artifacts if label == "Interactive evidence tools"
+        )
+        assert subject.static_map_optional_controller_paths(paths.map_html_path) == (
+            tmp_path / optional_name,
+        )
         checked.append(name)
         return {"runtime": name}
 

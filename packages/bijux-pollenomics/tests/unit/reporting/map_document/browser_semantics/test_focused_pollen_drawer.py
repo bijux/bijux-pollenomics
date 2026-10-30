@@ -35,16 +35,12 @@ def observe(
     tabs: dict[str, Any], signals: list[dict[str, Any]], actions: str
 ) -> dict[str, Any]:
     source = (
-        template_block("const DETAIL_TAB_DEFINITIONS", "const DEFAULT_COUNTRIES")
+        age.diagram_script()
         + template_block(
             "function unavailableDetailTabs",
             "async function ensureStaticAtlasIndexesLoaded",
         )
-        + template_block("function escapeHtml", "function normalizedMediaLinks")
-        + template_block("function detailTableShape", "function renderFocusCard")
-        + template_block(
-            "function stableFeatureRecordId", "function uniquePointEntryForFocus"
-        )
+        + template_block("function stableFeatureRecordId", "function setFocusState")
         + template_block(
             "async function focusPointAtVisibleIndex", "function countActiveOverrides"
         )
@@ -77,7 +73,9 @@ function featureTimeDescriptor(){return null;}
 function featureCoordinatePair(feature){return {latitude:feature.latitude,longitude:feature.longitude};}
 async function detailTabsForFeature(){return tabs;}
 let focusState=null,activeFocusTab='pollen_composition';
-function setFocusState(state){focusState=state;renderFocusDetail();}
+const edgeFocusLoadState={request:0};
+function loadEvidenceTools(){return Promise.resolve(currentEvidenceTools())}
+function setFocusState(state){focusState=state;edgeFocusLoadState.request++;renderFocusDetail();}
 const visiblePointEntries=signals.map(signal=>({layer:{key:'source-neotoma',label:'Source context'},feature:signal}));
 const snapshots={},keys=pollenDepthDiagramData(tabs).groups.map(group=>group.key);
 function snapshot(name){snapshots[name]=focusDetail.innerHTML;}

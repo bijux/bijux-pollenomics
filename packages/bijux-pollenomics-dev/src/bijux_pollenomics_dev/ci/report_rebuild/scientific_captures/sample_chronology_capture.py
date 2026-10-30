@@ -30,6 +30,10 @@ from .source_roles.atlas_context import (
     ATLAS_CONTEXT_SOURCES,
     validated_atlas_context_source,
 )
+from .source_roles.atlas_evidence_selection import (
+    ATLAS_EVIDENCE_SELECTION_SOURCES,
+    validated_atlas_evidence_selection_source,
+)
 from .source_roles.atlas_relation_context import (
     CHRONOLOGY_ATLAS_RELATION_CONTEXT_SOURCES,
     validated_atlas_relation_context_source,
@@ -424,6 +428,17 @@ def _validate_current_source(
                         source_buffer,
                     ).get("classification")
                     == "source_view_context_extension"
+                )
+                or (
+                    source_buffer is not None
+                    and name in ATLAS_EVIDENCE_SELECTION_SOURCES
+                    and validated_atlas_evidence_selection_source(
+                        repository,
+                        {"path": name, "sha256": expected, "bytes": len(captured)},
+                        logical,
+                        source_buffer,
+                    ).get("classification")
+                    == "atlas_evidence_selection_extension"
                 )
                 or (
                     source_buffer is not None

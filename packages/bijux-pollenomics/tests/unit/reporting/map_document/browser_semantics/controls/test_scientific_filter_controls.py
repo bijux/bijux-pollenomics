@@ -9,6 +9,8 @@ import pytest
 from bijux_pollenomics.reporting.map_document.evidence import normalize_atlas_evidence
 
 from ..support import run_node_json, template_block
+from .test_scientific_picker import SCRIPT
+from .test_scientific_picker_mounting import MOUNT
 
 
 @pytest.mark.parametrize("_fixture_id", ["MAP-001"])
@@ -22,18 +24,23 @@ def test_forest_cereal_and_pastoral_filters_keep_separate_controls_and_records(
         "function renderScientificControls", "function visibleGovernedEdges"
     )
     observed = run_node_json(
-        """
+        SCRIPT
+        + MOUNT
+        + """
 const SCIENTIFIC_SIGNALS=[
-  {signal_id:'group:forest',resolution:'group',label:'Forest',color:'#14532d',non_color_cue:'triangle'},
-  {signal_id:'group:cereals',resolution:'group',label:'Cereals',color:'#92400e',non_color_cue:'square'},
-  {signal_id:'role:pastoral',resolution:'role',label:'Pastoral indicators',color:'#1e40af',non_color_cue:'diamond'},
+  {signal_id:'group:forest',status:'accepted',feature_key:'group:forest',resolution:'group',label:'Forest',color:'#14532d',non_color_cue:'triangle'},
+  {signal_id:'group:cereals',status:'accepted',feature_key:'group:cereals',resolution:'group',label:'Cereals',color:'#92400e',non_color_cue:'square'},
+  {signal_id:'role:pastoral',status:'accepted',feature_key:'role:pastoral',resolution:'role',label:'Pastoral indicators',color:'#1e40af',non_color_cue:'diamond'},
 ];
 const SCIENTIFIC_RESOLUTION_ORDER=['whole','group','subgroup','role','taxon'];
 const activeScientificSignalIds=new Set(SCIENTIFIC_SIGNALS.map(row=>row.signal_id));
 const ATLAS_EVIDENCE={classifications_status:'available'};
 const scientificActions={},sourceChronologyShortcuts={querySelectorAll(){return []}};
-const scientificStatus={},scientificFilters={},scientificSummary={};
-const document={querySelectorAll(){return []}};
+const scientificStatus={},scientificFilters={addEventListener(){}},scientificSummary={};
+const document={getElementById(){return {open:true}},querySelectorAll(){return []}};
+let scientificPinValues=[],scientificPinnedIds=null,scientificCatalog=null,scientificPickerController=null,scientificPickerStatus='not_loaded';
+const evidenceToolsError=null;
+function currentEvidenceTools(){return {pickerCatalog:scientificPickerCatalog,pickerInitial:scientificPickerInitialState,pickerHtml:renderScientificPicker,pickerMount:mountScientificPicker}}
 function sourceChronologyLayers(){return []}
 function escapeHtml(value){return String(value)}
 function scientificCueGlyph(cue){return cue}
@@ -52,8 +59,8 @@ renderScientificControls();
 const allVisible=features.filter(row=>featureMatchesScientificSelection(layer,row)).map(row=>row.record_id);
 const controls=SCIENTIFIC_SIGNALS.map(signal=>({
   id:signal.signal_id,
-  checked:scientificFilters.innerHTML.includes(`value="${signal.signal_id}" checked`),
-  labelled:scientificFilters.innerHTML.includes(`<span>${signal.label}</span>`),
+  checked:scientificPinnedIds.includes(signal.signal_id),
+  labelled:scientificFilters.innerHTML.includes(`${signal.label} · ${signal.resolution} · ${signal.signal_id}`),
   colored:scientificFilters.innerHTML.includes(`style="color:${signal.color}"`),
   cue:scientificFilters.innerHTML.includes(`data-cue="${signal.non_color_cue}"`),
 }));
@@ -128,7 +135,9 @@ def test_reviewed_pinus_and_secale_keep_stable_distinct_colors_and_labels(
         "function renderScientificControls", "function visibleGovernedEdges"
     )
     observed = run_node_json(
-        "const SCIENTIFIC_SIGNALS="
+        SCRIPT
+        + MOUNT
+        + "const SCIENTIFIC_SIGNALS="
         + json.dumps(normalized)
         + ";\n"
         + """
@@ -136,8 +145,11 @@ const SCIENTIFIC_RESOLUTION_ORDER=['whole','group','subgroup','role','taxon'];
 const activeScientificSignalIds=new Set(SCIENTIFIC_SIGNALS.map(row=>row.signal_id));
 const ATLAS_EVIDENCE={classifications_status:'available'};
 const scientificActions={},sourceChronologyShortcuts={querySelectorAll(){return []}};
-const scientificStatus={},scientificFilters={},scientificSummary={};
-const document={querySelectorAll(){return []}};
+const scientificStatus={},scientificFilters={addEventListener(){}},scientificSummary={};
+const document={getElementById(){return {open:true}},querySelectorAll(){return []}};
+let scientificPinValues=[],scientificPinnedIds=null,scientificCatalog=null,scientificPickerController=null,scientificPickerStatus='not_loaded';
+const evidenceToolsError=null;
+function currentEvidenceTools(){return {pickerCatalog:scientificPickerCatalog,pickerInitial:scientificPickerInitialState,pickerHtml:renderScientificPicker,pickerMount:mountScientificPicker}}
 function sourceChronologyLayers(){return []}
 function escapeHtml(value){return String(value)}
 function scientificCueGlyph(cue){return cue}
@@ -146,7 +158,7 @@ function scientificCueGlyph(cue){return cue}
         + """
 renderScientificControls();
 console.log(JSON.stringify(SCIENTIFIC_SIGNALS.map(signal=>({
-  id:signal.signal_id,labelled:scientificFilters.innerHTML.includes(`<span>${signal.label}</span>`),
+  id:signal.signal_id,labelled:scientificFilters.innerHTML.includes(`${signal.label} · ${signal.resolution} · ${signal.signal_id}`),
   colored:scientificFilters.innerHTML.includes(`style="color:${signal.color}"`),
   cue:scientificFilters.innerHTML.includes(`data-cue="${signal.non_color_cue}"`),
 }))));

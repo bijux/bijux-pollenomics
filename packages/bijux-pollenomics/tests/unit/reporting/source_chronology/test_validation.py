@@ -24,6 +24,8 @@ from .support import DETAIL_ID, projection
         ("propagation_eligible", True),
         ("time_start_bp", 126),
         ("edge_id", "invented-edge"),
+        ("temporal_semantics", None),
+        ("temporal_semantics", {"comparability_posture": "numeric_interval"}),
     ],
 )
 def test_projection_rejects_semantic_tampering(field: str, value: object) -> None:

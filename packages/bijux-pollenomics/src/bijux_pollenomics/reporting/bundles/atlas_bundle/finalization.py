@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from ...map_document.render import static_map_optional_controller_paths
+
 
 def finalize_bundle(
     *,
@@ -45,6 +47,10 @@ def finalize_bundle(
         static_assets=static_assets,
     )
     extra_artifacts.append(("Static atlas runtime", runtime_path.name))
+    extra_artifacts.extend(
+        ("Interactive evidence tools", path.name)
+        for path in static_map_optional_controller_paths(bundle_paths.map_html_path)
+    )
     write_summary_json_fn(
         bundle_paths.bundle_manifest_path,
         surface.build_multi_country_bundle_manifest(

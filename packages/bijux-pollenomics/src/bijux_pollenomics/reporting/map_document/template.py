@@ -20,6 +20,24 @@ def load_map_document_template() -> str:
             package_root.joinpath("assets/edge-display.js").read_text(encoding="utf-8"),
         )
         .replace(
+            "__RELATION_EVENT_DEFINITION_CONTROLLER__",
+            package_root.joinpath("assets/relation-event-definition.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__EVIDENCE_DISPLAY_CONTROLLER__",
+            package_root.joinpath("assets/evidence-display.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SELECTION_EMPTY_STATE_CONTROLLER__",
+            package_root.joinpath("assets/selection-empty-state.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
             "__RELATION_SUMMARY_CONTROLLER__",
             package_root.joinpath("assets/relation-summary.js").read_text(
                 encoding="utf-8"
@@ -28,6 +46,18 @@ def load_map_document_template() -> str:
         .replace(
             "__RELATION_TIME_SUMMARY_CONTROLLER__",
             package_root.joinpath("assets/relation-time-summary.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SCIENTIFIC_PICKER_CONTROLLER__",
+            package_root.joinpath("assets/scientific-picker.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SCIENTIFIC_PICKER_MOUNT_CONTROLLER__",
+            package_root.joinpath("assets/scientific-picker-mount.js").read_text(
                 encoding="utf-8"
             ),
         )
@@ -68,6 +98,18 @@ def load_map_document_template() -> str:
         .replace(
             "__POLLEN_FOCUSED_SIGNAL_CONTROLLER__",
             package_root.joinpath("assets/focused-source-signal.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SELECTION_EXPORT_CONTROLLER__",
+            package_root.joinpath("assets/selection-export.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SOURCE_RECORD_DETAILS_FACTORY__",
+            package_root.joinpath("assets/source-record-details-factory.js").read_text(
                 encoding="utf-8"
             ),
         )

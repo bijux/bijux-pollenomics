@@ -83,6 +83,7 @@ def popup(
 const original=JSON.stringify(edges);
 const SCIENTIFIC_SIGNALS=[{signal_id:'taxon:fixture',label:'Source taxon',color:'#123456',non_color_cue:'circle'}];
 const STATIC_ATLAS_INLINE=false,STATIC_ATLAS_CHUNKS={edges:{status:'available'}};
+let activeEvidenceDisplay=resetEvidenceDisplay();
 const visiblePointEntries=[
 {feature:{record_id:'source:record',latitude:60,longitude:18},layer:{key:'points'}},
 {feature:{record_id:'target:record',latitude:61,longitude:19},layer:{key:'points'}}];

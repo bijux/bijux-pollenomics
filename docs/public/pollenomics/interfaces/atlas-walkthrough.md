@@ -210,12 +210,34 @@ explains that optional input.
 
 ## Inspect supplied candidate relations
 
+When a build supplies selectable scientific signals, open **Evidence
+Resolution** to search their labels, IDs, features and explicit synonyms.
+**Pin** adds an exact signal to the ordered comparison tray, up to six pins.
+Use **Hide**, **Show**, **Solo**, **Move earlier**, **Move later** and **Remove**
+to manage that tray and its visible signals. Each entry retains its own
+resolution and feature identity. Supplied parent links define the hierarchy;
+selecting a parent does not select descendants or create group membership.
+
 In an atlas build with governed candidate relations, expand **Candidate
 relations** to choose a retained scenario, native candidate status, and stored
 source or target endpoint country. **All retained** leaves that selection
 unrestricted. Scenario details show supplied distance and lag limits and the
 rule type; missing or conflicting metadata remains unavailable. A candidate
-status does not establish scientific admission.
+status does not establish scientific admission. **Supplied event definition**
+selects an exact combination of event type, threshold profile, measurement
+semantics and method compatibility. It filters supplied relation rows without
+changing thresholds or reclassifying observations. Its **All retained** option
+keeps rows with unavailable definitions; a specific definition excludes them.
+
+**Evidence drawing mode** offers **Nodes**, **Edges** and **Nodes and edges**.
+Drawing changes do not discard logical point entries or retained relations.
+**Density (unavailable)** refuses drawing because no governed density product
+is supplied; source-record concentration and modeled overlays are different
+products. Loading and transport failure have distinct messages. Empty-view
+messages distinguish cleared controls, undrawn points or relations, and
+polygon-only displays where supported. Otherwise the scientific cause remains
+unknown: an empty display does not establish missing observations, uncollected
+sources, unresolved chronology, non-comparability or universal refusal.
 
 **Retained relation country counts** separates exact scenarios and statuses.
 Directional candidates use source-to-target country cells; indeterminate and
@@ -238,6 +260,18 @@ edge, scenario, published build and selected tab alongside current filters.
 Missing endpoints, incompatible filters and stale builds produce an unavailable
 state rather than selecting another relation. These controls inspect candidate
 spatiotemporal succession; they do not reconstruct a movement route.
+
+Under **Basemap and tools**, **Download selection** saves complete published
+map rows matching the filters, including rows outside the viewport and beyond
+drawing limits. It preserves literal units, missing values, statuses and
+selection metadata. Selected retained relations remain separate from their
+endpoint eligibility; they are included before endpoint time, layer and
+viewport display checks. Changed selections, failed loading or exceeded
+budgets refuse the download without a partial file; narrow the filters when
+requested. This download is not scientific or rights approval. For a complete
+individual source series, use **Download pollen/time-series records** in its
+record drawer instead; that export retains all source claims rather than
+filtering the series to the map time window.
 
 ## Decide what the result supports
 

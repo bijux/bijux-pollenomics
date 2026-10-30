@@ -21,7 +21,13 @@ SITE_ID = "site-SE"
 DETAIL_ID = f"neotoma:site:{SITE_ID}"
 
 
-def source_result() -> SourceNodeDerivationResult:
+def source_result(
+    *,
+    younger_bp: float | int = 100,
+    older_bp: float | int = 125,
+    comparable: bool = True,
+    source_default: bool = True,
+) -> SourceNodeDerivationResult:
     """Derive all three publication levels from one admitted observation."""
     sample_id = "sample-SE"
     variable_id = "variable-1"
@@ -90,12 +96,12 @@ def source_result() -> SourceNodeDerivationResult:
                 "country_code": "SE",
                 "source_snapshot_id": SNAPSHOT,
                 "build_id": BUILD,
-                "is_default_chronology": True,
+                "is_default_chronology": source_default,
                 "chronology_id": "chronology-SE",
                 "chronology_name": "Source chronology",
-                "comparability_status": "comparable",
-                "younger_bp": 100,
-                "older_bp": 125,
+                "comparability_status": "comparable" if comparable else "refused",
+                "younger_bp": younger_bp,
+                "older_bp": older_bp,
                 "admission_reason": None,
                 "refusal_reason": None,
                 "provenance_record_id": SNAPSHOT,

@@ -988,6 +988,9 @@
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.68);
       }
+      .control-group[hidden] {
+        display: none;
+      }
       .control-group-head {
         display: flex;
         justify-content: space-between;
@@ -2104,7 +2107,7 @@
           <div id="atlas-capture-key" class="atlas-capture-key"></div>
           <p id="atlas-capture-caveat" class="atlas-capture-caveat">Evidence role is being resolved.</p>
         </section>
-        <div id="empty-state" class="empty-state" hidden>
+        <div id="empty-state" class="empty-state" role="status" aria-live="polite" hidden>
           <strong>No visible records</strong>
           <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
         </div>
@@ -2153,9 +2156,11 @@ __NATIVE_LRA_CONTROLS__
                   <div class="map-actions">
                     <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
                     <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+                    <button id="selection-export" class="toolbar-button" type="button" aria-describedby="selection-export-status">Download selection</button>
                     <button id="help-toggle" class="toolbar-button" type="button" aria-controls="help-dialog" aria-expanded="false">Help</button>
                     <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
                   </div>
+                  <p id="selection-export-status" class="search-meta" role="status" aria-live="polite">Download published map records matching the filters, including records outside the view. Source-series downloads depend on the selected record.</p>
                 </div>
               </details>
               <details class="control-group">
@@ -2175,7 +2180,7 @@ __NATIVE_LRA_CONTROLS__
                   </div>
                 </div>
               </details>
-              <details class="control-group">
+              <details id="scientific-controls" class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Scientific resolution</span>
@@ -2278,10 +2283,14 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                   <span id="relation-summary" role="status" aria-live="polite" aria-atomic="true" class="control-group-summary">Checking governed candidates</span>
                 </summary>
                 <div class="control-group-body">
+                  <div id="evidence-display-controls"></div>
                   <label class="field-label" for="country-pair-filter"><span>Country pair</span><span>Direction-neutral</span></label>
                   <select id="country-pair-filter" class="search-input" aria-label="Filter candidate relations by country pair"></select>
                   <label class="field-label" for="relation-scenario-filter">Retained scenario</label>
                   <select id="relation-scenario-filter" class="search-input"></select>
+                  <label class="field-label" for="relation-event-definition-filter">Supplied event definition</label>
+                  <select id="relation-event-definition-filter" class="search-input" aria-describedby="relation-event-definition-status"></select>
+                  <p id="relation-event-definition-status" role="status" aria-live="polite" class="search-meta"></p>
                   <label class="field-label" for="relation-status-filter">Native candidate status</label>
                   <select id="relation-status-filter" class="search-input"></select>
                   <label class="field-label" for="relation-source-country-filter">Stored source endpoint country</label>
@@ -2290,11 +2299,11 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                   <select id="relation-target-country-filter" class="search-input"></select>
                   <p class="search-meta">Stored endpoints do not establish direction for indeterminate relations. Candidate status is not scientific admission.</p>
                   <div id="relation-filter-status" role="status" aria-live="polite" class="search-meta"></div>
-                  <details>
+                  <details data-evidence-tools>
                     <summary>Retained relation country counts</summary>
                     <div id="relation-country-summary"></div>
                   </details>
-                  <details>
+                  <details data-evidence-tools>
                     <summary>Retained relation endpoint ages</summary>
                     <div id="relation-time-summary"></div>
                   </details>
@@ -2546,6 +2555,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
     <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
 __STATIC_CHUNK_SCRIPT_TAGS__
 __NATIVE_LRA_SCRIPT_TAG__
+    <script id="atlas-native-lra-binding" type="application/json">__NATIVE_LRA_BINDING__</script>
     <!-- atlas-runtime:begin -->
     <script>
       (async () => {
@@ -2779,7 +2789,18 @@ __NATIVE_LRA_SCRIPT_TAG__
           if (runtimeBytes <= 0 || runtimeBytes > 524288) staticAtlasFailure('runtime byte budget exceeded');
           runtimeRequests = 1;
         }
-        const initialBytes = runtimeBytes + initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        const binding = document.getElementById('atlas-native-lra-binding');
+        if (!binding || typeof binding.textContent !== 'string') staticAtlasFailure('native binding payload is unavailable');
+        const inlineBytes = new TextEncoder().encode(binding.textContent).byteLength;
+        const optionalControllers = runtime?.optional_controllers;
+        if (optionalControllers !== undefined && (!optionalControllers || Object.keys(optionalControllers).join('|') !== 'evidence_tools')) staticAtlasFailure('optional runtime controllers are invalid');
+        const optionalTools = optionalControllers === undefined ? null : evidenceToolsDescriptor();
+        if (optionalTools && (optionalTools.path === runtime.path || paths.includes(optionalTools.path))) staticAtlasFailure('optional runtime path is duplicated');
+        if (STATIC_ATLAS_BOOTSTRAP.assets.length + runtimeRequests + Number(Boolean(optionalTools)) > 512) staticAtlasFailure('total asset file budget exceeded');
+        const totalBytes = runtimeBytes + (optionalTools?.byte_count || 0) + inlineBytes + STATIC_ATLAS_BOOTSTRAP.assets.reduce((total, row) => total + row.byte_count, 0);
+        const totalByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.static_assets_max_bytes, 'total asset byte budget');
+        if (totalBytes > totalByteBudget) staticAtlasFailure('total asset byte budget exceeded');
+        const initialBytes = runtimeBytes + inlineBytes + initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
         const initialRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_requests, 'initial request budget');
         const initialByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_bytes, 'initial byte budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_requests, 'interaction request budget');
@@ -3210,7 +3231,7 @@ __NATIVE_LRA_SCRIPT_TAG__
       const SCOPE_KEY = __SCOPE_KEY_JSON__;
       const COUNTRIES = __COUNTRIES_JSON__;
 __NATIVE_LRA_CONTROLLER__
-      const NATIVE_LRA_BINDING = __NATIVE_LRA_BINDING__;
+      const NATIVE_LRA_BINDING = JSON.parse(document.getElementById('atlas-native-lra-binding').textContent);
 __SOURCE_RECORD_EXPORT_CONTROLLER__
 __URL_STATE_CONTROLLER__
       let nativeLraController = null;
@@ -3366,6 +3387,8 @@ __URL_STATE_CONTROLLER__
       const crossBorderOnlyCheckbox = document.getElementById('cross-border-only');
       const relationSummary = document.getElementById('relation-summary');
       const relationFilterStatus = document.getElementById('relation-filter-status');
+      const relationEventDefinitionControl = document.getElementById('relation-event-definition-filter');
+      const relationEventDefinitionStatus = document.getElementById('relation-event-definition-status');
       const relationFilterControls = {
         scenario: document.getElementById('relation-scenario-filter'),
         status: document.getElementById('relation-status-filter'),
@@ -3471,8 +3494,11 @@ __URL_STATE_CONTROLLER__
           countries: params.get('countries'),
           layers: params.get('layers'),
           scientificSignals: params.get('scientific_signals'),
+          scientificPins: params.getAll('scientific_pins'),
           countryPair: params.get('country_pair'),
           relationFilters: relationFiltersFromHash(params),
+          relationEventDefinition: relationEventDefinitionFromHash(params),
+          evidenceDisplay: evidenceDisplayFromHash(params),
           crossBorder: params.get('cross_border'),
           animalSpecies: params.get('animal_species'),
           animalScope: params.get('animal_scope'),
@@ -4771,6 +4797,10 @@ __URL_STATE_CONTROLLER__
         SCIENTIFIC_SIGNAL_IDS,
         DEFAULT_SCIENTIFIC_SIGNAL_IDS
       );
+      let scientificPinValues = initialState.scientificPins;
+      let scientificPinnedIds = null, scientificCatalog = null, scientificPickerController = null;
+      let scientificPickerStatus = 'not_loaded';
+      let activeEvidenceDisplay = initialState.evidenceDisplay;
       const COUNTRY_PAIR_KEYS = Array.from(new Set(GOVERNED_EDGE_RECORDS.map((edge) => atlasCountryPairKey(edge.source_country, edge.target_country)))).sort();
       let activeCountryPair = normalizedSingleValue(initialState.countryPair, ['all', ...COUNTRY_PAIR_KEYS], 'all');
       let crossBorderOnly = initialState.crossBorder === 'only';
@@ -5275,8 +5305,11 @@ __URL_STATE_CONTROLLER__
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
         if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) params.set('scientific_signals', activeScientificSignalIds.size ? [...activeScientificSignalIds].join(',') : 'none');
+        scientificPinValues.forEach(value => params.append('scientific_pins', value));
         if (activeCountryPair !== 'all') params.set('country_pair', activeCountryPair);
         writeRelationFilterHash(params, activeRelationFilters);
+        writeRelationEventDefinitionHash(params, activeRelationEventDefinition);
+        writeEvidenceDisplayHash(params, activeEvidenceDisplay);
         if (crossBorderOnly) params.set('cross_border', 'only');
         if (activeAnimalSpecies !== 'all') params.set('animal_species', activeAnimalSpecies);
         if (activeAnimalScope !== 'all') params.set('animal_scope', activeAnimalScope);
@@ -5622,7 +5655,6 @@ __URL_STATE_CONTROLLER__
       __POLLEN_AGE_AXIS_CONTROLLER__
       __POLLEN_SMALL_MULTIPLES_CONTROLLER__
       __POLLEN_FOCUSED_SIGNAL_CONTROLLER__
-      __SOURCE_RECORD_DETAILS_CONTROLLER__
       const pollenDepthSelections = new WeakMap();
       const pollenAgeSelections = new WeakMap();
       function pollenDisplaySelection(tabs) {
@@ -5643,6 +5675,13 @@ __URL_STATE_CONTROLLER__
               + renderPollenSmallMultiples(tabs, group.key, ageKey, ids),
             {selectedObservationIds:selected.focused.observationIds,requireExplicitAnchor:selected.requireExplicitAnchor});
       }
+      let sourceDetailRenderers = null;
+      function renderSourceDetailContext(kind, tabs, feature) {
+        const tools = currentEvidenceTools();
+        if (!tools) return `<p role="status">${escapeHtml(evidenceToolsError || 'Loading source detail context…')} Original source tables remain available below.</p>`;
+        sourceDetailRenderers ||= tools.sourceDetails({detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, escapeHtml});
+        return sourceDetailRenderers[kind](tabs, feature);
+      }
       function renderFocusDetail() {
         const focused = document.activeElement;
         const focusedTab = focusTabs.contains(focused) ? focused.dataset.focusTab : null;
@@ -5656,12 +5695,12 @@ __URL_STATE_CONTROLLER__
           : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
         const sourceOverview = activeFocusTab === 'overview' && tabs.overview?.status !== 'unavailable'
           && focusState?.sourceSignal?.semantic_role === 'source_chronology_context'
-          ? renderSelectedSourceOverview(tabs, focusState.sourceSignal) : '';
+          ? renderSourceDetailContext('overview', tabs, focusState.sourceSignal) : '';
         const sampleObservations = activeFocusTab === 'samples' && tabs.overview?.source_family === 'neotoma'
-          ? renderSourceSampleObservations(tabs) : '';
+          ? renderSourceDetailContext('samples', tabs) : '';
         const sourceContext = ['neotoma','sead'].includes(tabs.overview?.source_family)
-          ? activeFocusTab === 'classification' ? renderNativeClassificationContext(tabs)
-            : activeFocusTab === 'provenance' ? renderSourceProvenanceContext(tabs) : '' : '';
+          ? activeFocusTab === 'classification' ? renderSourceDetailContext('classification', tabs)
+            : activeFocusTab === 'provenance' ? renderSourceDetailContext('provenance', tabs) : '' : '';
         const relationDetails = activeFocusTab === 'relation' ? renderRelationDetails(tabs.relation) : '';
         focusDetail.innerHTML = sourceOverview + sourceDiagram + relationDetails + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
@@ -5796,6 +5835,8 @@ __URL_STATE_CONTROLLER__
           detailTabs: unavailableDetailTabs('detail_record_loading'),
         };
         setFocusState(nextFocus);
+        const request = edgeFocusLoadState.request;
+        const toolsReady = loadEvidenceTools().catch(() => null);
         const detailTabs = await detailTabsForFeature(entry.feature);
         if (
           focusState
@@ -5803,18 +5844,25 @@ __URL_STATE_CONTROLLER__
           && focusState.layerKey === nextFocus.layerKey
           && focusState.featureKey === nextFocus.featureKey
           && focusState.recordId === nextFocus.recordId
+          && edgeFocusLoadState.request === request
+          && visiblePointEntryForFocus(focusState)
         ) {
           focusState = { ...focusState, detailTabs };
           renderFocusDetail();
         }
+        await toolsReady;
+        if (focusState?.kind === 'point' && edgeFocusLoadState.request === request
+          && focusState.layerKey === nextFocus.layerKey && focusState.featureKey === nextFocus.featureKey
+          && focusState.recordId === nextFocus.recordId && visiblePointEntryForFocus(focusState)) renderFocusDetail();
       }
       function countActiveOverrides() {
         let count = 0;
         if (activeCountries.size !== COUNTRIES.length) count += 1;
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) count += 1;
-        if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) count += 1;
+        if (scientificPinValues.length || activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) count += 1;
         if (activeCountryPair !== 'all') count += 1;
         count += relationFilterFields().filter(([key]) => activeRelationFilters[key] !== null || activeRelationFilters.invalid.includes(key)).length;
+        if (activeRelationEventDefinition.value !== null || activeRelationEventDefinition.invalid) count += 1;
         if (crossBorderOnly) count += 1;
         if (activeAnimalSpecies !== 'all') count += 1;
         if (activeAnimalScope !== 'all') count += 1;
@@ -5872,26 +5920,50 @@ __URL_STATE_CONTROLLER__
           : sourceChronologyAvailable
             ? 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.'
             : 'Harmonized scientific classifications are awaiting qualified review. This scope has no source-native pollen chronology layers.';
-        scientificFilters.innerHTML = available
-          ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
-              const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
-              if (!signals.length) return '';
-              return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(resolution)}</div><div class="dock-layer-grid">${signals.map((signal) => `<label class="dock-layer-chip"><input class="scientific-checkbox" type="checkbox" value="${escapeHtml(signal.signal_id)}" ${activeScientificSignalIds.has(signal.signal_id) ? 'checked' : ''}><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)}</span></label>`).join('')}</div></div>`;
-            }).join('')
-          : '';
+        if (available) renderScientificPickerPanel(); else scientificFilters.innerHTML = '';
         scientificSummary.textContent = available
           ? `${activeScientificSignalIds.size} of ${SCIENTIFIC_SIGNALS.length} accepted signals selected`
           : sourceChronologyAvailable ? 'Source-native views available' : 'Accepted classifications unavailable';
-        document.querySelectorAll('.scientific-checkbox').forEach((checkbox) => {
-          checkbox.addEventListener('change', () => {
-            if (checkbox.checked) activeScientificSignalIds.add(checkbox.value); else activeScientificSignalIds.delete(checkbox.value);
+      }
+      function resetScientificPins() {
+        scientificPinValues = []; scientificPinnedIds = null;
+        scientificPickerController?.clearSearch(); scientificPickerStatus = 'not_loaded';
+      }
+      function scientificPickerMetadata() {
+        return {pinned_ids: scientificPinnedIds === null ? null : [...scientificPinnedIds], requested_pin_values: [...scientificPinValues], status: scientificPickerStatus};
+      }
+      function scientificPickerSelection(tools) {
+        scientificCatalog ||= tools.pickerCatalog(SCIENTIFIC_SIGNALS);
+        const result = tools.pickerInitial(scientificCatalog, [...activeScientificSignalIds], scientificPinnedIds === null ? scientificPinValues : [JSON.stringify(scientificPinnedIds)]);
+        scientificPickerStatus = result.error ? 'unavailable' : 'available';
+        if (!result.error) scientificPinnedIds = result.state.pinnedIds;
+        return result;
+      }
+      function renderScientificPickerPanel() {
+        const panel = document.getElementById('scientific-controls'), tools = currentEvidenceTools();
+        if (!panel.open) return;
+        if (!tools) {
+          scientificFilters.textContent = evidenceToolsError || 'Loading supplied scientific signals…';
+          scientificPickerStatus = evidenceToolsError ? 'unavailable' : 'not_loaded';
+          return;
+        }
+        scientificCatalog ||= tools.pickerCatalog(SCIENTIFIC_SIGNALS);
+        scientificPickerController ||= tools.pickerMount(scientificFilters, scientificCatalog, {
+          read: () => scientificPickerSelection(tools),
+          change: state => {
+            scientificPinnedIds = state.pinnedIds;
+            scientificPinValues = [JSON.stringify(scientificPinnedIds)];
+            activeScientificSignalIds = new Set(state.visibleIds);
             renderMapState();
-          });
+          },
+          reset: () => { resetScientificPins(); renderMapState(); }
         });
+        scientificPickerController.render();
       }
       function visibleGovernedEdges() {
+        const definitions = new Set(relationEventDefinitionSelection(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition).selected);
         return relationFilterSelection(GOVERNED_EDGE_RECORDS, activeRelationFilters).selected
-          .filter((edge) => atlasEdgeVisible(edge, activeCountries, activeCountryPair, crossBorderOnly, activeScientificSignalIds));
+          .filter((edge) => definitions.has(edge) && atlasEdgeVisible(edge, activeCountries, activeCountryPair, crossBorderOnly, activeScientificSignalIds));
       }
       function isRetainedNeighborContext(layer, feature) {
         return Boolean(
@@ -5902,6 +5974,9 @@ __URL_STATE_CONTROLLER__
       }
       function renderRelationControls() {
         const selection = relationFilterSelection(GOVERNED_EDGE_RECORDS, activeRelationFilters);
+        const definitions = relationEventDefinitionSelection(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition);
+        const definitionRows = new Set(definitions.selected);
+        const matchedCount = selection.selected.filter(row => definitionRows.has(row)).length;
         const available = !STATIC_ATLAS_INLINE && STATIC_ATLAS_CHUNKS.edges.status === 'available';
         const sequencePosture = STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.sequences.status === 'unavailable'
           ? `sequences unavailable: ${STATIC_ATLAS_INLINE ? 'governed_sequence_detail_model_not_available' : STATIC_ATLAS_CHUNKS.sequences.reason_code}`
@@ -5914,9 +5989,12 @@ __URL_STATE_CONTROLLER__
           control.disabled = !available;
           control.innerHTML = relationFilterOptions(selection.catalog[key], activeRelationFilters[key], selection.unavailable.includes(key), label);
         });
+        relationEventDefinitionControl.disabled = !available;
+        relationEventDefinitionControl.innerHTML = renderRelationEventDefinitionOptions(definitions, activeRelationEventDefinition);
+        relationEventDefinitionStatus.textContent = `${definitions.availableCount} rows with supplied definitions; ${definitions.missingCount} missing; ${definitions.conflictingCount} conflicting of ${definitions.retainedCount} retained rows. ${definitions.unavailable ? 'Shared event definition unavailable; no fallback.' : 'All retained keeps unavailable rows; a specific definition excludes them.'} This selects supplied events, without reclassification.`;
         relationFilterStatus.innerHTML = (selection.unavailable.length
           ? '<p>Shared relation filter unavailable: no retained native value matches the selection. No fallback selection is applied.</p>' : '')
-          + `<p>${selection.selected.length} of ${GOVERNED_EDGE_RECORDS.length} retained relations match the scenario, status and stored endpoint-country selections. Nonselected records, including any refusal context, remain retained.</p>`
+          + `<p>${matchedCount} of ${GOVERNED_EDGE_RECORDS.length} retained relations match the event definition, scenario, status and stored endpoint-country selections. Nonselected records, including any refusal context, remain retained.</p>`
           + relationScenarioThresholds(GOVERNED_EDGE_RECORDS, activeRelationFilters.scenario);
         countryPairFilter.innerHTML = '<option value="all">All country pairs</option>' + COUNTRY_PAIR_KEYS.map((key) => `<option value="${escapeHtml(key)}" ${activeCountryPair === key ? 'selected' : ''}>${escapeHtml(key.replace('|', ' ↔ '))}</option>`).join('');
         relationSummary.textContent = available
@@ -6818,7 +6896,7 @@ __URL_STATE_CONTROLLER__
             siteLayer.addLayer(marker);
             visiblePointEntries.push(entry);
           });
-          if (siteLayer.getLayers().length > 0) {
+          if (evidenceDisplayDecision(activeEvidenceDisplay).drawNodes && siteLayer.getLayers().length > 0) {
             siteLayer.addTo(map);
             renderedPointGroups.push(siteLayer);
           }
@@ -6880,13 +6958,13 @@ __URL_STATE_CONTROLLER__
             });
             if (neighborContext) neighborGroup.addLayer(marker); else clusterGroup.addLayer(marker);
             visiblePointEntries.push(entry);
-            if (!neighborContext && layer.circle_enabled && diameterKm > 0) {
+            if (evidenceDisplayDecision(activeEvidenceDisplay).drawNodes && !neighborContext && layer.circle_enabled && diameterKm > 0) {
               const circle = L.circle(latLng, { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
               circleLayerGroup.addLayer(circle);
             }
           });
-          if (clusterGroup.getLayers().length > 0) { clusterGroup.addTo(map); renderedPointGroups.push(clusterGroup); }
-          if (neighborGroup.getLayers().length > 0) { neighborGroup.addTo(map); renderedPointGroups.push(neighborGroup); }
+          if (evidenceDisplayDecision(activeEvidenceDisplay).drawNodes && clusterGroup.getLayers().length > 0) { clusterGroup.addTo(map); renderedPointGroups.push(clusterGroup); }
+          if (evidenceDisplayDecision(activeEvidenceDisplay).drawNodes && neighborGroup.getLayers().length > 0) { neighborGroup.addTo(map); renderedPointGroups.push(neighborGroup); }
         });
       }
       function scientificSignalById(signalId) {
@@ -6934,11 +7012,106 @@ __URL_STATE_CONTROLLER__
       }
       let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
       __EDGE_DISPLAY_CONTROLLER__
+      __RELATION_EVENT_DEFINITION_CONTROLLER__
+      __EVIDENCE_DISPLAY_CONTROLLER__
+      __SELECTION_EMPTY_STATE_CONTROLLER__
+      function renderEvidenceDisplayPanel() {
+        const container = document.getElementById('evidence-display-controls');
+        const decision = evidenceDisplayDecision(activeEvidenceDisplay);
+        container.innerHTML = renderEvidenceDisplayControls(activeEvidenceDisplay);
+        container.querySelector('#evidence-display-mode').addEventListener('change', event => {
+          activeEvidenceDisplay = evidenceDisplayState([event.target.value]);
+          renderMapState();
+        });
+        const mapElement = document.getElementById('map');
+        mapElement.dataset.evidenceDisplayMode = decision.mode || 'unavailable';
+        mapElement.dataset.evidenceDisplayStatus = decision.status;
+        mapElement.dataset.drawingEnabledPointCount = String(decision.drawNodes ? visiblePointEntries.length : 0);
+        topbarStatePill.setAttribute('role', decision.status === 'unavailable' ? 'alert' : 'status');
+        if (decision.status === 'unavailable') topbarStatePill.textContent = decision.reason;
+        else if (decision.mode !== 'both') topbarStatePill.textContent = `${visiblePointEntries.length} display-eligible point entries · Drawing ${decision.mode} only`;
+      }
+      /* atlas-evidence-tools:begin */
       __RELATION_SUMMARY_CONTROLLER__
       __RELATION_TIME_SUMMARY_CONTROLLER__
+      __SCIENTIFIC_PICKER_CONTROLLER__
+      __SCIENTIFIC_PICKER_MOUNT_CONTROLLER__
+      __SOURCE_RECORD_DETAILS_FACTORY__
+      __SELECTION_EXPORT_CONTROLLER__
+      /* atlas-evidence-tools:end */
+      let evidenceTools = null, evidenceToolsRequest = null, evidenceToolsError = null;
+      function currentEvidenceTools() {
+        if (!evidenceTools && typeof relationSummaryData === 'function') {
+          evidenceTools = Object.freeze({countryData: relationSummaryData, countryHtml: renderRelationSummary,
+            timeData: relationTimeSummaryData, timeHtml: renderRelationTimeSummary,
+            pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
+            pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
+            pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails,
+            selectionExport: prepareAtlasSelectionExport});
+        }
+        return evidenceTools;
+      }
+      function evidenceToolsDescriptor() {
+        const row = STATIC_ATLAS_BOOTSTRAP.runtime?.optional_controllers?.evidence_tools;
+        if (!row || typeof row !== 'object' || Array.isArray(row)
+          || Object.keys(row).sort().join('|') !== 'byte_count|integrity|path'
+          || typeof row.path !== 'string' || typeof row.integrity !== 'string'
+          || !/^[A-Za-z0-9][A-Za-z0-9._-]*[.]atlas-evidence-tools[.][a-f0-9]{16}[.]js$/.test(row.path)
+          || !/^sha256-[A-Za-z0-9+/]{43}=$/.test(row.integrity)
+          || !Number.isSafeInteger(row.byte_count) || row.byte_count <= 0 || row.byte_count > 524288) {
+          throw new Error('Evidence tools transport identity is unavailable. Keep all atlas files from the same build together.');
+        }
+        return row;
+      }
+      function loadEvidenceTools() {
+        if (currentEvidenceTools()) return Promise.resolve(evidenceTools);
+        if (evidenceToolsRequest) return evidenceToolsRequest;
+        evidenceToolsRequest = Promise.resolve().then(() => {
+          const row = evidenceToolsDescriptor();
+          if (!['http:', 'https:', 'file:'].includes(window.location.protocol)) throw new Error('Evidence tools require HTTP, HTTPS or a local file.');
+          return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = `./${row.path}`;
+            if (['http:', 'https:'].includes(window.location.protocol)) {
+              script.integrity = row.integrity;
+              script.crossOrigin = 'anonymous';
+            }
+            // Local-file script transport follows the main runtime policy; SRI is
+            // enforced by the browser for HTTP and HTTPS distributions.
+            script.addEventListener('load', () => {
+              try {
+                if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
+                const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
+                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails', 'selectionExport'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+                evidenceTools = tools;
+                resolve(tools);
+              } catch (error) { reject(error); }
+            }, {once: true});
+            script.addEventListener('error', () => reject(new Error('Evidence tools could not be loaded. Keep all atlas files together and reload.')), {once: true});
+            document.head.appendChild(script);
+          });
+        }).catch(error => { evidenceToolsError = String(error.message || error); throw error; });
+        return evidenceToolsRequest;
+      }
+      function renderRelationTimeSummaryPanel() {
+        const container = document.getElementById('relation-time-summary');
+        if (!container) return;
+        const tools = currentEvidenceTools();
+        container.innerHTML = tools ? tools.timeHtml(tools.timeData(visibleGovernedEdges()))
+          : `<p>${escapeHtml(evidenceToolsError || 'Open this panel to load the endpoint age summary.')}</p>`;
+      }
+      function renderEvidenceToolPanels() {
+        renderRelationCountrySummary();
+        renderRelationTimeSummaryPanel();
+      }
       function renderRelationCountrySummary() {
         const container = document.getElementById('relation-country-summary');
         if (!container) return;
+        const tools = currentEvidenceTools();
+        if (!tools) {
+          container.innerHTML = `<p>${escapeHtml(evidenceToolsError || 'Open this panel to load the country summary.')}</p>`;
+          return;
+        }
         const edges = visibleGovernedEdges();
         const href = (edgeId, scenarioId) => {
           if (!atlasURLState.canPublish()) return null;
@@ -6949,7 +7122,7 @@ __URL_STATE_CONTROLLER__
           if (!writeEdgeFocusHash(params, {kind: 'edge', edgeId, scenarioId, atlasBuildId: build, edgeShareable: true}, 'relation', build)) return null;
           return `#${params.toString()}`;
         };
-        container.innerHTML = renderRelationSummary(relationSummaryData(edges), href, DETAIL_TABLE_PAGE_SIZE);
+        container.innerHTML = tools.countryHtml(tools.countryData(edges), href, DETAIL_TABLE_PAGE_SIZE);
       }
       async function openEdgeDetail(edge, source, compare = false, fromSharedLink = false) {
         if (!fromSharedLink) pendingEdgeFocus = null;
@@ -7051,7 +7224,9 @@ __URL_STATE_CONTROLLER__
           map._loaded ? map.getZoom() : 0, featureCoordinatePair,
           map._loaded ? (coordinates) => atlasEdgeIntersectsViewport(map, coordinates) : null
         );
-        edgeRenderSummary = { shown: selection.rows.length, viewport_count: selection.viewport_count, limit: selection.limit };
+        const drawEdges = evidenceDisplayDecision(activeEvidenceDisplay).drawEdges;
+        edgeRenderSummary = { shown: drawEdges ? selection.rows.length : 0, viewport_count: selection.viewport_count, limit: selection.limit };
+        if (!drawEdges) return;
         selection.rows.forEach(({ edge, source, target }) => {
           const signal = scientificSignalById(edge.signal_id);
           const color = signal ? signal.color : '#6d28d9';
@@ -7276,11 +7451,29 @@ __URL_STATE_CONTROLLER__
             const coordinates = featureCoordinatePair(match.feature);
             if (!coordinates) return;
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
-            map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+            map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7, ...(reducedMotionQuery.matches ? { animate: false } : {}) });
             window.setTimeout(() => match.marker.openPopup(), 250);
             setSearchOpen(false);
           });
         });
+      }
+      function renderSelectionEmptyStatePanel(loadStatus = 'ready') {
+        let input = {loadStatus};
+        if (loadStatus === 'ready') {
+          const decision = evidenceDisplayDecision(activeEvidenceDisplay);
+          const narrowedTime = TIME_HAS_DATA && !timeFilterUsesFullExtent();
+          input = {loadStatus, countryCount: activeCountries.size,
+            selectedLayers: ALL_LAYERS.filter(layer => activeLayerKeys.has(layer.key)),
+            scientificSignalCount: SCIENTIFIC_SIGNALS.length, selectedScientificSignalCount: activeScientificSignalIds.size,
+            pointCount: visiblePointEntries.length, polygonLayerCount: renderedPolygonLayers.length,
+            retainedRelationCount: visibleGovernedEdges().length, relationViewportCount: edgeRenderSummary.viewport_count,
+            drawnRelationCount: edgeRenderSummary.shown, drawNodes: decision.drawNodes, drawEdges: decision.drawEdges,
+            timeFilterActive: narrowedTime, untimedExclusion: narrowedTime ? genericUntimedExclusion() : null};
+        }
+        const summary = selectionEmptyState(input);
+        emptyState.hidden = summary.hidden;
+        emptyState.dataset.reason = summary.reason;
+        emptyState.innerHTML = renderSelectionEmptyState(summary);
       }
       async function renderMapState() {
         const generation = ++staticAtlasLoadGeneration;
@@ -7289,6 +7482,7 @@ __URL_STATE_CONTROLLER__
         topbarStatePill.textContent = 'Loading selected evidence…';
         topbarStatePill.setAttribute('aria-live', 'polite');
         document.getElementById('map').setAttribute('aria-busy', 'true');
+        renderSelectionEmptyStatePanel('loading');
         try {
           const requested = await ensureStaticAtlasSelectionLoaded();
           if (generation !== staticAtlasLoadGeneration) return;
@@ -7311,6 +7505,7 @@ __URL_STATE_CONTROLLER__
           if (generation !== staticAtlasLoadGeneration) return;
           topbarStatePill.textContent = error instanceof Error ? error.message : 'Static atlas selection failed to load.';
           topbarStatePill.setAttribute('role', 'alert');
+          renderSelectionEmptyStatePanel('unavailable');
           console.error(error);
         } finally {
           if (generation === staticAtlasLoadGeneration) document.getElementById('map').setAttribute('aria-busy', 'false');
@@ -7333,6 +7528,7 @@ __URL_STATE_CONTROLLER__
         renderLegend();
         renderControlPanelSummary();
         updateStats();
+        renderEvidenceDisplayPanel();
         preparePublishedSearch();
         buildSearchResults();
         renderFocusCard();
@@ -7341,13 +7537,64 @@ __URL_STATE_CONTROLLER__
         diameterValue.textContent = `${Number(slider.value)} km diameter`;
         radiusValue.textContent = `${(Number(slider.value) / 2).toFixed(1)} km`;
         densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
-        emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
+        renderSelectionEmptyStatePanel();
         syncHashState();
-        renderRelationCountrySummary();
-        document.getElementById('relation-time-summary').innerHTML = renderRelationTimeSummary(relationTimeSummaryData(visibleGovernedEdges()));
+        renderEvidenceToolPanels();
         if (document.documentElement.classList.contains('atlas-capture-mode') && atlasCapturePresentation !== null) {
           renderAtlasCaptureOverlay(atlasCaptureSnapshot());
         }
+      }
+      function atlasSelectionExportSnapshot() {
+        const snapshot = atlasCaptureSnapshot();
+        return {...snapshot, ready: snapshot.ready && !['loading', 'loading_unavailable'].includes(emptyState.dataset.reason),
+          selection_generation: staticAtlasLoadGeneration, selection_hash: atlasSelectionHashParams().toString(),
+          acceptance_diameter_km: Number(slider.value),
+          relation_availability: {status: STATIC_ATLAS_CHUNKS.edges?.status ?? null,
+            reason_code: STATIC_ATLAS_CHUNKS.edges?.reason_code ?? null}};
+      }
+      function atlasSelectionExportOwner(transportOverhead = {request_count: 0, byte_count: 0}) {
+        if (STATIC_ATLAS_INLINE) throw Error('Published selection chunks are unavailable in this map.');
+        return {bootstrap: STATIC_ATLAS_BOOTSTRAP, transportOverhead, snapshot: atlasSelectionExportSnapshot,
+          assetNeeded: staticAtlasNodeSelectionNeeded, isLoaded: row => staticAtlasLoadedAssets.has(row.asset_key),
+          loadAsset: row => loadStaticAtlasAsset(row, false),
+          readAsset: row => STATIC_ATLAS_CHUNKS.nodes.find(part => part.asset_key === row.asset_key),
+          layerForAsset: row => {
+            const matches = ATLAS_EVIDENCE.layers.filter(entry => entry.layer_kind === row.layer_kind && entry.layer_index === row.layer_index);
+            if (matches.length !== 1) throw Error('Published selection layer identity is ambiguous.');
+            return matches[0].layer;
+          },
+          featureSelected: (layer, feature, kind) => kind === 'point' ? pointFeatureVisible(layer, feature)
+            : polygonGeometryIsAdmitted(feature) && polygonFeatureVisible(layer, feature.properties || {}),
+          relations: () => ({retained_count: GOVERNED_EDGE_RECORDS.length, records: visibleGovernedEdges()}),
+          endpointEligible: (edge, entries) => atlasEdgeRenderSelection([edge],
+            new Map(entries.filter(entry => entry.feature.record_id).map(entry => [String(entry.feature.record_id), entry])),
+            map.getZoom(), featureCoordinatePair, null).rows.length === 1};
+      }
+      async function downloadAtlasSelection() {
+        const button = document.getElementById('selection-export'), status = document.getElementById('selection-export-status');
+        if (button.disabled) return;
+        button.disabled = true;
+        status.textContent = 'Preparing the complete selection…';
+        try {
+          const expected = JSON.stringify(atlasSelectionExportSnapshot());
+          const unchanged = () => {if (JSON.stringify(atlasSelectionExportSnapshot()) !== expected) throw Error('Selection changed; request the download again.');};
+          const overhead = currentEvidenceTools() ? {request_count: 0, byte_count: 0}
+            : {request_count: 1, byte_count: evidenceToolsDescriptor().byte_count};
+          if (overhead.request_count > STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests
+            || overhead.byte_count > STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes) throw Error('Selection tools exceed the interaction budget.');
+          const tools = await loadEvidenceTools();
+          unchanged();
+          const result = await tools.selectionExport(atlasSelectionExportOwner(overhead));
+          unchanged();
+          const url = URL.createObjectURL(new Blob([result.text], {type: 'application/json'}));
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'pollenomics-selection.json';
+          try {link.click();} finally {window.setTimeout(() => URL.revokeObjectURL(url), 1000);}
+          status.textContent = `${result.counts.selected_public_rows} public map rows and ${result.counts.selected_relation_rows} retained relation rows downloaded with selection metadata. Full source series are separate.`;
+        } catch (error) {
+          status.textContent = error instanceof Error ? error.message : 'Selection download failed; no partial download was produced.';
+        } finally {button.disabled = false;}
       }
       const ATLAS_CAPTURE_API_VERSION = typeof signedNativeTime !== 'undefined' && signedNativeTime !== null ? 'atlas-capture.v2' : 'atlas-capture.v1';
       let atlasCapturePresentation = null;
@@ -7508,6 +7755,9 @@ __URL_STATE_CONTROLLER__
           build_id: STATIC_ATLAS_BOOTSTRAP.build_id,
           scope_slug: STATIC_ATLAS_BOOTSTRAP.scope_slug,
           relation_filters: relationFilterMetadata(GOVERNED_EDGE_RECORDS, activeRelationFilters),
+          relation_event_definition: relationEventDefinitionMetadata(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition),
+          scientific_picker: scientificPickerMetadata(),
+          evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
           version: STATIC_ATLAS_BOOTSTRAP.version,
           ready: document.getElementById('map').getAttribute('aria-busy') !== 'true',
           basemap: currentBasemap,
@@ -7831,8 +8081,11 @@ __URL_STATE_CONTROLLER__
         activeCountries = new Set(DEFAULT_COUNTRIES);
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
+        resetScientificPins();
         activeCountryPair = 'all';
         resetRelationFilters();
+        resetRelationEventDefinition();
+        activeEvidenceDisplay = resetEvidenceDisplay();
         crossBorderOnly = false;
         crossBorderOnlyCheckbox.checked = false;
         activeAnimalSpecies = 'all';
@@ -7875,11 +8128,18 @@ __URL_STATE_CONTROLLER__
       document.getElementById('countries-fit').addEventListener('click', fitToActive);
       document.getElementById('scientific-whole').addEventListener('click', () => {
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
+        resetScientificPins();
         renderMapState();
       });
       document.getElementById('scientific-clear').addEventListener('click', () => {
         activeScientificSignalIds = new Set();
+        resetScientificPins();
         renderMapState();
+      });
+      document.getElementById('scientific-controls').addEventListener('toggle', event => {
+        if (!event.currentTarget.open || ATLAS_EVIDENCE.classifications_status !== 'available' || !SCIENTIFIC_SIGNALS.length) return;
+        renderScientificControls();
+        loadEvidenceTools().then(renderScientificControls, renderScientificControls);
       });
       document.querySelectorAll('[data-source-shortcut]').forEach((button) => {
         button.addEventListener('click', () => {
@@ -7931,6 +8191,12 @@ __URL_STATE_CONTROLLER__
           renderMapState();
         });
       });
+      relationEventDefinitionControl.addEventListener('change', () => {
+        Object.assign(activeRelationEventDefinition, relationEventDefinitionFromHash(new URLSearchParams(
+          relationEventDefinitionControl.value ? {relation_event_definition: relationEventDefinitionControl.value} : {}
+        )));
+        renderMapState();
+      });
       countryPairFilter.addEventListener('change', () => {
         activeCountryPair = normalizedSingleValue(countryPairFilter.value, ['all', ...COUNTRY_PAIR_KEYS], 'all');
         renderMapState();
@@ -7956,6 +8222,14 @@ __URL_STATE_CONTROLLER__
           button.textContent = 'Copy failed';
         }
         window.setTimeout(() => { button.textContent = previous; }, 1400);
+      });
+      document.querySelectorAll('details[data-evidence-tools]').forEach(panel => {
+        panel.addEventListener('toggle', () => {
+          if (!panel.open) return;
+          const containers = panel.querySelectorAll('#relation-country-summary, #relation-time-summary');
+          if (!currentEvidenceTools()) containers.forEach(container => { container.textContent = evidenceToolsError || 'Loading evidence tools…'; });
+          loadEvidenceTools().then(() => { if (panel.open) renderEvidenceToolPanels(); }, () => { if (panel.open) renderEvidenceToolPanels(); });
+        });
       });
       document.getElementById('fullscreen-toggle').addEventListener('click', async () => {
         const target = document.querySelector('.map-stage');
@@ -8071,6 +8345,7 @@ __URL_STATE_CONTROLLER__
         if (modeledContextPlaybackTimer === null) startModeledContextPlayback(); else stopModeledContextPlayback();
       });
       modeledContextDownload.addEventListener('click', downloadModeledContextFrame);
+      document.getElementById('selection-export').addEventListener('click', downloadAtlasSelection);
       sourceChronologyLevel.addEventListener('change', () => {
         if (!selectSourceChronologyLevel(sourceChronologyLevel.value)) return;
         focusSourceChronologyNavigation();
@@ -8196,6 +8471,9 @@ __URL_STATE_CONTROLLER__
             layers: [...activeLayerKeys].sort(),
             scientific_signals: [...activeScientificSignalIds].sort(),
             relation_filters: relationFilterMetadata(GOVERNED_EDGE_RECORDS, activeRelationFilters),
+            relation_event_definition: relationEventDefinitionMetadata(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition),
+            scientific_picker: scientificPickerMetadata(),
+            evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
             map_window_bp: TIME_HAS_DATA ? [timeStartBp, timeWindowEndBp()] : null,
             selected_detail_section: activeFocusTab,
             basemap: currentBasemap,
@@ -8244,11 +8522,11 @@ __URL_STATE_CONTROLLER__
       focusZoomButton.addEventListener('click', () => {
         if (!focusState) return;
         if (focusState.kind === 'polygon' && focusState.bounds) {
-          map.fitBounds(focusState.bounds, { padding: [32, 32] });
+          map.fitBounds(focusState.bounds, { padding: [32, 32], ...(reducedMotionQuery.matches ? { animate: false } : {}) });
           return;
         }
         if (Number.isFinite(focusState.latitude) && Number.isFinite(focusState.longitude)) {
-          map.flyTo([focusState.latitude, focusState.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
+          map.flyTo([focusState.latitude, focusState.longitude], Math.max(map.getZoom(), 8), { duration: 0.7, ...(reducedMotionQuery.matches ? { animate: false } : {}) });
         }
       });
       map.on('zoomend', () => {
@@ -8322,6 +8600,7 @@ __URL_STATE_CONTROLLER__
       legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       Object.assign(activeRelationFilters, initialState.relationFilters);
+      Object.assign(activeRelationEventDefinition, initialState.relationEventDefinition);
       if (NATIVE_LRA_BINDING !== null) {
         if (await staticAtlasSha256(NATIVE_LRA_BINDING.bytes) !== NATIVE_LRA_BINDING.sha256) throw Error('Native LRA view byte identity mismatch.');
         const nativeView = JSON.parse(NATIVE_LRA_BINDING.bytes);

@@ -32,9 +32,10 @@ from .test_native_source_context import (
 def decoded(tabs: dict[str, Any]) -> list[dict[str, Any]]:
     return cast(
         list[dict[str, Any]],
-        observe(tabs, "sourceRecordRows(tabs.chronology,['chronology_claim_id'])")[
-            "extra"
-        ],
+        observe(
+            tabs,
+            "tabs.chronology.records.map(row=>decodeDetailTableRow(tabs.chronology,row))",
+        )["extra"],
     )
 
 
@@ -163,7 +164,7 @@ def test_transformations_reuse_original_paginated_table_by_reference(
     before = deepcopy(sead_tabs)
     output = observe(
         sead_tabs,
-        "(()=>{const render=renderDetailTable;let same=false;renderDetailTable=(table,path)=>{if(path==='provenance.transformations')same=table===tabs.chronology;return render(table,path);};detailTablePages.set('provenance.transformations',1);const html=renderSourceTransformationContext(tabs);renderDetailTable=render;return {same,html};})()",
+        "(()=>{const render=renderDetailTable;let same=false;renderDetailTable=(table,path)=>{if(path==='provenance.transformations')same=table===tabs.chronology;return render(table,path);};detailTablePages.set('provenance.transformations',1);const html=renderSourceProvenanceContext(tabs);renderDetailTable=render;return {same,html};})()",
     )
     assert output["extra"]["same"]
     assert "Showing 26–28 of 28" in output["extra"]["html"]
