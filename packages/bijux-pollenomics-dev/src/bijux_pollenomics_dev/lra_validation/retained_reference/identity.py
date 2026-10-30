@@ -49,6 +49,7 @@ def _source_transport(bundle: Path, profile: dict[str, Any]) -> SourceCapsule | 
         raise ValueError(str(error)) from error
     if source.detached != frozenset(
         {
+            "oracle/oracle.R",
             "source-domains/r_support.R",
             "source-domains/run_source_domains.py",
             "source-domains/source_domains.R",

@@ -12,6 +12,10 @@
     {
       "historical_source_commit": "6d8f1c5beffc2627b14e3330f8567e60f0fc8c36",
       "source_revision": "794cb962ada617915cc633cb53176cae9a5d90fe"
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd"
     }
   ],
   "git_groups": [
@@ -68,6 +72,19 @@
         [
           "source/uv.lock",
           "uv.lock"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd",
+      "storage_role": "historical_code_witness",
+      "member_count": 1,
+      "git_entries_sha256": "35aa4f102735c9c5e7ab6c2d3614bdb9f1a0be0d604f151d18496200c96e95d2",
+      "paths": [
+        [
+          "retained/oracle/oracle.R",
+          "data/method-certification/linux-r-source-capture/retained/oracle/oracle.R"
         ]
       ]
     }

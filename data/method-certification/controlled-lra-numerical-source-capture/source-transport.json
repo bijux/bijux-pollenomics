@@ -280,6 +280,10 @@
     {
       "historical_source_commit": "b821194d66ff299ddf514d287d1688ac9ba9f978",
       "source_revision": "3bece1dc8f7a5e230e6cdc7cf17032d4a755679f"
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd"
     }
   ],
   "git_groups": [
@@ -9492,6 +9496,55 @@
         [
           "original-inputs/artifacts/science/current-report-custody/run_account_qualification.py",
           "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/execution/report_consumer.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd",
+      "storage_role": "historical_code_witness",
+      "member_count": 10,
+      "git_entries_sha256": "8403f9a19a72e30d9c346ef91611bd3bf6f0d1944185fd3c69a7abaed4e683bc",
+      "paths": [
+        [
+          "execution/owned-replays/optimizer-solution-quality/solver.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/execution/owned-replays/optimizer-solution-quality/solver.R"
+        ],
+        [
+          "execution/owned-replays/paired-love-draws/replay.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/execution/owned-replays/paired-love-draws/replay.R"
+        ],
+        [
+          "original-inputs/artifacts/science/controlled-lra-current-numerical-custody/oracle_metadata.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/original-inputs/artifacts/science/controlled-lra-current-numerical-custody/oracle_metadata.R"
+        ],
+        [
+          "original-inputs/artifacts/science/controlled-lra-runtime-introspection/oracle_metadata.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/original-inputs/artifacts/science/controlled-lra-runtime-introspection/oracle_metadata.R"
+        ],
+        [
+          "original-inputs/artifacts/science/current-controlled-lra-introspection-probe/runtime-probe.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/original-inputs/artifacts/science/current-controlled-lra-introspection-probe/runtime-probe.R"
+        ],
+        [
+          "original-inputs/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/solver.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/original-inputs/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/optimizer-solution-quality/solver.R"
+        ],
+        [
+          "original-inputs/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/paired-love-draws/replay.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/original-inputs/artifacts/science/current-controlled-lra-numerical-certification/owned-replays/paired-love-draws/replay.R"
+        ],
+        [
+          "original-inputs/artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/optimizer-solution-quality/solver.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/original-inputs/artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/optimizer-solution-quality/solver.R"
+        ],
+        [
+          "original-inputs/artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/paired-love-draws/replay.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/original-inputs/artifacts/science/current-controlled-lra-owned-numerical-certification/owned-replays/paired-love-draws/replay.R"
+        ],
+        [
+          "original-inputs/artifacts/science/current-controlled-lra-runtime-probe/runtime-probe.R",
+          "data/method-certification/controlled-lra-numerical-source-capture/original-inputs/artifacts/science/current-controlled-lra-runtime-probe/runtime-probe.R"
         ]
       ]
     }

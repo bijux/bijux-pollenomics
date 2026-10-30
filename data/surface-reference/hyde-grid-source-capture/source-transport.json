@@ -366,6 +366,10 @@
     {
       "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
       "source_revision": "8ded3ec583cf54883c9dc59bda659837a2e61433"
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd"
     }
   ],
   "git_groups": [
@@ -9806,6 +9810,131 @@
         [
           "payloads/e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
           "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/lake_parameters/runtime/source_runtime.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd",
+      "storage_role": "historical_code_witness",
+      "member_count": 29,
+      "git_entries_sha256": "f7c810a2ca1c2e904345a0ab5eb761ca146d95f69cfdc89bd0cdb168fb9736f4",
+      "paths": [
+        [
+          "payloads/062b0752bfcf0f9e38d191cdf6876abd0eba4ad42c038e503c4deb8c512756e5",
+          "data/surface-reference/hyde-grid-source-capture/payloads/062b0752bfcf0f9e38d191cdf6876abd0eba4ad42c038e503c4deb8c512756e5"
+        ],
+        [
+          "payloads/0d202d6fd78bb7ba7de928a53b9d0ca4d822ef4bebb01a0180489c9e511087cf",
+          "data/surface-reference/hyde-grid-source-capture/payloads/0d202d6fd78bb7ba7de928a53b9d0ca4d822ef4bebb01a0180489c9e511087cf"
+        ],
+        [
+          "payloads/1816b3c9555da5321c8495c4f46b45ad125e9fdf6b1e3bd6c3f65cfc20e66476",
+          "data/surface-reference/hyde-grid-source-capture/payloads/1816b3c9555da5321c8495c4f46b45ad125e9fdf6b1e3bd6c3f65cfc20e66476"
+        ],
+        [
+          "payloads/1bf8d7cb5f9af13785a6fe65d8e3b7dba1111f4670466ad6b9ef34ab4d9e1534",
+          "data/surface-reference/hyde-grid-source-capture/payloads/1bf8d7cb5f9af13785a6fe65d8e3b7dba1111f4670466ad6b9ef34ab4d9e1534"
+        ],
+        [
+          "payloads/1cb1324bf62758028301d49c8f7fccc9686231e262a9179cf830f7c10638f2d2",
+          "data/surface-reference/hyde-grid-source-capture/payloads/1cb1324bf62758028301d49c8f7fccc9686231e262a9179cf830f7c10638f2d2"
+        ],
+        [
+          "payloads/22eda9391e614b7523e5b86fd5d3d07c9fe2929a2501ee61e11d463284072ba9",
+          "data/surface-reference/hyde-grid-source-capture/payloads/22eda9391e614b7523e5b86fd5d3d07c9fe2929a2501ee61e11d463284072ba9"
+        ],
+        [
+          "payloads/25eb0d2402ab889f59c73b8f6ae606abf43b9cc249ecec98c65f5cf69b35656d",
+          "data/surface-reference/hyde-grid-source-capture/payloads/25eb0d2402ab889f59c73b8f6ae606abf43b9cc249ecec98c65f5cf69b35656d"
+        ],
+        [
+          "payloads/2c0ac447ee928cb00a8155f2ed85349c222c28a4c3598169bd6a5a119bf83d1a",
+          "data/surface-reference/hyde-grid-source-capture/payloads/2c0ac447ee928cb00a8155f2ed85349c222c28a4c3598169bd6a5a119bf83d1a"
+        ],
+        [
+          "payloads/316bd25f869279d7364f8d4c9ec64a24e1c7baec9eeb44ac15f3f382b37dc669",
+          "data/surface-reference/hyde-grid-source-capture/payloads/316bd25f869279d7364f8d4c9ec64a24e1c7baec9eeb44ac15f3f382b37dc669"
+        ],
+        [
+          "payloads/3cba9867ffe725f12a5b10bdf3965282688c2956d1063d00f2a705ecf36ea92a",
+          "data/surface-reference/hyde-grid-source-capture/payloads/3cba9867ffe725f12a5b10bdf3965282688c2956d1063d00f2a705ecf36ea92a"
+        ],
+        [
+          "payloads/45b0f07136f9cdbbd69485078554043b16e3c9dc2d755e5ac1657239a10dab1c",
+          "data/surface-reference/hyde-grid-source-capture/payloads/45b0f07136f9cdbbd69485078554043b16e3c9dc2d755e5ac1657239a10dab1c"
+        ],
+        [
+          "payloads/4650900bf59217640e09c6180333877e245b2f240469db7d23243d6b77a50cc1",
+          "data/surface-reference/hyde-grid-source-capture/payloads/4650900bf59217640e09c6180333877e245b2f240469db7d23243d6b77a50cc1"
+        ],
+        [
+          "payloads/475ecd47a7363e964e9e9e279c69931f29e6378516404f1e29d6b5ec0b779cc1",
+          "data/surface-reference/hyde-grid-source-capture/payloads/475ecd47a7363e964e9e9e279c69931f29e6378516404f1e29d6b5ec0b779cc1"
+        ],
+        [
+          "payloads/4a319d94a685b3ae8aab9a0118ae66ce9979387885b82d80106f41bc0f9f88d8",
+          "data/surface-reference/hyde-grid-source-capture/payloads/4a319d94a685b3ae8aab9a0118ae66ce9979387885b82d80106f41bc0f9f88d8"
+        ],
+        [
+          "payloads/671104e7b819a83a808a2c228b6fa4846f60e06323ca1580531b2e2e0d7ba093",
+          "data/surface-reference/hyde-grid-source-capture/payloads/671104e7b819a83a808a2c228b6fa4846f60e06323ca1580531b2e2e0d7ba093"
+        ],
+        [
+          "payloads/6a34dd3c3fddc4fb00948b32459911eb3ce61b7fc7d714f48f21304944e5fd3a",
+          "data/surface-reference/hyde-grid-source-capture/payloads/6a34dd3c3fddc4fb00948b32459911eb3ce61b7fc7d714f48f21304944e5fd3a"
+        ],
+        [
+          "payloads/7eaf8667168c500fda40ba4788c0962a3890c9043683efbe035dee44b3c23585",
+          "data/surface-reference/hyde-grid-source-capture/payloads/7eaf8667168c500fda40ba4788c0962a3890c9043683efbe035dee44b3c23585"
+        ],
+        [
+          "payloads/852745b176bee70b23a5acdfde5f189008dda380f5f076aa0fcb4b75dce1548e",
+          "data/surface-reference/hyde-grid-source-capture/payloads/852745b176bee70b23a5acdfde5f189008dda380f5f076aa0fcb4b75dce1548e"
+        ],
+        [
+          "payloads/8f724839411f4d09326af5515a0f1e6e0307e4d5eebfecb753db229ba9bcdac7",
+          "data/surface-reference/hyde-grid-source-capture/payloads/8f724839411f4d09326af5515a0f1e6e0307e4d5eebfecb753db229ba9bcdac7"
+        ],
+        [
+          "payloads/93cba652ac6814735a68fb7794d02f56597aaade107ea9f51913c883fb57b6cd",
+          "data/surface-reference/hyde-grid-source-capture/payloads/93cba652ac6814735a68fb7794d02f56597aaade107ea9f51913c883fb57b6cd"
+        ],
+        [
+          "payloads/94933c2e0838d20402d8029227e2dcbc478f447264208fd3c81b205957cd65b9",
+          "data/surface-reference/hyde-grid-source-capture/payloads/94933c2e0838d20402d8029227e2dcbc478f447264208fd3c81b205957cd65b9"
+        ],
+        [
+          "payloads/b376086cde7c53c8316c8af1318217ce008506905bf909ae7e3dc5a9ac269297",
+          "data/surface-reference/hyde-grid-source-capture/payloads/b376086cde7c53c8316c8af1318217ce008506905bf909ae7e3dc5a9ac269297"
+        ],
+        [
+          "payloads/c93a8bb0c02ee0bee83eda404afe062c339f5c6a5a5139560b3ffdce6c4d2bf8",
+          "data/surface-reference/hyde-grid-source-capture/payloads/c93a8bb0c02ee0bee83eda404afe062c339f5c6a5a5139560b3ffdce6c4d2bf8"
+        ],
+        [
+          "payloads/d738bf5e349a40c0cda4b111e6f945768fd82ae17e98b9b493206e05455d2988",
+          "data/surface-reference/hyde-grid-source-capture/payloads/d738bf5e349a40c0cda4b111e6f945768fd82ae17e98b9b493206e05455d2988"
+        ],
+        [
+          "payloads/dc1883b923bfdc5850bca7a3cb864b571fb37cb9b8b445d4c8662cb4ace960d4",
+          "data/surface-reference/hyde-grid-source-capture/payloads/dc1883b923bfdc5850bca7a3cb864b571fb37cb9b8b445d4c8662cb4ace960d4"
+        ],
+        [
+          "payloads/dd87dff63fcc223a730bb707c18cd7e692bcad6f034c680ed676e1a8164be018",
+          "data/surface-reference/hyde-grid-source-capture/payloads/dd87dff63fcc223a730bb707c18cd7e692bcad6f034c680ed676e1a8164be018"
+        ],
+        [
+          "payloads/e2273a019e49a58408c1ee079621ad34738634565acb213534cff6a7fd1d7a4c",
+          "data/surface-reference/hyde-grid-source-capture/payloads/e2273a019e49a58408c1ee079621ad34738634565acb213534cff6a7fd1d7a4c"
+        ],
+        [
+          "payloads/fd31c7773804fa9a951a1f4733f5331aadd3337363b5bd120121b1cfaf7e9b60",
+          "data/surface-reference/hyde-grid-source-capture/payloads/fd31c7773804fa9a951a1f4733f5331aadd3337363b5bd120121b1cfaf7e9b60"
+        ],
+        [
+          "payloads/fe22bb7bb799f74fa6732bf52247c22a005ae74c2dbc7d4f54142aa27700f6af",
+          "data/surface-reference/hyde-grid-source-capture/payloads/fe22bb7bb799f74fa6732bf52247c22a005ae74c2dbc7d4f54142aa27700f6af"
         ]
       ]
     }

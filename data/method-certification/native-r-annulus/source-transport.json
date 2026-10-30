@@ -1,1 +1,58 @@
-{"schema_version":"git-retained-source.v1","capture":{"name":"capture/capture.json","sha256":"2c80e50e8fc2a68e784139052ccd31a49a4e4d05413a7eb2b997cfa89f2b9f61","bytes":39860},"historical_native_epochs":["ed7005d0845f4755a906d7f2642c68100f7ea3d7"],"source_revision_correspondence":[{"historical_source_commit":"ed7005d0845f4755a906d7f2642c68100f7ea3d7","source_revision":"3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11"}],"git_groups":[{"historical_source_commit":"ed7005d0845f4755a906d7f2642c68100f7ea3d7","source_revision":"3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11","member_count":3,"git_entries_sha256":"3e706c3d5e2e51e82594a7981c151f5933865187b05a8555bb675fb4f51d111e","paths":[["capture/source-domains/r_support.R","packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R"],["capture/source-domains/run_source_domains.py","packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_source_domains.py"],["capture/source-domains/source_domains.R","packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R"]]}],"generated_members":[],"rewritten_source_epoch_executed":false}
+{
+  "schema_version": "git-retained-source.v1",
+  "capture": {
+    "name": "capture/capture.json",
+    "sha256": "2c80e50e8fc2a68e784139052ccd31a49a4e4d05413a7eb2b997cfa89f2b9f61",
+    "bytes": 39860
+  },
+  "historical_native_epochs": [
+    "ed7005d0845f4755a906d7f2642c68100f7ea3d7"
+  ],
+  "source_revision_correspondence": [
+    {
+      "historical_source_commit": "ed7005d0845f4755a906d7f2642c68100f7ea3d7",
+      "source_revision": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11"
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd"
+    }
+  ],
+  "git_groups": [
+    {
+      "historical_source_commit": "ed7005d0845f4755a906d7f2642c68100f7ea3d7",
+      "source_revision": "3703b2a1acb7cb4784b7c0cb864ebb5ed5c2ef11",
+      "member_count": 3,
+      "git_entries_sha256": "3e706c3d5e2e51e82594a7981c151f5933865187b05a8555bb675fb4f51d111e",
+      "paths": [
+        [
+          "capture/source-domains/r_support.R",
+          "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R"
+        ],
+        [
+          "capture/source-domains/run_source_domains.py",
+          "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_source_domains.py"
+        ],
+        [
+          "capture/source-domains/source_domains.R",
+          "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd",
+      "storage_role": "historical_code_witness",
+      "member_count": 1,
+      "git_entries_sha256": "2c182653edadb21e1a45d43dbb2f8ae0025576ce2b892a928e66f24fc485414a",
+      "paths": [
+        [
+          "capture/oracle/oracle.R",
+          "data/method-certification/native-r-annulus/capture/oracle/oracle.R"
+        ]
+      ]
+    }
+  ],
+  "generated_members": [],
+  "rewritten_source_epoch_executed": false
+}

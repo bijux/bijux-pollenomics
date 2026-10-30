@@ -26579,7 +26579,6 @@
         "data/method-certification/native-r/capture/oracle/R_stderr.log",
         "data/method-certification/native-r/capture/oracle/R_stdout.log",
         "data/method-certification/native-r/capture/oracle/case_manifest.json",
-        "data/method-certification/native-r/capture/oracle/oracle.R",
         "data/method-certification/native-r/capture/oracle/python_expected_not_R_goldens.npz",
         "data/method-certification/native-r/capture/oracle/report.json",
         "data/method-certification/native-r/capture/receipt.json",

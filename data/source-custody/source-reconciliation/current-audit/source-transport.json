@@ -378,6 +378,10 @@
     {
       "historical_source_commit": "65fa003583dafcee24a5305c2b5a95e78184201b",
       "source_revision": "8ded3ec583cf54883c9dc59bda659837a2e61433"
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd"
     }
   ],
   "git_groups": [
@@ -9898,6 +9902,131 @@
         [
           "payloads/e472bc68683c73af0155597f288f3d7475923332c67e80ade9b76b6c23ecdd32",
           "packages/bijux-pollenomics-dev/tests/reference/scientific_captures/pollen_source/lake_parameters/runtime/source_runtime.py"
+        ]
+      ]
+    },
+    {
+      "historical_source_commit": "9412914baca84ae07f54ad45d887858b804431fd",
+      "source_revision": "9412914baca84ae07f54ad45d887858b804431fd",
+      "storage_role": "historical_code_witness",
+      "member_count": 29,
+      "git_entries_sha256": "420d5f84a1976292e5cf54a6e6d10c3bedf6e3081201eeaffed7426ae84ed9ff",
+      "paths": [
+        [
+          "payloads/21fd9b8ad0b2e7a8ea8dc724ed7f718e665a09630087b4177e47c99f0e3d9334",
+          "data/source-custody/source-reconciliation/current-audit/payloads/21fd9b8ad0b2e7a8ea8dc724ed7f718e665a09630087b4177e47c99f0e3d9334"
+        ],
+        [
+          "payloads/2fb7b6799bd171daa480adbad46a9acd1d57ffbceec503224fea2ba8eba95915",
+          "data/source-custody/source-reconciliation/current-audit/payloads/2fb7b6799bd171daa480adbad46a9acd1d57ffbceec503224fea2ba8eba95915"
+        ],
+        [
+          "payloads/31700e6cb1dc3db8245c05f13e322fe5d6fbfd101a81e10d6e8b5b8df10cc2a9",
+          "data/source-custody/source-reconciliation/current-audit/payloads/31700e6cb1dc3db8245c05f13e322fe5d6fbfd101a81e10d6e8b5b8df10cc2a9"
+        ],
+        [
+          "payloads/35477f7834aeaf7b5f3b1b4acd09261b1d6bb7b9f6184c931bf92074d48fdf62",
+          "data/source-custody/source-reconciliation/current-audit/payloads/35477f7834aeaf7b5f3b1b4acd09261b1d6bb7b9f6184c931bf92074d48fdf62"
+        ],
+        [
+          "payloads/46721667fbd2842fc23f1dcc8482bd9933ebaf436c320c631b35701ea7b8d1f0",
+          "data/source-custody/source-reconciliation/current-audit/payloads/46721667fbd2842fc23f1dcc8482bd9933ebaf436c320c631b35701ea7b8d1f0"
+        ],
+        [
+          "payloads/504d01079fa7c301da8e2e472090efeecd36d078e2785d22a124da06b7197e15",
+          "data/source-custody/source-reconciliation/current-audit/payloads/504d01079fa7c301da8e2e472090efeecd36d078e2785d22a124da06b7197e15"
+        ],
+        [
+          "payloads/53881d07f21f403ddd38f5c1d28be3c5697e0c8df66d354d48e34c5d8a8483c7",
+          "data/source-custody/source-reconciliation/current-audit/payloads/53881d07f21f403ddd38f5c1d28be3c5697e0c8df66d354d48e34c5d8a8483c7"
+        ],
+        [
+          "payloads/54109d2d48d1c5852d31a2c18bfa497f0b8231e7f37076195cb820fc0ce868ca",
+          "data/source-custody/source-reconciliation/current-audit/payloads/54109d2d48d1c5852d31a2c18bfa497f0b8231e7f37076195cb820fc0ce868ca"
+        ],
+        [
+          "payloads/6fdaee57c368d9a3a749fe95ff9dbece82853b6d66e17a05628e089d07a86797",
+          "data/source-custody/source-reconciliation/current-audit/payloads/6fdaee57c368d9a3a749fe95ff9dbece82853b6d66e17a05628e089d07a86797"
+        ],
+        [
+          "payloads/708b19d83c2dfd059d01371d95b1572e07794b8a5c559261bfb8db5718ffe261",
+          "data/source-custody/source-reconciliation/current-audit/payloads/708b19d83c2dfd059d01371d95b1572e07794b8a5c559261bfb8db5718ffe261"
+        ],
+        [
+          "payloads/82000ad99f50901af64946ecbaf71b6f33abac530bbfb8eb99ec8e712eed76b3",
+          "data/source-custody/source-reconciliation/current-audit/payloads/82000ad99f50901af64946ecbaf71b6f33abac530bbfb8eb99ec8e712eed76b3"
+        ],
+        [
+          "payloads/8af3dbf5488016af220b2c79c0d39000fd787e062d6cd272877350905a559ef8",
+          "data/source-custody/source-reconciliation/current-audit/payloads/8af3dbf5488016af220b2c79c0d39000fd787e062d6cd272877350905a559ef8"
+        ],
+        [
+          "payloads/915efa7100091b462627a44956c1edd123c08316e69476e30d1265bf361674e2",
+          "data/source-custody/source-reconciliation/current-audit/payloads/915efa7100091b462627a44956c1edd123c08316e69476e30d1265bf361674e2"
+        ],
+        [
+          "payloads/94acd4ad4a464aa49d49fd22aaf7790640d5e627c5272d8baa052548ac2f7679",
+          "data/source-custody/source-reconciliation/current-audit/payloads/94acd4ad4a464aa49d49fd22aaf7790640d5e627c5272d8baa052548ac2f7679"
+        ],
+        [
+          "payloads/9f9845e53adc37af1b5bfeddb575a4bd03b81a9b1eedac3c6d0ba265809d6487",
+          "data/source-custody/source-reconciliation/current-audit/payloads/9f9845e53adc37af1b5bfeddb575a4bd03b81a9b1eedac3c6d0ba265809d6487"
+        ],
+        [
+          "payloads/aeb329f4befa359bd1e0ddbac4821ad1e4c06f04809abd65f4472e4dd58f620a",
+          "data/source-custody/source-reconciliation/current-audit/payloads/aeb329f4befa359bd1e0ddbac4821ad1e4c06f04809abd65f4472e4dd58f620a"
+        ],
+        [
+          "payloads/b3a6252f79f84bcf70605b6eb5e510319c2999c1c9fa960a3e6999d6872e4f55",
+          "data/source-custody/source-reconciliation/current-audit/payloads/b3a6252f79f84bcf70605b6eb5e510319c2999c1c9fa960a3e6999d6872e4f55"
+        ],
+        [
+          "payloads/b59c7fd9d79cbe92121c80af35f1c237b9d3af80281b9211cfbf5237524f52e8",
+          "data/source-custody/source-reconciliation/current-audit/payloads/b59c7fd9d79cbe92121c80af35f1c237b9d3af80281b9211cfbf5237524f52e8"
+        ],
+        [
+          "payloads/b99e040d0b2a64dd52c497ddf7e88d293b746a470f1217ad47becfe455479b73",
+          "data/source-custody/source-reconciliation/current-audit/payloads/b99e040d0b2a64dd52c497ddf7e88d293b746a470f1217ad47becfe455479b73"
+        ],
+        [
+          "payloads/c254c91ed9bfee0d18a99e7ba3b564ad6e55d422855c05ad69a41971b8de44d4",
+          "data/source-custody/source-reconciliation/current-audit/payloads/c254c91ed9bfee0d18a99e7ba3b564ad6e55d422855c05ad69a41971b8de44d4"
+        ],
+        [
+          "payloads/cd2cd7a76a23548ab5c1a4b556a8dc00f9a378e3d4ebd75f3ec9f38e93790f29",
+          "data/source-custody/source-reconciliation/current-audit/payloads/cd2cd7a76a23548ab5c1a4b556a8dc00f9a378e3d4ebd75f3ec9f38e93790f29"
+        ],
+        [
+          "payloads/d5a6fb58e6d71af21ede75cf1644e8205015e593fcb32dac807037c47c259983",
+          "data/source-custody/source-reconciliation/current-audit/payloads/d5a6fb58e6d71af21ede75cf1644e8205015e593fcb32dac807037c47c259983"
+        ],
+        [
+          "payloads/de2c4b403db7aa277e7cdd7d4d52d752fc5e8baf8ec1f206b394d313a545b75a",
+          "data/source-custody/source-reconciliation/current-audit/payloads/de2c4b403db7aa277e7cdd7d4d52d752fc5e8baf8ec1f206b394d313a545b75a"
+        ],
+        [
+          "payloads/de8df9736da4d7b4396f97b57b1564bc624dfc31666acae2af486734ff35c9dc",
+          "data/source-custody/source-reconciliation/current-audit/payloads/de8df9736da4d7b4396f97b57b1564bc624dfc31666acae2af486734ff35c9dc"
+        ],
+        [
+          "payloads/e192e07e4a84bea83aca8c7a20e82a6e2ed0683602000fd6e5c8e8e5058eef63",
+          "data/source-custody/source-reconciliation/current-audit/payloads/e192e07e4a84bea83aca8c7a20e82a6e2ed0683602000fd6e5c8e8e5058eef63"
+        ],
+        [
+          "payloads/e38d5928b9da334438f5d9b79a9df0b1f388f58b71ceaca513aa352722d25a01",
+          "data/source-custody/source-reconciliation/current-audit/payloads/e38d5928b9da334438f5d9b79a9df0b1f388f58b71ceaca513aa352722d25a01"
+        ],
+        [
+          "payloads/e6bd8230549e22391d5f87eb864375a637a00037c15e9fc120ba2c7f18ec9a3d",
+          "data/source-custody/source-reconciliation/current-audit/payloads/e6bd8230549e22391d5f87eb864375a637a00037c15e9fc120ba2c7f18ec9a3d"
+        ],
+        [
+          "payloads/e796e1734887bc94af963458f2f791bafe796fade9afd86724abef04041c4dc4",
+          "data/source-custody/source-reconciliation/current-audit/payloads/e796e1734887bc94af963458f2f791bafe796fade9afd86724abef04041c4dc4"
+        ],
+        [
+          "payloads/ec536bfc55101a6f8fca075ee22ca7361a84f6226fb033d9606ae275b707a67d",
+          "data/source-custody/source-reconciliation/current-audit/payloads/ec536bfc55101a6f8fca075ee22ca7361a84f6226fb033d9606ae275b707a67d"
         ]
       ]
     }
