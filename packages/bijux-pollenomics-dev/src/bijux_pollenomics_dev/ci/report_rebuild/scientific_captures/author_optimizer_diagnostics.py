@@ -15,6 +15,9 @@ from ..retained_source import SourceCapsule, validated_descriptor
 from .optimizer_inputs.baseline import validated_optimizer_input_reference
 from .presentation_source_roles import atlas_extension_matches
 from .source_correspondence import validated_current_scientific_source
+from .source_roles.atlas_runtime_transport import (
+    validated_atlas_runtime_transport_source,
+)
 
 CAPTURE = (
     "data/method-certification/author-optimizer-diagnostic-source-capture/capture.json"
@@ -297,6 +300,13 @@ def _optimizer_source_input_correspondence(
     resolver.fresh()
     if body == captured:
         return None
+    if name == (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/"
+        "reporting/lra_products/workflow.py"
+    ):
+        return validated_atlas_runtime_transport_source(
+            repository, row, logical, resolver
+        )
     if role == "finite_atlas_extension" and not atlas_extension_matches(
         name, captured, body
     ):
