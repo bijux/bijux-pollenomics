@@ -75,10 +75,12 @@ def validate_report(raw: bytes, row: Mapping[str, str]) -> None:
         raise ValueError(f"Scientific verification block differs: {row['report_path']}")
 
 
-def render_accounts(root: Path, output: Path) -> Path:
+def render_accounts(root: Path, output: Path, claims: Path) -> Path:
     """Render maintained limits without pinning ordinary document bodies."""
     root = repository_root(root)
-    authority = repository_file(root, "reports/needed/report-claims.csv")
+    authority = claims.resolve(strict=True)
+    if not authority.is_file():
+        raise ValueError("Explicit scientific claim input must be a file")
     source_csv = authority.read_bytes()
     reader = csv.DictReader(io.StringIO(source_csv.decode("utf-8")))
     if reader.fieldnames is None:
@@ -125,8 +127,36 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--claims", type=Path, required=True)
     args = parser.parse_args()
-    print(render_accounts(args.repository, args.output))
+    print(render_accounts(args.repository, args.output, args.claims))
+
+
+def validate_embedded_report(raw: bytes) -> None:
+    """Validate visible report structure independently of any human register."""
+    base = authored_bytes(raw)
+    if base == raw:
+        raise ValueError("Scientific limits block is absent")
+    block = raw[len(base) :].decode("utf-8")
+    labels = [f"**{label}.** " for label, _ in FIELDS]
+    positions = [block.find(label) for label in labels]
+    if any(
+        position < 0 or block.count(label) != 1
+        for position, label in zip(positions, labels, strict=True)
+    ) or positions != sorted(positions):
+        raise ValueError(
+            "Scientific limits fields are missing, duplicated or reordered"
+        )
+    for index, label in enumerate(labels):
+        end = (
+            positions[index + 1]
+            if index + 1 < len(positions)
+            else block.find("Retained evidence:")
+        )
+        if end < 0 or not block[positions[index] + len(label) : end].strip():
+            raise ValueError(
+                "Scientific limits require visible field values and evidence"
+            )
 
 
 if __name__ == "__main__":

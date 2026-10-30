@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import csv
 from dataclasses import dataclass
 from pathlib import Path
 import re
@@ -11,8 +10,8 @@ from markdown_it import MarkdownIt
 from markdown_it.token import Token
 
 from .diagram import mermaid_to_dot
-from .scientific_limits import validate_report
-from .source import portable_link, repository_file
+from .scientific_limits import validate_embedded_report
+from .source import portable_link
 
 
 class RenderError(ValueError):
@@ -20,21 +19,11 @@ class RenderError(ValueError):
 
 
 def _verified_scientific_comments(markdown: str, root: Path, source: Path) -> str:
-    """Suppress only the two markers of an exactly validated scientific block."""
+    """Suppress only structural markers while rendering every scientific statement."""
     if "scientific-verification-and-limits:" not in markdown:
         return markdown
     try:
-        authority = repository_file(root, "reports/needed/report-claims.csv")
-        with authority.open(newline="") as handle:
-            matches = [
-                row
-                for row in csv.DictReader(handle)
-                if root / row["report_path"] == source
-            ]
-        raw = markdown.encode("utf-8")
-        if len(matches) != 1:
-            raise ValueError("Scientific report source or claim authority differs")
-        validate_report(raw, matches[0])
+        validate_embedded_report(markdown.encode("utf-8"))
         pattern = re.compile(
             r"^<!-- scientific-verification-and-limits:(?:begin|end) -->\n",
             re.MULTILINE,
