@@ -29406,14 +29406,13 @@
         "docs/report/method-certification/petrkunes-r-comparison/taxa.csv"
       ],
       "producer_inputs": [
-        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
+        "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
       ],
       "producer_paths": [
-        "docs/report/method-certification/petrkunes-r-comparison/native_comparison.py",
         "docs/report/method-certification/petrkunes-r-comparison/replay.R"
       ],
       "role": "unresolved",
-      "verification": "The original R grid bootstrap and native comparison use the private LandClim author files and reference taxon crosswalk, with exact SHA identities in native-report.json. The published reference CSVs cannot be regenerated from repository bytes alone; do not infer independent model validation. Restore exact private author inputs and tagged R source; compare new source-R outputs as a separately qualified run."
+      "verification": "Current source-R replay at committed 14a3cec7ac1b0a05f122411d4fde9bb5b397280e used authenticated shared author inputs, tagged LRA 0.1.2 and zipfR raw 0.6-70 under R 4.6.0. One four-case invocation exited zero in 28.307267125 seconds with peak child RSS 103841792 bytes; all three CSVs reproduce the retained bytes exactly. A separate saved-output observer confirms all 248 finite cover/SE pairs, 124 taxon labels/order and 6000 original-site bootstrap indices. Its initial source-versus-prepared-label assertion failed before numerical comparison; the existing authenticated crosswalk corrected that observer-only assumption without a model rerun or changed acceptance. The retained Python native-report execution is separate and was not rerun. This owner remains unresolved for automated external-source reconstruction scheduling and original historical R execution custody: a fresh current R execution does not authenticate the historical process or 2022 executable. Read the maintained README for command, raw source identities, runtime and scientific/rights limits; do not infer independent ecological validation or redistribution permission."
     },
     {
       "owner_id": "method-certification/reference-release-gate/reader-account",

@@ -10,9 +10,12 @@ from ...analysis.lra.api import (
     LRABatchItem,
     LRABatchLimits,
     LRARefusal,
+    benchmark_lra_request,
     run_lra_batch,
     run_lra_request,
+    run_regional_draw_love_request,
     validate_lra_inputs,
+    validate_regional_draw_love_inputs,
 )
 from .json_inputs import unique_pairs as _unique_pairs
 
@@ -78,17 +81,33 @@ def run_lra_command(args: argparse.Namespace) -> int:
             result, exit_code = _run_joint(payload, args)
         elif args.command == "run-lra-batch":
             result, exit_code = _run_batch(payload, args)
+        elif args.command == "benchmark-lra":
+            result = benchmark_lra_request(
+                payload,
+                input_root=args.input_root,
+                destination=args.output,
+                repeats=args.repeats,
+            )
         elif args.command == "validate-lra-input":
-            accepted = validate_lra_inputs(payload, input_root=args.input_root)
+            validate = (
+                validate_regional_draw_love_inputs
+                if payload.get("schema_version") == "lra-regional-draw-love-request.v1"
+                else validate_lra_inputs
+            )
+            accepted = validate(payload, input_root=args.input_root)
             result = {
                 "status": "validated_exploratory_input",
                 "request_sha256": accepted.sha256,
                 "scientific_acceptance": "not_evaluated",
             }
         else:
-            product = run_lra_request(
-                payload, input_root=args.input_root, destination=args.output
+            run = (
+                run_regional_draw_love_request
+                if args.command == "run-lra"
+                and payload.get("schema_version") == "lra-regional-draw-love-request.v1"
+                else run_lra_request
             )
+            product = run(payload, input_root=args.input_root, destination=args.output)
             result = {
                 "status": "generated_exploratory",
                 "directory": str(product.directory),
@@ -97,7 +116,7 @@ def run_lra_command(args: argparse.Namespace) -> int:
             }
     except LRARefusal as exc:
         print(json.dumps(exc.as_dict(), sort_keys=True))
-        return 2
+        return 130 if exc.reason_code == "lra_benchmark_interrupted" else 2
     except (OSError, ValueError) as exc:
         print(
             json.dumps(

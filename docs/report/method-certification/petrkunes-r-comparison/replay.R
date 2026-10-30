@@ -8,13 +8,36 @@ author <- normalizePath(args[[1]], mustWork = TRUE)
 secondary <- normalizePath(args[[2]], mustWork = TRUE)
 zipfr_library <- normalizePath(args[[3]], mustWork = TRUE)
 output <- args[[4]]
+if (file.exists(output)) stop("Output directory must be absent")
 dir.create(output, recursive = TRUE, showWarnings = FALSE)
 suppressPackageStartupMessages(library("zipfR", lib.loc = zipfr_library,
                                        character.only = TRUE))
-if (as.character(packageVersion("zipfR")) != "0.6.70" ||
+zipfr_namespace <- normalizePath(getNamespaceInfo("zipfR", "path"), mustWork = TRUE)
+if (as.character(getRversion()) != "4.6.0" ||
+    zipfr_namespace != normalizePath(file.path(zipfr_library, "zipfR"), mustWork = TRUE) ||
+    packageDescription("zipfR", lib.loc = zipfr_library, fields = "Version") != "0.6-70" ||
     read.dcf(file.path(secondary, "DESCRIPTION"), fields = "Version")[[1]] != "0.1.2") {
   stop("Pinned R dependency or secondary LRA version changed")
 }
+record_runtime <- function(label, append = FALSE) {
+  namespace <- normalizePath(getNamespaceInfo("zipfR", "path"), mustWork = TRUE)
+  if (namespace != zipfr_namespace) stop("Loaded zipfR namespace changed")
+  records <- c(
+    paste0("capture=", label),
+    paste0("R_home=", normalizePath(R.home(), mustWork = TRUE)),
+    paste0("zipfR_namespace=", namespace),
+    paste0("zipfR_DESCRIPTION_Version=",
+           packageDescription("zipfR", lib.loc = zipfr_library, fields = "Version")),
+    paste0("author_root=", author),
+    paste0("tagged_LRA_root=", secondary),
+    paste0("tagged_LRA_DESCRIPTION_Version=",
+           read.dcf(file.path(secondary, "DESCRIPTION"), fields = "Version")[[1]]),
+    paste0("RNGkind=", paste(RNGkind(), collapse = ",")),
+    capture.output(sessionInfo())
+  )
+  cat(records, file = file.path(output, "runtime.txt"), sep = "\n", append = append)
+}
+record_runtime("before_source_calls")
 
 reference <- file.path(author, "author", "run.REVEALS.files")
 original_environment <- new.env(parent = globalenv())
@@ -139,4 +162,5 @@ write.csv(do.call(rbind, summary), file.path(output, "summary.csv"),
           row.names = FALSE, na = "", fileEncoding = "UTF-8")
 write.csv(do.call(rbind, taxa), file.path(output, "taxa.csv"),
           row.names = FALSE, na = "", fileEncoding = "UTF-8")
+record_runtime("after_source_calls", append = TRUE)
 cat("Four original-versus-tagged R source comparisons retained\n")

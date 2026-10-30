@@ -31,7 +31,7 @@ flowchart LR
 | capability and ownership | `surface-map`, `product-scope`, `ownership-map`, `source-support` | read-only orientation |
 | animal evidence structure | `adna-layout`, `adna-runtime-manifest`, `adna-artifact-plan`, `adna-curation-manifest`, `adna-normalization-bundle` | read-only manifests and plans |
 | animal evidence review | `adna-archive-projects`, `adna-domestication-coverage`, `adna-species`, `adna-species-review`, `adna-release-bar`, `adna-release-readiness` | read-only coverage and release posture |
-| landscape reconstruction | `validate-lra-input`, `run-lra` | validates an explicit request or writes a new exploratory bundle; optional extension required |
+| landscape reconstruction | `validate-lra-input`, `run-lra`, `benchmark-lra` | validates an explicit request or writes a new exploratory bundle; optional extension required |
 | validation | `validate-collection-summary` | validates an existing summary without recollection |
 | collection and contract refresh | `collect-data`, `refresh-aadr-source-accountability`, `refresh-data-contract-surfaces`, `refresh-animal-adna-foundation` | writes governed data and, for the animal refresh, related publication surfaces |
 | publication | `report-country`, `report-multi-country-map`, `publish-reports` | writes scoped report and atlas products |
@@ -42,6 +42,7 @@ flowchart LR
 | --- | --- |
 | `validate-lra-input REQUEST --input-root ROOT` | schema, evidence-byte and installed-method configuration checks |
 | `run-lra REQUEST --input-root ROOT --output NEW_DIRECTORY` | one exploratory REVEALS, LOVE, paired or series bundle; existing destinations refused |
+| `benchmark-lra REQUEST --input-root ROOT --output NEW_REFERENCE --repeats 3` | fresh same-seed calls with one retained exploratory reference; total calls bounded from 2 to 10 |
 | `collect-data <sources...>` | collect one or more source families, or `all` |
 | `adna-layout --species <name>` | canonical species evidence paths |
 | `adna-runtime-manifest --species <name>` | source bundles and analysis boundaries for one species |
@@ -188,7 +189,28 @@ operation sequences, continue to [operator workflows](operator-workflows.md).
 counts, taxa and parameters, source identities, measured basin/ring geometry,
 typed age support, time-bin assumptions, a fixed random seed, exclusions and
 unpropagated uncertainties. A matching coordinate alone never supplies age
-support. The `lra-request.v1` schema is owned by the host input layer.
+support. The generic `lra-request.v1` schema is owned by the host input layer.
+
+Both commands also accept the existing
+[`lra-regional-draw-love-request.v1` schema](../architecture/lra-engine.md#host-boundary).
+This separate analytical LOVE request uses local pollen counts and a verified
+regional-cover draw product, not a placeholder regional pollen sample. The
+request binds the draw source, exact taxon order, time support and the local
+site's relationship to the regional cohort. Source and scientific admission
+remain separate from those consistency checks.
+
+```sh
+bijux-pollenomics validate-lra-input regional-draw-love.json --input-root INPUTS
+bijux-pollenomics run-lra regional-draw-love.json --input-root INPUTS \
+  --output NEW_LOCAL_PRODUCT
+```
+
+The installed engine must advertise
+`lra.love.analytical.multisite-cover-draws.landclimii-2016-v1`. Installing an
+older engine that satisfies the host extra's version range does not establish
+that capability; an absent or incompatible capability refuses visibly. Validation
+authenticates the request and source without running a reconstruction. The
+benchmark and batch commands retain their existing generic request contracts.
 
 Successful execution returns structured JSON and exit0. Missing/incompatible
 extensions, invalid inputs and numerical nonconvergence return exit2 with a
@@ -196,6 +218,28 @@ stable reason and applicable diagnostics. Each output remains
 `generated_exploratory`; ecological accuracy and scientific admission are
 `not_evaluated`. See [LRA engine integration](../architecture/lra-engine.md)
 for numerical profiles, units, installation and publication boundaries.
+
+`benchmark-lra REQUEST --input-root INPUTS --output NEW_REFERENCE --repeats 3`
+uses the same request and installed facade. The default is three total fresh
+calls; the supported range is 2 to 10. Each call reconstructs independent inputs
+and restarts the declared seed. Seeded stochastic calls repeat the same experiment,
+not independent uncertainty draws. The command retains one detached reference
+result and publishes one normal exploratory bundle after every comparison passes.
+No per-call data products or host result-cache entries are written.
+
+JSON stdout reports the actual backend, first-call and repeated-call seconds,
+setup, final publication and total elapsed time. Individual calls include adapter
+conversion and numerical calculation; source/code checks and result comparison
+are outside those timings. The process and engine remain loaded; ordinary process-level resource caches
+are not cleared. These timings
+are not cold-process, optimizer warm-start, native-backend speedup or incremental
+memory measurements. Exact public numerical, axis, diagnostic or scientific
+manifest differences refuse with `lra_benchmark_nonrepeatable`; operational
+manifest timestamps use the existing scientific-identity exclusion. Calculation
+failures retain their reason, diagnostics, attempted/completed call counts and
+observed call times. An interrupted benchmark returns exit 130 with its completed
+and attempted calls retained. Neither repeatability nor timing establishes
+scientific acceptance.
 
 `run-lra-batch BATCH.json --input-root INPUTS --cache-root CACHE
 --report-root NEW_ATTEMPT --max-workers 2` runs independent requests with bounded
@@ -228,6 +272,15 @@ mapped/refused site accounting. Missing values stay missing and LOVE fractions
 remain distinct from REVEALS percentages. A successful report returns exit 0,
 including reports with declared map refusals; invalid inputs or an existing
 output return exit 2. Report generation does not confer scientific acceptance.
+
+A saved regional-draw LOVE product is also supported by this report command,
+with the same required product and display-geometry hashes. It retains the
+original local fraction tables, input counts, draw-source binding, omissions and
+complete product downloads without loading the engine. Typed estimate rows and
+a geographic map remain unavailable for this profile; a successful table-only
+report is not a mapped reconstruction. Do not add the paired signed-calendar
+option: it refuses this local-only product before staging. See
+[saved-product reporting](../architecture/lra-engine.md#saved-product-reporting).
 
 `render-joint-lra-report PRODUCT --expected-manifest-sha256 HASH --output
 NEW_REPORT` reopens a retained joint-realization product without running the

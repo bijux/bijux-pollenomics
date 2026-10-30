@@ -8,6 +8,7 @@ from .batches.models import (
     LRABatchResult,
 )
 from .engine.errors import LRARefusal
+from .execution.benchmark import benchmark_lra_request
 from .execution.cache import CachedLRAProduct, run_lra_cached
 from .execution.regional_draw_love import (
     run_regional_draw_love_request,
@@ -47,6 +48,7 @@ __all__ = [
     "RegionalComponentSet",
     "ValidatedRequest",
     "VerifiedLRAProduct",
+    "benchmark_lra_request",
     "bind_regional_component_set",
     "inspect_neotoma_lra_frontier",
     "read_joint_lra_ensemble",

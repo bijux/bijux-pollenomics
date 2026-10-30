@@ -49,6 +49,7 @@ def build_command_handlers(
         "adna-species-review": run_adna_species_review,
         "report-multi-country-map": run_report_multi_country_map,
         "collect-data": run_collect_data,
+        "benchmark-lra": run_lra_command,
         "validate-lra-input": run_lra_command,
         "run-lra": run_lra_command,
         "run-joint-lra": run_lra_command,

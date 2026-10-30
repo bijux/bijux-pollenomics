@@ -17,7 +17,7 @@ from bijux_pollenomics.core.temporal_semantics import (
     canonical_bp_interval,
 )
 
-from .support import event
+from ..support import event
 
 
 @pytest.mark.parametrize(

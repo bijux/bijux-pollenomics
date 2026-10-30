@@ -38,6 +38,7 @@ from .collection_contracts import (
     build_validate_collection_summary_parser,
 )
 from .lra import (
+    build_benchmark_lra_parser,
     build_render_joint_lra_report_parser,
     build_render_lra_report_parser,
     build_run_joint_lra_parser,
@@ -64,6 +65,7 @@ from .reporting import (
 )
 
 __all__ = [
+    "build_benchmark_lra_parser",
     "build_adna_archive_projects_parser",
     "build_adna_artifact_plan_parser",
     "build_adna_curation_manifest_parser",
@@ -121,6 +123,7 @@ def register_subcommands(
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
     build_collect_data_parser(subparsers)
+    build_benchmark_lra_parser(subparsers)
     build_validate_lra_input_parser(subparsers)
     build_run_lra_parser(subparsers)
     build_run_joint_lra_parser(subparsers)
