@@ -1,0 +1,2321 @@
+{
+  "schema_version": "nordic-love-conditional-counting-result.v1",
+  "execution_epoch": "a10f24735712dab1dbc66aeb12fe7b7cc3f25a93",
+  "original_native_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+  "original_prediction_native_exit": 1,
+  "original_failed_folds": 8,
+  "original_dependent_method_refusals": 24,
+  "protocol_sha256": "0315ba82daf30e76cac32fe17196d576a3251dbf0d0904a8dd84c8eee4c6a570",
+  "input_pins": {
+    "cache_contract": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-composition-admissibility-source/input-contract.json",
+      "sha256": "beecdd97445f141661c8080c041d81599822066fc2101f44d08ab2a79068afa2",
+      "bytes": 34258
+    },
+    "prior_admissibility": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/admissibility.json",
+      "sha256": "92f9c3ea9328b9945a430b5e734350cab2bf2115db1a3854b91bd63f2b8fee99",
+      "bytes": 47876
+    }
+  },
+  "alpha": 0.05,
+  "confidence_level": 0.95,
+  "cases": [
+    {
+      "identity": {
+        "bin": "3200-3700",
+        "fold_index": 0,
+        "withheld": "neotoma-54001-39241-cal-bp-3200-3700",
+        "local_predictor": "neotoma-53995-39238-cal-bp-3200-3700",
+        "fractions": {
+          "Betula": "-0.05475759019264426",
+          "Ulmus": "1.0547575901926443"
+        },
+        "cache_csv": "cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "593c52b0e8bfe5e698e93071d1fc5de94e4b648919aeaec84d62a29c00034992"
+      },
+      "original_refusal_preserved": true,
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              3200.0,
+              3700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3200-3700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3200.0,
+          "counts": [
+            151,
+            41
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-3200-3700",
+          "sample_id": "neotoma-53995-39238-cal-bp-3200-3700",
+          "site_id": "neotoma-site-28869"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              3200.0,
+              3700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3200-3700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3200.0,
+          "counts": [
+            471,
+            36
+          ],
+          "raw_evidence_id": "raw:neotoma-4446-4304-cal-bp-3200-3700",
+          "sample_id": "neotoma-4446-4304-cal-bp-3200-3700",
+          "site_id": "neotoma-site-3432"
+        },
+        "local_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3200-3700",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 178,
+          "geometry_evidence_id": "geometry:neotoma-4446-4304-cal-bp-3200-3700",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3200-3700",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "72.224",
+          "Ulmus": "27.776"
+        }
+      },
+      "cache_manifest": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/manifest.json",
+        "sha256": "2b3a220cb71f14eceeee8c741ba9e05abf9193a4525ce9aa0401188d0e29c083",
+        "bytes": 22848
+      },
+      "member_pins": {
+        "request.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/request.json",
+          "sha256": "0d949221af70ae45bd6a2341d750cb0a48944daac1f79994491e8dc71504e2f6",
+          "bytes": 4049
+        },
+        "numerical/local_love/aux_Kloc.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/numerical/local_love/aux_Kloc.csv",
+          "sha256": "207febe4bd30b87711e9943bd1dea072e27e765884089a37d12e03b9a763093c",
+          "bytes": 110
+        },
+        "numerical/local_love/aux_Kreg.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/numerical/local_love/aux_Kreg.csv",
+          "sha256": "dd9876ffd5822a144b5491d875f3b59a6aca7eb46d1970bc80302890aff6c37f",
+          "bytes": 108
+        },
+        "numerical/local_love/aux_valid_ring.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/numerical/local_love/aux_valid_ring.csv",
+          "sha256": "8e5a9998967a0a9f2cecafced1142dc9394565438ca7e8e427273070652ff5a6",
+          "bytes": 34
+        },
+        "numerical/local_love/cover_mean.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/numerical/local_love/cover_mean.csv",
+          "sha256": "593c52b0e8bfe5e698e93071d1fc5de94e4b648919aeaec84d62a29c00034992",
+          "bytes": 110
+        },
+        "numerical/local_love/run_manifest.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/numerical/local_love/run_manifest.json",
+          "sha256": "6982711e3cd4e7fb347cde1bab7619ca3291f439a6f95fe1553be30dbdab3d7c",
+          "bytes": 1862
+        },
+        "numerical/regional_reveals/reconstruction.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/b2ff56c684f1ba0378cb83cb13c1b9ac460da58a155c3cceec0c2605d890d653/numerical/regional_reveals/reconstruction.csv",
+          "sha256": "f67aae8bc0146ee25d20ed43a415155e5ac034497c453ca35c4e15b5346fa4ba",
+          "bytes": 240
+        }
+      },
+      "previous_diagnostic": {
+        "denominator_D": {
+          "numerator": "13304665751847247733",
+          "denominator": "156250000000000000000"
+        },
+        "scale_T": {
+          "numerator": "7294050364919122231",
+          "denominator": "31250000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "95885",
+              "denominator": "200558"
+            },
+            "lower_admissible_bound": {
+              "numerator": "18164635186429716442",
+              "denominator": "36470251824595611155"
+            },
+            "upper_admissible_bound": {
+              "numerator": "899122883950770405",
+              "denominator": "1042007194988446033"
+            },
+            "lower_margin": {
+              "numerator": "-146112807518620894577461",
+              "denominator": "7314400765437246582024490"
+            },
+            "upper_margin": {
+              "numerator": "80413427467931463011785",
+              "denominator": "208982879012492759486414"
+            },
+            "implied_cover": {
+              "numerator": "-146112807518620894577461",
+              "denominator": "2668357153858980310835014"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.05475759019264426",
+            "saved_minus_rational_cover": {
+              "numerator": "6089445383485208968647009",
+              "denominator": "66708928846474507770875350000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "104673",
+              "denominator": "200558"
+            },
+            "lower_admissible_bound": {
+              "numerator": "142884311037675628",
+              "denominator": "1042007194988446033"
+            },
+            "upper_admissible_bound": {
+              "numerator": "18305616638165894713",
+              "denominator": "36470251824595611155"
+            },
+            "lower_margin": {
+              "numerator": "80413427467931463011785",
+              "denominator": "208982879012492759486414"
+            },
+            "upper_margin": {
+              "numerator": "-146112807518620894577461",
+              "denominator": "7314400765437246582024490"
+            },
+            "implied_cover": {
+              "numerator": "2814469961377601205412475",
+              "denominator": "2668357153858980310835014"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.0547575901926443",
+            "saved_minus_rational_cover": {
+              "numerator": "-684217645925245731562399",
+              "denominator": "13341785769294901554175070000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      },
+      "status": "computed",
+      "confidence_set": {
+        "counts": [
+          151,
+          41
+        ],
+        "total_count": 192,
+        "confidence_level": 0.95,
+        "local_coefficients": [
+          0.4347751893051651,
+          0.10814032323101443
+        ],
+        "regional_deposition": [
+          0.5935912144762249,
+          0.04064772880399796
+        ],
+        "pollen_probability_interval": [
+          0.7216624123478085,
+          0.8421867860546749
+        ],
+        "feasible_pollen_probability_bounds": [
+          "10693188689302106/13373515952110361",
+          "14820321769184656/15406117277329111"
+        ],
+        "point_cover": [
+          0.0,
+          1.0
+        ],
+        "status": "nonempty",
+        "cover_lower": [
+          0.0,
+          0.8019208140473661
+        ],
+        "cover_upper": [
+          0.19807918595263377,
+          1.0
+        ],
+        "tail_target_lower_bound": "0.02500000000000002220446049250313080847263336181640625",
+        "pollen_tail_upper_bounds": [
+          "0.024999999999999827687521458694942467075882109049732538510536341368848934961470875",
+          "0.02499999999999997440320091433588904439178521789215627339735390095608038842694411"
+        ],
+        "bound_search_evaluations": [
+          2,
+          2
+        ],
+        "numerical_certification": "directed-decimal-binomial-and-rational-inverse",
+        "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1"
+      },
+      "reason": null,
+      "coefficient_derivation": {
+        "denominator_D": "13304665751847247733/156250000000000000000",
+        "local_coefficients_exact_decimal_rationals": [
+          "33966811664466023462349/78125000000000000000000",
+          "1689692550484600462091/15625000000000000000000"
+        ],
+        "regional_deposition_exact_decimal_rationals": [
+          "23187156815477533038213/39062500000000000000000",
+          "31756038128123408323/781250000000000000000"
+        ],
+        "conversion": "Each exact saved-decimal coefficient rounded once to binary64; API conditions on those supplied binary64 values. Not native arithmetic replay."
+      },
+      "restricted_panel_N": 192,
+      "local_coefficients": [
+        0.4347751893051651,
+        0.10814032323101443
+      ],
+      "regional_deposition": [
+        0.5935912144762249,
+        0.04064772880399796
+      ]
+    },
+    {
+      "identity": {
+        "bin": "3200-3700",
+        "fold_index": 2,
+        "withheld": "neotoma-4446-4304-cal-bp-3200-3700",
+        "local_predictor": "neotoma-54001-39241-cal-bp-3200-3700",
+        "fractions": {
+          "Betula": "1.2320886634726391",
+          "Ulmus": "-0.23208866347263946"
+        },
+        "cache_csv": "cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "f29410bc2fb3dd4f33460aa54dbfe8a40453cd543dd79b1efa858c842f93120c"
+      },
+      "original_refusal_preserved": true,
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              3200.0,
+              3700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3200-3700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3200.0,
+          "counts": [
+            93,
+            7
+          ],
+          "raw_evidence_id": "raw:neotoma-54001-39241-cal-bp-3200-3700",
+          "sample_id": "neotoma-54001-39241-cal-bp-3200-3700",
+          "site_id": "neotoma-site-28872"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              3200.0,
+              3700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3200-3700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3200.0,
+          "counts": [
+            151,
+            41
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-3200-3700",
+          "sample_id": "neotoma-53995-39238-cal-bp-3200-3700",
+          "site_id": "neotoma-site-28869"
+        },
+        "local_basin": {
+          "diameter_m": 160.0,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-3200-3700",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3200-3700",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-3200-3700",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "42.444",
+          "Ulmus": "57.556"
+        }
+      },
+      "cache_manifest": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/manifest.json",
+        "sha256": "54efceab2f46ac3e69cb508da61c3af4f2b7ccc79eb04c307f65861d32b0d42b",
+        "bytes": 22844
+      },
+      "member_pins": {
+        "request.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/request.json",
+          "sha256": "07eff5a74fab3e666db9255bf3a8207fb6a412e1df97712e2608275bfcfe8373",
+          "bytes": 4052
+        },
+        "numerical/local_love/aux_Kloc.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/numerical/local_love/aux_Kloc.csv",
+          "sha256": "54edc5fafcb1ab73dcd627633c991c43099f5dd3b464230304b8834439146295",
+          "bytes": 112
+        },
+        "numerical/local_love/aux_Kreg.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/numerical/local_love/aux_Kreg.csv",
+          "sha256": "920017b4d0ba48233f374f5466eae15e6acfd3dff214d7e8daa611029957df06",
+          "bytes": 108
+        },
+        "numerical/local_love/aux_valid_ring.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/numerical/local_love/aux_valid_ring.csv",
+          "sha256": "8c5951e4a8385f086071f65b3d96c5bd29df167e90de69c30cbe0395a3a33301",
+          "bytes": 34
+        },
+        "numerical/local_love/cover_mean.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/numerical/local_love/cover_mean.csv",
+          "sha256": "f29410bc2fb3dd4f33460aa54dbfe8a40453cd543dd79b1efa858c842f93120c",
+          "bytes": 110
+        },
+        "numerical/local_love/run_manifest.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/numerical/local_love/run_manifest.json",
+          "sha256": "d8ad1e977162d11614195b816e6a68ebe06279fa1b48d07c06e05d88ca2e6cbc",
+          "bytes": 1862
+        },
+        "numerical/regional_reveals/reconstruction.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3200-3700/61dea6f6fc9310afe1a053b221605e4c8f50d09b3be08eae26a3d943bacfaeed/numerical/regional_reveals/reconstruction.csv",
+          "sha256": "1c03e36be886cf8bc6a621e2b2e5be0c67f7f57e2d3b3cce1728d035bb386b1e",
+          "bytes": 240
+        }
+      },
+      "previous_diagnostic": {
+        "denominator_D": {
+          "numerator": "94321409040223177689",
+          "denominator": "1250000000000000000000"
+        },
+        "scale_T": {
+          "numerator": "13131092567500119361",
+          "denominator": "62500000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "19685",
+              "denominator": "25642"
+            },
+            "lower_admissible_bound": {
+              "numerator": "42699367293576810183",
+              "denominator": "131310925675001193610"
+            },
+            "upper_admissible_bound": {
+              "numerator": "35944028725475359611",
+              "denominator": "52524370270000477444"
+            },
+            "lower_margin": {
+              "numerator": "372489598942625482375091",
+              "denominator": "841768689039595151636905"
+            },
+            "upper_margin": {
+              "numerator": "-56132722093160113669939",
+              "denominator": "673414951231676121309524"
+            },
+            "implied_cover": {
+              "numerator": "1489958395770501929500364",
+              "denominator": "1209294785304701361150669"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.2320886634726391",
+            "saved_minus_rational_cover": {
+              "numerator": "-3828648488131314258394421",
+              "denominator": "12092947853047013611506690000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "5957",
+              "denominator": "25642"
+            },
+            "lower_admissible_bound": {
+              "numerator": "16580341544525117833",
+              "denominator": "52524370270000477444"
+            },
+            "upper_admissible_bound": {
+              "numerator": "88611558381424383427",
+              "denominator": "131310925675001193610"
+            },
+            "lower_margin": {
+              "numerator": "-56132722093160113669939",
+              "denominator": "673414951231676121309524"
+            },
+            "upper_margin": {
+              "numerator": "372489598942625482375091",
+              "denominator": "841768689039595151636905"
+            },
+            "implied_cover": {
+              "numerator": "-280663610465800568349695",
+              "denominator": "1209294785304701361150669"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.23208866347263946",
+            "saved_minus_rational_cover": {
+              "numerator": "-2624063694828053208739937",
+              "denominator": "60464739265235068057533450000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      },
+      "status": "computed",
+      "confidence_set": {
+        "counts": [
+          93,
+          7
+        ],
+        "total_count": 100,
+        "confidence_level": 0.95,
+        "local_coefficients": [
+          0.38528409164750366,
+          0.09583055158486675
+        ],
+        "regional_deposition": [
+          0.3488367510416051,
+          0.0842281350461876
+        ],
+        "pollen_probability_interval": [
+          0.8610802715441426,
+          0.9713947110925614
+        ],
+        "feasible_pollen_probability_bounds": [
+          "25136336992065716/38110932736328713",
+          "52898981657273356/58968258419003313"
+        ],
+        "point_cover": [
+          1.0,
+          0.0
+        ],
+        "status": "nonempty",
+        "cover_lower": [
+          0.7834725925332543,
+          0.0
+        ],
+        "cover_upper": [
+          1.0,
+          0.21652740746674562
+        ],
+        "tail_target_lower_bound": "0.02500000000000002220446049250313080847263336181640625",
+        "pollen_tail_upper_bounds": [
+          "0.024999999999999863634264359552678169603226390978709745090034792920983675162275703",
+          "0.02499999999999974860872082680807293424562330970990596646224969070564546789490222"
+        ],
+        "bound_search_evaluations": [
+          2,
+          2
+        ],
+        "numerical_certification": "directed-decimal-binomial-and-rational-inverse",
+        "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1"
+      },
+      "reason": null,
+      "coefficient_derivation": {
+        "denominator_D": "94321409040223177689/1250000000000000000000",
+        "local_coefficients_exact_decimal_rationals": [
+          "240802557279689772640017/625000000000000000000000",
+          "11978818948108343566503/125000000000000000000000"
+        ],
+        "regional_deposition_exact_decimal_rationals": [
+          "109011484700501596397199/312500000000000000000000",
+          "2105703376154689964791/25000000000000000000000"
+        ],
+        "conversion": "Each exact saved-decimal coefficient rounded once to binary64; API conditions on those supplied binary64 values. Not native arithmetic replay."
+      },
+      "restricted_panel_N": 100,
+      "local_coefficients": [
+        0.38528409164750366,
+        0.09583055158486675
+      ],
+      "regional_deposition": [
+        0.3488367510416051,
+        0.0842281350461876
+      ]
+    },
+    {
+      "identity": {
+        "bin": "3700-4200",
+        "fold_index": 1,
+        "withheld": "neotoma-4446-4304-cal-bp-3700-4200",
+        "local_predictor": "neotoma-54001-39241-cal-bp-3700-4200",
+        "fractions": {
+          "Betula": "1.1304663126693923",
+          "Ulmus": "-0.13046631266939213"
+        },
+        "cache_csv": "cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "73cfea29561741da75ba96719840c87839b47ccc62dc852e9382747e4e74ea85"
+      },
+      "original_refusal_preserved": true,
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              3700.0,
+              4200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3700-4200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3700.0,
+          "counts": [
+            199,
+            42
+          ],
+          "raw_evidence_id": "raw:neotoma-54001-39241-cal-bp-3700-4200",
+          "sample_id": "neotoma-54001-39241-cal-bp-3700-4200",
+          "site_id": "neotoma-site-28872"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              3700.0,
+              4200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3700-4200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3700.0,
+          "counts": [
+            119,
+            142
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-3700-4200",
+          "sample_id": "neotoma-53995-39238-cal-bp-3700-4200",
+          "site_id": "neotoma-site-28869"
+        },
+        "local_basin": {
+          "diameter_m": 160.0,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-3700-4200",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3700-4200",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-3700-4200",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "14.369",
+          "Ulmus": "85.631"
+        }
+      },
+      "cache_manifest": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/manifest.json",
+        "sha256": "ef76677cad0055cda85cfcbc2c66bef4a359603b022ac4f5ea11166d94a6c659",
+        "bytes": 22844
+      },
+      "member_pins": {
+        "request.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/request.json",
+          "sha256": "63d718d75acd9afc0d0e66adc615d037dd9351284a1eafaf665eea4ae6d49fa9",
+          "bytes": 4055
+        },
+        "numerical/local_love/aux_Kloc.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/numerical/local_love/aux_Kloc.csv",
+          "sha256": "54edc5fafcb1ab73dcd627633c991c43099f5dd3b464230304b8834439146295",
+          "bytes": 112
+        },
+        "numerical/local_love/aux_Kreg.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/numerical/local_love/aux_Kreg.csv",
+          "sha256": "920017b4d0ba48233f374f5466eae15e6acfd3dff214d7e8daa611029957df06",
+          "bytes": 108
+        },
+        "numerical/local_love/aux_valid_ring.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/numerical/local_love/aux_valid_ring.csv",
+          "sha256": "8c5951e4a8385f086071f65b3d96c5bd29df167e90de69c30cbe0395a3a33301",
+          "bytes": 34
+        },
+        "numerical/local_love/cover_mean.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/numerical/local_love/cover_mean.csv",
+          "sha256": "73cfea29561741da75ba96719840c87839b47ccc62dc852e9382747e4e74ea85",
+          "bytes": 110
+        },
+        "numerical/local_love/run_manifest.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/numerical/local_love/run_manifest.json",
+          "sha256": "168ad130b8a5af4f7a3adfdf829ea6ac124ebe644cfe97e6a69dbcd002c1f561",
+          "bytes": 1862
+        },
+        "numerical/regional_reveals/reconstruction.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/695e68594c755318311e686384df65b69065de932245bf037effc35558d88325/numerical/regional_reveals/reconstruction.csv",
+          "sha256": "e0da753b62f9ecc0c7ed5aeec96dbfd63cdd0be5b4489975726b92589af1cbb0",
+          "bytes": 240
+        }
+      },
+      "previous_diagnostic": {
+        "denominator_D": {
+          "numerator": "362692730176393941331",
+          "denominator": "5000000000000000000000"
+        },
+        "scale_T": {
+          "numerator": "48584814197825699369",
+          "denominator": "250000000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "126365",
+              "denominator": "233591"
+            },
+            "lower_admissible_bound": {
+              "numerator": "57821808372576117757",
+              "denominator": "485848141978256993690"
+            },
+            "upper_admissible_bound": {
+              "numerator": "95667269384309235369",
+              "denominator": "194339256791302797476"
+            },
+            "lower_margin": {
+              "numerator": "47887546421524017084661463",
+              "denominator": "113489753332843029413040790"
+            },
+            "upper_margin": {
+              "numerator": "-2210667061682799403974661",
+              "denominator": "45395901333137211765216316"
+            },
+            "implied_cover": {
+              "numerator": "13682156120435433452760418",
+              "denominator": "12103108219233433878492803"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.1304663126693923",
+            "saved_minus_rational_cover": {
+              "numerator": "14589767696667747539336169",
+              "denominator": "121031082192334338784928030000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "107226",
+              "denominator": "233591"
+            },
+            "lower_admissible_bound": {
+              "numerator": "98671987406993562107",
+              "denominator": "194339256791302797476"
+            },
+            "upper_admissible_bound": {
+              "numerator": "428026333605680875933",
+              "denominator": "485848141978256993690"
+            },
+            "lower_margin": {
+              "numerator": "-2210667061682799403974661",
+              "denominator": "45395901333137211765216316"
+            },
+            "upper_margin": {
+              "numerator": "47887546421524017084661463",
+              "denominator": "113489753332843029413040790"
+            },
+            "implied_cover": {
+              "numerator": "-1579047901201999574267615",
+              "denominator": "12103108219233433878492803"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.13046631266939213",
+            "saved_minus_rational_cover": {
+              "numerator": "59855162760290900541015961",
+              "denominator": "1210310821923343387849280300000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      },
+      "status": "computed",
+      "confidence_set": {
+        "counts": [
+          199,
+          42
+        ],
+        "total_count": 241,
+        "confidence_level": 0.95,
+        "local_coefficients": [
+          0.3703818160561335,
+          0.09212395346480406
+        ],
+        "regional_deposition": [
+          0.11809526142014946,
+          0.12531342400688184
+        ],
+        "pollen_probability_interval": [
+          0.7718231428170086,
+          0.8714179125861944
+        ],
+        "feasible_pollen_probability_bounds": [
+          "8509660405216103/24177674679742543",
+          "35198482945619471/44228266780210095"
+        ],
+        "point_cover": [
+          1.0,
+          0.0
+        ],
+        "status": "nonempty",
+        "cover_lower": [
+          0.9052837268348708,
+          0.0
+        ],
+        "cover_upper": [
+          1.0,
+          0.09471627316512912
+        ],
+        "tail_target_lower_bound": "0.02500000000000002220446049250313080847263336181640625",
+        "pollen_tail_upper_bounds": [
+          "0.024999999999999796065388575538087502816470401283385627489576424092091131257354267",
+          "0.02499999999999988627780360798242740759141017251209625850098546498221123241111248"
+        ],
+        "bound_search_evaluations": [
+          1,
+          2
+        ],
+        "numerical_certification": "directed-decimal-binomial-and-rational-inverse",
+        "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1"
+      },
+      "reason": null,
+      "coefficient_derivation": {
+        "denominator_D": "362692730176393941331/5000000000000000000000",
+        "local_coefficients_exact_decimal_rationals": [
+          "925954540140333732218043/2500000000000000000000000",
+          "46061976732402030549037/500000000000000000000000"
+        ],
+        "regional_deposition_exact_decimal_rationals": [
+          "147619076775186828633621/1250000000000000000000000",
+          "12531342400688182387589/100000000000000000000000"
+        ],
+        "conversion": "Each exact saved-decimal coefficient rounded once to binary64; API conditions on those supplied binary64 values. Not native arithmetic replay."
+      },
+      "restricted_panel_N": 241,
+      "local_coefficients": [
+        0.3703818160561335,
+        0.09212395346480406
+      ],
+      "regional_deposition": [
+        0.11809526142014946,
+        0.12531342400688184
+      ]
+    },
+    {
+      "identity": {
+        "bin": "3700-4200",
+        "fold_index": 2,
+        "withheld": "neotoma-54001-39241-cal-bp-3700-4200",
+        "local_predictor": "neotoma-53995-39238-cal-bp-3700-4200",
+        "fractions": {
+          "Betula": "-0.8928999482135171",
+          "Ulmus": "1.8928999482135174"
+        },
+        "cache_csv": "cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "80c4de4d6fd351ca05f3b098cee54effc7d736dd1596343c38cdebc1ef879876"
+      },
+      "original_refusal_preserved": true,
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              3700.0,
+              4200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3700-4200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3700.0,
+          "counts": [
+            119,
+            142
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-3700-4200",
+          "sample_id": "neotoma-53995-39238-cal-bp-3700-4200",
+          "site_id": "neotoma-site-28869"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              3700.0,
+              4200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-3700-4200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 3700.0,
+          "counts": [
+            393,
+            30
+          ],
+          "raw_evidence_id": "raw:neotoma-4446-4304-cal-bp-3700-4200",
+          "sample_id": "neotoma-4446-4304-cal-bp-3700-4200",
+          "site_id": "neotoma-site-3432"
+        },
+        "local_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3700-4200",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 178,
+          "geometry_evidence_id": "geometry:neotoma-4446-4304-cal-bp-3700-4200",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-3700-4200",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "72.25",
+          "Ulmus": "27.75"
+        }
+      },
+      "cache_manifest": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/manifest.json",
+        "sha256": "5e336495eebdfbedc347155248ba624a6572a943e5055dd6c7bf4f1f99a97990",
+        "bytes": 22848
+      },
+      "member_pins": {
+        "request.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/request.json",
+          "sha256": "1c1b4a07e3d360791bde4cb9889692d03efc86ca9caf4c41a822a3befbee1747",
+          "bytes": 4050
+        },
+        "numerical/local_love/aux_Kloc.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/numerical/local_love/aux_Kloc.csv",
+          "sha256": "207febe4bd30b87711e9943bd1dea072e27e765884089a37d12e03b9a763093c",
+          "bytes": 110
+        },
+        "numerical/local_love/aux_Kreg.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/numerical/local_love/aux_Kreg.csv",
+          "sha256": "dd9876ffd5822a144b5491d875f3b59a6aca7eb46d1970bc80302890aff6c37f",
+          "bytes": 108
+        },
+        "numerical/local_love/aux_valid_ring.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/numerical/local_love/aux_valid_ring.csv",
+          "sha256": "8e5a9998967a0a9f2cecafced1142dc9394565438ca7e8e427273070652ff5a6",
+          "bytes": 34
+        },
+        "numerical/local_love/cover_mean.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/numerical/local_love/cover_mean.csv",
+          "sha256": "80c4de4d6fd351ca05f3b098cee54effc7d736dd1596343c38cdebc1ef879876",
+          "bytes": 108
+        },
+        "numerical/local_love/run_manifest.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/numerical/local_love/run_manifest.json",
+          "sha256": "8421542e1f252c0676b4f56b5d9c5c12a2633ca853980a410fafbd2af9bbed17",
+          "bytes": 1862
+        },
+        "numerical/regional_reveals/reconstruction.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-3700-4200/df244bcd3c3791092905e1b8504696d872b59429f212fc354fa2f4c09429a502/numerical/regional_reveals/reconstruction.csv",
+          "sha256": "f7430e62c4a5987e7657b985b016805e954bac0300566e72affacd14c56824a7",
+          "bytes": 232
+        }
+      },
+      "previous_diagnostic": {
+        "denominator_D": {
+          "numerator": "212881775571301127",
+          "denominator": "2500000000000000000"
+        },
+        "scale_T": {
+          "numerator": "933697407079255477",
+          "denominator": "4000000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "75565",
+              "denominator": "438091"
+            },
+            "lower_admissible_bound": {
+              "numerator": "2325910309649175034",
+              "denominator": "4668487035396277385"
+            },
+            "upper_admissible_bound": {
+              "numerator": "805792902843916810",
+              "denominator": "933697407079255477"
+            },
+            "lower_margin": {
+              "numerator": "-666186150634797039222569",
+              "denominator": "2045222153823790555872035"
+            },
+            "upper_margin": {
+              "numerator": "282455774033850419090205",
+              "denominator": "409044430764758111174407"
+            },
+            "implied_cover": {
+              "numerator": "-666186150634797039222569",
+              "denominator": "746092719534455056228456"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.8928999482135171",
+            "saved_minus_rational_cover": {
+              "numerator": "-23122833290258156078247",
+              "denominator": "932615899418068820285570000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "362526",
+              "denominator": "438091"
+            },
+            "lower_admissible_bound": {
+              "numerator": "127904504235338667",
+              "denominator": "933697407079255477"
+            },
+            "upper_admissible_bound": {
+              "numerator": "2342576725747102351",
+              "denominator": "4668487035396277385"
+            },
+            "lower_margin": {
+              "numerator": "282455774033850419090205",
+              "denominator": "409044430764758111174407"
+            },
+            "upper_margin": {
+              "numerator": "-666186150634797039222569",
+              "denominator": "2045222153823790555872035"
+            },
+            "implied_cover": {
+              "numerator": "1412278870169252095451025",
+              "denominator": "746092719534455056228456"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.8928999482135174",
+            "saved_minus_rational_cover": {
+              "numerator": "151453801557839401081959",
+              "denominator": "466307949709034410142785000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      },
+      "status": "computed",
+      "confidence_set": {
+        "counts": [
+          119,
+          142
+        ],
+        "total_count": 261,
+        "confidence_level": 0.95,
+        "local_coefficients": [
+          0.43478973842682545,
+          0.10814394199022097
+        ],
+        "regional_deposition": [
+          0.5938049020534344,
+          0.040609680094720026
+        ],
+        "pollen_probability_interval": [
+          0.3944048912363305,
+          0.5184844154292523
+        ],
+        "feasible_pollen_probability_bounds": [
+          "85576305139795872/107013961363531931",
+          "8719771180390000/9064034220657701"
+        ],
+        "point_cover": [
+          0.0,
+          1.0
+        ],
+        "status": "empty",
+        "cover_lower": null,
+        "cover_upper": null,
+        "tail_target_lower_bound": "0.02500000000000002220446049250313080847263336181640625",
+        "pollen_tail_upper_bounds": [
+          "0.02499999999999995791796834917674239865085861768475342239913387450393601973545895",
+          "0.024999999999999813035285866046348282729874841133339335089024534074374825990274702"
+        ],
+        "bound_search_evaluations": [
+          1,
+          3
+        ],
+        "numerical_certification": "directed-decimal-binomial-and-rational-inverse",
+        "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1"
+      },
+      "reason": null,
+      "coefficient_derivation": {
+        "denominator_D": "212881775571301127/2500000000000000000",
+        "local_coefficients_exact_decimal_rationals": [
+          "543487173033531777231/1250000000000000000000",
+          "27035985497555243129/250000000000000000000"
+        ],
+        "regional_deposition_exact_decimal_rationals": [
+          "2969024510267171930901/5000000000000000000000",
+          "16243872037888010709/400000000000000000000"
+        ],
+        "conversion": "Each exact saved-decimal coefficient rounded once to binary64; API conditions on those supplied binary64 values. Not native arithmetic replay."
+      },
+      "restricted_panel_N": 261,
+      "local_coefficients": [
+        0.43478973842682545,
+        0.10814394199022097
+      ],
+      "regional_deposition": [
+        0.5938049020534344,
+        0.040609680094720026
+      ]
+    },
+    {
+      "identity": {
+        "bin": "4200-4700",
+        "fold_index": 0,
+        "withheld": "neotoma-54001-39241-cal-bp-4200-4700",
+        "local_predictor": "neotoma-53995-39238-cal-bp-4200-4700",
+        "fractions": {
+          "Betula": "-0.8673810326940689",
+          "Ulmus": "1.867381032694069"
+        },
+        "cache_csv": "cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "f6e98750eebcd2c9b965b00fb307f16c2b94f2161a1d741aa0c9a2c770c9aeb7"
+      },
+      "original_refusal_preserved": true,
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              4200.0,
+              4700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4200-4700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4200.0,
+          "counts": [
+            146,
+            151
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-4200-4700",
+          "sample_id": "neotoma-53995-39238-cal-bp-4200-4700",
+          "site_id": "neotoma-site-28869"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              4200.0,
+              4700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4200-4700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4200.0,
+          "counts": [
+            1103,
+            76
+          ],
+          "raw_evidence_id": "raw:neotoma-4446-4304-cal-bp-4200-4700",
+          "sample_id": "neotoma-4446-4304-cal-bp-4200-4700",
+          "site_id": "neotoma-site-3432"
+        },
+        "local_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4200-4700",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 178,
+          "geometry_evidence_id": "geometry:neotoma-4446-4304-cal-bp-4200-4700",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4200-4700",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "74.256",
+          "Ulmus": "25.744"
+        }
+      },
+      "cache_manifest": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/manifest.json",
+        "sha256": "6d317748560b7a4a71506d8f1c415ae4edebbfbf130d4ac7b30dc21d88e3fe00",
+        "bytes": 22848
+      },
+      "member_pins": {
+        "request.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/request.json",
+          "sha256": "1f3426834ada6e926e1a21d5d3fe92d23f428219390e8e658d872aae0695a424",
+          "bytes": 4051
+        },
+        "numerical/local_love/aux_Kloc.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/numerical/local_love/aux_Kloc.csv",
+          "sha256": "207febe4bd30b87711e9943bd1dea072e27e765884089a37d12e03b9a763093c",
+          "bytes": 110
+        },
+        "numerical/local_love/aux_Kreg.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/numerical/local_love/aux_Kreg.csv",
+          "sha256": "dd9876ffd5822a144b5491d875f3b59a6aca7eb46d1970bc80302890aff6c37f",
+          "bytes": 108
+        },
+        "numerical/local_love/aux_valid_ring.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/numerical/local_love/aux_valid_ring.csv",
+          "sha256": "8e5a9998967a0a9f2cecafced1142dc9394565438ca7e8e427273070652ff5a6",
+          "bytes": 34
+        },
+        "numerical/local_love/cover_mean.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/numerical/local_love/cover_mean.csv",
+          "sha256": "f6e98750eebcd2c9b965b00fb307f16c2b94f2161a1d741aa0c9a2c770c9aeb7",
+          "bytes": 107
+        },
+        "numerical/local_love/run_manifest.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/numerical/local_love/run_manifest.json",
+          "sha256": "b5c41457cfd3ca07e3cc06c79dafca2f46da3f4b9c49593bd6eef53a888e28ac",
+          "bytes": 1862
+        },
+        "numerical/regional_reveals/reconstruction.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/f59ad91d144c7a711c897449e3ec62403d8d5200823931d4e113e683fc89d966/numerical/regional_reveals/reconstruction.csv",
+          "sha256": "791ed1089c01de512c8a5a685f867fe7d195869c21db314bfb4e0c80d81d4160",
+          "bytes": 240
+        }
+      },
+      "previous_diagnostic": {
+        "denominator_D": {
+          "numerator": "13339461513448622177",
+          "denominator": "156250000000000000000"
+        },
+        "scale_T": {
+          "numerator": "14660100411955500153",
+          "denominator": "62500000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "92710",
+              "denominator": "478213"
+            },
+            "lower_admissible_bound": {
+              "numerator": "12450461069298525182",
+              "denominator": "24433500686592500255"
+            },
+            "upper_admissible_bound": {
+              "numerator": "12806061246958563980",
+              "denominator": "14660100411955500153"
+            },
+            "lower_margin": {
+              "numerator": "-3688742490678464924218716",
+              "denominator": "11684417663837459324444315"
+            },
+            "upper_margin": {
+              "numerator": "4764887057899401337383110",
+              "denominator": "7010650598302475594666589"
+            },
+            "implied_cover": {
+              "numerator": "-5533113736017697386328074",
+              "denominator": "6379103908730805957129701"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.8673810326940689",
+            "saved_minus_rational_cover": {
+              "numerator": "-5278773246980098907303989",
+              "denominator": "63791039087308059571297010000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "385503",
+              "denominator": "478213"
+            },
+            "lower_admissible_bound": {
+              "numerator": "1854039164996936173",
+              "denominator": "14660100411955500153"
+            },
+            "upper_admissible_bound": {
+              "numerator": "11983039617293975073",
+              "denominator": "24433500686592500255"
+            },
+            "lower_margin": {
+              "numerator": "4764887057899401337383110",
+              "denominator": "7010650598302475594666589"
+            },
+            "upper_margin": {
+              "numerator": "-3688742490678464924218716",
+              "denominator": "11684417663837459324444315"
+            },
+            "implied_cover": {
+              "numerator": "11912217644748503343457775",
+              "denominator": "6379103908730805957129701"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.867381032694069",
+            "saved_minus_rational_cover": {
+              "numerator": "1165787715571090486443369",
+              "denominator": "6379103908730805957129701000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      },
+      "status": "computed",
+      "confidence_set": {
+        "counts": [
+          146,
+          151
+        ],
+        "total_count": 297,
+        "confidence_level": 0.95,
+        "local_coefficients": [
+          0.43591225912107945,
+          0.1084231431813104
+        ],
+        "regional_deposition": [
+          0.6102917205104473,
+          0.03767407583273774
+        ],
+        "pollen_probability_interval": [
+          0.43337489018068914,
+          0.5499596560900384
+        ],
+        "feasible_pollen_probability_bounds": [
+          "43976153041250392/54503567139034919",
+          "9423367705644148/9762705613407839"
+        ],
+        "point_cover": [
+          0.0,
+          1.0
+        ],
+        "status": "empty",
+        "cover_lower": null,
+        "cover_upper": null,
+        "tail_target_lower_bound": "0.02500000000000002220446049250313080847263336181640625",
+        "pollen_tail_upper_bounds": [
+          "0.02499999999999995471352976656995355445445222082837112161442119532616659136929535",
+          "0.024999999999999853898014112454883970511403132046643411068347768197240173195912583"
+        ],
+        "bound_search_evaluations": [
+          3,
+          1
+        ],
+        "numerical_certification": "directed-decimal-binomial-and-rational-inverse",
+        "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1"
+      },
+      "reason": null,
+      "coefficient_derivation": {
+        "denominator_D": "13339461513448622177/156250000000000000000",
+        "local_coefficients_exact_decimal_rationals": [
+          "34055645243834332417881/78125000000000000000000",
+          "1694111612207975016479/15625000000000000000000"
+        ],
+        "regional_deposition_exact_decimal_rationals": [
+          "47679040664878702184469/78125000000000000000000",
+          "235462973954610893971/6250000000000000000000"
+        ],
+        "conversion": "Each exact saved-decimal coefficient rounded once to binary64; API conditions on those supplied binary64 values. Not native arithmetic replay."
+      },
+      "restricted_panel_N": 297,
+      "local_coefficients": [
+        0.43591225912107945,
+        0.1084231431813104
+      ],
+      "regional_deposition": [
+        0.6102917205104473,
+        0.03767407583273774
+      ]
+    },
+    {
+      "identity": {
+        "bin": "4200-4700",
+        "fold_index": 2,
+        "withheld": "neotoma-4446-4304-cal-bp-4200-4700",
+        "local_predictor": "neotoma-54001-39241-cal-bp-4200-4700",
+        "fractions": {
+          "Betula": "1.376972035288925",
+          "Ulmus": "-0.3769720352889244"
+        },
+        "cache_csv": "cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "8d9e0279fae9ddca2718f24ad1922c4e021de49da19eaaa16e962cb59ed42deb"
+      },
+      "original_refusal_preserved": true,
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              4200.0,
+              4700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4200-4700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4200.0,
+          "counts": [
+            705,
+            96
+          ],
+          "raw_evidence_id": "raw:neotoma-54001-39241-cal-bp-4200-4700",
+          "sample_id": "neotoma-54001-39241-cal-bp-4200-4700",
+          "site_id": "neotoma-site-28872"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              4200.0,
+              4700.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4200-4700",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4200.0,
+          "counts": [
+            146,
+            151
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-4200-4700",
+          "sample_id": "neotoma-53995-39238-cal-bp-4200-4700",
+          "site_id": "neotoma-site-28869"
+        },
+        "local_basin": {
+          "diameter_m": 160.0,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-4200-4700",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4200-4700",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-4200-4700",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "16.22",
+          "Ulmus": "83.78"
+        }
+      },
+      "cache_manifest": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/manifest.json",
+        "sha256": "d5632fa55e2e7a4563a40f6399027fbe1b8587a1d544dadfee8fc655653e561e",
+        "bytes": 22844
+      },
+      "member_pins": {
+        "request.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/request.json",
+          "sha256": "1aed3fb1f01ed795860c9a4cc2c2b5e8ce3fd161ee50b1640319d9a445b941b9",
+          "bytes": 4055
+        },
+        "numerical/local_love/aux_Kloc.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/numerical/local_love/aux_Kloc.csv",
+          "sha256": "54edc5fafcb1ab73dcd627633c991c43099f5dd3b464230304b8834439146295",
+          "bytes": 112
+        },
+        "numerical/local_love/aux_Kreg.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/numerical/local_love/aux_Kreg.csv",
+          "sha256": "920017b4d0ba48233f374f5466eae15e6acfd3dff214d7e8daa611029957df06",
+          "bytes": 108
+        },
+        "numerical/local_love/aux_valid_ring.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/numerical/local_love/aux_valid_ring.csv",
+          "sha256": "8c5951e4a8385f086071f65b3d96c5bd29df167e90de69c30cbe0395a3a33301",
+          "bytes": 34
+        },
+        "numerical/local_love/cover_mean.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/numerical/local_love/cover_mean.csv",
+          "sha256": "8d9e0279fae9ddca2718f24ad1922c4e021de49da19eaaa16e962cb59ed42deb",
+          "bytes": 107
+        },
+        "numerical/local_love/run_manifest.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/numerical/local_love/run_manifest.json",
+          "sha256": "cdceab9c524295abc4ac0a00bf9d98d0e4b535928a08d5f784d4da22eb5c420a",
+          "bytes": 1862
+        },
+        "numerical/regional_reveals/reconstruction.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4200-4700/29f365e0d160f146205bfb809f015e156707cbc07ecb39c9e3daa43cd26bcc33/numerical/regional_reveals/reconstruction.csv",
+          "sha256": "f60e143ab744c54828820cbd6eebdfd0065fe02795ae750f0c0da3d69ec7abde",
+          "bytes": 232
+        }
+      },
+      "previous_diagnostic": {
+        "denominator_D": {
+          "numerator": "18182742419732087489",
+          "denominator": "250000000000000000000"
+        },
+        "scale_T": {
+          "numerator": "2442227563479166561",
+          "denominator": "12500000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "149225",
+              "denominator": "230921"
+            },
+            "lower_admissible_bound": {
+              "numerator": "3263517752812250783",
+              "denominator": "24422275634791665610"
+            },
+            "upper_admissible_bound": {
+              "numerator": "4941955585071317811",
+              "denominator": "9768910253916666244"
+            },
+            "lower_margin": {
+              "numerator": "2890799298604628537591107",
+              "denominator": "5639616311861726214326810"
+            },
+            "upper_margin": {
+              "numerator": "-316564306980460740026969",
+              "denominator": "2255846524744690485730724"
+            },
+            "implied_cover": {
+              "numerator": "5781598597209257075182214",
+              "denominator": "4198777062306953375047369"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.376972035288925",
+            "saved_minus_rational_cover": {
+              "numerator": "78841356656688459043533",
+              "denominator": "167951082492278135001894760000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "81696",
+              "denominator": "230921"
+            },
+            "lower_admissible_bound": {
+              "numerator": "4826954668845348433",
+              "denominator": "9768910253916666244"
+            },
+            "upper_admissible_bound": {
+              "numerator": "21158757881979414827",
+              "denominator": "24422275634791665610"
+            },
+            "lower_margin": {
+              "numerator": "-316564306980460740026969",
+              "denominator": "2255846524744690485730724"
+            },
+            "upper_margin": {
+              "numerator": "2890799298604628537591107",
+              "denominator": "5639616311861726214326810"
+            },
+            "implied_cover": {
+              "numerator": "-1582821534902303700134845",
+              "denominator": "4198777062306953375047369"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.3769720352889244",
+            "saved_minus_rational_cover": {
+              "numerator": "1370580802417401372350241",
+              "denominator": "10496942655767383437618422500000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      },
+      "status": "computed",
+      "confidence_set": {
+        "counts": [
+          705,
+          96
+        ],
+        "total_count": 801,
+        "confidence_level": 0.95,
+        "local_coefficients": [
+          0.37136433118060813,
+          0.092368331492239
+        ],
+        "regional_deposition": [
+          0.13330817316687482,
+          0.12260464858867184
+        ],
+        "pollen_probability_interval": [
+          0.855624059820454,
+          0.9018339767754031
+        ],
+        "feasible_pollen_probability_bounds": [
+          "4802933111998232/12548150975895153",
+          "18182743220187674/22600041217770339"
+        ],
+        "point_cover": [
+          1.0,
+          0.0
+        ],
+        "status": "empty",
+        "cover_lower": null,
+        "cover_upper": null,
+        "tail_target_lower_bound": "0.02500000000000002220446049250313080847263336181640625",
+        "pollen_tail_upper_bounds": [
+          "0.025000000000000021973207353088146064634343490377353037719342626295334688801024750",
+          "0.02499999999999976631110932427910251445643837265974914288303478778016503443797429"
+        ],
+        "bound_search_evaluations": [
+          2,
+          2
+        ],
+        "numerical_certification": "directed-decimal-binomial-and-rational-inverse",
+        "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1"
+      },
+      "reason": null,
+      "coefficient_derivation": {
+        "denominator_D": "18182742419732087489/250000000000000000000",
+        "local_coefficients_exact_decimal_rationals": [
+          "46420541397576019359417/125000000000000000000000",
+          "2309208287305975111103/25000000000000000000000"
+        ],
+        "regional_deposition_exact_decimal_rationals": [
+          "8331760822929676248999/62500000000000000000000",
+          "613023242943359250991/5000000000000000000000"
+        ],
+        "conversion": "Each exact saved-decimal coefficient rounded once to binary64; API conditions on those supplied binary64 values. Not native arithmetic replay."
+      },
+      "restricted_panel_N": 801,
+      "local_coefficients": [
+        0.37136433118060813,
+        0.092368331492239
+      ],
+      "regional_deposition": [
+        0.13330817316687482,
+        0.12260464858867184
+      ]
+    },
+    {
+      "identity": {
+        "bin": "4700-5200",
+        "fold_index": 0,
+        "withheld": "neotoma-54001-39241-cal-bp-4700-5200",
+        "local_predictor": "neotoma-53995-39238-cal-bp-4700-5200",
+        "fractions": {
+          "Betula": "-1.037024124771285",
+          "Ulmus": "2.037024124771285"
+        },
+        "cache_csv": "cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "021a4226c65a2231d3d4766eb94d9e06d97007a59817fb38f62d4da66347c74d"
+      },
+      "original_refusal_preserved": true,
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              4700.0,
+              5200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4700-5200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4700.0,
+          "counts": [
+            103,
+            155
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-4700-5200",
+          "sample_id": "neotoma-53995-39238-cal-bp-4700-5200",
+          "site_id": "neotoma-site-28869"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              4700.0,
+              5200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4700-5200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4700.0,
+          "counts": [
+            1123,
+            71
+          ],
+          "raw_evidence_id": "raw:neotoma-4446-4304-cal-bp-4700-5200",
+          "sample_id": "neotoma-4446-4304-cal-bp-4700-5200",
+          "site_id": "neotoma-site-3432"
+        },
+        "local_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4700-5200",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 178,
+          "geometry_evidence_id": "geometry:neotoma-4446-4304-cal-bp-4700-5200",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4700-5200",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "75.866",
+          "Ulmus": "24.134"
+        }
+      },
+      "cache_manifest": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/manifest.json",
+        "sha256": "1e318a23e7727c8825bb3696e711250160596dc047cdf9299b97aef129f05017",
+        "bytes": 22848
+      },
+      "member_pins": {
+        "request.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/request.json",
+          "sha256": "6893ed7c452a45567c5898e155a9edc2b185dcf093d4c925c20a10ae5dfab0ad",
+          "bytes": 4051
+        },
+        "numerical/local_love/aux_Kloc.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/numerical/local_love/aux_Kloc.csv",
+          "sha256": "207febe4bd30b87711e9943bd1dea072e27e765884089a37d12e03b9a763093c",
+          "bytes": 110
+        },
+        "numerical/local_love/aux_Kreg.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/numerical/local_love/aux_Kreg.csv",
+          "sha256": "dd9876ffd5822a144b5491d875f3b59a6aca7eb46d1970bc80302890aff6c37f",
+          "bytes": 108
+        },
+        "numerical/local_love/aux_valid_ring.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/numerical/local_love/aux_valid_ring.csv",
+          "sha256": "8e5a9998967a0a9f2cecafced1142dc9394565438ca7e8e427273070652ff5a6",
+          "bytes": 34
+        },
+        "numerical/local_love/cover_mean.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/numerical/local_love/cover_mean.csv",
+          "sha256": "021a4226c65a2231d3d4766eb94d9e06d97007a59817fb38f62d4da66347c74d",
+          "bytes": 106
+        },
+        "numerical/local_love/run_manifest.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/numerical/local_love/run_manifest.json",
+          "sha256": "d463a6697be8267b4819dead54430ee485f2824d10ad97e0daea317fe64a3718",
+          "bytes": 1862
+        },
+        "numerical/regional_reveals/reconstruction.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/36c0a0f2ef3ca61a950c9c2aae08634549acb5ddce24d13cbc351aee3db1078a/numerical/regional_reveals/reconstruction.csv",
+          "sha256": "2df5874ccac709b2878642dc35ae71857c52954e8577076e7ea476c49cc22e49",
+          "bytes": 240
+        }
+      },
+      "previous_diagnostic": {
+        "denominator_D": {
+          "numerator": "26734061979828556219",
+          "denominator": "312500000000000000000"
+        },
+        "scale_T": {
+          "numerator": "117737179233473850289",
+          "denominator": "500000000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "13081",
+              "denominator": "92224"
+            },
+            "lower_admissible_bound": {
+              "numerator": "305289812373433067698",
+              "denominator": "588685896167369251445"
+            },
+            "upper_admissible_bound": {
+              "numerator": "103832461642412303490",
+              "denominator": "117737179233473850289"
+            },
+            "lower_margin": {
+              "numerator": "-20454447448562134057228307",
+              "denominator": "54290968088139461845263680"
+            },
+            "upper_margin": {
+              "numerator": "8035724900956760841431351",
+              "denominator": "10858193617627892369052736"
+            },
+            "implied_cover": {
+              "numerator": "-20454447448562134057228307",
+              "denominator": "19724177056221670149928448"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-1.037024124771285",
+            "saved_minus_rational_cover": {
+              "numerator": "-1593994578637291841803",
+              "denominator": "7704756662586589902315800000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "79143",
+              "denominator": "92224"
+            },
+            "lower_admissible_bound": {
+              "numerator": "13904717591061546799",
+              "denominator": "117737179233473850289"
+            },
+            "upper_admissible_bound": {
+              "numerator": "283396083793936183747",
+              "denominator": "588685896167369251445"
+            },
+            "lower_margin": {
+              "numerator": "8035724900956760841431351",
+              "denominator": "10858193617627892369052736"
+            },
+            "upper_margin": {
+              "numerator": "-20454447448562134057228307",
+              "denominator": "54290968088139461845263680"
+            },
+            "implied_cover": {
+              "numerator": "40178624504783804207156755",
+              "denominator": "19724177056221670149928448"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "2.037024124771285",
+            "saved_minus_rational_cover": {
+              "numerator": "1593994578637291841803",
+              "denominator": "7704756662586589902315800000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      },
+      "status": "computed",
+      "confidence_set": {
+        "counts": [
+          103,
+          155
+        ],
+        "total_count": 258,
+        "confidence_level": 0.95,
+        "local_coefficients": [
+          0.43681318550081477,
+          0.10864722788602325
+        ],
+        "regional_deposition": [
+          0.6235239127914997,
+          0.03531798268129633
+        ],
+        "pollen_probability_interval": [
+          0.3389942885577549,
+          0.4617985571372543
+        ],
+        "feasible_pollen_probability_bounds": [
+          "89859265961740528/110606839359029983",
+          "152810680344204168/157900538060779009"
+        ],
+        "point_cover": [
+          0.0,
+          1.0
+        ],
+        "status": "empty",
+        "cover_lower": null,
+        "cover_upper": null,
+        "tail_target_lower_bound": "0.02500000000000002220446049250313080847263336181640625",
+        "pollen_tail_upper_bounds": [
+          "0.02500000000000002157522848547017483199010862791368850053912396532818598960525418",
+          "0.025000000000000014612873204156332335064403031975831767888942717507974536739931919"
+        ],
+        "bound_search_evaluations": [
+          1,
+          2
+        ],
+        "numerical_certification": "directed-decimal-binomial-and-rational-inverse",
+        "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1"
+      },
+      "reason": null,
+      "coefficient_derivation": {
+        "denominator_D": "26734061979828556219/312500000000000000000",
+        "local_coefficients_exact_decimal_rationals": [
+          "68252060234502304027107/156250000000000000000000",
+          "3395225871438226639813/31250000000000000000000"
+        ],
+        "regional_deposition_exact_decimal_rationals": [
+          "389702445494687310916497/625000000000000000000000",
+          "1765899134064816443473/50000000000000000000000"
+        ],
+        "conversion": "Each exact saved-decimal coefficient rounded once to binary64; API conditions on those supplied binary64 values. Not native arithmetic replay."
+      },
+      "restricted_panel_N": 258,
+      "local_coefficients": [
+        0.43681318550081477,
+        0.10864722788602325
+      ],
+      "regional_deposition": [
+        0.6235239127914997,
+        0.03531798268129633
+      ]
+    },
+    {
+      "identity": {
+        "bin": "4700-5200",
+        "fold_index": 2,
+        "withheld": "neotoma-4446-4304-cal-bp-4700-5200",
+        "local_predictor": "neotoma-54001-39241-cal-bp-4700-5200",
+        "fractions": {
+          "Betula": "1.5115315035062442",
+          "Ulmus": "-0.5115315035062445"
+        },
+        "cache_csv": "cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/numerical/local_love/cover_mean.csv",
+        "csv_sha256": "e0419a0cb7ac1265ce3eae61afc4274421f9d03714dad71a05783783c84ddc02"
+      },
+      "original_refusal_preserved": true,
+      "fixed_context": {
+        "local_sample": {
+          "age_support_bp": [
+            [
+              4700.0,
+              5200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4700-5200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4700.0,
+          "counts": [
+            1146,
+            144
+          ],
+          "raw_evidence_id": "raw:neotoma-54001-39241-cal-bp-4700-5200",
+          "sample_id": "neotoma-54001-39241-cal-bp-4700-5200",
+          "site_id": "neotoma-site-28872"
+        },
+        "regional_sample": {
+          "age_support_bp": [
+            [
+              4700.0,
+              5200.0
+            ]
+          ],
+          "age_type": "calendar_bp",
+          "bin_id": "cal-bp-4700-5200",
+          "chronology_evidence_id": "chronology",
+          "coordinate": 4700.0,
+          "counts": [
+            103,
+            155
+          ],
+          "raw_evidence_id": "raw:neotoma-53995-39238-cal-bp-4700-5200",
+          "sample_id": "neotoma-53995-39238-cal-bp-4700-5200",
+          "site_id": "neotoma-site-28869"
+        },
+        "local_basin": {
+          "diameter_m": 160.0,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-4700-5200",
+          "site_type": "lake"
+        },
+        "regional_basin": {
+          "diameter_m": 138.0,
+          "geometry_evidence_id": "geometry:neotoma-53995-39238-cal-bp-4700-5200",
+          "site_type": "lake"
+        },
+        "parameters": [
+          {
+            "fallspeed_m_s": 0.024,
+            "ppe": 5.106,
+            "ppe_sd": 0.303,
+            "taxon": "Betula"
+          },
+          {
+            "fallspeed_m_s": 0.032,
+            "ppe": 1.27,
+            "ppe_sd": 0.05,
+            "taxon": "Ulmus"
+          }
+        ],
+        "selected_ring": {
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-4700-5200",
+          "inner_m": 500,
+          "mean_m": 750.0,
+          "outer_m": 1000,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345
+        },
+        "distance_weighting": "gpm neutral",
+        "regional_cover_percent": {
+          "Betula": "11.743",
+          "Ulmus": "88.257"
+        }
+      },
+      "cache_manifest": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/manifest.json",
+        "sha256": "006df37365de736676a686582723ee52a6712b424848ee0cd50df7c624972cb4",
+        "bytes": 22844
+      },
+      "member_pins": {
+        "request.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/request.json",
+          "sha256": "7e09175d6e589e16dfd1757a197cda7807e730af79c9678ebbfc77fd9bc10242",
+          "bytes": 4057
+        },
+        "numerical/local_love/aux_Kloc.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/numerical/local_love/aux_Kloc.csv",
+          "sha256": "54edc5fafcb1ab73dcd627633c991c43099f5dd3b464230304b8834439146295",
+          "bytes": 112
+        },
+        "numerical/local_love/aux_Kreg.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/numerical/local_love/aux_Kreg.csv",
+          "sha256": "920017b4d0ba48233f374f5466eae15e6acfd3dff214d7e8daa611029957df06",
+          "bytes": 108
+        },
+        "numerical/local_love/aux_valid_ring.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/numerical/local_love/aux_valid_ring.csv",
+          "sha256": "8c5951e4a8385f086071f65b3d96c5bd29df167e90de69c30cbe0395a3a33301",
+          "bytes": 34
+        },
+        "numerical/local_love/cover_mean.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/numerical/local_love/cover_mean.csv",
+          "sha256": "e0419a0cb7ac1265ce3eae61afc4274421f9d03714dad71a05783783c84ddc02",
+          "bytes": 108
+        },
+        "numerical/local_love/run_manifest.json": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/numerical/local_love/run_manifest.json",
+          "sha256": "d0bd002cd7fb316d9bb84d0ff1bc5ddca69778ef5c1836a6f898dac462ac058e",
+          "bytes": 1862
+        },
+        "numerical/regional_reveals/reconstruction.csv": {
+          "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-registered-prediction-execution/native/analysis/cache/cal-bp-4700-5200/336bfd93a1b2a20622c50fab2a7eef299c769b62719b2fe43632c4757b54436c/numerical/regional_reveals/reconstruction.csv",
+          "sha256": "5c07cd88639183394c9df8e9b30b8bcce5da3371afd3879b5a060aa0c2dfefe5",
+          "bytes": 240
+        }
+      },
+      "previous_diagnostic": {
+        "denominator_D": {
+          "numerator": "361327780181192026157",
+          "denominator": "5000000000000000000000"
+        },
+        "scale_T": {
+          "numerator": "48216327136542316743",
+          "denominator": "250000000000000000000"
+        },
+        "taxa": [
+          {
+            "taxon": "Betula",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "121285",
+              "denominator": "182557"
+            },
+            "lower_admissible_bound": {
+              "numerator": "47254610322163083779",
+              "denominator": "482163271365423167430"
+            },
+            "upper_admissible_bound": {
+              "numerator": "30389133388367879581",
+              "denominator": "64288436182056422324"
+            },
+            "lower_margin": {
+              "numerator": "49852512470972222776304647",
+              "denominator": "88022280330657557176518510"
+            },
+            "upper_margin": {
+              "numerator": "-2249473958360438188897723",
+              "denominator": "11736304044087674290202468"
+            },
+            "implied_cover": {
+              "numerator": "99705024941944445552609294",
+              "denominator": "65962915566537872719143449"
+            },
+            "below_lower": false,
+            "above_upper": true,
+            "saved_native_cover": "1.5115315035062442",
+            "saved_minus_rational_cover": {
+              "numerator": "-74371850937580107764878771",
+              "denominator": "329814577832689363595717245000000000000000"
+            },
+            "native_range_refusal": true
+          },
+          {
+            "taxon": "Ulmus",
+            "ppe_adjusted_local_fraction": {
+              "numerator": "61272",
+              "denominator": "182557"
+            },
+            "lower_admissible_bound": {
+              "numerator": "33899302793688542743",
+              "denominator": "64288436182056422324"
+            },
+            "upper_admissible_bound": {
+              "numerator": "434908661043260083651",
+              "denominator": "482163271365423167430"
+            },
+            "lower_margin": {
+              "numerator": "-2249473958360438188897723",
+              "denominator": "11736304044087674290202468"
+            },
+            "upper_margin": {
+              "numerator": "49852512470972222776304647",
+              "denominator": "88022280330657557176518510"
+            },
+            "implied_cover": {
+              "numerator": "-33742109375406572833465845",
+              "denominator": "65962915566537872719143449"
+            },
+            "below_lower": true,
+            "above_upper": false,
+            "saved_native_cover": "-0.5115315035062445",
+            "saved_minus_rational_cover": {
+              "numerator": "-9829008964890680525534561",
+              "denominator": "131925831133075745438286898000000000000000"
+            },
+            "native_range_refusal": true
+          }
+        ],
+        "conditional_nonnegative_cover_exists": false
+      },
+      "status": "computed",
+      "confidence_set": {
+        "counts": [
+          1146,
+          144
+        ],
+        "total_count": 1290,
+        "confidence_level": 0.95,
+        "local_coefficients": [
+          0.3689879291210333,
+          0.09177725616602278
+        ],
+        "regional_deposition": [
+          0.09651281612198588,
+          0.12915634364395334
+        ],
+        "pollen_probability_interval": [
+          0.8699077524957536,
+          0.9050442310040077
+        ],
+        "feasible_pollen_probability_bounds": [
+          "6954481323575245/22874424968020537",
+          "33542863725074389/42849559102793493"
+        ],
+        "point_cover": [
+          1.0,
+          0.0
+        ],
+        "status": "empty",
+        "cover_lower": null,
+        "cover_upper": null,
+        "tail_target_lower_bound": "0.02500000000000002220446049250313080847263336181640625",
+        "pollen_tail_upper_bounds": [
+          "0.024999999999999921527181045923807968087691441241489642689385479046967407435498646",
+          "0.02499999999999967693612117261949389474440961808486801192170990919617135443458943"
+        ],
+        "bound_search_evaluations": [
+          2,
+          2
+        ],
+        "numerical_certification": "directed-decimal-binomial-and-rational-inverse",
+        "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1"
+      },
+      "reason": null,
+      "coefficient_derivation": {
+        "denominator_D": "361327780181192026157/5000000000000000000000",
+        "local_coefficients_exact_decimal_rationals": [
+          "922469822802583242778821/2500000000000000000000000",
+          "45888628083011387321939/500000000000000000000000"
+        ],
+        "regional_deposition_exact_decimal_rationals": [
+          "120641020152482352887787/1250000000000000000000000",
+          "12915634364395334785083/100000000000000000000000"
+        ],
+        "conversion": "Each exact saved-decimal coefficient rounded once to binary64; API conditions on those supplied binary64 values. Not native arithmetic replay."
+      },
+      "restricted_panel_N": 1290,
+      "local_coefficients": [
+        0.3689879291210333,
+        0.09177725616602278
+      ],
+      "regional_deposition": [
+        0.09651281612198588,
+        0.12915634364395334
+      ]
+    }
+  ],
+  "status_counts": {
+    "computed": 8
+  },
+  "confidence_set_counts": {
+    "nonempty": 3,
+    "empty": 5
+  },
+  "conditioning": {
+    "count_law": "Each original pooled Betula/Ulmus local panel supplies two literal measured integer counts. Their sum N must be between 1 and 10,000. This restricted panel does not establish an all-pollen or terrestrial denominator.",
+    "pooling": "One fixed-effort binomial observation assumes constant within-panel taxon probability and exchangeable, independent counts. Pooling multiple samples does not establish those assumptions empirically. Different source samples, windows and repeated physical sites do not create independent replication.",
+    "coefficients": "D=sum_i c_i*Kloc_i uses saved regional fractional cover and the saved selected-ring local K. Set a_i=PPE_i*D and b_i=PPE_i*c_i*Kreg_i. The common D is distinct from Kloc_i. Interpret saved numeric cells as exact decimal rationals, construct each coefficient, and round it once to binary64. The maintained API conditions on those supplied binary64 coefficients; this does not replay native arithmetic.",
+    "fixed_inputs": "PPE, saved regional reconstruction and background, K, selected rings and geometry, chronology, taxon and parameter transfers, and source support remain fixed. No draws for these inputs or new kernel evaluations, model fits or scores are produced.",
+    "selection": "These eight requests were selected after inspecting signed LOVE failures. Nominal coverage for a prespecified fixed request does not establish coverage conditional on this selection or simultaneous coverage across all eight requests."
+  },
+  "interpretation_limits": [
+    "Empty confidence sets retain null cover bounds and remain distinct from the constrained binomial point MLE. Neither empty nor nonempty sets alter the original analytical estimates, signed residuals or refusal guard.",
+    "A computed set does not establish vegetation accuracy, empirical coverage, a source-data fault, an estimator repair, or a probability that the historical model is correct.",
+    "Only conditional counting uncertainty is represented. Joint count, PPE and regional-background dependence, chronology, geometry, transport, spatial and ecological uncertainty are omitted.",
+    "The original eight fold refusals and 24 dependent method refusals, original prediction failure, prior fixed-input diagnostic success, source identities, owner criteria and unresolved rights and qualified-review requirements remain unchanged. This protocol does not establish whole scientific acceptance."
+  ],
+  "original_estimator_or_refusal_changed": false,
+  "original_source_acceptance_discharged": false
+}

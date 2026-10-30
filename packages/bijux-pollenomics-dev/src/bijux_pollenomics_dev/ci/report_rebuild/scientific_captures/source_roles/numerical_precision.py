@@ -44,15 +44,48 @@ _NEW_RETURN = b"""    # Rationalize the root difference before taking its scaled
     ) / sqrt(2.0)"""
 
 
+_HISTORICAL_PROFILE_SPANS: tuple[tuple[bytes, bytes], ...] = (
+    (b"from typing import Literal\n", b""),
+    (
+        b'HellingerArithmeticProfile = Literal["stable", "source-compatible-22c6e480"]\n\n\n',
+        b"",
+    ),
+    (
+        b'def hellinger_distance(\n    predicted: Mapping[str, float],\n    observed: Mapping[str, float],\n    *,\n    arithmetic_profile: HellingerArithmeticProfile = "stable",\n) -> float:\n    """Distance on a shared taxon axis with explicit arithmetic provenance.\n\n    The stable default preserves small representable distances. The source-compatible\n    profile retains the arithmetic order of the named historical source, including\n    its cancellation and underflow limitations; it supplies no tolerance allowance.\n    """\n    if arithmetic_profile not in ("stable", "source-compatible-22c6e480"):\n        raise ValueError("Unknown Hellinger arithmetic profile")\n',
+        b'def hellinger_distance(\n    predicted: Mapping[str, float], observed: Mapping[str, float]\n) -> float:\n    """Distance between two closed compositions on the same named taxon axis."""\n',
+    ),
+    (
+        b'    if arithmetic_profile == "source-compatible-22c6e480":\n        # The source used Python 3.11\'s left-to-right float sum. Accumulate\n        # explicitly because newer Python versions compensate builtin sum.\n        total = 0.0\n        for taxon in prediction:\n            total += (sqrt(prediction[taxon]) - sqrt(observation[taxon])) ** 2\n        return sqrt(0.5 * total)\n',
+        b"",
+    ),
+)
+
+
+def stable_hellinger_profile_basis(current: bytes) -> bytes | None:
+    """Remove only the declared opt-in profile while retaining every stable byte."""
+    if not current or len(current) > 16 * 1024:
+        return None
+    if b"HellingerArithmeticProfile = Literal[" not in current:
+        return current
+    basis = current
+    for inserted, original in _HISTORICAL_PROFILE_SPANS:
+        if basis.count(inserted) != 1:
+            return None
+        basis = basis.replace(inserted, original, 1)
+    return basis
+
+
 def hellinger_precision_extension_matches(historical: bytes, current: bytes) -> bool:
     """Reconstruct every old byte by reversing only the reviewed Hellinger span."""
+    basis = stable_hellinger_profile_basis(current)
     return (
-        len(historical) == _HISTORICAL_BYTES
+        basis is not None
+        and len(historical) == _HISTORICAL_BYTES
         and hashlib.sha256(historical).hexdigest() == _HISTORICAL_SHA256
         and len(current) <= 16 * 1024
         and historical.count(_OLD_RETURN) == 1
-        and current.count(_NEW_RETURN) == 1
-        and current.replace(_NEW_RETURN, _OLD_RETURN, 1) == historical
+        and basis.count(_NEW_RETURN) == 1
+        and basis.replace(_NEW_RETURN, _OLD_RETURN, 1) == historical
     )
 
 
@@ -120,7 +153,11 @@ def validated_hellinger_precision_source(
         "whole_old_module_reconstructed": True,
         "current_regular_single_link_and_stable": True,
         "historical_numeric_outputs_regenerated": False,
+        "default_arithmetic_profile": "stable",
+        "explicit_historical_profile_available": b"HellingerArithmeticProfile = Literal["
+        in current,
+        "historical_profile_requires_explicit_selection": True,
         "historical_native_software_equal_current_claimed": False,
         "saved_output_equality_from_source_law_claimed": False,
-        "scope": "Only the rationalized Hellinger root difference and scaled hypot norm change. All other module bytes reconstruct the authenticated old source. Historical outputs and native epochs remain literal; current analytical and retained-pair metric checks are separate software qualification, not a new model execution.",
+        "scope": "The default uses the reviewed rationalized Hellinger root difference and scaled hypot norm. A separately named opt-in historical arithmetic branch, exact profile declaration and stable default header can be removed only by the finite complete-source inverse. Reversing that addition and the existing precision span reconstructs every authenticated old source byte. The explicit historical profile is not silently selected or equated with stable-default results. Historical outputs and native epochs remain literal; current analytical and retained-pair metric checks are separate software qualification, not a new model execution.",
     }

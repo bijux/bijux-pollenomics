@@ -1,0 +1,165 @@
+{
+  "schema_version": "flink-nordic-cohort.v1",
+  "baseline_protocol_sha256": "835a1c9342ee086cdf6a755c6e6b450c1933d9f3b50625f9895349d9636990a6",
+  "nominal_input_root": "artifacts/science/nordic-coupled-input-execution/native/inputs",
+  "nominal_manifest": "artifacts/science/nordic-coupled-prediction-execution/input-members.json",
+  "nominal_original_inventory": "artifacts/science/nordic-coupled-input-execution/native/materialized-inputs-inventory.json",
+  "flink_projection": "artifacts/science/flink-native-panel-execution/native/products/panel-projection.json",
+  "flink_manifest": "artifacts/science/flink-native-panel-execution/native/products/manifest.json",
+  "flink_terminal": "artifacts/science/flink-native-panel-execution/native/terminal.json",
+  "flink_execution": "artifacts/science/flink-native-panel-execution/execution.json",
+  "input_pins": [
+    {
+      "path": "artifacts/science/nordic-coupled-prediction-execution/input-members.json",
+      "sha256": "f22e51b6bc7a38a68453cbeade5bdd28f7f4626a009a444fbaba9553fbe8784a",
+      "bytes": 12538
+    },
+    {
+      "path": "artifacts/science/nordic-coupled-input-execution/native/materialized-inputs-inventory.json",
+      "sha256": "8738dbe8c7fcf29795c9bfde58fd6d26345ed3e367bdd26e42182b5867d8e05f",
+      "bytes": 21501
+    },
+    {
+      "path": "artifacts/science/flink-native-panel-execution/native/products/panel-projection.json",
+      "sha256": "0faa39b3fef1a1dc72aa216490580b72ebfb8dd3611ee170583b8f261103be1a",
+      "bytes": 518742
+    },
+    {
+      "path": "artifacts/science/flink-native-panel-execution/native/products/manifest.json",
+      "sha256": "3189962576772e7b82be61ca935d39c9cd601ace0ba27688677b4b2cc99c4828",
+      "bytes": 1189
+    },
+    {
+      "path": "artifacts/science/flink-native-panel-execution/native/terminal.json",
+      "sha256": "4b31f0d1c9c9cf97a11dbe030f28887b64a8602252fc456eaf2e422768afa727",
+      "bytes": 5652
+    },
+    {
+      "path": "artifacts/science/flink-native-panel-execution/execution.json",
+      "sha256": "dc51656b41454f15dbda5948571c4bcef30c3426dd658c4f22a8b7bcac6811bc",
+      "bytes": 1280
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/protocol.json",
+      "sha256": "835a1c9342ee086cdf6a755c6e6b450c1933d9f3b50625f9895349d9636990a6",
+      "bytes": 6527
+    },
+    {
+      "path": "artifacts/science/flink-geometry-metadata/dossier.json",
+      "sha256": "1bf0c606cef802d68e5da458c2d58281d0119fabc82ec16349a2ffa8266c179f",
+      "bytes": 51763
+    },
+    {
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677",
+      "bytes": 4880
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb",
+      "bytes": 264067
+    }
+  ],
+  "source_epochs": {
+    "nominal_input": "efac2696d313d551cd4422164461bfc0591d1da8",
+    "swedish_saved": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic_saved": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+    "flink_projection": "9937173f9be978d7a72110672b636ea892e299a2"
+  },
+  "native_places": [
+    {
+      "core": "BOKE",
+      "site": 28872,
+      "dataset": 54001,
+      "collection_unit": 39241
+    },
+    {
+      "core": "BUS",
+      "site": 28869,
+      "dataset": 53995,
+      "collection_unit": 39238
+    },
+    {
+      "core": "SOLSOE83",
+      "site": 3432,
+      "dataset": 4446,
+      "collection_unit": 4304
+    },
+    {
+      "core": "FLINK",
+      "site": 28889,
+      "dataset": 54024,
+      "collection_unit": 39258,
+      "chronology": 38438
+    }
+  ],
+  "model_assumptions": {
+    "radius_m": 98,
+    "longitude": 13.24333,
+    "latitude": 56.25444,
+    "PPE": [
+      5.106,
+      1.27
+    ],
+    "PPE_SD": [
+      0.303,
+      0.05
+    ],
+    "fallspeed_m_s": [
+      0.024,
+      0.032
+    ],
+    "regional_priority": "ascending_native_site_id"
+  },
+  "geometry_authority": {
+    "radius": "LandClim II LANDCLIMII metadata file!D989=98; D1=siteradius; readme!A6:B6 defines meters. This is static source metadata, conditionally assigned to the FLINK core for all bins.",
+    "point": "Retain native Neotoma site28889 longitude13.24333/latitude56.25444. LandClim point longitude13.25/latitude56.25 remains discrepant and is not substituted.",
+    "unresolved": "No dated radius, measurement method, historical basin trajectory, uncertainty or exact core/time geometry equivalence established.",
+    "rings": "Reuse existing author_lra_development._rings; same two local rings ending1000m, four forward rings ending100000m. All old three-place geometry and parameter bytes remain unchanged."
+  },
+  "windows_cal_bp_half_open": [
+    [
+      2700,
+      3200
+    ],
+    [
+      3200,
+      3700
+    ],
+    [
+      3700,
+      4200
+    ],
+    [
+      4200,
+      4700
+    ],
+    [
+      4700,
+      5200
+    ],
+    [
+      5200,
+      5700
+    ]
+  ],
+  "temporal_assumption": "Source default chronology38438 native point ages assign FLINK samples to the same declared half-open bins. Bin stationarity is conditional, not per-sample age bounds or a new chronology/calendar conversion.",
+  "parameter_authority": "Literal existing Betula/Ulmus PPE, SD and fall-speed choices reused as explicit modeling assumptions, not independently established FLINK measurements. No covariance, probability distribution or confidence interval inferred.",
+  "prospective_membership": {
+    "physical_places": 4,
+    "bins": 6,
+    "outer_folds": 24,
+    "training_places_per_fold": 3,
+    "regional_anchors_per_fold": 1,
+    "local_predictors_per_fold": 2,
+    "geometry_reader_handoffs": 24,
+    "training_pair_reader_handoffs": 48,
+    "nominal_members_preserved": 80,
+    "expected_derived_members": 117
+  },
+  "leakage": "Outer target is excluded before opening training pollen. Choose lowest native site ID among three training places as rotating conditional regional proxy; both remaining training places are separate local predictors. No pooling as independent sites.",
+  "native_source_limits": "Retain all109 original samples,106 nonnegative and3 negative-age dispositions through the pinned native projection. All six projected windows and their exact sample/count/denominator/support records are copied; five missing-literal samples remain outside the six windows. Missing literal taxa are never zero-filled. All-label pollen_N is not a certified terrestrial denominator. Original FLINK workbook row56 age-sign disagreement remains unresolved.",
+  "scope": "Previously exposed conditional FLINK plus BOKE/BUS/SOLSOE83 two-taxon input extension only. No new reconstruction, predictions, scores, original-source/historical equivalence, qualified large-lake regional input, independent vegetation, calibrated uncertainty, field accuracy, source-rights/human approval or whole scientific acceptance. Original three-place outcomes/refusals remain unchanged.",
+  "scientific_acceptance": "not_evaluated",
+  "whole_original_acceptance_discharged": false
+}

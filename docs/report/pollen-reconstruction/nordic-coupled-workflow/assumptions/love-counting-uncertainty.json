@@ -1,0 +1,39 @@
+{
+  "schema_version": "nordic-love-conditional-counting.v1",
+  "profile": "homogeneous-two-taxon-fixed-background-binomial-set-v1",
+  "alpha": 0.05,
+  "confidence_level": 0.95,
+  "design_decision": "Nominal 95% confidence for each fixed request is declared before this consumer executes. This is a design choice, not a fitted threshold or an empirical coverage finding.",
+  "cases": 8,
+  "taxa": [
+    "Betula",
+    "Ulmus"
+  ],
+  "original_native_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+  "original_prediction_native_exit": 1,
+  "input_pins": {
+    "cache_contract": {
+      "path": "artifacts/science/nordic-coupled-composition-admissibility-source/input-contract.json",
+      "sha256": "beecdd97445f141661c8080c041d81599822066fc2101f44d08ab2a79068afa2",
+      "bytes": 34258
+    },
+    "prior_admissibility": {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/admissibility.json",
+      "sha256": "92f9c3ea9328b9945a430b5e734350cab2bf2115db1a3854b91bd63f2b8fee99",
+      "bytes": 47876
+    }
+  },
+  "conditioning": {
+    "count_law": "Each original pooled Betula/Ulmus local panel supplies two literal measured integer counts. Their sum N must be between 1 and 10,000. This restricted panel does not establish an all-pollen or terrestrial denominator.",
+    "pooling": "One fixed-effort binomial observation assumes constant within-panel taxon probability and exchangeable, independent counts. Pooling multiple samples does not establish those assumptions empirically. Different source samples, windows and repeated physical sites do not create independent replication.",
+    "coefficients": "D=sum_i c_i*Kloc_i uses saved regional fractional cover and the saved selected-ring local K. Set a_i=PPE_i*D and b_i=PPE_i*c_i*Kreg_i. The common D is distinct from Kloc_i. Interpret saved numeric cells as exact decimal rationals, construct each coefficient, and round it once to binary64. The maintained API conditions on those supplied binary64 coefficients; this does not replay native arithmetic.",
+    "fixed_inputs": "PPE, saved regional reconstruction and background, K, selected rings and geometry, chronology, taxon and parameter transfers, and source support remain fixed. No draws for these inputs or new kernel evaluations, model fits or scores are produced.",
+    "selection": "These eight requests were selected after inspecting signed LOVE failures. Nominal coverage for a prespecified fixed request does not establish coverage conditional on this selection or simultaneous coverage across all eight requests."
+  },
+  "interpretation_limits": [
+    "Empty confidence sets retain null cover bounds and remain distinct from the constrained binomial point MLE. Neither empty nor nonempty sets alter the original analytical estimates, signed residuals or refusal guard.",
+    "A computed set does not establish vegetation accuracy, empirical coverage, a source-data fault, an estimator repair, or a probability that the historical model is correct.",
+    "Only conditional counting uncertainty is represented. Joint count, PPE and regional-background dependence, chronology, geometry, transport, spatial and ecological uncertainty are omitted.",
+    "The original eight fold refusals and 24 dependent method refusals, original prediction failure, prior fixed-input diagnostic success, source identities, owner criteria and unresolved rights and qualified-review requirements remain unchanged. This protocol does not establish whole scientific acceptance."
+  ]
+}

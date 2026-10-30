@@ -505,8 +505,8 @@
   "native_reference_policy": "Original JSON references/epochs stay literal; this map associates byte-exact source tables with public paths. Initial whole prediction job remained1; later saved-reader0 and scoring0 do not relabel it.",
   "public_reader": {
     "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/README.md",
-    "sha256": "3ae807972386516981217e9e129acd8589399641c2c162963038cdd66ae3c07b",
-    "bytes": 42458
+    "sha256": "9aa368ac855de06d8d9a2c64bb07ee2a5794e30d9fdbf016dd0e594e8a71d34a",
+    "bytes": 63788
   },
   "whole_original_acceptance_discharged": false,
   "scientific_acceptance": "not_evaluated"

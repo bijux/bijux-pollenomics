@@ -1,0 +1,110 @@
+{
+  "schema_version": "nordic-love-counting-uncertainty-publication.v1",
+  "native_result": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-execution/native/counting-uncertainty.json",
+    "sha256": "dacbf97b1cd1753cc3e1f1ca4846a428ac9a4271ac77ea9d6f22de59953e6cee",
+    "bytes": 97296
+  },
+  "public_result": {
+    "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/love-counting-uncertainty.json",
+    "sha256": "dacbf97b1cd1753cc3e1f1ca4846a428ac9a4271ac77ea9d6f22de59953e6cee",
+    "bytes": 97296
+  },
+  "terminal": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-execution/native/terminal.json",
+    "sha256": "d4d8d702a443a21f62a87c1ea0ca34bf7c5c04ec0ceb53f2092d3aefbc157b3d",
+    "bytes": 5896
+  },
+  "execution": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-execution/execution.json",
+    "sha256": "e9fde1817b34b65a17cd7beeee33ed359abdb4ecb5adae507a20f7aabd77c975",
+    "bytes": 1417
+  },
+  "plan": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-execution/plan.json",
+    "sha256": "748d6c94a05402ba768f64522f70bbcc8184684332a5855f8359e23d0e17058f",
+    "bytes": 1924027
+  },
+  "admission": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-execution/admission.json",
+    "sha256": "117585c6ee15c81ffc40d9f0db2b4a6c0c40e207ff6fe21c0dd2d9489837bb9d",
+    "bytes": 2696
+  },
+  "execution_epoch": "a10f24735712dab1dbc66aeb12fe7b7cc3f25a93",
+  "original_native_epoch": "964baa9418e0e22a43cdb971fdd67518b000b62f",
+  "original_prediction_native_exit": 1,
+  "maintained_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-integration/scientific-inputs/source-proposal.json",
+    "sha256": "7e2c950d201d02cdadb85a9d3297aec76286f551511f465d17b79d368765bb5a",
+    "bytes": 7219
+  },
+  "scientific_source_review": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-review/stable-scientific-input-review.json",
+    "sha256": "db636024e5c8cc37cadfe0d7d60153c4169582e12421d315e60cd38595aaba8b",
+    "bytes": 6366
+  },
+  "postcommit_source_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-integration/scientific-inputs/committed-reader/committed-source-verification.json",
+    "sha256": "a3f3fbabe73235e34d91c754c1954ff445e56fff4c9571708ca54ae6f2241844",
+    "bytes": 10624
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/love-counting-uncertainty.json",
+    "sha256": "0315ba82daf30e76cac32fe17196d576a3251dbf0d0904a8dd84c8eee4c6a570",
+    "bytes": 3509
+  },
+  "scientific_input_pins": {
+    "cache_contract": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-coupled-composition-admissibility-source/input-contract.json",
+      "sha256": "beecdd97445f141661c8080c041d81599822066fc2101f44d08ab2a79068afa2",
+      "bytes": 34258
+    },
+    "prior_admissibility": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/nordic-coupled-workflow/admissibility.json",
+      "sha256": "92f9c3ea9328b9945a430b5e734350cab2bf2115db1a3854b91bd63f2b8fee99",
+      "bytes": 47876
+    }
+  },
+  "rerun_argv": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "pycache_prefix=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-execution/native/source-pycache",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+    "--profile",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+    "--profile-sha256",
+    "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+    "--mode",
+    "python",
+    "--",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-execution-source/stable-inputs/entry.py",
+    "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/counting_uncertainty.py",
+    "--repository",
+    "/Users/bijan/bijux/bijux-pollenomics",
+    "--protocol",
+    "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/love-counting-uncertainty.json",
+    "--protocol-sha256",
+    "0315ba82daf30e76cac32fe17196d576a3251dbf0d0904a8dd84c8eee4c6a570",
+    "--execution-epoch",
+    "a10f24735712dab1dbc66aeb12fe7b7cc3f25a93",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-love-counting-uncertainty-execution/native/counting-uncertainty.json"
+  ],
+  "dispositions": {
+    "computed": 8,
+    "refused": 0,
+    "fatal": 0,
+    "not_run": 0
+  },
+  "confidence_sets": {
+    "nonempty": 3,
+    "empty": 5
+  },
+  "native_reference_policy": "Public result is byteexact native JSON. Original native paths and pins inside it are retained; this map records native to public transport without rewriting them.",
+  "scope": "Eight failure-selected contexts, fixed conditional two-taxon marginal counting law only; not eight independent sites, post-selection or simultaneous coverage, joint nuisance propagation, field accuracy or source-rights acceptance. Constrained binomial point does not replace analytical LOVE point/refusal.",
+  "original_estimator_or_refusal_changed": false,
+  "original_source_acceptance_discharged": false
+}

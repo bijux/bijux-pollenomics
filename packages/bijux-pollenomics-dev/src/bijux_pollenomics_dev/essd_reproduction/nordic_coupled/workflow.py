@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from functools import partial
 import hashlib
 import json
 from pathlib import Path
@@ -256,6 +257,7 @@ def batch(
     prediction_index: Path | None = None,
     prediction_index_sha256: str | None = None,
     protocol_binding: dict[str, Any] | None = None,
+    cohort: str | None = None,
 ) -> dict[str, Any]:
     """Run one declared prediction or post-freeze scoring batch."""
     require(
@@ -263,25 +265,46 @@ def batch(
         and all(c in "0123456789abcdef" for c in execution_epoch),
         "Explicit actual execution epoch required",
     )
-    protocol_sha256 = PROTOCOL_SHA256
-    if protocol_binding is not None:
+    scope_reader = input_scope
+    receipt_reader = prediction_receipt
+    score_rows = 9
+    experiment_member = "experiment.json"
+    score_message = "Nine explicit score dispositions required"
+    if cohort is None:
+        protocol_sha256 = PROTOCOL_SHA256
+        if protocol_binding is not None:
+            require(
+                set(protocol_binding) == {"path", "sha256", "bytes"}
+                and type(protocol_binding["bytes"]) is int
+                and 0 < protocol_binding["bytes"] <= 65536,
+                "Closed bounded protocol identity required",
+            )
+            protocol_raw, declaration = read(
+                Path(protocol_binding["path"]), protocol_binding["sha256"], 65536
+            )
+            require(
+                len(protocol_raw) == protocol_binding["bytes"]
+                and declaration["schema_version"] == "nordic-coupled-ppe-sensitivity.v1"
+                and declaration["baseline_protocol_sha256"] == PROTOCOL_SHA256,
+                "Sensitivity protocol authority differs",
+            )
+            protocol_sha256 = protocol_binding["sha256"]
+    else:
         require(
-            set(protocol_binding) == {"path", "sha256", "bytes"}
-            and type(protocol_binding["bytes"]) is int
-            and 0 < protocol_binding["bytes"] <= 65536,
-            "Closed bounded protocol identity required",
+            cohort == "flink_nordic" and protocol_binding is not None,
+            "Unknown or unbound cohort",
         )
-        protocol_raw, declaration = read(
-            Path(protocol_binding["path"]), protocol_binding["sha256"], 65536
-        )
-        require(
-            len(protocol_raw) == protocol_binding["bytes"]
-            and declaration["schema_version"] == "nordic-coupled-ppe-sensitivity.v1"
-            and declaration["baseline_protocol_sha256"] == PROTOCOL_SHA256,
-            "Sensitivity protocol authority differs",
-        )
+        from .cohorts import workflow as cohort_workflow
+
+        assert protocol_binding is not None
+        cohort_workflow.protocol(protocol_binding)
         protocol_sha256 = protocol_binding["sha256"]
-    rows, pins = input_scope(input_root, manifest, manifest_sha256)
+        scope_reader = partial(cohort_workflow.input_scope, binding=protocol_binding)
+        receipt_reader = cohort_workflow.prediction_receipt
+        score_rows = 12
+        experiment_member = "cohort-experiment.json"
+        score_message = "Twelve explicit score dispositions required"
+    rows, pins = scope_reader(input_root, manifest, manifest_sha256)
     physical(output)
     require(not output.exists(), "Fresh absent output required")
     api = apis()
@@ -303,6 +326,8 @@ def batch(
             and [r["bin"] for r in prior["bins"]] == list(NAMES),
             "Prediction batch/source identity differs",
         )
+        if cohort is not None:
+            require(prior.get("cohort") == cohort, "Prediction cohort differs")
         # Authenticate every available prediction before any score API/outcome access.
         for row in prior["bins"]:
             if "prediction" in row:
@@ -311,7 +336,7 @@ def batch(
                     == prediction_index.parent / row["bin"],
                     "Prediction directory/owned batch differs",
                 )
-                prediction_receipt(
+                receipt_reader(
                     Path(row["prediction"]["directory"]),
                     row["prediction"]["manifest_sha256"],
                     api,
@@ -327,6 +352,11 @@ def batch(
         "bins": [{"bin": name, "status": "not_run"} for name in NAMES],
         "scope": "Prior-exposed conditional point predictions; small-lake regional proxies, no measured vegetation or calibrated uncertainty. Three baselines share one local predictor.",
     }
+    if cohort is not None:
+        result["cohort"] = cohort
+        result["scope"] = (
+            "Four conditional physical places, six separate bins,24 requested folds and72 dependent method dispositions; one regional anchor plus two local training places per fold. Existing fold-atomic success/refusal/notrun semantics; no independent models, measured vegetation, calibrated uncertainty or geometry/source-rights admission."
+        )
     if protocol_binding is not None:
         result["protocol_binding"] = dict(protocol_binding)
     if prior is not None:
@@ -340,7 +370,7 @@ def batch(
             directory = input_root / row["directory"]
             try:
                 _, payload = read(
-                    directory / "experiment.json", row["experiment"]["sha256"], 65536
+                    directory / experiment_member, row["experiment"]["sha256"], 65536
                 )
                 spec = api["spec"](payload)
                 if phase == "prepare":
@@ -351,7 +381,7 @@ def batch(
                         destination=output / row["directory"],
                         workers=1,
                     )
-                    current["prediction"] = prediction_receipt(
+                    current["prediction"] = receipt_reader(
                         product.directory, product.manifest_sha256, api
                     )
                     current["status"] = "completed"
@@ -369,7 +399,7 @@ def batch(
                         )
                         continue
                     prediction = previous["prediction"]
-                    prediction_receipt(
+                    receipt_reader(
                         Path(prediction["directory"]),
                         prediction["manifest_sha256"],
                         api,
@@ -399,9 +429,7 @@ def batch(
                         "Score/prediction identity differs",
                     )
                     scores = scored["scientific_payload"]["scores"]
-                    require(
-                        len(scores) == 9, "Nine explicit score dispositions required"
-                    )
+                    require(len(scores) == score_rows, score_message)
                     current.update(
                         status="completed",
                         scoring={
@@ -428,7 +456,7 @@ def batch(
                 raise
             finally:
                 write(output, result)
-        _, after = input_scope(input_root, manifest, manifest_sha256)
+        _, after = scope_reader(input_root, manifest, manifest_sha256)
         require(after == pins, "Input manifest changed after batch")
         total = 0
         for member in output.rglob("*"):

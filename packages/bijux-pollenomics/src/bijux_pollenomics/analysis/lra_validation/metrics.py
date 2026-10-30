@@ -6,6 +6,7 @@ from collections.abc import Mapping
 from dataclasses import dataclass, replace
 from math import hypot, isclose, isqrt, ldexp, log, sqrt
 from sys import float_info
+from typing import Literal
 
 from .contracts import ValidationRefusal, finite_number, required_identity
 
@@ -59,16 +60,36 @@ def closed_composition(values: Mapping[str, float]) -> dict[str, float]:
     return result
 
 
+HellingerArithmeticProfile = Literal["stable", "source-compatible-22c6e480"]
+
+
 def hellinger_distance(
-    predicted: Mapping[str, float], observed: Mapping[str, float]
+    predicted: Mapping[str, float],
+    observed: Mapping[str, float],
+    *,
+    arithmetic_profile: HellingerArithmeticProfile = "stable",
 ) -> float:
-    """Distance between two closed compositions on the same named taxon axis."""
+    """Distance on a shared taxon axis with explicit arithmetic provenance.
+
+    The stable default preserves small representable distances. The source-compatible
+    profile retains the arithmetic order of the named historical source, including
+    its cancellation and underflow limitations; it supplies no tolerance allowance.
+    """
+    if arithmetic_profile not in ("stable", "source-compatible-22c6e480"):
+        raise ValueError("Unknown Hellinger arithmetic profile")
     prediction = closed_composition(predicted)
     observation = closed_composition(observed)
     if set(prediction) != set(observation):
         raise ValidationRefusal(
             "taxon_denominator_mismatch", "Hellinger taxon keys must match"
         )
+    if arithmetic_profile == "source-compatible-22c6e480":
+        # The source used Python 3.11's left-to-right float sum. Accumulate
+        # explicitly because newer Python versions compensate builtin sum.
+        total = 0.0
+        for taxon in prediction:
+            total += (sqrt(prediction[taxon]) - sqrt(observation[taxon])) ** 2
+        return sqrt(0.5 * total)
     # Rationalize the root difference before taking its scaled Euclidean norm.
     # Separate square roots can coincide for distinct adjacent fractions, and
     # squaring a representable root difference can underflow before the norm.
