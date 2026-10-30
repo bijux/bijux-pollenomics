@@ -8,6 +8,7 @@ import inspect
 import json
 from pathlib import Path
 import re
+import typing
 
 MANIFEST = 'configs/docs/publication/report-provenance.json'
 MANIFEST_SHA256 = 'cbe708fc7b95f330d555dd4071e3caaf83fca720fca494fb6db4a51130aad91b'
@@ -126,16 +127,20 @@ def project(raw, row):
     return value
 
 
-def admit(hook, configuration, root, path, source, regular):
+def admit(hook, configuration, root, path, source, regular, *, data_manifest=False):
     """Fresh source and independent bytes grant authority; callback output does not."""
     from pathlib import PurePosixPath
     from mkdocs.config.defaults import MkDocsConfig
     from mkdocs.structure.files import File, Files
+    require(type(data_manifest) is bool, 'exact recipe variant required')
     names = {'File', 'Files', 'INTERNAL_PREFIXES', 'MANIFEST', 'MANIFEST_SHA256',
              'MkDocsConfig', 'NOTE_KEY', 'Path', 'PurePosixPath', 'REPORT_PATHS', 'ROOT',
              '_digest', '_nonfinite', '_note', '_pairs', '_project_report', '_read',
              '_require', '_string_fields', 'annotations', 'hashlib', 'json',
              'on_files', 'projected_reports'}
+    if data_manifest:
+        names.remove('MANIFEST_SHA256')
+        names.add('Any')
     require({name for name in vars(hook) if not name.startswith('__')} == names,
             'undeclared loaded global binding')
     scope = hook.__builtins__ if isinstance(hook.__builtins__, dict) else vars(hook.__builtins__)
@@ -149,20 +154,23 @@ def admit(hook, configuration, root, path, source, regular):
             and Path(configuration.docs_dir).absolute() == root/'docs'
             and configuration.repo_url == 'https://github.com/bijux/bijux-pollenomics'
             and configuration.site_url == 'https://bijux.io/bijux-pollenomics/', 'owner or public mount differs')
-    require(hook.MANIFEST == MANIFEST and hook.MANIFEST_SHA256 == MANIFEST_SHA256
+    require(hook.MANIFEST == MANIFEST
+            and (data_manifest or hook.MANIFEST_SHA256 == MANIFEST_SHA256)
             and hook.REPORT_PATHS == REPORT_PATHS and hook.NOTE_KEY == NOTE_KEY
             and hook.INTERNAL_PREFIXES == INTERNAL_PREFIXES, 'loaded constants differ')
+    require(not data_manifest or hook.Any is typing.Any, 'loaded annotation binding differs')
     require(hook.hashlib is hashlib and hook.json is json and hook.Path is Path
             and hook.PurePosixPath is PurePosixPath and hook.MkDocsConfig is MkDocsConfig
             and hook.File is File and hook.Files is Files, 'loaded dependency binding differs')
     raw = regular(root, root/MANIFEST)
-    require(digest(raw) == MANIFEST_SHA256, 'reviewed manifest differs')
+    require(data_manifest or digest(raw) == MANIFEST_SHA256, 'reviewed manifest differs')
     manifest = json.loads(raw, object_pairs_hook=unique_pairs, parse_constant=reject_constant)
     require(set(manifest) == {'schema', 'owner', 'reports'} and manifest['schema'] == 1
             and manifest['owner'] == 'bijux-pollenomics', 'manifest owner/schema differs')
     rows = manifest['reports']
     require(tuple(row['path'] for row in rows) == REPORT_PATHS and len(rows) == 13
-            and sum(len(row['fields']) for row in rows) == 32, 'finite report population differs')
+            and (data_manifest or sum(len(row['fields']) for row in rows) == 32),
+            'finite report population differs')
     inputs = [{'path': MANIFEST, 'sha256': digest(raw)}]
     outputs = {}
     for row in rows:
@@ -173,5 +181,7 @@ def admit(hook, configuration, root, path, source, regular):
         inputs.append({'path': relative, 'sha256': digest(original)})
         outputs[row['path']] = digest(value)
     return {'source': path.relative_to(root).as_posix(), 'source_sha256': digest(source),
-            'recipe': 'public-report-provenance', 'inputs': sorted(inputs, key=lambda item: item['path']),
+            'recipe': ('public-report-provenance-data-manifest' if data_manifest
+                       else 'public-report-provenance'),
+            'inputs': sorted(inputs, key=lambda item: item['path']),
             'outputs': outputs}
