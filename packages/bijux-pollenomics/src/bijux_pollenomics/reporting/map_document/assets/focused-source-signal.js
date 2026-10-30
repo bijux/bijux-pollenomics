@@ -18,7 +18,7 @@ function pollenFocusedSignalData(tabs, signal) {
       || codeMode && !ids.length && taxon === null && text(code) && code === text(code))) return empty('unavailable','Selected source facet fields are incomplete or contradictory.');
   const requestedIds = new Set(ids);
   try {
-    const native = pollenDepthDiagramData(tabs);
+    const native = pollenObservationDiagramData(tabs);
     if (native.status !== 'available') return empty('unavailable','Native observation tables are unavailable.');
     const variables = pollenDepthTableRows(tabs.pollen_composition.variables,['variable_id','source_semantics']);
     const raw = pollenDepthTableRows(tabs.pollen_composition,['observation_id','sample_id','variable_id','source_taxon_id','source_unit','source_ecological_group','source_element_type','source_value','detection_status']);

@@ -294,14 +294,14 @@ def test_table_qualification_is_constant_with_more_panels_and_alignment_is_uncha
         script()
         + "const tabs="
         + json.dumps(tabs)
-        + ";const key=pollenDepthDiagramData(tabs).groups[0].key;const ageKey="
+        + ";const key=pollenObservationDiagramData(tabs).groups[0].key;const ageKey="
         + ("pollenAgeAxisData(tabs,key).options[0].key" if age_mode else "null")
         + """;
 const calls={native:0,ages:0,nativeTables:0,ageTables:0};
-const native=pollenDepthDiagramData, ages=ageDepthDiagramData;
+const native=pollenObservationDiagramData, ages=sourceAgeAssignmentData;
 const nativeTables=pollenDepthTableRows, ageTables=ageDepthTableRows;
-pollenDepthDiagramData=(...args)=>{calls.native++;return native(...args);};
-ageDepthDiagramData=(...args)=>{calls.ages++;return ages(...args);};
+pollenObservationDiagramData=(...args)=>{calls.native++;return native(...args);};
+sourceAgeAssignmentData=(...args)=>{calls.ages++;return ages(...args);};
 pollenDepthTableRows=(...args)=>{calls.nativeTables++;return nativeTables(...args);};
 ageDepthTableRows=(...args)=>{calls.ageTables++;return ageTables(...args);};
 const result=pollenSmallMultiplesData(tabs,key,ageKey), measured={...calls};

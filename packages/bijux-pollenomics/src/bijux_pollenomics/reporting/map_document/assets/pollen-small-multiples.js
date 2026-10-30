@@ -1,11 +1,11 @@
 // Compare compatible native variables without aggregating or admitting a chronology.
 function pollenSmallMultiplesData(tabs, anchorNativeGroupKey, selectedAgeGroupKey = null) {
-  const native = pollenDepthDiagramData(tabs);
+  const native = pollenObservationDiagramData(tabs);
   const unavailable = reason => ({status:'unavailable', reason, panels:[]});
   if (native.status !== 'available') return unavailable('native_source_tables_unavailable');
   const anchor = native.groups.find(group => group.key === anchorNativeGroupKey);
   if (!anchor) return unavailable('native_source_group_unavailable');
-  const ages = ageDepthDiagramData(tabs);
+  const ages = sourceAgeAssignmentData(tabs);
   const compatible = group => group.identity.every((value,index) => index === 2 || index === 3
     || JSON.stringify(value) === JSON.stringify(anchor.identity[index]));
   const groups = native.groups.filter(compatible);

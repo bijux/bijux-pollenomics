@@ -12,6 +12,10 @@ function ageDepthText(value) {
   return value === null || value === undefined || value === '' ? 'not supplied' : String(value);
 }
 function ageDepthDiagramData(tabs) {
+  return sourceAgeAssignmentData(tabs, true);
+}
+// Exact sample age assignments need no depth until an age-depth plot is requested.
+function sourceAgeAssignmentData(tabs, requireDepth = false) {
   const unavailable = reason => ({status:'unavailable', reason, groups:[], total:0, omitted:{}});
   if (tabs?.overview?.source_family !== 'neotoma') return unavailable('source_age_depth_tables_not_available');
   try {
@@ -45,7 +49,7 @@ function ageDepthDiagramData(tabs) {
         || claim.collection_unit_id !== sample.collection_unit_id
         || claim.dataset_id !== sample.dataset_id) { omit('sample_source_relation_mismatch'); continue; }
       if (typeof claim.chronology_id !== 'string' || !claim.chronology_id) { omit('chronology_identity_unavailable'); continue; }
-      if (!ageDepthFinite(sample.source_depth)) { omit('source_depth_not_numeric'); continue; }
+      if (requireDepth && !ageDepthFinite(sample.source_depth)) { omit('source_depth_not_numeric'); continue; }
       const pointPresent = claim.source_age_value !== null && claim.source_age_value !== undefined;
       const youngerPresent = claim.source_age_younger !== null && claim.source_age_younger !== undefined;
       const olderPresent = claim.source_age_older !== null && claim.source_age_older !== undefined;

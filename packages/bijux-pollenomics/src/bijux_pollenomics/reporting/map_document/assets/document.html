@@ -5649,7 +5649,7 @@ __URL_STATE_CONTROLLER__
           select.addEventListener('change', () => {
             const {owner} = pollenDisplaySelection(tabs);
             pollenAgeSelections.delete(owner);
-            if (pollenDepthDiagramData(tabs).groups.some(group => group.key === select.value)) {
+            if (pollenObservationDiagramData(tabs).groups.some(group => group.key === select.value)) {
               pollenDepthSelections.set(owner, select.value);
             } else {
               pollenDepthSelections.delete(owner);
@@ -5660,7 +5660,7 @@ __URL_STATE_CONTROLLER__
         });
         focusDetail.querySelectorAll('[data-pollen-age-group]').forEach((select) => {
           select.addEventListener('change', () => {
-            const native = pollenDepthDiagramData(tabs);
+            const native = pollenObservationDiagramData(tabs);
             const selected = pollenDisplaySelection(tabs);
             const nativeKey = selected.key ?? (selected.requireExplicitAnchor ? null : native.groups[0]?.key);
             const choices = nativeKey ? pollenAgeAxisData(tabs, nativeKey).options : [];

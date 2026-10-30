@@ -1,14 +1,14 @@
 // A display-only alignment of already-qualified source rows, not a chronology model.
-// Both source controllers require numeric native depth; this helper does not recover
-// age-only samples, convert age/depth units, select defaults or interpolate missing ages.
+// Exact age/value joins do not require depth; the depth mode still does.
+// No age/depth conversion, default selection or missing-age interpolation occurs.
 function pollenAgeAxisData(tabs, nativeGroupKey, selectedAgeGroupKey = null) {
-  const native = pollenDepthDiagramData(tabs);
+  const native = pollenObservationDiagramData(tabs);
   const empty = reason => ({status:'unavailable', reason, options:[], selected:null,
     rows:[], total:0, omitted:{}, sourceAgeOmitted:null, sourceAgeTotal:null});
   if (native.status !== 'available') return empty('native_source_tables_unavailable');
   const source = native.groups.find(group => group.key === nativeGroupKey);
   if (!source) return empty('native_source_group_unavailable');
-  return pollenAgeAxisForGroup(source, ageDepthDiagramData(tabs), selectedAgeGroupKey);
+  return pollenAgeAxisForGroup(source, sourceAgeAssignmentData(tabs), selectedAgeGroupKey);
 }
 // Reuse one qualified chronology table across compatible native variable panels.
 function pollenAgeAxisForGroup(source, ages, selectedAgeGroupKey = null) {
@@ -17,7 +17,9 @@ function pollenAgeAxisForGroup(source, ages, selectedAgeGroupKey = null) {
   const options = compatible.map(group => ({key:JSON.stringify(group.identity),
     identity:[...group.identity], names:[...group.names], claimCount:group.rows.length}));
   const result = {status:'depth', reason:ages.status === 'available' ? '' : ages.reason,
-    options, selected:null, rows:source.rows, total:source.rows.length, omitted:{},
+    options, selected:null, rows:source.rows.filter(row => pollenDepthFinite(row.depth)), total:source.rows.length,
+    omitted:source.rows.some(row => !pollenDepthFinite(row.depth))
+      ? {source_depth_not_numeric:source.rows.filter(row => !pollenDepthFinite(row.depth)).length} : {},
     sourceAgeOmitted:ages.status === 'available' ? {...ages.omitted} : null,
     sourceAgeTotal:ages.status === 'available' ? ages.total : null};
   // Null is the explicit depth mode, regardless of default flags or option ordering.
@@ -99,11 +101,11 @@ function renderPollenAgeDiagram(tabs, nativeGroupKey, selectedAgeGroupKey = null
     : 'a qualified native observation group is not available');
   const options = data.options.map(option => `<option value="${text(option.key)}"${data.selected?.key === option.key ? ' selected="selected"' : ''}>${text(pollenAgeOptionLabel(option))}</option>`).join('');
   const chooser = `<label for="native-value-age-group">Display axis and explicit source age assignment group</label><select id="native-value-age-group" data-pollen-age-group="true" style="display:block;max-width:100%"><option value=""${data.status === 'depth' ? ' selected="selected"' : ''}>Native depth (unit not supplied)</option>${options}</select>`;
-  const scope = '<p>This is a local display choice, not selection of an analysis chronology. Only observations and age claims with already-qualified numeric native depth can be aligned here; age-only samples are not recovered. No age/depth conversion, calibration, interpolation, physical-core equivalence, vegetation reconstruction or event admission is made. Original tables retain all rows.</p>';
-  if (data.status === 'depth') return `<section aria-label="Source age axis">${chooser}${scope}${data.options.length ? '' : '<p>No qualified source age group is available for this collection unit and dataset. Native depth remains the display axis.</p>'}</section>`;
+  const scope = '<p>This is a local display choice, not selection of an analysis chronology. Depth mode requires numeric native depth; an explicit source-age axis requires an exact observation/sample/age-claim join and can display samples without depth. No age/depth conversion, calibration, interpolation, physical-core equivalence, vegetation reconstruction or event admission is made. Original tables retain all rows.</p>';
+  if (data.status === 'depth') return `<section aria-label="Source age axis">${chooser}${scope}<p>${data.rows.length} of ${data.total} observations have numeric source depth; ${data.omitted.source_depth_not_numeric || 0} do not.</p>${data.options.length ? '' : '<p>No qualified source age group is available for this collection unit and dataset. Native depth remains the display axis.</p>'}</section>`;
   const omissionLabels = {sample_age_assignment_unavailable:'no unique age claim for this sample in the chosen group', ambiguous_sample_age_assignment:'multiple age claims for this sample in the chosen group'};
   const summary = `<p>${data.rows.length} of ${data.total} observations in this native group align to exactly one claim in the chosen source group. Not aligned: ${text(pollenAgeOmissionText(data.omitted,omissionLabels))}. Complete source age table: ${data.sourceAgeTotal} claims; not chartable across that whole table: ${text(pollenAgeOmissionText(data.sourceAgeOmitted,SOURCE_AGE_OMISSION_LABELS))}.</p>`;
   const semantics = pollenAgeSemanticsHtml();
-  const source = includeFigure && data.rows.length ? pollenDepthDiagramData(tabs).groups.find(group => group.key === nativeGroupKey) : null;
+  const source = includeFigure && data.rows.length ? pollenObservationDiagramData(tabs).groups.find(group => group.key === nativeGroupKey) : null;
   return `<section aria-label="Source age axis">${chooser}${scope}${summary}${semantics}${data.rows.length ? (includeFigure ? pollenAgeFigureHtml(data,source,0,null,selectedObservationIds) : '') : '<p>No observations have one usable source age assignment in this chosen group. No zero age or alternative chronology is substituted.</p>'}</section>`;
 }
