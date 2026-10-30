@@ -19,6 +19,10 @@ from .source_roles.documentation import (
     DOCUMENTED_SOURCE_STRINGS,
     _documented_source_matches,
 )
+from .source_roles.native_reference_transport import (
+    NATIVE_REFERENCE_TRANSPORT_SOURCES,
+    validated_native_reference_transport_source,
+)
 from .source_roles.numerical_precision import (
     METRICS_SOURCE,
     validated_hellinger_precision_source,
@@ -362,6 +366,10 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if name in NATIVE_REFERENCE_TRANSPORT_SOURCES:
+        return validated_native_reference_transport_source(
+            repository, historical, logical, source_buffer
+        )
     if name == METRICS_SOURCE:
         return validated_hellinger_precision_source(
             repository, historical, logical, source_buffer
