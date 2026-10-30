@@ -6,6 +6,8 @@ from bijux_pollenomics.reporting.map_document import render_multi_country_map_ht
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import MapScopePolicy
 
+from .controls.selection.test_scientific_picker import SCRIPT
+from .controls.selection.test_scientific_picker_mounting import MOUNT
 from .support import run_node_json, template_block
 
 
@@ -258,20 +260,25 @@ def test_scientific_controls_cover_all_resolution_levels() -> None:
         "function renderScientificControls", "function visibleGovernedEdges"
     )
     observed = run_node_json(
-        """
+        SCRIPT
+        + MOUNT
+        + """
 const SCIENTIFIC_SIGNALS=[
-  {signal_id:'group:crops',resolution:'group'},
-  {signal_id:'subgroup:cereals',resolution:'subgroup'},
-  {signal_id:'role:direct',resolution:'role'},
-  {signal_id:'taxon:wheat',resolution:'taxon'},
+  {signal_id:'group:crops',feature_key:'group:crops',resolution:'group',label:'Crops',status:'accepted',color:'#14532d',non_color_cue:'triangle'},
+  {signal_id:'subgroup:cereals',feature_key:'subgroup:cereals',resolution:'subgroup',label:'Cereals',status:'accepted',color:'#92400e',non_color_cue:'square',parent_signal_id:'group:crops'},
+  {signal_id:'role:direct',feature_key:'role:direct',resolution:'role',label:'Direct indicator',status:'accepted',color:'#1e40af',non_color_cue:'diamond'},
+  {signal_id:'taxon:wheat',feature_key:'taxon:wheat',resolution:'taxon',label:'Wheat',status:'accepted',color:'#581c87',non_color_cue:'circle'},
 ];
 const activeScientificSignalIds=new Set(['subgroup:cereals']);
 const ATLAS_EVIDENCE={classifications_status:'available'};
-const scientificStatus={textContent:''}, scientificFilters={innerHTML:''};
+const scientificStatus={textContent:''}, scientificFilters={innerHTML:'',addEventListener(){}};
 const scientificActions={hidden:false};
 const scientificSummary={textContent:''};
 const sourceChronologyShortcuts={hidden:false,querySelectorAll(){return []}};
-const document={querySelectorAll(){return []}};
+const document={getElementById(){return {open:true}},querySelectorAll(){return []}};
+let scientificPinValues=[],scientificPinnedIds=null,scientificCatalog=null,scientificPickerController=null,scientificPickerStatus='not_loaded';
+const evidenceToolsError=null;
+function currentEvidenceTools(){return {pickerCatalog:scientificPickerCatalog,pickerInitial:scientificPickerInitialState,pickerHtml:renderScientificPicker,pickerMount:mountScientificPicker}}
 function sourceChronologyLayers(){return []}
 function escapeHtml(value){return String(value)}
 function scientificCueGlyph(){return 'x'}
@@ -287,7 +294,7 @@ console.log(JSON.stringify({
   order:SCIENTIFIC_RESOLUTION_ORDER,
   selected:featureMatchesScientificSelection(layer,feature),
   signals:scientificSignalsForFeature(feature).map((row)=>row.signal_id),
-  subgroupControl:scientificFilters.innerHTML.includes('value="subgroup:cereals"'),
+  subgroupControl:scientificFilters.innerHTML.includes('data-scientific-action="hide" data-scientific-id="subgroup:cereals"'),
 }));
 """
     )
