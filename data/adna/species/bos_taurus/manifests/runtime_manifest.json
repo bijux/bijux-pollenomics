@@ -66,14 +66,14 @@
     {
       "source_family": "ENA",
       "source_release": "PRJNA705960",
-      "bundle_kind": "pending_archive_project",
+      "bundle_kind": "paper_pinned_core_project",
       "tracked_root": "data/adna/species/bos_taurus/raw/ena",
       "release_manifest_path": "data/adna/species/bos_taurus/manifests/curation_manifest.json",
       "dataset_names": [
         "PRJNA705960"
       ],
       "record_modality": "archive_reads",
-      "review_strength": "archive_verified_needs_paper_pinning",
+      "review_strength": "primary_paper_pinned",
       "provenance_quality": "archive_project_catalog"
     }
   ],

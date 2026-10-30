@@ -100,7 +100,7 @@
       "label": "Horse aDNA site evidence (domesticated core)",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-      "count": 63,
+      "count": 66,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
@@ -113,7 +113,7 @@
       "label": "Horse aDNA site evidence (wild or progenitor context)",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-      "count": 12,
+      "count": 13,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
@@ -230,7 +230,7 @@
       "label": "Horse source-sample chronology",
       "source_name": "Governed animal project sample chronology",
       "coverage_label": "",
-      "count": 242,
+      "count": 258,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": false,
@@ -361,7 +361,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 1717
+        "record_count": 1737
       },
       "edges": {
         "status": "unavailable",
@@ -390,29 +390,24 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 1713
+        "record_count": 1733
       }
     }
   },
   "animal_sample_chronology_context": {
     "artifact": "world_animal_sample_chronology_context.json",
-    "content_sha256": "570776d59e4e7605832745d6a89c0f927a326b935e5df11533b5c335235fbd42",
-    "input_identity_sha256": "dca77b0cb14aecb1ff67b580aa8f8bc9485a41f520aac758e4302292d1b16c62",
-    "corpus_identity_sha256": "2a4c71ade9cb4ced0471b7e29f8f609f9cfc22c6b5c15a8b462f7a6ef8b513e4",
+    "content_sha256": "bc95fa57508504883e0b162af5abc8cbb87ea967383d4e2f152d0e1c8b068a55",
+    "input_identity_sha256": "999af69ef888e253e1ae46082faae1834b345c744b0577abf5431c3a470becc1",
+    "corpus_identity_sha256": "38bee7ebe060bfb893817e7bfb497abe9438c4e8f3c4ff6a67946ca3bb2e3b73",
     "scope": {
-      "key": "world",
+      "key": "global",
       "kind": "world",
-      "countries": [
-        "Sweden",
-        "Norway",
-        "Finland",
-        "Denmark"
-      ]
+      "countries": []
     },
-    "global_admitted_node_count": 319,
-    "projected_node_count": 319,
+    "global_admitted_node_count": 335,
+    "projected_node_count": 335,
     "excluded_by_scope_count": 0,
-    "refusal_count": 1156,
+    "refusal_count": 1157,
     "governed_country_rows": [
       {
         "country_name": "Denmark",

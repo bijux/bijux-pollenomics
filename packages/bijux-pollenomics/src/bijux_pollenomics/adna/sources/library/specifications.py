@@ -12,6 +12,20 @@ from .models import AdnaSourceBundleManifest, _PaperSourceSpec, _RemoteArtifactS
 
 def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
     return {
+        "10.1371/journal.pone.0249537": _PaperSourceSpec(
+            doi="10.1371/journal.pone.0249537",
+            article_source_url="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0249537",
+            article_local_path="data/adna/review/galician_cattle/article.html",
+            article_kind="article_html",
+            article_note="Retained primary capture and S1/S2 tables are bound in place to the original reviewed source identities.",
+            supplement_required=True,
+            sample_identifier_targets=(
+                "data/adna/review/galician_cattle/dating-table.xlsx",
+            ),
+            sample_site_targets=("data/adna/review/galician_cattle/dating-table.xlsx",),
+            chronology_targets=("data/adna/review/galician_cattle/dating-table.xlsx",),
+            registry_note="Eighteen processed specimens, eleven consensus sequences and nine GenBank submissions are separate source stages; no sample context is admitted by paper linkage.",
+        ),
         "10.1038/s42003-021-02794-8": _PaperSourceSpec(
             doi="10.1038/s42003-021-02794-8",
             article_source_url="https://www.nature.com/articles/s42003-021-02794-8",
@@ -276,6 +290,9 @@ def _expand_remote_assets(
     spec: _PaperSourceSpec,
     catalog: tuple[AdnaArchiveProject, ...],
 ) -> tuple[_RemoteArtifactSpec, ...]:
+    if spec.doi == "10.1371/journal.pone.0249537":
+        # Existing reviewed captures have their original paths and HTTP history.
+        return ()
     article_relative = spec.article_local_path.split(f"{ADNA_SOURCE_LIBRARY_DIR}/", 1)[
         1
     ]

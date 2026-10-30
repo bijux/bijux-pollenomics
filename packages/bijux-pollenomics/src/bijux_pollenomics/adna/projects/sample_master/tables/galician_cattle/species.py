@@ -111,6 +111,7 @@ def build_galician_sample_species_review(
     from bijux_pollenomics.adna.projects.sample_master import (
         build_project_sample_master,
     )
+    from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
     from bijux_pollenomics.adna.species.tracked_data.csv_exports import (
         _render_sample_records_csv,
     )
@@ -294,7 +295,12 @@ def build_galician_sample_species_review(
         },
         "admission_posture": {
             "sample_species_resolved": True,
-            "project_paper_linkage_promoted": False,
+            "project_paper_linkage_promoted": any(
+                project.project_accession == PROJECT
+                and project.paper_linkage is not None
+                and project.paper_linkage.doi == paper_review["paper_doi"]
+                for project in build_archive_project_catalog()
+            ),
             "sample_site_resolved": False,
             "sample_chronology_resolved": False,
             "atlas_point_admitted": False,

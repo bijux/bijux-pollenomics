@@ -1,13 +1,13 @@
 {
   "schema_version": "adna-source-library.v1",
-  "archived_artifact_count": 224,
-  "archived_html_artifact_count": 54,
+  "archived_artifact_count": 228,
+  "archived_html_artifact_count": 56,
   "compressed_html_artifact_count": 54,
-  "uncompressed_html_artifact_count": 0,
-  "archived_payload_byte_count": 400005373,
-  "archived_storage_byte_count": 392336068,
-  "html_payload_byte_count": 9222810,
-  "html_storage_byte_count": 1553505,
+  "uncompressed_html_artifact_count": 2,
+  "archived_payload_byte_count": 400321477,
+  "archived_storage_byte_count": 392652172,
+  "html_payload_byte_count": 9524090,
+  "html_storage_byte_count": 1854785,
   "rows": [
     {
       "artifact_id": "PRJEB10854:archive_metadata.html",
@@ -202,19 +202,6 @@
       "storage_byte_size": 13676,
       "project_accessions": [
         "PRJNA634908"
-      ]
-    },
-    {
-      "artifact_id": "PRJNA705960:archive_metadata.html",
-      "artifact_kind": "archive_metadata_html",
-      "paper_doi": null,
-      "local_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
-      "storage_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
-      "content_encoding": "gzip",
-      "byte_size": 3535,
-      "storage_byte_size": 808,
-      "project_accessions": [
-        "PRJNA705960"
       ]
     },
     {
@@ -684,6 +671,45 @@
       "storage_byte_size": 5032,
       "project_accessions": [
         "PRJEB81815"
+      ]
+    },
+    {
+      "artifact_id": "10.1371-journal.pone.0249537:article.html",
+      "artifact_kind": "article_html",
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "local_path": "adna/review/galician_cattle/article.html",
+      "storage_path": "adna/review/galician_cattle/article.html",
+      "content_encoding": "identity",
+      "byte_size": 226377,
+      "storage_byte_size": 226377,
+      "project_accessions": [
+        "PRJNA705960"
+      ]
+    },
+    {
+      "artifact_id": "10.1371-journal.pone.0249537:correction.html",
+      "artifact_kind": "paper_correction_html",
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "local_path": "adna/review/galician_cattle/correction.html",
+      "storage_path": "adna/review/galician_cattle/correction.html",
+      "content_encoding": "identity",
+      "byte_size": 74903,
+      "storage_byte_size": 74903,
+      "project_accessions": [
+        "PRJNA705960"
+      ]
+    },
+    {
+      "artifact_id": "PRJNA705960:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "local_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "storage_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+      "content_encoding": "gzip",
+      "byte_size": 3535,
+      "storage_byte_size": 808,
+      "project_accessions": [
+        "PRJNA705960"
       ]
     },
     {

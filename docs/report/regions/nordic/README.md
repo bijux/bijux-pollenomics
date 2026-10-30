@@ -421,7 +421,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** Overlay co-location is not causal farming history, scientific admission of pollen/LRA inputs, genotype-aware analysis or measured vegetation accuracy.
 
-**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.
+**Actual verification performed.** The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.
 
 **Remaining input or review.** Each layer retains its own chronology, entity, rights and scientific decisions. Actual shared-runtime World temporal cases do not substitute broader browser/provider, latency or ecological qualification.
 
@@ -435,7 +435,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four-country human display totals1,231 samples (SE416/NO130/FI32/DK653); eight animal locality points and one documented fieldwork location are separate evidence populations.
 
-- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `80999020ea8c0778081526f1cca83d6eddd34d3d14ea961ce3f80876ae683fa1`).
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `6372185a9d02c344da3211b96739ab33c069db9bc4daf25dbb8b160d5e44a789`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

@@ -290,24 +290,6 @@
       "content_encoding": "gzip"
     },
     {
-      "artifact_id": "PRJNA705960:archive_metadata.html",
-      "artifact_kind": "archive_metadata_html",
-      "label": "archive metadata page",
-      "source_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA705960&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
-      "local_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
-      "fetch_status": "archived",
-      "remote_note": "Archive-facing metadata page captured for the tracked accession.",
-      "project_accessions": [
-        "PRJNA705960"
-      ],
-      "paper_doi": null,
-      "content_type": "text/plain",
-      "byte_size": 3535,
-      "storage_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
-      "storage_byte_size": 808,
-      "content_encoding": "gzip"
-    },
-    {
       "artifact_id": "PRJNA788987:archive_metadata.html",
       "artifact_kind": "archive_metadata_html",
       "label": "archive metadata page",
@@ -3980,6 +3962,96 @@
       "byte_size": 34592,
       "storage_path": "adna/governance/source_library/projects/PRJEB81815/archive_metadata.html.gz",
       "storage_byte_size": 5032,
+      "content_encoding": "gzip"
+    },
+    {
+      "artifact_id": "10.1371-journal.pone.0249537:article.html",
+      "artifact_kind": "article_html",
+      "label": "article",
+      "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0249537",
+      "local_path": "adna/review/galician_cattle/article.html",
+      "fetch_status": "archived",
+      "remote_note": "Original retained capture authenticated against the reviewed sixteen-source paper/ENA binding; no new acquisition or specimen admission.",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "content_type": "application/octet-stream",
+      "byte_size": 226377,
+      "storage_path": "adna/review/galician_cattle/article.html",
+      "storage_byte_size": 226377,
+      "content_encoding": null
+    },
+    {
+      "artifact_id": "10.1371-journal.pone.0249537:correction.html",
+      "artifact_kind": "paper_correction_html",
+      "label": "correction",
+      "source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0269578",
+      "local_path": "adna/review/galician_cattle/correction.html",
+      "fetch_status": "archived",
+      "remote_note": "Original retained capture authenticated against the reviewed sixteen-source paper/ENA binding; no new acquisition or specimen admission.",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "content_type": "application/octet-stream",
+      "byte_size": 74903,
+      "storage_path": "adna/review/galician_cattle/correction.html",
+      "storage_byte_size": 74903,
+      "content_encoding": null
+    },
+    {
+      "artifact_id": "10.1371-journal.pone.0249537:dating-table.xlsx",
+      "artifact_kind": "supplementary_xlsx",
+      "label": "dating table",
+      "source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249537.s001&type=supplementary",
+      "local_path": "adna/review/galician_cattle/dating-table.xlsx",
+      "fetch_status": "archived",
+      "remote_note": "Original retained capture authenticated against the reviewed sixteen-source paper/ENA binding; no new acquisition or specimen admission.",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "byte_size": 8374,
+      "storage_path": "adna/review/galician_cattle/dating-table.xlsx",
+      "storage_byte_size": 8374,
+      "content_encoding": null
+    },
+    {
+      "artifact_id": "10.1371-journal.pone.0249537:mapping-table.xlsx",
+      "artifact_kind": "supplementary_xlsx",
+      "label": "mapping table",
+      "source_url": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249537.s002&type=supplementary",
+      "local_path": "adna/review/galician_cattle/mapping-table.xlsx",
+      "fetch_status": "archived",
+      "remote_note": "Original retained capture authenticated against the reviewed sixteen-source paper/ENA binding; no new acquisition or specimen admission.",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "byte_size": 6450,
+      "storage_path": "adna/review/galician_cattle/mapping-table.xlsx",
+      "storage_byte_size": 6450,
+      "content_encoding": null
+    },
+    {
+      "artifact_id": "PRJNA705960:archive_metadata.html",
+      "artifact_kind": "archive_metadata_html",
+      "label": "archive metadata page",
+      "source_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA705960&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
+      "local_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+      "fetch_status": "archived",
+      "remote_note": "Archive-facing metadata page captured for the tracked accession.",
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "content_type": "text/plain",
+      "byte_size": 3535,
+      "storage_path": "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+      "storage_byte_size": 808,
       "content_encoding": "gzip"
     },
     {

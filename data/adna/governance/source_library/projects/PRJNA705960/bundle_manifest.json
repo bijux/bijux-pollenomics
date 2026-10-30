@@ -1,24 +1,29 @@
 {
   "project_accession": "PRJNA705960",
   "species_latin_name": "Bos taurus",
-  "archive_status": "archive_verified_needs_paper_pinning",
-  "evidence_strength": "archive_only",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
   "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA705960&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
-  "paper_doi": null,
-  "paper_title": null,
+  "paper_doi": "10.1371/journal.pone.0249537",
+  "paper_title": "Insight into the introduction of domestic cattle and the process of Neolithization to the Spanish region Galicia by genetic evidence",
   "archive_metadata_sufficient": false,
   "paper_required": true,
-  "supplement_required": false,
-  "paper_download_status": "missing",
-  "supplement_download_status": "missing",
+  "supplement_required": true,
+  "paper_download_status": "archived",
+  "supplement_download_status": "archived",
   "local_artifact_ids": [
+    "10.1371-journal.pone.0249537:article.html",
+    "10.1371-journal.pone.0249537:correction.html",
+    "10.1371-journal.pone.0249537:dating-table.xlsx",
+    "10.1371-journal.pone.0249537:mapping-table.xlsx",
     "PRJNA705960:archive_metadata.html"
   ],
   "local_artifact_paths": [
+    "adna/review/galician_cattle/article.html",
+    "adna/review/galician_cattle/correction.html",
+    "adna/review/galician_cattle/dating-table.xlsx",
+    "adna/review/galician_cattle/mapping-table.xlsx",
     "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
   ],
-  "blockers": [
-    "missing_local_paper_evidence",
-    "paper_linkage_not_curated"
-  ]
+  "blockers": []
 }

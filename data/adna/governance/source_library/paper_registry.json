@@ -936,6 +936,49 @@
       "supplementary_acquisition_checklist_path": "data/adna/governance/source_library/supplement_acquisition_checklist.json"
     },
     {
+      "paper_doi": "10.1371/journal.pone.0249537",
+      "canonical_url": "https://doi.org/10.1371/journal.pone.0249537",
+      "article_source_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0249537",
+      "journal": "PLOS ONE",
+      "publication_year": 2021,
+      "title": "Insight into the introduction of domestic cattle and the process of Neolithization to the Spanish region Galicia by genetic evidence",
+      "species_latin_names": [
+        "Bos taurus"
+      ],
+      "project_accessions": [
+        "PRJNA705960"
+      ],
+      "article_download_status": "archived",
+      "article_readability_status": "readable_html",
+      "article_local_path": "data/adna/review/galician_cattle/article.html",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "repository_supplement_archived",
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
+      "supplementary_count": 2,
+      "parsing_status": "ready_for_project_sample_extraction",
+      "sample_extractability": "supplement_extractable",
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
+      "expected_supplementary_artifacts": [
+        "adna/review/galician_cattle/dating-table.xlsx",
+        "adna/review/galician_cattle/mapping-table.xlsx"
+      ],
+      "sample_identifier_targets": [
+        "data/adna/review/galician_cattle/dating-table.xlsx"
+      ],
+      "sample_site_targets": [
+        "data/adna/review/galician_cattle/dating-table.xlsx"
+      ],
+      "chronology_targets": [
+        "data/adna/review/galician_cattle/dating-table.xlsx"
+      ],
+      "supplementary_manifest_path": "data/adna/governance/source_library/papers/10.1371-journal.pone.0249537/supplementary_manifest.json",
+      "supplementary_acquisition_checklist_path": "data/adna/governance/source_library/supplement_acquisition_checklist.json"
+    },
+    {
       "paper_doi": "10.24272/j.issn.2095-8137.2025.080",
       "canonical_url": "https://doi.org/10.24272/j.issn.2095-8137.2025.080",
       "article_source_url": "https://www.zoores.ac.cn/en/article/doi/10.24272/j.issn.2095-8137.2025.080",
