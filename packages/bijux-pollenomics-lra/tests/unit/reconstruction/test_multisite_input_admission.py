@@ -83,7 +83,8 @@ def test_unresolved_matrix_masks_refuse_before_shared_conversion(
     "value", [0.95, np.float64(0.95), np.ma.array(0.95, mask=False)]
 )
 def test_resolved_confidence_metadata_is_not_numerically_rewritten(value: Any) -> None:
-    assert multisite_likelihood._require_unmasked(value, "confidence_level") is None
+    multisite_likelihood._require_unmasked(value, "confidence_level")
+    assert float(value) == 0.95
 
 
 @pytest.mark.parametrize("value", [np.ma.masked, np.ma.array(0.95, mask=True)])
