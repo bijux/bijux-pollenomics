@@ -584,6 +584,7 @@ def hellinger_sensitivity(hellinger: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    """Parse arguments for the declared source-bound conditional calculation."""
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)
     first = sub.add_parser("predict")

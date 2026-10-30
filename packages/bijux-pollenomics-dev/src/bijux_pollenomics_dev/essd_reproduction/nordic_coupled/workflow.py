@@ -18,11 +18,13 @@ MAX_OUTPUT = 134217728
 
 
 def require(value: object, message: str) -> None:
+    """Refuse requests outside the closed coupled workflow contract."""
     if not value:
         raise ValueError(message)
 
 
 def physical(path: Path) -> None:
+    """Require an ordinary unlinked file with no symlink ancestor."""
     require(
         path.is_absolute() and ".." not in path.parts, "Absolute physical path required"
     )
@@ -30,6 +32,7 @@ def physical(path: Path) -> None:
 
 
 def read(path: Path, checksum: str, maximum: int) -> tuple[bytes, Any]:
+    """Authenticate and decode a bounded finite JSON object."""
     physical(path)
     before = path.stat()
     require(
@@ -57,6 +60,7 @@ def read(path: Path, checksum: str, maximum: int) -> tuple[bytes, Any]:
     )
 
     def pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
+        """Refuse duplicate JSON fields before constructing the object."""
         value = {}
         for key, item in items:
             require(key not in value, "Duplicate JSON key")
@@ -64,12 +68,14 @@ def read(path: Path, checksum: str, maximum: int) -> tuple[bytes, Any]:
         return value
 
     def nonfinite(token: str) -> Any:
+        """Refuse a nonfinite JSON numeric constant."""
         raise ValueError("Nonfinite JSON token: " + token)
 
     return raw, json.loads(raw, object_pairs_hook=pairs, parse_constant=nonfinite)
 
 
 def write(root: Path, value: object) -> None:
+    """Write the bounded coupled workflow JSON product."""
     raw = (json.dumps(value, indent=2, allow_nan=False) + "\n").encode()
     require(len(raw) <= 2097152, "Batch index exceeds bound")
     # The owned ledger is refreshed as each bin terminates; native products stay immutable.
@@ -150,6 +156,7 @@ def input_scope(
 
 
 def apis() -> dict[str, Any]:
+    """Load the maintained experiment APIs used by the coupled workflow."""
     from bijux_pollenomics.analysis.lra.api import LRARefusal
     from bijux_pollenomics.analysis.lra_validation import ValidationRefusal
     from bijux_pollenomics.analysis.lra_validation.experiments import (
@@ -175,6 +182,7 @@ def apis() -> dict[str, Any]:
 def prediction_receipt(
     directory: Path, checksum: str, api: dict[str, Any]
 ) -> dict[str, Any]:
+    """Retain prediction identity, source roles and complete refusal counts."""
     product, manifest, folds, predictions, methods = api["reopen"](
         directory, expected_manifest_sha256=checksum
     )
@@ -251,6 +259,7 @@ def batch(
     protocol_binding: dict[str, Any] | None = None,
     cohort: str | None = None,
 ) -> dict[str, Any]:
+    """Run one declared prediction or post-freeze scoring batch."""
     require(
         len(execution_epoch) == 40
         and all(c in "0123456789abcdef" for c in execution_epoch),
@@ -484,6 +493,7 @@ def batch(
 
 
 def main() -> None:
+    """Parse arguments for the maintained coupled workflow command."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("phase", choices=("prepare", "score"))
     parser.add_argument("--execution-epoch", required=True)

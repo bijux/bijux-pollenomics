@@ -14,6 +14,20 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/flink_nordic.py": {
+        "bijux_pollenomics.analysis.lra.inputs.validation": frozenset(
+            {"validate_request"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.experiments": frozenset(
+            {"SourceExperimentSpec"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.experiments.inputs": frozenset(
+            {"make_request", "read_geometry"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_leave_one_out"}
+        ),
+    },
     "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/comparison.py": {
         "bijux_pollenomics.analysis.lra_validation.experiments.outputs": frozenset(
             {"read_experiment_product", "read_member"}
@@ -1569,3 +1583,24 @@ def test_conditional_pollen_host_bindings_remain_file_module_and_symbol_specific
                     (f"importlib.import_module({module!r})", path),
                 ):
                     assert host_import_violations(text, reader)
+
+
+def test_flink_cohort_host_bindings_remain_file_module_and_symbol_specific() -> None:
+    """Only the declared Flink cohort client may construct its host input contract."""
+    path = (
+        "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/flink_nordic.py"
+    )
+    for module, symbols in APPROVED_HOST_IMPORTS[path].items():
+        for symbol in symbols:
+            statement = f"from {module} import {symbol}"
+            assert not host_import_violations(statement, path)
+            for text, reader in (
+                (statement, path + ".other"),
+                (f"from {module} import {symbol}_other", path),
+                (f"from {module}.other import {symbol}", path),
+                (f"from {module} import *", path),
+                (f"import {module}", path),
+                (f"__import__({module!r})", path),
+                (f"importlib.import_module({module!r})", path),
+            ):
+                assert host_import_violations(text, reader)

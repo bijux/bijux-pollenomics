@@ -314,6 +314,7 @@ def derive(support: bytes, raw: bytes, frozen: bytes, config: bytes) -> dict[str
         allocations: dict[str, dict[str, Any]] = {}
 
         def block(selected: tuple[str, ...]) -> tuple[str, int, int]:
+            """Retain one exact feasible count block in the score-bound ledger."""
             positions = [indices[sample_id] for sample_id in selected]
             first, stop = min(positions), max(positions) + 1
             if positions != list(range(first, stop)):
@@ -324,6 +325,7 @@ def derive(support: bytes, raw: bytes, frozen: bytes, config: bytes) -> dict[str
             witness: ScoreWitness | None,
             retained_allocations: dict[str, dict[str, Any]] = allocations,
         ) -> dict[str, Any] | None:
+            """Serialize an exact bound endpoint without rounding its witness."""
             if witness is None:
                 return None
             name, first, stop = block(witness.selected_sample_ids)

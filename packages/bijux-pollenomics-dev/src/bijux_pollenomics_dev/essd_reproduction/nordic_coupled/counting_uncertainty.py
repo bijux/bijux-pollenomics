@@ -251,6 +251,7 @@ def coefficients(
 
 
 def maintained(counts: list[int], a: list[float], b: list[float]) -> dict[str, Any]:
+    """Load the maintained fixed-background counting-set evaluator."""
     from bijux_pollenomics_lra.reconstruction.uncertainty.homogeneous_counting import (
         homogeneous_two_taxon_counting_set,
     )
@@ -342,6 +343,7 @@ def evaluate(
 
 
 def main() -> None:
+    """Parse arguments for the declared source-bound conditional calculation."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)

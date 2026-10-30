@@ -108,6 +108,7 @@ class _Extrema:
     def add(
         self, value: Fraction, block: CountFractionWitness, counts: tuple[int, ...]
     ) -> None:
+        """Retain one distinct feasible witness in deterministic source order."""
         witness = ScoreWitness(
             value, block.selected_sample_ids, counts, block.age_order
         )

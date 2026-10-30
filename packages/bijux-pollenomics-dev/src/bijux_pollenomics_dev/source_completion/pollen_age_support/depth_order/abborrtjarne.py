@@ -184,6 +184,7 @@ def derive_count_fraction_bounds(
     def wire(
         witness: count_fraction.CountFractionWitness | None,
     ) -> dict[str, Any] | None:
+        """Serialize exact source-bound count-fraction witnesses for the report."""
         if witness is None:
             return None
         return {

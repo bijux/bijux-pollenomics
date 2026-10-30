@@ -7,9 +7,14 @@ import csv
 import hashlib
 import io
 import json
+from pathlib import Path
+from typing import Any
 
 import pytest
 
+from bijux_pollenomics_dev.source_completion.pollen_age_support import (
+    abborrtjarne_joint_membership as independent,
+)
 from bijux_pollenomics_dev.source_completion.pollen_age_support import (
     abborrtjarne_membership as schema,
 )
@@ -159,3 +164,76 @@ def test_changed_source_membership_is_not_treated_as_an_order_refusal() -> None:
             membership.replace(b",0,1750", b",NaN,1750", 1),
             report,
         )
+
+
+def test_new_count_fraction_mode_returns_exact_bounds_with_complete_witnesses() -> None:
+    inputs = miniature()
+    original = abborrtjarne.derive(*inputs)
+    result = abborrtjarne.derive_count_fraction_bounds(*inputs)
+    assert result["schema_version"] == "abbo-ordered-count-fraction-bounds.v1"
+    assert (
+        result["original_independent_marginal_bounds"]
+        == original["marginal_bounds_unchanged"]
+    )
+    assert len(result["bounds"]) == 4
+    for row in result["bounds"]:
+        assert row["candidate_block_count"] == row["tested_block_count"] == 5778
+        assert row["feasible_block_count"] == 1
+        assert row["empty_selection_age_order"] is None
+        for side in ("lower", "upper"):
+            bound = row[side]
+            assert bound["fraction"] == {"numerator": 1, "denominator": 2}
+            assert len(bound["selected_sample_ids"]) == 1
+            assert len(bound["age_order"]["assignments"]) == 107
+    assert abborrtjarne.derive(*inputs) == original
+    assert "joint probability" in result["age_scope"]
+
+
+def test_new_bounds_retains_full_inconsistent_core_refusal() -> None:
+    result = abborrtjarne.derive_count_fraction_bounds(*miniature(reversal=True))
+    assert all(
+        row["refusal"] == "native_age_order_infeasible" for row in result["bounds"]
+    )
+    assert all(row["lower"] is row["upper"] is None for row in result["bounds"])
+    assert all(row["native_age_order"]["refusal"] for row in result["bounds"])
+
+
+@pytest.mark.parametrize("revision_changes", [False, True])
+def test_new_run_records_git_revision_and_only_input_pins(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, revision_changes: bool
+) -> None:
+    support, membership, report = miniature()
+    buffers = {
+        schema.SUPPORT: support,
+        independent.MEMBERSHIP: membership,
+        independent.REPORT: report,
+    }
+    identities = {
+        str(path): {"sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw)}
+        for path, raw in buffers.items()
+    }
+
+    def input_buffers(
+        repository: Path, *, include_code_identities: bool = True
+    ) -> tuple[dict[Path, bytes], dict[str, Any]]:
+        assert repository == tmp_path and not include_code_identities
+        return buffers, identities
+
+    revisions = iter(["a" * 40, ("b" if revision_changes else "a") * 40])
+    monkeypatch.setattr(abborrtjarne, "_buffers", input_buffers)
+    monkeypatch.setattr(abborrtjarne, "_source_revision", lambda _: next(revisions))
+    (tmp_path / "artifacts").mkdir()
+    output = tmp_path / "artifacts/bounds"
+    if revision_changes:
+        with pytest.raises(ValueError, match="Git revision changed"):
+            abborrtjarne.run(tmp_path, output, count_fraction_bounds=True)
+        assert not output.exists()
+        assert list((tmp_path / "artifacts").iterdir()) == []
+    else:
+        result = abborrtjarne.run(tmp_path, output, count_fraction_bounds=True)
+        assert result["source_git_revision"] == "a" * 40
+        assert result["input_identities"] == identities
+        assert "input_and_source_identities" not in result
+        assert isinstance(result["command"], list)
+        assert json.loads((output / "report.json").read_text()) == result
+        assert [p.name for p in output.iterdir()] == ["report.json"]

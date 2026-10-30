@@ -271,6 +271,7 @@ def batch(
     prediction_index: Path | None = None,
     prediction_index_sha256: str | None = None,
 ) -> dict[str, Any]:
+    """Retain every declared cohort prediction or post-freeze score disposition."""
     raw, _ = shared.read(protocol_path, protocol_sha256, 65536)
     binding = {"path": str(protocol_path), "sha256": protocol_sha256, "bytes": len(raw)}
     return shared.batch(
@@ -288,6 +289,7 @@ def batch(
 
 
 def main() -> None:
+    """Parse arguments for the declared source-bound conditional calculation."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("phase", choices=("prepare", "score"))
     for field in ("input-root", "input-manifest", "output", "protocol"):

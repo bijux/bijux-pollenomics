@@ -123,6 +123,7 @@ def extend(
     rows = []
 
     def add(name: str, value: object) -> dict[str, str]:
+        """Retain one distinct feasible witness in deterministic source order."""
         require(name not in result, "Nominal input overwrite refused")
         raw = encoded(value)
         require(len(raw) <= 65536, "Input member exceeds bound")
@@ -439,6 +440,7 @@ def materialize(
 
 
 def main() -> None:
+    """Parse arguments for the declared source-bound conditional calculation."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     for field in ("repository", "output", "manifest"):
         parser.add_argument("--" + field, type=Path, required=True)

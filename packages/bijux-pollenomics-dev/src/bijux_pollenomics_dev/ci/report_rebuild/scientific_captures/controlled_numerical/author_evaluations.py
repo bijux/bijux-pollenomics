@@ -102,6 +102,16 @@ def _ast(body: bytes) -> ast.Module:
 
 
 def _prove_delta(name: str, old: bytes, new: bytes) -> None:
+    if name == METRICS:
+        from ..source_roles.numerical_precision import stable_hellinger_profile_basis
+
+        basis = stable_hellinger_profile_basis(new)
+        _require(
+            basis is not None,
+            "Explicit Hellinger profile differs beyond its finite source law",
+        )
+        assert basis is not None
+        new = basis
     historical, current = _ast(old), _ast(new)
     if name == METRICS:
         definitions = []
