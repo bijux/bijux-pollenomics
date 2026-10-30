@@ -17,6 +17,7 @@ OWNER = "pollen-reconstruction/swedish-static-basin-scenarios/scientific-capture
 # Capture custody preserves its actual original scope; transporting these bytes
 # does not run a model, renderer, observation capture or qualified review again.
 CAPTURE_PINS = {
+    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-r-reference.json": "e598482f99f8c3ecebc5544da04df2b7196a94509224423515422e5cd96b6f98",
     "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/source-reconciliation.json": "c88355fa3ad588e91261f6906884e2d68fe6968dc6f1aa4eccb36ae04b94cb6e",
     "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/actual-runs.json": "7f063989a7a33f7deae9b46733eb967150405bfe5357579c2c6f3ad19638efcf",
     "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/figure-capture.json": "43bf80dfa7aa2b9561010d9f70936535974e4bc2e072800db87bda0684aa9b1c",
@@ -40,6 +41,9 @@ OWNER_PATHS = {
     ],
     "pollen-reconstruction/swedish-static-basin-scenarios/figure-native-capture": [
         "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/figures/panel-comparison.png"
+    ],
+    "pollen-reconstruction/swedish-static-basin-scenarios/native-r-reference-account": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-r-reference.json"
     ],
 }
 NATIVE_FIGURE_AUTHORITY = {
@@ -134,10 +138,13 @@ def validated_swedish_static_basin_captures(
         "reviewed_capture_sha256": dict(CAPTURE_PINS),
         "paths": [entry.path for entry in accepted],
         "source_scope": (
-            "Eight exact immutable JSON source/decision captures and one actual native PNG, "
+            "Eight original immutable JSON source/decision captures, one actual native PNG and "
+            "one separately admitted independent R numerical-reference summary, "
             "maintained-producer, import-observation, figure and independent "
             "mathematical review projections. Actual original candidate/source/"
             "native receipt authority remains in each bound source record. "
+            "The summary retains saved1988/exportdb2/execution6763 plus declared overlays/"
+            "canonicald670 source identities; publication transport is a later epoch. "
             "Current custody does not repeat any numerical computation or "
             "confer new scientific review, source rights, R parity, historical "
             "reproduction, reader qualification or vegetation accuracy."

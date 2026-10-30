@@ -1,0 +1,24 @@
+{
+  "schema_version": "nordic-conditional-regional-extent-sensitivity.v1",
+  "source_report_sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+  "source_epoch": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+  "baseline_regional_extent_m": 100000,
+  "alternative_regional_extent_m": [
+    50000,
+    200000
+  ],
+  "wind_speed_m_s": 3,
+  "diffusion_coefficient": 0.12,
+  "turbulence_parameter": 0.25,
+  "alternative_status": "declared_numerical_cutoff_stress_settings_not_empirical_extent_range",
+  "justification": "Prospectively test half and double the retained 100 km cutoff, equally spaced on a logarithmic scale, as a finite-boundary convergence/stress diagnostic. These analyst settings are not source-supported regional vegetation extents, field observations, probabilities or fitted choices. Retain negligible, adverse and refused outcomes.",
+  "geometry_policy": "retain_all_nine_original_static_geometries_without_new_radius_or_shape",
+  "support_policy": "preserve exact original case/window/taxon/count/PPE/age support; no new samples, cross-window uncertainty or independent-site pooling",
+  "claims": {
+    "measured_extent": false,
+    "source_qualified_alternative_extent": false,
+    "historical_reproduction": false,
+    "vegetation_accuracy": false,
+    "whole_lci_030": false
+  }
+}

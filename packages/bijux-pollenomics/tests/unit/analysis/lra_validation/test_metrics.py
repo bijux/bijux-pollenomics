@@ -385,3 +385,63 @@ def test_rmse_adjacent_normal_guard_edge_has_bounded_fraction_error(
     result = score_vegetation(predicted, observed)
     assert result.rmse_fraction is not None
     assert abs(result.rmse_fraction - expected) <= 2 * ulp(expected)
+
+
+def _decimal_hellinger(
+    predicted: dict[str, float], observed: dict[str, float]
+) -> float:
+    from decimal import Decimal, localcontext
+
+    with localcontext() as context:
+        context.prec = 1100
+        squared_roots = sum(
+            (
+                (
+                    Decimal.from_float(predicted[key]).sqrt()
+                    - Decimal.from_float(observed[key]).sqrt()
+                )
+                ** 2
+                for key in sorted(predicted)
+            ),
+            Decimal(0),
+        )
+        return float((squared_roots / 2).sqrt())
+
+
+@pytest.mark.parametrize(
+    "left,right,closed_rest",
+    [
+        (float.fromhex("0x0.0000000000001p-1022"), 0.0, True),
+        (1e-300, 0.0, True),
+        (0.25, float.fromhex("0x1.0000000000001p-2"), True),
+        (float.fromhex("0x1.fffffffffffffp-1"), 1.0, False),
+        (0.8, 0.6, True),
+        (1.0, 0.0, True),
+        (0.0, 0.0, True),
+    ],
+)
+@pytest.mark.parametrize("reverse", [False, True])
+def test_hellinger_preserves_finite_fraction_distance(
+    left: float, right: float, closed_rest: bool, reverse: bool
+) -> None:
+    from math import ulp
+
+    # The public closure tolerance admits the adjacent and subnormal cases;
+    # the oracle scores their actual fractions without implicit normalization.
+    predicted = {"tree": left, "grass": 1.0 - left if closed_rest else 0.0}
+    observed = {"tree": right, "grass": 1.0 - right if closed_rest else 0.0}
+    if reverse:
+        predicted, observed = observed, predicted
+    expected = _decimal_hellinger(predicted, observed)
+    result = hellinger_distance(predicted, observed)
+    assert (result > 0) == (expected > 0)
+    assert abs(result - expected) <= 4 * ulp(expected)
+    assert (
+        hellinger_distance(dict(reversed(list(predicted.items()))), observed) == result
+    )
+
+
+@pytest.mark.parametrize("value", [-0.1, float("nan"), True])
+def test_hellinger_preserves_invalid_fraction_refusal(value: Any) -> None:
+    with pytest.raises(ValidationRefusal):
+        hellinger_distance({"tree": value, "grass": 1.0}, {"tree": 0.0, "grass": 1.0})

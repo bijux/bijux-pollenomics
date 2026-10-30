@@ -1,0 +1,2245 @@
+{
+  "age_scope": "Preserves reported LegacyAge calibrated-BP marginal endpoints and native negative values; no newly qualified reference epoch, calibration model, confidence level or joint age distribution.",
+  "assumption": "One nondecreasing age function of native depth in the retained ABBO dataset; equal depths share one age. This is a declared conditional model, not source-verified sediment history.",
+  "attainable_corners_with_order": 0,
+  "corners": [
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173194"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173195"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173196"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173200"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173201"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173202"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173203"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173204"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 2203,
+            "numerator": 483
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 6823,
+            "numerator": 2283
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 4979,
+            "numerator": 1895
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 409,
+            "numerator": 167
+          },
+          "side": "lower"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173194"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173195"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173196"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173200"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173201"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173202"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173203"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173204"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 2203,
+            "numerator": 483
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 6823,
+            "numerator": 2283
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 4979,
+            "numerator": 1895
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 7111,
+            "numerator": 3963
+          },
+          "side": "upper"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173194"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173195"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173196"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173201"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173202"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 2203,
+            "numerator": 483
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 6823,
+            "numerator": 2283
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 11483,
+            "numerator": 5103
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 409,
+            "numerator": 167
+          },
+          "side": "lower"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173194"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173195"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173196"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173201"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173202"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 2203,
+            "numerator": 483
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 6823,
+            "numerator": 2283
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 11483,
+            "numerator": 5103
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 7111,
+            "numerator": 3963
+          },
+          "side": "upper"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173191"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173192"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173193"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173194"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173195"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173196"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 2203,
+            "numerator": 483
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 8958,
+            "numerator": 3847
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 4979,
+            "numerator": 1895
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 409,
+            "numerator": 167
+          },
+          "side": "lower"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173191"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173192"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173193"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173194"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173195"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173196"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 2203,
+            "numerator": 483
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 8958,
+            "numerator": 3847
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 4979,
+            "numerator": 1895
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 7111,
+            "numerator": 3963
+          },
+          "side": "upper"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173191"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173192"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173193"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173194"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173195"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173196"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173200"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173203"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173204"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 2203,
+            "numerator": 483
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 8958,
+            "numerator": 3847
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 11483,
+            "numerator": 5103
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 409,
+            "numerator": 167
+          },
+          "side": "lower"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173191"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173192"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173193"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173194"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173195"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173196"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173200"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173203"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173204"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 2203,
+            "numerator": 483
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 8958,
+            "numerator": 3847
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 11483,
+            "numerator": 5103
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 7111,
+            "numerator": 3963
+          },
+          "side": "upper"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173200"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173201"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173202"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173203"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173204"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 41,
+            "numerator": 14
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 6823,
+            "numerator": 2283
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 4979,
+            "numerator": 1895
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 409,
+            "numerator": 167
+          },
+          "side": "lower"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173200"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173201"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173202"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173203"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173204"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 41,
+            "numerator": 14
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 6823,
+            "numerator": 2283
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 4979,
+            "numerator": 1895
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 7111,
+            "numerator": 3963
+          },
+          "side": "upper"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173201"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173202"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 41,
+            "numerator": 14
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 6823,
+            "numerator": 2283
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 11483,
+            "numerator": 5103
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 409,
+            "numerator": 167
+          },
+          "side": "lower"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173201"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173202"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 41,
+            "numerator": 14
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 6823,
+            "numerator": 2283
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 11483,
+            "numerator": 5103
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 7111,
+            "numerator": 3963
+          },
+          "side": "upper"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173191"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173192"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173193"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 41,
+            "numerator": 14
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 8958,
+            "numerator": 3847
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 4979,
+            "numerator": 1895
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 409,
+            "numerator": 167
+          },
+          "side": "lower"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173191"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173192"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173193"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 41,
+            "numerator": 14
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 8958,
+            "numerator": 3847
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 4979,
+            "numerator": 1895
+          },
+          "side": "lower"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 7111,
+            "numerator": 3963
+          },
+          "side": "upper"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173191"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173192"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173193"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173200"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173203"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173204"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 41,
+            "numerator": 14
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 8958,
+            "numerator": 3847
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 11483,
+            "numerator": 5103
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 409,
+            "numerator": 167
+          },
+          "side": "lower"
+        }
+      ]
+    },
+    {
+      "age_order": null,
+      "attainable_with_order": false,
+      "independent_attainable": false,
+      "independent_refusals": [
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173191"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173192"
+        },
+        {
+          "excluded_bins": [
+            "3",
+            "4"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173193"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173200"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173203"
+        },
+        {
+          "excluded_bins": [],
+          "reason": "forced_into_distinct_bins",
+          "required_bins": [
+            "4",
+            "5"
+          ],
+          "sample_id": "neotoma:sample:173204"
+        },
+        {
+          "excluded_bins": [
+            "4",
+            "5"
+          ],
+          "reason": "no_supported_age_location",
+          "required_bins": [],
+          "sample_id": "neotoma:sample:173205"
+        }
+      ],
+      "targets": [
+        {
+          "bin_id": "3",
+          "fraction": {
+            "denominator": 41,
+            "numerator": 14
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "4",
+          "fraction": {
+            "denominator": 8958,
+            "numerator": 3847
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "5",
+          "fraction": {
+            "denominator": 11483,
+            "numerator": 5103
+          },
+          "side": "upper"
+        },
+        {
+          "bin_id": "9",
+          "fraction": {
+            "denominator": 7111,
+            "numerator": 3963
+          },
+          "side": "upper"
+        }
+      ]
+    }
+  ],
+  "distinct_depth_count": 107,
+  "independently_attainable_corners": 0,
+  "input_and_source_identities": {
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv": {
+      "bytes": 8052,
+      "sha256": "26ca6dc862790c71a3a7821b027413307dd2334856080a1b07e186177cfb8e01"
+    },
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv": {
+      "bytes": 30058,
+      "sha256": "6ca70c45e9c292b485ceea31aee3cda9aa92ffb5fdc404b9f6cc70158a62a2cc"
+    },
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json": {
+      "bytes": 5202,
+      "sha256": "bcd838ffc4bf9221761686c180d086d62482d09bd40880a4dd75b1024ac40340"
+    },
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/config.json": {
+      "bytes": 1715,
+      "sha256": "7488562b4878de2eb7ac14466c0732ce455711edb01ec80181aff91d74bbef9a"
+    },
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json": {
+      "bytes": 1215,
+      "sha256": "29c59ac308596444ee7abae1a1e4fe81e530157ee073dce5adc593a3fc99f4f4"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_joint_membership.py": {
+      "bytes": 12517,
+      "sha256": "f92e3514a344c539a4603dec3e87f3ddbb526bbd9372e4cd623ade5a521f0649"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py": {
+      "bytes": 14448,
+      "sha256": "f1ffc80dbf2b74ffc6f3df209d816441221025fe6c1f4039abb4578870558ace"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne.py": {
+      "bytes": 9825,
+      "sha256": "99179400deed6692dcc6024e38db973986886bb44b16ca3a109b2ce91f0ff6eb"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/domains.py": {
+      "bytes": 6436,
+      "sha256": "1fb78f8ed330aa860a8f2de265dfab36bd6688fbfa35281b850b63e9895ade62"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/extrema.py": {
+      "bytes": 4936,
+      "sha256": "feb7cf0dc11d161d68474ef463d6b332bacd7e23ac7aaaba1c5d757923d85cb1"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py": {
+      "bytes": 3879,
+      "sha256": "0c61fb0d4b693f4ed65156fcf0ecea10535e31d515f5145407bccff55c15cfb1"
+    },
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/joint_membership.py": {
+      "bytes": 11250,
+      "sha256": "6d8f9e1c96c1735227fc31790005851302221c760ae9f0e1479172537a38cd6e"
+    }
+  },
+  "interpretation": "Exact existence/witness/refusal under this order assumption. Original per-bin bounds and independent refusals remain unchanged. No recomputed order-constrained extrema, probability, prediction, vegetation accuracy or untouched chronology confirmation.",
+  "marginal_bounds_unchanged": [
+    {
+      "bin_id": "3",
+      "lower": {
+        "denominator": 2203,
+        "numerator": 483
+      },
+      "upper": {
+        "denominator": 41,
+        "numerator": 14
+      }
+    },
+    {
+      "bin_id": "4",
+      "lower": {
+        "denominator": 6823,
+        "numerator": 2283
+      },
+      "upper": {
+        "denominator": 8958,
+        "numerator": 3847
+      }
+    },
+    {
+      "bin_id": "5",
+      "lower": {
+        "denominator": 4979,
+        "numerator": 1895
+      },
+      "upper": {
+        "denominator": 11483,
+        "numerator": 5103
+      }
+    },
+    {
+      "bin_id": "9",
+      "lower": {
+        "denominator": 409,
+        "numerator": 167
+      },
+      "upper": {
+        "denominator": 7111,
+        "numerator": 3963
+      }
+    }
+  ],
+  "membership_row_count": 428,
+  "native_interval_order": {
+    "assignments": [
+      {
+        "depth_cm": "648",
+        "possible_native_age": "-135",
+        "sample_id": "neotoma:sample:173173"
+      },
+      {
+        "depth_cm": "650",
+        "possible_native_age": "-91",
+        "sample_id": "neotoma:sample:173174"
+      },
+      {
+        "depth_cm": "652",
+        "possible_native_age": "-69",
+        "sample_id": "neotoma:sample:173175"
+      },
+      {
+        "depth_cm": "654",
+        "possible_native_age": "-36",
+        "sample_id": "neotoma:sample:173176"
+      },
+      {
+        "depth_cm": "656",
+        "possible_native_age": "-1",
+        "sample_id": "neotoma:sample:173177"
+      },
+      {
+        "depth_cm": "658",
+        "possible_native_age": "23",
+        "sample_id": "neotoma:sample:173178"
+      },
+      {
+        "depth_cm": "660",
+        "possible_native_age": "87",
+        "sample_id": "neotoma:sample:173179"
+      },
+      {
+        "depth_cm": "664",
+        "possible_native_age": "170",
+        "sample_id": "neotoma:sample:173180"
+      },
+      {
+        "depth_cm": "668",
+        "possible_native_age": "258",
+        "sample_id": "neotoma:sample:173181"
+      },
+      {
+        "depth_cm": "672",
+        "possible_native_age": "379",
+        "sample_id": "neotoma:sample:173182"
+      },
+      {
+        "depth_cm": "676",
+        "possible_native_age": "533",
+        "sample_id": "neotoma:sample:173183"
+      },
+      {
+        "depth_cm": "680",
+        "possible_native_age": "677",
+        "sample_id": "neotoma:sample:173184"
+      },
+      {
+        "depth_cm": "684",
+        "possible_native_age": "821",
+        "sample_id": "neotoma:sample:173185"
+      },
+      {
+        "depth_cm": "688",
+        "possible_native_age": "980",
+        "sample_id": "neotoma:sample:173186"
+      },
+      {
+        "depth_cm": "692",
+        "possible_native_age": "1330",
+        "sample_id": "neotoma:sample:173187"
+      },
+      {
+        "depth_cm": "696",
+        "possible_native_age": "1429",
+        "sample_id": "neotoma:sample:173188"
+      },
+      {
+        "depth_cm": "700",
+        "possible_native_age": "1475",
+        "sample_id": "neotoma:sample:173189"
+      },
+      {
+        "depth_cm": "704",
+        "possible_native_age": "1524",
+        "sample_id": "neotoma:sample:173190"
+      },
+      {
+        "depth_cm": "708",
+        "possible_native_age": "1579",
+        "sample_id": "neotoma:sample:173191"
+      },
+      {
+        "depth_cm": "712",
+        "possible_native_age": "1649",
+        "sample_id": "neotoma:sample:173192"
+      },
+      {
+        "depth_cm": "716",
+        "possible_native_age": "1719",
+        "sample_id": "neotoma:sample:173193"
+      },
+      {
+        "depth_cm": "720",
+        "possible_native_age": "1791",
+        "sample_id": "neotoma:sample:173194"
+      },
+      {
+        "depth_cm": "724",
+        "possible_native_age": "1875",
+        "sample_id": "neotoma:sample:173195"
+      },
+      {
+        "depth_cm": "728",
+        "possible_native_age": "1960",
+        "sample_id": "neotoma:sample:173196"
+      },
+      {
+        "depth_cm": "732",
+        "possible_native_age": "2109",
+        "sample_id": "neotoma:sample:173197"
+      },
+      {
+        "depth_cm": "734",
+        "possible_native_age": "2162",
+        "sample_id": "neotoma:sample:173198"
+      },
+      {
+        "depth_cm": "736",
+        "possible_native_age": "2191",
+        "sample_id": "neotoma:sample:173199"
+      },
+      {
+        "depth_cm": "738",
+        "possible_native_age": "2209",
+        "sample_id": "neotoma:sample:173200"
+      },
+      {
+        "depth_cm": "740",
+        "possible_native_age": "2261",
+        "sample_id": "neotoma:sample:173201"
+      },
+      {
+        "depth_cm": "742",
+        "possible_native_age": "2292",
+        "sample_id": "neotoma:sample:173202"
+      },
+      {
+        "depth_cm": "744",
+        "possible_native_age": "2341",
+        "sample_id": "neotoma:sample:173203"
+      },
+      {
+        "depth_cm": "746",
+        "possible_native_age": "2387",
+        "sample_id": "neotoma:sample:173204"
+      },
+      {
+        "depth_cm": "748",
+        "possible_native_age": "2413",
+        "sample_id": "neotoma:sample:173205"
+      },
+      {
+        "depth_cm": "750",
+        "possible_native_age": "2503",
+        "sample_id": "neotoma:sample:173206"
+      },
+      {
+        "depth_cm": "752",
+        "possible_native_age": "2561",
+        "sample_id": "neotoma:sample:173207"
+      },
+      {
+        "depth_cm": "754",
+        "possible_native_age": "2663",
+        "sample_id": "neotoma:sample:173208"
+      },
+      {
+        "depth_cm": "756",
+        "possible_native_age": "2782",
+        "sample_id": "neotoma:sample:173209"
+      },
+      {
+        "depth_cm": "758",
+        "possible_native_age": "2829",
+        "sample_id": "neotoma:sample:173210"
+      },
+      {
+        "depth_cm": "760",
+        "possible_native_age": "2887",
+        "sample_id": "neotoma:sample:173211"
+      },
+      {
+        "depth_cm": "762",
+        "possible_native_age": "2909",
+        "sample_id": "neotoma:sample:173212"
+      },
+      {
+        "depth_cm": "764",
+        "possible_native_age": "2953",
+        "sample_id": "neotoma:sample:173213"
+      },
+      {
+        "depth_cm": "766",
+        "possible_native_age": "2992",
+        "sample_id": "neotoma:sample:173214"
+      },
+      {
+        "depth_cm": "768",
+        "possible_native_age": "3021",
+        "sample_id": "neotoma:sample:173215"
+      },
+      {
+        "depth_cm": "770",
+        "possible_native_age": "3090",
+        "sample_id": "neotoma:sample:173216"
+      },
+      {
+        "depth_cm": "772",
+        "possible_native_age": "3127",
+        "sample_id": "neotoma:sample:173217"
+      },
+      {
+        "depth_cm": "774",
+        "possible_native_age": "3189",
+        "sample_id": "neotoma:sample:173218"
+      },
+      {
+        "depth_cm": "776",
+        "possible_native_age": "3249",
+        "sample_id": "neotoma:sample:173219"
+      },
+      {
+        "depth_cm": "778",
+        "possible_native_age": "3288",
+        "sample_id": "neotoma:sample:173220"
+      },
+      {
+        "depth_cm": "780",
+        "possible_native_age": "3383",
+        "sample_id": "neotoma:sample:173221"
+      },
+      {
+        "depth_cm": "782",
+        "possible_native_age": "3440",
+        "sample_id": "neotoma:sample:173222"
+      },
+      {
+        "depth_cm": "784",
+        "possible_native_age": "3526",
+        "sample_id": "neotoma:sample:173223"
+      },
+      {
+        "depth_cm": "786",
+        "possible_native_age": "3622",
+        "sample_id": "neotoma:sample:173224"
+      },
+      {
+        "depth_cm": "788",
+        "possible_native_age": "3684",
+        "sample_id": "neotoma:sample:173225"
+      },
+      {
+        "depth_cm": "790",
+        "possible_native_age": "3811",
+        "sample_id": "neotoma:sample:173226"
+      },
+      {
+        "depth_cm": "792",
+        "possible_native_age": "3901",
+        "sample_id": "neotoma:sample:173227"
+      },
+      {
+        "depth_cm": "794",
+        "possible_native_age": "4020",
+        "sample_id": "neotoma:sample:173228"
+      },
+      {
+        "depth_cm": "796",
+        "possible_native_age": "4137",
+        "sample_id": "neotoma:sample:173229"
+      },
+      {
+        "depth_cm": "798",
+        "possible_native_age": "4206",
+        "sample_id": "neotoma:sample:173230"
+      },
+      {
+        "depth_cm": "800",
+        "possible_native_age": "4440",
+        "sample_id": "neotoma:sample:173231"
+      },
+      {
+        "depth_cm": "802",
+        "possible_native_age": "4560",
+        "sample_id": "neotoma:sample:173232"
+      },
+      {
+        "depth_cm": "804",
+        "possible_native_age": "4625",
+        "sample_id": "neotoma:sample:173233"
+      },
+      {
+        "depth_cm": "806",
+        "possible_native_age": "4668",
+        "sample_id": "neotoma:sample:173234"
+      },
+      {
+        "depth_cm": "808",
+        "possible_native_age": "4696",
+        "sample_id": "neotoma:sample:173235"
+      },
+      {
+        "depth_cm": "810",
+        "possible_native_age": "4770",
+        "sample_id": "neotoma:sample:173236"
+      },
+      {
+        "depth_cm": "812",
+        "possible_native_age": "4816",
+        "sample_id": "neotoma:sample:173237"
+      },
+      {
+        "depth_cm": "814",
+        "possible_native_age": "4879",
+        "sample_id": "neotoma:sample:173238"
+      },
+      {
+        "depth_cm": "816",
+        "possible_native_age": "4941",
+        "sample_id": "neotoma:sample:173239"
+      },
+      {
+        "depth_cm": "818",
+        "possible_native_age": "4984",
+        "sample_id": "neotoma:sample:173240"
+      },
+      {
+        "depth_cm": "820",
+        "possible_native_age": "5067",
+        "sample_id": "neotoma:sample:173241"
+      },
+      {
+        "depth_cm": "822",
+        "possible_native_age": "5132",
+        "sample_id": "neotoma:sample:173242"
+      },
+      {
+        "depth_cm": "824",
+        "possible_native_age": "5210",
+        "sample_id": "neotoma:sample:173243"
+      },
+      {
+        "depth_cm": "826",
+        "possible_native_age": "5295",
+        "sample_id": "neotoma:sample:173244"
+      },
+      {
+        "depth_cm": "828",
+        "possible_native_age": "5360",
+        "sample_id": "neotoma:sample:173245"
+      },
+      {
+        "depth_cm": "830",
+        "possible_native_age": "5499",
+        "sample_id": "neotoma:sample:173246"
+      },
+      {
+        "depth_cm": "832",
+        "possible_native_age": "5585",
+        "sample_id": "neotoma:sample:173247"
+      },
+      {
+        "depth_cm": "834",
+        "possible_native_age": "5713",
+        "sample_id": "neotoma:sample:173248"
+      },
+      {
+        "depth_cm": "836",
+        "possible_native_age": "5827",
+        "sample_id": "neotoma:sample:173249"
+      },
+      {
+        "depth_cm": "838",
+        "possible_native_age": "5906",
+        "sample_id": "neotoma:sample:173250"
+      },
+      {
+        "depth_cm": "840",
+        "possible_native_age": "6094",
+        "sample_id": "neotoma:sample:173251"
+      },
+      {
+        "depth_cm": "842",
+        "possible_native_age": "6214",
+        "sample_id": "neotoma:sample:173252"
+      },
+      {
+        "depth_cm": "844",
+        "possible_native_age": "6403",
+        "sample_id": "neotoma:sample:173253"
+      },
+      {
+        "depth_cm": "846",
+        "possible_native_age": "6648",
+        "sample_id": "neotoma:sample:173254"
+      },
+      {
+        "depth_cm": "848",
+        "possible_native_age": "6726",
+        "sample_id": "neotoma:sample:173255"
+      },
+      {
+        "depth_cm": "850",
+        "possible_native_age": "6802",
+        "sample_id": "neotoma:sample:173256"
+      },
+      {
+        "depth_cm": "852",
+        "possible_native_age": "6835",
+        "sample_id": "neotoma:sample:173257"
+      },
+      {
+        "depth_cm": "854",
+        "possible_native_age": "6902",
+        "sample_id": "neotoma:sample:173258"
+      },
+      {
+        "depth_cm": "856",
+        "possible_native_age": "6965",
+        "sample_id": "neotoma:sample:173259"
+      },
+      {
+        "depth_cm": "858",
+        "possible_native_age": "7011",
+        "sample_id": "neotoma:sample:173260"
+      },
+      {
+        "depth_cm": "860",
+        "possible_native_age": "7133",
+        "sample_id": "neotoma:sample:173261"
+      },
+      {
+        "depth_cm": "862",
+        "possible_native_age": "7199",
+        "sample_id": "neotoma:sample:173262"
+      },
+      {
+        "depth_cm": "864",
+        "possible_native_age": "7323",
+        "sample_id": "neotoma:sample:173263"
+      },
+      {
+        "depth_cm": "866",
+        "possible_native_age": "7431",
+        "sample_id": "neotoma:sample:173264"
+      },
+      {
+        "depth_cm": "868",
+        "possible_native_age": "7520",
+        "sample_id": "neotoma:sample:173265"
+      },
+      {
+        "depth_cm": "870",
+        "possible_native_age": "7688",
+        "sample_id": "neotoma:sample:173266"
+      },
+      {
+        "depth_cm": "872",
+        "possible_native_age": "7807",
+        "sample_id": "neotoma:sample:173267"
+      },
+      {
+        "depth_cm": "874",
+        "possible_native_age": "7998",
+        "sample_id": "neotoma:sample:173268"
+      },
+      {
+        "depth_cm": "876",
+        "possible_native_age": "8252",
+        "sample_id": "neotoma:sample:173269"
+      },
+      {
+        "depth_cm": "878",
+        "possible_native_age": "8399",
+        "sample_id": "neotoma:sample:173270"
+      },
+      {
+        "depth_cm": "880",
+        "possible_native_age": "8607",
+        "sample_id": "neotoma:sample:173271"
+      },
+      {
+        "depth_cm": "882",
+        "possible_native_age": "8680",
+        "sample_id": "neotoma:sample:173272"
+      },
+      {
+        "depth_cm": "884",
+        "possible_native_age": "8729",
+        "sample_id": "neotoma:sample:173273"
+      },
+      {
+        "depth_cm": "886",
+        "possible_native_age": "8772",
+        "sample_id": "neotoma:sample:173274"
+      },
+      {
+        "depth_cm": "888",
+        "possible_native_age": "8801",
+        "sample_id": "neotoma:sample:173275"
+      },
+      {
+        "depth_cm": "890",
+        "possible_native_age": "8864",
+        "sample_id": "neotoma:sample:173276"
+      },
+      {
+        "depth_cm": "892",
+        "possible_native_age": "8901",
+        "sample_id": "neotoma:sample:173277"
+      },
+      {
+        "depth_cm": "894",
+        "possible_native_age": "8955",
+        "sample_id": "neotoma:sample:173278"
+      },
+      {
+        "depth_cm": "896",
+        "possible_native_age": "9004",
+        "sample_id": "neotoma:sample:173279"
+      }
+    ],
+    "attainable": true,
+    "core_id": "neotoma-dataset:19913",
+    "refusal": null
+  },
+  "quantity": "pooled closed 16-taxon NISP divided by all native pollen NISP among samples assigned to each selected bin",
+  "sample_count": 107,
+  "schema_version": "abbo-conditional-depth-order.v1",
+  "source_native_negative_younger_bound_count": 5
+}

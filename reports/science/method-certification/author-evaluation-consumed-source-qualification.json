@@ -1,0 +1,2638 @@
+{
+  "schema_version": "author-evaluation-consumed-source-qualification.v1",
+  "executed_candidate": "238978b0a426107dd3856dc0b080dab135cce72e",
+  "native_references": {
+    "comparison": {
+      "path": "artifacts/science/author-retained-pollen-current-score-execution/native/comparison.json",
+      "sha256": "a07f3bd78b17a55e020b7c1b6d36ffd554d3ddddbc3ac96ae4cd5b49e45983d6",
+      "bytes": 89948
+    },
+    "terminal": {
+      "path": "artifacts/science/author-retained-pollen-current-score-execution/native/terminal.json",
+      "sha256": "682f1da26b290045bcf3456c1bfa4e3e637ceac3bb8e3535097680cf91719579",
+      "bytes": 3211
+    },
+    "execution": {
+      "path": "artifacts/science/author-retained-pollen-current-score-execution/execution.json",
+      "sha256": "0a248d15a22f80246a63d8a2fee7609349d19cd4d191a4ee5a6c09fca1071f0f",
+      "bytes": 1392
+    }
+  },
+  "comparison": {
+    "schema_version": "author-retained-pollen-current-score-comparison.v1",
+    "candidate": "238978b0a426107dd3856dc0b080dab135cce72e",
+    "passed": true,
+    "contract_sha256": "13ec537803c605261daae69e8241ad0b43431b1608a0f9e43f150c8782ab168c",
+    "input_pins": {
+      "report": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json",
+        "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca",
+        "bytes": 7853
+      },
+      "scores": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/scores.csv",
+        "sha256": "baf477c6a5389699d247e0d2a1e3055fd3d2a4454142c46eb9c6f0148f1e5797",
+        "bytes": 35032
+      },
+      "predictions": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",
+        "sha256": "ef41a225f53f55323144457d377f87ebc719df1e329fb607a30a5c16470db84d",
+        "bytes": 630499
+      },
+      "original_capture": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/method-certification/author-site-evaluation-source-capture/capture.json",
+        "sha256": "76617093d6c0802273453bd9c4cdc68d2486e04baa146c4893ae7e441a090f7b",
+        "bytes": 5218821
+      },
+      "metrics_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "sha256": "69d549fd0115c6bb5744aa9c971074f36769f53eb9efb7d1dedc2838589b458b",
+        "bytes": 9713
+      },
+      "contracts_source": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "sha256": "c9241b3c427448491c72f488d4096ed86999f260c22533a51d92c441258cbbf6",
+        "bytes": 10583
+      },
+      "protocol": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-saved-score-consumer-proposal/protocol.json",
+        "sha256": "45b0c76279e05053679a8551ee6bd658874e3cfbe20034faad6dcf7e262ed865",
+        "bytes": 1675
+      }
+    },
+    "original_holdout_epoch": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+    "original_dispositions": {
+      "scored": 177,
+      "no_observed_count": 241,
+      "no_training_site_same_bin": 7
+    },
+    "comparison_rows": [
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH05",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "f61cf8cc7125fbf109cd75445822ce367154b29ed8ea93cf7855bd7b80b10333",
+        "status": "compared",
+        "saved_mae_fraction": 0.05177303237112395,
+        "saved_total_variation": 0.8024820017524212,
+        "current_mae_fraction": 0.05177303237112395,
+        "current_total_variation": 0.8024820017524212,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH05",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "9c35667f289282512c9c02ca517131c890f6f94182537889f303be4a2510d0c9",
+        "status": "compared",
+        "saved_mae_fraction": 0.03688353977458055,
+        "saved_total_variation": 0.5716948665059985,
+        "current_mae_fraction": 0.03688353977458055,
+        "current_total_variation": 0.5716948665059985,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH05",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "2dcfc27cb6c0b4b4c9cb2c4c545cb0f90f075bc69173578c3f7925eef0442423",
+        "status": "compared",
+        "saved_mae_fraction": 0.02884120950325932,
+        "saved_total_variation": 0.44703874730051946,
+        "current_mae_fraction": 0.02884120950325932,
+        "current_total_variation": 0.44703874730051946,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH05",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "d0766cd15f5715902ef7cacbc809427ff8bebc56b65966f782f68d2dae89efbb",
+        "status": "compared",
+        "saved_mae_fraction": 0.030360492891610934,
+        "saved_total_variation": 0.4705876398199695,
+        "current_mae_fraction": 0.030360492891610934,
+        "current_total_variation": 0.4705876398199695,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH05",
+          "bin_id_bp": "5000"
+        },
+        "training_manifest_sha256": "ef596d40dbac75e05c4d61b6f5ea2b1f29df6bcc69c740fbd7228c0fd5314a2e",
+        "status": "compared",
+        "saved_mae_fraction": 0.010906946299123846,
+        "saved_total_variation": 0.1690576676364196,
+        "current_mae_fraction": 0.010906946299123846,
+        "current_total_variation": 0.1690576676364196,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH05",
+          "bin_id_bp": "5500"
+        },
+        "training_manifest_sha256": "ff0f9c55d2060cdee9af8f0fc3832ed211ecedb86d285d1e58de9a48d62bb302",
+        "status": "compared",
+        "saved_mae_fraction": 0.03692815041614352,
+        "saved_total_variation": 0.5723863314502246,
+        "current_mae_fraction": 0.03692815041614352,
+        "current_total_variation": 0.5723863314502246,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH05",
+          "bin_id_bp": "6000"
+        },
+        "training_manifest_sha256": "d214ae4d524f07e24c5f4c39713ab180f5811fe6282233207122c5105dee5604",
+        "status": "compared",
+        "saved_mae_fraction": 0.0422647423403608,
+        "saved_total_variation": 0.6551035062755924,
+        "current_mae_fraction": 0.0422647423403608,
+        "current_total_variation": 0.6551035062755924,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH05",
+          "bin_id_bp": "6500"
+        },
+        "training_manifest_sha256": "e098097b551924ab1418bd848246bd925a6e7d1f52d97bdfb3830a6c0fa009d4",
+        "status": "compared",
+        "saved_mae_fraction": 0.03338067382059322,
+        "saved_total_variation": 0.5174004442191948,
+        "current_mae_fraction": 0.03338067382059322,
+        "current_total_variation": 0.5174004442191948,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINDMILL",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "7f54261eecbccbd35ecf839c875e86e6afa2e9192daef706898c588a60374553",
+        "status": "compared",
+        "saved_mae_fraction": 0.023740399072703654,
+        "saved_total_variation": 0.36797618562690665,
+        "current_mae_fraction": 0.023740399072703654,
+        "current_total_variation": 0.36797618562690665,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINDMILL",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "a3df6fd6bf698c14146ca741822f42c56601568cdbb456f9edac56d18744095d",
+        "status": "compared",
+        "saved_mae_fraction": 0.01683615220040491,
+        "saved_total_variation": 0.26096035910627613,
+        "current_mae_fraction": 0.01683615220040491,
+        "current_total_variation": 0.26096035910627613,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINDMILL",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "3fce88f32474407e709dd350f3c5f4ebb21b57c8f5c88ce1387626ae867b5220",
+        "status": "compared",
+        "saved_mae_fraction": 0.015143822312387447,
+        "saved_total_variation": 0.23472924584200544,
+        "current_mae_fraction": 0.015143822312387447,
+        "current_total_variation": 0.23472924584200544,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINDMILL",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "b870ac8bf347780c70b11d0aa02746f45372924a3948633dd77fd636af9b90ef",
+        "status": "compared",
+        "saved_mae_fraction": 0.019229689904976918,
+        "saved_total_variation": 0.29806019352714225,
+        "current_mae_fraction": 0.019229689904976918,
+        "current_total_variation": 0.29806019352714225,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINDMILL",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "6e48b6989183cef2cc4223fbeff08b4bcbff4011a433aa29e9bc78829ccb5933",
+        "status": "compared",
+        "saved_mae_fraction": 0.023766244859089184,
+        "saved_total_variation": 0.36837679531588235,
+        "current_mae_fraction": 0.023766244859089184,
+        "current_total_variation": 0.36837679531588235,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINDMILL",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "d327e580b6e8718c4d42b6924559b4fea4fde395931d2da69bdd012dc5d0f8a1",
+        "status": "compared",
+        "saved_mae_fraction": 0.03194272025715104,
+        "saved_total_variation": 0.49511216398584107,
+        "current_mae_fraction": 0.03194272025715104,
+        "current_total_variation": 0.49511216398584107,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINDMILL",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "e339efff0647c0184f31f1a828442992df6fa41b46600d916bc7f80fe6fec2b6",
+        "status": "compared",
+        "saved_mae_fraction": 0.0331797921415753,
+        "saved_total_variation": 0.5142867781944171,
+        "current_mae_fraction": 0.0331797921415753,
+        "current_total_variation": 0.5142867781944171,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HARESDOWN",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "8955155a8cacdb0cfdf70399b0cb493225184727b71cd77b535894ef580bdd34",
+        "status": "compared",
+        "saved_mae_fraction": 0.02100372399754159,
+        "saved_total_variation": 0.32555772196189464,
+        "current_mae_fraction": 0.02100372399754159,
+        "current_total_variation": 0.32555772196189464,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HARESDOWN",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "59cf583ad23812a8cc30a82b9bb572bb4afcd635e0da015106f2455f35f4d221",
+        "status": "compared",
+        "saved_mae_fraction": 0.018415690536575165,
+        "saved_total_variation": 0.28544320331691503,
+        "current_mae_fraction": 0.018415690536575165,
+        "current_total_variation": 0.28544320331691503,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HARESDOWN",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "634ac98d7c443afd567faf183c75218d6809714554d8813e75ba754017140439",
+        "status": "compared",
+        "saved_mae_fraction": 0.012056288604650873,
+        "saved_total_variation": 0.18687247337208854,
+        "current_mae_fraction": 0.012056288604650873,
+        "current_total_variation": 0.18687247337208854,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HARESDOWN",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "cbe957f082fcc0399487927928df12e6212236157523bfadcb25098850ed9340",
+        "status": "compared",
+        "saved_mae_fraction": 0.020688238458343774,
+        "saved_total_variation": 0.3206676961043285,
+        "current_mae_fraction": 0.020688238458343774,
+        "current_total_variation": 0.3206676961043285,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HARESDOWN",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "1a3546b80f8acf2e3389e17ef990f72bb01339f49f61339a2ebde19144147adc",
+        "status": "compared",
+        "saved_mae_fraction": 0.027595634887742942,
+        "saved_total_variation": 0.4277323407600156,
+        "current_mae_fraction": 0.027595634887742942,
+        "current_total_variation": 0.4277323407600156,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HARESDOWN",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "79931647c29cde1e095daa4eb5c90e244e1c1a6d8681c3baddc2a5da10aa5d44",
+        "status": "compared",
+        "saved_mae_fraction": 0.02097943198254048,
+        "saved_total_variation": 0.3251811957293774,
+        "current_mae_fraction": 0.02097943198254048,
+        "current_total_variation": 0.3251811957293774,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HARESDOWN",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "773e12e92542e43f241ee8fcc9678092b0cf54cfc1866f487137f844065836e7",
+        "status": "compared",
+        "saved_mae_fraction": 0.02348815273625333,
+        "saved_total_variation": 0.3640663674119266,
+        "current_mae_fraction": 0.02348815273625333,
+        "current_total_variation": 0.3640663674119266,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "LOBBSBOG",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "d8d45a283a6c4124d5d36a51449ae6315630c19419712c0cb76a8771b2f3f8aa",
+        "status": "compared",
+        "saved_mae_fraction": 0.012252084786185523,
+        "saved_total_variation": 0.18990731418587561,
+        "current_mae_fraction": 0.012252084786185523,
+        "current_total_variation": 0.18990731418587561,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "LOBBSBOG",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "d56ae64cfcf07f1e38d0d6abeb205e2679654666984cde16bfc45e646e725e71",
+        "status": "compared",
+        "saved_mae_fraction": 0.031952607273218005,
+        "saved_total_variation": 0.49526541273487906,
+        "current_mae_fraction": 0.031952607273218005,
+        "current_total_variation": 0.49526541273487906,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "LOBBSBOG",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "097b0ff6a4292396d10ced26a5d2b98ef3d4be319ae3d102591c55be0e160ba1",
+        "status": "compared",
+        "saved_mae_fraction": 0.01897640819847021,
+        "saved_total_variation": 0.2941343270762882,
+        "current_mae_fraction": 0.01897640819847021,
+        "current_total_variation": 0.2941343270762882,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "LOBBSBOG",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "d61ef94c5413d38680779dd6738896f576f5e774efa60af20aa2ee09d1d67e7a",
+        "status": "compared",
+        "saved_mae_fraction": 0.017447205755111737,
+        "saved_total_variation": 0.27043168920423194,
+        "current_mae_fraction": 0.017447205755111737,
+        "current_total_variation": 0.27043168920423194,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "LOBBSBOG",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "9fbd89140cb97576e6ab978a6ed7b9164f6a4ebb00467eded275f89abab0b31e",
+        "status": "compared",
+        "saved_mae_fraction": 0.024723429852457835,
+        "saved_total_variation": 0.38321316271309647,
+        "current_mae_fraction": 0.024723429852457835,
+        "current_total_variation": 0.38321316271309647,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "LOBBSBOG",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "6da813899908cd19fca32903509a321e14a8e14b342ea5a6bc3fc70e03f1b298",
+        "status": "compared",
+        "saved_mae_fraction": 0.026181529548735014,
+        "saved_total_variation": 0.40581370800539274,
+        "current_mae_fraction": 0.026181529548735014,
+        "current_total_variation": 0.40581370800539274,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "LOBBSBOG",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "987d32430fa65e0d9491aa93f66bf8799b28fd3d38688810fe26a691169bf4fc",
+        "status": "compared",
+        "saved_mae_fraction": 0.024984593993653322,
+        "saved_total_variation": 0.3872612069016265,
+        "current_mae_fraction": 0.024984593993653322,
+        "current_total_variation": 0.3872612069016265,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "ceff31bc852cc00d6eff05dc810710dd5b8c76b1dfd8f1036069dbae3f56fb1c",
+        "status": "compared",
+        "saved_mae_fraction": 0.0160369127199917,
+        "saved_total_variation": 0.2485721471598713,
+        "current_mae_fraction": 0.0160369127199917,
+        "current_total_variation": 0.2485721471598713,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "343143631ac4fc8391357e21a977b3153ce5354663659ef78817561a9ad78a2b",
+        "status": "compared",
+        "saved_mae_fraction": 0.0246646141357258,
+        "saved_total_variation": 0.3823015191037499,
+        "current_mae_fraction": 0.0246646141357258,
+        "current_total_variation": 0.3823015191037499,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "53d615f43a59cd0ce60cbfb2937451a41911fe94c38c3eb8f51742057c654605",
+        "status": "compared",
+        "saved_mae_fraction": 0.023189416590806172,
+        "saved_total_variation": 0.35943595715749566,
+        "current_mae_fraction": 0.023189416590806172,
+        "current_total_variation": 0.35943595715749566,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "e5099e434135dba89ccfaea16800d3260946c1dbf640abb195329a516fc27bfd",
+        "status": "compared",
+        "saved_mae_fraction": 0.017014488986934934,
+        "saved_total_variation": 0.2637245792974915,
+        "current_mae_fraction": 0.017014488986934934,
+        "current_total_variation": 0.2637245792974915,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "bf498874420c225e788fa5038a0de27c5415dc0c87afdec5aaeeb3964c66ceab",
+        "status": "compared",
+        "saved_mae_fraction": 0.016286991168743915,
+        "saved_total_variation": 0.2524483631155307,
+        "current_mae_fraction": 0.016286991168743915,
+        "current_total_variation": 0.2524483631155307,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "45b2888eabf4b5e1c9ee905e7c082adc38988cd1f3913a7b27230444d61f708e",
+        "status": "compared",
+        "saved_mae_fraction": 0.014466677711816192,
+        "saved_total_variation": 0.22423350453315097,
+        "current_mae_fraction": 0.014466677711816192,
+        "current_total_variation": 0.22423350453315097,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "1b1213d67dfb653fd6575138469a45b052b5688e8181771044d1df5edf55f501",
+        "status": "compared",
+        "saved_mae_fraction": 0.020075958443928617,
+        "saved_total_variation": 0.31117735588089357,
+        "current_mae_fraction": 0.020075958443928617,
+        "current_total_variation": 0.31117735588089357,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "4b7b47e6407e4c938f41a80b41281b80ab5cb16a3593e2902938f68aacdd299b",
+        "status": "compared",
+        "saved_mae_fraction": 0.008256105357601488,
+        "saved_total_variation": 0.12796963304282308,
+        "current_mae_fraction": 0.008256105357601488,
+        "current_total_variation": 0.12796963304282308,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "6d8e6178d096c8d729398b7e90d927c476101885da119229c30a95deb9b3fc93",
+        "status": "compared",
+        "saved_mae_fraction": 0.0073293424030662704,
+        "saved_total_variation": 0.1136048072475272,
+        "current_mae_fraction": 0.0073293424030662704,
+        "current_total_variation": 0.1136048072475272,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "7dc100da0c199098444ebb849137e2b4d235e0861ca65c8b3ec29eb6b2e9b25d",
+        "status": "compared",
+        "saved_mae_fraction": 0.010706173313216766,
+        "saved_total_variation": 0.16594568635485987,
+        "current_mae_fraction": 0.010706173313216766,
+        "current_total_variation": 0.16594568635485987,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "1fd0f0aae2595cb222e9c4ca7aa6fab5473d5a828d2237be6322fdc76243e446",
+        "status": "compared",
+        "saved_mae_fraction": 0.007744800434461323,
+        "saved_total_variation": 0.12004440673415051,
+        "current_mae_fraction": 0.007744800434461323,
+        "current_total_variation": 0.12004440673415051,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "5000"
+        },
+        "training_manifest_sha256": "921dd08dcc9aa23ee8ef84d797785ac1428631362b4182053c6b249a4305612d",
+        "status": "compared",
+        "saved_mae_fraction": 0.007047511476716659,
+        "saved_total_variation": 0.10923642788910821,
+        "current_mae_fraction": 0.007047511476716659,
+        "current_total_variation": 0.10923642788910821,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "5500"
+        },
+        "training_manifest_sha256": "96895ec03fd5db7e669ca3c61c7f77c83852d826ba0189c1d88fee19b0275c6e",
+        "status": "compared",
+        "saved_mae_fraction": 0.009189169446947138,
+        "saved_total_variation": 0.14243212642768063,
+        "current_mae_fraction": 0.009189169446947138,
+        "current_total_variation": 0.14243212642768063,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "6000"
+        },
+        "training_manifest_sha256": "8aa6560669dec9bbab48b155f1320e8b81a562c66ccd08dcd5ab84a49b47f834",
+        "status": "compared",
+        "saved_mae_fraction": 0.01112354856479543,
+        "saved_total_variation": 0.17241500275432917,
+        "current_mae_fraction": 0.01112354856479543,
+        "current_total_variation": 0.17241500275432917,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "6500"
+        },
+        "training_manifest_sha256": "384b642946adeacea34a80bab76df80d2bf82b6b46dc472e7a6695eb76f17f8a",
+        "status": "compared",
+        "saved_mae_fraction": 0.0127390271094598,
+        "saved_total_variation": 0.19745492019662692,
+        "current_mae_fraction": 0.0127390271094598,
+        "current_total_variation": 0.19745492019662692,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "7000"
+        },
+        "training_manifest_sha256": "2ab8f8ad1dfdb4ebadeace1a58321d5f6bd2506e49012423eb3a643aeb008ebb",
+        "status": "compared",
+        "saved_mae_fraction": 0.011667644188182632,
+        "saved_total_variation": 0.1808484849168308,
+        "current_mae_fraction": 0.011667644188182632,
+        "current_total_variation": 0.1808484849168308,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "HANGINGS",
+          "bin_id_bp": "7500"
+        },
+        "training_manifest_sha256": "dc523e51997e8136245f0e5afe9f351b5116982f76369abeea13b6b70771364d",
+        "status": "compared",
+        "saved_mae_fraction": 0.016734015597493653,
+        "saved_total_variation": 0.2593772417611516,
+        "current_mae_fraction": 0.016734015597493653,
+        "current_total_variation": 0.2593772417611516,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH11",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "768d88c3d8e83a765c842b8d3e8d7d737bac6b5d7115966d088456de4439d034",
+        "status": "compared",
+        "saved_mae_fraction": 0.014470487344426845,
+        "saved_total_variation": 0.2242925538386161,
+        "current_mae_fraction": 0.014470487344426845,
+        "current_total_variation": 0.2242925538386161,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH11",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "d2cc39ef64fd863ddd5560f7e1b36f3f0f1acc047712bb38ee2877d877e889f9",
+        "status": "compared",
+        "saved_mae_fraction": 0.007462930611261746,
+        "saved_total_variation": 0.11567542447455706,
+        "current_mae_fraction": 0.007462930611261746,
+        "current_total_variation": 0.11567542447455706,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH11",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "ea8057314a1aacde7bb8e3824afcfb6ed8425a0624c1ea6bb8ca56a7d4817e71",
+        "status": "compared",
+        "saved_mae_fraction": 0.015523026511867708,
+        "saved_total_variation": 0.24060691093394948,
+        "current_mae_fraction": 0.015523026511867708,
+        "current_total_variation": 0.24060691093394948,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WHH11",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "c8bf276f175cd527a9dbf6aaef01fce82536751b3872f7664759775e6151b615",
+        "status": "compared",
+        "saved_mae_fraction": 0.008936384260800163,
+        "saved_total_variation": 0.13851395604240252,
+        "current_mae_fraction": 0.008936384260800163,
+        "current_total_variation": 0.13851395604240252,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "44e9002c81f39eff0d9cf0ccfb5637c6b2be2b60a419036f9221ee23acacd5a3",
+        "status": "compared",
+        "saved_mae_fraction": 0.01430717525577649,
+        "saved_total_variation": 0.2217612164645356,
+        "current_mae_fraction": 0.01430717525577649,
+        "current_total_variation": 0.2217612164645356,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "fed7063248b145fa44b63a28ae14a1ecb642d26f300cf60be8f455421aa8cde0",
+        "status": "compared",
+        "saved_mae_fraction": 0.017201004261209917,
+        "saved_total_variation": 0.2666155660487537,
+        "current_mae_fraction": 0.017201004261209917,
+        "current_total_variation": 0.2666155660487537,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "cce63d64f1178c412344b9a1a4e13836c3f7b420c58a669b89eece36cd0e8343",
+        "status": "compared",
+        "saved_mae_fraction": 0.021160141212649235,
+        "saved_total_variation": 0.32798218879606317,
+        "current_mae_fraction": 0.021160141212649235,
+        "current_total_variation": 0.32798218879606317,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "8445bc3e632853612bec02e68d480ed70330e84cfaad08ae933e6da88f01b9b5",
+        "status": "compared",
+        "saved_mae_fraction": 0.027417000512138693,
+        "saved_total_variation": 0.42496350793814974,
+        "current_mae_fraction": 0.027417000512138693,
+        "current_total_variation": 0.42496350793814974,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "c9ba35c3eeb1aaf6b142851448b730f4c2e4ceab917a1341cdad8e36f93be7e2",
+        "status": "compared",
+        "saved_mae_fraction": 0.014589236740617026,
+        "saved_total_variation": 0.2261331694795639,
+        "current_mae_fraction": 0.014589236740617026,
+        "current_total_variation": 0.2261331694795639,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "0cc26f934f9ae3aa0b10ec68f3a5d8c773f47bedd6539a9bfdcecc6cff520806",
+        "status": "compared",
+        "saved_mae_fraction": 0.019712888429122014,
+        "saved_total_variation": 0.3055497706513912,
+        "current_mae_fraction": 0.019712888429122014,
+        "current_total_variation": 0.3055497706513912,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "604a3917c64d65c437524dc368a5c3e734bfa9d9102228ae8ee4038cd8dfd519",
+        "status": "compared",
+        "saved_mae_fraction": 0.013790176766805362,
+        "saved_total_variation": 0.2137477398854831,
+        "current_mae_fraction": 0.013790176766805362,
+        "current_total_variation": 0.2137477398854831,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "76599aa0e47042823df217498e047ff479a4308466ab64d9a21b61208868eff8",
+        "status": "compared",
+        "saved_mae_fraction": 0.006902078129777385,
+        "saved_total_variation": 0.10698221101154946,
+        "current_mae_fraction": 0.006902078129777385,
+        "current_total_variation": 0.10698221101154946,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "b663867f6c0147e54b0a9ddc4a6dd34e593d6d70b18a1bbc83268fc6cb5aadc2",
+        "status": "compared",
+        "saved_mae_fraction": 0.01728456087890219,
+        "saved_total_variation": 0.267910693622984,
+        "current_mae_fraction": 0.01728456087890219,
+        "current_total_variation": 0.267910693622984,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "8405709ba81074b8306346e7fe534747b35e409ddfc4f946c80fdcce45bb3a4a",
+        "status": "compared",
+        "saved_mae_fraction": 0.012118872048531069,
+        "saved_total_variation": 0.18784251675223157,
+        "current_mae_fraction": 0.012118872048531069,
+        "current_total_variation": 0.18784251675223157,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "5000"
+        },
+        "training_manifest_sha256": "39bd83c83aa8acbbcce112b98606273da03dfe1faad53bdfaa047c3c4b468159",
+        "status": "compared",
+        "saved_mae_fraction": 0.012155823516607158,
+        "saved_total_variation": 0.18841526450741095,
+        "current_mae_fraction": 0.012155823516607158,
+        "current_total_variation": 0.18841526450741095,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "5500"
+        },
+        "training_manifest_sha256": "c6db11b5b5f3e5da8a4b3263635dc7bf1b7534a68e882f2752fc3316fa860a63",
+        "status": "compared",
+        "saved_mae_fraction": 0.01481021954341696,
+        "saved_total_variation": 0.2295584029229629,
+        "current_mae_fraction": 0.01481021954341696,
+        "current_total_variation": 0.2295584029229629,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "6000"
+        },
+        "training_manifest_sha256": "e0f0d7510ee53443798c41744e353b3e20c5440b02fa83f2d5099ceaff58b51b",
+        "status": "compared",
+        "saved_mae_fraction": 0.018010225971014156,
+        "saved_total_variation": 0.2791585025507194,
+        "current_mae_fraction": 0.018010225971014156,
+        "current_total_variation": 0.2791585025507194,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "6500"
+        },
+        "training_manifest_sha256": "3f04d495d67637df647480406b4b009505f9ba2d87c1977a540c6313eee82185",
+        "status": "compared",
+        "saved_mae_fraction": 0.014635859225332856,
+        "saved_total_variation": 0.22685581799265928,
+        "current_mae_fraction": 0.014635859225332856,
+        "current_total_variation": 0.22685581799265928,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "7000"
+        },
+        "training_manifest_sha256": "e416d9fce2816dadee3807489a135f7dd398fcc138c5d0a8546d0657069f41f2",
+        "status": "compared",
+        "saved_mae_fraction": 0.008120471591804164,
+        "saved_total_variation": 0.12586730967296453,
+        "current_mae_fraction": 0.008120471591804164,
+        "current_total_variation": 0.12586730967296453,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "WINNEYS",
+          "bin_id_bp": "7500"
+        },
+        "training_manifest_sha256": "db5cbbfb7eae10f73d402b3812078761193a92b7f1da29bf7b7a7dc1e463f12b",
+        "status": "compared",
+        "saved_mae_fraction": 0.010515805993456912,
+        "saved_total_variation": 0.16299499289858213,
+        "current_mae_fraction": 0.010515805993456912,
+        "current_total_variation": 0.16299499289858213,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "94762fe6ae46ecea9c841bf926cd8a8557590345a7c2b2a04e720ae195914133",
+        "status": "compared",
+        "saved_mae_fraction": 0.018063947090606238,
+        "saved_total_variation": 0.2799911799043967,
+        "current_mae_fraction": 0.018063947090606238,
+        "current_total_variation": 0.2799911799043967,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "7728e9c27d11477a518d486e2a075a95a34b31e756c619a4e468b64668606941",
+        "status": "compared",
+        "saved_mae_fraction": 0.025237934490582908,
+        "saved_total_variation": 0.3911879846040351,
+        "current_mae_fraction": 0.025237934490582908,
+        "current_total_variation": 0.3911879846040351,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "cc16fba8957afed65148d8390d8dbce42fc59458abf29fb3581dceaa8524b74d",
+        "status": "compared",
+        "saved_mae_fraction": 0.01426540203479235,
+        "saved_total_variation": 0.2211137315392814,
+        "current_mae_fraction": 0.01426540203479235,
+        "current_total_variation": 0.2211137315392814,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "37fa1dabda6da0867e851032131f46907bf7d0c22bebe3393582baf50f704a61",
+        "status": "compared",
+        "saved_mae_fraction": 0.017780325339642532,
+        "saved_total_variation": 0.27559504276445923,
+        "current_mae_fraction": 0.017780325339642532,
+        "current_total_variation": 0.27559504276445923,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "e3efe05899bb8a023d95e93068189b9279ec5df51f9a2937d401d07eeea6fa23",
+        "status": "compared",
+        "saved_mae_fraction": 0.017668846912147193,
+        "saved_total_variation": 0.2738671271382815,
+        "current_mae_fraction": 0.017668846912147193,
+        "current_total_variation": 0.2738671271382815,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "6b1801476480ac15637233ab8f9d0b021366d08ef15ed84d3859bc4fae68b4e6",
+        "status": "compared",
+        "saved_mae_fraction": 0.01647254620469588,
+        "saved_total_variation": 0.25532446617278615,
+        "current_mae_fraction": 0.01647254620469588,
+        "current_total_variation": 0.25532446617278615,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "d8ce7049f776aa2828bb8eca530368d6c63e545334f0ab1b8fa9be93fc8c927b",
+        "status": "compared",
+        "saved_mae_fraction": 0.018943438363064075,
+        "saved_total_variation": 0.29362329462749315,
+        "current_mae_fraction": 0.018943438363064075,
+        "current_total_variation": 0.29362329462749315,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "5d30a96e337a2b5e3d2520c99815f9463619eb5ed4e2a63b099caba6929d16f2",
+        "status": "compared",
+        "saved_mae_fraction": 0.016640949107928855,
+        "saved_total_variation": 0.25793471117289724,
+        "current_mae_fraction": 0.016640949107928855,
+        "current_total_variation": 0.25793471117289724,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "8cb7a06bdfc39c53dad1bd6c0f5efd63a51126c1dc51d8f16ad3fae256ee1db6",
+        "status": "compared",
+        "saved_mae_fraction": 0.012623909745465216,
+        "saved_total_variation": 0.19567060105471085,
+        "current_mae_fraction": 0.012623909745465216,
+        "current_total_variation": 0.19567060105471085,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "bf5ab16cffab5bb7786f00af9def3f1fdb52b9003ab8e0497caa5aa1d30b00e7",
+        "status": "compared",
+        "saved_mae_fraction": 0.009041303200319524,
+        "saved_total_variation": 0.1401401996049526,
+        "current_mae_fraction": 0.009041303200319524,
+        "current_total_variation": 0.1401401996049526,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "0c09cd8ae1ebdaa5a9e0a2d4cae0f7ba1390c39625b3114890c8274298f7436e",
+        "status": "compared",
+        "saved_mae_fraction": 0.015367851797409729,
+        "saved_total_variation": 0.2382017028598508,
+        "current_mae_fraction": 0.015367851797409729,
+        "current_total_variation": 0.2382017028598508,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "5000"
+        },
+        "training_manifest_sha256": "105cda90a68891faa566f8b17b4bd3acfeea05391e1e076300ac07900376c837",
+        "status": "compared",
+        "saved_mae_fraction": 0.007146027320932338,
+        "saved_total_variation": 0.11076342347445124,
+        "current_mae_fraction": 0.007146027320932338,
+        "current_total_variation": 0.11076342347445124,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "5500"
+        },
+        "training_manifest_sha256": "478f297906b18812f8d69a3df0c6bb70a4562be093c98b4344dac8b6ad0f5ced",
+        "status": "compared",
+        "saved_mae_fraction": 0.012932312214440715,
+        "saved_total_variation": 0.2004508393238311,
+        "current_mae_fraction": 0.012932312214440715,
+        "current_total_variation": 0.2004508393238311,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "6000"
+        },
+        "training_manifest_sha256": "3ab8c9d265a96140674858e0c4298d4be0584b039ee2254a4be122a6c133d876",
+        "status": "compared",
+        "saved_mae_fraction": 0.009382690591333058,
+        "saved_total_variation": 0.1454317041656624,
+        "current_mae_fraction": 0.009382690591333058,
+        "current_total_variation": 0.1454317041656624,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "6500"
+        },
+        "training_manifest_sha256": "f13508c5f90b3e1e07d1e4110bd8b5d86217045273e1c5c82eb535809e7bf557",
+        "status": "compared",
+        "saved_mae_fraction": 0.013471433285141967,
+        "saved_total_variation": 0.2088072159197005,
+        "current_mae_fraction": 0.013471433285141967,
+        "current_total_variation": 0.2088072159197005,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "7000"
+        },
+        "training_manifest_sha256": "fb7956ecf4e23e58e551babe1bd22c8f7277dfe2174c4901205ad0cfc4c1b065",
+        "status": "compared",
+        "saved_mae_fraction": 0.009301361701107392,
+        "saved_total_variation": 0.14417110636716457,
+        "current_mae_fraction": 0.009301361701107392,
+        "current_total_variation": 0.14417110636716457,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "BROADOWN",
+          "bin_id_bp": "7500"
+        },
+        "training_manifest_sha256": "7e9006f03108f81564749456681fb6a4af68a41cd11696ace0410f136679953c",
+        "status": "compared",
+        "saved_mae_fraction": 0.022917669368233945,
+        "saved_total_variation": 0.35522387520762616,
+        "current_mae_fraction": 0.022917669368233945,
+        "current_total_variation": 0.35522387520762616,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "bfebf94776476d0a15fe384c3655c106d0718a988065e34f62134720b617f1eb",
+        "status": "compared",
+        "saved_mae_fraction": 0.02011308529744113,
+        "saved_total_variation": 0.3117528221103375,
+        "current_mae_fraction": 0.02011308529744113,
+        "current_total_variation": 0.3117528221103375,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "5aa5f1b9cda4f3826c7da4c825fcdab101fbfadcddc9cbd4f74a6f09b1dff118",
+        "status": "compared",
+        "saved_mae_fraction": 0.014703071831154955,
+        "saved_total_variation": 0.22789761338290182,
+        "current_mae_fraction": 0.014703071831154955,
+        "current_total_variation": 0.22789761338290182,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "855dea1f0f0ab3cd937243b8ebad0de8af7ccc0c76c46f1e0c3ae41b34001e01",
+        "status": "compared",
+        "saved_mae_fraction": 0.02395716233439744,
+        "saved_total_variation": 0.3713360161831603,
+        "current_mae_fraction": 0.02395716233439744,
+        "current_total_variation": 0.3713360161831603,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "c91365cce40023847a02b8e5ed2489886caa98597869dc054c7cc7e4a47c6709",
+        "status": "compared",
+        "saved_mae_fraction": 0.014997386824636022,
+        "saved_total_variation": 0.23245949578185834,
+        "current_mae_fraction": 0.014997386824636022,
+        "current_total_variation": 0.23245949578185834,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "daaa47825b0330434c9d0789c7d55cbbba78f4ffa031c8321000bab9fc29212e",
+        "status": "compared",
+        "saved_mae_fraction": 0.007682219590801435,
+        "saved_total_variation": 0.11907440365742225,
+        "current_mae_fraction": 0.007682219590801435,
+        "current_total_variation": 0.11907440365742225,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "7be2f469f9fe63e9889df38b7139ca301a7a968daec2776820953a3095e55ed6",
+        "status": "compared",
+        "saved_mae_fraction": 0.022852998628651786,
+        "saved_total_variation": 0.3542214787441027,
+        "current_mae_fraction": 0.022852998628651786,
+        "current_total_variation": 0.3542214787441027,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "bccee186615cae60e61e8eb7ce9fdfbdb9d2ce95ac3c5382e99d0d604806c534",
+        "status": "compared",
+        "saved_mae_fraction": 0.011717951488927889,
+        "saved_total_variation": 0.18162824807838227,
+        "current_mae_fraction": 0.011717951488927889,
+        "current_total_variation": 0.18162824807838227,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "8b95ab061a6e1d0370cc9f4fe76237ebd3dc3e2867909958de20f41db96c8ed5",
+        "status": "compared",
+        "saved_mae_fraction": 0.006925375010080676,
+        "saved_total_variation": 0.10734331265625048,
+        "current_mae_fraction": 0.006925375010080676,
+        "current_total_variation": 0.10734331265625048,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "5000"
+        },
+        "training_manifest_sha256": "6c3d702ecf162feed032fcfa8c4a76b71616e33a5e564e76d1c6459fa6e0ca8d",
+        "status": "compared",
+        "saved_mae_fraction": 0.009626037310790703,
+        "saved_total_variation": 0.1492035783172559,
+        "current_mae_fraction": 0.009626037310790703,
+        "current_total_variation": 0.1492035783172559,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "5500"
+        },
+        "training_manifest_sha256": "adb06ad88188fdf572c2e44e6b6323efda2ab2e30dcb34b993bb307260c07442",
+        "status": "compared",
+        "saved_mae_fraction": 0.009728361012367034,
+        "saved_total_variation": 0.15078959569168904,
+        "current_mae_fraction": 0.009728361012367034,
+        "current_total_variation": 0.15078959569168904,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "6000"
+        },
+        "training_manifest_sha256": "3b014818e3131d425da22dda2501bdcb5d0d8871a8584435ee0d338514fe7807",
+        "status": "compared",
+        "saved_mae_fraction": 0.0125861762771781,
+        "saved_total_variation": 0.19508573229626053,
+        "current_mae_fraction": 0.0125861762771781,
+        "current_total_variation": 0.19508573229626053,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "6500"
+        },
+        "training_manifest_sha256": "5779145e68b5ad4c27eb86fbed4aed1f1f6dfb34bafbbcf20db9bbfd1b470dcb",
+        "status": "compared",
+        "saved_mae_fraction": 0.01172127881872914,
+        "saved_total_variation": 0.18167982169030167,
+        "current_mae_fraction": 0.01172127881872914,
+        "current_total_variation": 0.18167982169030167,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "512",
+          "held_out_site_id": "CUTHILL2",
+          "bin_id_bp": "7000"
+        },
+        "training_manifest_sha256": "b5fab2298ffb3778b330c0e071a95d269f3dcf958e79633c3f6dff3010bd4426",
+        "status": "compared",
+        "saved_mae_fraction": 0.014530716277189638,
+        "saved_total_variation": 0.22522610229643938,
+        "current_mae_fraction": 0.014530716277189638,
+        "current_total_variation": 0.22522610229643938,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "6ae5c399a38394a5b721c6e95faf971ffea9199033f9e9852f9f89cabcaadad9",
+        "status": "compared",
+        "saved_mae_fraction": 0.008260456068209307,
+        "saved_total_variation": 0.12803706905724427,
+        "current_mae_fraction": 0.008260456068209307,
+        "current_total_variation": 0.12803706905724427,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "a8901b69d50d6798a3918ce7a1802dfa7543337c53e999ceb2a2c71e6265933f",
+        "status": "compared",
+        "saved_mae_fraction": 0.01329863814170486,
+        "saved_total_variation": 0.20612889119642533,
+        "current_mae_fraction": 0.01329863814170486,
+        "current_total_variation": 0.20612889119642533,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "0e230e5b8ae95acbe789fe7bc9141dfb2daf19882bbf1de382099ddcb5bbcd6d",
+        "status": "compared",
+        "saved_mae_fraction": 0.011728665699345461,
+        "saved_total_variation": 0.18179431833985465,
+        "current_mae_fraction": 0.011728665699345461,
+        "current_total_variation": 0.18179431833985465,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "515d9685fd26d9050be17e736e3e678a778a212f2ec3ccdd757f9cacb1cc4488",
+        "status": "compared",
+        "saved_mae_fraction": 0.014674151395235825,
+        "saved_total_variation": 0.2274493466261553,
+        "current_mae_fraction": 0.014674151395235825,
+        "current_total_variation": 0.2274493466261553,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "baf0b84c95443460c85e9e088b59d4ca54da5054f98fa38e88f551096d673381",
+        "status": "compared",
+        "saved_mae_fraction": 0.00823326108863785,
+        "saved_total_variation": 0.12761554687388665,
+        "current_mae_fraction": 0.00823326108863785,
+        "current_total_variation": 0.12761554687388665,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "0561998db408436325e25c0b0e04f97701793c0e4f38797486b2908c313ac206",
+        "status": "compared",
+        "saved_mae_fraction": 0.005727297364303279,
+        "saved_total_variation": 0.08877310914670082,
+        "current_mae_fraction": 0.005727297364303279,
+        "current_total_variation": 0.08877310914670082,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "a5e9859783d48d8b405ae5fe3445a823ce2a2592f5e4c9873243aacd252c0621",
+        "status": "compared",
+        "saved_mae_fraction": 0.017155473212750218,
+        "saved_total_variation": 0.26590983479762836,
+        "current_mae_fraction": 0.017155473212750218,
+        "current_total_variation": 0.26590983479762836,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "01ebe449fdbfe886f7be8a62a0d90fca7dad33d6abf7e8f6921007c7796a925c",
+        "status": "compared",
+        "saved_mae_fraction": 0.007599797186519401,
+        "saved_total_variation": 0.11779685639105071,
+        "current_mae_fraction": 0.007599797186519401,
+        "current_total_variation": 0.11779685639105071,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "GOURTEMIRES",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "fd471e98df7f3421b9b8debfe46cbeccee5dea5077e9f6bbdf104a955b0ad6fa",
+        "status": "compared",
+        "saved_mae_fraction": 0.014890200564343727,
+        "saved_total_variation": 0.23079810874732778,
+        "current_mae_fraction": 0.014890200564343727,
+        "current_total_variation": 0.23079810874732778,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "188185a013164fc125a50dccb3585e01de63693e5cde9b27d55ba8ee5950337b",
+        "status": "compared",
+        "saved_mae_fraction": 0.007010941707729818,
+        "saved_total_variation": 0.10866959646981218,
+        "current_mae_fraction": 0.007010941707729818,
+        "current_total_variation": 0.10866959646981218,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "e62f09fb6d363d8a32ff37481f6035cd582c710cc1e53e7f926d4b2c64c8af61",
+        "status": "compared",
+        "saved_mae_fraction": 0.03548505641038109,
+        "saved_total_variation": 0.550018374360907,
+        "current_mae_fraction": 0.03548505641038109,
+        "current_total_variation": 0.550018374360907,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "e0ddba7b21953f8cbc7bfd11504e667a351696c1b7d0fd863a81d3d9b2898cb1",
+        "status": "compared",
+        "saved_mae_fraction": 0.02553823695492101,
+        "saved_total_variation": 0.39584267280127566,
+        "current_mae_fraction": 0.02553823695492101,
+        "current_total_variation": 0.39584267280127566,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "18376c2d6fd1f22fb01dac259a2e15fd2d62d37b55ba361204cb5e433f0af2b4",
+        "status": "compared",
+        "saved_mae_fraction": 0.01199465412993125,
+        "saved_total_variation": 0.1859171390139344,
+        "current_mae_fraction": 0.01199465412993125,
+        "current_total_variation": 0.1859171390139344,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "5d17f17f9e49676b273b68019351334d5f6a2479540cda4b9ced545a1ec655ee",
+        "status": "compared",
+        "saved_mae_fraction": 0.01769398666290192,
+        "saved_total_variation": 0.27425679327497976,
+        "current_mae_fraction": 0.01769398666290192,
+        "current_total_variation": 0.27425679327497976,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "19cb7dc2f79f98bb25dab472291df95dc12f8e7ef6a6a5bb13889e1592752327",
+        "status": "compared",
+        "saved_mae_fraction": 0.013623999563502015,
+        "saved_total_variation": 0.21117199323428124,
+        "current_mae_fraction": 0.013623999563502015,
+        "current_total_variation": 0.21117199323428124,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "709892bba7f0bc8a32eedf600443f9befccbedb0d8f27b58b38204dd2f199eb3",
+        "status": "compared",
+        "saved_mae_fraction": 0.01687815402022396,
+        "saved_total_variation": 0.2616113873134714,
+        "current_mae_fraction": 0.01687815402022396,
+        "current_total_variation": 0.2616113873134714,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "254611d8de25f80fd46f8333ec84406525057e03334ca689b2b548f462a0edbe",
+        "status": "compared",
+        "saved_mae_fraction": 0.01659978173503208,
+        "saved_total_variation": 0.25729661689299727,
+        "current_mae_fraction": 0.01659978173503208,
+        "current_total_variation": 0.25729661689299727,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LARKBARR",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "9e297165a70c258724e6ddb752dcbecab1aae9124963cd4bd4bc60d8442d2ef2",
+        "status": "compared",
+        "saved_mae_fraction": 0.023189413759561316,
+        "saved_total_variation": 0.3594359132732004,
+        "current_mae_fraction": 0.023189413759561316,
+        "current_total_variation": 0.3594359132732004,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "MOLECHAM",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "020057bfbbf7b57834eafdc9a8a538daa97e66d2e298a61c91feffb003bee5a8",
+        "status": "compared",
+        "saved_mae_fraction": 0.017492480514145682,
+        "saved_total_variation": 0.2711334479692581,
+        "current_mae_fraction": 0.017492480514145682,
+        "current_total_variation": 0.2711334479692581,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "MOLECHAM",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "3858cc3356bcebe07640d224ecbd63c78a967250dd9a8296fd9fc61c808667ff",
+        "status": "compared",
+        "saved_mae_fraction": 0.01987088216737386,
+        "saved_total_variation": 0.30799867359429484,
+        "current_mae_fraction": 0.01987088216737386,
+        "current_total_variation": 0.30799867359429484,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "MOLECHAM",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "2ba4d2d9dab4b1b460e8a2f56fac15a74d5628c7842aa8c9b9c865b5ddb975d8",
+        "status": "compared",
+        "saved_mae_fraction": 0.021879770904434707,
+        "saved_total_variation": 0.33913644901873796,
+        "current_mae_fraction": 0.021879770904434707,
+        "current_total_variation": 0.33913644901873796,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "MOLECHAM",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "597aacc8550d362fe15ccc35bbbac44e5b8a41783fdf9e3f54f3716640dd1c30",
+        "status": "compared",
+        "saved_mae_fraction": 0.012155841687575825,
+        "saved_total_variation": 0.18841554615742528,
+        "current_mae_fraction": 0.012155841687575825,
+        "current_total_variation": 0.18841554615742528,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "MOLECHAM",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "350902fd955bf5a24739fb9860662cbbbcd81a28d396ab8c320f131337fc298f",
+        "status": "compared",
+        "saved_mae_fraction": 0.011331537531093,
+        "saved_total_variation": 0.1756388317319415,
+        "current_mae_fraction": 0.011331537531093,
+        "current_total_variation": 0.1756388317319415,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "MOLECHAM",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "b2e9c425dd0949a42e4467c0df135e9f6a1b747220523a24deb6e9437347af8a",
+        "status": "compared",
+        "saved_mae_fraction": 0.02289685374490476,
+        "saved_total_variation": 0.3549012330460238,
+        "current_mae_fraction": 0.02289685374490476,
+        "current_total_variation": 0.3549012330460238,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "MOLECHAM",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "190949494c3470aa1c9b06034cf6e4171676b8ea8b66e84f2c494a6eb6b555c0",
+        "status": "compared",
+        "saved_mae_fraction": 0.018332912126393586,
+        "saved_total_variation": 0.2841601379591006,
+        "current_mae_fraction": 0.018332912126393586,
+        "current_total_variation": 0.2841601379591006,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "ae9a8aa44132ecb5373fbc30804cfdef70f0d7632a6e10e8e4e3954135f77849",
+        "status": "compared",
+        "saved_mae_fraction": 0.011026118252095528,
+        "saved_total_variation": 0.17090483290748068,
+        "current_mae_fraction": 0.011026118252095528,
+        "current_total_variation": 0.17090483290748068,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "f80de721531033fa641c545927786ad059c44e1d9a8eb22d5a4a02cd28d33bb1",
+        "status": "compared",
+        "saved_mae_fraction": 0.013197108103623349,
+        "saved_total_variation": 0.2045551756061619,
+        "current_mae_fraction": 0.013197108103623349,
+        "current_total_variation": 0.2045551756061619,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "1c9cb7bd0a1d4bd6b4e5abb639b815e5523e5171fdea064ecd612ee45d757b52",
+        "status": "compared",
+        "saved_mae_fraction": 0.00817384511343758,
+        "saved_total_variation": 0.12669459925828247,
+        "current_mae_fraction": 0.00817384511343758,
+        "current_total_variation": 0.12669459925828247,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "37f5f67c620ab798cd79751c1214850e8adeac832db8a698cada513014755992",
+        "status": "compared",
+        "saved_mae_fraction": 0.010422612775744446,
+        "saved_total_variation": 0.1615504980240389,
+        "current_mae_fraction": 0.010422612775744446,
+        "current_total_variation": 0.1615504980240389,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "006c13d33893e56218de79a6370d4857f41db0a974d701156f939d2c44a69e6a",
+        "status": "compared",
+        "saved_mae_fraction": 0.019606307189834218,
+        "saved_total_variation": 0.30389776144243036,
+        "current_mae_fraction": 0.019606307189834218,
+        "current_total_variation": 0.30389776144243036,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "9df1d116ae463cf0110c791673bdd33b9935877e4e4d93743216244f2ed5c0cc",
+        "status": "compared",
+        "saved_mae_fraction": 0.01610464967237889,
+        "saved_total_variation": 0.24962206992187283,
+        "current_mae_fraction": 0.01610464967237889,
+        "current_total_variation": 0.24962206992187283,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "dbccba539f0317481fbb0e017e39a08f80408de9332e53bc8153330a6f1e017f",
+        "status": "compared",
+        "saved_mae_fraction": 0.016133991944737483,
+        "saved_total_variation": 0.25007687514343097,
+        "current_mae_fraction": 0.016133991944737483,
+        "current_total_variation": 0.25007687514343097,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "65a074e235530314ded2e24a92377304876e2688effc9325c40eee0e0f1ded1b",
+        "status": "compared",
+        "saved_mae_fraction": 0.009008691422413789,
+        "saved_total_variation": 0.13963471704741373,
+        "current_mae_fraction": 0.009008691422413789,
+        "current_total_variation": 0.13963471704741373,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "10699331969a27427c7a0057b1bb10d130c62ba11c9462a70d55a65d63d8721f",
+        "status": "compared",
+        "saved_mae_fraction": 0.016697544550014678,
+        "saved_total_variation": 0.2588119405252275,
+        "current_mae_fraction": 0.016697544550014678,
+        "current_total_variation": 0.2588119405252275,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "NTWITCHEN",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "a8d837c3f3436f9ed8b618970a02edd6839b84f9e94baf46673f082bfee9850e",
+        "status": "compared",
+        "saved_mae_fraction": 0.015315902663900285,
+        "saved_total_variation": 0.23739649129045443,
+        "current_mae_fraction": 0.015315902663900285,
+        "current_total_variation": 0.23739649129045443,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "236726a8332e52bafca7a30a84b7dd2ded0650ce55f0f0ad6af0165c3361010b",
+        "status": "compared",
+        "saved_mae_fraction": 0.01552161145505091,
+        "saved_total_variation": 0.2405849775532891,
+        "current_mae_fraction": 0.01552161145505091,
+        "current_total_variation": 0.2405849775532891,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "d39da037ef13f42827772ffc3bbb56a17efc0d1b72159b0255060843d5eb2b44",
+        "status": "compared",
+        "saved_mae_fraction": 0.012747362057719737,
+        "saved_total_variation": 0.1975841118946559,
+        "current_mae_fraction": 0.012747362057719737,
+        "current_total_variation": 0.1975841118946559,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "ae3f6b19555fa45a17b707d4f832e23a75b78b067c7318aff682011c273db74d",
+        "status": "compared",
+        "saved_mae_fraction": 0.0075661981413867535,
+        "saved_total_variation": 0.11727607119149468,
+        "current_mae_fraction": 0.0075661981413867535,
+        "current_total_variation": 0.11727607119149468,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "5eb98a81563c66d06de6bc24c4269fd59110efbde9e3a101419023fb63a8559b",
+        "status": "compared",
+        "saved_mae_fraction": 0.008245809386490511,
+        "saved_total_variation": 0.12781004549060293,
+        "current_mae_fraction": 0.008245809386490511,
+        "current_total_variation": 0.12781004549060293,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "12a887c7f652adb6fc782c7e4d08343461d9a64a341da2975efbce220edf1e50",
+        "status": "compared",
+        "saved_mae_fraction": 0.005547722071234259,
+        "saved_total_variation": 0.08598969210413102,
+        "current_mae_fraction": 0.005547722071234259,
+        "current_total_variation": 0.08598969210413102,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "e6867c2d921eff5d003fe0b6480e588e3110e75467b1307f37c4d43af704303e",
+        "status": "compared",
+        "saved_mae_fraction": 0.009968928819356668,
+        "saved_total_variation": 0.15451839670002834,
+        "current_mae_fraction": 0.009968928819356668,
+        "current_total_variation": 0.15451839670002834,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "bec8b48aa660d8bf41dec85afa8396bf4546cba660f5671da87cd6e42fc222ce",
+        "status": "compared",
+        "saved_mae_fraction": 0.01628728935357203,
+        "saved_total_variation": 0.25245298498036645,
+        "current_mae_fraction": 0.01628728935357203,
+        "current_total_variation": 0.25245298498036645,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "54760c28105b8e07d03630079f35c55bed555acd61d2a7a319d5ee69ae0effe0",
+        "status": "compared",
+        "saved_mae_fraction": 0.009402501889818718,
+        "saved_total_variation": 0.14573877929219012,
+        "current_mae_fraction": 0.009402501889818718,
+        "current_total_variation": 0.14573877929219012,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "34da64da2c505a16d30901b67170d15683c446193884eabf91ec38bb1fdebf90",
+        "status": "compared",
+        "saved_mae_fraction": 0.019341575899600543,
+        "saved_total_variation": 0.29979442644380844,
+        "current_mae_fraction": 0.019341575899600543,
+        "current_total_variation": 0.29979442644380844,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "583c1d8311f742bc0bba6479de5ecd1cbf47296de1f0f56dd8f10ef5c05febbe",
+        "status": "compared",
+        "saved_mae_fraction": 0.021660385125749432,
+        "saved_total_variation": 0.3357359694491162,
+        "current_mae_fraction": 0.021660385125749432,
+        "current_total_variation": 0.3357359694491162,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "c0824d76c7915ebb318dafaa6d38d468fed00fc0b9c4318f6bfb11cd012c0423",
+        "status": "compared",
+        "saved_mae_fraction": 0.018570492745457662,
+        "saved_total_variation": 0.28784263755459377,
+        "current_mae_fraction": 0.018570492745457662,
+        "current_total_variation": 0.28784263755459377,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "5000"
+        },
+        "training_manifest_sha256": "e7bbd8b0d2ae196b6c1041af0f2cd88ef5049644fdf5036079d843bf5ff1d66e",
+        "status": "compared",
+        "saved_mae_fraction": 0.010550983234518465,
+        "saved_total_variation": 0.1635402401350362,
+        "current_mae_fraction": 0.010550983234518465,
+        "current_total_variation": 0.1635402401350362,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "5500"
+        },
+        "training_manifest_sha256": "7f471f06c91504d153e12e8b50d9a256355f3ff85eac92844d9a55e9db674a58",
+        "status": "compared",
+        "saved_mae_fraction": 0.032452108678813284,
+        "saved_total_variation": 0.5030076845216059,
+        "current_mae_fraction": 0.032452108678813284,
+        "current_total_variation": 0.5030076845216059,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "6000"
+        },
+        "training_manifest_sha256": "443f8e95cfc7264f3e2237673f306aae041c5e2246d5da63b063d048940f6020",
+        "status": "compared",
+        "saved_mae_fraction": 0.018548218355177972,
+        "saved_total_variation": 0.2874973845052586,
+        "current_mae_fraction": 0.018548218355177972,
+        "current_total_variation": 0.2874973845052586,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "LONGBREACH",
+          "bin_id_bp": "6500"
+        },
+        "training_manifest_sha256": "4cc77413e469a98191002a043825869f0f08160caa3ee23082d0051b6a2d104d",
+        "status": "compared",
+        "saved_mae_fraction": 0.018061725236644417,
+        "saved_total_variation": 0.27995674116798847,
+        "current_mae_fraction": 0.018061725236644417,
+        "current_total_variation": 0.27995674116798847,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "50"
+        },
+        "training_manifest_sha256": "83c8601ff31f641e3f3f50b1c695650dedaa3db18cc6a5c1efc9742137eada90",
+        "status": "compared",
+        "saved_mae_fraction": 0.008757383888607985,
+        "saved_total_variation": 0.13573945027342377,
+        "current_mae_fraction": 0.008757383888607985,
+        "current_total_variation": 0.13573945027342377,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "225"
+        },
+        "training_manifest_sha256": "f13c6e80f2259f1d52ab181bc8f579b0e72e912b5b5765c65f2f41c5ebad7229",
+        "status": "compared",
+        "saved_mae_fraction": 0.01560993027572798,
+        "saved_total_variation": 0.24195391927378368,
+        "current_mae_fraction": 0.01560993027572798,
+        "current_total_variation": 0.24195391927378368,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "42ce386614a710ccded44a275bf3ee7fe27d73bc6081f157545c3b19cc478e92",
+        "status": "compared",
+        "saved_mae_fraction": 0.015274188868899774,
+        "saved_total_variation": 0.2367499274679465,
+        "current_mae_fraction": 0.015274188868899774,
+        "current_total_variation": 0.2367499274679465,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "1000"
+        },
+        "training_manifest_sha256": "37b4ea3d5e0993a990f288212d90d20afcc9b6a3866feb1b80507fafefec94cd",
+        "status": "compared",
+        "saved_mae_fraction": 0.016473850378727502,
+        "saved_total_variation": 0.2553446808702763,
+        "current_mae_fraction": 0.016473850378727502,
+        "current_total_variation": 0.2553446808702763,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "8e03c6e3d789bc00200bf87743d0c314b9c11e7e49111363438b48439b5047a6",
+        "status": "compared",
+        "saved_mae_fraction": 0.011431795021561738,
+        "saved_total_variation": 0.17719282283420695,
+        "current_mae_fraction": 0.011431795021561738,
+        "current_total_variation": 0.17719282283420695,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "e2feda9f04bb0feaf7a63062d478c08296c326b8ddd3c0c1025220e9d358e6b0",
+        "status": "compared",
+        "saved_mae_fraction": 0.03290299210883946,
+        "saved_total_variation": 0.5099963776870116,
+        "current_mae_fraction": 0.03290299210883946,
+        "current_total_variation": 0.5099963776870116,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "8f139e8441b904526953eae717392de7d5f2a0bcc2157a169ab1df01c49822ec",
+        "status": "compared",
+        "saved_mae_fraction": 0.022689423001823465,
+        "saved_total_variation": 0.35168605652826374,
+        "current_mae_fraction": 0.022689423001823465,
+        "current_total_variation": 0.35168605652826374,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "8b7cd8e9f2a9ed2af3052636707c842f5f65d02bc2c82c81b0e743b579170d42",
+        "status": "compared",
+        "saved_mae_fraction": 0.009165171724916266,
+        "saved_total_variation": 0.14206016173620212,
+        "current_mae_fraction": 0.009165171724916266,
+        "current_total_variation": 0.14206016173620212,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "ba60d4df78e5987d83302db897210002b4c782e75105583d8aeff646b5c8348b",
+        "status": "compared",
+        "saved_mae_fraction": 0.028551483990580766,
+        "saved_total_variation": 0.4425480018540019,
+        "current_mae_fraction": 0.028551483990580766,
+        "current_total_variation": 0.4425480018540019,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "1f489040df7585eabf14f1080ae8d5039d573e594a41ba7130b0f21054494c23",
+        "status": "compared",
+        "saved_mae_fraction": 0.027862255831187937,
+        "saved_total_variation": 0.431864965383413,
+        "current_mae_fraction": 0.027862255831187937,
+        "current_total_variation": 0.431864965383413,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "BECKHAM",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "f88c46fc3891ad6216ac0f586903b9e85d4fbb0c008f6281478dab1436049d9d",
+        "status": "compared",
+        "saved_mae_fraction": 0.025983660057036156,
+        "saved_total_variation": 0.40274673088406043,
+        "current_mae_fraction": 0.025983660057036156,
+        "current_total_variation": 0.40274673088406043,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "EXEBRID",
+          "bin_id_bp": "7000"
+        },
+        "training_manifest_sha256": "f0ed828137754cde72f2d5f55cd1c4677961b451c88da280a4d4a6742cc690b4",
+        "status": "compared",
+        "saved_mae_fraction": 0.044085535854310645,
+        "saved_total_variation": 0.683325805741815,
+        "current_mae_fraction": 0.044085535854310645,
+        "current_total_variation": 0.683325805741815,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "EXEBRID",
+          "bin_id_bp": "7500"
+        },
+        "training_manifest_sha256": "97004c27f2af99c843e1227e54c95bce6b257df62ceaf543126b42be6a2c4458",
+        "status": "compared",
+        "saved_mae_fraction": 0.03514536666230125,
+        "saved_total_variation": 0.5447531832656695,
+        "current_mae_fraction": 0.03514536666230125,
+        "current_total_variation": 0.5447531832656695,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "EXEBRID",
+          "bin_id_bp": "8000"
+        },
+        "training_manifest_sha256": "e46a3818c368c75bc70e0cdf677677cccf0b95ab9e4c82f2c0e9400101230eb4",
+        "status": "compared",
+        "saved_mae_fraction": 0.0318373486143888,
+        "saved_total_variation": 0.49347890352302637,
+        "current_mae_fraction": 0.0318373486143888,
+        "current_total_variation": 0.49347890352302637,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "EXEBRID",
+          "bin_id_bp": "8500"
+        },
+        "training_manifest_sha256": "0fb5953994ceb6fbbac4ebbe4ce0a171fb57fa7e539af719fb15ddb9d5802564",
+        "status": "compared",
+        "saved_mae_fraction": 0.02987544631559696,
+        "saved_total_variation": 0.46306941789175293,
+        "current_mae_fraction": 0.02987544631559696,
+        "current_total_variation": 0.46306941789175293,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "550"
+        },
+        "training_manifest_sha256": "c76ecfa4923c0043df8410bc6f546a12c76a128165c17d5607123d5c3488765b",
+        "status": "compared",
+        "saved_mae_fraction": 0.027488506249534465,
+        "saved_total_variation": 0.4260718468677842,
+        "current_mae_fraction": 0.027488506249534465,
+        "current_total_variation": 0.4260718468677842,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "1500"
+        },
+        "training_manifest_sha256": "9f67366b552459c766324b5ee93b41996dc69e27e0bcfc2b5e769348fe2ebb8b",
+        "status": "compared",
+        "saved_mae_fraction": 0.008523527644977245,
+        "saved_total_variation": 0.13211467849714728,
+        "current_mae_fraction": 0.008523527644977245,
+        "current_total_variation": 0.13211467849714728,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "2000"
+        },
+        "training_manifest_sha256": "47689ddbfe3f10c62a2a0fa655992ba434163665e10406b385e270cb7e0fc20c",
+        "status": "compared",
+        "saved_mae_fraction": 0.014285599822150318,
+        "saved_total_variation": 0.22142679724332992,
+        "current_mae_fraction": 0.014285599822150318,
+        "current_total_variation": 0.22142679724332992,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "2500"
+        },
+        "training_manifest_sha256": "07942d1f5e487c85cf4d66e96d764e783b3a21a4a6493e658c0b1005a54722a9",
+        "status": "compared",
+        "saved_mae_fraction": 0.013012289711694772,
+        "saved_total_variation": 0.20169049053126897,
+        "current_mae_fraction": 0.013012289711694772,
+        "current_total_variation": 0.20169049053126897,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "3000"
+        },
+        "training_manifest_sha256": "86365440550fd18e0d96e6100581eb77c74d0a4c37429594e87d69a7011b0177",
+        "status": "compared",
+        "saved_mae_fraction": 0.010250886715379944,
+        "saved_total_variation": 0.15888874408838913,
+        "current_mae_fraction": 0.010250886715379944,
+        "current_total_variation": 0.15888874408838913,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "3500"
+        },
+        "training_manifest_sha256": "90d0ae6fdad2d93ef2fb5a1b5cf3cd26dbc3e4fceea7770873c33892c4e6cb68",
+        "status": "compared",
+        "saved_mae_fraction": 0.0174111847277164,
+        "saved_total_variation": 0.2698733632796042,
+        "current_mae_fraction": 0.0174111847277164,
+        "current_total_variation": 0.2698733632796042,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "4000"
+        },
+        "training_manifest_sha256": "3a431c42d934533a8e8ce850c695d4e43f19c4855e16b62df750b2c82963f7c5",
+        "status": "compared",
+        "saved_mae_fraction": 0.015734243760104363,
+        "saved_total_variation": 0.2438807782816176,
+        "current_mae_fraction": 0.015734243760104363,
+        "current_total_variation": 0.2438807782816176,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "4500"
+        },
+        "training_manifest_sha256": "e3a91dd632a168ce5e62fa62532ba3c5dd5386b9168cc3d1993019a4086e5756",
+        "status": "compared",
+        "saved_mae_fraction": 0.013096885441760927,
+        "saved_total_variation": 0.20300172434729438,
+        "current_mae_fraction": 0.013096885441760927,
+        "current_total_variation": 0.20300172434729438,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "5000"
+        },
+        "training_manifest_sha256": "247e09529ab243a24f7fb0bea2e57b92d05363c8d545e3a2c33240431d0c9fe2",
+        "status": "compared",
+        "saved_mae_fraction": 0.010550983234518465,
+        "saved_total_variation": 0.1635402401350362,
+        "current_mae_fraction": 0.010550983234518465,
+        "current_total_variation": 0.1635402401350362,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "5500"
+        },
+        "training_manifest_sha256": "792518760099333434944644a803329d9dee8eb5d01d1f136ea3413ecfdded25",
+        "status": "compared",
+        "saved_mae_fraction": 0.032452108678813284,
+        "saved_total_variation": 0.5030076845216059,
+        "current_mae_fraction": 0.032452108678813284,
+        "current_total_variation": 0.5030076845216059,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "6000"
+        },
+        "training_manifest_sha256": "f99614fb262f6b4bbaff02d5891cbd9efdf91136813ff9d78e588f658e835603",
+        "status": "compared",
+        "saved_mae_fraction": 0.018548218355177972,
+        "saved_total_variation": 0.2874973845052586,
+        "current_mae_fraction": 0.018548218355177972,
+        "current_total_variation": 0.2874973845052586,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "6500"
+        },
+        "training_manifest_sha256": "d461398879f9fb5c6dec4b5cd70dd96767eb919ec54be7ccbc8dbd626ab9e253",
+        "status": "compared",
+        "saved_mae_fraction": 0.018061725236644417,
+        "saved_total_variation": 0.27995674116798847,
+        "current_mae_fraction": 0.018061725236644417,
+        "current_total_variation": 0.27995674116798847,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "7000"
+        },
+        "training_manifest_sha256": "d28dbd47973018e96c5572147035a2da015b0bb855e062ee13810a05b74fedaa",
+        "status": "compared",
+        "saved_mae_fraction": 0.044085535854310645,
+        "saved_total_variation": 0.683325805741815,
+        "current_mae_fraction": 0.044085535854310645,
+        "current_total_variation": 0.683325805741815,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "7500"
+        },
+        "training_manifest_sha256": "0c1ec8b1886f3c525648df5c4ac36af27435222fa53aaf407d2ebc3c19075fb7",
+        "status": "compared",
+        "saved_mae_fraction": 0.03514536666230125,
+        "saved_total_variation": 0.5447531832656695,
+        "current_mae_fraction": 0.03514536666230125,
+        "current_total_variation": 0.5447531832656695,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "8000"
+        },
+        "training_manifest_sha256": "3d332d5e91809e0a93ebfff10ce127d319217d2284136da0e6e8963f197405c5",
+        "status": "compared",
+        "saved_mae_fraction": 0.0318373486143888,
+        "saved_total_variation": 0.49347890352302637,
+        "current_mae_fraction": 0.0318373486143888,
+        "current_total_variation": 0.49347890352302637,
+        "passed": true
+      },
+      {
+        "identity": {
+          "grid_id": "562",
+          "held_out_site_id": "COMERSLA",
+          "bin_id_bp": "8500"
+        },
+        "training_manifest_sha256": "b10e36075c808ba1b60c049f5e0aa1a5f6c9f69e44c6c5db7795025f9d6c760e",
+        "status": "compared",
+        "saved_mae_fraction": 0.02987544631559696,
+        "saved_total_variation": 0.46306941789175293,
+        "current_mae_fraction": 0.02987544631559696,
+        "current_total_variation": 0.46306941789175293,
+        "passed": true
+      }
+    ],
+    "absolute_tolerance": 0,
+    "new_fits_optimizer_K_R_or_hellinger_calls": 0,
+    "scope": "Current MAE/TV arithmetic on retained predictions/counts only; original heldout/source/rights/accuracy epochs unchanged. No current model, new independent heldout or whole scientific/release acceptance."
+  },
+  "terminal": {
+    "candidate": "238978b0a426107dd3856dc0b080dab135cce72e",
+    "plan_sha256": "58b9fd64f164f6ded700d61539b54db42a72aa76311fba5221912f6a4eda41d7",
+    "actual_launch_argv": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/atlas-canonical-source-export-controller/scientific_runner.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-retained-pollen-current-score-execution/plan.json",
+      "--registered-plan-sha256",
+      "58b9fd64f164f6ded700d61539b54db42a72aa76311fba5221912f6a4eda41d7"
+    ],
+    "actual_exit": 0,
+    "stages": [
+      {
+        "id": "current-retained-pollen-MAE-TV",
+        "argv": [
+          "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+          "-I",
+          "-S",
+          "-B",
+          "-X",
+          "pycache_prefix=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-retained-pollen-current-score-execution/source-pycache",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+          "--profile",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+          "--profile-sha256",
+          "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+          "--mode",
+          "python",
+          "--",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-saved-score-consumer-proposal/score_saved.py",
+          "--contract",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-pollen-saved-score-consumer-proposal/input-contract.json",
+          "--contract-sha256",
+          "13ec537803c605261daae69e8241ad0b43431b1608a0f9e43f150c8782ab168c",
+          "--output-root",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-retained-pollen-current-score-execution/native",
+          "--output",
+          "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-retained-pollen-current-score-execution/native/comparison.json",
+          "--execution-epoch",
+          "238978b0a426107dd3856dc0b080dab135cce72e"
+        ],
+        "timeout_seconds": 120,
+        "actual_exit": 0,
+        "timed_out": false,
+        "seconds": 4.9224689999828115,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "source_pins_before_mismatches": [],
+    "source_pins_after_mismatches": [],
+    "output_bytes": 91729,
+    "completed_child_peak_rss_bytes_macos": 119291904,
+    "elapsed_seconds": 5.518140041036531,
+    "scope": "Current-source MAE/TV compatibility on177 retained31taxon score groups; original425 dispositions/5487 predictions retained. No new fits/predictions/Hellinger/K/R/optimizer, heldout experiment, accuracy or whole scientific/release acceptance. Original source/rights and historical epochs remain distinct.",
+    "resources": {
+      "overall_timeout_seconds": 150,
+      "declared_memory_bytes": 536870912,
+      "declared_storage_bytes": 16777216
+    }
+  },
+  "execution": {
+    "candidate": "238978b0a426107dd3856dc0b080dab135cce72e",
+    "preparation_admission_sha256": "7287d40cb5e44dfa3726f6e3fbdf36ecb1b217b8fb97b31ea2c4957b2b9871ee",
+    "command": [
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/current-offline-isolated-source-runtime-bootstrap/environment/bin/python",
+      "-I",
+      "-B",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/atlas-canonical-source-export-controller/scientific_runner.py",
+      "--plan",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-retained-pollen-current-score-execution/plan.json",
+      "--registered-plan-sha256",
+      "58b9fd64f164f6ded700d61539b54db42a72aa76311fba5221912f6a4eda41d7"
+    ],
+    "native_pid": 12551,
+    "native_exit": 0,
+    "timed_out": false,
+    "elapsed_seconds": 5.620763750048354,
+    "completed_child_peak_RSS_bytes_macos": 119291904,
+    "logical_created_output_bytes_before_receipt": 1992469,
+    "actual_exit": 0,
+    "scope": "Current-source MAE/TV compatibility on177 retained31taxon score groups; original425 dispositions/5487 predictions retained. No new fits/predictions/Hellinger/K/R/optimizer, heldout experiment, accuracy or whole scientific/release acceptance. Original source/rights and historical epochs remain distinct. Wall watchdog enforced; completed-child RSS and inclusive-owner storage postchecks only. No OS quota/aggregate or network isolation claim."
+  },
+  "scope": "Current MAE/TV compatibility on177 retained prediction/count groups only; original425dispositions and5487taxon prediction rows preserved. Numerical Hellinger stability change is outside the original consumed route; it is not classified as IO. Originaluncertainty1180/profile0cca/holdoutcacf/native/private193source epochs remain unchanged. No new fit/optimizer/K/R/Hellinger/heldout/modelaccuracy or whole certification; original six-table lawfulcustody criterion remains unresolved."
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 import shutil
 
@@ -59,7 +60,7 @@ def test_exact_scientific_captures_preserve_original_authority(
 ) -> None:
     root, tracked, owners = capture_repository
     entries, evidence = validated_swedish_static_basin_captures(root, tracked, owners)
-    assert len(entries) == 9
+    assert len(entries) == 10
     assert evidence["reviewed_capture_sha256"] == CAPTURE_PINS
     assert evidence["owner_paths"] == OWNER_PATHS
 
@@ -134,4 +135,81 @@ def test_malformed_retained_owner_paths_refuse_capture_admission(
     root, tracked, owners = capture_repository
     owners[0]["paths"] = invalid_paths
     with pytest.raises(ReportRebuildError, match="paths must be a string list"):
+        validated_swedish_static_basin_captures(root, tracked, owners)
+
+
+REFERENCE_OWNER = (
+    "pollen-reconstruction/swedish-static-basin-scenarios/native-r-reference-account"
+)
+REFERENCE_PATH = "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-r-reference.json"
+
+
+def test_independent_reference_retains_distinct_original_epochs(
+    capture_repository: _CaptureFixture,
+) -> None:
+    root, tracked, owners = capture_repository
+    before = json.dumps(owners, sort_keys=True)
+    entries, evidence = validated_swedish_static_basin_captures(root, tracked, owners)
+    assert len(entries) == 10 and before == json.dumps(owners, sort_keys=True)
+    assert REFERENCE_PATH.removeprefix("docs/report/") in [
+        entry.path for entry in entries
+    ]
+    value = json.loads((root / REFERENCE_PATH).read_bytes())
+    assert (
+        value["epochs"]["saved_report_source"]
+        == "1988f522002e8bb5362083b9e8b46bd4fa17685e"
+    )
+    assert (
+        value["epochs"]["actual_reference_and_comparison_execution"]
+        == "6763e5574b56863089bcaba45bdc307bfca1d71b"
+    )
+    assert value["population"]["actual_saved_comparisons_total"] == 16868
+    assert value["population"]["R_only_zero_PPE_control_cells_total"] == 2572
+    assert "publication transport is a later epoch" in str(evidence["source_scope"])
+
+
+@pytest.mark.parametrize(
+    "mutation", ["missing-owner", "extra-path", "role", "producer", "overlap"]
+)
+def test_reference_declaration_cannot_expand_old_capture_family(
+    capture_repository: _CaptureFixture, mutation: str
+) -> None:
+    root, tracked, owners = capture_repository
+    row = next(row for row in owners if row["owner_id"] == REFERENCE_OWNER)
+    if mutation == "missing-owner":
+        owners.remove(row)
+    elif mutation == "extra-path":
+        row["paths"] = [REFERENCE_PATH, REFERENCE_PATH + ".extra"]
+    elif mutation == "role":
+        row["role"] = "maintained_configuration"
+    elif mutation == "producer":
+        row["producer_paths"] = ["run.py"]
+    else:
+        owners.append({**row, "owner_id": REFERENCE_OWNER + "/unreviewed"})
+    with pytest.raises(ReportRebuildError, match="owner differs|declaration differs"):
+        validated_swedish_static_basin_captures(root, tracked, owners)
+
+
+@pytest.mark.parametrize("mutation", ["relabel", "refused"])
+def test_changed_reference_refuses_even_with_resealed_inventory(
+    capture_repository: _CaptureFixture, mutation: str
+) -> None:
+    root, tracked, owners = capture_repository
+    target = root / REFERENCE_PATH
+    value = json.loads(target.read_bytes())
+    if mutation == "relabel":
+        value["epochs"]["actual_reference_and_comparison_execution"] = "f" * 40
+    else:
+        value["outcomes"]["collector_exit"] = 1
+    raw = (json.dumps(value, indent=2) + "\n").encode()
+    target.write_bytes(raw)
+    digest = hashlib.sha256(raw).hexdigest()
+    tracked[REFERENCE_PATH] = InventoryEntry(
+        path=REFERENCE_PATH.removeprefix("docs/report/"),
+        kind="file",
+        size=len(raw),
+        sha256=digest,
+        canonical_sha256=digest,
+    )
+    with pytest.raises(ReportRebuildError, match="bytes changed"):
         validated_swedish_static_basin_captures(root, tracked, owners)

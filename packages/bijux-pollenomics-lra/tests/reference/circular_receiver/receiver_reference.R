@@ -30,9 +30,58 @@ receiver_reference_overlap <- function(first, second, separation) {
   if (!all(is.finite(c(first_cosine, second_cosine, radicand)))) {
     receiver_reference_refuse("overlap_unresolved", "Circle-overlap arithmetic overflow")
   }
-  first^2 * acos(max(-1, min(1, first_cosine))) +
-    second^2 * acos(max(-1, min(1, second_cosine))) -
-    sqrt(max(0, radicand)) / 2
+  # Retain the original finite-arithmetic domain guard above, but do not use its
+  # ill-conditioned cosines or subtract large triangle and sector areas.
+  small <- min(first, second)
+  large <- max(first, second)
+  total_radius <- large + small
+  radius_difference <- large - small
+  # Regroup both Heron difference factors before dividing: for equal radii and
+  # tiny separation they remain d/d, rather than rounding d+r-r to zero.
+  if (separation < large / 2) {
+    height <- sqrt(total_radius - separation) * sqrt(total_radius + separation) *
+      sqrt((separation + radius_difference) / separation) *
+      sqrt((separation - radius_difference) / separation) / 2
+  } else {
+    # Keep the small radius after subtracting the nearby large distances.
+    # R+r and R-r may round away part of r before the partial-lens differences.
+    height <- sqrt((large - separation) + small) * sqrt(total_radius + separation) *
+      sqrt((separation + radius_difference) / separation) *
+      sqrt(((separation - large) + small) / separation) / 2
+  }
+  if (small == large) {
+    small_projection <- large_projection <- separation / 2
+  } else if (separation < large / 2) {
+    # The difference-of-squares form preserves near-coincident unequal circles.
+    scaled_difference <- (radius_difference / separation) * total_radius
+    small_projection <- (separation - scaled_difference) / 2
+    large_projection <- (separation + scaled_difference) / 2
+  } else {
+    # Near the large circumference, factor d^2-R^2 before adding the small r^2.
+    small_projection <- ((separation - large) * (separation + large) + small^2) /
+      (2 * separation)
+    large_projection <- ((separation - small) * (separation + small) + large^2) /
+      (2 * separation)
+  }
+  if (!all(is.finite(c(height, small_projection, large_projection))) || height < 0) {
+    receiver_reference_refuse("overlap_unresolved", "Circle-overlap arithmetic overflow")
+  }
+  segment <- function(theta) {
+    # theta-sin(theta)cos(theta), with cancellation removed near zero.
+    # At theta<=0.01, the first omitted term is <=4096*theta^13/13! <6.6e-33.
+    if (theta <= 0.01) {
+      squared <- theta^2
+      return(theta^3 * (2/3 + squared * (-2/15 + squared *
+        (4/315 + squared * (-2/2835 + squared * 4/155925)))))
+    }
+    theta - sin(theta) * cos(theta)
+  }
+  area <- small^2 * segment(atan2(height, small_projection)) +
+    large^2 * segment(atan2(height, large_projection))
+  if (!is.finite(area) || area < 0 || area > pi * small^2) {
+    receiver_reference_refuse("overlap_unresolved", "Circle-overlap area is unresolved")
+  }
+  area
 }
 
 circular_receiver_annulus_reference <- function(

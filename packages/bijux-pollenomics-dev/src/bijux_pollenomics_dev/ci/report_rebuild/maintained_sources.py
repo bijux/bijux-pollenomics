@@ -78,8 +78,14 @@ from .scientific_captures.controlled_numerical.love_objective import (
 from .scientific_captures.controlled_numerical.lra_comparison import (
     validated_controlled_lra_comparison_capture,
 )
+from .scientific_captures.controlled_numerical.nordic_wind import (
+    validated_nordic_wind_reference,
+)
 from .scientific_captures.controlled_numerical.python_reference import (
     validated_current_python_r_comparison,
+)
+from .scientific_captures.controlled_numerical.regional_cutoff import (
+    validated_regional_cutoff_reference,
 )
 from .scientific_captures.country_reports.sweden import (
     validated_sweden_country_capture,
@@ -180,16 +186,16 @@ from .scientific_captures.vegetation_reference.slu_guide import (
 # Updating a maintained report path requires an explicit transport-contract change.
 MAINTAINED_ROLE_PATHS = {
     "maintained_code": (
-        63,
-        "0180b0dc0e74063546778f1d63acdfcccf13f476ac9c5f0048ccaeb19df6c56d",
+        84,
+        "1975c162759ef73c9fc7dfbd570d457ff6a925578d49c9e13450c3a790b7bed8",
     ),
     "maintained_editorial": (
-        204,
-        "ce1c97b558ca8af8eeb8bacbb07cea0b32d2399f6b2e1fcaa7c496ffadf074ad",
+        222,
+        "ba3dc785ca4303de1576c4d3c23b795d0fa2c6a932d4052f9769e7f44ec37be1",
     ),
     "maintained_configuration": (
-        14,
-        "a81101b6cffc4ddc16e6691dc8a0eab0364b40e3787a316b4e7757d633298774",
+        25,
+        "aa7b9be2fd461ced64a37ed26a71976d09b1261104a1dbd54f7baf5523e638de",
     ),
 }
 SOURCE_FORMATS = {
@@ -539,8 +545,18 @@ def validated_maintained_report_sources(
     python_r_entries, python_r_evidence = validated_current_python_r_comparison(
         repository, tracked_by_path, inventory["owners"]
     )
+    nordic_wind_entries, nordic_wind_evidence = validated_nordic_wind_reference(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    cutoff_reference_entries, cutoff_reference_evidence = (
+        validated_regional_cutoff_reference(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
     all_capture_entries = (
-        (
+        cutoff_reference_entries
+        + nordic_wind_entries
+        + (
             (
                 (
                     capture_entries
@@ -738,6 +754,10 @@ def validated_maintained_report_sources(
         evidence["retained_development_setting_selection"] = selector_evidence
     if legacy_entries:
         evidence["retained_author_legacy_wrapper_domain"] = legacy_evidence
+    if nordic_wind_entries:
+        evidence["retained_nordic_wind_reference"] = nordic_wind_evidence
+    if cutoff_reference_entries:
+        evidence["retained_regional_cutoff_reference"] = cutoff_reference_evidence
     if python_r_entries:
         evidence["retained_current_python_R_comparison"] = python_r_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

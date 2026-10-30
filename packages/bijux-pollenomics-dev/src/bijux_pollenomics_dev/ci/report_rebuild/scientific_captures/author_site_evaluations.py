@@ -22,6 +22,10 @@ from ..ownership import ReportOwnershipError, _regular_confined_file
 from ..retained_source.descriptor import normalize_members
 from ..retained_source.generated import reconstruct
 from ..retained_source.index import SourceCapsule, validated_descriptor
+from .controlled_numerical.author_evaluations import (
+    validated_author_score_qualification,
+    validated_consumed_source_pair,
+)
 from .spatial_source_exports import (
     SPATIAL_EXPORT_SOURCE,
     spatial_export_extension_matches,
@@ -433,6 +437,7 @@ def validated_author_site_evaluation_captures(
         )
     historical_generated = 0
     spatial_export_role_applied = False
+    consumed_correspondences: list[JsonObject] = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
@@ -454,14 +459,6 @@ def validated_author_site_evaluation_captures(
             if current.stat().st_size != row.get("bytes") or hashlib.sha256(
                 current.read_bytes()
             ).hexdigest() != row.get("sha256"):
-                if (
-                    name != SPATIAL_EXPORT_SOURCE
-                    or current.stat().st_nlink != 1
-                    or not 0 < current.stat().st_size <= 4096
-                ):
-                    raise ReportRebuildError(
-                        "Author evaluation scientific implementation changed"
-                    )
                 historical_member = next(
                     f"executions/{lane}/first-party-inputs/{name}"
                     for lane in EXECUTIONS
@@ -470,25 +467,47 @@ def validated_author_site_evaluation_captures(
                     ).get("sha256")
                     == row.get("sha256")
                 )
-                historical = source_buffer.read_source(historical_member)
-                if (
-                    row.get("bytes") != SPATIAL_HISTORICAL_BYTES
-                    or row.get("sha256") != SPATIAL_HISTORICAL_SHA256
-                    or len(historical) != SPATIAL_HISTORICAL_BYTES
-                    or hashlib.sha256(historical).hexdigest()
-                    != SPATIAL_HISTORICAL_SHA256
-                    or not spatial_export_extension_matches(
-                        historical, current.read_bytes()
-                    )
+                if name == SPATIAL_EXPORT_SOURCE:
+                    historical = source_buffer.read_source(historical_member)
+                    if (
+                        current.stat().st_nlink != 1
+                        or not 0 < current.stat().st_size <= 4096
+                        or row.get("bytes") != SPATIAL_HISTORICAL_BYTES
+                        or row.get("sha256") != SPATIAL_HISTORICAL_SHA256
+                        or len(historical) != SPATIAL_HISTORICAL_BYTES
+                        or hashlib.sha256(historical).hexdigest()
+                        != SPATIAL_HISTORICAL_SHA256
+                        or not spatial_export_extension_matches(
+                            historical, current.read_bytes()
+                        )
+                    ):
+                        raise ReportRebuildError(
+                            "Author evaluation scientific implementation changed"
+                        )
+                    spatial_export_role_applied = True
+                elif (
+                    name
+                    != "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py"
                 ):
                     raise ReportRebuildError(
                         "Author evaluation scientific implementation changed"
                     )
-                spatial_export_role_applied = True
+                consumed_correspondences.append(
+                    validated_consumed_source_pair(
+                        repository, row, historical_member, source_buffer.read_source
+                    )
+                )
     if historical_generated != 1:
         raise ReportRebuildError(
             "Author evaluation historical generated projection differs"
         )
+    consumed_qualification = (
+        validated_author_score_qualification(
+            repository, consumed_correspondences, source_buffer.read_source
+        )
+        if consumed_correspondences
+        else {}
+    )
     products = capture.get("report_outputs")
     if not isinstance(products, list) or len(products) != 8:
         raise ReportRebuildError(
@@ -579,7 +598,9 @@ def validated_author_site_evaluation_captures(
         },
         "report_outputs": 8,
         "current_scientific_projection": 177,
-        "ordinary_current_byte_exact_members": 177 - int(spatial_export_role_applied),
+        "ordinary_current_byte_exact_members": 177 - len(consumed_correspondences),
+        "reviewed_unconsumed_source_deltas": consumed_correspondences,
+        "current_saved_score_qualification": consumed_qualification,
         "named_spatial_export_correspondence_members": int(spatial_export_role_applied),
         "managed_reader_projection": MANAGED_READER,
         "historical_generated_metadata_members": 1,
@@ -589,5 +610,5 @@ def validated_author_site_evaluation_captures(
             sorted("docs/report/" + entry.path for entry in retained_entries)
         ),
         "observed_eight_paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Three actual prior-exposed English author Python evaluations with original private-source authority retained separately. This authenticates all eight saved products while admitting only the seven other qualified outputs; the profile owner and its exact six-private-table lawful-custody criterion remain unresolved. The declared projection is177 current members:176 ordinary byte-exact members plus the old497 spatial export source, which permits only its explicitly named import/export extension when changed. One separately authenticated historical539 version identity spans three aliases without current ignored-file equality. The named holdout Markdown report preserves its exact authored bytes and current independently qualified managed footer; the historical whole report remains exact in the capture. This transports completed native products; it executes no R/model/optimizer and grants no ecological, Nordic, rights or human release acceptance.",
+        "scope": "Three actual prior-exposed English author Python evaluations with original private-source authority retained separately. This authenticates all eight saved products while admitting only the seven other qualified outputs; the profile owner and its exact six-private-table lawful-custody criterion remain unresolved. The declared projection is177 current members. Changed metrics and old497 spatial export sources require their two finite consumed-definition proofs and the retained177-group/425-disposition MAE/TV qualification; all other current members remain byte-exact. The spatial export extension also retains its separately reviewed named import/export predicate. This does not establish whole-current source equality or Hellinger equivalence. One separately authenticated historical539 version identity spans three aliases without current ignored-file equality. The named holdout Markdown report preserves its exact authored bytes and current independently qualified managed footer; the historical whole report remains exact in the capture. This transports completed native products; it executes no R/model/optimizer and grants no ecological, Nordic, rights or human release acceptance.",
     }

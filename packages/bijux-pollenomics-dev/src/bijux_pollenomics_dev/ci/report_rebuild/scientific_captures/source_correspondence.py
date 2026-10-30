@@ -19,7 +19,16 @@ from .source_roles.documentation import (
     DOCUMENTED_SOURCE_STRINGS,
     _documented_source_matches,
 )
-from .source_roles.readers import _historical_custody_source_role, _unique_function
+from .source_roles.numerical_precision import (
+    METRICS_SOURCE,
+    validated_hellinger_precision_source,
+)
+from .source_roles.readers import (
+    SWEDISH_REFERENCE_READER_SOURCE,
+    _historical_custody_source_role,
+    _unique_function,
+    validated_swedish_reference_reader_source,
+)
 from .spatial_source_exports import spatial_export_extension_matches
 
 HISTORICAL_PRESENTATION_SOURCES = frozenset(
@@ -353,6 +362,14 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if name == METRICS_SOURCE:
+        return validated_hellinger_precision_source(
+            repository, historical, logical, source_buffer
+        )
+    if name == SWEDISH_REFERENCE_READER_SOURCE:
+        return validated_swedish_reference_reader_source(
+            repository, historical, logical, source_buffer
+        )
     if (
         logical == "source/" + name
         and logical in source_buffer.detached

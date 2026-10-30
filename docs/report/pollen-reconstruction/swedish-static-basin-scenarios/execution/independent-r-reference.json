@@ -1,0 +1,136 @@
+{
+  "schema_version": "swedish-static-basin-independent-r-reference.v1",
+  "scope": "Independent displacement/circle-overlap R numerical reference and two-track conditional moment comparison; not the original author R implementation or field/physical validation.",
+  "epochs": {
+    "saved_report_source": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "retained_input_export": "db2f4d5616616472e3baf5c86a5af207f6a0de0f",
+    "actual_reference_and_comparison_execution": "6763e5574b56863089bcaba45bdc307bfca1d71b",
+    "subsequent_canonical_source_adoption": "d670491f09e35b08045b3c39930cc2150176e755",
+    "execution_source_overlay": "Actual6763 execution used five declared Python/R overlay files, later adopted byte-identically at d670; not all sources were6763 Git bytes."
+  },
+  "population": {
+    "source_cores": 4,
+    "distinct_static_case_profiles": 24,
+    "matched_moment_windows": 462,
+    "full_saved_moment_rows": 385,
+    "reduced_zero_PPE_saved_rows": 77,
+    "physical_factors": 45,
+    "R_computed_cells_total": 19440,
+    "actual_saved_comparisons_total": 16868,
+    "R_only_zero_PPE_control_cells_total": 2572,
+    "saved_zero_PPE_arrays_invented": false
+  },
+  "tracks": {
+    "fresh_factor": {
+      "computed_values": 9720,
+      "actual_saved_comparisons": 8434,
+      "separate_R_only_zero_PPE_controls": 1286,
+      "maximum_window_absolute_difference": 1.4715451079894137e-12,
+      "all_window_comparisons_passed": true
+    },
+    "saved_factor": {
+      "computed_values": 9720,
+      "actual_saved_comparisons": 8434,
+      "separate_R_only_zero_PPE_controls": 1286,
+      "maximum_window_absolute_difference": 6.106226635438361e-16,
+      "all_window_comparisons_passed": true
+    }
+  },
+  "physical_factors": {
+    "absolute_tolerance": 1e-08,
+    "maximum_absolute_difference": 1.2822659600786324e-12,
+    "all_factors_retained": true
+  },
+  "moment_tolerances": {
+    "fresh_factor": {
+      "absolute": 1e-08,
+      "relative": 1e-08
+    },
+    "saved_factor": {
+      "absolute": 2e-12,
+      "relative": 2e-12
+    }
+  },
+  "zero_PPE_controls": {
+    "all_passed": true,
+    "saved_array_present": false,
+    "meaning": "Separately computed R direct/counting covariance compared to baseline and exact-zero PPE covariance. The reduced saved zero-PPE rows supply only cover and standard error, not missing full arrays."
+  },
+  "outcomes": {
+    "R_stage_exit": 0,
+    "comparison_stage_exit": 0,
+    "runner_native_exit": 0,
+    "collector_exit": 0,
+    "mismatches": 0,
+    "source_pins_before_mismatches": [],
+    "source_pins_after_mismatches": []
+  },
+  "observed_resources": {
+    "collector_elapsed_seconds": 17.57299029105343,
+    "runner_elapsed_seconds": 17.491819249931723,
+    "completed_child_RSS_bytes_macos": 121880576,
+    "native_output_bytes_before_runner_terminal": 3100136,
+    "inclusive_owner_bytes_before_collector_receipt": 5573726,
+    "scope": "Completed-child RSS and logical storage postchecks, not aggregate OS isolation."
+  },
+  "provenance": {
+    "comparison": {
+      "path": "artifacts/science/swedish-compensated-moment-execution/native/comparison.json",
+      "sha256": "3c7de4ff5a94aaf9e474f6dc2d1cb6d14d95bc0257a2669aed3768e529e59511",
+      "bytes": 1071256
+    },
+    "plan": {
+      "path": "artifacts/science/swedish-compensated-moment-execution/plan.json",
+      "sha256": "fb7f1971c242af531220f0af5bd6de2d39946b4eb2198fd1f20c0d3ab9f6aea3",
+      "bytes": 2459495
+    },
+    "native_terminal": {
+      "path": "artifacts/science/swedish-compensated-moment-execution/native/terminal.json",
+      "sha256": "b9ee7308df8683717e0b05d7b5d5c9655b3f0f5b2ec97d7dd73e010f476d8cef",
+      "bytes": 5685
+    },
+    "collector_execution": {
+      "path": "artifacts/science/swedish-compensated-moment-execution/execution.json",
+      "sha256": "e11203a1221c23d47ffeda855509d47f30f50d4013a9f5843bf6cd0c85cb562e",
+      "bytes": 1462
+    },
+    "source_adoption": {
+      "path": "artifacts/science/swedish-reference-adapter-integration/commit-verification.json",
+      "sha256": "240abaeb83bd94a1ec74ea4c4876344c04852918d35bd57cd2cd618a9c9845d5",
+      "bytes": 2075
+    },
+    "source_manifest": {
+      "path": "artifacts/science/swedish-retained-export-comparison-proposal/source-proposal.json",
+      "sha256": "429c822a1bd3acaa78465e6617bf9ff1029905f944b0e76e4b0ee474fef10df1",
+      "bytes": 5312
+    },
+    "source_review": {
+      "path": "artifacts/science/swedish-retained-export-comparison-review/review.json",
+      "sha256": "8ea092f365480f792c1ae779c675464f932a293117d4ffd924d6907ab949904e",
+      "bytes": 2162
+    },
+    "corrected_receiver": {
+      "path": "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/receiver_reference.R",
+      "sha256": "5855ed5f39a41199e43276735e85882861c83511d8e242c151fe4231905e230d",
+      "bytes": 9516
+    }
+  },
+  "retained_original_export": {
+    "manifest": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/swedish-physical-window-r-execution/native/inputs/manifest.json",
+      "sha256": "7178428ac180f740093697197cf57ea975cd55d938ef5e329c75602be0105630",
+      "bytes": 1971
+    },
+    "exporter": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/scientific-method-frontier/proposal/packages/bijux-pollenomics-lra/tests/reference/circular_receiver/swedish_windows.py",
+      "sha256": "37a43ab563eb0ee4bc6b74ef6f52e7002c8007171761816b0b103c81850ee376",
+      "bytes": 15314
+    }
+  },
+  "limitations": [
+    "Static circular basins, empirical metre transport convention and reported chronology point support remain assumptions; all261included source point ages lack bounds.",
+    "Diagonal PPE covariance is assumed. Counting/PPE conditional standard errors exclude chronology, geometry, transport, selection and joint cross-window uncertainty.",
+    "No original-author R/historical LandClim identity, complete31taxon coverage, independent vegetation accuracy, calibrated uncertainty or source-use/rights/human review acceptance.",
+    "Earlier failed native55771, original-factor42success3refusal diagnostic and corrected45success controls remain distinct retained evidence. This summary does not overwrite their dispositions."
+  ]
+}
