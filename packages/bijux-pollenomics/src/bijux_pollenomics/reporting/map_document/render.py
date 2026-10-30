@@ -110,7 +110,7 @@ _EVIDENCE_BEGIN = "/* atlas-evidence-tools:begin */"
 _EVIDENCE_END = "/* atlas-evidence-tools:end */"
 _EVIDENCE_FACTORY = """globalThis.BijuxPollenomicsEvidenceTools=function(escapeHtml,scientificCueGlyph){
 %s
-return Object.freeze({countryData:relationSummaryData,countryHtml:renderRelationSummary,timeData:relationTimeSummaryData,timeHtml:renderRelationTimeSummary,pickerCatalog:scientificPickerCatalog,pickerSearch:scientificPickerSearch,pickerInitial:scientificPickerInitialState,pickerAction:scientificPickerAction,pickerHtml:renderScientificPicker});
+return Object.freeze({countryData:relationSummaryData,countryHtml:renderRelationSummary,timeData:relationTimeSummaryData,timeHtml:renderRelationTimeSummary,pickerCatalog:scientificPickerCatalog,pickerSearch:scientificPickerSearch,pickerInitial:scientificPickerInitialState,pickerAction:scientificPickerAction,pickerHtml:renderScientificPicker,pickerMount:mountScientificPicker});
 };
 """
 _BOOTSTRAP = re.compile(

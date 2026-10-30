@@ -2175,7 +2175,7 @@ __NATIVE_LRA_CONTROLS__
                   </div>
                 </div>
               </details>
-              <details class="control-group">
+              <details id="scientific-controls" class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Scientific resolution</span>
@@ -3489,6 +3489,7 @@ __URL_STATE_CONTROLLER__
           countries: params.get('countries'),
           layers: params.get('layers'),
           scientificSignals: params.get('scientific_signals'),
+          scientificPins: params.getAll('scientific_pins'),
           countryPair: params.get('country_pair'),
           relationFilters: relationFiltersFromHash(params),
           relationEventDefinition: relationEventDefinitionFromHash(params),
@@ -4791,6 +4792,9 @@ __URL_STATE_CONTROLLER__
         SCIENTIFIC_SIGNAL_IDS,
         DEFAULT_SCIENTIFIC_SIGNAL_IDS
       );
+      let scientificPinValues = initialState.scientificPins;
+      let scientificPinnedIds = null, scientificCatalog = null, scientificPickerController = null;
+      let scientificPickerStatus = 'not_loaded';
       let activeEvidenceDisplay = initialState.evidenceDisplay;
       const COUNTRY_PAIR_KEYS = Array.from(new Set(GOVERNED_EDGE_RECORDS.map((edge) => atlasCountryPairKey(edge.source_country, edge.target_country)))).sort();
       let activeCountryPair = normalizedSingleValue(initialState.countryPair, ['all', ...COUNTRY_PAIR_KEYS], 'all');
@@ -5296,6 +5300,7 @@ __URL_STATE_CONTROLLER__
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
         if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) params.set('scientific_signals', activeScientificSignalIds.size ? [...activeScientificSignalIds].join(',') : 'none');
+        scientificPinValues.forEach(value => params.append('scientific_pins', value));
         if (activeCountryPair !== 'all') params.set('country_pair', activeCountryPair);
         writeRelationFilterHash(params, activeRelationFilters);
         writeRelationEventDefinitionHash(params, activeRelationEventDefinition);
@@ -5835,7 +5840,7 @@ __URL_STATE_CONTROLLER__
         let count = 0;
         if (activeCountries.size !== COUNTRIES.length) count += 1;
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) count += 1;
-        if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) count += 1;
+        if (scientificPinValues.length || activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) count += 1;
         if (activeCountryPair !== 'all') count += 1;
         count += relationFilterFields().filter(([key]) => activeRelationFilters[key] !== null || activeRelationFilters.invalid.includes(key)).length;
         if (activeRelationEventDefinition.value !== null || activeRelationEventDefinition.invalid) count += 1;
@@ -5896,22 +5901,45 @@ __URL_STATE_CONTROLLER__
           : sourceChronologyAvailable
             ? 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.'
             : 'Harmonized scientific classifications are awaiting qualified review. This scope has no source-native pollen chronology layers.';
-        scientificFilters.innerHTML = available
-          ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
-              const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
-              if (!signals.length) return '';
-              return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(resolution)}</div><div class="dock-layer-grid">${signals.map((signal) => `<label class="dock-layer-chip"><input class="scientific-checkbox" type="checkbox" value="${escapeHtml(signal.signal_id)}" ${activeScientificSignalIds.has(signal.signal_id) ? 'checked' : ''}><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)}</span></label>`).join('')}</div></div>`;
-            }).join('')
-          : '';
+        if (available) renderScientificPickerPanel(); else scientificFilters.innerHTML = '';
         scientificSummary.textContent = available
           ? `${activeScientificSignalIds.size} of ${SCIENTIFIC_SIGNALS.length} accepted signals selected`
           : sourceChronologyAvailable ? 'Source-native views available' : 'Accepted classifications unavailable';
-        document.querySelectorAll('.scientific-checkbox').forEach((checkbox) => {
-          checkbox.addEventListener('change', () => {
-            if (checkbox.checked) activeScientificSignalIds.add(checkbox.value); else activeScientificSignalIds.delete(checkbox.value);
+      }
+      function resetScientificPins() {
+        scientificPinValues = []; scientificPinnedIds = null;
+        scientificPickerController?.clearSearch(); scientificPickerStatus = 'not_loaded';
+      }
+      function scientificPickerMetadata() {
+        return {pinned_ids: scientificPinnedIds === null ? null : [...scientificPinnedIds], requested_pin_values: [...scientificPinValues], status: scientificPickerStatus};
+      }
+      function scientificPickerSelection(tools) {
+        scientificCatalog ||= tools.pickerCatalog(SCIENTIFIC_SIGNALS);
+        const result = tools.pickerInitial(scientificCatalog, [...activeScientificSignalIds], scientificPinnedIds === null ? scientificPinValues : [JSON.stringify(scientificPinnedIds)]);
+        scientificPickerStatus = result.error ? 'unavailable' : 'available';
+        if (!result.error) scientificPinnedIds = result.state.pinnedIds;
+        return result;
+      }
+      function renderScientificPickerPanel() {
+        const panel = document.getElementById('scientific-controls'), tools = currentEvidenceTools();
+        if (!panel.open) return;
+        if (!tools) {
+          scientificFilters.textContent = evidenceToolsError || 'Loading supplied scientific signals…';
+          scientificPickerStatus = evidenceToolsError ? 'unavailable' : 'not_loaded';
+          return;
+        }
+        scientificCatalog ||= tools.pickerCatalog(SCIENTIFIC_SIGNALS);
+        scientificPickerController ||= tools.pickerMount(scientificFilters, scientificCatalog, {
+          read: () => scientificPickerSelection(tools),
+          change: state => {
+            scientificPinnedIds = state.pinnedIds;
+            scientificPinValues = [JSON.stringify(scientificPinnedIds)];
+            activeScientificSignalIds = new Set(state.visibleIds);
             renderMapState();
-          });
+          },
+          reset: () => { resetScientificPins(); renderMapState(); }
         });
+        scientificPickerController.render();
       }
       function visibleGovernedEdges() {
         const definitions = new Set(relationEventDefinitionSelection(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition).selected);
@@ -6987,6 +7015,7 @@ __URL_STATE_CONTROLLER__
       __RELATION_SUMMARY_CONTROLLER__
       __RELATION_TIME_SUMMARY_CONTROLLER__
       __SCIENTIFIC_PICKER_CONTROLLER__
+      __SCIENTIFIC_PICKER_MOUNT_CONTROLLER__
       /* atlas-evidence-tools:end */
       let evidenceTools = null, evidenceToolsRequest = null, evidenceToolsError = null;
       function currentEvidenceTools() {
@@ -6995,7 +7024,7 @@ __URL_STATE_CONTROLLER__
             timeData: relationTimeSummaryData, timeHtml: renderRelationTimeSummary,
             pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
             pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
-            pickerHtml: renderScientificPicker});
+            pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker});
         }
         return evidenceTools;
       }
@@ -7030,7 +7059,7 @@ __URL_STATE_CONTROLLER__
               try {
                 if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
                 const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
-                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
                 evidenceTools = tools;
                 resolve(tools);
               } catch (error) { reject(error); }
@@ -7632,6 +7661,7 @@ __URL_STATE_CONTROLLER__
           scope_slug: STATIC_ATLAS_BOOTSTRAP.scope_slug,
           relation_filters: relationFilterMetadata(GOVERNED_EDGE_RECORDS, activeRelationFilters),
           relation_event_definition: relationEventDefinitionMetadata(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition),
+          scientific_picker: scientificPickerMetadata(),
           evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
           version: STATIC_ATLAS_BOOTSTRAP.version,
           ready: document.getElementById('map').getAttribute('aria-busy') !== 'true',
@@ -7956,6 +7986,7 @@ __URL_STATE_CONTROLLER__
         activeCountries = new Set(DEFAULT_COUNTRIES);
         activeLayerKeys = new Set(DEFAULT_LAYER_KEYS);
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
+        resetScientificPins();
         activeCountryPair = 'all';
         resetRelationFilters();
         resetRelationEventDefinition();
@@ -8002,11 +8033,18 @@ __URL_STATE_CONTROLLER__
       document.getElementById('countries-fit').addEventListener('click', fitToActive);
       document.getElementById('scientific-whole').addEventListener('click', () => {
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
+        resetScientificPins();
         renderMapState();
       });
       document.getElementById('scientific-clear').addEventListener('click', () => {
         activeScientificSignalIds = new Set();
+        resetScientificPins();
         renderMapState();
+      });
+      document.getElementById('scientific-controls').addEventListener('toggle', event => {
+        if (!event.currentTarget.open || ATLAS_EVIDENCE.classifications_status !== 'available' || !SCIENTIFIC_SIGNALS.length) return;
+        renderScientificControls();
+        loadEvidenceTools().then(renderScientificControls, renderScientificControls);
       });
       document.querySelectorAll('[data-source-shortcut]').forEach((button) => {
         button.addEventListener('click', () => {
@@ -8338,6 +8376,7 @@ __URL_STATE_CONTROLLER__
             scientific_signals: [...activeScientificSignalIds].sort(),
             relation_filters: relationFilterMetadata(GOVERNED_EDGE_RECORDS, activeRelationFilters),
             relation_event_definition: relationEventDefinitionMetadata(GOVERNED_EDGE_RECORDS, activeRelationEventDefinition),
+            scientific_picker: scientificPickerMetadata(),
             evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
             map_window_bp: TIME_HAS_DATA ? [timeStartBp, timeWindowEndBp()] : null,
             selected_detail_section: activeFocusTab,

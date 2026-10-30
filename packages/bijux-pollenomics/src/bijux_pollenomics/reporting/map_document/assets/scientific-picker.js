@@ -38,8 +38,16 @@ function scientificPickerStateError(catalog, state) {
   if (!state || !['pinnedIds', 'visibleIds'].every(key => Array.isArray(state[key]) && new Set(state[key]).size === state[key].length && state[key].every(id => ids.has(id))) || state.pinnedIds.length > 6) return 'Unknown, repeated or excessive picker identities.';
   return null;
 }
-function scientificPickerInitialState(catalog, selectedIds) {
-  const state = {pinnedIds: Array.isArray(selectedIds) ? selectedIds.slice(0, 6) : null, visibleIds: Array.isArray(selectedIds) ? [...selectedIds] : null};
+function scientificPickerInitialState(catalog, selectedIds, pinRequest = []) {
+  if (!Array.isArray(pinRequest) || !pinRequest.every(value => typeof value === 'string') || pinRequest.length > 1) {
+    return {state: null, error: 'Shared pinned comparison was supplied more than once or is unavailable.'};
+  }
+  let pinnedIds = Array.isArray(selectedIds) ? selectedIds.slice(0, 6) : null;
+  if (pinRequest.length) {
+    try { pinnedIds = JSON.parse(pinRequest[0]); }
+    catch { return {state: null, error: 'Shared pinned comparison is unavailable.'}; }
+  }
+  const state = {pinnedIds, visibleIds: Array.isArray(selectedIds) ? [...selectedIds] : null};
   const error = scientificPickerStateError(catalog, state);
   return {state: error ? null : state, error};
 }

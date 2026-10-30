@@ -50,6 +50,12 @@ def load_map_document_template() -> str:
             ),
         )
         .replace(
+            "__SCIENTIFIC_PICKER_MOUNT_CONTROLLER__",
+            package_root.joinpath("assets/scientific-picker-mount.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
             "__SELECTION_LOADING_CONTROLLER__",
             package_root.joinpath("assets/selection-loading.js").read_text(
                 encoding="utf-8"

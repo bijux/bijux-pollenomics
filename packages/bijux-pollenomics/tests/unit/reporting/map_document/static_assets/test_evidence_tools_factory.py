@@ -38,6 +38,7 @@ html:tools.pickerHtml(catalog,{pinnedIds:[],visibleIds:[]})}));
         "pickerInitial",
         "pickerAction",
         "pickerHtml",
+        "pickerMount",
     ]
     assert all(
         observed[key]["status"] == "available" for key in ("country", "time", "picker")

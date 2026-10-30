@@ -56,7 +56,11 @@ def signals() -> list[dict[str, Any]]:
 
 
 def observe(
-    rows: object, initial: object = None, actions: object = None, query: object = ""
+    rows: object,
+    initial: object = None,
+    actions: object = None,
+    query: object = "",
+    pin_request: object = (),
 ) -> dict[str, Any]:
     return cast(
         dict[str, Any],
@@ -71,13 +75,15 @@ def observe(
             + json.dumps(actions or [])
             + ";const query="
             + json.dumps(query)
+            + ";const pinRequest="
+            + json.dumps(pin_request)
             + r""";
-const before=JSON.stringify({rows,initial,actions});
+const before=JSON.stringify({rows,initial,actions,pinRequest});
 function scientificCueGlyph(cue){return {circle:'●',square:'■',triangle:'▲',diamond:'◆',cross:'✚',ring:'○'}[cue]}
-const catalog=scientificPickerCatalog(rows),first=scientificPickerInitialState(catalog,initial);
+const catalog=scientificPickerCatalog(rows),first=scientificPickerInitialState(catalog,initial,pinRequest);
 let state=first.state;const outcomes=[];
 for(const action of actions){const previous=state,prior=JSON.stringify(state),result=scientificPickerAction(catalog,state,action);outcomes.push({...result,same:result.state===previous,priorUnchanged:prior===JSON.stringify(previous)});state=result.state;}
-console.log(JSON.stringify({catalog,first,state,outcomes,matches:scientificPickerSearch(catalog,query).map(row=>row.id),html:renderScientificPicker(catalog,state,query),unchanged:before===JSON.stringify({rows,initial,actions})}));
+console.log(JSON.stringify({catalog,first,state,outcomes,matches:scientificPickerSearch(catalog,query).map(row=>row.id),html:renderScientificPicker(catalog,state,query),unchanged:before===JSON.stringify({rows,initial,actions,pinRequest})}));
 """
         ),
     )
@@ -314,6 +320,53 @@ def test_refused_actions_keep_the_exact_existing_state(action: dict[str, str]) -
 def test_invalid_existing_selection_is_not_silently_replaced(initial: object) -> None:
     observed = observe(signals(), initial)
     assert observed["first"]["state"] is None and observed["first"]["error"]
+
+
+def test_shared_pin_order_and_hidden_pins_do_not_replace_visible_selection() -> None:
+    pins = ["pollen:taxon:other", "pollen:whole"]
+    selected = ["pollen:whole", "pollen:group:cereals"]
+    observed = observe(signals(), selected, pin_request=[json.dumps(pins)])
+    assert observed["state"] == {"pinnedIds": pins, "visibleIds": selected}
+    assert "Hidden" in observed["html"] and observed["unchanged"] is True
+
+
+def test_explicit_empty_pin_request_preserves_all_visible_ids() -> None:
+    selected = [row["signal_id"] for row in signals()]
+    observed = observe(signals(), selected, pin_request=["[]"])
+    assert observed["state"] == {"pinnedIds": [], "visibleIds": selected}
+    assert observed["unchanged"] is True
+
+
+@pytest.mark.parametrize(
+    "pin_request",
+    [
+        None,
+        "[]",
+        [None],
+        [""],
+        ["null"],
+        ["{}"],
+        ['"pollen:whole"'],
+        ["[1]"],
+        ['["foreign"]'],
+        ['["pollen:whole","pollen:whole"]'],
+        ["[]", "[]"],
+    ],
+)
+def test_unavailable_shared_pin_requests_never_seed_default_pins(
+    pin_request: object,
+) -> None:
+    observed = observe(signals(), ["pollen:whole"], pin_request=pin_request)
+    assert observed["state"] is None and observed["first"]["error"]
+    assert "unavailable" in observed["html"] and observed["unchanged"] is True
+
+
+def test_shared_request_cannot_pin_seven_valid_signals() -> None:
+    rows = signals()
+    rows.append({**rows[-1], "signal_id": "extra", "feature_key": "taxon:extra"})
+    selected = [row["signal_id"] for row in rows]
+    observed = observe(rows, selected, pin_request=[json.dumps(selected)])
+    assert observed["state"] is None and observed["first"]["error"]
 
 
 def test_query_and_native_labels_are_escaped_with_accessible_exact_actions() -> None:

@@ -96,6 +96,8 @@ let GOVERNED_EDGE_RECORDS=[supplied.edge];
 const STATIC_ATLAS_INLINE=false,STATIC_ATLAS_CHUNKS={edges:{status:'available'}};
 const SCIENTIFIC_SIGNALS=[{signal_id:supplied.edge.signal_id,label:'Native fixture',non_color_cue:'circle'}];
 let visiblePointEntries=supplied.features.map(feature=>({layer:{key:'points'},feature}));
+let scientificPinValues=[];
+function resetScientificPins(){scientificPinValues=[]}
 const COUNTRIES=['Norway','Sweden'],DEFAULT_LAYER_KEYS=['points'],DEFAULT_SCIENTIFIC_SIGNAL_IDS=[supplied.edge.signal_id];
 const activeCountries=new Set(['Norway']),activeScientificSignalIds=new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
 let activeLayerKeys=new Set(DEFAULT_LAYER_KEYS),activeCountryPair='all',crossBorderOnly=true;
