@@ -106,21 +106,23 @@ def analyse_window(
             "The original 22 ungrouped taxon variables must remain explicit"
         )
     populations: Counter[str] = Counter()
+    coordinate_rows: Counter[str] = Counter()
     diagnostics = []
     minimum_margins: dict[str, dict[str, Fraction]] = {}
     root_residuals: dict[str, list[Fraction]] = {"one": [], "hundred": []}
     maximum_mean_identity = Fraction()
     for mean in means:
         error = by_id[mean["LCGRID_ID"]]
-        if (
-            set(mean) != set(header)
-            or set(error) != set(header)
-            or any(
-                _number(mean[coordinate]) != _number(error[coordinate])
-                for coordinate in ("lonDD", "latDD")
-            )
-        ):
-            raise ValueError("Native grid coordinates or row fields differ")
+        missing_coordinate = False
+        for coordinate in ("lonDD", "latDD"):
+            pair = mean[coordinate], error[coordinate]
+            if pair == ("#N/A", "#N/A"):
+                missing_coordinate = True
+            elif "#N/A" in pair or _number(pair[0]) != _number(pair[1]):
+                raise ValueError("Native grid coordinates or missing metadata differ")
+        coordinate_rows[
+            "matched_missing" if missing_coordinate else "matched_finite"
+        ] += 1
         base: dict[str, Any] = dict.fromkeys(FIELDS, "")
         base.update(
             window=window, **{key: mean[key] for key in ("LCGRID_ID", "lonDD", "latDD")}
@@ -234,6 +236,7 @@ def analyse_window(
         "window": window,
         "source_grid_rows": expected_rows,
         "populations": dict(populations),
+        "coordinate_rows": dict(coordinate_rows),
         "ungrouped_taxon_variables": ungrouped,
         "minimum_exact_SE_constraint_margins": {
             name: {side: str(v) for side, v in margins.items()}
@@ -308,8 +311,10 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
             windows.append(summary)
             diagnostics.extend(negative)
     populations: Counter[str] = Counter()
+    coordinate_rows: Counter[str] = Counter()
     for window_summary in windows:
         populations.update(window_summary["populations"])
+        coordinate_rows.update(window_summary["coordinate_rows"])
     report = {
         "schema_version": "landclim-partial-joint-covariance.v1",
         "question": "Do exact archived PFT/LCT SEs admit one PSD covariance for the five declared partial sum identities plus a conditional constant ET+ST+OL total?",
@@ -319,6 +324,7 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
         "source": "PANGAEA 937075, June 2021 native results; https://doi.pangaea.de/10.1594/PANGAEA.937075",
         "source_grid_window_rows": sum(row["source_grid_rows"] for row in windows),
         "populations": dict(populations),
+        "coordinate_rows": dict(coordinate_rows),
         "groups": GROUPS,
         "ungrouped_taxon_variables": windows[0]["ungrouped_taxon_variables"],
         "windows": windows,
@@ -332,6 +338,7 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
             "The constant-total sum is a conditional interpretation of the published closed estimand. Mean agreement does not authenticate shared draws, missing PFT-producing source or its historical delta-method implementation.",
             "A feasible partial PSD covariance is not a recovered covariance, calibrated uncertainty or a bounded random composition with the reported means. An exact point failure records its magnitude; unknown source rounding remains unknown.",
             "Only one common positive unit scale preserves the covariance predicate. No mixed-unit repair, biological ISTS reclassification, historical model rerun, source rights decision, field accuracy or human scientific approval follows.",
+            "Exactly paired native #N/A coordinates are matched missing metadata, never zeros or geographic admission. Finite coordinates must match exactly; covariance consistency makes no spatial claim.",
         ],
     }
     body = (json.dumps(report, indent=2, allow_nan=False) + "\n").encode()
