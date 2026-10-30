@@ -28,10 +28,12 @@ def _nonfinite(token: str) -> None:
 
 
 def decode(body: bytes) -> Any:
+    """Decode JSON while refusing duplicate keys and nonfinite constants."""
     return json.loads(body, object_pairs_hook=_pairs, parse_constant=_nonfinite)
 
 
 def exact(actual: Any, expected: Any) -> None:
+    """Require recursively identical JSON types, populations, and scalar values."""
     require(type(actual) is type(expected), "exact native JSON type differs")
     if isinstance(expected, dict):
         require(set(actual) == set(expected), "exact native JSON object members differ")
@@ -46,6 +48,7 @@ def exact(actual: Any, expected: Any) -> None:
 
 
 def read_file(path: Path, limit: int, expected: str | None = None) -> bytes:
+    """Read a bounded stable single-link file with an optional digest check."""
     require(
         path.is_absolute()
         and ".." not in path.parts
@@ -87,6 +90,7 @@ def read_file(path: Path, limit: int, expected: str | None = None) -> bytes:
 
 
 def relative_file(root: Path, relative: str) -> Path:
+    """Locate a relative governed member within its owning root."""
     path = Path(relative)
     require(
         not path.is_absolute() and ".." not in path.parts,
@@ -125,6 +129,7 @@ def owned_artifact_path(repository: Path, locator: str, owner: Path) -> Path:
 
 
 def pinned(root: Path, pin: dict[str, Any], limit: int) -> tuple[bytes, Any]:
+    """Read pinned JSON bytes after checking their declared size and digest."""
     require(
         type(pin["bytes"]) is int and 0 < pin["bytes"] <= limit,
         "source byte count exceeds budget",
@@ -137,6 +142,7 @@ def pinned(root: Path, pin: dict[str, Any], limit: int) -> tuple[bytes, Any]:
 def product(
     directory: Path, expected_manifest_sha256: str
 ) -> tuple[dict[str, Any], dict[str, bytes]]:
+    """Authenticate a closed saved-product inventory and its member bytes."""
     manifest_body = read_file(
         directory / "manifest.json", 16 * 1024**2, expected_manifest_sha256
     )
@@ -192,6 +198,7 @@ def product(
 
 
 def csv_rows(body: bytes) -> list[dict[str, str]]:
+    """Read complete rectangular CSV rows with unique column names."""
     reader = csv.DictReader(StringIO(body.decode("utf-8-sig")))
     require(
         reader.fieldnames is not None
