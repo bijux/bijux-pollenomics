@@ -25,6 +25,58 @@ def _identity(path: Path, size: int, digest: str) -> None:
         raise ValueError(f"Sampler accuracy source identity differs: {path}")
 
 
+_ORIGINAL_TARGET_PROTOCOL = (
+    "0d374ce2190e5e44f70c8b28f18612809688af76",
+    "f3a4ff64c2db06cb0d3d832d9b7e67159b63c439",
+    "reports/science/chronology/abborrtjarnen-bacon/physical-rate-protocol.json",
+    "100644",
+    "1f2d4961f835da2fd5984e3f63f35ce6d13b1b9b",
+    14653,
+    "9853d0f6387428589f2a9ce6f81e9bd8096c161b70e9732d8dd21165cd525a1d",
+)
+
+
+def _original_target_protocol_bytes(
+    repository: Path, execution_revision: object
+) -> bytes:
+    """Read one exact failed-execution target from its normal Git storage witness."""
+    execution, storage, path, mode, blob, size, digest = _ORIGINAL_TARGET_PROTOCOL
+    if type(execution_revision) is not str or execution_revision != execution:
+        raise ValueError("Original failed execution target identity differs")
+    if path != str(PROTOCOL):
+        raise ValueError("Original target protocol path differs")
+    command = ["git", "--no-replace-objects", "-C", str(repository)]
+    ancestry = [*command, "merge-base", "--is-ancestor", storage, "HEAD"]
+    subprocess.check_output(ancestry, stderr=subprocess.PIPE, timeout=10)
+    tree = subprocess.check_output(
+        [*command, "ls-tree", "-l", "-z", storage, "--", path],
+        stderr=subprocess.PIPE,
+        timeout=10,
+    )
+    records = tree.split(b"\0")
+    if len(records) != 2 or records[1] or b"\t" not in records[0]:
+        raise ValueError("Original target protocol storage population differs")
+    metadata, encoded = records[0].split(b"\t", 1)
+    if (
+        metadata.split()
+        != [
+            mode.encode(),
+            b"blob",
+            blob.encode(),
+            str(size).encode(),
+        ]
+        or encoded != path.encode()
+    ):
+        raise ValueError("Original target protocol Git identity differs")
+    body = subprocess.check_output(
+        [*command, "cat-file", "blob", blob], stderr=subprocess.PIPE, timeout=10
+    )
+    if len(body) != size or hashlib.sha256(body).hexdigest() != digest:
+        raise ValueError("Original target protocol bytes differ")
+    subprocess.check_output(ancestry, stderr=subprocess.PIPE, timeout=10)
+    return body
+
+
 def prepare_case(
     repository: Path, library: Path, case: CoreInputs
 ) -> tuple[CoreInputs, dict[str, Any]]:
@@ -48,14 +100,8 @@ def prepare_case(
     if qualification["execution"] != expected_execution:
         raise ValueError("The single fixed sampler-accuracy length/clock differs")
     original = json.loads(
-        subprocess.check_output(
-            [
-                "git",
-                "-C",
-                str(repository),
-                "show",
-                f"{qualification['original_failed_source_commit']}:{PROTOCOL}",
-            ]
+        _original_target_protocol_bytes(
+            repository, qualification["original_failed_source_commit"]
         )
     )
     if case.protocol != original:
