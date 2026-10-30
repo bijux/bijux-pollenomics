@@ -4,13 +4,103 @@
   "reports": [
     {
       "path": "report/publication-replay/landclim-example-reexecution/report.json",
-      "source_sha256": "f210ece3b8055c189759f1e91555321b6ffa8fa92ae186a92ae62fe5831d0540",
+      "source_sha256": "4deb4e836c9ef8b81d5c29809bc2df7aed4d9dadef208f1cd866466e17d8b99f",
       "fields": [
         {
           "pointer": "/environment/python_executable",
-          "value_sha256": "e94003d412d5868ba3dbbd93ca0de96d2751663b0ab59b017183fe94905a7f9c",
+          "value_sha256": "c9431cd7e69c581015b9006c5263cd2b9cf54ece798263638f19d781b050b414",
           "kind": "interpreter-display",
           "display": "python"
+        },
+        {
+          "pointer": "/runs/original_r/command/0",
+          "value_sha256": "c9431cd7e69c581015b9006c5263cd2b9cf54ece798263638f19d781b050b414",
+          "kind": "interpreter-display",
+          "display": "python"
+        },
+        {
+          "pointer": "/runs/original_r/command/2",
+          "value_sha256": "72b00b53f024325c16e035962d0cee02efc3346b292e4bc63edb71ebd8528a8e",
+          "kind": "repository-path-display",
+          "display": "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/run_author_replay.py"
+        },
+        {
+          "pointer": "/runs/original_r/command/4",
+          "value_sha256": "04e3652e46bba315079f71de651de0239007156bb468ce42dee8012fb9d4204f",
+          "kind": "retained-source-path-display",
+          "display": "retained-source/author"
+        },
+        {
+          "pointer": "/runs/original_r/command/6",
+          "value_sha256": "d6dca3d4e84d0153b07fec29782616c8dbadf643e216c6a63732290e3761cb22",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-secondary-author-R-comparison/library"
+        },
+        {
+          "pointer": "/runs/original_r/command/8",
+          "value_sha256": "7780dec88ae7f135178d4baf4f2c48732f1b0f15559a97366dde639538954964",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/reference"
+        },
+        {
+          "pointer": "/runs/original_r/stdout/path",
+          "value_sha256": "6cc2ecfad4379f7a7cf9942b713025c3d882ecf67f7a3bd327ab31ac5a20361f",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/original-author-two-grid-R-replay.stdout"
+        },
+        {
+          "pointer": "/runs/original_r/stderr/path",
+          "value_sha256": "5a9c0ac1ca84bad4c3b4d846e95185bc302e1a7ad3ef4d2aadefaa5e04065aa6",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/original-author-two-grid-R-replay.stderr"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/0",
+          "value_sha256": "c9431cd7e69c581015b9006c5263cd2b9cf54ece798263638f19d781b050b414",
+          "kind": "interpreter-display",
+          "display": "python"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/2",
+          "value_sha256": "a642dd9b3ea287a337833be25a3d3d0c0424c57a627fa595ae56e8ff43a1d477",
+          "kind": "repository-path-display",
+          "display": "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/compare_author_examples.py"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/4",
+          "value_sha256": "04e3652e46bba315079f71de651de0239007156bb468ce42dee8012fb9d4204f",
+          "kind": "retained-source-path-display",
+          "display": "retained-source/author"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/6",
+          "value_sha256": "7780dec88ae7f135178d4baf4f2c48732f1b0f15559a97366dde639538954964",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/reference"
+        },
+        {
+          "pointer": "/runs/native_comparison/command/8",
+          "value_sha256": "5b44020669f39bbd8b54f4fdeec08548b825fbdbb351878bd3dd9955caca8ef2",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/comparison"
+        },
+        {
+          "pointer": "/runs/native_comparison/stdout/path",
+          "value_sha256": "46455f9b764e9bb87501ebcbb969236b1090f158b5dfbc7b3da3646973f4b0cc",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/current-Python-on-original-R-bootstrap-draws.stdout"
+        },
+        {
+          "pointer": "/runs/native_comparison/stderr/path",
+          "value_sha256": "b897e92c3ebd6dc123fb33786bc62c61570ad2af152f95437d5c0f0d0f0c04bc",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/current-Python-on-original-R-bootstrap-draws.stderr"
+        },
+        {
+          "pointer": "/original_r_receipt/command/0",
+          "value_sha256": "1fffe38fe0a1f5f6d4e5638f384ab7b8c1d8ced90c99fdff5e535ba6a444d2ba",
+          "kind": "interpreter-display",
+          "display": "Rscript"
         },
         {
           "pointer": "/original_r_receipt/command/2",
@@ -20,115 +110,121 @@
         },
         {
           "pointer": "/original_r_receipt/command/3",
-          "value_sha256": "65353d60bb41822550af30373698a49ac6803200220830615a902ee1d36ee887",
+          "value_sha256": "04e3652e46bba315079f71de651de0239007156bb468ce42dee8012fb9d4204f",
           "kind": "retained-source-path-display",
           "display": "retained-source/author"
         },
         {
           "pointer": "/original_r_receipt/command/4",
-          "value_sha256": "8852df892423cb49ca1abed9c77ed22d7ebe01cf58e5644937714d5900f4007e",
+          "value_sha256": "d6dca3d4e84d0153b07fec29782616c8dbadf643e216c6a63732290e3761cb22",
           "kind": "artifact-path-display",
-          "display": "artifacts/jobs/landclim-example-reexecution/zipfr-library"
+          "display": "artifacts/science/current-secondary-author-R-comparison/library"
         },
         {
           "pointer": "/original_r_receipt/command/5",
-          "value_sha256": "089f6365b3318ecc30db879469392f8d854ad7aa60e782a54eb06f14235c0f33",
+          "value_sha256": "7780dec88ae7f135178d4baf4f2c48732f1b0f15559a97366dde639538954964",
           "kind": "artifact-path-display",
-          "display": "artifacts/jobs/landclim-example-reexecution/independent-r-library-run/reference"
+          "display": "artifacts/science/current-author-grid-numerical-comparison/reference"
         },
         {
-          "pointer": "/runs/native_comparison/command/0",
-          "value_sha256": "e94003d412d5868ba3dbbd93ca0de96d2751663b0ab59b017183fe94905a7f9c",
+          "pointer": "/execution_boundary/original_whole_job/terminal/path",
+          "value_sha256": "fbf19b137de3af583f02dda308745f933090ee3de83abe1d5949bdb7f34e69a9",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/terminal.json"
+        },
+        {
+          "pointer": "/execution_boundary/original_whole_job/outer/path",
+          "value_sha256": "4d0d96c2914e1223cf7f1bae9e186da24851817d78fdee70114c82143f2ffd8a",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-numerical-comparison/author-grid-terminal.json"
+        },
+        {
+          "pointer": "/execution_boundary/original_whole_job/failed_observer/argv/0",
+          "value_sha256": "c9431cd7e69c581015b9006c5263cd2b9cf54ece798263638f19d781b050b414",
           "kind": "interpreter-display",
           "display": "python"
         },
         {
-          "pointer": "/runs/native_comparison/command/1",
-          "value_sha256": "a642dd9b3ea287a337833be25a3d3d0c0424c57a627fa595ae56e8ff43a1d477",
-          "kind": "repository-path-display",
-          "display": "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/compare_author_examples.py"
-        },
-        {
-          "pointer": "/runs/native_comparison/command/3",
-          "value_sha256": "65353d60bb41822550af30373698a49ac6803200220830615a902ee1d36ee887",
-          "kind": "retained-source-path-display",
-          "display": "retained-source/author"
-        },
-        {
-          "pointer": "/runs/native_comparison/command/5",
-          "value_sha256": "089f6365b3318ecc30db879469392f8d854ad7aa60e782a54eb06f14235c0f33",
+          "pointer": "/execution_boundary/original_whole_job/failed_observer/argv/2",
+          "value_sha256": "46d5ed126d1d9ea04034d99e793faaba17c97e3f7d2c2360e168874ca2c51a55",
           "kind": "artifact-path-display",
-          "display": "artifacts/jobs/landclim-example-reexecution/independent-r-library-run/reference"
+          "display": "artifacts/science/author-grid-report-custody/observe.py"
         },
         {
-          "pointer": "/runs/native_comparison/command/7",
-          "value_sha256": "5cccb174a5287b2cbff9756da56232bcbba37c4ce07355c2c80bab8fcb0cfdcf",
+          "pointer": "/execution_boundary/original_whole_job/failed_observer/argv/4",
+          "value_sha256": "01df9900ca71adbd44c8e11526b3bd34d5c50febd070e2d3237d1786acc33bac",
           "kind": "artifact-path-display",
-          "display": "artifacts/jobs/landclim-example-reexecution/independent-r-library-run/comparison"
+          "display": "artifacts/science/current-author-grid-numerical-comparison/plan.json"
         },
         {
-          "pointer": "/runs/original_r/command/0",
-          "value_sha256": "e94003d412d5868ba3dbbd93ca0de96d2751663b0ab59b017183fe94905a7f9c",
-          "kind": "interpreter-display",
-          "display": "python"
-        },
-        {
-          "pointer": "/runs/original_r/command/1",
-          "value_sha256": "72b00b53f024325c16e035962d0cee02efc3346b292e4bc63edb71ebd8528a8e",
-          "kind": "repository-path-display",
-          "display": "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/run_author_replay.py"
-        },
-        {
-          "pointer": "/runs/original_r/command/3",
-          "value_sha256": "65353d60bb41822550af30373698a49ac6803200220830615a902ee1d36ee887",
-          "kind": "retained-source-path-display",
-          "display": "retained-source/author"
-        },
-        {
-          "pointer": "/runs/original_r/command/5",
-          "value_sha256": "8852df892423cb49ca1abed9c77ed22d7ebe01cf58e5644937714d5900f4007e",
+          "pointer": "/execution_boundary/original_whole_job/failed_observer/stdout",
+          "value_sha256": "6a366e67c3fb4147fe09fcddf1981d43c391fcc5300e477daa23f077b87191d5",
           "kind": "artifact-path-display",
-          "display": "artifacts/jobs/landclim-example-reexecution/zipfr-library"
+          "display": "artifacts/science/current-author-grid-numerical-comparison/independent-complete-grid-site-draw-observer.stdout"
         },
         {
-          "pointer": "/runs/original_r/command/7",
-          "value_sha256": "089f6365b3318ecc30db879469392f8d854ad7aa60e782a54eb06f14235c0f33",
+          "pointer": "/execution_boundary/original_whole_job/failed_observer/stderr",
+          "value_sha256": "5fff045cc1c409c32a57aadd6fc94024de5997bd6ddd4066f60b96c844cbb644",
           "kind": "artifact-path-display",
-          "display": "artifacts/jobs/landclim-example-reexecution/independent-r-library-run/reference"
+          "display": "artifacts/science/current-author-grid-numerical-comparison/independent-complete-grid-site-draw-observer.stderr"
+        },
+        {
+          "pointer": "/execution_boundary/transport_receipt/path",
+          "value_sha256": "5f2684977cbda443bf1be6d691491a8d59cf0750dc5cd9e8ddfc89e6529075d3",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-source-site-review/retained-products/transport-receipt.json"
+        },
+        {
+          "pointer": "/execution_boundary/same_process_R_session/path",
+          "value_sha256": "0b48b4b99eaadab3a81d1421d05ec75241a4758e7776f164215fc2c6b097498d",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-source-site-review/retained-products/reference/R_session_info.txt"
+        },
+        {
+          "pointer": "/execution_boundary/original_R_process_log/path",
+          "value_sha256": "4dab38b43c5aa30cbbd09c73a1da13de709b6485cd27eb83f0521f9f9225d749",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-author-grid-source-site-review/retained-products/reference/reference.log"
+        },
+        {
+          "pointer": "/execution_boundary/installed_library_receipt/path",
+          "value_sha256": "ad0dd62eb8d919ddc2659838488403f4856e4dc6b750b93bd2a85b1b16dc8539",
+          "kind": "artifact-path-display",
+          "display": "artifacts/science/current-secondary-author-R-comparison/installed-library.json"
         }
       ],
-      "public_sha256": "60228630e86e6c0e485232f6f1199bbac9518b20b39ecc29adc8f435161d0383"
+      "public_sha256": "444fb351115831cb1ad2421acc0e7fbb262948bb69dd67cfccac085796a7f3d4"
     },
     {
       "path": "report/method-certification/linux-r-oracle/report.json",
-      "source_sha256": "45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85",
+      "source_sha256": "e67f3d4fb6316094f37b6d3a4a4db7bdb604dba5d564b54522b825ffe62ee1f7",
       "fields": [
         {
           "pointer": "/command/14",
-          "value_sha256": "5362880147222100850b7e6a4426560e5eb73bfa525601b774be99808de1c58f",
+          "value_sha256": "e7a2f7550047009263400a941bce60f2d8697f748fb712257cf4fa2a349a7acd",
           "kind": "retained-source-path-display",
           "display": "retained-source/repository"
         },
         {
           "pointer": "/command/16",
-          "value_sha256": "a6e241767966e34fd93ac4e926bc1dfc6d509d531739f28ec45cde65f33038bf",
+          "value_sha256": "968fc65e68109ff926a27e74a013079d1994f584c02906626553f9dc45957a79",
           "kind": "retained-source-path-display",
           "display": "retained-source/r-runtime-library"
         },
         {
           "pointer": "/command/18",
-          "value_sha256": "fdb6692ecd1ccb2f90d2d635d7a7692d0f42cb24fac04694dc309f3f26265a92",
+          "value_sha256": "8727a6470b6cade5ca754e0261800fde229128fb6aea5d2aa54923fc40691124",
           "kind": "retained-source-path-display",
           "display": "retained-source/r-provision"
         },
         {
           "pointer": "/command/20",
-          "value_sha256": "ea8d65b5a72455c2ec9b1c7c15ec8e700573857857f088aeec6cc539b62b7e50",
+          "value_sha256": "a41dad50d79dc061113af27185e83cf9d78735776f92b457460a29cf9986802d",
           "kind": "retained-source-path-display",
           "display": "artifacts/jobs/linux-r-oracle/source-closed-run"
         }
       ],
-      "public_sha256": "13811c2de39c5191976407ed5d980fb3720a8d45ed2b624094bf95d2932872b5"
+      "public_sha256": "79ac25333e6bda43cf01fbeaa143a882fc2f1da07ad11712458eca7690794ec1"
     },
     {
       "path": "report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/native-capture.json",
