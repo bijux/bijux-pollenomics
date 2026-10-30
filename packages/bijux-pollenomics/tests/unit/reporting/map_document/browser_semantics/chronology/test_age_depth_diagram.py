@@ -74,6 +74,17 @@ def diagram_script() -> str:
         template_block("const DETAIL_TAB_DEFINITIONS", "const DEFAULT_COUNTRIES")
         + template_block("function escapeHtml", "function normalizedMediaLinks")
         + template_block("function detailTableShape", "function renderFocusCard")
+        + template_block(
+            "function createSourceRecordDetails", "/* atlas-evidence-tools:end */"
+        )
+        + """
+const evidenceToolsError=null;
+function currentEvidenceTools(){return {sourceDetails:createSourceRecordDetails}}
+const boundSourceDetails=createSourceRecordDetails({detailTableShape,decodeDetailTableRow,detailTableText,
+ renderDetailTable:(...args)=>renderDetailTable(...args),escapeHtml});
+const {overview:renderSelectedSourceOverview,samples:renderSourceSampleObservations,
+ classification:renderNativeClassificationContext,provenance:renderSourceProvenanceContext}=boundSourceDetails;
+"""
     )
 
 

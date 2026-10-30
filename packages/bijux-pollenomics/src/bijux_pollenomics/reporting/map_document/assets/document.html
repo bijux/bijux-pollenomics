@@ -5650,7 +5650,6 @@ __URL_STATE_CONTROLLER__
       __POLLEN_AGE_AXIS_CONTROLLER__
       __POLLEN_SMALL_MULTIPLES_CONTROLLER__
       __POLLEN_FOCUSED_SIGNAL_CONTROLLER__
-      __SOURCE_RECORD_DETAILS_CONTROLLER__
       const pollenDepthSelections = new WeakMap();
       const pollenAgeSelections = new WeakMap();
       function pollenDisplaySelection(tabs) {
@@ -5671,6 +5670,13 @@ __URL_STATE_CONTROLLER__
               + renderPollenSmallMultiples(tabs, group.key, ageKey, ids),
             {selectedObservationIds:selected.focused.observationIds,requireExplicitAnchor:selected.requireExplicitAnchor});
       }
+      let sourceDetailRenderers = null;
+      function renderSourceDetailContext(kind, tabs, feature) {
+        const tools = currentEvidenceTools();
+        if (!tools) return `<p role="status">${escapeHtml(evidenceToolsError || 'Loading source detail context…')} Original source tables remain available below.</p>`;
+        sourceDetailRenderers ||= tools.sourceDetails({detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, escapeHtml});
+        return sourceDetailRenderers[kind](tabs, feature);
+      }
       function renderFocusDetail() {
         const focused = document.activeElement;
         const focusedTab = focusTabs.contains(focused) ? focused.dataset.focusTab : null;
@@ -5684,12 +5690,12 @@ __URL_STATE_CONTROLLER__
           : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
         const sourceOverview = activeFocusTab === 'overview' && tabs.overview?.status !== 'unavailable'
           && focusState?.sourceSignal?.semantic_role === 'source_chronology_context'
-          ? renderSelectedSourceOverview(tabs, focusState.sourceSignal) : '';
+          ? renderSourceDetailContext('overview', tabs, focusState.sourceSignal) : '';
         const sampleObservations = activeFocusTab === 'samples' && tabs.overview?.source_family === 'neotoma'
-          ? renderSourceSampleObservations(tabs) : '';
+          ? renderSourceDetailContext('samples', tabs) : '';
         const sourceContext = ['neotoma','sead'].includes(tabs.overview?.source_family)
-          ? activeFocusTab === 'classification' ? renderNativeClassificationContext(tabs)
-            : activeFocusTab === 'provenance' ? renderSourceProvenanceContext(tabs) : '' : '';
+          ? activeFocusTab === 'classification' ? renderSourceDetailContext('classification', tabs)
+            : activeFocusTab === 'provenance' ? renderSourceDetailContext('provenance', tabs) : '' : '';
         const relationDetails = activeFocusTab === 'relation' ? renderRelationDetails(tabs.relation) : '';
         focusDetail.innerHTML = sourceOverview + sourceDiagram + relationDetails + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
@@ -5824,6 +5830,8 @@ __URL_STATE_CONTROLLER__
           detailTabs: unavailableDetailTabs('detail_record_loading'),
         };
         setFocusState(nextFocus);
+        const request = edgeFocusLoadState.request;
+        const toolsReady = loadEvidenceTools().catch(() => null);
         const detailTabs = await detailTabsForFeature(entry.feature);
         if (
           focusState
@@ -5831,10 +5839,16 @@ __URL_STATE_CONTROLLER__
           && focusState.layerKey === nextFocus.layerKey
           && focusState.featureKey === nextFocus.featureKey
           && focusState.recordId === nextFocus.recordId
+          && edgeFocusLoadState.request === request
+          && visiblePointEntryForFocus(focusState)
         ) {
           focusState = { ...focusState, detailTabs };
           renderFocusDetail();
         }
+        await toolsReady;
+        if (focusState?.kind === 'point' && edgeFocusLoadState.request === request
+          && focusState.layerKey === nextFocus.layerKey && focusState.featureKey === nextFocus.featureKey
+          && focusState.recordId === nextFocus.recordId && visiblePointEntryForFocus(focusState)) renderFocusDetail();
       }
       function countActiveOverrides() {
         let count = 0;
@@ -7016,6 +7030,7 @@ __URL_STATE_CONTROLLER__
       __RELATION_TIME_SUMMARY_CONTROLLER__
       __SCIENTIFIC_PICKER_CONTROLLER__
       __SCIENTIFIC_PICKER_MOUNT_CONTROLLER__
+      __SOURCE_RECORD_DETAILS_FACTORY__
       /* atlas-evidence-tools:end */
       let evidenceTools = null, evidenceToolsRequest = null, evidenceToolsError = null;
       function currentEvidenceTools() {
@@ -7024,7 +7039,7 @@ __URL_STATE_CONTROLLER__
             timeData: relationTimeSummaryData, timeHtml: renderRelationTimeSummary,
             pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
             pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
-            pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker});
+            pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails});
         }
         return evidenceTools;
       }
@@ -7059,7 +7074,7 @@ __URL_STATE_CONTROLLER__
               try {
                 if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
                 const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
-                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
                 evidenceTools = tools;
                 resolve(tools);
               } catch (error) { reject(error); }
