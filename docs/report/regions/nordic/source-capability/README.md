@@ -164,9 +164,9 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Unsupported claim.** Captured or published source entries do not establish scientific admission, authentic historical LandClim inputs, LRA cohorts, ecological events or measured vegetation truth.
 
-**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. Regional chronology retains 13 nodes and its original source fields. The independent actual Nordic JavaScript index observer recovered every original logical search entry in 30.51 s; this is not full browser or query-latency acceptance.
+**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged. The source-country capability capture was not rerun.
 
-**Remaining input or review.** Per-family entity, chronology and rights decisions remain required. Current animal evidence has 161 features/318 samples after the earlier unsupported horse-age correction and four newly ambiguous goat identities. The retained source-country account keeps its own original input/capture scope; current DNA accounting does not requalify the entire country cube.
+**Remaining input or review.** Per-family entity, chronology and rights decisions remain required. Current animal evidence has 163 features/324 mapped samples after exact child-owned admission; four ambiguous goat identities remain refused. The retained source-country account keeps its original capture scope and is not requalified by current DNA accounting.
 
 **Cause category.** Source-country capability accounting with separately refreshed current DNA context.
 
@@ -176,13 +176,13 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Negative or refused result.** All1,128historical primary LandClim inputs remain unauthenticated; no measured vegetation target or LRA cohort is created by source availability.
 
-**Matched denominator.** Eleven families×six partitions×three dimensions=198cells/66family-partition entries;187capability-audit rows; current animal161features/318samples remains separate from eight Nordic locality features/12samples.
+**Matched denominator.** Eleven families×six partitions×three dimensions=198 cells/66 family-partition entries; 187 capability-audit rows remain the retained capture. Current animal 163 features/324 mapped samples is separate from eight Nordic locality features/12 mapped samples.
 
 - [Retained qualification evidence: docs/report/regions/nordic/source-capability/report.json](report.json) (SHA-256 `42eb47abd321c9cf6856ca8e4cf75bbfae1a5fd9c6517a8075692cbba6b50019`).
 
 - [Retained qualification evidence: docs/report/source-relations/dna-scope/report.json](../../../source-relations/dna-scope/report.json) (SHA-256 `dd88281f34bd1c685b4abda3ba46565c704d9769849d17f83eab97f805ae653d`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
 
 - [Canonical scientific account: reports/science/source-cohorts.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts.md).
 

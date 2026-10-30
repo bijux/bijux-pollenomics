@@ -2,14 +2,22 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
+from dataclasses import replace
 import json
 from pathlib import Path
 from types import SimpleNamespace
+from typing import Any
 
 import pytest
 
 from bijux_pollenomics.adna import AdnaChronology
+from bijux_pollenomics.adna.domain.locality import locality_sample_intervals
+from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 from bijux_pollenomics.reporting.adna.atlas_evidence_rows import service
+from bijux_pollenomics.reporting.adna.atlas_evidence_rows.localities import (
+    _parse_locality_summary,
+)
 from bijux_pollenomics.reporting.adna.atlas_evidence_rows.source_records import (
     _load_project_animal_scope_lookup,
 )
@@ -428,7 +436,13 @@ def test_atlas_builder_propagates_the_matched_samples_project_scope(
         "identity": {"stable_token": "bos_taurus:sample:PRJEB75467:one"},
         "master_id": "bos_taurus:sample:PRJEB75467:one",
         "chronology": AdnaChronology(
-            original_text="", time_start_bp=None, time_end_bp=None, time_mean_bp=None
+            original_text="5000 BP",
+            time_start_bp=5000,
+            time_end_bp=5000,
+            time_mean_bp=5000,
+            dating_basis="archaeological_context",
+            evidence_class="archaeological_context_date",
+            precision_posture="sample_precise_point",
         ).as_dict(),
         "locality_identity": {"stable_token": site_token},
         "project_accession": "PRJEB75467",
@@ -466,5 +480,319 @@ def test_atlas_builder_propagates_the_matched_samples_project_scope(
     assert len(rows[0].sample_chronologies) == 1
     support = rows[0].sample_chronologies[0]
     assert support.sample_id == sample["master_id"]
-    assert support.chronology.time_start_bp is None
-    assert support.chronology.time_end_bp is None
+    assert support.chronology.time_start_bp == 5000
+    assert support.chronology.time_end_bp == 5000
+
+
+def _owned_locality(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, *, explicit: bool = True
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Use distinct dated children and an undated member with exact source metadata."""
+    species_root = tmp_path / "species" / "bos_taurus"
+    _write_project_summaries(species_root)
+    site_token = "bos_taurus:locality:prjeb75467:aurochs-site"
+    dated = AdnaChronology(
+        "source interval",
+        100,
+        110,
+        105,
+        dating_basis="radiocarbon",
+        evidence_class="direct_radiocarbon_date",
+        precision_posture="sample_precise_interval",
+    )
+    chronologies = (
+        dated,
+        replace(dated, time_start_bp=300, time_end_bp=310, time_mean_bp=305),
+        AdnaChronology("undated", None, None, None),
+    )
+    samples = [
+        {
+            "identity": {"stable_token": f"normalized:{index}"},
+            "master_id": f"source:{index}",
+            "chronology": chronology.as_dict(),
+            "locality_identity": {"stable_token": site_token},
+            "project_accession": "PRJEB75467",
+            "source_native_scientific_name": "Bos primigenius",
+            "inclusion_status": "site_curated",
+            "source_release": "PRJEB75467",
+            "chronology_provenance_path": "source-supplement.xlsx",
+            "chronology_provenance_locator": f"Table S1!row{index + 2}",
+            "chronology_provenance_text": f"literal source row {index}",
+            "chronology_provenance_kind": "supplementary_spreadsheet_row",
+            "chronology_strength": "source_owned",
+            "chronology_normalization_status": "normalized_interval"
+            if index < 2
+            else "unresolved",
+            "chronology_conflict_note": "retained source caution" if index == 1 else "",
+            "reference_epoch": "source-explicit epoch",
+            "age_type": "source age type",
+            "calibration_status": "source calibration",
+            "model": "source model",
+        }
+        for index, chronology in enumerate(chronologies)
+    ]
+    locality = {
+        "identity": {"stable_token": site_token, "locality_text": "Aurochs site"},
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "locality": "Aurochs site",
+        "coordinates": {"latitude": 55.0, "longitude": 12.0},
+        "chronology": replace(dated, time_end_bp=310, time_mean_bp=205).as_dict(),
+        "project_accessions": ["PRJEB75467"],
+        "sample_count": 3,
+        "sample_ids": [sample["master_id"] for sample in samples],
+    }
+    if explicit:
+        locality["sample_chronologies"] = [
+            AdnaSampleChronologySupport.from_sample_payload(sample).as_dict()
+            for sample in samples
+        ]
+    key = ("PRJEB75467", "Aurochs site")
+    monkeypatch.setattr(
+        service,
+        "build_species_support_matrix",
+        lambda: (SimpleNamespace(latin_name="Bos taurus", slug="bos_taurus"),),
+    )
+    monkeypatch.setattr(service, "adna_species_dir", lambda _: tmp_path / "species")
+    monkeypatch.setattr(service, "_load_locality_rows", lambda _: [locality])
+    monkeypatch.setattr(service, "_load_sample_rows", lambda _: samples)
+    monkeypatch.setattr(
+        service,
+        "_load_coordinate_provenance_lookup",
+        lambda _: {
+            key: {"mapping_posture": "mappable_point"},
+        },
+    )
+    monkeypatch.setattr(
+        service,
+        "_load_site_evidence_lookup",
+        lambda _: {
+            key: {"source_support_status": "paper_pinned"},
+        },
+    )
+    monkeypatch.setattr(service, "_load_citation_lookup", lambda _: {})
+    monkeypatch.setattr(service, "_load_review_lookup", lambda _: {})
+    return locality, samples
+
+
+@pytest.mark.parametrize("explicit", [False, True])
+def test_locality_admission_uses_complete_source_owned_children(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    explicit: bool,
+) -> None:
+    locality, samples = _owned_locality(tmp_path, monkeypatch, explicit=explicit)
+    original = deepcopy((locality, samples))
+    (row,) = service.build_tracked_animal_atlas_evidence_rows(tmp_path)
+    assert row.animal_scope == "wild_or_progenitor_context"
+    assert row.sample_ids == tuple(sample["master_id"] for sample in samples)
+    assert row.sample_count == 3
+    assert (row.latitude, row.longitude) == (55.0, 12.0)
+    assert row.chronology == replace(
+        AdnaChronology(**locality["chronology"]),
+        dating_basis="locality_sample_coverage",
+        evidence_class="locality_sample_coverage_hull",
+        precision_posture="display_coverage_only",
+    )
+    assert row.sample_chronologies == tuple(
+        AdnaSampleChronologySupport.from_sample_payload(sample) for sample in samples
+    )
+    assert row.sample_chronologies[-1].chronology.time_start_bp is None
+    assert (locality, samples) == original
+
+
+def test_display_hull_mutations_never_supply_occurrence_or_a_child_date(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    locality, samples = _owned_locality(tmp_path, monkeypatch)
+    (first,) = service.build_tracked_animal_atlas_evidence_rows(tmp_path)
+    for start, end in [(100, 310), (0, 100000)]:
+        locality["chronology"].update(
+            time_start_bp=start,
+            time_end_bp=end,
+            time_mean_bp=(start + end) // 2,
+            dating_basis="locality_sample_coverage",
+            evidence_class="locality_sample_coverage_hull",
+            precision_posture="display_coverage_only",
+        )
+        (row,) = service.build_tracked_animal_atlas_evidence_rows(tmp_path)
+        assert (row.feature_id, row.evidence_row_id, row.site_record_id) == (
+            first.feature_id,
+            first.evidence_row_id,
+            first.site_record_id,
+        )
+        assert row.sample_chronologies == first.sample_chronologies
+        parsed = _parse_locality_summary(locality)
+        assert parsed.chronology.time_start_bp == start
+        assert parsed.chronology.time_end_bp == end
+        intervals = locality_sample_intervals(parsed)
+        assert [
+            (owner, (interval.younger_bp, interval.older_bp))
+            for owner, interval in intervals
+        ] == [
+            (samples[0]["master_id"], (100, 110)),
+            (samples[1]["master_id"], (300, 310)),
+        ]
+        assert not any(
+            interval.younger_bp <= 200 <= interval.older_bp for _, interval in intervals
+        )
+        assert (
+            row.chronology.as_temporal_semantics(source_family="animal_adna")[
+                "comparability_posture"
+            ]
+            == "contextual_label_only"
+        )
+
+
+@pytest.mark.parametrize("state", ["undated", "refused", "contextual"])
+def test_child_publication_policy_remains_authoritative(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    state: str,
+) -> None:
+    locality, samples = _owned_locality(tmp_path, monkeypatch, explicit=False)
+    for sample in samples:
+        chronology = AdnaChronology(**sample["chronology"])
+        if state == "undated":
+            chronology = AdnaChronology("undated", None, None, None)
+        elif state == "refused":
+            chronology = replace(
+                chronology, refusal_reason_code="source_age_system_not_comparable"
+            )
+        else:
+            chronology = replace(
+                chronology,
+                original_text="source archaeological period",
+                dating_basis="archaeological_period",
+                evidence_class="broad_period_label",
+                precision_posture="broad_period_only",
+            )
+        sample["chronology"] = chronology.as_dict()
+    rows = service.build_tracked_animal_atlas_evidence_rows(tmp_path)
+    if state != "contextual":
+        assert rows == ()
+    else:
+        assert len(rows) == 1
+        locality["sample_chronologies"] = [
+            support.as_dict() for support in rows[0].sample_chronologies
+        ]
+        assert locality_sample_intervals(_parse_locality_summary(locality)) == ()
+
+
+def test_refused_child_and_aggregate_refusal_remain_literal(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    locality, samples = _owned_locality(tmp_path, monkeypatch, explicit=False)
+    samples[0]["chronology"]["refusal_reason_code"] = "source_age_system_not_comparable"
+    locality["chronology"]["refusal_reason_code"] = "global_source_refusal"
+    (row,) = service.build_tracked_animal_atlas_evidence_rows(tmp_path)
+    assert row.chronology.refusal_reason_code == "global_source_refusal"
+    assert (
+        row.chronology.as_temporal_semantics(source_family="animal_adna")[
+            "comparability_posture"
+        ]
+        == "refused"
+    )
+    assert (
+        row.sample_chronologies[0].chronology.refusal_reason_code
+        == "source_age_system_not_comparable"
+    )
+    assert (
+        row.sample_chronologies[0].conflict_note
+        == samples[0]["chronology_conflict_note"]
+    )
+
+
+@pytest.mark.parametrize(
+    "tamper",
+    [
+        "missing_support",
+        "duplicate_support",
+        "swapped_dates",
+        "foreign_support",
+        "missing_declared_owner",
+        "extra_declared_owner",
+        "duplicate_declared_owner",
+        "missing_source_owner",
+        "duplicate_source_owner",
+        "empty_supports",
+        "null_supports",
+        "boolean_endpoint",
+        "altered_provenance",
+        "altered_model",
+    ],
+)
+def test_incomplete_or_malformed_ownership_never_becomes_hull_fallback(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    tamper: str,
+) -> None:
+    locality, samples = _owned_locality(tmp_path, monkeypatch)
+    supports = locality["sample_chronologies"]
+    if tamper == "missing_support":
+        supports.pop()
+    elif tamper == "duplicate_support":
+        supports[1] = deepcopy(supports[0])
+    elif tamper == "swapped_dates":
+        supports[0]["chronology"], supports[1]["chronology"] = (
+            supports[1]["chronology"],
+            supports[0]["chronology"],
+        )
+    elif tamper == "foreign_support":
+        supports[0]["sample_id"] = "foreign"
+    elif tamper == "missing_declared_owner":
+        locality["sample_ids"].pop()
+    elif tamper == "extra_declared_owner":
+        locality["sample_ids"].append("foreign")
+    elif tamper == "duplicate_declared_owner":
+        locality["sample_ids"][1] = locality["sample_ids"][0]
+    elif tamper == "missing_source_owner":
+        samples.pop()
+    elif tamper == "duplicate_source_owner":
+        samples.append(deepcopy(samples[0]))
+    elif tamper == "empty_supports":
+        locality["sample_chronologies"] = []
+    elif tamper == "null_supports":
+        locality["sample_chronologies"] = None
+    elif tamper == "boolean_endpoint":
+        supports[0]["chronology"]["time_start_bp"] = True
+    elif tamper == "altered_provenance":
+        supports[0]["provenance_path"] = "unrelated.xlsx"
+    else:
+        supports[0]["model"] = "invented chronology model"
+    with pytest.raises((ValueError, TypeError)):
+        service.build_tracked_animal_atlas_evidence_rows(tmp_path)
+
+
+def test_source_inclusion_and_coordinate_gates_are_unchanged(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    locality, samples = _owned_locality(tmp_path, monkeypatch)
+    locality["coordinates"]["latitude"] = None
+    assert service.build_tracked_animal_atlas_evidence_rows(tmp_path) == ()
+    locality["coordinates"]["latitude"] = 55.0
+    for sample in samples:
+        sample["inclusion_status"] = "not_admitted"
+    assert service.build_tracked_animal_atlas_evidence_rows(tmp_path) == ()
+
+
+@pytest.mark.parametrize("count", ["missing", True, "3", 2])
+def test_locality_sample_count_requires_exact_integer_ownership(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    count: object,
+) -> None:
+    locality, samples = _owned_locality(tmp_path, monkeypatch)
+    if type(count) is bool:
+        del samples[1:]
+        del locality["sample_ids"][1:]
+        del locality["sample_chronologies"][1:]
+    if count == "missing":
+        locality.pop("sample_count")
+    else:
+        locality["sample_count"] = count
+    with pytest.raises(ValueError, match="sample count"):
+        service.build_tracked_animal_atlas_evidence_rows(tmp_path)

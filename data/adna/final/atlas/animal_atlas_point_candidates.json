@@ -1,6 +1,6 @@
 {
   "schema_version": "animal-atlas-point-candidates.v1",
-  "row_count": 161,
+  "row_count": 163,
   "rows": [
     {
       "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
@@ -35,9 +35,9 @@
         "time_mean_bp": 8074,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -152,9 +152,9 @@
         "time_mean_bp": 7246,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mitochondrial_phylogenetic_model",
-        "evidence_class": "modeled_sample_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -299,9 +299,9 @@
         "time_mean_bp": 9334,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -416,9 +416,9 @@
         "time_mean_bp": 9546,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -533,9 +533,9 @@
         "time_mean_bp": 13052,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -650,9 +650,9 @@
         "time_mean_bp": 12198,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -767,9 +767,9 @@
         "time_mean_bp": 11638,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -884,9 +884,9 @@
         "time_mean_bp": 4932,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -1001,9 +1001,9 @@
         "time_mean_bp": 9486,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -1118,9 +1118,9 @@
         "time_mean_bp": 13906,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -1235,9 +1235,9 @@
         "time_mean_bp": 6155,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mitochondrial_phylogenetic_model",
-        "evidence_class": "modeled_sample_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -1352,9 +1352,9 @@
         "time_mean_bp": 5149,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -1499,9 +1499,9 @@
         "time_mean_bp": 9250,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -1676,9 +1676,9 @@
         "time_mean_bp": 14004,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -1793,9 +1793,9 @@
         "time_mean_bp": 18017,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -1910,9 +1910,9 @@
         "time_mean_bp": 5382,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -2057,9 +2057,9 @@
         "time_mean_bp": 10060,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -2174,9 +2174,9 @@
         "time_mean_bp": 41529,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -2291,9 +2291,9 @@
         "time_mean_bp": 39406,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -2468,9 +2468,9 @@
         "time_mean_bp": 7366,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -2615,9 +2615,9 @@
         "time_mean_bp": 6088,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -2762,9 +2762,9 @@
         "time_mean_bp": 4710,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -2879,9 +2879,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -2990,9 +2990,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -3101,9 +3101,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -3212,9 +3212,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -3353,9 +3353,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -3464,9 +3464,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -3635,9 +3635,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -4106,9 +4106,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -4217,9 +4217,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -4328,9 +4328,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -4499,9 +4499,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -4610,9 +4610,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -4781,9 +4781,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -4892,9 +4892,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -5063,9 +5063,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -5294,9 +5294,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -5405,9 +5405,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -5606,9 +5606,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -6197,9 +6197,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -6308,9 +6308,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -6569,9 +6569,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -6740,9 +6740,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -6851,9 +6851,9 @@
         "time_mean_bp": 3530,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "archaeological_period_assignment",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -7082,9 +7082,9 @@
         "time_mean_bp": 3158,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -7253,9 +7253,9 @@
         "time_mean_bp": 2570,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -7424,9 +7424,9 @@
         "time_mean_bp": 2668,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -7595,9 +7595,9 @@
         "time_mean_bp": 2600,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -7706,9 +7706,9 @@
         "time_mean_bp": 3704,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -7817,9 +7817,9 @@
         "time_mean_bp": 2610,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -7958,9 +7958,9 @@
         "time_mean_bp": 2535,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -8069,9 +8069,9 @@
         "time_mean_bp": 3191,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -8180,9 +8180,9 @@
         "time_mean_bp": 2575,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -8291,9 +8291,9 @@
         "time_mean_bp": 3833,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -8492,9 +8492,9 @@
         "time_mean_bp": 2608,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -8603,9 +8603,9 @@
         "time_mean_bp": 3018,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -8714,9 +8714,9 @@
         "time_mean_bp": 3799,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -8825,9 +8825,9 @@
         "time_mean_bp": 2620,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -8966,9 +8966,9 @@
         "time_mean_bp": 2760,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -9077,9 +9077,9 @@
         "time_mean_bp": 2575,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -9188,9 +9188,9 @@
         "time_mean_bp": 2556,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -9359,9 +9359,9 @@
         "time_mean_bp": 2538,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -9470,9 +9470,9 @@
         "time_mean_bp": 2737,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -9581,9 +9581,9 @@
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -9722,9 +9722,9 @@
         "time_mean_bp": 4013,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -9833,9 +9833,9 @@
         "time_mean_bp": 3806,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -9974,9 +9974,9 @@
         "time_mean_bp": 3987,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -10053,6 +10053,147 @@
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
+      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-hyenaslair-russia",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-hyenaslair-russia",
+      "site_record_id": "equus_caballus:locality:prjeb44430:hyenaslair:russia",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "wild_or_progenitor_context",
+      "support_class": "accepted",
+      "support_note": "admissible_for_curated_support",
+      "locality": "Hyena's Lair",
+      "political_entity": "Russia",
+      "latitude": 51.17025,
+      "longitude": 82.967972,
+      "latitude_text": "51.17025",
+      "longitude_text": "82.967972",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "geocoding_method": "direct_supplementary_coordinate_capture",
+      "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
+      "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
+      "original_place_text": "Hyena's Lair",
+      "resolved_place_text": "Hyena's Lair",
+      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "coordinate_source_locator": "SI Table 1!row145",
+      "coordinate_supplementary_source": "",
+      "coordinate_support_gap_note": "",
+      "chronology": {
+        "original_text": ">49900 BP",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
+        "refusal_reason_code": ""
+      },
+      "sample_ids": [
+        "prjeb44430:samea9533291",
+        "prjeb44430:samea9533292"
+      ],
+      "chronology_role": "locality_sample_coverage_hull",
+      "sample_chronologies": [
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb44430:samea9533291",
+          "chronology": {
+            "original_text": ">49900 BP",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "direct_radiocarbon_date",
+            "precision_posture": "sample_approximate_or_modeled",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB44430",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row145",
+          "provenance_excerpt": "Logx1_Rus_INF | 51.17025 N, 82.967972 E | Hyena's Lair | Russia | LP-SWSIB | cave, Late Pleistocene, Infinite radiocarbon dating | 224887 | >49900 BP | - | - | - | >49900 BP | >49900 BP | M | this study | 1 | 4 | 4 | 261096900 | 88478964 | 349575864 | - | - | - | 222.926902337 | 1.21453631623 | 1.05",
+          "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_text_only",
+          "normalization_status": "text_only_unparsed",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb44430:samea9533292",
+          "chronology": {
+            "original_text": ">52200 BP",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "direct_radiocarbon_date",
+            "precision_posture": "sample_approximate_or_modeled",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB44430",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row146",
+          "provenance_excerpt": "Logx3_Rus_INF | 51.17025 N, 82.967972 E | Hyena's Lair | Russia | LP-SWSIB | cave, Late Pleistocene, Infinite radiocarbon dating | 224888 | >52200 BP | - | - | - | >52200 BP | >52200 BP | F | this study | 1 | 4 | 4 | 281094105 | 70573678 | 351667783 | - | - | - | 97.643678849599993 | 1.35926255007 |",
+          "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_text_only",
+          "normalization_status": "text_only_unparsed",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        }
+      ],
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "primary_project_accession": "PRJEB44430",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533291",
+        "equus_caballus:sample:prjeb44430:samea9533292"
+      ],
+      "sample_group_ids": [
+        "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "source_native_tax_ids": [],
+      "source_native_scientific_names": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
+      "sample_count": 2,
+      "sample_namespace": "equus_caballus:sample_locality",
+      "inclusion_statuses": [
+        "site_curated"
+      ],
+      "inclusion_notes": [
+        "Sample-level locality comes directly from the recovered sample source row."
+      ],
+      "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "publication_year": "2021",
+      "journal_title": "Nature",
+      "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
+      "supplementary_sources": [],
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "source_artifact_kind": "supplementary_spreadsheet_row",
+      "source_locator": "SI Table 1!row145",
+      "source_support_status": "supplementary_table_row",
+      "exact_source_text": "Logx1_Rus_INF | 51.17025 N, 82.967972 E | Hyena's Lair | Russia | LP-SWSIB | cave, Late Pleistocene, Infinite radiocarbon dating | 224887 | >49900 BP | - | - | - | >49900 BP | >49900 BP | M | this study | 1 | 4 | 4 | 261096900 | 88478964 | 349575864 | - | - | - | 222.926902337 | 1.21453631623 | 1.05",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
       "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-iguedugral-france",
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-iguedugral-france",
       "site_record_id": "equus_caballus:locality:prjeb44430:iguedugral:france",
@@ -10085,9 +10226,9 @@
         "time_mean_bp": 20828,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -10526,9 +10667,9 @@
         "time_mean_bp": 3850,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -10877,9 +11018,9 @@
         "time_mean_bp": 3465,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -11138,9 +11279,9 @@
         "time_mean_bp": 3428,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -11369,9 +11510,9 @@
         "time_mean_bp": 14616,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -11480,9 +11621,9 @@
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -11591,9 +11732,9 @@
         "time_mean_bp": 31606,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -11702,9 +11843,9 @@
         "time_mean_bp": 3404,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -11843,9 +11984,9 @@
         "time_mean_bp": 2530,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -11954,9 +12095,9 @@
         "time_mean_bp": 2567,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -12065,9 +12206,9 @@
         "time_mean_bp": 12350,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -12176,9 +12317,9 @@
         "time_mean_bp": 2959,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -12287,9 +12428,9 @@
         "time_mean_bp": 35292,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -12488,9 +12629,9 @@
         "time_mean_bp": 3262,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -12629,9 +12770,9 @@
         "time_mean_bp": 3016,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -12770,9 +12911,9 @@
         "time_mean_bp": 2888,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -12971,9 +13112,9 @@
         "time_mean_bp": 2815,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -13082,9 +13223,9 @@
         "time_mean_bp": 36751,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -13193,9 +13334,9 @@
         "time_mean_bp": 34022,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -13364,9 +13505,9 @@
         "time_mean_bp": 3633,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -13475,9 +13616,9 @@
         "time_mean_bp": 3794,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -13586,9 +13727,9 @@
         "time_mean_bp": 3782,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -13727,9 +13868,9 @@
         "time_mean_bp": 3740,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -13868,9 +14009,9 @@
         "time_mean_bp": 19695,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -14129,9 +14270,9 @@
         "time_mean_bp": 3482,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -14240,9 +14381,9 @@
         "time_mean_bp": 3822,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -14381,9 +14522,9 @@
         "time_mean_bp": 2627,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -14552,9 +14693,9 @@
         "time_mean_bp": 3052,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -14663,9 +14804,9 @@
         "time_mean_bp": 19719,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -14774,9 +14915,9 @@
         "time_mean_bp": 2243,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -14885,9 +15026,9 @@
         "time_mean_bp": 2267,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -14996,9 +15137,9 @@
         "time_mean_bp": 3810,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -15137,9 +15278,9 @@
         "time_mean_bp": 2607,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -15248,9 +15389,9 @@
         "time_mean_bp": 2985,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -15449,9 +15590,9 @@
         "time_mean_bp": 2718,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -15620,9 +15761,9 @@
         "time_mean_bp": 3199,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -15731,9 +15872,9 @@
         "time_mean_bp": 3795,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -15842,9 +15983,9 @@
         "time_mean_bp": 3060,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -15953,9 +16094,9 @@
         "time_mean_bp": 3260,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -16064,9 +16205,9 @@
         "time_mean_bp": 2892,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -16175,9 +16316,9 @@
         "time_mean_bp": 2821,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -16286,9 +16427,9 @@
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -16397,9 +16538,9 @@
         "time_mean_bp": 3770,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -16568,9 +16709,9 @@
         "time_mean_bp": 3801,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -16679,9 +16820,9 @@
         "time_mean_bp": 27756,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -16820,9 +16961,9 @@
         "time_mean_bp": 2574,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -16899,6 +17040,207 @@
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
+      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-yana-russia",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-yana-russia",
+      "site_record_id": "equus_caballus:locality:prjeb44430:yana:russia",
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "animal_scope": "wild_or_progenitor_context",
+      "support_class": "accepted",
+      "support_note": "admissible_for_curated_support",
+      "locality": "Yana",
+      "political_entity": "Russia",
+      "latitude": 70.723611,
+      "longitude": 135.413056,
+      "latitude_text": "70.723611",
+      "longitude_text": "135.413056",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "geocoding_method": "direct_supplementary_coordinate_capture",
+      "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
+      "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
+      "original_place_text": "Yana",
+      "resolved_place_text": "Yana",
+      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "coordinate_source_locator": "SI Table 1!row272",
+      "coordinate_supplementary_source": "",
+      "coordinate_support_gap_note": "",
+      "chronology": {
+        "original_text": ">51700 BP; 30517 BP",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
+        "refusal_reason_code": ""
+      },
+      "sample_ids": [
+        "prjeb44430:samea9533361",
+        "prjeb44430:samea9533362",
+        "prjeb44430:samea9533363",
+        "prjeb44430:samea9533364"
+      ],
+      "chronology_role": "locality_sample_coverage_hull",
+      "sample_chronologies": [
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb44430:samea9533361",
+          "chronology": {
+            "original_text": ">51700 BP",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "direct_radiocarbon_date",
+            "precision_posture": "sample_approximate_or_modeled",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB44430",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row272",
+          "provenance_excerpt": "R17x2_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199284 | >51700 | - | - | - | >51700 BP | >51700 BP | M | this study | 1 | 5 | 5 | 48481511 | 72876866 | 121358377 | - | - | - | 82.083702816100001 | 2.9829138843099",
+          "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_text_only",
+          "normalization_status": "text_only_unparsed",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb44430:samea9533362",
+          "chronology": {
+            "original_text": ">51700 BP",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "direct_radiocarbon_date",
+            "precision_posture": "sample_approximate_or_modeled",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB44430",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row273",
+          "provenance_excerpt": "R17x3_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199625 | >51700 | - | - | - | >51700 BP | >51700 BP | M | this study | 1 | 5 | 5 | 41340455 | 54555374 | 95895829 | - | - | - | 86.8297183942 | 2.4332116287000001 |",
+          "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_text_only",
+          "normalization_status": "text_only_unparsed",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb44430:samea9533363",
+          "chronology": {
+            "original_text": ">51700 BP",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "direct_radiocarbon_date",
+            "precision_posture": "sample_approximate_or_modeled",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB44430",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row274",
+          "provenance_excerpt": "R17x5_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199629 | >51700 | - | - | - | >51700 BP | >51700 BP | F | this study | 1 | 5 | 5 | 42725297 | 56976680 | 99701977 | - | - | - | 90.073217495500003 | 2.69249724715999",
+          "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_text_only",
+          "normalization_status": "text_only_unparsed",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb44430:samea9533364",
+          "chronology": {
+            "original_text": "30517 BP",
+            "time_start_bp": 30517,
+            "time_end_bp": 30517,
+            "time_mean_bp": 30517,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+            "evidence_class": "direct_radiocarbon_date",
+            "precision_posture": "sample_precise_point",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB44430",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+          "provenance_locator": "SI Table 1!row275",
+          "provenance_excerpt": "R17x6_Rus_m28567 | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene | 199630 | 26240 | 180 | -28972 | -28161 | 28567 | 30517 | F | this study | 1 | 5 | 5 | 37784118 | 75105550 | 112889668 | - | - | - | 63.490772917900003 | 3.0975151157799998 | 5.159999999999999",
+          "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_interval",
+          "normalization_status": "normalized_point",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        }
+      ],
+      "project_accessions": [
+        "PRJEB44430"
+      ],
+      "primary_project_accession": "PRJEB44430",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533361",
+        "equus_caballus:sample:prjeb44430:samea9533362",
+        "equus_caballus:sample:prjeb44430:samea9533363",
+        "equus_caballus:sample:prjeb44430:samea9533364"
+      ],
+      "sample_group_ids": [
+        "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "source_native_tax_ids": [],
+      "source_native_scientific_names": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
+      "sample_count": 4,
+      "sample_namespace": "equus_caballus:sample_locality",
+      "inclusion_statuses": [
+        "site_curated"
+      ],
+      "inclusion_notes": [
+        "Sample-level locality comes directly from the recovered sample source row."
+      ],
+      "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "publication_year": "2021",
+      "journal_title": "Nature",
+      "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
+      "supplementary_sources": [],
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "source_artifact_kind": "supplementary_spreadsheet_row",
+      "source_locator": "SI Table 1!row272",
+      "source_support_status": "supplementary_table_row",
+      "exact_source_text": "R17x2_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199284 | >51700 | - | - | - | >51700 BP | >51700 BP | M | this study | 1 | 5 | 5 | 48481511 | 72876866 | 121358377 | - | - | - | 82.083702816100001 | 2.9829138843099",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
       "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-zeerdegchingiinkhoshuu-mongolia",
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-zeerdegchingiinkhoshuu-mongolia",
       "site_record_id": "equus_caballus:locality:prjeb44430:zeerdegchingiinkhoshuu:mongolia",
@@ -16931,9 +17273,9 @@
         "time_mean_bp": 3086,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -17042,9 +17384,9 @@
         "time_mean_bp": 2992,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -17213,9 +17555,9 @@
         "time_mean_bp": 3066,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -17324,9 +17666,9 @@
         "time_mean_bp": 2960,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -17435,9 +17777,9 @@
         "time_mean_bp": 9729,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -17552,9 +17894,9 @@
         "time_mean_bp": 1675,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -17669,9 +18011,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -17786,9 +18128,9 @@
         "time_mean_bp": 8209,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -17933,9 +18275,9 @@
         "time_mean_bp": 985,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -18110,9 +18452,9 @@
         "time_mean_bp": 415,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -18227,9 +18569,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -18344,9 +18686,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -18461,9 +18803,9 @@
         "time_mean_bp": 7119,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -18578,9 +18920,9 @@
         "time_mean_bp": 600,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -18695,9 +19037,9 @@
         "time_mean_bp": 6224,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -18902,9 +19244,9 @@
         "time_mean_bp": 2144,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19019,9 +19361,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19136,9 +19478,9 @@
         "time_mean_bp": 7239,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19253,9 +19595,9 @@
         "time_mean_bp": 1338,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19370,9 +19712,9 @@
         "time_mean_bp": 2249,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19517,9 +19859,9 @@
         "time_mean_bp": 7369,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19634,9 +19976,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19751,9 +20093,9 @@
         "time_mean_bp": 1934,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19868,9 +20210,9 @@
         "time_mean_bp": 7976,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -19985,9 +20327,9 @@
         "time_mean_bp": 1500,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -20102,9 +20444,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -20219,9 +20561,9 @@
         "time_mean_bp": 530,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -20336,9 +20678,9 @@
         "time_mean_bp": 1650,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -20483,9 +20825,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -20630,9 +20972,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -20777,9 +21119,9 @@
         "time_mean_bp": 1780,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -20924,9 +21266,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21041,9 +21383,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21158,9 +21500,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21275,9 +21617,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "broad_period_label",
-        "precision_posture": "broad_period_only",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21392,9 +21734,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21509,9 +21851,9 @@
         "time_mean_bp": 4499,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21626,9 +21968,9 @@
         "time_mean_bp": null,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21743,9 +22085,9 @@
         "time_mean_bp": 1904,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21860,9 +22202,9 @@
         "time_mean_bp": 1810,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -21977,9 +22319,9 @@
         "time_mean_bp": 1730,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -22124,9 +22466,9 @@
         "time_mean_bp": 875,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -22241,9 +22583,9 @@
         "time_mean_bp": 1240,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -22448,9 +22790,9 @@
         "time_mean_bp": 434,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -22595,9 +22937,9 @@
         "time_mean_bp": 3925,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -22772,9 +23114,9 @@
         "time_mean_bp": 4700,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -22892,9 +23234,9 @@
         "time_mean_bp": 1000,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [

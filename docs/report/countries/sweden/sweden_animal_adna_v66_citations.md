@@ -36,7 +36,7 @@ Country animal sample/context wrapper; broader entity ledger is not an ecologica
 
 - [Retained qualification evidence: docs/report/countries/sweden/sweden_animal_adna_v66_samples.csv](sweden_animal_adna_v66_samples.csv) (SHA-256 `50551831fb67dba31f85e23e17b931f592596188e794cf10a16cad76cea81764`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

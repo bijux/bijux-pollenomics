@@ -65,15 +65,15 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A complete traceability chain does not independently authenticate historical observation, assign an epoch, resolve biological identity or admit ecological comparisons.
 
-**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. Regional chronology retains 13 nodes and its original source fields. The independent actual Nordic JavaScript index observer recovered every original logical search entry in 30.51 s; this is not full browser or query-latency acceptance.
+**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.
 
-**Remaining input or review.** The deeper source-family decisions and actual bundle/browser identity checks remain required for any intended scientific or delivery claim.
+**Remaining input or review.** Deeper source-family identity, chronology, biological and rights decisions remain required. Current decoded preservation and actual index-factory checks do not independently validate historical observations.
 
 **Cause category.** Publication point lineage rather than source validity.
 
 **Consequence.** Readers can follow marker provenance while preserving the distinction between feature rows, source observations and physical sites.
 
-**Precise next acceptance route.** Replay the exact scope's point ledger and verify native IDs and attached sources, then apply source-specific chronology/biology/rights decisions to named records.
+**Precise next acceptance route.** Follow the qualified current scope's exact point IDs and deeper sources; resolve source-specific chronology, biology and rights before a named scientific comparison.
 
 **Negative or refused result.** Unresolved source identities and time claims remain unresolved even when their marker has a traceability link.
 

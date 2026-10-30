@@ -1,0 +1,139 @@
+{
+  "schema_version": "nordic-literal-window-support-protocol.v1",
+  "question": "Do all native LAIH and DALMUT sample owners support literal Betula29/Ulmus310 count aggregation on the same six calibrated-BP windows already used by the Nordic coupled consumer, rather than only an incomplete whole-core panel?",
+  "scientific_consumer": "Resolve a concrete common-axis/window source prerequisite for a possible Swedish-only versus four-country LRA comparison. This is source accounting, not a new LRA comparison or admission.",
+  "provenance": {
+    "raw_manifest": {
+      "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+      "bytes": 9449,
+      "sha256": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d"
+    },
+    "relational_baseline": {
+      "path": "data/neotoma/review/relational_baseline.json",
+      "bytes": 3981,
+      "sha256": "3e1f2c126da5dec9cc0e572ff815760b9d66d41fcffd612142458949e45a18b5"
+    },
+    "literal_policy": {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-source-support/protocol.json",
+      "bytes": 6826,
+      "sha256": "a872f27bd95e7c1e971efb93e610cea5941466ca3e9cb387f117d451c9c93e3c"
+    }
+  },
+  "inherited_policy_fields": [
+    "count_policy",
+    "literal_status_precedence",
+    "full_mass_policy",
+    "age_numeric_interpretation",
+    "suppression_semantics"
+  ],
+  "source_identity_basis": "Authenticate original retained April2026 download parts against the existing relational-baseline raw_archive pins and raw-manifest dataset membership. Reuse exact retained bytes; no HTTP capture, census rerun or whole-Neotoma capture-identity claim.",
+  "taxa": [
+    {
+      "label": "Betula",
+      "taxon_id": 29
+    },
+    {
+      "label": "Ulmus",
+      "taxon_id": 310
+    }
+  ],
+  "windows": [
+    [
+      2700,
+      3200
+    ],
+    [
+      3200,
+      3700
+    ],
+    [
+      3700,
+      4200
+    ],
+    [
+      4200,
+      4700
+    ],
+    [
+      4700,
+      5200
+    ],
+    [
+      5200,
+      5700
+    ]
+  ],
+  "cores": [
+    {
+      "key": "laihalampi",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "bytes": 26666672,
+        "sha256": "8a37070b8796030365585eb2cf7b30d6555e39fc1c5bea8167104845c35adc1d"
+      },
+      "identity": {
+        "site_id": 28072,
+        "dataset_id": 52082,
+        "collection_unit_id": 37925,
+        "handle": "LAIH",
+        "source_sample_count": 150
+      },
+      "chronology": {
+        "selected_id": 37160,
+        "selected_name": "cal yr BP",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 37159,
+        "source_default_flags": {
+          "37159": true,
+          "37160": true
+        }
+      },
+      "physical_limit": "The released 285m/25.5ha modern site statement and restricted R marker do not admit historical basin, exact LandClim ages, PPE/covariance or analytical rights."
+    },
+    {
+      "key": "dalmutladdo",
+      "source": {
+        "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "bytes": 20614788,
+        "sha256": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435"
+      },
+      "identity": {
+        "site_id": 13388,
+        "dataset_id": 20034,
+        "collection_unit_id": 14989,
+        "handle": "DALMUT",
+        "source_sample_count": 72
+      },
+      "chronology": {
+        "selected_id": 11601,
+        "selected_name": "author preferred",
+        "selected_native_type": "Calibrated radiocarbon years BP",
+        "reference_epoch_ad": 1950,
+        "native_collection_default_reference": 11600,
+        "source_default_flags": {
+          "11600": true,
+          "11601": true
+        }
+      },
+      "physical_limit": "The 7.2ha primary and 8ha/160m workbook statements remain separate; no historical shoreline, original LandClim-selected age vector or parameter/use-rights admission."
+    }
+  ],
+  "chronology_policy": "Select only the explicit per-core unique calibrated point chronology, exact native ID/name/type; preserve every original claim/declaration and both literal isdefault flags. Never substitute the collection reference or use publication/preparation year as BP origin. These source-point chronologies are not authenticated historical LandClim input vectors or age-uncertainty laws.",
+  "bound_policy": "A finite selected point may have absent or null younger/older bounds. Preserve original missing keys versus null values and all raw age claims; any present nonnull bound must be finite and contain the point. Missing bounds do not yield a confidence interval, interpolation, calibration or a distribution. Missing/duplicate/wrong-type/invalid/conflicting point claims remain unassignable.",
+  "owner_and_window_policy": "Account for every unique native owner in original order:150LAIH+72DALMUT. Retain source sample/analysis-unit IDs, depth/thickness, all ages, literal axis evidence and every datum classification. Half-open fixed windows; negative/outside ages remain distinct. Any unassignable selected-age owner suppresses all six aggregates of its own core only. Do not pool cores or silently select complete-count samples within a window.",
+  "aggregate_policy": "Every one of twelve requested core/windows remains with ordered native member IDs, status, panel/full NISP/excluded mass if defined. Explicit empty, incomplete panel, zero panel, invalid full mass and unassignable-age statuses; absent Ulmus is never reported zero. Whole-core counts and known-valid reported-cell subtotals remain separate from complete denominators and do not replace window support.",
+  "rights_and_attribution": "Preserve retained Neotoma/EPD source ownership, exact per-core native dataset/contact metadata and citations; local curation of already retained source only. Source availability, source-point compatibility and aggregate support grant no new analytical/redistribution permission or qualified scientific review. Detailed native/count products remain local artifacts; commit no raw source table.",
+  "scope": "Source precondition accounting for two named cores only. No reconstruction, inverse fit, kernel, prediction, scoring, new observed outcome, bootstrap, source acquisition, country reassignment, historical-input equivalence, physical/core/PPE/field admission or claim of four-country completion.",
+  "source_max_bytes": 33554432,
+  "limits": {
+    "producer_wall_seconds": 90,
+    "observer_wall_seconds": 90,
+    "max_rss_bytes": 1073741824,
+    "max_output_bytes": 8388608
+  },
+  "engine_calls": 0,
+  "model_fits": 0,
+  "source_acquisition": false,
+  "scientific_or_field_admission": false
+}

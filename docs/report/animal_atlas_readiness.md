@@ -21,11 +21,11 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** The readiness table distinguishes four publishable, two thin and four blocked tracked-species publication surfaces with their mapped and blocked support.
+**Supported claim.** The retained readiness capture distinguishes four publishable, two thin and four blocked tracked-species publication surfaces at its own historical epoch.
 
 **Unsupported claim.** Publishable is a software/metadata posture, not reference-grade biological evidence, complete species coverage or an ecological field recommendation.
 
-**Actual verification performed.** Read all ten species rows and retained status counts; distinguished candidate features, mapped samples and coordinate-provenance denominators. No readiness producer or source review was rerun.
+**Actual verification performed.** Read the ten retained species rows and status counts, distinguishing feature, mapped-sample and coordinate-provenance denominators. This readiness capture was not rerun by the current saved-consumer/map qualification.
 
 **Remaining input or review.** Blocked samples, unresolved site/chronology and coordinate refusals need native evidence; thin pig/sheep footprints require broader source-qualified support before broad claims.
 
@@ -37,7 +37,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Negative or refused result.** Four species remain blocked; two thin surfaces have only two locality features each. No readiness label grants scientific admission.
 
-**Matched denominator.** 10 tracked-species rows=4 publishable+2 thin+4 blocked; candidate locality total 165 and mapped samples 322. Horse 73/148, goat 27/82, cat 39/54, cattle 22/31, sheep 2/5, pig 2/2.
+**Matched denominator.** Historical readiness capture: 10 tracked-species rows=4 publishable+2 thin+4 blocked, 165 candidate localities and 322 mapped samples. Horse73/148, goat27/82, cat39/54, cattle22/31, sheep2/5, pig2/2 remain that capture; current entity 163/324 is separate.
 
 - [Retained qualification evidence: docs/report/animal_atlas_readiness.json](animal_atlas_readiness.json) (SHA-256 `f88f5cb2da735b255f13795e335ab13dd99de323f4a153237dfa1242d10412d8`).
 

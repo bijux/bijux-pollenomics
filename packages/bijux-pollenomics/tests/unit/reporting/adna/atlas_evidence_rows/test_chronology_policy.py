@@ -5,6 +5,9 @@ from __future__ import annotations
 import pytest
 
 from bijux_pollenomics.adna import AdnaChronology
+from bijux_pollenomics.adna.governance.atlas_candidates.chronology import (
+    _atlas_public_locality_chronology,
+)
 from bijux_pollenomics.reporting.adna.atlas_evidence_rows.chronology import (
     _atlas_chronology_supports_publication,
     _atlas_public_chronology,
@@ -257,3 +260,65 @@ def test_null_chronology_text_does_not_become_the_literal_string_none() -> None:
     assert parsed.evidence_class == "unresolved"
     assert parsed.precision_posture == "unresolved"
     assert not _atlas_chronology_supports_publication(parsed)
+
+
+def test_display_hull_preserves_source_metadata_without_specimen_admission() -> None:
+    source = AdnaChronology(
+        "literal source hull",
+        100,
+        310,
+        205,
+        date_stddev_bp="17.25",
+        source_mean_bp_text="205",
+        dating_basis="radiocarbon",
+        evidence_class="direct_radiocarbon_date",
+        precision_posture="sample_precise_interval",
+        refusal_reason_code="global_source_refusal",
+    )
+    public = _atlas_public_locality_chronology(source.as_dict())
+    assert public.as_dict() == source.as_dict() | {
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
+    }
+    assert (
+        public.as_temporal_semantics(source_family="animal_adna")[
+            "comparability_posture"
+        ]
+        == "refused"
+    )
+    assert not _atlas_chronology_supports_publication(public)
+
+
+@pytest.mark.parametrize(
+    ("start", "end", "mean", "expected"),
+    [
+        (0, 0, 0, (0, 0, 0)),
+        (100, 310, 500, (100, 310, None)),
+        (None, 310, 205, (None, None, None)),
+        (310, 100, 205, (None, None, None)),
+        (-1, 310, 205, (None, None, None)),
+    ],
+)
+def test_locality_bounds_are_display_only_and_must_be_valid(
+    start: int | None,
+    end: int | None,
+    mean: int | None,
+    expected: tuple[int | None, int | None, int | None],
+) -> None:
+    payload = AdnaChronology("source coverage", start, end, mean).as_dict()
+    public = _atlas_public_locality_chronology(payload)
+    assert (public.time_start_bp, public.time_end_bp, public.time_mean_bp) == expected
+    assert (
+        public.as_temporal_semantics(source_family="animal_adna")[
+            "comparability_posture"
+        ]
+        == "contextual_label_only"
+    )
+    assert not _atlas_chronology_supports_publication(public)
+
+
+@pytest.mark.parametrize("value", [True, 1.5, "100"])
+def test_display_bounds_do_not_coerce_unsupported_endpoint_types(value: object) -> None:
+    with pytest.raises(TypeError, match="integer BP"):
+        _atlas_public_locality_chronology({"time_start_bp": value, "time_end_bp": 200})

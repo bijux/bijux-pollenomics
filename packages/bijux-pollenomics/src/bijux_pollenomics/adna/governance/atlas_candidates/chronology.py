@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import cast
 
+from ....core.temporal_semantics import InvalidBpIntervalError, canonical_bp_interval
 from ...domain.models.chronology import AdnaChronology
 from ...domain.models.vocabularies import (
     ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
@@ -61,6 +62,51 @@ def _atlas_public_chronology(chronology: AdnaChronology) -> AdnaChronology:
         dating_basis=chronology.dating_basis,
         evidence_class=chronology.evidence_class,
         precision_posture=chronology.precision_posture,
+    )
+
+
+def _atlas_public_locality_chronology(payload: object) -> AdnaChronology:
+    """Preserve valid display coverage without presenting it as a specimen date."""
+    if not isinstance(payload, dict):
+        raise TypeError("Locality chronology payload must be a dict")
+
+    def text(key: str) -> str:
+        value = payload.get(key, "")
+        if value is None:
+            return ""
+        if not isinstance(value, str):
+            raise TypeError(f"Locality chronology {key} must be text")
+        return value
+
+    def endpoint(key: str) -> int | None:
+        value = payload.get(key)
+        if value is None or value == "":
+            return None
+        if type(value) is not int:
+            raise TypeError(f"Locality chronology {key} must be integer BP or null")
+        return value
+
+    start, end = endpoint("time_start_bp"), endpoint("time_end_bp")
+    mean = endpoint("time_mean_bp")
+    try:
+        interval = canonical_bp_interval(start, end)
+    except InvalidBpIntervalError:
+        interval = None
+    if interval is None:
+        start = end = mean = None
+    elif mean is not None and not (cast(int, start) <= mean <= cast(int, end)):
+        mean = None
+    return AdnaChronology(
+        original_text=text("original_text"),
+        time_start_bp=start,
+        time_end_bp=end,
+        time_mean_bp=mean,
+        date_stddev_bp=text("date_stddev_bp"),
+        source_mean_bp_text=text("source_mean_bp_text"),
+        dating_basis="locality_sample_coverage",
+        evidence_class="locality_sample_coverage_hull",
+        precision_posture="display_coverage_only",
+        refusal_reason_code=text("refusal_reason_code"),
     )
 
 

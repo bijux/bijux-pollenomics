@@ -50,6 +50,7 @@ def feature_temporal_admission(
         return ("refused", None)
     temporal_semantics = feature.get("temporal_semantics")
     posture = ""
+    refusal_reason = ""
     if isinstance(temporal_semantics, Mapping):
         if any(
             key in temporal_semantics and not isinstance(temporal_semantics[key], str)
@@ -67,14 +68,28 @@ def feature_temporal_admission(
             return ("refused", None)
         posture = str(temporal_semantics.get("comparability_posture", "")).strip()
         refusal_reason = str(temporal_semantics.get("refusal_reason_code", "")).strip()
-        if posture == "refused" or refusal_reason:
-            return ("refused", None)
-    if "temporal_semantics" in feature:
-        if not isinstance(temporal_semantics, Mapping):
-            return ("refused", None)
-        if posture not in NUMERIC_POSTURES:
-            return ("contextual", None)
+    if "temporal_semantics" in feature and not isinstance(temporal_semantics, Mapping):
+        return ("refused", None)
+    if posture == "refused" or refusal_reason:
+        return ("refused", None)
     exported_semantics = exported_record_semantics(feature)
+    owned_locality = (
+        "sample_chronologies" in feature
+        and feature.get("chronology_role") == "locality_sample_coverage_hull"
+        and exported_semantics is None
+    )
+    if "sample_chronologies" in feature and (
+        feature.get("chronology_role") != "locality_sample_coverage_hull"
+    ):
+        return ("refused", None)
+    # Contextual hull metadata cannot replace owned sample occurrences;
+    # explicit feature-level refusals remain authoritative above.
+    if (
+        not owned_locality
+        and "temporal_semantics" in feature
+        and posture not in NUMERIC_POSTURES
+    ):
+        return ("contextual", None)
     if exported_semantics is not None:
         if (
             exported_semantics.get("refusal_reason_code")
@@ -105,8 +120,13 @@ def feature_temporal_admission(
         if feature.get("chronology_role") != "locality_sample_coverage_hull":
             return ("refused", None)
         try:
-            mapping_sample_chronologies(feature)
+            supports = mapping_sample_chronologies(feature)
         except (TypeError, ValueError):
+            return ("refused", None)
+        identifiers = feature.get("sample_ids", feature.get("sample_record_ids", []))
+        if not isinstance(identifiers, (list, tuple)) or len(supports) != len(
+            identifiers
+        ):
             return ("refused", None)
         intervals = tuple(
             (interval.younger_bp, interval.older_bp)
