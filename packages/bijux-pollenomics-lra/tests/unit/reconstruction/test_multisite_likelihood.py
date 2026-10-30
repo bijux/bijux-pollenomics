@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from decimal import Decimal, localcontext
 from fractions import Fraction
 from math import lcm
 from typing import Any
@@ -12,6 +13,7 @@ from scipy.optimize import brentq
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.reconstruction.likelihood.multisite_likelihood import (
+    _small_objective_change,
     fit_multisite_likelihood,
 )
 
@@ -326,3 +328,77 @@ def test_masked_counts_and_response_values_refuse_before_numpy_discards_masks() 
 def test_invalid_convergence_controls_refuse(kwargs: Any) -> None:
     with pytest.raises(ValidationError):
         fit([[1, 2]], [[1, 2]], **kwargs)
+
+
+def test_exact_truth_near_optimum_does_not_accept_repeated_zero_movement() -> None:
+    responses = np.array([[1, 7, 3], [9, 2, 5], [2, 5, 11], [13, 3, 2]])
+    counts = np.array([[1, 14, 9], [18, 8, 30], [6, 30, 99], [52, 24, 24]])
+    # Each row is an exact integer population from the same (1,2,3) weights.
+    # Absolute-NLL comparisons exhausted 200 steps despite a finite optimum.
+    result = fit(
+        counts,
+        responses,
+        score_tolerance=1e-12,
+        relative_count_tolerance=1e-10,
+        max_steps=200,
+    )
+    assert result.converged and result.stop_reason == "count_balance_tolerances"
+    assert result.steps < 10
+    assert result.score_residual <= 1e-12
+    assert result.relative_count_residual <= 1e-10
+    np.testing.assert_allclose(result.cover, [1 / 6, 1 / 3, 1 / 2], rtol=0, atol=1e-12)
+
+
+def test_small_nll_change_matches_independent_decimal_below_absolute_objective_ulp() -> (
+    None
+):
+    probabilities = np.array([[0.25, 0.5, 0.25], [0.5, 0.25, 0.25]])
+    weights = np.array([0.5, 0.5])
+    observed = np.array([0.375 + 1e-9, 0.375 - 1e-9, 0.25])
+    movement = np.array([4e-9, -4e-9, 0.0])
+    actual = _small_objective_change(probabilities, weights, observed, movement)
+    with localcontext() as context:
+        context.prec = 90
+        D = Decimal.from_float
+        exact = sum(
+            (
+                D(float(w))
+                * sum(
+                    (
+                        D(float(p)) * D(float(d)).exp()
+                        for p, d in zip(row, movement, strict=True)
+                    ),
+                    Decimal(0),
+                ).ln()
+                for w, row in zip(weights, probabilities, strict=True)
+            ),
+            Decimal(0),
+        )
+        exact -= sum(
+            (
+                D(float(q)) * D(float(d))
+                for q, d in zip(observed, movement, strict=True)
+            ),
+            Decimal(0),
+        )
+    assert exact < 0 and abs(exact) < Decimal.from_float(float(np.spacing(1.0)))
+    assert actual < 0
+    assert actual == pytest.approx(float(exact), rel=2e-7, abs=1e-25)
+
+
+def test_unrepresentable_trial_movement_is_line_search_failure_not_accepted_steps(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def unresolved_direction(_hessian: np.ndarray, rhs: np.ndarray) -> np.ndarray:
+        return rhs * 1e-300
+
+    monkeypatch.setattr(np.linalg, "solve", unresolved_direction)
+    result = fit(
+        [[1, 14, 9], [18, 8, 30], [6, 30, 99], [52, 24, 24]],
+        [[1, 7, 3], [9, 2, 5], [2, 5, 11], [13, 3, 2]],
+        score_tolerance=1e-12,
+        relative_count_tolerance=1e-10,
+    )
+    assert not result.converged
+    assert result.stop_reason == "line_search_failed"
+    assert result.steps == 0

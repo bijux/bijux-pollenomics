@@ -90,6 +90,26 @@ def _owned(value: np.ndarray) -> np.ndarray:
     return result
 
 
+def _small_objective_change(
+    probabilities: np.ndarray,
+    weights: np.ndarray,
+    observed_taxa: np.ndarray,
+    movement: np.ndarray,
+) -> float:
+    """Evaluate the same NLL difference without subtracting absolute objectives.
+
+    For actual log-ratio movement d (including a zero gauge coordinate),
+    F(theta+d)-F(theta) = sum_s w_s log(1+sum_i p_si expm1(d_i))-q.d.
+    The caller confines |d| to at most one half, keeping expm1 and log1p
+    away from overflow and their negative-one boundary. This retains the
+    first-order score and curvature while resolving sub-ULP objective changes.
+    """
+    return float(
+        weights @ np.log1p(probabilities @ np.expm1(movement))
+        - observed_taxa @ movement
+    )
+
+
 def fit_multisite_likelihood(
     counts: object,
     responses: object,
@@ -130,6 +150,12 @@ def fit_multisite_likelihood(
     singular curvature and failed line searches remain visible. Physical
     common-cover applicability, source identities, matching time/units and
     omitted geometry/PPE/site-heterogeneity uncertainty belong to the caller.
+
+    Small-step Armijo comparisons use the likelihood difference directly,
+    avoiding cancellation between rounded absolute objective values. The
+    actual representable log-ratio movement is used; a trial that changes
+    no parameter cannot count as an accepted Newton step. Large steps retain
+    the absolute-objective comparison and all finite-candidate guards.
 
     Before convergence, the reduced Hessian is scaled on each axis by the
     square root of its pooled positive taxon frequency. A minimum eigenvalue
@@ -256,13 +282,18 @@ def fit_multisite_likelihood(
             # before evaluating logits rather than emitting invalid-logit noise.
             with np.errstate(over="ignore"):
                 candidate = theta + step * direction
-            if not np.isfinite(candidate).all():
+            if not np.isfinite(candidate).all() or np.array_equal(candidate, theta):
                 continue
             next_objective, next_score, next_probabilities = evaluate(candidate)
-            if (
-                np.isfinite(next_objective)
-                and next_objective <= objective + 1e-4 * step * descent
-            ):
+            movement = np.append(candidate - theta, 0.0)
+            if float(np.max(np.abs(movement))) <= 0.5:
+                change = _small_objective_change(
+                    probabilities[used], weights, observed_taxa, movement
+                )
+                armijo = np.isfinite(change) and change <= 1e-4 * step * descent
+            else:
+                armijo = next_objective <= objective + 1e-4 * step * descent
+            if np.isfinite(next_objective) and armijo:
                 theta, objective, score, probabilities = (
                     candidate,
                     next_objective,
