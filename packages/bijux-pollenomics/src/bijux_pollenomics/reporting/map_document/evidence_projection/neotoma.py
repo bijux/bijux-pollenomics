@@ -19,7 +19,11 @@ from bijux_pollenomics.reporting.source_chronology import (
     build_source_chronology_atlas_projection,
 )
 
-from .constants import _UNAVAILABLE_CLASSIFICATION, _UNAVAILABLE_RELATION
+from .constants import (
+    _UNAVAILABLE_CLASSIFICATION,
+    _UNAVAILABLE_RELATION,
+    PROJECTION_SCHEMA_VERSION,
+)
 from .io import (
     _decode_json_object,
     _mapping,
@@ -27,6 +31,7 @@ from .io import (
     _required_text,
     _safe_relative_path,
 )
+from .neotoma_chronology import chronology_model_tables, chronology_tab
 from .records import (
     _compact_rows_by_site,
     _features,
@@ -61,6 +66,12 @@ def _project_neotoma(
             "observations",
         )
     }
+    manifest_surfaces = _mapping(manifest.get("surfaces"), "Neotoma surfaces")
+    for name in ("chronologies", "chronology_controls"):
+        if name in manifest_surfaces:
+            loaded_surfaces[name] = _load_neotoma_surface(
+                relational_root, manifest, name
+            )
     surfaces = {name: loaded[0] for name, loaded in loaded_surfaces.items()}
     sites = _unique_rows(
         surfaces["sites"],
@@ -68,6 +79,7 @@ def _project_neotoma(
         "Neotoma sites",
     )
     governed_sites = _governed_neotoma_sites(sites)
+    model_tables = chronology_model_tables(loaded_surfaces, set(sites))
     collection_rows = _compact_rows_by_site(
         surfaces["collection_units"],
         fields=("collection_unit_id", "source_collection_unit_id", "source_payload"),
@@ -292,26 +304,8 @@ def _project_neotoma(
                             sample_rows[site_id],
                         ),
                     },
-                    "chronology": (
-                        {
-                            **_row_table(
-                                age_fields,
-                                site_age_rows,
-                                identifier_prefixes={
-                                    "chronology_claim_id": "neotoma:age-claim:",
-                                    "subject_id": "neotoma:sample:",
-                                    "source_record_id": "neotoma:sample:",
-                                    "chronology_id": "neotoma:chronology:",
-                                    "collection_unit_id": "neotoma:collection-unit:",
-                                    "dataset_id": "neotoma:dataset:",
-                                },
-                            ),
-                            "interval_semantics": "[younger_bp, older_bp]",
-                            "null_semantics": "source null remains null",
-                            "selection_posture": "all source age assignments retained",
-                        }
-                        if site_age_rows
-                        else _unavailable("neotoma_site_age_claims_not_available")
+                    "chronology": chronology_tab(
+                        age_fields, site_age_rows, model_tables[site_id]
                     ),
                     "pollen_composition": (
                         {
@@ -341,6 +335,18 @@ def _project_neotoma(
                     "relation": dict(_UNAVAILABLE_RELATION),
                     "classification": dict(_UNAVAILABLE_CLASSIFICATION),
                     "provenance": {
+                        "projection_schema_version": PROJECTION_SCHEMA_VERSION,
+                        **{
+                            target: manifest[source]
+                            for source, target in (
+                                ("schema_version", "materialization_schema_version"),
+                                (
+                                    "relational_snapshot_schema_version",
+                                    "relational_snapshot_schema_version",
+                                ),
+                            )
+                            if source in manifest
+                        },
                         "source_snapshot_id": source_snapshot_id,
                         "build_id": build_id,
                         "materialization_sha256": materialization_sha256,
@@ -364,6 +370,9 @@ def _project_neotoma(
         "observations": sum(len(rows) for rows in observation_rows.values()),
         "variables": len(variables),
     }
+    for name in ("chronologies", "chronology_controls"):
+        if name in surfaces:
+            detail_row_counts[name] = len(surfaces[name])
     source_node_result = derive_neotoma_source_chronology_nodes(
         observations=surfaces["observations"],
         samples=surfaces["samples"],

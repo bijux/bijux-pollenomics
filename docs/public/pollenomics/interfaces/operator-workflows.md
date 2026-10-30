@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-10-24
 ---
 
 # Operator Workflows
@@ -124,6 +124,37 @@ audited through:
 Publishing the same evidence under a new scope is a publication change, not a
 source refresh. Conversely, collecting new evidence without publishing leaves
 the public product unchanged.
+
+### Include Captured Neotoma Publications
+
+The Python map API `generate_multi_country_map` accepts the optional
+`publication_capture_root` alongside `context_root`. Pass the absolute path to
+the existing citation capture directory containing `capture-manifest.json`
+and `responses/`. Reuse that shared directory. The supported capture has source
+identity `neotoma/publication-links/2026-09-29`; the reader checks its existing
+manifest identity and reads only responses for the projected datasets.
+
+For an existing map publication call:
+
+```python
+report = generate_multi_country_map(
+    version_dir=version_dir,
+    countries=countries,
+    output_dir=output_dir,
+    title=title,
+    slug=slug,
+    context_root=context_root,
+    publication_capture_root=publication_capture_root.resolve(),
+)
+```
+
+The **Provenance** tab shows literal bibliography records, nullable source
+primary flags and the separate capture dates. Uncaptured datasets, successful
+empty responses and multiple source primary publications remain distinct.
+These records supply citation context; scientific approval, full-paper access
+and reuse permission require their own evidence. The
+[atlas walkthrough](atlas-walkthrough.md#read-a-neotoma-source-observation)
+explains how to read the source views.
 
 ## Interpret Completion
 

@@ -53,7 +53,13 @@ def prepare_layers(
     atlas_edge_records: Any,
     atlas_sequence_records: Any,
     surface: Any,
+    publication_capture_root: Path | None = None,
 ) -> tuple[Any, ...]:
+    """Prepare atlas layers and traceable assets with optional publication metadata."""
+    if publication_capture_root is not None and (
+        context_root is None or atlas_detail_records is not None
+    ):
+        raise ValueError("Publication capture requires source-projected atlas details")
     bundle_paths = build_atlas_bundle_paths_fn(
         output_dir=staging_output_dir, slug=report.slug, version=version
     )
@@ -107,7 +113,13 @@ def prepare_layers(
     detail_projection_reconciliation = None
     if context_root is not None and atlas_detail_records is None:
         detail_projection = surface.build_map_evidence_projection(
-            context_root, point_layers
+            context_root,
+            point_layers,
+            **(
+                {"publication_capture_root": publication_capture_root}
+                if publication_capture_root is not None
+                else {}
+            ),
         )
         atlas_detail_records = detail_projection.detail_records
         detail_projection_reconciliation = detail_projection.reconciliation

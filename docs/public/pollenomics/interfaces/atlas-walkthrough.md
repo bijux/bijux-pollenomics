@@ -4,7 +4,7 @@ audience: reader
 type: how-to
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-10-03
+last_reviewed: 2026-10-24
 ---
 
 # Walk Through One Atlas Result
@@ -183,6 +183,30 @@ the host, development producer and compatibility distribution. The
 explains the optional extension. Keep the request, input identities and refusal
 when sharing the issue; validation success only means the declared exploratory
 input passed its checks, with scientific acceptance still `not_evaluated`.
+
+## Read a Neotoma source observation
+
+For a Neotoma source feature, open **Samples** to inspect the original values,
+sample IDs, depth, units and denominator status. In **Pollen/composition**, use
+**Exact native source group** to keep the dataset, collection, taxon, unit and
+denominator context together. Then choose an available source-age group under
+**Display axis and explicit source age assignment group**. Age-indexed values
+can be shown even when depth is missing; the depth view keeps that absence.
+
+Exactly matched selected source observations have dashed outlines; unmatched
+or ambiguous source context stays explicit. On a narrow screen, scroll the
+plot horizontally to inspect its marks and axes. Reported endpoint spans
+retain their source bounds and unspecified coverage. An interval-only claim
+has no inferred point. Source-default flags and this display choice do not
+select an analysis chronology or calibrate an age.
+
+In **Provenance**, **Current provider dataset JSON** opens the provider's current
+dataset, which may differ from the retained snapshot. Separately captured
+publication metadata appears when the publication capture was supplied to the
+map build. Its retrieval dates and source primary flags remain distinct from
+the pollen snapshot, a reviewed citation choice and reuse permission. The
+[operator workflow](operator-workflows.md#include-captured-neotoma-publications)
+explains that optional input.
 
 ## Decide what the result supports
 

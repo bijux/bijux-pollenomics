@@ -26,6 +26,10 @@ from .presentation_source_roles import (
     HISTORICAL_RENDERING_SOURCES,
     atlas_extension_matches,
 )
+from .source_roles.atlas_context import (
+    ATLAS_CONTEXT_SOURCES,
+    validated_atlas_context_source,
+)
 from .source_roles.atlas_runtime_transport import (
     ATLAS_RUNTIME_TRANSPORT_SOURCES,
     validated_atlas_runtime_transport_source,
@@ -394,6 +398,17 @@ def _validate_current_source(
                         source_buffer,
                     ).get("classification")
                     == "declared_child_key_refusal_identity"
+                )
+                or (
+                    source_buffer is not None
+                    and name in ATLAS_CONTEXT_SOURCES
+                    and validated_atlas_context_source(
+                        repository,
+                        {"path": name, "sha256": expected, "bytes": len(captured)},
+                        logical,
+                        source_buffer,
+                    ).get("classification")
+                    == "source_view_context_extension"
                 )
                 or (
                     source_buffer is not None

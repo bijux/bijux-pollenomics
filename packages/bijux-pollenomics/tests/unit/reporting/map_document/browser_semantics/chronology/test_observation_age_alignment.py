@@ -472,7 +472,7 @@ def test_prequalified_alignment_matches_wrapper_without_redecoding(
 ) -> None:
     result = observe(
         projected_tabs(tmp_path, monkeypatch),
-        "(()=>{const ages=ageDepthDiagramData(tabs),source=native.groups[0],choices=[null,...options.map(o=>o.key),'unknown'],nativeController=pollenDepthDiagramData,ageController=ageDepthDiagramData;let n=0,a=0,directDecodes=0,equal=true;pollenDepthDiagramData=(...args)=>{n++;return nativeController(...args);};ageDepthDiagramData=(...args)=>{a++;return ageController(...args);};for(const choice of choices){const wrapped=pollenAgeAxisData(tabs,key,choice),before=n+a,direct=pollenAgeAxisForGroup(source,ages,choice);directDecodes+=n+a-before;equal=equal&&JSON.stringify(wrapped)===JSON.stringify(direct);}return {equal,directDecodes,n,a,cases:choices.length};})()",
+        "(()=>{const ages=sourceAgeAssignmentData(tabs),source=native.groups[0],choices=[null,...options.map(o=>o.key),'unknown'],nativeController=pollenObservationDiagramData,ageController=sourceAgeAssignmentData;let n=0,a=0,directDecodes=0,equal=true;pollenObservationDiagramData=(...args)=>{n++;return nativeController(...args);};sourceAgeAssignmentData=(...args)=>{a++;return ageController(...args);};for(const choice of choices){const wrapped=pollenAgeAxisData(tabs,key,choice),before=n+a,direct=pollenAgeAxisForGroup(source,ages,choice);directDecodes+=n+a-before;equal=equal&&JSON.stringify(wrapped)===JSON.stringify(direct);}return {equal,directDecodes,n,a,cases:choices.length};})()",
     )
     assert result["equal"] is True and result["directDecodes"] == 0
     assert result["n"] == result["a"] == result["cases"] == 5

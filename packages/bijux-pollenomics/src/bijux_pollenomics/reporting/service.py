@@ -131,6 +131,8 @@ def generate_multi_country_map(
     context_root: Path | None = None,
     published_output_dir: Path | None = None,
     geography_scope: GeographicScope | None = None,
+    *,
+    publication_capture_root: Path | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
@@ -197,6 +199,7 @@ def generate_multi_country_map(
             write_static_map_document_fn=write_static_map_document,
             render_multi_country_map_markdown_fn=render_multi_country_map_markdown,
             write_summary_json_fn=write_summary_json,
+            publication_capture_root=publication_capture_root,
         )
 
     publish_into_staging_dir(output_dir, publish_map_bundle)
