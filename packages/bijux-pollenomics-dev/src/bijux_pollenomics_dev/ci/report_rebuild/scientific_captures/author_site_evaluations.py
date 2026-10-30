@@ -438,6 +438,7 @@ def validated_author_site_evaluation_captures(
     historical_generated = 0
     spatial_export_role_applied = False
     consumed_correspondences: list[JsonObject] = []
+    counting_correspondences: list[JsonObject] = []
     for raw in projection:
         row = _object(raw)
         name = _member_name(row.get("path"))
@@ -467,6 +468,26 @@ def validated_author_site_evaluation_captures(
                     ).get("sha256")
                     == row.get("sha256")
                 )
+                if name in {
+                    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+                    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+                }:
+                    from .source_correspondence import (
+                        validated_current_scientific_source,
+                    )
+
+                    role = validated_current_scientific_source(
+                        repository, row, historical_member, source_buffer
+                    )
+                    if (
+                        role is None
+                        or role.get("classification") != "finite_counting_api_addition"
+                    ):
+                        raise ReportRebuildError(
+                            "Author counting API correspondence differs"
+                        )
+                    counting_correspondences.append(role)
+                    continue
                 if name == SPATIAL_EXPORT_SOURCE:
                     historical = source_buffer.read_source(historical_member)
                     if (
@@ -598,7 +619,10 @@ def validated_author_site_evaluation_captures(
         },
         "report_outputs": 8,
         "current_scientific_projection": 177,
-        "ordinary_current_byte_exact_members": 177 - len(consumed_correspondences),
+        "ordinary_current_byte_exact_members": 177
+        - len(consumed_correspondences)
+        - len(counting_correspondences),
+        "finite_counting_api_correspondences": counting_correspondences,
         "reviewed_unconsumed_source_deltas": consumed_correspondences,
         "current_saved_score_qualification": consumed_qualification,
         "named_spatial_export_correspondence_members": int(spatial_export_role_applied),
@@ -610,5 +634,5 @@ def validated_author_site_evaluation_captures(
             sorted("docs/report/" + entry.path for entry in retained_entries)
         ),
         "observed_eight_paths_sha256": canonical_json_sha256(sorted(names)),
-        "scope": "Three actual prior-exposed English author Python evaluations with original private-source authority retained separately. This authenticates all eight saved products while admitting only the seven other qualified outputs; the profile owner and its exact six-private-table lawful-custody criterion remain unresolved. The declared projection is177 current members. Changed metrics and old497 spatial export sources require their two finite consumed-definition proofs and the retained177-group/425-disposition MAE/TV qualification; all other current members remain byte-exact. The spatial export extension also retains its separately reviewed named import/export predicate. This does not establish whole-current source equality or Hellinger equivalence. One separately authenticated historical539 version identity spans three aliases without current ignored-file equality. The named holdout Markdown report preserves its exact authored bytes and current independently qualified managed footer; the historical whole report remains exact in the capture. This transports completed native products; it executes no R/model/optimizer and grants no ecological, Nordic, rights or human release acceptance.",
+        "scope": "Three actual prior-exposed English author Python evaluations with original private-source authority retained separately. This authenticates all eight saved products while admitting only the seven other qualified outputs; the profile owner and its exact six-private-table lawful-custody criterion remain unresolved. The declared projection is177 current members. Changed metrics and old497 spatial export sources require their two finite consumed-definition proofs and the retained177-group/425-disposition MAE/TV qualification; the separately listed counting API additions preserve their original whole bytes outside four new bindings and one capability, and all other current members remain byte-exact. The spatial export extension also retains its separately reviewed named import/export predicate. This does not establish whole-current source equality or Hellinger equivalence. One separately authenticated historical539 version identity spans three aliases without current ignored-file equality. The named holdout Markdown report preserves its exact authored bytes and current independently qualified managed footer; the historical whole report remains exact in the capture. This transports completed native products; it executes no R/model/optimizer and grants no ecological, Nordic, rights or human release acceptance.",
     }

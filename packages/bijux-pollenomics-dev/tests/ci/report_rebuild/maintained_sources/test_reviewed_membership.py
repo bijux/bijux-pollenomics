@@ -42,3 +42,22 @@ def test_nordic_transport_protocols_are_reviewed_configuration(name: str) -> Non
     matching = [owner for owner in owners if path in owner["paths"]]
     assert len(matching) == 1
     assert matching[0]["role"] == "maintained_configuration"
+
+
+def test_matched_physical_forward_protocol_has_one_configuration_owner() -> None:
+    path = (
+        "docs/report/pollen-reconstruction/matched-pollen-forward/"
+        "assumptions/protocol.json"
+    )
+    owners = json.loads((REPOSITORY / "configs/ci/report-ownership.json").read_bytes())[
+        "owners"
+    ]
+    matching = [owner for owner in owners if path in owner["paths"]]
+    assert len(matching) == 1
+    assert matching[0]["owner_id"] == (
+        "pollen-reconstruction/matched-pollen-forward/protocol"
+    )
+    assert matching[0]["role"] == "maintained_configuration"
+    assert matching[0]["paths"] == [path]
+    assert matching[0]["producer_paths"] == []
+    assert matching[0]["producer_inputs"] == []

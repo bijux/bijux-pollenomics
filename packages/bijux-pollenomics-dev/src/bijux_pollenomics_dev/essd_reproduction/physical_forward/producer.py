@@ -33,6 +33,7 @@ def _score(predicted: dict[str, float], counts: dict[str, int]) -> Any:
 def score_rows(
     rows: list[dict[str, Any]], cores: tuple[Core, ...], *, enabled: bool
 ) -> tuple[list[dict[str, Any]], bool]:
+    """Score declared predictions against separately accessed target counts."""
     from bijux_pollenomics.analysis.lra_validation.contracts import ValidationRefusal
 
     original = {core.id: core for core in cores}
@@ -127,6 +128,7 @@ def score_rows(
 
 
 def matched_summary(scores: list[dict[str, Any]]) -> dict[str, Any]:
+    """Summarize method differences on their exact common target population."""
     groups: dict[
         tuple[str, tuple[float, ...]], dict[tuple[str, str], dict[str, Any]]
     ] = {}
@@ -190,6 +192,7 @@ def matched_summary(scores: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def write_json(path: Path, value: dict[str, Any], budget: list[int]) -> dict[str, Any]:
+    """Write a bounded JSON product and return its byte identity."""
     raw = (json.dumps(value, indent=2, allow_nan=False) + "\n").encode()
     require(len(raw) + budget[0] <= 8388608, "Scientific output exceeds8MiB")
     with path.open("xb") as stream:
@@ -220,6 +223,7 @@ def _source_pins() -> list[dict[str, Any]]:
 
 
 def run(repository: Path, output: Path, candidate: str) -> dict[str, Any]:
+    """Freeze conditional predictions before writing matched scoring products."""
     physical(repository)
     physical(output)
     require(
@@ -299,6 +303,7 @@ def run(repository: Path, output: Path, candidate: str) -> dict[str, Any]:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Parse arguments for the maintained conditional comparison writer."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

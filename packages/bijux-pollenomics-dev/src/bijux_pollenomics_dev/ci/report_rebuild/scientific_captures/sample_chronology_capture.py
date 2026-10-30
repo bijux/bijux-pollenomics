@@ -302,6 +302,38 @@ def _neotoma_qualifier_source_correspondence(
     return True
 
 
+def _counting_api_source_extension(
+    repository: Path,
+    name: str,
+    logical: str,
+    captured: bytes,
+    expected: str,
+    source_buffer: SourceCapsule | None,
+) -> bool:
+    """Apply the exact counting addition only to the original chronology API pair."""
+    if name not in {
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+    }:
+        return False
+    from .source_correspondence import validated_current_scientific_source
+
+    _require(
+        source_buffer is not None, "chronology counting API requires source custody"
+    )
+    assert source_buffer is not None
+    role = validated_current_scientific_source(
+        repository,
+        {"path": name, "sha256": expected, "bytes": len(captured)},
+        logical,
+        source_buffer,
+    )
+    return (
+        role is not None
+        and role.get("classification") == "finite_counting_api_addition"
+    )
+
+
 def _validate_current_source(
     repository: Path,
     name: str,
@@ -340,6 +372,9 @@ def _validate_current_source(
                     and _documented_source_matches(name, captured, current)
                 )
                 or atlas_extension_matches(name, captured, current)
+                or _counting_api_source_extension(
+                    repository, name, logical, captured, expected, source_buffer
+                )
                 or _neotoma_qualifier_source_correspondence(
                     repository,
                     name,

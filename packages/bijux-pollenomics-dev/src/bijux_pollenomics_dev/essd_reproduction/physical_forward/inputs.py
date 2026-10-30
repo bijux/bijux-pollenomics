@@ -20,6 +20,8 @@ Window = tuple[float, float]
 
 @dataclass(frozen=True)
 class Cell:
+    """Keep one source-bound count panel and its declared age window."""
+
     window: Window
     counts: tuple[int, ...]
     source_support_sha256: str
@@ -27,6 +29,8 @@ class Cell:
 
 @dataclass(frozen=True)
 class Core:
+    """Group admitted windows and declared metadata for one source core."""
+
     id: str
     country: str
     site: int
@@ -40,15 +44,18 @@ class Core:
 
 
 def require(condition: object, message: str) -> None:
+    """Refuse inputs outside the closed physical-forward contract."""
     if not condition:
         raise ValueError(message)
 
 
 def digest(raw: bytes) -> str:
+    """Return the SHA-256 identity of the supplied bytes."""
     return hashlib.sha256(raw).hexdigest()
 
 
 def physical(path: Path) -> None:
+    """Require an ordinary unlinked file with no symlink ancestor."""
     require(
         path.is_absolute() and ".." not in path.parts, "Absolute lexical path required"
     )
@@ -59,6 +66,7 @@ def physical(path: Path) -> None:
 
 
 def buffer(path: Path, checksum: str, size: int) -> bytes:
+    """Authenticate bounded source bytes against their declared size and hash."""
     physical(path)
     descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
     with os.fdopen(descriptor, "rb") as stream:
@@ -95,7 +103,10 @@ def buffer(path: Path, checksum: str, size: int) -> bytes:
 
 
 def decode(raw: bytes) -> dict[str, Any]:
+    """Decode an object while refusing duplicate fields and nonfinite numbers."""
+
     def pairs(rows: list[tuple[str, Any]]) -> dict[str, Any]:
+        """Refuse duplicate JSON fields before constructing the object."""
         out: dict[str, Any] = {}
         for key, value in rows:
             require(key not in out, "Duplicate JSON key")
@@ -103,6 +114,7 @@ def decode(raw: bytes) -> dict[str, Any]:
         return out
 
     def refuse(value: str) -> Any:
+        """Refuse a nonfinite JSON numeric constant."""
         raise ValueError("Nonfinite JSON token: " + value)
 
     result = json.loads(raw, object_pairs_hook=pairs, parse_constant=refuse)
@@ -111,6 +123,7 @@ def decode(raw: bytes) -> dict[str, Any]:
 
 
 def numbers(values: Any, length: int, *, positive: bool) -> tuple[float, ...]:
+    """Validate a finite vector with the declared length and sign constraint."""
     require(
         type(values) is list and len(values) == length, "Numerical source axis differs"
     )
@@ -127,6 +140,7 @@ def numbers(values: Any, length: int, *, positive: bool) -> tuple[float, ...]:
 
 
 def window(row: dict[str, Any]) -> Window:
+    """Read an ordered integral calendar-age window."""
     bounds = numbers(
         [row["younger_cal_bp"], row["older_cal_bp_exclusive"]], 2, positive=False
     )
@@ -283,6 +297,7 @@ def normalize(
 def load(
     repository: Path,
 ) -> tuple[tuple[Core, ...], dict[str, Any], list[dict[str, Any]]]:
+    """Authenticate and join the declared source-support products."""
     path = repository / PROTOCOL
     raw = buffer(path, PROTOCOL_SHA256, path.stat().st_size)
     protocol = decode(raw)

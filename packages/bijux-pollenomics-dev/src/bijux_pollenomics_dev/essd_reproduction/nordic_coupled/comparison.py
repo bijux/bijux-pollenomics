@@ -29,6 +29,7 @@ INPUTS = "8738dbe8c7fcf29795c9bfde58fd6d26345ed3e367bdd26e42182b5867d8e05f"
 
 
 def digest(value: object) -> str:
+    """Return the SHA-256 identity of the supplied bytes."""
     return hashlib.sha256(
         json.dumps(
             value, sort_keys=True, separators=(",", ":"), allow_nan=False
@@ -54,6 +55,7 @@ def product(directory: Path, checksum: str) -> dict[str, Any]:
 
 
 def count_identity(axis: list[str], values: list[int]) -> str:
+    """Bind a target comparison to its exact source count vector."""
     require(
         axis == list(AXIS)
         and len(values) == 2
@@ -204,6 +206,7 @@ def joined(
 
 
 def execute(args: argparse.Namespace) -> dict[str, Any]:
+    """Compare direct and coupled scores on matched source-supported targets."""
     require(not args.output.exists(), "Absent output required")
     physical(args.output)
     _, observed = read(args.input_inventory, INPUTS, 65536)
@@ -406,6 +409,7 @@ def execute(args: argparse.Namespace) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Parse arguments for the maintained matched-score comparison."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     for name in (
         "repository",

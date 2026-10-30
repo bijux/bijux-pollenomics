@@ -39,6 +39,38 @@ MODULES = {
 }
 
 
+_FIXED_BACKGROUND_COUNTING_SPANS: dict[str, tuple[bytes, ...]] = {
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py": (
+        b"from bijux_pollenomics_lra.reconstruction.uncertainty.homogeneous_counting import (\n    HomogeneousCountingSet,\n    homogeneous_two_taxon_counting_set,\n)\n",
+        b'            "lra.love.two-taxon.fixed-background-binomial-set",\n',
+        b'    "HomogeneousCountingSet",\n    "homogeneous_two_taxon_counting_set",\n',
+    ),
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py": (
+        b"    HomogeneousCountingSet,\n",
+        b"    homogeneous_two_taxon_counting_set,\n",
+        b'    "HomogeneousCountingSet",\n    "homogeneous_two_taxon_counting_set",\n',
+    ),
+}
+
+
+def fixed_background_counting_api_basis(name: str, current: bytes) -> bytes | None:
+    """Invert only four counting bindings and their one advertised capability."""
+    if name not in _FIXED_BACKGROUND_COUNTING_SPANS:
+        return None
+    body = current
+    for inserted in _FIXED_BACKGROUND_COUNTING_SPANS[name]:
+        if body.count(inserted) != 1:
+            return None
+        body = body.replace(inserted, b"", 1)
+    return body
+
+
+def counting_api_extension_matches(name: str, captured: bytes, current: bytes) -> bool:
+    """Require every historical API byte after the exact named counting insertion."""
+    basis = fixed_background_counting_api_basis(name, current)
+    return basis is not None and basis == captured
+
+
 def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -94,7 +126,7 @@ def _api_preimage_bytes(repository: Path) -> bytes:
 
 
 def validated_source_layout(repository: Path) -> dict[str, Any]:
-    """Require the fixed proof and every physical byte before path projection."""
+    """Authenticate relocation and its exact bounded counting API addition."""
     path = _regular_confined_file(repository, PROOF_PATH, "uncertainty source proof")
     _require(
         path.stat().st_nlink == 1 and _sha(path) == PROOF_SHA256,
@@ -135,16 +167,42 @@ def validated_source_layout(repository: Path) -> dict[str, Any]:
     current_api = _regular_confined_file(
         repository, API_PATH, "uncertainty current API"
     )
+    api_before = current_api.stat()
+    _require(0 < api_before.st_size <= 32768, "current API must be bounded")
+    current_body = current_api.read_bytes()
+    adopted_basis = fixed_background_counting_api_basis(API_PATH, current_body)
+    if adopted_basis is None:
+        adopted_basis = current_body
     _require(
         current_api.stat().st_nlink == 1
         and hashlib.sha256(preimage).hexdigest() == PREIMAGE_SHA256
-        and _sha(current_api) == proof["adopted_api_sha256"],
-        "API physical identity differs",
+        and hashlib.sha256(adopted_basis).hexdigest() == proof["adopted_api_sha256"],
+        "API historical basis or physical identity differs",
     )
     _require(
         _imports_and_remaining(preimage, moved=False)
-        == _imports_and_remaining(current_api.read_bytes(), moved=True),
-        "original API AST differs beyond named import ownership",
+        == _imports_and_remaining(adopted_basis, moved=True),
+        "original API AST differs beyond named ownership and counting exports",
+    )
+    stable_api = _regular_confined_file(repository, API_PATH, "uncertainty current API")
+    api_after = stable_api.stat()
+    stat_fields = (
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_size",
+        "st_mtime_ns",
+        "st_ctime_ns",
+    )
+    _require(
+        all(
+            getattr(api_before, field) == getattr(api_after, field)
+            for field in stat_fields
+        )
+        and api_after.st_nlink == 1
+        and stable_api.read_bytes() == current_body,
+        "current API changed during source correspondence",
     )
     return proof
 

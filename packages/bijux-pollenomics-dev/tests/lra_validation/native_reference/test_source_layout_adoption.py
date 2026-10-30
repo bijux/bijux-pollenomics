@@ -228,3 +228,148 @@ def test_captured_native_hash_mismatch_refuses_before_adoption(
     )
     with pytest.raises(ReportRebuildError, match="original protected API bytes differ"):
         layout.validate_current_native_source(repository, layout.API_PATH, "0" * 64)
+
+
+@pytest.fixture
+def counting_spans(monkeypatch: pytest.MonkeyPatch) -> dict[str, tuple[bytes, ...]]:
+    """Give each synthetic API its own explicitly named insertion authority."""
+    spans = {
+        layout.API_PATH: (
+            b"from fixture_counting import CountingSet, counting_set\n",
+            b"CAPABILITY = 'fixture.fixed-background'\n",
+            b"ADDED_EXPORTS = ['CountingSet', 'counting_set']\n",
+        ),
+        layout.ROOT_API_PATH: (
+            b"from .api import CountingSet, counting_set\n",
+            b"ADDED_EXPORTS = ['CountingSet', 'counting_set']\n",
+        ),
+    }
+    monkeypatch.setattr(layout, "_FIXED_BACKGROUND_COUNTING_SPANS", spans)
+    return spans
+
+
+@pytest.mark.parametrize("name", [layout.API_PATH, layout.ROOT_API_PATH])
+def test_named_counting_addition_retains_every_prior_byte(
+    counting_spans: dict[str, tuple[bytes, ...]], name: str
+) -> None:
+    old = b"def retained(value=17):\n    return value\n"
+    current = old + b"".join(counting_spans[name])
+    assert layout.fixed_background_counting_api_basis(name, current) == old
+    assert layout.counting_api_extension_matches(name, old, current)
+
+
+@pytest.mark.parametrize("name", [layout.API_PATH, layout.ROOT_API_PATH])
+@pytest.mark.parametrize(
+    "fault",
+    [
+        "missing",
+        "duplicate",
+        "alias",
+        "capability",
+        "old_default",
+        "old_body",
+        "comment",
+        "unknown_import",
+    ],
+)
+def test_counting_law_never_hides_other_api_changes(
+    counting_spans: dict[str, tuple[bytes, ...]], name: str, fault: str
+) -> None:
+    old = b"def retained(value=17):\n    return value\n"
+    spans = counting_spans[name]
+    current = old + b"".join(spans)
+    assert layout.counting_api_extension_matches(name, old, current)
+    if fault == "missing":
+        current = current.replace(spans[0], b"", 1)
+    elif fault == "duplicate":
+        current += spans[0]
+    elif fault == "alias":
+        current = current.replace(
+            b"CountingSet, counting_set", b"CountingSet as Alias, counting_set", 1
+        )
+    elif fault == "capability":
+        current += b"UNKNOWN_CAPABILITY = True\n"
+    elif fault == "old_default":
+        current = current.replace(b"value=17", b"value=18", 1)
+    elif fault == "old_body":
+        current = current.replace(b"return value", b"return 0", 1)
+    elif fault == "comment":
+        current += b"# unrelated API comment\n"
+    else:
+        current += b"import unexpected\n"
+    assert not layout.counting_api_extension_matches(name, old, current)
+    assert not layout.counting_api_extension_matches("unknown/api.py", old, current)
+
+
+def test_named_counting_addition_uses_the_original_relocation_proof(
+    repository: Path, counting_spans: dict[str, tuple[bytes, ...]]
+) -> None:
+    path = repository / layout.API_PATH
+    old = path.read_bytes()
+    proof_before = (repository / layout.PROOF_PATH).read_bytes()
+    assert layout.validated_source_layout(repository)["scientific_admission"] is False
+    path.write_bytes(old + b"".join(counting_spans[layout.API_PATH]))
+    assert layout.validated_source_layout(repository)["scientific_admission"] is False
+    assert (repository / layout.PROOF_PATH).read_bytes() == proof_before
+    assert (
+        hashlib.sha256(layout.api_adoption_preimage(repository, path)).hexdigest()
+        == layout.PREIMAGE_SHA256
+    )
+
+
+@pytest.mark.parametrize(
+    "fault", ["symlink", "ancestor_symlink", "hardlink", "oversized", "unknown_edit"]
+)
+def test_counting_adoption_requires_confined_bounded_source(
+    repository: Path, counting_spans: dict[str, tuple[bytes, ...]], fault: str
+) -> None:
+    import os
+
+    path = repository / layout.API_PATH
+    path.write_bytes(path.read_bytes() + b"".join(counting_spans[layout.API_PATH]))
+    assert layout.validated_source_layout(repository)["scientific_admission"] is False
+    if fault == "symlink":
+        backing = repository / "own_api_backing.py"
+        path.rename(backing)
+        path.symlink_to(backing)
+    elif fault == "ancestor_symlink":
+        backing = repository / "own_api_package"
+        path.parent.rename(backing)
+        path.parent.symlink_to(backing, target_is_directory=True)
+    elif fault == "hardlink":
+        os.link(path, repository / "own_api_alias.py")
+    elif fault == "oversized":
+        path.write_bytes(path.read_bytes() + b"#" * 32769)
+    else:
+        path.write_bytes(path.read_bytes() + b"# unrelated\n")
+    error = (
+        ReportOwnershipError
+        if fault in {"symlink", "ancestor_symlink"}
+        else ReportRebuildError
+    )
+    with pytest.raises(error):
+        layout.validated_source_layout(repository)
+
+
+def test_counting_api_must_remain_stable_during_correspondence(
+    repository: Path,
+    counting_spans: dict[str, tuple[bytes, ...]],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    path = repository / layout.API_PATH
+    path.write_bytes(path.read_bytes() + b"".join(counting_spans[layout.API_PATH]))
+    assert layout.validated_source_layout(repository)["scientific_admission"] is False
+    read_bytes = Path.read_bytes
+    changed = False
+
+    def changing(candidate: Path) -> bytes:
+        nonlocal changed
+        body = read_bytes(candidate)
+        if candidate == path and not changed:
+            changed = True
+            candidate.write_bytes(body + b"# concurrently changed\n")
+        return body
+
+    monkeypatch.setattr(Path, "read_bytes", changing)
+    with pytest.raises(ReportRebuildError, match="changed during"):
+        layout.validated_source_layout(repository)

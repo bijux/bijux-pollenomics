@@ -48,6 +48,7 @@ class CompositionAdmissibility(TypedDict):
 
 
 def number(value: object) -> Fraction:
+    """Convert a finite diagnostic value to its exact rational representation."""
     if isinstance(value, Fraction):
         return value
     require(type(value) in (int, float, str), "Expected a finite numeric cell")
@@ -127,12 +128,14 @@ def algebra(
 
 
 def load(pin: Mapping[str, Any]) -> tuple[bytes, Any]:
+    """Read a hash-bound coupled diagnostic JSON product."""
     raw, value = read(Path(pin["path"]), pin["sha256"], 8 * 1024**2)
     require(len(raw) == pin["bytes"], "Input size differs")
     return raw, value
 
 
 def raw_member(pin: Mapping[str, Any]) -> bytes:
+    """Authenticate a declared member from the retained experiment product."""
     path = Path(pin["path"])
     require(
         path.is_absolute()
@@ -168,10 +171,12 @@ def raw_member(pin: Mapping[str, Any]) -> bytes:
 
 
 def csv_rows(pin: Mapping[str, Any]) -> list[dict[str, str]]:
+    """Decode the retained numerical CSV with its declared header."""
     return list(csv.DictReader(io.StringIO(raw_member(pin).decode())))
 
 
 def main() -> None:
+    """Write the declared analytical LOVE admissibility diagnostics."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("--contract", type=Path, required=True)
     parser.add_argument("--contract-sha256", required=True)
@@ -327,6 +332,7 @@ def main() -> None:
     }
 
     def serial(value: object) -> dict[str, str]:
+        """Serialize exact diagnostic values without inventing numerical precision."""
         if isinstance(value, Fraction):
             return {
                 "numerator": str(value.numerator),

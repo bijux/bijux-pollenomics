@@ -60,6 +60,10 @@ from bijux_pollenomics_lra.reconstruction.likelihood.shared_ppe_likelihood impor
     SharedPpeLikelihoodResult,
     fit_shared_ppe_likelihood,
 )
+from bijux_pollenomics_lra.reconstruction.uncertainty.homogeneous_counting import (
+    HomogeneousCountingSet,
+    homogeneous_two_taxon_counting_set,
+)
 from bijux_pollenomics_lra.reconstruction.uncertainty.joint_aliquot_covariance import (
     AliquotCountInput,
     AliquotResultInput,
@@ -120,6 +124,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.forward.prepare-target-geometry",
             "lra.observation.conditional-multinomial",
             "lra.reveals.two-taxon.fixed-response-binomial-interval",
+            "lra.love.two-taxon.fixed-background-binomial-set",
         ],
         "extension_group": "bijux_pollenomics.extensions",
         "extension_name": "lra",
@@ -163,6 +168,8 @@ __all__ = [
     "SharedPpeLikelihoodResult",
     "ValidationError",
     "TwoTaxonCountingInterval",
+    "HomogeneousCountingSet",
+    "homogeneous_two_taxon_counting_set",
     "fixed_two_taxon_counting_interval",
     "extension_descriptor",
     "forward_deposition",

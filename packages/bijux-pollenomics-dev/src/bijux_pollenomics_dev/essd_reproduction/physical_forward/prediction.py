@@ -14,6 +14,8 @@ FAMILIES = ("physical_forward", "direct_panel_mean")
 
 @dataclass(frozen=True)
 class Target:
+    """Bind a held-out core window to its declared receiver geometry."""
+
     core: str
     site: int
     dataset: int
@@ -26,6 +28,8 @@ class Target:
 
 @dataclass(frozen=True)
 class Source:
+    """Bind a training core window to its source and geometry roles."""
+
     core: Core
     cell: Cell
     indices: tuple[int, ...]
@@ -33,6 +37,7 @@ class Source:
 
 
 def target_geometry(core: Core, window: Window, axis: tuple[str, ...]) -> Target:
+    """Prepare the declared static target geometry without observed outcomes."""
     indices = tuple(core.axis.index(name) for name in axis)
     return Target(
         core.id,
@@ -49,6 +54,7 @@ def target_geometry(core: Core, window: Window, axis: tuple[str, ...]) -> Target
 def eligible_sources(
     target: Target, cores: tuple[Core, ...], scope: str
 ) -> tuple[list[Source], list[dict[str, Any]]]:
+    """Select training sources compatible with the declared target window."""
     require(
         scope in {"swedish_only", "pooled_eligible_nordic"}, "Unknown training scope"
     )
@@ -148,6 +154,7 @@ def predict_context(
     sources: list[Source],
     cache: dict[tuple[str, tuple[str, ...], Window], tuple[float, ...]],
 ) -> dict[str, Any]:
+    """Compute one conditional prediction from eligible training sources."""
     from bijux_pollenomics_lra.models.errors import ValidationError
 
     predictions: dict[str, Any] = {
@@ -223,6 +230,7 @@ def predict_context(
 def predictions(
     cores: tuple[Core, ...], protocol: dict[str, Any]
 ) -> tuple[list[dict[str, Any]], bool]:
+    """Retain every declared target and method prediction or refusal."""
     rows = []
     cache: dict[tuple[str, tuple[str, ...], Window], tuple[float, ...]] = {}
     fatal = False

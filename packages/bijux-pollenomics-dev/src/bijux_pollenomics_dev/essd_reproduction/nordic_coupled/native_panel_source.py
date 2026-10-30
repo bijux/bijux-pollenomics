@@ -129,6 +129,7 @@ def materialize(
 
 
 def main() -> None:
+    """Parse arguments for the source-bound native-panel projection."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)

@@ -24,12 +24,14 @@ SD = {"Betula": 0.303, "Ulmus": 0.05}
 
 
 def encoded(value: Any) -> bytes:
+    """Encode finite deterministic JSON for source and product identity."""
     return (
         json.dumps(value, sort_keys=True, ensure_ascii=False, allow_nan=False) + "\n"
     ).encode()
 
 
 def pin(path: Path, raw: bytes) -> dict[str, Any]:
+    """Authenticate one declared sensitivity input and retain its identity."""
     return {
         "path": str(path),
         "sha256": hashlib.sha256(raw).hexdigest(),
@@ -242,6 +244,7 @@ def run_scenario(
 
 
 def main() -> None:
+    """Parse arguments for the declared PPE endpoint sensitivity writer."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     parser.add_argument("operation", choices=("materialize", "prepare", "score"))
     for name in (

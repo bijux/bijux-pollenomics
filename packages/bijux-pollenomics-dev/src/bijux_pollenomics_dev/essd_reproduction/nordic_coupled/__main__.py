@@ -13,6 +13,7 @@ from bijux_pollenomics_dev.essd_reproduction.physical_forward.inputs import buff
 
 
 def main() -> None:
+    """Prepare and validate source-bound coupled experiment inputs."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("operation", choices=("materialize", "admit"))
     parser.add_argument("--repository", type=Path, required=True)
