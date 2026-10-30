@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
+import hashlib
 from pathlib import Path, PurePosixPath
 from typing import Any
 
-from ....retained_source import validate_capsule
+from ....retained_source import SourceCapsule, validated_descriptor
 from .execution import exact, require
 
 ADDITIONAL_DETACHED_SOURCE_MEMBERS = frozenset(
@@ -48,7 +50,9 @@ ADDITIONAL_DETACHED_SOURCE_MEMBERS = frozenset(
 )
 
 
-def validate_members(repository: Path, root: Path, members: dict[str, Any]) -> None:
+def validate_members(
+    repository: Path, root: Path, members: dict[str, Any]
+) -> SourceCapsule:
     """Keep the exact original logical source set with closed physical/Git custody."""
     for name in members:
         relative = PurePosixPath(name)
@@ -64,13 +68,13 @@ def validate_members(repository: Path, root: Path, members: dict[str, Any]) -> N
             "Bytecode remains identity-only",
         )
     prefix = root.relative_to(repository).as_posix()
-    detached = validate_capsule(
+    sources = validated_descriptor(
         repository,
         prefix,
         members,
     )
     exact(
-        sorted(detached),
+        sorted(sources.detached),
         sorted(
             name
             for name in members
@@ -83,6 +87,8 @@ def validate_members(repository: Path, root: Path, members: dict[str, Any]) -> N
             }
         ),
     )
+
+    return sources
 
 
 def validate_catalog(
@@ -160,3 +166,18 @@ def validate_catalog(
             require(pin["path"] in runtime_paths, "Unqualified omitted runtime input")
         counts[role] = counts.get(role, 0) + 1
     return counts
+
+
+def validate_recorded_source_bindings(
+    bindings: dict[str, Any],
+    members: dict[str, Any],
+    read_source: Callable[[str], bytes],
+) -> None:
+    """Authenticate the original producer bindings without claiming today's reuse."""
+    exact(len(bindings), 9)
+    for name, expected in bindings.items():
+        logical = "source/" + name
+        require(logical in members, "Recorded producer binding lacks sealed source")
+        exact(members[logical], expected)
+        raw = read_source(logical)
+        exact({"sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw)}, expected)

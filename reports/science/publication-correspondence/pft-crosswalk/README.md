@@ -82,6 +82,72 @@ each observed mean-addend group, but it neither identifies that covariance
 nor reproduces the published delta-method computation. The author/archive
 version and `ISTS` classification questions remain open.
 
+## Can the groups share one closed-total covariance?
+
+We extended the local checks to ask whether **one real positive semidefinite
+covariance** can satisfy the five observed sum identities and a constant
+`ET + ST + OL` total. The [deposit](https://doi.pangaea.de/10.1594/PANGAEA.937075)
+describes closed proportional estimates,
+but the nonzero archived means sum to approximately 100 rather than 1.
+We retained both literal residuals, without rescaling. The covariance test
+is conditional on a common unit scale, the declared partial grouping and
+the published constant-total interpretation.
+
+The [joint result](joint-covariance/report.json) and
+[negative/refused rows](joint-covariance/refusals.csv) retain every original
+grid/window identity:
+
+| Disposition | Grid/window rows |
+| --- | ---: |
+| Conditional exact-point covariance feasible | 2,420 |
+| Conditional exact-point covariance infeasible | 5,611 |
+| All 47 native means and SEs zero; not scored as a composition | 2,467 |
+| Negative native mean; refused without clipping | 2 |
+| Total source population | 10,500 |
+
+All **8,031 assessed rows** pass the five local sum-SE bounds exactly.
+Nevertheless, 5,611 fail the additional constant-total constraint:
+`max(SE_ET, SE_ST, SE_OL)` must not exceed the sum of the other two.
+Every deficit exceeds the earlier `1e-9` allowance; the smallest is about
+0.00001508546 native units. We retain these deficits without using that
+allowance as a rounding repair. The largest is **202.74965877492459** at window 14, grid 2356:
+the literal ET/ST/OL SEs are `203.444207379733`, `0.275803406567034` and
+`0.418745198241376`. These summaries cannot all be uncertainties of the
+declared jointly closed estimand under that conditional model.
+
+The two refused rows are window 4/grid 725 (`Castanea` mean
+`-0.000677087305195939`) and window 12/grid 725 (`Picea` and `TBE1` means
+both `-0.0117533696932253`). They are two rows, not three observations.
+Matching `#N/A` coordinates occur in 150 rows: 45 all-zero, 99 infeasible
+and six feasible. They remain missing geographic metadata, never zero
+coordinates or geographic admission.
+
+The exact-rational tree calculation tests 20 leaves and five measured
+groups plus the declared zero-uncertainty total. **Twenty-two other taxon
+uncertainties remain ungrouped.** Feasibility of this partial hierarchy
+does not establish a complete 31-taxon covariance, a bounded random
+composition with the reported means, actual shared draws or the historical
+delta-method calculation. No rounding envelope is inferred and no source
+value is changed. These findings require an explanation from the producing
+transformation before the grouped SEs can be used as joint compositional
+uncertainty; they do not resolve the `ISTS` or source-version questions.
+
+The [maintained consumer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_covariance/archive.py)
+ran at Git revision `dd3766f1699cbdf198a6f12e631ed47e7314da84` in 4.078 seconds,
+checking the existing three raw input identities before and after execution.
+The 282 mathematical and 33 consumer tests pass, with configured lint/types.
+An independent standard-library calculation checks all 10,500 joins,
+per-window populations and 8,080 diagnostics. It derives the unique three-LCT
+zero-row-sum covariance and checks its principal minors directly, without
+calling the new tree algorithm. That confirmation agrees exactly.
+
+From the repository root, choose an absent output directory:
+
+```sh
+python -B -m bijux_pollenomics_dev.essd_reproduction.pft_covariance.archive \
+  --repository "$PWD" --output "$PWD/artifacts/science/pft-joint-covariance"
+```
+
 ## Reproduce
 
 From the repository root with the development package available, choose an absent output directory:
@@ -130,11 +196,11 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Archived LCT/PFT and ISTS/TBS mean arithmetic closes on pinned output.
+**Supported claim.** Archived LCT/PFT and ISTS/TBS mean arithmetic closes on pinned output. Exact partial-tree covariance diagnostics assess 8,031 rows: 2,420 feasible and 5,611 infeasible under a declared constant LCT total.
 
 **Unsupported claim.** Biological ISTS classification or grouped SE production.
 
-**Actual verification performed.** Retained output ledgers and taxon arithmetic/uncertainty-bound reports are cited; index did not rerun.
+**Actual verification performed.** Actual maintained consumer at dd3766f16 reads all 25 mean/SE pairs and 10,500 rows in 4.078 seconds; 282 mathematical and 33 consumer checks plus configured lint/types pass. Independent standard-library exact covariance principal minors confirm every source join, per-window summary and 8,080 negative/refused diagnostics without calling the new algorithm.
 
 **Remaining input or review.** All archived ISTS/TBS mean sums close, but the archive-producing PFT/LCT transform, deciduous Quercus assignment and grouped covariance/delta-method SE route remain unauthenticated. Resolver: Archive producer and qualified taxonomy/uncertainty reviewer Reopen when: Versioned producing transform and covariance inputs reproduce a named archived grid/window mean and SE.
 
@@ -144,11 +210,11 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 
 **Precise next acceptance route.** Versioned producing transform and covariance inputs reproduce a named archived grid/window mean and SE. Then update reports/science/publication-correspondence.md.
 
-**Negative or refused result.** No mean-sum mismatch above declared tolerance; exact covariance and producer remain unevaluated.
+**Negative or refused result.** All 8,031 assessed rows pass five local bounds; 5,611 violate the additional zero-total constraint, with worst deficit 202.74965877492459 native units. Keep 2,467 all-zero and two negative-native rows separate; no clipping, unit repair or inferred rounding.
 
-**Matched denominator.** 10,500 archived grid/window rows; 31 taxon means, 13 PFT positions and three LCT columns; 12 parameter-table PFT codes.
+**Matched denominator.** 10,500 archived grid/window rows; 31 taxon means, 13 PFT positions and three LCT columns; 12 parameter-table PFT codes. Conditional joint check uses a partial 20-leaf hierarchy plus five measured groups and a zero-total root; 22 other taxon uncertainties remain ungrouped. 150 rows have matched missing coordinates.
 
-Retained evidence: [reports/science/publication-correspondence/pft-crosswalk/report.json](report.json), [reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds/report.json](uncertainty-bounds/report.json).
+Retained evidence: [reports/science/publication-correspondence/pft-crosswalk/report.json](report.json), [reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds/report.json](uncertainty-bounds/report.json), [reports/science/publication-correspondence/pft-crosswalk/joint-covariance/report.json](joint-covariance/report.json), [reports/science/publication-correspondence/pft-crosswalk/joint-covariance/refusals.csv](joint-covariance/refusals.csv).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

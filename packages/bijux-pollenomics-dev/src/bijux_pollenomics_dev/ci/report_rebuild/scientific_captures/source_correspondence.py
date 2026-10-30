@@ -334,6 +334,10 @@ _COUNTING_API_IDENTITIES: dict[str, tuple[str, int]] = {
     ),
 }
 _COUNTING_API_CAPTURE_BINDINGS: dict[str, tuple[str, str]] = {
+    "data/publication-replay/landclim-author-example-capture": (
+        "9d6c4821ea1ba2a1216272d9691017e88ad96a66cf5820271b76442e617e3eec",
+        "numerical-source/",
+    ),
     "data/method-certification/author-optimizer-diagnostic-source-capture": (
         "f865795aac7585e56c4cf44faac84496d339e1c176fc6ee111cba3cbc9b4ce93",
         "executions/optimizer-diagnostics/first-party-inputs/",

@@ -2,10 +2,7 @@
 
 from __future__ import annotations
 
-import copy
-import json
 from pathlib import Path
-from typing import Any
 
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.author_grid.transport import (
@@ -30,8 +27,8 @@ from bijux_pollenomics_dev.essd_reproduction.example_reexecution import verify_r
 from ...contracts import JsonObject, ReportRebuildError, canonical_json_sha256
 from ...retained_source import SourceCapsule
 from ..source_correspondence import VERSION_SOURCE, validated_current_scientific_source
+from .historical_reader import FAMILY, historical_reader_scope
 
-FAMILY = "docs/report/publication-replay/landclim-author-example-correspondence/"
 EXECUTION_REPORT = (
     "docs/report/publication-replay/landclim-example-reexecution/report.json"
 )
@@ -107,7 +104,11 @@ def _current_numerical_source_role(
         and (retained["sha256"], retained["bytes"]) == (row["sha256"], row["bytes"]),
         "Author-grid retained numerical source is unbound",
     )
-    if name == VERSION_SOURCE:
+    if name in {
+        VERSION_SOURCE,
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+    }:
         return validated_current_scientific_source(
             repository,
             {key: row[key] for key in ("path", "bytes", "sha256")},
@@ -256,82 +257,6 @@ def numerical_scope(
     return tuple(source_roles)
 
 
-def _captured_reading_routes(raw: str) -> dict[str, Any]:
-    """Parse sealed historical reading authority without restoring prose hash gates."""
-    from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
-        parse_routes,
-    )
-
-    def unique(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-        result = {}
-        for key, value in pairs:
-            require(
-                key not in result, "Author-grid original authority duplicates a field"
-            )
-            result[key] = value
-        return result
-
-    def body_hash(value: object) -> bool:
-        return (
-            isinstance(value, str)
-            and len(value) == 64
-            and all(character in "0123456789abcdef" for character in value)
-        )
-
-    value = json.loads(raw, object_pairs_hook=unique)
-    require(
-        isinstance(value, dict)
-        and set(value) == {"schema_version", "routes"}
-        and type(value["schema_version"]) is int
-        and value["schema_version"] == 1
-        and isinstance(value["routes"], list),
-        "Author-grid original reading authority schema differs",
-    )
-    for route in value["routes"]:
-        require(
-            isinstance(route, dict)
-            and {"reader_path", "canonical_accounts", "scope_reason"} <= set(route)
-            and set(route)
-            <= {"reader_path", "canonical_accounts", "scope_reason", "qualification"},
-            "Author-grid original route fields differ",
-        )
-        for account in route["canonical_accounts"]:
-            require(
-                isinstance(account, dict)
-                and set(account) == {"report_path", "source_sha256"}
-                and body_hash(account["source_sha256"]),
-                "Author-grid original account fields differ",
-            )
-        qualification = route.get("qualification")
-        if qualification is not None:
-            require(
-                isinstance(qualification, dict)
-                and set(qualification)
-                == {"authored_reader_sha256", "fields", "evidence_pins"}
-                and body_hash(qualification["authored_reader_sha256"]),
-                "Author-grid original qualification fields differ",
-            )
-            for evidence in qualification["evidence_pins"]:
-                require(
-                    isinstance(evidence, dict)
-                    and set(evidence) == {"path", "sha256"}
-                    and body_hash(evidence["sha256"]),
-                    "Author-grid original evidence fields differ",
-                )
-    projected = copy.deepcopy(value)
-    projected["schema_version"] = 2
-    for route in projected["routes"]:
-        for account in route["canonical_accounts"]:
-            account.pop("source_sha256", None)
-        qualification = route.get("qualification")
-        if qualification is not None:
-            qualification.pop("authored_reader_sha256", None)
-            for evidence in qualification.get("evidence_pins", []):
-                if Path(evidence["path"]).suffix.lower() in {".md", ".py", ".tex"}:
-                    evidence.pop("sha256", None)
-    return parse_routes(json.dumps(projected))
-
-
 def _admit(
     repository: Path,
     tracked_by_path: dict[str, InventoryEntry],
@@ -344,7 +269,6 @@ def _admit(
         repository, packet, capture, members, source_buffer
     )
     from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
-        authored_reader,
         parse_routes,
         verified_authored_reader,
     )
@@ -353,9 +277,6 @@ def _admit(
     )
 
     routes = parse_routes(file(repository, ACCOUNTS).read_text())
-    original_routes = _captured_reading_routes(
-        file(packet, "publication/scientific_accounts.json").read_text()
-    )
     rows = capture["report_outputs"]
     require(
         isinstance(rows, list)
@@ -416,24 +337,20 @@ def _admit(
                 row["comparison"] == "verified_authored_reader",
                 "Author-grid managed REPORT comparison differs",
             )
-            for contents, route, original_publication in [
-                (published.read_bytes(), original_routes[name], True),
-                (current.read_bytes(), routes[name], False),
-            ]:
+            historical_scope = historical_reader_scope(
+                packet, members, raw.read_bytes(), published.read_bytes()
+            )
+            for scope in [historical_scope, routes[name].scope_reason]:
                 require(
-                    route.scope_reason.startswith("Current source-Python")
-                    and "not installed-distribution execution" in route.scope_reason,
+                    scope.startswith("Current source-Python")
+                    and "not installed-distribution execution" in scope,
                     "Author-grid raw installed vocabulary was promoted to distribution execution",
                 )
-                observed = (
-                    authored_reader(contents)
-                    if original_publication
-                    else verified_authored_reader(contents, route)
-                )
-                require(
-                    observed == raw.read_bytes(),
-                    "Author-grid current managed REPORT authored bytes differ",
-                )
+            require(
+                verified_authored_reader(current.read_bytes(), routes[name])
+                == raw.read_bytes(),
+                "Author-grid current managed REPORT authored bytes differ",
+            )
         else:
             require(
                 row["comparison"] == "raw_bytes"
@@ -455,7 +372,16 @@ def _admit(
         "report_outputs": 5,
         "current_numerical_source_projection": 59,
         "current_byteequal_numerical_sources": 59 - len(numerical_roles),
-        "historical_generated_version_metadata": list(numerical_roles),
+        "historical_generated_version_metadata": [
+            role
+            for role in numerical_roles
+            if role["classification"] == "historical_generated_version_metadata"
+        ],
+        "counting_api_source_correspondences": [
+            role
+            for role in numerical_roles
+            if role["classification"] == "finite_counting_api_addition"
+        ],
         "original_first_party_source_rows_retained": 15759,
         "source_supported_ledger_cells": 14074,
         "original_R_zero_placeholder_cells_excluded": 15376,

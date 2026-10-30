@@ -1200,6 +1200,11 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"read_neotoma_evidence"}
         ),
     },
+    "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_grid/historical_reader.py": {
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
+            {"BEGIN", "END", "parse_routes"}
+        ),
+    },
     "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_grid/admission.py": {
         "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts": frozenset(
             {"authored_reader", "parse_routes", "verified_authored_reader"}
@@ -1633,5 +1638,28 @@ def test_cached_workbook_reader_bindings_remain_file_module_and_symbol_specific(
             (f"from {module} import *", path),
             (f"import {module}", path),
             (f"__import__({module!r})", path),
+        ):
+            assert host_import_violations(source, reader)
+
+
+def test_historical_author_reader_bindings_remain_file_module_and_symbol_specific() -> (
+    None
+):
+    """Historical footer authentication grants only its three reviewed host symbols."""
+    path = "bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_grid/historical_reader.py"
+    module = (
+        "bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts"
+    )
+    for symbol in ("BEGIN", "END", "parse_routes"):
+        statement = f"from {module} import {symbol}"
+        assert not host_import_violations(statement, path)
+        for source, reader in (
+            (statement, path + ".other"),
+            (f"from {module} import {symbol}_other", path),
+            (f"from {module}.other import {symbol}", path),
+            (f"from {module} import *", path),
+            (f"import {module}", path),
+            (f"__import__({module!r})", path),
+            (f"importlib.import_module({module!r})", path),
         ):
             assert host_import_violations(source, reader)
