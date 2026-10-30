@@ -1,0 +1,4852 @@
+{
+  "schema_version": "boke-bus-measured-panel-joint-counting-regions.v1",
+  "source_commit": "84154c94c7c1c1842c7a9b5a7b6ed5eccaebf458",
+  "command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-B",
+    "-m",
+    "bijux_pollenomics_dev.essd_reproduction.common_cover.measured_panel_counting",
+    "--repository",
+    "/Users/bijan/bijux/bijux-pollenomics",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/measured-panel-counting/report.json"
+  ],
+  "profile": "three-two-measured-panel-joint-counting-region-v1",
+  "taxa": [
+    "Betula",
+    "Fraxinus",
+    "Ulmus"
+  ],
+  "age_unit": "calibrated years BP, AD1950 reference",
+  "confidence_level_per_window": 0.95,
+  "simultaneous_across_windows_claimed": false,
+  "point_fit_selection_applied": false,
+  "positive_projected_effort_selection_applied": false,
+  "cores": [
+    {
+      "core": "BOKE",
+      "native_site_id": 28872,
+      "native_dataset_id": 54001,
+      "native_collection_unit_id": 39241,
+      "ppe": [
+        5.106,
+        1.27
+      ],
+      "saved_K": [
+        0.2968731304200054,
+        0.2382713964696883
+      ],
+      "response_PPE_times_K": [
+        1.5158342039245476,
+        0.30260467351650416
+      ],
+      "chronology_id": 38422,
+      "selected_chronology": {
+        "chronology_id": 38422,
+        "model": {
+          "notes": "Calandar BP age with Calibrated C14 dates and Pb210 dates.",
+          "contact": [
+            {
+              "contactid": 15627,
+              "givenname": "Anna-Kari",
+              "familyname": "Trondman",
+              "contactname": "Trondman, Anna-Kari",
+              "leadinginitial": "A.K."
+            }
+          ],
+          "agemodel": "Smoothing spline (smoothness 0.5)",
+          "agerange": {
+            "ageboundolder": 5650,
+            "ageboundyounger": -40
+          },
+          "isdefault": true,
+          "dateprepared": "2011-01-01",
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "chronologyname": "LANDCLIM"
+        },
+        "raw_control_count": 29,
+        "raw_control_sha256": "c5af9c066cdff640bb2f0f47f9d4724e83d925a4d6711819fd3551c7336ac37d"
+      },
+      "metadata_static_radius_m": 80.0,
+      "metadata_disk_area_m2": 20106.192982974677,
+      "historical_metadata_access_flag": "NR",
+      "native_sample_count": 52,
+      "included_sample_count": 50,
+      "exclusions_by_reason": {
+        "point_age_outside_declared_windows": 2
+      },
+      "local_native_exclusions_sha256": "7d28cbe9cfed13978e3cb45813709cb1367b3fa0bea60ecd01c3c0f8d3f8281c"
+    },
+    {
+      "core": "BUS",
+      "native_site_id": 28869,
+      "native_dataset_id": 53995,
+      "native_collection_unit_id": 39238,
+      "ppe": [
+        5.106,
+        1.27
+      ],
+      "saved_K": [
+        0.3036219855575824,
+        0.24477138467402693
+      ],
+      "response_PPE_times_K": [
+        1.5502938582570158,
+        0.3108596585360142
+      ],
+      "chronology_id": 38418,
+      "selected_chronology": {
+        "chronology_id": 38418,
+        "model": {
+          "notes": "Calibrated year BP age. C14 Dates taken from Ager\u00f6ds mosse and correcleted to Bussj\u00f6sj\u00f6n core. 210Pb from Krageholmssj\u00f6n lake.",
+          "contact": [
+            {
+              "contactid": 15627,
+              "givenname": "Anna-Kari",
+              "familyname": "Trondman",
+              "contactname": "Trondman, Anna-Kari",
+              "leadinginitial": "A.K."
+            }
+          ],
+          "agemodel": "smoothing spline (smoothness 0.5)",
+          "agerange": {
+            "ageboundolder": 9300,
+            "ageboundyounger": -52
+          },
+          "isdefault": true,
+          "dateprepared": "2011-01-01",
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "chronologyname": "LANDCLIM"
+        },
+        "raw_control_count": 10,
+        "raw_control_sha256": "35319f4322e0b17dbb70bd228f142b0f68c382423e407d25c86bd6044d0cd027"
+      },
+      "metadata_static_radius_m": 69.0,
+      "metadata_disk_area_m2": 14957.122623741005,
+      "historical_metadata_access_flag": "NR",
+      "native_sample_count": 69,
+      "included_sample_count": 60,
+      "exclusions_by_reason": {
+        "point_age_outside_declared_windows": 3,
+        "panel_taxon_not_explicitly_reported": 6
+      },
+      "local_native_exclusions_sha256": "f233cc7643a54e18c172f8944fc6f102f675e30aced9566d635676a1b4c9b1e9"
+    }
+  ],
+  "full_panel_responses": [
+    {
+      "core": "BOKE",
+      "taxa": [
+        "Betula",
+        "Fraxinus",
+        "Ulmus"
+      ],
+      "ppe": [
+        5.106,
+        1.044,
+        1.27
+      ],
+      "saved_K": [
+        0.2968731304200054,
+        0.3099666306428735,
+        0.2382713964696883
+      ],
+      "response_PPE_times_K": [
+        1.5158342039245476,
+        0.32360516239115994,
+        0.30260467351650416
+      ],
+      "saved_quadrature": {
+        "profile": "metadata_radius_wind_3",
+        "factors": [
+          [
+            0.2968731304200054,
+            0.3099666306428735,
+            0.2382713964696883
+          ]
+        ],
+        "estimated_absolute_error": [
+          2.362920920853322e-09,
+          2.16899566388775e-09,
+          2.2936877772427384e-09
+        ],
+        "rigorous_error_bound": false
+      },
+      "source_report": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "source_parameters": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+    },
+    {
+      "core": "BUS",
+      "taxa": [
+        "Betula",
+        "Ulmus"
+      ],
+      "ppe": [
+        5.106,
+        1.27
+      ],
+      "saved_K": [
+        0.3036219855575824,
+        0.24477138467402693
+      ],
+      "response_PPE_times_K": [
+        1.5502938582570158,
+        0.3108596585360142
+      ]
+    }
+  ],
+  "unmatched": [
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        5700.0,
+        6200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        92,
+        218
+      ],
+      "original_panel_N": 310,
+      "projected_counts": [
+        92,
+        218
+      ],
+      "projected_panel_N": 310,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2032,
+      "outside_original_panel_N": 1722,
+      "outside_projected_panel_N": 1722,
+      "sample_ids": [
+        552146,
+        552145
+      ],
+      "raw_age_bounds_missing": 2,
+      "original_native_support_sha256": "4bfb34d5ff9ee3abf185aa0da41b01ea067af9a6a656828a893bbe16a7ae8e6c",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit",
+      "original_taxon_measured": [
+        true,
+        true
+      ],
+      "taxon_measured_on_common_axis": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        6200.0,
+        6700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        99,
+        206
+      ],
+      "original_panel_N": 305,
+      "projected_counts": [
+        99,
+        206
+      ],
+      "projected_panel_N": 305,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2260,
+      "outside_original_panel_N": 1955,
+      "outside_projected_panel_N": 1955,
+      "sample_ids": [
+        552147,
+        552148
+      ],
+      "raw_age_bounds_missing": 2,
+      "original_native_support_sha256": "7345afb0478b51f2ff4fa366ecba6c4e9fd045b360940f09f0bfbadd50f45536",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit",
+      "original_taxon_measured": [
+        true,
+        true
+      ],
+      "taxon_measured_on_common_axis": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        6700.0,
+        7200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        232,
+        262
+      ],
+      "original_panel_N": 494,
+      "projected_counts": [
+        232,
+        262
+      ],
+      "projected_panel_N": 494,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2508,
+      "outside_original_panel_N": 2014,
+      "outside_projected_panel_N": 2014,
+      "sample_ids": [
+        552149,
+        552150,
+        552151
+      ],
+      "raw_age_bounds_missing": 3,
+      "original_native_support_sha256": "dc3c96bd2b39e3299d16bddc2f8dca1020b3ad4c5356808e854525bcaf99a255",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit",
+      "original_taxon_measured": [
+        true,
+        true
+      ],
+      "taxon_measured_on_common_axis": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        7200.0,
+        7700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        169,
+        192
+      ],
+      "original_panel_N": 361,
+      "projected_counts": [
+        169,
+        192
+      ],
+      "projected_panel_N": 361,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 1920,
+      "outside_original_panel_N": 1559,
+      "outside_projected_panel_N": 1559,
+      "sample_ids": [
+        552152,
+        552153,
+        552155
+      ],
+      "raw_age_bounds_missing": 3,
+      "original_native_support_sha256": "3f0b852c515b00fa7e5b25195d4bb387f838ca0430e31203c9a3e9cba2695877",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit",
+      "original_taxon_measured": [
+        true,
+        true
+      ],
+      "taxon_measured_on_common_axis": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        7700.0,
+        8200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        1129,
+        182
+      ],
+      "original_panel_N": 1311,
+      "projected_counts": [
+        1129,
+        182
+      ],
+      "projected_panel_N": 1311,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 3824,
+      "outside_original_panel_N": 2513,
+      "outside_projected_panel_N": 2513,
+      "sample_ids": [
+        552154,
+        552156,
+        552157,
+        552158,
+        552159,
+        552161
+      ],
+      "raw_age_bounds_missing": 6,
+      "original_native_support_sha256": "49ae7811c2ab15a04653657bdae74375f96980ebf6f9a48082d50b7f91b17aad",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit",
+      "original_taxon_measured": [
+        true,
+        true
+      ],
+      "taxon_measured_on_common_axis": [
+        true,
+        false,
+        true
+      ]
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        8200.0,
+        8700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        365,
+        3
+      ],
+      "original_panel_N": 368,
+      "projected_counts": [
+        365,
+        3
+      ],
+      "projected_panel_N": 368,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 459,
+      "outside_original_panel_N": 91,
+      "outside_projected_panel_N": 91,
+      "sample_ids": [
+        552163
+      ],
+      "raw_age_bounds_missing": 1,
+      "original_native_support_sha256": "a0d36c33c698a8dbb47a101007ba9a9155e8e7391ce9abcc9ff21d4097853165",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit",
+      "original_taxon_measured": [
+        true,
+        true
+      ],
+      "taxon_measured_on_common_axis": [
+        true,
+        false,
+        true
+      ]
+    }
+  ],
+  "scientific_inputs": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/matched-pollen-forward/assumptions/protocol.json",
+      "sha256": "22355c28b91af19e23240ce8060761fc0f1f45d6be212d04f5432127eb2e7249",
+      "bytes": 17806
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "sha256": "8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd",
+      "bytes": 726215
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "d9a12af1e1f7a39e690c35de19b87fc487311756a75b39318de9acba7ffe3399",
+      "bytes": 4359
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json",
+      "sha256": "0391384f85500555a554b744b56598f4cca6ae5b91fa2ba323f9de45fb4af4b8",
+      "bytes": 3247
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+      "bytes": 604997
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/retained-source-identities.json",
+      "sha256": "f903051acee72613bad110c2539f37c082d52a340966ddd79bbc03253e5453cc",
+      "bytes": 8027
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
+      "bytes": 13224
+    },
+    {
+      "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+      "bytes": 24477671,
+      "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    }
+  ],
+  "original_source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "groups": [
+    {
+      "window_cal_bp": [
+        0.0,
+        100.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            355,
+            9,
+            11
+          ],
+          "original_panel_N": 375,
+          "projected_counts": [
+            355,
+            11
+          ],
+          "projected_panel_N": 366,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 9
+          },
+          "Fraxinus_original_panel_count": 9,
+          "reported_all_pollen_NISP_N": 1070,
+          "outside_original_panel_N": 695,
+          "outside_projected_panel_N": 704,
+          "sample_ids": [
+            552391,
+            552390
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "00fe597216ea7eaf7c9184e8247846a074e4089e0605fb5e6cfe68b0f7944541",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            52,
+            8
+          ],
+          "original_panel_N": 60,
+          "projected_counts": [
+            52,
+            8
+          ],
+          "projected_panel_N": 60,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 1838,
+          "outside_original_panel_N": 1778,
+          "outside_projected_panel_N": 1778,
+          "sample_ids": [
+            552110,
+            552109
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "97121a8617142756b4c88e75458a09d76122fff154951c675c1b7c5de7b9f7cf",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          355,
+          9,
+          11
+        ],
+        "partial_counts": [
+          52,
+          8
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              355,
+              11
+            ],
+            "total_count": 366,
+            "used": true,
+            "pollen_probability_interval": [
+              0.941222817903076,
+              0.9872116463789299
+            ],
+            "first_cover_interval_exact": [
+              "9242886285528408932933820652997/12134231817477595964808148343801",
+              "9694500402740301712576918694075/10323580392357605294608768996487"
+            ],
+            "counting_interval": {
+              "counts": [
+                355,
+                11
+              ],
+              "total_count": 366,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.941222817903076,
+                0.9872116463789299
+              ],
+              "cover": [
+                0.865637931272429,
+                0.1343620687275709
+              ],
+              "cover_lower": [
+                0.7617199361739055,
+                0.06093622228999178
+              ],
+              "cover_upper": [
+                0.9390637777100083,
+                0.2382800638260944
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332335727986490703560950086558765655751763639803311761108067678022496",
+                "0.00833333333333300431655705653426112713130215747338880767019049755534206800790891"
+              ],
+              "bound_search_evaluations": [
+                1,
+                2
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              52,
+              8
+            ],
+            "total_count": 60,
+            "used": true,
+            "pollen_probability_interval": [
+              0.7281096615965043,
+              0.9513915408892738
+            ],
+            "first_cover_interval_exact": [
+              "36725751863451686447439090703497/105119646942354554018637675798677",
+              "75810520303813826930764229891/95127165670042203702656987911"
+            ],
+            "counting_interval": {
+              "counts": [
+                52,
+                8
+              ],
+              "total_count": 60,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.7281096615965043,
+                0.9513915408892738
+              ],
+              "cover": [
+                0.5658512336456041,
+                0.4341487663543959
+              ],
+              "cover_lower": [
+                0.34937095901388754,
+                0.20306129411266213
+              ],
+              "cover_upper": [
+                0.796938705887338,
+                0.6506290409861125
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333333019749623855785236359386524953869109122948580733077817717202416598",
+                "0.00833333333333321149820505101702228086001507709866796292954606026473554967993225"
+              ],
+              "bound_search_evaluations": [
+                1,
+                2
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            9,
+            366
+          ],
+          "total_count": 375,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.009130171388918182,
+            0.050269798920239424
+          ],
+          "cover": [
+            0.024,
+            0.976
+          ],
+          "cover_lower": [
+            0.009130171388918182,
+            0.9497302010797605
+          ],
+          "cover_upper": [
+            0.050269798920239424,
+            0.9908698286110819
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333330019482712482644158378516493859251246466441642222580534321925929",
+            "0.0083333333333333020906623654666910031469292948898498372108592625271869384648338670"
+          ],
+          "bound_search_evaluations": [
+            2,
+            1
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.009130171388918182,
+          0.050269798920239424
+        ],
+        "ratio_interval_exact": [
+          "9242886285528408932933820652997/12134231817477595964808148343801",
+          "75810520303813826930764229891/95127165670042203702656987911"
+        ],
+        "status": "nonempty",
+        "corners": [
+          {
+            "shared_cover_ratio": "9242886285528408932933820652997/12134231817477595964808148343801",
+            "complete_only_pollen_probability": "657898183439371/72057594037927936",
+            "cover": [
+              "36639528793384941154886448945796051102539115758365177994704467/49781230882146079245108273775706755433735086146691774050121599",
+              "1680180806675953665053813149047694048055966601672299053580288/49781230882146079245108273775706755433735086146691774050121599",
+              "3820507094028394808389337226954336761046667928884765667278948/16593743627382026415036091258568918477911695382230591350040533"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "75810520303813826930764229891/95127165670042203702656987911",
+            "complete_only_pollen_probability": "657898183439371/72057594037927936",
+            "cover": [
+              "901556609820700683884249816520183944681009151080907502929903/1172166765919186893643157703957588804831608381448626984659531",
+              "40892047850527153913529700603250679392423617839979598144968/1172166765919186893643157703957588804831608381448626984659531",
+              "229718108247959055845378186834154180758175612527739883584660/1172166765919186893643157703957588804831608381448626984659531"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "75810520303813826930764229891/95127165670042203702656987911",
+            "complete_only_pollen_probability": "7244641525925761/144115188075855872",
+            "cover": [
+              "60488760574232067390499286048638285577557130461313660538117287/91661719500673777440451992830530428154050772074921979761057507",
+              "15760323160685641678983825099647172106002331972677945965763080/91661719500673777440451992830530428154050772074921979761057507",
+              "15412635765756068370968881682244970470491309640930373257177140/91661719500673777440451992830530428154050772074921979761057507"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "9242886285528408932933820652997/12134231817477595964808148343801",
+            "complete_only_pollen_probability": "7244641525925761/144115188075855872",
+            "cover": [
+              "7374843666810379668818912835156077901299431130075992044966675329/11624521090183158839779404064750352303774800000668714426115816997",
+              "1942690122420940450756879511583269355664792013605270762385571840/11624521090183158839779404064750352303774800000668714426115816997",
+              "2306987300951838720203611718011005046810576856987451618763569828/11624521090183158839779404064750352303774800000668714426115816997"
+            ],
+            "attained": true
+          }
+        ],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": [
+          "7374843666810379668818912835156077901299431130075992044966675329/11624521090183158839779404064750352303774800000668714426115816997",
+          "1680180806675953665053813149047694048055966601672299053580288/49781230882146079245108273775706755433735086146691774050121599",
+          "15412635765756068370968881682244970470491309640930373257177140/91661719500673777440451992830530428154050772074921979761057507"
+        ],
+        "cover_upper_exact": [
+          "901556609820700683884249816520183944681009151080907502929903/1172166765919186893643157703957588804831608381448626984659531",
+          "15760323160685641678983825099647172106002331972677945965763080/91661719500673777440451992830530428154050772074921979761057507",
+          "3820507094028394808389337226954336761046667928884765667278948/16593743627382026415036091258568918477911695382230591350040533"
+        ],
+        "cover_lower": [
+          0.6344212900984275,
+          0.03375129093641086,
+          0.168146919452485
+        ],
+        "cover_upper": [
+          0.769136812297967,
+          0.17194007756498386,
+          0.23023780406755334
+        ],
+        "lower_attained": [
+          true,
+          true,
+          true
+        ],
+        "upper_attained": [
+          true,
+          true,
+          true
+        ],
+        "lower_corner_indices": [
+          3,
+          0,
+          2
+        ],
+        "upper_corner_indices": [
+          1,
+          2,
+          0
+        ],
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        100.0,
+        350.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            623,
+            26,
+            19
+          ],
+          "original_panel_N": 668,
+          "projected_counts": [
+            623,
+            19
+          ],
+          "projected_panel_N": 642,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 26
+          },
+          "Fraxinus_original_panel_count": 26,
+          "reported_all_pollen_NISP_N": 2663,
+          "outside_original_panel_N": 1995,
+          "outside_projected_panel_N": 2021,
+          "sample_ids": [
+            552394,
+            552389,
+            552392,
+            552393,
+            552396
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "6b2a2eaa062b0a3c8bfc1b3721d4080d203c8803cf8a7a3e8257d98398fe4a29",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            107,
+            11
+          ],
+          "original_panel_N": 118,
+          "projected_counts": [
+            107,
+            11
+          ],
+          "projected_panel_N": 118,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4404,
+          "outside_original_panel_N": 4286,
+          "outside_projected_panel_N": 4286,
+          "sample_ids": [
+            552111,
+            552114,
+            552112,
+            552115
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "bc3cf73f0c91865fdbcc0237d7aa9dc71f7686de00a962138ad4059cb7f03c7e",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          623,
+          26,
+          19
+        ],
+        "partial_counts": [
+          107,
+          11
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              623,
+              19
+            ],
+            "total_count": 642,
+            "used": true,
+            "pollen_probability_interval": [
+              0.9502733823311488,
+              0.9840888213685574
+            ],
+            "first_cover_interval_exact": [
+              "9331763580295755952382812936675/11777897074390276550469997732687",
+              "292843454595090169526609159933/316561540940645049106170637585"
+            ],
+            "counting_interval": {
+              "counts": [
+                623,
+                19
+              ],
+              "total_count": 642,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.9502733823311488,
+                0.9840888213685574
+              ],
+              "cover": [
+                0.8674747934414219,
+                0.1325252065585781
+              ],
+              "cover_lower": [
+                0.7923115239805104,
+                0.07492409303757462
+              ],
+              "cover_upper": [
+                0.9250759069624255,
+                0.20768847601948953
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333331497050704331118401275001083662373868943176302831768790506321649181",
+                "0.00833333333333274024852615263487231987366572247651598841838792536418396920007482"
+              ],
+              "bound_search_evaluations": [
+                2,
+                2
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              107,
+              11
+            ],
+            "total_count": 118,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8233845551598573,
+              0.9596962224560304
+            ],
+            "first_cover_interval_exact": [
+              "1384380149307656196512352562361/2865298065778346603667131961605",
+              "24203473178017035039021009027303/29272671938097469119748889855003"
+            ],
+            "counting_interval": {
+              "counts": [
+                107,
+                11
+              ],
+              "total_count": 118,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8233845551598573,
+                0.9596962224560304
+              ],
+              "cover": [
+                0.6610720607201008,
+                0.3389279392798992
+              ],
+              "cover_lower": [
+                0.4831539747441929,
+                0.17317171356274552
+              ],
+              "cover_upper": [
+                0.8268282864372545,
+                0.5168460252558071
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332960657388474404198136600233776703921005713047362841735947615788248",
+                "0.00833333333333326330301449713090967687915328950489207483301520690512205189714651"
+              ],
+              "bound_search_evaluations": [
+                1,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            26,
+            642
+          ],
+          "total_count": 668,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.02319243685962707,
+            0.06067994448531502
+          ],
+          "cover": [
+            0.038922155688622756,
+            0.9610778443113772
+          ],
+          "cover_lower": [
+            0.02319243685962707,
+            0.9393200555146849
+          ],
+          "cover_upper": [
+            0.06067994448531502,
+            0.976807563140373
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333328972833495122327221264082074662454375286418980105134186464029461",
+            "0.0083333333333332897580039594197657165300697936942184115904064454358298547581099064"
+          ],
+          "bound_search_evaluations": [
+            1,
+            2
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.02319243685962707,
+          0.06067994448531502
+        ],
+        "ratio_interval_exact": [
+          "9331763580295755952382812936675/11777897074390276550469997732687",
+          "24203473178017035039021009027303/29272671938097469119748889855003"
+        ],
+        "status": "nonempty",
+        "corners": [
+          {
+            "shared_cover_ratio": "9331763580295755952382812936675/11777897074390276550469997732687",
+            "complete_only_pollen_probability": "6684764799925135/288230376151711744",
+            "cover": [
+              "729337261143010898185165308200455871264850632545768495763723525/1005878120592164720561343886324968243340151787595666826725177401",
+              "85359815520848670815137094735321718330539686359077430388326400/1005878120592164720561343886324968243340151787595666826725177401",
+              "63727014642768383853680494463063551248253822896940300191042492/335292706864054906853781295441656081113383929198555608908392467"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "24203473178017035039021009027303/29272671938097469119748889855003",
+            "complete_only_pollen_probability": "6684764799925135/288230376151711744",
+            "cover": [
+              "5674970658839966475374252857414493326538723835592237330780838307/7521087756879719770292287267950314999277982943816136541281161807",
+              "59776888298577733331872272094903297368165351656366288912750200/683735250625429070026571569813664999934362085801466958298287437",
+              "1188571326755398228267439417491885401689440240003870032460071300/7521087756879719770292287267950314999277982943816136541281161807"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "24203473178017035039021009027303/29272671938097469119748889855003",
+            "complete_only_pollen_probability": "8744901611933667/144115188075855872",
+            "cover": [
+              "3820025324146479672275958423018412989355582744636433164656215901/5824362209247557751234962603669099902970835743683996268840399537",
+              "1204267097834881129250886887576275844295336020013163643959787736/5824362209247557751234962603669099902970835743683996268840399537",
+              "800069787266196949708117293074411069319916979034399460224395900/5824362209247557751234962603669099902970835743683996268840399537"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "9331763580295755952382812936675/11777897074390276550469997732687",
+            "complete_only_pollen_probability": "8744901611933667/144115188075855872",
+            "cover": [
+              "58913153386687913013795159789482065929025545641749407004577689/93115991944720114679805095769757697886732826424886710488869277",
+              "468998608757956230864781744375024620964100833536008831417450496/2327899798618002866995127394243942447168320660622167762221731925",
+              "386072355192848810785466655131866177978581186042423755689839204/2327899798618002866995127394243942447168320660622167762221731925"
+            ],
+            "attained": true
+          }
+        ],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": [
+          "58913153386687913013795159789482065929025545641749407004577689/93115991944720114679805095769757697886732826424886710488869277",
+          "85359815520848670815137094735321718330539686359077430388326400/1005878120592164720561343886324968243340151787595666826725177401",
+          "800069787266196949708117293074411069319916979034399460224395900/5824362209247557751234962603669099902970835743683996268840399537"
+        ],
+        "cover_upper_exact": [
+          "5674970658839966475374252857414493326538723835592237330780838307/7521087756879719770292287267950314999277982943816136541281161807",
+          "1204267097834881129250886887576275844295336020013163643959787736/5824362209247557751234962603669099902970835743683996268840399537",
+          "63727014642768383853680494463063551248253822896940300191042492/335292706864054906853781295441656081113383929198555608908392467"
+        ],
+        "cover_lower": [
+          0.6326856660847548,
+          0.08486099237410291,
+          0.1373660769235636
+        ],
+        "cover_upper": [
+          0.7545412102988607,
+          0.2067637716491638,
+          0.19006382583981057
+        ],
+        "lower_attained": [
+          true,
+          true,
+          true
+        ],
+        "upper_attained": [
+          true,
+          true,
+          true
+        ],
+        "lower_corner_indices": [
+          3,
+          0,
+          2
+        ],
+        "upper_corner_indices": [
+          1,
+          2,
+          0
+        ],
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        350.0,
+        700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            527,
+            15,
+            9
+          ],
+          "original_panel_N": 551,
+          "projected_counts": [
+            527,
+            9
+          ],
+          "projected_panel_N": 536,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 15
+          },
+          "Fraxinus_original_panel_count": 15,
+          "reported_all_pollen_NISP_N": 2122,
+          "outside_original_panel_N": 1571,
+          "outside_projected_panel_N": 1586,
+          "sample_ids": [
+            552395,
+            552397,
+            552398
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "6a9c5f60dab139afba91ddc589c235bf11d6aa57908a97cbf872b1b03ed62c53",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            339,
+            11
+          ],
+          "original_panel_N": 350,
+          "projected_counts": [
+            339,
+            11
+          ],
+          "projected_panel_N": 350,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 6306,
+          "outside_original_panel_N": 5956,
+          "outside_projected_panel_N": 5956,
+          "sample_ids": [
+            552118,
+            552101,
+            552102,
+            552103
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "b6309b44f4378cf616258ac68f42c1827d39ef3921a501f940642f78b432f195",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          527,
+          15,
+          9
+        ],
+        "partial_counts": [
+          339,
+          11
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              527,
+              9
+            ],
+            "total_count": 536,
+            "used": true,
+            "pollen_probability_interval": [
+              0.9646864049146713,
+              0.993624181322643
+            ],
+            "first_cover_interval_exact": [
+              "4736650329879545285526204522103/5605217022977031057465315788467",
+              "4878736014378150387096005589431/5035554478513565327997360412403"
+            ],
+            "counting_interval": {
+              "counts": [
+                527,
+                9
+              ],
+              "total_count": 536,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.9646864049146713,
+                0.993624181322643
+              ],
+              "cover": [
+                0.921194036467347,
+                0.07880596353265296
+              ],
+              "cover_lower": [
+                0.8450431643347549,
+                0.031142243581029797
+              ],
+              "cover_upper": [
+                0.9688577564189702,
+                0.15495683566524504
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332052643757461178310681347577241937945159818231981486648163483823137",
+                "0.00833333333333326580700059024843820687156151788097020512505860875610866867044550"
+              ],
+              "bound_search_evaluations": [
+                1,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              339,
+              11
+            ],
+            "total_count": 350,
+            "used": true,
+            "pollen_probability_interval": [
+              0.9385778361147981,
+              0.986622480570436
+            ],
+            "first_cover_interval_exact": [
+              "23670868916988555356064375636183/31396228076403369464801325054283",
+              "829418385615220294772199085987/885503537791767880626410307879"
+            ],
+            "counting_interval": {
+              "counts": [
+                339,
+                11
+              ],
+              "total_count": 350,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.9385778361147981,
+                0.986622480570436
+              ],
+              "cover": [
+                0.8607156429182762,
+                0.13928435708172382
+              ],
+              "cover_lower": [
+                0.7539398955627729,
+                0.06333701649166802
+              ],
+              "cover_upper": [
+                0.936662983508332,
+                0.2460601044372271
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333331700774624611435186966223339638678192696672544256234654766624355308",
+                "0.00833333333333285666627925772550630856749262595561520857634691025294418428934301"
+              ],
+              "bound_search_evaluations": [
+                2,
+                2
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            15,
+            536
+          ],
+          "total_count": 551,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.013357768018352664,
+            0.048684907244902445
+          ],
+          "cover": [
+            0.02722323049001815,
+            0.9727767695099818
+          ],
+          "cover_lower": [
+            0.013357768018352664,
+            0.9513150927550975
+          ],
+          "cover_upper": [
+            0.048684907244902445,
+            0.9866422319816474
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333329553044758897074919213846656961443125717813243993029928162409327",
+            "0.0083333333333333033561855174765288778854134138280752561650354503298319199518918817"
+          ],
+          "bound_search_evaluations": [
+            1,
+            1
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.013357768018352664,
+          0.048684907244902445
+        ],
+        "ratio_interval_exact": [
+          "4736650329879545285526204522103/5605217022977031057465315788467",
+          "829418385615220294772199085987/885503537791767880626410307879"
+        ],
+        "status": "nonempty",
+        "corners": [
+          {
+            "shared_cover_ratio": "4736650329879545285526204522103/5605217022977031057465315788467",
+            "complete_only_pollen_probability": "7700229000954187/576460752303423488",
+            "cover": [
+              "15704929005133718155354478266556712515930634089120983212530139961/19617194644841046379508009556819925465621101090207445944742670269",
+              "1032429193839332178702788022096755002213296037694387857800560640/19617194644841046379508009556819925465621101090207445944742670269",
+              "2879836445867996045450743268166457947477170963392074874411969668/19617194644841046379508009556819925465621101090207445944742670269"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "829418385615220294772199085987/885503537791767880626410307879",
+            "complete_only_pollen_probability": "7700229000954187/576460752303423488",
+            "cover": [
+              "2750035564050367851838999067081529994537717224914054161040273869/3112747711909596558293382481304339973397055611653067848170651873",
+              "176755137771637954639090746316900531975821767044019332349485400/3112747711909596558293382481304339973397055611653067848170651873",
+              "185957010087590751815292667905909446883516619694994354780892604/3112747711909596558293382481304339973397055611653067848170651873"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "829418385615220294772199085987/885503537791767880626410307879",
+            "complete_only_pollen_probability": "3508117282027357/72057594037927936",
+            "cover": [
+              "331446173305383110473491103774955046946362391478199390400795851/434385699434682230603701270103145867160017505724058195661734167",
+              "80527183467786682293340632912115002287575228903502777085799400/434385699434682230603701270103145867160017505724058195661734167",
+              "22412342661512437836869533416075817926079885342356028175138916/434385699434682230603701270103145867160017505724058195661734167"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "4736650329879545285526204522103/5605217022977031057465315788467",
+            "complete_only_pollen_probability": "3508117282027357/72057594037927936",
+            "cover": [
+              "630941976270014367138638480373791686565262884710017790017503573/903425551015125439150987507292210049150342869189319219952043977",
+              "156786795861461676258972039007300389479851235437436219351367680/903425551015125439150987507292210049150342869189319219952043977",
+              "115696778883649395753376987911117973105228749041865210583172724/903425551015125439150987507292210049150342869189319219952043977"
+            ],
+            "attained": true
+          }
+        ],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": [
+          "630941976270014367138638480373791686565262884710017790017503573/903425551015125439150987507292210049150342869189319219952043977",
+          "1032429193839332178702788022096755002213296037694387857800560640/19617194644841046379508009556819925465621101090207445944742670269",
+          "22412342661512437836869533416075817926079885342356028175138916/434385699434682230603701270103145867160017505724058195661734167"
+        ],
+        "cover_upper_exact": [
+          "2750035564050367851838999067081529994537717224914054161040273869/3112747711909596558293382481304339973397055611653067848170651873",
+          "80527183467786682293340632912115002287575228903502777085799400/434385699434682230603701270103145867160017505724058195661734167",
+          "2879836445867996045450743268166457947477170963392074874411969668/19617194644841046379508009556819925465621101090207445944742670269"
+        ],
+        "cover_lower": [
+          0.6983884566482124,
+          0.05262878880140192,
+          0.051595489194695594
+        ],
+        "cover_upper": [
+          0.8834752503482804,
+          0.185381755367606,
+          0.1468016450876853
+        ],
+        "lower_attained": [
+          true,
+          true,
+          true
+        ],
+        "upper_attained": [
+          true,
+          true,
+          true
+        ],
+        "lower_corner_indices": [
+          3,
+          0,
+          2
+        ],
+        "upper_corner_indices": [
+          1,
+          2,
+          0
+        ],
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        700.0,
+        1200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1315,
+            134,
+            52
+          ],
+          "original_panel_N": 1501,
+          "projected_counts": [
+            1315,
+            52
+          ],
+          "projected_panel_N": 1367,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 134
+          },
+          "Fraxinus_original_panel_count": 134,
+          "reported_all_pollen_NISP_N": 5152,
+          "outside_original_panel_N": 3651,
+          "outside_projected_panel_N": 3785,
+          "sample_ids": [
+            552400,
+            552399,
+            552401,
+            552403,
+            552402,
+            552404
+          ],
+          "raw_age_bounds_missing": 6,
+          "original_native_support_sha256": "05b96293c015c662a98f7cf5b15c460e8a948d4ab34d9e0b999468812c3ca0ef",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            368,
+            28
+          ],
+          "original_panel_N": 396,
+          "projected_counts": [
+            368,
+            28
+          ],
+          "projected_panel_N": 396,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 5003,
+          "outside_original_panel_N": 4607,
+          "outside_projected_panel_N": 4607,
+          "sample_ids": [
+            552104,
+            552105,
+            552106
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "92e8d86e790e6f513d40e1bdc6227e489f3a99abe72f39a7978efae86c986798",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          1315,
+          134,
+          52
+        ],
+        "partial_counts": [
+          368,
+          28
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              1315,
+              52
+            ],
+            "total_count": 1367,
+            "used": true,
+            "pollen_probability_interval": [
+              0.9477231190162672,
+              0.9732845532782005
+            ],
+            "first_cover_interval_exact": [
+              "4653359891310937078910211801935/5939152446041675823887725225451",
+              "9557735191177756859353520954873/10871911624231766207129071250813"
+            ],
+            "counting_interval": {
+              "counts": [
+                1315,
+                52
+              ],
+              "total_count": 1367,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.9477231190162672,
+                0.9732845532782005
+              ],
+              "cover": [
+                0.8346646615772909,
+                0.1653353384227091
+              ],
+              "cover_lower": [
+                0.7835057162764539,
+                0.12087813794631282
+              ],
+              "cover_upper": [
+                0.8791218620536873,
+                0.216494283723546
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333329140582714785292911148598060296271055939615727371997364664614825036",
+                "0.00833333333333303593003534598879087984525327317341876087033257344678680677475037"
+              ],
+              "bound_search_evaluations": [
+                2,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              368,
+              28
+            ],
+            "total_count": 396,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8924304817660879,
+              0.9567158224039516
+            ],
+            "first_cover_interval_exact": [
+              "45014071584844555751624369966703/72073136599726027346688548399363",
+              "57176084578864178615246374581/70076695767039273236324188241"
+            ],
+            "counting_interval": {
+              "counts": [
+                368,
+                28
+              ],
+              "total_count": 396,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8924304817660879,
+                0.9567158224039516
+              ],
+              "cover": [
+                0.7249241601315193,
+                0.2750758398684807
+              ],
+              "cover_lower": [
+                0.6245610182728701,
+                0.1840927436285163
+              ],
+              "cover_upper": [
+                0.8159072563714838,
+                0.37543898172712986
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332883327254878764040188829766056482513036346926487468539864923007399",
+                "0.00833333333333323224082737028139738186652012177486022199320238707988600784409827"
+              ],
+              "bound_search_evaluations": [
+                1,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            134,
+            1367
+          ],
+          "total_count": 1501,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.07248541026903767,
+            0.10839047264254002
+          ],
+          "cover": [
+            0.08927381745502998,
+            0.9107261825449701
+          ],
+          "cover_lower": [
+            0.07248541026903767,
+            0.8916095273574599
+          ],
+          "cover_upper": [
+            0.10839047264254002,
+            0.9275145897309623
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333321786331996715169767664358023198348888631077808021622309225490414",
+            "0.0083333333333332981012164079018426007331144947672833322590942440663760373800307441"
+          ],
+          "bound_search_evaluations": [
+            1,
+            5
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.07248541026903767,
+          0.10839047264254002
+        ],
+        "ratio_interval_exact": [
+          "4653359891310937078910211801935/5939152446041675823887725225451",
+          "57176084578864178615246374581/70076695767039273236324188241"
+        ],
+        "status": "nonempty",
+        "corners": [
+          {
+            "shared_cover_ratio": "4653359891310937078910211801935/5939152446041675823887725225451",
+            "complete_only_pollen_probability": "5223124266838969/72057594037927936",
+            "cover": [
+              "604339667740344693833414859323188201761273748323959447680011705/1004762581940097467434730855852691881248629330786611186968917053",
+              "233434874705976845094267344301574822976320243763364112168386560/1004762581940097467434730855852691881248629330786611186968917053",
+              "166988039493775928507048652227928856511035338699287627120518788/1004762581940097467434730855852691881248629330786611186968917053"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "57176084578864178615246374581/70076695767039273236324188241",
+            "complete_only_pollen_probability": "5223124266838969/72057594037927936",
+            "cover": [
+              "22276662517510668712864889476434985411488575378754419439558249/35825102359272139866775154679348208760680526568257925423193709",
+              "8522167689246269143459016845633942676639229128430999517395320/35825102359272139866775154679348208760680526568257925423193709",
+              "5026272152515202010451248357279280672552722061072506466240140/35825102359272139866775154679348208760680526568257925423193709"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "57176084578864178615246374581/70076695767039273236324188241",
+            "complete_only_pollen_probability": "7810356675255283/72057594037927936",
+            "cover": [
+              "21414309551832050116157281050743161658809424528332717851285891/38989564042972660836488518315305267528207564912870622155433391",
+              "12743554604269880718722655521494753080846498872276931458867240/38989564042972660836488518315305267528207564912870622155433391",
+              "4831699886870730001608581743067352788551641512260972845280260/38989564042972660836488518315305267528207564912870622155433391"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "4653359891310937078910211801935/5939152446041675823887725225451",
+            "complete_only_pollen_probability": "7810356675255283/72057594037927936",
+            "cover": [
+              "580945045482927912747212338255904225694125742812289290188804595/1090533756853586773652690881896061061951465180402530600708949407",
+              "349064953991724958552141471679662389205497496264113381095505920/1090533756853586773652690881896061061951465180402530600708949407",
+              "160523757378933902353337071960494447051841941326127929424638892/1090533756853586773652690881896061061951465180402530600708949407"
+            ],
+            "attained": true
+          }
+        ],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": [
+          "580945045482927912747212338255904225694125742812289290188804595/1090533756853586773652690881896061061951465180402530600708949407",
+          "233434874705976845094267344301574822976320243763364112168386560/1004762581940097467434730855852691881248629330786611186968917053",
+          "4831699886870730001608581743067352788551641512260972845280260/38989564042972660836488518315305267528207564912870622155433391"
+        ],
+        "cover_upper_exact": [
+          "22276662517510668712864889476434985411488575378754419439558249/35825102359272139866775154679348208760680526568257925423193709",
+          "12743554604269880718722655521494753080846498872276931458867240/38989564042972660836488518315305267528207564912870622155433391",
+          "166988039493775928507048652227928856511035338699287627120518788/1004762581940097467434730855852691881248629330786611186968917053"
+        ],
+        "cover_lower": [
+          0.5327162426948372,
+          0.23232839170347797,
+          0.1239229010497638
+        ],
+        "cover_upper": [
+          0.6218171352061774,
+          0.3268452704478683,
+          0.16619651497305812
+        ],
+        "lower_attained": [
+          true,
+          true,
+          true
+        ],
+        "upper_attained": [
+          true,
+          true,
+          true
+        ],
+        "lower_corner_indices": [
+          3,
+          0,
+          2
+        ],
+        "upper_corner_indices": [
+          1,
+          2,
+          0
+        ],
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        1200.0,
+        1700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            832,
+            148,
+            103
+          ],
+          "original_panel_N": 1083,
+          "projected_counts": [
+            832,
+            103
+          ],
+          "projected_panel_N": 935,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 148
+          },
+          "Fraxinus_original_panel_count": 148,
+          "reported_all_pollen_NISP_N": 3925,
+          "outside_original_panel_N": 2842,
+          "outside_projected_panel_N": 2990,
+          "sample_ids": [
+            552405,
+            552406,
+            552407,
+            552408,
+            552409
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "fdf98e329768d392831081951fcdcabb7ca3091b453636765c278f5b539d7a2a",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            447,
+            38
+          ],
+          "original_panel_N": 485,
+          "projected_counts": [
+            447,
+            38
+          ],
+          "projected_panel_N": 485,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4655,
+          "outside_original_panel_N": 4170,
+          "outside_projected_panel_N": 4170,
+          "sample_ids": [
+            552107,
+            552108,
+            552113,
+            552117
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "e604c0645a53cfe912cd2a9576f85ac00ea56a123ae525218f7f5c35b75d66f8",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          832,
+          148,
+          103
+        ],
+        "partial_counts": [
+          447,
+          38
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              832,
+              103
+            ],
+            "total_count": 935,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8630252126890628,
+              0.9130960180040186
+            ],
+            "first_cover_interval_exact": [
+              "8474979304263324491062699255187/15212992682109398259174501968831",
+              "2241669693309812769971144697409/3310406876211539862999632831461"
+            ],
+            "counting_interval": {
+              "counts": [
+                832,
+                103
+              ],
+              "total_count": 935,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8630252126890628,
+                0.9130960180040186
+              ],
+              "cover": [
+                0.6172304873959803,
+                0.38276951260401965
+              ],
+              "cover_lower": [
+                0.5570882390701448,
+                0.3228416393711699
+              ],
+              "cover_upper": [
+                0.6771583606288302,
+                0.4429117609298552
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332830085778950888085715453419935622713596089768692261609598218028589",
+                "0.00833333333333317435535843244851021000074109164759206944942311787325460517604523"
+              ],
+              "bound_search_evaluations": [
+                1,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              447,
+              38
+            ],
+            "total_count": 485,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8876267111415098,
+              0.9481449903808047
+            ],
+            "first_cover_interval_exact": [
+              "8954354010157336633166493738453/14607844290825585905983442651377",
+              "47824303788180086212640946651417/60868408657943801001979984500197"
+            ],
+            "counting_interval": {
+              "counts": [
+                447,
+                38
+              ],
+              "total_count": 485,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8876267111415098,
+                0.9481449903808047
+              ],
+              "cover": [
+                0.7022665079545407,
+                0.2977334920454593
+              ],
+              "cover_lower": [
+                0.6129825751073409,
+                0.2143000804089751
+              ],
+              "cover_upper": [
+                0.7856999195910249,
+                0.38701742489265906
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333331827490517106312948706437458096050202187287027593065250013701100484",
+                "0.00833333333333327622598320604937833467583331316203943691339285817415645528588339"
+              ],
+              "bound_search_evaluations": [
+                2,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            148,
+            935
+          ],
+          "total_count": 1083,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.1126529663053534,
+            0.16351351789942956
+          ],
+          "cover": [
+            0.13665743305632502,
+            0.863342566943675
+          ],
+          "cover_lower": [
+            0.1126529663053534,
+            0.8364864821005704
+          ],
+          "cover_upper": [
+            0.16351351789942956,
+            0.8873470336946466
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333328907545128077520193048113813808015070719363571986272057095392615",
+            "0.0083333333333332581928384978342349005138417785795650705744692054645129310466861537"
+          ],
+          "bound_search_evaluations": [
+            5,
+            1
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.1126529663053534,
+          0.16351351789942956
+        ],
+        "ratio_interval_exact": [
+          "8954354010157336633166493738453/14607844290825585905983442651377",
+          "2241669693309812769971144697409/3310406876211539862999632831461"
+        ],
+        "status": "nonempty",
+        "corners": [
+          {
+            "shared_cover_ratio": "8954354010157336633166493738453/14607844290825585905983442651377",
+            "complete_only_pollen_probability": "4058750856599765/36028797018963968",
+            "cover": [
+              "31487404333079505995381074641516260755236364716407854566226161/72452644128651750315171464842378670802182265186642240880496149",
+              "21085108391496962319795220055115478044308749586669850382924600/72452644128651750315171464842378670802182265186642240880496149",
+              "19880131404075281999995170145746932002637150883564535931345388/72452644128651750315171464842378670802182265186642240880496149"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "2241669693309812769971144697409/3310406876211539862999632831461",
+            "complete_only_pollen_probability": "4058750856599765/36028797018963968",
+            "cover": [
+              "2627561963501752396711761497370388322126964634728134070668111/5591560214706978777080685385154624654357792572008925909962219",
+              "1711283286483398191554060308227830529067870289794617153945600/5591560214706978777080685385154624654357792572008925909962219",
+              "417571654907276062938287859852135267720985882495391561782836/1863853404902326259026895128384874884785930857336308636654073"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "2241669693309812769971144697409/3310406876211539862999632831461",
+            "complete_only_pollen_probability": "5891195346255279/36028797018963968",
+            "cover": [
+              "393836094338085179249512568188028051835423932490906949795911587/976540206906474143360956630409128974722663013273606713156661263",
+              "394939037613730169851373984662538690578399631082501799610941440/976540206906474143360956630409128974722663013273606713156661263",
+              "187765074954658794260070077558562232308839449700197963749808236/976540206906474143360956630409128974722663013273606713156661263"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "8954354010157336633166493738453/14607844290825585905983442651377",
+            "complete_only_pollen_probability": "5891195346255279/36028797018963968",
+            "cover": [
+              "1573179055418288694692768286208761630854582985364078508714944479/4188477965066598800152716135493618242377005833032749287165776891",
+              "1622044400225371073246775787033018520823298683120927454834948680/4188477965066598800152716135493618242377005833032749287165776891",
+              "993254509422939032213172062251838090699124164547743323615883732/4188477965066598800152716135493618242377005833032749287165776891"
+            ],
+            "attained": true
+          }
+        ],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": [
+          "1573179055418288694692768286208761630854582985364078508714944479/4188477965066598800152716135493618242377005833032749287165776891",
+          "21085108391496962319795220055115478044308749586669850382924600/72452644128651750315171464842378670802182265186642240880496149",
+          "187765074954658794260070077558562232308839449700197963749808236/976540206906474143360956630409128974722663013273606713156661263"
+        ],
+        "cover_upper_exact": [
+          "2627561963501752396711761497370388322126964634728134070668111/5591560214706978777080685385154624654357792572008925909962219",
+          "394939037613730169851373984662538690578399631082501799610941440/976540206906474143360956630409128974722663013273606713156661263",
+          "19880131404075281999995170145746932002637150883564535931345388/72452644128651750315171464842378670802182265186642240880496149"
+        ],
+        "cover_lower": [
+          0.3755968321999455,
+          0.29101917045369435,
+          0.19227582605069485
+        ],
+        "cover_upper": [
+          0.46991570556473883,
+          0.4044268068232797,
+          0.27438793494927244
+        ],
+        "lower_attained": [
+          true,
+          true,
+          true
+        ],
+        "upper_attained": [
+          true,
+          true,
+          true
+        ],
+        "lower_corner_indices": [
+          3,
+          0,
+          2
+        ],
+        "upper_corner_indices": [
+          1,
+          2,
+          0
+        ],
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        1700.0,
+        2200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1059,
+            200,
+            229
+          ],
+          "original_panel_N": 1488,
+          "projected_counts": [
+            1059,
+            229
+          ],
+          "projected_panel_N": 1288,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 200
+          },
+          "Fraxinus_original_panel_count": 200,
+          "reported_all_pollen_NISP_N": 5602,
+          "outside_original_panel_N": 4114,
+          "outside_projected_panel_N": 4314,
+          "sample_ids": [
+            552411,
+            552410,
+            552415,
+            552413,
+            552412,
+            552414
+          ],
+          "raw_age_bounds_missing": 6,
+          "original_native_support_sha256": "7a865fba8a0a3a52b788e64c85b33a48ef207028b412a9b4189730e8a6c14f0e",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            315,
+            37
+          ],
+          "original_panel_N": 352,
+          "projected_counts": [
+            315,
+            37
+          ],
+          "projected_panel_N": 352,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3554,
+          "outside_original_panel_N": 3202,
+          "outside_projected_panel_N": 3202,
+          "sample_ids": [
+            552119,
+            552120,
+            552121
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "019184d6510d18e5cf1b68184f7c1e4e177d3b8618c5f40d6e7fa0fec473a8f6",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          1059,
+          200,
+          229
+        ],
+        "partial_counts": [
+          315,
+          37
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              1059,
+              229
+            ],
+            "total_count": 1288,
+            "used": true,
+            "pollen_probability_interval": [
+              0.7952760197784345,
+              0.8470159351954909
+            ],
+            "first_cover_interval_exact": [
+              "1301612766676582529971976872517/2980063894532015524425362588281",
+              "4158883434468868373683711482715/7921651369673192982490696742311"
+            ],
+            "counting_interval": {
+              "counts": [
+                1059,
+                229
+              ],
+              "total_count": 1288,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.7952760197784345,
+                0.8470159351954909
+              ],
+              "cover": [
+                0.4800267320763707,
+                0.5199732679236293
+              ],
+              "cover_lower": [
+                0.43677344269861224,
+                0.47499792146994685
+              ],
+              "cover_upper": [
+                0.5250020785300532,
+                0.5632265573013878
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333331023312698658345655197918341913194195225758288247294642165188437349",
+                "0.00833333333333319756651463241616815088939552831938487592185656468135740668022920"
+              ],
+              "bound_search_evaluations": [
+                1,
+                2
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              315,
+              37
+            ],
+            "total_count": 352,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8495221816082035,
+              0.9305406948919
+            ],
+            "first_cover_interval_exact": [
+              "1785407616108675641184743248669/3362600493333646666158268719769",
+              "46936345528652580106206941174211/64408803188280143910747399565511"
+            ],
+            "counting_interval": {
+              "counts": [
+                315,
+                37
+              ],
+              "total_count": 352,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8495221816082035,
+                0.9305406948919
+              ],
+              "cover": [
+                0.630601122909679,
+                0.3693988770903211
+              ],
+              "cover_lower": [
+                0.5309603741652464,
+                0.27127437236416246
+              ],
+              "cover_upper": [
+                0.7287256276358376,
+                0.4690396258347535
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332473315623467019712091507803073557666176823623588681706873597652426",
+                "0.00833333333333315553692855411504534160583367747895543371796843875838784043326664"
+              ],
+              "bound_search_evaluations": [
+                1,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            200,
+            1288
+          ],
+          "total_count": 1488,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.11395614979232507,
+            0.1569434043477287
+          ],
+          "cover": [
+            0.13440860215053763,
+            0.8655913978494624
+          ],
+          "cover_lower": [
+            0.11395614979232507,
+            0.8430565956522713
+          ],
+          "cover_upper": [
+            0.1569434043477287,
+            0.886043850207675
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333329252051661956941365221226720545228432940982583678059311257290975",
+            "0.0083333333333332934439190276331217200892292485124829142803101888871595955495303982"
+          ],
+          "bound_search_evaluations": [
+            5,
+            1
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.11395614979232507,
+          0.1569434043477287
+        ],
+        "ratio_interval_exact": [
+          "1785407616108675641184743248669/3362600493333646666158268719769",
+          "4158883434468868373683711482715/7921651369673192982490696742311"
+        ],
+        "status": "empty",
+        "corners": [],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": null,
+        "cover_upper_exact": null,
+        "cover_lower": null,
+        "cover_upper": null,
+        "lower_attained": null,
+        "upper_attained": null,
+        "lower_corner_indices": null,
+        "upper_corner_indices": null,
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        2200.0,
+        2700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            343,
+            104,
+            66
+          ],
+          "original_panel_N": 513,
+          "projected_counts": [
+            343,
+            66
+          ],
+          "projected_panel_N": 409,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 104
+          },
+          "Fraxinus_original_panel_count": 104,
+          "reported_all_pollen_NISP_N": 2258,
+          "outside_original_panel_N": 1745,
+          "outside_projected_panel_N": 1849,
+          "sample_ids": [
+            552416,
+            552417,
+            552418
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "ee5a114436c24272aca2f0f0e0eaf05338a734b2b7809bae45db28e06accfcc1",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            173,
+            9
+          ],
+          "original_panel_N": 182,
+          "projected_counts": [
+            173,
+            9
+          ],
+          "projected_panel_N": 182,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 1924,
+          "outside_original_panel_N": 1742,
+          "outside_projected_panel_N": 1742,
+          "sample_ids": [
+            552122,
+            552123
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "23a8f2a54b14ac2f6c41865801f51190730a15a431df2ae1b657a54501de666c",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          343,
+          104,
+          66
+        ],
+        "partial_counts": [
+          173,
+          9
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              343,
+              66
+            ],
+            "total_count": 409,
+            "used": true,
+            "pollen_probability_interval": [
+              0.7904249497035892,
+              0.8797353299116898
+            ],
+            "first_cover_interval_exact": [
+              "705639880800942076642954847195/1642852501049223831480723796007",
+              "8639074043966601991224569508907/14555089478966108603812405228471"
+            ],
+            "counting_interval": {
+              "counts": [
+                343,
+                66
+              ],
+              "total_count": 409,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.7904249497035892,
+                0.8797353299116898
+              ],
+              "cover": [
+                0.5091944021466871,
+                0.4908055978533129
+              ],
+              "cover_lower": [
+                0.42952114103382877,
+                0.4064568234739384
+              ],
+              "cover_upper": [
+                0.5935431765260616,
+                0.5704788589661712
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332622478148284919909725196893058763277453176387512829739062835175980",
+                "0.00833333333333329492821375405097139531973608416856478921457844409527935988722883"
+              ],
+              "bound_search_evaluations": [
+                1,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              173,
+              9
+            ],
+            "total_count": 182,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8979073885541224,
+              0.9810623932142034
+            ],
+            "first_cover_interval_exact": [
+              "7548387669171610231157780045311/11828612922583785252143857053011",
+              "49484653090231549540323434929911/54248399750589665863103145727211"
+            ],
+            "counting_interval": {
+              "counts": [
+                173,
+                9
+              ],
+              "total_count": 182,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8979073885541224,
+                0.9810623932142034
+              ],
+              "cover": [
+                0.7940002450829343,
+                0.20599975491706568
+              ],
+              "cover_lower": [
+                0.6381464774081707,
+                0.08781358864519014
+              ],
+              "cover_upper": [
+                0.9121864113548099,
+                0.3618535225918293
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332010818291146016097119207313241443538009383871662909414815852910906",
+                "0.00833333333333323780732135458092181802371488646339279362101298027052197730862061"
+              ],
+              "bound_search_evaluations": [
+                2,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            104,
+            409
+          ],
+          "total_count": 513,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.16184075687264604,
+            0.24856076052038187
+          ],
+          "cover": [
+            0.20272904483430798,
+            0.797270955165692
+          ],
+          "cover_lower": [
+            0.16184075687264604,
+            0.7514392394796181
+          ],
+          "cover_upper": [
+            0.24856076052038187,
+            0.838159243127354
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333330283313128235465994276101577316901127705618663666553145963997437",
+            "0.0083333333333332772922818479259838232321939571740756884135521196735368550859902294"
+          ],
+          "bound_search_evaluations": [
+            2,
+            2
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.16184075687264604,
+          0.24856076052038187
+        ],
+        "ratio_interval_exact": [
+          "7548387669171610231157780045311/11828612922583785252143857053011",
+          "8639074043966601991224569508907/14555089478966108603812405228471"
+        ],
+        "status": "empty",
+        "corners": [],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": null,
+        "cover_upper_exact": null,
+        "cover_lower": null,
+        "cover_upper": null,
+        "lower_attained": null,
+        "upper_attained": null,
+        "lower_corner_indices": null,
+        "upper_corner_indices": null,
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            570,
+            94,
+            105
+          ],
+          "original_panel_N": 769,
+          "projected_counts": [
+            570,
+            105
+          ],
+          "projected_panel_N": 675,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 94
+          },
+          "Fraxinus_original_panel_count": 94,
+          "reported_all_pollen_NISP_N": 2553,
+          "outside_original_panel_N": 1784,
+          "outside_projected_panel_N": 1878,
+          "sample_ids": [
+            552419,
+            552422,
+            552421
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "afb209489884ab489a9a0cfe8df443086f7f252288ba927ddd8f198dbcb0e84f",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            228,
+            13
+          ],
+          "original_panel_N": 241,
+          "projected_counts": [
+            228,
+            13
+          ],
+          "projected_panel_N": 241,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 2368,
+          "outside_original_panel_N": 2127,
+          "outside_projected_panel_N": 2127,
+          "sample_ids": [
+            552124,
+            552125
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "cf01c2e0753ae07e3dbbe4e0ec772884a9625f0af098078bfd5b8a721532ca09",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          570,
+          94,
+          105
+        ],
+        "partial_counts": [
+          228,
+          13
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              570,
+              105
+            ],
+            "total_count": 675,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8081804145219724,
+              0.8763554662578045
+            ],
+            "first_cover_interval_exact": [
+              "45093175163467308145054786949/98706348602569770690905725625",
+              "2868627834008528936589594676703/4896053315753691329835575702715"
+            ],
+            "counting_interval": {
+              "counts": [
+                570,
+                105
+              ],
+              "total_count": 675,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8081804145219724,
+                0.8763554662578045
+              ],
+              "cover": [
+                0.5200847018613449,
+                0.4799152981386551
+              ],
+              "cover_lower": [
+                0.4568416905484976,
+                0.41409383252050297
+              ],
+              "cover_upper": [
+                0.5859061674794971,
+                0.5431583094515025
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333333026410657619856188888726950696451961439689769582771358410449004845",
+                "0.00833333333333317626493090561760260294063393473488821113333690104770642275044615"
+              ],
+              "bound_search_evaluations": [
+                1,
+                2
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              228,
+              13
+            ],
+            "total_count": 241,
+            "used": true,
+            "pollen_probability_interval": [
+              0.9007487871356323,
+              0.9749729201195364
+            ],
+            "first_cover_interval_exact": [
+              "378613714760966167416387864173/586668706066121833719831842729",
+              "16392500299740978964732670969087/18491017279695252854163477039187"
+            ],
+            "counting_interval": {
+              "counts": [
+                228,
+                13
+              ],
+              "total_count": 241,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.9007487871356323,
+                0.9749729201195364
+              ],
+              "cover": [
+                0.7786020048447936,
+                0.22139799515520642
+              ],
+              "cover_lower": [
+                0.6453620430851712,
+                0.11348845486498074
+              ],
+              "cover_upper": [
+                0.8865115451350193,
+                0.3546379569148288
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333331843370402062624613747968506653780089159252929835386816614773939405",
+                "0.00833333333333319479549127444699198362629629709013738543147438745775273067808451"
+              ],
+              "bound_search_evaluations": [
+                2,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            94,
+            675
+          ],
+          "total_count": 769,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.0954301452991062,
+            0.15323945881251616
+          ],
+          "cover": [
+            0.1222366710013004,
+            0.8777633289986996
+          ],
+          "cover_lower": [
+            0.0954301452991062,
+            0.8467605411874838
+          ],
+          "cover_upper": [
+            0.15323945881251616,
+            0.9045698547008938
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333326489455776324587071735699082254055604157521991764066193286369713",
+            "0.0083333333333332944073647643152691480046067037640274894531102637641269736498727180"
+          ],
+          "bound_search_evaluations": [
+            1,
+            2
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.0954301452991062,
+          0.15323945881251616
+        ],
+        "ratio_interval_exact": [
+          "378613714760966167416387864173/586668706066121833719831842729",
+          "2868627834008528936589594676703/4896053315753691329835575702715"
+        ],
+        "status": "empty",
+        "corners": [],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": null,
+        "cover_upper_exact": null,
+        "cover_lower": null,
+        "cover_upper": null,
+        "lower_attained": null,
+        "upper_attained": null,
+        "lower_corner_indices": null,
+        "upper_corner_indices": null,
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            93,
+            13,
+            7
+          ],
+          "original_panel_N": 113,
+          "projected_counts": [
+            93,
+            7
+          ],
+          "projected_panel_N": 100,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 13
+          },
+          "Fraxinus_original_panel_count": 13,
+          "reported_all_pollen_NISP_N": 525,
+          "outside_original_panel_N": 412,
+          "outside_projected_panel_N": 425,
+          "sample_ids": [
+            552424
+          ],
+          "raw_age_bounds_missing": 1,
+          "original_native_support_sha256": "b8f98b7c6677338de627b7b05c967b8d6c893d609416ac73c6b41a56e161cf45",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            151,
+            41
+          ],
+          "original_panel_N": 192,
+          "projected_counts": [
+            151,
+            41
+          ],
+          "projected_panel_N": 192,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4279,
+          "outside_original_panel_N": 4087,
+          "outside_projected_panel_N": 4087,
+          "sample_ids": [
+            552126,
+            552128,
+            552127,
+            552129
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "4b79d06a51e6a578e5c14f4b0f34b71c560734e1b33275245cf5f08639273f98",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          93,
+          13,
+          7
+        ],
+        "partial_counts": [
+          151,
+          41
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              93,
+              7
+            ],
+            "total_count": 100,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8444484399004629,
+              0.9770854905431113
+            ],
+            "first_cover_interval_exact": [
+              "8292553851786874864773573420157/15944389006794405939806737944721",
+              "3198353570323137117024536463417/3574087611841320993749024057533"
+            ],
+            "counting_interval": {
+              "counts": [
+                93,
+                7
+              ],
+              "total_count": 100,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8444484399004629,
+                0.9770854905431113
+              ],
+              "cover": [
+                0.7261936069946482,
+                0.2738063930053518
+              ],
+              "cover_lower": [
+                0.52009229380023,
+                0.10512726108709204
+              ],
+              "cover_upper": [
+                0.894872738912908,
+                0.47990770619976997
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332515268538387177784514066829873999534869259637183747357447296048913",
+                "0.00833333333333329536427103315787202287079435504780032899000632714962218125900129"
+              ],
+              "bound_search_evaluations": [
+                2,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              151,
+              41
+            ],
+            "total_count": 192,
+            "used": true,
+            "pollen_probability_interval": [
+              0.7071400481678238,
+              0.8529151297302247
+            ],
+            "first_cover_interval_exact": [
+              "8917011856694972959829514248799/27334209885903131376995466715699",
+              "10755230656592596554657790870797/20005014267877140867593137070537"
+            ],
+            "counting_interval": {
+              "counts": [
+                151,
+                41
+              ],
+              "total_count": 192,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.7071400481678238,
+                0.8529151297302247
+              ],
+              "cover": [
+                0.4247875092016035,
+                0.5752124907983965
+              ],
+              "cover_lower": [
+                0.3262216794967129,
+                0.4623732573956368
+              ],
+              "cover_upper": [
+                0.5376267426043633,
+                0.6737783205032871
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332518888697286772455235404445418444954767103982836616351856800947420",
+                "0.00833333333333320140420331384814567885294634904701983743523364482912658970631973"
+              ],
+              "bound_search_evaluations": [
+                1,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            13,
+            100
+          ],
+          "total_count": 113,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.054180998476245884,
+            0.20586802155662695
+          ],
+          "cover": [
+            0.11504424778761062,
+            0.8849557522123894
+          ],
+          "cover_lower": [
+            0.054180998476245884,
+            0.794131978443373
+          ],
+          "cover_upper": [
+            0.20586802155662695,
+            0.9458190015237542
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333329619360015004102648659613045035869989098822944004165320006102065",
+            "0.0083333333333332886874002282461613006342911192202693967718419352785869363902584913"
+          ],
+          "bound_search_evaluations": [
+            2,
+            2
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.054180998476245884,
+          0.20586802155662695
+        ],
+        "ratio_interval_exact": [
+          "8292553851786874864773573420157/15944389006794405939806737944721",
+          "10755230656592596554657790870797/20005014267877140867593137070537"
+        ],
+        "status": "nonempty",
+        "corners": [
+          {
+            "shared_cover_ratio": "8292553851786874864773573420157/15944389006794405939806737944721",
+            "complete_only_pollen_probability": "1952076196385459/36028797018963968",
+            "cover": [
+              "549110880326389493216759364886211649067603897264760455756214377/1230281696006945267718462858318764288504001108595649001080950701",
+              "174486624878078302650638697193952538037919531195179230109368320/1230281696006945267718462858318764288504001108595649001080950701",
+              "56298243422497496872340532915400011266497520015078812801707556/136697966222993918635384762035418254278222345399516555675661189"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "10755230656592596554657790870797/20005014267877140867593137070537",
+            "complete_only_pollen_probability": "1952076196385459/36028797018963968",
+            "cover": [
+              "305221197552291423371810427457507936966538232169036206268456893/663681965039621239610757568379509709408417524071641732748669073",
+              "95962442618278130470022869730630055519201577272617326120732120/663681965039621239610757568379509709408417524071641732748669073",
+              "262498324869051685768924271191371716922677714629988200359480060/663681965039621239610757568379509709408417524071641732748669073"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "10755230656592596554657790870797/20005014267877140867593137070537",
+            "complete_only_pollen_probability": "7417177161359411/36028797018963968",
+            "cover": [
+              "256270928247965961455987633466616125326373682901416260014524989/841292984972572181596745752644284031100828528995022562942104849",
+              "364622261699875067560804190041539155821311891721934915502379480/841292984972572181596745752644284031100828528995022562942104849",
+              "220399795024731152579953929136128749953142954371671387425200380/841292984972572181596745752644284031100828528995022562942104849"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "8292553851786874864773573420157/15944389006794405939806737944721",
+            "complete_only_pollen_probability": "7417177161359411/36028797018963968",
+            "cover": [
+              "461046467744733914371291140026074921170991658797839666089279721/1549455982548685421970222071171459153258227860064565486284763693",
+              "662985497904619436938823982350710506710719427869735631747809280/1549455982548685421970222071171459153258227860064565486284763693",
+              "425424016899332070660106948794673725376516773396990188447674692/1549455982548685421970222071171459153258227860064565486284763693"
+            ],
+            "attained": true
+          }
+        ],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": [
+          "461046467744733914371291140026074921170991658797839666089279721/1549455982548685421970222071171459153258227860064565486284763693",
+          "174486624878078302650638697193952538037919531195179230109368320/1230281696006945267718462858318764288504001108595649001080950701",
+          "220399795024731152579953929136128749953142954371671387425200380/841292984972572181596745752644284031100828528995022562942104849"
+        ],
+        "cover_upper_exact": [
+          "305221197552291423371810427457507936966538232169036206268456893/663681965039621239610757568379509709408417524071641732748669073",
+          "364622261699875067560804190041539155821311891721934915502379480/841292984972572181596745752644284031100828528995022562942104849",
+          "56298243422497496872340532915400011266497520015078812801707556/136697966222993918635384762035418254278222345399516555675661189"
+        ],
+        "cover_lower": [
+          0.29755376915345666,
+          0.14182656333455948,
+          0.2619774548957122
+        ],
+        "cover_upper": [
+          0.45989075133911467,
+          0.43340699163414814,
+          0.41184404551168513
+        ],
+        "lower_attained": [
+          true,
+          true,
+          true
+        ],
+        "upper_attained": [
+          true,
+          true,
+          true
+        ],
+        "lower_corner_indices": [
+          3,
+          0,
+          2
+        ],
+        "upper_corner_indices": [
+          1,
+          2,
+          0
+        ],
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            199,
+            36,
+            42
+          ],
+          "original_panel_N": 277,
+          "projected_counts": [
+            199,
+            42
+          ],
+          "projected_panel_N": 241,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 36
+          },
+          "Fraxinus_original_panel_count": 36,
+          "reported_all_pollen_NISP_N": 1039,
+          "outside_original_panel_N": 762,
+          "outside_projected_panel_N": 798,
+          "sample_ids": [
+            552420,
+            552423
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "584319cedffcd1fd129650fefe9e52ed49e83353571c72b62318e778745d928d",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            119,
+            142
+          ],
+          "original_panel_N": 261,
+          "projected_counts": [
+            119,
+            142
+          ],
+          "projected_panel_N": 261,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4250,
+          "outside_original_panel_N": 3989,
+          "outside_projected_panel_N": 3989,
+          "sample_ids": [
+            552130,
+            552131,
+            552132,
+            552133
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "2b56968037f6114ccf6710533616e64cc31f2aaae25a99900242b85958d80039",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          199,
+          36,
+          42
+        ],
+        "partial_counts": [
+          119,
+          142
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              199,
+              42
+            ],
+            "total_count": 241,
+            "used": true,
+            "pollen_probability_interval": [
+              0.7596137725095052,
+              0.8801814352831456
+            ],
+            "first_cover_interval_exact": [
+              "7459470368417698127412665325791/19284461291777004713190616091579",
+              "4321727417892378047123495135197/7268762809682382164567748607345"
+            ],
+            "counting_interval": {
+              "counts": [
+                199,
+                42
+              ],
+              "total_count": 241,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.7596137725095052,
+                0.8801814352831456
+              ],
+              "cover": [
+                0.4860889051137698,
+                0.5139110948862302
+              ],
+              "cover_lower": [
+                0.3868124836652012,
+                0.40543837637189023
+              ],
+              "cover_upper": [
+                0.5945616236281098,
+                0.6131875163347988
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332945328358793851988998171403178309181881978248287317419537606075345",
+                "0.00833333333333318456400678303339679871160230027794201967300242080289514108357904"
+              ],
+              "bound_search_evaluations": [
+                1,
+                3
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              119,
+              142
+            ],
+            "total_count": 261,
+            "used": true,
+            "pollen_probability_interval": [
+              0.3814413986455754,
+              0.5318763156806127
+            ],
+            "first_cover_interval_exact": [
+              "38479704077511767126295465993981/349675992475257119081116962967801",
+              "26827768703003378894218625649147/144584075665906400297137497671327"
+            ],
+            "counting_interval": {
+              "counts": [
+                119,
+                142
+              ],
+              "total_count": 261,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.3814413986455754,
+                0.5318763156806127
+              ],
+              "cover": [
+                0.14386388205052894,
+                0.8561361179494711
+              ],
+              "cover_lower": [
+                0.11004388321063982,
+                0.8144486619329027
+              ],
+              "cover_upper": [
+                0.18555133806709734,
+                0.8899561167893603
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.00833333333333327151562133842101756296600656886985779335609205124925448449954309",
+                "0.0083333333333332726747040851959963970127904454449249506595089702860294272158709624"
+              ],
+              "bound_search_evaluations": [
+                3,
+                5
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            36,
+            241
+          ],
+          "total_count": 277,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.08570940148134959,
+            0.18577732419077916
+          ],
+          "cover": [
+            0.1299638989169675,
+            0.8700361010830325
+          ],
+          "cover_lower": [
+            0.08570940148134959,
+            0.8142226758092208
+          ],
+          "cover_upper": [
+            0.18577732419077916,
+            0.9142905985186505
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333330124921349573186120343253568800289840913196251273235109594435758",
+            "0.0083333333333332995819962557449525376514503538602212852354844376843356769413503626"
+          ],
+          "bound_search_evaluations": [
+            5,
+            1
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.08570940148134959,
+          0.18577732419077916
+        ],
+        "ratio_interval_exact": [
+          "7459470368417698127412665325791/19284461291777004713190616091579",
+          "26827768703003378894218625649147/144584075665906400297137497671327"
+        ],
+        "status": "empty",
+        "corners": [],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": null,
+        "cover_upper_exact": null,
+        "cover_lower": null,
+        "cover_upper": null,
+        "lower_attained": null,
+        "upper_attained": null,
+        "lower_corner_indices": null,
+        "upper_corner_indices": null,
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            705,
+            229,
+            96
+          ],
+          "original_panel_N": 1030,
+          "projected_counts": [
+            705,
+            96
+          ],
+          "projected_panel_N": 801,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 229
+          },
+          "Fraxinus_original_panel_count": 229,
+          "reported_all_pollen_NISP_N": 4019,
+          "outside_original_panel_N": 2989,
+          "outside_projected_panel_N": 3218,
+          "sample_ids": [
+            552427,
+            552426,
+            552425,
+            552428
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "e9bf4472b50210cec10c5523b711f4cf3b699a24465b6bb41e6f301381260456",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            146,
+            151
+          ],
+          "original_panel_N": 297,
+          "projected_counts": [
+            146,
+            151
+          ],
+          "projected_panel_N": 297,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3463,
+          "outside_original_panel_N": 3166,
+          "outside_projected_panel_N": 3166,
+          "sample_ids": [
+            552134,
+            552135,
+            552136
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "449da99d8575fd4b0bc1d0ae8394ed8431af1e5df10aad32459038a7e1acf7e9",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          705,
+          229,
+          96
+        ],
+        "partial_counts": [
+          146,
+          151
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              705,
+              96
+            ],
+            "total_count": 801,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8500469359864782,
+              0.9061995904308435
+            ],
+            "first_cover_interval_exact": [
+              "4173765774287646021985393509865/7861983771219120300583107586861",
+              "1483159213565238695335727523719/2252191757111242356782009277955"
+            ],
+            "counting_interval": {
+              "counts": [
+                705,
+                96
+              ],
+              "total_count": 801,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8500469359864782,
+                0.9061995904308435
+              ],
+              "cover": [
+                0.5944893491285167,
+                0.4055106508714833
+              ],
+              "cover_lower": [
+                0.5308794695769818,
+                0.3414596208860997
+              ],
+              "cover_upper": [
+                0.6585403791139003,
+                0.46912053042301816
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333331353277128764505805681921777070233402087048322024350556178076549689",
+                "0.00833333333333319774296848511941572370441777447898358140834625593561759195295678"
+              ],
+              "bound_search_evaluations": [
+                2,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              146,
+              151
+            ],
+            "total_count": 297,
+            "used": true,
+            "pollen_probability_interval": [
+              0.42098826061828426,
+              0.562418233409859
+            ],
+            "first_cover_interval_exact": [
+              "14156393569426637885483192023183/111256492541331265401557057085603",
+              "28368298860917768600582015475831/138441799847896130607589219866731"
+            ],
+            "counting_interval": {
+              "counts": [
+                146,
+                151
+              ],
+              "total_count": 297,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.42098826061828426,
+                0.562418233409859
+              ],
+              "cover": [
+                0.16239276222962373,
+                0.8376072377703763
+              ],
+              "cover_lower": [
+                0.12724105574483757,
+                0.7950886300807589
+              ],
+              "cover_upper": [
+                0.20491136991924103,
+                0.8727589442551624
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.00833333333333326043109410703636062369557978109332212763852802973485611483069501",
+                "0.0083333333333332443416557555976059691082316937834097404159594145859189567027386977"
+              ],
+              "bound_search_evaluations": [
+                2,
+                2
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            229,
+            801
+          ],
+          "total_count": 1030,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.1920102217654804,
+            0.25493281768828147
+          ],
+          "cover": [
+            0.22233009708737864,
+            0.7776699029126214
+          ],
+          "cover_lower": [
+            0.1920102217654804,
+            0.7450671823117185
+          ],
+          "cover_upper": [
+            0.25493281768828147,
+            0.8079897782345197
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333323672615676811390651676762935443091093030492552333722327990912672",
+            "0.0083333333333331909425192378229087021385535910758972756468658896925251580187871150"
+          ],
+          "bound_search_evaluations": [
+            1,
+            1
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.1920102217654804,
+          0.25493281768828147
+        ],
+        "ratio_interval_exact": [
+          "4173765774287646021985393509865/7861983771219120300583107586861",
+          "28368298860917768600582015475831/138441799847896130607589219866731"
+        ],
+        "status": "empty",
+        "corners": [],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": null,
+        "cover_upper_exact": null,
+        "cover_lower": null,
+        "cover_upper": null,
+        "lower_attained": null,
+        "upper_attained": null,
+        "lower_corner_indices": null,
+        "upper_corner_indices": null,
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1146,
+            198,
+            144
+          ],
+          "original_panel_N": 1488,
+          "projected_counts": [
+            1146,
+            144
+          ],
+          "projected_panel_N": 1290,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 198
+          },
+          "Fraxinus_original_panel_count": 198,
+          "reported_all_pollen_NISP_N": 5065,
+          "outside_original_panel_N": 3577,
+          "outside_projected_panel_N": 3775,
+          "sample_ids": [
+            552429,
+            552430,
+            552431,
+            552433,
+            552432
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "fecd3b2d146e9c715b64c1a3ccc204a5426197a419127792d98d2afd2bbf9b73",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            103,
+            155
+          ],
+          "original_panel_N": 258,
+          "projected_counts": [
+            103,
+            155
+          ],
+          "projected_panel_N": 258,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3086,
+          "outside_original_panel_N": 2828,
+          "outside_projected_panel_N": 2828,
+          "sample_ids": [
+            552139,
+            552137,
+            552138
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "eefafbcb3f09415f1041b32d27a615560fcaa48911adae1169cf07d0557c623a",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          1146,
+          198,
+          144
+        ],
+        "partial_counts": [
+          103,
+          155
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              1146,
+              144
+            ],
+            "total_count": 1290,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8657222027128761,
+              0.9084623359834655
+            ],
+            "first_cover_interval_exact": [
+              "708455330867634108788596385721/1258900667214155140647211464253",
+              "8921175630747777235026301429069/13424062744710391619096423765665"
+            ],
+            "counting_interval": {
+              "counts": [
+                1146,
+                144
+              ],
+              "total_count": 1290,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8657222027128761,
+                0.9084623359834655
+              ],
+              "cover": [
+                0.6137079911294974,
+                0.38629200887050263
+              ],
+              "cover_lower": [
+                0.5627571335198258,
+                0.33543400381802657
+              ],
+              "cover_upper": [
+                0.6645659961819734,
+                0.4372428664801742
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332555463658173539096012114929330348121852597546848675128358090294086",
+                "0.00833333333333325959089024161916462949254415092590016918341212531103739520415186"
+              ],
+              "bound_search_evaluations": [
+                1,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              103,
+              155
+            ],
+            "total_count": 258,
+            "used": true,
+            "pollen_probability_interval": [
+              0.32645657232175684,
+              0.4753277357892399
+            ],
+            "first_cover_interval_exact": [
+              "16466424910490947522559468925231/185895977995037336110769616168131",
+              "4795093211683255371172707820389/31191308685870002951945633424193"
+            ],
+            "counting_interval": {
+              "counts": [
+                103,
+                155
+              ],
+              "total_count": 258,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.32645657232175684,
+                0.4753277357892399
+              ],
+              "cover": [
+                0.11757946308633631,
+                0.8824205369136637
+              ],
+              "cover_lower": [
+                0.08857870454265844,
+                0.8462682903120546
+              ],
+              "cover_upper": [
+                0.15373170968794536,
+                0.9114212954573416
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.00833333333333328749959710905834441067997485975497071676953486654358897457428094",
+                "0.0083333333333332816034563799058304386306063237143810193334835396670407273688088092"
+              ],
+              "bound_search_evaluations": [
+                3,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            198,
+            1290
+          ],
+          "total_count": 1488,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.1127054800195889,
+            0.15551374045893085
+          ],
+          "cover": [
+            0.13306451612903225,
+            0.8669354838709677
+          ],
+          "cover_lower": [
+            0.1127054800195889,
+            0.8444862595410692
+          ],
+          "cover_upper": [
+            0.15551374045893085,
+            0.8872945199804112
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333327287245654989558066044384285593171391571717549750670429392681504",
+            "0.0083333333333332726948515179361750655067144558531562542883493512876659044367178333"
+          ],
+          "bound_search_evaluations": [
+            2,
+            2
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.1127054800195889,
+          0.15551374045893085
+        ],
+        "ratio_interval_exact": [
+          "708455330867634108788596385721/1258900667214155140647211464253",
+          "4795093211683255371172707820389/31191308685870002951945633424193"
+        ],
+        "status": "empty",
+        "corners": [],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": null,
+        "cover_upper_exact": null,
+        "cover_lower": null,
+        "cover_upper": null,
+        "lower_attained": null,
+        "upper_attained": null,
+        "lower_corner_indices": null,
+        "upper_corner_indices": null,
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    },
+    {
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1181,
+            161,
+            97
+          ],
+          "original_panel_N": 1439,
+          "projected_counts": [
+            1181,
+            97
+          ],
+          "projected_panel_N": 1278,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 161
+          },
+          "Fraxinus_original_panel_count": 161,
+          "reported_all_pollen_NISP_N": 5006,
+          "outside_original_panel_N": 3567,
+          "outside_projected_panel_N": 3728,
+          "sample_ids": [
+            552434,
+            552436,
+            552435,
+            552437,
+            552438
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "09b1c93d11de5ed0a99d61e5e835dcc9107f1fa09f7a36bc82334329823e8609",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            455,
+            52
+          ],
+          "original_panel_N": 507,
+          "projected_counts": [
+            455,
+            52
+          ],
+          "projected_panel_N": 507,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 5545,
+          "outside_original_panel_N": 5038,
+          "outside_projected_panel_N": 5038,
+          "sample_ids": [
+            552140,
+            552141,
+            552143,
+            552142,
+            552144
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "b05aa69f49628f9717d52662d1254563c54766a39da5d6c49f4ca64464e71f90",
+          "taxon_measured": [
+            true,
+            true
+          ],
+          "original_taxon_measured": [
+            true,
+            true
+          ],
+          "taxon_measured_on_common_axis": [
+            true,
+            false,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "counting_region": {
+        "confidence_level": 0.95,
+        "marginal_confidence_level": 0.9833333333333334,
+        "guaranteed_joint_confidence_lower_bound": "1069604911500493/1125899906842624",
+        "complete_counts": [
+          1181,
+          161,
+          97
+        ],
+        "partial_counts": [
+          455,
+          52
+        ],
+        "complete_responses": [
+          1.5158342039245476,
+          0.32360516239115994,
+          0.30260467351650416
+        ],
+        "partial_responses": [
+          1.5502938582570158,
+          0.3108596585360142
+        ],
+        "shared_panel_constraints": [
+          {
+            "counts": [
+              1181,
+              97
+            ],
+            "total_count": 1278,
+            "used": true,
+            "pollen_probability_interval": [
+              0.9045507586595726,
+              0.9408153359483623
+            ],
+            "first_cover_interval_exact": [
+              "8882763616382952566155903877699/13578067603949029684544813852975",
+              "9238884778872190388229483323015/12150275013324615510442586411267"
+            ],
+            "counting_interval": {
+              "counts": [
+                1181,
+                97
+              ],
+              "total_count": 1278,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.9045507586595726,
+                0.9408153359483623
+              ],
+              "cover": [
+                0.7085003787859435,
+                0.2914996212140565
+              ],
+              "cover_lower": [
+                0.6541993953395474,
+                0.23961517177674127
+              ],
+              "cover_upper": [
+                0.7603848282232588,
+                0.3458006046604526
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333332673362526705846981668628776201714974174824419733775523662196705451",
+                "0.00833333333333302292782404563955470703962707828368444717438451090649893382093007"
+              ],
+              "bound_search_evaluations": [
+                1,
+                2
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          },
+          {
+            "counts": [
+              455,
+              52
+            ],
+            "total_count": 507,
+            "used": true,
+            "pollen_probability_interval": [
+              0.8608397831889517,
+              0.9272818523237586
+            ],
+            "first_cover_interval_exact": [
+              "43420641064237152045923414550519/78426332416195249268556805204459",
+              "3118131330313857729655606096831/4337612535298833934900614635539"
+            ],
+            "counting_interval": {
+              "counts": [
+                455,
+                52
+              ],
+              "total_count": 507,
+              "confidence_level": 0.9833333333333334,
+              "pollen_probability_interval": [
+                0.8608397831889517,
+                0.9272818523237586
+              ],
+              "cover": [
+                0.6369603782741519,
+                0.36303962172584814
+              ],
+              "cover_lower": [
+                0.5536487519754356,
+                0.28114111047518026
+              ],
+              "cover_upper": [
+                0.7188588895248198,
+                0.4463512480245644
+              ],
+              "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+              "pollen_tail_upper_bounds": [
+                "0.0083333333333331779801222147484258233473533381653812880370608464124144771724716583",
+                "0.00833333333333324837982045567920998606074401843611054597649537249077618490134407"
+              ],
+              "bound_search_evaluations": [
+                2,
+                1
+              ],
+              "numerical_certification": "directed-decimal-tail-and-rational-transform",
+              "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+            }
+          }
+        ],
+        "complete_only_counting": {
+          "counts": [
+            161,
+            1278
+          ],
+          "total_count": 1439,
+          "confidence_level": 0.9833333333333334,
+          "pollen_probability_interval": [
+            0.0927939889290283,
+            0.13326303753698807
+          ],
+          "cover": [
+            0.11188325225851285,
+            0.8881167477414872
+          ],
+          "cover_lower": [
+            0.0927939889290283,
+            0.8667369624630119
+          ],
+          "cover_upper": [
+            0.13326303753698807,
+            0.9072060110709718
+          ],
+          "tail_target_lower_bound": "0.008333333333333303727386009995825588703155517578125",
+          "pollen_tail_upper_bounds": [
+            "0.00833333333333330136854358066393461140704513873141535599130397287237237467090543",
+            "0.0083333333333332913717590762237155088296977971159111632923314755132890053328774574"
+          ],
+          "bound_search_evaluations": [
+            5,
+            1
+          ],
+          "numerical_certification": "directed-decimal-tail-and-rational-transform",
+          "profile": "fixed-two-taxon-binomial-equal-tail-v1"
+        },
+        "complete_only_probability_interval": [
+          0.0927939889290283,
+          0.13326303753698807
+        ],
+        "ratio_interval_exact": [
+          "8882763616382952566155903877699/13578067603949029684544813852975",
+          "3118131330313857729655606096831/4337612535298833934900614635539"
+        ],
+        "status": "nonempty",
+        "corners": [
+          {
+            "shared_cover_ratio": "8882763616382952566155903877699/13578067603949029684544813852975",
+            "complete_only_pollen_probability": "6686511583407901/72057594037927936",
+            "cover": [
+              "32238860968964084219839408700669082020241314520208470809961971/66356293860632975591623538421718047481147947466268046286399903",
+              "17076424147162464174512901897669960413000463610671843013296128/66356293860632975591623538421718047481147947466268046286399903",
+              "17041008744506427197271227823379005047906169335387732463141804/66356293860632975591623538421718047481147947466268046286399903"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "3118131330313857729655606096831/4337612535298833934900614635539",
+            "complete_only_pollen_probability": "6686511583407901/72057594037927936",
+            "cover": [
+              "11316861146181565048672054477287406205944529371058003501188399/21588352824503478183102198917288249282932841692525368962749579",
+              "5845539720164963195423698881329357098280977528147967515618248/21588352824503478183102198917288249282932841692525368962749579",
+              "4425951958156949939006445558671485978707334793319397945942932/21588352824503478183102198917288249282932841692525368962749579"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "3118131330313857729655606096831/4337612535298833934900614635539",
+            "complete_only_pollen_probability": "4801306929550719/36028797018963968",
+            "cover": [
+              "81090251839913192198953476483735229690109808457866803930525579/175765728469203026970075743998564884959577217465144012908105431",
+              "62961598171091963571630762013669761620697291875779423658632680/175765728469203026970075743998564884959577217465144012908105431",
+              "31713878458197871199491505501159893648770117131497785318947172/175765728469203026970075743998564884959577217465144012908105431"
+            ],
+            "attained": true
+          },
+          {
+            "shared_cover_ratio": "8882763616382952566155903877699/13578067603949029684544813852975",
+            "complete_only_pollen_probability": "4801306929550719/36028797018963968",
+            "cover": [
+              "231005516568286690261875300156592291697413150628598025929428191/537039875442780359730109433428039199508171678735030924549197755",
+              "36785617986440899001255113719467229101717506052009656577949696/107407975088556071946021886685607839901634335747006184909839551",
+              "122106268942289174461958564674110762302170997846384615730021084/537039875442780359730109433428039199508171678735030924549197755"
+            ],
+            "attained": true
+          }
+        ],
+        "excluded_complete_only_vertex": false,
+        "cover_lower_exact": [
+          "231005516568286690261875300156592291697413150628598025929428191/537039875442780359730109433428039199508171678735030924549197755",
+          "17076424147162464174512901897669960413000463610671843013296128/66356293860632975591623538421718047481147947466268046286399903",
+          "31713878458197871199491505501159893648770117131497785318947172/175765728469203026970075743998564884959577217465144012908105431"
+        ],
+        "cover_upper_exact": [
+          "11316861146181565048672054477287406205944529371058003501188399/21588352824503478183102198917288249282932841692525368962749579",
+          "62961598171091963571630762013669761620697291875779423658632680/175765728469203026970075743998564884959577217465144012908105431",
+          "17041008744506427197271227823379005047906169335387732463141804/66356293860632975591623538421718047481147947466268046286399903"
+        ],
+        "cover_lower": [
+          0.43014592981168576,
+          0.25734445300739356,
+          0.180432663036211
+        ],
+        "cover_upper": [
+          0.5242114226212091,
+          0.35821316657942137,
+          0.2568107372044825
+        ],
+        "lower_attained": [
+          true,
+          true,
+          true
+        ],
+        "upper_attained": [
+          true,
+          true,
+          true
+        ],
+        "lower_corner_indices": [
+          3,
+          0,
+          2
+        ],
+        "upper_corner_indices": [
+          1,
+          2,
+          0
+        ],
+        "no_count_information": false,
+        "numerical_certification": "directed-binomial-tails-exact-rational-polygon",
+        "profile": "three-two-measured-panel-joint-counting-region-v1"
+      }
+    }
+  ],
+  "status_counts": {
+    "computed": 13
+  },
+  "region_status_counts": {
+    "nonempty": 7,
+    "empty": 6
+  },
+  "new_point_fits": 0,
+  "new_kernel_evaluations": 0,
+  "common_field_cover_admitted": false,
+  "sampling_calibration_established": false,
+  "raw_redistribution_authorized": false,
+  "development_exposed": true,
+  "limits": [
+    "New per-declared-window joint 95% relative-cover region conditional on one common three-taxon cover, fixed positive original site responses, a BOKE three-taxon multinomial and a BUS Betula/Ulmus binomial. BUS Fraxinus is unmeasured, not zero or predicted.",
+    "The original full-panel sample eligibility, calibrated point-age windows, source exclusions and full measured-panel efforts are fixed. No successful point fit or positive BOKE Betula/Ulmus subtotal is required. A random zero subtotal gives an uninformative conditional Betula/Ulmus constraint rather than dropping that window.",
+    "Three separately budgeted certified binomial intervals give the stated Bonferroni bound without independence between sites or the BOKE conditional and Fraxinus constraints. Coverage of the conditional Betula/Ulmus interval holds for each random subtotal and hence by averaging. Pooled native samples are not established homogeneous independent trials; no sampling calibration or common field cover is validated.",
+    "The joint region is the exact transformed/intersected constraint set, not the Cartesian product of its coordinate envelopes. Exact rational closure corners and endpoint-attainment flags distinguish attained bounds from limiting infima/suprema. The Fraxinus-only vertex is excluded because the BUS conditional pollen distribution is undefined there.",
+    "These are thirteen separate conditional regions, not a simultaneous study-wide band, posterior, predictive interval or untouched confirmation. The same cores and previous compatibility outcomes were exposed during development. No MLE-containment or model-selection guarantee is imposed.",
+    "PPE, saved non-rigorous receiver-annulus quadrature, geometry, chronology, measurement error, within-window heterogeneity and between-site/model uncertainty remain fixed or omitted. Source rights and original basin/chronology limitations persist; this calculation authorizes no raw redistribution and makes no historical-reproduction or vegetation-accuracy claim.",
+    "Six unmatched BUS windows retain their native counts and support but receive no two-site joint region. Refused and empty results remain explicit; no pseudocount, taxon imputation, refit or new kernel calculation is used."
+  ]
+}

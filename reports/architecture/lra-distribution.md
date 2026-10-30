@@ -78,6 +78,20 @@ requesting tighter solver stopping tolerances. This point-fit package check
 adds no uncertainty, real-cohort, historical-method or release qualification;
 the shared development environment and earlier R results were not rerun.
 
+At `d30a0ee545abc3a35514e0a9c9f4698c1686e8c1`, engine version
+`0.1.9.dev1821`, the direct wheel, source archive and independently rebuilt
+wheel passed three checks of the exact new measured-panel counting module
+bytes. The two existing private environments installed the corresponding
+engine wheels with `--no-deps`, passed dependency checks and ran isolated
+joint-region probes from their own `site-packages`. Both probes checked exact
+binomial tails, inverses, corners and coordinate extrema, zero projected
+Betula/Ulmus effort, the excluded pure-Fraxinus limit, empty regions and four
+input refusals. All eight commands passed in 9.10 seconds with 4.14 MB of
+outputs. Builds used temporary PEP 517 isolation and the existing offline
+backend cache; the shared scientific environment, host and facade were
+unchanged. This qualifies the installed mathematical API without rerunning R
+or a real cohort, and grants no hosted or complete release qualification.
+
 ## Public index check on 30 September 2026
 
 We checked the official PyPI [host project](https://pypi.org/project/bijux-pollenomics/)

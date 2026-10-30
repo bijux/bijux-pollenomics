@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "9c12fb0ec2b14e9d8717c78913371a09472bbf55a56419337ad20754707fa00b",
-      "bytes": 7386434
+      "sha256": "beb98c2c2bf992872b28c15a57268f30a9793ebe7de66eeebae4aa4d43e46763",
+      "bytes": 7386800
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5318,6 +5318,16 @@
       "path": "reports/science/pollen-reconstruction/common-cover/counting-sets.json",
       "sha256": "87628271482d4bbe6a2a0fb4291c99e7d4f4f11a9e5441bd194d7bce90f384e2",
       "bytes": 108286
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/common-cover/measured-panels.json",
+      "sha256": "73880237ec4f68f580574114f76a17d7041418a9fceabd030d66cc346f6ee547",
+      "bytes": 63011
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/common-cover/measured-panel-counting-regions.json",
+      "sha256": "054adbcfeaa9703bdd838597d180775165cd0ab8932618f5698877b56319ce05",
+      "bytes": 163181
     }
   ],
   "maintained_paths": [
@@ -5581,6 +5591,8 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/cohort.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/counting.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/measured_panel_counting.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/measured_panels.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/producer.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__main__.py",
@@ -6114,6 +6126,7 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/homogeneous_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/measured_panel_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/multisite_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/regional_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",

@@ -285,6 +285,143 @@ model uncertainty remain omitted. The seven empty sets do not qualify a field
 rejection, and the six nonempty sets do not admit common historical cover,
 source rights or ecological accuracy.
 
+## Retaining measured Fraxinus with different site panels
+
+A separate [analytical three-/two-taxon result](pollen-reconstruction/common-cover/measured-panels.json)
+retains BOKE's measured **Betula/Fraxinus/Ulmus** panel while conditioning BUS
+on its measured **Betula/Ulmus** panel. BUS Fraxinus remains unmeasured and its
+predicted cell is null. We retain 1,367 BOKE Fraxinus grains in this new
+estimand: 14,994 measured grains instead of the projected 13,627, from the same
+93 matched samples and 13 windows. The original two-taxon result is unchanged.
+
+Let `r` be the existing fitted Betula share of Betula plus Ulmus cover and
+`A = a_B*r + a_U*(1-r)` for BOKE. With its measured Fraxinus count `n_F` and
+Betula/Ulmus total `n_BU`, set `s = (n_F/n_BU)*A/a_F`. The relative cover on
+Betula/Fraxinus/Ulmus is `(r, s, 1-r)/(1+s)`. The original saved Fraxinus
+response is `a_F = 1.044 * 0.3099666306428735 = 0.32360516239115994`.
+Its literal fall speed is 0.022 m/s and PPE SD is 0.048; those source values
+are retained, and their uncertainty is not propagated. No new kernel is run.
+
+The BOKE likelihood factors into its conditional Betula/Ulmus term and a
+Fraxinus-versus-remainder binomial. The free Fraxinus coordinate maximizes the
+second term at its empirical proportion for every `r`. Consequently the
+profiled ratio and deviance remain the existing two-taxon result. Adding the
+grains does not improve that cross-site fit or provide independent Fraxinus
+confirmation: BOKE is the only measured Fraxinus source. Its conditional
+three-taxon cover ranges from 0.089022 to 0.441264 across these windows.
+Full raw NLL and its per-grain mean use the larger denominator; comparing them
+with the projected NLL as an improvement would compare different outcomes.
+
+The actual consumer completed at `1749da7f8` with exit zero in 1.55 seconds
+and 63,011 bytes: 13 analytical coordinate estimates reusing the original
+13 Betula/Ulmus fits, with zero new optimizer, kernel or count-tail runs.
+Reproduce with a fresh output path:
+
+```sh
+mkdir -p artifacts/science/common-cover-measured-panels
+.venv/bin/python -B -m bijux_pollenomics_dev.essd_reproduction.common_cover.measured_panels \
+  --repository "$PWD" --output "$PWD/artifacts/science/common-cover-measured-panels/report.json"
+```
+
+Forty-four focused source, domain, mathematical and CLI tests pass, with
+configured lint/types. Independent 70-digit Decimal arithmetic solves the
+original Betula/Ulmus quadratic, derives all three coordinates and evaluates
+both measured panels' full multinomial likelihoods. Maximum cover,
+probability, per-grain NLL and deviance differences are 2.15e-13, 1.13e-13,
+1.13e-16 and 7.01e-13, below the predeclared 1e-9, 1e-9, 1e-12 and 1e-8
+bounds. The full likelihood factorization agrees within 2.28e-13; raw deviance
+agrees with the earlier result within 6.83e-13. Native support, original
+source pins and missing BUS Fraxinus remain unchanged.
+
+Conditioning on the measured panels assumes a suitable count/reporting model;
+selective reporting or heterogeneous pooled samples are not validated here.
+That analytical point calculation supplies no joint three-taxon interval;
+the separate count procedure below uses newly budgeted marginals and does
+not select on point-fit success or positive projected effort. Chronology,
+static basins, common field cover, source rights, historical reproduction
+and ecological review remain unqualified.
+
+### Joint count regions for the measured panels
+
+The [joint three-coordinate result](pollen-reconstruction/common-cover/measured-panel-counting-regions.json)
+retains the same 93 matched samples and 14,994 measured grains, including
+1,367 BOKE Fraxinus grains. BUS Fraxinus remains unmeasured, not zero.
+It evaluates the original full-panel cohort directly, with **zero new fits
+or kernels** and no selection on a successful point fit or positive
+Betula/Ulmus subtotal. All six unmatched windows retain their 17 BUS samples.
+
+Three equal-tail Clopper–Pearson marginals constrain each composition:
+BOKE Betula conditional on Betula+Ulmus, BOKE Fraxinus versus its measured
+remainder, and BUS Betula conditional on Betula+Ulmus. For desired per-window
+coverage `C`, upward binary64 rounding chooses `m >= (2+C)/3`, so the
+Bonferroni lower guarantee is `3*m-2 >= C`. Here each marginal uses
+`0.9833333333333334`, rather than the earlier two-marginal `0.975`.
+The marginals need not be independent. Conditional BOKE coverage holds for
+each random Betula+Ulmus subtotal; averaging over that subtotal preserves
+the marginal guarantee. A zero subtotal contributes an uninformative
+`[0,1]` conditional constraint and is retained; it is not missing data or
+grounds to drop a window.
+
+The exact joint region lies in the Betula/Fraxinus/Ulmus simplex and satisfies
+all three constraints under the fixed responses. Its coordinate minima and
+maxima below summarize projections of that region: **their Cartesian box is
+not the joint region**. The model fixes positive Betula+Ulmus cover before
+observing counts, including zero-effort or all-zero designs. Pure Fraxinus
+is outside that declared nested-panel domain because BUS's conditional
+probability would be undefined. A limiting coordinate bound can therefore
+be unattained; all bounds in these seven actual nonempty regions are attained.
+The numerical result retains exact rational corners, endpoint attainment,
+outward machine bounds and all marginal tail certificates. The table is
+rounded to six decimals for reading.
+
+| CalBP window, older bound excluded | Betula coordinate range | Fraxinus coordinate range | Ulmus coordinate range |
+| --- | --- | --- | --- |
+| 0–100 | 0.634421–0.769137 | 0.033751–0.171940 | 0.168147–0.230238 |
+| 100–350 | 0.632686–0.754541 | 0.084861–0.206764 | 0.137366–0.190064 |
+| 350–700 | 0.698388–0.883475 | 0.052629–0.185382 | 0.051595–0.146802 |
+| 700–1200 | 0.532716–0.621817 | 0.232328–0.326845 | 0.123923–0.166197 |
+| 1200–1700 | 0.375597–0.469916 | 0.291019–0.404427 | 0.192276–0.274388 |
+| 3200–3700 | 0.297554–0.459891 | 0.141827–0.433407 | 0.261977–0.411844 |
+| 5200–5700 | 0.430146–0.524211 | 0.257344–0.358213 | 0.180433–0.256811 |
+
+**Six regions remain empty:** 1700–2200, 2200–2700, 2700–3200,
+3700–4200, 4200–4700 and 4700–5200 CalBP. Their physical coordinate bounds
+remain null. The 3200–3700 window was empty under the earlier projected
+two-marginal procedure and is now nonempty because the three-way confidence
+budget widens its Betula/Ulmus marginal constraints. All 26 new shared-panel
+pollen intervals enclose their earlier counterparts. No input or support
+changed. This extra nonempty window is not evidence of independent Fraxinus
+confirmation, model success or a precision gain. Neither empty regions nor
+point estimates are repaired to force containment.
+
+The consumer completed at `84154c94c7c1c1842c7a9b5a7b6ed5eccaebf458`
+with exit zero in 1.694 seconds and 163,181 output bytes: 13 computed regions,
+seven nonempty and six empty, reusing nine original scientific input pins.
+Reproduce from the repository root with a fresh output path:
+
+```sh
+mkdir -p artifacts/science/measured-panel-counting
+.venv/bin/python -B -m bijux_pollenomics_dev.essd_reproduction.common_cover.measured_panel_counting \
+  --repository "$PWD" --output "$PWD/artifacts/science/measured-panel-counting/report.json"
+```
+
+The mathematical contract passes 37 focused checks; the consumer and its
+dependencies pass 115 checks, comprising 24 new and 91 existing cases, with
+configured lint/types. Independent 110-digit Decimal sums confirm all 78
+binomial tail inequalities; the smallest target-minus-tail margin is
+3.7120e-19. Independent exact arithmetic confirms 26 shared-panel inverses,
+13 intersections and all 28 nonempty-region corners, half-spaces and extrema,
+alongside native counts, ages, units, masks and literal PPE values.
+
+These are conditional per-window count regions, not a simultaneous
+13-window band, posterior, predictive interval or guarantee after model
+selection. The sources remain exposed development evidence; pooling does
+not establish homogeneous multinomial sampling or validate selective
+reporting. PPE, saved quadrature, geometry and chronology remain fixed;
+between-site heterogeneity and model uncertainty are not propagated. Empty
+regions do not establish field rejection, and nonempty regions do not admit
+common historical cover, whole vegetation, ecological accuracy or rights.
+
 ## Uncertainty and refusal rules
 
 In our [fixed-site covariance example](../../docs/report/method-certification/fixed-site-covariance/README.md),
@@ -313,11 +450,11 @@ register names the fields still preventing LRA use.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Current method-use rules distinguish observed pollen, modeled cover and independent vegetation targets. A separate fixed-response common-cover comparison accounts for 13 fitted BOKE/BUS windows and six unmatched windows on an explicitly projected Betula/Ulmus axis. A distinct per-window conditional count calculation retains six nonempty and seven empty two-site common-cover sets.
+**Supported claim.** Current method-use rules distinguish observed pollen, modeled cover and independent vegetation targets. A separate fixed-response common-cover comparison accounts for 13 fitted BOKE/BUS windows and six unmatched windows on an explicitly projected Betula/Ulmus axis. A distinct per-window conditional count calculation retains six nonempty and seven empty two-site common-cover sets. A declared BOKE3/BUS2 analytical profile retains all 1367 measured Fraxinus grains with BUS Fraxinus null; its profiled B/U fit and deviance remain unchanged. A separate count-only BOKE3/BUS2 procedure retains seven nonempty and six empty exact joint regions with nominal 95% conditional coverage per window, using three newly budgeted marginals and no point-fit or positive-projected-effort selection. Coordinate ranges summarize the region rather than define an independent box.
 
 **Unsupported claim.** A universal LRA parameter winner or Nordic measured-vegetation accuracy.
 
-**Actual verification performed.** Retained studies are synthesized. The distinct common-cover consumer ran at 025fe2da3 with exit 0 in 1.33 s; all 13 fits converged. Twenty-one focused tests, lint/types and independent review pass. Independent native joins confirm 121 samples, 11 exclusions and 110 retained samples; 60-digit quadratic arithmetic confirms cover, probabilities, per-grain NLL and deviance with maximum residuals 2.89e-13, 1.13e-13, 1.38e-16 and 2.87e-13 at frozen 1e-9, 1e-9, 1e-12 and 1e-8 bounds. The count-only consumer ran at d6c7b9de1 with exit 0 in 1.72 s, without refitting. Its mathematical contract passes 42 cases and its consumer 19; lint/types and independent review pass. Independent rational arithmetic confirms 26 site inverses and 13 intersections; 110-digit positive-term sums confirm all 52 binomial tail inequalities, with minimum target margin 5.74e-18.
+**Actual verification performed.** Retained studies are synthesized. The distinct common-cover consumer ran at 025fe2da3 with exit 0 in 1.33 s; all 13 fits converged. Twenty-one focused tests, lint/types and independent review pass. Independent native joins confirm 121 samples, 11 exclusions and 110 retained samples; 60-digit quadratic arithmetic confirms cover, probabilities, per-grain NLL and deviance with maximum residuals 2.89e-13, 1.13e-13, 1.38e-16 and 2.87e-13 at frozen 1e-9, 1e-9, 1e-12 and 1e-8 bounds. The count-only consumer ran at d6c7b9de1 with exit 0 in 1.72 s, without refitting. Its mathematical contract passes 42 cases and its consumer 19; lint/types and independent review pass. Independent rational arithmetic confirms 26 site inverses and 13 intersections; 110-digit positive-term sums confirm all 52 binomial tail inequalities, with minimum target margin 5.74e-18. The measured-panel consumer ran at 1749da7f8 with exit 0 in 1.55 s, 63011 bytes and 13 analytic coordinate estimates. Forty-four focused tests and configured lint/types pass. Independent Decimal70 quadratic/full likelihood checks confirm all 13 compositions, masks, count totals and deviance at the predeclared bounds; maximum cover/probability/mean-NLL/deviance gaps 2.15e-13/1.13e-13/1.13e-16/7.01e-13. The joint measured-panel count consumer ran at 84154c94c with exit 0 in 1.694 s and 163181 bytes, with zero fits or kernels. The mathematical contract passes 37 checks and the consumer/dependencies 115 (24 new, 91 existing), with configured lint/types. Independent Decimal110 sums confirm all 78 tails (minimum target margin 3.7120e-19); exact arithmetic confirms 26 inverses, 13 intersections, all 28 nonempty-region corners, half-spaces and coordinate extrema, plus native counts, ages, units, masks and literal PPE.
 
 **Remaining input or review.** No admitted Nordic LRA core or measured-cover pair supports ecological ranking; available scores use different pollen axes, exposed cohorts and conditional basin/transport assumptions. Resolver: Core/reference owners and qualified landscape/palynology reviewer Reopen when: A same-site/time/taxon LRA input and independent reference plus a newly frozen cohort support declared model comparison.
 
@@ -327,11 +464,11 @@ register names the fields still preventing LRA use.
 
 **Precise next acceptance route.** A same-site/time/taxon LRA input and independent reference plus a newly frozen cohort support declared model comparison. Record the accepted evidence in this scientific account.
 
-**Negative or refused result.** Zero admitted Nordic LRA cores and zero independent Nordic measured-cover pairs in current scope. Six unmatched BUS windows remain. Conditional fitted deviance reaches 268.599; the objective gain over geometry-correct-then-pool is only 0.000174–0.015331, without out-of-sample interpretation. Seven count-set intersections are empty. The first two nonempty sets exclude the joint MLE; both outcomes remain explicit.
+**Negative or refused result.** Zero admitted Nordic LRA cores and zero independent Nordic measured-cover pairs in current scope. Six unmatched BUS windows remain. Conditional fitted deviance reaches 268.599; the objective gain over geometry-correct-then-pool is only 0.000174–0.015331, without out-of-sample interpretation. Seven count-set intersections are empty. The first two nonempty sets exclude the joint MLE; both outcomes remain explicit. The analytical measured-panel point profile alone adds no cross-site Fraxinus confirmation, independent accuracy or joint three-taxon uncertainty. The separate joint count calculation retains six empty regions. The 3200-3700 CalBP region becomes nonempty solely because the three-marginal budget (0.9833333333333334 rather than 0.975) widens the shared-panel constraints; all 26 new pollen intervals enclose the old ones. This is not evidence of model success, precision gain or independent Fraxinus confirmation; per-window coverage does not imply a 13-window, postselection or calibrated field guarantee.
 
-**Matched denominator.** English 15 outer source sites versus Nordic country/lake pollen cohorts on separate 30, 31 and 16-taxon axes. Separate common-cover study: 13 windows, two distinct places, 93 matched samples and 13,627 projected grains; 17 other retained BUS samples in six unmatched windows. Original full-panel exclusions and 1,367 discarded Fraxinus grains remain explicit. Count sets use the same 13 windows and 26 site count rows; nominal 95% coverage applies per window under the declared binomial marginals, without a simultaneous 13-window claim.
+**Matched denominator.** English 15 outer source sites versus Nordic country/lake pollen cohorts on separate 30, 31 and 16-taxon axes. Separate common-cover study: 13 windows, two distinct places, 93 matched samples and 13,627 projected grains; 17 other retained BUS samples in six unmatched windows. Original full-panel exclusions and 1,367 discarded Fraxinus grains remain explicit. Count sets use the same 13 windows and 26 site count rows; nominal 95% coverage applies per window under the declared binomial marginals, without a simultaneous 13-window claim. The separate BOKE3/BUS2 profile uses the same 93 matched samples and 13 windows, retaining 14994 measured grains including 1367 BOKE Fraxinus; BUS Fraxinus stays unmeasured. The joint count result reuses those 93 samples, 14994 measured grains, nine original scientific pins and all six unmatched windows/17 BUS samples. Three CP marginals use upward-rounded m with 3*m-2 >= 0.95. The positive B+U model domain is fixed even for zero-effort designs; BUS Fraxinus remains null, zero projected B+U gives an uninformative constraint, and pure Fraxinus is outside the declared domain.
 
-Retained evidence: [reports/science/pollen-prediction.md](pollen-prediction.md), [reports/science/vegetation-reference.md](vegetation-reference.md), [reports/science/pollen-reconstruction/common-cover/report.json](pollen-reconstruction/common-cover/report.json), [reports/science/pollen-reconstruction/common-cover/counting-sets.json](pollen-reconstruction/common-cover/counting-sets.json).
+Retained evidence: [reports/science/pollen-prediction.md](pollen-prediction.md), [reports/science/vegetation-reference.md](vegetation-reference.md), [reports/science/pollen-reconstruction/common-cover/report.json](pollen-reconstruction/common-cover/report.json), [reports/science/pollen-reconstruction/common-cover/counting-sets.json](pollen-reconstruction/common-cover/counting-sets.json), [reports/science/pollen-reconstruction/common-cover/measured-panels.json](pollen-reconstruction/common-cover/measured-panels.json), [reports/science/pollen-reconstruction/common-cover/measured-panel-counting-regions.json](pollen-reconstruction/common-cover/measured-panel-counting-regions.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
