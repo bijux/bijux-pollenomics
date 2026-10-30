@@ -99,6 +99,7 @@ let visiblePointEntries=supplied.features.map(feature=>({layer:{key:'points'},fe
 const COUNTRIES=['Norway','Sweden'],DEFAULT_LAYER_KEYS=['points'],DEFAULT_SCIENTIFIC_SIGNAL_IDS=[supplied.edge.signal_id];
 const activeCountries=new Set(['Norway']),activeScientificSignalIds=new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
 let activeLayerKeys=new Set(DEFAULT_LAYER_KEYS),activeCountryPair='all',crossBorderOnly=true;
+let activeEvidenceDisplay=resetEvidenceDisplay();
 const activeAnimalSpecies='all',activeAnimalScope='all',activeAnimalConfidence='all',activeAnimalTemporalWindow='all',animalNordicOnly=false;
 const activeSourceChronologyLevel='none',sourceRecordConcentrationActive=false;
 function sourceChronologyLayerForLevel(){return null}

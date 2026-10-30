@@ -2278,6 +2278,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                   <span id="relation-summary" role="status" aria-live="polite" aria-atomic="true" class="control-group-summary">Checking governed candidates</span>
                 </summary>
                 <div class="control-group-body">
+                  <div id="evidence-display-controls"></div>
                   <label class="field-label" for="country-pair-filter"><span>Country pair</span><span>Direction-neutral</span></label>
                   <select id="country-pair-filter" class="search-input" aria-label="Filter candidate relations by country pair"></select>
                   <label class="field-label" for="relation-scenario-filter">Retained scenario</label>
@@ -3485,6 +3486,7 @@ __URL_STATE_CONTROLLER__
           scientificSignals: params.get('scientific_signals'),
           countryPair: params.get('country_pair'),
           relationFilters: relationFiltersFromHash(params),
+          evidenceDisplay: evidenceDisplayFromHash(params),
           crossBorder: params.get('cross_border'),
           animalSpecies: params.get('animal_species'),
           animalScope: params.get('animal_scope'),
@@ -4783,6 +4785,7 @@ __URL_STATE_CONTROLLER__
         SCIENTIFIC_SIGNAL_IDS,
         DEFAULT_SCIENTIFIC_SIGNAL_IDS
       );
+      let activeEvidenceDisplay = initialState.evidenceDisplay;
       const COUNTRY_PAIR_KEYS = Array.from(new Set(GOVERNED_EDGE_RECORDS.map((edge) => atlasCountryPairKey(edge.source_country, edge.target_country)))).sort();
       let activeCountryPair = normalizedSingleValue(initialState.countryPair, ['all', ...COUNTRY_PAIR_KEYS], 'all');
       let crossBorderOnly = initialState.crossBorder === 'only';
@@ -5289,6 +5292,7 @@ __URL_STATE_CONTROLLER__
         if (activeScientificSignalIds.size !== DEFAULT_SCIENTIFIC_SIGNAL_IDS.length || DEFAULT_SCIENTIFIC_SIGNAL_IDS.some((signalId) => !activeScientificSignalIds.has(signalId))) params.set('scientific_signals', activeScientificSignalIds.size ? [...activeScientificSignalIds].join(',') : 'none');
         if (activeCountryPair !== 'all') params.set('country_pair', activeCountryPair);
         writeRelationFilterHash(params, activeRelationFilters);
+        writeEvidenceDisplayHash(params, activeEvidenceDisplay);
         if (crossBorderOnly) params.set('cross_border', 'only');
         if (activeAnimalSpecies !== 'all') params.set('animal_species', activeAnimalSpecies);
         if (activeAnimalScope !== 'all') params.set('animal_scope', activeAnimalScope);
@@ -6830,7 +6834,7 @@ __URL_STATE_CONTROLLER__
             siteLayer.addLayer(marker);
             visiblePointEntries.push(entry);
           });
-          if (siteLayer.getLayers().length > 0) {
+          if (evidenceDisplayDecision(activeEvidenceDisplay).drawNodes && siteLayer.getLayers().length > 0) {
             siteLayer.addTo(map);
             renderedPointGroups.push(siteLayer);
           }
@@ -6892,13 +6896,13 @@ __URL_STATE_CONTROLLER__
             });
             if (neighborContext) neighborGroup.addLayer(marker); else clusterGroup.addLayer(marker);
             visiblePointEntries.push(entry);
-            if (!neighborContext && layer.circle_enabled && diameterKm > 0) {
+            if (evidenceDisplayDecision(activeEvidenceDisplay).drawNodes && !neighborContext && layer.circle_enabled && diameterKm > 0) {
               const circle = L.circle(latLng, { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
               circleLayerGroup.addLayer(circle);
             }
           });
-          if (clusterGroup.getLayers().length > 0) { clusterGroup.addTo(map); renderedPointGroups.push(clusterGroup); }
-          if (neighborGroup.getLayers().length > 0) { neighborGroup.addTo(map); renderedPointGroups.push(neighborGroup); }
+          if (evidenceDisplayDecision(activeEvidenceDisplay).drawNodes && clusterGroup.getLayers().length > 0) { clusterGroup.addTo(map); renderedPointGroups.push(clusterGroup); }
+          if (evidenceDisplayDecision(activeEvidenceDisplay).drawNodes && neighborGroup.getLayers().length > 0) { neighborGroup.addTo(map); renderedPointGroups.push(neighborGroup); }
         });
       }
       function scientificSignalById(signalId) {
@@ -6946,6 +6950,23 @@ __URL_STATE_CONTROLLER__
       }
       let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
       __EDGE_DISPLAY_CONTROLLER__
+      __EVIDENCE_DISPLAY_CONTROLLER__
+      function renderEvidenceDisplayPanel() {
+        const container = document.getElementById('evidence-display-controls');
+        const decision = evidenceDisplayDecision(activeEvidenceDisplay);
+        container.innerHTML = renderEvidenceDisplayControls(activeEvidenceDisplay);
+        container.querySelector('#evidence-display-mode').addEventListener('change', event => {
+          activeEvidenceDisplay = evidenceDisplayState([event.target.value]);
+          renderMapState();
+        });
+        const mapElement = document.getElementById('map');
+        mapElement.dataset.evidenceDisplayMode = decision.mode || 'unavailable';
+        mapElement.dataset.evidenceDisplayStatus = decision.status;
+        mapElement.dataset.drawingEnabledPointCount = String(decision.drawNodes ? visiblePointEntries.length : 0);
+        topbarStatePill.setAttribute('role', decision.status === 'unavailable' ? 'alert' : 'status');
+        if (decision.status === 'unavailable') topbarStatePill.textContent = decision.reason;
+        else if (decision.mode !== 'both') topbarStatePill.textContent = `${visiblePointEntries.length} display-eligible point entries · Drawing ${decision.mode} only`;
+      }
       /* atlas-evidence-tools:begin */
       __RELATION_SUMMARY_CONTROLLER__
       __RELATION_TIME_SUMMARY_CONTROLLER__
@@ -7135,7 +7156,9 @@ __URL_STATE_CONTROLLER__
           map._loaded ? map.getZoom() : 0, featureCoordinatePair,
           map._loaded ? (coordinates) => atlasEdgeIntersectsViewport(map, coordinates) : null
         );
-        edgeRenderSummary = { shown: selection.rows.length, viewport_count: selection.viewport_count, limit: selection.limit };
+        const drawEdges = evidenceDisplayDecision(activeEvidenceDisplay).drawEdges;
+        edgeRenderSummary = { shown: drawEdges ? selection.rows.length : 0, viewport_count: selection.viewport_count, limit: selection.limit };
+        if (!drawEdges) return;
         selection.rows.forEach(({ edge, source, target }) => {
           const signal = scientificSignalById(edge.signal_id);
           const color = signal ? signal.color : '#6d28d9';
@@ -7417,6 +7440,7 @@ __URL_STATE_CONTROLLER__
         renderLegend();
         renderControlPanelSummary();
         updateStats();
+        renderEvidenceDisplayPanel();
         preparePublishedSearch();
         buildSearchResults();
         renderFocusCard();
@@ -7591,6 +7615,7 @@ __URL_STATE_CONTROLLER__
           build_id: STATIC_ATLAS_BOOTSTRAP.build_id,
           scope_slug: STATIC_ATLAS_BOOTSTRAP.scope_slug,
           relation_filters: relationFilterMetadata(GOVERNED_EDGE_RECORDS, activeRelationFilters),
+          evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
           version: STATIC_ATLAS_BOOTSTRAP.version,
           ready: document.getElementById('map').getAttribute('aria-busy') !== 'true',
           basemap: currentBasemap,
@@ -7916,6 +7941,7 @@ __URL_STATE_CONTROLLER__
         activeScientificSignalIds = new Set(DEFAULT_SCIENTIFIC_SIGNAL_IDS);
         activeCountryPair = 'all';
         resetRelationFilters();
+        activeEvidenceDisplay = resetEvidenceDisplay();
         crossBorderOnly = false;
         crossBorderOnlyCheckbox.checked = false;
         activeAnimalSpecies = 'all';
@@ -8287,6 +8313,7 @@ __URL_STATE_CONTROLLER__
             layers: [...activeLayerKeys].sort(),
             scientific_signals: [...activeScientificSignalIds].sort(),
             relation_filters: relationFilterMetadata(GOVERNED_EDGE_RECORDS, activeRelationFilters),
+            evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
             map_window_bp: TIME_HAS_DATA ? [timeStartBp, timeWindowEndBp()] : null,
             selected_detail_section: activeFocusTab,
             basemap: currentBasemap,
