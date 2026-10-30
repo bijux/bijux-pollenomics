@@ -9,6 +9,7 @@ from .population import IDENTITY
 
 
 def fixture() -> tuple[dict[str, Any], dict[str, Any]]:
+    """Build the invented 96-sample source and its matching protocol."""
     samples = []
     for index in range(96):
         point = -50 if index == 0 else 5700 if index == 1 else WINDOWS[index % 6][0]
@@ -127,6 +128,7 @@ def fixture() -> tuple[dict[str, Any], dict[str, Any]]:
 
 
 def samples(source: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return the sample array from the invented nested source population."""
     result: list[dict[str, Any]] = source["rows"][0]["site"]["collectionunit"][
         "dataset"
     ]["samples"]

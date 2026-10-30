@@ -13,6 +13,7 @@ from .sources import CORES, FAMILIES
 
 
 def same(actual: object, expected: object) -> None:
+    """Compare JSON structures while refusing nonfinite values."""
     require(
         json.dumps(actual, sort_keys=True, allow_nan=False)
         == json.dumps(expected, sort_keys=True, allow_nan=False),
@@ -21,12 +22,14 @@ def same(actual: object, expected: object) -> None:
 
 
 def encoded(bounds: Interval) -> list[str]:
+    """Serialize interval endpoints as rational strings."""
     return [str(value) for value in bounds]
 
 
 def verify_contexts(
     packet: dict[str, Any], old: dict[str, Any], geometry: dict[str, dict[str, Any]]
 ) -> dict[str, dict[str, Any]]:
+    """Reconstruct frozen contexts and reject source-leaking geometry."""
     rows = {row["context_id"]: row for row in packet["contexts"]}
     originals = {row["context_id"]: row for row in old["contexts"]}
     require(
@@ -123,6 +126,7 @@ def verify_scores(
     prior: dict[str, Any],
     contexts: dict[str, dict[str, Any]],
 ) -> list[dict[str, Any]]:
+    """Reconstruct score rows from fixed contexts and saved observations."""
     old_rows = {(row["context_id"], row["family"]): row for row in native["scores"]}
     expected_ids = {(identity, family) for identity in contexts for family in FAMILIES}
     actual = {(row["context_id"], row["family"]): row for row in result["scores"]}
@@ -208,6 +212,7 @@ def verify_scores(
 
 
 def average_ranges(rows: list[dict[str, Any]]) -> dict[str, list[str]]:
+    """Average metric interval endpoints using the complete row denominator."""
     require(bool(rows), "fixed mean denominator cannot be empty")
     result = {}
     for metric in METRICS:
@@ -223,6 +228,7 @@ def average_ranges(rows: list[dict[str, Any]]) -> dict[str, list[str]]:
 def verify_summaries(
     actual: dict[str, Any], rows: list[dict[str, Any]], legacy: dict[str, Any]
 ) -> None:
+    """Check family and paired-place summaries, including incomplete contexts."""
     families = []
     for family in FAMILIES:
         selected = [row for row in rows if row["family"] == family]

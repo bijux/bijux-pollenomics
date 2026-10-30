@@ -10,6 +10,7 @@ from .comparison import run
 
 
 def main() -> None:
+    """Parse retained-source comparison arguments and print its result status."""
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("repository", "source-root", "output"):
         parser.add_argument(f"--{name}", required=True, type=Path)

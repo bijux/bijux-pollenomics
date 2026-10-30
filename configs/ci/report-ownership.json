@@ -147,6 +147,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -1759,6 +1760,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -3328,6 +3330,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -4977,6 +4980,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -6546,6 +6550,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -8150,6 +8155,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -9764,6 +9770,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -11333,6 +11340,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -12912,6 +12920,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -14492,6 +14501,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -16061,6 +16071,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -17640,6 +17651,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/atlas_source_views.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/presentation_source_roles.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/sample_chronology_capture.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/sample_age_context.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/atlas_browser/capture_projection.py",
@@ -68459,6 +68471,20 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain the declared eight-request conditional two-taxon counting protocol, fixed nominal alpha 0.05, exact saved count/background/PPE/K source bindings, common-denominator coefficient mapping, complete computed/empty/refused/fatal accounting and previously observed failure-based selection. Confidence sets condition on a fixed-effort pooled binomial panel and fixed inputs; they do not establish pooling validity, joint or selected-case coverage, regional/PPE/chronology uncertainty, an estimator repair, rights, field accuracy or whole scientific acceptance. All original signed estimates, native failures and owner criteria remain unchanged. This authored protocol is not an executed numerical result."
+    },
+    {
+      "owner_id": "source-relations/neotoma/acquisition-scope/current-abbo-comparison",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/source-relations/neotoma/acquisition-scope/current-abbo-comparison.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/capture_comparison.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json"
+      ],
+      "verification": "Retain the unchanged comparison produced at dad49494903831173661f0629d4e8b0d793b2a86 from the distinct canonical Neotoma dataset-19913 capture neotoma/dataset-19913/2026-10-26T185139Z and retained part-004.json. The maintained source_completion.neotoma.capture_comparison consumer requires the original external capture-manifest.json (SHA-256 906f7e38d5c32d03f00094136ee89213ea39ea99eb422db233e723b8f4e79269) and all four complete bound response bodies before any reproduction; repository source code and the retained part alone are not a reproduction certificate. The original producer exited zero and the independently decoded source/occurrence observer at cc19f699e014d6adf1a2d43d369e66a2f342ec2a confirmed the retained result. Preserve the original actual epochs, source-value equality and exact-number comparison scope, historical_http_custody_recovered=false, scientific_admission=false and canonical_data_replaced=false. The current source attribution/CC BY 4.0 policy does not confer Rootsi/private-source rights, historical chronology, taxonomy/PPE, basin or LRA admission. No reacquisition, native execution or new scientific result is authorized by this ownership declaration."
     }
   ]
 }

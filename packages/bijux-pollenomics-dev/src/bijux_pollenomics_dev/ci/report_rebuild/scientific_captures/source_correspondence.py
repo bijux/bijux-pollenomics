@@ -61,6 +61,10 @@ from .source_roles.reference_vector_precision import (
     REFERENCE_VECTOR_PRECISION_SOURCES,
     validated_reference_vector_precision_source,
 )
+from .source_roles.sample_age_context import (
+    SAMPLE_AGE_CONTEXT_SOURCES,
+    validated_sample_age_context_source,
+)
 from .source_roles.scoring_protocols import (
     SCORING_PROTOCOL_SOURCES,
     validated_scoring_protocol_source,
@@ -553,6 +557,10 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if name in SAMPLE_AGE_CONTEXT_SOURCES:
+        return validated_sample_age_context_source(
+            repository, historical, logical, source_buffer
+        )
     if name in ATLAS_RELATION_CONTEXT_SOURCES:
         return validated_atlas_relation_context_source(
             repository, historical, logical, source_buffer

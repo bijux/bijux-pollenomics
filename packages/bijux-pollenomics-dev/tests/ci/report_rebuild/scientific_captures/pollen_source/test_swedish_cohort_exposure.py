@@ -1,14 +1,24 @@
 """Preserve the recorded GARASEL exposure without reopening observations."""
+
 from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
 import shutil
 from typing import Any
+
 import pytest
+
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
-from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.pollen_source import swedish_cohort as subject
-ROOT = next(p for p in Path(__file__).resolve().parents if (p / "configs/ci/report-ownership.json").is_file())
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.pollen_source import (
+    swedish_cohort as subject,
+)
+
+ROOT = next(
+    p
+    for p in Path(__file__).resolve().parents
+    if (p / "configs/ci/report-ownership.json").is_file()
+)
 
 
 def current_reports() -> tuple[dict[str, Any], dict[str, Any]]:
@@ -197,5 +207,3 @@ def test_current_proof_requires_actual_completed_metadata(
     ] = declared["prior_processing_evidence"]
     with pytest.raises(ReportRebuildError):
         subject.validate_current_report(tmp_path, historical, current)
-
-

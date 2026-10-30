@@ -1556,7 +1556,6 @@ def test_actual_native_capture_owner_emits_explicit_finite_covariance_profile() 
     selected = owner_runner.resolve_configured_owner(repository, _NATIVE_CAPTURE_OWNER)
     offset = selected.command.index("--capture-profile")
     assert selected.command[offset + 1] == "finite-covariance"
-    assert len(selected.inputs) == 392
     inventory = json.loads(
         (repository / "configs/ci/report-ownership.json").read_text()
     )

@@ -24,6 +24,7 @@ from . import covariance_bounds, inputs, quadratic_forms
 
 
 def source_revision(repository: Path) -> str:
+    """Return the Git revision after checking tracked producer inputs are clean."""
     files = [*Path(__file__).parent.glob("*.py"), repository / inputs.PROTOCOL]
     files.extend(
         Path(inspect.getfile(f))
