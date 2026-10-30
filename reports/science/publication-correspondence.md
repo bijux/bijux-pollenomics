@@ -80,6 +80,8 @@ The [paper-result matrix](../../docs/report/pollen-reconstruction/paper-correspo
 keeps this input match and unavailable output separately from the LandClim
 example calculation and archive-product comparison.
 
+### LandClim example and input candidates
+
 We reproduced all 17 example `LRAready` files byte for byte from pinned
 raw site files and formatter lookups in the
 [released author raw-to-prepared replay](../../docs/report/source-relations/landclim/author-example-taxon-support/README.md):
@@ -107,15 +109,55 @@ authenticate their status as observed pollen samples. Removing these 17 rows fro
 sample-count total. The other 78 workbooks each match their metadata row count; EKE alone
 accounts for the difference. This reconciles the numerical totals under the declared
 row partition; it does not establish an interpolation procedure or ecological
-absence. We did not repeat the other 78 workbooks' feature-value census.
+absence. The expanded census below retains the other workbooks and their unresolved source fields.
 Twenty-four of EKE's 25 positive-feature rows contain noninteger values, so
 we preserve the decoded numbers rather than round them into admitted grain
 counts. Original formula provenance, feature units, taxonomy, selected
-chronology and analytical-use rights remain unresolved. The workbook is
-identified by SHA-256
-`f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e`.
+chronology and analytical-use rights remain unresolved. The workbook's byte identity remains in the expanded source census linked below.
 
-A separate cached-cell observation at source execution epoch `98742c4b02bef7386428e46c31bb90848c4c0e18` checked the AGE cells of these same 17 excluded rows. All 17 contain finite numeric **nonzero AGE values**; none has a numeric zero, blank or null AGE cell. Thus the all-zero description applies to the 30 feature columns, not to AGE. All 17 original identifier/AGE binary64-pair hashes matched. The source header remains `Sample age (cal AD/BC)` and the workbook SHA-256 remains `f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e`. We read cached cells without recalculating formulas or converting calendars or epochs; this check does not authenticate sample membership, chronology accuracy or analytical-use rights.
+An earlier cached-cell check at source `98742c4b0` found finite numeric,
+nonzero AGE values in all 17 EKE all-zero-feature rows; none had a numeric
+zero, blank or null AGE cell. It matched the original identifier/AGE pairs
+exactly. The source header remains `Sample age (cal AD/BC)` and workbook
+identity is unchanged. Reading these cached cells does not recalculate
+formulas, convert calendars or epochs, or authenticate sample membership,
+chronology accuracy or analytical-use rights.
+
+The [expanded cached-feature census](publication-correspondence/rootsi-feature-census/report.json)
+reads all 79 original workbooks, totaling 4,466,176 bytes, without recalculating
+formulas. Source `6bc07eb8e` records the actual command and workbook identities.
+The [maintained consumer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/rootsi_feature_census.py)
+excludes explicitly named sample, depth and age columns; remaining named columns
+are unreviewed candidate features, without an authenticated pollen or count unit.
+An independent classification using the same xlrd parser checks all 472,460
+feature cells, every anomaly row and the EKE controls. This is not an independent
+decoder comparison.
+
+| Mechanical row disposition | Rows |
+| --- | ---: |
+| Complete finite nonnegative features, with at least one positive value | 4,820 |
+| All candidate feature values are numeric zero | 17 |
+| Numeric features containing a negative value | 0 |
+| Missing or unsupported feature cells | 32 |
+| Feature classification refused because header roles are unresolved | 301 |
+| Total mechanical rows | 5,170 |
+
+The 32 incomplete rows comprise 31 rows with missing feature cells in `DJAK`
+and one row with a text-valued feature in `RASH`. `FLINK`, `GIL` and `SIGG`
+retain unresolved unlabelled header positions covering 109, 101 and 91 rows;
+we do not assign those positions a taxon or metadata role. Of the 4,869
+classified rows, 1,024 contain at least one noninteger feature value across
+24 workbooks. That flag overlaps the row dispositions and must not be added
+to their total. No fractional value is rounded into a grain count, and no
+missing cell becomes zero.
+
+Positive-row counts match metadata claims for 74 of the 76 classified
+workbooks; `DJAK` and `RASH` remain different because of incomplete cells.
+All 17 all-zero rows in the classified workbooks are EKE rows with finite,
+nonzero AGE values. Removing 17 from 5,170 still yields the metadata total
+5,153, but that arithmetic includes the 32 incomplete and 301 unclassified
+rows. It does not establish 5,153 observed pollen samples or their membership
+in a historical LandClim input. Literal versus formula origin remains unknown.
 
 We verified the retained candidate file structures, not their membership in
 a native LandClim archive or their role as published study inputs. We have
@@ -260,11 +302,11 @@ rights, formal CRS and historical time support still need resolution.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Released author examples correspond numerically while exact TW2 archive and PFT differences are retained.
+**Supported claim.** Released author examples correspond numerically while exact TW2 archive and PFT differences are retained. A source-bound cached-feature census classifies 76 workbooks and retains three header refusals.
 
 **Unsupported claim.** Full ESSD paper reproduction, source-causal diagnosis or ecological accuracy.
 
-**Actual verification performed.** Retained author replay, archive-window and PFT ledgers are synthesized; index did not rerun.
+**Actual verification performed.** Existing author replay, archive-window and PFT ledgers are synthesized. The new 79-workbook cached-feature census returned 0; independent classification checks 472,460 feature cells, every row partition/anomaly index and EKE controls using the same xlrd parser. No model or R replay was performed by this census.
 
 **Remaining input or review.** Two-grid example parity is strong, but 1,128 historical inputs, archive PFT/covariance producer, nonmatching windows, source rights and independent ecological comparison remain open. Resolver: LandClim paper/archive producer and qualified taxon, chronology and ecology reviewers Reopen when: A versioned historical row and output transform with rights allow source-bound archive replay and separate reference pairing.
 
@@ -274,11 +316,11 @@ rights, formal CRS and historical time support still need resolution.
 
 **Precise next acceptance route.** A versioned historical row and output transform with rights allow source-bound archive replay and separate reference pairing. Then update reports/science/landclim-paper.md.
 
-**Negative or refused result.** Zero authenticated historical primary inputs; TW2 archive gaps and 12/11/13 PFT statements unresolved.
+**Negative or refused result.** Zero authenticated historical primary inputs; TW2 archive gaps and 12/11/13 PFT statements unresolved. Three unlabelled-header refusals retain 301 unclassified rows; 32 classified rows have missing or unsupported features.
 
-**Matched denominator.** 14,074 supported example mean/SE values; 79 Rootsi metadata candidates among 1,128 records, zero reproduction-ready historical rows; 10,500 archived grid/window rows.
+**Matched denominator.** 14,074 supported example mean/SE values; 79 Rootsi metadata candidates among 1,128 records, zero reproduction-ready historical rows; 10,500 archived grid/window rows. Census: 5,170 mechanical rows across 79 workbooks; 4,869 rows classified in 76 workbooks, 301 rows unclassified in three.
 
-Retained evidence: [docs/report/pollen-reconstruction/paper-correspondence.csv](../../docs/report/pollen-reconstruction/paper-correspondence.csv), [reports/science/publication-correspondence/pft-crosswalk/README.md](publication-correspondence/pft-crosswalk/README.md).
+Retained evidence: [docs/report/pollen-reconstruction/paper-correspondence.csv](../../docs/report/pollen-reconstruction/paper-correspondence.csv), [reports/science/publication-correspondence/pft-crosswalk/README.md](publication-correspondence/pft-crosswalk/README.md), [reports/science/publication-correspondence/rootsi-feature-census/report.json](publication-correspondence/rootsi-feature-census/report.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
