@@ -148,12 +148,14 @@ def python_values(deadline: float) -> list[dict[str, Any]]:
 def r_script(library: Path, output: Path, lock: dict[str, Any]) -> str:
     """Call the installed original function; never copy or redefine its body."""
     literal = json.dumps
+    # DESCRIPTION versions are literal lock identities. numeric_version display
+    # normalizes hyphens to dots and cannot authenticate those original strings.
     base = ";".join(
-        f"stopifnot(as.character(packageVersion({literal(k)}))=={literal(v)})"
+        f'stopifnot(packageDescription({literal(k)},fields="Version")=={literal(v)})'
         for k, v in lock["base_packages"].items()
     )
     deps = ";".join(
-        f"stopifnot(as.character(packageVersion({literal(p['package'])}))=={literal(p['version'])})"
+        f'stopifnot(packageDescription({literal(p["package"])},fields="Version")=={literal(p["version"])})'
         for p in lock["packages"]
     )
     calls = "\n".join(
@@ -180,7 +182,7 @@ stopifnot(as.character(getRversion())=={literal(lock["runtime_policy"]["r_versio
 loadNamespace("disqover",lib.loc=library_path)
 package_path <- getNamespaceInfo(asNamespace("disqover"),"path")
 stopifnot(normalizePath(package_path)==normalizePath(file.path(library_path,"disqover")))
-stopifnot(as.character(packageVersion("disqover"))=="0.9.14")
+stopifnot(packageDescription("disqover",lib.loc=library_path,fields="Version")=="0.9.14")
 stopifnot(readLines(file.path(package_path,"SOURCE_SHA256"),warn=FALSE)[1]=={literal(lock["reference"]["sha256"])})
 cat("R_VERSION=",as.character(getRversion()),"\\nPACKAGE_PATH=",package_path,"\\n",sep="")
 writeLines(capture.output(sessionInfo()),file.path(out,"r-session.txt"))

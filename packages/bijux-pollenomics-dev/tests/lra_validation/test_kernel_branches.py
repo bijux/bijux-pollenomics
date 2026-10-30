@@ -206,6 +206,43 @@ def test_native_script_uses_original_namespace_and_exact_runtime_source_guards()
     assert "is.nan(value)" in script and "is.na(value)" in script
     assert 'invokeRestart("muffleWarning")' in script
     assert "source(" not in script and "install.packages" not in script
+    assert "packageVersion(" not in script
+    for row in lock["packages"]:
+        assert (
+            f'packageDescription("{row["package"]}",fields="Version")=="{row["version"]}"'
+            in script
+        )
+    assert (
+        'packageDescription("disqover",lib.loc=library_path,fields="Version")=="0.9.14"'
+        in script
+    )
+
+
+def test_literal_description_version_preserves_hyphens_and_refuses_changed_versions(
+    tmp_path: Path,
+) -> None:
+    rscript = shutil.which("Rscript")
+    if rscript is None:
+        pytest.skip("R metadata regression needs Rscript; no kernel parity is inferred")
+    library = tmp_path / "library"
+    package = library / "versionfixture"
+    package.mkdir(parents=True)
+    (package / "DESCRIPTION").write_text(
+        "Package: versionfixture\nVersion: 2.2-8\nTitle: Controlled Version Metadata\nDescription: No executable source.\nLicense: CC0\n"
+    )
+    control = f"""lib <- {json.dumps(str(library))}
+raw <- packageDescription("versionfixture",lib.loc=lib,fields="Version")
+stopifnot(identical(raw,"2.2-8"),as.character(package_version(raw))=="2.2.8")
+stopifnot(raw!="2.2.8",raw!="2.2-9")
+cat("Literal package Version retained; no package was installed or loaded.\\n")"""
+    result = subprocess.run(
+        [rscript, "--vanilla", "-e", control],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=5,
+    )
+    assert "Literal package Version retained" in result.stdout
 
 
 def test_generated_r_admission_accepts_only_real_scalars_without_calling_kernels() -> (
