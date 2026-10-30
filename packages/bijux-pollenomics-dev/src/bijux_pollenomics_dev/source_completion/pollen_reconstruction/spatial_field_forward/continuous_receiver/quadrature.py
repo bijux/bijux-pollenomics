@@ -49,6 +49,7 @@ class WorkBudget:
     started: float = field(default_factory=time.monotonic)
 
     def __post_init__(self) -> None:
+        """Require strict work ceilings and a bounded positive time limit."""
         if any(
             type(value) is not int
             for value in (
@@ -69,10 +70,12 @@ class WorkBudget:
             raise ValueError("Work limits exceed the declared finite ceilings")
 
     def check(self) -> None:
+        """Refuse work once the shared wall-time limit is reached."""
         if time.monotonic() - self.started >= self.wall_seconds:
             raise ResourceRefusal("wall_seconds")
 
     def panel(self, dimensions: int, *, nodes_per_axis: int = 3) -> None:
+        """Charge the full tensor node cost before evaluating a panel."""
         self.check()
         if (
             type(dimensions) is not int
@@ -88,6 +91,7 @@ class WorkBudget:
         self.nodes += nodes
 
     def add_leaf(self) -> None:
+        """Reserve one leaf under the shared work ceiling."""
         self.check()
         if self.leaves >= self.max_leaves:
             raise ResourceRefusal("leaf_ceiling")
@@ -96,6 +100,8 @@ class WorkBudget:
 
 @dataclass(frozen=True)
 class Panel:
+    """Store a quadrature domain, node sum, error radius and rule."""
+
     box: Box
     node_sum: Interval
     error_radius: Fraction
@@ -103,11 +109,13 @@ class Panel:
     rule: str = SIMPSON_RULE
 
     def __post_init__(self) -> None:
+        """Require a supported named quadrature rule."""
         rule_definition(self.rule)
 
     @property
     def enclosure(self) -> Interval:
         # Both rules give |error|<=E: this adds FULL width 2E.
+        """Expand the node sum by the full signed error radius."""
         return self.node_sum.expanded(self.error_radius)
 
 
@@ -119,6 +127,7 @@ def simpson_panel(function: Integrand, box: Box, budget: WorkBudget) -> Panel:
 def positive_panel(
     function: Integrand, box: Box, budget: WorkBudget, *, rule: str = SIMPSON_RULE
 ) -> Panel:
+    """Evaluate a positive tensor rule with directional derivative error bounds."""
     order, weights, weight_divisor, error_divisor = rule_definition(rule)
     node_count = len(weights)
     dimensions = len(box)
@@ -166,6 +175,8 @@ def positive_panel(
 
 @dataclass(frozen=True)
 class IntegralResult:
+    """Store a whole-domain enclosure and its closed leaf partition."""
+
     enclosure: Interval
     panels: tuple[Panel, ...]
     status: str
@@ -173,6 +184,7 @@ class IntegralResult:
     rule: str = SIMPSON_RULE
 
     def __post_init__(self) -> None:
+        """Require a supported rule shared by every retained panel."""
         rule_definition(self.rule)
         if any(panel.rule != self.rule for panel in self.panels):
             raise ValueError("Mixed quadrature rules in integral certificate")

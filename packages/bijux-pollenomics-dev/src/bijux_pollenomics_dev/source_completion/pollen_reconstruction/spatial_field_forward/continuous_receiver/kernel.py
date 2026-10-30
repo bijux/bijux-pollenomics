@@ -19,6 +19,7 @@ class Geometry:
     second: tuple[Fraction, Fraction]
 
     def __post_init__(self) -> None:
+        """Require exact geometry, nonnegative attenuation and distinct anchors."""
         if (
             type(self.first) is not tuple
             or type(self.second) is not tuple
@@ -44,10 +45,12 @@ class Geometry:
 
     @property
     def difference(self) -> Fraction:
+        """Return the radial span beyond the receiving-disk radius."""
         return self.outer - self.receiver
 
     @property
     def delta(self) -> Fraction:
+        """Return the difference between squared anchor norms."""
         return sum(
             (b * b - a * a for a, b in zip(self.first, self.second, strict=True)),
             Fraction(0),
@@ -55,6 +58,7 @@ class Geometry:
 
     @property
     def norm_sum(self) -> Fraction:
+        """Return the squared norm of the anchor-vector sum."""
         return sum(
             ((a + b) ** 2 for a, b in zip(self.first, self.second, strict=True)),
             Fraction(0),
@@ -62,6 +66,7 @@ class Geometry:
 
     @property
     def norm_difference(self) -> Fraction:
+        """Return the squared distance between the planar anchors."""
         return sum(
             ((b - a) ** 2 for a, b in zip(self.first, self.second, strict=True)),
             Fraction(0),
@@ -69,11 +74,13 @@ class Geometry:
 
     @property
     def dot(self) -> Fraction:
+        """Return the exact dot product of the two anchor vectors."""
         return sum(
             (a * b for a, b in zip(self.first, self.second, strict=True)), Fraction(0)
         )
 
     def angular(self, radius: Jet) -> Jet:
+        """Evaluate the two-anchor angular mean as an interval Taylor jet."""
         if type(radius) is not Jet or radius.value.lower < 0:
             raise ValueError("Nonnegative exact Taylor radius required")
         if self.delta == 0:
@@ -83,6 +90,7 @@ class Geometry:
         return Fraction(1, 2) + self.delta / (2 * self.norm_sum) * (1 - u / denominator)
 
     def angular_derivative(self, radius: Jet) -> Jet:
+        """Evaluate the first angular derivative as an interval Taylor jet."""
         if type(radius) is not Jet or radius.value.lower < 0:
             raise ValueError("Nonnegative exact Taylor radius required")
         if self.delta == 0:

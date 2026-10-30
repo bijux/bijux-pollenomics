@@ -45,6 +45,7 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field
 
 
 def source_pins() -> dict[str, str]:
+    """Hash the probe and receiver sources used for its execution record."""
     directory = Path(arithmetic.__file__).parent
     paths = [*directory.glob("*.py"), Path(radial_envelope.__file__), Path(__file__)]
     return {
@@ -54,6 +55,7 @@ def source_pins() -> dict[str, str]:
 
 
 def main() -> None:
+    """Run the bounded source-free receiver probe and record its refusals."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument(

@@ -143,6 +143,7 @@ def _source_contexts(prediction: Mapping[str, Any]) -> dict[str, dict[str, Any]]
 
 
 def normalized_deposition(values: Sequence[Interval]) -> Interval:
+    """Enclose the first normalized component of two deposition intervals."""
     require(
         len(values) == 2
         and min(v.lower for v in values) >= 0
@@ -192,6 +193,7 @@ def score_ranges(
 
 
 def average_ranges(rows: Sequence[Mapping[str, Interval]]) -> dict[str, Interval]:
+    """Average each metric's interval endpoints over the full row population."""
     require(bool(rows), "Empty score population")
     require(all(set(row) == set(METRICS) for row in rows), "Metric axis differs")
     return {
