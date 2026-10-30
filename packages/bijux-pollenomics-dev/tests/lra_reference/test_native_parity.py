@@ -4,7 +4,10 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
@@ -90,3 +93,65 @@ def test_parity_refuses_incomplete_or_changed_evidence(
             output=tmp_path / "receipt.json",
         )
     assert not (tmp_path / "receipt.json").exists()
+
+
+@pytest.mark.parametrize("context", ["absent", "current", "changed", "retained"])
+def test_parity_cli_requires_explicit_authenticated_current_sources(
+    tmp_path: Path, context: str
+) -> None:
+    native, live = _synthetic_pair(tmp_path)
+    repository = tmp_path / "repository"
+    if context != "retained":
+        certificate_path = live / "certificate.json"
+        certificate = json.loads(certificate_path.read_text())
+        owner = "packages/bijux-pollenomics-lra/tests/reference/lra_oracle"
+        for name in ("run_source_domains.py", "source_domains.R", "r_support.R"):
+            target = repository / owner / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            (live / "source-domains" / name).rename(target)
+            raw = target.read_bytes()
+            certificate["source_files"][f"{owner}/{name}"] = hashlib.sha256(
+                raw
+            ).hexdigest()
+            certificate["tracked_git_blobs"][f"{owner}/{name}"] = hashlib.sha1(
+                b"blob " + str(len(raw)).encode() + b"\0" + raw
+            ).hexdigest()
+        certificate["files"] = file_inventory(live)
+        del certificate["files"]["certificate.json"]
+        certificate_path.write_text(json.dumps(certificate))
+        if context == "changed":
+            (repository / owner / "r_support.R").write_text("Changed source\n")
+    output = tmp_path / "receipt.json"
+    command = [
+        sys.executable,
+        "-B",
+        "-m",
+        "bijux_pollenomics_dev.ci.lra_reference.native_parity",
+        "--native",
+        str(native),
+        "--live",
+        str(live),
+        "--lock",
+        str(LOCK),
+        "--target-sha",
+        SHA,
+        "--output",
+        str(output),
+    ]
+    if context != "absent":
+        command.extend(["--repository", str(repository)])
+    result = subprocess.run(
+        command,
+        capture_output=True,
+        text=True,
+        env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+        check=False,
+        timeout=15,
+    )
+    if context in {"current", "retained"}:
+        assert result.returncode == 0, result.stderr
+        assert json.loads(output.read_text())["case_count"] == 43
+    else:
+        assert result.returncode == 2, result.stderr
+        assert "Native/live R parity refused:" in result.stderr
+        assert not output.exists()

@@ -8,6 +8,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import time
 from typing import Any
 
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
@@ -22,6 +23,12 @@ from bijux_pollenomics_dev.ci.report_rebuild.retained_source.descriptor import (
 )
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source.generated import (
     reconstruct,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
+    GitSourceMember,
+    physical,
+    query,
+    validate_blobs,
 )
 from bijux_pollenomics_dev.lra_validation.native_reference.annulus_capture import (
     _file,
@@ -129,7 +136,9 @@ def _require_current_sources(repository: Path, context: dict[str, Any]) -> None:
 def validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCapture:
     """Preserve native identities while reading detached control source through Git."""
     try:
-        return _validated_finite_covariance_capture(repository)
+        capture = _validated_finite_covariance_capture(repository)
+        require_current_finite_covariance_sources(repository, capture)
+        return capture
     except ReportRebuildError as error:
         raise ValueError(str(error)) from error
 
@@ -305,7 +314,7 @@ def _validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCa
     public = record["public_acquisition"]
     member(public["path"], {key: public[key] for key in ("sha256", "size")})
     resolver.fresh()
-    _require_current_sources(repository, context)
+    _historical_scientific_sources(repository, context)
     certificate = "docs/report/method-certification/original-r-reference/reference-bundle/certificate.json"
     if hashlib.sha256(_file(repository, certificate)).hexdigest() != CERTIFICATE_SHA256:
         raise ValueError("Original R certificate changed")
@@ -325,3 +334,59 @@ def _validated_finite_covariance_capture(repository: Path) -> FiniteCovarianceCa
         context,
         read_input,
     )
+
+
+def _historical_scientific_sources(repository: Path, context: dict[str, Any]) -> None:
+    """Read the sealed source epoch in place; never reconstruct a package tree."""
+    science = context["protected_science_sha256"]
+    generated = GENERATED_SOURCE
+    raw = _generated_source(repository, context)
+    if hashlib.sha256(raw).hexdigest() != science[generated]:
+        raise ValueError("Historical generated scientific source bytes differ")
+    names = set(science) - {generated}
+    physical(repository)
+    physical(repository / ".git")
+    tree = query(
+        repository,
+        ["ls-tree", "-r", "-l", "-z", CAPTURE_SOURCE_REVISION, "--", *sorted(names)],
+        128 * 1024,
+        time.monotonic() + 180,
+    )
+    members = []
+    for row in tree.split(b"\0"):
+        if not row:
+            continue
+        identity, path = row.split(b"\t", 1)
+        mode, kind, blob, size = identity.decode("ascii").split()
+        name = path.decode("utf-8")
+        if mode not in {"100644", "100755"} or kind != "blob" or name not in names:
+            raise ValueError("Historical scientific source tree identity differs")
+        members.append(
+            GitSourceMember(
+                name, name, CAPTURE_SOURCE_REVISION, blob, science[name], int(size)
+            )
+        )
+    if len(members) != 67 or {row.member for row in members} != names:
+        raise ValueError("Historical scientific source population differs")
+    validate_blobs(repository, members)
+
+
+def historical_finite_covariance_capture(repository: Path) -> FiniteCovarianceCapture:
+    """Authenticate sealed historical evidence without admitting current-code reuse."""
+    try:
+        return _validated_finite_covariance_capture(repository)
+    except ReportRebuildError as error:
+        raise ValueError(str(error)) from error
+
+
+def require_current_finite_covariance_sources(
+    repository: Path, capture: FiniteCovarianceCapture
+) -> None:
+    """Check current reuse separately from the authenticated historical source epoch."""
+    record = json.loads(capture.read_input(CAPTURE_ROOT + "/capture/capture.json"))
+    _require_current_sources(repository, record["source_context"])
+    if any(
+        hashlib.sha256(capture.read_input(name)).hexdigest() != digest
+        for name, digest in capture.input_sha256.items()
+    ):
+        raise ValueError("Native admission changed during validation")

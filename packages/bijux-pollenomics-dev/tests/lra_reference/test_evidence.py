@@ -1,7 +1,9 @@
 """Passing counts cannot substitute for actual R, exact identities or replay coverage."""
 
 import copy
+import hashlib
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -153,3 +155,105 @@ def test_bundle_closure_refuses(tmp_path: Path, mutation: str) -> None:
             expected_lock_sha256=lock_hash,
             expected_run=(REPOSITORY, 7, 1),
         )
+
+
+@pytest.mark.parametrize(
+    "defect",
+    [
+        None,
+        "changed",
+        "missing",
+        "symlink",
+        "hardlink",
+        "missing_pin",
+        "wrong_pin",
+        "partial_retention",
+        "raw_rows",
+    ],
+)
+def test_current_bundle_authenticates_canonical_scripts_without_source_copies(
+    tmp_path: Path, defect: str | None
+) -> None:
+    from bijux_pollenomics_dev.ci.lra_reference.evidence import (
+        file_inventory,
+        validate_bundle,
+    )
+
+    from .support import SHA, bundle_fixture
+
+    root = tmp_path / "bundle"
+    repository = tmp_path / "repository"
+    certificate = bundle_fixture(root)
+    owner = "packages/bijux-pollenomics-lra/tests/reference/lra_oracle"
+    for name in ("run_source_domains.py", "source_domains.R", "r_support.R"):
+        source = root / "source-domains" / name
+        target = repository / owner / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        source.rename(target)
+        raw = target.read_bytes()
+        certificate["source_files"][f"{owner}/{name}"] = hashlib.sha256(raw).hexdigest()
+        certificate["tracked_git_blobs"][f"{owner}/{name}"] = hashlib.sha1(
+            b"blob " + str(len(raw)).encode() + b"\0" + raw
+        ).hexdigest()
+    relative = f"{owner}/r_support.R"
+    target = repository / relative
+    if defect == "changed":
+        target.write_bytes(target.read_bytes() + b"Changed scientific source\n")
+    elif defect == "missing":
+        target.unlink()
+    elif defect in {"symlink", "hardlink"}:
+        outside = tmp_path / "aliased-source.R"
+        target.rename(outside)
+        if defect == "symlink":
+            target.symlink_to(outside)
+        else:
+            os.link(outside, target)
+    elif defect == "missing_pin":
+        del (
+            certificate["source_files"][relative],
+            certificate["tracked_git_blobs"][relative],
+        )
+    elif defect == "wrong_pin":
+        certificate["source_files"][relative] = "0" * 64
+    elif defect == "partial_retention":
+        target.rename(root / "source-domains/r_support.R")
+    elif defect == "raw_rows":
+        (root / "source-domains/S001-R.csv").write_text("value\n0\n0\n")
+    certificate["files"] = file_inventory(root)
+    del certificate["files"]["certificate.json"]
+    (root / "certificate.json").write_text(json.dumps(certificate))
+    if defect is None:
+        validate_bundle(
+            root,
+            target_sha=SHA,
+            expected_lock_sha256=certificate["lock_sha256"],
+            current_repository=repository,
+        )
+        assert not list((root / "source-domains").glob("*.py"))
+        assert not list((root / "source-domains").glob("*.R"))
+        with pytest.raises(ReferenceRefusal):
+            validate_bundle(
+                root, target_sha=SHA, expected_lock_sha256=certificate["lock_sha256"]
+            )
+    else:
+        with pytest.raises(ReferenceRefusal):
+            validate_bundle(
+                root,
+                target_sha=SHA,
+                expected_lock_sha256=certificate["lock_sha256"],
+                current_repository=repository,
+            )
+
+
+@pytest.mark.parametrize(
+    "name", ["r_support.R", "source-domains/../r_support.R", "source-domains/sibling.R"]
+)
+def test_canonical_domain_reader_refuses_every_undeclared_route(
+    tmp_path: Path, name: str
+) -> None:
+    from bijux_pollenomics_dev.ci.lra_reference.profiles import (
+        canonical_domain_source_reader,
+    )
+
+    with pytest.raises(ReferenceRefusal, match="Unlisted canonical"):
+        canonical_domain_source_reader(tmp_path, {})(name)

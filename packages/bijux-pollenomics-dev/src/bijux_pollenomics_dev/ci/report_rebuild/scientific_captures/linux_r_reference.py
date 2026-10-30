@@ -224,6 +224,14 @@ def _named_documentation_insertions(
 
 
 _NATIVE_REFERENCE_TRANSPORT_IDENTITIES = {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py": (
+        "8e725129e23f92c594084116c0d2a5e282af9fb71048b28ea58adac3f2e460d2",
+        12289,
+    ),
+    "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_source_domains.py": (
+        "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
+        11567,
+    ),
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/annulus_capture.py": (
         "47af109200a23537843078d241628273f08270e30150c34e1bbfdf76ffd0603b",
         10937,
@@ -546,5 +554,5 @@ def validated_linux_r_reference_capture(
         "report_outputs": 137,
         "paths_sha256": canonical_json_sha256(sorted(names)),
         "historical_source_gap_retained": True,
-        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:116 declared ordinary tracked inputs, with separately listed exact counting API additions and all other ordinary bodies byte-exact, four fixed old-identity reader custody roles, four separately bound native-reference transport extensions and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The ten declared current reader/documentation/transport bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
+        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:114 declared ordinary tracked inputs, with separately listed exact counting API additions and all other ordinary bodies byte-exact, four fixed old-identity reader custody roles, six separately bound native-reference transport extensions and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The twelve declared current reader/documentation/transport bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance.",
     }

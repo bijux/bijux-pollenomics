@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 import csv
 import hashlib
 from pathlib import Path
+import re
 from typing import Any
 
 from .contracts import ReferenceRefusal, read_json
+from .paths import local_path
 
 SOURCE_DOMAIN_PROFILE = "disqover-source-domains-and-corrected-forward-v1"
 SOURCE_DOMAIN_SEMANTICS = {
@@ -24,6 +26,40 @@ SOURCE_DOMAIN_SEMANTICS = {
     "F012": "corrected-matrix-single-regional",
     "F013": "corrected-matrix-rounded-cover",
 }
+
+
+def canonical_domain_source_reader(
+    repository: Path, source_files: Mapping[str, str]
+) -> Callable[[str], bytes]:
+    """Authenticate the three executed scripts in their canonical source owner."""
+    repository = local_path(repository)
+    owner = Path("packages/bijux-pollenomics-lra/tests/reference/lra_oracle")
+    allowed = {
+        "source-domains/" + name
+        for name in ("run_source_domains.py", "source_domains.R", "r_support.R")
+    }
+
+    def read_source(name: str) -> bytes:
+        if name not in allowed:
+            raise ReferenceRefusal("Unlisted canonical source-domain script")
+        relative = owner / name.removeprefix("source-domains/")
+        expected = source_files.get(relative.as_posix())
+        if (
+            not isinstance(expected, str)
+            or re.fullmatch(r"[0-9a-f]{64}", expected) is None
+        ):
+            raise ReferenceRefusal("Canonical source-domain identity is missing")
+        path = local_path(repository / relative)
+        if not path.is_file() or path.stat().st_nlink != 1:
+            raise ReferenceRefusal(
+                "Canonical source-domain script is not independently owned"
+            )
+        payload = path.read_bytes()
+        if hashlib.sha256(payload).hexdigest() != expected:
+            raise ReferenceRefusal("Canonical source-domain script changed")
+        return payload
+
+    return read_source
 
 
 def validate_source_domains(

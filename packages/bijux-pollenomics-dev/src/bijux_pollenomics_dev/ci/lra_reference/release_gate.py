@@ -283,6 +283,7 @@ def verify_release(
         target_sha=target_sha,
         expected_lock_sha256=lock_hash,
         expected_run=(repository, run_id, attempt),
+        current_repository=repository_root,
     )
     if (
         certificate.get("source_tree") != target_tree
