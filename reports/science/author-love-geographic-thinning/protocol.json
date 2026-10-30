@@ -1,0 +1,148 @@
+{
+  "schema_version": "author-lra-geographic-thinning.v1",
+  "question": "How do fixed source-bound spatial vegetation and forward-pollen predictions change when the exposed fifteen-site author cohort is reduced by an outcome-free geographic maximin rule to ten sites, with nine allowed source owners per held target?",
+  "scientific_consumer": "Literal nine-to-one grouped execution and matched source-composition/geographic-thinning sensitivity; not isolated causal sample-size improvement or field validation.",
+  "upstream_source_commit": "a98dcbfd5421eddd2ba1c9e5992e39330059a70a",
+  "qualified_sources": {
+    "result": {
+      "path": "artifacts/root/author-love-hellinger-spatial/result.json",
+      "bytes": 1729,
+      "sha256": "60856347baa5d64f8461ca3271442e9d83954e0d0cd0554b7e2d9df063b4797b"
+    },
+    "inputs": {
+      "path": "artifacts/root/author-love-hellinger-spatial/inputs.json",
+      "bytes": 9744367,
+      "sha256": "46c94a3b55725f905ca1662af7559b3185928882659b04ea90ca8e2729da0152"
+    },
+    "nominal": {
+      "path": "artifacts/root/author-love-hellinger-spatial/nominal.json",
+      "bytes": 316,
+      "sha256": "0d5b3b7238308b4932176f10e469a70048cb96eabc4f67735afd08d5ecb58cfb"
+    },
+    "prediction_manifest": {
+      "path": "artifacts/root/author-love-hellinger-spatial/prediction-manifest.json",
+      "bytes": 552,
+      "sha256": "cc59ee0b0b22e094d2fa1004e2a1c2df16e76df890d123c1fcdff9d3bc574e75"
+    },
+    "candidates": {
+      "path": "artifacts/root/author-love-hellinger-spatial/candidates.json",
+      "bytes": 2572062,
+      "sha256": "35316256f24e70cdce366d9799df8d0f1411aab47a100b8c4ebb2b250850d8b1"
+    },
+    "outer_scores": {
+      "path": "artifacts/root/author-love-hellinger-spatial/outer-scores.json",
+      "bytes": 13940,
+      "sha256": "f11ab99ef5493b2b727517b2a7df451e7052102e75f7da68df4874e3d1bf954d"
+    },
+    "choices": {
+      "path": "artifacts/root/author-love-hellinger-spatial/choices.json",
+      "bytes": 156277,
+      "sha256": "f007da1063d7f0e4eb9689e0e1d94151a70d8724f63e33fb4c1a2f5d3aaa0fc7"
+    },
+    "selection_manifest": {
+      "path": "artifacts/root/author-love-hellinger-spatial/selection-manifest.json",
+      "bytes": 604,
+      "sha256": "e989a93ba84674ebc7198d9ad88d1843c835cb3bb6c75e0fa1e3290db2adb47d"
+    },
+    "protocol": {
+      "path": "reports/science/author-love-hellinger-spatial/protocol.json",
+      "bytes": 11232,
+      "sha256": "db07a8136b50a97742ff8082cc6d12fa366859dabf3bb072d3fd76d2e23a6741"
+    },
+    "verification": {
+      "path": "artifacts/verification/author-love-hellinger-spatial/verification.json",
+      "bytes": 1784,
+      "sha256": "a81262d8dbebd0a2d0544a46f147c5882a3dab4081e2e5862e15e5929d06b773"
+    }
+  },
+  "cohort": {
+    "size": 10,
+    "identity_universe": "All fifteen source sites and transitive physical identity families before selection. Require the qualified fifteen distinct source groups; no alias split or family truncation.",
+    "distance_model": "Nominal full-precision WGS84 inverse geodesic distances between original source geometry centres, in metres; coordinate precision and footprint independence are not inferred.",
+    "seed": "Minimize math.fsum of distances to all fifteen source centres, including zero self-distance; break exact ties by lexicographic record_id.",
+    "extension": "Repeatedly maximize nearest-selected centre distance; break exact ties by lexicographic record_id. No rounding or tolerance before selection.",
+    "expected_selection_order": [
+      "author:GOURTEMIRES",
+      "author:BROADOWN",
+      "author:MOLECHAM",
+      "author:LARKBARR",
+      "author:LOBBSBOG",
+      "author:HANGINGS",
+      "author:COMERSLA",
+      "author:CUTHILL2",
+      "author:WINNEYS",
+      "author:HARESDOWN"
+    ],
+    "population": "Geometry-only policy over the existing previously exposed author profile. Ten sites are not ten independent spatial blocks.",
+    "source_role": "Group all identities, then rotate all ten selected sites once. Reapply original regional priority to the remaining nine; require the other eight local predictors.",
+    "anchor_consequence": "BECKHAM exclusion changes the regional anchor: BROADOWN except held BROADOWN uses COMERSLA. This changes geography and regional-source composition together.",
+    "expected_distinct_pairs": 17
+  },
+  "models": {
+    "transport": "gpm neutral",
+    "selected_love_ring_index": 1,
+    "retained_love_ring_count": 2,
+    "baselines": [
+      "training_mean",
+      "nearest_site",
+      "inverse_distance_squared"
+    ],
+    "hellinger_scales_km": [
+      20.0,
+      100.0
+    ],
+    "selection": "Both Hellinger scales are prescribed and unselected. No new inner folds, learned parameter choice or outcome-dependent cohort; do not borrow learned full-fifteen choices as nine-owner training decisions.",
+    "new_population": {
+      "outer_folds": 10,
+      "training_owners_per_fold": 9,
+      "local_predictors_per_fold": 8,
+      "new_prediction_slots": 50
+    }
+  },
+  "source_projection": {
+    "fit_custody": "Authenticate qualified original packet/result/freezes/verification and original source bytes. Match each new local-anchor pair to its exact independently admitted saved request, both selected rings/attempts and native regional cover. Require all seventeen pairs; no inverse fit, kernel integration, original ensemble, random draw, archived driver or failed-run recipe is repeated.",
+    "quantitative_ancestry": "Construct new nine-owner closures. Each local fit has only its own local and regional source parents; forbid held family and all five excluded owners from new quantitative inputs. Retained full-fifteen reference ancestry remains a distinct channel. Whole-file/cache hashes are accounting only.",
+    "forward_geometry": "Use the exact target-specific qualified finite-ring kernels, original PPE, fractions, geometry and source window. Recompute new cohort interpolation and regional deposition from the selected anchor and saved outer-ring factors; weight each term once.",
+    "axis_and_support": "Keep the existing thirty-taxon parameter axis, author-TW5 calendar-BP support [1250,1750], homogeneous 1000m local support, two local rings and 100000m finite regional cutoff. No taxon, count, age, geometry or parameter substitution.",
+    "nominal_correspondence": "Reuse the unchanged independently qualified original675-slot zero-gap nominal handoff by exact input/result identity. New source projection must match saved native17-request selected vectors/regional cover and recomputed regional deposition before forecasts. Do not rerun675 old forward calls.",
+    "reference_sources": "Retain matched full-fifteen H20 predictions and three baseline predictions on the same ten targets by immutable source reference; retain original selected20 labels as full-fourteen-training history only, not a new nine-owner selection.",
+    "regional_source_precision": "Preserve the exact qualified finite nonnegative native regional-cover handoff, including its source rounding residual. It is not reclosed or normalized. Strict closed compositions remain required for selected local LOVE and final predictions; match recomputed regional deposition to the unchanged saved handoff before forecasts."
+  },
+  "scoring": {
+    "ordering": "Close and authenticate all fifty new prediction slots and the retained-reference identities before any new scoring-role observation decode. Read each of the ten selected target outcomes once; every refused slot remains explicit.",
+    "exposure": "Previously exposed development. Cached quantitative objects can contain other-fold target-derived fits; numerical candidates accept only their own allowed closure. No globally unread, OS-isolated or untouched claim.",
+    "observation": "Match original raw/geometry sample identity, site, bin, calendar-BP support, exact thirty-taxon order, finite integer counts and positive observed N. N may condition scoring only.",
+    "metrics": [
+      "mae_fraction",
+      "total_variation",
+      "hellinger",
+      "count_conditioned_multinomial_deviance"
+    ],
+    "metric_definitions": "MAE is mean absolute composition difference; TV is half L1; H is sqrt(half squared root-distance). Use fractions and natural-log count-conditioned deviance; zero observed counts contribute zero, positive observed count at zero prediction is explicit infinite loss, never hidden or serialized as NaN/Infinity. With thirty taxa TV=15*MAE is an identity, not separate evidence.",
+    "comparisons": "New five methods compared on identical eligible targets; retain case-level differences versus own-cohort physical baselines. Compare new methods to retained full-fifteen H20 and same-method baseline MAE/TV/H on exactly matched target/axis/observed identity. Do not rerun or pool old full-fifteen study; old count-deviance was not evaluated and remains unavailable.",
+    "summary": "Report all ten grouped folds/fifty slots, eligibility/refusal and target-specific N. Equal-target descriptive averages only, with unique-grain denominator counted once per target. No winner, causal thinning effect, independent-site precision or calibrated predictive coverage is presumed.",
+    "vegetation_accuracy": "not_evaluated_no_independent_measured_observation",
+    "final_accuracy_acceptance": "not_assessed_previously_exposed_development_without_qualified_final_benchmark"
+  },
+  "uncertainty": "Point model and fixed-scale/source-composition sensitivity only. Count/PPE/chronology/geometry/model-discrepancy uncertainty and calibrated intervals are not newly propagated; correlated nearby targets do not supply independent generalization precision. Preserve the separately qualified Nordic conditional uncertainty result in its own scope.",
+  "comparison_tolerances": {
+    "absolute": 1e-12,
+    "relative": 1e-10
+  },
+  "limits": {
+    "producer_wall_seconds": 180,
+    "observer_wall_seconds": 180,
+    "max_rss_bytes": 1073741824,
+    "max_output_bytes": 16777216
+  },
+  "unsupported_claims": [
+    "Independent measured vegetation accuracy",
+    "Untouched or external confirmation",
+    "Historical paper reproduction",
+    "Actual spatial-block validation from these nearby ten sites",
+    "Isolated causal sample-size effect",
+    "Calibrated uncertainty, predictive coverage or population generalization precision",
+    "Qualified biological/physical admission of all author or Nordic cores",
+    "Final scientific accuracy acceptance or guaranteed model superiority"
+  ]
+}

@@ -210,6 +210,17 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             "stratigraphically inconsistent",
             by_label["OB20-04"].chronology_provenance_text,
         )
+        self.assertIn(
+            "stratigraphically inconsistent",
+            by_label["OB20-04"].chronology_conflict_note,
+        )
+        self.assertTrue(
+            all(
+                not row.chronology_conflict_note
+                for label, row in by_label.items()
+                if label != "OB20-04"
+            )
+        )
         for label in ("OB20-01", "OB21-06"):
             self.assertEqual(by_label[label].chronology_strength, "unresolved")
             self.assertIsNone(by_label[label].time_start_bp)
@@ -414,7 +425,10 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
                 for row in ambiguity_rows
             )
         )
-        self.assertEqual(conflict_rows, ())
+        self.assertEqual(
+            tuple(row["repo_stable_sample_id"] for row in conflict_rows),
+            ("prjeb41594:samea8022724",),
+        )
         precision_counts = _count_mapping(precision_audit["precision_counts"])
         self.assertEqual(precision_counts["sample_approximate_or_modeled"], 200)
         sheep_species = next(

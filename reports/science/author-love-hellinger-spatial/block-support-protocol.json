@@ -1,0 +1,78 @@
+{
+  "schema_version": "author-lra-block-support-protocol.v1",
+  "question": "Can the existing fifteen-site author cohort support genuine two-block LRA transfer under its full declared finite source footprint, before any fitting or outcome access?",
+  "sources": {
+    "parent_protocol": {
+      "path": "reports/science/author-love-hellinger-spatial/protocol.json",
+      "bytes": 11232,
+      "sha256": "db07a8136b50a97742ff8082cc6d12fa366859dabf3bb072d3fd76d2e23a6741"
+    },
+    "nominal_inputs": {
+      "path": "artifacts/root/author-love-hellinger-spatial/inputs.json",
+      "bytes": 9744367,
+      "sha256": "46c94a3b55725f905ca1662af7559b3185928882659b04ea90ca8e2729da0152"
+    },
+    "site_metadata": {
+      "path": "landclim/author-reference/author/site.metadata.csv",
+      "bytes": 1019,
+      "sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de"
+    }
+  },
+  "policy": {
+    "minimum_buffer_m": 20000.0,
+    "coordinate_uncertainty_m": 0.0,
+    "uncertainty_scope": "optimistic_zero_lower_bound_not_empirical_precision",
+    "support_scope": "declared_finite_cutoff_synthetic_not_empirical_independence",
+    "source_radius": "Maximum of explicitly saved regional_cutoff_m and every declared inversion/forward outer radius per site; no invented experiment default or shoreline substitution",
+    "target_radius": "Original experiment local_support_radius_m, exactly1000m",
+    "admission": "For every held block target and every opposite-block source, host full-precision WGS84 lower=max(0,distance-source_radius-target_radius-source_coordinate_uncertainty-target_coordinate_uncertainty). Admit a source physical group only if every target comparison lower>=20000m. Includes any possible regional anchor.",
+    "monotonicity": "Zero uncertainty maximizes conservative clearance over all nonnegative declared uncertainty allowances; failure here cannot be rescued by adding such an allowance. This does not establish true empirical source areas or coordinate-error calibration.",
+    "pair_inventory": "Separate unbuffered hypothetical outer+inner-site role inventory using the exact original regional priority; never alter membership or anchor to force saved-pair coverage. No old whole-training ancestry copied.",
+    "outcome_access": "No raw pollen/vegetation observations, scores or selection losses are opened; decoded qualified nominal packet contributes only groups, role-owner/request identities and saved footprint cutoffs.",
+    "source_radius_scope": "Optimistic lower bound from explicit saved integration extent, not measured RSAP or an inferred historical engine default. A wider unestablished actual source influence cannot rescue a failed conservative-clearance screen."
+  },
+  "expected": {
+    "sites": 15,
+    "blocks": [
+      "512",
+      "562"
+    ],
+    "saved_pairs": 39,
+    "cross_block_comparisons": 112,
+    "unbuffered_outer_roles": 2,
+    "unbuffered_inner_site_roles": 15
+  },
+  "limits": {
+    "producer_wall_seconds": 60,
+    "observer_wall_seconds": 60,
+    "max_rss_bytes": 536870912,
+    "max_output_bytes": 2097152
+  },
+  "unsupported_claims": [
+    "Actual empirically independent spatial-block prediction accuracy",
+    "Measured footprint or zero coordinate error",
+    "Kernel or inverse refit",
+    "New prediction or outcome score",
+    "Untouched confirmation or historical reproduction",
+    "Qualified human acceptance"
+  ],
+  "independent_check": "Use an independent ellipsoid metric bound or independent inverse-geodesic solver; certify every actual admission decision, source membership, complete source/target cross-product and missing pair inventory without invoking the host screening or fitting consumer.",
+  "independent_geometry_reference": {
+    "profile": "exact-rational-ellipsoid-metric-envelope",
+    "semimajor_axis_m": 6378137,
+    "inverse_flattening": "298.257223563",
+    "pi_strict_lower_rational": [
+      3,
+      1
+    ],
+    "pi_strict_upper_rational": [
+      22,
+      7
+    ],
+    "metric_bounds": "b\u00b2/a <= WGS84 metric length per unit spherical coordinate path <= a\u00b2/b, b=a*(1-f)",
+    "distance_envelope": "Lower=(b\u00b2/a)*3*abs(latitude_difference_degrees)/180. Upper=(a\u00b2/b)*(22/7)*(abs(latitude_difference_degrees)+shorter_longitude_difference_degrees)/180. Fraction arithmetic starts from exact binary64 coordinate values. Upper uses an explicit meridian-plus-parallel path, not an asserted inverse-geodesic solution.",
+    "classification": "Certify refusal only when exact rational upper distance is strictly smaller than sum of both radii, both nonnegative uncertainty allowances and positive minimum buffer. Certify admission only when lower distance reaches that sum. Otherwise retain unresolved independent classification; do not claim micrometre geodesic correspondence.",
+    "reported_scalar_arithmetic_absolute_tolerance_m": 1e-06,
+    "reported_scalar_arithmetic_scope": "Only conservative-distance component arithmetic and membership of the broad analytic metric envelope; exact rational admission classification uses no tolerance. This is not a micrometre comparison with an independent inverse solver."
+  }
+}

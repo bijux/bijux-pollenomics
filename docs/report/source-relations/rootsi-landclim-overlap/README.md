@@ -108,6 +108,47 @@ Those counts describe the source files. They do not establish chronology,
 taxonomy, count meaning, historical input identity, reuse rights or LRA
 admission for a physical core.
 
+## Workbook intake dispositions
+
+These dispositions apply to each of the 79 distinct `typed_workbook_member`
+entries and their `typed_workbook_sha256` identities in the [row ledger](overlap.csv).
+The [retained field census](../../../../reports/science/publication-correspondence/rootsi-feature-census/report.json)
+records source sheet/header locations, mechanical row categories and its three
+workbook refusals; those classifications do not authenticate grain-count units
+or taxon identities.
+
+For every workbook, the source CRS is **not established by this intake**.
+Coordinates on a matched LandClim site do not establish the workbook's CRS or
+authorize coordinate transformation. Time support remains the literal age-column
+and metadata evidence already recorded: sequence coverage is not a sample-age
+model, and an age label does not resolve calendar conventions, calibration or
+uncertainty. Missing or conflicting age evidence remains refused for dated use.
+Measurement meaning and units remain unresolved wherever the retained structural
+review has only positional feature values; a numeric value is not thereby an
+authenticated pollen count, percentage or independent vegetation measurement.
+
+The publication and Rootsi locators in each row, together with the
+[LandClim II citation](https://doi.org/10.1594/PANGAEA.937075), supply metadata
+context, not proof of that workbook's original publication or historical-input
+membership. Each row retains unresolved per-sequence rights and the candidate
+overlap dependency. These explicit accounting dispositions preserve zero newly
+admitted sample chronologies and authorize no data normalization or scientific
+use of the workbooks.
+
+
+The historical intake `EXT-2026-09-04-ROOTSI-001` additionally accounts for
+`rootsi/Metadata table_SWE_climate.xlsx`, `rootsi/r_rootsi.R` and the `rootsi/`
+directory. Together with the 79 XLS workbooks these are **82 entries / 81 files**.
+The metadata workbook is a reference input, separately pinned above, with 81
+Swedish metadata rows and reference-only DK/NO/FI lists. Its coordinate columns
+have unresolved CRS/conflicts; metadata age and sample-count claims do not
+become admitted observation ages or measures. The R scratch script is a
+reference-only code artifact with unresolved rights: execution and production
+reuse remain prohibited, and no CRS, calendar, measurement meaning or derived
+output is inferred from its code. The directory is a container with no scientific
+CRS/time/measurement applicability. All three retain the receipt's unresolved
+source/citation/rights posture; these dispositions add no scientific admission.
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
