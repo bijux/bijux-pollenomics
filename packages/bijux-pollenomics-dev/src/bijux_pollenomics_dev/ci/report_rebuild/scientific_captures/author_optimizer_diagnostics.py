@@ -15,6 +15,7 @@ from ..retained_source import SourceCapsule, validated_descriptor
 from .optimizer_inputs.baseline import validated_optimizer_input_reference
 from .presentation_source_roles import atlas_extension_matches
 from .source_correspondence import validated_current_scientific_source
+from .source_roles.atlas_relation_context import validated_atlas_relation_context_source
 from .source_roles.atlas_runtime_transport import (
     validated_atlas_runtime_transport_source,
 )
@@ -300,6 +301,13 @@ def _optimizer_source_input_correspondence(
     resolver.fresh()
     if body == captured:
         return None
+    if name == (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/"
+        "reporting/map_document/payload.py"
+    ):
+        return validated_atlas_relation_context_source(
+            repository, row, logical, resolver
+        )
     if name == (
         "packages/bijux-pollenomics/src/bijux_pollenomics/"
         "reporting/lra_products/workflow.py"
