@@ -93,6 +93,7 @@ function renderNativeClassificationContext(tabs) {
 }
 function renderSourceProvenanceContext(tabs) {
   const family = tabs?.overview?.source_family, heading = '<h3>Source dataset metadata</h3>';
+  const transformations = renderSourceTransformationContext(tabs);
   const table = family === 'neotoma' ? tabs.samples?.datasets
     : family === 'sead' ? tabs.pollen_composition?.dataset_semantics : null;
   try {
@@ -116,9 +117,27 @@ function renderSourceProvenanceContext(tabs) {
       ])}${providerLink(row)}</article>`;
     }).join('') : '<p>SEAD dataset semantics are available below; primary publication citations are not exposed by this dataset table.</p>';
     const navigation = family === 'neotoma' ? '<p>Current provider data may differ from the retained source snapshot. These links do not retrieve the retained serialized archive; that archive is not the original HTTP response bytes.</p>' : '';
-    return `<section aria-label="Source dataset metadata">${heading}${citations}${navigation}<p>Native metadata and the original dataset table are retained without selecting, merging or normalizing citation alternatives. A dataset DOI alone is not a full primary publication citation or a rights decision. Missing, source-null and empty citation values remain distinct; captured publication records require a separate qualified join and capture identity.</p>${renderDetailTable(table,'provenance.datasets')}${family === 'neotoma' ? renderCapturedSourcePublications(tabs) : ''}<p>Source identities, digests, schema tags and record locators are retained in this tab where supplied. Record and part locators identify the preserved evidence named there; they do not establish a complete original-acquisition or transformation chain. No transformation history is invented here. Source-specific transformation fields remain in Chronology where supplied.</p></section>`;
+    return `<section aria-label="Source dataset metadata">${heading}${citations}${navigation}<p>Native metadata and the original dataset table are retained without selecting, merging or normalizing citation alternatives. A dataset DOI alone is not a full primary publication citation or a rights decision. Missing, source-null and empty citation values remain distinct; captured publication records require a separate qualified join and capture identity.</p>${renderDetailTable(table,'provenance.datasets')}${family === 'neotoma' ? renderCapturedSourcePublications(tabs) : ''}${transformations}<p>Source identities, digests, schema tags and record locators are retained in this tab where supplied. Record and part locators identify the preserved evidence named there; they do not establish a complete original-acquisition or transformation chain. No transformation history is invented here. Supplied transformation fields remain unchanged in Chronology.</p></section>`;
   } catch (error) {
-    return `<section aria-label="Source dataset metadata">${heading}<p>Dataset citation context is unavailable for source family ${escapeHtml(detailTableText(family))}. Existing provenance remains available; missing citation metadata is not a claim that the original source is externally unavailable.</p></section>`;
+    return `<section aria-label="Source dataset metadata">${heading}<p>Dataset citation context is unavailable for source family ${escapeHtml(detailTableText(family))}. Existing provenance remains available; missing citation metadata is not a claim that the original source is externally unavailable.</p>${transformations}</section>`;
+  }
+}
+function renderSourceTransformationContext(tabs) {
+  const family = tabs?.overview?.source_family, heading = '<h3>Supplied source transformations</h3>';
+  const unavailable = reason => `<section aria-label="Supplied source transformations">${heading}<p>${escapeHtml(reason)}</p></section>`;
+  if (family !== 'sead') return unavailable(`A per-record transformation table is not supplied for source family ${detailTableText(family)}. Source identities and locators do not imply an unavailable processing history.`);
+  try {
+    const table = tabs.chronology, rows = sourceRecordRows(table,['chronology_claim_id','source_age_value','source_age_unit','younger_bp','older_bp','original_interval_orientation','selection_rule_version','source_relation_path','reason_codes']);
+    if (rows.some(row => row.source_family !== 'sead' || !Object.hasOwn(row,'provenance_record_id'))) throw Error('source claim context unavailable');
+    if (rows.some(row => row.transformation_id != null && typeof row.transformation_id !== 'string')) throw Error('invalid transformation identity');
+    const supplied = rows.filter(row => typeof row.transformation_id === 'string' && row.transformation_id.trim());
+    const absent = rows.filter(row => row.transformation_id === undefined).length;
+    const nullable = rows.filter(row => row.transformation_id === null).length;
+    const empty = rows.length - supplied.length - absent - nullable;
+    const ids = [...new Set(supplied.map(row => row.transformation_id))];
+    return `<section aria-label="Supplied source transformations">${heading}<p>${rows.length} chronology claims; ${supplied.length} with an explicit transformation ID, ${absent} with no supplied field, ${nullable} with source-null ID and ${empty} with an empty ID. Missing IDs do not establish that no processing occurred.</p><p>Provided IDs: ${escapeHtml(ids.length ? ids.join('; ') : 'None supplied')}. IDs and selection-rule versions are shown as supplied, without inferring an operation from an unknown identifier. Source age values retain their reported units and endpoint orientation; younger BP and older BP columns retain the supplied normalized bounds. No conversion is performed in this view. Relation paths, provenance locators, qualification and refusal reasons remain attached to every claim; this is not a complete transformation ledger or an analysis-chronology selection.</p>${renderDetailTable(table,'provenance.transformations')}</section>`;
+  } catch (error) {
+    return unavailable('SEAD transformation context is unavailable or cannot be decoded consistently. Original chronology and provenance remain available.');
   }
 }
 function renderCapturedSourcePublications(tabs) {
