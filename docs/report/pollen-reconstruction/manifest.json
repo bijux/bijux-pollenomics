@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "f6602022630ba574623318ea93d3852f4c96c29fa05dc5c3643b78510cf16d16",
-      "bytes": 7385757
+      "sha256": "9c12fb0ec2b14e9d8717c78913371a09472bbf55a56419337ad20754707fa00b",
+      "bytes": 7386434
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5308,6 +5308,16 @@
       "path": "reports/science/publication-correspondence/pft-crosswalk/joint-covariance/report.json",
       "sha256": "692d3f384df5835f1836c5491291a971f1171b9bc68575acbb77f6ba38b5d3fe",
       "bytes": 56054
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/common-cover/report.json",
+      "sha256": "d2564463269ff7be389c5e318d5884ece9c7a6f3b7432b1a90daabd0820dcf9f",
+      "bytes": 67677
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/common-cover/counting-sets.json",
+      "sha256": "87628271482d4bbe6a2a0fb4291c99e7d4f4f11a9e5441bd194d7bce90f384e2",
+      "bytes": 108286
     }
   ],
   "maintained_paths": [
@@ -5568,6 +5578,10 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_preparation_audit.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/cohort.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/counting.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/producer.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__main__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/admissibility.py",
@@ -6092,6 +6106,7 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/__init__.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/homogeneous_likelihood.py",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/multisite_likelihood.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
@@ -6099,6 +6114,7 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/homogeneous_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/multisite_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/regional_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",

@@ -64,6 +64,20 @@ missing values, authenticated all 41 report files, and loaded the exact
 host check did not repeat numerical-engine parity or establish browser or
 scientific acceptance; the synthetic report retains `not_evaluated`.
 
+We also qualified the new internal common-cover likelihood at commit
+`a790c29a371b90f686a727a5761b44d0405ac77b`, engine version `0.1.9.dev1787`.
+Its direct wheel, source archive and independently rebuilt wheel passed the
+three archive checks. Both existing private environments installed the new
+engine, passed dependency checks and imported it from their own `site-packages`
+in isolated Python. A known common-cover example and an independent scalar
+root solution agreed; saturated floating information and an unmeasured taxon
+retained their refusals. The first analytic probe requested tighter cover error
+than the default score stopping rule guaranteed and failed by 1.66 × 10⁻¹¹.
+Both installed paths met the unchanged 10⁻¹² analytic bound after explicitly
+requesting tighter solver stopping tolerances. This point-fit package check
+adds no uncertainty, real-cohort, historical-method or release qualification;
+the shared development environment and earlier R results were not rerun.
+
 ## Public index check on 30 September 2026
 
 We checked the official PyPI [host project](https://pypi.org/project/bijux-pollenomics/)

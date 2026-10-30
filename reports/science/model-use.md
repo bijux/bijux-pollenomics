@@ -140,6 +140,151 @@ those inputs are available. These published findings do not select a PPE for
 our English author example or an unadmitted Nordic core, and they do not
 turn our synthetic winner into an empirical parameter estimate.
 
+## Conditional common cover at Bökesjön and Bussjösjön
+
+We fitted one relative **Betula/Ulmus** composition to both cores in each of
+13 matched CalBP windows, using the distinct saved response of each basin.
+The [complete numerical result](pollen-reconstruction/common-cover/report.json)
+retains all counts, denominators, source identities, solver diagnostics and
+six later unmatched BUS windows. This is a new conditional reconstruction;
+both cores enter each fit, so its likelihood describes the fitted inputs.
+It supplies no withheld-site or measured-vegetation accuracy result.
+
+For site s and taxon i, the model is
+`p_si = a_si * v_i / sum_j(a_sj * v_j)`, with `a_si = PPE_i * K_si` fixed.
+Integer projected grain totals weight the multinomial likelihood. The
+comparison baseline is `close(sum_s count_si / a_si)`; this differs from the
+previous forward study's equal-place mean of independently closed inverses.
+PPE is fixed at 5.106 for Betula and 1.27 for Ulmus. Saved basin radii are
+80 m and 69 m; their receiver factors, 3 m/s wind and homogeneous-annulus
+scenario remain assumptions rather than qualified historical geometry.
+
+Of 121 native samples, the original admission retains 110: BOKE excludes two
+point ages; BUS excludes three point ages and six missing-panel samples.
+Exactly 93 retained samples enter matched windows: 50 BOKE and 43 BUS.
+The other 17 BUS samples occupy six unmatched windows and are not fitted.
+The matched BOKE panel contains 11,295 original grains; excluding 1,367
+Fraxinus leaves 9,928 Betula/Ulmus grains. BUS contributes 3,699 matched
+panel grains. Their native all-pollen totals are 40,999 and 50,675.
+Across all 19 retained BUS windows the panel total is 6,848 and native
+all-pollen total 63,678. BUS Fraxinus remains unmeasured. Projection retains
+original full-panel sample exclusions; it cannot admit a missing observation.
+
+| CalBP window, older bound excluded | BOKE N | BUS N | Fitted Betula fraction | Baseline minus fitted NLL | Fitted deviance |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 0–100 | 366 | 60 | 0.810568 | 0.000547 | 9.381 |
+| 100–350 | 642 | 118 | 0.829380 | 0.000489 | 8.331 |
+| 350–700 | 536 | 350 | 0.896471 | 0.000174 | 1.973 |
+| 700–1200 | 1367 | 396 | 0.807836 | 0.000459 | 6.751 |
+| 1200–1700 | 935 | 485 | 0.644580 | 0.000289 | 3.833 |
+| 1700–2200 | 1288 | 352 | 0.507910 | 0.000622 | 11.855 |
+| 2200–2700 | 409 | 182 | 0.579006 | 0.001049 | 16.655 |
+| 2700–3200 | 675 | 241 | 0.574760 | 0.001093 | 19.197 |
+| 3200–3700 | 100 | 192 | 0.504398 | 0.000764 | 11.013 |
+| 3700–4200 | 241 | 261 | 0.256952 | 0.005878 | 76.537 |
+| 4200–4700 | 801 | 297 | 0.407800 | 0.012296 | 170.977 |
+| 4700–5200 | 1290 | 258 | 0.454898 | 0.015331 | 268.599 |
+| 5200–5700 | 1278 | 507 | 0.686978 | 0.000233 | 3.165 |
+
+All 13 fits converged under the declared score/count-balance policies.
+Their NLL advantage over the pooling baseline is only 0.000174–0.015331;
+the largest cover difference is 0.00280017, or 0.280017 percentage points on
+this two-taxon axis. Deviance against separate saturated site proportions
+ranges from 1.973 to 268.599. We retain the large discrepancies rather than
+interpreting successful optimization as support for common field cover.
+These descriptive deviances have no reported chi-square p-value.
+
+The actual consumer completed at `025fe2da34ec6426c075767be512943fd1afb6d3`
+with exit zero in 1.33 seconds and 67,677 output bytes. Reproduce from the
+repository root with a fresh output path:
+
+```sh
+mkdir -p artifacts/science/common-cover
+.venv/bin/python -B -m bijux_pollenomics_dev.essd_reproduction.common_cover.producer \
+  --repository "$PWD" --output "$PWD/artifacts/science/common-cover/report.json"
+```
+
+Twenty-one focused consumer tests, configured lint/types and independent
+review pass. An independent standard-library join checks all 121 native
+samples, the 11 exclusions and 110 retained samples across 32 site-windows.
+A 60-digit Decimal quadratic solution, independent of the Newton solver,
+confirms all 13 fits and both estimators' probabilities and likelihoods.
+Maximum absolute residuals are 2.89e-13 for cover, 1.13e-13 for probabilities,
+1.38e-16 for per-grain NLL and 2.87e-13 for deviance, below the predeclared
+1e-9, 1e-9, 1e-12 and 1e-8 bounds respectively. Raw inputs and consumed code
+were stable; kernels were not recomputed.
+
+The 93 matched samples lack raw age bounds. BUS borrows chronology controls
+from other named cores; CalBP retains AD1950 as reference. Repeated windows
+reuse the same two places, and pooling different samples does not establish
+homogeneous binomial or multinomial trials. PPE, geometry, chronology and
+count uncertainty are fixed or omitted in this point comparison. Source-use
+permissions, taxonomic review, common-cover applicability and ecological
+confirmation remain open. Historical REVEALS aggregation and whole vegetation
+have separate contracts.
+
+### Count-only compatibility of the two cores
+
+The separate [count-set calculation](pollen-reconstruction/common-cover/counting-sets.json)
+reuses the committed point study's counts and already-rounded responses.
+It performs **zero new fits or kernel evaluations**. Each site receives a
+nominal 97.5% equal-tail Clopper–Pearson pollen interval. We transform its
+endpoints by `v = a_2*p / (a_1*(1-p) + a_2*p)` and intersect the two resulting
+cover intervals in exact rational arithmetic. The Bonferroni union bound gives
+nominal 95% two-site coverage **within each declared window**, conditional on
+both binomial marginals, common cover and the fixed responses. Independence
+across the two sites is not required. The exact binary64 confidence budget
+and directed tail certificates remain in the result.
+
+**Seven windows have empty intersections:** 1700–2200, 2200–2700,
+2700–3200, 3200–3700, 3700–4200, 4200–4700 and 4700–5200 CalBP.
+Their exact inverted limits remain recorded; physical cover bounds are null.
+The other six are below, rounded to six decimals for reading. The numerical
+result retains exact fractions and outward machine bounds.
+
+| CalBP window, older bound excluded | Betula lower | Betula upper | Contains joint point estimate |
+| --- | ---: | ---: | --- |
+| 0–100 | 0.768394 | 0.784443 | no |
+| 100–350 | 0.797179 | 0.817926 | no |
+| 350–700 | 0.850147 | 0.933004 | yes |
+| 700–1200 | 0.786788 | 0.810670 | yes |
+| 1200–1700 | 0.618439 | 0.673423 | yes |
+| 5200–5700 | 0.657591 | 0.713859 | yes |
+
+The first two nonempty sets exclude the joint MLE. This intersection of
+marginal count constraints does not require MLE containment. Neither empty
+sets nor excluded estimates are clipped, shifted or replaced with a midpoint.
+The results expose conditional incompatibility; they do not identify whether
+chronology, geometry, shared-cover assumptions or sampling caused it.
+
+The count consumer completed at `d6c7b9de1` with exit zero in 1.72 seconds,
+retaining 13 computed sets and all six unmatched windows in 108,286 bytes.
+Its point inputs executed at `025fe2da3` and were published at `9f63efe47`;
+these revisions remain separate in the result. Reproduce with a fresh output:
+
+```sh
+mkdir -p artifacts/science/common-cover-counting
+.venv/bin/python -B -m bijux_pollenomics_dev.essd_reproduction.common_cover.counting \
+  --repository "$PWD" --output "$PWD/artifacts/science/common-cover-counting/report.json"
+```
+
+The mathematical contract passes 42 focused tests, including exact small-count
+coverage over 45 independent example scenarios and 405 count allocations.
+The consumer passes 19 focused tests; both pass configured lint/types and
+independent review. A separate standard-library check confirms all 26 exact
+site inverses, 13 intersections, outward bounds and endpoint-attaining sites.
+Independent 110-digit positive-term binomial summation confirms all 52 stored
+tail inequalities; the smallest target-minus-tail margin is 5.74e-18. Source
+inputs and consumed code remained stable, and the point fits were not repeated.
+
+These are thirteen separate conditional confidence sets, not a simultaneous
+95% band across the study, posterior or predictive intervals. Pooling the
+native samples does not establish binomial sampling calibration. PPE,
+chronology, geometry, within-bin variation, between-site heterogeneity and
+model uncertainty remain omitted. The seven empty sets do not qualify a field
+rejection, and the six nonempty sets do not admit common historical cover,
+source rights or ecological accuracy.
+
 ## Uncertainty and refusal rules
 
 In our [fixed-site covariance example](../../docs/report/method-certification/fixed-site-covariance/README.md),
@@ -168,11 +313,11 @@ register names the fields still preventing LRA use.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Current method-use rules distinguish observed-pollen, modeled cover and independent vegetation targets.
+**Supported claim.** Current method-use rules distinguish observed pollen, modeled cover and independent vegetation targets. A separate fixed-response common-cover comparison accounts for 13 fitted BOKE/BUS windows and six unmatched windows on an explicitly projected Betula/Ulmus axis. A distinct per-window conditional count calculation retains six nonempty and seven empty two-site common-cover sets.
 
 **Unsupported claim.** A universal LRA parameter winner or Nordic measured-vegetation accuracy.
 
-**Actual verification performed.** Retained model/score/source reports are synthesized; index did not run a new model comparison.
+**Actual verification performed.** Retained studies are synthesized. The distinct common-cover consumer ran at 025fe2da3 with exit 0 in 1.33 s; all 13 fits converged. Twenty-one focused tests, lint/types and independent review pass. Independent native joins confirm 121 samples, 11 exclusions and 110 retained samples; 60-digit quadratic arithmetic confirms cover, probabilities, per-grain NLL and deviance with maximum residuals 2.89e-13, 1.13e-13, 1.38e-16 and 2.87e-13 at frozen 1e-9, 1e-9, 1e-12 and 1e-8 bounds. The count-only consumer ran at d6c7b9de1 with exit 0 in 1.72 s, without refitting. Its mathematical contract passes 42 cases and its consumer 19; lint/types and independent review pass. Independent rational arithmetic confirms 26 site inverses and 13 intersections; 110-digit positive-term sums confirm all 52 binomial tail inequalities, with minimum target margin 5.74e-18.
 
 **Remaining input or review.** No admitted Nordic LRA core or measured-cover pair supports ecological ranking; available scores use different pollen axes, exposed cohorts and conditional basin/transport assumptions. Resolver: Core/reference owners and qualified landscape/palynology reviewer Reopen when: A same-site/time/taxon LRA input and independent reference plus a newly frozen cohort support declared model comparison.
 
@@ -182,11 +327,11 @@ register names the fields still preventing LRA use.
 
 **Precise next acceptance route.** A same-site/time/taxon LRA input and independent reference plus a newly frozen cohort support declared model comparison. Record the accepted evidence in this scientific account.
 
-**Negative or refused result.** Zero admitted Nordic LRA cores and zero independent Nordic measured-cover pairs in current scope.
+**Negative or refused result.** Zero admitted Nordic LRA cores and zero independent Nordic measured-cover pairs in current scope. Six unmatched BUS windows remain. Conditional fitted deviance reaches 268.599; the objective gain over geometry-correct-then-pool is only 0.000174–0.015331, without out-of-sample interpretation. Seven count-set intersections are empty. The first two nonempty sets exclude the joint MLE; both outcomes remain explicit.
 
-**Matched denominator.** English 15 outer source sites versus Nordic country/lake pollen cohorts on separate 30, 31 and 16-taxon axes.
+**Matched denominator.** English 15 outer source sites versus Nordic country/lake pollen cohorts on separate 30, 31 and 16-taxon axes. Separate common-cover study: 13 windows, two distinct places, 93 matched samples and 13,627 projected grains; 17 other retained BUS samples in six unmatched windows. Original full-panel exclusions and 1,367 discarded Fraxinus grains remain explicit. Count sets use the same 13 windows and 26 site count rows; nominal 95% coverage applies per window under the declared binomial marginals, without a simultaneous 13-window claim.
 
-Retained evidence: [reports/science/pollen-prediction.md](pollen-prediction.md), [reports/science/vegetation-reference.md](vegetation-reference.md).
+Retained evidence: [reports/science/pollen-prediction.md](pollen-prediction.md), [reports/science/vegetation-reference.md](vegetation-reference.md), [reports/science/pollen-reconstruction/common-cover/report.json](pollen-reconstruction/common-cover/report.json), [reports/science/pollen-reconstruction/common-cover/counting-sets.json](pollen-reconstruction/common-cover/counting-sets.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

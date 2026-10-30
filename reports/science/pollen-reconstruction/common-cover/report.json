@@ -1,0 +1,2281 @@
+{
+  "schema_version": "boke-bus-conditional-multisite-likelihood.v1",
+  "source_commit": "025fe2da34ec6426c075767be512943fd1afb6d3",
+  "command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/Resources/Python.app/Contents/MacOS/Python",
+    "-B",
+    "-m",
+    "bijux_pollenomics_dev.essd_reproduction.common_cover.producer",
+    "--repository",
+    "/Users/bijan/bijux/bijux-pollenomics",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/common-cover/report.json"
+  ],
+  "taxa": [
+    "Betula",
+    "Ulmus"
+  ],
+  "age_unit": "calibrated years BP, AD1950 reference",
+  "likelihood_effort": "Literal projected integer NISP per site; no equal-site weighting or pseudocounts",
+  "baseline": "close(sum_site count_i/(PPE_i*K_site_i))",
+  "unmatched": [
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        5700.0,
+        6200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        92,
+        218
+      ],
+      "original_panel_N": 310,
+      "projected_counts": [
+        92,
+        218
+      ],
+      "projected_panel_N": 310,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2032,
+      "outside_original_panel_N": 1722,
+      "outside_projected_panel_N": 1722,
+      "sample_ids": [
+        552146,
+        552145
+      ],
+      "raw_age_bounds_missing": 2,
+      "original_native_support_sha256": "4bfb34d5ff9ee3abf185aa0da41b01ea067af9a6a656828a893bbe16a7ae8e6c",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        6200.0,
+        6700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        99,
+        206
+      ],
+      "original_panel_N": 305,
+      "projected_counts": [
+        99,
+        206
+      ],
+      "projected_panel_N": 305,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2260,
+      "outside_original_panel_N": 1955,
+      "outside_projected_panel_N": 1955,
+      "sample_ids": [
+        552147,
+        552148
+      ],
+      "raw_age_bounds_missing": 2,
+      "original_native_support_sha256": "7345afb0478b51f2ff4fa366ecba6c4e9fd045b360940f09f0bfbadd50f45536",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        6700.0,
+        7200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        232,
+        262
+      ],
+      "original_panel_N": 494,
+      "projected_counts": [
+        232,
+        262
+      ],
+      "projected_panel_N": 494,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 2508,
+      "outside_original_panel_N": 2014,
+      "outside_projected_panel_N": 2014,
+      "sample_ids": [
+        552149,
+        552150,
+        552151
+      ],
+      "raw_age_bounds_missing": 3,
+      "original_native_support_sha256": "dc3c96bd2b39e3299d16bddc2f8dca1020b3ad4c5356808e854525bcaf99a255",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        7200.0,
+        7700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        169,
+        192
+      ],
+      "original_panel_N": 361,
+      "projected_counts": [
+        169,
+        192
+      ],
+      "projected_panel_N": 361,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 1920,
+      "outside_original_panel_N": 1559,
+      "outside_projected_panel_N": 1559,
+      "sample_ids": [
+        552152,
+        552153,
+        552155
+      ],
+      "raw_age_bounds_missing": 3,
+      "original_native_support_sha256": "3f0b852c515b00fa7e5b25195d4bb387f838ca0430e31203c9a3e9cba2695877",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        7700.0,
+        8200.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        1129,
+        182
+      ],
+      "original_panel_N": 1311,
+      "projected_counts": [
+        1129,
+        182
+      ],
+      "projected_panel_N": 1311,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 3824,
+      "outside_original_panel_N": 2513,
+      "outside_projected_panel_N": 2513,
+      "sample_ids": [
+        552154,
+        552156,
+        552157,
+        552158,
+        552159,
+        552161
+      ],
+      "raw_age_bounds_missing": 6,
+      "original_native_support_sha256": "49ae7811c2ab15a04653657bdae74375f96980ebf6f9a48082d50b7f91b17aad",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    },
+    {
+      "core": "BUS",
+      "window_cal_bp": [
+        8200.0,
+        8700.0
+      ],
+      "original_axis": [
+        "Betula",
+        "Ulmus"
+      ],
+      "original_counts": [
+        365,
+        3
+      ],
+      "original_panel_N": 368,
+      "projected_counts": [
+        365,
+        3
+      ],
+      "projected_panel_N": 368,
+      "discarded_original_panel_counts": {},
+      "Fraxinus_original_panel_count": null,
+      "reported_all_pollen_NISP_N": 459,
+      "outside_original_panel_N": 91,
+      "outside_projected_panel_N": 91,
+      "sample_ids": [
+        552163
+      ],
+      "raw_age_bounds_missing": 1,
+      "original_native_support_sha256": "a0d36c33c698a8dbb47a101007ba9a9155e8e7391ce9abcc9ff21d4097853165",
+      "taxon_measured": [
+        true,
+        true
+      ],
+      "status": "unmatched_window_no_fit"
+    }
+  ],
+  "cores": [
+    {
+      "core": "BOKE",
+      "native_site_id": 28872,
+      "native_dataset_id": 54001,
+      "native_collection_unit_id": 39241,
+      "ppe": [
+        5.106,
+        1.27
+      ],
+      "saved_K": [
+        0.2968731304200054,
+        0.2382713964696883
+      ],
+      "response_PPE_times_K": [
+        1.5158342039245476,
+        0.30260467351650416
+      ],
+      "chronology_id": 38422,
+      "selected_chronology": {
+        "chronology_id": 38422,
+        "model": {
+          "notes": "Calandar BP age with Calibrated C14 dates and Pb210 dates.",
+          "contact": [
+            {
+              "contactid": 15627,
+              "givenname": "Anna-Kari",
+              "familyname": "Trondman",
+              "contactname": "Trondman, Anna-Kari",
+              "leadinginitial": "A.K."
+            }
+          ],
+          "agemodel": "Smoothing spline (smoothness 0.5)",
+          "agerange": {
+            "ageboundolder": 5650,
+            "ageboundyounger": -40
+          },
+          "isdefault": true,
+          "dateprepared": "2011-01-01",
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "chronologyname": "LANDCLIM"
+        },
+        "raw_control_count": 29,
+        "raw_control_sha256": "c5af9c066cdff640bb2f0f47f9d4724e83d925a4d6711819fd3551c7336ac37d"
+      },
+      "metadata_static_radius_m": 80.0,
+      "metadata_disk_area_m2": 20106.192982974677,
+      "historical_metadata_access_flag": "NR",
+      "native_sample_count": 52,
+      "included_sample_count": 50,
+      "exclusions_by_reason": {
+        "point_age_outside_declared_windows": 2
+      },
+      "local_native_exclusions_sha256": "7d28cbe9cfed13978e3cb45813709cb1367b3fa0bea60ecd01c3c0f8d3f8281c"
+    },
+    {
+      "core": "BUS",
+      "native_site_id": 28869,
+      "native_dataset_id": 53995,
+      "native_collection_unit_id": 39238,
+      "ppe": [
+        5.106,
+        1.27
+      ],
+      "saved_K": [
+        0.3036219855575824,
+        0.24477138467402693
+      ],
+      "response_PPE_times_K": [
+        1.5502938582570158,
+        0.3108596585360142
+      ],
+      "chronology_id": 38418,
+      "selected_chronology": {
+        "chronology_id": 38418,
+        "model": {
+          "notes": "Calibrated year BP age. C14 Dates taken from Ager\u00f6ds mosse and correcleted to Bussj\u00f6sj\u00f6n core. 210Pb from Krageholmssj\u00f6n lake.",
+          "contact": [
+            {
+              "contactid": 15627,
+              "givenname": "Anna-Kari",
+              "familyname": "Trondman",
+              "contactname": "Trondman, Anna-Kari",
+              "leadinginitial": "A.K."
+            }
+          ],
+          "agemodel": "smoothing spline (smoothness 0.5)",
+          "agerange": {
+            "ageboundolder": 9300,
+            "ageboundyounger": -52
+          },
+          "isdefault": true,
+          "dateprepared": "2011-01-01",
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "chronologyname": "LANDCLIM"
+        },
+        "raw_control_count": 10,
+        "raw_control_sha256": "35319f4322e0b17dbb70bd228f142b0f68c382423e407d25c86bd6044d0cd027"
+      },
+      "metadata_static_radius_m": 69.0,
+      "metadata_disk_area_m2": 14957.122623741005,
+      "historical_metadata_access_flag": "NR",
+      "native_sample_count": 69,
+      "included_sample_count": 60,
+      "exclusions_by_reason": {
+        "point_age_outside_declared_windows": 3,
+        "panel_taxon_not_explicitly_reported": 6
+      },
+      "local_native_exclusions_sha256": "f233cc7643a54e18c172f8944fc6f102f675e30aced9566d635676a1b4c9b1e9"
+    }
+  ],
+  "scientific_inputs": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/matched-pollen-forward/assumptions/protocol.json",
+      "sha256": "22355c28b91af19e23240ce8060761fc0f1f45d6be212d04f5432127eb2e7249",
+      "bytes": 17806
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+      "sha256": "8ccd776179ab48e1cd5258086046ed0cf58281482aecd83595800c83275790dd",
+      "bytes": 726215
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "d9a12af1e1f7a39e690c35de19b87fc487311756a75b39318de9acba7ffe3399",
+      "bytes": 4359
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json",
+      "sha256": "0391384f85500555a554b744b56598f4cca6ae5b91fa2ba323f9de45fb4af4b8",
+      "bytes": 3247
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+      "sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+      "bytes": 604997
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/retained-source-identities.json",
+      "sha256": "f903051acee72613bad110c2539f37c082d52a340966ddd79bbc03253e5453cc",
+      "bytes": 8027
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json",
+      "sha256": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
+      "bytes": 13224
+    },
+    {
+      "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+      "bytes": 24477671,
+      "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    }
+  ],
+  "original_source_epochs": {
+    "swedish": "1988f522002e8bb5362083b9e8b46bd4fa17685e",
+    "nordic": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e"
+  },
+  "groups": [
+    {
+      "window_cal_bp": [
+        0.0,
+        100.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            355,
+            9,
+            11
+          ],
+          "original_panel_N": 375,
+          "projected_counts": [
+            355,
+            11
+          ],
+          "projected_panel_N": 366,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 9
+          },
+          "Fraxinus_original_panel_count": 9,
+          "reported_all_pollen_NISP_N": 1070,
+          "outside_original_panel_N": 695,
+          "outside_projected_panel_N": 704,
+          "sample_ids": [
+            552391,
+            552390
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "00fe597216ea7eaf7c9184e8247846a074e4089e0605fb5e6cfe68b0f7944541",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            52,
+            8
+          ],
+          "original_panel_N": 60,
+          "projected_counts": [
+            52,
+            8
+          ],
+          "projected_panel_N": 60,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 1838,
+          "outside_original_panel_N": 1778,
+          "outside_projected_panel_N": 1778,
+          "sample_ids": [
+            552110,
+            552109
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "97121a8617142756b4c88e75458a09d76122fff154951c675c1b7c5de7b9f7cf",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 2.298161660974074e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 5.126272213735506e-13,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.9553989638222685,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.8105681498069366,
+          0.18943185019306338
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9554257213264381,
+            0.04457427867356187
+          ],
+          [
+            0.9552364332418984,
+            0.04476356675810161
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 77.6362605176206,
+        "mean_negative_log_likelihood": 0.1822447429991094,
+        "saturated_site_negative_log_likelihood": 72.9456047939985,
+        "multinomial_deviance": 9.381311447244256
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.8117590050522971,
+          0.18824099494770277
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9557556423965903,
+            0.044244357603409785
+          ],
+          [
+            0.9555676901916328,
+            0.04443230980836724
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 77.6368078052426,
+        "mean_negative_log_likelihood": 0.1822460277118371,
+        "saturated_site_negative_log_likelihood": 72.9456047939985,
+        "multinomial_deviance": 9.382406022488192
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.0005472876219982936
+    },
+    {
+      "window_cal_bp": [
+        100.0,
+        350.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            623,
+            26,
+            19
+          ],
+          "original_panel_N": 668,
+          "projected_counts": [
+            623,
+            19
+          ],
+          "projected_panel_N": 642,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 26
+          },
+          "Fraxinus_original_panel_count": 26,
+          "reported_all_pollen_NISP_N": 2663,
+          "outside_original_panel_N": 1995,
+          "outside_projected_panel_N": 2021,
+          "sample_ids": [
+            552394,
+            552389,
+            552392,
+            552393,
+            552396
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "6b2a2eaa062b0a3c8bfc1b3721d4080d203c8803cf8a7a3e8257d98398fe4a29",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            107,
+            11
+          ],
+          "original_panel_N": 118,
+          "projected_counts": [
+            107,
+            11
+          ],
+          "projected_panel_N": 118,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4404,
+          "outside_original_panel_N": 4286,
+          "outside_projected_panel_N": 4286,
+          "sample_ids": [
+            552111,
+            552114,
+            552112,
+            552115
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "bc3cf73f0c91865fdbcc0237d7aa9dc71f7686de00a962138ad4059cb7f03c7e",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 2.475797344914099e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 6.259714968592789e-13,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.9605262215429606,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.8293804986662903,
+          0.1706195013337097
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.960552465163313,
+            0.0394475348366869
+          ],
+          [
+            0.9603840454672391,
+            0.0396159545327609
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 126.33548330666241,
+        "mean_negative_log_likelihood": 0.16623089908771368,
+        "saturated_site_negative_log_likelihood": 122.17012155895176,
+        "multinomial_deviance": 8.330723495421244
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.8302041083926165,
+          0.1697958916073835
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9607728331495434,
+            0.039227166850456574
+          ],
+          [
+            0.9606053157191697,
+            0.039394684280830386
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 126.33597237591621,
+        "mean_negative_log_likelihood": 0.16623154259988976,
+        "saturated_site_negative_log_likelihood": 122.17012155895176,
+        "multinomial_deviance": 8.331701633928802
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.0004890692538026542
+    },
+    {
+      "window_cal_bp": [
+        350.0,
+        700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            527,
+            15,
+            9
+          ],
+          "original_panel_N": 551,
+          "projected_counts": [
+            527,
+            9
+          ],
+          "projected_panel_N": 536,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 15
+          },
+          "Fraxinus_original_panel_count": 15,
+          "reported_all_pollen_NISP_N": 2122,
+          "outside_original_panel_N": 1571,
+          "outside_projected_panel_N": 1586,
+          "sample_ids": [
+            552395,
+            552397,
+            552398
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "6a9c5f60dab139afba91ddc589c235bf11d6aa57908a97cbf872b1b03ed62c53",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            339,
+            11
+          ],
+          "original_panel_N": 350,
+          "projected_counts": [
+            339,
+            11
+          ],
+          "projected_panel_N": 350,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 6306,
+          "outside_original_panel_N": 5956,
+          "outside_projected_panel_N": 5956,
+          "sample_ids": [
+            552118,
+            552101,
+            552102,
+            552103
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "b6309b44f4378cf616258ac68f42c1827d39ef3921a501f940642f78b432f195",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 5.3117232834409833e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 2.3530934145643556e-12,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.9774265350762612,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.896470908454272,
+          0.10352909154572792
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.977465315256766,
+            0.022534684743233998
+          ],
+          [
+            0.9773674029209325,
+            0.022632597079067538
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 95.57854018295123,
+        "mean_negative_log_likelihood": 0.10787645618843254,
+        "saturated_site_negative_log_likelihood": 94.591919723082,
+        "multinomial_deviance": 1.9732409197384104
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.8968618574654348,
+          0.10313814253456523
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9775580678824298,
+            0.022441932117570174
+          ],
+          [
+            0.9774605492602155,
+            0.02253945073978447
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 95.5787139619062,
+        "mean_negative_log_likelihood": 0.1078766523272079,
+        "saturated_site_negative_log_likelihood": 94.591919723082,
+        "multinomial_deviance": 1.9735884776484944
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.0001737789549736135
+    },
+    {
+      "window_cal_bp": [
+        700.0,
+        1200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1315,
+            134,
+            52
+          ],
+          "original_panel_N": 1501,
+          "projected_counts": [
+            1315,
+            52
+          ],
+          "projected_panel_N": 1367,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 134
+          },
+          "Fraxinus_original_panel_count": 134,
+          "reported_all_pollen_NISP_N": 5152,
+          "outside_original_panel_N": 3651,
+          "outside_projected_panel_N": 3785,
+          "sample_ids": [
+            552400,
+            552399,
+            552401,
+            552403,
+            552402,
+            552404
+          ],
+          "raw_age_bounds_missing": 6,
+          "original_native_support_sha256": "05b96293c015c662a98f7cf5b15c460e8a948d4ab34d9e0b999468812c3ca0ef",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            368,
+            28
+          ],
+          "original_panel_N": 396,
+          "projected_counts": [
+            368,
+            28
+          ],
+          "projected_panel_N": 396,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 5003,
+          "outside_original_panel_N": 4607,
+          "outside_projected_panel_N": 4607,
+          "sample_ids": [
+            552104,
+            552105,
+            552106
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "92e8d86e790e6f513d40e1bdc6227e489f3a99abe72f39a7978efae86c986798",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 4.7878367936959876e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 1.0551195334107533e-12,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.9546226600216824,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.8078360953510437,
+          0.1921639046489563
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9546660095122158,
+            0.045333990487784206
+          ],
+          [
+            0.9544736489816076,
+            0.04552635101839241
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 325.5320988149154,
+        "mean_negative_log_likelihood": 0.18464668112020158,
+        "saturated_site_negative_log_likelihood": 322.1567343965045,
+        "multinomial_deviance": 6.75072883682186
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.8083738532870388,
+          0.19162614671296127
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9548158559168779,
+            0.04518414408312212
+          ],
+          [
+            0.9546241009911302,
+            0.04537589900886982
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 325.53255753365596,
+        "mean_negative_log_likelihood": 0.1846469413123403,
+        "saturated_site_negative_log_likelihood": 322.1567343965045,
+        "multinomial_deviance": 6.751646274302789
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.0004587187405604709
+    },
+    {
+      "window_cal_bp": [
+        1200.0,
+        1700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            832,
+            148,
+            103
+          ],
+          "original_panel_N": 1083,
+          "projected_counts": [
+            832,
+            103
+          ],
+          "projected_panel_N": 935,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 148
+          },
+          "Fraxinus_original_panel_count": 148,
+          "reported_all_pollen_NISP_N": 3925,
+          "outside_original_panel_N": 2842,
+          "outside_projected_panel_N": 2990,
+          "sample_ids": [
+            552405,
+            552406,
+            552407,
+            552408,
+            552409
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "fdf98e329768d392831081951fcdcabb7ca3091b453636765c278f5b539d7a2a",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            447,
+            38
+          ],
+          "original_panel_N": 485,
+          "projected_counts": [
+            447,
+            38
+          ],
+          "projected_panel_N": 485,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4655,
+          "outside_original_panel_N": 4170,
+          "outside_projected_panel_N": 4170,
+          "sample_ids": [
+            552107,
+            552108,
+            552113,
+            552117
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "e604c0645a53cfe912cd2a9576f85ac00ea56a123ae525218f7f5c35b75d66f8",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 1.127986593019159e-13,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 1.1352876873424475e-12,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.900703868500182,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.6445795417446528,
+          0.3554204582553472
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9008397989203109,
+            0.0991602010796891
+          ],
+          [
+            0.9004428618749468,
+            0.09955713812505314
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 459.462018252408,
+        "mean_negative_log_likelihood": 0.3235648015862028,
+        "saturated_site_negative_log_likelihood": 457.54557457683575,
+        "multinomial_deviance": 3.8328873511444392
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.6440907111297065,
+          0.3559092888702935
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9006490939753982,
+            0.09935090602460189
+          ],
+          [
+            0.9002514780693991,
+            0.09974852193060088
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 459.4623073403336,
+        "mean_negative_log_likelihood": 0.323565005169249,
+        "saturated_site_negative_log_likelihood": 457.54557457683575,
+        "multinomial_deviance": 3.8334655269957096
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.00028908792563697716
+    },
+    {
+      "window_cal_bp": [
+        1700.0,
+        2200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1059,
+            200,
+            229
+          ],
+          "original_panel_N": 1488,
+          "projected_counts": [
+            1059,
+            229
+          ],
+          "projected_panel_N": 1288,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 200
+          },
+          "Fraxinus_original_panel_count": 200,
+          "reported_all_pollen_NISP_N": 5602,
+          "outside_original_panel_N": 4114,
+          "outside_projected_panel_N": 4314,
+          "sample_ids": [
+            552411,
+            552410,
+            552415,
+            552413,
+            552412,
+            552414
+          ],
+          "raw_age_bounds_missing": 6,
+          "original_native_support_sha256": "7a865fba8a0a3a52b788e64c85b33a48ef207028b412a9b4189730e8a6c14f0e",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            315,
+            37
+          ],
+          "original_panel_N": 352,
+          "projected_counts": [
+            315,
+            37
+          ],
+          "projected_panel_N": 352,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3554,
+          "outside_original_panel_N": 3202,
+          "outside_projected_panel_N": 3202,
+          "sample_ids": [
+            552119,
+            552120,
+            552121
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "019184d6510d18e5cf1b68184f7c1e4e177d3b8618c5f40d6e7fa0fec473a8f6",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 5.767608612927688e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 3.5559692200005297e-13,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.8378044998107169,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.5079104379520019,
+          0.4920895620479981
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.8379343617329882,
+            0.16206563826701187
+          ],
+          [
+            0.837331085476752,
+            0.16266891452324805
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 727.0884277770983,
+        "mean_negative_log_likelihood": 0.44334660230310874,
+        "saturated_site_negative_log_likelihood": 721.1609327904263,
+        "multinomial_deviance": 11.854989973344438
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.5073202056231702,
+          0.4926797943768299
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.837613416263555,
+            0.16238658373644504
+          ],
+          [
+            0.8370091776995705,
+            0.1629908223004294
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 727.0890494942537,
+        "mean_negative_log_likelihood": 0.4433469813989352,
+        "saturated_site_negative_log_likelihood": 721.1609327904263,
+        "multinomial_deviance": 11.856233407655104
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.0006217171553544176
+    },
+    {
+      "window_cal_bp": [
+        2200.0,
+        2700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            343,
+            104,
+            66
+          ],
+          "original_panel_N": 513,
+          "projected_counts": [
+            343,
+            66
+          ],
+          "projected_panel_N": 409,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 104
+          },
+          "Fraxinus_original_panel_count": 104,
+          "reported_all_pollen_NISP_N": 2258,
+          "outside_original_panel_N": 1745,
+          "outside_projected_panel_N": 1849,
+          "sample_ids": [
+            552416,
+            552417,
+            552418
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "ee5a114436c24272aca2f0f0e0eaf05338a734b2b7809bae45db28e06accfcc1",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            173,
+            9
+          ],
+          "original_panel_N": 182,
+          "projected_counts": [
+            173,
+            9
+          ],
+          "projected_panel_N": 182,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 1924,
+          "outside_original_panel_N": 1742,
+          "outside_projected_panel_N": 1742,
+          "sample_ids": [
+            552122,
+            552123
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "23a8f2a54b14ac2f6c41865801f51190730a15a431df2ae1b657a54501de666c",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 1.0122458427019865e-13,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 7.976497240491654e-13,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.8730960405400606,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.5790055127164149,
+          0.42099448728358513
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.8732478934872875,
+            0.12675210651271257
+          ],
+          [
+            0.8727561074925253,
+            0.12724389250747464
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 224.91323207904753,
+        "mean_negative_log_likelihood": 0.38056384446539343,
+        "saturated_site_negative_log_likelihood": 216.58549247367947,
+        "multinomial_deviance": 16.65547921073612
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.5776261829207588,
+          0.42237381707924115
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.8726205210345344,
+            0.12737947896546575
+          ],
+          [
+            0.8721266573369473,
+            0.1278733426630528
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 224.91428098449035,
+        "mean_negative_log_likelihood": 0.380565619263097,
+        "saturated_site_negative_log_likelihood": 216.58549247367947,
+        "multinomial_deviance": 16.65757702162177
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.0010489054428148847
+    },
+    {
+      "window_cal_bp": [
+        2700.0,
+        3200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            570,
+            94,
+            105
+          ],
+          "original_panel_N": 769,
+          "projected_counts": [
+            570,
+            105
+          ],
+          "projected_panel_N": 675,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 94
+          },
+          "Fraxinus_original_panel_count": 94,
+          "reported_all_pollen_NISP_N": 2553,
+          "outside_original_panel_N": 1784,
+          "outside_projected_panel_N": 1878,
+          "sample_ids": [
+            552419,
+            552422,
+            552421
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "afb209489884ab489a9a0cfe8df443086f7f252288ba927ddd8f198dbcb0e84f",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            228,
+            13
+          ],
+          "original_panel_N": 241,
+          "projected_counts": [
+            228,
+            13
+          ],
+          "projected_panel_N": 241,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 2368,
+          "outside_original_panel_N": 2127,
+          "outside_projected_panel_N": 2127,
+          "sample_ids": [
+            552124,
+            552125
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "cf01c2e0753ae07e3dbbe4e0ec772884a9625f0af098078bfd5b8a721532ca09",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 8.359979375427429e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 6.487456523021299e-13,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.8711786657618489,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.5747599103109381,
+          0.4252400896890619
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.8713101138664568,
+            0.12868988613354315
+          ],
+          [
+            0.8708119217430086,
+            0.12918807825699144
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 351.9517861810012,
+        "mean_negative_log_likelihood": 0.38422684080895325,
+        "saturated_site_negative_log_likelihood": 342.35341982275344,
+        "multinomial_deviance": 19.19673271649557
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.5736328776783364,
+          0.42636712232166357
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.8707923553164617,
+            0.12920764468353824
+          ],
+          [
+            0.8702924571962958,
+            0.1297075428037042
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 351.952879604485,
+        "mean_negative_log_likelihood": 0.3842280345027129,
+        "saturated_site_negative_log_likelihood": 342.35341982275344,
+        "multinomial_deviance": 19.198919563463242
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.0010934234838373413
+    },
+    {
+      "window_cal_bp": [
+        3200.0,
+        3700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            93,
+            13,
+            7
+          ],
+          "original_panel_N": 113,
+          "projected_counts": [
+            93,
+            7
+          ],
+          "projected_panel_N": 100,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 13
+          },
+          "Fraxinus_original_panel_count": 13,
+          "reported_all_pollen_NISP_N": 525,
+          "outside_original_panel_N": 412,
+          "outside_projected_panel_N": 425,
+          "sample_ids": [
+            552424
+          ],
+          "raw_age_bounds_missing": 1,
+          "original_native_support_sha256": "b8f98b7c6677338de627b7b05c967b8d6c893d609416ac73c6b41a56e161cf45",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            151,
+            41
+          ],
+          "original_panel_N": 192,
+          "projected_counts": [
+            151,
+            41
+          ],
+          "projected_panel_N": 192,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4279,
+          "outside_original_panel_N": 4087,
+          "outside_projected_panel_N": 4087,
+          "sample_ids": [
+            552126,
+            552128,
+            552127,
+            552129
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "4b79d06a51e6a578e5c14f4b0f34b71c560734e1b33275245cf5f08639273f98",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 1.0191847366058937e-13,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 6.198352016835903e-13,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.8356159302805787,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.5043977344233308,
+          0.49560226557666914
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.836016884529797,
+            0.16398311547020294
+          ],
+          [
+            0.8354078726405757,
+            0.16459212735942427
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 130.44363765187353,
+        "mean_negative_log_likelihood": 0.4467247864790189,
+        "saturated_site_negative_log_likelihood": 124.937296027573,
+        "multinomial_deviance": 11.012683248601107
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.5059412039897664,
+          0.49405879601023367
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.8368616137523893,
+            0.1631383862476106
+          ],
+          [
+            0.8362551246127151,
+            0.16374487538728488
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 130.44440118425757,
+        "mean_negative_log_likelihood": 0.44672740131595057,
+        "saturated_site_negative_log_likelihood": 124.937296027573,
+        "multinomial_deviance": 11.01421031336914
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.0007635323840418096
+    },
+    {
+      "window_cal_bp": [
+        3700.0,
+        4200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            199,
+            36,
+            42
+          ],
+          "original_panel_N": 277,
+          "projected_counts": [
+            199,
+            42
+          ],
+          "projected_panel_N": 241,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 36
+          },
+          "Fraxinus_original_panel_count": 36,
+          "reported_all_pollen_NISP_N": 1039,
+          "outside_original_panel_N": 762,
+          "outside_projected_panel_N": 798,
+          "sample_ids": [
+            552420,
+            552423
+          ],
+          "raw_age_bounds_missing": 2,
+          "original_native_support_sha256": "584319cedffcd1fd129650fefe9e52ed49e83353571c72b62318e778745d928d",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            119,
+            142
+          ],
+          "original_panel_N": 261,
+          "projected_counts": [
+            119,
+            142
+          ],
+          "projected_panel_N": 261,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 4250,
+          "outside_original_panel_N": 3989,
+          "outside_projected_panel_N": 3989,
+          "sample_ids": [
+            552130,
+            552131,
+            552132,
+            552133
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "2b56968037f6114ccf6710533616e64cc31f2aaae25a99900242b85958d80039",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 1.3378187446733136e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 3.649918531663062e-14,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.6334654131556524,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.2569519812890623,
+          0.7430480187109376
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.6340015970832297,
+            0.3659984029167704
+          ],
+          [
+            0.6329717053752296,
+            0.3670282946247703
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 329.6514994020271,
+        "mean_negative_log_likelihood": 0.6566762936295361,
+        "saturated_site_negative_log_likelihood": 291.38296533474437,
+        "multinomial_deviance": 76.53706813456563
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.25887492734494055,
+          0.7411250726550594
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.636329804596063,
+            0.36367019540393697
+          ],
+          [
+            0.6353026957200196,
+            0.3646973042799805
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 329.6573770163705,
+        "mean_negative_log_likelihood": 0.6566880020246424,
+        "saturated_site_negative_log_likelihood": 291.38296533474437,
+        "multinomial_deviance": 76.5488233632523
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.005877614343376081
+    },
+    {
+      "window_cal_bp": [
+        4200.0,
+        4700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            705,
+            229,
+            96
+          ],
+          "original_panel_N": 1030,
+          "projected_counts": [
+            705,
+            96
+          ],
+          "projected_panel_N": 801,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 229
+          },
+          "Fraxinus_original_panel_count": 229,
+          "reported_all_pollen_NISP_N": 4019,
+          "outside_original_panel_N": 2989,
+          "outside_projected_panel_N": 3218,
+          "sample_ids": [
+            552427,
+            552426,
+            552425,
+            552428
+          ],
+          "raw_age_bounds_missing": 4,
+          "original_native_support_sha256": "e9bf4472b50210cec10c5523b711f4cf3b699a24465b6bb41e6f301381260456",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            146,
+            151
+          ],
+          "original_panel_N": 297,
+          "projected_counts": [
+            146,
+            151
+          ],
+          "projected_panel_N": 297,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3463,
+          "outside_original_panel_N": 3166,
+          "outside_projected_panel_N": 3166,
+          "sample_ids": [
+            552134,
+            552135,
+            552136
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "449da99d8575fd4b0bc1d0ae8394ed8431af1e5df10aad32459038a7e1acf7e9",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 5.465072838717333e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 2.4294129461180695e-13,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.7750450121124941,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.4077995879955662,
+          0.5922004120044339
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.7752548441296594,
+            0.22474515587034052
+          ],
+          [
+            0.7744810432730059,
+            0.22551895672699404
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 584.978987178244,
+        "mean_negative_log_likelihood": 0.5327677478854681,
+        "saturated_site_negative_log_likelihood": 499.4903643341251,
+        "multinomial_deviance": 170.9772456882379
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.41054242911711275,
+          0.5894575708828873
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.7772255022218915,
+            0.22277449777810865
+          ],
+          [
+            0.776456529924837,
+            0.2235434700751629
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 584.9912830629979,
+        "mean_negative_log_likelihood": 0.5327789463233132,
+        "saturated_site_negative_log_likelihood": 499.4903643341251,
+        "multinomial_deviance": 171.00183745774575
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.01229588475393939
+    },
+    {
+      "window_cal_bp": [
+        4700.0,
+        5200.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1146,
+            198,
+            144
+          ],
+          "original_panel_N": 1488,
+          "projected_counts": [
+            1146,
+            144
+          ],
+          "projected_panel_N": 1290,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 198
+          },
+          "Fraxinus_original_panel_count": 198,
+          "reported_all_pollen_NISP_N": 5065,
+          "outside_original_panel_N": 3577,
+          "outside_projected_panel_N": 3775,
+          "sample_ids": [
+            552429,
+            552430,
+            552431,
+            552433,
+            552432
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "fecd3b2d146e9c715b64c1a3ccc204a5426197a419127792d98d2afd2bbf9b73",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            103,
+            155
+          ],
+          "original_panel_N": 258,
+          "projected_counts": [
+            103,
+            155
+          ],
+          "projected_panel_N": 258,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 3086,
+          "outside_original_panel_N": 2828,
+          "outside_projected_panel_N": 2828,
+          "sample_ids": [
+            552139,
+            552137,
+            552138
+          ],
+          "raw_age_bounds_missing": 3,
+          "original_native_support_sha256": "eefafbcb3f09415f1041b32d27a615560fcaa48911adae1169cf07d0557c623a",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 3.3612002070526614e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 1.7401799065275988e-13,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.8068472009751098,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.45489820519567287,
+          0.5451017948043271
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.8069628636451521,
+            0.19303713635484782
+          ],
+          [
+            0.8062709530918669,
+            0.19372904690813306
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 759.2332677597144,
+        "mean_negative_log_likelihood": 0.49046076728663723,
+        "saturated_site_negative_log_likelihood": 624.9335501727845,
+        "multinomial_deviance": 268.5994351738598
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.457698374655289,
+          0.5423016253447109
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.8087149830039557,
+            0.19128501699604428
+          ],
+          [
+            0.8080278586170475,
+            0.1919721413829525
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 759.2485991237494,
+        "mean_negative_log_likelihood": 0.49047067126857197,
+        "saturated_site_negative_log_likelihood": 624.9335501727845,
+        "multinomial_deviance": 268.6300979019295
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.015331364034977923
+    },
+    {
+      "window_cal_bp": [
+        5200.0,
+        5700.0
+      ],
+      "sites": [
+        {
+          "core": "BOKE",
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Fraxinus",
+            "Ulmus"
+          ],
+          "original_counts": [
+            1181,
+            161,
+            97
+          ],
+          "original_panel_N": 1439,
+          "projected_counts": [
+            1181,
+            97
+          ],
+          "projected_panel_N": 1278,
+          "discarded_original_panel_counts": {
+            "Fraxinus": 161
+          },
+          "Fraxinus_original_panel_count": 161,
+          "reported_all_pollen_NISP_N": 5006,
+          "outside_original_panel_N": 3567,
+          "outside_projected_panel_N": 3728,
+          "sample_ids": [
+            552434,
+            552436,
+            552435,
+            552437,
+            552438
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "09b1c93d11de5ed0a99d61e5e835dcc9107f1fa09f7a36bc82334329823e8609",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        },
+        {
+          "core": "BUS",
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ],
+          "original_axis": [
+            "Betula",
+            "Ulmus"
+          ],
+          "original_counts": [
+            455,
+            52
+          ],
+          "original_panel_N": 507,
+          "projected_counts": [
+            455,
+            52
+          ],
+          "projected_panel_N": 507,
+          "discarded_original_panel_counts": {},
+          "Fraxinus_original_panel_count": null,
+          "reported_all_pollen_NISP_N": 5545,
+          "outside_original_panel_N": 5038,
+          "outside_projected_panel_N": 5038,
+          "sample_ids": [
+            552140,
+            552141,
+            552143,
+            552142,
+            552144
+          ],
+          "raw_age_bounds_missing": 5,
+          "original_native_support_sha256": "b05aa69f49628f9717d52662d1254563c54766a39da5d6c49f4ca64464e71f90",
+          "taxon_measured": [
+            true,
+            true
+          ]
+        }
+      ],
+      "status": "computed",
+      "solver": {
+        "profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+        "converged": true,
+        "steps": 1,
+        "stop_reason": "count_balance_tolerances",
+        "score_residual": 8.859579736508749e-14,
+        "score_tolerance": 1e-12,
+        "relative_count_residual": 1.0613657603804106e-12,
+        "relative_count_tolerance": 1e-10,
+        "hessian_condition_number": 1.0,
+        "minimum_relative_information": 0.9165263296350686,
+        "information_resolution_floor": 2.220446049250313e-16
+      },
+      "common_cover_fit": {
+        "cover": [
+          0.6869784365575914,
+          0.31302156344240867
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.916623076477641,
+            0.08337692352235906
+          ],
+          [
+            0.9162834482473703,
+            0.08371655175262968
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 512.5588145252648,
+        "mean_negative_log_likelihood": 0.28714779525224915,
+        "saturated_site_negative_log_likelihood": 510.9761444379997,
+        "multinomial_deviance": 3.1653401745304066
+      },
+      "geometry_correct_then_pool": {
+        "cover": [
+          0.687375724932917,
+          0.31262427506708296
+        ],
+        "predicted_pollen_fraction": [
+          [
+            0.9167642134929801,
+            0.08323578650701988
+          ],
+          [
+            0.9164251077529472,
+            0.08357489224705289
+          ]
+        ],
+        "negative_log_likelihood_without_combinatorial_constant": 512.559047632465,
+        "mean_negative_log_likelihood": 0.2871479258445182,
+        "saturated_site_negative_log_likelihood": 510.9761444379997,
+        "multinomial_deviance": 3.1658063889303776
+      },
+      "baseline_minus_fitted_negative_log_likelihood": 0.00023310720018798747
+    }
+  ],
+  "status_counts": {
+    "computed": 13
+  },
+  "uncertainty_evaluated": false,
+  "historical_reproduction_claimed": false,
+  "common_field_cover_admitted": false,
+  "raw_redistribution_authorized": false,
+  "new_kernel_evaluations": 0,
+  "limits": [
+    "New conditional reconstruction of relative Betula/Ulmus cover, not historical reproduction or whole vegetation. Original exact-panel matched groups remain zero; projection creates these new groups. Original full-panel sample eligibility/exclusions remain: projection never newly admits BOKE samples missing Fraxinus.",
+    "Both sites' counts enter each fit. Likelihood and deviance are descriptive in-sample statistics, not independent prediction, vegetation accuracy, transfer validation or chi-square p-values.",
+    "Two distinct physical places do not establish independent sampling or common cover. Thirteen windows repeatedly use the same two cores; pooled native samples are not proven homogeneous multinomial trials.",
+    "Named calibrated BP point ages retain AD1950 as reference. Missing raw age bounds do not imply certainty. BUS chronology borrows dates from Agerods mosse and Krageholmssjon; no recalibration or chronology uncertainty is fitted.",
+    "PPE and saved receiver-annulus K remain fixed. Static metadata disk radii, 3m/s wind, 100km extent and empirical metre-based diffusion coefficient are declared scenarios; no new kernel, geometry/PPE uncertainty or field applicability is established.",
+    "Fraxinus_original_panel_count null means Fraxinus is outside the original saved parameter panel, not a measured zero. All reported native pollen mass and original panel mass are retained separately.",
+    "Literal taxon/parameter names do not supply human-approved taxonomic equivalence. Historical metadata NR flags and local raw-source custody remain; no redistribution, permission, human review or release approval follows.",
+    "Geometry-correct-then-pool means close(sum_site count/(PPE*K)), retaining grain effort. It is not the historical equal-place mean of independently closed inverse covers and does not reproduce prior held-out forward scores.",
+    "Numerical stationarity/count-balance and relative-information checks are arithmetic policies, not uncertainty or certified cover-error bounds. Nonconverged candidates are withheld."
+  ]
+}
