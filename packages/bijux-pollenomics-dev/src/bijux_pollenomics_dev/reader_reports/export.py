@@ -218,22 +218,9 @@ def export_reports(
         _verify_revision_input(root, revision, paper.path, paper.source_sha256)
     epoch = _epoch(source_date_epoch)
     versions = _versions(root)
-    # Bind the rendering entry points and dependencies, not unrelated reader tools.
     producer_hashes = {
         path.relative_to(root).as_posix(): file_sha256(path)
-        for path in (
-            Path(__file__).with_name(name)
-            for name in (
-                "__init__.py",
-                "__main__.py",
-                "diagram.py",
-                "export.py",
-                "render.py",
-                "scientific_limits.py",
-                "scientific_routes.py",
-                "source.py",
-            )
-        )
+        for path in sorted(Path(__file__).parent.glob("*.py"))
     }
     output.mkdir(parents=True)
     environment = dict(os.environ)
