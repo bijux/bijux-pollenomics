@@ -8357,7 +8357,44 @@
         "missing_raw_summary",
         "missing_scientific_review",
         "unavailable_governed_coverage_metrics"
-      ]
+      ],
+      "source_context_profile": {
+        "profile_id": "raa/lamningar-v1/native-source-context",
+        "source_id": "raa/lamningar-v1",
+        "status": "admitted_source_context",
+        "evidence_role": "source_context_only",
+        "source_identity": {
+          "sha256": "96bbe197a84c70b64f047873ded15ce5df568198dc0794870a782decb82fed0b",
+          "byte_count": 2291224576,
+          "captured_at_utc": "2026-09-13T01:14:04.983494+00:00",
+          "http_last_modified": "Sat, 12 Sep 2026 04:14:41 GMT"
+        },
+        "source_record_count": 764383,
+        "native_table_row_counts": {
+          "lamning": 764383,
+          "ingaendelamning": 143795,
+          "egenskap": 774466,
+          "point": 531617,
+          "linestring": 81434,
+          "polygon": 226012,
+          "l\u00e4mningar_sverige_l\u00e4gesos\u00e4kerhet": 764383
+        },
+        "geometry_occurrence_counts_by_role": {
+          "native_remains_geometry": 839063,
+          "positional_uncertainty": 764383
+        },
+        "coordinate_reference": "declared EPSG:3006; native XY easting/northing",
+        "country_scope": "Swedish national provider scope; no per-record country assignment inferred",
+        "rights_authority_url": "https://catalog.raa.se/store/1/resource/217",
+        "rights_authority_version": "3.0 (2026-02-02)",
+        "rights_scope": "RA\u00c4 Kulturhistoriska l\u00e4mningar product description v3.0 (2026-02-02) declares the dataset Public Domain with no access restriction; cite source and capture date on redistribution. Separately linked media are outside this decision.",
+        "scientific_admission": false,
+        "chronology_admission": false,
+        "event_admission": false,
+        "legacy_density_admission": false,
+        "publication_admission": false,
+        "archaeological_interpretation_admission": false
+      }
     },
     {
       "source_family": "sead",
@@ -8385,9 +8422,9 @@
       ]
     }
   ],
-  "coverage_build_id": "sha256:abfb347a13be7915c4572a4820cac3631a3d5ec513bee9f9ada7a7311ba93798",
+  "coverage_build_id": "sha256:38998ede6d32f86a7a02996e9cab243ce9514cfdb7f4bfd166d7af909c81ad0b",
   "inputs": {
-    "data/source_family_evidence_stage_matrix.json": "9b5a69dde1e5a422f55984208e9e142dbf0d0124ba2504ce4edfa91332bd6afb",
-    "data/country_dimension_coverage.json": "eca09c9cfb11a6af6a5d47a75e172e42ac9f05f572332bb9cdfd8ac8c79976ba"
+    "data/source_family_evidence_stage_matrix.json": "15b3f55192b2746b281da8b37889fed0cc515e1238ca7db88ec7db82b93e9496",
+    "data/country_dimension_coverage.json": "bb0262090aa04f6bfb474914535e60260417eab1eefaac092bf9ec6df494772a"
   }
 }

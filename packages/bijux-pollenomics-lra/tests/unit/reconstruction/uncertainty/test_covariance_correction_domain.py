@@ -27,17 +27,21 @@ def evaluate(
     deposition: Sequence[float],
     ppe: Sequence[float],
     measured: Sequence[bool] | None = None,
+    ppe_covariance: Sequence[Sequence[float]] | None = None,
 ) -> FixedSiteCovariance | JointFixedSiteCovariance:
     count_array: NDArray[np.int64] = np.array(counts)
     measured_array: NDArray[np.bool_] = (
         np.ones(2, dtype=bool) if measured is None else np.array(measured)
+    )
+    covariance = (
+        np.zeros((2, 2)) if ppe_covariance is None else np.array(ppe_covariance)
     )
     if consumer == "fixed":
         return fixed_site_cover_covariance(
             count_array[None, :],
             np.array([deposition]),
             np.array(ppe),
-            np.zeros((2, 2)),
+            covariance,
             taxon_measured=measured_array[None, :],
         )
     item = ConditionalResultInput(
@@ -52,7 +56,7 @@ def evaluate(
         (item,),
         parameter_ids=("a", "b"),
         ppe=np.array(ppe),
-        ppe_covariance=np.zeros((2, 2)),
+        ppe_covariance=covariance,
         assume_disjoint_window_count_independence=False,
         assume_distinct_unit_count_independence=False,
     )
@@ -89,7 +93,10 @@ def test_representable_extreme_factors_retain_exact_binomial_profile(
     counts: Sequence[int],
     deposition: Sequence[float],
 ) -> None:
-    out = evaluate(consumer, counts, deposition, [1, 1])
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", RuntimeWarning)
+        with np.errstate(all="raise"):
+            out = evaluate(consumer, counts, deposition, [1, 1])
     total = sum(counts)
     probability = counts[0] / total
     variance = probability * (1 - probability) / total
@@ -120,3 +127,64 @@ def test_unmeasured_taxon_refuses_before_extreme_arithmetic(
             evaluate(
                 consumer, [30, 70], [1e308, 1e308], [10, 0.1], measured=[False, True]
             )
+
+
+@pytest.mark.parametrize("consumer", ["fixed", "joint"])
+@pytest.mark.parametrize(
+    ("counts", "deposition", "ppe", "covariance", "refusal"),
+    [
+        ([1, 1], [1e-308, 1e-308], [1, 1], [[1, 0], [0, 1]], "total"),
+        ([0, 1], [1e-308, 1e308], [1, 1], [[1, 0], [0, 1]], "derivatives"),
+        (
+            [1, 1],
+            [1e308, 1e308],
+            [5e-324, 5e-324],
+            [[1, 0], [0, 1]],
+            "derivatives",
+        ),
+        (
+            [1, 1],
+            [1e200, 1e200],
+            [1e-200, 1e-200],
+            [[1e200, 0], [0, 1e200]],
+            "covariance",
+        ),
+        ([1, 1], [1e308, 1e-308], [1, 1], [[0, 0], [0, 0]], "positive cover"),
+    ],
+    ids=[
+        "corrected-total",
+        "zero-count-derivative",
+        "ppe-derivative",
+        "covariance",
+        "positive-cover-underflow",
+    ],
+)
+def test_finite_inputs_with_unrepresentable_covariance_arithmetic_refuse(
+    consumer: Literal["fixed", "joint"],
+    counts: Sequence[int],
+    deposition: Sequence[float],
+    ppe: Sequence[float],
+    covariance: Sequence[Sequence[float]],
+    refusal: str,
+) -> None:
+    # The API owns its numerical-domain refusal even when the caller raises
+    # on NumPy warnings. No partial composition or nonfinite derivative leaks.
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", RuntimeWarning)
+        with np.errstate(all="raise"), pytest.raises(ValidationError, match=refusal):
+            evaluate(consumer, counts, deposition, ppe, ppe_covariance=covariance)
+
+
+@pytest.mark.parametrize("consumer", ["fixed", "joint"])
+def test_positive_subnormal_cover_is_retained(
+    consumer: Literal["fixed", "joint"],
+) -> None:
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", RuntimeWarning)
+        with np.errstate(all="raise"):
+            out = evaluate(consumer, [1, 1], [1e308, 1], [1, 1])
+    assert out.cover[0] == 1e-308
+    assert 0 < out.cover[0] < np.finfo(float).tiny
+    # The positive composition is representable; its squared counting scale
+    # is below binary64. This check claims preservation of cover only.
+    np.testing.assert_array_equal(out.counting_covariance, 0)

@@ -106,6 +106,8 @@ def joint_fixed_site_covariance(
 
     Every binary64 reciprocal deposition/PPE factor must remain finite and
     positive, including zero-count axes of the returned count derivative.
+    Positive corrected counts must remain positive after closure; a taxon
+    cannot disappear solely through numerical underflow.
     Overflow of the parameter product refuses even when an alternate
     evaluation could represent its reciprocal.
     Counts on identical support are one multinomial latent observation, even
@@ -201,14 +203,27 @@ def joint_fixed_site_covariance(
             raise ValidationError(
                 "Joint correction factors are not finite and positive"
             )
-        w = n * a
-        W = float(w.sum())
+        with np.errstate(
+            over="ignore", under="ignore", divide="ignore", invalid="ignore"
+        ):
+            w = n * a
+            W = float(w.sum())
         if not np.isfinite(W) or W <= 0:
             raise ValidationError("Joint corrected count total is invalid")
-        cover = w / W
+        with np.errstate(
+            over="ignore", under="ignore", divide="ignore", invalid="ignore"
+        ):
+            cover = w / W
+        if np.any((w > 0) & (cover == 0)):
+            raise ValidationError("Joint positive cover is not representable")
         B = np.eye(size) - cover[:, None]
-        J = B * a[None, :] / W
-        H = -B * (cover / p[columns])[None, :]
+        with np.errstate(
+            over="ignore", under="ignore", divide="ignore", invalid="ignore"
+        ):
+            J = B * a[None, :] / W
+            H = -B * (cover / p[columns])[None, :]
+        if not np.isfinite(J).all() or not np.isfinite(H).all():
+            raise ValidationError("Joint conditional derivatives are not finite")
         count_cov = N * (np.diag(n / N) - np.outer(n / N, n / N))
         if item.support in groups:
             earlier = results[groups[item.support][0]]
@@ -270,12 +285,18 @@ def joint_fixed_site_covariance(
         for i in members:
             embedding[slices[i]] = prepared[i][1]
         covariance = prepared[members[0]][4]
-        counting += embedding @ covariance @ embedding.T
+        with np.errstate(
+            over="ignore", under="ignore", divide="ignore", invalid="ignore"
+        ):
+            counting += embedding @ covariance @ embedding.T
         Jglobal[:, count_column : count_column + size] = embedding
         count_column += size
-    ppe_part = Hglobal @ cp @ Hglobal.T
-    combined = counting + ppe_part
+    with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
+        ppe_part = Hglobal @ cp @ Hglobal.T
+        combined = counting + ppe_part
     for matrix in (counting, ppe_part, combined):
+        if not np.isfinite(matrix).all():
+            raise ValidationError("Joint propagated covariance is not finite PSD")
         scale = float(np.max(np.abs(matrix)))
         normalized = matrix / scale if scale else matrix
         if (

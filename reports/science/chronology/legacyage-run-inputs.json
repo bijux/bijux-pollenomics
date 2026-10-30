@@ -1,0 +1,1188 @@
+{
+  "schema_version": "legacyage-run-input-reconciliation.v1",
+  "source_doi": "10.5281/zenodo.5815192",
+  "license": "CC-BY-4.0",
+  "input_sha256": {
+    "zenodo_input_archive": "f3b326c67572896ba08bebaabb55bf921e4f34a8a304b9a88ed9d74e867f467f",
+    "zenodo_r_script": "6059a0b23199c3a86e7d9ab2b8fcd7bc5a28404cf6078392551ad11df8276e21",
+    "pangaea_s4": "943d6151d05cfc47df65b5a3ccedc683393fe6e8e24d14733ba7c58dcd071bb2",
+    "pangaea_s1": "b35b8e3d4110efcb24714d7ccecf025ccd96c31de1b94bb279c9cb7ec0c40b08",
+    "pangaea_s3": "ae87f1cd145eddf630b84fc4e77b3b4f62508a6bea869faccadb19911faa8c41"
+  },
+  "archive_rows_by_table": {
+    "S1": 19990,
+    "S3": 2823,
+    "S4": 158418
+  },
+  "retained_pangaea_s4_rows": 158418,
+  "pangaea_rows_by_table": {
+    "S1": 19990,
+    "S3": 2823
+  },
+  "cores": {
+    "ABBO": {
+      "dataset_id": 19913,
+      "source_control_rows": 6,
+      "source_control_methods": {
+        "Carbon-14": 6
+      },
+      "native_nonmissing_parameter_tokens": {
+        "Dataset_ID": "19913",
+        "Marine": "FALSE",
+        "Memory": "0.3",
+        "Add.surface": "TRUE",
+        "Resolution.cm": "5",
+        "Waterline": "648",
+        "Starting.age": "-52"
+      },
+      "s4_comparison": {
+        "matched_depths": 107,
+        "literal_different_cells_by_field": {
+          "Estimated_Age_1": 97,
+          "Latitude (DD)": 107
+        },
+        "numerically_different_age_cells_by_field": {
+          "Estimated_Age_1": 97
+        },
+        "maximum_absolute_age_difference_native_units": {
+          "Estimated_Age_1": "0.005"
+        },
+        "first_different_cell_by_field": {
+          "Estimated_Age_1": {
+            "depth_token": "648",
+            "archived": "-0.052",
+            "retained": "-0.05"
+          },
+          "Latitude (DD)": {
+            "depth_token": "648",
+            "archived": "63.883333",
+            "retained": "63.88333"
+          }
+        },
+        "calibrated_source_token_500_year_bin_changes": [
+          {
+            "depth_token": "866",
+            "age_field": "Estimated_Age_1",
+            "age_type": "Calibrated radiocarbon years BP",
+            "archived_token": "7.999",
+            "retained_token": "8",
+            "archived_bin_index": 15,
+            "retained_bin_index": 16
+          }
+        ],
+        "age_types": [
+          "Calibrated radiocarbon years BP"
+        ]
+      },
+      "s1_comparison": {
+        "archived_controls": 6,
+        "pangaea_controls": 6,
+        "matched_controls": 6,
+        "archived_only_identities": [],
+        "pangaea_only_identities": [],
+        "literal_different_cells_by_field": {
+          "Age_Calibrated (kyr BP)": 6,
+          "Age_Uncalibrated (kyr BP)": 1,
+          "Calibrated dating_Error (kyr)": 5,
+          "Dating Error_Older (kyr)": 2,
+          "Dating Error_Younger (kyr)": 2
+        },
+        "numeric_population": {
+          "compared": 6
+        },
+        "precalibration_numeric_comparisons": [
+          {
+            "laboratory_label": "Poz-4445",
+            "depth_cm_token": "693.5",
+            "status": "compared",
+            "archived_age_years": "1660.00",
+            "pangaea_age_years": "1660.00",
+            "archived_error_argument_years": "35.000",
+            "pangaea_error_argument_years": "40.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "5.000"
+          },
+          {
+            "laboratory_label": "Poz-4446",
+            "depth_cm_token": "733.5",
+            "status": "compared",
+            "archived_age_years": "2235.000",
+            "pangaea_age_years": "2230.00",
+            "archived_error_argument_years": "30.00",
+            "pangaea_error_argument_years": "30.00",
+            "age_difference_years": "-5.000",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "Poz-4447",
+            "depth_cm_token": "801.5",
+            "status": "compared",
+            "archived_age_years": "4170.00",
+            "pangaea_age_years": "4170.00",
+            "archived_error_argument_years": "40.00",
+            "pangaea_error_argument_years": "40.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "Poz-4511",
+            "depth_cm_token": "756.5",
+            "status": "compared",
+            "archived_age_years": "2800.0",
+            "pangaea_age_years": "2800.0",
+            "archived_error_argument_years": "30.00",
+            "pangaea_error_argument_years": "30.00",
+            "age_difference_years": "0.0",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "Poz-4512",
+            "depth_cm_token": "846.5",
+            "status": "compared",
+            "archived_age_years": "5980.00",
+            "pangaea_age_years": "5980.00",
+            "archived_error_argument_years": "40.00",
+            "pangaea_error_argument_years": "40.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "Poz-4514",
+            "depth_cm_token": "880.5",
+            "status": "compared",
+            "archived_age_years": "8000",
+            "pangaea_age_years": "8000",
+            "archived_error_argument_years": "35.000",
+            "pangaea_error_argument_years": "40.00",
+            "age_difference_years": "0",
+            "error_argument_difference_years": "5.000"
+          }
+        ]
+      },
+      "s3_comparison": {
+        "archived_rows": 1,
+        "pangaea_rows": 1,
+        "nonmissing_tokens_equal": true,
+        "literal_differences": {
+          "Need.calibration.2": {
+            "archived": "",
+            "pangaea": "NA"
+          },
+          "Need.calibration.3": {
+            "archived": "",
+            "pangaea": "NA"
+          },
+          "Need.calibration.6": {
+            "archived": "",
+            "pangaea": "NA"
+          }
+        }
+      },
+      "run_input_state": "retained_source_metadata"
+    },
+    "DALMUT": {
+      "dataset_id": 20034,
+      "source_control_rows": 11,
+      "source_control_methods": {
+        "Carbon-14": 11
+      },
+      "native_nonmissing_parameter_tokens": {
+        "Dataset_ID": "20034",
+        "Marine": "FALSE",
+        "Memory": "0.3",
+        "Add.surface": "TRUE",
+        "Resolution.cm": "5",
+        "Starting.age": "-10"
+      },
+      "s4_comparison": {
+        "matched_depths": 72,
+        "literal_different_cells_by_field": {
+          "Estimated_Age_1": 65,
+          "Estimated_Age_2": 62,
+          "Latitude (DD)": 72,
+          "Longitude (DD)": 72
+        },
+        "numerically_different_age_cells_by_field": {
+          "Estimated_Age_1": 65,
+          "Estimated_Age_2": 62
+        },
+        "maximum_absolute_age_difference_native_units": {
+          "Estimated_Age_1": "0.005",
+          "Estimated_Age_2": "0.005"
+        },
+        "first_different_cell_by_field": {
+          "Estimated_Age_1": {
+            "depth_token": "4.5",
+            "archived": "0.419",
+            "retained": "0.42"
+          },
+          "Estimated_Age_2": {
+            "depth_token": "4.5",
+            "archived": "0.412",
+            "retained": "0.41"
+          },
+          "Latitude (DD)": {
+            "depth_token": "0",
+            "archived": "69.166667",
+            "retained": "69.16667"
+          },
+          "Longitude (DD)": {
+            "depth_token": "0",
+            "archived": "20.716667",
+            "retained": "20.71667"
+          }
+        },
+        "calibrated_source_token_500_year_bin_changes": [
+          {
+            "depth_token": "160",
+            "age_field": "Estimated_Age_2",
+            "age_type": "Calibrated radiocarbon years BP",
+            "archived_token": "5.997",
+            "retained_token": "6",
+            "archived_bin_index": 11,
+            "retained_bin_index": 12
+          }
+        ],
+        "age_types": [
+          "Calibrated radiocarbon years BP",
+          "Radiocarbon years BP"
+        ]
+      },
+      "s1_comparison": {
+        "archived_controls": 11,
+        "pangaea_controls": 11,
+        "matched_controls": 11,
+        "archived_only_identities": [],
+        "pangaea_only_identities": [],
+        "literal_different_cells_by_field": {
+          "Age_Calibrated (kyr BP)": 10,
+          "Age_Uncalibrated (kyr BP)": 8,
+          "Calibrated dating_Error (kyr)": 9,
+          "Dating Error_Older (kyr)": 7,
+          "Dating Error_Younger (kyr)": 7
+        },
+        "numeric_population": {
+          "compared": 11
+        },
+        "precalibration_numeric_comparisons": [
+          {
+            "laboratory_label": "Hela-499",
+            "depth_cm_token": "6.5",
+            "status": "compared",
+            "archived_age_years": "605.000",
+            "pangaea_age_years": "600.0",
+            "archived_error_argument_years": "70.00",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "-5.000",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "Hela-500",
+            "depth_cm_token": "48.5",
+            "status": "compared",
+            "archived_age_years": "1725.000",
+            "pangaea_age_years": "1730.00",
+            "archived_error_argument_years": "65.000",
+            "pangaea_error_argument_years": "60.00",
+            "age_difference_years": "5.000",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "Hela-502",
+            "depth_cm_token": "173.5",
+            "status": "compared",
+            "archived_age_years": "5620.00",
+            "pangaea_age_years": "5620.00",
+            "archived_error_argument_years": "85.000",
+            "pangaea_error_argument_years": "90.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "5.000"
+          },
+          {
+            "laboratory_label": "Hela-503",
+            "depth_cm_token": "226.5",
+            "status": "compared",
+            "archived_age_years": "7730.00",
+            "pangaea_age_years": "7730.00",
+            "archived_error_argument_years": "90.00",
+            "pangaea_error_argument_years": "90.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "Hela-504",
+            "depth_cm_token": "265.5",
+            "status": "compared",
+            "archived_age_years": "8765.000",
+            "pangaea_age_years": "8770.00",
+            "archived_error_argument_years": "110.00",
+            "pangaea_error_argument_years": "110.00",
+            "age_difference_years": "5.000",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "Hela-508",
+            "depth_cm_token": "22.5",
+            "status": "compared",
+            "archived_age_years": "775.000",
+            "pangaea_age_years": "780.00",
+            "archived_error_argument_years": "65.000",
+            "pangaea_error_argument_years": "60.00",
+            "age_difference_years": "5.000",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "Hela-509",
+            "depth_cm_token": "75.5",
+            "status": "compared",
+            "archived_age_years": "2555.000",
+            "pangaea_age_years": "2560.00",
+            "archived_error_argument_years": "105.000",
+            "pangaea_error_argument_years": "100.0",
+            "age_difference_years": "5.000",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "Hela-510",
+            "depth_cm_token": "137.5",
+            "status": "compared",
+            "archived_age_years": "4615.000",
+            "pangaea_age_years": "4620.00",
+            "archived_error_argument_years": "75.000",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "5.000",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "Hela-511",
+            "depth_cm_token": "210.5",
+            "status": "compared",
+            "archived_age_years": "7225.000",
+            "pangaea_age_years": "7220.00",
+            "archived_error_argument_years": "115.000",
+            "pangaea_error_argument_years": "120.00",
+            "age_difference_years": "-5.000",
+            "error_argument_difference_years": "5.000"
+          },
+          {
+            "laboratory_label": "Hela-512",
+            "depth_cm_token": "247.5",
+            "status": "compared",
+            "archived_age_years": "8110.00",
+            "pangaea_age_years": "8110.00",
+            "archived_error_argument_years": "120.00",
+            "pangaea_error_argument_years": "120.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "Hela-513",
+            "depth_cm_token": "113.5",
+            "status": "compared",
+            "archived_age_years": "3495.000",
+            "pangaea_age_years": "3500.0",
+            "archived_error_argument_years": "65.000",
+            "pangaea_error_argument_years": "60.00",
+            "age_difference_years": "5.000",
+            "error_argument_difference_years": "-5.000"
+          }
+        ]
+      },
+      "s3_comparison": {
+        "archived_rows": 1,
+        "pangaea_rows": 1,
+        "nonmissing_tokens_equal": true,
+        "literal_differences": {
+          "Need.calibration.2": {
+            "archived": "",
+            "pangaea": "NA"
+          },
+          "Need.calibration.3": {
+            "archived": "",
+            "pangaea": "NA"
+          },
+          "Need.calibration.6": {
+            "archived": "",
+            "pangaea": "NA"
+          }
+        }
+      },
+      "run_input_state": "retained_source_metadata"
+    },
+    "SOLSOE81": {
+      "dataset_id": 4445,
+      "source_control_rows": 34,
+      "source_control_methods": {
+        "Carbon-14": 33,
+        "Dates from prior information": 1
+      },
+      "native_nonmissing_parameter_tokens": {
+        "Dataset_ID": "4445",
+        "Marine": "FALSE",
+        "Memory": "0.3",
+        "Add.surface": "TRUE",
+        "Resolution.section": "20",
+        "Waterline": "95",
+        "Starting.age": "-30",
+        "Acc.mean": "70",
+        "Add.depth.1": "578",
+        "Add.age.1": "11500",
+        "Add.error.1": "250",
+        "Need.calibration.1": "FALSE",
+        "Delete.depth.1": "141"
+      },
+      "s4_comparison": {
+        "matched_depths": 66,
+        "literal_different_cells_by_field": {
+          "Estimated.age_Error_2": 62,
+          "Estimated_Age_1": 38,
+          "Estimated_Age_2": 60
+        },
+        "numerically_different_age_cells_by_field": {
+          "Estimated.age_Error_2": 62,
+          "Estimated_Age_1": 38,
+          "Estimated_Age_2": 60
+        },
+        "maximum_absolute_age_difference_native_units": {
+          "Estimated.age_Error_2": "0.005",
+          "Estimated_Age_1": "0.005",
+          "Estimated_Age_2": "0.005"
+        },
+        "first_different_cell_by_field": {
+          "Estimated.age_Error_2": {
+            "depth_token": "98",
+            "archived": "0.0095",
+            "retained": "0.01"
+          },
+          "Estimated_Age_1": {
+            "depth_token": "114",
+            "archived": "0.837",
+            "retained": "0.84"
+          },
+          "Estimated_Age_2": {
+            "depth_token": "98",
+            "archived": "0.007",
+            "retained": "0.01"
+          }
+        },
+        "calibrated_source_token_500_year_bin_changes": [
+          {
+            "depth_token": "478",
+            "age_field": "Estimated_Age_2",
+            "age_type": "Calibrated radiocarbon years BP",
+            "archived_token": "6.496",
+            "retained_token": "6.5",
+            "archived_bin_index": 12,
+            "retained_bin_index": 13
+          }
+        ],
+        "age_types": [
+          "Calibrated radiocarbon years BP",
+          "Radiocarbon years BP"
+        ]
+      },
+      "s1_comparison": {
+        "archived_controls": 34,
+        "pangaea_controls": 34,
+        "matched_controls": 34,
+        "archived_only_identities": [],
+        "pangaea_only_identities": [],
+        "literal_different_cells_by_field": {
+          "Age_Calibrated (kyr BP)": 29,
+          "Calibrated dating_Error (kyr)": 30,
+          "Dating Error_Older (kyr)": 13,
+          "Dating Error_Younger (kyr)": 13
+        },
+        "numeric_population": {
+          "compared": 33,
+          "not_compared": 1
+        },
+        "precalibration_numeric_comparisons": [
+          {
+            "laboratory_label": "K-3850",
+            "depth_cm_token": "568",
+            "status": "compared",
+            "archived_age_years": "9180.00",
+            "pangaea_age_years": "9180.00",
+            "archived_error_argument_years": "130.00",
+            "pangaea_error_argument_years": "130.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3851",
+            "depth_cm_token": "560",
+            "status": "compared",
+            "archived_age_years": "8910.00",
+            "pangaea_age_years": "8910.00",
+            "archived_error_argument_years": "120.00",
+            "pangaea_error_argument_years": "120.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3852",
+            "depth_cm_token": "552",
+            "status": "compared",
+            "archived_age_years": "8800.0",
+            "pangaea_age_years": "8800.0",
+            "archived_error_argument_years": "120.00",
+            "pangaea_error_argument_years": "120.00",
+            "age_difference_years": "0.0",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3853",
+            "depth_cm_token": "544",
+            "status": "compared",
+            "archived_age_years": "8380.00",
+            "pangaea_age_years": "8380.00",
+            "archived_error_argument_years": "120.00",
+            "pangaea_error_argument_years": "120.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3854",
+            "depth_cm_token": "536",
+            "status": "compared",
+            "archived_age_years": "8140.00",
+            "pangaea_age_years": "8140.00",
+            "archived_error_argument_years": "120.00",
+            "pangaea_error_argument_years": "120.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3855",
+            "depth_cm_token": "528",
+            "status": "compared",
+            "archived_age_years": "7750.00",
+            "pangaea_age_years": "7750.00",
+            "archived_error_argument_years": "120.00",
+            "pangaea_error_argument_years": "120.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3856",
+            "depth_cm_token": "520",
+            "status": "compared",
+            "archived_age_years": "7520.00",
+            "pangaea_age_years": "7520.00",
+            "archived_error_argument_years": "105.000",
+            "pangaea_error_argument_years": "100.0",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-3857",
+            "depth_cm_token": "512",
+            "status": "compared",
+            "archived_age_years": "7500.0",
+            "pangaea_age_years": "7500.0",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.0",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3858",
+            "depth_cm_token": "504",
+            "status": "compared",
+            "archived_age_years": "7080.00",
+            "pangaea_age_years": "7080.00",
+            "archived_error_argument_years": "105.000",
+            "pangaea_error_argument_years": "100.0",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-3859",
+            "depth_cm_token": "496",
+            "status": "compared",
+            "archived_age_years": "6720.00",
+            "pangaea_age_years": "6720.00",
+            "archived_error_argument_years": "105.000",
+            "pangaea_error_argument_years": "100.0",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-3860",
+            "depth_cm_token": "488",
+            "status": "compared",
+            "archived_age_years": "6650.00",
+            "pangaea_age_years": "6650.00",
+            "archived_error_argument_years": "105.000",
+            "pangaea_error_argument_years": "100.0",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-3861",
+            "depth_cm_token": "480",
+            "status": "compared",
+            "archived_age_years": "5930.00",
+            "pangaea_age_years": "5930.00",
+            "archived_error_argument_years": "95.000",
+            "pangaea_error_argument_years": "100.0",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "5.000"
+          },
+          {
+            "laboratory_label": "K-3862",
+            "depth_cm_token": "472",
+            "status": "compared",
+            "archived_age_years": "4120.00",
+            "pangaea_age_years": "4120.00",
+            "archived_error_argument_years": "60.00",
+            "pangaea_error_argument_years": "60.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3863",
+            "depth_cm_token": "464",
+            "status": "compared",
+            "archived_age_years": "3500.0",
+            "pangaea_age_years": "3500.0",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.0",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3969",
+            "depth_cm_token": "416",
+            "status": "compared",
+            "archived_age_years": "3070.00",
+            "pangaea_age_years": "3070.00",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3970",
+            "depth_cm_token": "334",
+            "status": "compared",
+            "archived_age_years": "2870.00",
+            "pangaea_age_years": "2870.00",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-3971",
+            "depth_cm_token": "258",
+            "status": "compared",
+            "archived_age_years": "2290.00",
+            "pangaea_age_years": "2290.00",
+            "archived_error_argument_years": "75.000",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-3972",
+            "depth_cm_token": "194",
+            "status": "compared",
+            "archived_age_years": "1260.00",
+            "pangaea_age_years": "1260.00",
+            "archived_error_argument_years": "70.00",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-4003",
+            "depth_cm_token": "478",
+            "status": "compared",
+            "archived_age_years": "5700.0",
+            "pangaea_age_years": "5700.0",
+            "archived_error_argument_years": "70.00",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.0",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-4004",
+            "depth_cm_token": "474",
+            "status": "compared",
+            "archived_age_years": "4080.00",
+            "pangaea_age_years": "4080.00",
+            "archived_error_argument_years": "85.000",
+            "pangaea_error_argument_years": "90.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "5.000"
+          },
+          {
+            "laboratory_label": "K-4005",
+            "depth_cm_token": "448",
+            "status": "compared",
+            "archived_age_years": "3270.00",
+            "pangaea_age_years": "3270.00",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-4006",
+            "depth_cm_token": "432",
+            "status": "compared",
+            "archived_age_years": "3110.00",
+            "pangaea_age_years": "3110.00",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-4007",
+            "depth_cm_token": "400",
+            "status": "compared",
+            "archived_age_years": "3070.00",
+            "pangaea_age_years": "3070.00",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-4008",
+            "depth_cm_token": "384",
+            "status": "compared",
+            "archived_age_years": "2920.00",
+            "pangaea_age_years": "2920.00",
+            "archived_error_argument_years": "75.000",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-4009",
+            "depth_cm_token": "350",
+            "status": "compared",
+            "archived_age_years": "2690.00",
+            "pangaea_age_years": "2690.00",
+            "archived_error_argument_years": "55.000",
+            "pangaea_error_argument_years": "60.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "5.000"
+          },
+          {
+            "laboratory_label": "K-4010",
+            "depth_cm_token": "318",
+            "status": "compared",
+            "archived_age_years": "2640.00",
+            "pangaea_age_years": "2640.00",
+            "archived_error_argument_years": "75.000",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-4011",
+            "depth_cm_token": "290",
+            "status": "compared",
+            "archived_age_years": "2570.00",
+            "pangaea_age_years": "2570.00",
+            "archived_error_argument_years": "75.000",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-4012",
+            "depth_cm_token": "274",
+            "status": "compared",
+            "archived_age_years": "2850.00",
+            "pangaea_age_years": "2850.00",
+            "archived_error_argument_years": "55.000",
+            "pangaea_error_argument_years": "60.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "5.000"
+          },
+          {
+            "laboratory_label": "K-4013",
+            "depth_cm_token": "242",
+            "status": "compared",
+            "archived_age_years": "2190.00",
+            "pangaea_age_years": "2190.00",
+            "archived_error_argument_years": "75.000",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-4014",
+            "depth_cm_token": "226",
+            "status": "compared",
+            "archived_age_years": "1930.00",
+            "pangaea_age_years": "1930.00",
+            "archived_error_argument_years": "70.00",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-4015",
+            "depth_cm_token": "210",
+            "status": "compared",
+            "archived_age_years": "1690.00",
+            "pangaea_age_years": "1690.00",
+            "archived_error_argument_years": "70.00",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-4016",
+            "depth_cm_token": "178",
+            "status": "compared",
+            "archived_age_years": "1280.00",
+            "pangaea_age_years": "1280.00",
+            "archived_error_argument_years": "70.00",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-5635",
+            "depth_cm_token": "177",
+            "status": "compared",
+            "archived_age_years": "1300.0",
+            "pangaea_age_years": "1300.0",
+            "archived_error_argument_years": "70.00",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.0",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "NA",
+            "depth_cm_token": "578",
+            "status": "not_compared",
+            "reason": "outside_matched_radiocarbon_type",
+            "archived_method": "Dates from prior information",
+            "pangaea_method": "Dates from prior information"
+          }
+        ]
+      },
+      "s3_comparison": {
+        "archived_rows": 1,
+        "pangaea_rows": 1,
+        "nonmissing_tokens_equal": true,
+        "literal_differences": {
+          "Need.calibration.2": {
+            "archived": "",
+            "pangaea": "NA"
+          },
+          "Need.calibration.3": {
+            "archived": "",
+            "pangaea": "NA"
+          },
+          "Need.calibration.6": {
+            "archived": "",
+            "pangaea": "NA"
+          }
+        }
+      },
+      "run_input_state": "retained_source_metadata"
+    },
+    "SOLSOE83": {
+      "dataset_id": 4446,
+      "source_control_rows": 7,
+      "source_control_methods": {
+        "Carbon-14": 7
+      },
+      "native_nonmissing_parameter_tokens": {
+        "Dataset_ID": "4446",
+        "Marine": "FALSE",
+        "Memory": "0.3",
+        "Add.surface": "FALSE",
+        "Resolution.cm": "10",
+        "Waterline": "386"
+      },
+      "s4_comparison": {
+        "matched_depths": 26,
+        "literal_different_cells_by_field": {
+          "Estimated.age_Error_2": 24,
+          "Estimated_Age_1": 20,
+          "Estimated_Age_2": 26
+        },
+        "numerically_different_age_cells_by_field": {
+          "Estimated.age_Error_2": 24,
+          "Estimated_Age_1": 20,
+          "Estimated_Age_2": 26
+        },
+        "maximum_absolute_age_difference_native_units": {
+          "Estimated.age_Error_2": "0.005",
+          "Estimated_Age_1": "0.005",
+          "Estimated_Age_2": "0.005"
+        },
+        "first_different_cell_by_field": {
+          "Estimated.age_Error_2": {
+            "depth_token": "386",
+            "archived": "2.799",
+            "retained": "2.8"
+          },
+          "Estimated_Age_1": {
+            "depth_token": "386",
+            "archived": "2.731",
+            "retained": "2.73"
+          },
+          "Estimated_Age_2": {
+            "depth_token": "386",
+            "archived": "2.783",
+            "retained": "2.78"
+          }
+        },
+        "calibrated_source_token_500_year_bin_changes": [
+          {
+            "depth_token": "502",
+            "age_field": "Estimated_Age_2",
+            "age_type": "Calibrated radiocarbon years BP",
+            "archived_token": "4.997",
+            "retained_token": "5",
+            "archived_bin_index": 9,
+            "retained_bin_index": 10
+          }
+        ],
+        "age_types": [
+          "Calibrated radiocarbon years BP",
+          "Radiocarbon years BP"
+        ]
+      },
+      "s1_comparison": {
+        "archived_controls": 7,
+        "pangaea_controls": 7,
+        "matched_controls": 7,
+        "archived_only_identities": [],
+        "pangaea_only_identities": [],
+        "literal_different_cells_by_field": {
+          "Age_Calibrated (kyr BP)": 6,
+          "Calibrated dating_Error (kyr)": 7,
+          "Dating Error_Older (kyr)": 3,
+          "Dating Error_Younger (kyr)": 3
+        },
+        "numeric_population": {
+          "compared": 7
+        },
+        "precalibration_numeric_comparisons": [
+          {
+            "laboratory_label": "K-5397",
+            "depth_cm_token": "535",
+            "status": "compared",
+            "archived_age_years": "7240.00",
+            "pangaea_age_years": "7240.00",
+            "archived_error_argument_years": "110.00",
+            "pangaea_error_argument_years": "110.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-5398",
+            "depth_cm_token": "514",
+            "status": "compared",
+            "archived_age_years": "5680.00",
+            "pangaea_age_years": "5680.00",
+            "archived_error_argument_years": "70.00",
+            "pangaea_error_argument_years": "70.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-5399",
+            "depth_cm_token": "496",
+            "status": "compared",
+            "archived_age_years": "4260.00",
+            "pangaea_age_years": "4260.00",
+            "archived_error_argument_years": "85.000",
+            "pangaea_error_argument_years": "90.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "5.000"
+          },
+          {
+            "laboratory_label": "K-5400",
+            "depth_cm_token": "453",
+            "status": "compared",
+            "archived_age_years": "3980.00",
+            "pangaea_age_years": "3980.00",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-5401",
+            "depth_cm_token": "416",
+            "status": "compared",
+            "archived_age_years": "3290.00",
+            "pangaea_age_years": "3290.00",
+            "archived_error_argument_years": "80.00",
+            "pangaea_error_argument_years": "80.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "0.00"
+          },
+          {
+            "laboratory_label": "K-5434",
+            "depth_cm_token": "524",
+            "status": "compared",
+            "archived_age_years": "6640.00",
+            "pangaea_age_years": "6640.00",
+            "archived_error_argument_years": "105.000",
+            "pangaea_error_argument_years": "100.0",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "-5.000"
+          },
+          {
+            "laboratory_label": "K-5435",
+            "depth_cm_token": "505",
+            "status": "compared",
+            "archived_age_years": "4440.00",
+            "pangaea_age_years": "4440.00",
+            "archived_error_argument_years": "85.000",
+            "pangaea_error_argument_years": "90.00",
+            "age_difference_years": "0.00",
+            "error_argument_difference_years": "5.000"
+          }
+        ]
+      },
+      "s3_comparison": {
+        "archived_rows": 1,
+        "pangaea_rows": 1,
+        "nonmissing_tokens_equal": true,
+        "literal_differences": {
+          "Need.calibration.2": {
+            "archived": "",
+            "pangaea": "NA"
+          },
+          "Need.calibration.3": {
+            "archived": "",
+            "pangaea": "NA"
+          },
+          "Need.calibration.6": {
+            "archived": "",
+            "pangaea": "NA"
+          }
+        }
+      },
+      "run_input_state": "retained_source_metadata"
+    },
+    "LAIH": {
+      "dataset_id": 52082,
+      "source_control_rows": 0,
+      "source_control_methods": {},
+      "native_nonmissing_parameter_tokens": null,
+      "s4_comparison": {
+        "matched_depths": 0,
+        "literal_different_cells_by_field": {},
+        "numerically_different_age_cells_by_field": {},
+        "maximum_absolute_age_difference_native_units": {},
+        "first_different_cell_by_field": {},
+        "calibrated_source_token_500_year_bin_changes": [],
+        "age_types": []
+      },
+      "s1_comparison": {
+        "archived_controls": 0,
+        "pangaea_controls": 0,
+        "matched_controls": 0,
+        "archived_only_identities": [],
+        "pangaea_only_identities": [],
+        "literal_different_cells_by_field": {},
+        "numeric_population": {},
+        "precalibration_numeric_comparisons": []
+      },
+      "s3_comparison": {
+        "archived_rows": 0,
+        "pangaea_rows": 0,
+        "nonmissing_tokens_equal": null,
+        "literal_differences": null
+      },
+      "run_input_state": "not_in_these_source_tables"
+    },
+    "BUS": {
+      "dataset_id": 53995,
+      "source_control_rows": 0,
+      "source_control_methods": {},
+      "native_nonmissing_parameter_tokens": null,
+      "s4_comparison": {
+        "matched_depths": 0,
+        "literal_different_cells_by_field": {},
+        "numerically_different_age_cells_by_field": {},
+        "maximum_absolute_age_difference_native_units": {},
+        "first_different_cell_by_field": {},
+        "calibrated_source_token_500_year_bin_changes": [],
+        "age_types": []
+      },
+      "s1_comparison": {
+        "archived_controls": 0,
+        "pangaea_controls": 0,
+        "matched_controls": 0,
+        "archived_only_identities": [],
+        "pangaea_only_identities": [],
+        "literal_different_cells_by_field": {},
+        "numeric_population": {},
+        "precalibration_numeric_comparisons": []
+      },
+      "s3_comparison": {
+        "archived_rows": 0,
+        "pangaea_rows": 0,
+        "nonmissing_tokens_equal": null,
+        "literal_differences": null
+      },
+      "run_input_state": "not_in_these_source_tables"
+    },
+    "BOKE": {
+      "dataset_id": 54001,
+      "source_control_rows": 0,
+      "source_control_methods": {},
+      "native_nonmissing_parameter_tokens": null,
+      "s4_comparison": {
+        "matched_depths": 0,
+        "literal_different_cells_by_field": {},
+        "numerically_different_age_cells_by_field": {},
+        "maximum_absolute_age_difference_native_units": {},
+        "first_different_cell_by_field": {},
+        "calibrated_source_token_500_year_bin_changes": [],
+        "age_types": []
+      },
+      "s1_comparison": {
+        "archived_controls": 0,
+        "pangaea_controls": 0,
+        "matched_controls": 0,
+        "archived_only_identities": [],
+        "pangaea_only_identities": [],
+        "literal_different_cells_by_field": {},
+        "numeric_population": {},
+        "precalibration_numeric_comparisons": []
+      },
+      "s3_comparison": {
+        "archived_rows": 0,
+        "pangaea_rows": 0,
+        "nonmissing_tokens_equal": null,
+        "literal_differences": null
+      },
+      "run_input_state": "not_in_these_source_tables"
+    }
+  },
+  "producer_scope": {
+    "control_numeric_sensitivity": "For matched literal Carbon-14 controls only, preserve age*1000 and (older_error+younger_error)*500 from the R script before curve selection, missing-error defaults or calibration. This arithmetic does not infer a sampling law, chronology posterior or realized Bacon model.",
+    "source_token_sensitivity": "Use the source R's x1000 age transformation and existing half-open [500*k, 500*(k+1)) BP bins; preserve negative indices. This compares original-source tokens without selecting a chronology or admitting a study sample.",
+    "archived_script_default_dataset_ids": [
+      47502,
+      4320
+    ],
+    "script_input_route": "Live tab-delimited PANGAEA URLs for S1, S3 and S4; not the archived semicolon-delimited members.",
+    "script_version_limit": "Pinned R source, no pinned rbacon/IntCal dependency versions or random seed; not an authenticated historical executable or realized chronology."
+  },
+  "limits": {
+    "age_model_calls": 0,
+    "posterior_draws_acquired": 0,
+    "lra_samples_admitted": 0,
+    "interpretation": "Source inputs and literal precision differences only. No chronology selection, calibration, posterior, historical LandClim production identity, dated basin, taxon/PPE decision or independent scientific acceptance follows."
+  }
+}

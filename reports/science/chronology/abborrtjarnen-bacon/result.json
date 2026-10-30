@@ -1,0 +1,440 @@
+{
+  "schema_version": "abborrtjarnen-bacon-physical-rate-result.v1",
+  "source_commit": "0d374ce2190e5e44f70c8b28f18612809688af76",
+  "scientific_status": "refused_mcmc_diagnostics",
+  "exit_status": 0,
+  "timed_out": false,
+  "elapsed_seconds": 29.72034183307551,
+  "measured_peak_rss_bytes": 481722368,
+  "output_bytes_before_report": 19996773,
+  "requested_chain_seeds": [
+    314159,
+    271828
+  ],
+  "requested_draws": 8000,
+  "complete_four_bin_draws": 8000,
+  "incomplete_draw_fraction": 0.0,
+  "saved_ensemble_descriptors": {
+    "training_mean": {
+      "complete_draws": 8000,
+      "mean_mae": 0.07760298474073402,
+      "quantiles_025_50_975": [
+        0.07663680381932862,
+        0.07761878914014739,
+        0.07846750960729838
+      ],
+      "strict_lowest_score_fraction_of_all_requested_draws": 0.0
+    },
+    "nearest_site": {
+      "complete_draws": 8000,
+      "mean_mae": 0.06770403950351558,
+      "quantiles_025_50_975": [
+        0.06688939414240522,
+        0.06773316059713996,
+        0.06839574625594919
+      ],
+      "strict_lowest_score_fraction_of_all_requested_draws": 1.0
+    },
+    "inverse_distance_squared": {
+      "complete_draws": 8000,
+      "mean_mae": 0.07746606306310491,
+      "quantiles_025_50_975": [
+        0.07650059750353652,
+        0.07748176478840069,
+        0.07833124324978903
+      ],
+      "strict_lowest_score_fraction_of_all_requested_draws": 0.0
+    },
+    "clr_rbf_ridge": {
+      "complete_draws": 8000,
+      "mean_mae": 0.07515310352344003,
+      "quantiles_025_50_975": [
+        0.07428740795377681,
+        0.07517566302614803,
+        0.07592588964043816
+      ],
+      "strict_lowest_score_fraction_of_all_requested_draws": 0.0
+    }
+  },
+  "raw_output_directory": "artifacts/physical-core/abborrtjarnen-fixed-iteration",
+  "protocol": "physical-rate-protocol.json",
+  "fit_diagnostics": {
+    "age_diagnostics": {
+      "status": "computed",
+      "qualified": false,
+      "maximum_rhat_upper_95": 1.07527254701939,
+      "minimum_effective_sample_size": 409.74136697491406
+    },
+    "free_parameter_diagnostics": {
+      "status": "computed",
+      "qualified": false,
+      "maximum_rhat_upper_95": 1.088025828779139,
+      "minimum_effective_sample_size": 334.5837622932636
+    }
+  },
+  "failed_diagnostics": {
+    "age": {
+      "tested_parameters": 108,
+      "failed_parameters": [
+        {
+          "parameter": "neotoma:sample:173177",
+          "rhat": "1.01695811824333",
+          "rhat_upper_95": "1.06820780136138",
+          "effective_sample_size": "455.800105849355"
+        },
+        {
+          "parameter": "neotoma:sample:173178",
+          "rhat": "1.01839777368611",
+          "rhat_upper_95": "1.07527254701939",
+          "effective_sample_size": "456.904290401056"
+        },
+        {
+          "parameter": "neotoma:sample:173179",
+          "rhat": "1.01549694007477",
+          "rhat_upper_95": "1.06899931317028",
+          "effective_sample_size": "444.816316229557"
+        },
+        {
+          "parameter": "neotoma:sample:173259",
+          "rhat": "1.01249729273067",
+          "rhat_upper_95": "1.05580588498298",
+          "effective_sample_size": "1058.90220375257"
+        },
+        {
+          "parameter": "neotoma:sample:173260",
+          "rhat": "1.01103863300552",
+          "rhat_upper_95": "1.05302209651821",
+          "effective_sample_size": "963.386344719565"
+        }
+      ]
+    },
+    "free-parameter": {
+      "tested_parameters": 54,
+      "failed_parameters": [
+        {
+          "parameter": "alpha_3",
+          "rhat": "1.00148076721334",
+          "rhat_upper_95": "1.00175204643231",
+          "effective_sample_size": "397.249845744932"
+        },
+        {
+          "parameter": "alpha_4",
+          "rhat": "1.00150923078749",
+          "rhat_upper_95": "1.0019277612105",
+          "effective_sample_size": "356.969473685078"
+        },
+        {
+          "parameter": "alpha_5",
+          "rhat": "1.03304936995224",
+          "rhat_upper_95": "1.08802582877914",
+          "effective_sample_size": "370.489296719424"
+        },
+        {
+          "parameter": "alpha_6",
+          "rhat": "1.0006830382758",
+          "rhat_upper_95": "1.00097941630203",
+          "effective_sample_size": "362.137292023813"
+        },
+        {
+          "parameter": "alpha_7",
+          "rhat": "1.0057732957719",
+          "rhat_upper_95": "1.01782722360105",
+          "effective_sample_size": "367.604995615252"
+        },
+        {
+          "parameter": "alpha_8",
+          "rhat": "1.01074203470419",
+          "rhat_upper_95": "1.02161913110194",
+          "effective_sample_size": "334.583762293264"
+        },
+        {
+          "parameter": "alpha_9",
+          "rhat": "1.00168235426717",
+          "rhat_upper_95": "1.00840158110725",
+          "effective_sample_size": "382.501383905861"
+        },
+        {
+          "parameter": "alpha_44",
+          "rhat": "1.01535694359495",
+          "rhat_upper_95": "1.06044872965923",
+          "effective_sample_size": "909.864943464408"
+        }
+      ]
+    }
+  },
+  "chains": [
+    {
+      "seed": 314159,
+      "raw_rows": 7501,
+      "retained_rows": 4000,
+      "first_native_row": 3502,
+      "last_native_row": 7501,
+      "population": {
+        "requested_draws": 4000,
+        "complete_four_bin_draws": 4000,
+        "incomplete_draws": 0,
+        "empty_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "nonempty_zero_mass_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "negative_age_cells": 6877,
+        "ages_above_50000_bp": 0
+      },
+      "independent_maximum_absolute_age_residual": 9.094947017729282e-12
+    },
+    {
+      "seed": 271828,
+      "raw_rows": 7501,
+      "retained_rows": 4000,
+      "first_native_row": 3502,
+      "last_native_row": 7501,
+      "population": {
+        "requested_draws": 4000,
+        "complete_four_bin_draws": 4000,
+        "incomplete_draws": 0,
+        "empty_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "nonempty_zero_mass_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "negative_age_cells": 7107,
+        "ages_above_50000_bp": 0
+      },
+      "independent_maximum_absolute_age_residual": 9.094947017729282e-12
+    }
+  ],
+  "independent_observer": {
+    "observer_status": "saved_consumer_verified",
+    "source_commit": "0d374ce2190e5e44f70c8b28f18612809688af76",
+    "scientific_status": "refused_mcmc_diagnostics",
+    "model_fits": 0,
+    "joint_draws_checked": 8000,
+    "sample_depth_ids_checked": 107,
+    "raw_rows_checked": 15002,
+    "score_absolute_tolerance": 2e-15,
+    "score_relative_tolerance": 0,
+    "complete_draws": 8000,
+    "incomplete_draws": 0,
+    "chains": [
+      {
+        "seed": 314159,
+        "requested_draws": 4000,
+        "complete_four_bin_draws": 4000,
+        "incomplete_draws": 0,
+        "empty_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "nonempty_zero_mass_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "negative_age_cells": 6877,
+        "ages_above_50000_bp": 0
+      },
+      {
+        "seed": 271828,
+        "requested_draws": 4000,
+        "complete_four_bin_draws": 4000,
+        "incomplete_draws": 0,
+        "empty_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "nonempty_zero_mass_draw_bins": {
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "9": 0
+        },
+        "negative_age_cells": 7107,
+        "ages_above_50000_bp": 0
+      }
+    ],
+    "method_descriptors": {
+      "training_mean": {
+        "mean": 0.077602984740734,
+        "quantiles_025_50_975": [
+          0.07663680381932862,
+          0.07761878914014739,
+          0.07846750960729838
+        ],
+        "strict_wins": 0,
+        "all_draw_denominator": 8000
+      },
+      "nearest_site": {
+        "mean": 0.06770403950351558,
+        "quantiles_025_50_975": [
+          0.06688939414240522,
+          0.06773316059713996,
+          0.06839574625594919
+        ],
+        "strict_wins": 8000,
+        "all_draw_denominator": 8000
+      },
+      "inverse_distance_squared": {
+        "mean": 0.07746606306310493,
+        "quantiles_025_50_975": [
+          0.07650059750353654,
+          0.07748176478840069,
+          0.07833124324978903
+        ],
+        "strict_wins": 0,
+        "all_draw_denominator": 8000
+      },
+      "clr_rbf_ridge": {
+        "mean": 0.07515310352344003,
+        "quantiles_025_50_975": [
+          0.07428740795377682,
+          0.07517566302614803,
+          0.07592588964043816
+        ],
+        "strict_wins": 0,
+        "all_draw_denominator": 8000
+      }
+    },
+    "paired_complete_draw_differences": {
+      "training_mean minus nearest_site": {
+        "mean": 0.009898945237218416,
+        "quantiles_025_50_975": [
+          0.009628742895692596,
+          0.009883404988336432,
+          0.010186767870885401
+        ],
+        "complete_draws": 8000,
+        "negative": 0,
+        "zero": 0,
+        "positive": 8000
+      },
+      "training_mean minus inverse_distance_squared": {
+        "mean": 0.0001369216776290808,
+        "quantiles_025_50_975": [
+          0.00013609486550070042,
+          0.00013620967906003236,
+          0.00013802895477095552
+        ],
+        "complete_draws": 8000,
+        "negative": 0,
+        "zero": 0,
+        "positive": 8000
+      },
+      "training_mean minus clr_rbf_ridge": {
+        "mean": 0.002449881217293982,
+        "quantiles_025_50_975": [
+          0.0023352443951038557,
+          0.0024432049284447773,
+          0.002559393296287185
+        ],
+        "complete_draws": 8000,
+        "negative": 0,
+        "zero": 0,
+        "positive": 8000
+      },
+      "nearest_site minus inverse_distance_squared": {
+        "mean": -0.009762023559589337,
+        "quantiles_025_50_975": [
+          -0.01004980014717783,
+          -0.009746637465553699,
+          -0.009492306417592297
+        ],
+        "complete_draws": 8000,
+        "negative": 8000,
+        "zero": 0,
+        "positive": 0
+      },
+      "nearest_site minus clr_rbf_ridge": {
+        "mean": -0.007449064019924434,
+        "quantiles_025_50_975": [
+          -0.0076460515888561375,
+          -0.007439375062661343,
+          -0.0073027300303608
+        ],
+        "complete_draws": 8000,
+        "negative": 8000,
+        "zero": 0,
+        "positive": 0
+      },
+      "inverse_distance_squared minus clr_rbf_ridge": {
+        "mean": 0.0023129595396649016,
+        "quantiles_025_50_975": [
+          0.002199034716043823,
+          0.002306237789451068,
+          0.0024213643415162294
+        ],
+        "complete_draws": 8000,
+        "negative": 0,
+        "zero": 0,
+        "positive": 8000
+      }
+    },
+    "interpretation": "Computational consistency of saved conditional draws; diagnostic failure remains failure. Paired differences share exactly the same complete draw axis. No field accuracy or training chronology uncertainty is assessed.",
+    "elapsed_seconds": 0.9968355419114232
+  },
+  "interpretation": "All values describe saved states from a computation that failed its prespecified convergence gate. No qualified posterior interval, ranking probability, chronology accuracy, physical LRA or independent confirmation is established. No seeds, priors, criteria or retention rules were changed after this result.",
+  "warning_channels": {
+    "R_condition_warnings": [],
+    "native_stdout": [
+      {
+        "seed": 314159,
+        "WarnBeyondLimits": 31680
+      },
+      {
+        "seed": 271828,
+        "WarnBeyondLimits": 30438
+      }
+    ],
+    "literal_native_message": "calibration attempted beyond MinYr= -202.000000 or MaxYr= 1000000.000000",
+    "interpretation": "Native SetThetas counts boundary events, including initialization and up to two per call. Top-limit events reject support; a bottom above MaxYr increments without itself rejecting support. Counts are not calibration-call, unique-rejection, accepted-evaluation or retained-age counts."
+  },
+  "saved_boundary_check": [
+    {
+      "seed": 314159,
+      "rows": 7501,
+      "top_age_range": [
+        -201.858,
+        206.071
+      ],
+      "bottom_age_range": [
+        7459.925702820841,
+        11062.939051112187
+      ],
+      "saved_top_outside_limits": 0,
+      "saved_bottom_above_max": 0
+    },
+    {
+      "seed": 271828,
+      "rows": 7501,
+      "top_age_range": [
+        -200.24,
+        177.797
+      ],
+      "bottom_age_range": [
+        8618.422692431748,
+        11398.243475737238
+      ],
+      "saved_top_outside_limits": 0,
+      "saved_bottom_above_max": 0
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "schema_version": "abborrtjarnen-bacon-physical-rate-protocol.v1",
+  "question": "Under a named new fixed-transition Bacon chronology for Neotoma ABBO dataset 19913, how does its shared target-age uncertainty change four frozen development-pollen predictors on bins 3/4/5/9?",
+  "claim": "Conditional chronology-model uncertainty on an exposed development target; not historical LandClim or LegacyAge realized-posterior reproduction, admitted LRA, vegetation accuracy or untouched confirmation.",
+  "source_inputs": {
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv": "26ca6dc862790c71a3a7821b027413307dd2334856080a1b07e186177cfb8e01",
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/config.json": "7488562b4878de2eb7ac14466c0732ce455711edb01ec80181aff91d74bbef9a",
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-13338.json": "46235c8db2bfe6b0fefc3932a468556a978e28209267bb11f0276a9ff1deecd3"
+  },
+  "chronology_inputs": {
+    "control_release": "10.5281/zenodo.5815192: Input metadata tables.zip, exact archived S1/S3 tokens",
+    "archive_sha256": "f3b326c67572896ba08bebaabb55bf921e4f34a8a304b9a88ed9d74e867f467f",
+    "original_r_script_sha256": "6059a0b23199c3a86e7d9ab2b8fcd7bc5a28404cf6078392551ad11df8276e21",
+    "control_count": 6,
+    "all_source_radiocarbon_controls_used": true,
+    "core": "ABBO",
+    "dataset_id": 19913,
+    "site_id": 13338,
+    "samples": 107,
+    "depth_units": "cm",
+    "depth_range": [
+      648,
+      896
+    ],
+    "surface": {
+      "depth_cm": 648,
+      "age_cal_bp": -52,
+      "error_argument_years": 30,
+      "cc": 0,
+      "status": "source-declared modern-surface assumption, not seventh radiocarbon measurement"
+    },
+    "age_scale": "calibrated calendar years BP, reference AD1950; BCADFALSE",
+    "source_rights": {
+      "legacyage": "CC BY 4.0 for the LegacyAge source/control metadata and code deposit.",
+      "pollen": "Neotoma 2025 CC BY 4.0 default, with attribution to Neotoma, EPD and Giesecke (2005) and the exact dataset. The separate PANGAEA pollen source under CC BY-NC terms is not consumed.",
+      "primary_publication": "Giesecke 2005 DOI 10.1007/s00334-005-0070-2"
+    }
+  },
+  "runtime": {
+    "R": "4.6.0",
+    "rbacon": "4.0.2",
+    "rbacon_archive_sha256": "be84e057411fde7bfad86af9f1148285ca10adf64af18331a08703ed8f95aa42",
+    "calibration_curve": "IntCal20",
+    "curve_file": "rintcal/extdata/3Col_intcal20.14C",
+    "curve_sha256": "0e03064baac546e7b67fca62b8e2365deabd8ee0a66881ad93aeb83e1c423eed",
+    "library": "existing artifacts/qualification/native-reference/library",
+    "rintcal": "1.4.2",
+    "rice": "2.3.0",
+    "rintcal_archive_sha256": "97a8156dd22d113c186059d8cb4a5ddfb204e91ded1073f893b587b9831a5199",
+    "rice_archive_sha256": "2b74d3ce95b2e13b774ccbf5fea481870513a398807b87cfd0f9e8581f2980ef",
+    "calibration_directory": "Pass cc.dir explicitly to installed rintcal 1.4.2/extdata. Its native three-column IntCal20 file is byte-identical to the previously qualified IntCal 0.1.3 file; the additional pinned full IntCal20 file is required by the source preparation and rice reader.",
+    "full_calibration_curve_file": "rintcal/extdata/intcal20.14c",
+    "full_calibration_curve_sha256": "974a66649f2ac8a53e6c99e256b019ac6982f999b12dcf7193162d4c1c09168e",
+    "previous_curve_reference": {
+      "package": "IntCal",
+      "version": "0.1.3",
+      "archive_sha256": "213846f2a0a245a349194d9011f8fb41dc2b630c5d6237896d4d0fe1290f39b7",
+      "meaning": "Historical curve reference only; the executed profile uses the explicit rintcal directory and pinned identical three-column file."
+    }
+  },
+  "model": {
+    "thick_cm": 5,
+    "acc_shape": 1.5,
+    "acc_mean_definition": "(8000-(-52))/(880.5-648) years/cm; source raw-age-span rule",
+    "mem_mean": 0.3,
+    "mem_strength": 20,
+    "normal": false,
+    "t_a": 3,
+    "t_b": 4,
+    "reservoir_years": 0,
+    "reservoir_status": "source S3 absent value converted to zero by explicit original-script default; no empirical reservoir correction inferred",
+    "add_bottom": true,
+    "hiatuses": [],
+    "slumps": [],
+    "boundaries": [],
+    "bottom_extrapolation_cm": 15.5,
+    "bottom_extrapolation_status": "The deepest pollen sample at 896 cm lies 15.5 cm below the deepest radiocarbon control at 880.5 cm. Native model support extends to 903 cm, 22.5 cm below that control. Both extrapolation scopes remain explicit.",
+    "surface_likelihood": "cc0 calendar anchor uses the declared Student-t date likelihood; error argument 30 is not a reported 95% confidence interval or an assumed normal standard deviation.",
+    "youngest_age_cal_bp": -202,
+    "oldest_age_cal_bp": 1000000,
+    "youngest_age_reason": "rbacon 2.5.3 ignores deprecated MinYr. Its actual source default is min(calendar-now-BP, det_age-5*error); ABBO surface (-52, 30) gives -202. Freeze explicit source-default-equivalent computational support, not a field date.",
+    "initial_top_age_pairs": [
+      [
+        -52,
+        -22
+      ],
+      [
+        -82,
+        -42
+      ]
+    ],
+    "initialization_rule": "The source nonempty th0 argument is not assigned to its returned settings object. After source preparation, explicitly assign the frozen pair to set$th0 and call the unmodified write.Bacon.file(set, save.info=FALSE); verify the actual .bacon header before sampling. This changes no prior or vendor code and accepts no random-default or NA starts.",
+    "memory_prior_limit": "The native source memory kernel includes its +0.0001 regularizer; mean 0.3 and strength 20 are nominal input parameters, not exact unregularized Beta moments.",
+    "branch_scope": "No hiatus, slump, boundary or Plum branch. Refuse use of this extraction for those unsupported branches. Report any retained ages beyond 50000 calibrated BP because current-source IntCal extrapolation differs there.",
+    "native_geometry": {
+      "sections": 51,
+      "top_depth_cm": 648,
+      "bottom_depth_cm": 903,
+      "section_thickness_cm": 5,
+      "requested_pollen_depth_range_cm": [
+        648,
+        896
+      ],
+      "extrapolation_to_deepest_sample_cm": 15.5,
+      "extrapolation_to_native_bottom_cm": 22.5
+    },
+    "source_generated_bottom_likelihood": {
+      "cause": "The source input writer sees requested d.max 896 cm beyond deepest input determination 880.5 cm; independent of add.bottom.",
+      "native_label": "NA",
+      "depth_cm": 896,
+      "radiocarbon_age_argument_years": 8000,
+      "error_argument_years": 8000000,
+      "delta_R": 0,
+      "delta_STD": 0,
+      "t_a": 3,
+      "t_b": 4,
+      "cc": 1,
+      "role": "Ordinary broad but nonconstant IntCal20 Student-t pseudo-determination for bottom extrapolation; not measured, censored, a hard minimum-age bound or assumed to have zero influence.",
+      "population": "Six measured dates plus one explicit artificial calendar anchor make seven input rows; the writer adds this eighth native likelihood row.",
+      "geometry_distinction": "add.bottom=TRUE separately appends the model elbow at 898 cm and yields the native model bottom at 903 cm."
+    }
+  },
+  "execution": {
+    "chains": 2,
+    "seeds": [
+      314159,
+      271828
+    ],
+    "requested_ssize_per_chain": 4000,
+    "requested_burnin": 500,
+    "retention": "Use the source constructor with run=FALSE and a fresh zero-byte native output placeholder. The unmodified native call receives ssize+burnin=4500; its 3000 initial saved-row units and first state produce 7501 rows. Preserve all raw rows. Remove exactly 500 initial rows, then the additional 3001 source-equivalent tail removals leave original one-based rows 3502 through 7501. Do not thin or burn again.",
+    "resources": {
+      "threads": 1,
+      "max_total_seconds": 600,
+      "max_output_bytes": 30000000,
+      "planned_seconds_per_chain": 240,
+      "peak_rss_budget_bytes": 1500000000,
+      "memory_budget_handling": "No in-run memory cap is claimed. Measure the actual peak RSS using macOS time -l; refuse qualification after execution if measurement is missing or exceeds the budget.",
+      "storage_budget_handling": "Check actual files after execution; this budget is not a filesystem quota. Preserve failed raw outputs even on a budget refusal."
+    },
+    "no_retry_rule": "No extra chain, changed seed, wider criterion or outcome-tuned prior after seeing scores. Failed convergence remains failure with raw outputs.",
+    "model_fits_executed": 0,
+    "native_row_clock": "Saved row r corresponds to proposal tick (r-1)*25*dimension. Rejected transitions are retained. Actual dimension is K+2=53 for the stock model geometry of 51 sections."
+  },
+  "diagnostics": {
+    "reference": "coda::gelman.diag with autoburnin=FALSE, multivariate=FALSE, confidence=0.95, transform=FALSE; coda::effectiveSize on exactly the same final retained chains.",
+    "parameters": "all 107 jointly extracted depth ages plus posterior memory",
+    "gelman_upper_95_percent_max": 1.05,
+    "combined_effective_sample_size_min": 400,
+    "joint_invariants": "A finite, complete joint matrix on all 107 sample identities and unchanged depths. Ages are nondecreasing with depth and source accumulation rates are positive. No clipping or conditioning on old S5 marginal bounds.",
+    "failed_diagnostics": "Retain requested/produced/refused chains, warnings and diagnostics. Do not present posterior score distributions as qualified on a failed convergence gate.",
+    "free_parameter_diagnostics": "Retain diagnostics on top age, all latent innovation columns, native section memory and energy.",
+    "free_parameter_gate": "Require finite 95% upper Gelman values below 1.05 and combined effective sample sizes of at least 400 for all ages, memory, top age, innovations and energy. Poor mixing refuses qualification, even when the consumer ages alone pass."
+  },
+  "consumer": {
+    "methods": [
+      "training_mean",
+      "nearest_site",
+      "inverse_distance_squared",
+      "clr_rbf_ridge"
+    ],
+    "taxa": [
+      "Alnus",
+      "Amaranthaceae",
+      "Betula",
+      "Cichorioideae",
+      "Cyperaceae",
+      "Filipendula",
+      "Frangula alnus",
+      "Nuphar",
+      "Plantago lanceolata",
+      "Plantago media",
+      "Populus",
+      "Quercus",
+      "Rosaceae undiff.",
+      "Salix",
+      "Thalictrum",
+      "Ulmus"
+    ],
+    "bins": [
+      3,
+      4,
+      5,
+      9
+    ],
+    "bin_years": 500,
+    "membership": "[500*k,500*(k+1)); signed ages retain negative indices and remain outside positive study bins, never zero-clipped",
+    "count_rule": "Retains the original Neotoma count-matrix structural-zero rule: an unlisted cell on the declared exact-name closed 16-taxon axis is zero. The maintained native reader retains finite nonnegative integer-valued pollen/NISP measurements, including integral floats, with its exact-name aggregation and row filters. Literal null, missing measurement values, booleans and fractional counts in selected pollen rows are refused, as are invalid units and duplicate native taxon-ID/name pairs. No taxon crosswalk, renormalization or new pseudocount is applied.",
+    "metric": "For each shared chronology draw, pool integer counts on the exact closed 16-label axis per bin. Each method score is the equal-bin mean of mean absolute fraction error over exactly bins 3/4/5/9, using unchanged frozen predictions.",
+    "missing_support": "Keep complete eligible and refused draw/bin/method populations. A draw with an empty or zero-mass requested bin has no complete four-bin score. Report its frequency separately without dropping it or assigning zero error.",
+    "draw_dependence": "MCMC rows and the four fixed methods are dependent model evaluations, not independent observations. A posterior ranking frequency is conditional on this specified model.",
+    "saved_draw_ledger": "Each existing draw-scores row retains chain seed and original native row ID, plus each of the four bins’ sample count, pooled integer closed-16 count mass and scored/empty/nonempty_zero_mass status. The same four method scores share this support; incomplete draws retain explicit refusal text."
+  },
+  "uncertainty_scope": {
+    "propagated": "Joint source-model age/accumulation/memory uncertainty under the fixed-transition sampler, evaluated from saved six-significant-digit states.",
+    "fixed": "six control selection, reported error arguments and artificial surface anchor, chosen priors, fixed IntCal20 mean/marginal-error table, observed count integers, closed 16-label mask, frozen BUS/BOKE training fits and predictions",
+    "not_propagated": "Shared calibration-curve realizations/covariance, reservoir or alternative-prior uncertainty, source field accuracy, other training chronologies, count/PPE/basin uncertainty or general ecological uncertainty."
+  },
+  "independent_checks": [
+    "Reconcile all six full precision control lab/depth/age/error values to retained native Neotoma and the existing primary-control account.",
+    "For every retained shared iteration at all 107 depths, independently integrate source-confirmed physical section rates plus top age against the R helper. Fixed absolute tolerance 1e-8 calendar years, rtol 0, serialization 17 digits; include the 648 cm top, 896 cm bottom and section elbows.",
+    "Independently reconstruct fixed integer-count pooling and all method scores from saved age draws; no fit/prediction call in checker"
+  ],
+  "status": "prepared_for_independent_source_and_consumer_review; no core fit executed",
+  "profile": "declared-abbo-fixed-transition-physical-rate",
+  "extraction": {
+    "sampler_columns": "Native saved top age, alpha innovations, section memory w, and energy. Do not interpret alpha as physical rates.",
+    "physical_rates": "For each saved row without hiatus, x_K=alpha_K; x_j=w*x_(j+1)+(1-w)*alpha_j backwards. Integrate these physical rates over the actual source elbows.",
+    "R_consumer": "Supply a copy of the state with physical rates to Bacon.Age.d; preserve the native innovation output unchanged.",
+    "source_precision": "The native file stores six significant digits. Reconstructed ages are conditional on those saved quantized states, not recovered unrounded internal draws. Export derived R values at 17 digits.",
+    "law_checks": "Independent analytical witnesses and actual unmodified source insupport/G likelihood oracle must agree with the physical-rate interpretation before fitting. An equal-R-helper comparison alone is insufficient."
+  }
+}

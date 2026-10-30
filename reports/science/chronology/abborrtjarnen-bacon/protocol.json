@@ -1,0 +1,154 @@
+{
+  "schema_version": "abborrtjarnen-bacon-joint-age-protocol.v1",
+  "question": "Under a named new Bacon 2.5.3 chronology for Neotoma ABBO dataset 19913, how does its shared joint age uncertainty change the four frozen development-pollen predictors on exactly bins 3/4/5/9?",
+  "claim": "Conditional chronology-model uncertainty on an exposed development target; not historical LandClim or LegacyAge realized-posterior reproduction, admitted LRA, vegetation accuracy or untouched confirmation.",
+  "source_inputs": {
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv": "26ca6dc862790c71a3a7821b027413307dd2334856080a1b07e186177cfb8e01",
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/config.json": "7488562b4878de2eb7ac14466c0732ce455711edb01ec80181aff91d74bbef9a",
+    "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-13338.json": "46235c8db2bfe6b0fefc3932a468556a978e28209267bb11f0276a9ff1deecd3"
+  },
+  "chronology_inputs": {
+    "control_release": "10.5281/zenodo.5815192: Input metadata tables.zip, exact archived S1/S3 tokens",
+    "archive_sha256": "f3b326c67572896ba08bebaabb55bf921e4f34a8a304b9a88ed9d74e867f467f",
+    "original_r_script_sha256": "6059a0b23199c3a86e7d9ab2b8fcd7bc5a28404cf6078392551ad11df8276e21",
+    "control_count": 6,
+    "all_source_radiocarbon_controls_used": true,
+    "core": "ABBO",
+    "dataset_id": 19913,
+    "site_id": 13338,
+    "samples": 107,
+    "depth_units": "cm",
+    "depth_range": [
+      648,
+      896
+    ],
+    "surface": {
+      "depth_cm": 648,
+      "age_cal_bp": -52,
+      "error_argument_years": 30,
+      "cc": 0,
+      "status": "source-declared modern-surface assumption, not seventh radiocarbon measurement"
+    },
+    "age_scale": "calibrated calendar years BP, reference AD1950; BCADFALSE",
+    "source_rights": {
+      "legacyage": "CC BY 4.0 for the LegacyAge source/control metadata and code deposit.",
+      "pollen": "Neotoma 2025 CC BY 4.0 default, with attribution to Neotoma, EPD and Giesecke (2005) and the exact dataset. The separate PANGAEA pollen source under CC BY-NC terms is not consumed.",
+      "primary_publication": "Giesecke 2005 DOI 10.1007/s00334-005-0070-2"
+    }
+  },
+  "runtime": {
+    "R": "4.6.0",
+    "rbacon": "2.5.3",
+    "IntCal": "0.1.3",
+    "rbacon_archive_sha256": "95d5d1906df6882b8542eabaae4c22540c937dff99fec2f057f442b75184dcb0",
+    "IntCal_archive_sha256": "213846f2a0a245a349194d9011f8fb41dc2b630c5d6237896d4d0fe1290f39b7",
+    "calibration_curve": "IntCal20",
+    "curve_file": "IntCal/extdata/3Col_intcal20.14C",
+    "curve_sha256": "0e03064baac546e7b67fca62b8e2365deabd8ee0a66881ad93aeb83e1c423eed",
+    "library": "existing artifacts/qualification/native-reference/library"
+  },
+  "model": {
+    "thick_cm": 5,
+    "acc_shape": 1.5,
+    "acc_mean_definition": "(8000-(-52))/(880.5-648) years/cm; source raw-age-span rule",
+    "mem_mean": 0.3,
+    "mem_strength": 20,
+    "normal": false,
+    "t_a": 3,
+    "t_b": 4,
+    "reservoir_years": 0,
+    "reservoir_status": "source S3 absent value converted to zero by explicit original-script default; no empirical reservoir correction inferred",
+    "MinAge_cal_bp": -202,
+    "MaxAge_cal_bp": 1000000,
+    "MinAge_reason": "rbacon 2.5.3 ignores deprecated MinYr. Its actual source default is min(calendar-now-BP, det_age-5*error); ABBO surface (-52, 30) gives -202. Freeze explicit source-default-equivalent computational support, not a field date.",
+    "add_bottom": true,
+    "hiatuses": [],
+    "slumps": [],
+    "boundaries": [],
+    "bottom_extrapolation_cm": 15.5,
+    "bottom_extrapolation_status": "896cm deepest pollen lies below880.5cm deepest14C control; retained and reported, not hidden",
+    "surface_likelihood": "cc0 calendar anchor uses the declared Student-t date likelihood; error argument 30 is not a reported 95% confidence interval or an assumed normal standard deviation."
+  },
+  "execution": {
+    "chains": 2,
+    "seeds": [
+      314159,
+      271828
+    ],
+    "requested_ssize_per_chain": 4500,
+    "requested_burnin": 500,
+    "retention": "Bacon 2.5.3 calls scissors(burnin=500) internally and rewrites .out before agedepth reloads info$output. Keep every actual postburn row, with no second trim, thinning or additional coda autoburnin.",
+    "resources": {
+      "threads": 1,
+      "max_seconds_per_chain": 240,
+      "max_total_seconds": 600,
+      "max_sampled_rss_bytes": 1500000000,
+      "max_output_bytes": 30000000
+    },
+    "no_retry_rule": "No extra chain, changed seed, wider criterion or outcome-tuned prior after seeing scores. Failed convergence remains failure with raw outputs.",
+    "model_fits_executed": 0
+  },
+  "diagnostics": {
+    "reference": "coda gelman.diag(mcmc.list(...),autoburnin=FALSE,multivariate=FALSE,confidence=0.95,transform=FALSE), effectiveSize on those same retained rows.",
+    "parameters": "all 107 jointly extracted depth ages plus posterior memory",
+    "gelman_upper_95_percent_max": 1.05,
+    "combined_effective_sample_size_min": 400,
+    "joint_invariants": "finite complete shared-iteration107sample matrix, same exact depth/sample identity, nondecreasing age with depth, positive source accumulation rates; no age clipping or oldS5 marginal-bound conditioning",
+    "failed_diagnostics": "Retain requested/produced/refused chains, warnings and diagnostics. Do not present posterior score distributions as qualified on a failed convergence gate.",
+    "free_parameter_diagnostics": "Also retain diagnostics on topage, all latent accumulation columns, native memory and energy; poor mixing limits the result even if consumer-age criteria pass."
+  },
+  "consumer": {
+    "methods": [
+      "training_mean",
+      "nearest_site",
+      "inverse_distance_squared",
+      "clr_rbf_ridge"
+    ],
+    "taxa": [
+      "Alnus",
+      "Amaranthaceae",
+      "Betula",
+      "Cichorioideae",
+      "Cyperaceae",
+      "Filipendula",
+      "Frangula alnus",
+      "Nuphar",
+      "Plantago lanceolata",
+      "Plantago media",
+      "Populus",
+      "Quercus",
+      "Rosaceae undiff.",
+      "Salix",
+      "Thalictrum",
+      "Ulmus"
+    ],
+    "bins": [
+      3,
+      4,
+      5,
+      9
+    ],
+    "bin_years": 500,
+    "membership": "[500*k,500*(k+1)); signed ages retain negative indices and remain outside positive study bins, never zero-clipped",
+    "count_rule": "Retains the original Neotoma count-matrix structural-zero rule: an unlisted cell on the declared exact-name closed 16-taxon axis is zero. The maintained native reader retains finite nonnegative integer-valued pollen/NISP measurements, including integral floats, with its exact-name aggregation and row filters. Literal null, missing measurement values, booleans and fractional counts in selected pollen rows are refused, as are invalid units and duplicate native taxon-ID/name pairs. No taxon crosswalk, renormalization or new pseudocount is applied.",
+    "metric": "For each shared chronology draw, pool integer exact-name closed16 counts per bin. Each method score is equal-bin mean of mean absolute fraction error over exactly bins 3/4/5/9, using fixed unmodified stored predictions.",
+    "missing_support": "Keep complete eligible/refused draw/bin/method populations; a draw with an empty or zero-mass requested bin has no complete four-bin score. Report its frequency separately, not dropped or assigned zeroerror.",
+    "draw_dependence": "MCMC rows and the four fixed methods are dependent model evaluations, not independent observations. A posterior ranking frequency is conditional on this specified model."
+  },
+  "uncertainty_scope": {
+    "propagated": "joint age-depth latent accumulation and memory uncertainty within this named chronology model",
+    "fixed": "six control selection, reported error arguments and artificial surface anchor, chosen priors, fixed IntCal20 mean/marginal-error table, observed count integers, closed 16-label mask, frozen BUS/BOKE training fits and predictions",
+    "not_propagated": "shared calibration-curve realizations/covariance, reservoir-model uncertainty, alternative priors/core identity, other training chronologies,count/PPE/basin uncertainty or general ecological uncertainty"
+  },
+  "independent_checks": [
+    "Reconcile all six full precision control lab/depth/age/error values to retained native Neotoma and the existing primary-control account.",
+    "For every retained shared iteration at all 107 depths, independently integrate source-confirmed physical section rates plus top age against the R helper. Fixed absolute tolerance 1e-8 calendar years, rtol 0, serialization 17 digits; include the 648 cm top, 896 cm bottom and section elbows.",
+    "Independently reconstruct fixed integer-count pooling and all method scores from saved age draws; no fit/prediction call in checker"
+  ],
+  "status": "refused_for_equal_weight_posterior_before_fit",
+  "refusal_reasons": [
+    "Archived 2.5.3 saves sampler innovations, but native non-Plum conversion returns early while the R helper integrates the columns as physical rates.",
+    "Archived 2.5.3 saves accepted joint transitions without holding times; equally weighted saved rows do not establish the target posterior measure."
+  ]
+}
