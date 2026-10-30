@@ -1111,10 +1111,10 @@
     "reports/science/vegetation-reference/namibia-fit-resolution.json": "637d3e4cc0d67e2625a1afc31ea83185f84ffc36c6d51dfb542454e11417feee",
     "reports/science/method-certification/current-native-r-comparisons.csv": "59be82e73176ef337268c92da8195058dee9c1d7e39b69832509a2893c50df52",
     "reports/science/method-certification/current-native-r-values.csv": "65036253e42695583b058d6130db684b8ebede828077673ebf6cc3d16e965070",
-    "presentation/big-picture.pdf": "626fcc5d92d3410c126be2c1cb6097fdac4fbaf638b49fb906af0a81cfccaee3",
-    "presentation/developer.pdf": "19937f759003bd652518ccb193a1028f5984279d768922d90dd2a13a6a87a5fd",
-    "presentation/scientific-evidence.pdf": "487de0fc7f71e39d9c07e8111c3b8552405a5d37e50fc529cbf1774434cdd6da",
-    "reports/exports/site-downloads.json": "b550d0db15932afd3d2b815c067b4a3350e2151059f14b78eaf23abe0f69c90a"
+    "presentation/big-picture.pdf": "f61bcd351261574d2b79cdc2c88548c1241312a7a1487c478eeb1158788a3a1f",
+    "presentation/developer.pdf": "37790b11fb2514e38d7a971ad3ea1b42215ebe516da6529f827855154997ab0b",
+    "presentation/scientific-evidence.pdf": "11201805a2b67212f5904928447f439b9fd8709446d53c20b62d92a6bac00e24",
+    "reports/exports/site-downloads.json": "091de20fb0d0a32919c871fe2ef03b78db98560777b0015b251b4045d07ccb55"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",
