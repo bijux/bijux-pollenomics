@@ -193,6 +193,64 @@ site resampling, heterogeneous pooling, chronology probability or more than two
 taxa; the existing covariance APIs and their original failures remain separate.
 
 
+## Exact finite-law covariance check
+
+A separate deterministic check measures the approximation in the fixed-site
+delta-covariance profile. Two constructed sites have independent binomial
+counts with totals 3 and 4 and first-taxon probabilities 1/3 and 1/2. Their
+fixed response rows are `(1, 2)` and `(3, 1)`. The nominal PPE vector is
+`(1, 2)`. One law keeps PPE fixed; the other independently chooses the shared
+vector `(9/10, 21/10)` or `(11/10, 19/10)` with equal probability. The same
+chosen PPE vector applies to both sites, with covariance
+`[[1/100, -1/100], [-1/100, 1/100]]`.
+
+The [finite-law control](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-lra/tests/unit/reconstruction/uncertainty/test_finite_covariance_law.py)
+enumerates every count/PPE outcome using exact fractions: 20 outcomes with
+fixed PPE and 40 with shared PPE. Their probabilities sum exactly to one.
+For each outcome, it closes the two corrected count weights directly, then
+computes the exact mean and covariance of that estimator. Separately derived
+rational scalar derivatives check the public API's first-order counting,
+shared-PPE and total covariance at the expected counts `(1, 2)` and `(2, 2)`.
+The original recorded software check used an absolute `1e-15` bound with zero
+relative tolerance. Its 42 covariance-module controls passed in 0.10 seconds.
+That historical run recorded Git HEAD
+`fffb52cb1fd7f73e67b68066f290cf6f6a91f5e4`, with the finite-law controls in the
+working tree and its production covariance consumer unchanged from
+`1134c3697`. These are the original run's scope and source identities, not a
+fresh reconstruction or a current-parent qualification receipt. The separate
+finite-law module retains the two constructed questions and every original
+numerical assertion; the existing fixed-site covariance and mask controls
+remain in their own module.
+
+| Constructed law | Outcomes | Exact expected first fraction | Estimate at mean inputs | Exact first-coordinate variance | Delta variance |
+|---|---:|---:|---:|---:|---:|
+| Fixed PPE | 20 | 0.503649550312 | 0.526315789474 | 0.043540623186 | 0.042034668242 |
+| Shared PPE | 40 | 0.504362482759 | 0.526315789474 | 0.044307585677 | 0.043433138174 |
+
+Nonlinear closure separates the expected estimator from the estimate at mean
+inputs. In these two laws, the exact variance exceeds the delta variance by
+0.001505954944 and 0.000874447503. Complementarity determines the second
+coordinate and the negative off-diagonal covariance. Agreement with the
+independent first-order calculation verifies the declared API; it does not
+make that approximation equal to the exact finite-distribution moments.
+This control adds no numerical algorithm or tolerance change.
+
+These are constructed estimator laws, with no physical vegetation truth,
+estimated PPE distribution, transport calculation, Monte Carlo sampling or
+field data. They establish no interval coverage, ecological calibration or
+whole-requirement acceptance. The retained reconstruction and counting
+products above keep their original scopes and bytes.
+
+Run the two finite-law controls from the repository root:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  .venv/bin/python -B -m pytest -q --rootdir=packages/bijux-pollenomics-lra \
+  -c configs/pytest.ini -p no:cacheprovider \
+  --basetemp="$PWD/artifacts/qualification/finite-covariance-law/pytest" \
+  packages/bijux-pollenomics-lra/tests/unit/reconstruction/uncertainty/test_finite_covariance_law.py
+```
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
