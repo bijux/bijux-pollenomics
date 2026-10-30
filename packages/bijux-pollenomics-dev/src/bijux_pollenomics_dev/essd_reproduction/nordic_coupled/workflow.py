@@ -247,12 +247,31 @@ def batch(
     execution_epoch: str,
     prediction_index: Path | None = None,
     prediction_index_sha256: str | None = None,
+    protocol_binding: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     require(
         len(execution_epoch) == 40
         and all(c in "0123456789abcdef" for c in execution_epoch),
         "Explicit actual execution epoch required",
     )
+    protocol_sha256 = PROTOCOL_SHA256
+    if protocol_binding is not None:
+        require(
+            set(protocol_binding) == {"path", "sha256", "bytes"}
+            and type(protocol_binding["bytes"]) is int
+            and 0 < protocol_binding["bytes"] <= 65536,
+            "Closed bounded protocol identity required",
+        )
+        protocol_raw, declaration = read(
+            Path(protocol_binding["path"]), protocol_binding["sha256"], 65536
+        )
+        require(
+            len(protocol_raw) == protocol_binding["bytes"]
+            and declaration["schema_version"] == "nordic-coupled-ppe-sensitivity.v1"
+            and declaration["baseline_protocol_sha256"] == PROTOCOL_SHA256,
+            "Sensitivity protocol authority differs",
+        )
+        protocol_sha256 = protocol_binding["sha256"]
     rows, pins = input_scope(input_root, manifest, manifest_sha256)
     physical(output)
     require(not output.exists(), "Fresh absent output required")
@@ -265,7 +284,8 @@ def batch(
         require(
             prior.get("schema_version") == "nordic-coupled-batch.v1"
             and prior.get("all_bins_accounted") is True
-            and prior.get("protocol_sha256") == PROTOCOL_SHA256,
+            and prior.get("protocol_sha256") == protocol_sha256
+            and prior.get("protocol_binding") == protocol_binding,
             "Incomplete prediction batch cannot authorize scores",
         )
         require(
@@ -294,10 +314,12 @@ def batch(
         "phase": phase,
         "execution_epoch": execution_epoch,
         "input_manifest_sha256": manifest_sha256,
-        "protocol_sha256": PROTOCOL_SHA256,
+        "protocol_sha256": protocol_sha256,
         "bins": [{"bin": name, "status": "not_run"} for name in NAMES],
         "scope": "Prior-exposed conditional point predictions; small-lake regional proxies, no measured vegetation or calibrated uncertainty. Three baselines share one local predictor.",
     }
+    if protocol_binding is not None:
+        result["protocol_binding"] = dict(protocol_binding)
     if prior is not None:
         result["prediction_execution_epoch"] = prior["execution_epoch"]
         result["prediction_index_sha256"] = prediction_index_sha256
@@ -417,6 +439,14 @@ def batch(
         if phase == "score":
             assert prediction_index is not None and prediction_index_sha256 is not None
             read(prediction_index, prediction_index_sha256, 2097152)
+        if protocol_binding is not None:
+            final_protocol, _ = read(
+                Path(protocol_binding["path"]), protocol_sha256, 65536
+            )
+            require(
+                len(final_protocol) == protocol_binding["bytes"],
+                "Protocol size changed",
+            )
         result["all_bins_accounted"] = True
         result["bin_status_counts"] = dict(Counter(x["status"] for x in result["bins"]))
         write(output, result)
