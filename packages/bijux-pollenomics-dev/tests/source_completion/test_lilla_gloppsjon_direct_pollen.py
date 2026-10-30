@@ -8,6 +8,7 @@ from typing import IO
 
 import pytest
 
+from bijux_pollenomics.analysis.lra_validation.metrics import hellinger_distance
 from bijux_pollenomics_dev.source_completion import (
     lilla_gloppsjon_direct_pollen as study,
 )
@@ -306,6 +307,16 @@ def test_synthetic_score_retains_refusals_and_all_sample_mass() -> None:
     )
     assert all(
         row["mae_fraction"] is None for row in scores if row["status"] != "scored"
+    )
+    observed = dict.fromkeys(TAXA, 0.0)
+    observed["Alnus"], observed["Betula"] = 0.6, 0.4
+    # Original square-root subtraction differs from the stable general metric.
+    original_distance = float.fromhex("0x1.23796a4afe3e6p-4")
+    assert original_distance != hellinger_distance(fractions, observed)
+    assert all(
+        row["hellinger_distance"] == original_distance
+        for row in scores
+        if row["status"] == "scored"
     )
 
 
