@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "9ccdc6895c2e7230170744205f4f1e21fb757ebc75e36f3730727386ef339003",
-      "bytes": 7384587
+      "sha256": "b64f8c5a8b4489aa59651b6169105eb2eacb02d34c245fc94939f2e655bc1401",
+      "bytes": 7384832
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5283,6 +5283,16 @@
       "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/love-counting-uncertainty.json",
       "sha256": "dacbf97b1cd1753cc3e1f1ca4846a428ac9a4271ac77ea9d6f22de59953e6cee",
       "bytes": 97296
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/love-regional-counting-uncertainty.json",
+      "sha256": "051e6d17516cfa036e0dbc5d0b20c244900129e069211d02bef274ad9af4d51b",
+      "bytes": 116934
+    },
+    {
+      "path": "reports/science/publication-correspondence/rootsi-feature-census/report.json",
+      "sha256": "4a1b0834f41446a3ddbfbd992fa5f2d0572c95a49d008402c1fa935c2cafe40d",
+      "bytes": 183486
     }
   ],
   "maintained_paths": [
@@ -5554,6 +5564,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_rows.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_source.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panels.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/regional_counting_uncertainty.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/workflow.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
@@ -5570,6 +5581,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_provenance.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/rootsi_feature_census.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/development_cohort.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/development_evidence.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/experiment_ledger.py",

@@ -203,6 +203,7 @@ def test_zero_background_removes_all_regional_sensitivity() -> None:
         {"confidence_level": nextafter(1.0, 0.0)},
         {"ppe": [inf, 1.0]},
         {"regional_deposition": [nextafter(0.0, 1.0), 1.0]},
+        {"local_kernel": [nextafter(0.0, 1.0)] * 2, "regional_kernel": [1e308, 1e308]},
     ],
 )
 def test_strict_admission_and_numerical_refusals(changes: dict[str, Any]) -> None:
@@ -222,3 +223,11 @@ def test_tail_certification_refusal_is_not_replaced_by_a_success(
     monkeypatch.setattr(core, "fixed_two_taxon_counting_interval", refuse)
     with pytest.raises(ValidationError, match="tail-certification"):
         run()
+
+
+def test_signed_outward_display_encloses_negative_fractions() -> None:
+    value = Fraction(-1, 3)
+    assert Fraction.from_float(core._signed_display(value, upper=False)) <= value
+    assert Fraction.from_float(core._signed_display(value, upper=True)) >= value
+    with pytest.raises(ValidationError, match="finite binary64"):
+        core._signed_display(Fraction(10**400), upper=True)

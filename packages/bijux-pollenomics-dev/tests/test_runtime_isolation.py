@@ -310,6 +310,12 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"time_window_from_tw_filename"}
         ),
     },
+    "bijux_pollenomics_dev/essd_reproduction/rootsi_feature_census.py": {
+        "bijux_pollenomics.collection.sources.rootsi": frozenset({"authority"}),
+        "bijux_pollenomics.collection.sources.rootsi.cells": frozenset(
+            {"decoding", "inputs", "models"}
+        ),
+    },
     "bijux_pollenomics_dev/essd_reproduction/rootsi_input_closure.py": {
         "bijux_pollenomics.collection.sources.landclim.study_inventory": frozenset(
             {
@@ -1604,3 +1610,28 @@ def test_flink_cohort_host_bindings_remain_file_module_and_symbol_specific() -> 
                 (f"importlib.import_module({module!r})", path),
             ):
                 assert host_import_violations(text, reader)
+
+
+def test_cached_workbook_reader_bindings_remain_file_module_and_symbol_specific() -> (
+    None
+):
+    """Cached-cell inspection grants no sibling host capability or dynamic import."""
+    path = "bijux_pollenomics_dev/essd_reproduction/rootsi_feature_census.py"
+    bindings = (
+        ("bijux_pollenomics.collection.sources.rootsi", "authority"),
+        ("bijux_pollenomics.collection.sources.rootsi.cells", "decoding"),
+        ("bijux_pollenomics.collection.sources.rootsi.cells", "inputs"),
+        ("bijux_pollenomics.collection.sources.rootsi.cells", "models"),
+    )
+    for module, symbol in bindings:
+        statement = f"from {module} import {symbol}"
+        assert not host_import_violations(statement, path)
+        for source, reader in (
+            (statement, path + ".other"),
+            (f"from {module} import {symbol}_other", path),
+            (f"from {module}.other import {symbol}", path),
+            (f"from {module} import *", path),
+            (f"import {module}", path),
+            (f"__import__({module!r})", path),
+        ):
+            assert host_import_violations(source, reader)

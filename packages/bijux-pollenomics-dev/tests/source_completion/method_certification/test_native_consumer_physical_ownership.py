@@ -15,11 +15,19 @@ from bijux_pollenomics_dev.source_completion.method_certification import (
 
 @pytest.fixture
 def ownership(tmp_path: Path) -> dict[str, Any]:
-    code = [f"packages/own/source_{i}.py" for i in range(116)]
-    data = [
+    """Construct inert own files for the complete declared physical source roles."""
+    required_code = set(consumer._LAYOUT_CODE_INPUTS)
+    code = sorted(required_code) + [
+        f"packages/own/source_{i}.py" for i in range(116 - len(required_code))
+    ]
+    required_data = {
+        *consumer._LAYOUT_STATIC_DATA,
         consumer._POLICY,
         "data/method-certification/native-r-finite-covariance/capture/capture.json",
-        *[f"data/own/metadata_{i}.json" for i in range(288)],
+        "data/method-certification/native-r-finite-covariance/source-transport.json",
+    }
+    data = sorted(required_data) + [
+        f"data/own/metadata_{i}.json" for i in range(290 - len(required_data))
     ]
     for relative in code + data:
         path = tmp_path / relative
@@ -65,4 +73,28 @@ def test_current_physical_inventory_refuses_role_or_population_drift(
     else:
         ownership[role][-1] = sorted(consumer._OUTPUTS)[0]
     with pytest.raises(ValueError, match="Exact disjoint"):
+        collect(tmp_path, ownership)
+
+
+@pytest.mark.parametrize("defect", ["missing_file", "replaced_declaration"])
+def test_selected_finite_transport_is_required_at_unchanged_cardinality(
+    tmp_path: Path, ownership: dict[str, Any], defect: str
+) -> None:
+    """A valid baseline must refuse a missing or substituted selected descriptor."""
+    collect(tmp_path, ownership)
+    descriptor = (
+        "data/method-certification/native-r-finite-covariance/source-transport.json"
+    )
+    assert descriptor in ownership["producer_inputs"]
+    if defect == "missing_file":
+        (tmp_path / descriptor).unlink()
+        expected = "independently owned regular file"
+    else:
+        replacement = "data/own/replacement-transport.json"
+        (tmp_path / replacement).write_bytes(b"Own unrelated descriptor\n")
+        inputs = ownership["producer_inputs"]
+        inputs[inputs.index(descriptor)] = replacement
+        expected = "Exact disjoint native consumer code/data declaration"
+    assert len(ownership["producer_inputs"]) == 290
+    with pytest.raises(ValueError, match=expected):
         collect(tmp_path, ownership)
