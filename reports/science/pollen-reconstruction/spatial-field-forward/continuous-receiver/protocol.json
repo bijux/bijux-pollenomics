@@ -1,0 +1,123 @@
+{
+  "schema_version": "continuous-receiver-study.v1",
+  "question": "Can rigorous continuous receiver bounds certify K, B1 and B2 for every saved geometry/taxon response, and bound each saved native reference error, under the declared fixed law and resources?",
+  "population": {
+    "cases": [
+      {
+        "core": "BOKE",
+        "taxon": "Betula"
+      },
+      {
+        "core": "BOKE",
+        "taxon": "Ulmus"
+      },
+      {
+        "core": "BUS",
+        "taxon": "Betula"
+      },
+      {
+        "core": "BUS",
+        "taxon": "Ulmus"
+      },
+      {
+        "core": "SOLSOE83",
+        "taxon": "Betula"
+      },
+      {
+        "core": "SOLSOE83",
+        "taxon": "Ulmus"
+      }
+    ],
+    "case_count": 6,
+    "coefficients_per_case": [
+      "K",
+      "B1",
+      "B2"
+    ],
+    "complete_coefficient_population": 18,
+    "retain_all_case_statuses": true
+  },
+  "input_files": {
+    "reports/science/pollen-reconstruction/spatial-field-forward/result.json": {
+      "bytes": 25235,
+      "sha256": "012b5fdaa1a918c8a88858ada5b8d1f2a09cd512cb3e27ef513aeb52cb063e69"
+    },
+    "reports/science/pollen-reconstruction/spatial-field-forward/protocol.json": {
+      "bytes": 14960,
+      "sha256": "39d3bc46bfa42f06e157e4c8fe25a39299db290b49e1485093e3c398c99c620c"
+    }
+  },
+  "input_selection": {
+    "geometry": "Join result.geometry by exact core/taxon; retain lexical saved anchor_order and both serialized anchor_xy_m values. Join radius by protocol.cores.id. Reject missing, duplicate, foreign or inconsistent owners and cross-taxon anchor disagreement.",
+    "physical": "Use original protocol.physical and result.axis/fall_speed_m_s; exponent turbulence_parameter/2 must equal exactly 1/8.",
+    "finite_model": "Parse each saved integer or binary64 parameter as its exact dyadic rational. No coordinate reprojection, radius change, age/count input, anchor re-inversion or new forecast.",
+    "exposure": "These are previously exposed development metadata and numerical references. Existing files contain old summaries; only declared mathematical fields are consumed, and no untouched-target claim is made."
+  },
+  "survival_law": {
+    "formula": "S(d)=exp(-A*d^(1/8)) for nonnegative displacement d. Uniform disk receiver radius R and source annulus [R,L], with all fixed source anchors.",
+    "native_prefix": "For each of the two source fall speeds, capture float(gpm_values(1.0, fall, diffusion, turbulence, wind)) once, require 0<S1<1, then A=-math.log(S1)>0 finite. Reuse that same captured A across its three core cases.",
+    "exact_capture": "Persist S1 and A as float.hex and exact numerator/denominator, plus literal input floats and current Python/NumPy/platform identity. These values define the new continuous law before integration.",
+    "historical_limit": "The old A bit patterns were not saved; this new capture does not authenticate their historical identity. Do not replace captured A with a newly evaluated analytical coefficient.",
+    "floating_limit": "The ideal captured-A integral is distinct from every old floating operation and the native q=745 truncation. Omitted positive survival mass above745 is less than2^-745; old numerical point error is checked separately."
+  },
+  "method": {
+    "rule": "closed-newton-cotes-seven.v1",
+    "partition": "dyadic_radial",
+    "arithmetic": "Exact rational outward operations on the existing96-bit lattice, certified elementary remainders and analytic derivatives through8 (underlying h through9).",
+    "partition_contract": "Exact original-R bands [2^jR,min(2^(j+1)R,L)]; at most11bands, no uncovered tail. Contact Duffy only in first band; scaled regular squares thereafter. Retain original Q(R),Q(L) only.",
+    "coverage": "Close every initial domain for the declared six-case population before any adaptive refinement. Preserve each case owner and incomplete/not-executed reason if global time or resources prevent initial coverage. Retain each parent until both children close; no partial sum is a whole-response certificate.",
+    "allocations": {
+      "endpoint_Q_full_width": "epsilon/32 each",
+      "endpoint_product_full_width": "epsilon/16 each",
+      "total_radial_full_width": "epsilon/8 divided equally over all radial domains before evaluation",
+      "final_coefficient_full_width": "epsilon=1/1000000000"
+    },
+    "refinement": "One global deterministic frontier over closed case/domain states. Choose the unqualified case with greatest max(K,B1,B2 full width)/epsilon (ties fixed case order), then its greatest weighted leaf width: endpoint contribution weight2, radial contribution weight1 (ties domain/creation order). Bisect the direction with greatest certified directional remainder. Freeze an exhausted case but continue other cases under the SAME global clock. No saved-point error, old score or count drives refinement.",
+    "stopping": "A completely covered case stops when all three actual final full widths meet epsilon. Record individual auxiliary allocation targets separately; they do not override a valid final-width result or relabel any earlier backend/probe refusal."
+  },
+  "acceptance": {
+    "coefficient_certificate": "Original input ownership and complete valid outward-domain coverage, with each final full coefficient width<=1/1000000000. Retain all18results/refusals; do not drop or renormalize cases.",
+    "allocator_status": "Keep backend status and all local allocation checks separately. A local allocation is a conservative stopping target; numerical precision of a complete coefficient is decided by its actual final full width, never by relabeling a backend refusal.",
+    "saved_point_absolute_error": "For each saved scalar x and complete interval[lo,hi], compute max(abs(x-lo),abs(x-hi)) and require<=1/1000000000 before claiming that saved point is certified to that absolute accuracy.",
+    "saved_point_correspondence": "Separately retain the original1e-9+1e-8*abs(x) comparison. Do not substitute it for the absolute-error claim.",
+    "reference_population": "Per case retain standalone homogeneousK, primary homogeneousK, exact sum of the two serialized primary anchor factors, and the two individual anchor factors. These are distinct finite references.",
+    "positivity": "Record positive-bound usability separately from final-width certification; no clipping or imputed positive lower bound.",
+    "no_promotion": "No historical/core/shoreline/taxon admission, vegetation accuracy, field recommendation, posterior uncertainty, updated prediction/score or whole original scientific outcome follows."
+  },
+  "resources": {
+    "wall_seconds": 180,
+    "integration_work_seconds": 160,
+    "closure_seconds_reserved": 20,
+    "peak_rss_bytes_posthoc": 805306368,
+    "all_output_bytes": 5000000,
+    "per_case_maximum_leaves": 4096,
+    "per_case_maximum_attempted_panels": 8191,
+    "per_case_maximum_node_evaluations": 73719,
+    "per_case_maximum_live_queue": 4096,
+    "all_cases_maximum_leaves": 24576,
+    "all_cases_maximum_attempted_panels": 49146,
+    "all_cases_maximum_node_evaluations": 442314,
+    "on_exhaustion": "Retain every closed case/domain certificate and every declared case status, including incomplete or not-executed owners; do not retry, enlarge bounds/tolerance/resources, or call the full population accepted.",
+    "clock": "All case budgets share the one study start and160-second integration-work deadline; no per-case wall-time reset. Whole-process180-second wall and posthoc RSS/output checks include closure; retain partial states honestly."
+  },
+  "independent_verification": {
+    "inputs": "Bind every emitted geometry/native-prefix/case owner to these exact declared inputs and capture before checking arithmetic. Metadata alone is not authentication.",
+    "mathematics": "Use the independently established disk-overlap/Q identity, Duffy/scaled-band changes of variables, exact positive Peano kernels and meaningful independent primitive/derivative controls.",
+    "closed_results": "Inspect all declared cases and exact boundaries, nonoverlap/coverage, rule identities, local enclosures/radii/96-bit rounding, global sums, complementary B2, widths and all saved-reference comparisons without adaptive re-integration. Retain any remaining primitive-reevaluation limitation explicitly.",
+    "budget": {
+      "wall_seconds": 180,
+      "peak_rss_bytes_posthoc": 805306368,
+      "all_output_bytes": 5000000
+    }
+  },
+  "source_limits": "Static circular radii and saved planar coordinates remain conditional hypotheses, not authenticated historical geometry. Original source/core/taxonomy/rights/independent-vegetation questions retain their owning accounts. No raw count table or private author workbook is consumed or redistributed.",
+  "numerical_contract": {
+    "epsilon_exact": "1/1000000000",
+    "saved_point_absolute_error_exact": "1/1000000000",
+    "legacy_correspondence_absolute": 1e-09,
+    "legacy_correspondence_relative": 1e-08,
+    "arithmetic_bits": 96,
+    "quadrature_derivative_order": 8,
+    "maximum_radial_bands": 11
+  }
+}

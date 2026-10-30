@@ -3525,6 +3525,21 @@
       "bytes": 3020
     },
     {
+      "path": "reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/coefficient-contribution.json",
+      "sha256": "2f6b7e1c454f8a91fe38b9e589ae70f19edf1111290bc1da44e5b970c5bb1ea2",
+      "bytes": 24456
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/monotone-rings.json",
+      "sha256": "4580fc721effa9d2f4afbcc647d6e007188004fe7e7cbbd9f95862b740df4189",
+      "bytes": 23058
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/protocol.json",
+      "sha256": "76e9f8a0d4dbfd89891e227ab9346c5bbe05076575b2edb9862edfd173e1f071",
+      "bytes": 9057
+    },
+    {
       "path": "reports/science/pollen-reconstruction/spatial-field-forward/radial-envelope/protocol.json",
       "sha256": "ff34d0a50cf1033319882314c4f389351d79f938a2b3a83ab9f981571fdb5e89",
       "bytes": 8738

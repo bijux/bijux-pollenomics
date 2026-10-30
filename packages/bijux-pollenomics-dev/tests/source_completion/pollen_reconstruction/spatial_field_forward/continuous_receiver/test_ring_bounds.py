@@ -1,0 +1,534 @@
+"""True-mass affine algebra and bounded endpoint-population controls."""
+
+from __future__ import annotations
+
+from dataclasses import replace
+from fractions import Fraction
+import inspect
+from types import SimpleNamespace
+from typing import Any
+
+import pytest
+
+from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver import (
+    quadrature,
+    ring_bounds,
+)
+from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.arithmetic import (
+    Interval,
+    Jet,
+)
+from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.kernel import (
+    Geometry,
+)
+from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.quadrature import (
+    Box,
+    Integrand,
+    Panel,
+    WorkBudget,
+)
+from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.ring_bounds import (
+    COEFFICIENT_Q_TARGET,
+    CONTRIBUTION_STOP,
+    Q_TARGET,
+    coefficient_bounds,
+    coefficient_q_spreads,
+    deposition_bounds,
+    enclose_ring_population,
+    evaluate_q,
+    shared_q_linear,
+)
+
+UNIT = ((Fraction(0), Fraction(1)),)
+EDGES = (Fraction(1), Fraction(2), Fraction(3))
+
+
+def model(index: int = 0) -> Geometry:
+    return Geometry(
+        Fraction(index),
+        Fraction(1),
+        Fraction(3),
+        (Fraction(-1), Fraction(0)),
+        (Fraction(1), Fraction(0)),
+    )
+
+
+def points(*values: Fraction | int) -> tuple[Interval, ...]:
+    return tuple(Interval.point(value) for value in values)
+
+
+def controlled(
+    monkeypatch: pytest.MonkeyPatch,
+    *,
+    radius: Fraction = Fraction(1),
+    clock: list[float] | None = None,
+    no_contraction: bool = False,
+    error_by_edge: dict[Fraction, Fraction] | None = None,
+) -> list[tuple[int, Fraction, Box]]:
+    monkeypatch.setattr(
+        ring_bounds,
+        "_q_operator",
+        lambda geometry, r: (
+            lambda t: Jet.constant((100 * geometry.coefficient + r) / 1000, t.order)
+        ),
+    )
+    events: list[tuple[int, Fraction, Box]] = []
+
+    def panel(function: Integrand, box: Box, budget: WorkBudget, *, rule: str) -> Panel:
+        budget.panel(1, nodes_per_axis=7)
+        budget.derivative_boxes += 1
+        value = function((Jet.constant(0, 0),)).value.lower
+        owner = int(value * 1000) // 100
+        edge = value * 1000 - 100 * owner
+        events.append((owner, edge, box))
+        length = box[0][1] - box[0][0]
+        scale = radius if error_by_edge is None else error_by_edge.get(edge, radius)
+        error = scale * length ** (1 if no_contraction else 2)
+        budget.completed_nodes += 7
+        if clock is not None:
+            clock[0] += 0.4
+            budget.check()
+        return Panel(box, Interval.point(value * length), error, (error,), rule)
+
+    monkeypatch.setattr(ring_bounds, "positive_panel", panel)
+    return events
+
+
+def test_q_dispatch_changes_only_evaluation_radius(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    events: list[tuple[str, Geometry]] = []
+
+    def contact(geometry: Geometry, t: Jet) -> Jet:
+        events.append(("contact", geometry))
+        return Jet.constant(1, t.order)
+
+    def outer(geometry: Geometry, t: Jet) -> Jet:
+        events.append(("outer", geometry))
+        return Jet.constant(0, t.order)
+
+    monkeypatch.setattr(Geometry, "contact_survival", contact)
+    monkeypatch.setattr(Geometry, "outer_survival", outer)
+    geometry = model(1)
+    evaluate_q(geometry, Fraction(1), Jet.constant(0))
+    evaluate_q(geometry, Fraction(2), Jet.constant(0))
+    assert events[0] == ("contact", geometry)
+    assert events[1] == ("outer", replace(geometry, outer=Fraction(2)))
+    with pytest.raises(ValueError, match="original geometry"):
+        evaluate_q(geometry, Fraction(4), Jet.constant(0))
+
+
+def test_signed_linear_form_uses_each_cumulative_coordinate_once() -> None:
+    bounds = (
+        Interval(Fraction(3, 4), Fraction(4, 5)),
+        Interval(Fraction(1, 4), Fraction(3, 10)),
+    )
+    value = shared_q_linear(bounds, (Fraction(2), Fraction(-3)))
+    assert value.lower <= Fraction(3, 5) and value.upper >= Fraction(17, 20)
+    with pytest.raises(TypeError):
+        shared_q_linear(bounds, (Fraction(1),))
+
+
+def test_monotone_constraints_preserve_raw_bounds_and_reject_contradiction() -> None:
+    raw = (
+        Interval(Fraction(1, 10), Fraction(6, 5)),
+        Interval(Fraction(2, 5), Fraction(9, 10)),
+        Interval(Fraction(-1, 5), Fraction(4, 5)),
+    )
+    result = coefficient_bounds(model(), EDGES, raw)
+    assert result.raw_q_bounds == raw
+    assert result.constrained_q_bounds == (
+        Interval(Fraction(2, 5), Fraction(1)),
+        raw[1],
+        Interval(Fraction(0), Fraction(4, 5)),
+    )
+    with pytest.raises(ValueError, match="Reversed"):
+        coefficient_bounds(model(), EDGES, points(Fraction(1, 5), Fraction(4, 5), 0))
+
+
+def test_complement_and_constant_cover_telescope_before_interval_evaluation() -> None:
+    raw = (
+        Interval(Fraction(7, 8), Fraction(1)),
+        Interval(Fraction(1, 2), Fraction(3, 4)),
+        Interval(Fraction(1, 8), Fraction(1, 4)),
+    )
+    bounds = coefficient_bounds(model(), EDGES, raw)
+    assert bounds.first == bounds.second == bounds.homogeneous * Fraction(1, 2)
+    assert bounds.second.width < (bounds.homogeneous - bounds.first).width
+    assert deposition_bounds(
+        bounds, Fraction(3, 4), Fraction(3, 4)
+    ) == bounds.homogeneous * Fraction(3, 4)
+    assert deposition_bounds(bounds, Fraction(-1), Fraction(-2)).upper < 0
+    assert bounds.positive_bounds == (True, True, True)
+    assert bounds.coefficient_epsilon_pass == (False, False, False)
+
+
+@pytest.mark.parametrize(
+    "covers",
+    [
+        (Fraction(3, 4), Fraction(1, 4)),
+        (Fraction(1, 4), Fraction(3, 4)),
+        (Fraction(-1), Fraction(-2)),
+    ],
+)
+def test_ring_endpoint_extrema_contain_positive_mass_interior_witnesses(
+    covers: tuple[Fraction, Fraction],
+) -> None:
+    geometry = replace(
+        model(1), first=(Fraction(1), Fraction(0)), second=(Fraction(2), Fraction(0))
+    )
+    bounds = coefficient_bounds(
+        geometry, EDGES, points(1, Fraction(3, 4), Fraction(1, 4))
+    )
+    witness = Interval.point(0)
+    for a, b, mass in zip(
+        EDGES[:-1], EDGES[1:], (Fraction(1, 4), Fraction(1, 2)), strict=True
+    ):
+        h = geometry.angular(Jet.constant((a + b) / 2, 0)).value
+        witness += (covers[1] + (covers[0] - covers[1]) * h) * mass
+    result = deposition_bounds(bounds, *covers)
+    assert result.lower <= witness.lower <= witness.upper <= result.upper
+
+
+@pytest.mark.parametrize("priority", ["raw_width", "coefficient_contribution"])
+def test_all_six_129_endpoint_populations_use_actual_degree_seven_rule(
+    monkeypatch: pytest.MonkeyPatch,
+    priority: str,
+) -> None:
+    monkeypatch.setattr(
+        ring_bounds, "_q_operator", lambda geometry, r: lambda t: (4 - r) * t**7 / 4
+    )
+    edges = tuple(Fraction(1) + Fraction(i, 64) for i in range(129))
+    result = enclose_ring_population(
+        tuple(model(i) for i in range(6)), (edges,) * 6, priority=priority
+    )
+    assert len(result.results) == 6
+    for case, budget in zip(result.results, result.budgets, strict=True):
+        assert len(case.endpoints) == len(case.refusals) == 129
+        assert case.refusal is None and all(reason is None for reason in case.refusals)
+        assert case.bounds is not None and all(case.bounds.coefficient_epsilon_pass)
+        assert budget.attempts == 129 and budget.nodes == budget.completed_nodes == 903
+        assert case.endpoints[0] is not None
+        assert (
+            case.endpoints[0].enclosure.lower
+            <= Fraction(3, 32)
+            <= case.endpoints[0].enclosure.upper
+        )
+    assert sum(value.nodes for value in result.budgets) == 5418
+
+
+def test_round_robin_initialization_precedes_all_raw_width_refinement(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    events = controlled(monkeypatch)
+    result = enclose_ring_population(
+        (model(), model(1)), (EDGES, EDGES), max_attempts=5
+    )
+    assert [(owner, r) for owner, r, _ in events[:6]] == [
+        (owner, r) for r in EDGES for owner in (0, 1)
+    ]
+    assert all(box == UNIT for _, _, box in events[:6])
+    assert events[6][:2] == (0, Fraction(1))
+    assert all(case.bounds is not None for case in result.results)
+    assert all(case.refusal == "attempt_or_node_ceiling" for case in result.results)
+    assert all(value.attempts == 5 for value in result.budgets)
+
+
+@pytest.mark.parametrize("priority", ["raw_width", "coefficient_contribution"])
+def test_interrupted_child_retains_parent_and_next_case_advances(
+    monkeypatch: pytest.MonkeyPatch,
+    priority: str,
+) -> None:
+    events = controlled(monkeypatch)
+    result = enclose_ring_population(
+        (model(), model(1)), (EDGES, EDGES), max_attempts=4, priority=priority
+    )
+    assert len(events) == 8
+    for case, budget in zip(result.results, result.budgets, strict=True):
+        assert case.endpoints[0] is not None
+        assert case.endpoints[0].panels[0].box == UNIT
+        assert len(case.endpoints[0].panels) == 1
+        assert budget.attempts == 4 and budget.nodes == 28
+
+
+def test_constraints_do_not_turn_broad_endpoint_roots_into_precision(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def broad(function: Integrand, box: Box, budget: WorkBudget, *, rule: str) -> Panel:
+        budget.panel(1, nodes_per_axis=7)
+        length = box[0][1] - box[0][0]
+        budget.completed_nodes += 7
+        return Panel(
+            box,
+            Interval.point(Fraction(3, 2) * length),
+            length / 2,
+            (length / 2,),
+            rule,
+        )
+
+    monkeypatch.setattr(ring_bounds, "positive_panel", broad)
+    # A=0 has exact Q=1. Raw [1,2] intersects the proved probability domain
+    # at that point, but this cannot certify the raw quadrature-width target.
+    result = enclose_ring_population((model(),), (EDGES,), max_attempts=3)
+    case = result.results[0]
+    assert case.bounds is not None
+    assert case.bounds.constrained_q_bounds == points(1, 1, 1)
+    assert all(
+        value is not None
+        and value.enclosure.width > Q_TARGET
+        and value.status == "refuse_unresolved"
+        for value in case.endpoints
+    )
+    assert case.refusal == "attempt_or_node_ceiling"
+
+
+@pytest.mark.parametrize("priority", ["raw_width", "coefficient_contribution"])
+def test_global_clock_retains_every_unclosed_and_unexecuted_endpoint(
+    monkeypatch: pytest.MonkeyPatch,
+    priority: str,
+) -> None:
+    clock = [100.0]
+    timer = SimpleNamespace(monotonic=lambda: clock[0])
+    monkeypatch.setattr(ring_bounds, "time", timer)
+    monkeypatch.setattr(quadrature, "time", timer)
+    controlled(monkeypatch, clock=clock)
+    result = enclose_ring_population(
+        (model(), model(1)), (EDGES, EDGES), wall_seconds=1, priority=priority
+    )
+    assert all(
+        case.bounds is None and len(case.endpoints) == len(case.refusals) == 3
+        for case in result.results
+    )
+    assert result.results[0].refusals[1] == "initial_panel_unclosed:wall_seconds"
+    assert result.results[1].refusals[1] == "not_executed:wall_seconds"
+    assert all(
+        case.refusals[2] == "not_executed:wall_seconds" for case in result.results
+    )
+    assert [value.started for value in result.budgets] == [100.0, 100.0]
+    assert [value.attempts for value in result.budgets] == [2, 1]
+    assert result.elapsed_seconds == pytest.approx(1.2)
+
+
+@pytest.mark.parametrize(
+    "limits",
+    [{"max_attempts": 2}, {"max_nodes": 20}, {"max_leaves": 2}, {"max_queue": 2}],
+)
+def test_incomplete_endpoint_populations_keep_all_dispositions(
+    monkeypatch: pytest.MonkeyPatch, limits: dict[str, Any]
+) -> None:
+    controlled(monkeypatch)
+    result = enclose_ring_population((model(), model(1)), (EDGES, EDGES), **limits)
+    assert all(
+        case.bounds is None and len(case.endpoints) == 3 for case in result.results
+    )
+    assert all(
+        case.refusal is not None
+        and case.refusal.startswith("incomplete_endpoint_population:")
+        for case in result.results
+    )
+    assert all(
+        value.attempts <= value.max_attempts
+        and value.nodes <= value.max_nodes
+        and value.leaves <= value.max_leaves
+        for value in result.budgets
+    )
+
+
+@pytest.mark.parametrize(
+    "limits",
+    [
+        {"wall_seconds": 161},
+        {"wall_seconds": float("nan")},
+        {"max_nodes": 73720},
+        {"max_attempts": 8192},
+        {"max_leaves": 4097},
+        {"max_queue": 4097},
+    ],
+)
+def test_endpoint_limits_only_lower_declared_ceilings(limits: dict[str, Any]) -> None:
+    with pytest.raises((ValueError, TypeError)):
+        enclose_ring_population((model(),), (EDGES,), **limits)
+
+
+def test_foreign_reordered_or_incomplete_radial_edges_refuse_before_evaluation() -> (
+    None
+):
+    for edges in (
+        (Fraction(0), Fraction(3)),
+        (Fraction(1), Fraction(3), Fraction(2)),
+        (Fraction(1), Fraction(2)),
+    ):
+        with pytest.raises(ValueError):
+            enclose_ring_population((model(),), (edges,))
+
+
+def test_contribution_spreads_use_exact_five_forms_and_symmetric_cancellation() -> None:
+    raw = (
+        Interval(Fraction(7, 8), Fraction(1)),
+        Interval(Fraction(1, 2), Fraction(3, 4)),
+        Interval(Fraction(1, 8), Fraction(1, 4)),
+    )
+    bounds = coefficient_bounds(model(), EDGES, raw)
+    spreads = coefficient_q_spreads(bounds)
+    assert Fraction(1, 16 * 10**9) == COEFFICIENT_Q_TARGET
+    assert spreads == {
+        "K": Fraction(1, 4),
+        "B1_lower": Fraction(1, 8),
+        "B1_upper": Fraction(1, 8),
+        "B2_lower": Fraction(1, 8),
+        "B2_upper": Fraction(1, 8),
+    }
+    changed = replace(
+        bounds,
+        constrained_q_bounds=(
+            raw[0],
+            Interval(Fraction(1, 4), Fraction(3, 4)),
+            raw[-1],
+        ),
+    )
+    assert coefficient_q_spreads(changed) == spreads
+
+
+def test_raw_and_contribution_strategies_choose_different_endpoint_objectives(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    events = controlled(monkeypatch, error_by_edge={Fraction(2): Fraction(100)})
+    default = enclose_ring_population((model(),), (EDGES,), max_attempts=5)
+    raw_events = list(events)
+    events.clear()
+    explicit = enclose_ring_population(
+        (model(),), (EDGES,), max_attempts=5, priority="raw_width"
+    )
+    assert events == raw_events
+    assert default.results == explicit.results
+    events.clear()
+    enclose_ring_population(
+        (model(),), (EDGES,), max_attempts=5, priority="coefficient_contribution"
+    )
+    assert [r for _, r, _ in raw_events[:3]] == list(EDGES)
+    assert raw_events[3][1] == Fraction(2)
+    assert events[3][1] == Fraction(1)
+
+
+def test_geometry_is_cached_once_and_only_selected_case_priorities_refresh(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    controlled(monkeypatch)
+    angular, update = Geometry.angular, ring_bounds._Contribution.update
+    angular_calls: list[Fraction] = []
+    updates: list[int] = []
+
+    def counted(geometry: Geometry, radius: Jet) -> Jet:
+        angular_calls.append(radius.value.lower)
+        return angular(geometry, radius)
+
+    def refreshed(cache: Any, rows: Any) -> None:
+        updates.append(id(cache))
+        update(cache, rows)
+
+    monkeypatch.setattr(Geometry, "angular", counted)
+    monkeypatch.setattr(ring_bounds._Contribution, "update", refreshed)
+    enclose_ring_population(
+        (model(), model(1)),
+        (EDGES, EDGES),
+        max_attempts=5,
+        priority="coefficient_contribution",
+    )
+    assert len(angular_calls) == 6
+    assert len(set(updates)) == 2 and len(updates) == 4
+    assert all(updates.count(owner) == 2 for owner in set(updates))
+
+
+def test_contribution_goal_retains_reason_on_every_broad_raw_endpoint(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def broad(function: Integrand, box: Box, budget: WorkBudget, *, rule: str) -> Panel:
+        budget.panel(1, nodes_per_axis=7)
+        length = box[0][1] - box[0][0]
+        budget.completed_nodes += 7
+        return Panel(
+            box,
+            Interval.point(Fraction(3, 2) * length),
+            length / 2,
+            (length / 2,),
+            rule,
+        )
+
+    monkeypatch.setattr(ring_bounds, "positive_panel", broad)
+    result = enclose_ring_population(
+        (model(),), (EDGES,), priority="coefficient_contribution"
+    )
+    case = result.results[0]
+    assert (
+        case.bounds is not None
+        and max(coefficient_q_spreads(case.bounds).values()) == 0
+    )
+    assert (
+        case.refusal == CONTRIBUTION_STOP and case.refusals == (CONTRIBUTION_STOP,) * 3
+    )
+    assert all(
+        value is not None
+        and value.enclosure.width > Q_TARGET
+        and value.status == "refuse_unresolved"
+        for value in case.endpoints
+    )
+    assert result.budgets[0].attempts == 3
+
+
+def test_contribution_goal_may_refine_beyond_raw_endpoint_diagnostic(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    controlled(monkeypatch, radius=Fraction(1, 40 * 10**9))
+    monkeypatch.setattr(
+        ring_bounds,
+        "_q_operator",
+        lambda geometry, r: lambda t: Jet.constant((4 - r) / 4, t.order),
+    )
+    raw = enclose_ring_population((model(),), (EDGES,))
+    weighted = enclose_ring_population(
+        (model(),), (EDGES,), priority="coefficient_contribution"
+    )
+    assert raw.budgets[0].attempts == 3
+    assert weighted.budgets[0].attempts == 7
+    assert weighted.results[0].bounds is not None
+    assert (
+        max(coefficient_q_spreads(weighted.results[0].bounds).values())
+        <= COEFFICIENT_Q_TARGET
+    )
+    assert weighted.results[0].refusal is None
+
+
+def test_q_spread_target_is_not_the_fixed_ring_or_original_coefficient_eps() -> None:
+    geometry = replace(
+        model(1), first=(Fraction(1), Fraction(0)), second=(Fraction(2), Fraction(0))
+    )
+    bounds = coefficient_bounds(
+        geometry, EDGES, points(1, Fraction(3, 4), Fraction(1, 4))
+    )
+    assert max(coefficient_q_spreads(bounds).values()) == 0
+    assert bounds.coefficient_epsilon_pass == (True, False, False)
+
+
+@pytest.mark.parametrize("priority", [None, "observed_score", True, 1])
+def test_unknown_priority_refuses_before_any_endpoint_evaluation(
+    priority: Any, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def forbidden(*args: Any, **kwargs: Any) -> Any:
+        raise AssertionError("Invalid strategy opened the integrand")
+
+    monkeypatch.setattr(ring_bounds, "_q_operator", forbidden)
+    with pytest.raises(ValueError, match="priority"):
+        enclose_ring_population((model(),), (EDGES,), priority=priority)
+
+
+def test_priority_interface_accepts_no_outcomes_or_reference_scores() -> None:
+    assert tuple(inspect.signature(enclose_ring_population).parameters) == (
+        "geometries",
+        "edges",
+        "wall_seconds",
+        "max_leaves",
+        "max_attempts",
+        "max_nodes",
+        "max_queue",
+        "priority",
+    )

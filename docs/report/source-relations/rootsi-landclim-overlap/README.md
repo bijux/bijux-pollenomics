@@ -48,6 +48,52 @@ The LandClim II DOI, sequence ID, country, access marker, sample count, site win
 
 These candidate dependencies block treating LandClim REVEALS outputs as independent vegetation ground truth for the matched Rootsi inputs. Per-sequence rights, historical input identity, source-age basis, taxonomy, count denominator, and exact grid/window contribution remain unresolved. This review does not certify complete V2-DATA-007 grid/window/value/SE lineage or admit raw Rootsi observations for scientific use.
 
+## Ekenäs source context
+
+[Table 1 in Trondman et al. (2016)](https://link.springer.com/article/10.1007/s00334-015-0536-9/tables/1#table-1-title)
+explicitly pairs Ekenäs with EKE: hemiboreal zone, 56.95° N, 16.0167° E,
+elevation 90 m, bog, modern radius 20 m. TW1–TW4 each show 20 m; TW5 is grey.
+The table footer defines grey as unavailable site/window data and numbers as
+radii, generally using modern basin size rather than dated basin geometry.
+The five windows are x–100, 100–350, 350–700, 2700–3200 and 5700–6200 cal BP;
+x denotes the assumed core-surface age from the coring year. The
+[study's chronology methods](https://link.springer.com/article/10.1007/s00334-015-0536-9#Sec4)
+specifically rebuilt Ekenäs and Skärsgölarna chronologies using clam 2.1,
+IntCal09 and smoothing splines; Ekenäs used four radiocarbon dates plus the
+core top, with models not shown. All study records are attributed to the
+LANDCLIM pollen archive (Trondman 2014), but no Ekenäs-specific archive
+accession or core identifier binds these records to Rootsi or Neotoma. The
+paper's 90 m elevation agrees with LandClim I metadata but conflicts with
+LandClim II's 20 m. Neither that conflict nor historical chronology equivalence
+is resolved.
+
+The original LandClim II metadata, `LANDCLIMII metadata file!981`, names
+**Matts Lindbladh** in the combined `Database/Authorname and/or data collector`
+field for Ekenäs/EKE, with `Authors chronology` and no chronology note.
+The retained Rootsi metadata, `All metadata!14`, supplies local labels
+`site_ID=b_6`, `R_ID=a13`, `Site label=EKE` and `File name=EKE.xls`.
+Independent worksheet-XML inspection confirms those literal values without
+opening observations or ages. The combined contributor field does not select
+an author/collector role, and these local labels do not authenticate an archive,
+physical core, sample or Neotoma crosswalk. They provide a concrete source-holder
+lead for the unresolved 25-versus-42 input selection. The article's cited
+Trondman dissertation (Linnaeus University Dissertations 193/2014) is a further
+bibliographic archive lead, with no EKE-specific accession supplied here.
+
+The retained primary article, Table 1 page, original table image and 17-page
+supplement are in the external source store at
+`landclim/provider-descriptions/trondman-small-sites/2026-10-27/`:
+`publisher-article.html` (study-region/site-selection section `Sec3` and
+time-window/chronology section `Sec4`), `publisher-table-1.html` (table title
+`table-1-title` and table footer), `publisher-table-1.gif` (Ekenäs row), and
+`334_2015_536_MOESM1_ESM.pdf`
+([publisher supplement](https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00334-015-0536-9/MediaObjects/334_2015_536_MOESM1_ESM.pdf)).
+Supplement page 1, Online Resource 1, lists Ekenäs among sites included in
+RUNS 1–5; pages 2–17 contain RDA and REVEALS taxon/LCT figures and captions.
+This 17-page metadata review found no Ekenäs-specific sample, core or archive
+identifier, age vector or chronology-control table authenticating a workbook
+or native-data join.
+
 ## Gilltjärnen source question
 
 The [published LandClim II metadata](https://doi.pangaea.de/10.1594/PANGAEA.937075), workbook `LANDCLIMII metadata file` row 994, describes `GIL` as a lake at 60.083333° N, **15.083333° E**, with `siteradius` **169 m**, 101 pollen samples, 24 time windows, eight radiocarbon dates for its model, and an `Authors chronology` label. The workbook's explanation sheet explicitly defines `siteradius` in metres. The overlap ledger's `24` is `site_window_count`, not a radius. Neotoma site 28866 instead places its `GILL` core at 60.08333° N, **15.83333° E**, and has 101 source samples. The 0.75° longitude disagreement is approximately 42 km at this latitude, far beyond the 169 m reported radius. Equal sample counts and similar sequence names cannot resolve that conflict. [Antonsson et al. (2006)](https://doi.org/10.1002/jqs.1004) identifies a radiocarbon-dated Gilltjärnen pollen record, but its accessible abstract does not bind these two database coordinates, the two core handles, or a time-specific basin outline.

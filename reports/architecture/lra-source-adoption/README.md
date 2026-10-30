@@ -23,8 +23,9 @@ The prototype ZIP includes a 72-entry `FILE_MANIFEST.json`; the extra member
 is that manifest itself. We checked every listed member's SHA-256 against its
 ZIP bytes and checked that no regular member was omitted. Its embedded R
 archive has the same SHA-256 as the separately supplied original. The
-[file disposition table](prototype-files.csv) records every archived member,
-its manifest hash, role and adopted or rejected destination. The
+[file disposition table](prototype-files.csv) records all 72 manifest-listed files,
+their hashes, roles and adopted or rejected destinations. The manifest itself
+is the seventy-third regular ZIP member and is accounted for separately here. The
 [function disposition table](source-functions.csv) records all 41 active
 top-level R functions or Rcpp wrappers reported by the candidate inventory:
 14 public and 27 internal. A `method_route` in that table means our API
@@ -32,6 +33,71 @@ implements a corresponding scientific operation; it does **not** claim that
 the candidate function was copied or that every function-level behavior is
 equivalent. Exact equivalence belongs to the separate
 [method correspondence](../../science/method-correspondence.md).
+
+## Original package and adapter deliveries
+
+The earlier engine package is a separate source inventory from the native-port
+ZIP. On 27 October 2026 the maintained
+[delivery auditor](../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lra_delivery/study.py)
+compared its two original containers with the existing engine
+[adoption manifest](../../../packages/bijux-pollenomics-lra/docs/adoption-manifest.json).
+Each TAR contains 92 members: 77 regular files and 15 directories, with
+1,400,586 regular-file bytes. All 77 normalized paths and SHA-256 values agree
+between containers and with all 77 manifest entries, without missing, extra or
+changed files. All 55 distinct declared adoption destinations exist under the
+current engine package. This authenticates source inventory and destination
+ownership; it does not claim unchanged implementation at those destinations.
+
+| Received variant | Bytes | SHA-256 | Verified disposition |
+| --- | ---: | --- | --- |
+| `bijux_pollenomics_lra-0.1.0.tar` | 1,566,720 | `a738714b56656554f3f775f6128145fd310b2bc1eaa2dc2ac1300c8efc402275` | Earlier engine source; all 77 files match the adoption manifest. |
+| `bijux_pollenomics_lra-0.1.0.tar.gz` | 1,076,647 | `db18907c473bcbfafe52d796e420c2d6a8f78dbd756683ade3c7f981b4476094` | Same 77 regular files, distinct received container. |
+| `bijux-pollenomics-lra-0.1.0-complete.zip` | 1,942 | `90f41e7850a8cd0819e3496b9fd3391e7c190aba3b2ebfafe65fb98f26c1b3dd` | Five files: `.gitignore` and four integration files; adapter/process evidence. |
+| `bijux-pollenomics-lra-0.1.0.git.bundle` | 1,832 | `8d03dbcfd6bf4dfd69881711c7811260b7c141540a7ed61a53e3f28f28009942` | Verified advertised refs and prerequisite closure; no objects imported. |
+
+The adapter ZIP contains `integration/host_adapter.py`, `README.md`,
+`PATCH_STATUS.md` and `CLONE_LOG.txt`; each exactly matches its separately
+received integration file. Its name does not establish a complete alternate
+engine distribution. The two TARs include the same authenticated DISQOVER
+archive as the original R reference. Existing 73-member native-port and
+80-member R qualifications were reused; their byte identities were rechecked.
+No received code, installer, data loader or numerical method was executed.
+
+The archived engine declares GPL-2.0-or-later, NumPy/SciPy/pandas runtime
+dependencies, optional `openpyxl`, a setuptools build, the old
+`bijux-pollenomics-lra` console script and an extension target in
+`bijux_pollenomics_lra.integration`. These identify that delivery. Current
+exports, dependencies, schemas, datasets and models belong to the mapped
+package owners and the existing [distribution check](../lra-distribution.md).
+The current engine exposes `bijux_pollenomics_lra.api:extension_descriptor`;
+the host owns `validate-lra-input` and `run-lra`. The old console declaration
+is not a current installation instruction.
+
+Read-only Git verification and `bundle list-heads` agree on main/HEAD
+`187bad3a452147421f3a37e7b2c10974fe1b2442` and tag `v0.1.0`
+`1430bde64bbc55f1bf36bb40617695db40933a4c`, with no prerequisites.
+Prerequisite-free closure of those refs does not prove complete prior
+history, the tag object's type, archive/tree equivalence or a historical
+numerical publication version.
+
+The actual producer at `7c00afc96df87edbf3f1e63af65b67b94ccd65cd` passed in
+0.15 s, with 27,639,808 B peak RSS and 109,681 B of products/logs. An independent
+standard-library reader checked every member hash, both complete comparisons,
+selected package metadata, integration joins and unchanged inputs in 0.13 s,
+with 37,191,680 B RSS and 3,570 B of outputs. Both fit the declared
+60 s / 512 MiB / 2 MiB limits. Source, HEAD and index remained unchanged through
+both terminals. The initial observer incorrectly expected omitted descriptive
+metadata; that failed observation is retained separately from the corrected
+schema check. No producer mismatch was found.
+
+Local outputs are `artifacts/root/lra-delivery/original-comparison/audit.json`
+and `artifacts/verification/lra-delivery/selected-metadata/observation.json`.
+The latter's SHA-256 is
+`37c0552fc8e59c786a73b976fca3e1e8c5937cf23c9f4a31784876008ecee453`.
+The 59 focused controls and configured lint, formatting and strict types passed.
+Raw source and license bodies remain outside public report products. This
+source audit does not change the separate numerical, historical-input,
+source-use or ecological claims.
 
 ## What we adopted and excluded
 
