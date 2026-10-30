@@ -162,3 +162,72 @@ function edgeFocusSelection(request, build, edges, entries) {
   return selected && Object.prototype.hasOwnProperty.call(selected.edge, 'candidate_status')
     && selected.edge.scenario_id === request.scenarioId ? selected : null;
 }
+
+
+function relationFilterFields() {
+  return [
+    ['scenario', 'relation_scenario', 'scenario_id', 'scenario'],
+    ['status', 'relation_status', 'candidate_status', 'candidate status'],
+    ['sourceCountry', 'relation_source_country', 'source_country_code', 'stored source endpoint country'],
+    ['targetCountry', 'relation_target_country', 'target_country_code', 'stored target endpoint country'],
+  ];
+}
+function relationFiltersFromHash(params) {
+  const filters = {invalid: []};
+  relationFilterFields().forEach(([key, parameter]) => {
+    filters[key] = params.has(parameter) ? params.get(parameter) : null;
+    if (params.getAll(parameter).length > 1) filters.invalid.push(key);
+  });
+  return filters;
+}
+const activeRelationFilters = relationFiltersFromHash(new URLSearchParams());
+function resetRelationFilters() {
+  Object.assign(activeRelationFilters, relationFiltersFromHash(new URLSearchParams()));
+}
+function writeRelationFilterHash(params, filters) {
+  relationFilterFields().forEach(([key, parameter]) => {
+    if (filters.invalid.includes(key)) {
+      params.append(parameter, filters[key]);
+      params.append(parameter, filters[key]);
+    } else if (filters[key] !== null) params.set(parameter, filters[key]);
+  });
+}
+function relationFilterSelection(records, filters) {
+  const fields = relationFilterFields();
+  const native = records.filter(row => Object.prototype.hasOwnProperty.call(row, 'candidate_status'));
+  const catalog = Object.fromEntries(fields.map(([key, , column]) => [key,
+    [...new Set(native.map(row => row[column]).filter(value => typeof value === 'string' && value.trim()
+      && (!['sourceCountry', 'targetCountry'].includes(key) || ['DK', 'FI', 'NO', 'SE'].includes(value))))].sort(),
+  ]));
+  const unavailable = fields.filter(([key]) => filters.invalid.includes(key)
+    || (filters[key] !== null && !catalog[key].includes(filters[key]))).map(([key]) => key);
+  const selected = unavailable.length ? [] : records.filter(row => fields.every(([key, , column]) => filters[key] === null
+    || (Object.prototype.hasOwnProperty.call(row, 'candidate_status') && row[column] === filters[key])));
+  return {catalog, unavailable, selected};
+}
+function relationFilterMetadata(records, filters) {
+  return {...Object.fromEntries(relationFilterFields().map(([key]) => [key, filters[key]])),
+    unavailable_fields: relationFilterSelection(records, filters).unavailable};
+}
+function relationFilterOptions(values, selected, unavailable, label) {
+  return (unavailable ? `<option value="" selected disabled>Unavailable shared ${escapeHtml(label)}</option>` : '')
+    + `<option value="" ${!unavailable && selected === null ? 'selected' : ''}>All retained</option>`
+    + values.map(value => `<option value="${escapeHtml(value)}" ${!unavailable && selected === value ? 'selected' : ''}>${escapeHtml(value)}</option>`).join('');
+}
+function relationScenarioThresholds(records, selectedScenario) {
+  const scenarios = relationFilterSelection(records, relationFiltersFromHash(new URLSearchParams())).catalog.scenario;
+  const selected = selectedScenario === null ? scenarios : scenarios.filter(id => id === selectedScenario);
+  if (!selected.length) return '<p>Scenario rule and thresholds unavailable.</p>';
+  return selected.map(id => {
+    const rows = records.filter(row => Object.prototype.hasOwnProperty.call(row, 'candidate_status') && row.scenario_id === id);
+    const details = rows.map(row => row.relation_details);
+    const valid = details.every(value => value && value.basis === 'derived_governed_evaluator_branch_explanation' && value.scenario_id === id
+      && [value.maximum_distance_km, value.maximum_lag_years].every(number => typeof number === 'number' && Number.isFinite(number) && number >= 0));
+    const consistent = valid && details.every(value => value.maximum_distance_km === details[0].maximum_distance_km && value.maximum_lag_years === details[0].maximum_lag_years);
+    const rule = details[0]?.rule_type;
+    const ruleLabel = typeof rule === 'string' && rule.trim() && details.every(value => value?.rule_type === rule) ? rule : 'unavailable';
+    return `<p><strong>${escapeHtml(id)}</strong> · Rule: ${escapeHtml(valid ? ruleLabel : 'unavailable')} · ${consistent
+      ? `maximum distance ${escapeHtml(String(details[0].maximum_distance_km))} km; maximum lag ${escapeHtml(String(details[0].maximum_lag_years))} years`
+      : 'Thresholds unavailable: missing or conflicting supplied scenario metadata.'}</p>`;
+  }).join('');
+}
