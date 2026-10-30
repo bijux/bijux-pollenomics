@@ -15,6 +15,7 @@ from bijux_pollenomics_dev.essd_reproduction.physical_forward.inputs import PROT
 
 @pytest.fixture(scope="module")
 def protocol() -> dict[str, Any]:
+    """Return the declared read-only physical comparison protocol."""
     value = json.loads((Path(__file__).resolve().parents[5] / PROTOCOL).read_bytes())
     assert isinstance(value, dict)
     return value
@@ -24,6 +25,7 @@ def protocol() -> dict[str, Any]:
 def artificial_sources(
     protocol: dict[str, Any],
 ) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Construct artificial source tables using only declared schema metadata."""
     swedish: dict[str, Any] = {
         "schema_version": "swedish-static-basin-maintained-producer.v1",
         "producer_candidate": protocol["source_epochs"]["swedish"],
@@ -89,6 +91,7 @@ def artificial_sources(
 
 @pytest.fixture
 def fake_points(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Install deterministic inverse and forward stubs for the owned fixtures."""
     monkeypatch.setattr(
         p,
         "_inverse",
