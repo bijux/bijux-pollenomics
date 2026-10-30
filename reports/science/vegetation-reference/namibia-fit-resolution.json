@@ -1,0 +1,232 @@
+{
+  "schema_version": "namibia-frozen-fit-resolution.v1",
+  "source_revision": "6735b643d0542d3b3be886febaf311d6adfdb8d0",
+  "historical_point_source_revision": "9f3b7d49ce5f841ea31b4b136e552f79a62dd3f3",
+  "historical_report": "reports/science/vegetation-reference/namibia-pollen-prediction.csv",
+  "historical_report_sha256": "958a7d8c199c52c97a0464dfd309d1aa283f935983a66246efa373f97dbbd027",
+  "source_descriptor": "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json",
+  "heldout_group": "Namibia_T7",
+  "training_sites": [
+    "Namibia_T1",
+    "Namibia_T2",
+    "Namibia_T3",
+    "Namibia_T4",
+    "Namibia_T5",
+    "Namibia_T6",
+    "Namibia_T8",
+    "Namibia_T9",
+    "Namibia_T10"
+  ],
+  "taxa": [
+    "Acacia",
+    "Dichrostachys",
+    "Grewia",
+    "Poaceae",
+    "Combretaceae"
+  ],
+  "solver_profile": "heterogeneous-fixed-response-multinomial-likelihood-v1",
+  "backend": "bijux-pollenomics-lra Python/NumPy/SciPy likelihood; no R or adopted C++",
+  "solver_options": {
+    "score_tolerance": 1e-12,
+    "relative_count_tolerance": 1e-10,
+    "max_steps": 200
+  },
+  "objective": "natural_count_weighted_per_grain_negative_log_likelihood_without_multinomial_coefficient",
+  "weight_gauge": "Combretaceae=1; empirical multipliers, not vegetation or PPE",
+  "failed_output_posture": "probabilities_and_multipliers_withheld",
+  "nonfinite_diagnostic_posture": "explicit_string_not_a_finite_number",
+  "comparison_bounds": {
+    "probability_absolute": 1e-08,
+    "mean_negative_log_likelihood_absolute": 1e-10
+  },
+  "fits": [
+    {
+      "radius_label_m": 200,
+      "historical_fit": {
+        "fit_id": "200:Namibia_T7",
+        "status": "not_converged",
+        "stop_reason": "step_limit",
+        "steps": 200,
+        "training_grains": 6077
+      },
+      "status": "converged",
+      "stop_reason": "count_balance_tolerances",
+      "steps": 4,
+      "mean_negative_log_likelihood": 0.7685319013352131,
+      "score_residual": 1.1102230246251565e-16,
+      "relative_count_residual": 1.0411767470134378e-15,
+      "hessian_condition_number": 8.410727287168603,
+      "minimum_relative_information": 0.7295433979545376,
+      "information_resolution_floor": 2.220446049250313e-16,
+      "response_multipliers": [
+        0.07972506149001161,
+        0.26980704155591473,
+        0.07886693868455986,
+        1.3147485496718256,
+        1.0
+      ],
+      "training_probabilities": [
+        [
+          0.002978588505119982,
+          0.060093469181690395,
+          0.00509976067459848,
+          0.7522091662641971,
+          0.1796190153743941
+        ],
+        [
+          0.021132920606030788,
+          0.02542877315173574,
+          0.00975587940314282,
+          0.6845004360207332,
+          0.2591819908183574
+        ],
+        [
+          0.011431006877409569,
+          0.022451131671152574,
+          0.00878386872445235,
+          0.7294616576885901,
+          0.22787233503839546
+        ],
+        [
+          0.03033127126527695,
+          0.05132382726067026,
+          0.0037505999778050256,
+          0.8480158332876456,
+          0.06657846820860218
+        ],
+        [
+          0.027328208532074637,
+          0.00868400314624815,
+          0.004315296064235782,
+          0.9355330097474976,
+          0.02413948250994377
+        ],
+        [
+          0.025258585573668384,
+          0.03360270953867742,
+          0.013268806808416963,
+          0.91476005743363,
+          0.01310984064560726
+        ],
+        [
+          0.036422757309165686,
+          0.03933911977630424,
+          0.034880803405281505,
+          0.792154223193309,
+          0.09720309631593967
+        ],
+        [
+          0.010413610874260048,
+          0.030561366678023418,
+          0.003058264848636337,
+          0.6845240681549964,
+          0.27144268944408373
+        ],
+        [
+          0.05911111186657807,
+          0.19596237883452614,
+          0.034607574866479605,
+          0.6497934635408708,
+          0.060525470891545446
+        ]
+      ]
+    },
+    {
+      "radius_label_m": 500,
+      "historical_fit": {
+        "fit_id": "500:Namibia_T7",
+        "status": "not_converged",
+        "stop_reason": "step_limit",
+        "steps": 200,
+        "training_grains": 6077
+      },
+      "status": "converged",
+      "stop_reason": "count_balance_tolerances",
+      "steps": 4,
+      "mean_negative_log_likelihood": 0.7638154879851273,
+      "score_residual": 1.1102230246251565e-16,
+      "relative_count_residual": 1.6919122138968363e-15,
+      "hessian_condition_number": 8.427211159970339,
+      "minimum_relative_information": 0.7198972658100712,
+      "information_resolution_floor": 2.220446049250313e-16,
+      "response_multipliers": [
+        0.08294198395219553,
+        0.27853039570938126,
+        0.07974264362335952,
+        1.3914739522465442,
+        1.0
+      ],
+      "training_probabilities": [
+        [
+          0.003288485942453611,
+          0.06583434464260439,
+          0.005472066483783431,
+          0.7347895929455971,
+          0.19061550998556145
+        ],
+        [
+          0.023459110127276476,
+          0.028010262564302692,
+          0.010525301014145482,
+          0.6614530245352575,
+          0.2765523017590179
+        ],
+        [
+          0.013569997993817752,
+          0.026446809942582975,
+          0.010134380902603969,
+          0.6898284581091398,
+          0.26002035305185545
+        ],
+        [
+          0.026115129318494423,
+          0.04384906748356946,
+          0.003138473049218298,
+          0.8717967958629976,
+          0.055100534285720176
+        ],
+        [
+          0.03169958107916467,
+          0.009995444037963245,
+          0.004864845434998879,
+          0.9265253540998036,
+          0.026914775348069603
+        ],
+        [
+          0.013028630510724426,
+          0.017199023817494954,
+          0.006651777298108884,
+          0.9566206545846384,
+          0.006499913789033308
+        ],
+        [
+          0.04137132641118891,
+          0.044339523647200764,
+          0.03850606980169581,
+          0.7696557673096831,
+          0.10612731283023136
+        ],
+        [
+          0.008922928315830685,
+          0.025984752822309953,
+          0.002546814072820873,
+          0.7389800735146053,
+          0.22356543127443318
+        ],
+        [
+          0.062209277444707396,
+          0.20464375271395638,
+          0.03539755660315408,
+          0.6365221779969306,
+          0.061227235241251565
+        ]
+      ]
+    }
+  ],
+  "limits": [
+    "No held-out prediction or scoring",
+    "Original failures remain unchanged",
+    "No historical internal-cause inference",
+    "No physical, ecological, uncertainty or field admission"
+  ]
+}

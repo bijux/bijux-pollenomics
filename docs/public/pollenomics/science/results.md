@@ -335,14 +335,13 @@ supports a bounded nine-label comparison of its authors' estimates, not a
 score of this repository's predictions. These source results answer different
 questions; none supplies our missing independent vegetation outcome.
 An [authenticated Namibian source join](../../../report/vegetation-reference/namibia-pollen-vegetation/README.md)
-adds ten modern soil-pollen sites paired with satellite-image-derived
-vegetation areas at 15 reported radii. It is a separate, previously inspected
-development source with no model score; its savanna soil samples do not
-validate Nordic lake reconstructions. A [descriptive radius comparison](../../../report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json)
-finds mean five-taxon pollen-to-area Hellinger distances of 0.3664 at 100 m,
-0.3427 at 400 m and 0.3777 at 1,500 m across the same ten sites. The source
-tables do not settle ring versus cumulative area semantics or a suitable
-pollen-source radius.
+pairs modern soil pollen with satellite-image-derived vegetation areas at
+reported radii. The [canonical Namibia account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/namibia-pollen-vegetation-paper.md)
+reports separate mapped-area and forward-pollen prediction comparisons,
+including failed fits and a later bounded numerical follow-through. These
+are previously exposed development results, not independent measured-vegetation
+accuracy or validation of Nordic lake reconstructions. The canonical account
+owns the results, denominators, source-support limits and reproduction routes.
 
 ### Model settings
 

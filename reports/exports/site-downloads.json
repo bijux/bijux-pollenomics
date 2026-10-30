@@ -65,12 +65,12 @@
       "source_sha256": "2a4648f0fde3b5321c09a219afd315445bb7f71454496b2a37aee2cf63f74dff"
     },
     {
-      "bytes": 73987,
+      "bytes": 104211,
       "canonical_source": "reports/science/namibia-pollen-vegetation-paper.md",
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "sha256": "e783c376cb54c722a976431ea909fe0a19cfd0ab7c4d30520bd56b436c5a09e9",
+      "sha256": "9632a30e89057f6819fe23ec0460f2406474eb7193449e4430231134cb7550ec",
       "site_uri": "assets/science/papers/namibia-modern-pollen-vegetation-reference.pdf",
-      "source_sha256": "a8c92d02c7e7a9d2155f193b5e59451d741184afbfdd626eb5d8c4c3ae8e4bcc"
+      "source_sha256": "3805db896be578a4ef2a24b25c57dc85d5ef5a2f26657293729eb7578dc9e33d"
     },
     {
       "bytes": 177776,
@@ -95,8 +95,8 @@
     }
   ],
   "inputs": {
-    "reports/exports/papers/manifest.json": "0c22f93d47b0b3981b2d0662fcb6903ca3fb7d5ccad9a28b33720c5eb798710f",
-    "reports/exports/papers/visual-review.json": "75daac87ad3c30c2700ebed03b438029672662c6470da40eb166a86c7cd13da4",
+    "reports/exports/papers/manifest.json": "d9cf5ac48a812b0b0f84b0b7a195b1f29f08bdcc51efdada3fe98515f76cea4f",
+    "reports/exports/papers/visual-review.json": "d2443a8198cd961a0dbda23a26b2eb0b64188f3831158651ba7d2cf5bf20fc94",
     "reports/science/paper-accounts.csv": "7fbbe7b2bcc8a2f8c4a9c7da9830fd145ae3f16bd7e2a60acb13d834614c0447"
   },
   "schema_version": "scientific-reader-downloads.v1",
