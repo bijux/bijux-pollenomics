@@ -22,6 +22,7 @@ UUID = "00000000-0000-0000-0000-000000000001"
 
 @pytest.fixture
 def connection(tmp_path: Path) -> Iterator[sqlite3.Connection]:
+    """Create the owned SQLite population and geometry source fixture."""
     c = sqlite3.connect(tmp_path / "native.gpkg")
     c.row_factory = sqlite3.Row
     for table, columns in SOURCE_COLUMNS.items():
