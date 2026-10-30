@@ -7,6 +7,7 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.lake_registry.neotoma_lake.members import (
     validate_recorded_source_bindings,
 )
@@ -39,6 +40,7 @@ def test_recorded_lake_source_binding_refuses_population_or_identity_drift(
     damage: str,
 ) -> None:
     bindings, members, bodies = _nine_bindings()
+    validate_recorded_source_bindings(bindings, members, bodies.__getitem__)
     name = next(iter(bindings))
     logical = "source/" + name
     if damage == "missing":
@@ -53,5 +55,5 @@ def test_recorded_lake_source_binding_refuses_population_or_identity_drift(
         )
     else:
         bodies[logical] = b"VALUE = 9\n"
-    with pytest.raises(ValueError):
+    with pytest.raises(ReportRebuildError):
         validate_recorded_source_bindings(bindings, members, bodies.__getitem__)
