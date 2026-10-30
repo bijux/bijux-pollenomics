@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "0fd3cba88b131d147998fcf22f79b016dcb68edc3076265dd03e1fd97ac2edb5",
-      "bytes": 7388131
+      "sha256": "2cffac54dba5c23059389b6581bde8fc782d740c330e2ac4dbd4b2ebebf68aaf",
+      "bytes": 7388625
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5343,6 +5343,21 @@
       "path": "reports/science/vegetation-reference/forest-plot-pollen.csv",
       "sha256": "e22ceffd366b0f0c8b98795b2137370ac4e66871906677eb0113fcc6b06e5a3b",
       "bytes": 6859
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/common-cover/conditional-adequacy.csv",
+      "bytes": 7435,
+      "sha256": "e25b0a1bf86c90bf8e38f02c3b692c6b19213fdafd863738313a77d3a5652e6e"
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/common-cover/within-site-homogeneity.csv",
+      "bytes": 6222,
+      "sha256": "7c0a55927b4bddb978fd64c0200c8bec3c47683bc1c3a2a6a5dbda3a16727dfe"
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/common-cover/sample-dependence-bounds.csv",
+      "bytes": 5266,
+      "sha256": "bee51332fa9cc442a999384744fc54867f2243bf9b36efbc1369d9439ec013e9"
     }
   ],
   "maintained_paths": [
@@ -5608,10 +5623,14 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_preparation_audit.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/cohort.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/conditional_adequacy.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/count_admission.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/counting.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/measured_panel_counting.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/measured_panels.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/producer.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/sample_dependence_bounds.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/within_site_homogeneity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__main__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/admissibility.py",
