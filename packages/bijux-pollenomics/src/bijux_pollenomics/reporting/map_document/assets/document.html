@@ -2153,9 +2153,11 @@ __NATIVE_LRA_CONTROLS__
                   <div class="map-actions">
                     <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
                     <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+                    <button id="selection-export" class="toolbar-button" type="button" aria-describedby="selection-export-status">Download selection</button>
                     <button id="help-toggle" class="toolbar-button" type="button" aria-controls="help-dialog" aria-expanded="false">Help</button>
                     <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
                   </div>
+                  <p id="selection-export-status" class="search-meta" role="status" aria-live="polite">Download published map records matching the filters, including records outside the view. Source-series downloads depend on the selected record.</p>
                 </div>
               </details>
               <details class="control-group">
@@ -7032,6 +7034,7 @@ __URL_STATE_CONTROLLER__
       __SCIENTIFIC_PICKER_CONTROLLER__
       __SCIENTIFIC_PICKER_MOUNT_CONTROLLER__
       __SOURCE_RECORD_DETAILS_FACTORY__
+      __SELECTION_EXPORT_CONTROLLER__
       /* atlas-evidence-tools:end */
       let evidenceTools = null, evidenceToolsRequest = null, evidenceToolsError = null;
       function currentEvidenceTools() {
@@ -7040,7 +7043,8 @@ __URL_STATE_CONTROLLER__
             timeData: relationTimeSummaryData, timeHtml: renderRelationTimeSummary,
             pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
             pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
-            pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails});
+            pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails,
+            selectionExport: prepareAtlasSelectionExport});
         }
         return evidenceTools;
       }
@@ -7075,7 +7079,7 @@ __URL_STATE_CONTROLLER__
               try {
                 if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
                 const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
-                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails', 'selectionExport'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
                 evidenceTools = tools;
                 resolve(tools);
               } catch (error) { reject(error); }
@@ -7536,6 +7540,58 @@ __URL_STATE_CONTROLLER__
         if (document.documentElement.classList.contains('atlas-capture-mode') && atlasCapturePresentation !== null) {
           renderAtlasCaptureOverlay(atlasCaptureSnapshot());
         }
+      }
+      function atlasSelectionExportSnapshot() {
+        const snapshot = atlasCaptureSnapshot();
+        return {...snapshot, ready: snapshot.ready && !['loading', 'loading_unavailable'].includes(emptyState.dataset.reason),
+          selection_generation: staticAtlasLoadGeneration, selection_hash: atlasSelectionHashParams().toString(),
+          acceptance_diameter_km: Number(slider.value),
+          relation_availability: {status: STATIC_ATLAS_CHUNKS.edges?.status ?? null,
+            reason_code: STATIC_ATLAS_CHUNKS.edges?.reason_code ?? null}};
+      }
+      function atlasSelectionExportOwner(transportOverhead = {request_count: 0, byte_count: 0}) {
+        if (STATIC_ATLAS_INLINE) throw Error('Published selection chunks are unavailable in this map.');
+        return {bootstrap: STATIC_ATLAS_BOOTSTRAP, transportOverhead, snapshot: atlasSelectionExportSnapshot,
+          assetNeeded: staticAtlasNodeSelectionNeeded, isLoaded: row => staticAtlasLoadedAssets.has(row.asset_key),
+          loadAsset: row => loadStaticAtlasAsset(row, false),
+          readAsset: row => STATIC_ATLAS_CHUNKS.nodes.find(part => part.asset_key === row.asset_key),
+          layerForAsset: row => {
+            const matches = ATLAS_EVIDENCE.layers.filter(entry => entry.layer_kind === row.layer_kind && entry.layer_index === row.layer_index);
+            if (matches.length !== 1) throw Error('Published selection layer identity is ambiguous.');
+            return matches[0].layer;
+          },
+          featureSelected: (layer, feature, kind) => kind === 'point' ? pointFeatureVisible(layer, feature)
+            : polygonGeometryIsAdmitted(feature) && polygonFeatureVisible(layer, feature.properties || {}),
+          relations: () => ({retained_count: GOVERNED_EDGE_RECORDS.length, records: visibleGovernedEdges()}),
+          endpointEligible: (edge, entries) => atlasEdgeRenderSelection([edge],
+            new Map(entries.filter(entry => entry.feature.record_id).map(entry => [String(entry.feature.record_id), entry])),
+            map.getZoom(), featureCoordinatePair, null).rows.length === 1};
+      }
+      async function downloadAtlasSelection() {
+        const button = document.getElementById('selection-export'), status = document.getElementById('selection-export-status');
+        if (button.disabled) return;
+        button.disabled = true;
+        status.textContent = 'Preparing the complete selection…';
+        try {
+          const expected = JSON.stringify(atlasSelectionExportSnapshot());
+          const unchanged = () => {if (JSON.stringify(atlasSelectionExportSnapshot()) !== expected) throw Error('Selection changed; request the download again.');};
+          const overhead = currentEvidenceTools() ? {request_count: 0, byte_count: 0}
+            : {request_count: 1, byte_count: evidenceToolsDescriptor().byte_count};
+          if (overhead.request_count > STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests
+            || overhead.byte_count > STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes) throw Error('Selection tools exceed the interaction budget.');
+          const tools = await loadEvidenceTools();
+          unchanged();
+          const result = await tools.selectionExport(atlasSelectionExportOwner(overhead));
+          unchanged();
+          const url = URL.createObjectURL(new Blob([result.text], {type: 'application/json'}));
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'pollenomics-selection.json';
+          try {link.click();} finally {window.setTimeout(() => URL.revokeObjectURL(url), 1000);}
+          status.textContent = `${result.counts.selected_public_rows} public map rows and ${result.counts.selected_relation_rows} retained relation rows downloaded with selection metadata. Full source series are separate.`;
+        } catch (error) {
+          status.textContent = error instanceof Error ? error.message : 'Selection download failed; no partial download was produced.';
+        } finally {button.disabled = false;}
       }
       const ATLAS_CAPTURE_API_VERSION = typeof signedNativeTime !== 'undefined' && signedNativeTime !== null ? 'atlas-capture.v2' : 'atlas-capture.v1';
       let atlasCapturePresentation = null;
@@ -8286,6 +8342,7 @@ __URL_STATE_CONTROLLER__
         if (modeledContextPlaybackTimer === null) startModeledContextPlayback(); else stopModeledContextPlayback();
       });
       modeledContextDownload.addEventListener('click', downloadModeledContextFrame);
+      document.getElementById('selection-export').addEventListener('click', downloadAtlasSelection);
       sourceChronologyLevel.addEventListener('change', () => {
         if (!selectSourceChronologyLevel(sourceChronologyLevel.value)) return;
         focusSourceChronologyNavigation();

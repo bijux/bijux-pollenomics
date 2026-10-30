@@ -102,6 +102,12 @@ def load_map_document_template() -> str:
             ),
         )
         .replace(
+            "__SELECTION_EXPORT_CONTROLLER__",
+            package_root.joinpath("assets/selection-export.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
             "__SOURCE_RECORD_DETAILS_FACTORY__",
             package_root.joinpath("assets/source-record-details-factory.js").read_text(
                 encoding="utf-8"
