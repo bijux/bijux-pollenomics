@@ -31,7 +31,7 @@ from .source_roles.atlas_context import (
     validated_atlas_context_source,
 )
 from .source_roles.atlas_relation_context import (
-    ATLAS_RELATION_CONTEXT_SOURCES,
+    CHRONOLOGY_ATLAS_RELATION_CONTEXT_SOURCES,
     validated_atlas_relation_context_source,
 )
 from .source_roles.atlas_runtime_transport import (
@@ -405,7 +405,7 @@ def _validate_current_source(
                 )
                 or (
                     source_buffer is not None
-                    and name in ATLAS_RELATION_CONTEXT_SOURCES
+                    and name in CHRONOLOGY_ATLAS_RELATION_CONTEXT_SOURCES
                     and validated_atlas_relation_context_source(
                         repository,
                         {"path": name, "sha256": expected, "bytes": len(captured)},
