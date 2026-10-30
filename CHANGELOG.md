@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Retain heterogeneous common-cover likelihood and exact conditional two-site counting evidence ([#296](https://github.com/bijux/bijux-pollenomics/pull/296)).
+- **Pending review:** Retain measured-panel shared-cover and nested counting evidence with qualified report provenance ([#297](https://github.com/bijux/bijux-pollenomics/pull/297)).
+- **Verified merge (2026-10-30 04:07:53 UTC):** Retain heterogeneous common-cover likelihood and exact conditional two-site counting evidence ([#296](https://github.com/bijux/bijux-pollenomics/pull/296)).
 - **Verified merge (2026-10-30 03:51:24 UTC):** Publish shared-age sensitivity bounds, covariance refusals and authenticated historical evidence readers ([#295](https://github.com/bijux/bijux-pollenomics/pull/295)).
 - **Verified merge (2026-10-30 03:11:46 UTC):** Publish cached regional-counting evidence, workbook feature census and focused arithmetic controls ([#294](https://github.com/bijux/bijux-pollenomics/pull/294)).
 - **Verified merge (2026-10-30 02:28:10 UTC):** Publish ordered-age bounds, conditional counting evidence and explicit historical Hellinger arithmetic ([#293](https://github.com/bijux/bijux-pollenomics/pull/293)).
