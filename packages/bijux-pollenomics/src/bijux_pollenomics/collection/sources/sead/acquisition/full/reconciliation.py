@@ -1,3 +1,5 @@
+"""Reconcile source rows through their declared child primary-key identities."""
+
 from __future__ import annotations
 
 from collections import Counter
@@ -104,13 +106,6 @@ def assert_sead_join_complete(reconciliation: Mapping[str, object]) -> None:
         )
 
 
-def child_identity_for(row: Mapping[str, object], index: int) -> str:
-    for key in sorted(row):
-        if key.endswith("_id") and row.get(key) is not None:
-            return f"{key}:{row[key]}"
-    return f"row:{index}"
-
-
 def _null_positions(values: list[object]) -> list[str]:
     return [f"row:{index}" for index, value in enumerate(values) if value is None]
 
@@ -137,9 +132,11 @@ def _classify_children(
     orphan_foreign_keys: list[str] = []
     matched_count = 0
     for index, row in enumerate(rows):
-        key_values.append(row.get(child_key))
+        child_id = row.get(child_key)
+        key_values.append(child_id)
         foreign_key = row.get(child_foreign_key)
-        identity = child_identity_for(row, index)
+        # A foreign or unrelated key cannot stand in for the declared child PK.
+        identity = f"{child_key}:{child_id}" if child_id is not None else f"row:{index}"
         if foreign_key is None:
             null_foreign_keys.append(identity)
         elif str(foreign_key) not in parent_ids:

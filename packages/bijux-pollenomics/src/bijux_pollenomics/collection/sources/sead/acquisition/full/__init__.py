@@ -30,7 +30,6 @@ _json_type = _serialization.json_type
 _payload_bytes = _serialization.payload_bytes
 _canonical_bytes = _serialization.canonical_bytes
 _utc_text = _serialization.utc_text
-_child_identity = _reconciliation.child_identity_for
 _validate_request = _validation.validate_request
 _validate_table_name = _validation.validate_table_name
 _safe_output_root = _validation.safe_output_root
