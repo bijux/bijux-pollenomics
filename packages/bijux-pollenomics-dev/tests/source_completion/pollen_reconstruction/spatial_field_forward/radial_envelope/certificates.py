@@ -19,12 +19,14 @@ Rules = dict[int, tuple[Array, Array]]
 
 
 def quadrature_rules() -> Rules:
+    """Construct the fixed 256- and 512-node Gauss-Legendre rules."""
     return {order: np.polynomial.legendre.leggauss(order) for order in (256, 512)}
 
 
 def circle_quadrature(
     anchors: list[list[float]], radius: float, rule: tuple[Array, Array]
 ) -> float:
+    """Evaluate the two-anchor circle mean with the supplied quadrature rule."""
     nodes, weights = rule
     angles = math.pi * (nodes + 1)
     x, y = radius * np.cos(angles), radius * np.sin(angles)
@@ -41,6 +43,7 @@ def verify_geometry(
     original: dict[str, Any],
     rules: Rules,
 ) -> dict[str, Any]:
+    """Check saved geometry, ring outcomes and complementary coefficients."""
     require(
         row["core"] == old["core"]
         and row["anchor_order"] == old["anchor_order"]
