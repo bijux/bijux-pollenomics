@@ -26566,16 +26566,14 @@
         "data/method-certification/native-r/capture/source-domains/python_expected_not_R_goldens/S008.npy",
         "data/method-certification/native-r/capture/source-domains/python_expected_not_R_goldens/S009.npy",
         "data/method-certification/native-r/capture/source-domains/python_expected_not_R_goldens/S010.npy",
-        "data/method-certification/native-r/capture/source-domains/r_support.R",
         "data/method-certification/native-r/capture/source-domains/report.json",
-        "data/method-certification/native-r/capture/source-domains/run_source_domains.py",
-        "data/method-certification/native-r/capture/source-domains/source_domains.R",
         "data/method-certification/native-r/public-acquisition.json",
         "data/method-certification/native-r/source-archives/GenSA_1.1.15.tar.gz",
         "data/method-certification/native-r/source-archives/RcppArmadillo_15.4.2-1.tar.gz",
         "data/method-certification/native-r/source-archives/RcppDE_0.1.9.tar.gz",
         "data/method-certification/native-r/source-archives/Rmalschains_0.2-11.tar.gz",
-        "data/method-certification/native-r/source-archives/plyr_1.8.9.tar.gz"
+        "data/method-certification/native-r/source-archives/plyr_1.8.9.tar.gz",
+        "data/method-certification/native-r/source-transport.json"
       ],
       "verification": "Admit exactly129 raw retained report members only with --retain-native-r-reference, authenticated to the independent native capture manifest pin and actual macOS R4.6 source revision064d1237fd743d957538fff2cbae74db06e17338. Preserve97 native numeric CSVs and the actual raw oracle elapsed_seconds unchanged. Immutable capture retains138 raw members including9 explicitly ungoverned scripts/logs and its actual native receipt; current comparison owns the separate2 JSONs. This is source custody, not deterministic raw regeneration or Linux/release certification."
     },

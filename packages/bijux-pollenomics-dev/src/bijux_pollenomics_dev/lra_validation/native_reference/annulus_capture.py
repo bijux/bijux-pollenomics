@@ -2,12 +2,19 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections.abc import Callable
+from dataclasses import dataclass, field
 import hashlib
 import json
 from pathlib import Path
 import stat
 from typing import Any
+
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import validated_descriptor
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.capsule import (
+    native_oracle_members,
+)
 
 CAPTURE_ROOT = "data/method-certification/native-r-annulus"
 CAPTURE_MANIFEST_SHA256 = (
@@ -58,6 +65,9 @@ class AnnulusCapture:
     raw_sha256: dict[str, str]
     input_sha256: dict[str, str]
     source_context: dict[str, Any]
+    read_input: Callable[[str], bytes] | None = field(
+        default=None, compare=False, repr=False
+    )
 
 
 def _relative(value: object, label: str) -> str:
@@ -89,7 +99,13 @@ def _file(repository: Path, relative: str) -> bytes:
     return path.read_bytes()
 
 
-def _checked(repository: Path, name: str, spec: dict[str, Any]) -> bytes:
+def _checked(
+    repository: Path,
+    name: str,
+    spec: dict[str, Any],
+    *,
+    read_source: Callable[[str], bytes] | None = None,
+) -> bytes:
     _relative(name, "native R capture member")
     if (
         set(spec) != {"sha256", "size"}
@@ -97,7 +113,7 @@ def _checked(repository: Path, name: str, spec: dict[str, Any]) -> bytes:
         or spec["size"] < 0
     ):
         raise ValueError("native R capture member identity is invalid")
-    payload = _file(repository, name)
+    payload = _file(repository, name) if read_source is None else read_source(name)
     if (
         len(payload) != spec["size"]
         or hashlib.sha256(payload).hexdigest() != spec["sha256"]
@@ -214,14 +230,46 @@ def validated_annulus_capture(repository: Path) -> AnnulusCapture:
         raise ValueError("native R raw/retained report membership differs")
     if sum(name.endswith(".csv") for name in raw) != 97:
         raise ValueError("annulus capture requires 97 retained numeric CSV files")
+    try:
+        resolver = validated_descriptor(
+            repository, CAPTURE_ROOT, native_oracle_members(record)
+        )
+    except ReportRebuildError as error:
+        raise ValueError("Native R source transport differs: " + str(error)) from error
+
+    def source_member(path: str) -> bytes:
+        prefix = CAPTURE_ROOT + "/"
+        if not path.startswith(prefix):
+            raise ValueError("Native input escaped its capture")
+        try:
+            return resolver.read_source(path.removeprefix(prefix))
+        except ReportRebuildError as error:
+            raise ValueError(
+                "Native R retained input changed: " + str(error)
+            ) from error
+
     inputs = {manifest_path: CAPTURE_MANIFEST_SHA256}
+
+    def read_input(path: str) -> bytes:
+        if path not in inputs:
+            raise ValueError("Unlisted native input read")
+        body = _file(repository, path) if path == manifest_path else source_member(path)
+        if hashlib.sha256(body).hexdigest() != inputs[path]:
+            raise ValueError("Native admission changed during validation")
+        return body
+
     for name, spec in raw.items():
         path = f"{CAPTURE_ROOT}/capture/{_relative(name, 'native raw member')}"
-        _checked(repository, path, spec)
+        _checked(repository, path, spec, read_source=source_member)
         inputs[path] = spec["sha256"]
     receipt_path = f"{CAPTURE_ROOT}/capture/receipt.json"
     receipt = json.loads(
-        _checked(repository, receipt_path, record["execution_receipt"])
+        _checked(
+            repository,
+            receipt_path,
+            record["execution_receipt"],
+            read_source=source_member,
+        )
     )
     inputs[receipt_path] = record["execution_receipt"]["sha256"]
     if (
@@ -243,7 +291,12 @@ def validated_annulus_capture(repository: Path) -> AnnulusCapture:
     archive_paths = set()
     for row in record["public_archives"].values():
         path = f"{CAPTURE_ROOT}/{_relative(row['path'], 'public native archive')}"
-        _checked(repository, path, {"size": row["size"], "sha256": row["sha256"]})
+        _checked(
+            repository,
+            path,
+            {"size": row["size"], "sha256": row["sha256"]},
+            read_source=source_member,
+        )
         inputs[path] = row["sha256"]
         archive_paths.add(path)
     if len(archive_paths) != 5:
@@ -253,7 +306,10 @@ def validated_annulus_capture(repository: Path) -> AnnulusCapture:
         f"{CAPTURE_ROOT}/{_relative(public['path'], 'public native acquisition')}"
     )
     _checked(
-        repository, public_path, {"sha256": public["sha256"], "size": public["size"]}
+        repository,
+        public_path,
+        {"sha256": public["sha256"], "size": public["size"]},
+        read_source=source_member,
     )
     inputs[public_path] = public["sha256"]
     physical = set()
@@ -264,10 +320,12 @@ def validated_annulus_capture(repository: Path) -> AnnulusCapture:
         if not stat.S_ISREG(mode):
             raise ValueError("native R source packet has an alias or irregular member")
         physical.add(member.relative_to(repository).as_posix())
-    if physical != set(inputs):
+    if physical != (
+        set(inputs) - {CAPTURE_ROOT + "/" + name for name in resolver.detached}
+    ) | {CAPTURE_ROOT + "/source-transport.json"}:
         raise ValueError("native R source packet has missing or extra members")
     if any(
-        hashlib.sha256(_file(repository, name)).hexdigest() != digest
+        hashlib.sha256(read_input(name)).hexdigest() != digest
         for name, digest in inputs.items()
     ):
         raise ValueError("native R source bytes changed during validation")
@@ -280,6 +338,7 @@ def validated_annulus_capture(repository: Path) -> AnnulusCapture:
         CAPTURE_MANIFEST_SHA256,
         tuple(reports),
         {name: spec["sha256"] for name, spec in raw.items()},
-        inputs,
+        dict(inputs),
         context,
+        read_input,
     )

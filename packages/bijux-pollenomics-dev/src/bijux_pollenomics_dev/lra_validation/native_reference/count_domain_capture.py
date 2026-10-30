@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from collections.abc import Callable
+from dataclasses import dataclass, field
 import hashlib
 import json
 import math
@@ -10,6 +11,11 @@ from pathlib import Path
 import stat
 from typing import Any, TypedDict
 
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import validated_descriptor
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.capsule import (
+    native_oracle_members,
+)
 from bijux_pollenomics_dev.lra_validation.native_reference.annulus_capture import (
     _checked,
     _file,
@@ -384,6 +390,9 @@ class CountDomainCapture:
     raw_sha256: dict[str, str]
     input_sha256: dict[str, str]
     source_context: dict[str, Any]
+    read_input: Callable[[str], bytes] | None = field(
+        default=None, compare=False, repr=False
+    )
 
 
 def _canonical_digest(value: object) -> str:
@@ -511,7 +520,34 @@ def validated_count_domain_capture(repository: Path) -> CountDomainCapture:
         or sum(name.endswith(".csv") for name in raw) != 97
     ):
         raise ValueError("Exact numeric/raw membership differs")
+    try:
+        resolver = validated_descriptor(
+            repository, CAPTURE_ROOT, native_oracle_members(record)
+        )
+    except ReportRebuildError as error:
+        raise ValueError("Native R source transport differs: " + str(error)) from error
+
+    def source_member(path: str) -> bytes:
+        prefix = CAPTURE_ROOT + "/"
+        if not path.startswith(prefix):
+            raise ValueError("Native input escaped its capture")
+        try:
+            return resolver.read_source(path.removeprefix(prefix))
+        except ReportRebuildError as error:
+            raise ValueError(
+                "Native R retained input changed: " + str(error)
+            ) from error
+
     inputs = {manifest_path: CAPTURE_MANIFEST_SHA256}
+
+    def read_input(path: str) -> bytes:
+        if path not in inputs:
+            raise ValueError("Unlisted native input read")
+        body = _file(repository, path) if path == manifest_path else source_member(path)
+        if hashlib.sha256(body).hexdigest() != inputs[path]:
+            raise ValueError("Native admission changed during validation")
+        return body
+
     raw_digests: dict[str, str] = {}
     for name, raw_spec in raw.items():
         if not isinstance(raw_spec, dict) or any(
@@ -523,12 +559,17 @@ def validated_count_domain_capture(repository: Path) -> CountDomainCapture:
         if not isinstance(digest, str):
             raise ValueError("native R capture member identity is invalid")
         path = f"{CAPTURE_ROOT}/capture/{_relative(name, 'count-domain raw member')}"
-        _checked(repository, path, spec)
+        _checked(repository, path, spec, read_source=source_member)
         inputs[path] = digest
         raw_digests[name] = digest
     receipt_path = f"{CAPTURE_ROOT}/capture/receipt.json"
     receipt = json.loads(
-        _checked(repository, receipt_path, record["execution_receipt"])
+        _checked(
+            repository,
+            receipt_path,
+            record["execution_receipt"],
+            read_source=source_member,
+        )
     )
     inputs[receipt_path] = record["execution_receipt"]["sha256"]
     if (
@@ -570,14 +611,22 @@ def validated_count_domain_capture(repository: Path) -> CountDomainCapture:
         ):
             raise ValueError("Cached source provenance differs")
         path = f"{CAPTURE_ROOT}/{_relative(row['path'], 'cached native archive')}"
-        _checked(repository, path, {"size": row["size"], "sha256": row["sha256"]})
+        _checked(
+            repository,
+            path,
+            {"size": row["size"], "sha256": row["sha256"]},
+            read_source=source_member,
+        )
         inputs[path] = row["sha256"]
     public = record["public_acquisition"]
     public_path = (
         f"{CAPTURE_ROOT}/{_relative(public['path'], 'historical native acquisition')}"
     )
     _checked(
-        repository, public_path, {"size": public["size"], "sha256": public["sha256"]}
+        repository,
+        public_path,
+        {"size": public["size"], "sha256": public["sha256"]},
+        read_source=source_member,
     )
     inputs[public_path] = public["sha256"]
     physical = set()
@@ -588,7 +637,9 @@ def validated_count_domain_capture(repository: Path) -> CountDomainCapture:
         if not stat.S_ISREG(mode):
             raise ValueError("Native source packet has aliases or irregular members")
         physical.add(member.relative_to(repository).as_posix())
-    if physical != set(inputs):
+    if physical != (
+        set(inputs) - {CAPTURE_ROOT + "/" + name for name in resolver.detached}
+    ) | {CAPTURE_ROOT + "/source-transport.json"}:
         raise ValueError("Native source packet has extra/missing members")
     science = context["protected_science_sha256"]
     for name, digest in science.items():
@@ -615,7 +666,7 @@ def validated_count_domain_capture(repository: Path) -> CountDomainCapture:
         raise ValueError("Current locked source differs")
     if (
         any(
-            hashlib.sha256(_file(repository, name)).hexdigest() != digest
+            hashlib.sha256(read_input(name)).hexdigest() != digest
             for name, digest in inputs.items()
         )
         or _file(repository, manifest_path) != payload
@@ -628,6 +679,7 @@ def validated_count_domain_capture(repository: Path) -> CountDomainCapture:
         CAPTURE_MANIFEST_SHA256,
         tuple(reports),
         raw_digests,
-        inputs,
+        dict(inputs),
         context,
+        read_input,
     )

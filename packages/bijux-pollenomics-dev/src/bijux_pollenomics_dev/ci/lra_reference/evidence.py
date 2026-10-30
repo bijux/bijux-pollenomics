@@ -8,7 +8,12 @@ import io
 import math
 from pathlib import Path, PurePosixPath
 import re
-from typing import Any
+from typing import TYPE_CHECKING, Any
+
+if TYPE_CHECKING:
+    from bijux_pollenomics_dev.ci.report_rebuild.retained_source import SourceCapsule
+
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 
 from .contracts import ReferenceRefusal, load_lock, read_json
 
@@ -60,7 +65,9 @@ PROSPECTIVE_KINDS = {
 SCHEMA = "lra-live-r-certification.v2"
 
 
-def file_inventory(root: Path) -> dict[str, dict[str, Any]]:
+def file_inventory(
+    root: Path, *, source_transport: SourceCapsule | None = None
+) -> dict[str, dict[str, Any]]:
     """Inventory regular evidence files by digest and byte count."""
     result = {}
     for path in sorted(root.rglob("*")):
@@ -74,6 +81,39 @@ def file_inventory(root: Path) -> dict[str, dict[str, Any]]:
             }
         elif not path.is_dir():
             raise ReferenceRefusal("Evidence trees may contain only regular files")
+    if source_transport is not None:
+        detached = frozenset(
+            {
+                "source-domains/r_support.R",
+                "source-domains/run_source_domains.py",
+                "source-domains/source_domains.R",
+                "source-lock.json",
+            }
+        )
+        if (
+            source_transport.repository / source_transport.prefix != root
+            or source_transport.descriptor.capture_name != "certificate.json"
+            or source_transport.detached != detached
+        ):
+            raise ReferenceRefusal("Retained reference transport scope differs")
+        try:
+            source_transport.fresh()
+            expected = (set(source_transport.descriptor.members) - set(detached)) | {
+                "certificate.json",
+                source_transport.descriptor_name,
+            }
+            if set(result) != expected:
+                raise ReferenceRefusal("Retained reference physical projection differs")
+            result.pop(source_transport.descriptor_name)
+            for name in sorted(detached):
+                data = source_transport.read_source(name)
+                result[name] = {
+                    "sha256": hashlib.sha256(data).hexdigest(),
+                    "byte_count": len(data),
+                }
+            source_transport.fresh()
+        except ReportRebuildError as error:
+            raise ReferenceRefusal(str(error)) from error
     return result
 
 
@@ -204,6 +244,7 @@ def validate_bundle(
     target_sha: str,
     expected_lock_sha256: str,
     expected_run: tuple[str, int, int] | None = None,
+    source_transport: SourceCapsule | None = None,
 ) -> dict[str, Any]:
     """Check source/runtime/case/member closure; transport authenticity is external."""
     try:
@@ -230,7 +271,7 @@ def validate_bundle(
             raise ReferenceRefusal("Executed source inventory is missing")
         if certificate.get("lock_sha256") != expected_lock_sha256:
             raise ReferenceRefusal("Certification source lock differs")
-        inventory = file_inventory(root)
+        inventory = file_inventory(root, source_transport=source_transport)
         inventory.pop("certificate.json", None)
         if inventory != certificate.get("files"):
             raise ReferenceRefusal("Certification bundle file inventory differs")
@@ -238,9 +279,14 @@ def validate_bundle(
 
         validate_generated_evidence(root, certificate)
         lock_path = root / "source-lock.json"
-        if hashlib.sha256(lock_path.read_bytes()).hexdigest() != expected_lock_sha256:
+        lock_raw = (
+            lock_path.read_bytes()
+            if source_transport is None
+            else source_transport.read_source("source-lock.json")
+        )
+        if hashlib.sha256(lock_raw).hexdigest() != expected_lock_sha256:
             raise ReferenceRefusal("Bundled source-lock bytes differ")
-        lock = load_lock(lock_path)
+        lock = load_lock(lock_path, raw=lock_raw)
         if certificate.get("profile_id") != lock.payload["profile_id"]:
             raise ReferenceRefusal("Certification profile differs")
         provision = read_json((root / "provision.json").read_bytes())
@@ -340,7 +386,11 @@ def validate_bundle(
         from .profiles import validate_source_domains
 
         validate_source_domains(
-            root / "source-domains", lock.payload["reference"]["sha256"]
+            root / "source-domains",
+            lock.payload["reference"]["sha256"],
+            read_source=(
+                None if source_transport is None else source_transport.read_source
+            ),
         )
         python_runtime = certificate.get("python_runtime")
         if (
@@ -403,7 +453,14 @@ def validate_bundle(
         return certificate
     except ReferenceRefusal:
         raise
-    except (OSError, KeyError, TypeError, ValueError, AttributeError) as error:
+    except (
+        OSError,
+        KeyError,
+        TypeError,
+        ValueError,
+        AttributeError,
+        ReportRebuildError,
+    ) as error:
         raise ReferenceRefusal(
             "Malformed or incomplete certification bundle"
         ) from error
