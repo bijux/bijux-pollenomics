@@ -5618,7 +5618,6 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
-    "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/README.md",
     "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/nordic_wind.R",
     "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/nordic_wind.py",
     "packages/bijux-pollenomics-lra/tests/reference/circular_receiver/receiver_reference.R",
