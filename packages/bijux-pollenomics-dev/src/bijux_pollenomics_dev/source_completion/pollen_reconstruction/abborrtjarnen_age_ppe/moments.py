@@ -73,6 +73,7 @@ class PopulationMoments:
     """Welford age covariance and averaged conditional count/PPE components."""
 
     def __init__(self, covariance: np.ndarray) -> None:
+        """Initialize streaming age, count and PPE moments for diagonal covariance."""
         require(
             bool(
                 covariance.shape == (5, 5)

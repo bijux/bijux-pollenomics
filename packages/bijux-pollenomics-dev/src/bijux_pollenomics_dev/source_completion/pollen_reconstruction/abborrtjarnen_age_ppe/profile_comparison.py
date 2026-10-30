@@ -23,6 +23,7 @@ class NativeComparison:
     def __init__(
         self, case: dict[str, Any], covariance: np.ndarray, rows: csv.DictReader[str]
     ) -> None:
+        """Load the native reference and initialize shared-population accumulators."""
         protocol = case["count_profile_protocol"]
         self.reference_path = protocol["native_reference_result"]
         self.reference = json.loads(
@@ -44,6 +45,7 @@ class NativeComparison:
         source: list[dict[str, Any]],
         joint: tuple[np.ndarray, np.ndarray, np.ndarray] | None,
     ) -> int:
+        """Check one native ledger row and accumulate shared-population moments."""
         prior = next(self.rows, None)
         require(prior is not None, "Frozen native ledger is truncated")
         assert prior is not None
@@ -81,6 +83,7 @@ class NativeComparison:
         return complete
 
     def result(self, source: dict[str, Any], requested: int) -> dict[str, Any]:
+        """Compare conditional profile moments and report native-population checks."""
         native = self.reference["conditional_on_complete"]
         common = self.moments.result()
         require(
