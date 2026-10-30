@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Display retained source-record context and publication provenance ([#308](https://github.com/bijux/bijux-pollenomics/pull/308)).
+- **Pending review:** Explain relation evidence and governed projection rules ([#309](https://github.com/bijux/bijux-pollenomics/pull/309)).
+- **Verified merge (2026-10-30 12:17:31 UTC):** Display retained source-record context and publication provenance ([#308](https://github.com/bijux/bijux-pollenomics/pull/308)).
 - **Verified merge (2026-10-30 11:39:28 UTC):** Qualify whole-pollen claims and publish native observation panels with bounded runtime assets ([#306](https://github.com/bijux/bijux-pollenomics/pull/306)).
 - **Verified merge (2026-10-30 10:34:25 UTC):** Retain original kernel boundary and minimum-lake comparisons ([#307](https://github.com/bijux/bijux-pollenomics/pull/307)).
 - **Verified merge (2026-10-30 09:41:49 UTC):** Preserve reference CSV precision and retain dated LOVE wrapper comparisons ([#304](https://github.com/bijux/bijux-pollenomics/pull/304)).
