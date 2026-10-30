@@ -50,7 +50,9 @@ def _own_case(
     root.mkdir()
     identity = {"bytes": len(_OLD), "sha256": hashlib.sha256(_OLD).hexdigest()}
     if name in _LAYERED_PATHS:
-        initial = ((b"source = physical()", b"source = authenticated()"),)
+        initial: tuple[tuple[bytes, bytes], ...] = (
+            (b"source = physical()", b"source = authenticated()"),
+        )
         layers = {
             name: (
                 (b"source = authenticated()", b"source = canonical()"),
