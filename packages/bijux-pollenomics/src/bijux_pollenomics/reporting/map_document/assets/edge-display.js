@@ -119,3 +119,46 @@ function relationEndpointPair(tab) {
       && event[key] === tab[`${prefix}_${key === 'source_record_id' ? 'record_id' : key}`]);
   return joined(source, 'source') && joined(target, 'target') ? [source, target] : null;
 }
+
+
+// A shared relation is restored only within its published build and exact scenario.
+const edgeFocusLoadState = {request: 0, generation: 0, restoring: null};
+function publishedEdgeFocusBuild() {
+  const build = typeof STATIC_ATLAS_BOOTSTRAP === 'undefined' ? null : STATIC_ATLAS_BOOTSTRAP.build_id;
+  return typeof build === 'string' && /^atlas-[a-f0-9]{64}$/.test(build) ? build : null;
+}
+function edgeFocusFromHash(params, allowedTabs) {
+  const keys = ['focus_edge', 'focus_scenario', 'focus_build'];
+  if (!keys.some(key => params.has(key))) return null;
+  const invalid = {kind: 'edge', unavailable: true};
+  if (keys.some(key => params.getAll(key).length !== 1 || !params.get(key).trim())
+    || ['focus_layer', 'focus_feature', 'focus_record'].some(key => params.has(key))
+    || params.getAll('focus_tab').length > 1) return invalid;
+  const tab = params.get('focus_tab') || 'overview';
+  if (!allowedTabs.includes(tab)) return invalid;
+  return {kind: 'edge', edgeId: params.get('focus_edge'), scenarioId: params.get('focus_scenario'), atlasBuildId: params.get('focus_build'), tab};
+}
+function writeEdgeFocusHash(params, focus, tab, build) {
+  if (focus?.kind !== 'edge' || focus.edgeShareable !== true || typeof build !== 'string'
+    || !/^atlas-[a-f0-9]{64}$/.test(build) || focus.atlasBuildId !== build
+    || ![focus.edgeId, focus.scenarioId].every(value => typeof value === 'string' && value.trim())) return false;
+  params.set('focus_edge', focus.edgeId);
+  params.set('focus_scenario', focus.scenarioId);
+  params.set('focus_build', build);
+  if (tab !== 'overview') params.set('focus_tab', tab);
+  return true;
+}
+function availableEdgeFocus(edgeId, edges, entries) {
+  const matches = edges.filter(edge => edge.edge_id === edgeId);
+  if (matches.length !== 1) return null;
+  const edge = matches[0];
+  const endpoints = ['source_record_id', 'target_record_id'].map(key => entries.filter(entry => entry.feature.record_id === edge[key]));
+  return endpoints.every(rows => rows.length === 1) ? {edge, source: endpoints[0][0]} : null;
+}
+function edgeFocusSelection(request, build, edges, entries) {
+  if (!request || request.unavailable || !build || request.atlasBuildId !== build
+    || ![request.edgeId, request.scenarioId].every(value => typeof value === 'string' && value.trim())) return null;
+  const selected = availableEdgeFocus(request.edgeId, edges, entries);
+  return selected && Object.prototype.hasOwnProperty.call(selected.edge, 'candidate_status')
+    && selected.edge.scenario_id === request.scenarioId ? selected : null;
+}

@@ -3442,6 +3442,7 @@ __URL_STATE_CONTROLLER__
         const params = new URLSearchParams(raw);
         return {
           focus: sourceRecordFocusFromHash(params, DETAIL_TAB_DEFINITIONS.map(([key]) => key)),
+          edgeFocus: edgeFocusFromHash(params, DETAIL_TAB_DEFINITIONS.map(([key]) => key)),
           countries: params.get('countries'),
           layers: params.get('layers'),
           scientificSignals: params.get('scientific_signals'),
@@ -4820,6 +4821,7 @@ __URL_STATE_CONTROLLER__
       const basemapErrorCounts = new Map();
       let legendCollapsed = initialState.legend !== 'expanded';
       let focusState = null;
+      let pendingEdgeFocus = initialState.edgeFocus;
       let activeFocusTab = 'overview';
       let focusCardReturnFocus = null;
       const DETAIL_TABLE_PAGE_SIZE = 25;
@@ -5237,6 +5239,7 @@ __URL_STATE_CONTROLLER__
           .filter((element) => !element.hidden && getComputedStyle(element).display !== 'none' && getComputedStyle(element).visibility !== 'hidden');
       }
       function syncHashState() {
+        if (pendingEdgeFocus) return;
         if (!atlasURLState.canPublish()) return;
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
@@ -5273,7 +5276,10 @@ __URL_STATE_CONTROLLER__
         }
         if (!legendCollapsed) params.set('legend', 'expanded');
         if (nativeLraController) nativeLraController.writeHash(params);
-        if (!focusCard.hidden) writeSourceRecordFocusHash(params, focusState, activeFocusTab);
+        if (!focusCard.hidden) {
+          writeSourceRecordFocusHash(params, focusState, activeFocusTab);
+          writeEdgeFocusHash(params, focusState, activeFocusTab, publishedEdgeFocusBuild());
+        }
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
         atlasURLState.publish(desiredHash);
@@ -5347,6 +5353,8 @@ __URL_STATE_CONTROLLER__
         return uniquePointEntryForFocus(visiblePointEntries, state);
       }
       function setFocusState(nextState) {
+        pendingEdgeFocus = null;
+        edgeFocusLoadState.request++;
         const opening = Boolean(nextState) && focusCard.hidden;
         if (opening) {
           const origin = document.activeElement;
@@ -5629,10 +5637,11 @@ __URL_STATE_CONTROLLER__
         focusDetail.innerHTML = sourceOverview + sourceDiagram + relationDetails + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
-        focusCopyLinkButton.disabled = focusState?.kind !== 'point';
+        focusCopyLinkButton.disabled = focusState?.kind !== 'point' && focusState?.edgeShareable !== true;
         focusExportStatus.textContent = focusExportButton.disabled
           ? 'Pollen record export unavailable: complete sample, chronology and source observation tables are required.'
           : 'Download includes all source observations, samples and chronology claims, including contextual and refused claims. Map time filters do not trim this complete record.';
+        if (focusState?.kind === 'edge' && !focusState.edgeShareable) focusExportStatus.textContent += ' Relation link unavailable: a published build and native relation scenario are required.';
         focusTabs.querySelectorAll('[data-focus-tab]').forEach((button) => {
           button.addEventListener('click', () => {
             activeFocusTab = button.dataset.focusTab;
@@ -5687,9 +5696,17 @@ __URL_STATE_CONTROLLER__
       function renderFocusCard() {
         const pointEntry = visiblePointEntryForFocus();
         const edgeVisible = focusState && focusState.kind === 'edge'
-          ? visibleGovernedEdges().some((edge) => edge.edge_id === focusState.edgeId)
+          ? availableEdgeFocus(focusState.edgeId, visibleGovernedEdges(), visiblePointEntries) !== null
           : true;
         if (!focusState || !activeLayerKeys.has(focusState.layerKey) || (focusState.kind === 'point' && !pointEntry) || !edgeVisible) {
+          if (focusState?.kind === 'edge') {
+            focusState = null;
+            pendingEdgeFocus = null;
+            edgeFocusLoadState.request++;
+            activeFocusTab = 'overview';
+            focusCopyLinkButton.disabled = true;
+            focusExportButton.disabled = true;
+          }
           const containedFocus = focusCard.contains(document.activeElement);
           focusCard.hidden = true;
           focusSourceLink.hidden = true;
@@ -6876,6 +6893,93 @@ __URL_STATE_CONTROLLER__
       }
       let edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
       __EDGE_DISPLAY_CONTROLLER__
+      async function openEdgeDetail(edge, source, compare = false, fromSharedLink = false) {
+        if (!fromSharedLink) pendingEdgeFocus = null;
+        const signal = scientificSignalById(edge.signal_id), presentation = edgeScientificPresentation(edge);
+        const request = ++edgeFocusLoadState.request, generation = edgeFocusLoadState.generation;
+        const loadedTabs = await detailTabsForRecordId(String(edge.edge_id));
+        const currentEdges = visibleGovernedEdges().filter(row => row.edge_id === edge.edge_id);
+        if (request !== edgeFocusLoadState.request || generation !== edgeFocusLoadState.generation
+          || !visiblePointEntries.includes(source)
+          || !['source_record_id', 'target_record_id'].every(key => visiblePointEntries.filter(entry => entry.feature.record_id === edge[key]).length === 1)
+          || currentEdges.length !== 1 || currentEdges[0] !== edge) return false;
+        const tabs = loadedTabs.overview?.reason_code === 'detail_record_not_indexed'
+          ? unavailableDetailTabs('edge_detail_evidence_not_available')
+          : { ...loadedTabs };
+        tabs.overview = mergeEdgeDetailTab(tabs.overview, {
+          ...providedEdgeFields(edge, ['source_event_id', 'target_event_id', 'feature_key', 'resolution']),
+          edge_id: edge.edge_id,
+          signal: signal ? signal.label : edge.signal_id,
+          interpretation: presentation.interpretation,
+        });
+        tabs.relation = mergeEdgeDetailTab(tabs.relation, {
+          ...providedEdgeFields(edge, ['source_event', 'target_event', 'relation_details']),
+          ...providedEdgeFields(edge, [
+            'source_event_id', 'target_event_id', 'source_site_id', 'target_site_id',
+            'source_country_code', 'target_country_code', 'feature_key', 'resolution',
+            'source_age_bp', 'target_age_bp', 'source_age_interval_bp', 'target_age_interval_bp',
+            'source_younger_bp', 'source_older_bp', 'target_younger_bp', 'target_older_bp',
+            'distance_km_unrounded', 'distance_km_display', 'distance_algorithm',
+            'distance_library', 'distance_library_version', 'minimum_lag_years', 'maximum_lag_years',
+            'candidate_status', 'reason_code', 'scenario_id', 'threshold_profile_id',
+            'temporal_contract_version', 'classification_contract_version', 'propagation_contract_version',
+            'schema_version', 'build_id', 'directional_arrow_allowed', 'route_interpretation_allowed', 'map_geometry_role',
+          ]),
+          source_record_id: edge.source_record_id,
+          target_record_id: edge.target_record_id,
+          source_country: edge.source_country,
+          target_country: edge.target_country,
+          status: presentation.status,
+          ...providedEdgeFields(edge, ['predicates']),
+        });
+        tabs.provenance = mergeEdgeDetailTab(tabs.provenance,
+          providedEdgeFields(edge, ['source_provenance', 'target_provenance', 'source_dataset_versions', 'event_manifest_digest', 'config_digest', 'producer_version', 'build_id'])
+        );
+        setFocusState({
+          kind: 'edge',
+          edgeId: edge.edge_id,
+          scenarioId: edge.scenario_id,
+          atlasBuildId: publishedEdgeFocusBuild(),
+          edgeShareable: Object.prototype.hasOwnProperty.call(edge, 'candidate_status') && Boolean(publishedEdgeFocusBuild()) && [edge.edge_id, edge.scenario_id].every(value => typeof value === 'string' && value.trim()),
+          layerKey: source.layer.key,
+          title: signal ? signal.label : edge.signal_id,
+          subtitle: `${edge.source_country}${presentation.separator}${edge.target_country} ${presentation.relationLabel.toLowerCase()}`,
+          meta: [
+            { label: 'Relation ID', value: edge.edge_id },
+            { label: 'Status', value: presentation.label },
+            { label: 'Cue', value: signal ? `${scientificCueGlyph(signal.non_color_cue)} ${signal.non_color_cue}` : 'Unassigned' },
+          ],
+          sourceUrl: '',
+          detailTabs: tabs,
+        });
+        if (compare) {
+          activeFocusTab = 'relation';
+          renderFocusDetail();
+          document.getElementById('focus-tab-relation')?.focus({ preventScroll: true });
+        }
+        return true;
+      }
+      async function restoreEdgeFocus(request) {
+        const generation = edgeFocusLoadState.generation;
+        if (edgeFocusLoadState.restoring === generation) return false;
+        edgeFocusLoadState.restoring = generation;
+        try {
+          const selected = edgeFocusSelection(request, publishedEdgeFocusBuild(), visibleGovernedEdges(), visiblePointEntries);
+          if (!selected) {
+            topbarStatePill.textContent = 'Shared relation is unavailable under this published build, scenario and current filters.';
+            topbarStatePill.setAttribute('role', 'status');
+            return false;
+          }
+          if (!await openEdgeDetail(selected.edge, selected.source, false, true)) return false;
+          activeFocusTab = request.tab;
+          renderFocusDetail();
+          syncHashState();
+          return true;
+        } finally {
+          if (edgeFocusLoadState.generation === generation && pendingEdgeFocus === request) pendingEdgeFocus = null;
+          if (edgeFocusLoadState.restoring === generation) edgeFocusLoadState.restoring = null;
+        }
+      }
       function renderEdgeLayers() {
         edgeRenderSummary = { shown: 0, viewport_count: 0, limit: 128 };
         if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.status !== 'available') return;
@@ -6905,68 +7009,14 @@ __URL_STATE_CONTROLLER__
             }
           );
           line.bindPopup(edgeEvidencePopupHtml(edge, signal, presentation));
-          const openEdgeDetail = async (compare = false) => {
-            const loadedTabs = await detailTabsForRecordId(String(edge.edge_id));
-            const tabs = loadedTabs.overview?.reason_code === 'detail_record_not_indexed'
-              ? unavailableDetailTabs('edge_detail_evidence_not_available')
-              : { ...loadedTabs };
-            tabs.overview = mergeEdgeDetailTab(tabs.overview, {
-              ...providedEdgeFields(edge, ['source_event_id', 'target_event_id', 'feature_key', 'resolution']),
-              edge_id: edge.edge_id,
-              signal: signal ? signal.label : edge.signal_id,
-              interpretation: presentation.interpretation,
-            });
-            tabs.relation = mergeEdgeDetailTab(tabs.relation, {
-              ...providedEdgeFields(edge, ['source_event', 'target_event', 'relation_details']),
-              ...providedEdgeFields(edge, [
-                'source_event_id', 'target_event_id', 'source_site_id', 'target_site_id',
-                'source_country_code', 'target_country_code', 'feature_key', 'resolution',
-                'source_age_bp', 'target_age_bp', 'source_age_interval_bp', 'target_age_interval_bp',
-                'source_younger_bp', 'source_older_bp', 'target_younger_bp', 'target_older_bp',
-                'distance_km_unrounded', 'distance_km_display', 'distance_algorithm',
-                'distance_library', 'distance_library_version', 'minimum_lag_years', 'maximum_lag_years',
-                'candidate_status', 'reason_code', 'scenario_id', 'threshold_profile_id',
-                'temporal_contract_version', 'classification_contract_version', 'propagation_contract_version',
-                'schema_version', 'build_id', 'directional_arrow_allowed', 'route_interpretation_allowed', 'map_geometry_role',
-              ]),
-              source_record_id: edge.source_record_id,
-              target_record_id: edge.target_record_id,
-              source_country: edge.source_country,
-              target_country: edge.target_country,
-              status: presentation.status,
-              ...providedEdgeFields(edge, ['predicates']),
-            });
-            tabs.provenance = mergeEdgeDetailTab(tabs.provenance,
-              providedEdgeFields(edge, ['source_provenance', 'target_provenance', 'source_dataset_versions', 'event_manifest_digest', 'config_digest', 'producer_version', 'build_id'])
-            );
-            setFocusState({
-              kind: 'edge',
-              edgeId: edge.edge_id,
-              layerKey: source.layer.key,
-              title: signal ? signal.label : edge.signal_id,
-              subtitle: `${edge.source_country}${presentation.separator}${edge.target_country} ${presentation.relationLabel.toLowerCase()}`,
-              meta: [
-                { label: 'Relation ID', value: edge.edge_id },
-                { label: 'Status', value: presentation.label },
-                { label: 'Cue', value: signal ? `${scientificCueGlyph(signal.non_color_cue)} ${signal.non_color_cue}` : 'Unassigned' },
-              ],
-              sourceUrl: '',
-              detailTabs: tabs,
-            });
-            if (compare) {
-              activeFocusTab = 'relation';
-              renderFocusDetail();
-              document.getElementById('focus-tab-relation')?.focus({ preventScroll: true });
-            }
-          };
-          line.on('click', () => openEdgeDetail());
+          line.on('click', () => openEdgeDetail(edge, source));
           line.on('popupopen', ({ popup }) => {
             const button = popup.getElement()?.querySelector('[data-compare-edge]');
             if (!button || button.dataset.compareEdge !== edge.edge_id) return;
             button.onclick = async (event) => {
               event.preventDefault();
               event.stopPropagation();
-              await openEdgeDetail(true);
+              await openEdgeDetail(edge, source, true);
             };
           });
           line.addTo(map);
@@ -7176,6 +7226,7 @@ __URL_STATE_CONTROLLER__
       }
       async function renderMapState() {
         const generation = ++staticAtlasLoadGeneration;
+        edgeFocusLoadState.generation = generation;
         retainedNeighborRecordCountries = atlasRetainedNeighborRecordCountries(visibleGovernedEdges(), activeCountries);
         topbarStatePill.textContent = 'Loading selected evidence…';
         topbarStatePill.setAttribute('aria-live', 'polite');
@@ -7197,6 +7248,7 @@ __URL_STATE_CONTROLLER__
           selectionReadout.dataset.staticLoadRequestedAssetCount = String(requested.length);
           selectionReadout.dataset.filterRenderMs = String(Math.round(duration));
           selectionReadout.dataset.filterRenderBudgetExceeded = String(duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms));
+          if (pendingEdgeFocus) await restoreEdgeFocus(pendingEdgeFocus);
         } catch (error) {
           if (generation !== staticAtlasLoadGeneration) return;
           topbarStatePill.textContent = error instanceof Error ? error.message : 'Static atlas selection failed to load.';
@@ -7711,6 +7763,8 @@ __URL_STATE_CONTROLLER__
       }
       function resetView() { map.fitBounds(INITIAL_BOUNDS, { padding: [36, 36] }); }
       async function restoreDefaults() {
+        edgeFocusLoadState.request++;
+        if (focusState?.kind === 'edge' || pendingEdgeFocus) setFocusState(null);
         stopTimePlayback();
         deactivateModeledContext();
         activeCountries = new Set(DEFAULT_COUNTRIES);
@@ -8044,12 +8098,22 @@ __URL_STATE_CONTROLLER__
       });
       focusCloseButton.addEventListener('click', () => setFocusState(null));
       focusCopyLinkButton.addEventListener('click', async () => {
+        if (focusCopyLinkButton.disabled) return;
+        if (focusState?.kind === 'edge' && document.getElementById('map').getAttribute('aria-busy') === 'true') {
+          focusExportStatus.textContent = 'Relation link unavailable while selected evidence is loading.';
+          return;
+        }
+        if (focusState?.kind === 'edge' && !edgeFocusSelection(focusState, publishedEdgeFocusBuild(), visibleGovernedEdges(), visiblePointEntries)) {
+          setFocusState(null);
+          topbarStatePill.textContent = 'Relation link unavailable under the current filters.';
+          return;
+        }
         syncHashState();
         try {
           await navigator.clipboard.writeText(window.location.href);
-          focusExportStatus.textContent = 'Record link copied.';
+          focusExportStatus.textContent = focusState?.kind === 'edge' ? 'Relation link copied.' : 'Record link copied.';
         } catch {
-          focusExportStatus.textContent = 'Copy this record link from your browser address bar.';
+          focusExportStatus.textContent = focusState?.kind === 'edge' ? 'Copy this relation link from your browser address bar.' : 'Copy this record link from your browser address bar.';
         }
       });
       focusExportButton.addEventListener('click', () => {
@@ -8211,7 +8275,7 @@ __URL_STATE_CONTROLLER__
       setLegendCollapsed(legendCollapsed, false);
       resetView();
       await renderMapState();
-      if (initialState.focus) {
+      if (!initialState.edgeFocus && initialState.focus) {
         const requestedEntry = uniquePointEntryForFocus(visiblePointEntries, initialState.focus);
         if (requestedEntry) {
           await focusPointAtVisibleIndex(visiblePointEntries.indexOf(requestedEntry));
