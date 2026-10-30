@@ -132,11 +132,15 @@ def project_propagation_network(
     return {
         "directed_candidates.geojson": {
             **metadata,
-            **candidate_geojson(directed, events, directional=True),
+            **candidate_geojson(
+                directed, events, directional=True, scenario=result.scenario
+            ),
         },
         "indeterminate_pairs.geojson": {
             **metadata,
-            **candidate_geojson(indeterminate, events, directional=False),
+            **candidate_geojson(
+                indeterminate, events, directional=False, scenario=result.scenario
+            ),
         },
         "lower_level_edge_union.json": {
             **metadata,
