@@ -8,7 +8,10 @@ function pollenAgeAxisData(tabs, nativeGroupKey, selectedAgeGroupKey = null) {
   if (native.status !== 'available') return empty('native_source_tables_unavailable');
   const source = native.groups.find(group => group.key === nativeGroupKey);
   if (!source) return empty('native_source_group_unavailable');
-  const ages = ageDepthDiagramData(tabs);
+  return pollenAgeAxisForGroup(source, ageDepthDiagramData(tabs), selectedAgeGroupKey);
+}
+// Reuse one qualified chronology table across compatible native variable panels.
+function pollenAgeAxisForGroup(source, ages, selectedAgeGroupKey = null) {
   const compatible = ages.status === 'available' ? ages.groups.filter(group =>
     group.identity[0] === source.identity[0] && group.identity[1] === source.identity[1]) : [];
   const options = compatible.map(group => ({key:JSON.stringify(group.identity),
@@ -51,13 +54,13 @@ function pollenAgeOmissionText(omitted, labels) {
   return Object.entries(omitted).sort().map(([reason,count]) =>
     `${labels[reason] || 'source assignment unavailable'}: ${count}`).join('; ') || 'none';
 }
-function pollenAgeFigureHtml(data, source, index = 0) {
+function pollenAgeFigureHtml(data, source, index = 0, scales = null) {
   const text = value => escapeHtml(pollenDepthText(value));
   const figureIndex = Number.isSafeInteger(index) && index >= 0 ? index : 0;
   const titleId = `native-value-source-age-title-${figureIndex}`, descriptionId = `native-value-source-age-description-${figureIndex}`;
-  const x = pollenDepthScale(data.rows.map(row => row.value), 85, 500);
+  const x = scales?.x ?? pollenDepthScale(data.rows.map(row => row.value), 85, 500);
   const ages = data.rows.flatMap(row => [...(row.age.point === null ? [] : [row.age.point]), ...(row.age.endpoints || [])]);
-  const y = pollenDepthScale(ages, 40, 190), shown = data.rows.slice(0, 500);
+  const y = scales?.y ?? pollenDepthScale(ages, 40, 190), shown = data.rows.slice(0, 500);
   const marks = shown.map(row => {
     const age = row.age, claim = age.claim, cx = x.position(row.value);
     const refused = Boolean(claim.refusal_reason) || claim.comparability_status === 'refused';
@@ -79,10 +82,12 @@ function pollenAgeFigureHtml(data, source, index = 0) {
     }
     return `<g role="img" tabindex="0" aria-label="${text(detail)}"><title>${text(detail)}</title>${span}${point}</g>`;
   }).join('');
-  const ticks = (scale, low, high, middle) => scale.minimum === scale.maximum ? [[scale.minimum,middle]] : [[scale.minimum,low],[scale.maximum,high]];
-  return `<figure style="margin:1rem 0"><figcaption><strong>Native reported values on the chosen source age axis</strong><br/>${text(pollenDepthGroupLabel(source))}<br/>Native variable semantics: ${text(source.variable.source_semantics)}<br/>Denominator: ${text(source.identity[8])}; status: ${text(source.identity[9])}.<br/>Chosen source assignment group: ${text(pollenAgeOptionLabel(data.selected))}<br/>${shown.length} of ${data.rows.length} aligned observations drawn; extrema use all aligned observations. All original observations and age claims remain in their tables.</figcaption><div class="source-diagram-plot" tabindex="0" role="region" aria-label="Scrollable source age plot"><svg viewBox="0 0 640 300" width="640" style="max-width:100%;height:auto;background:white" role="img" aria-labelledby="${titleId} ${descriptionId}"><title id="${titleId}">Native observations versus explicitly chosen source ages</title><desc id="${descriptionId}">Raw age values increase downward in their exact source basis. Points and reported endpoint spans are individual assignments, not an age model or interpolated curve. Repeated observations stay separate even where marks overlap.</desc><path d="M85,30V240H595" fill="none" stroke="#64748b"/>${ticks(x,85,585,335).map(([value,cx]) => `<text x="${cx}" y="256" text-anchor="middle" font-size="12">${text(value)}</text>`).join('')}${ticks(y,40,230,135).map(([value,cy]) => `<text x="78" y="${cy+4}" text-anchor="end" font-size="12">${text(value)}</text>`).join('')}<text x="335" y="281" text-anchor="middle" font-size="12">Reported value (${text(source.identity[4])})</text><text transform="translate(18 135) rotate(-90)" text-anchor="middle" font-size="12">Source age (${text(data.selected.identity[4])})</text>${marks}</svg></div></figure>`;
+  return `<figure style="margin:1rem 0"><figcaption><strong>Native reported values on the chosen source age axis</strong><br/>${text(pollenDepthGroupLabel(source))}<br/>Native variable semantics: ${text(source.variable.source_semantics)}<br/>Denominator: ${text(source.identity[8])}; status: ${text(source.identity[9])}.<br/>Chosen source assignment group: ${text(pollenAgeOptionLabel(data.selected))}<br/>${shown.length} of ${data.rows.length} aligned observations drawn; extrema use all aligned observations. All original observations and age claims remain in their tables.</figcaption>${pollenObservationPlotHtml(x,y,marks,{titleId,descriptionId,title:'Native observations versus explicitly chosen source ages',description:'Raw age values increase downward in their exact source basis. Points and reported endpoint spans are individual assignments, not an age model or interpolated curve. Repeated observations stay separate even where marks overlap.',unit:source.identity[4],verticalLabel:`Source age (${pollenDepthText(data.selected.identity[4])})`,scrollLabel:"Scrollable source age plot"})}</figure>`;
 }
-function renderPollenAgeDiagram(tabs, nativeGroupKey, selectedAgeGroupKey = null) {
+function pollenAgeSemanticsHtml() {
+  return '<p>Age values increase downward in the exact source basis shown. Diamond: source-default point; circle: source alternative; square: default flag not supplied. Solid: source-comparable; dashed: contextual or unspecified; dotted: source-refused. Vertical spans show raw reported endpoints with unspecified coverage, not confidence intervals. Interval-only assignments have no inferred point or midpoint. Contextual and refused source ages remain context, not admitted calendar dates or propagation evidence.</p>';
+}
+function renderPollenAgeDiagram(tabs, nativeGroupKey, selectedAgeGroupKey = null, includeFigure = true) {
   const data = pollenAgeAxisData(tabs, nativeGroupKey, selectedAgeGroupKey);
   const text = value => escapeHtml(pollenDepthText(value));
   const unavailable = reason => `<section aria-label="Source age axis"><p>Source age axis unavailable: ${text(reason)}. Original source tables remain available.</p></section>`;
@@ -94,9 +99,8 @@ function renderPollenAgeDiagram(tabs, nativeGroupKey, selectedAgeGroupKey = null
   const scope = '<p>This is a local display choice, not selection of an analysis chronology. Only observations and age claims with already-qualified numeric native depth can be aligned here; age-only samples are not recovered. No age/depth conversion, calibration, interpolation, physical-core equivalence, vegetation reconstruction or event admission is made. Original tables retain all rows.</p>';
   if (data.status === 'depth') return `<section aria-label="Source age axis">${chooser}${scope}${data.options.length ? '' : '<p>No qualified source age group is available for this collection unit and dataset. Native depth remains the display axis.</p>'}</section>`;
   const omissionLabels = {sample_age_assignment_unavailable:'no unique age claim for this sample in the chosen group', ambiguous_sample_age_assignment:'multiple age claims for this sample in the chosen group'};
-  const sourceLabels = {ambiguous_claim_identity:'duplicate or missing claim identity',non_sample_age_claim:'not a sample age claim',sample_depth_identity_unavailable:'unjoined or ambiguous sample',sample_source_relation_mismatch:'source relations do not match',chronology_identity_unavailable:'chronology identity not supplied',source_depth_not_numeric:'missing numeric depth',source_age_not_numeric:'age is not numeric',source_age_endpoint_missing:'incomplete age bounds',source_age_not_provided:'age not supplied',source_age_endpoints_reversed:'age bounds are reversed',source_age_point_outside_endpoints:'age point outside reported bounds',source_default_flag_invalid:'invalid source default flag'};
-  const summary = `<p>${data.rows.length} of ${data.total} observations in this native group align to exactly one claim in the chosen source group. Not aligned: ${text(pollenAgeOmissionText(data.omitted,omissionLabels))}. Complete source age table: ${data.sourceAgeTotal} claims; not chartable across that whole table: ${text(pollenAgeOmissionText(data.sourceAgeOmitted,sourceLabels))}.</p>`;
-  const semantics = '<p>Age values increase downward in the exact source basis shown. Diamond: source-default point; circle: source alternative; square: default flag not supplied. Solid: source-comparable; dashed: contextual or unspecified; dotted: source-refused. Vertical spans show raw reported endpoints with unspecified coverage, not confidence intervals. Interval-only assignments have no inferred point or midpoint. Contextual and refused source ages remain context, not admitted calendar dates or propagation evidence.</p>';
-  const source = pollenDepthDiagramData(tabs).groups.find(group => group.key === nativeGroupKey);
-  return `<section aria-label="Source age axis">${chooser}${scope}${summary}${semantics}${data.rows.length ? pollenAgeFigureHtml(data,source) : '<p>No observations have one usable source age assignment in this chosen group. No zero age or alternative chronology is substituted.</p>'}</section>`;
+  const summary = `<p>${data.rows.length} of ${data.total} observations in this native group align to exactly one claim in the chosen source group. Not aligned: ${text(pollenAgeOmissionText(data.omitted,omissionLabels))}. Complete source age table: ${data.sourceAgeTotal} claims; not chartable across that whole table: ${text(pollenAgeOmissionText(data.sourceAgeOmitted,SOURCE_AGE_OMISSION_LABELS))}.</p>`;
+  const semantics = pollenAgeSemanticsHtml();
+  const source = includeFigure && data.rows.length ? pollenDepthDiagramData(tabs).groups.find(group => group.key === nativeGroupKey) : null;
+  return `<section aria-label="Source age axis">${chooser}${scope}${summary}${semantics}${data.rows.length ? (includeFigure ? pollenAgeFigureHtml(data,source) : '') : '<p>No observations have one usable source age assignment in this chosen group. No zero age or alternative chronology is substituted.</p>'}</section>`;
 }

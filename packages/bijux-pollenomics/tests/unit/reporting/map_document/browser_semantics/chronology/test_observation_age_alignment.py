@@ -153,9 +153,7 @@ def test_multiple_same_group_claims_are_ambiguous_even_if_points_agree(
     )
     assert output["rows"] == [] and output["total"] == 1
     assert output["omitted"] == {"ambiguous_sample_age_assignment": 1}
-    assert (
-        output["status"] == "age"
-    )  # An explicit choice with no drawable observations.
+    assert output["status"] == "age"
 
 
 @pytest.mark.parametrize("selected", ['"unknown"', '""', "false", "0"])
@@ -308,6 +306,14 @@ def test_depth_renderer_requires_explicit_age_choice_and_labels_every_source_bas
         )
     assert "not selection of an analysis chronology" in html
     assert "numeric native depth" in html and "No age/depth conversion" in html
+    selector_only = ET.fromstring(
+        observe(tabs, "renderPollenAgeDiagram(tabs,key,options[0].key,false)")
+    )
+    assert (
+        selector_only.find(".//svg") is None
+        and selector_only.find("select") is not None
+    )
+    assert "1 of 1 observations" in " ".join(selector_only.itertext())
 
 
 def test_age_renderer_keeps_literal_interval_zero_refusal_and_accessible_escaping(
@@ -448,13 +454,25 @@ def test_reusable_age_figures_have_distinct_accessibility_ids(
     tabs = projected_tabs(tmp_path, monkeypatch)
     html = observe(
         tabs,
-        "(()=>{const data=pollenAgeAxisData(tabs,key,options[0].key);return '<section>'+pollenAgeFigureHtml(data,native.groups[0],0)+pollenAgeFigureHtml(data,native.groups[0],1)+'</section>';})()",
+        "(()=>{const data=pollenAgeAxisData(tabs,key,options[0].key);return '<section>'+pollenAgeFigureHtml(data,native.groups[0],0)+pollenAgeFigureHtml(data,native.groups[0],1,{x:pollenDepthScale([0,12],85,500),y:pollenDepthScale([0,502],40,190)})+'</section>';})()",
     )
     tree = ET.fromstring(html)
     svgs = tree.findall(".//svg")
     titles = [required_element(svg, "title").get("id") for svg in svgs]
     assert len(set(titles)) == 2
+    assert "M210,82.5l" in ET.tostring(svgs[1], encoding="unicode")
     assert all(
         str(svg.get("aria-labelledby")).split()[0] == title
         for svg, title in zip(svgs, titles, strict=True)
     )
+
+
+def test_prequalified_alignment_matches_wrapper_without_redecoding(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    result = observe(
+        projected_tabs(tmp_path, monkeypatch),
+        "(()=>{const ages=ageDepthDiagramData(tabs),source=native.groups[0],choices=[null,...options.map(o=>o.key),'unknown'],nativeController=pollenDepthDiagramData,ageController=ageDepthDiagramData;let n=0,a=0,directDecodes=0,equal=true;pollenDepthDiagramData=(...args)=>{n++;return nativeController(...args);};ageDepthDiagramData=(...args)=>{a++;return ageController(...args);};for(const choice of choices){const wrapped=pollenAgeAxisData(tabs,key,choice),before=n+a,direct=pollenAgeAxisForGroup(source,ages,choice);directDecodes+=n+a-before;equal=equal&&JSON.stringify(wrapped)===JSON.stringify(direct);}return {equal,directDecodes,n,a,cases:choices.length};})()",
+    )
+    assert result["equal"] is True and result["directDecodes"] == 0
+    assert result["n"] == result["a"] == result["cases"] == 5

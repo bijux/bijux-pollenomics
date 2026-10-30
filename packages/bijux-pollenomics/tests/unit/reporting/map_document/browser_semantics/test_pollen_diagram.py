@@ -331,7 +331,7 @@ def test_mounted_pollen_drawer_keeps_complete_tables_and_other_tabs_separate(
     projected_tabs: dict[str, Any],
 ) -> None:
     output = render_drawer(projected_tabs, active="pollen_composition")
-    assert 'id="native-value-depth-title"' in str(output["html"])
+    assert 'id="native-value-depth-title-0"' in str(output["html"])
     assert "Showing 1–1 of 1" in str(output["html"])
     assert "neotoma:observation:40:50:1" in str(output["html"])
     assert (
@@ -340,7 +340,7 @@ def test_mounted_pollen_drawer_keeps_complete_tables_and_other_tabs_separate(
     )
     for active in ("overview", "samples", "chronology"):
         other = render_drawer(projected_tabs, active=active)
-        assert 'id="native-value-depth-title"' not in str(other["html"])
+        assert 'id="native-value-depth-title-0"' not in str(other["html"])
         assert other["unchanged"] is True
 
 
@@ -400,7 +400,7 @@ console.log(JSON.stringify({keys,initial,changed,rerendered,paginated,overview,r
     for state in ("changed", "rerendered", "paginated", "returned"):
         assert selected(output[state]) == output["keys"][1]
     assert "Showing 26–27 of 27" in output["paginated"]
-    assert 'id="native-value-depth-title"' not in output["overview"]
+    assert 'id="native-value-depth-title-0"' not in output["overview"]
     assert (
         selected(output["newRecord"])
         == selected(output["invalidChoice"])

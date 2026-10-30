@@ -5569,13 +5569,14 @@ __URL_STATE_CONTROLLER__
       __CHRONOLOGY_DIAGRAM_CONTROLLER__
       __POLLEN_DIAGRAM_CONTROLLER__
       __POLLEN_AGE_AXIS_CONTROLLER__
+      __POLLEN_SMALL_MULTIPLES_CONTROLLER__
       const pollenDepthSelections = new WeakMap();
       const pollenAgeSelections = new WeakMap();
       function renderPollenObservationDiagram(tabs) {
         const ageKey = pollenAgeSelections.get(tabs) ?? null;
         return renderPollenDepthDiagram(tabs, pollenDepthSelections.get(tabs) ?? null,
-          group => renderPollenAgeDiagram(tabs, group.key, ageKey)
-            + (ageKey === null ? pollenDepthGroupHtml(group) : ''));
+          group => renderPollenAgeDiagram(tabs, group.key, ageKey, false)
+            + renderPollenSmallMultiples(tabs, group.key, ageKey));
       }
       function renderFocusDetail() {
         const focused = document.activeElement;

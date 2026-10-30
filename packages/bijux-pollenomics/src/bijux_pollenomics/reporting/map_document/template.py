@@ -47,6 +47,12 @@ def load_map_document_template() -> str:
                 encoding="utf-8"
             ),
         )
+        .replace(
+            "__POLLEN_SMALL_MULTIPLES_CONTROLLER__",
+            package_root.joinpath("assets/pollen-small-multiples.js").read_text(
+                encoding="utf-8"
+            ),
+        )
     )
 
 

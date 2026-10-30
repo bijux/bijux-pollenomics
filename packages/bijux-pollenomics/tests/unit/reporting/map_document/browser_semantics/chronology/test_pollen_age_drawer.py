@@ -88,17 +88,19 @@ def test_explicit_age_choice_survives_pages_tabs_and_resets_for_source_or_record
     captured = output["captured"]
     assert output["unchanged"] is True and len(output["options"]) == 3
     for key in ("initial", "nativeChanged", "invalid", "depth", "newRecord"):
-        assert 'id="native-value-depth-title"' in captured[key]
+        assert 'id="native-value-depth-title-0"' in captured[key]
+        assert ">Source depth (unit not supplied)</text>" in captured[key]
         assert 'data-pollen-age-group="true"' in captured[key]
-        assert 'id="native-value-source-age-title-0"' not in captured[key]
+        assert ">Source age (year)</text>" not in captured[key]
     for key in ("chosen", "rerender", "paginated", "returned"):
-        assert 'id="native-value-source-age-title-0"' in captured[key], key
-        assert 'id="native-value-depth-title"' not in captured[key]
+        assert ">Source age (year)</text>" in captured[key], key
+        assert ">Source depth (unit not supplied)</text>" not in captured[key]
     assert "Showing 26–27 of 27" in captured["paginated"]
     assert 'data-pollen-age-group="true"' not in captured["overview"]
     for option in output["options"]:
         html = captured[option["key"]]
         assert 'id="native-value-source-age-title-0"' in html
+        assert ">Source age (year)</text>" in html
         assert "Showing 1–25 of 27" in html
         assert "neotoma:observation:40:50:1" in html
     assert output["focusCount"] == 10
