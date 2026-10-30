@@ -10,9 +10,13 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import SourceCapsule
 from bijux_pollenomics_dev.lra_validation.native_reference import (
     annulus_capture as capture,
 )
+
+from .native_transport_fixture import install_native_transport
 
 
 def _write(path: Path, value: object) -> dict[str, Any]:
@@ -112,6 +116,7 @@ def packet(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
         },
     )
     monkeypatch.setattr(capture, "CAPTURE_MANIFEST_SHA256", spec["sha256"])
+    install_native_transport(root, capture, monkeypatch)
     return root
 
 
@@ -172,21 +177,24 @@ def test_source_population_and_physical_aliases_refuse(
 def test_member_mutation_after_first_read_refuses(
     packet: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    original = capture._file
-    target = f"{capture.CAPTURE_ROOT}/capture/oracle/C0000.csv"
+    original = SourceCapsule.read_source
+    target = "capture/oracle/C0000.csv"
     mutated = False
 
-    def read(repository: Path, relative: str) -> bytes:
+    def read(reader: SourceCapsule, relative: str) -> bytes:
         nonlocal mutated
-        result = original(repository, relative)
+        result = original(reader, relative)
         if relative == target and not mutated:
-            (repository / relative).write_bytes(b"after-read mutation")
+            (reader.repository / reader.prefix / relative).write_bytes(
+                b"after-read mutation"
+            )
             mutated = True
         return result
 
-    monkeypatch.setattr(capture, "_file", read)
-    with pytest.raises(ValueError, match="changed during validation"):
+    monkeypatch.setattr(SourceCapsule, "read_source", read)
+    with pytest.raises(ValueError, match="changed|differs"):
         capture.validated_annulus_capture(packet)
+    assert mutated
 
 
 @pytest.mark.parametrize(
@@ -265,3 +273,28 @@ def test_reauthenticated_native_command_scalar_refuses(
     monkeypatch.setattr(capture, "CAPTURE_MANIFEST_SHA256", spec["sha256"])
     with pytest.raises(ValueError):
         capture.validated_annulus_capture(packet)
+
+
+def test_returned_metadata_cannot_replace_the_input_authority(packet: Path) -> None:
+    """Clear or extend caller-owned metadata without altering the admitted getter."""
+    selected = capture.validated_annulus_capture(packet)
+    assert selected.read_input is not None
+    name = capture.CAPTURE_ROOT + "/capture/oracle/C0000.csv"
+    expected = selected.read_input(name)
+    selected.input_sha256.clear()
+    assert selected.read_input(name) == expected
+    unlisted = capture.CAPTURE_ROOT + "/source-transport.json"
+    selected.input_sha256[unlisted] = "0" * 64
+    with pytest.raises(ValueError, match="Unlisted|unlisted"):
+        selected.read_input(unlisted)
+
+
+def test_stale_owned_descriptor_preserves_the_public_refusal(packet: Path) -> None:
+    """Reject modified own fixture metadata through the real source-buffer freshness."""
+    selected = capture.validated_annulus_capture(packet)
+    assert selected.read_input is not None
+    descriptor = packet / capture.CAPTURE_ROOT / "source-transport.json"
+    descriptor.write_bytes(descriptor.read_bytes() + b" ")
+    with pytest.raises(ValueError) as caught:
+        selected.read_input(capture.CAPTURE_ROOT + "/capture/oracle/C0000.csv")
+    assert isinstance(caught.value.__cause__, ReportRebuildError)
