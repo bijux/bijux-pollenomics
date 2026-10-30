@@ -18,6 +18,11 @@ import numpy as np
 from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
     require_absent_artifact_output,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
+    GitSourceMember,
+    validate_blobs,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.source_paths import (
     safe_source_file as _safe_file,
 )
@@ -28,9 +33,17 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction import (
     english_shared_ppe as english,
 )
 from bijux_pollenomics_lra.api import fit_shared_ppe_likelihood
+from bijux_pollenomics_lra.models.validation import finite_number
 
 CAPTURE = Path("data/method-certification/english-receiver-annulus/kernel-capture.json")
 CAPTURE_SHA256 = "f0eb17181b88498aafbea9c18b3cad47701d117cb3c5a07f2321ceec18723094"
+_SOURCE_PREFIX = "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/"
+_ORIGINAL_KERNEL_FILES = {
+    "dispersal/kernels.py": ("1cc5485448afbe0626601669a8ac81fbcffee05e", 9757),
+    "dispersal/receiver_annulus.py": ("f8d8044ec35023ebc8051990aacfb1fc0ce0c63f", 7383),
+    "models/errors.py": ("7fc96895ee1ad5302d22c7a91101cc56cf11e8f4", 1526),
+    "models/validation.py": ("63fba8f1a2956ee9bc11cceb3b1328109a1d81dd", 9306),
+}
 NOMINAL_COVER = {
     "Betula": 0.000686079829522849,
     "Calluna.vulgaris": 0.021086575494765877,
@@ -43,10 +56,51 @@ NOMINAL_COVER = {
 NOMINAL_OBJECTIVE = 1.0121082419620198
 
 
+def _original_kernel_sources(repository: Path, record: dict[str, Any]) -> None:
+    """Authenticate the complete original mathematical capture without source copies."""
+    identities = record["kernel_dependency_sha256"]
+    if set(identities) != {_SOURCE_PREFIX + name for name in _ORIGINAL_KERNEL_FILES}:
+        raise ValueError("English receiver original mathematical source scope differs")
+    try:
+        validate_blobs(
+            repository,
+            [
+                GitSourceMember(
+                    _SOURCE_PREFIX + name,
+                    _SOURCE_PREFIX + name,
+                    record["kernel_candidate"],
+                    blob,
+                    identities[_SOURCE_PREFIX + name],
+                    size,
+                )
+                for name, (blob, size) in _ORIGINAL_KERNEL_FILES.items()
+            ],
+        )
+    except ReportRebuildError as error:
+        raise ValueError(
+            "English receiver original mathematical dependency is unauthenticated"
+        ) from error
+
+
+def _native_number(value: object, name: str, *, positive: bool = False) -> float:
+    """Admit native JSON numbers through current scalar rules without normalization."""
+    if type(value) not in {int, float}:
+        raise ValueError("English receiver requires a native numeric " + name)
+    result = finite_number(value, name, minimum=0, strict_minimum=positive)
+    if result != value:
+        raise ValueError("English receiver scalar value changed: " + name)
+    return result
+
+
 def _captured_kernel(
     repository: Path, payload: dict[str, Any]
 ) -> tuple[np.ndarray, str]:
-    """Use an independently admitted mathematical capture, never infer its authority."""
+    """Reuse original coefficients under unchanged equations and current scalar admission.
+
+    Reading stored coefficients does not recompute quadrature. The original
+    validator belongs to that execution; its whole body is not a dependency of
+    current scalar admission on the fixed native support.
+    """
     path = _safe_file(repository, CAPTURE.as_posix(), "English receiver kernel capture")
     digest = english._sha(path)
     if digest != CAPTURE_SHA256:
@@ -61,7 +115,19 @@ def _captured_kernel(
         or record["receiver_radius_m"] != 80
     ):
         raise ValueError("English receiver capture scope differs")
-    for name, expected in record["kernel_dependency_sha256"].items():
+    _original_kernel_sources(repository, record)
+    for scalar in (
+        "receiver_radius_m",
+        "diffusion_coefficient",
+        "turbulence_parameter",
+        "wind_speed_m_s",
+    ):
+        _native_number(record[scalar], scalar, positive=scalar != "receiver_radius_m")
+    for relative in _ORIGINAL_KERNEL_FILES:
+        if relative == "models/validation.py":
+            continue
+        name = _SOURCE_PREFIX + relative
+        expected = record["kernel_dependency_sha256"][name]
         if (
             english._sha(
                 _safe_file(repository, name, "English receiver mathematical source")
@@ -76,7 +142,11 @@ def _captured_kernel(
         (row["fall_speed_m_s"], row["inner_m"], row["outer_m"]): row for row in cases
     }
     expected_keys = {
-        (p["fallspeed_m_s"], r["inner_m"], r["outer_m"])
+        (
+            _native_number(p["fallspeed_m_s"], "fall_speed_m_s", positive=True),
+            _native_number(r["inner_m"], "inner_radius_m"),
+            _native_number(r["outer_m"], "outer_radius_m"),
+        )
         for p in payload["parameters"]
         for r in payload["rings"]
     }
