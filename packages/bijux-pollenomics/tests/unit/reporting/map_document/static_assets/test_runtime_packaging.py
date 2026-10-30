@@ -104,6 +104,7 @@ def test_runtime_is_exact_original_iife_and_scientific_inventory_stays_unchanged
     assert (
         sum(cast(int, row["byte_count"]) for row in rows if row["initial_load"] is True)
         + len(raw)
+        + len(subject._NATIVE_BINDING.findall(document)[0].encode())
         <= 1048576
     )
     check_javascript_syntax(raw.decode(), tmp_path / "checked-runtime.js")
@@ -189,6 +190,60 @@ def test_runtime_is_included_in_existing_resource_limits_before_any_write(
     with pytest.raises(ValueError, match=reason):
         subject.write_static_map_document(tmp_path / "atlas.html", **request_args)
     assert set(tmp_path.iterdir()) == before
+
+
+@pytest.mark.parametrize("scope", ["initial", "total"])
+def test_actual_inline_binding_utf8_bytes_are_charged_at_exact_resource_boundary(
+    request_args: dict[str, Any], monkeypatch: pytest.MonkeyPatch, scope: str
+) -> None:
+    document = subject._compose_map_document(**request_args)
+    inline = json.dumps({"source_text": "🌿" * 100}, ensure_ascii=False)
+    document = document.replace(
+        'id="atlas-native-lra-binding" type="application/json">null</script>',
+        f'id="atlas-native-lra-binding" type="application/json">{inline}</script>',
+    )
+    runtime = document.split("<!-- atlas-runtime:begin -->")[1].split(
+        "<!-- atlas-runtime:end -->"
+    )[0]
+    body = re.fullmatch(r"\s*<script>(.*)</script>\s*", runtime, re.DOTALL)
+    assert body is not None
+    runtime_bytes = len(body.group(1).encode())
+    rows = normalize_asset_inventory(request_args["static_assets"].manifest["assets"])
+    count = sum(
+        cast(int, row["byte_count"])
+        for row in rows
+        if scope == "total" or row["initial_load"] is True
+    )
+    limit = (
+        "ATLAS_INITIAL_MAX_BYTES"
+        if scope == "initial"
+        else "ATLAS_STATIC_ASSETS_MAX_BYTES"
+    )
+    exact = count + runtime_bytes + len(inline.encode())
+    monkeypatch.setattr(subject, limit, exact)
+    subject._runtime_resources(request_args["static_assets"], runtime_bytes, document)
+    monkeypatch.setattr(subject, limit, exact - 1)
+    with pytest.raises(ValueError, match=f"{scope}.*byte budget"):
+        subject._runtime_resources(
+            request_args["static_assets"], runtime_bytes, document
+        )
+
+
+@pytest.mark.parametrize("defect", ["missing", "duplicate", "invalid_json"])
+def test_inline_binding_boundary_requires_one_literal_json_payload(
+    request_args: dict[str, Any], defect: str
+) -> None:
+    document = subject._compose_map_document(**request_args)
+    node = '<script id="atlas-native-lra-binding" type="application/json">null</script>'
+    assert document.count(node) == 1
+    if defect == "missing":
+        document = document.replace(node, "")
+    elif defect == "duplicate":
+        document += node
+    else:
+        document = document.replace(node, node.replace(">null<", ">invalid<"))
+    with pytest.raises(ValueError):
+        subject._runtime_resources(request_args["static_assets"], 100, document)
 
 
 @pytest.mark.parametrize("defect", ["missing", "duplicate", "malformed", "bootstrap"])

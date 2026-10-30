@@ -110,6 +110,10 @@ _BOOTSTRAP = re.compile(
     r'(<script id="atlas-static-bootstrap" type="application/json">)(.*?)(</script>)',
     re.DOTALL,
 )
+_NATIVE_BINDING = re.compile(
+    r'<script id="atlas-native-lra-binding" type="application/json">(.*?)</script>',
+    re.DOTALL,
+)
 _RUNTIME_LOADER = """<script>
 (() => {
   const fail = () => {
@@ -135,8 +139,15 @@ _RUNTIME_LOADER = """<script>
 </script>"""
 
 
-def _runtime_resources(assets: StaticAtlasAssets, runtime_bytes: int) -> None:
-    """Include executable transport in the existing initial and total budgets."""
+def _runtime_resources(
+    assets: StaticAtlasAssets, runtime_bytes: int, document: str
+) -> None:
+    """Charge executable transport and the actual inline binding to both budgets."""
+    bindings = _NATIVE_BINDING.findall(document)
+    if len(bindings) != 1:
+        raise ValueError("static map document requires one native binding payload")
+    json.loads(bindings[0])
+    inline_bytes = len(bindings[0].encode("utf-8"))
     if not 0 < runtime_bytes <= ATLAS_DOCUMENT_MAX_BYTES:
         raise ValueError("static atlas runtime exceeds its byte budget")
     rows = normalize_asset_inventory(assets.manifest["assets"])
@@ -151,11 +162,11 @@ def _runtime_resources(assets: StaticAtlasAssets, runtime_bytes: int) -> None:
             initial.append(count)
     if len(initial) + 1 > ATLAS_INITIAL_MAX_REQUESTS:
         raise ValueError("static atlas runtime exceeds initial request budget")
-    if sum(initial) + runtime_bytes > ATLAS_INITIAL_MAX_BYTES:
+    if sum(initial) + runtime_bytes + inline_bytes > ATLAS_INITIAL_MAX_BYTES:
         raise ValueError("static atlas runtime exceeds initial byte budget")
     if len(rows) + 1 > ATLAS_STATIC_ASSETS_MAX_FILES:
         raise ValueError("static atlas runtime exceeds total asset count budget")
-    if sum(counts) + runtime_bytes > ATLAS_STATIC_ASSETS_MAX_BYTES:
+    if sum(counts) + runtime_bytes + inline_bytes > ATLAS_STATIC_ASSETS_MAX_BYTES:
         raise ValueError("static atlas runtime exceeds total asset byte budget")
 
 
@@ -210,7 +221,7 @@ def write_static_map_document(
     if match is None:
         raise ValueError("static map runtime boundary is invalid")
     body = match.group(1).encode("utf-8")
-    _runtime_resources(static_assets, len(body))
+    _runtime_resources(static_assets, len(body), document)
     digest = hashlib.sha256(body).digest()
     runtime = parent / f"{output.stem}.atlas-runtime.{digest.hex()[:16]}.js"
     reference = {

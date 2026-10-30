@@ -340,9 +340,13 @@ def test_signed_report_uses_complete_static_transport_and_bound_support(
     assert bootstrap["runtime"]["byte_count"] == len(runtime)
     assert "(async () => {" in runtime.decode()
     binding = json.loads(
-        runtime.decode().split("const NATIVE_LRA_BINDING = ", 1)[1].split(";", 1)[0]
+        html.split('<script id="atlas-native-lra-binding" type="application/json">', 1)[
+            1
+        ].split("</script>", 1)[0]
     )
     assert binding["sha256"] == manifest["native_view_sha256"]
+    assert sha(binding["bytes"].encode()) == manifest["native_view_sha256"]
+    assert "const NATIVE_LRA_BINDING = JSON.parse(" in runtime.decode()
     assert all(
         row["source_calendar_support"]["younger_bp"] == endpoints[0]
         for row in view["rows"]

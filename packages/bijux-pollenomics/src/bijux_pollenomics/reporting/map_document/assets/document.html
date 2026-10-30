@@ -2546,6 +2546,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
     <script src="__ASSET_BASE_PATH__/markercluster/leaflet.markercluster.js"></script>
 __STATIC_CHUNK_SCRIPT_TAGS__
 __NATIVE_LRA_SCRIPT_TAG__
+    <script id="atlas-native-lra-binding" type="application/json">__NATIVE_LRA_BINDING__</script>
     <!-- atlas-runtime:begin -->
     <script>
       (async () => {
@@ -2779,7 +2780,13 @@ __NATIVE_LRA_SCRIPT_TAG__
           if (runtimeBytes <= 0 || runtimeBytes > 524288) staticAtlasFailure('runtime byte budget exceeded');
           runtimeRequests = 1;
         }
-        const initialBytes = runtimeBytes + initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+        const binding = document.getElementById('atlas-native-lra-binding');
+        if (!binding || typeof binding.textContent !== 'string') staticAtlasFailure('native binding payload is unavailable');
+        const inlineBytes = new TextEncoder().encode(binding.textContent).byteLength;
+        const totalBytes = runtimeBytes + inlineBytes + STATIC_ATLAS_BOOTSTRAP.assets.reduce((total, row) => total + row.byte_count, 0);
+        const totalByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.static_assets_max_bytes, 'total asset byte budget');
+        if (totalBytes > totalByteBudget) staticAtlasFailure('total asset byte budget exceeded');
+        const initialBytes = runtimeBytes + inlineBytes + initial.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
         const initialRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_requests, 'initial request budget');
         const initialByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.initial_max_bytes, 'initial byte budget');
         staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets?.interaction_max_requests, 'interaction request budget');
@@ -3210,7 +3217,7 @@ __NATIVE_LRA_SCRIPT_TAG__
       const SCOPE_KEY = __SCOPE_KEY_JSON__;
       const COUNTRIES = __COUNTRIES_JSON__;
 __NATIVE_LRA_CONTROLLER__
-      const NATIVE_LRA_BINDING = __NATIVE_LRA_BINDING__;
+      const NATIVE_LRA_BINDING = JSON.parse(document.getElementById('atlas-native-lra-binding').textContent);
 __SOURCE_RECORD_EXPORT_CONTROLLER__
 __URL_STATE_CONTROLLER__
       let nativeLraController = null;

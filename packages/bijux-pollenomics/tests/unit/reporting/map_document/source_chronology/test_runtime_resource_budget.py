@@ -42,10 +42,14 @@ def test_real_bootstrap_accounts_for_runtime_requests_bytes_and_transport_identi
             + ");"
             + helpers
             + r"""
+let binding={textContent:JSON.stringify({source_text:'🌿'.repeat(100)})};
+const document={getElementById(id){if(id!=='atlas-native-lra-binding')throw Error(id);return binding;}};
+const inlineBytes=new TextEncoder().encode(binding.textContent).byteLength;
 const base=structuredClone(STATIC_ATLAS_BOOTSTRAP);
 const runtime={path:'nordic.atlas-runtime.'+'a'.repeat(16)+'.js',byte_count:64000,integrity:'sha256-'+'A'.repeat(43)+'='};
 const initial=base.assets.filter(row=>row.initial_load===true);
 const initialBytes=initial.reduce((total,row)=>total+row.byte_count,0);
+const totalBytes=base.assets.reduce((total,row)=>total+row.byte_count,0);
 function outcome(change){
   STATIC_ATLAS_BOOTSTRAP=structuredClone(base);
   change(STATIC_ATLAS_BOOTSTRAP);
@@ -55,9 +59,12 @@ function outcome(change){
 const result={
   inline:outcome(()=>{}),
   runtime:outcome(b=>{b.runtime=runtime;}),
-  exactLimits:outcome(b=>{b.runtime=runtime;b.budgets.initial_max_requests=initial.length+1;b.budgets.initial_max_bytes=initialBytes+runtime.byte_count;}),
+  exactLimits:outcome(b=>{b.runtime=runtime;b.budgets.initial_max_requests=initial.length+1;b.budgets.initial_max_bytes=initialBytes+runtime.byte_count+inlineBytes;b.budgets.static_assets_max_bytes=totalBytes+runtime.byte_count+inlineBytes;}),
   requestOverflow:outcome(b=>{b.runtime=runtime;b.budgets.initial_max_requests=initial.length;}),
-  byteOverflow:outcome(b=>{b.runtime=runtime;b.budgets.initial_max_bytes=initialBytes+runtime.byte_count-1;}),
+  byteOverflow:outcome(b=>{b.runtime=runtime;b.budgets.initial_max_bytes=initialBytes+runtime.byte_count+inlineBytes-1;}),
+  omittedInlineInitial:outcome(b=>{b.runtime=runtime;b.budgets.initial_max_bytes=initialBytes+runtime.byte_count;}),
+  omittedInlineTotal:outcome(b=>{b.runtime=runtime;b.budgets.static_assets_max_bytes=totalBytes+runtime.byte_count;}),
+  totalOverflow:outcome(b=>{b.runtime=runtime;b.budgets.static_assets_max_bytes=totalBytes+runtime.byte_count+inlineBytes-1;}),
   unsafePath:outcome(b=>{b.runtime={...runtime,path:'../runtime.js'};}),
   wrongPathType:outcome(b=>{b.runtime={...runtime,path:[runtime.path]};}),
   wrongIntegrity:outcome(b=>{b.runtime={...runtime,integrity:'unknown'};}),
@@ -66,6 +73,8 @@ const result={
   booleanBytes:outcome(b=>{b.runtime={...runtime,byte_count:true};}),
   nullRuntime:outcome(b=>{b.runtime=null;}),
 };
+binding=null;
+result.missingBinding=outcome(()=>{});
 console.log(JSON.stringify(result));
 """
         ),
@@ -78,6 +87,10 @@ console.log(JSON.stringify(result));
     )
     assert "initial request budget exceeded" in observed["requestOverflow"]
     assert "initial byte budget exceeded" in observed["byteOverflow"]
+    assert "initial byte budget exceeded" in observed["omittedInlineInitial"]
+    assert "total asset byte budget exceeded" in observed["omittedInlineTotal"]
+    assert "total asset byte budget exceeded" in observed["totalOverflow"]
+    assert "native binding payload is unavailable" in observed["missingBinding"]
     for field in ("unsafePath", "wrongPathType", "wrongIntegrity", "nullRuntime"):
         assert "runtime transport identity is invalid" in observed[field]
     assert "runtime byte budget exceeded" in observed["zeroBytes"]

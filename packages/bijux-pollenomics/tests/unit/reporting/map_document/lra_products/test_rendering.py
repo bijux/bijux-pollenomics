@@ -76,7 +76,8 @@ def test_legacy_page_has_no_native_mount_or_controller() -> None:
     html = _render(None)
     assert 'id="lra-controls"' not in html
     assert "function createNativeLraController" not in html
-    assert "const NATIVE_LRA_BINDING = null;" in html
+    assert 'id="atlas-native-lra-binding" type="application/json">null</script>' in html
+    assert "const NATIVE_LRA_BINDING = JSON.parse(" in html
 
 
 def test_native_view_is_script_safe_and_all_inline_scripts_parse(
