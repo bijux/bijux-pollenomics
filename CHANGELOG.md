@@ -12,7 +12,7 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Require explicit whole-pollen qualification and display native observation panels ([#306](https://github.com/bijux/bijux-pollenomics/pull/306)).
+- **Pending review:** Qualify whole-pollen claims and publish native observation panels with bounded runtime assets ([#306](https://github.com/bijux/bijux-pollenomics/pull/306)).
 - **Verified merge (2026-10-30 10:34:25 UTC):** Retain original kernel boundary and minimum-lake comparisons ([#307](https://github.com/bijux/bijux-pollenomics/pull/307)).
 - **Verified merge (2026-10-30 09:41:49 UTC):** Preserve reference CSV precision and retain dated LOVE wrapper comparisons ([#304](https://github.com/bijux/bijux-pollenomics/pull/304)).
 - **Verified merge (2026-10-30 09:14:58 UTC):** Retain conditional adequacy and sample-unit precision evidence ([#305](https://github.com/bijux/bijux-pollenomics/pull/305)).
