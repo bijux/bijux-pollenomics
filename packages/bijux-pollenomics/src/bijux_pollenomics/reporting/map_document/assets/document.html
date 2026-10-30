@@ -5623,7 +5623,8 @@ __URL_STATE_CONTROLLER__
         const sourceContext = ['neotoma','sead'].includes(tabs.overview?.source_family)
           ? activeFocusTab === 'classification' ? renderNativeClassificationContext(tabs)
             : activeFocusTab === 'provenance' ? renderSourceProvenanceContext(tabs) : '' : '';
-        focusDetail.innerHTML = sourceOverview + sourceDiagram + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
+        const relationDetails = activeFocusTab === 'relation' ? renderRelationDetails(tabs.relation) : '';
+        focusDetail.innerHTML = sourceOverview + sourceDiagram + relationDetails + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
         focusCopyLinkButton.disabled = focusState?.kind !== 'point';
@@ -6914,6 +6915,7 @@ __URL_STATE_CONTROLLER__
               interpretation: presentation.interpretation,
             });
             tabs.relation = mergeEdgeDetailTab(tabs.relation, {
+              ...providedEdgeFields(edge, ['source_event', 'target_event', 'relation_details']),
               ...providedEdgeFields(edge, [
                 'source_event_id', 'target_event_id', 'source_site_id', 'target_site_id',
                 'source_country_code', 'target_country_code', 'feature_key', 'resolution',
