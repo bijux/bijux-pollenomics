@@ -14,6 +14,17 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    "bijux_pollenomics_dev/source_completion/neotoma/exhult_cells.py": {
+        "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
+            {"Sheet"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/neotoma/exhult_count_correspondence.py": {
+        "bijux_pollenomics.collection.sources.rootsi": frozenset({"authority"}),
+        "bijux_pollenomics.collection.sources.rootsi.cells": frozenset(
+            {"models", "inputs", "decoding"}
+        ),
+    },
     "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/flink_nordic.py": {
         "bijux_pollenomics.analysis.lra.inputs.validation": frozenset(
             {"validate_request"}
@@ -1663,3 +1674,49 @@ def test_historical_author_reader_bindings_remain_file_module_and_symbol_specifi
             (f"importlib.import_module({module!r})", path),
         ):
             assert host_import_violations(source, reader)
+
+
+def test_exhult_cached_cell_bindings_remain_file_module_and_symbol_specific() -> None:
+    """Literal count correspondence grants only its exact cached-cell host bindings."""
+    bindings = (
+        (
+            "exhult_cells.py",
+            "bijux_pollenomics.collection.sources.rootsi.cells.decoding",
+            "Sheet",
+        ),
+        (
+            "exhult_count_correspondence.py",
+            "bijux_pollenomics.collection.sources.rootsi",
+            "authority",
+        ),
+        (
+            "exhult_count_correspondence.py",
+            "bijux_pollenomics.collection.sources.rootsi.cells",
+            "decoding",
+        ),
+        (
+            "exhult_count_correspondence.py",
+            "bijux_pollenomics.collection.sources.rootsi.cells",
+            "inputs",
+        ),
+        (
+            "exhult_count_correspondence.py",
+            "bijux_pollenomics.collection.sources.rootsi.cells",
+            "models",
+        ),
+    )
+    for filename, module, symbol in bindings:
+        path = "bijux_pollenomics_dev/source_completion/neotoma/" + filename
+        statement = f"from {module} import {symbol}"
+        assert not host_import_violations(statement, path)
+        for text, reader in (
+            (statement, path + ".other"),
+            (f"from {module} import {symbol}_other", path),
+            (f"from {module}.other import {symbol}", path),
+            (f"from {module} import {symbol}, unreviewed", path),
+            (f"from {module} import *", path),
+            (f"import {module}", path),
+            (f"__import__({module!r})", path),
+            (f"importlib.import_module({module!r})", path),
+        ):
+            assert host_import_violations(text, reader)
