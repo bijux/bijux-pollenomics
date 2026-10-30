@@ -19,6 +19,10 @@ from .source_roles.atlas_context import (
     ATLAS_CONTEXT_SOURCES,
     validated_atlas_context_source,
 )
+from .source_roles.atlas_evidence_selection import (
+    ATLAS_EVIDENCE_SELECTION_SOURCES,
+    validated_atlas_evidence_selection_source,
+)
 from .source_roles.atlas_relation_context import (
     ATLAS_RELATION_CONTEXT_SOURCES,
     validated_atlas_relation_context_source,
@@ -555,6 +559,10 @@ def validated_current_scientific_source(
         )
     if name in ATLAS_CONTEXT_SOURCES:
         return validated_atlas_context_source(
+            repository, historical, logical, source_buffer
+        )
+    if name in ATLAS_EVIDENCE_SELECTION_SOURCES:
+        return validated_atlas_evidence_selection_source(
             repository, historical, logical, source_buffer
         )
     if name in ATLAS_RUNTIME_TRANSPORT_SOURCES:
