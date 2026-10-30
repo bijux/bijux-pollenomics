@@ -19,7 +19,11 @@ from bijux_pollenomics.reporting.source_chronology import (
     build_source_chronology_atlas_projection,
 )
 
-from .constants import _UNAVAILABLE_CLASSIFICATION, _UNAVAILABLE_RELATION
+from .constants import (
+    _UNAVAILABLE_CLASSIFICATION,
+    _UNAVAILABLE_RELATION,
+    PROJECTION_SCHEMA_VERSION,
+)
 from .io import (
     _decode_json_object,
     _mapping,
@@ -331,6 +335,18 @@ def _project_neotoma(
                     "relation": dict(_UNAVAILABLE_RELATION),
                     "classification": dict(_UNAVAILABLE_CLASSIFICATION),
                     "provenance": {
+                        "projection_schema_version": PROJECTION_SCHEMA_VERSION,
+                        **{
+                            target: manifest[source]
+                            for source, target in (
+                                ("schema_version", "materialization_schema_version"),
+                                (
+                                    "relational_snapshot_schema_version",
+                                    "relational_snapshot_schema_version",
+                                ),
+                            )
+                            if source in manifest
+                        },
                         "source_snapshot_id": source_snapshot_id,
                         "build_id": build_id,
                         "materialization_sha256": materialization_sha256,

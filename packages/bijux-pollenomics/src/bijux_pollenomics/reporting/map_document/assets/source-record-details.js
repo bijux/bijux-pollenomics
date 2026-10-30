@@ -76,3 +76,38 @@ function renderSourceSampleObservations(tabs) {
   if (!detailTableShape(table) || ['observation_id','sample_id','source_value','source_unit','source_denominator','denominator_status','detection_status'].some(field => !table.fields.includes(field))) return unavailable('Neotoma sample observation values or measurement metadata are unavailable.');
   return `<section aria-label="Sample source observations"><h3>Sample source observations</h3><p>Original site-wide source observations, linked by native sample and observation IDs. Values, units, denominators and missingness are retained as reported; source null is not zero. No cross-unit sum, inferred percentage or vegetation reconstruction is made. This is the same observation table available in Pollen/composition.</p>${renderDetailTable(table,'samples.observations')}</section>`;
 }
+function renderNativeClassificationContext(tabs) {
+  const family = tabs?.overview?.source_family;
+  const table = family === 'neotoma' ? tabs.pollen_composition?.variables
+    : family === 'sead' ? tabs.pollen_composition?.taxa : null;
+  const required = family === 'neotoma' ? ['variable_id','source_taxon_id','source_reported_name','source_semantics']
+    : ['taxon_relation_id','taxon_id','source_ecocodes','derived_classification_status'];
+  const heading = '<h3>Native classification context</h3>';
+  try {
+    if (!['neotoma','sead'].includes(family)) throw Error('unsupported source');
+    sourceRecordRows(table,required);
+    return `<section aria-label="Native classification context">${heading}<p>Literal source names, taxon identities, group codes and element semantics only. Multiple reported codes or semantics are retained together; they do not establish accepted normalized names, memberships, crosswalk versions, review evidence or a ranking of alternatives. Per-observation codes and missingness remain in Samples and Pollen/composition. Accepted classification status is shown separately.</p>${renderDetailTable(table,'classification.native_context')}</section>`;
+  } catch (error) {
+    return `<section aria-label="Native classification context">${heading}<p>Native classification context is unavailable for source family ${escapeHtml(detailTableText(family))}: the supported native taxon table is not available. This does not establish an accepted classification.</p></section>`;
+  }
+}
+function renderSourceProvenanceContext(tabs) {
+  const family = tabs?.overview?.source_family, heading = '<h3>Source dataset metadata</h3>';
+  const table = family === 'neotoma' ? tabs.samples?.datasets
+    : family === 'sead' ? tabs.pollen_composition?.dataset_semantics : null;
+  try {
+    if (!['neotoma','sead'].includes(family)) throw Error('unsupported source');
+    const datasets = sourceRecordRows(table,family === 'neotoma' ? ['dataset_id','source_payload'] : ['dataset_id']);
+    const citations = family === 'neotoma' ? datasets.map(row => {
+      const payload = row.source_payload;
+      const native = key => payload && typeof payload === 'object' && !Array.isArray(payload) && Object.hasOwn(payload,key) ? payload[key] : undefined;
+      return `<article><h4>Native dataset ${escapeHtml(detailTableText(row.dataset_id))}</h4>${sourceRecordFields([
+        ['Dataset DOI values as reported',native('doi')],['Dataset investigators as reported',native('datasetpi')],
+        ['Constituent database',native('database')],['Dataset notes',native('datasetnotes')],
+      ])}</article>`;
+    }).join('') : '<p>SEAD dataset semantics are available below; primary publication citations are not exposed by this dataset table.</p>';
+    return `<section aria-label="Source dataset metadata">${heading}${citations}<p>Native metadata and the original dataset table are retained without selecting, merging or normalizing citation alternatives. A dataset DOI alone is not a full primary publication citation or a rights decision. Missing, source-null and empty citation values remain distinct; captured publication records require a separate qualified join before display.</p>${renderDetailTable(table,'provenance.datasets')}<p>Source identities, digests, schema tags and record locators are retained in this tab where supplied. Record and part locators identify the preserved evidence named there; they do not establish a complete original-acquisition or transformation chain. No transformation history is invented here. Source-specific transformation fields remain in Chronology where supplied.</p></section>`;
+  } catch (error) {
+    return `<section aria-label="Source dataset metadata">${heading}<p>Dataset citation context is unavailable for source family ${escapeHtml(detailTableText(family))}. Existing provenance remains available; missing citation metadata is not a claim that the original source is externally unavailable.</p></section>`;
+  }
+}

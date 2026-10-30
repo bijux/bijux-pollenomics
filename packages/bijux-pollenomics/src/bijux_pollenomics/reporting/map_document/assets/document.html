@@ -5620,7 +5620,10 @@ __URL_STATE_CONTROLLER__
           ? renderSelectedSourceOverview(tabs, focusState.sourceSignal) : '';
         const sampleObservations = activeFocusTab === 'samples' && tabs.overview?.source_family === 'neotoma'
           ? renderSourceSampleObservations(tabs) : '';
-        focusDetail.innerHTML = sourceOverview + sourceDiagram + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations;
+        const sourceContext = ['neotoma','sead'].includes(tabs.overview?.source_family)
+          ? activeFocusTab === 'classification' ? renderNativeClassificationContext(tabs)
+            : activeFocusTab === 'provenance' ? renderSourceProvenanceContext(tabs) : '' : '';
+        focusDetail.innerHTML = sourceOverview + sourceDiagram + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
         focusCopyLinkButton.disabled = focusState?.kind !== 'point';
