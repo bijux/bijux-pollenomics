@@ -20,6 +20,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.source_paths import safe_source_fil
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction import (
     english_receiver_annulus as subject,
 )
+from bijux_pollenomics_dev.source_completion.pollen_reconstruction import (
+    english_shared_ppe as english,
+)
 
 ROOT = Path(__file__).resolve().parents[5]
 
@@ -61,8 +64,8 @@ def _capture_case(
     record: dict[str, Any] = {
         "fixture_only": "Invented positive coefficients; no native computation or evidence.",
         "schema_version": "qualified-english-receiver-annulus-kernels.v1",
-        "source_manifest_sha256": subject.english.MANIFEST_SHA256,
-        "prepared_request_sha256": subject.english.REQUEST_SHA256,
+        "source_manifest_sha256": english.MANIFEST_SHA256,
+        "prepared_request_sha256": english.REQUEST_SHA256,
         "producer_native_exit": 1,
         "case_count": 60,
         "receiver_radius_m": 80,
