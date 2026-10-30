@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "fd7f9d550b6c53be5575e22aac36ffcfe852ae2eac82a2397c59a2154e323cd9",
-      "bytes": 7385618
+      "sha256": "f6602022630ba574623318ea93d3852f4c96c29fa05dc5c3643b78510cf16d16",
+      "bytes": 7385757
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -5544,6 +5544,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_grid/historical_reader.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/author_site_evaluations.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/author_evaluations.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/nordic_wind.py",

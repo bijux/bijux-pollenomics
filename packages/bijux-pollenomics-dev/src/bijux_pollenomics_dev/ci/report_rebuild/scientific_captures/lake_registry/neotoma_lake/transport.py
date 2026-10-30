@@ -12,7 +12,11 @@ from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry
 from ....contracts import JsonObject, ReportRebuildError
 from ....ownership import ReportOwnershipError, _regular_confined_file
 from .execution import exact, require, validate_lake_execution
-from .members import validate_catalog, validate_members
+from .members import (
+    validate_catalog,
+    validate_members,
+    validate_recorded_source_bindings,
+)
 
 CAPTURE = "data/source-custody/neotoma/lakeparameters/capture.json"
 CAPTURE_SHA256 = "25442e43479b87f7cf53a3476f9a825992616e15ab2587f43bfdaffa5ed37305"
@@ -129,7 +133,7 @@ def validated_neotoma_lake_capture(
     members = capture["members"]
     exact(len(members), 2276)
     exact(capture["member_count"], 2276)
-    validate_members(repository, capture_path.parent, members)
+    sources = validate_members(repository, capture_path.parent, members)
     prefix = Path(CAPTURE).parent.as_posix()
 
     def member(name: str) -> Path:
@@ -278,9 +282,9 @@ def validated_neotoma_lake_capture(
                     for k in ("sha256", "bytes")
                 },
             )
-    exact(len(capture["current_source_bindings"]), 9)
-    for name, expected in capture["current_source_bindings"].items():
-        exact(pin(file(repository, name)), expected)
+    validate_recorded_source_bindings(
+        capture["current_source_bindings"], members, sources.read_source
+    )
     entries = []
     for name, publication in PUBLICATIONS.items():
         source = member(publication["member"])
