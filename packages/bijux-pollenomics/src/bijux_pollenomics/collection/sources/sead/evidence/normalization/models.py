@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import TypedDict
+from typing import NotRequired, TypedDict
 
 
 class _TemporalRowGroup(TypedDict):
@@ -47,6 +47,7 @@ class SeadChronologyClaim(TypedDict):
     claim_type: str
     source_age_type: str
     source_age_value: dict[str, object]
+    source_native_row: NotRequired[dict[str, object]]
     source_age_unit: str
     calibration_status: str
     younger_bp: int | None

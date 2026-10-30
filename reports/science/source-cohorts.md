@@ -36,6 +36,124 @@ zero-valued predictions. Denmark's single site cannot estimate within-country
 between-site variation. We treat all four country results as development
 evidence because the Nordic outcomes were previously exposed.
 
+### Native sequence boundaries in the exposed cohort
+
+We checked endpoint support in the same **5,660 selected samples at 84 sites**,
+preserving each dataset and physical collection unit. These define 85 source
+sequences: the Danish site contains two distinct cores. Another 180 captured
+samples belong to those same owners, giving 5,840 samples for the separate
+captured-owner comparison. This context does not enlarge the selected cohort
+or establish that a complete historical sequence was captured. The
+[compact result](source-cohorts/neotoma-sequence-support/report.json),
+[eight country/scope rows](source-cohorts/neotoma-sequence-support/countries.csv)
+and [five refusal owners](source-cohorts/neotoma-sequence-support/refusals.csv)
+retain their separate denominators.
+
+| Country | Selected / captured samples | Dataset–collection-unit sequences | Native taxon rows per scope | Positive at bottom, selected / captured | Depth/count-refused rows, selected / captured |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Sweden | 228 / 228 | 3 | 295 | 37 / 37 | 0 / 0 |
+| Denmark | 91 / 92 | 2 | 235 | 54 / 54 | 0 / 0 |
+| Finland | 1,797 / 1,946 | 28 | 1,583 | 450 / 447 | 6 / 9 |
+| Norway | 3,544 / 3,574 | 52 | 4,299 | 1,108 / 1,108 | 67 / 67 |
+
+Each taxon row retains one native variable ID, taxon ID and reported name at
+one dataset/collection-unit owner. It is **not** a unique regional taxon,
+31-target author composite, biological arrival or independent observation.
+Across 6,412 rows per scope, 2,135 selected versus 2,098 captured rows have a
+reported positive count at the shallowest sample; corresponding deepest-sample
+counts are 1,649 and 1,646. A positive endpoint flags possible observation-window
+truncation. Other resolved endpoints have no listed measurement, rather than
+a reported zero: selected top/bottom counts are 4,204/4,690 and captured counts
+4,238/4,690. No endpoint in this result has a reported-zero-only measurement.
+Missing measurements do not establish biological absence; missing and reported
+zero remain distinct throughout the detailed output.
+
+The native scan retains 185,996 observations: 124,794 valid integer pollen
+NISP rows, 193 invalid NISP rows and 61,009 other-element/unit rows. It reuses
+the country study's integer-only count rule; invalid values are not rounded
+or converted to zero. Depth/count refusals affect 73 selected and 76 captured
+taxon rows. Dataset 62017 has missing depths; 52255 and 58530 retain invalid
+counts. Age-order refusal affects 309 selected and 312 captured rows, including
+the depth/count refusals, an age reversal in dataset 4445 and mixed selected
+chronology IDs in 45331. Individually resolved source ages are not a coherent
+sequence chronology merely because every sample has an age. All 136 signed
+negative captured source point ages survive, including six selected Swedish
+ages. BP types and year units, the 1950 reference, exact claim IDs and physical
+ownership remain explicit. The per-sample payload does not declare a depth
+unit; we report native depth order and gaps without labelling them centimetres.
+
+Read-only inspection of the original JSON tokens in the retained
+[Skogstjern dataset 52255](../../data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json)
+and [Palomaa dataset 58530](../../data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json)
+clarifies these 193 count refusals: six Skogstjern Picea entries are `0.5`,
+and 187 Palomaa entries across nine native taxa range from `0.5` to `1075.5`.
+All are positive half-integers, with source unit `NISP` and detection status
+`reported_value`; none is a mathematically integral count rejected merely
+because its JSON token parsed as a float. The retained 29 September 2026
+publication responses remain at
+`neotoma/publication-links/2026-09-29/responses/dataset-52255-publications.json`
+and `dataset-58530-publications.json` in the existing source store. They supply
+publication relationships, not a rule interpreting fractional counts. The
+[primary Skogstjern PANGAEA table](https://doi.pangaea.de/10.1594/PANGAEA.885277?format=html)
+independently lists all six literal Picea `0.5` values at depths 2.87, 2.91,
+3.07, 3.13, 3.50 and 4.14 m. Its separate rare-type notation does not establish
+what those fractions mean. Neither the examined counting-method text nor
+Palomaa's annual-sample/amalgamation note supplies their measurement or
+encoding origin. We assume no weighting, averaging or rounding rule. This
+source-token clarification adds no model, study, ecological interpretation or
+scientific admission; the declared integer-count predicate, cohort and
+refusals remain unchanged.
+
+The corrected consumer ran at `5cb4cc36465da75fd9473d14552c276fb3c6b41c`,
+exiting zero in **7.584 seconds**, with measured peak RSS **839,057,408 bytes**.
+Its detailed CSVs total 7,084,870 bytes, within the declared 120-second,
+1.5-billion-byte measured-memory and 16-million-byte output bounds. Memory and
+storage were checked after execution; these were not enforced allocation or
+filesystem limits. Eighteen focused controls, configured Ruff, formatting and
+strict mypy pass. The independent observer at
+`ce9ac38163e80127cd6a8c0a73c3d509e6713bda` reconstructed all 5,840 sample
+rows, 12,824 taxon/scope rows and 185,996 native observations, including the
+136 signed ages, without calling the producer's aggregation. It exited zero
+in **11.221 seconds**, with peak RSS **746,553,344 bytes** and zero model fits.
+
+The original successful invocation at `39fa622396eff889bf2e76ec7f46a476fe7f0c47`
+is retained under `artifacts/nordic-sequence-support/source-run`. It incorrectly
+also labelled repeated missing depths as duplicate depths. The narrow
+correction compares only finite depths: all 12,824 taxon rows were compared,
+and **only 132 reason fields** changed, covering 66 axes in both scopes at
+dataset 62017/collection unit 45043. Every sample CSV byte, other table field,
+refusal status, count and endpoint result remained unchanged. Corrected detailed
+outputs and independent checks remain under
+`artifacts/nordic-sequence-support/finite-depth-boundaries`; this account keeps
+the compact summaries rather than another full CSV copy.
+
+The executed commands, wrapped by the existing bounded executor and
+`/usr/bin/time -l`, were equivalent to these repository-relative invocations;
+the compact result preserves their literal original argument lists. Replays
+require new absent output paths.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
+  bijux_pollenomics_dev.source_completion.nordic.sequence_support \
+  --repository "$PWD" \
+  --output "$PWD/artifacts/nordic-sequence-support/finite-depth-boundaries"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B \
+  packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_sequence_support_result.py \
+  --repository "$PWD" \
+  --result "$PWD/artifacts/nordic-sequence-support/finite-depth-boundaries" \
+  --output "$PWD/artifacts/nordic-sequence-support/finite-depth-boundaries/independent-check.json"
+```
+
+This is a source-count diagnostic on already exposed development samples,
+under the retained Neotoma/EPD attribution and default CC BY 4.0 policy. No
+private author taxonomy lookup is consumed or redistributed. It supplies no
+biological absence, arrival date, empirical event, calibrated chronology,
+historical basin or new LRA admission. The paired scopes share observations;
+their endpoint counts cannot be treated as independent samples or a country
+ranking. This bounded result advances the sequence-truncation diagnostic,
+without completing the broader coverage/fairness or four-country scientific
+acceptance requirements.
+
 ## LRA source gate
 
 We require one identified physical core with selected chronology,

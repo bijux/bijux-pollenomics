@@ -23,6 +23,43 @@ apart. Its core identity is `not_established` and radius transfer is
 age-model or historical-basin link. We therefore refused a core-linked
 pollen–archaeology or LRA parameter join.
 
+Retained Neotoma metadata supplies a more specific provenance lead. Dataset
+`53999` (EPD E# 2789) at site `28871` belongs to collection unit `39240`, whose
+provider fields name **C3 core**, handle `BJARE`, and a central-lake location
+at 1.7 m water depth. Its GPS fields are null: the Neotoma point above is
+**site metadata**; measured C3 GPS is not supplied. The dataset note records a 2017
+Landclim Project contribution by Gaillard-Lemdahl. These fields are retained
+in `data/neotoma/relational/surfaces/{datasets,collection_units,sites}/part-00001.json`;
+the retained publication response identifies primary publication `17362`.
+
+The [paper by Gaillard et al. (1991), printed page 108](https://page-one.springer.com/pdf/preview/10.1007/978-94-011-3592-4_14)
+independently identifies central core C3 as the pollen and multiproxy sequence,
+and distinguishes C3 and C4 for upper-metre lead-210 dating. Its published **site** coordinates,
+55°27′ N, 13°45′ E, convert exactly to LandClim metadata row 974's
+55.45° N, 13.75° E. This agreement is a source-point provenance clue; it does
+not establish coordinate origin, datum, or a correction to either point.
+These metadata and preview pages do not establish that the selected LandClim
+samples and chronology are precisely the Neotoma C3 sequence. The **1.02697 km**
+discrepancy and radius-transfer refusal remain.
+
+The same page describes a roughly circular lake, maximum diameter 200 m,
+area about 2 ha and maximum depth 1.7 m. It reports peat accumulation from
+9700 BP until lake formation around 2700 BP, then about 4 m of lake sediment;
+these are the paper's BP labels, without calibration or epoch conversion here.
+It places outlet canalization between 1812 and 1888, piped drainage from 1970,
+and catchment reduction from about 25 to 15 ha between 1809 and 1915.
+These published changes make static basin transfer conditional. They do not
+supply a dated basin outline, time-varying radius, full chronology or current
+field conditions; 1991 is the publication year, not a measurement date.
+
+The private two-page publisher preview was captured once with HTTP 200 and
+complete body on 26 October 2026: 463,767 bytes, SHA-256
+`ed9dcf75889735a3da4739d0d071fdcd0dd435be128fc3093fd4fcdccac12acb`.
+The PDF and capture manifest are retained under the canonical private-source
+locator `reference-sources/bjaresjo/springer-978-94-011-3592-4-14-preview/`.
+Printed page 108 was checked against its rendered source image. This factual
+citation does not redistribute the figure or establish an open licence.
+
 ## The nearby SEAD context we could verify
 
 Using the official lake representative point and unrounded WGS84 distances,

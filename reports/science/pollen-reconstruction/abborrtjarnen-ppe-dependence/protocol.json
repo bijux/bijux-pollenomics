@@ -1,0 +1,68 @@
+{
+  "schema_version": "abborrtjarnen-ppe-dependence-protocol.v1",
+  "question": "How do unknown shared PPE correlations change conditional delta uncertainty of five-taxon temporal composition contrasts at the ABBO core?",
+  "core": {
+    "dataset_id": 19913,
+    "site_id": 13338,
+    "collection_unit_id": 14910,
+    "handle": "ABBO",
+    "chronology_id": 11516,
+    "native_samples": 107,
+    "selected_samples": 29
+  },
+  "taxon_axis": ["Betula", "Cyperaceae", "Juniperus communis", "Pinus sylvestris", "Poaceae"],
+  "native_taxon_ids": [29, 74, 4416, 1287, 417],
+  "window_ids": [3, 4, 5, 9],
+  "window_width_years": 500,
+  "window_sample_counts": [7, 9, 8, 5],
+  "window_semantics": "Half-open [500*b,500*(b+1)) windows on the literal native calibrated-BP age labels. AD 1950 is a declared reference interpretation, not a source field independently bound by this capture; no CE conversion is performed. Named native point ages are fixed; signed original ages are retained, never clipped. These four windows were already frozen in the exposed ABBO development comparison.",
+  "panel_rule": "Maximal intersection of literal public parameter labels explicitly reported in every selected source sample. No alias aggregation, absent-cell zero fill, or claim of a complete terrestrial or 31-taxon denominator.",
+  "physical": {
+    "source_reported_area_ha": 3.0,
+    "receiver_radius_rule": "sqrt(30000/pi) metres",
+    "uniform_circular_receiver": true,
+    "homogeneous_terrestrial_annulus": true,
+    "regional_extent_m": 100000.0,
+    "wind_speed_m_s": 3.0,
+    "diffusion_coefficient": 0.12,
+    "turbulence_parameter": 0.25,
+    "quadrature_absolute_tolerance": 1e-9,
+    "quadrature_relative_tolerance": 1e-8,
+    "geometry_posture": "Declared static circular receiver derived from reported event area; no historical shoreline, qualified basin radius, or reconstruction of the original LandClim analysis is asserted.",
+    "transport_posture": "Conditional stationary isotropic GPM displacement and uniform disk reception. All panel pollen is attributed to the homogeneous land annulus, with no plants on the receiver or lake-margin source term; Cyperaceae and Poaceae can violate that assumption in real basins. The coefficient 0.12 follows the retained empirical transport convention, not SI diffusivity. No spatial vegetation field or separate regional background is estimated."
+  },
+  "uncertainty": {
+    "source_header": "PPE (SD)",
+    "source_semantics": "The deposited header and primary Table 1 caption call bracketed values SD; section 2.4 uses RPP standard deviations and Appendix B describes delta-derived SDs for mean RPP. Section 2.3 inconsistently says standard error (SD). Retain this wording discrepancy; use bracketed magnitudes as declared marginal SD inputs without SEM/sqrt(n) conversion or a between-site ecological-dispersion interpretation.",
+    "reference_taxon": "Poaceae PPE=1 and published SD=0 is the fixed relative reference in this profile, not evidence of zero field uncertainty.",
+    "ppe_transfer": "Literal native/public parameter label transfer is explicitly assumed for these five source concepts, without broad taxonomic or ecological admission. Fall speed and PPE means remain fixed at the published values.",
+    "count_law": "Within each window the pooled panel count vector has a fixed-total multinomial working law at its observed plug-in proportions, assuming a common composition within that window. Counts in nonoverlapping raw sample populations are independent under this working law only; empirical temporal independence and overdispersion are not established.",
+    "ppe_law": "One shared five-dimensional PPE error vector across all four windows; count-PPE cross covariance is zero. The baseline PPE covariance is diagonal. Dependence sensitivity considers every real PSD covariance with the same declared marginal variances, including the fixed zero Poaceae row/column.",
+    "contrasts": "All six unordered window pairs times all five taxa, older-window cover minus younger-window cover. Each scalar contrast has its own attainable covariance extrema; these do not define one jointly attaining covariance or a simultaneous probability region.",
+    "bound_arithmetic": "Use existing exact Fraction LengthInterval/sum_length_range on abs(Fraction.from_float(g_i)*Fraction.from_float(SD_i)); square its endpoints. The gradient is the saved binary64 difference of the two window PPE Jacobian rows. This is a sharp linearized covariance-class bound, not a bound on nonlinear finite-error variance.",
+    "upper_witness": "For each scalar contrast separately, outer(sign(g)*SD,sign(g)*SD), with sign(0)=1, is a fixed-marginal PSD maximum witness; the maintained physical covariance API is evaluated with this same witness for both windows.",
+    "excluded_uncertainty": ["chronology", "basin and water level", "transport", "fall speed", "PPE mean transfer bias", "source sample selection", "ecological overdispersion"],
+    "calibrated_interval_or_posterior_claim": false,
+    "failed_bacon_draws_consumed": false
+  },
+  "numeric_checks": {"absolute_tolerance": 1e-12, "relative_tolerance": 0.0},
+  "resource_budget": {"wall_seconds": 60, "peak_rss_bytes_posthoc": 536870912, "output_bytes": 10000000},
+  "rights_and_exposure": {
+    "data": "Current official Neotoma/EPD public release, CC BY 4.0 with Neotoma, EPD and original investigator attribution; dataset DOI 10.21233/2vzb-bg61, Giesecke, Thomas.",
+    "parameters": "Fyfe et al. LandClim II PANGAEA.937075, CC BY 4.0; Githumbi et al. 2022 doi:10.5194/essd-14-1581-2022 Table 1 and Appendix B.",
+    "geometry_context": "Giesecke 2010 PANGAEA.738429, CC BY-NC 3.0, source-reported ABBO event-area fact and citation only. Its whole file is hashed, but only the descriptive header is decoded; measurement values are not parsed or redistributed. Current Neotoma CC BY 4.0 count bytes remain the analytical source. No relicensing or broader commercial-use authority is inferred.",
+    "exposure": "Previously exposed development core and windows. No withheld target, model fitting, vegetation-reference outcome, original-paper reproduction, ecological accuracy, or original core-admission decision is supplied."
+  },
+  "source_store_files": {
+    "neotoma/dataset-19913/2026-10-26T185139Z/dataset-19913.download.json": {"bytes": 632600, "sha256": "1317496c2e1d04c7f69a2048ee49647350f5abfc0f8e23360211e01f5eb5dd8a"},
+    "neotoma/dataset-19913/2026-10-26T185139Z/dataset-19913.metadata.json": {"bytes": 881, "sha256": "baa42c6510d22e7008ecc2caa2ae935bb0e7b05df909501f090d76b3f9196b98"},
+    "neotoma/dataset-19913/2026-10-26T185139Z/capture-manifest.json": {"bytes": 11545, "sha256": "906f7e38d5c32d03f00094136ee89213ea39ea99eb422db233e723b8f4e79269"},
+    "neotoma/dataset-19913/2026-10-26T185139Z/policy-neotoma.response": {"bytes": 48627, "sha256": "fa74d971e9824a6071a6e6a8ea4b7e14f99a906b7aea2643d222e052bfec3497"},
+    "neotoma/dataset-19913/2026-10-26T185139Z/policy-epd.response": {"bytes": 90717, "sha256": "7607d8798afc7ca3dce481456bc85eb4c0cbe67409add110a611bfb8af7fbc26"},
+    "epd/pangaea/abbo-pollen-profile-pangaea-738429.tsv": {"bytes": 43894, "sha256": "ee4671277fc4120c65f6fe4fa19fb1d302167e419d5419a55287d09c226ab154"},
+    "landclim/provider-descriptions/essd_article.html": {"bytes": 443030, "sha256": "d965af99738e1b068e6cf371747c6d96080046d0ca09db42ec1911916c19ed38"}
+  },
+  "repository_files": {
+    "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv": {"bytes": 1773, "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"}
+  }
+}

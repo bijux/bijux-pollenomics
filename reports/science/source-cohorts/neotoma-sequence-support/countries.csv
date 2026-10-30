@@ -1,0 +1,9 @@
+country,scope,selected_sites,selected_samples,captured_owner_samples,additional_captured_samples,dataset_collection_unit_sequences,native_taxon_scope_rows,positive_at_top,missing_at_top,reported_zero_only_at_top,positive_at_bottom,missing_at_bottom,reported_zero_only_at_bottom,depth_count_boundary_refused,age_order_refused
+SE,selected_cohort,3,228,228,0,3,295,106,189,0,37,258,0,0,0
+SE,captured_owner_context,3,228,228,0,3,295,106,189,0,37,258,0,0,0
+DK,selected_cohort,1,91,92,1,2,235,82,153,0,54,181,0,0,136
+DK,captured_owner_context,1,91,92,1,2,235,84,151,0,54,181,0,0,136
+FI,selected_cohort,28,1797,1946,149,28,1583,509,1068,0,450,1127,0,6,6
+FI,captured_owner_context,28,1797,1946,149,28,1583,509,1065,0,447,1127,0,9,9
+NO,selected_cohort,52,3544,3574,30,52,4299,1438,2794,0,1108,3124,0,67,167
+NO,captured_owner_context,52,3544,3574,30,52,4299,1399,2833,0,1108,3124,0,67,167

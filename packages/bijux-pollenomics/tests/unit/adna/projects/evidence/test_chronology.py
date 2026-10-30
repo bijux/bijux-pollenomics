@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+from types import SimpleNamespace
 from typing import TypedDict
 import unittest
 
@@ -24,6 +26,108 @@ from bijux_pollenomics.adna.projects.evidence.chronology.resolution import (
 )
 from bijux_pollenomics.adna.projects.sample_master import AdnaProjectSampleMasterRow
 from tests.support.repository import REPOSITORY_ROOT
+
+
+def test_source_fields_are_additive_to_the_actual_provenance_consumer(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    from bijux_pollenomics.adna.projects.evidence.chronology import audits
+    from bijux_pollenomics.adna.projects.evidence.chronology.audits import provenance
+
+    def row(project: str) -> SimpleNamespace:
+        return SimpleNamespace(
+            species_latin_name="Equus caballus",
+            species_common_name="horse",
+            project_accession=project,
+            repo_stable_sample_id=f"{project}:alpha",
+            preferred_sample_label="Horse A",
+            sample_basis="source",
+            sample_evidence_status="direct_table_extracted",
+            sample_identity_resolution="final",
+            sample_ambiguity_note="",
+            chronology_text="" if project == "PRJEB31613" else "Age (years ago): 4692",
+            chronology_provenance_text="raw source excerpt",
+            chronology_provenance_path="",
+            chronology_provenance_kind="tracked_source_artifact",
+            chronology_provenance_locator="",
+            dating_basis="unknown",
+            chronology_evidence_class="unresolved",
+            chronology_precision_posture="unresolved",
+            chronology_normalization_status="unresolved",
+            time_start_bp=None,
+            time_end_bp=None,
+            time_mean_bp=None,
+        )
+
+    monkeypatch.setattr(
+        audits,
+        "build_archive_project_catalog",
+        lambda: (
+            SimpleNamespace(project_accession="PRJEB31613"),
+            SimpleNamespace(project_accession="other"),
+        ),
+    )
+    monkeypatch.setattr(
+        audits,
+        "build_project_sample_chronology_rows",
+        lambda root, project: (row(project),),
+    )
+    monkeypatch.setattr(
+        provenance,
+        "build_project_sample_master_rows",
+        lambda root, project: (
+            SimpleNamespace(
+                repo_stable_sample_id="PRJEB31613:alpha",
+                preferred_sample_label="Horse A",
+                sample_lineage_locator="Sheet1!row5",
+                sample_lineage_path="data/source.xlsx",
+            ),
+        ),
+    )
+    monkeypatch.setattr(
+        audits,
+        "_temporal_semantics_for_chronology_row",
+        lambda source: {"comparability_posture": "contextual_label_only"},
+    )
+    monkeypatch.setattr(audits, "_normalization_rule_for", lambda source: "unresolved")
+    monkeypatch.setattr(audits, "_uncertainty_note_for", lambda source: "unresolved")
+    monkeypatch.setattr(
+        provenance, "horse_source_chronology_fields", lambda root, *, owners: {}
+    )
+    baseline = provenance._build_sample_chronology_provenance_rows(tmp_path)
+    context: dict[str, object] = {
+        "repo_stable_sample_id": "PRJEB31613:alpha",
+        "evidence_role": "source_context_only",
+        "scientific_admission": False,
+    }
+    seen: list[dict[str, tuple[str, str, str]]] = []
+
+    def native_fields(
+        root: Path, *, owners: dict[str, tuple[str, str, str]]
+    ) -> dict[str, dict[str, object]]:
+        seen.append(owners)
+        return dict.fromkeys(owners, context)
+
+    monkeypatch.setattr(provenance, "horse_source_chronology_fields", native_fields)
+    candidate = provenance._build_sample_chronology_provenance_rows(tmp_path)
+    assert len(seen) == 1
+    assert seen[0] == {
+        "PRJEB31613:alpha": ("Horse A", "Sheet1!row5", "data/source.xlsx")
+    }
+    assert candidate[0]["source_chronology_fields"] == context
+    assert "source_chronology_fields" not in candidate[1]
+    assert (
+        tuple(
+            {
+                key: value
+                for key, value in packet.items()
+                if key
+                not in {"source_chronology_fields", "source_chronology_alternatives"}
+            }
+            for packet in candidate
+        )
+        == baseline
+    )
 
 
 class _ConflictCase(TypedDict):

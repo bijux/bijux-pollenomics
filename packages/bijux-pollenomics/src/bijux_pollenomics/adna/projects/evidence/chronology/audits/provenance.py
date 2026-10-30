@@ -4,6 +4,16 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from bijux_pollenomics.adna.projects.sample_master import (
+    build_project_sample_master_rows,
+)
+from bijux_pollenomics.adna.projects.sample_master.tables.horse_source_fields import (
+    horse_source_chronology_fields,
+)
+from bijux_pollenomics.adna.projects.sample_master.tables.horse_source_fields.alternatives import (
+    horse_source_chronology_alternatives,
+)
+
 
 def _build_sample_chronology_provenance_rows(
     output_root: Path,
@@ -18,9 +28,36 @@ def _build_sample_chronology_provenance_rows(
 
     rows: list[dict[str, object]] = []
     for project in build_archive_project_catalog():
-        for row in build_project_sample_chronology_rows(
+        project_rows = build_project_sample_chronology_rows(
             output_root, project.project_accession
-        ):
+        )
+        horse_fields: dict[str, dict[str, object]] = {}
+        if project.project_accession == "PRJEB31613":
+            master_rows = build_project_sample_master_rows(output_root, "PRJEB31613")
+            source_owners = {
+                row.repo_stable_sample_id: (
+                    row.preferred_sample_label,
+                    row.sample_lineage_locator,
+                    row.sample_lineage_path,
+                )
+                for row in master_rows
+            }
+            chronology_owners = {
+                row.repo_stable_sample_id: row.preferred_sample_label
+                for row in project_rows
+            }
+            if (
+                len(source_owners) != len(master_rows)
+                or len(chronology_owners) != len(project_rows)
+                or {key: owner[0] for key, owner in source_owners.items()}
+                != chronology_owners
+            ):
+                raise ValueError("Horse master and chronology owner identities differ")
+            horse_fields = horse_source_chronology_fields(
+                output_root,
+                owners=source_owners,
+            )
+        for row in project_rows:
             temporal_semantics = _temporal_semantics_for_chronology_row(row)
             rows.append(
                 {
@@ -44,6 +81,18 @@ def _build_sample_chronology_provenance_rows(
                     "time_end_bp": row.time_end_bp,
                     "time_mean_bp": row.time_mean_bp,
                     "temporal_semantics": temporal_semantics,
+                    **(
+                        {
+                            "source_chronology_fields": horse_fields[
+                                row.repo_stable_sample_id
+                            ],
+                            "source_chronology_alternatives": horse_source_chronology_alternatives(
+                                horse_fields[row.repo_stable_sample_id]
+                            ),
+                        }
+                        if horse_fields
+                        else {}
+                    ),
                 }
             )
     rows.sort(

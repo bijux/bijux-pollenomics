@@ -46,6 +46,10 @@ from .source_roles.propagation_qualification import (
     PROPAGATION_QUALIFICATION_SOURCE,
     validated_propagation_qualification_source,
 )
+from .source_roles.sample_age_context import (
+    SAMPLE_AGE_CONTEXT_SOURCES,
+    validated_sample_age_context_source,
+)
 from .source_roles.sead_join_identity import (
     SEAD_JOIN_IDENTITY_SOURCES,
     validated_declared_join_identity_source,
@@ -396,6 +400,17 @@ def _validate_current_source(
                     and _documented_source_matches(name, captured, current)
                 )
                 or atlas_extension_matches(name, captured, current)
+                or (
+                    source_buffer is not None
+                    and name in SAMPLE_AGE_CONTEXT_SOURCES
+                    and validated_sample_age_context_source(
+                        repository,
+                        {"path": name, "sha256": expected, "bytes": len(captured)},
+                        logical,
+                        source_buffer,
+                    ).get("classification")
+                    == "additive_sample_age_source_context"
+                )
                 or (
                     source_buffer is not None
                     and name in SEAD_JOIN_IDENTITY_SOURCES
