@@ -41,7 +41,12 @@ def _support(value: object) -> str:
 
 
 def project_count_core(
-    native: dict[str, Any], saved: dict[str, Any], core: Core, edges: list[int]
+    native: dict[str, Any],
+    saved: dict[str, Any],
+    core: Core,
+    edges: list[int],
+    *,
+    sample_rows: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     """Reconcile the original measured panel without selecting positive B/U effort."""
     site = native["site"]
@@ -172,6 +177,18 @@ def project_count_core(
             and total_pollen >= sum(counts),
             "Panel denominator conservation failed",
         )
+        if sample_rows is not None:
+            sample_rows.extend(
+                {
+                    "core": core.id,
+                    "window_cal_bp": list(cell.window),
+                    "sample_id": sample["sample_id"],
+                    "taxa": list(core.axis),
+                    "counts": [sample["counts"][name] for name in core.axis],
+                    "source_unit": "NISP",
+                }
+                for sample in samples
+            )
         output.append(
             {
                 "core": core.id,
@@ -434,3 +451,17 @@ def read_full_response(repository: Path, admitted: dict[str, Any]) -> dict[str, 
         "source_report": SWEDISH_REPORT,
         "source_parameters": PARAMETERS,
     }
+
+
+def load_sample_count_groups(repository: Path) -> dict[str, Any]:
+    """Expose the original full-panel sample counts without fitting or pooling loss."""
+    sample_rows: list[dict[str, Any]] = []
+
+    def project(
+        native: dict[str, Any], saved: dict[str, Any], core: Core, edges: list[int]
+    ) -> list[dict[str, Any]]:
+        return project_count_core(native, saved, core, edges, sample_rows=sample_rows)
+
+    loaded = _load_groups(repository, project)
+    loaded["sample_panels"] = sample_rows
+    return loaded

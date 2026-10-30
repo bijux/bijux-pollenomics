@@ -12,7 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Validate declared public receipt metadata through accepted documentation standards ([#303](https://github.com/bijux/bijux-pollenomics/pull/303)).
+- **Pending review:** Retain conditional adequacy and sample-unit precision evidence ([#305](https://github.com/bijux/bijux-pollenomics/pull/305)).
+- **Verified merge (2026-10-30 08:41:27 UTC):** Validate declared public receipt metadata through accepted documentation standards ([#303](https://github.com/bijux/bijux-pollenomics/pull/303)).
 - **Verified merge (2026-10-30 08:15:53 UTC):** Retain literal count correspondence and descriptive forest-plot evidence ([#302](https://github.com/bijux/bijux-pollenomics/pull/302)).
 - **Verified merge (2026-10-30 07:57:11 UTC):** Preserve declared child keys in SEAD reconciliation diagnostics ([#301](https://github.com/bijux/bijux-pollenomics/pull/301)).
 - **Verified merge (2026-10-30 07:12:27 UTC):** Retain literal Galician worksheet context and refuse broad taxonomy labels ([#300](https://github.com/bijux/bijux-pollenomics/pull/300)).

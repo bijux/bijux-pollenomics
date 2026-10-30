@@ -422,6 +422,104 @@ between-site heterogeneity and model uncertainty are not propagated. Empty
 regions do not establish field rejection, and nonempty regions do not admit
 common historical cover, whole vegetation, ecological accuracy or rights.
 
+## Conditional common-cover count-model check
+
+This calculation asks whether the two measured Betula/Ulmus count
+panels are compatible with one common cover under their **fixed** basin
+responses. It uses all 13 previously declared matched windows and retains
+the six unmatched BUS windows without a two-site test. This is an exposed
+development diagnostic, with no new fit, kernel, sample selection or PPE
+choice. It does not replace the confidence regions above.
+
+For site `i`, let `n_i` be the measured Betula/Ulmus subtotal, `Y_i` the
+Betula count and `a_iB`, `a_iU` the original positive binary64 response
+coefficients. Under independent site-binomial counts and a shared relative
+cover `v`, the pollen odds are `(a_iB/a_iU) v/(1-v)`. Conditional on
+`M = Y_1 + Y_2`, the unknown cover cancels. The conditional weight of
+`Y_1 = k` is proportional to
+`choose(n_1,k) choose(n_2,M-k) omega^k`, where
+`omega = (a_1B a_2U)/(a_1U a_2B)` and
+`max(0,M-n_2) <= k <= min(n_1,M)`. Binary64 coefficients are interpreted as
+their exact supplied rational values; the calculation uses positive integer
+weights and inclusive lower and upper tails. Its two-sided probability is
+`min(1, 2 min(P(Y_1<=observed), P(Y_1>=observed)))`.
+
+Before running the diagnostic, we fixed the descriptive thresholds at `1/20`
+per window and `1/260` for a conservative 13-window Bonferroni comparison.
+Exact rational comparisons determine the decisions; directed decimal bounds
+serve only as readable probability displays. The second threshold controls
+the probability of any rejection under the joint null without requiring
+independence across windows. A singleton conditional support is uninformative.
+Zero effort is retained explicitly; no missing count becomes zero. The
+consumer refuses inputs outside its declared count and integer-work bounds.
+
+This conditional law additionally assumes independence **between** sites,
+unlike the earlier Bonferroni confidence-region construction. Pooled samples
+are not established homogeneous independent binomial trials, and the same
+cores and previous outcomes have already been inspected. A small probability
+would therefore identify tension in this conditional model, not prove that
+historical field cover differs. A large probability cannot validate the
+model. BOKE Fraxinus remains outside this two-taxon diagnostic; BUS Fraxinus
+remains unmeasured. Geometry, chronology, PPE, within-window heterogeneity,
+and sampling calibration remain unresolved or fixed. No vegetation accuracy,
+historical reproduction, source permission or untouched confirmation follows.
+
+The [complete 19-row result](pollen-reconstruction/common-cover/conditional-adequacy.csv)
+retains 13 computed comparisons and six unmatched BUS windows. The matched
+sample and grain population is unchanged: 93 samples and 13,627 measured
+Betula/Ulmus grains; the 1,367 BOKE Fraxinus grains remain listed separately.
+All probabilities below refer to the conditional model just defined.
+
+| CalBP window, older bound excluded | Two-sided probability, rounded | At or below `1/260` |
+| --- | ---: | --- |
+| 0–100 | 0.00432432 | no |
+| 100–350 | 0.00657239 | no |
+| 350–700 | 0.234707 | no |
+| 700–1200 | 0.0126899 | no |
+| 1200–1700 | 0.0640615 | no |
+| 1700–2200 | 0.000832144 | yes |
+| 2200–2700 | 0.0000950597 | yes |
+| 2700–3200 | 0.0000233560 | yes |
+| 3200–3700 | 0.00187546 | yes |
+| 3700–4200 | 5.26836e-18 | yes |
+| 4200–4700 | 1.19468e-38 | yes |
+| 4700–5200 | 7.16784e-60 | yes |
+| 5200–5700 | 0.0895485 | no |
+
+Ten conditional probabilities are at or below the per-window `1/20`
+threshold; seven are also at or below the conservative `1/260` threshold.
+The other three probabilities are not evidence
+that the model is valid. These comparisons qualify the large descriptive
+deviances above under a specified sampling law, while leaving its field
+applicability unresolved. No empty confidence region, point estimate or
+previous refusal was replaced.
+
+The consumer completed at `0ddc47d1cf59576b3c7c65976c71e5f3053751be`
+with exit zero in 1.915 seconds and 7,435 output bytes. Source and input
+checks passed; the worktree and HEAD stayed unchanged. Forty-one focused
+tests, configured lint/types and independent mathematical review passed
+before the calculation. No point fits or kernels were evaluated.
+
+A separate standard-library calculation formed all 1,648 combinatorial
+weights directly, without the production recurrence. It confirmed all 39
+probabilities inside their 78 directed bounds and all 26 exact threshold
+decisions, alongside the 19 source-row joins, response values, counts,
+denominators and missingness. The observer completed in 0.407 seconds. This
+checks arithmetic against the same published inputs, rather than supplying
+independent field observations or validating their sampling design.
+
+The maintained [conditional-count consumer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/conditional_adequacy.py)
+reads the existing authenticated count cohort and writes one bounded CSV.
+Run it from the repository root with an absent output path:
+
+```sh
+mkdir -p artifacts/science/common-cover-conditional-adequacy
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
+  bijux_pollenomics_dev.essd_reproduction.common_cover.conditional_adequacy \
+  --repository "$PWD" \
+  --output "$PWD/artifacts/science/common-cover-conditional-adequacy/result.csv"
+```
+
 ## Uncertainty and refusal rules
 
 In our [fixed-site covariance example](../../docs/report/method-certification/fixed-site-covariance/README.md),
@@ -447,14 +545,238 @@ the metric. For the Swedish ABB candidate, our research-needs
 register names the fields still preventing LRA use.
 
 
+## Within-site pooling: conditional diagnostic
+
+The predeclared diagnostic examined whether the **original samples within each
+site/window** were compatible with one pollen-probability vector before pooling.
+It addressed within-site sample variation, separately from the between-site
+fixed-response test above. The fixed frame retained all 32 original site/windows
+and 110 samples: 13 BOKE windows and 19 BUS windows, including the six BUS
+windows without a BOKE counterpart.
+Original chronology selection, native sample order, support, exclusions and
+window boundaries remain unchanged. This is exposed scientific development,
+not untouched field confirmation.
+
+The input is each sample's full measured native NISP panel: Betula, Fraxinus and
+Ulmus at BOKE; Betula and Ulmus at BUS. BUS Fraxinus remains **unmeasured**, not
+zero. Source-null, missing or malformed counts refuse; explicit zeros remain
+zeros. No point-fit success, positive projected Betula/Ulmus subtotal, response
+parameter, PPE, kernel or reconstruction selects a sample or window.
+
+**Twelve windows met the prespecified 32-window family threshold**, six at each
+core. Sixteen Monte Carlo rank p-values were at or below 1/20; twelve were at or
+below 1/640. All 32 windows remained in the family, including the six unmatched
+BUS windows. The [complete numerical CSV](pollen-reconstruction/common-cover/within-site-homogeneity.csv)
+retains all results, sample counts, exact statistics, simulation counts and
+simulation-tail intervals.
+
+| Core | Native samples | Measured panel grains | Windows at or below 1/640 |
+| --- | ---: | ---: | ---: |
+| BOKE | 50 | 11,295 | 6 of 13 |
+| BUS | 60 | 6,848 | 6 of 19 |
+| Total | 110 | 18,143 | 12 of 32 |
+
+Thirty windows were computed; two had only one positive-effort sample and
+remained **uninformative**, with p=1 and no simulation: BOKE 3200–3700 and BUS
+8200–8700 CalBP, older endpoints excluded. These are not confirmations of
+homogeneity. No window was refused. BOKE's panel retained all 1,367 Fraxinus
+grains; BUS Fraxinus remained missing rather than being assigned zero.
+
+The results challenge the joint independent, homogeneous multinomial model for
+pooling these samples. They cannot isolate changing composition from clustered
+grains, preparation effects, chronology or time averaging. Nonrejection does not
+certify pooling, independent trials or calibrated field uncertainty. The earlier
+pooled confidence regions remain conditional results; this diagnostic does not
+repair or replace them, select a chronology, or establish vegetation accuracy.
+
+The null assumes independent multinomial sample rows with a common
+within-window pollen-probability vector. Conditioning on sample efforts and
+taxon totals removes that vector. Feasible tables have probabilities
+proportional to the reciprocal product of cell factorials; they are not sampled
+uniformly. The sampler draws successive rows without replacement using
+NumPy's [multivariate hypergeometric `marginals` method](https://numpy.org/doc/2.4/reference/random/generated/numpy.random.Generator.multivariate_hypergeometric.html),
+with the final row fixed by the remaining margins.
+
+Pearson's statistic is ordered using integers. For positive row totals `r_i`
+and column totals `c_j`, let `D = lcm(r_i*c_j)` and
+`T = sum(n_ij**2 * D/(r_i*c_j))`. For `N` grains, Pearson's value is
+`N*T/D - N`; comparisons of `T` are exact, including ties. Zero rows and columns
+remain in the source accounting and contribute no arithmetic term. Zero total
+effort, one positive sample or one positive taxon is uninformative, with p=1
+and no simulation; these outcomes are retained.
+
+For every informative table, the pre-outcome protocol fixed **9,999 draws**,
+PCG64, and seed `846291731 + index`, with index starting at zero in
+core-name/window order.
+The shared environment used NumPy 2.4.6; the result records its actual version
+and seed. There was no outcome-based seed choice, extra simulation or retry.
+The inclusive extreme count `b` gives the plus-one Monte Carlo rank p-value
+`(1+b)/10000`, whose smallest positive value is 0.0001. An extreme count of zero
+was reported as p=0.0001, never as zero. This is a
+[Monte Carlo test](https://docs.scipy.org/doc/scipy-1.16.2/reference/generated/scipy.stats.monte_carlo_test.html),
+not enumeration of the exact conditional tail. Decisions use the exact rank
+fraction at 1/20 and the prespecified 32-window Bonferroni threshold 1/640.
+Bonferroni needs no independence between windows.
+
+A separate per-window 99% Clopper-Pearson interval, computed with the existing
+tail-certified binomial helper from `b` successes in 9,999 simulations, describes
+**simulation uncertainty in the conditional tail probability**. It is not an
+interval for the plus-one rank, a joint 32-window band, field pollen uncertainty
+or vegetation accuracy. The model's independent grains/sample rows and common
+probabilities are assumptions, not established sampling facts. Rejection can
+expose a pooling limitation; nonrejection cannot establish independence,
+homogeneity, chronological comparability or calibrated pooled confidence sets.
+
+Before simulation, the consumer bounds counts at 10,000 per cell, one million
+grains per table, 128 sample rows, two or three measured taxa, a 4,096-bit integer
+denominator and four million simulated cell visits over the full cohort. One
+shared 50-second deadline was checked during simulation and after each numerical
+certificate; the run finished within its planned 60 seconds. A numerical
+certificate or runtime refusal retains real completed work and withholds
+p-values. The sole numerical CSV is bounded below one MiB;
+no simulated tables or duplicated source matrices are retained.
+
+The maintained consumer is
+[within_site_homogeneity.py](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/within_site_homogeneity.py).
+The code and protocol were committed before outcome calculation at
+`9d39f76d41cffdfb700760d0b816ec3520915df7`. The recorded invocation, expressed
+from the repository root, was:
+
+```sh
+mkdir -p artifacts/science/within-site-homogeneity
+.venv/bin/python -B -m bijux_pollenomics_dev.essd_reproduction.common_cover.within_site_homogeneity \
+  --repository "$PWD" --output "$PWD/artifacts/science/within-site-homogeneity/comparison.csv"
+```
+
+The consumer exited zero in 6.106 seconds, producing 6,222 bytes with no new
+fits or kernel evaluations. That sole CSV was moved to the maintained location
+linked above; the recorded command retains its original output path. Sixty-four
+focused checks, configured static checks
+and independent mathematical review passed. A separate observer exited zero in
+5.912 seconds: it independently rejoined all 32 windows and 110 native samples,
+recomputed rational Pearson statistics, and reproduced all 299,970 draws and
+threshold decisions using the **same prescribed NumPy sampler**. It also checked
+the simulation-tail bounds with independent numerical calculations; the maximum
+endpoint gap was about 2.22e-16 and the smallest outward tail margin was about
+2.35e-19.
+Source, raw inputs and Git state stayed unchanged during both runs. This is
+independent join/statistic/tail verification on the same source intake, not an
+independent sampler implementation or new field evidence.
+
+## Sample-unit precision allowing dependence within samples
+
+This calculation asks how much counting precision the original samples can
+support if grains **inside a sample may be arbitrarily dependent**. It allows
+different sample expectations and does not fit dispersion to the homogeneity
+results above. The fixed family contains all 32 original site/windows, 110
+samples and 77 measured taxon coordinates: 13 BOKE panels with three taxa and
+19 BUS panels with two. All six unmatched BUS windows remain. BUS Fraxinus is
+unmeasured, not zero. The cohort and its previous outcomes are development
+exposed; this is neither untouched confirmation nor a correction of earlier
+pooled confidence regions.
+
+Condition on the recorded sample efforts and original windows. For taxon `j`
+and positive-effort samples, let `X_ij` be its measured-panel fraction and let
+`w_i = N_i / sum(N_i)`. The target is
+`mu_j = sum(w_i E[X_ij | fixed efforts and window])`.
+The observed estimate `sum(w_i X_ij)` equals the exact pooled count fraction,
+but it is an observation rather than that expectation. Neither quantity is
+vegetation cover or a common probability across samples. The assumption is
+independence of sample vectors **within each window**; grain and taxon
+dependence inside a sample is unrestricted. Independence between windows is
+not required. Serial dependence of adjacent-depth samples remains unresolved.
+
+The independent bounded-summand setting is described by
+[Hoeffding (1963)](https://www.tandfonline.com/doi/abs/10.1080/01621459.1963.10500830).
+The weighted calculation used here has a self-contained argument. For a random
+variable in `[0,1]`, the second derivative of its log moment-generating function
+is the variance under an exponential tilt, at most `1/4`. Integrating twice
+bounds the centered log moment by `t^2/8`. Independence of sample vectors then
+gives `log E exp(t sum(w_i (X_ij - E X_ij))) <= t^2 S/8`, where
+`S = sum(w_i^2)`. Optimizing the upper and lower Chernoff bounds gives
+`P(abs(observed_j - mu_j) > epsilon) <= 2 exp(-2 epsilon^2 / S)`.
+
+Before computing the new intervals, the protocol fixed `epsilon^2 >= (9/2) S` for every
+coordinate. The 77-coordinate union failure bound is at most
+`154 exp(-9) < 1/20`: the exact positive Taylor sum
+`sum(9^k/k!, k=0..8) > 3080` proves the strict inequality. No independence
+between taxa or windows is needed for this union bound. Thus the one declared
+family has at least 95% conditional coverage under the sample assumptions;
+there is no separate per-window tuning or outcome-selected family.
+
+All means and weights use rational arithmetic. The radius is the smallest
+multiple of `10^-12` whose square is at least `(9/2) S`, constructed using integer
+square roots and checked exactly. Lower and upper coordinates are the observed
+fraction minus/plus that outward radius, intersected with `[0,1]`. This clipping
+uses the mathematical probability domain; it does not alter an estimate.
+The full radius is retained even when it exceeds one, and full-domain bounds
+are labelled explicitly. Zero-effort rows remain with zero weight; no `0/0`
+fraction is invented. An all-zero-effort table refuses because its target is
+undefined. Original count, mask, sample/support and work guards remain active.
+
+The maintained consumer is
+[sample_dependence_bounds.py](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/common_cover/sample_dependence_bounds.py).
+The code and protocol were committed before outcome calculation at
+`b39868064c2e30d869d4067e093483416a84466b`. The actual invocation was:
+
+```sh
+mkdir -p artifacts/science/sample-dependence-bounds
+.venv/bin/python -B -m bijux_pollenomics_dev.essd_reproduction.common_cover.sample_dependence_bounds \
+  --repository "$PWD" --output "$PWD/artifacts/science/sample-dependence-bounds/bounds.csv"
+```
+
+The [complete numerical CSV](pollen-reconstruction/common-cover/sample-dependence-bounds.csv)
+retains every window, source and positive sample counts, native panel
+effort, exact squared weights, full outward radius and each measured coordinate's
+observed fraction and bounds. BUS Fraxinus fields stay blank. There are no fits,
+kernels, simulations, new taxon decisions or duplicated source matrices. The
+result is a conditional sample-unit precision sensitivity, not evidence that
+samples are independent, a calibrated field interval, a postselection guarantee,
+a repaired common-cover model or independent vegetation accuracy.
+
+All **32 windows computed**, with no refusals: 110 positive-effort samples and
+18,143 measured-panel counts. The simultaneous bound is very wide: **73 of 77
+coordinates are `[0,1]`**, and 30 windows have full-domain bounds for every
+measured coordinate. Every lower bound is zero. Only the Fraxinus and Ulmus
+upper bounds in BOKE 100–350 and 700–1200 CalBP fall below one. All six unmatched
+BUS windows remain, with Fraxinus blank rather than zero.
+
+The full outward radii range from `0.892573817839` to `2.12132034356`. The inverse
+effort concentration `1/S` ranges from one to about 5.6484; this describes the
+recorded weights, not an estimated number of independent observations. Multiplying
+the grain counts in each sample would not create additional sample units or
+shrink these radii if the weights stayed unchanged. A full-domain bound means
+this conservative construction supplies no restriction on that coordinate.
+It does not establish that the underlying record contains no information or
+variation, nor that sharper justified bounds are impossible.
+
+The consumer exited zero in 1.558 seconds and produced the sole 5,266-byte CSV,
+which was moved to the maintained location above. The recorded command retains
+its original output path. There were no fits, kernel evaluations or simulations.
+Twenty-seven new mathematical and consumer controls plus nine existing intake
+controls passed, together with configured lint, formatting, strict typing and
+independent mathematical review. A separate observer exited zero in 0.325
+seconds. Using the **same shared native intake**, it independently checked all
+32 joins, 110 samples, nine raw input identities, exact rational means and
+weights, minimal outward grid radii and all 77 clipped coordinate bounds, with
+80-digit decimal square-root checks. Source and inputs stayed unchanged during
+both runs. This verifies arithmetic on the same source records; it supplies no
+new field evidence or validation of sample independence.
+
+The result is weak conditional precision under a deliberately conservative
+whole-cohort bound. It does not calibrate or repair the earlier grain-based
+intervals, and its heterogeneous effort-weighted expectation is a different
+target from a common multinomial probability. Dependence between adjacent-depth
+samples, source selection and chronological comparability remain unresolved.
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Current method-use rules distinguish observed pollen, modeled cover and independent vegetation targets. A separate fixed-response common-cover comparison accounts for 13 fitted BOKE/BUS windows and six unmatched windows on an explicitly projected Betula/Ulmus axis. A distinct per-window conditional count calculation retains six nonempty and seven empty two-site common-cover sets. A declared BOKE3/BUS2 analytical profile retains all 1367 measured Fraxinus grains with BUS Fraxinus null; its profiled B/U fit and deviance remain unchanged. A separate count-only BOKE3/BUS2 procedure retains seven nonempty and six empty exact joint regions with nominal 95% conditional coverage per window, using three newly budgeted marginals and no point-fit or positive-projected-effort selection. Coordinate ranges summarize the region rather than define an independent box.
+**Supported claim.** Current method-use rules distinguish observed pollen, modeled cover and independent vegetation targets. A separate fixed-response common-cover comparison accounts for 13 fitted BOKE/BUS windows and six unmatched windows on an explicitly projected Betula/Ulmus axis. A distinct per-window conditional count calculation retains six nonempty and seven empty two-site common-cover sets. A declared BOKE3/BUS2 analytical profile retains all 1367 measured Fraxinus grains with BUS Fraxinus null; its profiled B/U fit and deviance remain unchanged. A separate count-only BOKE3/BUS2 procedure retains seven nonempty and six empty exact joint regions with nominal 95% conditional coverage per window, using three newly budgeted marginals and no point-fit or positive-projected-effort selection. Coordinate ranges summarize the region rather than define an independent box. An exact conditional two-site Betula/Ulmus count-model diagnostic retains all 13 matched windows and six unmatched BUS windows. Ten probabilities are at or below 1/20 and seven at or below 1/260 under the explicitly stronger independent homogeneous site-binomial model. A separate prespecified within-site conditional Monte Carlo diagnostic retains all 32 original site/windows and 110 native samples on their full measured panels. Thirty tables are informative; two one-sample windows are uninformative. Sixteen Monte Carlo rank probabilities meet 1/20 and twelve meet the fixed 32-window threshold 1/640 under the joint independent homogeneous-multinomial model. A distinct predeclared simultaneous sample-unit bound covers the fixed 77 measured coordinates across all 32 windows, conditionally on independent bounded sample vectors within each window. It allows heterogeneous sample expectations and arbitrary grain dependence within samples; 73 coordinates retain the full [0,1] domain.
 
 **Unsupported claim.** A universal LRA parameter winner or Nordic measured-vegetation accuracy.
 
-**Actual verification performed.** Retained studies are synthesized. The distinct common-cover consumer ran at 025fe2da3 with exit 0 in 1.33 s; all 13 fits converged. Twenty-one focused tests, lint/types and independent review pass. Independent native joins confirm 121 samples, 11 exclusions and 110 retained samples; 60-digit quadratic arithmetic confirms cover, probabilities, per-grain NLL and deviance with maximum residuals 2.89e-13, 1.13e-13, 1.38e-16 and 2.87e-13 at frozen 1e-9, 1e-9, 1e-12 and 1e-8 bounds. The count-only consumer ran at d6c7b9de1 with exit 0 in 1.72 s, without refitting. Its mathematical contract passes 42 cases and its consumer 19; lint/types and independent review pass. Independent rational arithmetic confirms 26 site inverses and 13 intersections; 110-digit positive-term sums confirm all 52 binomial tail inequalities, with minimum target margin 5.74e-18. The measured-panel consumer ran at 1749da7f8 with exit 0 in 1.55 s, 63011 bytes and 13 analytic coordinate estimates. Forty-four focused tests and configured lint/types pass. Independent Decimal70 quadratic/full likelihood checks confirm all 13 compositions, masks, count totals and deviance at the predeclared bounds; maximum cover/probability/mean-NLL/deviance gaps 2.15e-13/1.13e-13/1.13e-16/7.01e-13. The joint measured-panel count consumer ran at 84154c94c with exit 0 in 1.694 s and 163181 bytes, with zero fits or kernels. The mathematical contract passes 37 checks and the consumer/dependencies 115 (24 new, 91 existing), with configured lint/types. Independent Decimal110 sums confirm all 78 tails (minimum target margin 3.7120e-19); exact arithmetic confirms 26 inverses, 13 intersections, all 28 nonempty-region corners, half-spaces and coordinate extrema, plus native counts, ages, units, masks and literal PPE.
+**Actual verification performed.** Retained studies are synthesized. The distinct common-cover consumer ran at 025fe2da3 with exit 0 in 1.33 s; all 13 fits converged. Twenty-one focused tests, lint/types and independent review pass. Independent native joins confirm 121 samples, 11 exclusions and 110 retained samples; 60-digit quadratic arithmetic confirms cover, probabilities, per-grain NLL and deviance with maximum residuals 2.89e-13, 1.13e-13, 1.38e-16 and 2.87e-13 at frozen 1e-9, 1e-9, 1e-12 and 1e-8 bounds. The count-only consumer ran at d6c7b9de1 with exit 0 in 1.72 s, without refitting. Its mathematical contract passes 42 cases and its consumer 19; lint/types and independent review pass. Independent rational arithmetic confirms 26 site inverses and 13 intersections; 110-digit positive-term sums confirm all 52 binomial tail inequalities, with minimum target margin 5.74e-18. The measured-panel consumer ran at 1749da7f8 with exit 0 in 1.55 s, 63011 bytes and 13 analytic coordinate estimates. Forty-four focused tests and configured lint/types pass. Independent Decimal70 quadratic/full likelihood checks confirm all 13 compositions, masks, count totals and deviance at the predeclared bounds; maximum cover/probability/mean-NLL/deviance gaps 2.15e-13/1.13e-13/1.13e-16/7.01e-13. The joint measured-panel count consumer ran at 84154c94c with exit 0 in 1.694 s and 163181 bytes, with zero fits or kernels. The mathematical contract passes 37 checks and the consumer/dependencies 115 (24 new, 91 existing), with configured lint/types. Independent Decimal110 sums confirm all 78 tails (minimum target margin 3.7120e-19); exact arithmetic confirms 26 inverses, 13 intersections, all 28 nonempty-region corners, half-spaces and coordinate extrema, plus native counts, ages, units, masks and literal PPE. The conditional adequacy consumer ran at 0ddc47d1c with exit 0 in 1.915357875 s, 7,435 bytes and zero fits or kernels, after 41 focused checks, static validation and independent mathematical review. A separate standard-library direct combinatorial integer observer confirms 1,648 support weights, 39 probabilities in 78 directed 40-digit bounds and 26 exact threshold decisions on all 19 joined rows; exit 0 in 0.407008 s. This is independent arithmetic on the same published input, not independent field data. The within-site diagnostic ran at committed 9d39f76d4 with exit 0 in 6.106408834 s, retaining one 6,222-byte CSV, after 64 focused mathematical/source checks, static validation and independent protocol review. An independent observer exited 0 in 5.911574458 s: manual 110-sample/32-window joins, direct Fraction Pearson statistics, all 299,970 prescribed draws and margins, exact exceedance counts/rank probabilities and 64 threshold flags agree. Independent Decimal110 positive sums and literal 0/1 boundary checks verify all 60 outward simulation-tail interval endpoints; the maximum SciPy endpoint gap is 2.22e-16 within a predeclared 5e-13 bound, minimum outward tail margin 2.3498641e-19. The source intake and NumPy PCG64/marginals stream are shared; independent checks concern joins, arithmetic and interval numerics, not new data or an independent random engine. The sample-unit consumer ran at committed b39868064 with exit 0 in 1.558369333 s, producing one 5266-byte CSV with no fits, kernels or simulations. Twenty-seven new mathematical/consumer controls and nine existing intake controls, configured static checks and independent mathematical review pass. A separate observer exited 0 in 0.3254485 s, confirming all 32 windows, 110 samples, nine raw input identities, exact rational pooled fractions and squared weights, minimal outward grid radii and all 77 coordinate bounds, with Decimal80 square-root checks. The observer shares the native intake; it verifies joins and arithmetic rather than independent data or sample independence.
 
 **Remaining input or review.** No admitted Nordic LRA core or measured-cover pair supports ecological ranking; available scores use different pollen axes, exposed cohorts and conditional basin/transport assumptions. Resolver: Core/reference owners and qualified landscape/palynology reviewer Reopen when: A same-site/time/taxon LRA input and independent reference plus a newly frozen cohort support declared model comparison.
 
@@ -464,11 +786,11 @@ register names the fields still preventing LRA use.
 
 **Precise next acceptance route.** A same-site/time/taxon LRA input and independent reference plus a newly frozen cohort support declared model comparison. Record the accepted evidence in this scientific account.
 
-**Negative or refused result.** Zero admitted Nordic LRA cores and zero independent Nordic measured-cover pairs in current scope. Six unmatched BUS windows remain. Conditional fitted deviance reaches 268.599; the objective gain over geometry-correct-then-pool is only 0.000174–0.015331, without out-of-sample interpretation. Seven count-set intersections are empty. The first two nonempty sets exclude the joint MLE; both outcomes remain explicit. The analytical measured-panel point profile alone adds no cross-site Fraxinus confirmation, independent accuracy or joint three-taxon uncertainty. The separate joint count calculation retains six empty regions. The 3200-3700 CalBP region becomes nonempty solely because the three-marginal budget (0.9833333333333334 rather than 0.975) widens the shared-panel constraints; all 26 new pollen intervals enclose the old ones. This is not evidence of model success, precision gain or independent Fraxinus confirmation; per-window coverage does not imply a 13-window, postselection or calibrated field guarantee.
+**Negative or refused result.** Zero admitted Nordic LRA cores and zero independent Nordic measured-cover pairs in current scope. Six unmatched BUS windows remain. Conditional fitted deviance reaches 268.599; the objective gain over geometry-correct-then-pool is only 0.000174–0.015331, without out-of-sample interpretation. Seven count-set intersections are empty. The first two nonempty sets exclude the joint MLE; both outcomes remain explicit. The analytical measured-panel point profile alone adds no cross-site Fraxinus confirmation, independent accuracy or joint three-taxon uncertainty. The separate joint count calculation retains six empty regions. The 3200-3700 CalBP region becomes nonempty solely because the three-marginal budget (0.9833333333333334 rather than 0.975) widens the shared-panel constraints; all 26 new pollen intervals enclose the old ones. This is not evidence of model success, precision gain or independent Fraxinus confirmation; per-window coverage does not imply a 13-window, postselection or calibrated field guarantee. Seven conditional probabilities remain below the 13-window threshold, including 3200–3700 despite its nonempty three-marginal region. The procedures use different assumptions and error budgets; neither outcome replaces the other. No sampling calibration or physical common-cover admission follows. Twelve of 32 prespecified within-site windows cross 1/640: six BOKE and six BUS. This is tension with the joint independent homogeneous sampling model, not a diagnosis of changing composition, clustered grains, preparation effects or chronology. BOKE 3200-3700 and BUS 8200-8700 have one positive sample and remain uninformative at p=1. No table is refused or omitted. Nonrejection cannot establish homogeneity or validate pooled confidence sets. Monte Carlo ranks have minimum 0.0001; none is an enumerated zero probability. The per-window 99% intervals quantify simulation-tail uncertainty only, not field uncertainty or joint 32-window coverage. The simultaneous sample-unit bound is full-domain for 73 of 77 coordinates and all coordinates in 30 of 32 windows; every lower bound is zero. Only BOKE 100-350 and 700-1200 CalBP Fraxinus/Ulmus upper bounds are below one. All 32 windows compute without refusals. Weak precision under this conservative construction does not prove absence of information or variation, validate sample independence, calibrate field uncertainty or repair earlier pooled intervals.
 
-**Matched denominator.** English 15 outer source sites versus Nordic country/lake pollen cohorts on separate 30, 31 and 16-taxon axes. Separate common-cover study: 13 windows, two distinct places, 93 matched samples and 13,627 projected grains; 17 other retained BUS samples in six unmatched windows. Original full-panel exclusions and 1,367 discarded Fraxinus grains remain explicit. Count sets use the same 13 windows and 26 site count rows; nominal 95% coverage applies per window under the declared binomial marginals, without a simultaneous 13-window claim. The separate BOKE3/BUS2 profile uses the same 93 matched samples and 13 windows, retaining 14994 measured grains including 1367 BOKE Fraxinus; BUS Fraxinus stays unmeasured. The joint count result reuses those 93 samples, 14994 measured grains, nine original scientific pins and all six unmatched windows/17 BUS samples. Three CP marginals use upward-rounded m with 3*m-2 >= 0.95. The positive B+U model domain is fixed even for zero-effort designs; BUS Fraxinus remains null, zero projected B+U gives an uninformative constraint, and pure Fraxinus is outside the declared domain.
+**Matched denominator.** English 15 outer source sites versus Nordic country/lake pollen cohorts on separate 30, 31 and 16-taxon axes. Separate common-cover study: 13 windows, two distinct places, 93 matched samples and 13,627 projected grains; 17 other retained BUS samples in six unmatched windows. Original full-panel exclusions and 1,367 discarded Fraxinus grains remain explicit. Count sets use the same 13 windows and 26 site count rows; nominal 95% coverage applies per window under the declared binomial marginals, without a simultaneous 13-window claim. The separate BOKE3/BUS2 profile uses the same 93 matched samples and 13 windows, retaining 14994 measured grains including 1367 BOKE Fraxinus; BUS Fraxinus stays unmeasured. The joint count result reuses those 93 samples, 14994 measured grains, nine original scientific pins and all six unmatched windows/17 BUS samples. Three CP marginals use upward-rounded m with 3*m-2 >= 0.95. The positive B+U model domain is fixed even for zero-effort designs; BUS Fraxinus remains null, zero projected B+U gives an uninformative constraint, and pure Fraxinus is outside the declared domain. Conditional adequacy uses the same 93 matched samples and 13,627 Betula/Ulmus grains, retains 1,367 BOKE Fraxinus outside its tested axis and all six unmatched BUS windows with 17 samples. Original full-panel exclusions remain unchanged. Within-site testing includes all 32 original site/windows and 110 samples: BOKE 13 windows/50 samples/11,295 selected-panel grains; BUS 19 windows/60 samples/6,848 selected-panel grains. Total measured-panel N=18,143, including all 1,367 BOKE Fraxinus grains; BUS Fraxinus remains unmeasured. All six unmatched BUS windows and 17 samples remain. Thirty informative windows each use 9,999 prescribed draws; two single-sample windows receive p=1 without simulation. Repeated windows and draws are not independent field places. The sample-unit calculation retains the same 32 windows, 110 positive-effort samples and 18143 measured-panel counts: 13 BOKE three-taxon and 19 BUS two-taxon panels, including six unmatched BUS windows. One fixed 77-coordinate family uses radius squared at least (9/2) times the exact sum of squared effort weights; no independence between taxa or windows is needed. Its target is the effort-weighted expectation of measured sample fractions, allowing different sample expectations. BUS Fraxinus stays unmeasured. Full outward radii range from 0.892573817839 to 2.12132034356; inverse effort concentration ranges from 1 to about 5.6484, not an estimated independent sample size.
 
-Retained evidence: [reports/science/pollen-prediction.md](pollen-prediction.md), [reports/science/vegetation-reference.md](vegetation-reference.md), [reports/science/pollen-reconstruction/common-cover/report.json](pollen-reconstruction/common-cover/report.json), [reports/science/pollen-reconstruction/common-cover/counting-sets.json](pollen-reconstruction/common-cover/counting-sets.json), [reports/science/pollen-reconstruction/common-cover/measured-panels.json](pollen-reconstruction/common-cover/measured-panels.json), [reports/science/pollen-reconstruction/common-cover/measured-panel-counting-regions.json](pollen-reconstruction/common-cover/measured-panel-counting-regions.json).
+Retained evidence: [reports/science/pollen-prediction.md](pollen-prediction.md), [reports/science/vegetation-reference.md](vegetation-reference.md), [reports/science/pollen-reconstruction/common-cover/report.json](pollen-reconstruction/common-cover/report.json), [reports/science/pollen-reconstruction/common-cover/counting-sets.json](pollen-reconstruction/common-cover/counting-sets.json), [reports/science/pollen-reconstruction/common-cover/measured-panels.json](pollen-reconstruction/common-cover/measured-panels.json), [reports/science/pollen-reconstruction/common-cover/measured-panel-counting-regions.json](pollen-reconstruction/common-cover/measured-panel-counting-regions.json), [reports/science/pollen-reconstruction/common-cover/conditional-adequacy.csv](pollen-reconstruction/common-cover/conditional-adequacy.csv), [reports/science/pollen-reconstruction/common-cover/within-site-homogeneity.csv](pollen-reconstruction/common-cover/within-site-homogeneity.csv), [reports/science/pollen-reconstruction/common-cover/sample-dependence-bounds.csv](pollen-reconstruction/common-cover/sample-dependence-bounds.csv).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
