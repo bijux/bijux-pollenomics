@@ -57,7 +57,12 @@ class ScoringCase:
 
 
 def _case(
-    root: Path, monkeypatch: pytest.MonkeyPatch, prefix: str, name: str
+    root: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    prefix: str,
+    name: str,
+    *,
+    logical_prefix: str = "executions/optimizer-diagnostics/first-party-inputs/",
 ) -> ScoringCase:
     """Commit one invented comment body and bind it through the existing parser."""
     root.mkdir()
@@ -86,7 +91,7 @@ def _case(
     )
     revision = _git(root, "rev-parse", "HEAD").decode().strip()
     blob = _git(root, "rev-parse", "HEAD:" + name).decode().strip()
-    logical = "executions/optimizer-diagnostics/first-party-inputs/" + name
+    logical = logical_prefix + name
     identity = _identity(_OLD)
     members = {logical: identity}
     capture = _encoded({"members": members})
@@ -130,6 +135,10 @@ def _case(
     monkeypatch.setattr(
         subject, "_OPTIMIZER_CAPTURE_SHA256", _identity(capture)["sha256"]
     )
+    if prefix == "data/method-certification/linux-r-source-capture":
+        monkeypatch.setattr(
+            subject, "_LINUX_CAPTURE_SHA256", _identity(capture)["sha256"]
+        )
     buffer = index.validated_descriptor(root, prefix, members)
     assert buffer.read_source(logical) == _OLD
     assert not (root / prefix / logical).exists()

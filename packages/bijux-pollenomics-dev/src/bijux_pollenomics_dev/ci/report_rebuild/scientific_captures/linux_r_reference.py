@@ -18,6 +18,7 @@ from ..retained_source.generated import reconstruct
 from ..retained_source.index import SourceCapsule, validated_descriptor
 from .source_correspondence import validated_current_scientific_source
 from .source_roles.reference_vector_precision import REFERENCE_VECTOR_PRECISION_SOURCES
+from .source_roles.scoring_protocols import LINUX_SCORING_SOURCE
 
 OWNER = "method-certification/linux-r-oracle/report-products"
 FAMILY = "docs/report/method-certification/linux-r-oracle/"
@@ -279,6 +280,25 @@ def _require_scientific_projection(
     actual = hashlib.sha256(body).hexdigest(), len(body)
     if actual == expected:
         return None
+    if name == LINUX_SCORING_SOURCE:
+        if source_buffer is None:
+            raise ReportRebuildError(
+                "Linux historical scoring requires captured source custody"
+            )
+        role = validated_current_scientific_source(
+            repository,
+            {"path": name, "sha256": expected[0], "bytes": expected[1]},
+            "source/" + name,
+            source_buffer,
+        )
+        if (
+            role is None
+            or role.get("path") != name
+            or role.get("classification")
+            != "explicit_historical_scoring_arithmetic_profile"
+        ):
+            raise ReportRebuildError("Linux historical scoring correspondence differs")
+        return role
     if name in REFERENCE_VECTOR_PRECISION_SOURCES:
         if source_buffer is None:
             raise ReportRebuildError(
@@ -469,6 +489,7 @@ def validated_linux_r_reference_capture(
     reader_correspondences: list[JsonObject] = []
     transport_correspondences: list[JsonObject] = []
     precision_correspondences: list[JsonObject] = []
+    scoring_correspondences: list[JsonObject] = []
     counting_correspondences: list[JsonObject] = []
     for raw in scientific:
         item = _object(raw, "Linux source projection malformed")
@@ -503,6 +524,11 @@ def validated_linux_r_reference_capture(
                     == "finite_reference_vector_precision_extension"
                 ):
                     precision_correspondences.append(role)
+                elif (
+                    role.get("classification")
+                    == "explicit_historical_scoring_arithmetic_profile"
+                ):
+                    scoring_correspondences.append(role)
                 elif role.get("classification") == "finite_counting_api_addition":
                     counting_correspondences.append(role)
                 else:
@@ -572,15 +598,17 @@ def validated_linux_r_reference_capture(
         "native_reference_transport_correspondences": transport_correspondences,
         "finite_counting_api_correspondences": counting_correspondences,
         "numeric_parser_source_correspondences": precision_correspondences,
+        "historical_scoring_source_correspondences": scoring_correspondences,
         "ordinary_current_byte_exact_members": 120
         - len(transport_correspondences)
         - len(counting_correspondences)
-        - len(precision_correspondences),
+        - len(precision_correspondences)
+        - len(scoring_correspondences),
         "historical_generated_metadata_members": 1,
         "historical_generated_metadata_sha256": VERSION_SHA256,
         "retained_execution_files": 140,
         "report_outputs": 137,
         "paths_sha256": canonical_json_sha256(sorted(names)),
         "historical_source_gap_retained": True,
-        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. Original127source projection binds126current inputs:112 declared ordinary tracked inputs, with separately listed exact counting API additions and all other ordinary bodies byte-exact, four fixed old-identity reader custody roles, five separately bound native-reference transport extensions and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The eleven declared current reader/documentation/transport bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance. The three separately listed token-parser correspondences change binary64 parsing and are not byte-equal execution-time sources. Their original reader bodies are reconstructed by fixed parser inverses composed only with the already reviewed native-reference IO inverse. Current 38 lexical/rounding controls qualify current software separately; no old/current parser or native numerical equality is asserted.",
+        "scope": "Captured local ARM64 R4.6 source oracle,43core+23source-domain cases and independentDecimal50 comparison. The original 127-source projection binds 126 current inputs, including 109 strict ordinary byte-exact inputs and two separately listed exact counting API additions and all other ordinary bodies byte-exact, four fixed old-identity reader custody roles, five separately bound native-reference transport extensions and two exact named numeric-documentation insertions. Current custody validators require their separate maintained qualification, and their current file hashes are not execution-time source postimages. One separately declared historical539 runtime member is authenticated by its exact descriptor generator, scalars and original body identity; no equality with current ignored version metadata is claimed. The eleven declared current reader/documentation/transport bodies are not labelled execution-time source. No claim the entire current executable source tree equals the captured execution. Original1661source missing4 epoch stays separate. Transport executes noR, optimizer, browser, acquisition or ecological/human/rights/hostedx86_64 release acceptance. The three separately listed token-parser correspondences change binary64 parsing and are not byte-equal execution-time sources. Their original reader bodies are reconstructed by fixed parser inverses composed only with the already reviewed native-reference IO inverse. Current 38 lexical/rounding controls qualify current software separately; no old/current parser or native numerical equality is asserted. One separately listed fixed original site-leakage challenge selects its historical scoring arithmetic profile explicitly. Its complete old module is reconstructed by the existing two-span inverse under this Linux capture only; it is excluded from the strict ordinary-byte count. No current scoring output or native equality is claimed.",
     }
