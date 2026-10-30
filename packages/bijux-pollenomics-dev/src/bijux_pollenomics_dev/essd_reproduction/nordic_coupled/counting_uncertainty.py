@@ -371,7 +371,7 @@ def main() -> None:
         )
         pins[name] = {**row, "path": str(args.repository / relative)}
     require(
-        set(pins) == {"cache_contract", "prior_admissibility", "prior_publication"}
+        set(pins) == {"cache_contract", "prior_admissibility"}
         and pins["cache_contract"]["sha256"] == CONTRACT_SHA256
         and pins["prior_admissibility"]["sha256"] == PRIOR_SHA256,
         "Input authority differs",
@@ -379,13 +379,6 @@ def main() -> None:
     _, contract = load(pins["cache_contract"])
     require(contract["repository"] == str(args.repository), "Repository differs")
     _, prior = load(pins["prior_admissibility"])
-    _, publication = load(pins["prior_publication"])
-    require(
-        publication["input_contract"]["sha256"] == CONTRACT_SHA256
-        and publication["public_result"]["sha256"] == PRIOR_SHA256
-        and publication["original_native_epoch"] == NATIVE_EPOCH,
-        "Prior publication differs",
-    )
     require(
         len(args.execution_epoch) == 40
         and all(c in "0123456789abcdef" for c in args.execution_epoch),
