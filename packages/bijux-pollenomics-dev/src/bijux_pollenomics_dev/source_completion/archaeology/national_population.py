@@ -174,6 +174,7 @@ def historical_comparison(
 
 
 def main() -> int:
+    """Reconcile national population aggregates from retained source inputs."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source", type=Path, required=True)
