@@ -1,0 +1,138 @@
+{
+  "schema_version": "author-default-window-input-correspondence.v1",
+  "epochs": {
+    "document_construction": "67f53e2656e9dba280bede74b20d8e09f1063c35",
+    "original_retained_native": "22c6e480ba4690cc508202925a8773afe95ab36e",
+    "original_source_inputs": "cacf5c5d956f379cf21b94b64791e1daf7650f1a",
+    "independent_saved_product_observer": "67f53e2656e9dba280bede74b20d8e09f1063c35"
+  },
+  "default_window": 5,
+  "window_override_supplied": false,
+  "population": {
+    "eligible_sites": 15,
+    "private_source_inputs": 26,
+    "original_source_documents": 37,
+    "original_constrained_documents": 37,
+    "constructed_or_projected_document_comparisons": 111,
+    "independent_scientific_experiments_added": 0
+  },
+  "document_groups": {
+    "source_materializer_default": {
+      "documents": 37,
+      "raw_byte_identical": 37,
+      "original_strict_contract_passed": 37,
+      "different_or_missing_documents": 0
+    },
+    "preparation_default": {
+      "documents": 37,
+      "raw_byte_identical": 37,
+      "original_strict_contract_passed": 37,
+      "different_or_missing_documents": 0
+    },
+    "saved_source_projection_default": {
+      "documents": 37,
+      "raw_byte_identical": 37,
+      "original_strict_contract_passed": 37,
+      "different_or_missing_documents": 0
+    }
+  },
+  "all111_raw_bytes_and_original_strict_contract_exact": true,
+  "comparison_absolute_tolerance": 0,
+  "permitted_source_binding_changes": {},
+  "execution_status": {
+    "constructor_stage_exit": 0,
+    "native_wrapper_exit": 1,
+    "outer_exit": 1,
+    "whole_original_job_passed": false,
+    "saved_product_observer_native_exit": 0,
+    "saved_product_observer_outer_exit": 0
+  },
+  "controller_failure": {
+    "cause": "The original plan incorrectly declared its expected native/products output as an invariant absent path. Successful creation made absent_input_paths_unchanged false.",
+    "erroneous_invariant_path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-execution/native/products",
+    "original_status_preserved": true,
+    "constructors_repeated_for_recovery": false,
+    "other_failure_found_by_saved_observer": false
+  },
+  "provenance": {
+    "original_execution": {
+      "plan": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-execution/plan.json",
+        "sha256": "8df7464fb53d617f21261ad9d848685251d29782fea662b18de525037af0be99",
+        "bytes": 1926301
+      },
+      "admission": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-execution/admission.json",
+        "sha256": "f34371966b1807696443621e141a2de2e7bd8f52792bb2568e2fe2530859c337",
+        "bytes": 2657
+      },
+      "terminal": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-execution/native/terminal.json",
+        "sha256": "5f20a794cb83c44048536e0483b2926d6b62f79d017643cee6ee1e4a2f21ffed",
+        "bytes": 37215
+      },
+      "execution": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-execution/execution.json",
+        "sha256": "ae76abac45767e6c09371721274aa6d98987cdc3275f6593e273a005dede1f62",
+        "bytes": 1374
+      },
+      "observation": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-execution/native/products/observation.json",
+        "sha256": "c2e02925702d6ce1761826de32175830ff416e7be2ccc43860499d87484964c6",
+        "bytes": 65951
+      }
+    },
+    "consumer_source": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-source/qualification/source-proposal.json",
+      "sha256": "d404394f96da138a936ff6c4000faee6daef60e5a2816e689c8b1af382db323f",
+      "bytes": 4443
+    },
+    "consumer_review": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-review/source-review.json",
+      "sha256": "8d13398325ab67df04bbe06d2a15161df701d5a4c37b106cb3766a3175fa0e68",
+      "bytes": 5546
+    },
+    "nine_artificial_controls": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-controls/control-admission.json",
+      "sha256": "323c47ddb87c0d268aac0344026767399c1ffd1ac3fa796083fabbdfe756cd1e",
+      "bytes": 837
+    },
+    "saved_product_observer": {
+      "plan": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-observation-execution/plan.json",
+        "sha256": "68763465e022775c7172f28f85ddd5a93d615374c693b21fb79f735dc603db17",
+        "bytes": 63402
+      },
+      "admission": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-observation-execution/admission.json",
+        "sha256": "30bc1a7c875218cec21afb0a1a21770c3f33d4c79a9334e1ebc4c487c3e20132",
+        "bytes": 2657
+      },
+      "terminal": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-observation-execution/native/terminal.json",
+        "sha256": "23e3e7dc96425e1d7c73cda7fd9511ba2459176f71bcb4bf83ec159d813d9817",
+        "bytes": 5523
+      },
+      "execution": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-observation-execution/execution.json",
+        "sha256": "774137c82735d6816c385b1d6c3e92cb8c7736a3798073147fb8a09d204ebb91",
+        "bytes": 1302
+      },
+      "observation": {
+        "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/author-default-window-input-proof-observation-execution/native/observation.json",
+        "sha256": "ad75b6b59930ce41d87103bf0fe52f35ab099e57a9d694c9cfb5912192b85fb1",
+        "bytes": 25491
+      }
+    }
+  },
+  "Hellinger_equivalence_claimed": false,
+  "original_source_acceptance_discharged": false,
+  "full_current2136_source_projection_qualified": false,
+  "new_fit_prediction_metric_R_execution": false,
+  "interpretation": "Each of the three construction or projection routes uses the default window value of 5 and reproduces all 37 documents exactly, including their strict type, value and source contracts. The isolated projection reuses the same 37 original source documents; the 111 comparisons do not represent 111 independent scientific observations or unique historical inputs. Constructor success remains distinct from the failed enclosing job and the later saved-product verification.",
+  "limits": [
+    "No permission change to historical exact Hellinger correspondence; its published current differences/refusal remain.",
+    "Other current source roles and the original 2,136-file source projection, native scientific outputs and all owner criteria remain open/unchanged.",
+    "No fresh fitted model, kernel, prediction, score, vegetation accuracy, ecological/source-rights or qualified-human acceptance."
+  ]
+}

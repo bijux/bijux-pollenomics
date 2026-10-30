@@ -1,0 +1,76 @@
+{
+  "question": "Can explicitly selected historical Hellinger arithmetic reproduce the original complete paired-pollen and descriptive sensitivity reports?",
+  "finding": "Both complete reports are byte-identical to the original native outputs, with zero numeric or provenance allowances.",
+  "source_revision": "7338aa4d85687e6f44a2294632bec11883b60f5f",
+  "arithmetic": "source-compatible-22c6e480: explicit left-to-right Python 3.11 binary64 accumulation; the stable default remains unchanged.",
+  "inputs": {
+    "frozen_study": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work",
+    "original_native_source_revision": "22c6e480ba4690cc508202925a8773afe95ab36e",
+    "matched_sites": 14,
+    "matched_method_rows": 42,
+    "taxon_count": 30,
+    "excluded_site": "author:BECKHAM",
+    "authentication": "The retained source capture and all 45 selected input/reference members matched their existing byte identities before execution."
+  },
+  "reproduction": {
+    "commands": [
+      "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py hellinger --inputs data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/constrained-inputs --direct-predictions data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/direct-predictions --lra-predictions data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/report/predictions.csv --lra-scores data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/report/scores.csv --lra-report data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/report/report.json --comparison data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/direct-comparison/comparison.json --output artifacts/science/historical-hellinger-comparison/paired-hellinger.json --arithmetic-profile source-compatible-22c6e480 --arithmetic-receipt artifacts/science/historical-hellinger-comparison/arithmetic.json",
+      "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py hellinger-sensitivity --hellinger artifacts/science/historical-hellinger-comparison/paired-hellinger.json --output artifacts/science/historical-hellinger-comparison/paired-hellinger-sensitivity.json"
+    ],
+    "producer_exit_codes": [
+      0,
+      0
+    ],
+    "comparison": "The authenticated original recursive comparator compare(actual, original, {}) accepted types, membership, ordered rows and every value; independent raw-byte comparisons also passed for both reports.",
+    "comparison_exit_code": 0,
+    "byte_comparison_commands": [
+      "cmp artifacts/science/historical-hellinger-comparison/paired-hellinger.json data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/paired-hellinger.json",
+      "cmp artifacts/science/historical-hellinger-comparison/paired-hellinger-sensitivity.json data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/paired-hellinger-sensitivity.json"
+    ],
+    "interpreter": "Python 3.11.13 in the existing shared environment"
+  },
+  "results": [
+    {
+      "retained_native_report": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/paired-hellinger.json",
+      "bytes": 26709,
+      "sha256": "7189523f2c5f5517c79f9b071f164bd1a480082a8cf3a0317940bcc8c9b1cf9f",
+      "actual_output_equal_to_retained_native_report": true
+    },
+    {
+      "retained_native_report": "data/method-certification/constrained-author-source-capture/executions/complete-constrained/complete-work/paired-hellinger-sensitivity.json",
+      "bytes": 1972,
+      "sha256": "f8b4f2ecda7061f1bd9a18901d63458b5a8a7df3fc9994e3a0390f3b32ea123b",
+      "actual_output_equal_to_retained_native_report": true
+    }
+  ],
+  "method_summaries": [
+    {
+      "method": "training_mean",
+      "matched_sites": 14,
+      "direct_pollen_site_macro_hellinger": 0.28208247358048577,
+      "lra_forward_pollen_site_macro_hellinger": 0.360670746249841,
+      "direct_lower_site_count": 14
+    },
+    {
+      "method": "nearest_site",
+      "matched_sites": 14,
+      "direct_pollen_site_macro_hellinger": 0.25576738782872227,
+      "lra_forward_pollen_site_macro_hellinger": 0.2860009278252601,
+      "direct_lower_site_count": 7
+    },
+    {
+      "method": "inverse_distance_squared",
+      "matched_sites": 14,
+      "direct_pollen_site_macro_hellinger": 0.2436725775206348,
+      "lra_forward_pollen_site_macro_hellinger": 0.28541528916644715,
+      "direct_lower_site_count": 11
+    }
+  ],
+  "verification": "145 focused tests, configured Ruff and strict Mypy passed. Independently loading the maintained metric/contract modules on Python 3.14 preserved both authenticated insertion-order regressions.",
+  "limits": [
+    "Arithmetic reproduction only, conditional on the original frozen inputs and original predictions. No fits, kernels, R jobs or predictions were rerun.",
+    "The original cohort is prior-exposed English development. Its pollen scores and descriptive leave-one-site-out influence do not establish independent vegetation accuracy, sampling confidence intervals or geographic transfer.",
+    "Historical cancellation and underflow remain intentional in this explicitly selected profile. The earlier stable-arithmetic mismatch remains retained in reports/science/method-certification/constrained-current-hellinger-characterization.json.",
+    "Broader source-owner correspondence, rights, qualified scientific decisions and release qualification remain open. Retained private source inputs are required for this local reproduction."
+  ]
+}

@@ -94,8 +94,8 @@
   },
   "public_reader": {
     "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/README.md",
-    "sha256": "3ae807972386516981217e9e129acd8589399641c2c162963038cdd66ae3c07b",
-    "bytes": 42458
+    "sha256": "9aa368ac855de06d8d9a2c64bb07ee2a5794e30d9fdbf016dd0e594e8a71d34a",
+    "bytes": 63788
   },
   "cases": 8,
   "scope": "Optional fixed-input affine nonnegative-cover feasibility diagnostic only. Exact printed-decimal rational interpretation, not native float64 replay; all16signed native-minus-rational residuals preserved, no new tolerance. Original analytical estimator, signed vectors and refusal guard unchanged. No field cause, clipping, model refit, kernel evaluation, scoring or whole scientific acceptance."

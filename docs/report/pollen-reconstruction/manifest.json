@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "d06c9bba4b850f663be3aa4b42d2a18241b04be19fb66115247e9c2724613135",
-      "bytes": 7382357
+      "sha256": "9ccdc6895c2e7230170744205f4f1e21fb757ebc75e36f3730727386ef339003",
+      "bytes": 7384587
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -4906,7 +4906,7 @@
     },
     {
       "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/admissibility-publication.json",
-      "sha256": "e75e00ed6e8ead0eedccbc1e5780342985edf9c8c933dcf38f59cdee8c3a70ed",
+      "sha256": "05897b9b937bf635b604346f71c2dfda8014409ce941e33800adffcf25138278",
       "bytes": 5593
     },
     {
@@ -5186,7 +5186,7 @@
     },
     {
       "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/comparison-publication.json",
-      "sha256": "0631c886b8883aa6fd5ea244649006eac7a116eab6291cf21def993ff9a1670a",
+      "sha256": "b12778dd9f896614ff345801facb4f3f45b21265c5e6f2dde1258d8ab90ebba3",
       "bytes": 2596
     },
     {
@@ -5226,13 +5226,63 @@
     },
     {
       "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/publication.json",
-      "sha256": "05c8a1142d1ecaf83818204a16b2e0b7977265a42890084eda175b30e46bd76c",
+      "sha256": "638c34bee23cdcb7992483f8537969e06b221eb6dade3f10cb37de59ff86c37d",
       "bytes": 27951
     },
     {
       "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/score-batch.json",
       "sha256": "d9b5bb3df4e52f85f4ce73337166faff26f66d044f7feae995af551bfc15378e",
       "bytes": 4606
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-nordic-cohort.json",
+      "sha256": "7088ddafe117df6da6afa9657957a86a6723ed95a307c4311cb1647b3fa7be19",
+      "bytes": 7073
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/love-counting-uncertainty.json",
+      "sha256": "0315ba82daf30e76cac32fe17196d576a3251dbf0d0904a8dd84c8eee4c6a570",
+      "bytes": 3509
+    },
+    {
+      "path": "reports/science/chronology/abborrtjarne-frozen-prediction-age-sensitivity.json",
+      "sha256": "c49cfd151cda594e5c30e2d7ce5d9bfa6cd56e34c1287c3035396405e4fa5b42",
+      "bytes": 154204
+    },
+    {
+      "path": "reports/science/chronology/abborrtjarne-ordered-count-fractions.json",
+      "sha256": "51c8f65bdfd5f6ed13e7428440611e7fe32c4b2f915342881ceb9ac323674060",
+      "bytes": 209046
+    },
+    {
+      "path": "reports/science/method-certification/author-default-window-input-correspondence.json",
+      "sha256": "94edbab07727be3bedb88e2d80d216e1357f00cf66747db3082534a5a34c48c7",
+      "bytes": 7041
+    },
+    {
+      "path": "reports/science/method-certification/historical-hellinger-reproduction.json",
+      "sha256": "1a140a4cad706ab9c4b204fc53cc498950b24e46205cdf7849639c95b1fcb055",
+      "bytes": 6007
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/flink-nordic-publication.json",
+      "sha256": "ca2cbf3579c6c37f7f2b09d039291d3af9de42651d08131bdb13651314bed449",
+      "bytes": 8345
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/flink-nordic.json",
+      "sha256": "c7d475b2aafd642e828784f2e1c24dd8b829a2f5e8d75f7db7c1f2bfeeaa48aa",
+      "bytes": 256890
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/love-counting-uncertainty-publication.json",
+      "sha256": "c3f4b1008d942216880051a2fbdf5b4432b7c5735aef3d27a833f88f54046d66",
+      "bytes": 5794
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/love-counting-uncertainty.json",
+      "sha256": "dacbf97b1cd1753cc3e1f1ca4846a428ac9a4271ac77ea9d6f22de59953e6cee",
+      "bytes": 97296
     }
   ],
   "maintained_paths": [
@@ -5495,7 +5545,11 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__main__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/admissibility.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/__init__.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/flink_nordic.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/workflow.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/comparison.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/counting_uncertainty.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/inputs.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_rows.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_source.py",
@@ -5643,8 +5697,11 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/__init__.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne_prediction_sensitivity.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/count_fraction.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/domains.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/extrema.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/prediction_sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_sensitivity.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/joint_membership.py",
@@ -6008,6 +6065,7 @@
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/homogeneous_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/regional_counting.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py",

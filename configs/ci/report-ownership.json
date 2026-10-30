@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2241,
-  "paths_sha256": "1900911b34a608af8a746ef68345429b520b90bdfa42441079d56fa4a0a2eedc",
+  "path_count": 2243,
+  "paths_sha256": "fa0deadde04fff7a6e3bb6fd190c20889ef45c02d4e10c686c724d652c00cfc9",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -24130,7 +24130,11 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/__main__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/admissibility.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/flink_nordic.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/workflow.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/counting_uncertainty.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/inputs.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_rows.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/nordic_coupled/native_panel_source.py",
@@ -24392,6 +24396,9 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_joint_membership.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/abborrtjarne_prediction_sensitivity.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/count_fraction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/depth_order/prediction_sensitivity.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_sensitivity.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/joint_membership.py",
@@ -24638,6 +24645,7 @@
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/homogeneous_counting.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_aliquot_covariance.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/joint_site_draws.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/regional_counting.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/uncertainty/two_taxon_counting.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
@@ -68346,6 +68354,7 @@
       "owner_id": "pollen-reconstruction/nordic-coupled-workflow/protocol",
       "role": "maintained_configuration",
       "paths": [
+        "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-nordic-cohort.json",
         "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-source-projection.json",
         "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/protocol.json"
       ],
@@ -68362,6 +68371,16 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain the declared deterministic one-taxon PPE domain alternatives, exact decimal endpoint convention, same three-place/six-bin source inputs, shared regional/local/forward parameter bindings, complete fold/refusal accounting and previously exposed conditional scope. This authored protocol is not a probability law, confidence interval, covariance/coverage claim, source-rights approval, independent vegetation validation or executed scientific result."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-coupled-workflow/love-counting-uncertainty-protocol",
+      "role": "maintained_configuration",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/love-counting-uncertainty.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the declared eight-request conditional two-taxon counting protocol, fixed nominal alpha 0.05, exact saved count/background/PPE/K source bindings, common-denominator coefficient mapping, complete computed/empty/refused/fatal accounting and previously observed failure-based selection. Confidence sets condition on a fixed-effort pooled binomial panel and fixed inputs; they do not establish pooling validity, joint or selected-case coverage, regional/PPE/chronology uncertainty, an estimator repair, rights, field accuracy or whole scientific acceptance. All original signed estimates, native failures and owner criteria remain unchanged. This authored protocol is not an executed numerical result."
     }
   ]
 }

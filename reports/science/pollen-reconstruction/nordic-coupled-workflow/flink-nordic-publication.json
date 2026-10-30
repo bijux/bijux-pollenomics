@@ -1,0 +1,159 @@
+{
+  "schema_version": "flink-nordic-cohort-publication.v1",
+  "public_result": {
+    "path": "reports/science/pollen-reconstruction/nordic-coupled-workflow/flink-nordic.json",
+    "sha256": "c7d475b2aafd642e828784f2e1c24dd8b829a2f5e8d75f7db7c1f2bfeeaa48aa",
+    "bytes": 256890
+  },
+  "prediction": {
+    "batch": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution/native/analysis/batch.json",
+      "sha256": "96c7631c548d6426ce80853e5ae6dc41a5ae091d0fd675dbe13ab50b16ccb32c",
+      "bytes": 35186
+    },
+    "terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution/native/terminal.json",
+      "sha256": "96eab5ede293e80748f44e04adc06361f5a68d75adfef09724f65556dd0a3e07",
+      "bytes": 302980
+    },
+    "execution": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution/execution.json",
+      "sha256": "d76751a383e70fabf44af37133db13e7120bffa5827a280137d2ba53a74c46bf",
+      "bytes": 1441
+    },
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution/plan.json",
+      "sha256": "165390c7c30511e116076baaf5a010b2140b3febbcecae9b3ed34f33ffdc6973",
+      "bytes": 1960432
+    },
+    "admission": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution/admission.json",
+      "sha256": "5c140f8faed8b7a4acd91e502f13a95017ce634bc5348ead7109a8da24965332",
+      "bytes": 2710
+    }
+  },
+  "score": {
+    "batch": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-score-execution/native/analysis/batch.json",
+      "sha256": "996154eb17abb6d20d735a556b53846eb5ea752cffc6494a62f29170ba99a407",
+      "bytes": 5094
+    },
+    "terminal": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-score-execution/native/terminal.json",
+      "sha256": "7c092b9d1097c75637483b939b26a5941c66b93a739b5660a087beb07578c9b8",
+      "bytes": 16207
+    },
+    "execution": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-score-execution/execution.json",
+      "sha256": "da18fbbbff71a24e85098c1fc55a9d51666bda4bd3f9bf05905738571761f9fd",
+      "bytes": 1387
+    },
+    "plan": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-score-execution/plan.json",
+      "sha256": "4c20af2e8ed28ded7aecd34170565ae72acef2494534212ff9ddf53b9d451f26",
+      "bytes": 1975021
+    },
+    "admission": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-score-execution/admission.json",
+      "sha256": "20791a76cac6b6e2ea92999220d63fed9aa572e1555f7258bd0dabbfccf34b25",
+      "bytes": 2596
+    }
+  },
+  "source_epoch": "e50ea3ecb9a9ade4512451993dc80fc6a326ca2b",
+  "input_execution_epoch": "a1f4412e333964d7408937045faa8b4a0289af83",
+  "postcommit_source_proof": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-workflow-integration/committed-source-verification.json",
+    "sha256": "9a628a9be52febb784e07e1ffa975fc373237209152f22472ffc3865bb2a238c",
+    "bytes": 3678
+  },
+  "protocol": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-nordic-cohort.json",
+    "sha256": "7088ddafe117df6da6afa9657957a86a6723ed95a307c4311cb1647b3fa7be19",
+    "bytes": 7073
+  },
+  "input_manifest": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-input-execution/native/input-members.json",
+    "sha256": "cbe6aadfab88fe76683473695e5ed40771a4e8721023d203441070cb29897ec8",
+    "bytes": 16393
+  },
+  "rerun_argv": {
+    "prediction": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "pycache_prefix=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution/native/source-pycache",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "--profile",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "--profile-sha256",
+      "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "--mode",
+      "python",
+      "--",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution-source/entry.py",
+      "--metadata-receipt",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-provider-metadata-execution/native/products/receipt.json",
+      "--metadata-receipt-sha256",
+      "f43b276b8cda05f8aa190ee7f7463b0f76343a737a7fd0ba0ad476292c4e351a",
+      "--",
+      "-m",
+      "bijux_pollenomics_dev.essd_reproduction.nordic_coupled.cohorts.workflow",
+      "prepare",
+      "--input-root",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-input-execution/native/inputs",
+      "--input-manifest",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-input-execution/native/input-members.json",
+      "--input-manifest-sha256",
+      "cbe6aadfab88fe76683473695e5ed40771a4e8721023d203441070cb29897ec8",
+      "--protocol",
+      "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-nordic-cohort.json",
+      "--protocol-sha256",
+      "7088ddafe117df6da6afa9657957a86a6723ed95a307c4311cb1647b3fa7be19",
+      "--execution-epoch",
+      "e50ea3ecb9a9ade4512451993dc80fc6a326ca2b",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution/native/analysis"
+    ],
+    "score": [
+      "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+      "-I",
+      "-S",
+      "-B",
+      "-X",
+      "pycache_prefix=/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-score-execution/native/source-pycache",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/execute.py",
+      "--profile",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/cached-source-validation-custody/profile.json",
+      "--profile-sha256",
+      "3331ec5104b2d083c886dcb10ad62551c2f69ff7d00d604aba60b10023e9e08b",
+      "--mode",
+      "python",
+      "--",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-score-execution-source/entry.py",
+      "-m",
+      "bijux_pollenomics_dev.essd_reproduction.nordic_coupled.cohorts.workflow",
+      "score",
+      "--input-root",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-input-execution/native/inputs",
+      "--input-manifest",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-input-execution/native/input-members.json",
+      "--input-manifest-sha256",
+      "cbe6aadfab88fe76683473695e5ed40771a4e8721023d203441070cb29897ec8",
+      "--protocol",
+      "/Users/bijan/bijux/bijux-pollenomics/docs/report/pollen-reconstruction/nordic-coupled-workflow/assumptions/flink-nordic-cohort.json",
+      "--protocol-sha256",
+      "7088ddafe117df6da6afa9657957a86a6723ed95a307c4311cb1647b3fa7be19",
+      "--execution-epoch",
+      "e50ea3ecb9a9ade4512451993dc80fc6a326ca2b",
+      "--prediction-index",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-prediction-execution/native/analysis/batch.json",
+      "--prediction-index-sha256",
+      "96c7631c548d6426ce80853e5ae6dc41a5ae091d0fd675dbe13ab50b16ccb32c",
+      "--output",
+      "/Users/bijan/bijux/bijux-pollenomics/artifacts/science/nordic-flink-cohort-score-execution/native/analysis"
+    ]
+  },
+  "scope": "Prior-exposed conditional four-place development, stored native scores only. Three dependent baselines may differ with two local training places. No gain comparison with the different nominal population, field/vegetation accuracy, historical reproduction, source-rights, probability/CI/calibration or whole acceptance."
+}
