@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import ast
+import hashlib
 from pathlib import Path
 
 from ...contracts import JsonObject, ReportRebuildError
@@ -161,4 +162,158 @@ def _historical_custody_source_role(
         "whole_current_software_equal_old_execution_claimed": False,
         "native_execution_claimed": False,
         "mixed_numeric_predicates_enforced": name in MIXED_CUSTODY_READER_SOURCES,
+    }
+
+
+SWEDISH_REFERENCE_READER_SOURCE = "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_static_basin.py"
+_SWEDISH_REFERENCE_READER_SHA256 = (
+    "28533911e5bbe0d337b32667e8db442d46be112db939ebfb488a13fee7152fc8"
+)
+_SWEDISH_REFERENCE_READER_BYTES = 8351
+_SWEDISH_REFERENCE_READER_SPANS = (
+    (
+        b"""# does not run a model, renderer, observation capture or qualified review again.
+CAPTURE_PINS = {
+    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/source-reconciliation.json": "c88355fa3ad588e91261f6906884e2d68fe6968dc6f1aa4eccb36ae04b94cb6e",
+    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/actual-runs.json": "7f063989a7a33f7deae9b46733eb967150405bfe5357579c2c6f3ad19638efcf",
+""",
+        b"""# does not run a model, renderer, observation capture or qualified review again.
+CAPTURE_PINS = {
+    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-r-reference.json": "e598482f99f8c3ecebc5544da04df2b7196a94509224423515422e5cd96b6f98",
+    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/source-reconciliation.json": "c88355fa3ad588e91261f6906884e2d68fe6968dc6f1aa4eccb36ae04b94cb6e",
+    "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/actual-runs.json": "7f063989a7a33f7deae9b46733eb967150405bfe5357579c2c6f3ad19638efcf",
+""",
+    ),
+    (
+        b"""    "pollen-reconstruction/swedish-static-basin-scenarios/figure-native-capture": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/figures/panel-comparison.png"
+    ],
+}
+""",
+        b"""    "pollen-reconstruction/swedish-static-basin-scenarios/figure-native-capture": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/figures/panel-comparison.png"
+    ],
+    "pollen-reconstruction/swedish-static-basin-scenarios/native-r-reference-account": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-r-reference.json"
+    ],
+}
+""",
+    ),
+    (
+        b"""        "paths": [entry.path for entry in accepted],
+        "source_scope": (
+            "Eight exact immutable JSON source/decision captures and one actual native PNG, "
+            "maintained-producer, import-observation, figure and independent "
+            "mathematical review projections. Actual original candidate/source/"
+            "native receipt authority remains in each bound source record. "
+            "Current custody does not repeat any numerical computation or "
+            "confer new scientific review, source rights, R parity, historical "
+""",
+        b"""        "paths": [entry.path for entry in accepted],
+        "source_scope": (
+            "Eight original immutable JSON source/decision captures, one actual native PNG and "
+            "one separately admitted independent R numerical-reference summary, "
+            "maintained-producer, import-observation, figure and independent "
+            "mathematical review projections. Actual original candidate/source/"
+            "native receipt authority remains in each bound source record. "
+            "The summary retains saved1988/exportdb2/execution6763 plus declared overlays/"
+            "canonicald670 source identities; publication transport is a later epoch. "
+            "Current custody does not repeat any numerical computation or "
+            "confer new scientific review, source rights, R parity, historical "
+""",
+    ),
+)
+
+
+def swedish_reference_reader_extension_matches(
+    historical: bytes, current: bytes
+) -> bool:
+    """Reverse exactly three reviewed metadata edits to recover the full old reader."""
+    if (
+        len(historical) != _SWEDISH_REFERENCE_READER_BYTES
+        or hashlib.sha256(historical).hexdigest() != _SWEDISH_REFERENCE_READER_SHA256
+        or not 0 < len(current) <= 16 * 1024
+    ):
+        return False
+    restored = current
+    for old, new in _SWEDISH_REFERENCE_READER_SPANS:
+        if historical.count(old) != 1 or restored.count(new) != 1:
+            return False
+        restored = restored.replace(new, old, 1)
+    return restored == historical
+
+
+def validated_swedish_reference_reader_source(
+    repository: Path,
+    historical: JsonObject,
+    logical: str,
+    source_buffer: SourceCapsule,
+) -> JsonObject:
+    """Bind the additional retained reference to its one original optimizer context."""
+    name = SWEDISH_REFERENCE_READER_SOURCE
+    expected = {
+        "sha256": _SWEDISH_REFERENCE_READER_SHA256,
+        "bytes": _SWEDISH_REFERENCE_READER_BYTES,
+    }
+    if (
+        repository != repository.resolve()
+        or source_buffer.repository != repository
+        or source_buffer.prefix
+        != "data/method-certification/author-optimizer-diagnostic-source-capture"
+        or source_buffer.descriptor.capture.get("sha256")
+        != "f865795aac7585e56c4cf44faac84496d339e1c176fc6ee111cba3cbc9b4ce93"
+        or set(historical) != {"path", "sha256", "bytes"}
+        or type(historical.get("bytes")) is not int
+        or historical != {"path": name, **expected}
+        or logical != "executions/optimizer-diagnostics/first-party-inputs/" + name
+        or logical not in source_buffer.detached
+        or source_buffer.descriptor.members.get(logical) != expected
+        or [
+            path
+            for group in source_buffer.descriptor.groups
+            for member, path in group["resolved_paths"]
+            if member == logical
+        ]
+        != [name]
+    ):
+        raise ReportRebuildError("Swedish reference reader source binding differs")
+    source_buffer.fresh()
+    captured = source_buffer.read_source(logical)
+    path = _regular_confined_file(repository, name, "current Swedish reference reader")
+    before = path.stat()
+    if before.st_nlink != 1 or not 0 < before.st_size <= 16 * 1024:
+        raise ReportRebuildError("Swedish reference reader must be bounded single-link")
+    current = path.read_bytes()
+    if not swedish_reference_reader_extension_matches(captured, current):
+        raise ReportRebuildError(
+            "Swedish reference reader differs beyond its three metadata edits"
+        )
+    source_buffer.fresh()
+    again = _regular_confined_file(repository, name, "current Swedish reference reader")
+    after = again.stat()
+    fields = (
+        "st_dev",
+        "st_ino",
+        "st_mode",
+        "st_nlink",
+        "st_size",
+        "st_mtime_ns",
+        "st_ctime_ns",
+    )
+    if (
+        any(getattr(before, key) != getattr(after, key) for key in fields)
+        or again.read_bytes() != current
+    ):
+        raise ReportRebuildError("Swedish reference reader changed during verification")
+    return {
+        "path": name,
+        "classification": "finite_swedish_reference_reader_extension",
+        "original_member": logical,
+        "original_sha256": _SWEDISH_REFERENCE_READER_SHA256,
+        "original_bytes": _SWEDISH_REFERENCE_READER_BYTES,
+        "whole_old_reader_reconstructed": True,
+        "original_nine_capture_pins_preserved": True,
+        "current_additional_reference_record_requires_separate_qualification": True,
+        "current_native_or_numerical_equivalence_claimed": False,
+        "scope": "Only the independent-reference capture pin, owning publication path and source-scope explanation change. Original JSON/PNG pins and all native/control predicates reconstruct exactly. The current ten-record retained reader is qualified separately; the old optimizer source/native epochs and output values remain literal. No R, model or new scientific execution is admitted.",
     }
