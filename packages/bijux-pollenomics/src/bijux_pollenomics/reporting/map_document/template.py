@@ -59,6 +59,12 @@ def load_map_document_template() -> str:
                 encoding="utf-8"
             ),
         )
+        .replace(
+            "__SOURCE_RECORD_DETAILS_CONTROLLER__",
+            package_root.joinpath("assets/source-record-details.js").read_text(
+                encoding="utf-8"
+            ),
+        )
     )
 
 

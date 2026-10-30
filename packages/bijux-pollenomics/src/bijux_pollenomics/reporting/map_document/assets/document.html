@@ -5583,6 +5583,7 @@ __URL_STATE_CONTROLLER__
       __POLLEN_AGE_AXIS_CONTROLLER__
       __POLLEN_SMALL_MULTIPLES_CONTROLLER__
       __POLLEN_FOCUSED_SIGNAL_CONTROLLER__
+      __SOURCE_RECORD_DETAILS_CONTROLLER__
       const pollenDepthSelections = new WeakMap();
       const pollenAgeSelections = new WeakMap();
       function pollenDisplaySelection(tabs) {
@@ -5614,7 +5615,12 @@ __URL_STATE_CONTROLLER__
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
         const sourceDiagram = activeFocusTab === 'chronology' ? renderAgeDepthDiagram(tabs)
           : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
-        focusDetail.innerHTML = sourceDiagram + renderDetailValue(tabs[activeFocusTab], activeFocusTab);
+        const sourceOverview = activeFocusTab === 'overview' && tabs.overview?.status !== 'unavailable'
+          && focusState?.sourceSignal?.semantic_role === 'source_chronology_context'
+          ? renderSelectedSourceOverview(tabs, focusState.sourceSignal) : '';
+        const sampleObservations = activeFocusTab === 'samples' && tabs.overview?.source_family === 'neotoma'
+          ? renderSourceSampleObservations(tabs) : '';
+        focusDetail.innerHTML = sourceOverview + sourceDiagram + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations;
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
         focusCopyLinkButton.disabled = focusState?.kind !== 'point';
