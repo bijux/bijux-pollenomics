@@ -707,16 +707,32 @@ def test_nonpython_current_source_final_read_is_observed_after_positive_baseline
     assert _dispatch(case) is None
     read_bytes = Path.read_bytes
     reads = 0
+    helper_active = False
+    real_helper = subject.validated_atlas_relation_context_source
+
+    def observed_helper(
+        repository: Path, row: dict[str, Any], logical: str, resolver: SourceCapsule
+    ) -> dict[str, Any]:
+        nonlocal helper_active
+        assert not helper_active
+        helper_active = True
+        try:
+            return real_helper(repository, row, logical, resolver)
+        finally:
+            helper_active = False
 
     def changing(path: Path) -> bytes:
         nonlocal reads
         body = read_bytes(path)
-        if path == case.target:
+        if path == case.target and helper_active:
             reads += 1
             if reads == 2:
                 return body + b"// changed final observation\n"
         return body
 
+    monkeypatch.setattr(
+        chronology, "validated_atlas_relation_context_source", observed_helper
+    )
     monkeypatch.setattr(Path, "read_bytes", changing)
     with pytest.raises(ReportRebuildError, match="changed during verification"):
         _dispatch(case)
