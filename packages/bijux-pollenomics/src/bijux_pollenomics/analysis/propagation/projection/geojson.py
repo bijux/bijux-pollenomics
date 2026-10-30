@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 
+from ..candidates import CandidatePropagationScenario
 from ..network import PhenomenonEvent, PropagationCandidate
+from .relation import candidate_relation_details
 
 
 def candidate_geojson(
@@ -12,6 +14,7 @@ def candidate_geojson(
     events: Mapping[str, PhenomenonEvent],
     *,
     directional: bool,
+    scenario: CandidatePropagationScenario,
 ) -> dict[str, object]:
     """Export evaluated rows without inferring a route or changing uncertainty."""
     features = []
@@ -43,6 +46,9 @@ def candidate_geojson(
                     "target_observation_ids": list(target.observation_ids),
                     "source_event": source.as_dict(),
                     "target_event": target.as_dict(),
+                    "relation_details": candidate_relation_details(
+                        row, source, target, scenario
+                    ),
                 },
             }
         )

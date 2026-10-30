@@ -1,3 +1,5 @@
+"""Validate and normalize optional Atlas source, signal, and relation records."""
+
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
@@ -33,6 +35,8 @@ _HEX_COLOR = re.compile(r"#[0-9a-fA-F]{6}")
 
 @dataclass(frozen=True)
 class AtlasEvidence:
+    """Normalized detail, relation, signal, and sequence records for map display."""
+
     detail_records: tuple[JsonObject, ...]
     edge_records: tuple[JsonObject, ...]
     scientific_signals: tuple[JsonObject, ...]
@@ -191,7 +195,13 @@ def _normalize_edges(
                 "target_record_id": _required_text(row, "target_record_id", "edge"),
                 "source_country": source_country,
                 "target_country": target_country,
-                "cross_border": source_country != target_country,
+                # Historical flat edges use label compatibility. Native candidate
+                # flags retain their original value or absence without inference.
+                **(
+                    {"cross_border": source_country != target_country}
+                    if "candidate_status" not in row
+                    else {}
+                ),
             }
         )
     normalized.sort(key=lambda item: str(item["edge_id"]))

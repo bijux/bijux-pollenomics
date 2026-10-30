@@ -61,13 +61,13 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "0d142e7de59c52d425dffb4748ac26d96374221dee927fd4eb6c22eab5741459",
-      "bytes": 7391012
+      "sha256": "8682921edcf37f883ee2d0ed94bc1f3c723661dc21f53b025890acabcce6f6d9",
+      "bytes": 7391486
     },
     {
       "path": "configs/release_evidence_policy.json",
-      "sha256": "c10605879db67aa3b81fedb8ff6f4e1e12413c99bbed481e849e784e1338ad09",
-      "bytes": 36674
+      "sha256": "061666d7e2aec3c8ec5d447c042fecdbfc494bc84a2044daa3cc60590adc128b",
+      "bytes": 36864
     },
     {
       "path": "configs/scientific-contracts/phenomenon-event.schema.json",
@@ -5617,6 +5617,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/controlled_numerical/scalar_reference.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/atlas_context.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/atlas_relation_context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/atlas_runtime_transport.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/galician_context.py",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/source_roles/numerical_precision.py",

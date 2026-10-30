@@ -57,6 +57,7 @@ PROPAGATION_PRODUCER_SOURCE_PATHS = (
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/scoring.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/__init__.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/geojson.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/relation.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/selection.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/service.py",
     "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/projection/union.py",

@@ -20,6 +20,18 @@ def load_map_document_template() -> str:
             package_root.joinpath("assets/edge-display.js").read_text(encoding="utf-8"),
         )
         .replace(
+            "__RELATION_SUMMARY_CONTROLLER__",
+            package_root.joinpath("assets/relation-summary.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__RELATION_TIME_SUMMARY_CONTROLLER__",
+            package_root.joinpath("assets/relation-time-summary.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
             "__SELECTION_LOADING_CONTROLLER__",
             package_root.joinpath("assets/selection-loading.js").read_text(
                 encoding="utf-8"

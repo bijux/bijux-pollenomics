@@ -208,6 +208,37 @@ the pollen snapshot, a reviewed citation choice and reuse permission. The
 [operator workflow](operator-workflows.md#include-captured-neotoma-publications)
 explains that optional input.
 
+## Inspect supplied candidate relations
+
+In an atlas build with governed candidate relations, expand **Candidate
+relations** to choose a retained scenario, native candidate status, and stored
+source or target endpoint country. **All retained** leaves that selection
+unrestricted. Scenario details show supplied distance and lag limits and the
+rule type; missing or conflicting metadata remains unavailable. A candidate
+status does not establish scientific admission.
+
+**Retained relation country counts** separates exact scenarios and statuses.
+Directional candidates use source-to-target country cells; indeterminate and
+other non-directional rows retain stored endpoint order without asserting an
+origin. **Retained relation endpoint ages** groups the selected signals and
+shows descriptive envelopes of supplied canonical BP intervals, with distinct
+event counts, unresolved ages and missing endpoints. An envelope spans the
+youngest minimum to oldest maximum; it does not fill gaps or form a confidence
+interval. Reused events are not independent observations.
+
+Both summaries describe retained rows matched by relation, country and signal
+filters **before endpoint time, layer and viewport eligibility**. The displayed
+line count can therefore be smaller. Each summary bounds its displayed groups;
+narrow the filters to inspect other groups. A zero country cell means no
+supplied relation in that selection, not an absence of source observations.
+
+An eligible linked relation ID opens **Relation**, including its canonical
+endpoints and supplied predicate explanation. **Copy link** retains the exact
+edge, scenario, published build and selected tab alongside current filters.
+Missing endpoints, incompatible filters and stale builds produce an unavailable
+state rather than selecting another relation. These controls inspect candidate
+spatiotemporal succession; they do not reconstruct a movement route.
+
 ## Decide what the result supports
 
 The modeled layer is environmental **context**. The atlas also contains
