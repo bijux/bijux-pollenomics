@@ -124,12 +124,14 @@ def test_current_deck_build_retains_its_recorded_epoch_and_source_custody() -> N
     before = path.read_bytes()
     build = json.loads(before)["deck_build"]
     revision = build["source_revision"]
-    assert HOOK._retained_export_git(
-        ROOT, "merge-base", "--is-ancestor", revision, "HEAD"
-    ) == b""
-    assert int(
-        HOOK._retained_export_git(ROOT, "show", "-s", "--format=%ct", revision)
-    ) == build["source_date_epoch"]
+    assert (
+        HOOK._retained_export_git(ROOT, "merge-base", "--is-ancestor", revision, "HEAD")
+        == b""
+    )
+    assert (
+        int(HOOK._retained_export_git(ROOT, "show", "-s", "--format=%ct", revision))
+        == build["source_date_epoch"]
+    )
     evidence = HOOK.retained_deck_sources(ROOT)
     assert evidence["context"] == build
     assert [row["path"] for row in evidence["current_inputs"]] == build["inputs"]
