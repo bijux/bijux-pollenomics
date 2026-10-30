@@ -21,8 +21,14 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
     source_correspondence as router,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.presentation_source_roles import (
+    atlas_extension_matches,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles import (
     atlas_runtime_transport as subject,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.documentation import (
+    _documented_source_matches,
 )
 
 from ...source_contracts.test_execution_helper_batches import (
@@ -600,9 +606,7 @@ def test_existing_named_correspondence_executes_after_runtime_inverse(
     assert subject.atlas_runtime_transport_extension_matches(source, old, current)
     calls: list[str] = []
     original = (
-        subject.atlas_extension_matches
-        if source == _WORKFLOW
-        else subject._documented_source_matches
+        atlas_extension_matches if source == _WORKFLOW else _documented_source_matches
     )
 
     def observed(name: str, captured: bytes, reversed_transport: bytes) -> bool:
