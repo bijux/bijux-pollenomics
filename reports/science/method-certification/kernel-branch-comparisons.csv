@@ -1,0 +1,31 @@
+case_id,basin,diameter_m,region_cutoff_argument_m,method,fall_speed_m_s,wind_speed_m_s,r_value,python_value,r_status,r_length,python_status,r_warnings,python_warnings,r_error,python_error,r_kind,python_kind,absolute_residual,relative_residual_to_python,passed
+lake-d1999-c100000-lsm_unstable,lake,1999,100000,lsm unstable,0.03,3,0.56510998485439445,0.5651099848543941,returned,1,returned,,,,,finite,finite,3.3306690738754696e-16,5.893842195574809e-16,True
+lake-d1999-c100000-lsm_unstable_low,lake,1999,100000,lsm unstable low,0.03,3,0.26224389465378295,0.26224389465378306,returned,1,returned,,,,,finite,finite,1.1102230246251565e-16,4.2335514658630425e-16,True
+lake-d1999-c100000-gpm_neutral,lake,1999,100000,gpm neutral,0.03,3,0.1465437389511153,0.14654373895111525,returned,1,returned,,,,,finite,finite,5.551115123125783e-17,3.7880261298488843e-16,True
+lake-d1999-c100000-gpm_unstable,lake,1999,100000,gpm unstable,0.03,3,0.17759404013138419,0.17759404013138438,returned,1,returned,,,,,finite,finite,1.942890293094024e-16,1.09400647209595e-15,True
+lake-d1999-c100000-1overd,lake,1999,100000,1overd,0.03,3,0.0011797732980414113,0.0011797732980432765,returned,1,returned,k-d tree limited by memory. ncmax= 661 | k-d tree limited by memory. ncmax= 661,,,,finite,finite,1.865261417544062e-15,1.5810337635524618e-12,True
+lake-d2000-c100000-lsm_unstable,lake,2000,100000,lsm unstable,0.03,3,0.56364263189474273,0.5636426318947428,returned,1,returned,,,,,finite,finite,1.1102230246251565e-16,1.9697286220047398e-16,True
+lake-d2000-c100000-lsm_unstable_low,lake,2000,100000,lsm unstable low,0.03,3,0.26059134485355634,0.26059134485355634,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+lake-d2000-c100000-gpm_neutral,lake,2000,100000,gpm neutral,0.03,3,0.14573772697540957,0.1457377269754095,returned,1,returned,,,,,finite,finite,8.326672684688674e-17,5.713464082017448e-16,True
+lake-d2000-c100000-gpm_unstable,lake,2000,100000,gpm unstable,0.03,3,0.17695674177915632,0.17695674177915635,returned,1,returned,,,,,finite,finite,2.7755575615628914e-17,1.568494951736178e-16,True
+lake-d2000-c100000-1overd,lake,2000,100000,1overd,0.03,3,0.00086206458695556245,0.000862064586955561,returned,1,returned,k-d tree limited by memory. ncmax= 661 | k-d tree limited by memory. ncmax= 661,,,,finite,finite,1.4094628242311558e-18,1.634985180412953e-15,True
+lake-d2001-c100000-lsm_unstable,lake,2001,100000,lsm unstable,0.03,3,0.56344295995143789,0.5634429599514377,returned,1,returned,,,,,finite,finite,2.220446049250313e-16,3.940853302065732e-16,True
+lake-d2001-c100000-lsm_unstable_low,lake,2001,100000,lsm unstable low,0.03,3,0.26043184526853586,0.26043184526853597,returned,1,returned,,,,,finite,finite,1.1102230246251565e-16,4.263007941599406e-16,True
+lake-d2001-c100000-gpm_neutral,lake,2001,100000,gpm neutral,0.03,3,0.14563299521824102,0.14563299521824094,returned,1,returned,,,,,finite,finite,8.326672684688674e-17,5.717572911420649e-16,True
+lake-d2001-c100000-gpm_unstable,lake,2001,100000,gpm unstable,0.03,3,0.17686671180103844,0.17686671180103852,returned,1,returned,,,,,finite,finite,8.326672684688674e-17,4.707880075282647e-16,True
+lake-d2001-c100000-1overd,lake,2001,100000,1overd,0.03,3,0.00085041955260134179,0.0008504195526013402,returned,1,returned,k-d tree limited by memory. ncmax= 661 | k-d tree limited by memory. ncmax= 661,,,,finite,finite,1.6263032587282567e-18,1.912354030141444e-15,True
+peatland-d100-c999999-lsm_unstable,peatland,100,999999,lsm unstable,0.03,3,NA,nan,returned,1,returned,,,,,nan,nan,,,True
+peatland-d100-c999999-lsm_unstable_low,peatland,100,999999,lsm unstable low,0.03,3,NA,nan,returned,1,returned,,,,,nan,nan,,,True
+peatland-d100-c999999-gpm_neutral,peatland,100,999999,gpm neutral,0.03,3,0.24789542847346818,0.24789542847346818,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+peatland-d100-c999999-gpm_unstable,peatland,100,999999,gpm unstable,0.03,3,0.3089734287430958,0.3089734287430958,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+peatland-d100-c999999-1overd,peatland,100,999999,1overd,0.03,3,0.0051535947101822794,0.005153594710182277,returned,1,returned,k-d tree limited by memory. ncmax= 661 | k-d tree limited by memory. ncmax= 661,,,,finite,finite,2.6020852139652106e-18,5.049068388758063e-16,True
+peatland-d100-c1000000-lsm_unstable,peatland,100,1000000,lsm unstable,0.03,3,NA,nan,returned,1,returned,,,,,nan,nan,,,True
+peatland-d100-c1000000-lsm_unstable_low,peatland,100,1000000,lsm unstable low,0.03,3,NA,nan,returned,1,returned,,,,,nan,nan,,,True
+peatland-d100-c1000000-gpm_neutral,peatland,100,1000000,gpm neutral,0.03,3,0.24789543616670917,0.24789543616670917,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+peatland-d100-c1000000-gpm_unstable,peatland,100,1000000,gpm unstable,0.03,3,0.30897345393300929,0.3089734539330093,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+peatland-d100-c1000000-1overd,peatland,100,1000000,1overd,0.03,3,0.0051535947104405649,0.005153594710440562,returned,1,returned,k-d tree limited by memory. ncmax= 661 | k-d tree limited by memory. ncmax= 661,,,,finite,finite,2.6020852139652106e-18,5.049068388505016e-16,True
+peatland-d100-c1000001-lsm_unstable,peatland,100,1000001,lsm unstable,0.03,3,0.82830142356802028,0.8283014235680203,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+peatland-d100-c1000001-lsm_unstable_low,peatland,100,1000001,lsm unstable low,0.03,3,0.58484039570551816,0.5848403957055182,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+peatland-d100-c1000001-gpm_neutral,peatland,100,1000001,gpm neutral,0.03,3,0.26244450564277877,0.26244450564277877,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+peatland-d100-c1000001-gpm_unstable,peatland,100,1000001,gpm unstable,0.03,3,0.42673152129217334,0.42673152129217334,returned,1,returned,,,,,finite,finite,0.0,0.0,True
+peatland-d100-c1000001-1overd,peatland,100,1000001,1overd,0.03,3,0.0051538530934333018,0.005153853093433299,returned,1,returned,k-d tree limited by memory. ncmax= 661 | k-d tree limited by memory. ncmax= 661,,,,finite,finite,2.6020852139652106e-18,5.048815258783019e-16,True

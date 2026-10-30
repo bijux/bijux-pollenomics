@@ -204,6 +204,200 @@ fixed-candidate method correspondence and bounded wrapper timings; it does not
 complete the representative 128-call or three-way R/Python/C++ investigation,
 justify C++ adoption, establish ecological accuracy or qualify a release.
 
+## Original kernel boundary comparison
+
+The existing native cases cover all five kernel methods, but do not cross the
+original large-lake integration-step or peatland cutoff branches. Before new
+numerical outcomes, we fixed a separate 30-case comparison with the unchanged
+DISQOVER 0.9.14 function. It advances the source-branch obligation; it does not
+rerun or extend the historical 66/48-case populations.
+
+The reference is the existing
+[original archive](../../packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz),
+SHA-256 `ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`,
+whose `disqover/R/dispersal_models.R` declares basin diameter in metres.
+Its lake calculation uses a 2 m outer integration step below diameter 2000 m
+and a 10 m step at or above 2000 m. The inner annulus integration retains its
+separate 2 m step and original area normalization. For peatland the source
+subtracts the outer contribution from the inner when `regionCutoff <= 1000000`,
+and returns the inner contribution alone above it.
+The source documentation calls `regionCutoff` a reconstruction diameter while
+the body passes it directly to a distance function. We test the **literal
+argument in metres** without halving it or silently correcting that convention.
+The source also uses basin diameter for GPM peatland `din`, and basin radius
+for the other methods; those existing differences remain.
+
+The fixed matrix uses fall speed `0.03 m/s` and wind speed `3 m/s` for
+`lsm unstable`, `lsm unstable low`, `gpm neutral`, `gpm unstable` and `1overd`:
+
+| Source branch | Basin diameter (m) | Literal regionCutoff argument (m) | Cases |
+| --- | --- | --- | --- |
+| Lake integration step | 1999, 2000, 2001 | 100000 | 15 |
+| Peatland outer contribution | 100 | 999999, 1000000, 1000001 | 15 |
+
+We compared each original R scalar with the current Python scalar at the same
+literal inputs. The inherited kernel criterion was
+`abs(R - Python) <= 3e-10 + 1e-10 * abs(Python)`, fixed before execution.
+Scalar shape and finite/NaN/signed-infinity masks must match. Original R `NA`
+and `NaN` tokens remain distinguishable in the raw output; both compare to
+Python NaN under the existing `equal_nan` convention. Matching them is evidence
+of the returned source behavior, not finite numerical success. Negative values
+and warnings remain visible. In particular, an undefined unused outer contribution
+above the peatland cutoff is not grounds to replace or refuse a finite returned
+inner contribution. Unexpected errors, missing cases, timeout, source changes or numerical
+disagreement fail the comparison without dropping rows or widening tolerances.
+
+The maintained
+[consumer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/kernel_branches.py)
+uses the already provisioned shared R library. It authenticates the original
+archive and existing source lock, verifies the actual R version, locked package
+versions, loaded DISQOVER namespace path and source marker, then calls
+`disqover::DispersalFactorK` without copying or redefining its body. Python calls
+the maintained `DispersalFactorK`. The source, stored LSM resource and reference
+inputs must be committed and unchanged before and after execution. Raw R tokens,
+per-case warnings/errors and one comparison CSV are retained alongside the
+actual R session and process outcome. The 30 calls use one R batch, an aggregate
+60-second deadline and outputs below 1 MiB. The pre-run peak-memory estimate was
+256 MiB; the observed peak below exceeded that estimate.
+
+The first invocation at `0153e4c1e53916c480a235afe61d6ed4b22b3639` exited one
+before any R kernel calls. Its dependency guard compared normalized R version
+text with literal lock strings: installed `2.2-8` became `2.2.8`. All 37 raw
+installed versions actually matched. That failed attempt computed 30 Python
+values but did not retain them or produce a comparison CSV. Its original
+failure and command remain preserved. We changed the guard to read literal
+DESCRIPTION `Version` fields, without changing installed packages, source
+equations, inputs, the 30-case matrix or numerical tolerances.
+
+The qualified execution used committed source
+`e1c881985f904b589c22a09e92cc5fa48774d66e` and the same shared R library.
+Its actual command was:
+
+```sh
+mkdir -p artifacts/science/kernel-branches
+.venv/bin/python -B -m bijux_pollenomics_dev.lra_validation.kernel_branches \
+  --repository "$PWD" \
+  --library "$PWD/artifacts/qualification/native-reference/library" \
+  --rscript /usr/local/bin/Rscript \
+  --output "$PWD/artifacts/science/kernel-branches/qualified-comparison"
+```
+
+The [30-row comparison](method-certification/kernel-branch-comparisons.csv)
+retains **26 finite pairs and four matching R `NA`/Python NaN returns**. All 30
+meet the unchanged comparison criterion; that is not 30 finite successes.
+All 15 lake cases are finite. The four undefined cases are the two LSM methods
+on peatland at cutoff arguments 999999 and 1000000 m: the outer prediction is
+outside the stored model support. At 1000001 m the original branch ignores that
+outer contribution and returns finite inner values. This is source behavior,
+not permission to extrapolate an LSM curve or choose a physically preferred
+regional extent.
+
+The largest finite absolute residual is about `1.86526e-15`; the largest relative
+residual to Python is about `1.58103e-12`, both on the 1999 m lake `1overd` case.
+Six R rows, all `1overd`, retain the warning
+`k-d tree limited by memory. ncmax= 661` twice per row. There are no Python
+warnings, returned errors or negative finite values. Warning-bearing results
+are not silently discarded, and numerical correspondence does not establish
+scientific suitability of that method.
+
+The native supervisor exited zero in 5.090 seconds, including 3.183 seconds
+inside the consumer and 2.877 seconds for the R batch. The consumer wrote
+17,763 bytes. Observed peak child RSS was **326,926,336 bytes**, above the
+256 MiB planning estimate; the run did not establish a 256 MiB memory bound.
+Source, archive and Git identity stayed unchanged during execution.
+Forty-two focused controls, configured static checks and independent source/code
+review passed before this qualified run; the controls include separate R
+primitive shape and version-metadata checks, not live kernel outcomes.
+
+A separate standard-library observer exited zero in 0.124 seconds, checking
+all 30 fixed input identities, raw decimal conversions, scalar return states,
+nonfinite masks, warnings, residuals and original threshold decisions. It did
+not invoke R or either kernel. This is independent arithmetic on the **same
+native outputs**, not an independent dispersal model or ecological measurement.
+The sole comparison CSV was moved once to the maintained location above.
+Raw R tokens, session information, warnings and both attempts remain in their
+artifact directories. The recorded qualified command keeps its original output
+path; reproducing it requires a new absent directory rather than overwriting
+the retained attempt.
+
+This comparison cannot
+establish a physical discontinuity, a preferred basin convention, complete
+source-branch coverage, historical 2024 software identity, optimizer convergence,
+ecological accuracy or a hosted release certificate.
+
+## Minimum lake diameter: one refusal and two finite comparisons
+
+The original function constructs the lake integration points with
+`seq(from = 2, to = dBasin/2 - 1, by = 2)` below diameter 2000 m. For diameter
+5 m the upper limit is 1.5 m, below the starting point, so the original sequence
+refuses. At 6 and 7 m the source admits its first one-annulus calculation.
+The Python entry point explicitly refuses a diameter below 6 m. Neither the
+earlier 30 boundary cases nor the older native cohort tested these three inputs.
+
+Before calculating new outcomes, we fixed the separate
+`minimum-lake-diameter` population: **5, 6 and 7 m lake diameters**, only
+`gpm neutral`, literal cutoff argument `100000 m`, fall speed `0.03 m/s` and
+wind speed `3 m/s`. The original installed function evaluates its **fitted GPM
+LOESS**; a raw exponential is not substituted as an oracle. The existing default
+30-case population, input order, output schema and saved result remain unchanged.
+
+The 5 m contract requires a paired refusal, separately labelled from numerical
+success. R must return the exact sequence-domain error
+`wrong sign in 'by' argument`, length zero and an empty value token; Python must
+raise its existing `ValidationError` for a source lake diameter below 6 m.
+One-sided refusal, an unrelated error or an unexpected returned value fails.
+Both 6 and 7 m must return finite real scalars and meet the unchanged criterion
+`abs(R - Python) <= 3e-10 + 1e-10 * abs(Python)`; an all-error or all-NaN
+population cannot pass. Negative finite values, warnings and actual errors
+remain inspectable. The three-row result declares `expected_outcome` and
+`outcome`; a paired refusal is never counted as a finite numerical comparison.
+
+The code and protocol were committed before execution at
+`4a9b9fa6924d2f52dfddfeeb0274dba4901b0994`. The same source/runtime guards
+remained strict; a case-level refusal cannot excuse a parent failure.
+The actual invocation was:
+
+```sh
+.venv/bin/python -B -m bijux_pollenomics_dev.lra_validation.kernel_branches \
+  --repository "$PWD" \
+  --library "$PWD/artifacts/qualification/native-reference/library" \
+  --rscript /usr/local/bin/Rscript \
+  --population minimum-lake-diameter \
+  --output "$PWD/artifacts/science/kernel-branches/minimum-lake-diameter"
+```
+
+The [three-row result](method-certification/minimum-lake-comparisons.csv)
+retains exactly **one paired refusal and two finite comparisons**:
+
+| Diameter (m) | Original R return | Python return | Outcome |
+| --- | --- | --- | --- |
+| 5 | Sequence-domain error | `ValidationError` | Paired refusal, no numerical value |
+| 6 | 0.37521741576178552 | 0.3752174157617857 | Finite pair within original tolerance |
+| 7 | 0.36685143180649976 | 0.36685143180649993 | Finite pair within original tolerance |
+
+Both finite absolute gaps are `1.6653345369377348e-16`. All three prespecified
+contracts pass; that does not mean three numerical successes. There are no
+case-level warning rows. R namespace messages about overwritten DEoptim/RcppDE
+imports remain in the raw process stderr; we do not claim an entirely
+warning-free R process.
+
+The native supervisor exited zero in 5.302 seconds, including 1.526 seconds
+inside the consumer and 1.395 seconds for R. It produced 8,149 artifact bytes,
+with peak child RSS 177,045,504 bytes. Fifty-six focused profile checks, ten
+runtime-isolation checks, configured static checks and independent review
+preceded execution. Source and inputs stayed unchanged. A separate observer
+exited zero in 0.147 seconds, checking the three saved input identities, exact
+paired error contract, decimal tokens and both original tolerance decisions.
+It invoked neither kernel nor R, and supplied no independent physical oracle.
+
+The sole comparison CSV was moved once to the maintained location above; its
+recorded command keeps the original output path. Raw R values, errors, session
+and process messages remain in the artifact directory. Reproduction requires
+an absent output directory. This computational boundary does not determine
+ecological site eligibility or recommended physical lake dimensions. The result
+does not establish complete branch coverage, physical accuracy or release
+qualification, and it neither reruns nor replaces the separate 30-case result.
+
 ## How to use this result
 
 We use the selected author profile to test numerical fidelity to the
@@ -218,11 +412,11 @@ we summarize its matched direct-pollen scores and model conditions in the
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Declared original-R/native and fixed candidate numerical cases agree within retained tolerances. Separately, current fixed-candidate LOVE wrapper arithmetic agrees and first/warm timings are measured on one declared workstation/fixture.
+**Supported claim.** Declared original-R/native and fixed candidate numerical cases agree within retained tolerances. Separately, current fixed-candidate LOVE wrapper arithmetic agrees and first/warm timings are measured on one declared workstation/fixture. A separate original-source kernel boundary comparison matches 26 finite scalars and four R NA/Python NaN returns across the fixed 30-case lake-diameter and peatland-cutoff matrix, retaining source warnings and original tolerances. A separate prespecified minimum-lake profile retains one exact paired domain refusal at diameter 5 m and two finite original-R/Python comparisons at 6/7 m using fitted GPM LOESS; it does not count the refusal as numerical success.
 
 **Unsupported claim.** Global optimizer convergence, identical stochastic paths, historical publication source identity or ecological validity. C++ benefit, larger-study speedup, a causal language effect or hosted release qualification.
 
-**Actual verification performed.** Retained 14,074 author example values, 17 byte-identical prepared files and R/oracle comparisons are reported; index did not rerun. At committed source 01ca11bb1, one new actual R/Python LOVEexample wrapper comparison passed in 6.844 seconds: 448 finite pairs plus 132 shared missing cells, exact labels/shapes/eight candidate IDs, first plus five warm calls per engine. 42 controlled tests and one independent code review preceded execution; source/input/archive unchanged.
+**Actual verification performed.** Retained 14,074 author example values, 17 byte-identical prepared files and R/oracle comparisons are reported; index did not rerun. At committed source 01ca11bb1, one new actual R/Python LOVEexample wrapper comparison passed in 6.844 seconds: 448 finite pairs plus 132 shared missing cells, exact labels/shapes/eight candidate IDs, first plus five warm calls per engine. 42 controlled tests and one independent code review preceded execution; source/input/archive unchanged. At committed e1c881985, the separate 30-case kernel comparison exited zero: supervisor 5.090269959 s, consumer 3.182995083 s, R batch 2.876523666 s, 17,763 artifact bytes and peak child RSS 326,926,336 bytes. All 26 finite pairs and four returned-mask pairs meet unchanged rtol 1e-10 and atol 3e-10; maximum finite absolute/relative residuals are 1.8652614175440618e-15/1.5810337635524618e-12. Forty-two controlled checks, configured static checks and independent code/source review passed. A separate standard-library raw-token/input/scalar/mask/warning/residual audit exited zero in 0.124126375 s, without R or kernel calls. The first 0153 attempt failed a normalized-versus-literal dependency-version guard before R kernel calls; 30 Python values were computed but unretained. The raw DESCRIPTION guard repair changed no lock, installation, equation, case or tolerance; the original failure remains preserved. At committed 4a9b9fa69, the separate three-case minimum-lake profile exited zero: supervisor 5.301670958 s, consumer 1.5255795 s, R batch 1.395404167 s, 8,149 artifact bytes and peak child RSS 177,045,504 bytes. One exact R sequence-domain/Python ValidationError refusal and two finite pairs satisfy their unchanged contracts; both finite absolute gaps are 1.6653345369377348e-16. Fifty-six profile checks, ten runtime-isolation checks, static checks and independent review preceded execution. A separate saved-token/input/domain-error/tolerance observer exited zero in 0.146800541 s without R or kernel calls. The original fitted-source function, raw source and input identities remained unchanged.
 
 **Remaining input or review.** Declared R/native cells and fixed-candidate objectives agree; random search paths, global convergence outside tested cases, full historical input identity and ecological accuracy are not established. Resolver: Method implementation/optimizer owner and independent scientific reviewer Reopen when: New authenticated source case or changed algorithm is tested against the original oracle with convergence and ecological reference separately.
 
@@ -232,11 +426,11 @@ we summarize its matched direct-pollen scores and model conditions in the
 
 **Precise next acceptance route.** New authenticated source case or changed algorithm is tested against the original oracle with convergence and ecological reference separately. Then update reports/science/publication-correspondence.md.
 
-**Negative or refused result.** No mismatch within declared paired numeric tolerances; untested stochastic/global cases are not zero error. Six requested local LOVE rings remain undefined; all active calls choose candidate one, and both engines refuse the all-undefined control. Python retains eight extra mandatory certifications.
+**Negative or refused result.** No mismatch within declared paired numeric tolerances; untested stochastic/global cases are not zero error. Six requested local LOVE rings remain undefined; all active calls choose candidate one, and both engines refuse the all-undefined control. Python retains eight extra mandatory certifications. Four boundary returns remain undefined: both LSM methods on peatland at literal cutoff arguments 999999 and 1000000 m; above the branch cutoff they return finite inner contributions. Six 1overd rows retain the native memory warning twice each; no Python warnings or negative finite values. Thirty criterion passes do not mean 30 finite results, complete source-branch coverage, a preferred geometry or ecological validity. Observed peak RSS of 326,926,336 bytes exceeds the 256 MiB planning estimate, so no 256 MiB bound is established. The 5 m minimum-lake case remains a paired refusal without numerical output; it is not a third finite success. There are zero case-level warning rows in that three-case result, while namespace overwritten-import messages remain in R process stderr. The computational 6 m boundary is not ecological site eligibility, a recommended physical lake size or full branch/release qualification.
 
-**Matched denominator.** 17 sites, 184 supported site-windows, 31 taxa and 14,074 author mean/SE values; separate four-case one-window R lineage: 124 cover values plus 124 standard errors. Separate current LOVE fixture: one local/regional row, ten taxa, 36 rings, maximum local ring ten, two repeats, eight active calls / 256 search returns plus eight Python certifications per call; 580 paired cells with 448 finite and 132 missing; one first / five warm complete calls per engine.
+**Matched denominator.** 17 sites, 184 supported site-windows, 31 taxa and 14,074 author mean/SE values; separate four-case one-window R lineage: 124 cover values plus 124 standard errors. Separate current LOVE fixture: one local/regional row, ten taxa, 36 rings, maximum local ring ten, two repeats, eight active calls / 256 search returns plus eight Python certifications per call; 580 paired cells with 448 finite and 132 missing; one first / five warm complete calls per engine. Separate kernel boundary population: 30 scalar pairs on identical inputs, five fixed methods, fall speed 0.03 m/s and wind 3 m/s. Lake diameters 1999/2000/2001 m at literal cutoff 100000 m; peatland diameter 100 m at literal cutoffs 999999/1000000/1000001 m. All 15 lake and 11 peatland pairs are finite; four peatland mask pairs remain undefined. This population is separate from the 66 current/48 historical cases and fixed-candidate LOVE wrapper population. Separate minimum-lake profile: three literal lake diameters 5/6/7 m, only gpm neutral, fall speed 0.03 m/s, wind 3 m/s and literal cutoff argument 100000 m; one paired refusal plus two finite scalar pairs. Its expected_outcome/outcome labels remain separate from the unchanged 30-case result.
 
-Retained evidence: [docs/report/method-certification/original-r-reference/README.md](../../docs/report/method-certification/original-r-reference/README.md), [docs/report/method-certification/optimizer-solution-quality/README.md](../../docs/report/method-certification/optimizer-solution-quality/README.md), [reports/science/method-certification/love-wrapper-values.csv](method-certification/love-wrapper-values.csv).
+Retained evidence: [docs/report/method-certification/original-r-reference/README.md](../../docs/report/method-certification/original-r-reference/README.md), [docs/report/method-certification/optimizer-solution-quality/README.md](../../docs/report/method-certification/optimizer-solution-quality/README.md), [reports/science/method-certification/love-wrapper-values.csv](method-certification/love-wrapper-values.csv), [reports/science/method-certification/kernel-branch-comparisons.csv](method-certification/kernel-branch-comparisons.csv), [reports/science/method-certification/minimum-lake-comparisons.csv](method-certification/minimum-lake-comparisons.csv).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

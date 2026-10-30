@@ -1,0 +1,4 @@
+case_id,basin,diameter_m,region_cutoff_argument_m,method,fall_speed_m_s,wind_speed_m_s,r_value,python_value,r_status,r_length,python_status,r_warnings,python_warnings,r_error,python_error,r_kind,python_kind,absolute_residual,relative_residual_to_python,passed,expected_outcome,outcome
+lake-d5-c100000-gpm_neutral,lake,5,100000,gpm neutral,0.03,3,,'',error,0,error,,,wrong sign in 'by' argument,ValidationError: The source lake integration requires a basin diameter of at least 6 m,,,,,True,paired_refusal,paired_refusal
+lake-d6-c100000-gpm_neutral,lake,6,100000,gpm neutral,0.03,3,0.37521741576178552,0.3752174157617857,returned,1,returned,,,,,finite,finite,1.6653345369377348e-16,4.438318870558519e-16,True,finite_comparison,finite_comparison
+lake-d7-c100000-gpm_neutral,lake,7,100000,gpm neutral,0.03,3,0.36685143180649976,0.36685143180649993,returned,1,returned,,,,,finite,finite,1.6653345369377348e-16,4.539533970842275e-16,True,finite_comparison,finite_comparison
