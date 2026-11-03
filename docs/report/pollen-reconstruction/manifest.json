@@ -3440,6 +3440,16 @@
       "bytes": 3543
     },
     {
+      "path": "reports/science/author-love-geographic-thinning/protocol.json",
+      "sha256": "db3b40c8268b7c1ff688484be9bfded505e64bfbf55a287c581f5bfb66ff9344",
+      "bytes": 10493
+    },
+    {
+      "path": "reports/science/author-love-hellinger-spatial/block-support-protocol.json",
+      "sha256": "b05c9c87adb8239d50037579e1b7b73a46a00316104415efc71e86176d5ab478",
+      "bytes": 5157
+    },
+    {
       "path": "reports/science/author-love-hellinger-spatial/protocol.json",
       "sha256": "db07a8136b50a97742ff8082cc6d12fa366859dabf3bb072d3fd76d2e23a6741",
       "bytes": 11232
@@ -3508,6 +3518,11 @@
       "path": "reports/science/paper-accounts.csv",
       "sha256": "7eddabdca98385713acc11224abc2f5355567d44f9277da88a526dfedc622eb2",
       "bytes": 9182
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/geographic-transfer/protocol.json",
+      "sha256": "d91bced1e1bfb2d6c9f92ddc26755778d09978eb066884e2b62d916bcae09d25",
+      "bytes": 7228
     },
     {
       "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/predictive-uncertainty/protocol.json",

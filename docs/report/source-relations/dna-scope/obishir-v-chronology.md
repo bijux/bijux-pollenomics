@@ -24,7 +24,7 @@ Native DNA specimen/publication/chronology scope and unsupported ecological or p
 
 **Unsupported claim.** An unlabeled dated tooth is not OB20-01, and an article variant is not authority to overwrite the governed PDF.
 
-**Actual verification performed.** Read the source-specific Table 2 interpretation and current animal chronology account; this is document correspondence review, with no calibration or new specimen join.
+**Actual verification performed.** Read the source-specific Table 2 interpretation and current animal chronology account; this is document correspondence review, with no calibration or new specimen join. Primary PDF Table2 and ENA independently bind AA-114607 to SAMEA8022724/OB20-04. The source-bound actual materializer and independent1475-owner comparison carry its stratigraphic caution into review/temporal comparison notes while preserving4650–4952BP and all other selected dates/classes. The public reader changes only this owner conflict/review notes; no calibration, specimen reassignment or map rebuild.
 
 **Remaining input or review.** The undated aliases need specimen-owned dates; source warnings and the Capra species conflict need qualified resolution.
 
@@ -38,7 +38,7 @@ Native DNA specimen/publication/chronology scope and unsupported ecological or p
 
 **Matched denominator.** 5 archive accessions; 3 stated specimen-date matches include one Capra sample; calibrated BCE ranges and uncalibrated 14C BP remain distinct.
 
-- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](../../animal_sample_chronology_review.json) (SHA-256 `4cb3827cae92baddb2a37913ba4932272b313f2b3d3c19d76b793fbd0715b4ef`).
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](../../animal_sample_chronology_review.json) (SHA-256 `019d1a03ae1f708fe0a04e68f4edaaccfec1b3de8b4b52d2a202093aa84e1714`).
 
 - [Retained qualification evidence: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md).
 

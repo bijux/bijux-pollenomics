@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from dataclasses import replace
 
 from bijux_pollenomics.adna.domain.models import (
     AdnaCoordinate,
@@ -242,7 +243,12 @@ def build_species_project_locality_records(
                 sample_count=len(matched_sample_rows),
                 sample_ids=tuple(row.stable_sample_id for row in matched_sample_rows),
                 datasets=(project.summary_token,),
-                chronology=chronology,
+                chronology=replace(
+                    chronology,
+                    dating_basis="locality_sample_coverage",
+                    evidence_class="locality_sample_coverage_hull",
+                    precision_posture="display_coverage_only",
+                ),
                 sample_chronologies=tuple(
                     AdnaSampleChronologySupport(
                         sample_id=row.stable_sample_id,

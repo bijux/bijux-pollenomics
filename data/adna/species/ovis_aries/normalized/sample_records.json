@@ -17150,7 +17150,7 @@
       "chronology_provenance_kind": "supplementary_pdf_text",
       "chronology_provenance_locator": "Supplementary Table 2 p. 11, context (20.4), lab AA-114607",
       "chronology_provenance_text": "Obishir V tooth (20.4): 4260 ± 36 14C BP*; 3003-2701 cal BCE (2 sigma); source marks the measurement stratigraphically inconsistent.",
-      "chronology_conflict_note": "",
+      "chronology_conflict_note": "Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval.",
       "sample_basis": "archive_project_sample_accession_anchor",
       "archive_native_sample_id": "SAMEA8022724",
       "paper_native_sample_label": "OB20-04",

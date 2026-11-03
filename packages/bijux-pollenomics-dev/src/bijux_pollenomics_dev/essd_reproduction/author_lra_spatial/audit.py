@@ -14,7 +14,7 @@ import math
 import re
 from typing import Any
 
-from .verification import predict
+from bijux_pollenomics_dev.lra_validation.spatial_reference.hellinger import predict
 
 SCALES = (20.0, 100.0)
 PROFILE = "hellinger-frechet-gaussian-distance"

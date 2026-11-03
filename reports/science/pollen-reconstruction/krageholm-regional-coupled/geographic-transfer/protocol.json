@@ -1,0 +1,121 @@
+{
+  "schema_version": "krageholm-geographic-transfer-protocol.v1",
+  "question": "Does an explicitly separated Solsoe-held geographic block support new zero-compatible spatial predictions with the retained coupled count/PPE working-law uncertainty, while preserving forbidden reverse-block roles and undefined mass?",
+  "sources": {
+    "parent_protocol": {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/predictive-uncertainty/protocol.json",
+      "bytes": 4780,
+      "sha256": "dc0ca991ad3c6e057bcf4710a49c7f667e8ffa1976939f17f90f7f4c423e9ee5"
+    },
+    "source_result": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/predictive-uncertainty/result.json",
+      "bytes": 1476,
+      "sha256": "cb0e9db1f106296b8a29a72ef3d1ea1b585aeb42604b432111b02ee997e8584b"
+    },
+    "prediction_manifest": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/predictive-uncertainty/prediction-manifest.json",
+      "bytes": 690,
+      "sha256": "738f4be94ef89bd1b5d37c6f1c8366ee08b8e747d22739ea573968a926048cb0"
+    },
+    "source_verification": {
+      "path": "artifacts/verification/krageholm-predictive-uncertainty/verification.json",
+      "bytes": 1729,
+      "sha256": "39049aa8e9ae9880358ad821049e29ebe89d482d2f249ee950c59205a6f1797a"
+    }
+  },
+  "geography": {
+    "blocks": {
+      "sweden": [
+        "BOKE",
+        "BUS",
+        "KRAGMJNY"
+      ],
+      "solsoe": [
+        "SOLSOE83"
+      ]
+    },
+    "source_only_places": [
+      "KRAGMJNY"
+    ],
+    "target_places": [
+      "BOKE",
+      "BUS",
+      "SOLSOE83"
+    ],
+    "minimum_buffer_m": 20000.0,
+    "target_radius_m": 1000.0,
+    "source_radius_m": 100000.0,
+    "coordinate_uncertainty_m": 0.0,
+    "support_scope": "declared_finite_cutoff_synthetic_not_empirical_independence",
+    "coordinate_scope": "optimistic_zero_lower_bound_not_empirical_precision",
+    "rule": "Any scientific source in the held geographic block is forbidden. Every required allowed source, including regional KRAG, must additionally pass full-precision WGS84 centre distance minus both radii and both uncertainty allowances >=20km. No source removal, alternate anchor, reduced footprint or single-local fallback. KRAG is source only; no invented target or local rings.",
+    "independent_geometry": "WGS84 exact rational metric/path envelope; for both endpoint |latitude|<=60deg the spherical central angle is also >=shorter longitude degrees/180, from haversine and sine concavity. Combine with latitude lower bound by maximum, never sum. Exact rational classification; unresolved intervals refuse. Scalar component check1e-6m is not independent inverse-geodesic parity."
+  },
+  "model": {
+    "profile": "hellinger-frechet-gaussian-distance",
+    "axis": [
+      "Betula",
+      "Ulmus"
+    ],
+    "scales_km": [
+      20.0,
+      100.0
+    ],
+    "scale_selection": "Unselected prescribed sensitivity. Two training locals leave only one in inner site holdout, so bandwidth is not identifiable; neither Solsoe outcomes nor old target scores select a scale.",
+    "selected_ring_index": 1,
+    "source_mask": "Retain the exact existing common old-method source mask; inherited undefined draws are never rescued. Additional new-model refusals may narrow the defined population. Unselected signed ring0 and both-ring diagnostics remain authenticated source references, without a new ring0 positivity gate.",
+    "mean": "Weighted square-root means, squared and normalized, using host zero-compatible Hellinger barycentre with unchanged source closure1e-9; no pseudocount, source renormalization, clipping or nearest fallback.",
+    "forward": "Use matching original replicate index for local signed covers, regional cover and shared PPE. Regional_deposition=regional_cover*PPE*saved_forward_regional_k, PPE weighted exactly once; native forward uses saved localK/terrestrial fractions/PPE.",
+    "nominal_handoff": "Before new model forecasts, reconstruct all three eligible original nominal baseline covers/pollen vectors from manifest-bound native selected-ring CSVs and regional CSV; compare unchanged absolute1e-12 and preserve all mismatches. Never invert rounded baseline covers to recover local fits.",
+    "unsupported_extrapolation": "Distances exceed300km to the two training locals; finite normalized Gaussian arithmetic does not establish supported ecological interpolation."
+  },
+  "uncertainty": {
+    "replicates": 1024,
+    "reuse": "Exact original same-index coupled count/PPE ensemble, no new RNG, inverse fits or kernel integration. Preserve shared regional/local dependencies and original scientific source parents.",
+    "summary": "Undefined count/1024, refused unconditional moments if any undefined, finite-only empirical mean/covariance(ddof0)/linear quantiles0.025,0.5,0.975 and separate IID conditional-mean MCSE. These are conditional working-law diagnostics, not a posterior or calibrated field coverage.",
+    "other_targets": "Reverse Swedish-block cases have admission-refused/not-executed status, not invented1024undefined model draws. All45 prior source nominal refusals remain in their original54-disposition account."
+  },
+  "scoring": {
+    "role_gate": "Freeze/authenticate every new prediction before source-observation scoring-role access. Original sources were previously exposed; whole-file decoding/hash custody and other-fold ancestry do not establish globally unread outcomes or OS-enforced isolation. No target counts are passed to numerical prediction code.",
+    "targets": "Only geography-admitted target roles; exact original2700\u20133200calBP/Betula-Ulmus counted denominator. No measured vegetation score.",
+    "losses": [
+      "mae_fraction",
+      "total_variation",
+      "stable_hellinger",
+      "count_conditioned_deviance"
+    ],
+    "comparison": "Compare both fixed new profiles to the three retained physical/direct-pollen families on exactly common-defined replicate IDs per comparison. Retain undefined mass and all failures; no winner or acceptance threshold is inferred.",
+    "ancestry": "Case-scoped original allowed_inputs and selected local/regional/PPE draw references are scientific parents. Whole original source/result/prediction/bank file hashes authenticate accounting only."
+  },
+  "expected_accounting": {
+    "source_owners": 24,
+    "source_folds": 18,
+    "source_dispositions": 54,
+    "source_active_cases": 3,
+    "required_sources_per_case": 3,
+    "source_replicates": 1024,
+    "prescribed_scales": 2
+  },
+  "numerical_checks": {
+    "nominal_absolute": 1e-12,
+    "independent_absolute": 1e-12,
+    "independent_relative": 1e-10,
+    "exact_zero_positive_support": true
+  },
+  "limits": {
+    "producer_wall_seconds": 180,
+    "observer_wall_seconds": 180,
+    "max_rss_bytes": 536870912,
+    "max_output_bytes": 16777216
+  },
+  "unsupported_claims": [
+    "Measured vegetation accuracy",
+    "Untouched confirmation",
+    "Historical reproduction",
+    "Field-calibrated uncertainty or accuracy",
+    "A selected optimal bandwidth",
+    "Multiple independently scored geographic blocks if only one is eligible",
+    "Ecological support of300km extrapolation",
+    "New raw source admission or human endorsement"
+  ]
+}

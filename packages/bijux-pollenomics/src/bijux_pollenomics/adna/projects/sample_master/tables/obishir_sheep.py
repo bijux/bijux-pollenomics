@@ -48,6 +48,17 @@ _DIRECT_DATES = {
 }
 
 
+def obishir_chronology_caution(accession: str) -> str:
+    """Preserve the source's stratigraphic caution for its exact dated tooth."""
+    if accession != "SAMEA8022724":
+        return ""
+    return (
+        "Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) "
+        "as stratigraphically inconsistent. This caution concerns its "
+        "stratigraphic context and does not replace the reported radiocarbon interval."
+    )
+
+
 def obishir_chronology_evidence(
     accession: str,
 ) -> tuple[str, str, str] | None:

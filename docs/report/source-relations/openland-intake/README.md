@@ -20,6 +20,37 @@ python -m bijux_pollenomics_dev.source_completion.openland_intake \
 
 The command requires an absent output directory and the exact pinned archive SHA-256. Its CSV and JSON can be compared byte for byte with this governed report. Default focused tests use only the tracked upstream metadata and synthetic member decisions. They do not require a private archive.
 
+## Member coordinate, time and measurement dispositions
+
+The following dispositions cover all 51 exact `member_path` entries in the
+[member ledger](members.csv), grouped by its `semantic_role`. They supplement
+the existing identity, rights, source-route and deduplication decisions.
+
+| Ledger role | Entries | Coordinate, time and measurement disposition |
+| --- | ---: | --- |
+| `pollen_derived_modeled_cover_slice` | 25 | CRS is not established by this intake; `Lon`/`Lat` headers do not supply a CRS declaration. Time windows and the interpretation as modeled coniferous, broadleaved and open-cover proportions belong to the existing source authority described below. These are not sample ages, raw pollen counts or measured vegetation. |
+| `source_documentation` | 1 | The PDF is a cited source reference. CRS, observation-age and measurement admission are inapplicable to its reference-only member role; it does not independently authenticate the CSVs' spatial or temporal support. |
+| `local_interpolated_derivative` | 1 | The excluded GeoPackage's CRS, time support, measures and derivation remain unverified. Its payload was not inspected, and none are inferred from the container or local script. |
+| `local_processing_script` | 1 | Reference-only code with unresolved local rights; no output CRS, calendar or measures are inferred from it or admitted by executing it. |
+| `local_project_configuration` | 1 | Excluded project configuration; scientific CRS, age and measures are inapplicable to this role. |
+| `local_private_project_state` | 14 | Excluded private editor state; scientific CRS, age and measures are inapplicable to this role. |
+| `container` | 8 | Directory entries contain no member observations; CRS, age and measures are inapplicable. |
+
+For the 25 modeled slices, the maintained
+[OpenLand authority](../../../../packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py)
+binds exact member names to `SOURCE_WINDOWS_BP` and the source column vocabulary.
+Its first four label/window mappings are 50/0–100, 225/100–350, 550/350–700 and
+1000/700–1200 BP; later windows follow that authority's explicit mapping.
+Filename labels are not interval midpoints and do not authorize a ±250 BP
+calendar reconstruction. These declared modeled windows do not establish
+sample chronology, age uncertainty or exact historical input membership.
+
+The pinned upstream repository and Githumbi et al. citation above remain the
+source attribution for the modeled members. All ledger rights decisions,
+zero public member admissions and zero independent vegetation benchmarks are
+preserved. These are accounting dispositions, not new normalization, source-use
+permission or scientific admission.
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits

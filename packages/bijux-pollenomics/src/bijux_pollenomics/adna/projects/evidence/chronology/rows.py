@@ -15,6 +15,7 @@ from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
     load_baltic_sheep_official_evidence,
 )
 from bijux_pollenomics.adna.projects.sample_master.tables.obishir_sheep import (
+    obishir_chronology_caution,
     obishir_chronology_evidence,
 )
 from bijux_pollenomics.adna.projects.sample_master.tables.reindeer import (
@@ -83,6 +84,18 @@ def build_project_sample_chronology_rows(
             site_row=site_row,
             dating_basis=dating_basis,
         )
+        if project_accession == "PRJEB41594":
+            caution = obishir_chronology_caution(master_row.archive_native_sample_id)
+            if caution:
+                source = replace(
+                    source,
+                    chronology_conflict_note="; ".join(
+                        note
+                        for note in (source.chronology_conflict_note, caution)
+                        if note
+                    ),
+                    review_note=f"{source.review_note} {caution}",
+                )
         rows.append(
             AdnaProjectSampleChronologyRow(
                 species_latin_name=master_row.species_latin_name,

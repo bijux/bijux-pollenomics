@@ -6,7 +6,7 @@ import math
 
 import pytest
 
-from bijux_pollenomics_dev.essd_reproduction.author_lra_spatial.verification import (
+from bijux_pollenomics_dev.lra_validation.spatial_reference.hellinger import (
     predict,
 )
 

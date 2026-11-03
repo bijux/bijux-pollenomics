@@ -1503,11 +1503,11 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** The chronology ledger retains 1475 source review rows with explicit normalized, context-only and unresolved precision/evidence classes.
+**Supported claim.** The chronology ledger retains 1475 source review rows with explicit normalized, context-only and unresolved precision/evidence classes. The exact OB20-04 source stratigraphic caution now reaches conflict and review notes without changing dates or class partitions.
 
 **Unsupported claim.** A parsed numeric date is not automatically direct radiocarbon or a qualified sample date; unqualified elapsed ages cannot acquire a 1950 BPepoch by default.
 
-**Actual verification performed.** The supplied matched chronology/provenance consumer at 6e68f1a9d reconciled all 1475 owners and changed only six identity/provenance fields on four goat rows. All 1471 other rows, dates and class partitions are unchanged: 315+368+386+406=1475. No original-project builder or date parser was rerun.
+**Actual verification performed.** The supplied matched chronology/provenance consumer at 6e68f1a9d reconciled all 1475 owners and changed only six identity/provenance fields on four goat rows. All 1471 other rows, dates and class partitions are unchanged: 315+368+386+406=1475. No original-project builder or date parser was rerun. A later maintained chronology materializer at e9aff4a34 and independent260-product/1475-owner comparison preserve all dates/classes and identify only this owner note change plus explicit pre-existing horse provenance additions, left outside the installed caution projection. Producer11.02s/RSS262864896B; successful independent1.69s/RSS151863296B; first literal table-header observer failure retained. Supplied-population reader serialization verifies only two note fields change on one owner; matching authored Markdown and all aggregates remain unchanged. Its first whole-page/footer comparison failure is retained.
 
 **Remaining input or review.** Source epoch, type, unit, calibration, ownership and uncertainty need explicit qualified decisions for each context/unresolved row before scientific interval comparison.
 
@@ -1517,11 +1517,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Precise next acceptance route.** Resolve source-native chronology/epoch and precision without invented aging defaults, replay normalization and sample publication guards, then qualify comparable sample-owned intervals for analysis.
 
-**Negative or refused result.** 386 text-only/context-only and 406 unresolved rows remain; numeric/caveated rows do not override source dating class. PRJEB31613 unqualified elapsed-year claims stay weak chronology.
+**Negative or refused result.** 386 text-only/context-only and 406 unresolved rows remain; numeric/caveated rows do not override source dating class. PRJEB31613 unqualified elapsed-year claims stay weak chronology. OB20-04 is newly present in the conflict/attention ledger; the unchanged publication owner gate blocks its nonempty conflict note. No whole publication gate or map was rerun.
 
 **Matched denominator.** 1475 rows=315 normalized intervals+368 normalized points+386 text-only+406 unresolved. Comparability: 547 numeric+136 numeric-with-caveat+386 context+406 unresolved. These partitions must not be summed together.
 
-- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `4cb3827cae92baddb2a37913ba4932272b313f2b3d3c19d76b793fbd0715b4ef`).
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `019d1a03ae1f708fe0a04e68f4edaaccfec1b3de8b4b52d2a202093aa84e1714`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

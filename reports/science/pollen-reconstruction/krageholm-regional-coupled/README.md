@@ -208,16 +208,141 @@ empirically calibrated model-discrepancy law. It supplies no measured vegetation
 untouched confirmation or full physical-validation acceptance.
 
 
+## Geographic Hellinger transfer with retained count and PPE uncertainty
+
+The [geographic-transfer protocol](geographic-transfer/protocol.json) asks a new
+question: can the Swedish BOKE/BUS local LOVE reconstructions and KRAG regional source
+support a pollen prediction across the geographic gap to Danish SOLSOE83?
+The partition holds the Swedish cluster together, including source-only KRAG,
+and assigns Solsø to the other block. Every forecast requires its original
+regional source and both original local sources. BOKE and BUS are refused
+because their required sources include members of their held Swedish block;
+no source is removed and no single-predictor fallback is introduced.
+
+Solsø is admitted under the declared finite-footprint scenario: a 100 km source
+extent, 1 km target extent, 20 km buffer and zero coordinate-error allowance.
+The allowance is an optimistic diagnostic assumption, not measured positional
+precision or a claim about empirical pollen source area. Both regional and local
+sources face the same geographic check. An independent exact-rational WGS84
+metric/path envelope certifies the admission and both refusals. Its conservative
+additional joint coordinate-allowance margin exceeds 48 km for the admitted
+case; this is a model sensitivity bound, not an empirical error estimate.
+
+The new consumer projects the already qualified 1,024 same-index count/PPE draws
+through Gaussian-weighted Hellinger spatial means at fixed 20 and 100 km scales.
+Both signed source LOVE rings remain inspectable; only the original selected
+ring 1 determines admission. Regional cover, local cover and PPE retain their
+shared replicate index. The regional term is forward-weighted exactly once.
+No inverse fit, kernel integration, random draw or original bootstrap ensemble
+is rerun. The three nominal forward handoffs are recomputed only for
+correspondence.
+All three original nominal cover/pollen handoffs pass the unchanged absolute
+1e-12 gate; maximum gaps are 5.55e-17 and 1.11e-16 respectively.
+
+These are two **prescribed, unselected sensitivity profiles**. With two local
+training places, an inner fit has one local predictor and cannot identify the
+bandwidth. Solsø outcomes select neither scale. The distances to BOKE and BUS
+are approximately 308 and 334 km, so this is a long-distance extrapolation.
+The 20 km profile assigns almost all local weight to BOKE; at 100 km the BOKE
+weight is 0.698786 and the BUS weight is 0.301214.
+
+All inputs, admission, handoffs and new predictions are authenticated before the
+single scoring-role access to Solsø's pooled observation: Betula 166, Ulmus 8,
+N = 174, observed Betula fraction 0.954023. The original sources were previously
+exposed; this sequencing does not establish a globally unread or untouched target.
+No measured vegetation observation is available.
+
+| Quantity, Solsø only | 20 km | 100 km |
+| --- | ---: | ---: |
+| Defined / total draws | 860 / 1,024 | 860 / 1,024 |
+| Additional model refusals | 0 | 0 |
+| Nominal predicted Betula pollen fraction | 0.864084 | 0.891744 |
+| Nominal MAE = total variation | 0.089939 | 0.062279 |
+| Nominal Hellinger distance | 0.114057 | 0.084215 |
+| Nominal count-conditioned deviance | 15.531703 | 8.711265 |
+| Conditional mean Betula pollen fraction | 0.864679 | 0.890546 |
+| Conditional Betula pollen SD | 0.011373 | 0.010489 |
+| Conditional Betula 2.5% / 97.5% draw quantiles | 0.842294 / 0.886154 | 0.869397 / 0.909919 |
+| IID conditional-mean Monte Carlo SE | 0.000388 | 0.000358 |
+| Conditional mean Hellinger distance | 0.113231 | 0.085320 |
+
+Both profiles preserve all 164 inherited undefined draws, mass 0.16015625;
+every unconditional physical composition summary refuses. Conditional moments
+use the 860 defined draws, population covariance divisor and linear empirical
+quantiles. The SD and draw quantiles describe the conditional training count/PPE
+law. They omit target-count sampling, chronology, basin history and calibrated
+model discrepancy, and are not calibrated prediction intervals for the observed
+fraction. Monte Carlo SE concerns only the estimated conditional expectation.
+With two taxa MAE equals total variation algebraically.
+
+Six paired references per profile use exactly the same 860 IDs. Direct-pollen
+references themselves are defined on all 1,024 IDs; their 164 rows excluded from
+pairing are explicitly distinguished from undefined candidate predictions.
+Positive values below mean the Hellinger profile is worse. These are means of
+paired draw losses, not losses computed from mean compositions.
+
+| Reference | 20 km mean Hellinger difference | 100 km mean Hellinger difference |
+| --- | ---: | ---: |
+| Physical training mean | +0.049658 | +0.021746 |
+| Direct-pollen training mean | +0.031556 | +0.003645 |
+| Physical nearest | -0.000000000054 | -0.027911 |
+| Direct-pollen nearest | -0.019761 | -0.047672 |
+| Physical inverse squared distance | +0.045692 | +0.017781 |
+| Direct-pollen inverse squared distance | +0.027029 | -0.000883 |
+
+Both Hellinger profiles are worse than the physical training mean and physical
+IDW reference on this one target. No global ranking or new winner follows.
+No defined draw assigns zero probability to a positive observed count. All six
+target/scale dispositions survive: two admitted ensembles and four geographic
+refusals. Geographic refusals are not invented bootstrap-domain failures. The
+original 18 folds, 54 dispositions and 45 older nominal refusals remain unchanged.
+
+The producer and independent observer both consumed committed source
+`56c634d2b4a2857277310d18d3d0a06ce4a5a93a`, using the shared environment, `-B`,
+bytecode suppression and all five numerical thread settings at one. Commands:
+
+```sh
+python -B -m bijux_pollenomics_dev.essd_reproduction.nordic_coupled.geographic_transfer.study --repository . --protocol reports/science/pollen-reconstruction/krageholm-regional-coupled/geographic-transfer/protocol.json --output artifacts/physical-core/krageholm-regional-coupled/geographic-transfer
+python -B -m bijux_pollenomics_dev.essd_reproduction.nordic_coupled.geographic_transfer.observer --repository . --protocol reports/science/pollen-reconstruction/krageholm-regional-coupled/geographic-transfer/protocol.json --products artifacts/physical-core/krageholm-regional-coupled/geographic-transfer --output artifacts/verification/krageholm-geographic-transfer
+```
+
+Producer process 4.07 s / peak RSS 224,526,336 bytes and observer process 3.51 s /
+222,232,576 bytes both pass the prospective 180 s / 512 MiB / 16 MiB bounds.
+Final producer products occupy 4,179,940 bytes. All 4,540 tracked Python sources,
+protocol, HEAD and index remain stable through both terminal runs. There is no
+actual-run retry or post-run product edit. The independent check authenticates
+141 source files, 24 accounting owners, three kernels and nine original nominal
+vectors without rerunning the original numerical study. Separate 80-digit
+Hellinger and scalar forward arithmetic verifies both 1,024-row projections;
+independent geography, observation access, losses and all twelve paired
+comparisons pass. The integrated 131 controls and configured lint, formatting
+and strict types on all 25 changed Python files also pass.
+
+Raw outputs are under
+`artifacts/physical-core/krageholm-regional-coupled/geographic-transfer/`;
+the 2,704-byte independent result is
+`artifacts/verification/krageholm-geographic-transfer/verification.json`, SHA256
+`eee212638683b5f913dadb2dd35143b18d675d5c49acde94a8d28d1a4c57f7c0`.
+The 1,446-byte producer result has SHA256
+`9a1de89af362a1df0a683c72bac758ed6523c5874bb3d098e31fd03e0bdd2d47`.
+Resource logs are `artifacts/root/krageholm-geographic-transfer*.time.txt`.
+Earlier synthetic fixture failures remain preserved; they are not failed actual
+forecasts. This is a conditional exposed geographic-transfer experiment with
+one admitted block. It supplies no generalization precision, field-calibrated
+coverage, measured vegetation accuracy, original historical reproduction or
+untouched confirmation.
+
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** A fixed KRAG regional source and two local training places yield nine numerically checked conditional pollen predictions in 2700–3200 cal BP; all 45 failed method slots remain explicit across the other five windows. A separate 1,024-replicate count/PPE bootstrap retains explicit undefined mass and shared owner dependencies: BOKE544, BUS594 and SOLSOE83860 defined, with525 jointly defined replicates.
+**Supported claim.** A fixed KRAG regional source and two local training places yield nine numerically checked conditional pollen predictions in 2700–3200 cal BP; all 45 failed method slots remain explicit across the other five windows. A separate 1,024-replicate count/PPE bootstrap retains explicit undefined mass and shared owner dependencies: BOKE544, BUS594 and SOLSOE83860 defined, with525 jointly defined replicates. A distinct source-bound geographic Hellinger transfer admits Solsoe only, refuses both Swedish target roles, and retains860defined/164undefined draws in each of two prescribed unselected profiles.
 
 **Unsupported claim.** Historical reproduction, measured vegetation accuracy, independent regional representativeness, full uncertainty, untouched confirmation, an isolated basin-size effect or broader scientific/field acceptance.
 
-**Actual verification performed.** One three-operation producer at 43995b359 returned native0 within all bounds; observer a98bc99a0 returned 0 in .590 s with 31,506,432 B RSS and checked all 54dispositions with maximum scalar difference 1.1102230246251565e-16 conditional on saved kernels/distances. Final 151 independent, 86 host and 16 producer controls plus an artificial compatibility fixture and configured lint/types pass. Three earlier metadata-observer failures remain preserved. Bootstrap producer at d8886b48e exited0 in6.14s/RSS195379200B/6673042allB. Independent source binding and scalar audit passed141files/24owners/9nominal/9216slots in2.28s/RSS81461248B; the original presentation-case-only observer failure is retained, and only that scope string was casefolded in memory for successful readback. All serialized products unchanged; original numerical tolerances unchanged. Integrated109 controls and final5 manifest/readback controls passed; configured lint/format/types pass.
+**Actual verification performed.** One three-operation producer at 43995b359 returned native0 within all bounds; observer a98bc99a0 returned 0 in .590 s with 31,506,432 B RSS and checked all 54dispositions with maximum scalar difference 1.1102230246251565e-16 conditional on saved kernels/distances. Final 151 independent, 86 host and 16 producer controls plus an artificial compatibility fixture and configured lint/types pass. Three earlier metadata-observer failures remain preserved. Bootstrap producer at d8886b48e exited0 in6.14s/RSS195379200B/6673042allB. Independent source binding and scalar audit passed141files/24owners/9nominal/9216slots in2.28s/RSS81461248B; the original presentation-case-only observer failure is retained, and only that scope string was casefolded in memory for successful readback. All serialized products unchanged; original numerical tolerances unchanged. Integrated109 controls and final5 manifest/readback controls passed; configured lint/format/types pass. Geographic producer and independent observer at56c634d2b both exit0:4.07s/RSS224526336B/4179940productB and3.51s/RSS222232576B/2704verificationB, within180s512MiB16MiB. All4540Python/protocol/HEAD/index stable. Independent141source-file joins, exact-rational WGS84 admission, two1024-row80-digit Hellinger/scalar projections, one recorded outcome access and twelve860-ID paired comparisons pass;131integrated controls/25-file lint-format-strict-types pass. No old fit/kernel/draw rerun or actual-run retry.
 
-**Remaining input or review.** The fixed regional geometry, regional representativeness, abundance normalization and source/taxon parameter transfer remain conditional. Count/PPE working-law variability is propagated separately; chronology, basin history and calibrated discrepancy are not. Fifteen older target folds cannot admit both local compositions. Resolver: Source and field experts for physical/parameter comparability; analyst for the declared calculation and genuinely independent measurements Reopen when: Source-owned geometry/parameter/abundance evidence or an eligible independent measured target supports a new prospectively justified analysis; do not retune this profile to remove its refusals.
+**Remaining input or review.** The fixed regional geometry, regional representativeness, abundance normalization and source/taxon parameter transfer remain conditional. Count/PPE working-law variability is propagated separately; chronology, basin history and calibrated discrepancy are not. Fifteen older target folds cannot admit both local compositions. Geographic admission additionally assumes finite100km source/1km target footprints and optimistic zero coordinate-error allowance; two-scale sensitivity is unselected and supplies only conditional training-draw uncertainty. Resolver: Source and field experts for physical/parameter comparability; analyst for the declared calculation and genuinely independent measurements Reopen when: Source-owned geometry/parameter/abundance evidence or an eligible independent measured target supports a new prospectively justified analysis; do not retune this profile to remove its refusals.
 
 **Cause category.** data|assumption|comparability
 
@@ -225,11 +350,11 @@ untouched confirmation or full physical-validation acceptance.
 
 **Precise next acceptance route.** Qualify source-specific regional/geometry/parameter/abundance assumptions and use actually matched measured vegetation or untouched evidence for broader acceptance, preserving this fixed-profile result and all refusals.
 
-**Negative or refused result.** All 15 target folds in the five older windows refuse required local composition admission; no clipping, dropped window or one-predictor fallback. Twenty-four negative final-cover occurrences are retained among 36 fit references to 18distinct requests. Bootstrap joint prediction undefined for499/1024replicates; every unconditional physical composition summary refuses. Finite-only loss contrasts do not calibrate field coverage.
+**Negative or refused result.** All 15 target folds in the five older windows refuse required local composition admission; no clipping, dropped window or one-predictor fallback. Twenty-four negative final-cover occurrences are retained among 36 fit references to 18distinct requests. Bootstrap joint prediction undefined for499/1024replicates; every unconditional physical composition summary refuses. Finite-only loss contrasts do not calibrate field coverage. Geographic transfer refusesBOKE/BUS for held-block sources; each Solsoe Hellinger profile preserves164/1024undefined draws with zero added refusals. Both profiles are worse than physical training mean and IDW on common860; one admitted target cannot establish field coverage or generalization precision. Direct-reference164rows excluded from pairing are not undefined predictions.
 
-**Matched denominator.** Four source places/three targets × six windows = 18 folds and 54 method slots: 9 scored + 45 unscored. KRAG 96 original / 19 selected literal owners; small-core 20 + 21 + 18 = 59 qualified supports, not fresh owner-ID reconciliation. Bootstrap draws only4active owner/windows; preserves24metadataowners/18folds/54nominalslots, propagates9slots ×1024; aggregate comparisons use exactly525common-definedreplicateIDs.
+**Matched denominator.** Four source places/three targets × six windows = 18 folds and 54 method slots: 9 scored + 45 unscored. KRAG 96 original / 19 selected literal owners; small-core 20 + 21 + 18 = 59 qualified supports, not fresh owner-ID reconciliation. Bootstrap draws only4active owner/windows; preserves24metadataowners/18folds/54nominalslots, propagates9slots ×1024; aggregate comparisons use exactly525common-definedreplicateIDs. Separate geographic experiment:3targetroles/4sourceplaces/9geographic source-target checks,1admitted and2refused roles;2scales produce2admitted1024-row ensembles and4unexecuted geographic dispositions. Each candidate/each paired reference uses860common IDs at one Solsoe observation,174grains/2taxa; no pooling with525joint old-study IDs.
 
-Retained evidence: [reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json](protocol.json), [reports/science/pollen-reconstruction/krageholm-regional-coupled/result.json](result.json), [reports/science/pollen-reconstruction/krageholm-regional-coupled/predictive-uncertainty/protocol.json](predictive-uncertainty/protocol.json).
+Retained evidence: [reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json](protocol.json), [reports/science/pollen-reconstruction/krageholm-regional-coupled/result.json](result.json), [reports/science/pollen-reconstruction/krageholm-regional-coupled/predictive-uncertainty/protocol.json](predictive-uncertainty/protocol.json), [reports/science/pollen-reconstruction/krageholm-regional-coupled/geographic-transfer/protocol.json](geographic-transfer/protocol.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

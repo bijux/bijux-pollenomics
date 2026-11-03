@@ -1,4 +1,23 @@
 {
   "schema_version": "animal-sample-chronology-conflict-ledger.v1",
-  "rows": []
+  "rows": [
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "repo_stable_sample_id": "prjeb41594:samea8022724",
+      "preferred_sample_label": "OB20-04",
+      "chronology_strength": "sample_owned_interval",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_precise_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_text": "3003-2701 cal BCE",
+      "time_start_bp": 4650,
+      "time_end_bp": 4952,
+      "dating_basis": "radiocarbon",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
+      "chronology_provenance_locator": "Supplementary Table 2 p. 11, context (20.4), lab AA-114607",
+      "chronology_provenance_text": "Obishir V tooth (20.4): 4260 ± 36 14C BP*; 3003-2701 cal BCE (2 sigma); source marks the measurement stratigraphically inconsistent.",
+      "chronology_conflict_note": "Supplementary Table 2 marks the OB20-04 tooth date (AA-114607) as stratigraphically inconsistent. This caution concerns its stratigraphic context and does not replace the reported radiocarbon interval."
+    }
+  ]
 }
