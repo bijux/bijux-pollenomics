@@ -9,22 +9,14 @@ reader needs:
 | Implementers | [Developer](developer.tex) | [Developer PDF](developer.pdf) |
 | Researchers | [Scientific evidence](scientific-evidence.tex) | [Scientific evidence PDF](scientific-evidence.pdf) |
 
-The current decks were compiled from Git revision `69ef7683f` on
-27 October 2026: 14 big-picture, 13 developer and 43 scientific pages.
-The three compiler commands completed successfully in 4.48 seconds overall
-(68,222,976 bytes peak process RSS). This rebuild removes three citations to
-retired human-register paths; the source migration changes no scientific slide
-claim. Pixel comparison against the preceding PDFs found 67 unchanged pages.
-The three changed pages—big-picture 13 and developer 5/12—were visually
-inspected, with no observed layout defect. All fonts are embedded, and all
-109 remaining citation annotations resolve to existing repository files.
-The complete reader check returned 464 passing tests, including current
-compiled-input and download identity checks. Compiler output and the compact
-comparison remain under `artifacts/root/external-human-registers/`; intermediates
-remain with the normal presentation build outputs. Earlier retained export
-contexts keep their original epochs and were not rewritten. This is machine
-and model visual review; independent human comprehension, tagged accessibility
-and online availability remain unqualified.
+The current PDFs were compiled from Git revision `c9b2047155e999d6a6164b52ec73b5fd95cd31be`
+on 30 October 2026: 14 big-picture, 13 developer and 41 scientific pages.
+All three compiler commands completed successfully in 7.72 seconds using the
+existing authored sources. All 68 pages have embedded fonts and text within
+page bounds; all 107 citation annotations point to existing repository files.
+Model review inspected three dense pages. Full human reading, tagged
+accessibility and online availability remain unqualified. Earlier exports
+retain their original source and execution identities in Git history.
 
 Run `python3 presentation/build.py` from the repository root with `latexmk`
 and a working TeX distribution. Intermediate files and the compiler log go

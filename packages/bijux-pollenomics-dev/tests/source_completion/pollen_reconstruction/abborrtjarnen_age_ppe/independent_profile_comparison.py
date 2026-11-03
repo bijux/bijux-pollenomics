@@ -38,6 +38,7 @@ class ProfileComparison:
         ppe: np.ndarray,
         sd: np.ndarray,
     ) -> None:
+        """Initialize paired-ledger observation with cached joint-window moments."""
         self.native = native
         self.records = records
         self.sd = sd
@@ -63,6 +64,7 @@ class ProfileComparison:
         ids: tuple[int, ...],
         active: tuple[Membership, ...],
     ) -> None:
+        """Track ledger identities, support transitions and shared moments."""
         old = next(self.records, None)
         if old is None or (old["seed"], old["native_row"]) != (
             row["seed"],
@@ -126,6 +128,7 @@ class ProfileComparison:
         self.observed.rows += 1
 
     def finish(self, expected_rows: int) -> None:
+        """Require both ledgers to end at the expected row count."""
         if next(self.records, None) is not None or self.observed.rows != expected_rows:
             raise ValueError("Old/source ledger populations differ")
 

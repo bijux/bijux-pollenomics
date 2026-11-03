@@ -9,6 +9,7 @@ from .quadrature import SIMPSON_RULE, ResourceRefusal, rule_definition
 
 
 def certificate(result: CoefficientResult) -> dict[str, object]:
+    """Serialize coefficient outcomes and every retained quadrature leaf."""
     rule_definition(result.rule)
     if any(
         integral.rule != result.rule

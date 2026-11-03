@@ -46,12 +46,14 @@ CSV_FIELDS = [
 
 
 def body(value: Any) -> bytes:
+    """Encode fixture JSON with deterministic keys and finite numeric constants."""
     return (
         json.dumps(value, ensure_ascii=False, sort_keys=True, allow_nan=False) + "\n"
     ).encode()
 
 
 def csv_body(localities: list[dict[str, Any]]) -> bytes:
+    """Serialize locality fixtures in the declared column and chronology formats."""
     stream = io.StringIO(newline="")
     writer = csv.DictWriter(stream, fieldnames=CSV_FIELDS, lineterminator="\n")
     writer.writeheader()
@@ -110,6 +112,7 @@ def csv_body(localities: list[dict[str, Any]]) -> bytes:
 
 
 def fixture() -> tuple[dict[str, Any], dict[str, bytes], dict[str, bytes], bytes]:
+    """Build synthetic baseline and display-coverage locality products."""
     labels = {
         "dating_basis": "locality_sample_coverage",
         "evidence_class": "locality_sample_coverage_hull",

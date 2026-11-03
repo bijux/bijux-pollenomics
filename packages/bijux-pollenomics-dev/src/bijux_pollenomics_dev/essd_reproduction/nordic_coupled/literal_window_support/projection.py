@@ -58,6 +58,7 @@ def selected_age(
 def sample_account(
     sample: dict[str, Any], index: int, chronology: dict[str, Any]
 ) -> dict[str, Any]:
+    """Account for one native sample's selected age and literal pollen support."""
     datum = objects(sample["datum"])
     status, selected = selected_age(sample, chronology)
     window = None

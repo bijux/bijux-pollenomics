@@ -28,6 +28,7 @@ QUANTITATIVE = {
 
 
 def count_free_evidence(value: Any) -> None:
+    """Refuse forbidden quantitative fields and references in common evidence."""
     if isinstance(value, dict):
         require(
             not set(value) & QUANTITATIVE,
@@ -48,6 +49,7 @@ def count_free_evidence(value: Any) -> None:
 
 
 def metadata_admission(names: list[str]) -> list[str]:
+    """Select unique members excluding raw and projection payloads."""
     require(len(names) == len(set(names)), "duplicate materialized member admission")
     return sorted(
         name for name in names if not name.endswith(("-raw.json", "/projection.json"))

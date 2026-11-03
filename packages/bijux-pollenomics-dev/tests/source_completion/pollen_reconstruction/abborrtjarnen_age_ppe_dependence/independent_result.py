@@ -106,6 +106,7 @@ def check_scalars(
     reference: dict[str, Any],
     configuration: dict[str, Any],
 ) -> dict[str, Any]:
+    """Check fifty scalar forms, endpoint certificates and saved summary counts."""
     rows = result["scalars"]
     if [row["scalar_id"] for row in rows] != scalar_axes():
         raise ValueError("Fifty scalar output/contrast identities differ")
@@ -218,6 +219,7 @@ def check_scalars(
 
 
 def verify_result(repository: Path, result_path: Path) -> dict[str, Any]:
+    """Verify the saved covariance-sensitivity result against its bound inputs."""
     inputs = read_inputs(repository)
     result_body = result_path.read_bytes()
     result = json.loads(result_body)
